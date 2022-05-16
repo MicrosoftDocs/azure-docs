@@ -11,22 +11,11 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the Speech SDK. Depending on your platform, use the following instructions:
-
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=jre" target="_blank">Java Runtime </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=android" target="_blank">Android </a>
-
 ## Create a speech configuration
 
 To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
 
-Create a `SpeechConfig` instance by using your key and location/region. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion).
+Create a `SpeechConfig` instance by using your key and location/region. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -131,7 +120,7 @@ switch (result.getReason()) {
             if (cancellation.getReason() == CancellationReason.Error) {
                 System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
                 System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                System.out.println("CANCELED: Did you update the subscription info?");
+                System.out.println("CANCELED: Did you set the speech resource key and region values?");
             }
         }
         break;
@@ -187,7 +176,7 @@ recognizer.canceled.addEventListener((s, e) -> {
     if (e.getReason() == CancellationReason.Error) {
         System.out.println("CANCELED: ErrorCode=" + e.getErrorCode());
         System.out.println("CANCELED: ErrorDetails=" + e.getErrorDetails());
-        System.out.println("CANCELED: Did you update the subscription info?");
+        System.out.println("CANCELED: Did you set the speech resource key and region values?");
     }
 
     stopTranslationWithFileSemaphore.release();

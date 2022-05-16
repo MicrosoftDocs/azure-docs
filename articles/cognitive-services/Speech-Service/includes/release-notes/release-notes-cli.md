@@ -6,6 +6,26 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### Speech CLI 1.21.0: April 2022 release
+
+Uses Speech SDK 1.21.0.
+
+#### New features
+- WEBVTT Caption generation
+    - Added `--output vtt` support to `spx translate`
+    - Supports `--output vtt file FILENAME` to override default VTT FILENAME
+    - Supports `--output vtt file -` to write to standard output
+    - Individual VTT files are created for each target language (e.g. `--target en;de;fr`)
+- SRT Caption generation
+    - Added `--output srt` support to `spx recognize`, `spx intent`, and `spx translate`
+    - Supports `--output srt file FILENAME` to override default SRT FILENAME
+    - Supports `--output srt file -` to write to standard output
+    - For `spx translate` individual SRT files are created for each target language (e.g. `--target en;de;fr`)
+
+#### Bug fixes
+- Corrected WEBVTT timespan output to properly use `hh:mm:ss.fff` format
+
+
 ### Speech CLI 1.20.0: January 2022 release
 
 #### New features

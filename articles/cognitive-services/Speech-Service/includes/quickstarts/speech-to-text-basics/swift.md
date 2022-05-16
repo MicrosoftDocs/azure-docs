@@ -24,7 +24,7 @@ The Speech SDK for Swift is distributed as a framework bundle. The framework sup
 The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded directly [here](https://aka.ms/csspeech/macosbinary) and linked manually. This guide uses a CocoaPod. Install the CocoaPod dependency manager as described in its [installation instructions](https://guides.cocoapods.org/using/getting-started.html).
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=SWIFT&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=SWIFT&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 
 ## Recognize speech from a microphone
@@ -44,40 +44,40 @@ Follow these steps to recognize speech in a macOS application.
     class AppDelegate: NSObject, NSApplicationDelegate {
         var label: NSTextField!
         var fromMicButton: NSButton!
-    
+
         var sub: String!
         var region: String!
-    
+
         @IBOutlet weak var window: NSWindow!
-    
+
         func applicationDidFinishLaunching(_ aNotification: Notification) {
             print("loading")
             // load subscription information
             sub = "YourSubscriptionKey"
             region = "YourServiceRegion"
-    
+
             label = NSTextField(frame: NSRect(x: 100, y: 50, width: 200, height: 200))
             label.textColor = NSColor.black
             label.lineBreakMode = .byWordWrapping
-    
+
             label.stringValue = "Recognition Result"
             label.isEditable = false
-    
+
             self.window.contentView?.addSubview(label)
-    
+
             fromMicButton = NSButton(frame: NSRect(x: 100, y: 300, width: 200, height: 30))
             fromMicButton.title = "Recognize"
             fromMicButton.target = self
             fromMicButton.action = #selector(fromMicButtonClicked)
             self.window.contentView?.addSubview(fromMicButton)
         }
-    
+
         @objc func fromMicButtonClicked() {
             DispatchQueue.global(qos: .userInitiated).async {
                 self.recognizeFromMic()
             }
         }
-    
+
         func recognizeFromMic() {
             var speechConfig: SPXSpeechConfiguration?
             do {
@@ -89,28 +89,29 @@ Follow these steps to recognize speech in a macOS application.
             speechConfig?.speechRecognitionLanguage = "en-US"
 
             let audioConfig = SPXAudioConfiguration()
-    
+
             let reco = try! SPXSpeechRecognizer(speechConfiguration: speechConfig!, audioConfiguration: audioConfig)
-    
+
             reco.addRecognizingEventHandler() {reco, evt in
                 print("intermediate recognition result: \(evt.result.text ?? "(no result)")")
                 self.updateLabel(text: evt.result.text, color: .gray)
             }
-    
+
             updateLabel(text: "Listening ...", color: .gray)
             print("Listening...")
-    
+
             let result = try! reco.recognizeOnce()
             print("recognition result: \(result.text ?? "(no result)"), reason: \(result.reason.rawValue)")
             updateLabel(text: result.text, color: .black)
-    
+
             if result.reason != SPXResultReason.recognizedSpeech {
                 let cancellationDetails = try! SPXCancellationDetails(fromCanceledRecognitionResult: result)
                 print("cancelled: \(result.reason), \(cancellationDetails.errorDetails)")
+                print("Did you set the speech resource key and region values?")
                 updateLabel(text: "Error: \(cancellationDetails.errorDetails)", color: .red)
             }
         }
-    
+
         func updateLabel(text: String?, color: NSColor) {
             DispatchQueue.main.async {
                 self.label.stringValue = text!
@@ -127,11 +128,10 @@ Follow these steps to recognize speech in a macOS application.
 
 After you select the button in the app and say a few words, you should see the text you have spoken on the lower part of the screen. When you run the app for the first time, you should be prompted to give the app access to your computer's microphone.
 
-This example uses the `recognizeOnce` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
-
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=SWIFT&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=SWIFT&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
+This example uses the `recognizeOnce` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
 
 ## Clean up resources
 

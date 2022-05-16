@@ -78,3 +78,5 @@ landingContent:
             url: disaster-recovery.md           
           - text: Troubleshoot common issues
             url: data-share-troubleshoot.md
+          - text: Move Data Share account to new region
+            url: move-to-new-region.md

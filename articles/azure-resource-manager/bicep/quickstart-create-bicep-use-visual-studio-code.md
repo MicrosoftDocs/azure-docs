@@ -202,7 +202,7 @@ For more information about the Bicep syntax, see [Bicep structure](./file.md).
 
 You can view a representation of the resources in your file.
 
-From the upper left corner, select the visualizer button to open the Bicep Visualizer.
+From the upper right corner, select the visualizer button to open the Bicep Visualizer.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/bicep-visualizer.png" alt-text="Bicep Visualizer":::
 

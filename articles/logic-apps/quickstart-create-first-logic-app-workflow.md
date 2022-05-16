@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: contperf-fy21q4, mode-ui
-ms.date: 03/02/2022
+ms.date: 05/02/2022
 
 #Customer intent: As a developer, I want to create my first automated integration workflow that runs in Azure Logic Apps using the Azure portal.
 ---
@@ -86,7 +86,7 @@ To create and manage a logic app resource using other tools, review these other 
 
    | Plan type | Description |
    |-----------|-------------|
-   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
+   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). After you select **Consumption**, the **Zone redundancy** section appears. This section offers the choice to enable availability zones for your Consumption logic app. In this example, keep **Enabled** as the setting value. For more information, see [Protect Consumption logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md). |
    | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
    |||
 

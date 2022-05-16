@@ -53,6 +53,8 @@ Only non-IoT Edge devices can be added as child devices.
 
 IoT Edge devices and their assigned child devices can function indefinitely offline after the initial, one-time sync. However, storage of messages depends on the time to live (TTL) setting and the available disk space for storing the messages.
 
+A device's *EdgeAgent* updates its reported properties whenever there is a change in the deployment status such as a new or failed deployment. When a device is offline, the *EdgeAgent* can't report status to the Azure portal. Therefore, the device status in the Azure portal may remain **200 OK** when IoT Edge device has no internet connectivity.
+
 ## Set up parent and child devices
 
 By default, a parent device can have up to 100 children. You can change this limit by setting the **MaxConnectedClients** environment variable in the edgeHub module. A child device only has one parent.

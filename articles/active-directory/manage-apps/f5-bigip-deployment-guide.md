@@ -3,14 +3,14 @@ title: Secure hybrid access with F5 deployment guide
 titleSuffix: Azure AD
 description: Tutorial to deploy F5 BIG-IP Virtual Edition (VE) VM in Azure IaaS for Secure hybrid access
 services: active-directory
-author: davidmu1
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/12/2020
-ms.author: davidmu
+ms.author: gasinh
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
 ms.reviewer: miccohen

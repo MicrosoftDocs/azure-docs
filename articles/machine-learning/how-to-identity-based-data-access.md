@@ -62,7 +62,7 @@ Certain machine learning scenarios involve training models with private data. In
     - [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md)
     - [Azure Data Lake Storage Gen1](../data-lake-store/index.yml)
     - [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
-    - [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
+    - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
 
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install).
 
@@ -200,6 +200,50 @@ blob_dset = Dataset.File.from_files('https://myblob.blob.core.windows.net/may/ke
 ```
 
 When you submit a training job that consumes a dataset created with identity-based data access, the managed identity of the training compute is used for data access authentication. Your Azure Active Directory token isn't used. For this scenario, ensure that the managed identity of the compute is granted at least the Storage Blob Data Reader role from the storage service. For more information, see [Set up managed identity on compute clusters](how-to-create-attach-compute-cluster.md#managed-identity). 
+
+## Access data for training jobs on compute clusters (preview)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+When training on [Azure Machine Learning compute clusters](how-to-create-attach-compute-cluster.md#what-is-a-compute-cluster), you can authenticate to storage with your Azure Active Directory token. 
+
+This authentication mode allows you to: 
+* Set up fine-grained permissions, where different workspace users can have access to different storage accounts or folders within storage accounts.
+* Audit storage access because the storage logs show which identities were used to access data.
+
+> [!WARNING] 
+> This functionality has the following limitations
+> * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI v2 (preview)](how-to-configure-cli.md)
+> * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported 
+> * User identity and compute managed identity cannot be used for authentication within same job.
+
+The following steps outline how to set up identity-based data access for training jobs on compute clusters. 
+
+1. Grant the user identity access to storage resources. For example,  grant StorageBlobReader access to the specific storage account you want to use or grant ACL-based permission to specific folders or files in Azure Data Lake Gen 2 storage.
+
+1. Create an Azure Machine Learning datastore without cached credentials for the storage account. If a datastore has cached credentials, such as storage account key, those credentials are used instead of user identity.
+
+1. Submit a training job with property **identity** set to **type: user_identity**, as shown in following job specification. During the training job, the authentication to storage happens via  the identity of the user that submits the job.
+
+> [!NOTE] 
+> If the **identity** property is left unspecified and datastore does not have cached credentials, then compute managed identity becomes the fallback option. 
+
+```yaml
+command: |
+  echo "--census-csv: ${{inputs.census_csv}}"
+  python hello-census.py --census-csv ${{inputs.census_csv}}
+code: src
+inputs:
+  census_csv:
+    type: uri_file 
+    path: azureml://datastores/mydata/paths/census.csv
+environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
+compute: azureml:cpu-cluster
+identity:
+  type: user_identity
+```
 
 ## Next steps
 

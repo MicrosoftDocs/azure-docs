@@ -5,6 +5,6 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure Purview
+  - name: Microsoft Purview
     tocHref: /azure/sentinel/
     topicHref: /azure/purview/index

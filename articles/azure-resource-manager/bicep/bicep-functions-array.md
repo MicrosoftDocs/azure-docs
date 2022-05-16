@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file for working with arr
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 12/08/2021
+ms.date: 04/12/2022
 
 ---
 # Array functions for Bicep
@@ -235,6 +235,82 @@ The output from the preceding example with the default values is:
 | arrayOutput | String | one |
 | stringOutput | String | O |
 
+## indexOf
+
+`indexOf(arrayToSearch, itemToFind)`
+
+Returns an integer for the index of the first occurrence of an item in an array. The comparison is **case-sensitive** for strings.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+| --- | --- | --- | --- |
+| arrayToSearch | Yes | array | The array to use for finding the index of the searched item. |
+| itemToFind | Yes | int, string, array, or object | The item to find in the array. |
+
+### Return value
+
+An integer representing the first index of the item in the array. The index is zero-based. If the item isn't found, -1 is returned.
+
+### Examples
+
+The following example shows how to use the indexOf and lastIndexOf functions:
+
+```bicep
+var names = [
+  'one'
+  'two'
+  'three'
+]
+
+var numbers = [
+  4
+  5
+  6
+]
+
+var collection = [
+  names
+  numbers
+]
+
+var duplicates = [
+  1
+  2
+  3
+  1
+]
+
+output index1 int = lastIndexOf(names, 'two')
+output index2 int = indexOf(names, 'one')
+output notFoundIndex1 int = lastIndexOf(names, 'Three')
+
+output index3 int = lastIndexOf(numbers, 4)
+output index4 int = indexOf(numbers, 6)
+output notFoundIndex2 int = lastIndexOf(numbers, '5')
+
+output index5 int = indexOf(collection, numbers)
+
+output index6 int = indexOf(duplicates, 1)
+output index7 int = lastIndexOf(duplicates, 1)
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| index1 |int | 1 |
+| index2 | int | 0 |
+| index3 | int | 0 |
+| index4 | int | 2 |
+| index5 | int | 1 |
+| index6 | int | 0 |
+| index7 | int | 3 |
+| notFoundIndex1 | int | -1 |
+| notFoundIndex2 | int | -1 |
+
 ## intersection
 
 `intersection(arg1, arg2, arg3, ...)`
@@ -328,120 +404,6 @@ The output from the preceding example is:
 | commonUp | array | [1, 2, 3] |
 | commonDown | array | [3, 2, 1] |
 
-## items
-
-`items(object)`
-
-Converts a dictionary object to an array.
-
-Namespace: [sys](bicep-functions.md#namespaces-for-functions).
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| object |Yes |object |The dictionary object to convert to an array. |
-
-### Return value
-
-An array of objects for the converted dictionary. Each object in the array has a `key` property that contains the key value for the dictionary. Each object also has a `value` property that contains the properties for the object.
-
-### Example
-
-The following example converts a dictionary object to an array. For each object in the array, it creates a new object with modified values.
-
-```bicep
-var entities = {
-  item002: {
-    enabled: false
-    displayName: 'Example item 2'
-    number: 200
-  }
-  item001: {
-    enabled: true
-    displayName: 'Example item 1'
-    number: 300
-  }
-}
-
-var modifiedListOfEntities = [for entity in items(entities): {
-  key: entity.key
-  fullName: entity.value.displayName
-  itemEnabled: entity.value.enabled
-}]
-
-output modifiedResult array = modifiedListOfEntities
-```
-
-The preceding example returns:
-
-```json
-"modifiedResult": {
-  "type": "Array",
-  "value": [
-    {
-      "fullName": "Example item 1",
-      "itemEnabled": true,
-      "key": "item001"
-    },
-    {
-      "fullName": "Example item 2",
-      "itemEnabled": false,
-      "key": "item002"
-    }
-  ]
-}
-```
-
-The following example shows the array that is returned from the items function.
-
-```bicep
-var entities = {
-  item002: {
-    enabled: false
-    displayName: 'Example item 2'
-    number: 200
-  }
-  item001: {
-    enabled: true
-    displayName: 'Example item 1'
-    number: 300
-  }
-}
-
-var entitiesArray = items(entities)
-
-output itemsResult array = entitiesArray
-```
-
-The example returns:
-
-```json
-"itemsResult": {
-  "type": "Array",
-  "value": [
-    {
-      "key": "item001",
-      "value": {
-        "displayName": "Example item 1",
-        "enabled": true,
-        "number": 300
-      }
-    },
-    {
-      "key": "item002",
-      "value": {
-        "displayName": "Example item 2",
-        "enabled": false,
-        "number": 200
-      }
-    }
-  ]
-}
-```
-
-The items() function sorts the objects in the alphabetical order. For example, **item001** appears before **item002** in the outputs of the two preceding samples.
-
 ## last
 
 `last(arg1)`
@@ -481,6 +443,82 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
+
+## lastIndexOf
+
+`lastIndexOf(arrayToSearch, itemToFind)`
+
+Returns an integer for the index of the last occurrence of an item in an array. The comparison is **case-sensitive** for strings.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+| --- | --- | --- | --- |
+| arrayToSearch | Yes | array | The array to use for finding the index of the searched item. |
+| itemToFind | Yes | int, string, array, or object | The item to find in the array. |
+
+### Return value
+
+An integer representing the last index of the item in the array. The index is zero-based. If the item isn't found, -1 is returned.
+
+### Examples
+
+The following example shows how to use the indexOf and lastIndexOf functions:
+
+```bicep
+var names = [
+  'one'
+  'two'
+  'three'
+]
+
+var numbers = [
+  4
+  5
+  6
+]
+
+var collection = [
+  names
+  numbers
+]
+
+var duplicates = [
+  1
+  2
+  3
+  1
+]
+
+output index1 int = lastIndexOf(names, 'two')
+output index2 int = indexOf(names, 'one')
+output notFoundIndex1 int = lastIndexOf(names, 'Three')
+
+output index3 int = lastIndexOf(numbers, 4)
+output index4 int = indexOf(numbers, 6)
+output notFoundIndex2 int = lastIndexOf(numbers, '5')
+
+output index5 int = indexOf(collection, numbers)
+
+output index6 int = indexOf(duplicates, 1)
+output index7 int = lastIndexOf(duplicates, 1)
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| index1 |int | 1 |
+| index2 | int | 0 |
+| index3 | int | 0 |
+| index4 | int | 2 |
+| index5 | int | 1 |
+| index6 | int | 0 |
+| index7 | int | 3 |
+| notFoundIndex1 | int | -1 |
+| notFoundIndex2 | int | -1 |
 
 ## length
 
@@ -766,7 +804,7 @@ An array or object.
 
 The union function uses the sequence of the parameters to determine the order and values of the result.
 
-For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, it's earlier placement in the array is preserved.
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any more parameters. If a value is already present, its earlier placement in the array is preserved.
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 

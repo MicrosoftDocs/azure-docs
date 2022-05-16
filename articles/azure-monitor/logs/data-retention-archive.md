@@ -118,8 +118,7 @@ To set the retention and archive duration for a table, run the [az monitor log-a
 This example sets table's interactive retention to 30 days, and the total retention to two years. This means the archive duration is 23 months:
 
 ```azurecli
-az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
---name AzureMetrics --retention-time 30 --total-retention-time 730
+az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name AzureMetrics --retention-time 30 --total-retention-time 730
 ```
 
 To reapply the workspace's default interactive retention value to the table and reset its total retention to 0, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command with the `--retention-time` and `--total-retention-time` parameters set to `-1`.
@@ -127,8 +126,7 @@ To reapply the workspace's default interactive retention value to the table and 
 For example:
 
 ```azurecli
-az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name Syslog --retention-time -1 --total-retention-time -1
+az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name Syslog --retention-time -1 --total-retention-time -1
 ```
 
 ---
@@ -156,8 +154,7 @@ To get the retention policy of a particular table, run the [az monitor log-analy
 For example:
 
 ```azurecli
-az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
-   --name SecurityEvent
+az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name SecurityEvent
 ``` 
 
 ---
@@ -174,7 +171,7 @@ You can also purge data from a workspace using the [purge feature](personal-data
 The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing. **To lower retention costs, decrease the retention period for the workspace or for specific tables.** 
 
 ## Tables with unique retention policies
-By default, the tables of two data types - `Usage` and `AzureActivity` - keep data for at least 90 days at no charge. Increasing the workspace retention policy to more than 90 days also increases the retention policy of these tables. These tables are also free from data ingestion charges. 
+By default, two data types - `Usage` and `AzureActivity` - keep data for at least 90 days at no charge. When you increase the workspace retention to more than 90 days, you also increase the retention of these data types, and you'll be charged for retaining this data beyond the 90-day period. These tables are also free from data ingestion charges. 
 
 Tables related to Application Insights resources also keep data for 90 days at no charge. You can adjust the retention policy of each of these tables individually. 
 
@@ -195,6 +192,19 @@ Tables related to Application Insights resources also keep data for 90 days at n
 You'll be charged for each day you retain data. The cost of retaining data for part of a day is the same as for a full day.
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+## Classic Application Insights resources
+Data workspace-based Application Insights resources is stored in a Log Analytics workspace, so it's included in the data retention and archive settings for the workspace. Classic Application Insights resources though, have separate retention settings.
+
+The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. 
+
+To change the retention, from your Application Insights resource, go to the **Usage and Estimated Costs** page and select the **Data Retention** option:
+
+![Screenshot that shows where to change the data retention period.](../app/media/pricing/pricing-005.png)
+
+A several-day grace period begins when the retention is lowered before the oldest data is removed.
+
+The retention can also be [set programatically using PowerShell](../app/powershell.md#set-the-data-retention) using the `retentionInDays` parameter. If you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. The daily reset time for the data volume cap can be configured using Azure Resource Manager to set the `dailyQuotaResetTime` parameter.
 
 ## Next steps
 - [Learn more about Log Analytics workspaces and data retention and archive.](log-analytics-workspace-overview.md)

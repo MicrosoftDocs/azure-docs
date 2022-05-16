@@ -3,7 +3,7 @@ title: Log Analytics workspace overview
 description: Overview of Log Analytics workspace which store data for Azure Monitor Logs.
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 02/18/2022
+ms.date: 05/15/2022
 ---
 
 # Log Analytics workspace overview
@@ -26,7 +26,7 @@ Each workspace contains multiple tables that are organized into separate columns
 ## Cost
 There is no direct cost for creating or maintaining a workspace. You're charged for the data sent to it (data ingestion) and how long that data is stored (data retention). These costs may vary based on the data plan of each table as described in [Log data plans (preview)](#log-data-plans-preview). 
 
-See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing and [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) for guidance on reducing your costs. If you are using your Log Analytics workspace with services other than Azure Monitor, then see the documentation for those services for pricing information.
+See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing and [Azure Monitor best practices - Cost management](../best-practices-cost.md) for guidance on reducing your costs. If you are using your Log Analytics workspace with services other than Azure Monitor, then see the documentation for those services for pricing information.
 
 ## Log data plans (preview)
 By default, all tables in a workspace are **Analytics** tables, which are available to all features of Azure Monitor and any other services that use the workspace. You can configure certain tables as **Basic Logs (preview)** to reduce the cost of storing high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts. Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features. 
@@ -34,15 +34,15 @@ By default, all tables in a workspace are **Analytics** tables, which are availa
 The following table gives a brief summary of the two plans. See [Configure Basic Logs in Azure Monitor (Preview)](basic-logs-configure.md) for more details on Basic Logs and how to configure them.
 
 > [!NOTE]
-> Basic Logs are currently in public preview. You can currently work with Basic Logs tables in the Azure Portal and using a limited number of other components.
+> Basic Logs are currently in public preview. You can currently work with Basic Logs tables in the Azure Portal and using a limited number of other components. The Basic Logs feature is not available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
 The following table summarizes the differences between the plans.
 
 | Category | Analytics Logs | Basic Logs |
 |:---|:---|:---|
 | Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
-| Log queries | No additional cost. Full query language. | Additional cost. Subset of query language. |
-| Retention |  Configure retention from 30 days to 750 days. | Retention fixed at 8 days. |
+| Log queries | No additional cost. Full query capabilities. | Additional cost. [Subset of query capabilities](basic-logs-query.md#limitations). |
+| Retention |  Configure retention from 30 days to 730 days. | Retention fixed at 8 days. |
 | Alerts | Supported. | Not supported. |
 
 ## Ingestion-time transformations

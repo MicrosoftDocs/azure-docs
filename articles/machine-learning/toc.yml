@@ -205,6 +205,10 @@
           href: concept-optimize-data-processing.md
         - name: Studio network data access
           href: concept-network-data-access.md
+    - name: Collect data
+      items:
+        - name: Sourcing human data responsibly
+          href: concept-sourcing-human-data.md
     - name: Security
       items:
         - name: Enterprise security overview
@@ -218,6 +222,8 @@
           href: ./security-controls-policy.md
         - name: Data encryption
           href: concept-data-encryption.md
+        - name: Customer-managed keys
+          href: concept-customer-managed-keys.md
         - name: Vulnerability management
           href: concept-vulnerability-management.md
 - name: How-to guides
@@ -263,6 +269,8 @@
             - name: Configure required network traffic
               href: how-to-access-azureml-behind-firewall.md
               displayName: firewall, user-defined route, udr
+            - name: Configure network isolation with v2
+              href: how-to-configure-network-isolation-with-v2.md
         - name: Data protection
           items:
             - name: Failover & disaster recovery
@@ -324,6 +332,8 @@
               - name: Use studio
                 displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
                 href: how-to-create-attach-compute-studio.md
+          - name: Customer-managed keys
+            href: how-to-setup-customer-managed-keys.md
     - name: Set up an environment
       items: 
         - name: Set up dev environments
@@ -530,6 +540,9 @@
           - name: Auto-train a small object detection model
             displayName: computer vision, image, image model
             href: how-to-use-automl-small-object-detect.md
+          - name: Auto-train a natural language processing model
+            displayName: nlp, auto ML, automl, SDK
+            href: how-to-auto-train-nlp-models.md
           - name: Data splits & cross-validation (Python)
             displayName: automl, feature engineering, feature importance
             href: how-to-configure-cross-validation-data-splits.md
@@ -646,9 +659,6 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
-      - name: Deploy encrypted inferencing service
-        displayName: homomorphic,encryption,deployment
-        href: how-to-homomorphic-encryption-seal.md
       - name: Profile models
         displayName: profile resource requirement
         href: how-to-deploy-profile-model.md
@@ -752,8 +762,8 @@
           href: reference-yaml-workspace.md
         - name: Environment
           href: reference-yaml-environment.md
-        - name: Dataset
-          href: reference-yaml-dataset.md
+        - name: Data
+          href: reference-yaml-data.md
         - name: Model
           href: reference-yaml-model.md
         - name: Compute
@@ -764,6 +774,8 @@
               href: reference-yaml-compute-instance.md
             - name: Attached Virtual Machine
               href: reference-yaml-compute-vm.md
+            - name: Attached Azure Arc-enabled Kubernetes (KubernetesCompute)
+              href: reference-yaml-compute-kubernetes.md
         - name: Job
           items:
             - name: Command
@@ -772,8 +784,6 @@
               href: reference-yaml-job-sweep.md
             - name: Pipeline
               href: reference-yaml-job-pipeline.md
-            - name: Component
-              href: reference-yaml-job-component.md
         - name: Datastore
           items:
             - name: Azure Blob
@@ -786,14 +796,16 @@
               href: reference-yaml-datastore-data-lake-gen2.md
         - name: Endpoint
           items:
-            - name: Managed online (real-time)
-              href: reference-yaml-endpoint-managed-online.md
+            - name: Online (real-time)
+              href: reference-yaml-endpoint-online.md
             - name: Batch
               href: reference-yaml-endpoint-batch.md
         - name: Deployment
           items:
             - name: Managed online (real-time)
               href: reference-yaml-deployment-managed-online.md
+            - name: Kubernetes online (real-time)
+              href: reference-yaml-deployment-kubernetes-online.md
             - name: Batch
               href: reference-yaml-deployment-batch.md
         - name: Component
@@ -814,6 +826,8 @@
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
+    - name: Machine learning CLI (v1) pipeline YAML reference
+      href: reference-pipeline-yaml.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

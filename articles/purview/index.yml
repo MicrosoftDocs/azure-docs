@@ -1,32 +1,32 @@
 ### YamlMime:Landing
 
-title: Azure Purview documentation
-summary: Learn how to use Azure Purview so your organization can find, understand, govern, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where you can discover available data sources and manage right use.
+title: Microsoft Purview data governance documentation
+summary: Learn how to use Microsoft Purview so your organization can find, understand, govern, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where you can discover available data sources and manage right use.
 
 metadata:
-  title: Azure Purview documentation
-  description: Learn how to use Azure Purview where your organization can find, understand, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
+  title: Microsoft Purview data governance documentation
+  description: Learn how to use Microsoft Purview where your organization can find, understand, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts.
   ms.service: purview
   ms.topic: landing-page
   author: whhender
   ms.author: whhender
-  ms.date: 02/22/2022
+  ms.date: 04/22/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent: 
   # Card
-  - title: About Azure Purview
+  - title: About Microsoft Purview
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Purview?
+          - text: What is Microsoft Purview?
             url: overview.md
       - linkListType: concept
         links:
-          - text: Use Azure Purview Studio
+          - text: Use the Microsoft Purview governance portal
             url: use-azure-purview-studio.md
-          - text: Understand Azure Purview access control
+          - text: Understand Microsoft Purview access control
             url: catalog-permissions.md
           - text: Understand the elastic data map
             url: catalog-permissions.md
@@ -36,14 +36,14 @@ landingContent:
             url: concept-classification.md
       - linkListType: learn
         links:
-          - text: Introduction to Azure Purview
+          - text: Introduction to Microsoft Purview
             url: /learn/modules/intro-to-azure-purview/
   # Card
   - title: Get started
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create an Azure Purview account - Portal
+          - text: Create a Microsoft Purview account - Portal
             url: create-catalog-portal.md
           - text: Create a Collection - Portal
             url: quickstart-create-collection.md
@@ -152,7 +152,7 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Use private endpoints with Azure Purview
+        - text: Use private endpoints with Microsoft Purview
           url: catalog-private-link.md
         - text: Network configuration
           url: catalog-private-link-name-resolution.md
@@ -163,17 +163,19 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
+        - text: Data owner policies
+          url: concept-data-owner-policies.md
         - text: Self-service data access policy
           url: concept-self-service-data-access-policy.md
     - linkListType: how-to-guide
       links:
-        - text: Registering data sources for Data use governance
-          url: how-to-enable-data-use-governance.md
+        - text: Registering data sources for Data Use Management
+          url: how-to-enable-data-use-management.md
         - text: Authoring and publishing data owner access policies
           url: how-to-data-owner-policy-authoring-generic.md
     - linkListType: tutorial
       links:
         - text: Data owner policies for Azure Storage
-          url: tutorial-data-owner-policies-storage.md
+          url: how-to-data-owner-policies-storage.md
         - text: Data owner policies on resource groups or subscriptions
-          url: tutorial-data-owner-policies-resource-group.md
+          url: how-to-data-owner-policies-resource-group.md

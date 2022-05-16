@@ -6,9 +6,9 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: cavoeg
-author: caitlinv39
-ms.date: 02/15/2022
+ms.author: mikaelw
+author: mikaelweave
+ms.date: 03/22/2022
 ---
 
 # Client application registration for Azure API for FHIR
@@ -46,7 +46,7 @@ If you’ve [written your web app](tutorial-web-app-write-web-app.md) to connect
 Now that you have set up the correct authentication, set the API permissions:
 
 1. Select **API permissions** and select **Add a permission**.
-1. Under **APIs my organization uses**, search for Azure Healthcare APIs.
+1. Under **APIs my organization uses**, search for Azure Health Data Services.
 1. Select **user_impersonation** and select **add permissions**.
 
 :::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Screenshot of the Add API permissions blade, with the steps to add API permissions highlighted.":::

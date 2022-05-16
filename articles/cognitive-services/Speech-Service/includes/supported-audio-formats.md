@@ -13,4 +13,4 @@ The default audio streaming format is WAV (16 kHz or 8 kHz, 16-bit, and mono PCM
 - FLAC
 - ALAW in WAV container
 - MULAW in WAV container
-- ANY (for scenarios where the media format isn't known)
+- ANY for MP4 container or unknown media format

@@ -71,8 +71,6 @@ Scenarios that securely erase data to protect the customer include:
 - The VM becomes unhealthy and has to service heal to another node due to a hardware issue.
 - A small number of the planned maintenance servicing operations that requires the VM to be reallocated to another host for servicing.
 
-To learn more about options for backing up data in local storage, see [Backup and disaster recovery for Azure IaaS disks](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
-
 ## Frequently asked questions
 
 * **How do I start deploying Lsv2-series VMs?**  

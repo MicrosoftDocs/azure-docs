@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 03/31/2022
 ms.reviewer: sngun
 ---
 
@@ -222,6 +222,9 @@ With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of stor
 - Your bill will now show a charge for the 400 RU/s and 10 GB of storage.
 
 ### Billing example - container with autoscale throughput
+
+> [!TIP]
+> When using autoscale, the entry point scale range you can set is 100 - 1000 RU/s. If you want to use autoscale and keep your free tier account completely free, create either one container with this scale range, or a shared throughput database with up to 25 containers inside. The example below illustrates how billing works if you provision throughput higher than the 100 - 1000 RU/s scale range.
 
 - Let's suppose in a free tier account, we create a container with autoscale enabled, with a maximum RU/s of 4000 RU/s. This resource will automatically scale between 400 RU/s - 4000 RU/s.
 - Suppose in hour 1 through hour 10, the resource is scaled to 1000 RU/s. During hour 11, the resource scales up to 1600 RU/s and then back down to 1000 RU/s within the hour.

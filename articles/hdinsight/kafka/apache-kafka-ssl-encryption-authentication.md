@@ -4,7 +4,7 @@ description: Set up TLS encryption for communication between Kafka clients and K
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/01/2019
+ms.date: 03/31/2022
 ---
 
 # Set up TLS encryption and authentication for Apache Kafka in Azure HDInsight
@@ -218,7 +218,7 @@ These steps are detailed in the following code snippets.
 The following four steps summarize the tasks needed to complete the client setup:
 
 1. Sign in to the client machine (standby head node).
-1. Create a java keystore and get a signed certificate for the broker. Then copy the certificate to the VM where the CA is running.
+1. Create a Java keystore and get a signed certificate for the broker. Then copy the certificate to the VM where the CA is running.
 1. Switch to the CA machine (active head node) to sign the client certificate.
 1. Go to the client machine (standby head node) and navigate to the `~/ssl` folder. Copy the signed cert to client machine.
 
@@ -238,7 +238,7 @@ The details of each step are given below.
     cd ssl
     ```
 
-1. Create a java keystore and create a certificate signing request. 
+1. Create a Java keystore and create a certificate signing request. 
 
     ```bash
     keytool -genkey -keystore kafka.client.keystore.jks -validity 365 -storepass "MyClientPassword123" -keypass "MyClientPassword123" -dname "CN=HEADNODE1_FQDN" -storetype pkcs12

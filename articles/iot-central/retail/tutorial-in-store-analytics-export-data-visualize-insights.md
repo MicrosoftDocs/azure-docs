@@ -492,7 +492,7 @@ You could add some addition graphics resources to further customize the dashboar
 
 ## Clean up resources
 
-If you've finished with your IoT Central application, you can delete it by signing in to the application and navigating to the **Application Settings** page in the **Administration** section.
+If you've finished with your IoT Central application, you can delete it by signing in to the application and navigating to the **Management** page in the **Application** section.
 
 If you want to keep the application but reduce the costs associated with it, disable the data export that's sending telemetry to your event hub.
 

@@ -28,8 +28,6 @@ You can change the settings of an existing IoT hub after it's created from the I
 
 **Pricing and scale**: You can use this property to migrate to a different tier or set the number of IoT Hub units. 
 
-**Operations monitoring**: Turn the different monitoring categories on or off, such as logging for events related to device-to-cloud messages or cloud-to-device messages.
-
 **IP Filter**: Specify a range of IP addresses that will be accepted or rejected by the IoT hub.
 
 **Properties**: Provides the list of properties that you can copy and use elsewhere, such as the resource ID, resource group, location, and so on.

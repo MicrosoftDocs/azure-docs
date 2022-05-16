@@ -32,7 +32,7 @@ To follow best practices for developing your templates, use either:
 * [Bicep linter](../bicep/linter.md)
 * [ARM template test toolkit](../templates/test-toolkit.md)
 
-When you deploy, you can find the cause of errors from the Azure portal in a resource group's **Deployments** or **Activity log**. If you're using Azure PowerShell, use commands like [Get-AzResourceGroupDeploymentOperation](/powershell/module/az.resources/get-azresourcegroupdeploymentoperation) and [Get-AzActivityLog](/powershell/module/az.monitor/get-azactivitylog). For Azure CLI, use commands like [az deployment operation group](/cli/azure/deployment/operation/group) and [az monitor activity-log list](/cli/azure/monitor/activity-log#az_monitor_activity_log_list).
+When you deploy, you can find the cause of errors from the Azure portal in a resource group's **Deployments** or **Activity log**. If you're using Azure PowerShell, use commands like [Get-AzResourceGroupDeploymentOperation](/powershell/module/az.resources/get-azresourcegroupdeploymentoperation) and [Get-AzActivityLog](/powershell/module/az.monitor/get-azactivitylog). For Azure CLI, use commands like [az deployment operation group](/cli/azure/deployment/operation/group) and [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
 
 ## Next steps
 
