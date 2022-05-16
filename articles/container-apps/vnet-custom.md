@@ -5,17 +5,17 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 05/13/2022
+ms.date: 05/16/2022
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Provide an virtual network to an external Azure Container Apps (Preview) environment
+# Provide a virtual network to an external Azure Container Apps (Preview) environment
 
 The following example shows you how to create a Container Apps environment in an existing virtual network.
 
 > [!IMPORTANT]
-> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to [Known issues for public preview](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview) for additional details.
+> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. For more information, see [Known issues for public preview](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview).
 
 ::: zone pivot="azure-portal"
 
