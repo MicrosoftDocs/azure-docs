@@ -72,6 +72,8 @@ Configure Azure Front Door to direct user traffic based on lowest latency betwee
 
 1. From the home page or the Azure menu, select **Create a resource**. Select **Networking** > **See All** > **Front Door**.
 
+1. From the Compare offerings page select **Explore other offerings** > **Azure Front Door (classic)**
+
 1. In the **Basics** tab of **Create a Front Door** page, enter or select the following information, and then select **Next: Configuration**.
 
     | Setting | Value |
