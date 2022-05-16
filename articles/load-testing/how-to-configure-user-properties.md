@@ -60,11 +60,11 @@ To add a user properties file to your load test by using the Azure portal, follo
 1. Select the **Test plan** tab.
 1. Select the properties file from your computer, and then select **Upload** to upload the file to Azure.
 
-    :::image type="content" source="media/how-to-configure-user-properties/edit-test-upload-properties.png" alt-text="Screenshot that shows the steps to upload a user properties file on the 'Test plan' tab on the 'Edit test' pane.":::
+    :::image type="content" source="media/how-to-configure-user-properties/edit-test-upload-properties.png" alt-text="Screenshot that shows the steps to upload a user properties file on the Test plan tab on the Edit test pane.":::
   
 1. Select **User properties** in the **File relevance** dropdown list.
 
-    :::image type="content" source="media/how-to-configure-user-properties/edit-test-upload-properties-file-relevance.png" alt-text="Screenshot that highlights the file relevance dropdown for a user properties file on the 'Test plan' pane.":::
+    :::image type="content" source="media/how-to-configure-user-properties/edit-test-upload-properties-file-relevance.png" alt-text="Screenshot that highlights the file relevance dropdown for a user properties file on the Test plan pane.":::
 
     You can select only one file as a user properties file for a load test.
 
