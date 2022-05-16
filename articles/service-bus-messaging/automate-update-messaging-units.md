@@ -336,9 +336,9 @@ You can use the following sample Resource Manager template to create the followi
 }
 ```
 
-You can also generate JSON example for an autoscale setting resource from the Azure portal. After you configure autoscale settings in the Azure portal, select **JSON** on the commandbar of the **Scale** page.
+You can also generate JSON example for an autoscale setting resource from the Azure portal. After you configure autoscale settings in the Azure portal, select **JSON** on the command bar of the **Scale** page.
 
-:::image type="content" source="./media/automate-update-messaging-units/auto-scale-json.png" alt-text="Image showing the selection of the JSON button on the commandbar of the **Scale** page in the Azure portal.":::
+:::image type="content" source="./media/automate-update-messaging-units/auto-scale-json.png" alt-text="Image showing the selection of the JSON button on the command bar of the **Scale** page in the Azure portal.":::
 
 Include the JSON in the `resources` section of a Resource Manager template as shown in the preceding example. 
 
