@@ -41,14 +41,6 @@ You can set retention policies for individual tables, except for workspaces in t
 
 You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,555 days (seven years). 
 
-Each table is a subresource of the workspace it's in. For example, you can address the `SecurityEvent` table in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
-
-```
-/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
-```
-
-The table name is case-sensitive. 
-
 # [Portal](#tab/portal-1)
 
 To set the retention and archive duration for a table in the Azure portal:
