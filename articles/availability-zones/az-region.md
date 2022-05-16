@@ -175,7 +175,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | **Products**   | **Resiliency**   |
 | --- | --- |
 | Azure Active Directory  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
-| Azure Advanced Threat Protection  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Microsoft Defender for Identity  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Advisor  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Blueprints  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Bot Services  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
