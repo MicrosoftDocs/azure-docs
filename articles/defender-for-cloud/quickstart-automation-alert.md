@@ -1,5 +1,5 @@
 ---
-title: Create a security automation for specific security alerts by using an Azure Resource Manager template (ARM template)
+title: Create a security automation for specific security alerts by using an Azure Resource Manager template (ARM template) or Bicep
 description: Learn how to create a Microsoft Defender for Cloud automation to trigger a logic app, which will be triggered by specific Defender for Cloud alerts by using an Azure Resource Manager template (ARM template) or Bicep.
 services: azure-resource-manager
 ms.service: azure-resource-manager
@@ -180,3 +180,4 @@ For a step-by-step tutorial that guides you through the process of creating a te
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Quickstart: Create Bicep files with Visual Studio Code](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md)
