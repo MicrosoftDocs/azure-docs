@@ -100,7 +100,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. From the left side of menu, select **Administration -> Authentication**.
 
-	![The Authentication menu](./media/skillsbase-tutorial/admin.png)
+	![The Authentication menu.](./media/skillsbase-tutorial/admin.png)
 
 1. On the **Authentication** page in the **Identity Providers** section, select **Add identity provider**.
 
@@ -116,17 +116,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the **Identity Providers** section, select the **edit** button (denoted by a pencil icon) for the Identity Provider record you added.
 
-   ![Edit Identity Provider button](./media/skillsbase-tutorial/edit-identity-provider.png)
+   ![Edit Identity Providers button.](./media/skillsbase-tutorial/edit-identity-provider.png)
 
 1. In the **Edit identity provider** panel, for **SAML IdP Metadata** select **Upload an XML file**
 
 1. Click **Browse** to choose a file. Select the Federation Metadata XML file that you downloaded from Azure AD and click **Save**.
 
-   ![Edit Identity Provider button](./media/skillsbase-tutorial/browse-and-save.png)
+   ![Upload certificate type.](./media/skillsbase-tutorial/browse-and-save.png)
    
 1. In the **Authentication** panel, for **Single Sign-On** select the Identity Provider you added.
 
-   ![Edit Identity Provider button](./media/skillsbase-tutorial/select-identity-provider.png)
+   ![Screenshot for Authentication panel.](./media/skillsbase-tutorial/select-identity-provider.png)
 
 1. Make sure the option to bypass the Skills Base login screen is **deselcted** for now.  You can enable this option later, once the integration is proved to be working.
 
@@ -134,7 +134,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. click **Save changes**.
 
-   ![Edit Identity Provider button](./media/skillsbase-tutorial/identity-provider-enabled.png)
+   ![Screenshot for JIT.](./media/skillsbase-tutorial/identity-provider-enabled.png)
 
 > [!Note]
 > The Identity Provider you added in the **Identity Providers** panel should now have a green **Enabled** badge in the **Status** column.
