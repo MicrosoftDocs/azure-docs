@@ -23,7 +23,7 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 - This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- The identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [Az account](/cli/azure/account) command.
@@ -42,13 +42,13 @@ The following additional limitations apply to Windows Server node pools:
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create][az-group-create] command.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create][az-group-create] command.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 > [!NOTE]
 > This article uses Bash syntax for the commands in this tutorial.
-> If you are using Azure Cloud Shell, ensure that the dropdown in the upper-left of the Cloud Shell window is set to **Bash**.
+> If you're using Azure Cloud Shell, ensure that the dropdown in the upper-left of the Cloud Shell window is set to **Bash**.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -189,7 +189,7 @@ Beginning in Kubernetes version 1.20 and greater, you can specify `containerd` a
 
 ### Add a Windows Server node pool with `containerd`
 
-Use the `az aks nodepool add` command to add an additional node pool that can run Windows Server containers with the `containerd` runtime.
+Use the `az aks nodepool add` command to add a node pool that can run Windows Server containers with the `containerd` runtime.
 
 > [!NOTE]
 > If you do not specify the *WindowsContainerRuntime=containerd* custom header, the node pool will use Docker as the container runtime.
