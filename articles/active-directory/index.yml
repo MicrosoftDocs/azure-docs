@@ -128,7 +128,7 @@ additionalContent:
           summary: Create Azure AD tenants, manage user accounts, roles, and groups, and assign app access.
           url: ./enterprise-users/index.yml
         # Card
-        - title: Azure AD roles
+        - title: Roles
           summary: Manage admin permissions and apply the principle of least privilege using Azure AD role-based access control.
           url: ./roles/index.yml
         # Card
