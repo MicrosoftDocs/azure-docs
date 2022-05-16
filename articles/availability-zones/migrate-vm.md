@@ -56,7 +56,7 @@ To learn how create VMs in an availability zone, see:
 - [Create VM using Azure PowerShell](../virtual-machines/windows/create-PowerShell-availability-zone.md)
 - [Create VM using Azure portal](../virtual-machines/create-portal-availability-zone.md?tabs=standard)
 
-To learn how create VMSS in an availability zone, see [Create a virtual machine scale set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md).
+To learn how to create VMSS in an availability zone, see [Create a virtual machine scale set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md).
 
 ## Migration Option 2: Azure Resource Mover
 
