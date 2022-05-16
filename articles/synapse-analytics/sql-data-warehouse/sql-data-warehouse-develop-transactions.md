@@ -9,7 +9,7 @@ ms.subservice: sql-dw
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.custom: azure-synapse
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ---
 
 # Use transactions in a SQL pool in Azure Synapse 

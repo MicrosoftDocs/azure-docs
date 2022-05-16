@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 08/17/2021
 ms.author: xiaoyul
-ms.reviewer: nibruno; jrasnick; azure-synapse
+ms.reviewer: nibruno; wiassaf
 ---
 
 # Performance tune with materialized views
