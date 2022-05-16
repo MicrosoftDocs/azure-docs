@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 | Version | Support level | Description |
 | --- | --- | --- |
-| 4.x | GA | _Recommended runtime version for functions in all languages._ Use this version to [run C# functions on .NET 6.0](functions-dotnet-class-library.md#supported-versions). |
+| 4.x | GA | **_Recommended runtime version for functions in all languages._** Use this version to [run C# functions on .NET 6.0 and .NET Framework 4.8](functions-dotnet-class-library.md#supported-versions). |
 | 3.x | GA | Supports all languages. Use this version to [run C# functions on .NET Core 3.1 and .NET 5.0](functions-dotnet-class-library.md#supported-versions).|
 | 2.x | GA | Supported for [legacy version 2.x apps](#pinning-to-version-20). This version is in maintenance mode, with enhancements provided only in later versions.|
 | 1.x | GA | Recommended only for C# apps that must use .NET Framework and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. This version is in maintenance mode, with enhancements provided only in later versions. |
@@ -60,7 +60,7 @@ To learn more, see [How to target Azure Functions runtime versions](set-runtime-
 
 ### Pinning to a specific minor version
 
-To resolve issues your function app may have when running on the latest major version, you have to temporatily pin your app to a specific minor version. This gives you time to get your app running correctly on the latest major version. The way that you pin to a minor version differs between Windows and Linux. To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+To resolve issues your function app may have when running on the latest major version, you have to temporarily pin your app to a specific minor version. This gives you time to get your app running correctly on the latest major version. The way that you pin to a minor version differs between Windows and Linux. To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 Older minor versions are periodically removed from Functions. For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues). 
 
@@ -251,7 +251,7 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 
 - Default and maximum timeouts are now enforced in 4.x for function app running on Linux in a Consumption plan. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
 
-- Azure Functions 4.x uses Azure.Identity and Azure.Security.KeyVault.Secrets for the Key Vault provider and has deprecated the use of Microsoft.Azure.KeyVault. For more information about how to configure function app settings, see the Key Vault option in [Secret Repositories](security-concepts.md#secret-repositories). ([#2048](https://github.com/Azure/Azure-Functions/issues/2048))
+- Azure Functions 4.x uses `Azure.Identity` and `Azure.Security.KeyVault.Secrets` for the Key Vault provider and has deprecated the use of Microsoft.Azure.KeyVault. For more information about how to configure function app settings, see the Key Vault option in [Secret Repositories](security-concepts.md#secret-repositories). ([#2048](https://github.com/Azure/Azure-Functions/issues/2048))
 
 - Function apps that share storage accounts now fail to start when their host IDs are the same. For more information, see [Host ID considerations](storage-considerations.md#host-id-considerations). ([#2049](https://github.com/Azure/Azure-Functions/issues/2049))
 
@@ -272,7 +272,7 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 ::: zone-end    
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
-- Node.js 10 and 12 are not supported in Azure Functions 4.x. ([#1999](https://github.com/Azure/Azure-Functions/issues/1999))
+- Node.js versions 10 and 12 are not supported in Azure Functions 4.x. ([#1999](https://github.com/Azure/Azure-Functions/issues/1999))
 
 - Output serialization in Node.js apps was updated to address previous inconsistencies. ([#2007](https://github.com/Azure/Azure-Functions/issues/2007))
 ::: zone-end  
@@ -314,7 +314,7 @@ The main differences between versions when running .NET class library functions 
 
 * Timer trigger object is camelCase instead of PascalCase
 
-* Event Hub triggered functions with `dataType` binary will receive an array of `binary` instead of `string`.
+* Event hub triggered functions with `dataType` binary will receive an array of `binary` instead of `string`.
 
 * The HTTP request payload can no longer be accessed via `context.bindingData.req`.  It can still be accessed as an input parameter, `context.req`, and in `context.bindings`.
 
@@ -331,7 +331,7 @@ While it's possible to do an "in-place" upgrade by manually updating the app con
 
 Starting with version 2.x, you must install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](./functions-bindings-register.md).
 
-There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hub `path` property is now `eventHubName`. See the [existing binding table](#bindings) for links to documentation for each binding.
+There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hubs `path` property is now `eventHubName`. See the [existing binding table](#bindings) for links to documentation for each binding.
 
 ### Changes in features and functionality after version 1.x
 
@@ -339,7 +339,7 @@ A few features were removed, updated, or replaced after version 1.x. This sectio
 
 In version 2.x, the following changes were made:
 
-* Keys for calling HTTP endpoints are always stored encrypted in Azure Blob storage. In version 1.x, keys were stored in Azure Files by default. When upgrading an app from version 1.x to version 2.x, existing secrets that are in Azure Files are reset.
+* Keys for calling HTTP endpoints are always stored encrypted in Azure Blob storage. In version 1.x, keys were stored in Azure Files by default. When you upgrade an app from version 1.x to version 2.x, existing secrets that are in Azure Files are reset.
 
 * The version 2.x runtime doesn't include built-in support for webhook providers. This change was made to improve performance. You can still use HTTP triggers as endpoints for webhooks.
 
@@ -353,9 +353,9 @@ In version 2.x, the following changes were made:
 
 * HTTP concurrency throttles are implemented by default for Consumption plan functions, with a default of 100 concurrent requests per instance. You can change this in the [`maxConcurrentRequests`](functions-host-json.md#http) setting in the host.json file.
 
-* Because of [.NET Core limitations](https://github.com/Azure/azure-functions-host/issues/3414), support for F# script (.fsx) functions has been removed. Compiled F# functions (.fs) are still supported.
+* Because of [.NET Core limitations](https://github.com/Azure/azure-functions-host/issues/3414), support for F# script (`.fsx` files) functions has been removed. Compiled F# functions (.fs) are still supported.
 
-* The URL format of Event Grid trigger webhooks has been changed to `https://{app}/runtime/webhooks/{triggerName}`.
+* The URL format of Event Grid trigger webhooks has been changed to follow this pattern: `https://{app}/runtime/webhooks/{triggerName}`.
 
 ### Locally developed application versions
 
@@ -372,6 +372,8 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 ```
 
+You can also choose `net6.0` or `net48` as the target framework if you are using [.NET isolated process functions](dotnet-isolated-process-guide.md). Support for `net48` is currently in preview.
+
 > [!NOTE]
 > Azure Functions 4.x requires the `Microsoft.NET.Sdk.Functions` extension be at least `4.0.0`.
 
@@ -381,6 +383,8 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 <TargetFramework>netcoreapp3.1</TargetFramework>
 <AzureFunctionsVersion>v3</AzureFunctionsVersion>
 ```
+
+You can also choose `net5.0` as the target framework if you are using [.NET isolated process functions](dotnet-isolated-process-guide.md).
 
 > [!NOTE]
 > Azure Functions 3.x and .NET requires the `Microsoft.NET.Sdk.Functions` extension be at least `3.0.0`.
