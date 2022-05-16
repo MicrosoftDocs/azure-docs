@@ -23,7 +23,7 @@ During the interactive retention period, data is available for monitoring, troub
 > The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
 
 ## Configure the default workspace retention policy
-You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. To set a different policy, use the Resource Manager configuration method described below. If you're on the *free* tier, you need to upgrade to the paid tier to change the data retention period.
+You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. You can set a different policy for specific tables by [configuring retention and archive policy at the table level](#set-retention-and-archive-policy-by-table). If you're on the *free* tier, you'll need to upgrade to the paid tier to change the data retention period.
 
 To set the default workspace retention policy:
 
@@ -37,7 +37,7 @@ To set the default workspace retention policy:
 
 ## Set retention and archive policy by table
 
-You can set retention policies for individual tables, except for workspaces in the legacy Free Trial pricing tier.
+By default, all tables in your workspace inherit the workspace's interactive retention setting and have no archive policy. You can modify the retention and archive policies of individual tables, except for workspaces in the legacy Free Trial pricing tier.
 
 You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,555 days (seven years). 
 
