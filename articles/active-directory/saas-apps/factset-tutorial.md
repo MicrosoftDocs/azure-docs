@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with FactSet | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with FactSet'
 description: Learn how to configure single sign-on between Azure Active Directory and FactSet.
 services: active-directory
 author: jeevansd
@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 05/16/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with FactSet
+# Tutorial: Azure AD SSO integration with FactSet
 
 In this tutorial, you'll learn how to integrate FactSet with Azure Active Directory (Azure AD). When you integrate FactSet with Azure AD, you can:
 
-* Control in Azure AD who has access to FactSet.
+* Control in Azure AD who has access to FactSet URLs via the Federation.
 * Enable your users to be automatically signed-in to FactSet with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
@@ -32,7 +32,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* FactSet supports **IDP** initiated SSO.
+* FactSet supports **SP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -77,7 +77,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://auth.factset.com`
 
     b. In the **Reply URL** text box, type the URL:
-    `https://auth.factset.com/sp/ACS.saml2`
+    `https://login.factset.com/services/saml2/`
+
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.factset.com/services/saml2/`
+
+    > [!NOTE]
+    > The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact the [FactSet Support Team](https://www.factset.com/contact-us) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. 
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the metadata file and save it on your computer.
 
