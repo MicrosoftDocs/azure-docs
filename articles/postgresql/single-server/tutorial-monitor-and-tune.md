@@ -68,7 +68,7 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 
 1. Open **Performance Recommendations** from the **Support + troubleshooting** section of the menu bar on the Azure portal page for your PostgreSQL server.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Performance Recommendations landing page":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page-1.png" alt-text="Performance Recommendations landing page":::
 
 2. Select **Analyze** and choose a database. This will begin the analysis.
 
