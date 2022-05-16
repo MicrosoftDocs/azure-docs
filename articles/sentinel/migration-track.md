@@ -36,9 +36,9 @@ As the deployment progresses, you can update existing actions or add new actions
 
 :::image type="content" source="media/migration-track/migration-track-update.png" alt-text="Screenshot of the Microsoft Sentinel Edit watchlist items screen, showing an example list of watchlist items." lightbox="media/migration-track/migration-track-update.png":::
 
-## View deployment progress
+## View deployment status
 
-In the bottom half of each tab, you can view a snapshot of the deployment progress that displays the deployment status and includes quantitative data for each tab. Information includes:
+Select **Deployment** and locate the **Summary of progress** area to view the deployment status. This area which includes quantitative data for each tab. Information includes:
 - Tables reporting data
 - Number of tables reporting data
 - Number of enabled rules vs. undeployed rules
@@ -73,7 +73,7 @@ If you need more coverage, select **Review MITRE coverage** below the table and 
 
 :::image type="content" source="media/migration-track/migration-track-mitre.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker Review MITRE Coverage view." lightbox="media/migration-track/migration-track-mitre.png":::
 
-Once you have deployed the desired analytic rules and configured the Defender connector to ingest the alerts, you can monitor incident creation and frequency at the bottom half of the tab. This area displays metrics regarding alert generation by product, title, and classification, to indicate the health of the SOC and which alerts require the most attention. If alerts are generating too much volume, return to the **Analytics** tab to modify the logic.
+Once you have deployed the desired analytic rules and configured the Defender connector to ingest the alerts, you can monitor incident creation and frequency under **Deployment > Summary of progress**. This area displays metrics regarding alert generation by product, title, and classification, to indicate the health of the SOC and which alerts require the most attention. If alerts are generating too much volume, return to the **Analytics** tab to modify the logic.
 
 :::image type="content" source="media/migration-track/migration-track-analytics-monitor.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker Analytics tab monitoring area." lightbox="media/migration-track/migration-track-analytics-monitor.png":::
 
