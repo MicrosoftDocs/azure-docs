@@ -22,7 +22,7 @@ We can create Log Analytics workspaces with the type [`Microsoft.OperationalInsi
 
 ## Diagnostic Settings
 
-When creating [Diagnostic settings](../../azure/azure-monitor/essentials/diagnostic-settings.md) in Bicep, bear in mind that this resource is an **extension resource**, meaning that we can apply is to another resource. We can create Diagnostic Settings in Bicep using the type [`Microsoft.Insights/diagnosticSettings`](/azure/templates/microsoft.insights/diagnosticsettings?tabs=bicep).
+When creating [Diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in Bicep, bear in mind that this resource is an **extension resource**, meaning that we can apply is to another resource. We can create Diagnostic Settings in Bicep using the type [`Microsoft.Insights/diagnosticSettings`](/azure/templates/microsoft.insights/diagnosticsettings?tabs=bicep).
 
 When creating diagnostic settings in Bicep, we need to apply the scope of the diagnostic setting. The scope can be applied at the Management, Subscription or Resource Group level. [Use the *scope* property on this resource to set the scope for this resource](../../azure-resource-manager/bicep/scope-extension-resources.md).
 
