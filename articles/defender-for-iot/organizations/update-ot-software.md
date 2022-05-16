@@ -1,5 +1,5 @@
 ---
-title: Update OT system software
+title: Update Defender for IoT OT monitoring software versions
 description: Learn how to update (upgrade) Defender for IoT software on OT sensors and on-premises management servers.
 ms.date: 05/15/2022
 ms.topic: how-to
@@ -47,7 +47,7 @@ In such cases, make sure to update your on-premises management consoles *before*
 
 1. On your on-premises management console, select **System Settings** > **Version Update**.
 
-1. In the **Upload File** dialog, select **BROWSE FILE** and then browse to and select the installation file you'd downloaded from the Azure portal.
+1. In the **Upload File** dialog, select **BROWSE FILE** and then browse to and select the update file you'd downloaded from the Azure portal.
 
     The update process starts, and may take about 30 minutes. During your upgrade, the system is rebooted twice.
 
@@ -140,21 +140,24 @@ The sensor update process won't succeed if you don't update the on-premises mana
 
 1. For any sensors you want to update, make sure that the **Automatic Version Updates** option is selected.
 
+    Also make sure that sensors you *don't* want to update are *not* selected.
+
+    Save your changes when you're finished selecting sensors to update.
+
+
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png" alt-text="Screenshot of on-premises management console with Automatic Version Updates selected." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png":::
 
-    Save your changes as needed.
-
     > [!IMPORTANT]
-    > - If there are sensors that you do *not* want to update at this time, clear the **Automatic Version Updates** option for those sensors.
-    >
-    > - If your **Automatic Version Updates** option is red, you have a update conflict. For example, an update conflict might occur if you have multiple sensors marked for automatic updates but the sensors currently have different software versions installed. Select the option to resolve the conflict.
+    > If your **Automatic Version Updates** option is red, you have a update conflict. For example, an update conflict might occur if you have multiple sensors marked for automatic updates but the sensors currently have different software versions installed. Select the option to resolve the conflict.
     >
 
 1. Scroll down and on the right, select the **+** in the **Sensor version update** box. Browse to and select the update file you'd downloaded from the Azure portal.
 
-1. Updates start running on each sensor selected for automatic updates. Monitor the update status for each sensor from the **Site Management** page.
+    Updates start running on each sensor selected for automatic updates.
 
-If updates fail, you can reattempt the update, or open a support ticket for assistance.
+1. Go to the **Site Management** page to view the update status and progress for each sensor.
+
+    If updates fail, a retry option appears with an option to download the failure log. Retry the update process or open a support ticket with the downloaded log files for assistance.
 
 ---
 
@@ -179,7 +182,7 @@ This procedure is relevant only if you're updating sensors from software version
 
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png" alt-text="Screenshot of the Prepare to update option." lightbox="media/how-to-manage-sensors-on-the-cloud/prepare-to-update.png":::
 
-1. In the **Prepare to update sensor to version 22.X** message, select **Let's go**.
+1. <a name="activation-file"></a>In the **Prepare to update sensor to version 22.X** message, select **Let's go**.
 
     A new row in the grid is added for sensor you're upgrading. In that added row, select to download the activation file.
 
@@ -195,7 +198,7 @@ If you're upgrading from a legacy version to version 22.x or higher, make sure t
 
 1. On your sensor, select **System settings > Sensor management > Subscription & Mode Activation**.
 
-1. In the **Subscription & Mode Activation** pane that appears on the right, select **Select file**, and then browse to and select the activation file you'd downloaded [earlier](#download-a-new-activation-file).
+1. In the **Subscription & Mode Activation** pane that appears on the right, select **Select file**, and then browse to and select the activation file you'd downloaded [earlier](#activation-file).
 
 1. In Defender for IoT on the Azure portal, monitor your sensor's activation status. When the sensor is fully activated:
 
