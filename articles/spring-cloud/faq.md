@@ -68,6 +68,10 @@ We are not actively developing additional capabilities for Service Binding in fa
 
 If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 
+### I need VMware Spring Runtime Support (Enterprise tier only)
+
+Enterprise tier has built-in VMware Spring Runtime Support so you can directly open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, please get more information from https://tanzu.vmware.com/spring-runtime; to understand details about how to register/use this support service, please refer to the Support section in Enterprise tier FAQ from VMware (https://aka.ms/EnterpriseTierFAQ). For any other issues, directly open support tickets with Microsoft.
+
 ## Development
 
 ### I am a Spring Cloud developer but new to Azure. What is the quickest way for me to learn how to develop an application in Azure Spring Cloud?
