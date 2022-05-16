@@ -286,15 +286,15 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
                     "name": "type",
                     "type": "Edm.String",
                     "searchable": false,
-                    "filterable": false,
-                    "facetable": false
+                    "filterable": true,
+                    "facetable": true
                 },
                 {
                     "name": "subtype",
                     "type": "Edm.String",
                     "searchable": false,
-                    "filterable": false,
-                    "facetable": false
+                    "filterable": true,
+                    "facetable": true
                 },
                 {
                     "name": "matches",
@@ -310,23 +310,23 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
                         {
                             "name": "offset",
                             "type": "Edm.Int32",
-                            "searchable": true,
-                            "filterable": false,
-                            "facetable": false
+                            "searchable": false,
+                            "filterable": true,
+                            "facetable": true
                         },
                         {
                             "name": "length",
                             "type": "Edm.Int32",
-                            "searchable": true,
-                            "filterable": false,
-                            "facetable": false
+                            "searchable": false,
+                            "filterable": true,
+                            "facetable": true
                         },
                         {
                             "name": "matchDistance",
                             "type": "Edm.Int32",
-                            "searchable": true,
-                            "filterable": false,
-                            "facetable": false
+                            "searchable": false,
+                            "filterable": true,
+                            "facetable": true
                         }
                       ]
                   }
