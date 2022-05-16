@@ -15,11 +15,13 @@ This article explains the different options and features of a Dynamics 365 offer
 
 Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program. Also, review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center).
 
-## Licensing options
+## Listing options
+
+- Licensing options applies to the _Dynamics 365 apps on Dataverse and Power Apps_ offer type only.
 
 As you prepare to publish a new offer, you need to decide which licensing option to choose. This will determine what additional information you'll need to provide later as you create the offer in Partner Center.
 
-These are the available licensing options for Dynamics 365 offer types:
+These are the available licensing options for the _Dynamics 365 apps on Dataverse and Power Apps_ offer type:
 
 | Offer type | Listing option |
 | --- | --- |
@@ -28,8 +30,6 @@ These are the available licensing options for Dynamics 365 offer types:
 | Dynamics 365 Business Central | Get it now (Free)<br>Free trial (listing)<br>Contact me |
 
 <sup>1</sup> Customers will see a **Get it now** button on the offer listing page in AppSource for offers configured for [ISV app license management](isv-app-license.md). Customers can select this button to contact you to purchase licenses for the app.
-
-## Listing options
 
 The following table describes the transaction process of each listing option.
 
