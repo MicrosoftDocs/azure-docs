@@ -8,7 +8,7 @@ ms.date: 04/26/2022
 ms.custom: template-concept 
 ---
 
-# Types of Azure Monitor Alerts
+# Types of Azure Monitor alerts
 
 There are four kinds of Azure Monitor alerts:
 - Metric alerts
@@ -16,7 +16,7 @@ There are four kinds of Azure Monitor alerts:
 - Activity log alerts
 - Smart detection alerts
 
-## Metric Alerts
+## Metric alerts
 
 A metric alert rule monitors a resource by evaluating conditions on the resource metrics at regular intervals. If the conditions are met, an alert is fired. A metric time-series is a series of metric values captured over a period of time.
 
@@ -36,7 +36,7 @@ The target of the metric alert rule can be:
 - A single resource, such as a VM. See this article for supported resource types.
 - [Multiple resources](#monitoring-multiple-resources) of the same type in the same Azure region, such as a resource group.
 
-### Multiple Conditions
+### Multiple conditions
 
 When you create an alert rule for a single resource, you can apply multiple conditions. For example, you could create an alert rule to monitor an Azure virtual machine and alert when both "Percentage CPU is higher than 90%" and "Queue length is over 300 items". When an alert rule has multiple conditions, the alert fires when all the conditions in the alert rule are true and is resolved when at least one of the conditions is no longer true for three consecutive checks.
 ### Narrow your metric alert target with dimensions
@@ -98,7 +98,7 @@ You can specify the scope of monitoring with a single metric alert rule in one o
 - all virtual machines (in one Azure region) in one or more resource groups in a subscription
 - all virtual machines (in one Azure region) in a subscription
 
-## Log Alerts
+## Log alerts
 A log alert rule monitors a resource by using a Log Analytics query to evaluate resource logs at a set frequency. If the conditions are met, an alert is fired. Because you can use Log Analytics queries, log alerts allow you to perform advanced logic operations on your data and to use the robust features of KQL for data manipulation of log data.
 
 The target of the log alert rule can be:
@@ -108,21 +108,24 @@ The target of the log alert rule can be:
 
 Log alerts can measure two different things which can be used for different monitoring scenarios:
 - Table rows: The number of rows returned can be used to work with events such as Windows event logs, syslog, application exceptions.
-- Calculation of a value: Calculations based on any numeric column can be used to include any number of resources. For example, CPU percentage.
+- Calculation of a numeric column: Calculations based on any numeric column can be used to include any number of resources. For example, CPU percentage.
 
 You can configure if log alerts are [stateful or stateless](alerts-overview-new.md#alerts-and-state) (currently in preview).
 
-### Dimensions in Log alert rules
+> [!NOTE]
+> Log alerts work best when you are trying to detect specific data in the logs, as opposed to when you are trying to detect a **lack** of data in the logs. Since logs are semi-structured data, they are inherently more latent than metric data on information like a VM heartbeat. To avoid misfires when you are trying to detect a lack of data in the logs, consider using [metric alerts](#metric-alerts). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
+
+### Dimensions in log alert rules
 You can use dimensions when creating log alert rules to monitor the values of multiple instances of a resource with one rule. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually notifications are sent for each instance.
 
 ### Splitting by dimensions in log alert rules
-To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations using numerical or string columns. Splitting on Azure resource ID column makes the specified resource into the alert target.
+To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. Splitting by dimensions allows you to create resource-centric alerts at scale for a subscription or resource group.  Alerts are split into separate alerts by grouping combinations using numerical or string columns. Splitting on the Azure resource ID column makes the specified resource into the alert target.
 You may also decide not to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
 
 > [!NOTE]
 > Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md). Learn more about [switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
-## Activity Log Alerts
+## Activity log alerts
 An activity log alert monitors a resource by checking the activity logs for a new activity log event that matches the defined conditions. 
 
 You may want to use activity log alerts for these types of scenarios: 

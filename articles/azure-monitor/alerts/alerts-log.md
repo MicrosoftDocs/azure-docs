@@ -32,7 +32,7 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 >     - For more advanced customizations, use Logic Apps.
 
 
-1. In the [portal](https://portal.azure.com/), select the relevant resource. We recommend monitoring at scale by using a subscription or resource group for the alert rule.
+1. In the [portal](https://portal.azure.com/), select the relevant resource. We recommend monitoring at scale by using a subscription or resource group.
 1. In the Resource menu, select **Logs**.
 1. Write a query that will find the log events for which you want to create an alert. You can use the [alert query examples article](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. From the top command bar, Select **+ New Alert rule**.
@@ -40,26 +40,55 @@ You can also [create log alert rules using Azure Resource Manager templates](../
    :::image type="content" source="media/alerts-log/alerts-create-new-alert-rule.png" alt-text="Create new alert rule.":::
 
 1. The **Condition** tab opens, populated with your log query.
+   
+   By default, the rule counts the number of results in the last 5 minutes.
+   
+   If the system detects summarized query results, the rule is automatically updated with that information.
  
     :::image type="content" source="media/alerts-log/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
 
-1. In the **Measurement** section, select values for the [**Measure**](./alerts-unified-log.md#measure), [**Aggregation type**](./alerts-unified-log.md#aggregation-type), and [**Aggregation granularity**](./alerts-unified-log.md#aggregation-granularity) fields.
-    - By default, the rule counts the number of results in the last 5 minutes.
-    - If the system detects summarized query results, the rule is automatically updated to capture that.
-    
+1. In the **Measurement** section, select values for these fields:
+   
+    |Field  |Description  |
+    |---------|---------|
+    |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, syslog, application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. For example, CPU percentage.      |
+    |Aggregation type| The calculation performed on multiple records to aggregate them to one numeric value using the aggregation granularity. For example: Total, Average, Minimum, or Maximum.    |
+    |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
+ 
     :::image type="content" source="media/alerts-log/alerts-log-measurements.png" alt-text="Measurements.":::
 
-1. (Optional) In the **Split by dimensions** section, select [alert splitting by dimensions](./alerts-unified-log.md#split-by-alert-dimensions): 
-    - If detected, The **Resource ID column** is selected automatically and changes the context of the fired alert to the record's resource. 
-    - Clear the **Resource ID column**  to fire alerts on multiple resources in subscriptions or resource groups. For example, you can create a query that checks if 80% of the resource group's virtual machines are experiencing high CPU usage.
-    - You can use the dimensions table to select up to six more splittings for any number or text columns types.
-    - Alerts are fired individually for each unique splitting combination. The alert payload includes the combination that triggered the alert.    
-1. In the **Alert logic** section, set the **Alert logic**: [**Operator**, **Threshold Value**](./alerts-unified-log.md#threshold-and-operator), and [**Frequency**](./alerts-unified-log.md#frequency).   
+1. (Optional) In the **Split by dimensions** section, you can create resource-centric alerts at scale for a subscription or resource group. Splitting by dimensions groups combinations of numerical or string columns to monitor for the same condition on multiple Azure resources.
 
-    :::image type="content" source="media/alerts-log/alerts-rule-preview-agg-params-and-splitting.png" alt-text="Preview alert rule parameters.":::
+   If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
 
-1. (Optional) In the **Advanced options** section, set the [**Number of violations to trigger the alert**](./alerts-unified-log.md#number-of-violations-to-trigger-alert).
+   You can select up to six more splittings for any number or text columns types.
+   
+   You can also decide **not** to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.  
+
+   Select values for these fields:
+
+    |Field  |Description  |
+    |---------|---------|
+    |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the Azure Resource ID column makes the specified resource into the alert target. If an Resource ID column is detected, it is selected automatically and changes the context of the fired alert to the record's resource.  |
+    |Operator|The operator used on the dimension name and value.  |
+    |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
+
+   :::image type="content" source="media/alerts-log/alerts-create-log-rule-dimensions.png" alt-text="Screenshot of the splitting by dimensions section of a new log alert rule.":::
     
+1. In the **Alert logic** section, select values for these fields:
+
+   |Field  |Description  |
+   |---------|---------|
+   |Operator| The query results are transformed into a number. In this field, select the operator to use to compare the number against the threshold.|
+   |Threshold value| A number value for the threshold. |
+   |Frequency of evaluation|The interval in which the query is run. Can be set from a minute to a day. | 
+
+    :::image type="content" source="media/alerts-log/alerts-create-log-rule-logic.png" alt-text="Screenshot of alert logic section of a new log alert rule.":::
+
+1. (Optional) In the **Advanced options** section, you can specify an impact time to trigger an alert. For example, if the Aggregation granularity is set to 5 minutes, you can trigger an alert only if three failures (15 minutes) occurred in the last hour. This setting is defined by your application business policy.
+   
+  Select values for these fields:
+
     :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Advanced options.":::
 
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
