@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Use serverless SQL pool to build a Logical Data Warehouse'
 description: This tutorial shows you how to easily create Logical data Warehouse on Azure data sources using serverless SQL pool
-services: synapse-analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: tutorial
@@ -50,6 +49,7 @@ A caller may access data source without credential if an owner of data source al
 You can explicitly define a custom credential that will be used while accessing data on external data source.
 - [Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) of the Synapse workspace
 - [Shared Access Signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) of the Azure storage
+- Custom [Service Principal Name or Azure Application identity](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types).
 - Read-only Cosmos Db account key that enables you to read Cosmos DB analytical storage.
 
 As a prerequisite, you will need to create a master key in the database:

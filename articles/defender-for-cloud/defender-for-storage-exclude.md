@@ -3,6 +3,8 @@ title: Microsoft Defender for Storage - excluding a storage account
 description: Excluding a specific storage account from a subscription with Microsoft Defender for Storage enabled.
 ms.date: 02/06/2022
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ---
 # Exclude a storage account from Microsoft Defender for Storage protections
 
@@ -38,7 +40,7 @@ To exclude specific storage accounts from Microsoft Defender for Storage when th
     If you skip this stage, your untagged resources will continue receiving daily updates from the subscription level enablement policy. That policy will enable Defender for Storage again on the account.
 
     > [!TIP]
-    > Learn more about tags in [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources).
+    > Learn more about tags in [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
 
 1. Disable Microsoft Defender for Storage for the desired account on the relevant subscription with the ``Disable-AzSecurityAdvancedThreatProtection`` cmdlet (using the same resource ID): 
 

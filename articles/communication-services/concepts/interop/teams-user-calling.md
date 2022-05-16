@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services Teams identity overview
 titleSuffix: An Azure Communication Services concept document
-description: Provides an overview of the support for Teams identity in ACS Calling SDK.
+description: Provides an overview of the support for Teams identity in Azure Communication Services Calling SDK.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -23,11 +23,11 @@ Key features of the Calling SDK:
 - **Addressing** - Azure Communication Services is using [Azure Active Directory user identifier](/powershell/module/azuread/get-azureaduser) to address communication endpoints. Clients use Azure Active Directory identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster). And are also used in [Microsoft Graph API](/graph/api/user-get).
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire. 
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications data plane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
-- **PSTN** - The Calling SDK can receive and initiate voice calls with the traditional publically switched telephony system, [using phone numbers you acquire in the Teams Admin Portal](/microsoftteams/pstn-connectivity).
+- **PSTN** - The Calling SDK can receive and initiate voice calls with the traditional publicly switched telephony system, [using phone numbers you acquire in the Teams Admin Portal](/microsoftteams/pstn-connectivity).
 - **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video data plane. 
 - **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform users of an incoming call. 
 
-## Detailed ACS capabilities 
+## Detailed Azure Communication Services capabilities 
 
 The following list presents the set of features, which are currently available in the Azure Communication Services Calling SDK for JavaScript.
 
@@ -104,6 +104,10 @@ The following list presents the set of Teams capabilities, which are currently a
 | PSTN                    | Make an Emergency call                                                               |   ❌      |
 |                         | Place a call honors location-based routing                                           |   ❌      |
 |                         | Support for survivable branch appliance                                              |   ❌      |
+| Phone system            | Receive a call from Teams auto attendant                                             |   ✔️      |
+|                         | Transfer a call to Teams auto attendant                                              |   ✔️      |
+|                         | Receive a call from Teams call queue (only conference mode)                          |   ✔️      |
+|                         | Transfer a call from Teams call queue (only conference mode)                         |   ✔️      |
 | Compliance              | Place a call honors information barriers                                             |   ✔️      |
 |                         | Support for compliance recording                                                     |   ✔️      |
 

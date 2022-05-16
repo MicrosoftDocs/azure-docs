@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/17/2022
+ms.date: 02/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,7 +20,9 @@ This article provides examples for using the string claims transformations of th
 
 ## AssertStringClaimsAreEqual
 
-Compares two claims, and throw an exception if they are not equal according to the specified comparison inputClaim1, inputClaim2 and stringComparison.
+Compares two claims, and throw an exception if they aren't equal according to the specified comparison inputClaim1, inputClaim2 and stringComparison. 
+
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#assertstringclaimsareequal) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -30,11 +32,11 @@ Compares two claims, and throw an exception if they are not equal according to t
 
 The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayControl](display-controls.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata of a self-asserted technical profile controls the error message that is presented to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
 
-![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
+![Diagram shows how to use the assert string claims are equal claims transformation.](./media/string-transformations/assert-execution.png)
 
 ### Example of AssertStringClaimsAreEqual
 
-You can use this claims transformation to make sure, two claims have the same value. If not, an error message is thrown. The following example checks that the **strongAuthenticationEmailAddress** claim is equal to **email** claim. Otherwise an error message is thrown.
+You can use this claims transformation to make sure, two claims have the same value. If not, an error message is thrown. The following example checks that the **strongAuthenticationEmailAddress** claim is equal to **email** claim. Otherwise an error message is thrown. 
 
 ```xml
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
@@ -83,7 +85,7 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 
 ## BuildUri
 
-Creates a time based on time password (TOTP) URI. The URI is a combination of the user's unique identifier, such as email address, and a secret key. The URI is later converted into a QR code that is presented to the user.
+Creates a time based on time password (TOTP) URI. The URI is a combination of the user's unique identifier, such as email address, and a secret key. The URI is later converted into a QR code that is presented to the user. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#builduri) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -127,7 +129,7 @@ The following claims transformation generates a TOTP URI that will be displayed 
 
 ## ChangeCase
 
-Changes the case of the provided claim to lower or upper case depending on the operator.
+Changes the case of the provided claim to lower or upper case depending on the operator. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#changecase) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -162,7 +164,7 @@ The following claim transformation changes the email claim to lower case.
 
 ## CompareClaims
 
-Determines whether one string claim is equal to another. The result is a new boolean claim with a value of `true` or `false`.
+Determines whether one string claim is equal to another. The result is a new boolean claim with a value of `true` or `false`. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#compareclaims) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -184,7 +186,7 @@ Use this claims transformation to check if a claim is equal to another claim.  T
   </InputClaims>
   <InputParameters>
     <InputParameter Id="operator" DataType="string" Value="NOT EQUAL" />
-    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+    <InputParameter Id="ignoreCase" DataType="boolean" Value="true" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="SameEmailAddress" TransformationClaimType="outputClaim" />
@@ -203,7 +205,7 @@ Use this claims transformation to check if a claim is equal to another claim.  T
 
 ## CompareClaimToValue
 
-Determines whether a claim value is equal to the input parameter value.
+Determines whether a claim value is equal to the input parameter value. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#compareclaimtovalue) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -225,7 +227,7 @@ Use this claims transformation to check if a claim is equal to a value you speci
   <InputParameters>
     <InputParameter Id="compareTo" DataType="string" Value="V1" />
     <InputParameter Id="operator" DataType="string" Value="not equal" />
-    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+    <InputParameter Id="ignoreCase" DataType="boolean" Value="true" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="outputClaim" />
@@ -244,7 +246,7 @@ Use this claims transformation to check if a claim is equal to a value you speci
 
 ## CopyClaimIfPredicateMatch
 
-Copies value of a claim to another if the value of the input claim matches the output claim predicate. 
+Copies value of a claim to another if the value of the input claim matches the output claim predicate. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#copyclaimifpredicatematch) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -253,7 +255,7 @@ Copies value of a claim to another if the value of the input claim matches the o
 
 ### Example of CopyClaimIfPredicateMatch
 
-The following example tries to copy the signInName claim value to phoneNumber claim. In this example, the value will not be copied.  The signInName claim is not in the expected format, phone number. For the complete sample, see [Phone number or email sign-in](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml) starter pack policy.
+The following example tries to copy the signInName claim value to phoneNumber claim. In this example, the value won't be copied.  The signInName claim isn't in the expected format, phone number. For the complete sample, see [Phone number or email sign-in](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml) starter pack policy.
 
 ```xml
 <ClaimsTransformation Id="SetPhoneNumberIfPredicateMatch" TransformationMethod="CopyClaimIfPredicateMatch">
@@ -282,7 +284,9 @@ In this example, the claims transformation will copy the value. The signInName c
 
 ## CreateOtpSecret
 
-Creates a TOTP string claim. The output of this claims transformation is a TOTP secret that is later stored in the Azure AD B2C user's account and shared with the Microsoft Authenticator app. The authenticator app uses the key to generate TOTP codes when the user needs to go through MFA. Your policy uses the key to validate the TOTP code provided by the user.
+Creates a TOTP string claim. The output of this claims transformation is a TOTP secret that is later stored in the Azure AD B2C user's account and shared with the Microsoft Authenticator app. The authenticator app uses the key to generate TOTP codes when the user needs to go through MFA. Your policy uses the key to validate the TOTP code provided by the user. 
+
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#createotpsecret) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 |----- | ----------------------- | --------- | ----- |
@@ -306,6 +310,8 @@ The following claims transformation creates a secret for the TOTP multi-factor a
 ## CreateRandomString
 
 Creates a random string using the random number generator. If the random number generator is of type `integer`, optionally a seed parameter and a maximum number may be provided. An optional string format parameter allows the output to be formatted using it, and an optional base64 parameter specifies whether the output is base64 encoded randomGeneratorType [guid, integer] outputClaim (String).
+
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#createrandomstring) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -364,7 +370,7 @@ Following example generates an integer random value between 0 and 1000. The valu
 
 ## CreateStringClaim
 
-Creates a string claim from the provided input parameter in the transformation.
+Creates a string claim from the provided input parameter in the transformation. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#createstringclaim) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 |----- | ----------------------- | --------- | ----- |
@@ -393,7 +399,7 @@ The following claims transformation creates a string value with terms of service
 
 ## FormatLocalizedString
 
-Formats multiple claims according to a provided localized format string. This transformation uses the C# `String.Format` method.
+Formats multiple claims according to a provided localized format string. This transformation uses the C# `String.Format` method. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#formatlocalizedstring) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -457,11 +463,11 @@ The claims transformation creates a response message based on the localized stri
 - Input parameters:
   - **stringFormat**:  ResponseMessge_EmailExists
 - Output claims:
-  - **outputClaim**: The email 'sarah@contoso.com' is already an account in this organization. Click Next to sign in with that account.
+  - **outputClaim**: The email 'sarah@contoso.com' is already an account in this organization. Select Next to sign in with that account.
 
 ## FormatStringClaim
 
-Formats a claim according to the provided format string. This transformation uses the C# `String.Format` method.
+Formats a claim according to the provided format string. This transformation uses the C# `String.Format` method. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#formatstringclaim) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -499,7 +505,7 @@ Use this claims transformation to format any string with one parameter {0}. The 
 
 ## FormatStringMultipleClaims
 
-Formats two claims according to the provided format string. This transformation uses the C# `String.Format` method.
+Formats two claims according to the provided format string. This transformation uses the C# `String.Format` method. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#formatstringmultipleclaims) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -540,7 +546,7 @@ Use this claims transformation to format any string with two parameters, {0} and
 
 ## GetLocalizedStringsTransformation
 
-Copies localized strings into claims.
+Copies localized strings into claims. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#getlocalizedstringstransformation) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -548,13 +554,22 @@ Copies localized strings into claims.
 
 To use the GetLocalizedStringsTransformation claims transformation:
 
-1. Define a [localization string](localization.md) and associate it with a [self-asserted-technical-profile](self-asserted-technical-profile.md).
-1. The `ElementType` of the `LocalizedString` element must be set to `GetLocalizedStringsTransformationClaimType`.
-1. The `StringId` is a unique identifier that you define, and use it later in your claims transformation.
-1. In the claims transformation, specify the list of claims to be set with the localized string. The `ClaimTypeReferenceId` is a reference to a claim already defined in the ClaimsSchema section in the policy. The `TransformationClaimType` is the name of the localized string as defined in the `StringId` of the `LocalizedString` element.
-1. In a [self-asserted technical profile](self-asserted-technical-profile.md), or a [display control](display-controls.md) input or output claims transformation, make a reference to your claims transformation.
+1. Define a [localization string](localization.md) for your [content definition](contentdefinitions.md), such as `api.selfasserted`.
+2. The `ElementType` of the `LocalizedString` element must be set to `GetLocalizedStringsTransformationClaimType`.
+3. The `StringId` is a unique identifier that you define, and use it later in your claims transformation.
+4. In the claims transformation, specify the list of claims to be set with the localized string. The `ClaimTypeReferenceId` is a reference to a claim already defined in the ClaimsSchema section in the policy. The `TransformationClaimType` is the name of the localized string as defined in the `StringId` of the `LocalizedString` element.
+5. In a [self-asserted](self-asserted-technical-profile.md), or [claims transformation](claims-transformation-technical-profile.md) technical profile's claims transformation, make a reference to your claims transformation.
+6. Associate the technical profile with the content definition, such as `api.selfasserted`. The following example shows how to associate a technical profile to the `api.selfasserted` content definition.
 
-![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
+    ```xml
+    <Metadata>
+      <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item>
+    </Metadata>
+    ```
+
+The following diagram shows how to configure the claims transformation with the localization elements:
+
+![Diagram shows how to use the get localized strings claims transformation.](./media/string-transformations/get-localized-strings-transformation.png)
 
 ### Example of GetLocalizedStringsTransformation
 
@@ -610,7 +625,7 @@ The claims transformation sets the value of the claim type *subject* with the va
 
 ## GetMappedValueFromLocalizedCollection
 
-Maps an element from the input claim's **Restriction** collection.
+Maps an element from the input claim's **Restriction** collection. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#getmappedvaluefromlocalizedcollection) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -650,11 +665,11 @@ The claims transformation looks up the text of the item and returns its value. I
 - Input claims:
   - **mapFromClaim**: B2C_V1_90001
 - Output claims:
-  - **restrictionValueClaim**: You cannot sign in because you are a minor.
+  - **restrictionValueClaim**: You can’t sign in because you're a minor.
 
 ## LookupValue
 
-Looks up a claim value from a list of values based on the value of another claim.
+Looks up a claim value from a list of values based on the value of another claim. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#lookupvalue) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -698,7 +713,7 @@ The following example looks up the domain name in one of the inputParameters col
 
 When `errorOnFailedLookup` input parameter is set to `true`, the **LookupValue** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayConrtol](display-controls.md). The `LookupNotFound` metadata of a self-asserted technical profile controls the error message that is presented to the user.
 
-![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
+![Diagram shows how to use the lookup value claims transformation.](./media/string-transformations/assert-execution.png)
 
 The following example looks up the domain name in one of the inputParameters collections. The claims transformation looks up the domain name in the identifier and returns its value (an application ID), or raises an error message.
 
@@ -727,12 +742,12 @@ The following example looks up the domain name in one of the inputParameters col
   - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
   - **errorOnFailedLookup**: true
 - Error:
-  - No match found for the input claim value in the list of input parameter ids and errorOnFailedLookup is true.
+  - No match found for the input claim value in the list of input parameter IDs and errorOnFailedLookup is true.
 
 
 ## NullClaim
 
-Cleans the value of a given claim.
+Cleans the value of a given claim. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#nullclaim) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -751,13 +766,13 @@ Use this claim transformation to remove unnecessary data from the claims propert
 ```
 
 - Input claims:
-  - **outputClaim**: Welcome to Contoso App. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions...
+  - **outputClaim**: Welcome to Contoso App. If you continue to browse and use this website, you're agreeing to comply with and be bound by the following terms and conditions...
 - Output claims:
   - **outputClaim**: NULL
 
 ## ParseDomain
 
-Gets the domain portion of an email address.
+Gets the domain portion of an email address. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#parsedomain) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -786,7 +801,7 @@ Use this claims transformation to parse the domain name after the @ symbol of th
 
 ## SetClaimIfBooleansMatch
 
-Checks that a boolean claim is `true`, or `false`. If yes, sets the output claims with the value present in `outputClaimIfMatched` input parameter.
+Checks that a boolean claim is `true`, or `false`. If yes, sets the output claims with the value present in `outputClaimIfMatched` input parameter. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#setclaimifbooleansmatch) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -826,6 +841,8 @@ For example, the following claims transformation checks if the value of **hasPro
 
 Checks that a string claim `claimToMatch` and `matchTo` input parameter are equal, and sets the output claims with the value present in `outputClaimIfMatched` input parameter, along with  compare result output claim, which is to be set as `true` or `false` based on the result of comparison.
 
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#setclaimsifregexmatch) of this claims transformation.
+
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | claimToMatch | string | The claim type, which is to be compared. |
@@ -847,7 +864,7 @@ Checks whether the provided phone number is valid, based on phone number regular
   </InputClaims>
   <InputParameters>
     <InputParameter Id="matchTo" DataType="string" Value="^[0-9]{4,16}$" />
-    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isPhone" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="Phone" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
@@ -860,14 +877,14 @@ Checks whether the provided phone number is valid, based on phone number regular
   - **claimToMatch**: "64854114520"
 - Input parameters:
   - **matchTo**: "^[0-9]{4,16}$"
-  - **outputClaimIfMatched**:  "isPhone"
+  - **outputClaimIfMatched**:  "Phone"
 - Output claims:
-  - **outputClaim**: "isPhone"
+  - **outputClaim**: "iPhone"
   - **regexCompareResultClaim**: true
 
 ### Example of SetClaimsIfRegexMatch with extract groups
 
-Checks whether the provided email address is valid, and return the email alias.
+Checks whether the provided email address is valid, and return the email alias. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#setclaimsifregexmatch-with-groups) of this claims transformation with extract groups.
 
 ```xml
 <ClaimsTransformation Id="GetAliasFromEmail" TransformationMethod="SetClaimsIfRegexMatch">
@@ -901,6 +918,8 @@ Checks whether the provided email address is valid, and return the email alias.
 ## SetClaimsIfStringsAreEqual
 
 Checks that a string claim and `matchTo` input parameter are equal, and sets the output claims with the value present in `stringMatchMsg` and `stringMatchMsgCode` input parameters, along with  compare result output claim, which is to be set as `true` or `false` based on the result of comparison.
+
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#setclaimsifstringsareequal) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -952,6 +971,8 @@ You can use this claims transformation to check if a claim is equal to value you
 
 Checks that a string claim and `matchTo` input parameter are equal, and sets the output claims with the value present in `outputClaimIfMatched` input parameter, along with  compare result output claim, which is to be set as `true` or `false` based on the result of comparison.
 
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#setclaimsifstringsmatch) of this claims transformation.
+
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | claimToMatch | string | The claim type, which is to be compared. |
@@ -996,6 +1017,8 @@ For example, the following claims transformation checks if the value of **ageGro
 
 Determines whether a specified substring occurs within the input claim. The result is a new boolean claim with a value of `true` or `false`. `true` if the value parameter occurs within this string,  otherwise, `false`.
 
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#stringcontains) of this claims transformation.
+
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | The claim type, which is to be searched. |
@@ -1032,7 +1055,7 @@ Use this claims transformation to check if a string claim type contains a substr
 
 ## StringSubstring
 
-Extracts parts of a string claim type, beginning at the character at the specified position, and returns the specified number of characters.
+Extracts parts of a string claim type, beginning at the character at the specified position, and returns the specified number of characters. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#stringjoin) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -1072,12 +1095,14 @@ For example, get the phone number country/region prefix.
 
 Searches a claim type string for a specified value, and returns a new claim type string in which all occurrences of a specified string in the current string are replaced with another specified string.
 
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#stringreplace) of this claims transformation.
+
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | The claim type, which contains the string. |
 | InputParameter | oldValue | string | The string to be searched. |
 | InputParameter | newValue | string | The string to replace all occurrences of `oldValue` |
-| OutputClaim | outputClaim | boolean | A string that is equivalent to the current string except that all instances of oldValue are replaced with newValue. If oldValue is not found in the current instance, the method returns the current instance unchanged. |
+| OutputClaim | outputClaim | boolean | A string that is equivalent to the current string except that all instances of oldValue are replaced with newValue. If oldValue isn't found in the current instance, the method returns the current instance unchanged. |
 
 ### Example of StringReplace
 
@@ -1098,7 +1123,6 @@ For example, normalize a phone number, by removing the `-` characters
 </ClaimsTransformation>
 ```
 
-
 - Input claims:
   - **inputClaim**: "+164-411-452-054"
 - Input parameters:
@@ -1110,6 +1134,8 @@ For example, normalize a phone number, by removing the `-` characters
 ## StringJoin
 
 Concatenates the elements of a specified string collection claim type, using the specified separator between each element or member.
+
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#stringsplit) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -1144,13 +1170,16 @@ The following example takes a string collection of user roles, and converts it t
 
 ## StringSplit
 
-Returns a string array that contains the substrings in this instance that are delimited by elements of a specified string.
+Returns a string array that contains the substrings in this instance that are delimited by elements of a specified string. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string#stringsubstring) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | A string claim type that contains the sub strings to split. |
 | InputParameter | delimiter | string | The string to use as a separator, such as comma `,`. |
 | OutputClaim | outputClaim | stringCollection | A string collection whose elements contain the substrings in this string that are delimited by the `delimiter` input parameter. |
+
+> [!NOTE]
+> Any existing elements in the `OutputClaim` stringCollection will be removed.
 
 ### Example of StringSplit
 
@@ -1189,4 +1218,4 @@ Claim transformations expressions in Azure AD B2C custom policies provide contex
 
 ## Next steps
 
-- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/string) on the Azure AD B2C community GitHub repo

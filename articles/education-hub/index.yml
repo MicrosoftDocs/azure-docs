@@ -6,7 +6,7 @@ summary: Use the Education Hub to quickly and easily provide students with all t
 metadata:
   title: Azure Education Hub Documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Use the Education Hub to quickly and easily provide students with all the necessary software, learning, and Azure services they need to become cloud proficient. #< 160 chars.
-  ms.service: azure-education . 
+  ms.service: azure-education
   ms.subservice: education-hub
   ms.topic: landing-page # Required
   author: tfosmark 

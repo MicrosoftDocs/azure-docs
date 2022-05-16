@@ -34,7 +34,7 @@ In general, data access from studio involves the following checks:
 
 1. Who is accessing?
     - There are multiple different types of authentication depending on the storage type. For example, account key, token, service principal, managed identity, and user identity.
-    - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage.
+    - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage. Learn more about [identity-based data access](how-to-identity-based-data-access.md).
 2. Do they have permission?
     - Are the credentials correct? If so, does the service principal, managed identity, etc., have the necessary permissions on the storage? Permissions are granted using Azure role-based access controls (Azure RBAC).
     - [Reader](../role-based-access-control/built-in-roles.md#reader) of the storage account reads metadata of the storage.
@@ -66,6 +66,9 @@ The following table lists what identities should be used for specific scenarios:
 | Access from UI | No | User's Identity |
 | Access from Job | Yes/No | Compute MSI |
 | Access from Notebook | Yes/No | User's identity |
+
+> [!TIP]
+> If you need to access data from outside Azure Machine Learning, such as using Azure Storage Explorer, _user_ identity is probably what is used. Consult the documentation for the tool or service you are using for specific information. For more information on how Azure Machine Learning works with data, see [Identity-based data access to storage services on Azure](how-to-identity-based-data-access.md).
 
 ## Azure Storage Account
 
@@ -107,7 +110,7 @@ When using Azure Data Lake Storage Gen2 as a datastore, you can use both Azure R
 
 ## Azure SQL Database
 
-To access data stored in an Azure SQL Database with a managed identity, you must create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
+To access data stored in an Azure SQL Database with a managed identity, you must create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities).
 
 After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 

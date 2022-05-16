@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 02/02/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv1
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
@@ -73,7 +73,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 1. Create the service principal. In the following example, an SP named **ml-auth** is created:
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --sdk-auth --name ml-auth --role Contributor
+    az ad sp create-for-rbac --sdk-auth --name ml-auth --role Contributor --scopes /subscriptions/<subscription id>
     ```
 
     The output will be a JSON similar to the following. Take note of the `clientId`, `clientSecret`, and `tenantId` fields, as you will need them for other steps in this article.
@@ -118,6 +118,8 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
     > [!IMPORTANT]
     > Owner access allows the service principal to do virtually any operation in your workspace. It is used in this document to demonstrate how to grant access; in a production environment Microsoft recommends granting the service principal the minimum access needed to perform the role you intend it for. For information on creating a custom role with the access needed for your scenario, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md).
+
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
     ```azurecli-interactive
     az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
@@ -245,13 +247,13 @@ You can use a service principal for Azure CLI commands. For more information, se
 The service principal can also be used to authenticate to the Azure Machine Learning [REST API](/rest/api/azureml/) (preview). You use the Azure Active Directory [client credentials grant flow](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md), which allow service-to-service calls for headless authentication in automated workflows. 
 
 > [!IMPORTANT]
-> If you are currently using Azure Active Directory Authentication Library (ADAL) to get credentials, we recommend that you [Migrate to the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-migration). ADAL support is scheduled to end on June 30, 2022.
+> If you are currently using Azure Active Directory Authentication Library (ADAL) to get credentials, we recommend that you [Migrate to the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-migration.md). ADAL support is scheduled to end on June 30, 2022.
 
 For information and samples on authenticating with MSAL, see the following articles:
 
-* JavaScript - [How to migrate a Javascript app from ADAL.js to MSAL.js](/azure/active-directory/develop/msal-compare-msal-js-and-adal-js).
-* Node.js - [How to migrate a Node.js app from ADAL to MSAL](/azure/active-directory/develop/msal-node-migration).
-* Python - [ADAL to MSAL migration guide for Python](/azure/active-directory/develop/migrate-python-adal-msal).
+* JavaScript - [How to migrate a JavaScript app from ADAL.js to MSAL.js](../active-directory/develop/msal-compare-msal-js-and-adal-js.md).
+* Node.js - [How to migrate a Node.js app from ADAL to MSAL](../active-directory/develop/msal-node-migration.md).
+* Python - [ADAL to MSAL migration guide for Python](../active-directory/develop/migrate-python-adal-msal.md).
 
 ## Use managed identity authentication
 

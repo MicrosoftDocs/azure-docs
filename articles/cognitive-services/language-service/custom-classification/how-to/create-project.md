@@ -1,14 +1,14 @@
 ---
 title: How to create custom text classification projects
 titleSuffix: Azure Cognitive Services
-description: Learn about the steps for using Azure resources with custom classification.
+description: Learn about the steps for using Azure resources with custom text classification.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 11/02/2021
+ms.topic: how-to
+ms.date: 03/21/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
 ---
@@ -28,7 +28,7 @@ Before you start using custom text classification, you will need several things:
 
 ## Azure resources
 
-Before you start using custom classification, you will need a Azure Language resource. We recommend following the steps below for creating your resource in the Azure portal . Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text classification.
+Before you start using custom text classification, you will need an Azure Language resource. We recommend following the steps below for creating your resource in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text classification.
 
 You also will need an Azure storage account where you will upload your `.txt` files that will be used to train a model to classify text.
 
@@ -42,15 +42,15 @@ You also will need an Azure storage account where you will upload your `.txt` fi
 
 ### Create a new resource from Language Studio
 
-If it's your first time logging in, you'll see a window appear in [Language Studio](https://aka.ms/languageStudio) that will let you choose a language resource or create a new one. You can also create a resource by clicking the settings icon in the top-right corner, selecting **Resources**, then clicking **Create a new resource**.
+If it's your first time logging in, you'll see a window in [Language Studio](https://aka.ms/languageStudio) that will let you choose a language resource or create a new one. You can also create a resource by clicking the settings icon in the top-right corner, selecting **Resources**, then clicking **Create a new resource**.
 
 > [!IMPORTANT]
-> * To use Custom Text Classification, you'll need a Language resource in **West US 2** or **West Europe** with the Standard (**S**) pricing tier.
+> * To use custom text classification, you'll need a Language resource in **West US 2** or **West Europe** with the Standard (**S**) pricing tier.
 > * Be sure to to select **Managed Identity** when you create a resource. 
 
 :::image type="content" source="../../media/create-new-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../../media/create-new-resource.png":::
 
-To use custom classification, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
+To use custom text classification, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
 
 Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
@@ -95,7 +95,7 @@ You can use an existing Language resource to get started with custom text classi
 |Pricing tier     | Make sure your existing resource is in the Standard (**S**) pricing tier. Only this pricing tier is supported. If your resource doesn't use this pricing  tier, you will need to create a new resource.        |
 |Managed identity     | Make sure that the resource-managed identity setting is enabled. Otherwise, read the next section. |
 
-To use custom classification, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
+To use custom text classification, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
 
 Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
@@ -122,9 +122,17 @@ To set proper roles on your storage account:
 
 1. Go to your storage account page in the [Azure portal](https://portal.azure.com/).
 2. Select **Access Control (IAM)** in the left navigation menu.
-3. Select **Add** to **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
+3. Select **Add** to **Add Role Assignments**, and choose the appropriate role for your Language resource.
+4. Select **Managed identity** under **Assign access to**. 
+5. Select **Members** and find your resource. In the window that appears, select your subscription, and **Language** as the managed identity. You can search for user names in the **Select** field. Repeat this for all roles. 
 
 [!INCLUDE [Storage connection note](../includes/storage-account-note.md)]
+
+### Enable CORS for your storage account
+
+Make sure to allow (**GET, PUT, DELETE**) methods when enabling Cross-Origin Resource Sharing (CORS). Make sure to add an asterisk (`*`) to the fields, and add the recommended value of 500 for the maximum age.
+
+:::image type="content" source="../../custom-named-entity-recognition/media/cors.png" alt-text="A screenshot showing how to use CORS for storage accounts." lightbox="../../custom-named-entity-recognition/media/cors.png":::
 
 ## Prepare training data
 

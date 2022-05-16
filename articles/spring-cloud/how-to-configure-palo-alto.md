@@ -1,8 +1,8 @@
 ---
 title: How to configure Palo Alto for Azure Spring Cloud
 description: How to configure Palo Alto for Azure Spring Cloud
-author: karlerickson
-ms.author: vaangadi
+author: KarlErickson
+ms.author: karler
 ms.topic: how-to
 ms.service: spring-cloud
 ms.date: 09/17/2021
@@ -12,6 +12,8 @@ ms.custom: devx-track-java, devx-track-azurecli
 # How to configure Palo Alto for Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article describes how to use Azure Spring Cloud with a Palo Alto firewall.
 

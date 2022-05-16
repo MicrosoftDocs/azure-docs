@@ -5,7 +5,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: tamram
 
 ms.author: tamram
-ms.date: 10/01/2021
+ms.date: 04/13/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -19,7 +19,7 @@ The purpose of the change feed is to provide transaction logs of all the changes
 
 ## How the change feed works
 
-The change feed is stored as [blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in a special container in your storage account at standard [blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) cost. You can control the retention period of these files based on your requirements (See the [conditions](#conditions) of the current release). Change events are appended to the change feed as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, Stream Analytics, and Azure Data Factory.
+Change feed records are stored as [blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in a special container in your storage account at standard [blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) cost. You can control the retention period of these files based on your requirements (See the [conditions](#conditions) of the current release). Change events are appended to the change feed as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, Stream Analytics, and Azure Data Factory.
 
 You can process these logs asynchronously, incrementally or in-full. Any number of client applications can independently read the change feed, in parallel, and at their own pace. Analytics applications such as [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) or [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) can consume logs directly as Avro files, which let you process them at a low-cost, with high-bandwidth, and without having to write a custom application.
 
@@ -46,7 +46,7 @@ You must enable the change feed on your storage account to begin capturing and r
 
 Here's a few things to keep in mind when you enable the change feed.
 
-- There's only one change feed for the blob service in each storage account and is stored in the **$blobchangefeed** container.
+- There's only one change feed for the blob service in each storage account. Change feed records are stored in the **$blobchangefeed** container.
 
 - Create, Update, and Delete changes are captured only at the blob service level.
 
@@ -137,15 +137,13 @@ The change feed produces several metadata and log files. These files are located
 > [!NOTE]
 > In the current release, the $blobchangefeed container is visible only in Azure portal but not visible in Azure Storage Explorer. You currently cannot see the $blobchangefeed container when you call ListContainers API but you are able to call the ListBlobs API directly on the container to see the blobs
 
-Your client applications can consume the change feed by using the blob change feed processor library that is provided with the Change feed processor SDK.
+Your client applications can consume the change feed by using the blob change feed processor library that is provided with the change feed processor SDK.
 
 See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
-## Understand change feed organization
-
 <a id="segment-index"></a>
 
-### Segments
+## Change feed segments
 
 The change feed is a log of changes that are organized into **hourly** *segments* but appended to and updated every few minutes. These segments are created only when there are blob change events that occur in that hour. This enables your client application to consume changes that occur within specific ranges of time without having to search through the entire log. To learn more, see the [Specifications](#specifications).
 
@@ -198,51 +196,309 @@ The segment manifest file (`meta.json`) shows the path of the change feed files 
 
 <a id="log-files"></a>
 
-### Change event records
+## Change event records
 
 The change feed files contain a series of change event records. Each change event record corresponds to one change to an individual blob. The records are serialized and written to the file using the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification. The records can be read by using the Avro file format specification. There are several libraries available to process files in that format.
 
 Change feed files are stored in the `$blobchangefeed/log/` virtual directory as [append blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). The first change feed file under each path will have `00000` in the file name (For example `00000.avro`). The name of each subsequent log file added to that path will increment by 1 (For example: `00001.avro`).
 
-The following event types are captured in the change feed records:
-- BlobCreated
-- BlobDeleted
-- BlobPropertiesUpdated
-- BlobSnapshotCreated
-
-Here's an example of change event record from change feed file converted to Json.
-
-```json
-{
-     "schemaVersion": 1,
-     "topic": "/subscriptions/dd40261b-437d-43d0-86cf-ef222b78fd15/resourceGroups/sadodd/providers/Microsoft.Storage/storageAccounts/mytestaccount",
-     "subject": "/blobServices/default/containers/mytestcontainer/blobs/mytestblob",
-     "eventType": "BlobCreated",
-     "eventTime": "2019-02-22T18:12:01.079Z",
-     "id": "55e5531f-8006-0000-00da-ca3467000000",
-     "data": {
-         "api": "PutBlob",
-         "clientRequestId": "edf598f4-e501-4750-a3ba-9752bb22df39",
-         "requestId": "00000000-0000-0000-0000-000000000000",
-         "etag": "0x8D698F13DCB47F6",
-         "contentType": "application/octet-stream",
-         "contentLength": 128,
-         "blobType": "BlockBlob",
-         "url": "",
-         "sequencer": "000000000000000100000000000000060000000000006d8a",
-         "storageDiagnostics": {
-             "bid": "11cda41c-13d8-49c9-b7b6-bc55c41b3e75",
-             "seq": "(6,5614,28042,28038)",
-             "sid": "591651bd-8eb3-c864-1001-fcd187be3efd"
-         }
-  }
-}
-```
+### Event record schemas
 
 For a description of each property, see [Azure Event Grid event schema for Blob Storage](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). The BlobPropertiesUpdated and BlobSnapshotCreated events are currently exclusive to change feed and not yet supported for Blob Storage Events.
 
 > [!NOTE]
 > The change feed files for a segment don't immediately appear after a segment is created. The length of delay is within the normal interval of publishing latency of the change feed which is within a few minutes of the change.
+
+#### Schema version 1
+
+The following event types may be captured in the change feed records with schema version 1:
+
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
+
+The following example shows a change event record in JSON format that uses event schema version 1:
+
+```json
+{
+    "schemaVersion": 1,
+    "topic": "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+    "subject": "/blobServices/default/containers/<container>/blobs/<blob>",
+    "eventType": "BlobCreated",
+    "eventTime": "2022-02-17T12:59:41.4003102Z",
+    "id": "322343e3-8020-0000-00fe-233467066726",
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "f0270546-168e-4398-8fa8-107a1ac214d2",
+        "requestId": "322343e3-8020-0000-00fe-233467000000",
+        "etag": "0x8D9F2155CBF7928",
+        "contentType": "application/octet-stream",
+        "contentLength": 128,
+        "blobType": "BlockBlob",
+        "url": "https://www.myurl.com",
+        "sequencer": "00000000000000010000000000000002000000000000001d",
+        "storageDiagnostics": {
+            "bid": "9d725a00-8006-0000-00fe-233467000000",
+            "seq": "(2,18446744073709551615,29,29)",
+            "sid": "4cc94e71-f6be-75bf-e7b2-f9ac41458e5a"
+        }
+    }
+}
+```
+
+#### Schema version 3
+
+The following event types may be captured in the change feed records with schema version 3:
+
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
+
+The following example shows a change event record in JSON format that uses event schema version 3:
+
+```json
+{
+    "schemaVersion": 3,
+    "topic": "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+    "subject": "/blobServices/default/containers/<container>/blobs/<blob>",
+    "eventType": "BlobCreated",
+    "eventTime": "2022-02-17T13:05:19.6798242Z",
+    "id": "eefe8fc8-8020-0000-00fe-23346706daaa",
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "00c0b6b7-bb67-4748-a3dc-86464863d267",
+        "requestId": "eefe8fc8-8020-0000-00fe-233467000000",
+        "etag": "0x8D9F216266170DC",
+        "contentType": "application/octet-stream",
+        "contentLength": 128,
+        "blobType": "BlockBlob",
+        "url": "https://www.myurl.com",
+        "sequencer": "00000000000000010000000000000002000000000000001d",
+        "previousInfo": {
+            "SoftDeleteSnapshot": "2022-02-17T13:08:42.4825913Z",
+            "WasBlobSoftDeleted": "true",
+            "BlobVersion": "2024-02-17T16:11:52.0781797Z",
+            "LastVersion" : "2022-02-17T16:11:52.0781797Z",
+            "PreviousTier": "Hot"
+        },
+        "snapshot": "2022-02-17T16:09:16.7261278Z",
+        "blobPropertiesUpdated" : {
+            "ContentLanguage" : {
+                "current" : "pl-Pl",
+                "previous" : "nl-NL"
+            },
+            "CacheControl" : {
+                "current" : "max-age=100",
+                "previous" : "max-age=99"
+            },
+            "ContentEncoding" : {
+                "current" : "gzip, identity",
+                "previous" : "gzip"
+            },
+            "ContentMD5" : {
+                "current" : "Q2h1Y2sgSW51ZwDIAXR5IQ==",
+                "previous" : "Q2h1Y2sgSW="
+            },
+            "ContentDisposition" : {
+                "current" : "attachment",
+                "previous" : ""
+            },
+            "ContentType" : {
+                "current" : "application/json",
+                "previous" : "application/octet-stream"
+            }
+        },
+        "storageDiagnostics": {
+            "bid": "9d726370-8006-0000-00ff-233467000000",
+            "seq": "(2,18446744073709551615,29,29)",
+            "sid": "4cc94e71-f6be-75bf-e7b2-f9ac41458e5a"
+        }
+    }
+}
+```
+
+#### Schema version 4
+
+The following event types may be captured in the change feed records with schema version 4:
+
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
+- BlobTierChanged
+- BlobAsyncOperationInitiated
+- RestorePointMarkerCreated
+
+The following example shows a change event record in JSON format that uses event schema version 4:
+
+```json
+{
+    "schemaVersion": 4,
+    "topic": "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+    "subject": "/blobServices/default/containers/<container>/blobs/<blob>",
+    "eventType": "BlobCreated",
+    "eventTime": "2022-02-17T13:08:42.4835902Z",
+    "id": "ca76bce1-8020-0000-00ff-23346706e769",
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "58fbfee9-6cf5-4096-9666-c42980beee65",
+        "requestId": "ca76bce1-8020-0000-00ff-233467000000",
+        "etag": "0x8D9F2169F42D701",
+        "contentType": "application/octet-stream",
+        "contentLength": 128,
+        "blobType": "BlockBlob",
+        "blobVersion": "2022-02-17T16:11:52.5901564Z",
+        "containerVersion": "0000000000000001",
+        "blobTier": "Archive",
+        "url": "https://www.myurl.com",
+        "sequencer": "00000000000000010000000000000002000000000000001d",
+        "previousInfo": {
+            "SoftDeleteSnapshot": "2022-02-17T13:08:42.4825913Z",
+            "WasBlobSoftDeleted": "true",
+            "BlobVersion": "2024-02-17T16:11:52.0781797Z",
+            "LastVersion" : "2022-02-17T16:11:52.0781797Z",
+            "PreviousTier": "Hot"
+        },
+        "snapshot": "2022-02-17T16:09:16.7261278Z",
+        "blobPropertiesUpdated" : {
+            "ContentLanguage" : {
+                "current" : "pl-Pl",
+                "previous" : "nl-NL"
+            },
+            "CacheControl" : {
+                "current" : "max-age=100",
+                "previous" : "max-age=99"
+            },
+            "ContentEncoding" : {
+                "current" : "gzip, identity",
+                "previous" : "gzip"
+            },
+            "ContentMD5" : {
+                "current" : "Q2h1Y2sgSW51ZwDIAXR5IQ==",
+                "previous" : "Q2h1Y2sgSW="
+            },
+            "ContentDisposition" : {
+                "current" : "attachment",
+                "previous" : ""
+            },
+            "ContentType" : {
+                "current" : "application/json",
+                "previous" : "application/octet-stream"
+            }
+        },
+        "asyncOperationInfo": {
+            "DestinationTier": "Hot",
+            "WasAsyncOperation": "true",
+            "CopyId": "copyId"
+        },
+        "storageDiagnostics": {
+            "bid": "9d72687f-8006-0000-00ff-233467000000",
+            "seq": "(2,18446744073709551615,29,29)",
+            "sid": "4cc94e71-f6be-75bf-e7b2-f9ac41458e5a"
+        }
+    }
+}
+```
+
+#### Schema version 5
+
+The following event types may be captured in the change feed records with schema version 5:
+
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
+- BlobTierChanged
+- BlobAsyncOperationInitiated
+
+The following example shows a change event record in JSON format that uses event schema version 5:
+
+```json
+{
+    "schemaVersion": 5,
+    "topic": "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+    "subject": "/blobServices/default/containers/<container>/blobs/<blob>",
+    "eventType": "BlobCreated",
+    "eventTime": "2022-02-17T13:12:11.5746587Z",
+    "id": "62616073-8020-0000-00ff-233467060cc0",
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "b3f9b39a-ae5a-45ac-afad-95ac9e9f2791",
+        "requestId": "62616073-8020-0000-00ff-233467000000",
+        "etag": "0x8D9F2171BE32588",
+        "contentType": "application/octet-stream",
+        "contentLength": 128,
+        "blobType": "BlockBlob",
+        "blobVersion": "2022-02-17T16:11:52.5901564Z",
+        "containerVersion": "0000000000000001",
+        "blobTier": "Archive",
+        "url": "https://www.myurl.com",
+        "sequencer": "00000000000000010000000000000002000000000000001d",
+        "previousInfo": {
+            "SoftDeleteSnapshot": "2022-02-17T13:12:11.5726507Z",
+            "WasBlobSoftDeleted": "true",
+            "BlobVersion": "2024-02-17T16:11:52.0781797Z",
+            "LastVersion" : "2022-02-17T16:11:52.0781797Z",
+            "PreviousTier": "Hot"
+        },
+        "snapshot" : "2022-02-17T16:09:16.7261278Z",
+        "blobPropertiesUpdated" : {
+            "ContentLanguage" : {
+                "current" : "pl-Pl",
+                "previous" : "nl-NL"
+            },
+            "CacheControl" : {
+                "current" : "max-age=100",
+                "previous" : "max-age=99"
+            },
+            "ContentEncoding" : {
+                "current" : "gzip, identity",
+                "previous" : "gzip"
+            },
+            "ContentMD5" : {
+                "current" : "Q2h1Y2sgSW51ZwDIAXR5IQ==",
+                "previous" : "Q2h1Y2sgSW="
+            },
+            "ContentDisposition" : {
+                "current" : "attachment",
+                "previous" : ""
+            },
+            "ContentType" : {
+                "current" : "application/json",
+                "previous" : "application/octet-stream"
+            }
+        },
+        "asyncOperationInfo": {
+            "DestinationTier": "Hot",
+            "WasAsyncOperation": "true",
+            "CopyId": "copyId"
+        },
+        "blobTagsUpdated": {
+            "previous": {
+                "Tag1": "Value1_3",
+                "Tag2": "Value2_3"
+            },
+            "current": {
+                "Tag1": "Value1_4",
+                "Tag2": "Value2_4"
+            }
+        },
+        "restorePointMarker": {
+            "rpi": "cbd73e3d-f650-4700-b90c-2f067bce639c",
+            "rpp": "cbd73e3d-f650-4700-b90c-2f067bce639c",
+            "rpl": "test-restore-label",
+            "rpt": "2022-02-17T13:56:09.3559772Z"
+        },
+        "storageDiagnostics": {
+            "bid": "9d726db1-8006-0000-00ff-233467000000",
+            "seq": "(2,18446744073709551615,29,29)",
+            "sid": "4cc94e71-f6be-75bf-e7b2-f9ac41458e5a"
+        }
+    }
+}
+```
 
 <a id="specifications"></a>
 

@@ -1,61 +1,88 @@
 ---
 title: Enable system-assigned managed identity for applications in Azure Spring Cloud
-description: How to enable system-assigned managed identity for application.
+titleSuffix: Azure Spring Cloud Enterprise Tier
+description: How to enable system-assigned managed identity for applications.
 author: karlerickson
-ms.author: karler
+ms.author: xiading
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 04/15/2022
 ms.custom: devx-track-java, devx-track-azurecli
+zone_pivot_groups: spring-cloud-tier-selection
 ---
 
-# How to enable system-assigned managed identity for applications in Azure Spring Cloud
+# Enable system-assigned managed identity for an application in Azure Spring Cloud
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to enable and disable system-assigned managed identities for an application in Azure Spring Cloud, using the Azure portal and CLI.
 
 Managed identities for Azure resources provide an automatically managed identity in Azure Active Directory to an Azure resource such as your application in Azure Spring Cloud. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 
-This article shows how to enable and disable system-assigned managed identities for an Azure Spring Cloud app, using the Azure portal and CLI (available from version 0.2.4).
-
 ## Prerequisites
 
-If you're unfamiliar with managed identities for Azure resources, see [overview section](../active-directory/managed-identities-azure-resources/overview.md).
-You'll need a deployed Azure Spring Cloud instance. Follow the [Quickstart to deploy by using the Azure CLI](./quickstart.md).
+If you're unfamiliar with managed identities for Azure resources, see the [Managed identities for Azure resources overview section](../active-directory/managed-identities-azure-resources/overview.md).
+
+::: zone pivot="sc-enterprise-tier"
+
+- An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- [Azure CLI version 2.30.0 or higher](/cli/azure/install-azure-cli).
+- [!INCLUDE [install-app-user-identity-extension](includes/install-app-user-identity-extension.md)]
+
+::: zone-end
+
+::: zone pivot="sc-standard-tier"
+
+- An already provisioned Azure Spring Cloud instance. For more information, see [Quickstart: Deploy your first application to Azure Spring Cloud](./quickstart.md).
+- [Azure CLI version 2.30.0 or higher](/cli/azure/install-azure-cli).
+- [!INCLUDE [install-app-user-identity-extension](includes/install-app-user-identity-extension.md)]
+
+::: zone-end
 
 ## Add a system-assigned identity
 
 Creating an app with a system-assigned identity requires setting an additional property on the application.
 
-### Using Azure portal
+### [Portal](#tab/azure-portal)
 
-To set up a managed identity in the [Azure portal](https://portal.azure.com/), first create an app, and then enable the feature.
+To set up a managed identity in the portal, first create an app, and then enable the feature.
 
 1. Create an app in the portal as you normally would. Navigate to it in the portal.
 2. Scroll down to the **Settings** group in the left navigation pane.
 3. Select **Identity**.
 4. Within the **System assigned** tab, switch **Status** to *On*. Select **Save**.
 
-![Managed identity in portal](./media/spring-cloud-managed-identity/identity-1.png)
+:::image type="content" source="media/enterprise/msi/msi-enable.png" alt-text="Screenshot of Azure portal showing the Identity screen for an application." lightbox="media/enterprise/msi/msi-enable.png":::
 
-### Using Azure CLI
+### [Azure CLI](#tab/azure-cli)
 
 You can enable system-assigned managed identity during app creation or on an existing app.
 
-**Enable system-assigned managed identity during creation of an app**
+### Enable system-assigned managed identity during creation of an app
 
 The following example creates an app named *app_name* with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
 
 ```azurecli
-az spring-cloud app create -n app_name -s service_name -g resource_group_name --assign-identity
+az spring-cloud app create \
+    --resource-group <resource-group-name> \
+    --name <app-name> \
+    --service <service-instance-name> \
+    --system-assigned
 ```
 
-**Enable system-assigned managed identity on an existing app**
+### Enable system-assigned managed identity on an existing app**
 
 Use `az spring-cloud app identity assign` command to enable the system-assigned identity on an existing app.
 
 ```azurecli
-az spring-cloud app identity assign -n app_name -s service_name -g resource_group_name
+az spring-cloud app identity assign \
+    --resource-group <resource-group-name> \
+    --name <app-name> \
+    --service <service-instance-name> \
+    --system-assigned
 ```
+
+---
 
 ## Obtain tokens for Azure resources
 
@@ -65,32 +92,43 @@ You may need to [configure the target resource to allow access from your applica
 
 Azure Spring Cloud shares the same endpoint for token acquisition with Azure Virtual Machine. We recommend using Java SDK or spring boot starters to acquire a token.  See [How to use VM token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) for various code and script examples and guidance on important topics such as handling token expiration and HTTP errors.
 
-Recommended: use Java SDK or spring boot starters to get tokens.  See the samples in the [Next Steps](#next-steps).
-
 ## Disable system-assigned identity from an app
 
 Removing a system-assigned identity will also delete it from Azure AD. Deleting the app resource automatically removes system-assigned identities from Azure AD.
 
-### Using Azure portal
+### [Portal](#tab/azure-portal)
 
 To remove system-assigned managed identity from an app that no longer needs it:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using an account associated with the Azure subscription that contains the Azure Spring Cloud instance.
-1. Navigate to the desired Virtual Machine and select **Identity**.
+1. Sign in to the portal using an account associated with the Azure subscription that contains the Azure Spring Cloud instance.
+1. Navigate to the desired application and select **Identity**.
 1. Under **System assigned**/**Status**, select **Off** and then select **Save**:
 
-![Managed identity](./media/spring-cloud-managed-identity/remove-identity.png)
+:::image type="content" source="media/enterprise/msi/msi-disable.png" alt-text="Screenshot of Azure portal showing the Identity screen for an application, with the Status switch set to Off." lightbox="media/enterprise/msi/msi-disable.png":::
 
-### Using Azure CLI
+### [Azure CLI](#tab/azure-cli)
 
 To remove system-assigned managed identity from an app that no longer needs it, use the following command:
 
 ```azurecli
-az spring-cloud app identity remove -n app_name -s service_name -g resource_group_name
+az spring-cloud app identity remove \
+    --resource-group <resource-group-name> \
+    --name <app-name> \
+    --service <service-instance-name> \
+    --system-assigned
 ```
+
+## Get the client ID from the object ID (principal ID)
+
+Use the following command to get the client ID from the object/principle ID value:
+
+```azurecli
+az ad sp show --id <object-ID> --query appId
+```
+
+---
 
 ## Next steps
 
-* [Access Azure Key Vault with managed identities in Spring boot starter](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
-* [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+* [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 * [How to use managed identities with Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)

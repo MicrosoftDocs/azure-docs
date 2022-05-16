@@ -27,8 +27,8 @@ The following table lists the supported cryptographic algorithms and key strengt
 
 | **IPsec/IKEv2**  | **Options**                                                                   |
 | ---              | ---                                                                           |
-| IKEv2 Encryption | AES256, AES192, AES128, DES3, DES                                             |
-| IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                     |
+| IKEv2 Encryption | GCMAES256, GCMAES128, AES256, AES192, AES128, DES3, DES                                             |
+| IKEv2 Integrity  | GCMAES256, GCMAES128, SHA384, SHA256, SHA1, MD5                                                     |
 | DH Group         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None  |
 | IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
 | IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
@@ -129,6 +129,11 @@ No. The Basic SKU does not support this.
 ### Can I change the connection protocol type after the connection is created (IKEv1 to IKEv2 and vice versa)?
 
 No. Once the connection is created, IKEv1/IKEv2 protocols cannot be changed. You must delete and recreate a new connection with the desired protocol type.
+
+### Why is my IKEv1 connection frequently reconnecting?
+If your static routing or route based IKEv1 connection is disconnecting at routine intervals, it is likely due to VPN gateways not supporting in-place rekeys. When Main mode is getting rekeyed, your IKEv1 tunnels will disconnect and take up to 5 seconds to reconnect. Your Main mode negotiation time out value will determine the frequency of rekeys. To prevent these reconnects, you can switch to using IKEv2, which supports in-place rekeys.
+
+If your connection is reconnecting at random times, follow our [troubleshooting guide](../articles/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md). 
 
 ### Where can I find more configuration information for IPsec?
 

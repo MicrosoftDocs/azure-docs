@@ -39,9 +39,13 @@ If you have a hybrid environment, with both Azure AD and on-premises AD, it's li
 1. The local security authority (LSA) service enables Kerberos and NTLM authentication on the device.
 
 > [!NOTE]
-> Windows Hello for Business requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
+> Additional configuration is required when passwordless authentication to Azure AD joined devices is used.
 >
-> FIDO2 security key based passwordless authentication with Windows 10 requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md). 
+> For FIDO2 security key based passwordless authentication and Windows Hello for Business Hybrid Cloud Trust, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md).
+> 
+> For Windows Hello for Business Hybrid Key Trust, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base).
+> 
+> For Windows Hello for Business Hybrid Certificate Trust, see [Using Certificates for AADJ On-premises Single-sign On](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-cert). 
 
 During an access attempt to a resource requesting Kerberos or NTLM in the user's on-premises environment, the device:
 
@@ -57,7 +61,7 @@ With SSO, on an Azure AD joined device you can:
 - Access a UNC path on an AD member server
 - Access an AD member web server configured for Windows-integrated security 
 
-If you want to manage your on-premises AD from a Windows device, install the [Remote Server Administration Tools for Windows 10](https://www.microsoft.com/download/details.aspx?id=45520).
+If you want to manage your on-premises AD from a Windows device, install the [Remote Server Administration Tools](https://www.microsoft.com/download/details.aspx?id=45520).
 
 You can use:
 

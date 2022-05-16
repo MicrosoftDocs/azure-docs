@@ -7,7 +7,7 @@ ms.date: 01/13/2022
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mode-other
+ms.custom: [mode-other, iot-central-frontdoor, contperf-fy22q4]
 ---
 
 # Quickstart - Use your smartphone as a device to send telemetry to an IoT Central application
@@ -59,7 +59,7 @@ To connect a device to to your IoT Central application, you need some connection
 
 To register your device:
 
-1. In IoT Central, navigate to the **Devices** page and select **Create a device**:
+1. In IoT Central, navigate to the **Devices** page and select **Add a device**:
 
     :::image type="content" source="media/quick-deploy-iot-central/create-device.png" alt-text="Screenshot that shows create a device in IoT Central.":::
 

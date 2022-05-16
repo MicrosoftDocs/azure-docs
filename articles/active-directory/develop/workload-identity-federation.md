@@ -29,6 +29,8 @@ Typically, a software workload (such as an application, service, script, or cont
 You use workload identity federation to configure an Azure AD app registration to trust tokens from an external identity provider (IdP), such as GitHub.  Once that trust relationship is created, your software workload can exchange trusted tokens from the external IdP for access tokens from Microsoft identity platform.  Your software workload then uses that access token to access the Azure AD protected resources to which the workload has been granted access. This eliminates the maintenance burden of manually managing credentials and eliminates the risk of leaking secrets or having certificates expire.
 
 ## Supported scenarios
+> [!NOTE]
+> Azure AD-issued tokens might not be used for federated identity flows.
 
 The following scenarios are supported for accessing Azure AD protected resources using workload identity federation:
 
@@ -51,8 +53,11 @@ The workflow for exchanging an external token for an access token is the same, h
 1. When the checks are satisfied, Microsoft identity platform issues an access token to the external workload.
 1. The external workload accesses Azure AD protected resources using the access token from Microsoft identity platform. A GitHub Actions workflow, for example, uses the access token to publish a web app to Azure App Service.
 
+The Microsoft identity platform stores only the first 25 signing keys when they're downloaded from the external IdP's OIDC endpoint. If the external IdP exposes more than 25 signing keys, you may experience errors when using Workload Identity Federation.
+
 ## Next steps
 Learn more about how workload identity federation works:
 - How Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and a client assertion issued by another IdP to get a token.
 - How to create, delete, get, or update [federated identity credentials](/graph/api/resources/federatedidentitycredentials-overview?view=graph-rest-beta&preserve-view=true) on an app registration using Microsoft Graph.
 - Read the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) to learn more about configuring your GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources.
+- For information about the required format of JWTs created by external identity providers, read about the [assertion format](active-directory-certificate-credentials.md#assertion-format).

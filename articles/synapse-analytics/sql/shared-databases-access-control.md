@@ -1,7 +1,6 @@
 ---
 title: How to set up access control on synchronized objects in serverless SQL pool
 description: Authorize shared databases access to non-privileged Azure AD users in serverless SQL pool.
-services: synapse-analytics
 author: Stralle
 reviewer: vvasic-msft, jovanpop-msft, WilliamDAssafMSFT 
 ms.service: synapse-analytics
@@ -52,7 +51,7 @@ After creating a login and granting permissions, users can run queries on top of
 
 More security on the objects can be managed through specific schemas and lock access to a specific schema. The workaround requires extra DDL. For this scenario, you can create new serverless database, schemas, and views that will point to the Spark tables data on ADLS.
 
-Access to the data on storage account can be managed via [ACL](/azure/storage/blobs/data-lake-storage-access-control) or regular [Storage Blob Data Owner/Reader/Contributor roles](/azure/storage/blobs/data-lake-storage-access-control-model) for Azure AD users/groups. For Service Principals (Azure AD apps), make sure you use ACL setup.
+Access to the data on storage account can be managed via [ACL](../../storage/blobs/data-lake-storage-access-control.md) or regular [Storage Blob Data Owner/Reader/Contributor roles](../../storage/blobs/data-lake-storage-access-control-model.md) for Azure AD users/groups. For Service Principals (Azure AD apps), make sure you use ACL setup.
 
 > [!NOTE]
 > - If you want to forbid using OPENROWSET on top of the data, you can use `DENY ADMINISTER BULK OPERATIONS to [login@contoso.com];` For more information, visit [DENY Server permissions](/sql/t-sql/statements/deny-server-permissions-transact-sql?view=sql-server-ver15#remarks&preserve-view=true).

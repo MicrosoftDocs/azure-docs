@@ -43,10 +43,6 @@ At the end of this tutorial, you have two Python apps:
 
 **scheduleJobService.py**, which calls a direct method in the simulated device app and updates the device twin's desired properties using a job.
 
-> [!NOTE]
-> The **Azure IoT SDK for Python** does not directly support **Jobs** functionality. Instead this tutorial offers an alternate solution utilizing asynchronous threads and timers. For further updates, see the **Service Client SDK** feature list on the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) page.
->
-
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
 ## Prerequisites
@@ -189,13 +185,16 @@ In this section, you create a Python console app that initiates a remote **lockD
 3. Add the following `import` statements and variables at the start of the **scheduleJobService.py** file. Replace the `{IoTHubConnectionString}` placeholder with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{deviceId}` placeholder with the device ID you registered in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub):
 
     ```python
+    import os
     import sys
+    import datetime
     import time
     import threading
     import uuid
+    import msrest
 
-    from azure.iot.hub import IoTHubRegistryManager
-    from azure.iot.hub.models import Twin, TwinProperties, CloudToDeviceMethod, CloudToDeviceMethodResult, QuerySpecification, QueryResult
+    from azure.iot.hub import IoTHubJobManager, IoTHubRegistryManager
+    from azure.iot.hub.models import JobProperties, JobRequest, Twin, TwinProperties, CloudToDeviceMethod
 
     CONNECTION_STRING = "{IoTHubConnectionString}"
     DEVICE_ID = "{deviceId}"
@@ -205,97 +204,81 @@ In this section, you create a Python console app that initiates a remote **lockD
     UPDATE_PATCH = {"building":43,"floor":3}
     TIMEOUT = 60
     WAIT_COUNT = 5
+
+    # Create IoTHubJobManager
+    iothub_job_manager = IoTHubJobManager.from_connection_string(CONNECTION_STRING)
+
     ```
 
-4. Add the following function that is used to query for devices:
+4. Add the following methods to run the jobs that call the direct method and device twin:
 
     ```python
-    def query_condition(iothub_registry_manager, device_id):
-
-        query_spec = QuerySpecification(query="SELECT * FROM devices WHERE deviceId = '{}'".format(device_id))
-        query_result = iothub_registry_manager.query_iot_hub(query_spec, None, 1)
-
-        return len(query_result.items)
-    ```
-
-5. Add the following methods to run the jobs that call the direct method and device twin:
-
-    ```python
-    def device_method_job(job_id, device_id, wait_time, execution_time):
+    def device_method_job(job_id, device_id, execution_time):
         print ( "" )
         print ( "Scheduling job: " + str(job_id) )
-        time.sleep(wait_time)
 
-        iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
+        job_request = JobRequest()
+        job_request.job_id = job_id
+        job_request.type = "scheduleDeviceMethod"
+        job_request.start_time = datetime.datetime.utcnow().isoformat()
+        job_request.cloud_to_device_method = CloudToDeviceMethod(method_name=METHOD_NAME, payload=METHOD_PAYLOAD)
+        job_request.max_execution_time_in_seconds = execution_time
+        job_request.query_condition = "DeviceId in ['{}']".format(device_id)
 
+        new_job_response = iothub_job_manager.create_scheduled_job(job_id, job_request)
 
-        if query_condition(iothub_registry_manager, device_id):
-            deviceMethod = CloudToDeviceMethod(method_name=METHOD_NAME, payload=METHOD_PAYLOAD)
-
-            response = iothub_registry_manager.invoke_device_method(DEVICE_ID, deviceMethod)
-
-            print ( "" )
-            print ( "Direct method " + METHOD_NAME + " called." )
-
-    def device_twin_job(job_id, device_id, wait_time, execution_time):
+    def device_twin_job(job_id, device_id, execution_time):
         print ( "" )
         print ( "Scheduling job " + str(job_id) )
-        time.sleep(wait_time)
 
-        iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
+        job_request = JobRequest()
+        job_request.job_id = job_id
+        job_request.type = "scheduleUpdateTwin"
+        job_request.start_time = datetime.datetime.utcnow().isoformat()
+        job_request.update_twin = Twin(etag="*", properties=TwinProperties(desired=UPDATE_PATCH))
+        job_request.max_execution_time_in_seconds = execution_time
+        job_request.query_condition = "DeviceId in ['{}']".format(device_id)
 
-        if query_condition(iothub_registry_manager, device_id):
+        new_job_response = iothub_job_manager.create_scheduled_job(job_id, job_request)
 
-            twin = iothub_registry_manager.get_twin(DEVICE_ID)
-            twin_patch = Twin(properties= TwinProperties(desired=UPDATE_PATCH))
-            twin = iothub_registry_manager.update_twin(DEVICE_ID, twin_patch, twin.etag)
+   ```
 
-            print ( "" )
-            print ( "Device twin updated." )
-    ```
-
-6. Add the following code to schedule the jobs and update job status. Also include the `main` routine:
+5. Add the following code to schedule the jobs and update job status. Also include the `main` routine:
 
     ```python
     def iothub_jobs_sample_run():
         try:
-            method_thr_id = uuid.uuid4()
-            method_thr = threading.Thread(target=device_method_job, args=(method_thr_id, DEVICE_ID, 20, TIMEOUT), kwargs={})
-            method_thr.start()
+            method_job_id = uuid.uuid4()
+            device_method_job(method_job_id, DEVICE_ID, TIMEOUT)
 
             print ( "" )
-            print ( "Direct method called with Job Id: " + str(method_thr_id) )
+            print ( "Direct method called with Job Id: " + str(method_job_id) )
 
-            twin_thr_id = uuid.uuid4()
-            twin_thr = threading.Thread(target=device_twin_job, args=(twin_thr_id, DEVICE_ID, 10, TIMEOUT), kwargs={})
-            twin_thr.start()
+            twin_job_id = uuid.uuid4()
+            device_twin_job(twin_job_id, DEVICE_ID, TIMEOUT)
 
             print ( "" )
-            print ( "Device twin called with Job Id: " + str(twin_thr_id) )
+            print ( "Device twin called with Job Id: " + str(twin_job_id) )
 
             while True:
                 print ( "" )
 
-                if method_thr.is_alive():
-                    print ( "...job " + str(method_thr_id) + " still running." )
-                else:
-                    print ( "...job " + str(method_thr_id) + " complete." )
+                method_job_status = iothub_job_manager.get_scheduled_job(method_job_id)
+                print ( "...job " + str(method_job_id) + " " + method_job_status.status )
 
-                if twin_thr.is_alive():
-                    print ( "...job " + str(twin_thr_id) + " still running." )
-                else:
-                    print ( "...job " + str(twin_thr_id) + " complete." )
+                twin_job_status = iothub_job_manager.get_scheduled_job(twin_job_id)
+                print ( "...job " + str(twin_job_id) + " " + twin_job_status.status )
 
                 print ( "Job status posted, press Ctrl-C to exit" )
+                time.sleep(WAIT_COUNT)
 
-                status_counter = 0
-                while status_counter <= WAIT_COUNT:
-                    time.sleep(1)
-                    status_counter += 1
-
+        except msrest.exceptions.HttpOperationError as ex:
+            print ( "" )
+            print ( "Http error {}".format(ex.response.text) )
+            return
         except Exception as ex:
             print ( "" )
-            print ( "Unexpected error {0}" % ex )
+            print ( "Unexpected error {}".format(ex) )
             return
         except KeyboardInterrupt:
             print ( "" )
@@ -322,7 +305,7 @@ You are now ready to run the applications.
     ```
 
 2. At another command prompt in your working directory, run the following command to trigger the jobs to lock the door and update the twin:
-  
+
     ```cmd/sh
     python scheduleJobService.py
     ```

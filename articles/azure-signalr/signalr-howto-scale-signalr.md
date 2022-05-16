@@ -83,6 +83,11 @@ For a table of service limits, quotas, and constraints in each tier, see [Signal
 
 In this guide, you learned about how to scale single SignalR Service instance.
 
+Autoscale is supported in Azure SignalR Service Premium Tier.
+
+> [!div class="nextstepaction"]
+> [Automatically scale units of an Azure SignalR Service](./signalr-howto-scale-autoscale.md)
+
 Multiple endpoints are also supported for scaling, sharding, and cross-region scenarios.
 
 > [!div class="nextstepaction"]

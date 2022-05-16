@@ -120,7 +120,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
         {
           "mapping": {
             "first_name": {
-              "claim": "$.vc.credentialSubject.firstName",
+              "claim": "$.vc.credentialSubject.firstName"
             },
             "last_name": {
               "claim": "$.vc.credentialSubject.lastName",
@@ -143,7 +143,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
     "vc": {
       "type": [
         "ProofOfNinjaNinja"
-      ],
+      ]
     }
   }
   ```

@@ -65,13 +65,13 @@ To get the correlation ID, use:
 
 # [Azure CLI](#tab/azure-cli)
 
-To list all the deployments for a resource group, use [az deployment group list](/cli/azure/deployment/group#az_deployment_group_list).
+To list all the deployments for a resource group, use [az deployment group list](/cli/azure/deployment/group#az-deployment-group-list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-To get a specific deployment, use the [az deployment group show](/cli/azure/deployment/group#az_deployment_group_show).
+To get a specific deployment, use the [az deployment group show](/cli/azure/deployment/group#az-deployment-group-show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
@@ -159,13 +159,13 @@ To get the correlation ID, use:
 
 # [Azure CLI](#tab/azure-cli)
 
-To list all the deployments for the current subscription, use [az deployment sub list](/cli/azure/deployment/sub?#az_deployment_sub_list).
+To list all the deployments for the current subscription, use [az deployment sub list](/cli/azure/deployment/sub?#az-deployment-sub-list).
 
 ```azurecli-interactive
 az deployment sub list
 ```
 
-To get a specific deployment, use the [az deployment sub show](/cli/azure/deployment/sub#az_deployment_sub_show).
+To get a specific deployment, use the [az deployment sub show](/cli/azure/deployment/sub#az-deployment-sub-show).
 
 ```azurecli-interactive
 az deployment sub show --name ExampleDeployment
@@ -253,13 +253,13 @@ To get the correlation ID, use:
 
 # [Azure CLI](#tab/azure-cli)
 
-To list all the deployments for a management group, use [az deployment mg list](/cli/azure/deployment/mg#az_deployment_mg_list). If you don't have sufficient permissions to view deployments for the management group, you'll get an error.
+To list all the deployments for a management group, use [az deployment mg list](/cli/azure/deployment/mg#az-deployment-mg-list). If you don't have sufficient permissions to view deployments for the management group, you'll get an error.
 
 ```azurecli-interactive
 az deployment mg list --management-group-id examplemg
 ```
 
-To get a specific deployment, use the [az deployment mg show](/cli/azure/deployment/mg#az_deployment_mg_show).
+To get a specific deployment, use the [az deployment mg show](/cli/azure/deployment/mg#az-deployment-mg-show).
 
 ```azurecli-interactive
 az deployment mg show --management-group-id examplemg --name ExampleDeployment
@@ -333,13 +333,13 @@ To get the correlation ID, use:
 
 # [Azure CLI](#tab/azure-cli)
 
-To list all the deployments for the current tenant, use [az deployment tenant list](/cli/azure/deployment/tenant#az_deployment_tenant_list). If you don't have sufficient permissions to view deployments for the tenant, you'll get an error.
+To list all the deployments for the current tenant, use [az deployment tenant list](/cli/azure/deployment/tenant#az-deployment-tenant-list). If you don't have sufficient permissions to view deployments for the tenant, you'll get an error.
 
 ```azurecli-interactive
 az deployment tenant list
 ```
 
-To get a specific deployment, use the [az deployment tenant show](/cli/azure/deployment/tenant#az_deployment_tenant_show).
+To get a specific deployment, use the [az deployment tenant show](/cli/azure/deployment/tenant#az-deployment-tenant-show).
 
 ```azurecli-interactive
 az deployment tenant show --name ExampleDeployment
@@ -425,7 +425,7 @@ To view deployment operations for other scopes, use:
 
 # [Azure CLI](#tab/azure-cli)
 
-To view the deployment operations for deployment to a resource group, use the [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment_operation_group_list) command. You must have Azure CLI 2.6.0 or later.
+To view the deployment operations for deployment to a resource group, use the [az deployment operation group list](/cli/azure/deployment/operation/group#az-deployment-operation-group-list) command. You must have Azure CLI 2.6.0 or later.
 
 ```azurecli-interactive
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
@@ -445,9 +445,9 @@ az deployment operation group list --resource-group ExampleGroup --name ExampleD
 
 To view deployment operations for other scopes, use:
 
-* [az deployment operation sub list](/cli/azure/deployment/operation/sub#az_deployment_operation_sub_list)
-* [az deployment operation mg list](/cli/azure/deployment/operation/sub#az_deployment_operation_mg_list)
-* [az deployment operation tenant list](/cli/azure/deployment/operation/sub#az_deployment_operation_tenant_list).
+* [az deployment operation sub list](/cli/azure/deployment/operation/sub#az-deployment-operation-sub-list)
+* [az deployment operation mg list](/cli/azure/deployment/operation/sub)
+* [az deployment operation tenant list](/cli/azure/deployment/operation/sub).
 
 # [HTTP](#tab/http)
 

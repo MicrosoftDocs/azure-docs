@@ -6,9 +6,9 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: cavoeg
-author: caitlinv39
-ms.date: 01/03/2020
+ms.author: mikaelw
+author: mikaelweave
+ms.date: 02/15/2022
 ---
 
 # Write Azure web application to read FHIR data in Azure API for FHIR

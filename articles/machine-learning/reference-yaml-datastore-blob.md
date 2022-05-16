@@ -6,6 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: reference
+ms.custom: cliv2
 
 author: ynpandey
 ms.author: yogipandey
@@ -14,6 +15,8 @@ ms.reviewer: laobri
 ---
 
 # CLI (v2) Azure Blob datastore YAML schema
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/azureBlob.schema.json.
 

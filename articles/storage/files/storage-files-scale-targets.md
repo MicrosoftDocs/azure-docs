@@ -1,11 +1,11 @@
 ---
 title: Azure Files scalability and performance targets
 description: Learn about the capacity, IOPS, and throughput rates for Azure file shares.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/31/2022
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -56,10 +56,10 @@ There are two main types of storage accounts for Azure Files:
 | Maximum size of a file share | <ul><li>100 TiB, with large file share feature enabled<sup>2</sup></li><li>5 TiB, default</li></ul> | 100 TiB |
 | Maximum number of files in a file share | No limit | No limit |
 | Maximum request rate (Max IOPS) | <ul><li>20,000, with large file share feature enabled<sup>2</sup></li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 3000 + 1 IOPS per GiB, up to 100,000</li><li>IOPS bursting: Max (10000, 3x IOPS per GiB), up to 100,000</li></ul> |
-| Throughput (ingress + egress) for a single file share | <ul><li>Up to 300 MiB/sec, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB) |
+| Throughput (ingress + egress) for a single file share (MiB/sec) | <ul><li>Up to 300 MiB/sec, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB) |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots |
-| Maximum object (directories and files) name length | 2,048 characters | 2,048 characters |
-| Maximum pathname component (in the path \A\B\C\D, each letter is a component) | 255 characters | 255 characters |
+| Maximum object name length (total pathname including all directories and filename) | 2,048 characters | 2,048 characters |
+| Maximum individual pathname component length (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters |
 | Hard link limit (NFS only) | N/A | 178 |
 | Maximum number of SMB Multichannel channels | N/A | 4 |
 | Maximum number of stored access policies per file share | 5 | 5 |
@@ -107,6 +107,8 @@ For Azure File Sync, performance is critical in two stages:
 
 1. **Initial one-time provisioning**: To optimize performance on initial provisioning, refer to [Onboarding with Azure File Sync](../file-sync/file-sync-deployment-guide.md#onboarding-with-azure-file-sync) for the optimal deployment details.
 2. **Ongoing sync**: After the data is initially seeded in the Azure file shares, Azure File Sync keeps multiple endpoints in sync.
+> [!Note]  
+> When many server endpoints in the same sync group are syncing at the same time, they are contending for cloud service resources. As a result, upload performance will be impacted. In extreme cases, some sync sessions will fail to access the resources, and will fail. However, those sync sessions will resume shortly and eventually succeed once the congestion is reduced. 
 
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
 

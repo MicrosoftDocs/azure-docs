@@ -156,7 +156,7 @@ If access to Web.config is available, then CORS can be added through the followi
 ```
 
 ### Example
-If access to web.config is not available, then CORS can be configured by adding the following CSharp code: 
+If access to web.config is not available, then CORS can be configured by adding the following C# code: 
 ```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://example.com")
 ```
@@ -284,7 +284,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure, OnPrem |
 | **Attributes**              | N/A, SQL Version - V12 |
-| **References**              | [How to configure an Azure SQL Database firewall](../../azure-sql/database/firewall-configure.md), [Configure a Windows Firewall for Database Engine Access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) |
+| **References**              | [How to configure an Azure SQL Database firewall](/azure/azure-sql/database/firewall-configure), [Configure a Windows Firewall for Database Engine Access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) |
 | **Steps** | Firewall systems help prevent unauthorized access to computer resources. To access an instance of the SQL Server Database Engine through a firewall, you must configure the firewall on the computer running SQL Server to allow access |
 
 ## <a id="cors-api"></a>Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web API

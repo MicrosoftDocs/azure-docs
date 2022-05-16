@@ -1,19 +1,21 @@
 ---
-title: "How to guide: use custom and composed models"
+title: "How to guide: create and compose custom models with Form Recognizer v2.1"
 titleSuffix: Azure Applied AI Services
-description: Learn how to create, use, and manage Form Recognizer custom and composed models
+description: Learn how to create, compose use, and manage custom models with Form Recognizer v2.1
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 02/15/2022
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021
 ---
 
-# Use custom and composed models
+# Compose custom models v2.1
+
+> [!NOTE]
+> This how-to guide references Form Recognizer v2.1 (GA). To try Form Recognizer v3.0 (preview), see [Compose custom models v3.0 (preview)](compose-custom-models-preview.md).
 
 Form Recognizer uses advanced machine-learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models.
 
@@ -21,19 +23,15 @@ Form Recognizer uses advanced machine-learning technology to detect and extract 
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-***Model configuration window in Form Recognizer Studio***
-
-:::image type="content" source="media/studio/composed-model.png" alt-text="Screenshot: model configuration window in Form Recognizer Studio.":::
-
 In this article, you'll learn how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
 
 ## Sample Labeling tool
 
-You can see how data is extracted from custom forms by trying our Sample Labeling tool. You'll need the following:
+You can see how data is extracted from custom forms by trying our Sample Labeling tool. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -72,15 +70,7 @@ to an Azure blob storage container. If you don't know how to create an Azure sto
 
 ## Train your custom model
 
-You can [train your model](./quickstarts/try-sdk-rest-api.md#train-a-custom-model)  with or without labeled data sets. Unlabeled datasets rely solely on the [Layout API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.
-
-### Train without labels
-
-Form Recognizer uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. When you submit your input forms, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. Training without labels doesn't require manual data labeling or intensive coding and maintenance, and we recommend you try this method first.
-
-See [Build a training data set](./build-training-data-set.md) for tips on how to collect your training documents.
-
-### Train with labels
+You [train your model](./quickstarts/try-sdk-rest-api.md#train-a-custom-model)  with labeled data sets. Labeled datasets rely on the prebuilt-layout API, but supplementary human input is included such as your specific labels and field locations. Start with at least five completed forms of the same type for your labeled training data.
 
 When you train with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
@@ -194,7 +184,7 @@ Using the REST API, you can make an [Analyze Form](https://westus.dev.cognitive.
 
 ### [**Client-library SDKs**](#tab/sdks)
 
-Using the programming language of your choice to analyze a form or document with a custom or composed model. You'll need your Form Recognizer endpoint, API key, and model ID.
+Using the programming language of your choice to analyze a form or document with a custom or composed model. You'll need your Form Recognizer endpoint, key, and model ID.
 
 * [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_ModelCompose.md)
 

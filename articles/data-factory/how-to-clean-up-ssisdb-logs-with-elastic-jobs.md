@@ -4,7 +4,7 @@ description: This article describes how to clean up SSIS project deployment and 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 02/15/2022
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
@@ -12,9 +12,9 @@ ms.custom: devx-track-azurepowershell
 
 # How to clean up SSISDB logs automatically
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
-Once you provision an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF), you can use it to run SSIS packages deployed into:
+Once you provision an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines, you can use it to run SSIS packages deployed into:
 
 - SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance (Project Deployment Model)
 - file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model)
@@ -47,7 +47,7 @@ These SSISDB stored procedures clean up different SSISDB tables:
 
 These SSISDB stored procedures can also be invoked automatically on schedule via ADF, Azure SQL Managed Instance Agent, or Elastic Database Jobs.
 
-## Clean up SSISDB logs automatically via ADF
+## Clean up SSISDB logs automatically via ADF or Synapse Pipelines
 Regardless whether you use Azure SQL database server/Managed Instance to host SSISDB, you can always use ADF to clean up SSISDB logs automatically on schedule. To do so, you can prepare an Execute SSIS Package activity in ADF pipeline with an embedded package containing a single Execute SQL Task that invokes the relevant SSISDB stored procedures. See example 4) in our blog: [Run Any SQL Anywhere in 3 Easy Steps with SSIS in Azure Data Factory](https://techcommunity.microsoft.com/t5/sql-server-integration-services/run-any-sql-anywhere-in-3-easy-steps-with-ssis-in-azure-data/ba-p/2457244).
 
 :::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/run-sql-ssis-activity-ssis-parameters-ssisdb-clean-up.png" alt-text="SSISDB log clean-up via ADF":::
@@ -146,7 +146,7 @@ If you use Azure SQL Database server to host SSISDB, it doesn't have a built-in 
 
 Elastic Database Jobs is an Azure service that can automate and run jobs against a database or group of databases. You can schedule, run, and monitor these jobs by using Azure portal, Azure PowerShell, T-SQL, or REST APIs. Use Elastic Database Jobs to invoke the relevant SSISDB stored procedures for log clean-up one time or on a schedule. You can choose the schedule interval based on SSISDB resource usage to avoid heavy database load.
 
-For more info, see [Manage groups of databases with Elastic Database Jobs](../azure-sql/database/elastic-jobs-overview.md).
+For more info, see [Manage groups of databases with Elastic Database Jobs](/azure/azure-sql/database/elastic-jobs-overview).
 
 The following sections describe how to invoke the relevant SSISDB stored procedures, `[internal].[cleanup_server_retention_window_exclusive]`/`[internal].[cleanup_completed_jobs_exclusive]`/`[internal].[cleanup_expired_worker]`, which remove SSISDB logs that are outside their specific retention periods.
 
@@ -154,7 +154,7 @@ The following sections describe how to invoke the relevant SSISDB stored procedu
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-The following Azure PowerShell scripts create a new Elastic Job that invokes your selected SSISDB log clean-up stored procedure. For more info, see [Create an Elastic Job agent using PowerShell](../azure-sql/database/elastic-jobs-powershell-create.md).
+The following Azure PowerShell scripts create a new Elastic Job that invokes your selected SSISDB log clean-up stored procedure. For more info, see [Create an Elastic Job agent using PowerShell](/azure/azure-sql/database/elastic-jobs-powershell-create).
 
 #### Create parameters
 
@@ -282,7 +282,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 ### Configure Elastic Database Jobs using T-SQL
 
-The following T-SQL scripts create a new Elastic Job that invokes your selected SSISDB log clean-up stored procedure. For more info, see [Use T-SQL to create and manage Elastic Database Jobs](../azure-sql/database/elastic-jobs-tsql-create-manage.md).
+The following T-SQL scripts create a new Elastic Job that invokes your selected SSISDB log clean-up stored procedure. For more info, see [Use T-SQL to create and manage Elastic Database Jobs](/azure/azure-sql/database/elastic-jobs-tsql-create-manage).
 
 1. Identify an empty S0/higher service tier of Azure SQL Database or create a new one for your job database. Then create an Elastic Job Agent in [Azure portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 
@@ -315,7 +315,7 @@ The following T-SQL scripts create a new Elastic Job that invokes your selected 
    SELECT * FROM jobs.target_group_members WHERE target_group_name = 'SSISDBTargetGroup';
    ```
 
-4. Create SSISDB log clean-up user from login in SSISDB and grant it permissions to invoke SSISDB log clean-up stored procedure. For detailed guidance, see [Manage logins](../azure-sql/database/logins-create-manage.md).
+4. Create SSISDB log clean-up user from login in SSISDB and grant it permissions to invoke SSISDB log clean-up stored procedure. For detailed guidance, see [Manage logins](/azure/azure-sql/database/logins-create-manage).
 
    ```sql
    -- Connect to the master database of target server that hosts SSISDB 

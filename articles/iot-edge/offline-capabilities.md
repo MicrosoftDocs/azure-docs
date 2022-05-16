@@ -1,8 +1,8 @@
 ---
 title: Operate devices offline - Azure IoT Edge | Microsoft Docs 
 description: Understand how IoT Edge devices and modules can operate without internet connection for extended periods of time, and how IoT Edge can enable regular IoT devices to operate offline too.
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
@@ -52,6 +52,8 @@ Only non-IoT Edge devices can be added as child devices.
 <!-- end 1.1 -->
 
 IoT Edge devices and their assigned child devices can function indefinitely offline after the initial, one-time sync. However, storage of messages depends on the time to live (TTL) setting and the available disk space for storing the messages.
+
+A device's *EdgeAgent* updates its reported properties whenever there is a change in the deployment status such as a new or failed deployment. When a device is offline, the *EdgeAgent* can't report status to the Azure portal. Therefore, the device status in the Azure portal may remain **200 OK** when IoT Edge device has no internet connectivity.
 
 ## Set up parent and child devices
 

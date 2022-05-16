@@ -70,10 +70,14 @@ items:
   items:
   - name: Authentication with Azure Maps
     href: azure-maps-authentication.md
+  - name: Authentication best practices
+    href: authentication-best-practices.md
   - name: Azure Maps Event Grid integration
     href: azure-maps-event-grid-integration.md
   - name: Choose the right pricing tier
     href: choose-pricing-tier.md
+  - name: Azure Maps geographic scope
+    href: geographic-scope.md
   - name: Creator for Indoor maps
     items:
     - name: Indoor map concepts
@@ -329,10 +333,14 @@ items:
     items: 
     - name: The Azure Maps Power BI visual
       href: power-bi-visual-get-started.md
+    - name: Geocoding in Azure Maps Power BI Visual
+      href: power-bi-visual-geocode.md
     - name: Understanding layers
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer
       href: power-bi-visual-add-bubble-layer.md
+    - name: Add a pie chart layer
+      href: power-bi-visual-add-pie-chart-layer.md
     - name: Add a bar chart layer
       href: power-bi-visual-add-bar-chart-layer.md
     - name: Add a heat map layer
@@ -349,6 +357,8 @@ items:
       href: /powerapps/maker/canvas-apps/geospatial-component-map
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
+  - name: Show right attribution
+    href: how-to-show-attribution.md
 - name: Reference
   items:
   - name: API and parameter extensions
@@ -372,6 +382,8 @@ items:
   - name: REST
     items:
     - name: Data service
+      href: /rest/api/maps/data
+    - name: Data service V2
       href: /rest/api/maps/data-v2
     - name: Elevation service
       href: /rest/api/maps/elevation
@@ -385,6 +397,8 @@ items:
       href: /rest/api/maps/route
     - name: Search service
       href: /rest/api/maps/search
+    - name: Search service V2
+      href: /rest/api/maps/search-v2
     - name: Spatial service
       href: /rest/api/maps/spatial
     - name: Timezone service

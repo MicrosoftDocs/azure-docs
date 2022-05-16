@@ -1,13 +1,14 @@
 ---
 title: 'Quickstart: Run queries - Hyperscale (Citus) - Azure Database for PostgreSQL'
 description: Quickstart to run queries on table data in Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
+recommendations: false
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 01/24/2022
+ms.date: 05/05/2022
 ---
 
 # Run queries
@@ -22,44 +23,99 @@ To follow this quickstart, you'll first need to:
 3. [Create and distribute tables](quickstart-distribute-tables.md) with our
    example dataset.
 
-## Aggregate queries
+## Distributed queries
 
-Now it's time for the fun part in our quickstart series: actually running some
-queries. Let's start with a simple `count (*)` to see how much data we loaded:
+Now it's time for the fun part in our quickstart series--running queries.
+Let's start with a simple `count (*)` to verify how much data we loaded in
+the previous section.
 
 ```sql
-SELECT count(*) from github_events;
+-- count all rows (across shards)
+
+SELECT count(*) FROM github_users;
 ```
 
-That worked nicely. We'll come back to that sort of aggregation in a bit, but for now let’s look at a few other queries. Within the JSONB `payload` column there's a good bit of data, but it varies based on event type. `PushEvent` events contain a size that includes the number of distinct commits for the push. We can use it to find the total number of commits per hour:
+```
+ count
+--------
+ 264308
+(1 row)
+```
+
+Recall that `github_users` is a distributed table, meaning its data is divided
+between multiple shards. Hyperscale (Citus) automatically runs the count on all
+shards in parallel, and combines the results.
+
+Let's continue looking at a few more query examples:
 
 ```sql
+-- Find all events for a single user.
+-- (A common transactional/operational query)
+
+SELECT created_at, event_type, repo->>'name' AS repo_name
+  FROM github_events
+ WHERE user_id = 3861633;
+```
+
+```
+     created_at      |  event_type  |              repo_name
+---------------------+--------------+--------------------------------------
+ 2016-12-01 06:28:44 | PushEvent    | sczhengyabin/Google-Image-Downloader
+ 2016-12-01 06:29:27 | CreateEvent  | sczhengyabin/Google-Image-Downloader
+ 2016-12-01 06:36:47 | ReleaseEvent | sczhengyabin/Google-Image-Downloader
+ 2016-12-01 06:42:35 | WatchEvent   | sczhengyabin/Google-Image-Downloader
+ 2016-12-01 07:45:58 | IssuesEvent  | sczhengyabin/Google-Image-Downloader
+(5 rows)
+```
+
+## More complicated queries
+
+Here's an example of a more complicated query, which retrieves hourly
+statistics for push events on GitHub. It uses PostgreSQL's JSONB feature to
+handle semi-structured data.
+
+```sql
+-- Querying JSONB type. Query is parallelized across nodes.
+-- Find the number of commits on the master branch per hour 
+
 SELECT date_trunc('hour', created_at) AS hour,
        sum((payload->>'distinct_size')::int) AS num_commits
-FROM github_events
-WHERE event_type = 'PushEvent'
+FROM   github_events
+WHERE  event_type = 'PushEvent' AND
+       payload @> '{"ref":"refs/heads/master"}'
 GROUP BY hour
 ORDER BY hour;
 ```
 
-So far the queries have involved the github\_events exclusively, but we can combine this information with github\_users. Since we sharded both users and events on the same identifier (`user_id`), the rows of both tables with matching user IDs will be [colocated](concepts-colocation.md) on the same database nodes and can easily be joined.
+```
+        hour         | num_commits
+---------------------+-------------
+ 2016-12-01 05:00:00 |       13051
+ 2016-12-01 06:00:00 |       43480
+ 2016-12-01 07:00:00 |       34254
+ 2016-12-01 08:00:00 |       29307
+(4 rows)
+```
 
-If we join on `user_id`, Hyperscale (Citus) can push the join execution down into shards for execution in parallel on worker nodes. For example, let's find the users who created the greatest number of repositories:
+Hyperscale (Citus) combines the power of SQL and NoSQL datastores
+with structured and semi-structured data.
+
+In addition to running queries, Hyperscale (Citus) also applies data definition
+changes across the shards of a distributed table:
 
 ```sql
-SELECT gu.login, count(*)
-  FROM github_events ge
-  JOIN github_users gu
-    ON ge.user_id = gu.user_id
- WHERE ge.event_type = 'CreateEvent'
-   AND ge.payload @> '{"ref_type": "repository"}'
- GROUP BY gu.login
- ORDER BY count(*) DESC;
+-- DDL commands that are also parallelized
+
+ALTER TABLE github_users ADD COLUMN dummy_column integer;
 ```
 
 ## Next steps
 
-- Follow a tutorial to [build scalable multi-tenant
-  applications](./tutorial-design-database-multi-tenant.md)
-- Determine the best [initial
-  size](howto-scale-initial.md) for your server group
+The quickstart is now complete. You've successfully created a scalable
+Hyperscale (Citus) server group, created tables, distributed them, loaded data,
+and run distributed queries.
+
+Now you're ready to learn to build applications with Hyperscale (Citus).
+
+> [!div class="nextstepaction"]
+> [Build a scalable application >](howto-build-scalable-apps-overview.md)

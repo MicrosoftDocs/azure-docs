@@ -2,10 +2,9 @@
 metadata:
   title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
   description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
-  ms.topic: article
+  ms.topic: faq
   ms.service: service-bus-messaging
-  ms.date: 01/20/2021
-    
+  ms.date: 02/16/2022
 title: Azure Service Bus - Frequently asked questions (FAQ)
 summary: |
   This article discusses some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing and support information.
@@ -214,7 +213,7 @@ sections:
           ```
           ## Is it possible to disable TLS 1.0 or 1.1 on Service Bus namespaces?
 
-          No. It's not possible to disable TLS 1.0 or 1.1 on Service Bus namespaces. In your client applications connecting to Service Bus, use TLS 1.2 or above. For more information, see [Enforcing TLS 1.2 use with Azure Service Bus - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/messaging-on-azure/enforcing-tls-1-2-use-with-azure-service-bus/ba-p/370912).
+          Yes, you can disable TLS 1.0 or 1.1 on Service Bus namespaces by setting the minimum TLS version. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace](transport-layer-security-enforce-minimum-version.md).
           
 additionalContent: |
   ## Next steps

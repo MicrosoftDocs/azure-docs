@@ -7,7 +7,7 @@ author: rhurey
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2021
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
@@ -28,7 +28,7 @@ This article shows how to use Azure AD authentication with the Speech SDK. You'l
 > - Create the appropriate SDK configuration object.
 
 ## Create a Speech resource
-To create a Speech resource, see [Try Speech For Free](overview.md#try-the-speech-service-for-free).
+To create a Speech resource in the [Azure portal](https://portal.azure.com), see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 
 ## Configure the Speech resource for Azure AD authentication
 

@@ -4,6 +4,7 @@ description: Learn about the Query Store feature in Azure Database for MySQL to 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 5/12/2020
 ---
@@ -104,7 +105,7 @@ Use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-confi
 
 ## Views and functions
 
-View and manage Query Store using the following views and functions. Anyone in the [select privilege public role](howto-create-users.md#to-create-more-admin-users-in-azure-database-for-mysql) can use these views to see the data in Query Store. These views are only available in the **mysql** database.
+View and manage Query Store using the following views and functions. Anyone in the [select privilege public role](howto-create-users.md) can use these views to see the data in Query Store. These views are only available in the **mysql** database.
 
 Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they will have the same hash.
 

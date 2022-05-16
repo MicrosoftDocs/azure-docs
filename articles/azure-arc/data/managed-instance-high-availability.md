@@ -72,7 +72,7 @@ After all containers within the pod have recovered, you can connect to the manag
 
 ## High availability in Business Critical service tier
 
-In the Business Critical service tier, in addition to what is natively provided by Kubernetes orchestration, there is a new technology called Contained availability group that provides higher levels of availability. Azure Arc-enabled SQL managed instance deployed with `Business Critical` service tier can be deployed with either 2 or 3 replicas. These replicas are always kept in sync with each other. Contained availability group is built on SQL Server Always On availability groups. With contained availability groups, any pod crashes or node failures are transparent to the application as there is at least one other pod that has the SQL managed instance that has all the data from the primary and ready to take on connections.  
+In the Business Critical service tier, in addition to what is natively provided by Kubernetes orchestration, Azure SQL Managed Instance for Azure Arc provides a contained availability group. The contained availability group is built on SQL Server Always On technology. It provides higher levels of availability. Azure Arc-enabled SQL managed instance deployed with *Business Critical* service tier can be deployed with either 2 or 3 replicas. These replicas are always kept in sync with each other. With contained availability groups, any pod crashes or node failures are transparent to the application as there is at least one other pod that has the instance that has all the data from the primary and is ready to take on connections.  
 
 ## Contained availability groups
 
@@ -241,11 +241,14 @@ Additional steps are required to restore a database into an availability group. 
 
 1. Expose the primary instance external endpoint by creating a new Kubernetes service.
 
-    Determine the pod that hosts the primary replica by connecting to the managed instance and run:
+    Determine the pod that hosts the primary replica. Connect to the managed instance and run:
 
     ```sql
     SELECT @@SERVERNAME
     ```
+
+    The query returns the pod that hosts the primary replica.
+
     Create the Kubernetes service to the primary instance by running the command below if your Kubernetes cluster uses nodePort services. Replace `podName` with the name of the server returned at previous step, `serviceName` with the preferred name for the Kubernetes service created.
 
     ```console
@@ -269,12 +272,13 @@ Additional steps are required to restore a database into an availability group. 
     ```console
     kubectl get services -n <namespaceName>
     ```
+
 2. Restore the database to the primary instance endpoint.
 
     Add the database backup file into the primary instance container.
 
     ```console
-    kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name>
+    kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -c <serviceName> -n <namespaceName>
     ```
 
     Example
@@ -326,7 +330,7 @@ Additional steps are required to restore a database into an availability group. 
     ```
 
 > [!IMPORTANT]
-> As a best practice, you should cleanup by deleting the Kubernetes service created above by running this command:
+> As a best practice, you should delete the Kubernetes service created above by running this command:
 >
 >```console
 >kubectl delete svc sql2-0-p -n arc

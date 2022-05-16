@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 01/20/2022
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,7 +27,7 @@ If you have an on-premises Active Directory Domain Services (AD DS) environment 
 This article assumes that you're familiar with the [Introduction to device identity management in Azure Active Directory](./overview.md).
 
 > [!NOTE]
-> The minimum required domain controller version for Windows 10 hybrid Azure AD join is Windows Server 2008 R2.
+> The minimum required domain controller version for Windows 10 or newer hybrid Azure AD join is Windows Server 2008 R2.
 
 Hybrid Azure AD joined devices require network line of sight to your domain controllers periodically. Without this connection, devices become unusable.
 
@@ -54,13 +54,13 @@ Hybrid Azure AD join supports a broad range of Windows devices. Because the conf
 
 ### Windows current devices
 
-- Windows 10
 - Windows 11
+- Windows 10
 - Windows Server 2016
   - **Note**: Azure National cloud customers require version 1803
 - Windows Server 2019
 
-For devices running the Windows desktop operating system, supported versions are listed in this article [Windows 10 release information](/windows/release-information/). As a best practice, Microsoft recommends you upgrade to the latest version of Windows 10.
+For devices running the Windows desktop operating system, supported versions are listed in this article [Windows 10 release information](/windows/release-information/). As a best practice, Microsoft recommends you upgrade to the latest version of Windows.
 
 ### Windows down-level devices
 
@@ -91,7 +91,7 @@ As a first planning step, you should review your environment and determine wheth
 
 ### Handling devices with Azure AD registered state
 
-If your Windows 10 domain joined devices are [Azure AD registered](concept-azure-ad-register.md) to your tenant, it could lead to a dual state of hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or newer to automatically address this scenario. In pre-1803 releases, you'll need to remove the Azure AD registered state manually before enabling hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
+If your Windows 10 or newer domain joined devices are [Azure AD registered](concept-azure-ad-register.md) to your tenant, it could lead to a dual state of hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or newer to automatically address this scenario. In pre-1803 releases, you'll need to remove the Azure AD registered state manually before enabling hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
 
 - Any existing Azure AD registered state for a user would be automatically removed <i>after the device is hybrid Azure AD joined and the same user logs in</i>. For example, if User A had an Azure AD registered state on the device, the dual state for User A is cleaned up only when User A logs in to the device. If there are multiple users on the same device, the dual state is cleaned up individually when those users log in. After removing the Azure AD registered state, Windows 10 will unenroll the device from Intune or other MDM, if the enrollment happened as part of the Azure AD registration via auto-enrollment.
 - Azure AD registered state on any local accounts on the device isn’t impacted by this change. Only applicable to domain accounts. Azure AD registered state on local accounts isn't removed automatically even after user logon, since the user isn't a domain user. 
@@ -99,7 +99,7 @@ If your Windows 10 domain joined devices are [Azure AD registered](concept-azure
 - In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to reconfigure Windows Hello for Business after the dual state cleanup. This issue has been addressed with KB4512509.
 
 > [!NOTE]
-> Even though Windows 10 automatically removes the Azure AD registered state locally, the device object in Azure AD is not immediately deleted if it is managed by Intune. You can validate the removal of Azure AD registered state by running dsregcmd /status and consider the device not to be Azure AD registered based on that.
+> Even though Windows 10 and Windows 11 automatically remove the Azure AD registered state locally, the device object in Azure AD is not immediately deleted if it is managed by Intune. You can validate the removal of Azure AD registered state by running dsregcmd /status and consider the device not to be Azure AD registered based on that.
 
 ### Hybrid Azure AD join for single forest, multiple Azure AD tenants
 
@@ -164,7 +164,7 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 
 ## Review on-premises AD users UPN support for hybrid Azure AD join
 
-Sometimes, on-premises AD users UPNs are different from your Azure AD UPNs. In these cases, Windows 10 hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](../hybrid/choose-ad-authn.md), domain type, and Windows 10 version. There are two types of on-premises AD UPNs that can exist in your environment:
+Sometimes, on-premises AD users UPNs are different from your Azure AD UPNs. In these cases, Windows 10 or newer hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](../hybrid/choose-ad-authn.md), domain type, and Windows version. There are two types of on-premises AD UPNs that can exist in your environment:
 
 - Routable users UPN: A routable UPN has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](../fundamentals/add-custom-domain.md).
 - Non-routable users UPN: A non-routable UPN doesn't have a verified domain and is applicable only within your organization's private network. For example, if contoso.com is the primary domain in Azure AD and contoso.local is the primary domain in on-premises AD but isn't a verifiable domain in the internet and only used within Contoso's network.
@@ -178,7 +178,7 @@ The following table provides details on support for these on-premises AD UPNs in
 | ----- | ----- | ----- | ----- |
 | Routable | Federated | From 1703 release | Generally available |
 | Non-routable | Federated | From 1803 release | Generally available |
-| Routable | Managed | From 1803 release | Generally available, Azure AD SSPR on Windows lock screen isn't supported. The on-premises UPN must be synced to the `onPremisesUserPrincipalName` attribute in Azure AD |
+| Routable | Managed | From 1803 release | Generally available, Azure AD SSPR on Windows lock screen isn't supported in environments where the on-premises UPN is different from the Azure AD UPN. The on-premises UPN must be synced to the `onPremisesUserPrincipalName` attribute in Azure AD |
 | Non-routable | Managed | Not supported | |
 
 ## Next steps

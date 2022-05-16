@@ -4,6 +4,7 @@ description: This article describes how you can upgrade major version for Azure 
 author: Bashar-MSFT
 ms.author: bahusse
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 1/28/2021
 ---
@@ -55,7 +56,7 @@ Follow these steps to perform major version upgrade for your Azure Database of M
  
    This upgrade requires version 2.16.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. Run az version to find the version and dependent libraries that are installed. To upgrade to the latest version, run az upgrade.
 
-2. After you sign in, run the [az mysql server upgrade](/cli/azure/mysql/server#az_mysql_server_upgrade) command:
+2. After you sign in, run the [az mysql server upgrade](/cli/azure/mysql/server#az-mysql-server-upgrade) command:
 
    ```azurecli
    az mysql server upgrade --name testsvr --resource-group testgroup --subscription MySubscription --target-server-version 5.7"

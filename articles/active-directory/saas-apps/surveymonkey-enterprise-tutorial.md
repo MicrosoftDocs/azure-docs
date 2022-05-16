@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2022
+ms.date: 03/22/2022
 ms.author: jeedes
 ---
 
@@ -122,7 +122,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SurveyMonkey Enterprise SSO
 
-To configure single sign-on on **SurveyMonkey Enterprise** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [SurveyMonkey Enterprise support team](mailto:support@selerix.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **SurveyMonkey Enterprise** side, please refer [this](https://help.surveymonkey.com/teams/single-sign-on/#set-up) article.
 
 ### Create SurveyMonkey Enterprise test user
 

@@ -58,7 +58,7 @@ az login
 ```
 
 ### Get the Application ID of your IoT Central app
-In **Administration/Application Settings**, copy the **Application ID**. You use this value in later steps.
+In **Application > Management**, copy the **Application ID**. You use this value in later steps.
 
 ### Monitor messages
 Monitor the messages that are being sent to your IoT Central app from your devices. The output includes all headers and annotations.

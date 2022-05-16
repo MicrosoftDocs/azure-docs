@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 03/05/2022
 ---
 
 # Data transformation expression usage in mapping data flow
@@ -404,10 +404,13 @@ ___
 <a name="columnNames" ></a>
 
 ### <code>columnNames</code>
-<code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
-Gets the names of all output columns for a stream. You can pass an optional stream name as the second argument.  
+<code><b>columnNames(<i>&lt;value1&gt;</i> : string, i>&lt;value1&gt;</i> : boolean) => array</b></code><br/><br/>
+Gets the names of all output columns for a stream. You can pass an optional stream name as the first argument.  The second argument is also optional, with false as the default. If you set the second argument to ``true()``, ADF will return only columns that are drifted via schema drift.
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
+* ``columnNames('DeriveStream', true())``
+* ``columnNames('', true())``
+
 ___
 
 
@@ -995,10 +998,10 @@ ___
 
 ### <code>iifNull</code>
 <code><b>iifNull(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => any</b></code><br/><br/>
-Checks if the first parameter is null. If not null, the first parameter is returned. If null, the second parameter is returned. If three parameters are specified, the behavior is the same as iif(isNull(value1), value2, value3) and the third parameter is returned if the first value isn't null.  
+Given two or more inputs, returns the first not null item. This function is equivalent to coalesce.
 * ``iifNull(10, 20) -> 10``  
 * ``iifNull(null, 20, 40) -> 20``  
-* ``iifNull('azure', 'data', 'factory') -> 'factory'``  
+* ``iifNull('azure', 'data', 'factory') -> 'azure'``  
 * ``iifNull(null, 'data', 'factory') -> 'data'``  
 ___
 

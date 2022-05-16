@@ -3,8 +3,8 @@ title: Set up AutoML for time-series forecasting
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train time-series forecasting models with the Azure Machine Learning Python SDK.
 services: machine-learning
-author: nibaccam
-ms.author: nibaccam
+author: blackmist
+ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
@@ -48,7 +48,7 @@ You can specify separate [training data and validation data](concept-automated-m
 
 For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is  used for validation by default. Pass the training and validation data together, and set the number of cross validation folds with the `n_cross_validations` parameter in your `AutoMLConfig`. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage
 
-![rolling origin cross validation](./media/how-to-auto-train-forecast/ROCV.svg)
+![rolling origin cross validation](./media/how-to-auto-train-forecast/rolling-origin-cross-validation.svg)
 
 You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
@@ -77,7 +77,10 @@ Automated machine learning automatically tries different models and algorithms a
 
 ### Configuration settings
 
-Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. Forecasting tasks require the `time_column_name` and `forecast_horizon`  parameters to configure your experiment. You can also include additional parameters to better configure your run, see the [optional configurations](#optional-configurations) section for more detail on what can be included.
+Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. Forecasting tasks require the `time_column_name` and `forecast_horizon` parameters to configure your experiment. If the data includes multiple time series, such as sales data for multiple stores or energy data across different states, automated ML automatically detects this and sets the `time_series_id_column_names` parameter (preview) for you. You can also include additional parameters to better configure your run, see the [optional configurations](#optional-configurations) section for more detail on what can be included.
+
+> [!IMPORTANT]
+> Automatic time series identification is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 | Parameter&nbsp;name | Description |
 |-------|-------|
@@ -87,7 +90,6 @@ Similar to a regression problem, you define standard training parameters like ta
 The following code, 
 * Leverages the [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) class to define the forecasting parameters for your experiment training
 * Sets the `time_column_name` to the `day_datetime` field in the data set. 
-* Defines the `time_series_id_column_names` parameter to `auto`. 
 * Sets the `forecast_horizon` to 50 in order to predict for the entire test set. 
 
 
@@ -96,7 +98,6 @@ from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
 forecasting_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                                forecast_horizon=50,
-                                               time_series_id_column_names='auto',
                                                freq='W')
                                               
 ```
@@ -141,7 +142,7 @@ However, the following steps are performed only for `forecasting` task types:
 * Create time-based features to assist in learning seasonal patterns
 * Encode categorical variables to numeric quantities
 
-To get a summary of what features are created as result of these steps, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency)
+To view the full list of possible engineered features generated from time series data, see [TimeIndexFeaturizer Class](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurizer.transformer.timeseries.time_index_featurizer.timeindexfeaturizer).
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data,
@@ -228,7 +229,6 @@ automl_config = AutoMLConfig(task='forecasting',
 
 To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio UI how-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-View the [Beverage Production Forecasting notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) for a detailed code example using DNNs.
 
 ### Target rolling window aggregation
 
@@ -248,7 +248,7 @@ Automated ML considers a time series a **short series** if there are not enough 
 
 Automated ML offers short series handling by default with the `short_series_handling_configuration` parameter in the `ForecastingParameters` object. 
 
-To enable short series handling,  the `freq` parameter must also be defined. To define an hourly frequency, we will set `freq='H'`. View the frequency string options [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). To change the default behavior, `short_series_handling_configuration = 'auto'`, update the `short_series_handling_configuration` parameter in your `ForecastingParameter` object.  
+To enable short series handling,  the `freq` parameter must also be defined. To define an hourly frequency, we will set `freq='H'`. View the frequency string options by visiting the [pandas Time series page DataOffset objects section](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). To change the default behavior, `short_series_handling_configuration = 'auto'`, update the `short_series_handling_configuration` parameter in your `ForecastingParameter` object.  
 
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
@@ -422,7 +422,7 @@ See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples
 * [rolling-origin cross validation](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
 * [configurable lags](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
 * [rolling window aggregate features](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
-* [DNN](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
+
 
 ## Next steps
 

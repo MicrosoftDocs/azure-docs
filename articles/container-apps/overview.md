@@ -52,7 +52,7 @@ With Azure Container Apps, you can:
 
 - [**Provide an existing virtual network**](vnet-custom.md) when creating an environment for your container apps.
 
-- [**Securely manage secrets**](secure-app.md) directly in your application.
+- [**Securely manage secrets**](manage-secrets.md) directly in your application.
 
 - [**View application logs**](monitor.md) using Azure Log Analytics.
 

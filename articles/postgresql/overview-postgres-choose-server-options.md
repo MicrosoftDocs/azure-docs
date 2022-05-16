@@ -1,11 +1,12 @@
 ---
 title: Choose the right PostgreSQL server option in Azure
 description: Provides guidelines for choosing the right PostgreSQL server option for your deployments.
-author: sunilagarwal
-ms.author: sunila
-ms.custom: mvc
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: overview
+ms.author: sunila
+author: sunilagarwal
+ms.custom: mvc
 ms.date: 12/01/2021
 ---
 # Choose the right PostgreSQL server option in Azure
@@ -15,7 +16,7 @@ With Azure, your PostgreSQL Server workloads can run in a hosted virtual machine
 When making your decision, consider the following three options in PaaS or alternatively running on Azure VMs (IaaS)
 - [Azure Database for PostgreSQL Single Server](./overview-single-server.md)
 - [Azure Database for PostgreSQL Flexible Server](./flexible-server/overview.md)
-- [Azure Database for PostgreSQL Hyperscale (Citus)](hyperscale/index.yml)
+- [Azure Database for PostgreSQL Hyperscale (Citus)](./hyperscale/overview.md)
 
 **PostgreSQL on Azure VMs** option falls into the industry category of IaaS. With this service, you can run PostgreSQL Server inside a fully managed virtual machine on the Azure cloud platform. All recent versions and editions of PostgreSQL can be installed on an IaaS virtual machine. In the most significant difference from Azure Database for PostgreSQL, PostgreSQL on Azure VMs offers control over the database engine. However, this control comes at the cost of responsibility to manage the VMs and many database administration (DBA) tasks. These tasks include maintaining and patching database servers, database recovery, and high-availability design.
 

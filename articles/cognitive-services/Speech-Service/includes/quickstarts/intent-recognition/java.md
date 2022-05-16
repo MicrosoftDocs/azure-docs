@@ -7,13 +7,13 @@ ms.topic: include
 ms.author: eur
 ---
 
-[!INCLUDE [Header](../common/java.md)]
+[!INCLUDE [Header](../../common/java.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites-luis.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites-luis.md)]
 
 You also need to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
 
@@ -100,7 +100,7 @@ At this point, your code should look like this:
 > [!NOTE]
 > We've added some comments to this version.
 
-:::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java" id="code":::
+:::code language="java" source="~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java":::
 
 ## Build and run your app
 

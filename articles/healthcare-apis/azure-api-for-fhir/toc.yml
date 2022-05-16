@@ -1,5 +1,5 @@
 items:
-- name: Azure Healthcare APIs (preview) documentation
+- name: Azure Health Data Services documentation
   href: ../index.yml
 - name: Azure API for FHIR documentation
   href: index.yml
@@ -119,17 +119,10 @@ items:
       href: how-to-run-a-reindex.md
     - name: Search examples for Azure API for FHIR
       href: search-samples.md
-  - name: Operations
+  - name: FHIR operations
     expanded: false
     items:
-    - name: $validate
-      expanded: false
-      items:  
-      - name: Store profiles
-        href: store-profiles-in-fhir.md
-      - name: Use $validate
-        href: validation-against-profiles.md
-    - name: Export data
+    - name: $export
       expanded: false
       items:
       - name: Configure Export
@@ -138,24 +131,30 @@ items:
         href: export-data.md
       - name: De-identified export
         href: de-identified-export.md
-      - name: Copy data to Synapse
-        href: copy-to-synapse.md
-    - name: Convert data
-      expanded: false
-      items:
-      - name: $convert-data and FHIR Converter Extension Templates
-        href: convert-data.md
-    - name: Patient-everything in FHIR
-      href: patient-everything.md
-    - name: $member-match operation
+    - name: $member-match
       href: tutorial-member-match.md
+    - name: Patient/$everything
+      href: patient-everything.md
+    - name: $purge-history operation
+      href: purge-history.md
+    - name: $validate
+      expanded: false
+      items:  
+      - name: Store profiles
+        href: store-profiles-in-fhir.md
+      - name: Use $validate
+        href: validation-against-profiles.md
+  - name: How to convert data to FHIR 
+    href: convert-data.md
+  - name: Copy data to Synapse
+    href: copy-to-synapse.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Get a token for Azure API for FHIR - CLI
     href: get-healthcare-apis-access-token-cli.md
   - name: Troubleshoot failures in Azure IoT Connector for FHIR (preview)
     href: iot-troubleshoot-guide.md
-  - name: Move Azure API for FHIR
+  - name: Move to a different subscription
     href: move-fhir-service.md
 - name: Concepts
   expanded: true
@@ -173,7 +172,7 @@ items:
       href: iot-data-flow.md
     - name: Azure IoT Connector for FHIR (preview) mapping templates
       href: iot-mapping-templates.md
-  - name: FHIR Rest API capabilities
+  - name: FHIR REST API capabilities
     href: fhir-rest-api-capabilities.md
   - name: Security
     expanded: false
@@ -194,8 +193,6 @@ items:
 - name: Reference
   expanded: true
   items:
-  - name: Azure CLI
-    href: /cli/azure/healthcareapis
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

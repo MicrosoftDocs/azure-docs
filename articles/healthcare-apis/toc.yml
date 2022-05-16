@@ -1,25 +1,25 @@
 items:
 - name: Azure API for FHIR documentation
   href: ./azure-api-for-fhir/index.yml
-- name: Azure Healthcare APIs (preview) documentation
+- name: Azure Health Data Services documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-    - name: About Healthcare APIs
+    - name: About Azure Health Data Services
       href: healthcare-apis-overview.md
-    - name: About Workspace
+    - name: About workspace
       href: workspace-overview.md
     - name: FHIR service
       href: ./fhir/index.yml
     - name: DICOM service
       href: ./dicom/index.yml
-    - name: IoT connector
+    - name: MedTech service
       href: ./iot/index.yml
 - name: Quickstarts
   expanded: true
   items:
-    - name: Deploy Healthcare APIs
+    - name: Deploy Azure Health Data Services
       expanded: true
       items:
         - name: Using Portal
@@ -50,12 +50,19 @@ items:
              href: configure-azure-rbac-using-scripts.md
     - name: Get an Access Token
       href: get-access-token.md
-    - name: Access Healthcare APIs
+    - name: Access Azure Health Data Services
       href: access-healthcare-apis.md  
+    - name: Configure settings
+      expanded: true
+      items:
+      - name: Configure Private Link
+        href: healthcare-apis-configure-private-link.md
+      - name: Configure Events
+        href: ./events/events-deploy-portal.md
     - name: Diagnostic logging
       expanded: true
       items:
-      - name: Enable diagnostic logging in Healthcare APIs
+      - name: Enable diagnostic logging in Azure Health Data Services
         href: logging.md
 - name: Concepts
   expanded: true
@@ -65,10 +72,12 @@ items:
 - name: Resources
   expanded: true
   items:
-  - name: FAQs - Healthcare APIs
+  - name: FAQs - Azure Health Data Services
     href: healthcare-apis-faqs.md
   - name: GitHub projects
     href: github-projects.md
+  - name: Known issues
+    href: known-issues.md
   - name: Release notes
     href: release-notes.md 
    

@@ -17,7 +17,7 @@ This article is part of the scenario [Recommendations for configuring Azure Moni
 ## Create Log Analytics workspace
 You require at least one Log Analytics workspace to enable [Azure Monitor Logs](logs/data-platform-logs.md), which is required for collecting such data as logs from Azure resources, collecting data from the guest operating system of Azure virtual machines, and for most Azure Monitor insights. Other services such as Microsoft Sentinel and Microsoft Defender for Cloud also use a Log Analytics workspace and can share the same one that you use for Azure Monitor. You can start with a single workspace to support this monitoring, but see  [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md) for guidance on when to use multiple workspaces.
 
-There is no cost for creating a Log Analytics workspace, but there is a potential charge once you configure data to be collected into it. See [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md) for details.  
+There is no cost for creating a Log Analytics workspace, but there is a potential charge once you configure data to be collected into it. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details.  
 
 See [Create a Log Analytics workspace in the Azure portal](logs/quick-create-workspace.md) to create an initial Log Analytics workspace. See [Manage access to log data and workspaces in Azure Monitor](logs/manage-access.md) to configure access. You can use scalable methods such as Resource Manager templates to configure workspaces though,  this is often not required since most environments will require a minimal number.
 
@@ -27,7 +27,7 @@ Some monitoring of Azure resources is available automatically with no configurat
 [![Deploy Azure resource monitoring](media/best-practices-data-collection/best-practices-azure-resources.png)](media/best-practices-data-collection/best-practices-azure-resources.png#lightbox)
 
 ### Collect tenant and subscription logs
-While the [Azure Active Directory logs](../active-directory/reports-monitoring/overview-reports.md) for your tenant and the [Activity log](essentials/platform-logs-overview.md) for your subscription are collected automatically, sending them to a Log Analytics workspace enables you to analyze these events with other log data using log queries in Log Analytics. This also allows you to create log query alerts which is the only way to alert on Azure Active Directory logs and provide more complex logic than Activity log alerts.
+While the [Azure Active Directory logs](../active-directory/reports-monitoring/overview-reports.md) for your tenant and the [Activity log](essentials/platform-logs-overview.md) for your subscription are collected automatically, sending them to a Log Analytics workspace enables you to analyze these events with other log data using log queries in Log Analytics. This also allows you to create log query alerts which are the only way to alert on Azure Active Directory logs and provide more complex logic than Activity log alerts.
 
 There's no cost for sending the Activity log to a workspace, but there is a data ingestion and retention charge for Azure Active Directory logs. 
 
@@ -39,13 +39,13 @@ See [Integrate Azure AD logs with Azure Monitor logs](../active-directory/report
 ### Collect resource logs and platform metrics
 Resources in Azure automatically generate [resource logs](essentials/platform-logs-overview.md) that provide details of operations performed within the resource. Unlike platform metrics though, you need to configure resource logs to be collected. Create a diagnostic setting to send them to a Log Analytics workspace and combine them with the other data used with Azure Monitor Logs. The same diagnostic setting can be used to also send the platform metrics for most resources to the same workspace, which allows you to analyze metric data using log queries with other collected data.
 
-There is a cost for collecting resource logs in your Log Analytics workspace, so only select those log categories with valuable data. Collecting all categories will incur cost for collecting data with little value. See the monitoring documentation for each Azure service for a description of categories and recommendations for which to collect. Also see [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md) for details on optimizing the cost of your log collection.
+There is a cost for collecting resource logs in your Log Analytics workspace, so only select those log categories with valuable data. Collecting all categories will incur cost for collecting data with little value. See the monitoring documentation for each Azure service for a description of categories and recommendations for which to collect. Also see [Azure Monitor best practices - cost management](logs/cost-logs.md) for recommendations on optimizing the cost of your log collection.
 
-See [Create diagnostic setting to collect resource logs and metrics in Azure](essentials/diagnostic-settings.md#create-in-azure-portal) to create a diagnostic setting for an Azure resource. 
+See [Create diagnostic setting to collect resource logs and metrics in Azure](essentials/diagnostic-settings.md#create-diagnostic-settings) to create a diagnostic setting for an Azure resource. 
 
 Since a diagnostic setting needs to be created for each Azure resource, use Azure Policy to automatically create a diagnostic setting as each resource is created. Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition.
 
-See [Create at scale using Azure Policy](essentials/diagnostic-settings.md#create-at-scale-using-azure-policy) for a process for creating policy definitions for a particular Azure service and details for creating diagnostic settings at scale.
+See [Create diagnostic settings at scale using Azure Policy](essentials/diagnostic-settings-policy.md) for a process for creating policy definitions for a particular Azure service and details for creating diagnostic settings at scale.
 
 ### Enable insights
 Insights provide a specialized monitoring experience for a particular service. They use the same data already being collected such as platform metrics and resource logs, but they provide custom workbooks the assist you in identifying and analyzing the most critical data. Most insights will be available in the Azure portal with no configuration required, other than collecting resource logs for that service. See the monitoring documentation for each Azure service to determine whether it has an insight and if it requires configuration.
@@ -74,7 +74,7 @@ Azure Monitor monitors your custom applications using [Application Insights](app
 ### Create an application resource
 Application Insights is the feature of Azure Monitor for monitoring your cloud native and hybrid applications.
 
-You must create a resource in Application Insights for each application that you're going to monitor. Log data collected by Application Insights is stored in Azure Monitor Logs for a workspace-based application. Log data for classic applications is stored separate from your Log Analytics workspace as described in [Data structure](logs/data-platform-logs.md#data-structure).
+You must create a resource in Application Insights for each application that you're going to monitor. Log data collected by Application Insights is stored in Azure Monitor Logs for a workspace-based application. Log data for classic applications is stored separate from your Log Analytics workspace as described in [Data structure](logs/log-analytics-workspace-overview.md#data-structure).
 
  When you create the application, you must select whether to use classic or workspace-based. See [Create an Application Insights resource](app/create-new-resource.md) to create a classic application. 
 See [Workspace-based Application Insights resources (preview)](app/create-workspace-resource.md) to create a workspace-based application.
@@ -106,7 +106,7 @@ To enable monitoring for an application, you must decide whether you will use co
 - [Other platforms](app/platforms.md)
 
 ### Configure availability testing
-Availability tests in Application Insights are recurring tests that monitor the availability and responsiveness of your application at regular intervals from points around the world. You can create a simple ping test for free or create a sequence of web requests to simulate user transactions which has associated cost. 
+Availability tests in Application Insights are recurring tests that monitor the availability and responsiveness of your application at regular intervals from points around the world. You can create a simple ping test for free or create a sequence of web requests to simulate user transactions which have associated cost. 
 
 See [Monitor the availability of any website](app/monitor-web-app-availability.md) for summary of the different kinds of test and details on creating them.
 

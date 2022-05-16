@@ -56,7 +56,7 @@ Or you can:
 
 ## Create an experiment
 
-Create an [experiment](concept-azure-machine-learning-architecture.md#experiments) in your workspace. An experiemnt is a light-weight container that helps to organize run submissions and keep track of code.
+Create an [experiment](concept-azure-machine-learning-architecture.md#experiments) in your workspace. An experiment is a light-weight container that helps to organize run submissions and keep track of code.
 
 ```python
 from azureml.core import Experiment

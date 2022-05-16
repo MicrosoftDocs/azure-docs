@@ -1,7 +1,6 @@
 ---
 title: Workload classification for dedicated SQL pool
 description: Guidance for using classification to manage query concurrency, importance, and compute resources for dedicated SQL pool in Azure Synapse Analytics.
-services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics

@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Teams interop on Azure Communication Services
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to join an Teams meeting with the Azure Communication Calling SDK.
+description: In this quickstart, you'll learn how to join a Teams meeting with the Azure Communication Calling SDK.
 author: chpalm
 ms.author: chpalm
 ms.date: 06/30/2021
@@ -40,5 +40,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 For more information, see the following articles:
 
 - Check out our [calling hero sample](../../samples/calling-hero-sample.md)
+- Get started with the [UI Library](https://aka.ms/acsstorybook)
 - Learn about [Calling SDK capabilities](./getting-started-with-calling.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

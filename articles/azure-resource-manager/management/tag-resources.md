@@ -2,15 +2,20 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 01/28/2022
+ms.date: 05/03/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Use tags to organize your Azure resources and management hierarchy
 
-You apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name _Environment_ and the value _Production_ to all the resources in production.
+You apply tags to your Azure resources, resource groups, and subscriptions to logically organize them by values that make sense for your organization. Each tag consists of a name and a value pair. For example, you can apply the name _Environment_ and the value _Production_ to all the resources in production.
 
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
+
+Resource tags support all cost-accruing services. To ensure that cost-accruing services are provisioned with a tag, use one of the [tag policies](tag-policies.md).  
+
+> [!WARNING]
+> Tags are stored as plain text. Never add sensitive values to tags. Sensitive values could be exposed through many methods, including cost reports, commands that return existing tag definitions, deployment histories, exported templates, and monitoring logs.
 
 > [!IMPORTANT]
 > Tag names are case-insensitive for operations. A tag with a tag name, regardless of casing, is updated or retrieved. However, the resource provider might keep the casing you provide for the tag name. You'll see that casing in cost reports.
@@ -237,7 +242,7 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### Apply tags
 
-Azure CLI offers two commands for applying tags: [az tag create](/cli/azure/tag#az_tag_create) and [az tag update](/cli/azure/tag#az_tag_update). You must have Azure CLI 2.10.0 or later. You can check your version with `az version`. To update or install, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+Azure CLI offers two commands for applying tags: [az tag create](/cli/azure/tag#az-tag-create) and [az tag update](/cli/azure/tag#az-tag-update). You must have Azure CLI 2.10.0 or later. You can check your version with `az version`. To update or install, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 The `az tag create` replaces all tags on the resource, resource group, or subscription. When calling the command, pass in the resource ID of the entity you wish to tag.
 
@@ -358,7 +363,7 @@ az tag update --resource-id /subscriptions/$sub --operation Merge --tags Team="W
 
 ### List tags
 
-To get the tags for a resource, resource group, or subscription, use the [az tag list](/cli/azure/tag#az_tag_list) command and pass in the resource ID for the entity.
+To get the tags for a resource, resource group, or subscription, use the [az tag list](/cli/azure/tag#az-tag-list) command and pass in the resource ID for the entity.
 
 To see the tags for a resource, use:
 
@@ -419,7 +424,7 @@ The specified tags are removed.
 },
 ```
 
-To remove all tags, use the [az tag delete](/cli/azure/tag#az_tag_delete) command.
+To remove all tags, use the [az tag delete](/cli/azure/tag#az-tag-delete) command.
 
 ```azurecli-interactive
 az tag delete --resource-id $resource
@@ -847,12 +852,13 @@ The following limitations apply to tags:
 * Each resource, resource group, and subscription can have a maximum of 50 tag name/value pairs. If you need to apply more tags than the maximum allowed number, use a JSON string for the tag value. The JSON string can contain many values that are applied to a single tag name. A resource group or subscription can contain many resources that each have 50 tag name/value pairs.
 * The tag name is limited to 512 characters, and the tag value is limited to 256 characters. For storage accounts, the tag name is limited to 128 characters, and the tag value is limited to 256 characters.
 * Tags can't be applied to classic resources such as Cloud Services.
-* Azure IP Groups and Azure Firewall Policies don't support PATCH operations, which means they don't support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update) command.
+* Azure IP Groups and Azure Firewall Policies don't support PATCH operations, which means they don't support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az-network-ip-group-update) command.
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > * Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number.
-   > * Azure DNS tag names do not support special and unicode characters. The value can contain all characters.
+   > * Azure DNS zones don't support the use of spaces in the tag or a tag that starts with a number. Azure DNS tag names do not support special and unicode characters. The value can contain all characters.
+   >
+   > * Traffic Manager doesn't support the use of spaces, `#` or `:` in the tag name. The tag name can't start with a number.
    >
    > * Azure Front Door doesn't support the use of `#` or `:` in the tag name.
    >

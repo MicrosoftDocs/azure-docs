@@ -49,7 +49,7 @@ To query all collections in your dataset:
 
 4. Select **Send**.
 
-5. The response body is returned in GeoJSON format and contains all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](/rest/api/maps/v2/wfs/collection-description). To learn more about any collection, you can select any of the URLs inside the `links` element.
+5. The response body is returned in GeoJSON format and contains all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](/rest/api/maps/v2/wfs/get-collection-definition). To learn more about any collection, you can select any of the URLs inside the `links` element.
 
     ```json
     {
@@ -129,7 +129,7 @@ To query the unit collection in your dataset:
 
 ## Additional information
 
-See [WFS](/rest/api/maps/wfs) for information on the Creator Web Feature Service REST API.
+See [WFS](/rest/api/maps/v2/wfs) for information on the Creator Web Feature Service REST API.
 
 ## Next steps
 

@@ -460,7 +460,7 @@
 #      topicHref: /azure/cognitive-services/translator-speech/
     - name: Video Indexer
       tocHref: /azure/cognitive-services/video-indexer/
-      topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
+      topicHref: /azure/azure-video-indexer/video-indexer-overview
     - name: Web Language Model
       tocHref: /azure/cognitive-services/web-language-model/
       topicHref: https://www.programmableweb.com/sdk/microsoft-cognitive-services-web-language-model-c-sdk-microsoft
@@ -604,7 +604,7 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
-  - name: Healthcare APIs
+  - name: Health Data Services
     tocHref: /azure/healthcare-apis/
     topicHref: /azure/healthcare-apis/
     items:
@@ -614,12 +614,12 @@
     - name: DICOM service
       tocHref: /azure/healthcare-apis/dicom/
       topicHref: /azure/healthcare-apis/dicom/index
-    - name: Data Transformation
-      tocHref: /azure/healthcare-apis/data-transformation/
-      topicHref: /azure/healthcare-apis/fhir/convert-data
-    - name: IoT connector
+    - name: MedTech service
       tocHref: /azure/healthcare-apis/iot/
       topicHref: /azure/healthcare-apis/iot/index
+    - name: Events
+      tocHref: /azure/healthcare-apis/events/
+      topicHref: /azure/healthcare-apis/events/index
   - name: Azure API for FHIR
     tocHref: /azure/healthcare-apis/azure-api-for-fhir/
     topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
@@ -693,9 +693,6 @@
       - name: v2
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/
-      - name: Video Indexer
-        tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
-        topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
       - name: Azure Media Player
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
@@ -770,9 +767,6 @@
       - name: Front Door Service
         tocHref: /azure/frontdoor/
         topicHref: /azure/frontdoor/
-      - name: Front Door Standard/Premium (Preview)
-        tocHref: /azure/frontdoor/standard-premium
-        topicHref: /azure/frontdoor/standard-premium
       - name: Internet Analyzer
         tocHref: /azure/internet-analyzer/
         topicHref: /azure/internet-analyzer/
@@ -846,6 +840,9 @@
   - name: Private Link
     tocHref: /azure/private-link/
     topicHref: /azure/private-link/
+  - name: Private 5G Core
+    tocHref: /azure/private-5g-core/
+    topicHref: /azure/private-5g-core/
   - name: Azure Cache for Redis
     tocHref: /azure/azure-cache-for-redis/
     topicHref: /azure/azure-cache-for-redis/
@@ -1051,7 +1048,7 @@
     - name: Centrally managed Azure Hybrid Benefit
       tocHref: /azure/cost-management-billing/scope-level
       topicHref: /azure/cost-management-billing/scope-level
-  - name: Azure Purview
+  - name: Microsoft Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
   - name: Applied AI Services 
@@ -1061,9 +1058,9 @@
     - name: Video Analyzer
       tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
-    - name: Video Analyzer for Media
-      tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
-      topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
+    - name: Azure Video Indexer
+      tocHref: /azure/azure-video-indexer/
+      topicHref: /azure/azure-video-indexer/
   - name: 'Azure DevTest offer (Visual Studio subscriber benefit)'
     tocHref: /azure/devtest/offer/
     topicHref: /azure/devtest/offer/overview-what-is-devtest-offer-visual-studio
@@ -1076,3 +1073,6 @@
   - name: Load Testing
     tocHref: /azure/load-testing/
     topicHref: /azure/load-testing/overview-what-is-azure-load-testing
+  - name: Azure Spring Cloud
+    tocHref: /azure/spring-cloud/
+    topicHref: /azure/spring-cloud/index

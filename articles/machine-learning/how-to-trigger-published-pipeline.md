@@ -5,8 +5,8 @@ description: Triggered pipelines allow you to automate routine, time-consuming t
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: nibaccam
-author: nibaccam
+ms.author: larryfr
+author: blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
@@ -54,7 +54,7 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 To run a pipeline on a recurring basis, you'll create a schedule. A `Schedule` associates a pipeline, an experiment, and a trigger. The trigger can either be a`ScheduleRecurrence` that describes the wait between runs or a Datastore path that specifies a directory to watch for changes. In either case, you'll need the pipeline identifier and the name of the experiment in which to create the schedule.
 
-At the top of your python file, import the `Schedule` and `ScheduleRecurrence` classes:
+At the top of your Python file, import the `Schedule` and `ScheduleRecurrence` classes:
 
 ```python
 

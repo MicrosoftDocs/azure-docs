@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets
@@ -23,46 +22,28 @@ This article walks you through enabling Application Insights monitoring using th
 
 ## Enable Application Insights
 
-There are two ways to enable application monitoring for Azure virtual machines and Azure virtual machine scale sets hosted applications:
-
-### Auto-instrumentation via Application Insights Agent
-
-* This method is the easiest to enable, and no advanced configuration is required. It is often referred to as "runtime" monitoring.
-
-* For Azure virtual machines and Azure virtual machine scale sets we recommend at a minimum enabling this level of monitoring. After that, based on your specific scenario, you can evaluate whether manual instrumentation is needed.
+Auto-instrumentation is easy to enable with no advanced configuration required.
 
 > [!NOTE]
-> Auto-instrumentation is currently only available for ASP.NET, ASP.NET Core IIS-hosted applications and Java. Use an SDK to instrument Node.js and Python applications hosted on an Azure virtual machines and virtual machine scale sets.
+> Auto-instrumentation is available for ASP.NET, ASP.NET Core IIS-hosted applications and Java. Use an SDK to instrument Node.js and Python applications hosted on an Azure virtual machines and virtual machine scale sets.
 
+### [.NET](#tab/net)
 
-#### ASP.NET / ASP.NET Core
+The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the .NET SDK. See [Dependency auto-collection](./auto-collect-dependencies.md#net) to learn more.
 
-  * The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the .NET SDK. See [Dependency auto-collection](./auto-collect-dependencies.md#net) to learn more.
-        
-#### Java
-  * For Java, **[Application Insights Java 3.0 agent](./java-in-process-agent.md)** is the recommended approach. The most popular libraries and frameworks, as well as logs and dependencies are [auto-collected](./java-in-process-agent.md#autocollected-requests), with a multitude of [additional configurations](./java-standalone-config.md)
+### [Java](#tab/Java)
 
-### Code-based via SDK
-    
-#### ASP.NET / ASP.NET Core
-  * For .NET apps, this approach is much more customizable, but it requires [adding a dependency on the Application Insights SDK NuGet packages](./asp-net.md). This method, also means you have to manage the updates to the latest version of the packages yourself.
+For Java, **[Application Insights Java 3.0 agent](./java-in-process-agent.md)** is the recommended approach. The most popular libraries and frameworks, as well as logs and dependencies are [auto-collected](./java-in-process-agent.md#autocollected-requests), with a multitude of [other configurations](./java-standalone-config.md)
 
-  * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](./api-custom-events-metrics.md) to learn more.
-
-    > [!NOTE]
-    > For .NET apps only - if both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this check out the [troubleshooting section](#troubleshooting) below.
-
-#### Java 
-
-If you need additional custom telemetry for Java applications, see what [is available](./java-in-process-agent.md#custom-telemetry), add [custom dimensions](./java-standalone-config.md#custom-dimensions), or use [telemetry processors](./java-standalone-telemetry-processors.md). 
-
-#### Node.js
+### [Node.js](#tab/nodejs)
 
 To instrument your Node.js application, use the [SDK](./nodejs.md).
 
-#### Python
+### [Python](#tab/python)
 
 To monitor Python apps, use the [SDK](./opencensus-python.md).
+
+---
 
 ## Manage Application Insights Agent for .NET applications on Azure virtual machines using PowerShell
 
@@ -120,7 +101,7 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 # Location          : southcentralus
 # ResourceId        : /subscriptions/<mySubscriptionId>/resourceGroups/<myVmResourceGroup>/providers/Microsoft.Compute/virtualMachines/<myVmName>/extensions/ApplicationMonitoring
 ```
-You may also view installed extensions in the [Azure virtual machine blade](../../virtual-machines/extensions/overview.md) in the Portal.
+You may also view installed extensions in the [Azure virtual machine section](../../virtual-machines/extensions/overview.md) in the Portal.
 
 > [!NOTE]
 > Verify installation by clicking on Live Metrics Stream within the Application Insights Resource associated with the connection string you used to deploy the Application Insights Agent Extension. If you are sending data from multiple Virtual Machines, select the target Azure virtual machines under Server Name. It may take up to a minute for data to begin flowing.
@@ -137,9 +118,9 @@ $publicCfgHashtable =
         @{
           "appFilter"= ".*";
           "machineFilter"= ".*";
-          "virtualPathFilter": ".*",
-          "instrumentationSettings" : {
-            "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/" # Application Insights connection string, create new Application Insights resource if you don't have one. https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
+          "virtualPathFilter"= ".*";
+          "instrumentationSettings" = @{
+            "connectionString"= "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/" # Application Insights connection string, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       )
@@ -198,9 +179,15 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWi
 
 ## Release notes
 
+### 2.8.44
+
+- Updated ApplicationInsights .NET/.NET Core SDK to 2.20.1 - red field.
+- Enabled SQL query collection.
+- Enabled support for Azure Active Directory authentication.
+
 ### 2.8.42
 
-- Updated ApplicationInsights .NET/.NET Core SDK to 2.18.1-redfield.
+- Updated ApplicationInsights .NET/.NET Core SDK to 2.18.1 - red field.
 
 ### 2.8.41
 

@@ -17,7 +17,7 @@ ms.custom: "include file"
 ## Prepare for AKV Integration
 To use Azure Key Vault Integration to configure your SQL Server VM, there are several prerequisites: 
 
-1. [Install Azure Powershell](#install)
+1. [Install Azure PowerShell](#install)
 2. [Create an Azure Active Directory](#register)
 3. [Create a key vault](#createkeyvault)
 

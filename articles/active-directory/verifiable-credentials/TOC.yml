@@ -47,10 +47,10 @@
   items:
   - name: Sample Applications
     href: https://github.com/Azure-Samples/active-directory-verifiable-credentials
-  - name: Sample Issuer
-    href: https://didvc-issuer-sample.azurewebsites.net/
-  - name: Sample Verifier
-    href: https://didvc-verifier-sample.azurewebsites.net/
+#  - name: Sample Issuer
+#   href: 
+  - name: End to End Demo
+    href: https://woodgroveemployee.azurewebsites.net/
 - name: Reference
   expanded: true
   items:

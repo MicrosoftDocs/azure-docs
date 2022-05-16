@@ -4,6 +4,7 @@ description: This article describes how to configure and access the slow logs in
 author: Bashar-MSFT
 ms.author: bahusse
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: how-to
 ms.date: 3/15/2021
 ---

@@ -7,7 +7,7 @@ author: baanders
 ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
-ms.date: 10/8/2021
+ms.date: 02/24/2022
 ms.custom: contperf-fy21q4
 ---
 
@@ -23,7 +23,7 @@ This article describes how to configure the [Postman REST client](https://www.ge
     1. [Create your own collection from scratch](#create-your-own-collection).
 1. [Add requests to your configured collection](#add-an-individual-request) and send them to the Azure Digital Twins APIs.
 
-Azure Digital Twins has two sets of APIs that you can work with: **data plane** and **control plane**. For more about the difference between these API sets, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md). This article contains information for both API sets.
+Azure Digital Twins has two sets of APIs that you can work with: data plane and control plane. For more about the difference between these API sets, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md). This article contains information for both API sets.
 
 ## Prerequisites
 
@@ -52,13 +52,13 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     az login
     ```
 
-2. Next, use the [az account get-access-token](/cli/azure/account#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
+2. Next, use the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
 
     The required context for the token depends on which set of APIs you're using, so use the tabs below to select between [data plane](concepts-apis-sdks.md#overview-data-plane-apis) and [control plane](concepts-apis-sdks.md#overview-control-plane-apis) APIs.
 
     # [Data plane](#tab/data-plane)
     
-    To get a token to use with the **data plane** APIs, use the following static value for the token context: `0b07f429-9f4b-4714-9392-cc5e8e80c8b0`. This is the resource ID for the Azure Digital Twins service endpoint.
+    To get a token to use with the data plane APIs, use the following static value for the token context: `0b07f429-9f4b-4714-9392-cc5e8e80c8b0`. This is the resource ID for the Azure Digital Twins service endpoint.
     
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
@@ -66,7 +66,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     
     # [Control plane](#tab/control-plane)
     
-    To get a token to use with the **control plane** APIs, use the following value for the token context: `https://management.azure.com/`.
+    To get a token to use with the control plane APIs, use the following value for the token context: `https://management.azure.com/`.
     
     ```azurecli-interactive
     az account get-access-token --resource https://management.azure.com/
@@ -74,7 +74,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     ---
 
     >[!NOTE]
-    > If you need to access your Azure Digital Twins instance using a service principal or user account that belongs to a different Azure Active Directory tenant from the instance, you'll need to request a **token** from the Azure Digital Twins instance's "home" tenant. For more information on this process, see [Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
+    > If you need to access your Azure Digital Twins instance using a service principal or user account that belongs to a different Azure Active Directory tenant from the instance, you'll need to request a token from the Azure Digital Twins instance's "home" tenant. For more information on this process, see [Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
 
 3. Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authorize your requests.
 
@@ -87,7 +87,7 @@ Next, you'll set up Postman to use this token to make API requests to Azure Digi
 
 ## About Postman collections
 
-Requests in Postman are saved in **collections** (groups of requests). When you create a collection to group your requests, you can apply common settings to many requests at once. This can greatly simplify authorization if you plan to create more than one request against the Azure Digital Twins APIs, as you only have to configure these details once for the entire collection.
+Requests in Postman are saved in *collections* (groups of requests). When you create a collection to group your requests, you can apply common settings to many requests at once. This can greatly simplify authorization if you plan to create more than one request against the Azure Digital Twins APIs, as you only have to configure these details once for the entire collection.
 
 When working with Azure Digital Twins, you can get started by importing a [pre-built collection of all the Azure Digital Twins requests](#import-collection-of-azure-digital-twins-apis). You may want to do this if you're exploring the APIs and want to quickly set up a project with request examples.
 
@@ -108,14 +108,14 @@ The first step in importing the API set is to download a collection. Choose the 
 There are currently two Azure Digital Twins data plane collections available for you to choose from:
 * [Azure Digital Twins Postman Collection](https://github.com/microsoft/azure-digital-twins-postman-samples): This collection provides a simple getting started experience for Azure Digital Twins in Postman. The requests include sample data, so you can run them with minimal edits required. Choose this collection if you want a digestible set of key API requests containing sample information.
     - To find the collection, navigate to the repo link and open the file named *postman_collection.json*.
-* [Azure Digital Twins data plane Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins): This repo contains the complete Swagger file for the Azure Digital Twins API set, which can be downloaded and imported to Postman as a collection. This will provide a comprehensive set of every API request, but with empty data bodies rather than sample data. Choose this collection if you want to have access to every API call and fill in all the data yourself.
-    - To find the collection, navigate to the repo link and choose the folder for the latest spec version. From here, open the file called *digitaltwins.json*.
+* [Azure Digital Twins data plane Swagger](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins): This repo contains complete Swagger files for the Azure Digital Twins API set, which can be downloaded and imported to Postman as a collection. This will provide a comprehensive set of every API request, but with empty data bodies rather than sample data. Choose this collection if you want to have access to every API call and fill in all the data yourself. You should also use this collection if you need a specific version of the APIs (like one that supports a preview feature, such as [data history](concepts-data-history.md)).
+    - To find the collection, navigate to the repo link and choose the folder for your preferred spec version. From here, open the file called *digitaltwins.json*.
 
 # [Control plane](#tab/control-plane)
 
-The collection currently available for control plane is the [Azure Digital Twins control plane Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This repo contains the complete Swagger file for the Azure Digital Twins API set, which can be downloaded and imported to Postman as a collection. This will provide a comprehensive set of every API request.
+The collection currently available for control plane is the [Azure Digital Twins control plane Swagger](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This repo contains the complete Swagger file for the Azure Digital Twins API set, which can be downloaded and imported to Postman as a collection. This will provide a comprehensive set of every API request.
 
-To find the collection, navigate to the repo link and choose the folder for the latest spec version. From here, open the file called *digitaltwins.json*.
+To find the collection, navigate to the repo link and choose the folder for your preferred spec version. From here, open the file called *digitaltwins.json*.
 
 ---
 
@@ -133,7 +133,7 @@ Next, import the collection into Postman.
 1. From the main Postman window, select the **Import** button.
     :::image type="content" source="media/how-to-use-postman/postman-import-collection.png" alt-text="Screenshot of a newly opened Postman window. The 'Import' button is highlighted." lightbox="media/how-to-use-postman/postman-import-collection.png":::
 
-1. In the Import window that follows, select **Upload Files** and navigate to the collection file on your machine that you created earlier. Select Open.
+1. In the **Import** window that follows, select **Upload Files** and navigate to the collection file on your machine that you created earlier. Select Open.
 1. Select the **Import** button to confirm.
 
     :::image type="content" source="media/how-to-use-postman/postman-import-collection-2.png" alt-text="Screenshot of Postman's 'Import' window, showing the file to import as a collection and the Import button.":::
@@ -150,7 +150,7 @@ Next, edit the collection you've created to configure some access details. Highl
 
 :::image type="content" source="media/how-to-use-postman/postman-edit-collection.png" alt-text="Screenshot of Postman. The 'View more actions' icon for the imported collection is highlighted, and 'Edit' is highlighted in the options." lightbox="media/how-to-use-postman/postman-edit-collection.png":::
 
-Follow these steps to add a bearer token to the collection for authorization. This is where you'll use the **token value** you gathered in the [Get bearer token](#get-bearer-token) section in order to use it for all API requests in your collection.
+Follow these steps to add a bearer token to the collection for authorization. This is where you'll use the token value you gathered in the [Get bearer token](#get-bearer-token) section in order to use it for all API requests in your collection.
 
 1. In the edit dialog for your collection, make sure you're on the **Authorization** tab. 
 
@@ -164,7 +164,7 @@ Follow these steps to add a bearer token to the collection for authorization. Th
 
 # [Data plane](#tab/data-plane)
 
-If you're making a [data plane](concepts-apis-sdks.md#overview-data-plane-apis) collection, help the collection connect easily to your Azure Digital Twins resources by setting some **variables** provided with the collections. When many requests in a collection require the same value (like the host name of your Azure Digital Twins instance), you can store the value in a variable that applies to every request in the collection. Both of the downloadable collections for Azure Digital Twins come with pre-created variables that you can set at the collection level.
+If you're making a [data plane](concepts-apis-sdks.md#overview-data-plane-apis) collection, help the collection connect easily to your Azure Digital Twins resources by setting some variables provided with the collections. When many requests in a collection require the same value (like the host name of your Azure Digital Twins instance), you can store the value in a variable that applies to every request in the collection. Both of the downloadable collections for Azure Digital Twins come with pre-created variables that you can set at the collection level.
 
 1. Still in the edit dialog for your collection, move to the **Variables** tab.
 
@@ -224,7 +224,7 @@ Next, continue on to the next section to add a bearer token to the collection fo
 
 ### Configure authorization
 
-Follow these steps to add a bearer token to the collection for authorization. This is where you'll use the **token value** you gathered in the [Get bearer token](#get-bearer-token) section in order to use it for all API requests in your collection.
+Follow these steps to add a bearer token to the collection for authorization. This is where you'll use the token value you gathered in the [Get bearer token](#get-bearer-token) section in order to use it for all API requests in your collection.
 
 1. Still in the edit dialog for your new collection, move to the **Authorization** tab.
 
@@ -273,7 +273,7 @@ To make a Postman request to one of the Azure Digital Twins APIs, you'll need th
 To proceed with an example query, this article will use the Query API (and its [reference documentation](/rest/api/digital-twins/dataplane/query/querytwins)) to query for all the digital twins in an instance.
 
 1. Get the request URL and type from the reference documentation. For the Query API, this is currently *POST* `https://digitaltwins-host-name/query?api-version=2020-10-31`.
-1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. This is where you will use your instance's **host name** from the [Prerequisites section](#prerequisites).
+1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. This is where you will use your instance's host name from the [Prerequisites section](#prerequisites).
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Screenshot of the new request's details in Postman. The query URL from the reference documentation has been filled into the request URL box." lightbox="media/how-to-use-postman/postman-request-url.png":::
     

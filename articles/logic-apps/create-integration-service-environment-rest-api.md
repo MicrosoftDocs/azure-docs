@@ -1,10 +1,10 @@
 ---
 title: Create integration service environments (ISEs) with Logic Apps REST API
-description: Create an integration service environment (ISE) by using the Logic Apps REST API so you can access Azure virtual networks (VNETs) from Azure Logic Apps
+description: Create an integration service environment (ISE) to access Azure virtual networks (VNETs) using the Azure Logic Apps REST API.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: rarayudu, logicappspm
-ms.topic: conceptual
+ms.reviewer: rarayudu, azla
+ms.topic: how-to
 ms.date: 02/03/2021
 ---
 

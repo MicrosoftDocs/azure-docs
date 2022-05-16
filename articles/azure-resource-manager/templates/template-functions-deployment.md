@@ -2,7 +2,7 @@
 title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 03/10/2022
 ---
 
 # Deployment functions for ARM templates
@@ -16,11 +16,16 @@ Resource Manager provides the following functions for getting values related to 
 
 To get values from resources, resource groups, or subscriptions, see [Resource functions](template-functions-resource.md).
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [deployment](../bicep/bicep-functions-deployment.md) functions.
+
 ## deployment
 
 `deployment()`
 
 Returns information about the current deployment operation.
+
+In Bicep, use the [deployment](../bicep/bicep-functions-deployment.md#deployment) function.
 
 ### Return value
 
@@ -176,6 +181,8 @@ For a subscription deployment, the following example returns a deployment object
 
 Returns information about the Azure environment used for deployment.
 
+In Bicep, use the [environment](../bicep/bicep-functions-deployment.md#environment) function.
+
 ### Return value
 
 This function returns properties for the current Azure environment. The following example shows the properties for global Azure. Sovereign clouds may return slightly different properties.
@@ -262,7 +269,7 @@ The preceding example returns the following object when deployed to global Azure
 
 Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
 
-In Bicep, directly reference parameters by using their symbolic names.
+In Bicep, directly reference [parameters](../bicep/parameters.md) by using their symbolic names.
 
 ### Parameters
 
@@ -317,7 +324,7 @@ For more information about using parameters, see [Parameters in ARM templates](.
 
 Returns the value of variable. The specified variable name must be defined in the variables section of the template.
 
-In Bicep, directly reference variables by using their symbolic names.
+In Bicep, directly reference [variables](../bicep/variables.md) by using their symbolic names.
 
 ### Parameters
 

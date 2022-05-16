@@ -41,7 +41,7 @@ pip install pandas
 pip install --upgrade azure-ai-anomalydetector
 ```
 
-### Create a new python application
+### Create a new Python application
 
  Create a new Python file and import the following libraries.
 

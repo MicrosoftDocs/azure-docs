@@ -7,7 +7,7 @@ author: susanhu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
@@ -194,10 +194,6 @@ SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpe
 
 ::: zone-end
 
-## See also
-
-For a list of supported languages and locales for speech-to-text, see [Language support](language-support.md).
-
 ## Next steps
 
-See the [Speech SDK reference documentation](speech-sdk.md).
+- [Language support](language-support.md)

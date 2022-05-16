@@ -2,7 +2,7 @@
 title: Send or receive events from Azure Event Hubs using JavaScript (latest)
 description: This article provides a walkthrough for creating a JavaScript application that sends/receives events to/from Azure Event Hubs using the latest azure/event-hubs package.
 ms.topic: quickstart
-ms.date: 09/16/2021
+ms.date: 02/22/2022
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
 ---
@@ -88,9 +88,9 @@ In this section, you create a JavaScript application that sends events to an eve
     * `EVENT HUBS NAMESPACE CONNECTION STRING` 
     * `EVENT HUB NAME`
 1. Run `node send.js` to execute this file. This command sends a batch of three events to your event hub.
-1. In the Azure portal, verify that the event hub has received the messages. In the **Metrics** section, switch to **Messages** view. Refresh the page to update the chart. It might take a few seconds for it to show that the messages have been received.
+1. In the Azure portal, verify that the event hub has received the messages. Refresh the page to update the chart. It might take a few seconds for it to show that the messages have been received.
 
-    [![Verify that the event hub received the messages](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
+    [![Verify that the event hub received the messages](./media/node-get-started-send/verify-messages-portal.png)](./media/node-get-started-send/verify-messages-portal.png#lightbox)
 
     > [!NOTE]
     > For the complete source code, including additional informational comments, go to the [GitHub sendEvents.js page](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/event-hubs/samples/v5/javascript/sendEvents.js).
@@ -122,24 +122,24 @@ Be sure to record the connection string and container name for later use in the 
 1. Create a file called *receive.js*, and paste the following code into it:
 
     ```javascript
-    const { EventHubConsumerClient } = require("@azure/event-hubs");
+    const { EventHubConsumerClient, earliestEventPosition  } = require("@azure/event-hubs");
     const { ContainerClient } = require("@azure/storage-blob");    
     const { BlobCheckpointStore } = require("@azure/eventhubs-checkpointstore-blob");
-
+    
     const connectionString = "EVENT HUBS NAMESPACE CONNECTION STRING";    
     const eventHubName = "EVENT HUB NAME";
     const consumerGroup = "$Default"; // name of the default consumer group
     const storageConnectionString = "AZURE STORAGE CONNECTION STRING";
     const containerName = "BLOB CONTAINER NAME";
-
+    
     async function main() {
       // Create a blob container client and a blob checkpoint store using the client.
       const containerClient = new ContainerClient(storageConnectionString, containerName);
       const checkpointStore = new BlobCheckpointStore(containerClient);
-
+    
       // Create a consumer client for the event hub by specifying the checkpoint store.
       const consumerClient = new EventHubConsumerClient(consumerGroup, connectionString, eventHubName, checkpointStore);
-
+    
       // Subscribe to the events, and specify handlers for processing the events and errors.
       const subscription = consumerClient.subscribe({
           processEvents: async (events, context) => {
@@ -147,20 +147,21 @@ Be sure to record the connection string and container name for later use in the 
               console.log(`No events received within wait time. Waiting for next interval`);
               return;
             }
-          
+    
             for (const event of events) {
               console.log(`Received event: '${event.body}' from partition: '${context.partitionId}' and consumer group: '${context.consumerGroup}'`);
             }
             // Update the checkpoint.
             await context.updateCheckpoint(events[events.length - 1]);
           },
-
+    
           processError: async (err, context) => {
             console.log(`Error : ${err}`);
           }
-        }
+        },
+        { startPosition: earliestEventPosition }
       );
-
+    
       // After 30 seconds, stop processing.
       await new Promise((resolve) => {
         setTimeout(async () => {
@@ -170,10 +171,10 @@ Be sure to record the connection string and container name for later use in the 
         }, 30000);
       });
     }
-
+    
     main().catch((err) => {
       console.log("Error occurred: ", err);
-    });    
+    });
     ```
 1. In the code, use real values to replace the following values:
     - `EVENT HUBS NAMESPACE CONNECTION STRING`
@@ -182,6 +183,12 @@ Be sure to record the connection string and container name for later use in the 
     - `BLOB CONTAINER NAME`
 1. Run `node receive.js` in a command prompt to execute this file. The window should display messages about received events.
 
+    ```
+    C:\Self Study\Event Hubs\JavaScript>node receive.js
+    Received event: 'First event' from partition: '0' and consumer group: '$Default'
+    Received event: 'Second event' from partition: '0' and consumer group: '$Default'
+    Received event: 'Third event' from partition: '0' and consumer group: '$Default'
+    ```
     > [!NOTE]
     > For the complete source code, including additional informational comments, go to the [GitHub receiveEventsUsingCheckpointStore.js page](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript/receiveEventsUsingCheckpointStore.js).
 

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph | Azure"
 titleSuffix: Microsoft identity platform
-description: In this quickstart, you learn how an app leverages Microsoft.Identity.Web to implement Microsoft sign-in in an ASP.NET Core web app using OpenID Connect and calls Microsoft Graph
+description: Learn how an ASP.NET Core web app leverages Microsoft.Identity.Web to implement Microsoft sign-in using OpenID Connect and call Microsoft Graph
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -18,13 +18,11 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Azure Active Directory (Azure AD) organization.  
 
-The following diagram shows how the sample app works:
-
-![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](../../media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 * [.NET Core SDK 3.1+](https://dotnet.microsoft.com/download)
 
 ## Register and download your quickstart application
@@ -48,8 +46,7 @@ The following diagram shows how the sample app works:
 
 #### Step 2: Download the ASP.NET Core project
 
-
-[Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1.zip)
+[Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
@@ -87,9 +84,14 @@ After consenting to the requested permissions, the app displays that you've succ
 
 :::image type="content" source="../../media/quickstart-v2-aspnet-core-webapp-calls-graph/webapp-02-signed-in.png" alt-text="Web browser displaying the running web app and the user signed in":::
 
+
 ## More information
 
 This section gives an overview of the code required to sign in users and call the Microsoft Graph API on their behalf. This overview can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET Core application and call Microsoft Graph. It uses [Microsoft.Identity.Web](../../microsoft-identity-web.md), which is a wrapper around [MSAL.NET](../../msal-overview.md).
+
+### How the sample works
+
+![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](../../media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
 
 ### Startup class
 

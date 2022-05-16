@@ -135,6 +135,7 @@ Run the following commands:
     sudo yum install ncurses-devel -y
     sudo yum install -y automake
     sudo yum install -y autoconf
+    sudo yum install -y libtool
 ```
 
 #### For Ubuntu
@@ -148,6 +149,8 @@ Run the following commands:
     sudo apt-get install -y autotools-dev
     sudo apt-get install -y automake
     sudo apt-get install -y autoconf
+    sudo apt-get install -y libtool
+    sudo yum update
 ```
 
 #### For all distros

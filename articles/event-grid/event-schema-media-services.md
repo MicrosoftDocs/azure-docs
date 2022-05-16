@@ -11,9 +11,9 @@ This article provides the schemas and properties for Media Services events.
 
 ## Job-related event types
 
-Media Services emits the **Job-related**  event types described below. There are two categories for the **Job-related** events: "Monitoring Job State Changes" and "Monitoring Job Output State Changes". 
+Media Services emits the **Job-related**  event types described below. There are two categories for the **Job-related** events: "Monitoring Job State Changes" and "Monitoring Job Output State Changes".
 
-You can register for all of the events by subscribing to the JobStateChange event. Or, you can subscribe for specific events only (for example, final states like JobErrored, JobFinished, and JobCanceled).   
+You can register for all of the events by subscribing to the JobStateChange event. Or, you can subscribe for specific events only (for example, final states like JobErrored, JobFinished, and JobCanceled).
 
 ### Monitoring Job state changes
 
@@ -33,7 +33,7 @@ See [Schema examples](#event-schema-examples) that follow.
 
 A job may contain multiple job outputs (if you configured the transform to have multiple job outputs.) If you want to track the details of the individual job output, listen for a job output change event.
 
-Each **Job** is going to be at a higher level than **JobOutput**, thus job output events get fired inside of a corresponding job. 
+Each **Job** is going to be at a higher level than **JobOutput**, thus job output events get fired inside of a corresponding job.
 
 The error messages in `JobFinished`, `JobCanceled`, `JobError` output the aggregated results for each job output – when all of them are finished. Whereas the job output events fire as each task finishes. For example, if you have an encoding output, followed by a Video Analytics output, you would get two events firing as job output events before the final JobFinished event fires with the aggregated data.
 
@@ -59,7 +59,7 @@ See [Schema examples](#event-schema-examples) that follow.
 
 ## Live event types
 
-Media Services also emits the **Live** event types described below. There are two categories for the **Live** events: stream-level events and track-level events. 
+Media Services also emits the **Live** event types described below. There are two categories for the **Live** events: stream-level events and track-level events.
 
 ### Stream-level events
 
@@ -75,7 +75,7 @@ See [Schema examples](#event-schema-examples) that follow.
 
 ### Track-level events
 
-Track-level events are raised per track. 
+Track-level events are raised per track.
 
 > [!NOTE]
 > All track-level events are raised after a live encoder is connected.
@@ -99,7 +99,7 @@ See [Schema examples](#event-schema-examples) that follow.
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of the **JobStateChange** event: 
+The following example shows the schema of the **JobStateChange** event:
 
 ```json
 [
@@ -121,7 +121,7 @@ The following example shows the schema of the **JobStateChange** event:
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of the **JobStateChange** event: 
+The following example shows the schema of the **JobStateChange** event:
 
 ```json
 [
@@ -366,7 +366,7 @@ The example schema looks similar to the following:
 
 ### LiveEventConnectionRejected
 
-The following example shows the schema of the **LiveEventConnectionRejected** event: 
+The following example shows the schema of the **LiveEventConnectionRejected** event:
 
 ```json
 [
@@ -376,7 +376,7 @@ The following example shows the schema of the **LiveEventConnectionRejected** ev
     "eventType": "Microsoft.Media.LiveEventConnectionRejected",
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "b303db59-d5c1-47eb-927a-3650875fded1",
-    "data": { 
+    "data": {
       "streamId":"Mystream1",
       "ingestUrl": "http://abc.ingest.isml",
       "encoderIp": "118.238.251.xxx",
@@ -393,23 +393,23 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `streamId` | string | Identifier of the stream or connection. Encoder or customer is responsible to add this ID in the ingest URL. |  
-| `ingestUrl` | string | Ingest URL provided by the live event. |  
+| `streamId` | string | Identifier of the stream or connection. Encoder or customer is responsible to add this ID in the ingest URL. |
+| `ingestUrl` | string | Ingest URL provided by the live event. |
 | `encoderIp` | string | IP of the encoder. |
 | `encoderPort` | string | Port of the encoder from where this stream is coming. |
 | `resultCode` | string | The reason the connection was rejected. The result codes are listed in the following table. |
 
-You can find the error result codes in [live Event error codes](../media-services/latest/live-event-error-codes-reference.md).
+You can find the error result codes in [live Event error codes](/azure/media-services/latest/live-event-error-codes-reference).
 
 ### LiveEventEncoderConnected
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of the **LiveEventEncoderConnected** event: 
+The following example shows the schema of the **LiveEventEncoderConnected** event:
 
 ```json
 [
-  { 
+  {
     "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
     "subject": "liveEvent/mle1",
     "eventType": "Microsoft.Media.LiveEventEncoderConnected",
@@ -429,11 +429,11 @@ The following example shows the schema of the **LiveEventEncoderConnected** even
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of the **LiveEventEncoderConnected** event: 
+The following example shows the schema of the **LiveEventEncoderConnected** event:
 
 ```json
 [
-  { 
+  {
     "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
     "subject": "liveEvent/mle1",
     "type": "Microsoft.Media.LiveEventEncoderConnected",
@@ -465,11 +465,11 @@ The data object has the following properties:
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of the **LiveEventEncoderDisconnected** event: 
+The following example shows the schema of the **LiveEventEncoderDisconnected** event:
 
 ```json
 [
-  { 
+  {
     "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
     "subject": "liveEvent/mle1",
     "eventType": "Microsoft.Media.LiveEventEncoderDisconnected",
@@ -490,11 +490,11 @@ The following example shows the schema of the **LiveEventEncoderDisconnected** e
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of the **LiveEventEncoderDisconnected** event: 
+The following example shows the schema of the **LiveEventEncoderDisconnected** event:
 
 ```json
 [
-  { 
+  {
     "source": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
     "subject": "liveEvent/mle1",
     "type": "Microsoft.Media.LiveEventEncoderDisconnected",
@@ -518,13 +518,13 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `streamId` | string | Identifier of the stream or connection. Encoder or customer is responsible to add this ID in the ingest URL. |  
-| `ingestUrl` | string | Ingest URL provided by the live event. |  
+| `streamId` | string | Identifier of the stream or connection. Encoder or customer is responsible to add this ID in the ingest URL. |
+| `ingestUrl` | string | Ingest URL provided by the live event. |
 | `encoderIp` | string | IP of the encoder. |
 | `encoderPort` | string | Port of the encoder from where this stream is coming. |
 | `resultCode` | string | The reason for the encoder disconnecting. It could be graceful disconnect or from an error. The result codes are listed in the following table. |
 
-You can find the error result codes in [live Event error codes](../media-services/latest/live-event-error-codes-reference.md).
+You can find the error result codes in [live Event error codes](/azure/media-services/latest/live-event-error-codes-reference).
 
 The graceful disconnect result codes are:
 
@@ -542,7 +542,7 @@ The graceful disconnect result codes are:
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of the **LiveEventIncomingDataChunkDropped** event: 
+The following example shows the schema of the **LiveEventIncomingDataChunkDropped** event:
 
 ```json
 [
@@ -552,7 +552,7 @@ The following example shows the schema of the **LiveEventIncomingDataChunkDroppe
     "eventType": "Microsoft.Media.LiveEventIncomingDataChunkDropped",
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "03da9c10-fde7-48e1-80d8-49936f2c3e7d",
-    "data": { 
+    "data": {
       "trackType": "Video",
       "trackName": "Video",
       "bitrate": 300000,
@@ -568,7 +568,7 @@ The following example shows the schema of the **LiveEventIncomingDataChunkDroppe
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of the **LiveEventIncomingDataChunkDropped** event: 
+The following example shows the schema of the **LiveEventIncomingDataChunkDropped** event:
 
 ```json
 [
@@ -578,7 +578,7 @@ The following example shows the schema of the **LiveEventIncomingDataChunkDroppe
     "type": "Microsoft.Media.LiveEventIncomingDataChunkDropped",
     "time": "2018-01-16T01:57:26.005121Z",
     "id": "03da9c10-fde7-48e1-80d8-49936f2c3e7d",
-    "data": { 
+    "data": {
       "trackType": "Video",
       "trackName": "Video",
       "bitrate": 300000,
@@ -608,7 +608,7 @@ The data object has the following properties:
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of the **LiveEventIncomingStreamReceived** event: 
+The following example shows the schema of the **LiveEventIncomingStreamReceived** event:
 
 ```json
 [
@@ -637,7 +637,7 @@ The following example shows the schema of the **LiveEventIncomingStreamReceived*
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of the **LiveEventIncomingStreamReceived** event: 
+The following example shows the schema of the **LiveEventIncomingStreamReceived** event:
 
 ```json
 [
@@ -682,7 +682,7 @@ The data object has the following properties:
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of the **LiveEventIncomingStreamsOutOfSync** event: 
+The following example shows the schema of the **LiveEventIncomingStreamsOutOfSync** event:
 
 ```json
 [
@@ -697,8 +697,8 @@ The following example shows the schema of the **LiveEventIncomingStreamsOutOfSyn
       "typeOfStreamWithMinLastTimestamp": "Audio",
       "maxLastTimestamp": "366000",
       "typeOfStreamWithMaxLastTimestamp": "Video",
-      "timescaleOfMinLastTimestamp": "10000000", 
-      "timescaleOfMaxLastTimestamp": "10000000"       
+      "timescaleOfMinLastTimestamp": "10000000",
+      "timescaleOfMaxLastTimestamp": "10000000"
     },
     "dataVersion": "1.0",
     "metadataVersion": "1"
@@ -708,7 +708,7 @@ The following example shows the schema of the **LiveEventIncomingStreamsOutOfSyn
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of the **LiveEventIncomingStreamsOutOfSync** event: 
+The following example shows the schema of the **LiveEventIncomingStreamsOutOfSync** event:
 
 ```json
 [
@@ -723,8 +723,8 @@ The following example shows the schema of the **LiveEventIncomingStreamsOutOfSyn
       "typeOfStreamWithMinLastTimestamp": "Audio",
       "maxLastTimestamp": "366000",
       "typeOfStreamWithMaxLastTimestamp": "Video",
-      "timescaleOfMinLastTimestamp": "10000000", 
-      "timescaleOfMaxLastTimestamp": "10000000"       
+      "timescaleOfMinLastTimestamp": "10000000",
+      "timescaleOfMaxLastTimestamp": "10000000"
     },
     "specversion": "1.0"
   }
@@ -748,7 +748,7 @@ The data object has the following properties:
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of the **LiveEventIncomingVideoStreamsOutOfSync** event: 
+The following example shows the schema of the **LiveEventIncomingVideoStreamsOutOfSync** event:
 
 ```json
 [
@@ -763,7 +763,7 @@ The following example shows the schema of the **LiveEventIncomingVideoStreamsOut
       "firstDuration": "2000",
       "secondTimestamp": "2162057216",
       "secondDuration": "2000",
-      "timescale": "10000000"      
+      "timescale": "10000000"
     },
     "dataVersion": "1.0",
     "metadataVersion": "1"
@@ -773,7 +773,7 @@ The following example shows the schema of the **LiveEventIncomingVideoStreamsOut
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of the **LiveEventIncomingVideoStreamsOutOfSync** event: 
+The following example shows the schema of the **LiveEventIncomingVideoStreamsOutOfSync** event:
 
 ```json
 [
@@ -788,7 +788,7 @@ The following example shows the schema of the **LiveEventIncomingVideoStreamsOut
       "firstDuration": "2000",
       "secondTimestamp": "2162057216",
       "secondDuration": "2000",
-      "timescale": "10000000"      
+      "timescale": "10000000"
     },
     "specversion": "1.0"
   }
@@ -811,7 +811,7 @@ The data object has the following properties:
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of the **LiveEventIngestHeartbeat** event: 
+The following example shows the schema of the **LiveEventIngestHeartbeat** event:
 
 ```json
 [
@@ -848,7 +848,7 @@ The following example shows the schema of the **LiveEventIngestHeartbeat** event
 # [Cloud event schema](#tab/cloud-event-schema)
 
 
-The following example shows the schema of the **LiveEventIngestHeartbeat** event: 
+The following example shows the schema of the **LiveEventIngestHeartbeat** event:
 
 ```json
 [
@@ -905,7 +905,7 @@ The data object has the following properties:
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of the **LiveEventTrackDiscontinuityDetected** event: 
+The following example shows the schema of the **LiveEventTrackDiscontinuityDetected** event:
 
 ```json
 [
@@ -932,7 +932,7 @@ The following example shows the schema of the **LiveEventTrackDiscontinuityDetec
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of the **LiveEventTrackDiscontinuityDetected** event: 
+The following example shows the schema of the **LiveEventTrackDiscontinuityDetected** event:
 
 ```json
 [
@@ -1006,10 +1006,10 @@ An event has the following top-level data:
 
 ## Next steps
 
-[Register for job state change events](../media-services/latest/monitoring/job-state-events-cli-how-to.md)
+[Register for job state change events](/azure/media-services/latest/monitoring/job-state-events-cli-how-to)
 
 ## See also
 
 - [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Live Event error codes](../media-services/latest/live-event-error-codes-reference.md)
+- [Live Event error codes](/azure/media-services/latest/live-event-error-codes-reference)

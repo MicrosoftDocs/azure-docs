@@ -4,10 +4,12 @@ description: This quickstart provides a C++ code sample you can use to connect a
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.custom: mvc, mode-api
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
+adobe-target: true
 ---
 
 # Quickstart: Use Connector/C++ to connect and query data in Azure Database for MySQL

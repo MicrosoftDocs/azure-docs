@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 12/06/2021
+ms.date: 04/27/2022
 ---
 
 # Revenue dashboard in commercial marketplace analytics
@@ -41,54 +41,88 @@ The [Revenue dashboard](https://partner.microsoft.com/dashboard/commercial-marke
 
 1. On the Home page, select the **Insights** tile.
 
-    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+    [ ![Screenshot of the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
 1. In the left menu, under **Marketplace offers**, select **Revenue**.
 
-    [ ![Illustrates the Revenue dashboard.](./media/revenue-dashboard/revenue-dashboard.png) ](./media/revenue-dashboard/revenue-dashboard.png#lightbox)
+    [ ![Screenshot of the Revenue dashboard.](./media/revenue-dashboard/revenue-dashboard.png) ](./media/revenue-dashboard/revenue-dashboard.png#lightbox)
 
 ## Elements of the Revenue dashboard
 
 The following sections describe how to use the Revenue dashboard and how to read the data.
 
-### Month range
+### Download
 
-You can find a month range selection at the top-right corner of each page. To customize the output of the Revenue dashboard graphs, selecting a month range based on the past **3**, **6** or **12** months. You can optionally select a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months. Month range selection is not applicable for the Estimated revenue timeline widget.
+To download data for this dashboard, select **Download as PDF** from the **Download** list.
 
-[ ![Illustrates the month range filter on the revenue dashboard.](./media/revenue-dashboard/month-range-filter.png) ](./media/revenue-dashboard/month-range-filter.png#lightbox)
+[ ![Screenshot of the Download as PDF button.](./media/revenue-dashboard/download-as-pdf.png) ](./media/revenue-dashboard/download-as-pdf.png#lightbox)
+
+Alternatively, you can go to the [Downloads dashboard](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) to download the report.
+
+### Share
+
+To share the dashboard widgets data via email, in the top menu, select Share.
+
+[ ![Screenshot of the Share button.](./media/revenue-dashboard/share.png) ](./media/revenue-dashboard/share.png#lightbox)
+
+In the dialog box that appears, provide the recipient email address and message. to share the report URL, select the **Copy link** or **Share to Teams** button. To take a snapshot of charts data, select the **Copy as image** button.
+
+### What's new?
+
+To learn about changes and enhancements that were made to the dashboard, select **What’s new**. The _What’s new_ side panel appears.
+
+[ ![Screenshot of the What's new button.](./media/revenue-dashboard/whats-new.png) ](./media/revenue-dashboard/whats-new.png#lightbox)
+
+### About data refresh
+
+To view the data source and the data refresh details, such as the frequency of the data refresh, select the ellipsis (three dots) and then select **Data refresh details**.
+
+[ ![Screenshot of the Data refresh details option.](./media/revenue-dashboard/data-refresh-details.png) ](./media/revenue-dashboard/data-refresh-details.png#lightbox)
+
+### Got feedback
+
+To provide instant feedback about the report/dashboard, select the ellipsis (three dots), and then select the **Got feedback?** link.
+
+[ ![Screenshot of the Got feedback option.](./media/revenue-dashboard/got-feedback.png) ](./media/revenue-dashboard/got-feedback.png#lightbox)
+
+Provide your feedback in the dialog box that appears.
 
 > [!NOTE]
-> Data for revenue report is available from Jan,2021 onwards.
+> A screenshot is automatically sent to us with your feedback.
 
-### Payout currency selector
+### Month range
 
-You can choose to view the revenue figures in either USD or your preferred payout currency.
+You can find a month range selection at the top-right corner of each page. Customize the output of the Revenue page graphs by selecting a month range based on the past 3, 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range is six months.
 
-[ ![Illustrates the payout currency selector on the revenue dashboard.](./media/revenue-dashboard/payout-currency-selector.png) ](./media/revenue-dashboard/payout-currency-selector.png#lightbox)
+[ ![Screenshot of the month range filter on the revenue dashboard.](./media/revenue-dashboard/time-range.png) ](./media/revenue-dashboard/time-range.png#lightbox)
 
-### Dashboard filters
+### Revenue dashboard filters
 
 The page has different dashboard-level filters you can use to filter the Revenue data based on the following:
 - Offer type
-- Offer name
+- Offer listing
 - Billing model
-- Sales channel
-- Payment instrument type
 - Payout status
-- Estimated payout month.
+- Offer name
+- Payment instrument family
+- Sales channel
+
+To select the filters, in the top-right of the page, select **Filters**.
+
+[ ![Screenshot of the filters on a revenue dashboard widget.](./media/revenue-dashboard/filters.png) ](./media/revenue-dashboard/filters.png#lightbox)
 
 Each filter is expandable with multiple options that you can select. Filter options are dynamic and based on the selected date range.
 
-> [!NOTE]
-> Filters are not applicable for the Estimated revenue timeline widget.
+[ ![Screenshot of the Filters side panel.](./media/revenue-dashboard/filters-panel.png) ](./media/revenue-dashboard/filters-panel.png#lightbox)
 
-[ ![Illustrates the filters on a revenue dashboard widget.](./media/revenue-dashboard/dashboard-filters.png) ](./media/revenue-dashboard/dashboard-filters.png#lightbox)
+> [!NOTE]
+> The dashboard-level filters have no impact on the data shown in the _Estimated revenue timeline_ widget.
 
 ### Estimated revenue
 
 In this section, you will find the _estimated revenue_ information that shows the overall billed sales of a partner for the selected date range and page filters.
 
-The _Total revenue_ represents the billed sales of payouts or earnings mapped to different payout statuses – _sent_, _upcoming_, and _unprocessed_.
+The _Total revenue_ represents the billed sales of payouts or earnings mapped to different payout statuses: _sent_, _upcoming_, and _unprocessed_.
 
 The _Others revenue_ represents billed sales with earnings that either are rejected, reprocessed, not eligible, uncollected from the customers, or not reconcilable with transaction amounts in the earnings report.
 
@@ -97,7 +131,9 @@ The growth rate denotes the percentage change of billed sales between the end an
 > [!NOTE]
 > There are no earnings entries in the transaction history report for estimated revenue figures with the rejected, reprocessed, not eligible, or not reconcilable status. This screenshot shows an example of billed sales of not only sent, upcoming, and unprocessed earnings, but also uncollected payments from customers.
 
-[ ![Illustrates the estimated revenue section of the Revenue dashboard.](./media/revenue-dashboard/estimated-revenue.png) ](./media/revenue-dashboard/estimated-revenue.png#lightbox)
+Select the ellipsis (three dots) to copy the widget image and download the image as a .PDF for sharing purposes.
+
+[ ![Screenshot of the ellipsis menu of the estimated revenue widget.](./media/revenue-dashboard/estimated-revenue-ellipsis.png) ](./media/revenue-dashboard/estimated-revenue-ellipsis.png#lightbox)
 
 ### Transactions
 
@@ -107,21 +143,25 @@ Each transaction represents a unique combination of purchase record ID and line-
 
 The growth rate denotes the percentage change of transactions between the end and the start of the selected month range.
 
-[ ![Illustrates the Transactions section of the Revenue dashboard.](./media/revenue-dashboard/transactions-widget.png) ](./media/revenue-dashboard/transactions-widget.png#lightbox)
+Select the ellipsis (three dots) to copy the widget image and download the image as a .PDF.
+
+[ ![Screenshot of the ellipsis menu of the transactions widget.](./media/revenue-dashboard/transactions-widget-ellipsis.png) ](./media/revenue-dashboard/transactions-widget-ellipsis.png#lightbox)
 
 ### Estimated revenue timeline
 
 In this section, you will find the _estimated revenue timeline_ information that displays the billed sales of the last payout amount, date, and the revenue figures of upcoming payments and their associated timelines. The upcoming revenue values shown are figures based on the current system date.
 
-[ ![Illustrates the Estimated revenue timeline section of the Revenue dashboard.](./media/revenue-dashboard/estimated-revenue-timeline.png) ](./media/revenue-dashboard/estimated-revenue-timeline.png#lightbox)
+Select the ellipsis (three dots) to copy the widget image, download aggregated widget data as a .CSV file, and download the image as a .PDF.
 
-### Customer leader board
+[ ![Screenshot of the Estimated revenue timeline section of the Revenue dashboard.](./media/revenue-dashboard/estimated-revenue-timeline-ellipsis.png) ](./media/revenue-dashboard/estimated-revenue-timeline-ellipsis.png#lightbox)
+
+### Customers leader board
 
 In this section, you will find the information for top customers who contribute the most to estimated revenue. The “All” row denotes billed sales of all your customers. Up to 500 records can be displayed in this leaderboard table. All figures are reported in the partner preferred currency and can be sorted on different columns. You can select each row of the table and see the corresponding revenue split across different statuses, and the revenue trend for the selected month range. The dotted line in the revenue trend represents revenue figures for the open month.
 
-[ ![Illustrates the Customer leader board section of the Revenue dashboard.](./media/revenue-dashboard/customer-leader-board-1.png) ](./media/revenue-dashboard/customer-leader-board-1.png#lightbox)
+Select the ellipsis (three dots) to copy the widget image and download the image as a .PDF.
 
-[ ![Illustrates the other half of the Customer leader board section of the Revenue dashboard.](./media/revenue-dashboard/customer-leader-board-2.png) ](./media/revenue-dashboard/customer-leader-board-2.png#lightbox)
+[ ![Screenshot of the Customers leader board section of the Revenue dashboard.](./media/revenue-dashboard/customers-leaderboard.png) ](./media/revenue-dashboard/customers-leaderboard.png#lightbox)
 
 ### Geographical spread
 
@@ -129,9 +169,9 @@ In this section, you will find the geographic spread the total estimated revenue
 
 The light-to-dark colors on the map represent the low to high value of the estimated revenue. Select a record in the table to zoom in on a specific country or region.
 
-[ ![Illustrates the geographical spread section of the Revenue dashboard.](./media/revenue-dashboard/geographical-spread-1.png) ](./media/revenue-dashboard/geographical-spread-1.png#lightbox)
+Select the ellipsis (three dots) to copy the widget image and download the image as a .PDF.
 
-[ ![Illustrates the other half of the geographical spread section of the Revenue dashboard.](./media/revenue-dashboard/geographical-spread-2.png) ](./media/revenue-dashboard/geographical-spread-2.png#lightbox)
+[ ![Screenshot of the geographical spread section of the Revenue dashboard.](./media/revenue-dashboard/revenue-geographical-spread.png) ](./media/revenue-dashboard/revenue-geographical-spread.png#lightbox)
 
 Note the following:
 
@@ -150,13 +190,11 @@ The _Revenue details_ table displays a numbered list of the 1,000 top orders sor
 - Use the expand and collapse widget icon at the rightmost side of each record to view billed sales revenue split across different statuses for a given _purchase order id_ and _line item id_.
 - Apply filters to the revenue details table to display only the data you're interested in. You can filter by order type, offer name, billing model, sales channel, payment instrument type, payout status, and estimated payout instrument.
 
-[ ![Illustrates the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget.png) ](./media/revenue-dashboard/details-widget.png#lightbox)
+[ ![Screenshot of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget.png) ](./media/revenue-dashboard/details-widget.png#lightbox)
 
 Details widget with expandable and collapsible view.
 
-[ ![Illustrates the expandable view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-1.png) ](./media/revenue-dashboard/details-widget-1.png#lightbox)
-
-[ ![Illustrates the collapsible view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-2.png) ](./media/revenue-dashboard/details-widget-2.png#lightbox)
+[ ![Screenshot of the expandable view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-table.png) ](./media/revenue-dashboard/details-table.png#lightbox)
 
 Note the following:
 
@@ -167,15 +205,12 @@ Note the following:
 
 ### Providing feedback
 
-In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon. Selecting the thumbs down icon displays this dialog box that you can use to submit your feedback on the widget.
-
-[ ![Illustrates the feedback dialog box available from most widgets on the Revenue dashboard.](./media/revenue-dashboard/feedback-widget.png) ](./media/revenue-dashboard/feedback-widget.png#lightbox)
+In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon. Selecting the thumbs down icon displays a dialog box that you can use to submit your feedback on the widget.
 
 ## Data dictionary table
 
-| Data field | Definition |
+| Column name in user interface | Definition |
 |----|---------|
-| <img width=130/> | |
 | Billed revenue | Represents billed sales of a partner for customer’s offer purchases and consumption through the commercial marketplace. This is in transaction currency and will always be present in download reports. |
 | Estimated revenue (USD) | Estimated revenue reported in US dollars. This column will always be present in download reports. |
 | Estimated revenue (PC) | Estimated revenue reported in partner preferred currency. This column will always be present in download reports. |
@@ -197,6 +232,7 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 | Asset Id | An identifier for the software assets. Same as the `order id` in the orders report in Partner Center. |
 | Offer type | Type of offer, such as SaaS, VM, and so on. |
 | Offer name | Display name of the offer |
+| Is Private Offer | Indicates whether a marketplace offer is a private or a public offer.<br><ul><li>0 value indicates false</li><li>1 value indicates true</li></ul>
 | Offer plan | Specific offer plan, also referred to as SKU |
 | Trial deployment | Denotes whether the offer was in trial deployment at the time of billing |
 | Service Start Date | The start date of the order subscription term |
@@ -213,7 +249,7 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 | Exchange rate date | The date used to calculate exchange rates for currency conversions |
 | Estimated pay out month | The month for receiving your estimated earnings |
 | Sales channel | Represents the sales channel for the customer. It is the same as `Azure license type` in the orders report and usage report. The possible values are:<ul><li>Cloud Solution Provider (CSP)</li><li>Enterprise (EA)</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>Go to market (GTM)</li></ul> |
-| Plan Id | Unique identifier for the plan in the offer |
+| PlanId | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a numeric number. |
 | Billing model | Subscription or consumption-based billing model used for calculation of estimated revenue. It can have one of these two values:<ul><li>UsageBased</li><li>SubscriptionBased</li></ul> |
 | Customer postal code | The postal code name provided by the bill-to customer |
 | Customer city | The city name provided by the bill-to customer |
@@ -225,7 +261,6 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 | Payment sent date | The date on which payment was sent to the partner |
 | Quantity | Indicates billed quantity for transactions. This can represent the seats and site purchase count for subscription-based offers, and usage units for consumption-based offers. |
 | Units | The unit quantity. Represents count of purchased seat/site SaaS orders and core hours for VM-based offers. Units will be displayed as NA for offers with custom meters. |
-|
 
 ## Next steps
 

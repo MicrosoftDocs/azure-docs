@@ -1,31 +1,20 @@
 ---
 title: 'Quickstart: distribute tables - Hyperscale (Citus) - Azure Database for PostgreSQL'
 description: Quickstart to distribute table data across nodes in Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
+recommendations: false
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 01/24/2022
+ms.date: 05/05/2022
 ---
 
-# Create and distribute tables
+# Model and load data
 
-Within Hyperscale (Citus) servers there are three types of tables:
-
-* **Distributed Tables** - Distributed across worker nodes (scaled out).
-  Generally large tables should be distributed tables to improve performance.
-* **Reference tables** - Replicated to all nodes. Enables joins with
-  distributed tables. Typically used for small tables like countries or product
-  categories.
-* **Local tables** - Tables that reside on coordinator node. Administration
-  tables are good examples of local tables.
-
-In this quickstart, we'll primarily focus on distributed tables, and getting
-familiar with them.
-
-The data model we're going to work with is simple: user and event data from GitHub. Events include fork creation, git commits related to an organization, and more.
+In this example, we'll use Hyperscale (Citus) to store and query events
+recorded from GitHub open source contributors.
 
 ## Prerequisites
 
@@ -37,73 +26,101 @@ To follow this quickstart, you'll first need to:
 
 ## Create tables
 
-Once you've connected via psql, let's create our tables. In the psql console run:
+Once you've connected via psql, let's create our table. Copy and paste the
+following commands into the psql terminal window, and hit enter to run:
 
 ```sql
-CREATE TABLE github_events
-(
-    event_id bigint,
-    event_type text,
-    event_public boolean,
-    repo_id bigint,
-    payload jsonb,
-    repo jsonb,
-    user_id bigint,
-    org jsonb,
-    created_at timestamp
-);
-
 CREATE TABLE github_users
 (
-    user_id bigint,
-    url text,
-    login text,
-    avatar_url text,
-    gravatar_id text,
-    display_login text
+	user_id bigint,
+	url text,
+	login text,
+	avatar_url text,
+	gravatar_id text,
+	display_login text
 );
-```
 
-The `payload` field of `github_events` has a JSONB datatype. JSONB is the JSON datatype in binary form in Postgres. The datatype makes it easy to store a flexible schema in a single column.
+CREATE TABLE github_events
+(
+	event_id bigint,
+	event_type text,
+	event_public boolean,
+	repo_id bigint,
+	payload jsonb,
+	repo jsonb,
+	user_id bigint,
+	org jsonb,
+	created_at timestamp
+);
 
-Postgres can create a `GIN` index on this type, which will index every key and value within it. With an  index, it becomes fast and easy to query the payload with various conditions. Let's go ahead and create a couple of indexes before we load our data. In psql:
-
-```sql
 CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-## Shard tables across worker nodes
+Notice the GIN index on `payload` in `github_events`. The index allows fast
+querying in the JSONB column. Since Citus is a PostgreSQL extension, Hyperscale
+(Citus) supports advanced PostgreSQL features like the JSONB datatype for
+storing semi-structured data.
 
-Next we’ll take those Postgres tables on the coordinator node and tell Hyperscale (Citus) to shard them across the workers. To do so, we’ll run a query for each table specifying the key to shard it on. In the current example we’ll shard both the events and users table on `user_id`:
+## Distribute tables
+
+`create_distributed_table()` is the magic function that Hyperscale (Citus)
+provides to distribute tables and use resources across multiple machines.  The
+function decomposes tables into shards, which can be spread across nodes for
+increased storage and compute performance.
+
+The server group in this quickstart uses the Basic Tier, so the shards will be
+stored on just one node. However, if you later decide to graduate to the
+Standard Tier, then the shards can be spread across more nodes. With Hyperscale
+(Citus), you can start small and scale seamlessly.
+
+Let's distribute the tables:
 
 ```sql
-SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
+SELECT create_distributed_table('github_events', 'user_id');
 ```
 
 [!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
 ## Load data into distributed tables
 
-We're ready to load data. In psql still, shell out to download the files:
+We're ready to fill the tables with sample data. For this quickstart, we'll use
+a dataset previously captured from the GitHub API.
 
-```sql
-\! curl -O https://examples.citusdata.com/users.csv
-\! curl -O https://examples.citusdata.com/events.csv
+Run the following commands to download example CSV files and load them into the
+database tables. (The `curl` command downloads the files, and comes
+pre-installed in the Azure Cloud Shell.)
+
+```
+-- download users and store in table
+
+\COPY github_users FROM PROGRAM 'curl https://examples.citusdata.com/users.csv' WITH (FORMAT CSV)
+
+-- download events and store in table
+
+\COPY github_events FROM PROGRAM 'curl https://examples.citusdata.com/events.csv' WITH (FORMAT CSV)
 ```
 
-Next, load the data from the files into the distributed tables:
+We can review details of our distributed tables, including their sizes, with
+the `citus_tables` view:
 
 ```sql
-SET CLIENT_ENCODING TO 'utf8';
+SELECT * FROM citus_tables;
+```
 
-\copy github_events from 'events.csv' WITH CSV
-\copy github_users from 'users.csv' WITH CSV
+```
+  table_name   | citus_table_type | distribution_column | colocation_id | table_size | shard_count | table_owner | access_method 
+---------------+------------------+---------------------+---------------+------------+-------------+-------------+---------------
+ github_events | distributed      | user_id             |             1 | 388 MB     |          32 | citus       | heap
+ github_users  | distributed      | user_id             |             1 | 39 MB      |          32 | citus       | heap
+(2 rows)
 ```
 
 ## Next steps
 
-* [Run queries](quickstart-run-queries.md) on the distributed tables you
-  created in this quickstart.
-* Learn more about [sharding data](tutorial-shard.md).
+Now we have distributed tables and loaded them with data. Next, let's try
+running queries across the distributed tables.
+
+> [!div class="nextstepaction"]
+> [Run distributed queries >](quickstart-run-queries.md)

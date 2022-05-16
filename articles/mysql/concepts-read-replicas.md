@@ -4,6 +4,7 @@ description: 'Learn about read replicas in Azure Database for MySQL: choosing re
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 06/17/2021
 ms.custom: references_regions
@@ -157,7 +158,7 @@ After your application is successfully processing reads and writes, you've compl
 
 ## Global transaction identifier (GTID)
 
-Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL. GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB. To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation.
+Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL. GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB(General purpose storage v2). To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation.
 
 MySQL supports two types of transactions: GTID transactions (identified with GTID) and anonymous transactions (don't have a GTID allocated)
 

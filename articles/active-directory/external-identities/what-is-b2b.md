@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 01/31/2022
+ms.date: 05/09/2022
 
 ms.author: mimart
 author: msmimart
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # B2B collaboration overview
 
-Azure Active Directory (Azure AD) B2B collaboration is a feature within External Identities that lets you invite guest users to collaborate with your organization. With B2B collaboration, you can securely share your company's applications and services with guest users from any other organization, while maintaining control over your own corporate data. Work safely and securely with external partners, large or small, even if they don't have Azure AD or an IT department.
+Azure Active Directory (Azure AD) B2B collaboration is a feature within External Identities that lets you invite guest users to collaborate with your organization. With B2B collaboration, you can securely share your company's applications and services with external users, while maintaining control over your own corporate data. Work safely and securely with external partners, large or small, even if they don't have Azure AD or an IT department.
 
 ![Diagram illustrating B2B collaboration](media/what-is-b2b/b2b-collaboration-overview.png)
 
@@ -27,7 +27,7 @@ Developers can use Azure AD business-to-business APIs to customize the invitatio
 
 
 > [!IMPORTANT]
-> **As of November 1, 2021**, Microsoft no longer supports the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. At that time, we began rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. If you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode).
+> We've begun rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode). Soon, we'll stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption.
 
 ## Collaborate with any partner using their identities
 
@@ -100,6 +100,13 @@ Bring your external partners on board in ways customized to your organization's 
 Azure AD supports external identity providers like Facebook, Microsoft accounts, Google, or enterprise identity providers. You can set up federation with identity providers so your external users can sign in with their existing social or enterprise accounts instead of creating a new account just for your application. Learn more about [identity providers for External Identities](identity-providers.md).
 
 ![Screenshot showing the Identity providers page](media/what-is-b2b/identity-providers.png)
+
+## Integrate with SharePoint and OneDrive
+
+You can [enable integration with SharePoint and OneDrive](/sharepoint/sharepoint-azureb2b-integration) to share files, folders, list items, document libraries, and sites with people outside your organization, while using Azure B2B for authentication and management. The users you share resources with are typically added to your directory as guests, and permissions and groups work the same for these guests as they do for internal users. When enabling integration with SharePoint and OneDrive, you'll also enable the [email one-time passcode](one-time-passcode.md) feature in Azure AD B2B to serve as a fallback authentication method. 
+
+![Screenshot of the email one-time-passcode setting.](media/what-is-b2b/enable-email-otp-options.png)
+
 
 ## Next steps
 

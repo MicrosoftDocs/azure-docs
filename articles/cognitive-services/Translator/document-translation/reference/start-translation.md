@@ -103,7 +103,7 @@ Destination for the finished translated documents.
 The following are examples of batch requests.
 
 > [!NOTE]
-> In the following examples, limited access has been granted to the contents of an Azure Storage container [using a shared access signature(SAS)](/azure/storage/common/storage-sas-overview) token.
+> In the following examples, limited access has been granted to the contents of an Azure Storage container [using a shared access signature(SAS)](../../../../storage/common/storage-sas-overview.md) token.
 
 **Translating all documents in a container**
 
@@ -267,4 +267,3 @@ Follow our quickstart to learn more about using Document Translation and the cli
 
 > [!div class="nextstepaction"]
 > [Get started with Document Translation](../get-started-with-document-translation.md)
-

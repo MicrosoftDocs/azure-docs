@@ -4,12 +4,11 @@ metadata:
   description: Frequently asked questions about moving Power BI visual offers from Office Store to the commercial marketplace.
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 11/22/2021
   author: posurnis
-  ms.author: pooja.surnis
+  ms.author: posurnis
   ms.reviewer: pooja.surnis
-    
 title: Power BI visuals FAQs
 summary: Power BI visual offers will be moved to the commercial marketplace within Partner Center to streamline the offer management experience. All existing and new Power BI visual offers will be accessible in the commercial marketplace after the move by Microsoft in September 2021. This article addresses frequently asked questions about the move and enhancements to the offer management experience.
 
@@ -27,7 +26,6 @@ sections:
           | Availability of your offers in Partner Center | No changes. If your offer is in draft or published state in the Office Store, it will continue to be in same state after the move to the commercial marketplace. |
           | Acquisitions and deployments | No changes. Your customers can continue discovering, downloading, and deploying your offers with no interruptions. |
           | Analytics | The **Marketplace insights** dashboard in Partner Center will be enhanced to show information on consent clicks and platform (website and client) for your Power BI visual offers. Use this information to understand sources driving traffic, clicks, and conversions for your offers. |
-          |
           
           
       - question: |
@@ -56,7 +54,6 @@ sections:
           | Marketplace listings | Offer listing |
           | Availability | Availability |
           | Product management | Offer management |
-          |
 
 
       - question: |

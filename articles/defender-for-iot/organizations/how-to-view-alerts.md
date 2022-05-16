@@ -1,118 +1,195 @@
 ---
-title: Filter and manage alerts from the Alerts page 
-description: View alerts according to various categories, and uses search features to help you find alerts of interest.
-ms.date: 11/09/2021
+title: View alerts details on the sensor Alerts page 
+description: View alerts detected by your Defender for IoT sensor.
+ms.date: 02/06/2022
 ms.topic: how-to
 ---
 
-# Filter and manage alerts from the Alerts page 
+# View alerts on your sensor
 
-This article describes how to view alerts triggered by your sensor and manage them with alert tools.
+Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that need your attention.
 
-You can view alerts based on various categories, such as alerts that have been archived or pinned. You also can search for alerts of interest, such as alerts based on an IP or MAC address.  
+This article describes how to view alerts triggered by your sensors.
 
-You can also view alerts from the sensor dashboard.
+Once an alert is selected, you can view comprehensive details about the alert activity, for example,
 
-To view alerts:
+- Detected protocols
+- Source and destination IP and MAC addresses
+- Vendor information
+- Device type information
 
-- Select **Alerts** from the side menu. The Alerts window displays the alerts that your sensor has detected.
+You can also gain contextual information about the alert by viewing the source and destination in the Device map and viewing related events in the Event timeline.
 
-  :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-screen.png" alt-text="View of the Alerts screen.":::
+To help you quickly pinpoint information of interest, you can view alerts:
 
-## View alerts by category
+- Based on various categories, such as alert severity, name or status
+- By using filters
+- By using free text search to find alert information of interest to you.  
 
-You can view alerts according to various categories from the **Alerts** main view. Select an alert to review details and manage the event.
+After you review the information in an alert, you can carry out various forensic steps to guide you in managing the alert event. For example:
 
-| Sort by type | Description |
+- Analyze recent device activity (data-mining report).
+
+- Analyze other events that occurred at the same time (event timeline).
+
+- Analyze comprehensive event traffic (PCAP file).
+
+## View alerts and alert details
+
+This section describes how to view and filter alerts details on your sensor.
+
+**To view alerts in the sensor:**
+
+- Select **Alerts** from the side menu. The  page displays the alerts detected by your sensor.
+
+    :::image type="content" source="media/how-to-view-alerts/view-alerts-main-page.png" alt-text="Screenshot of the sensor Alerts page." lightbox="media/how-to-view-alerts/view-alerts-main-page.png":::
+
+The following information is available from the Alerts page:
+
+| Name | Description |
 |--|--|
-| **Important Alerts** | Alerts sorted by importance. |
-| **Pinned Alerts** | Alerts that the user pinned for further investigation. Pinned alerts are not archived and are stored for 14 days in the pinned folder. |
-| **Recent Alerts** | Alerts sorted by time. |
-| **Acknowledged Alerts** | Alerts that were acknowledged and unhandled, or that were muted, and unmuted. |
-| **Archived Alerts** | Alerts that the system archived automatically. By default, alerts are archived 14 days after the alert was triggered. Only the administrator user can access them. |
+| **Severity** | The alert severity: Critical, Major, Minor, Warning|
+| **Name** | The alert title |
+| **Engine** | The Defender for IoT detection engine that detected the activity and triggered the alert. If the event was detected by the Device Builder platform, the value will be Micro-agent.  |
+| **Detection time** | The first time the alert activity was detected.   |
+| **Status** | Indicates if the alert is new or closed. | 
+| **Source Device** | The source device IP address | 
+| **Destination Device** | The destination device IP address | 
+| **ID** | The alert ID. | 
 
-## Search for alerts of interest
+**To hide or display information:**
 
-The Alerts main view provides various search features to help you find alerts of interest.
+1. Select **Edit Columns** from the Alerts page.
+1. Add and remove columns as required from the Edit columns dialog box.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/main-alerts-view.png" alt-text="Alerts learning screenshot.":::
+**How long are alerts saved?**
 
-### Text search
+- New alerts are automatically closed if no identical traffic detected 14 days after  initial detection. After 90 days of being closed, the alert is removed from the sensor console.  
 
-Use the Free Search option to search for alerts by text, numbers, or characters.
+- If identical traffic is detected after the initial 14 days, the 14-day count for network traffic is reset.
 
-To search:
+ Changing the status of an alert to *Learn*, *Mute* or *Close* does not impact how long  the alert is displayed in the sensor console.
 
-- Type the required text in the Free Search field and press Enter on your keyboard.
+### Filter the view
 
-To clear the search:
+Use filter, grouping and text search tools to view alerts of interest to you. 
 
-- Delete the text in the Free Search field and press Enter on your keyboard.
+**To filter by category:**
 
-### Device group or device IP address search
+1. Select **Add filter**.
+1. Define a filter and select **Apply**.
 
-Search for alerts that reference specific IP addresses or device groups. Device groups are created in the device map.
+    :::image type="content" source="media/how-to-view-alerts/alerts-filter.png" alt-text="Screenshot of Alert filter options.":::
 
-To use advanced filters:
+**About the Groups type**
 
-1. Select **Advanced Filters** from the **Alerts** main view.
+The **Groups** option refers to the Device groups you created in the Device map and inventory.
 
-2. Choose a device group or a device.
+:::image type="content" source="media/how-to-view-alerts/alert-map-groups.png" alt-text="Screenshot of the Groups filter option.":::
 
-3. Select **Confirm**.
+:::image type="content" source="media/how-to-view-alerts/view-alerts-map-groups.png" alt-text="Screenshot of the Groups filter reflected in the Device map.":::
 
-4. To clear the search, select **Clear All**.
+**To view alerts based on a pre-defined category:**
 
-### Security versus operational alert search
+1. Select **Group by** from the Alerts page and choose a category. The page displays the alerts according to the category selected.
 
-Switch between viewing operational and security alerts:
+## View alert descriptions and details
 
-- **Security** alerts represent potential malware traffic, network anomalies, policy violations, and protocol violations.
+View more information about the alert, such as the alert description, details about protocols, traffic and entities associated with the alert, alert remediation steps, and more.  
 
-- **Operational** alerts represent network anomalies, policy violations, and protocol violations.
+**To view details:**
 
-When none of the options are selected, all the alerts are displayed.
+1. Select an alert.
+1. The details pane opens with the alert description, source/destination information and other details.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-security.png" alt-text="Security on the alerts screen.":::
+1. To view more details and review remediation steps,  select **View full details**. The Alert Details pane provides more information about the traffic and devices. Comments may also have been added by your administrator.  
 
-## Alert page options
+## Gain contextual insight
 
-Alert messages provide the following actions:
+Gain contextual insight about alert activity by:
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/acknowledge-an-alert-icon.png" border="false"::: to acknowledge an alert.
+- Viewing source and destination devices in map view with other connected devices. Select **Map View** to see the map.
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/unacknowledge-an-alert-icon.png" border="false"::: to unacknowledge an alert.
+    :::image type="content" source="media/how-to-view-alerts/view-alerts-map.png" alt-text="Screenshot of a map view of the source and detected devices from an alert." lightbox="media/how-to-view-alerts/view-alerts-map.png" :::
+ 
+- Viewing an Event timeline with recent activity of the device. Select **Event Timeline** and use the filter options to customize the information displayed. 
+ 
+    :::image type="content" source="media/how-to-view-alerts/alert-event-timeline.png" alt-text="Screenshot of an alert timeline for the selected alert from the Alerts page." lightbox="media/how-to-view-alerts/alert-event-timeline.png" :::
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/pin-an-alert-icon.png" border="false"::: to pin an alert.
+### Remediate the alert incident
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/unpin-an-alert-icon.png" border="false"::: to unpin an alert.
+Defender for IoT provides remediation steps you can carry out for the alert. This may include remediating a device or network process that caused Defender for IoT to trigger the alert.
+Remediation steps will help SOC teams better understand OT issues and resolutions. Review this information before managing the alert event or taking action on the device or the network.
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/acknowledge-all-alerts-icon.png" border="false"::: to acknowledge all alerts.
+**To view alert remediation steps:**
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: to learn and acknowledge all alerts.
+1. Select an alert from the Alerts page.
+1. In the side pane, select **Take action.**
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: to export alert information to a .csv file. Use the **Extended Alert Export** option to export alert information in separate rows for each alert that covers multiple devices.
+    :::image type="content" source="media/how-to-view-alerts/alert-remediation-rename.png" alt-text="Screenshot of the alert's Take action section.":::
 
-## Alert pop-up window options
+Your administrator may have added guidance to help you complete the remediation or alert handling. If created comments will appear in the Alert Details section.
 
-- Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-pdf.png" border="false"::: icon to download an alert report as a PDF file.
+:::image type="content" source="media/how-to-view-alerts/alert-comments.png" alt-text="Screenshot of alert comments added to the alert details section of the Alert dialog box.":::
 
-- Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/download-pcap.png" border="false"::: icon to download the PCAP file. The file is viewable with Wireshark, the free network protocol analyzer.
+After taking remediation steps, you may want to change the alert status to close the alert.
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/download-filtered-pcap.png" border="false"::: to download a filtered PCAP file that contains only the relevant alert packets, thereby reducing output file size and allowing a more focused analysis. You can view the file by using Wireshark.
 
-- Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/show-alert-in-timeline.png" border="false"::: icon to show the alert in the event timeline.
+## Create alert reports
 
-- Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/pin-an-alert-icon.png" border="false"::: icon to pin the alert.
+You can generate the following alert reports:
 
-- Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/unpin-an-alert-icon.png" border="false"::: icon to unpin the alert.
+- Export information on one, all or selected alerts to a CSV file
+- Export PDF reports
+- Download a full or filtered PCAP file for a specific alert.
 
-- Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-icon.png" border="false"::: to approve the traffic (security analysts and administrators only).
+**To export to CSV file:**
 
-- Select a device to display it in the device map.
+1. Select one or several alerts from the Alerts page. To create a csv file for all alert to a csv, don't select anything.
+1. Select **Export to CSV**.
+
+**To export a PDF:**
+
+1. Select one or several alerts from the Alerts page.
+1. Select **Export to PDF**.
+
+**To download a PCAP file:**
+
+1. Select an alert
+1. Select **View full details**.
+1. Select **Download Full PCAP** or **Download Filtered PCAP**.
+
+PCAP files provide more detailed information about the network traffic that occurred at the time of the alert event. 
+
+## View alerts in the Defender for IoT portal
+
+If your deployment was set up to work with cloud-connected sensors, Alert detections shown on your sensors will also be seen in the Defender for IoT Alerts page, on the Azure portal. 
+
+Viewing alerts in the portal provides significant advantages. For example, it lets you:
+
+- Display an aggregated  view of alert activity in all enterprise sensors
+- learn about related MITRE ATT&CK techniques, tactics and stages
+- View alerts based on the site
+- Change the severity of an alert
+
+    :::image type="content" source="media/how-to-view-alerts/alert-cloud-mitre.png" alt-text="Screenshot of a sample alert shown in the Azure portal.":::
+
+### Manage alert events
+
+You can manage an alert incident by:
+
+- Changing the status of an alert.
+
+- Instructing sensors to learn, acknowledge or mute activity detected.
+
+- Create alert groups for display at SOC solutions.
+
+- Forward alerts to partner vendors: SIEM systems, MSSP systems, and more.
 
 ## Next steps
 
-[Manage the alert event](how-to-manage-the-alert-event.md)
+For more information, see:
 
-[Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+- [Manage the alert event](how-to-manage-the-alert-event.md)
+
+- [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)

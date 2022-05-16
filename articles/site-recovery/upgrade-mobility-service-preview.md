@@ -9,7 +9,7 @@ ms.date: 09/01/2021
 
 # Upgrade Mobility Service and Appliance components (Preview)
 
-From this preview, you do not need to maintain source machine's Root/Admin credentials are not required for performing upgrades. The credentials are required only for the initial installation of the agent. Once done, you can remove the credentials.
+From this preview, you do not need to maintain source machine's Root/Admin credentials for performing upgrades. The credentials are required only for the initial installation of the agent on source machines. Once done, you can remove the credentials and the upgrades will occur automatically.
 
 
 ## Update mobility agent automatically

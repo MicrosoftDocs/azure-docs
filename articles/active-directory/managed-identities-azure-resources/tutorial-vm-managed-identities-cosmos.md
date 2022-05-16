@@ -9,7 +9,8 @@ ms.workload: integration
 ms.topic: tutorial
 ms.date: 01/11/2022
 ms.author: barclayn
-ms.custom: ep-miar
+ms.custom: ep-miar, devx-track-azurecli 
+ms.devlang: azurecli
 #Customer intent: As an administrator, I want to know how to access Cosmos DB from a virtual machine using a managed identity
 ---
 
@@ -79,7 +80,7 @@ New-AzVm `
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following example creates a VM named *myVM* with a system-assigned managed identity, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
+Create a VM using [az vm create](/cli/azure/vm/#az-vm-create). The following example creates a VM named *myVM* with a system-assigned managed identity, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12

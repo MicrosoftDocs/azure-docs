@@ -4,6 +4,7 @@ description: This quickstart provides several Ruby code samples you can use to c
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: ruby
 ms.topic: quickstart
 ms.custom: mvc, mode-other

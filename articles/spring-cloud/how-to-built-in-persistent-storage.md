@@ -13,6 +13,8 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+
 Azure Spring Cloud provides two types of built-in storage for your application: persistent and temporary.
 
 By default, Azure Spring Cloud provides temporary storage for each application instance. Temporary storage is limited to 5 GB per instance with the default mount path /tmp.
@@ -30,7 +32,9 @@ Persistent storage is a file-share container managed by Azure and allocated per 
 You can modify the state of built-in persistent storage using the Azure portal or by using the Azure CLI.
 
 #### [Portal](#tab/azure-portal)
+
 ## Enable or disable built-in persistent storage with the portal
+
 The portal can be used to enable or disable built-in persistent storage.
 
 1. From the **Home** page of your Azure portal, select **All Resources**.
@@ -82,7 +86,9 @@ Other operations:
     ```azurecli
     az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage false
     ```
+
 ---
+
 > [!WARNING]
 > If you disable an applications's persistent storage, all of that storage is deallocated and all of the stored data is permanently lost.
 

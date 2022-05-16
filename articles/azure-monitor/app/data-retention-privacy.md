@@ -30,6 +30,7 @@ The Application Insights service stores and analyzes the telemetry. To see the a
 You can have data exported from the Application Insights service, for example to a database or to external tools. You provide each tool with a special key that you obtain from the service. The key can be revoked if necessary. 
 
 Application Insights SDKs are available for a range of application types: web services hosted in your own Java EE or ASP.NET servers, or in Azure; web clients - that is, the code running in a web page; desktop apps and services; device apps such as Windows Phone, iOS, and Android. They all send telemetry to the same service.
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## What data does it collect?
 There are three sources of data:
@@ -70,7 +71,7 @@ For web pages, open your browser's debugging window.
 This would be possible by writing a [telemetry processor plugin](./api-filtering-sampling.md).
 
 ## How long is the data kept?
-Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](./pricing.md#change-the-data-retention-period) of 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](./export-telemetry.md) to copy it to a storage account during data ingestion. 
+Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table) of 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](./export-telemetry.md) to copy it to a storage account during data ingestion. 
 
 Data kept longer than 90 days will incur addition charges. Learn more about Application Insights pricing on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -206,7 +207,7 @@ We do not recommend explicitly setting your application to only use TLS 1.2 unle
 | --- | --- | --- |
 | Azure App Services  | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
 | Azure Function Apps | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
-|.NET | Supported, configuration varies by version. | For detailed configuration info for .NET 4.7 and earlier versions, refer to [these instructions](/dotnet/framework/network-programming/tls#support-for-tls-12).  |
+|.NET | Supported, Long Term Support (LTS) | For detailed configuration information, refer to [these instructions](/dotnet/framework/network-programming/tls). |
 |Status Monitor | Supported, configuration required | Status Monitor relies on [OS Configuration](/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
 |Node.js |  Supported, in v10.5.0, configuration may be required. | Use the [official Node.js TLS/SSL documentation](https://nodejs.org/api/tls.html) for any application-specific configuration. |
 |Java | Supported, JDK support for TLS 1.2 was added in [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) and [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 uses [TLS 1.2 by default](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |

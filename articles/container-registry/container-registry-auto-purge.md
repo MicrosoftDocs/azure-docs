@@ -30,7 +30,7 @@ The `acr purge` container command deletes images by tag in a repository that mat
 At a minimum, specify the following when you run `acr purge`:
 
 * `--filter` - A repository and a *regular expression* to filter tags in the repository. Examples: `--filter "hello-world:.*"` matches all tags in the `hello-world` repository, and `--filter "hello-world:^1.*"` matches tags beginning with `1`. Pass multiple `--filter` parameters to purge multiple repositories.
-* `--ago` - A Go-style [duration string](https://golang.org/pkg/time/) to indicate a duration beyond which images are deleted. The duration consists of a sequence of one or more decimal numbers, each with a unit suffix. Valid time units include "d" for days, "h" for hours, and "m" for minutes. For example, `--ago 2d3h6m` selects all filtered images last modified more than 2 days, 3 hours, and 6 minutes ago, and `--ago 1.5h` selects images last modified more than 1.5 hours ago.
+* `--ago` - A Go-style [duration string](https://go.dev/pkg/time/) to indicate a duration beyond which images are deleted. The duration consists of a sequence of one or more decimal numbers, each with a unit suffix. Valid time units include "d" for days, "h" for hours, and "m" for minutes. For example, `--ago 2d3h6m` selects all filtered images last modified more than 2 days, 3 hours, and 6 minutes ago, and `--ago 1.5h` selects images last modified more than 1.5 hours ago.
 
 `acr purge` supports several optional parameters. The following two are used in examples in this article:
 
@@ -39,6 +39,8 @@ At a minimum, specify the following when you run `acr purge`:
 * `--keep` - Specifies that the latest x number of to-be-deleted tags are retained.
 * `--concurrency` - Specifies a number of purge tasks to process concurrently. A default value is used if this parameter is not provided.
 
+> [!NOTE]
+>  The `--untagged` filter doesn't respond to the `--ago` filter.
 For additional parameters, run `acr purge --help`. 
 
 `acr purge` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-logs.md) that are streamed and also saved for later retrieval.
@@ -172,5 +174,5 @@ For more information about image storage, see [Container image storage in Azure 
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-acr-run]: /cli/azure/acr#az_acr_run
-[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
-[az-acr-task-show]: /cli/azure/acr/task#az_acr_task_show
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-show]: /cli/azure/acr/task#az-acr-task-show

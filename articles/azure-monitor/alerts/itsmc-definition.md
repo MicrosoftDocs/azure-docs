@@ -2,7 +2,7 @@
 title: IT Service Management Connector in Log Analytics
 description: This article provides an overview of IT Service Management Connector (ITSMC) and information about using it to monitor and manage ITSM work items in Log Analytics and resolve problems quickly.
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 2/23/2022
 ms.custom: references_regions
 
 ---
@@ -19,17 +19,17 @@ Before you can create a connection, you need to install ITSMC.
 
 1. In the Azure portal, select **Create a resource**:
 
-   ![Screenshot that shows the menu item for creating a resource.](media/itsmc-overview/azure-add-new-resource.png)
+   ![Screenshot of the menu item for creating a resource.](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Search for **IT Service Management Connector** in Azure Marketplace. Then select **Create**:
+1. Search for **IT Service Management Connector** in Azure Marketplace. Then select **Create**:
 
    ![Screenshot that shows the Create button in Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
-3. In the **LA Workspace** section, select the Log Analytics workspace where you want to install ITSMC.
+1. In the **LA Workspace** section, select the Log Analytics workspace where you want to install ITSMC.
    > [!NOTE]
    > You can install ITSMC in Log Analytics workspaces only in the following regions: East US, West US 2, South Central US, West Central US, US Gov Arizona, US Gov Virginia, Canada Central, West Europe, South UK, Southeast Asia, Japan East, Central India, and Australia Southeast.
 
-4. In the **Log Analytics workspace** section, select the resource group where you want to create the ITSMC resource:
+1. In the **Log Analytics workspace** section, select the resource group where you want to create the ITSMC resource:
 
    ![Screenshot that shows the Log Analytics workspace section.](media/itsmc-overview/itsmc-solution-workspace.png)
    
@@ -42,15 +42,11 @@ When the ITSMC resource is deployed, a notification appears at the upper-right c
 
 ## Create an ITSM connection
 
-After you've installed ITSMC, you must prep your ITSM tool to allow the connection from ITSMC. Based on the ITSM product that you're connecting to, select one of the following links for instructions:
-
-- [ServiceNow](./itsmc-connections-servicenow.md)
-- [System Center Service Manager](./itsmc-connections-scsm.md)
-- [Cherwell](./itsmc-connections-cherwell.md)
-- [Provance](./itsmc-connections-provance.md)
+After you've installed ITSMC, follow these steps to create the ITSM connection.
 
 After you've prepped your ITSM tool, complete these steps to create a connection:
 
+1. [Configure ServiceNow](./itsmc-connections-servicenow.md) to allow the connection from ITSMC.
 1. In **All resources**, look for **ServiceDesk(*your workspace name*)**:
 
    ![Screenshot that shows recent resources in the Azure portal.](media/itsmc-definition/create-new-connection-from-resource.png)
@@ -61,12 +57,10 @@ After you've prepped your ITSM tool, complete these steps to create a connection
 
 1. Select **Add Connection**.
 
-1. Specify the connection settings according to the ITSM product that you're using:
+1. Specify the connection settings for the ITSM product that you're using:
 
     - [ServiceNow](./itsmc-connections-servicenow.md)
     - [System Center Service Manager](./itsmc-connections-scsm.md)
-    - [Cherwell](./itsmc-connections-cherwell.md)
-    - [Provance](./itsmc-connections-provance.md)
 
    > [!NOTE]
    > By default, ITSMC refreshes the connection's configuration data once every 24 hours. To refresh your connection's data instantly to reflect any edits or template updates that you make, select the **Sync** button on your connection's pane:
@@ -84,31 +78,32 @@ Action groups provide a modular and reusable way to trigger actions for your Azu
 
 ### Define a template
 
-Certain work item types can use templates that you define in the ITSM tool. By using templates, you can define fields that will be automatically populated according to fixed values for an action group. You can define which template you want to use as a part of the definition of an action group. You can find in ServiceNow docs information about how to create templates - (here)[https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html].
+Certain work item types can use templates that you define in the ServiceNow. Using templates, you can define fields that will be automatically populated using constant values that is defined in ServiceNow (not values from the payload). The templates synced with Azure and you can define which template you want to use as a part of the definition of an action group. Find information about how to create templates [here](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html).
 
 To create an action group:
 
-1. In the Azure portal, select  **Alerts**.
-2. On the menu at the top of the screen, select **Manage actions**:
+1. In the Azure portal, select **Monitor** and then **Alerts**.
+1. On the menu at the top of the screen, select **Manage actions**:
 
     ![Screenshot that shows the Manage actions menu item.](media/itsmc-overview/action-groups-selection-big.png)
 
+1. In the **Action groups** window, select **+Create**.
    The **Create action group** window appears.
 
-3. Select the **Subscription** and **Resource group** where you want to create your action group. Provide values in **Action group name** and **Display name** for your action group. Then select **Next: Notifications**.
+1. Select the **Subscription** and **Resource group** where you want to create your action group. Provide values in **Action group name** and **Display name** for your action group. Then select **Next: Notifications**.
 
     ![Screenshot that shows the Create action group window.](media/itsmc-overview/action-groups-details.png)
 
-4. On the **Notifications** tab, select **Next: Actions**.
-5. On the **Actions** tab, select **ITSM** in the **Action Type** list. For **Name**, provide a name for the action. Then select the pen button that represents **Edit details**.
+1. In the **Notifications** tab, select **Next: Actions**.
+1. In the **Actions** tab, select **ITSM** in the **Action Type** list. For **Name**, provide a name for the action. Then select the pen button that represents **Edit details**.
 
     ![Screenshot that shows selections for creating an action group.](media/itsmc-definition/action-group-pen.png)
 
-6. In the **Subscription** list, select the subscription that contains your Log Analytics workspace. In the **Connection** list, select your ITSM connector name. It will be followed by your workspace name. An example is *MyITSMConnector(MyWorkspace)*.
+1. In the **Subscription** list, select the subscription that contains your Log Analytics workspace. In the **Connection** list, select your ITSM connector name. It will be followed by your workspace name. An example is *MyITSMConnector(MyWorkspace)*.
 
-7. Select a **Work Item** type.
+1. Select a **Work Item** type.
 
-8. In the last section of the interface for creating an ITSM action group, you can define how many work items will be created for each alert.
+1. In the last section of the interface for creating an ITSM action group, you can define how many work items will be created for each alert.
 
    > [!NOTE]
    > This section is relevant only for log search alerts. For all other alert types, you'll create one work item per alert.
@@ -140,7 +135,7 @@ To create an action group:
     * **Use default fields**: Using a set of fields and values that will be sent automatically as a part of the payload to ServiceNow. Those fields are not flexible and the values are defined in ServiceNow lists.
     * **Use saved templates from ServiceNow**: Using a predefine set of fields and values that was defined as a part of a template definition in ServiceNow. If you already defined the template in ServiceNow you can use it from the **Template** list otherwise you can define it in ServiceNow, for more [details](#define-a-template).
 
-10. Select **OK**.
+1. Select **OK**.
 
 When you create or edit an Azure alert rule, use an action group, which has an ITSM action. When the alert triggers, the work item is created or updated in the ITSM tool.
 

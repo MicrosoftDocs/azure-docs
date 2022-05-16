@@ -13,7 +13,9 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-This article explains how to use the diagnostics functionality of Azure Spring Cloud to analyze logs with Elastic (ELK).
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to use the diagnostics functionality of Azure Spring Cloud to analyze logs with Elastic (ELK).
 
 The following video introduces unified observability for Spring Boot applications using Elastic.
 
@@ -30,11 +32,11 @@ To configure diagnostics settings, use the following steps:
 1. Enter a name for the setting, choose **Send to partner solution**, then select **Elastic** and an Elastic deployment where you want to send the logs.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png" alt-text="Azure portal screenshot showing 'Diagnostic setting' page." lightbox="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png" alt-text="Screenshot of Azure portal showing 'Diagnostic setting' page." lightbox="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png":::
 
 > [!NOTE]
 > There might be a gap of up to 15 minutes between when logs are emitted and when they appear in your Elastic deployment.
-> If the Azure Spring Cloud instance is deleted or moved, the operation will not cascade to the diagnostics settings resources. You have to manually delete the diagnostics settings resources before you perform the operation against its parent, the Azure Spring Cloud instance. Otherwise, if you provision a new Azure Spring Cloud instance with the same resource ID as the deleted one, or if you move the Azure Spring Cloud instance back, the previous diagnostics settings resources will continue to extend it.
+> If the Azure Spring Cloud instance is deleted or moved, the operation won't cascade to the diagnostics settings resources. You have to manually delete the diagnostics settings resources before you perform the operation against its parent, the Azure Spring Cloud instance. Otherwise, if you provision a new Azure Spring Cloud instance with the same resource ID as the deleted one, or if you move the Azure Spring Cloud instance back, the previous diagnostics settings resources will continue to extend it.
 
 ## Analyze the logs with Elastic
 
@@ -44,7 +46,7 @@ Use the following steps to analyze the logs:
 
 1. From the Elastic deployment overview page in the Azure portal, open **Kibana**.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png" alt-text="Azure portal screenshot showing 'Elasticsearch (Elastic Cloud)' page with Deployment URL / Kibana highlighted." lightbox="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png" alt-text="Screenshot of Azure portal showing 'Elasticsearch (Elastic Cloud)' page with Deployment U R L / Kibana highlighted." lightbox="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png":::
 
 1. In Kibana, in the **Search** bar at top, type *Spring Cloud type:dashboard*.
 

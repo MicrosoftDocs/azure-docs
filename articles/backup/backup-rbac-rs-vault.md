@@ -3,7 +3,7 @@ title: Manage Backups with Azure role-based access control
 description: Use Azure role-based access control to manage access to backup management operations in Recovery Services vault.
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 02/28/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -83,12 +83,15 @@ The following table captures the Backup management actions and corresponding min
 
 ### Minimum role requirements for the Azure File share backup
 
-The following table captures the Backup management actions and corresponding role required to perform Azure File share operation.
+The following table captures the Backup management actions and corresponding Azure role required to perform that operation.
 
 | Management Operation | Role Required | Resources |
 | --- | --- | --- |
-| Enable backup of Azure File shares | Backup Contributor |Recovery Services vault |
-| | Storage Account Backup Contributor | Storage account resource |
+| Enable backup from Recovery Services vault | Backup Contributor | Recovery Services vault |
+| | Storage account Contributor | Storage account resource |
+| Enable backup from file share blade | Backup Contributor | Recovery Services vault |
+| | Storage account Contributor | Storage account Resource |
+| | Contributor | Subscription |
 | On-demand backup of VM | Backup Operator | Recovery Services vault |
 | Restore File share | Backup Operator | Recovery Services vault |
 | | Storage Account Backup Contributor | Storage account resources where restore source and Target file shares are present |
@@ -97,6 +100,9 @@ The following table captures the Backup management actions and corresponding rol
 | Stop protection |Backup Contributor | Recovery Services vault |
 | Unregister storage account from vault |Backup Contributor | Recovery Services vault |
 | |Storage Account Contributor | Storage account resource|
+
+>[!Note]
+>If you've contributor access at the resource group level and want to configure backup from file share blade, ensure to get *microsoft.recoveryservices/Locations/backupStatus/action* permission at the subscription level. To do so, create a [*custom role*](../role-based-access-control/custom-roles-portal.md#start-from-scratch) and assign this permission.
 
 ## Next steps
 

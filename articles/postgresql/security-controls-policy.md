@@ -1,13 +1,15 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Database for PostgreSQL
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Database for PostgreSQL. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 01/19/2022
-ms.topic: sample
-author: sunilagarwal
-ms.author: sunila
 ms.service: postgresql
+ms.subservice: single-server
+ms.topic: sample
+ms.author: sunila
+author: sunilagarwal
 ms.custom: subject-policy-compliancecontrols
+ms.date: 05/10/2022
 ---
+
 # Azure Policy Regulatory Compliance controls for Azure Database for PostgreSQL
 
 [Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md)

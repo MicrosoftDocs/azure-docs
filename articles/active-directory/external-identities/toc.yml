@@ -9,9 +9,9 @@
     href: whats-new-docs.md
 - name: Quickstarts
   items:
-  - name: Add guest users in the portal
+  - name: Add a guest and send an invitation
     href: b2b-quickstart-add-guest-users-portal.md
-  - name: Add guest users with PowerShell
+  - name: Add and invite guests with PowerShell
     href: b2b-quickstart-invite-powershell.md
 - name: Tutorials
   items:
@@ -34,7 +34,7 @@
     href: external-identities-pricing.md
   - name: Best practices
     href: b2b-fundamentals.md
-  - name: Cross-tenant access overview
+  - name: Cross-tenant access overview (Preview)
     href: cross-tenant-access-overview.md
   - name: B2B collaboration
     expanded: false
@@ -51,10 +51,10 @@
       href: claims-mapping.md
     - name: B2B user token
       href: user-token.md
-    - name: B2B collaboration and Office 365 external sharing
-      href: o365-external-user.md
     - name: B2B collaboration for hybrid organizations
       href: hybrid-organizations.md
+  - name: B2B direct connect (Preview)
+    href: b2b-direct-connect-overview.md
   - name: Self-service sign-up
     expanded: false
     items:
@@ -83,6 +83,8 @@
       href: external-collaboration-settings-configure.md
     - name: Allow or block domains
       href: allow-deny-list.md
+  - name: Configure B2B direct connect 
+    href: cross-tenant-access-settings-b2b-direct-connect.md
   - name: Select identity providers
     items:
     - name: Azure Active Directory

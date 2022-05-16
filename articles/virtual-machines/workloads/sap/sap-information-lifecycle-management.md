@@ -51,13 +51,13 @@ Azure blob storage account can be configured manually.
 The steps to be followed are:
 
 1. Register a new application  
-The details are available at [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app)
+The details are available at [Register an application with the Microsoft identity platform](../../../active-directory/develop/quickstart-register-app.md)
 
    > [!NOTE]
    > Make sure that Client secret is added as per the section Add Credentials – Add a Client Secret
 
 1. Create a Blob Storage account  
-Refer steps in the page [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal)  
+Refer steps in the page [Create a storage account](../../../storage/common/storage-account-create.md?tabs=azure-portal)  
 Ensure "Enable secure transfer" is set.  
 It is recommended to set the following property values:  
    * Enable blob public access = false  
@@ -71,7 +71,7 @@ the App created with the role of "Storage Blob Data Contributor". In the App dia
    > [!NOTE]
    > Ensure no other user has access to this storage account apart from the registered application.
 
-During the process of the account setup and configuration, it is recommended to refer to [Security recommendations for Blob Storage](/azure/storage/blobs/security-recommendations)
+During the process of the account setup and configuration, it is recommended to refer to [Security recommendations for Blob Storage](../../../storage/blobs/security-recommendations.md)
 With the completion of this setup, we are ready to use this blob storage account with SAP ILM
 to store archive files from S/4 HANA System.
 

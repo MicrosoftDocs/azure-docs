@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Create a form processing app with AI Builder - Form Recognizer"
+title: "Tutorial: Create a document processing app with AI Builder - Form Recognizer"
 titleSuffix: Azure Applied AI Services
-description: In this tutorial, you'll use AI Builder to create and train a form processing application.
+description: In this tutorial, you'll use AI Builder to create and train a document processing application.
 author: laujan
 manager: nitinme
 
@@ -14,7 +14,7 @@ ms.author: lajanuar
 
 # Tutorial: Create a form-processing app with AI Builder
 
-[AI Builder](/ai-builder/overview) is a Power Platform capability that allows you to automate processes and predict outcomes to improve business performance. You can use AI Builder form processing to create AI models that identify and extract key-value pairs and table data from form documents.
+[AI Builder](/ai-builder/overview) is a Power Platform capability that allows you to automate processes and predict outcomes to improve business performance. You can use AI Builder document processing to create AI models that identify and extract key-value pairs and table data from form documents.
 
 > [!NOTE]
 > This project is also available as a [Microsoft Learn module](/learn/modules/get-started-with-form-processing/).
@@ -22,7 +22,7 @@ ms.author: lajanuar
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a form processing AI model
+> * Create a document processing AI model
 > * Train your model
 > * Publish your model to use in Azure Power Apps or Power Automate
 
@@ -33,11 +33,11 @@ In this tutorial, you learn how to:
 * An AI Builder [add-on or trial](https://go.microsoft.com/fwlink/?LinkId=2113956&clcid=0x409).
 
 
-## Create a form processing project
+## Create a document processing project
 
 1. Go to [Power Apps](https://make.powerapps.com/) or [Power Automate](https://flow.microsoft.com/signin), and sign in with your organization account.
 1. In the left pane, select **AI Builder** > **Build**.
-1. Select the **Form Processing** card.
+1. Select the **document processing** card.
 1. Type a name for your model.
 1. Select **Create**.
 
@@ -46,7 +46,7 @@ In this tutorial, you learn how to:
 On the **Add documents** page, you need to provide sample documents to train your model for the type of form you want to extract information from. After you upload your documents, AI Builder analyzes them to check that they're sufficient to train a model.
 
 > [!NOTE]
-> AI Builder does not currently support the following types of form processing input data:
+> AI Builder does not currently support the following types of document processing input data:
 >
 > - Complex tables (nested tables, merged headers or cells, and so on)
 > - Check boxes or radio buttons
@@ -125,7 +125,7 @@ If you're happy with your model, select **Publish**  to publish it. When publish
 > [!div class="mx-imgBorder"]
 > ![publish model page](./media/tutorial-ai-builder/model-page.png)
 
-After you've published your form processing model, you can use it in a [Power Apps canvas app](/ai-builder/form-processor-component-in-powerapps) or in [Power Automate](/ai-builder/form-processing-model-in-flow).
+After you've published your document processing model, you can use it in a [Power Apps canvas app](/ai-builder/form-processor-component-in-powerapps) or in [Power Automate](/ai-builder/form-processing-model-in-flow).
 
 ## Next steps
 

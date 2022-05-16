@@ -1,15 +1,18 @@
 ---
-author: philmea
-ms.author: philmea
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: include
 ms.custom: [mvc, mqtt, devx-track-python, devx-track-azurecli]
-ms.date: 09/14/2020
+ms.date: 03/10/2022
 ---
 
- This quickstart uses two Python applications: a simulated device application that responds to direct methods called from a back-end application and a back-end application that calls the direct methods on the simulated device.
+This quickstart uses two Python applications: 
+
+* A simulated device application that responds to direct methods called from a back-end application.
+* A back-end application that calls the direct methods on the simulated device.
 
 ## Prerequisites
 
@@ -17,27 +20,23 @@ ms.date: 09/14/2020
 
 * [Python 3.7+](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device#azure-iot-device-features).
 
-* [A sample Python project](https://github.com/Azure-Samples/azure-iot-samples-python/) from github. Download or clone the samples by using the **Code** button in the github repository.
+* Clone or download the [Azure IoT Python samples](https://github.com/Azure-Samples/azure-iot-samples-python/) from github.
 
-* Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
 
-## Create an IoT hub
-
-If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python), you can skip this step.
-
-[!INCLUDE [iot-hub-include-create-hub](iot-hub-include-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](iot-hub-include-create-hub-quickstart.md)]
 
 ## Register a device
 
-If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python), you can skip this step.
-
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Run the following command in Azure Cloud Shell to create the device identity.
+If you already have a device registered in your IoT hub, you can skip this section.
+
+1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in Azure Cloud Shell to create the device identity.
 
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
@@ -47,7 +46,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
 
-2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
+2. Run the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az-iot-hub-device-identity-connection-string-show) command in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
@@ -61,24 +60,26 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     You use this value later in the quickstart.
 
-3. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
+## Retrieve the service connection string
 
-    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
+You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
-    ```azurecli-interactive
-    az iot hub connection-string show \
-      --policy-name service \
-      --hub-name {YourIoTHubName} \
-      --output table
-    ```
+**YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
-    Make a note of the service connection string, which looks like:
+```azurecli-interactive
+az iot hub connection-string show \
+  --policy-name service \
+  --hub-name {YourIoTHubName} \
+  --output table
+```
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
+Make a note of the service connection string, which looks like:
 
-    You use this value later in the quickstart. This service connection string is different from the device connection string you noted in the previous step.
+`HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-## Listen for direct method calls
+You use this value later in the quickstart. This service connection string is different from the device connection string you noted in the previous step.
+
+## Simulate a device
 
 The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgment back to your hub after it executes the direct method.
 

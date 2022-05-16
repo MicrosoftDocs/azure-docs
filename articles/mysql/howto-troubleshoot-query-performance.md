@@ -1,18 +1,19 @@
 ---
-title: Troubleshoot query performance - Azure Database for MySQL 
-description: Learn how to use EXPLAIN to troubleshoot query performance in Azure Database for MySQL.
+title: Profile query performance - Azure Database for MySQL 
+description: Learn how to profile query performance in Azure Database for MySQL by using EXPLAIN.
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: troubleshooting
-ms.date: 3/18/2020
+ms.date: 3/30/2022
 ---
 
-# How to use EXPLAIN to profile query performance in Azure Database for MySQL
+# Profile query performance in Azure Database for MySQL using EXPLAIN
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
-**EXPLAIN** is a handy tool to optimize queries. EXPLAIN statement can be used to get information about how SQL statements are executed. The following output shows an example of the execution of an EXPLAIN statement.
+**EXPLAIN** is a handy tool that can help you optimize queries. You can use an EXPLAIN statement to get information about how SQL statements are run. The following shows example output from running an EXPLAIN statement.
 
 ```sql
 mysql> EXPLAIN SELECT * FROM tb1 WHERE id=100\G
@@ -31,7 +32,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-As can be seen from this example, the value of *key* is NULL. This output means MySQL cannot find any indexes optimized for the query and it performs a full table scan. Let's optimize this query by adding an index on the **ID** column.
+In this example, the value of *key* is NULL, which means that MySQL can't locate any indexes optimized for the query. As a result, it performs a full table scan. Let's optimize this query by adding an index on the **ID** column, and then run the EXPLAIN statement again.
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);
@@ -51,11 +52,11 @@ possible_keys: id
         Extra: NULL
 ```
 
-The new EXPLAIN shows that MySQL now uses an index to limit the number of rows to 1, which in turn dramatically shortened the search time.
+Now, the output shows that MySQL uses an index to limit the number of rows to 1, which dramatically shortens the search time.
 
 ## Covering index
 
-A covering index consists of all columns of a query in the index to reduce value retrieval from data tables. Here's an illustration in the following **GROUP BY** statement.
+A covering index includes of all columns of a query, which reduces value retrieval from data tables. The following **GROUP BY** statement and related output illustrates this.
 
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
@@ -74,9 +75,9 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-As can be seen from the output, MySQL does not use any indexes because no proper indexes are available. It also shows *Using temporary; Using file sort*, which means MySQL creates a temporary table to satisfy the **GROUP BY** clause.
+The output shows that MySQL doesn't use any indexes, because proper indexes are unavailable. The output also shows *Using temporary; Using filesort*, which indicates that MySQL creates a temporary table to satisfy the **GROUP BY** clause.
 
-Creating an index on column **c2** alone makes no difference, and MySQL still needs to create a temporary table:
+Creating an index only on column **c2** makes no difference, and MySQL still needs to create a temporary table:
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (c2);
@@ -96,9 +97,9 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-In this case, a **covered index** on both **c1** and **c2** can be created, whereby adding the value of **c2**" directly in the index to eliminate further data lookup.
+In this case, you can create a **covered index** on both **c1** and **c2** by adding the value of **c2**" directly in the index, which will eliminate further data lookup.
 
-```sql 
+```sql
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -116,7 +117,7 @@ possible_keys: covered
         Extra: Using where; Using index
 ```
 
-As the above EXPLAIN shows, MySQL now uses the covered index and avoid creating a temporary table. 
+As the output of the EXPLAIN above shows, MySQL now uses the covered index and avoids having to creating a temporary table.
 
 ## Combined index
 
@@ -139,7 +140,7 @@ possible_keys: NULL
         Extra: Using where; Using filesort
 ```
 
-MySQL performs a *file sort* operation that is fairly slow, especially when it has to sort many rows. To optimize this query, a combined index can be created on both columns that are being sorted.
+MySQL performs a *file sort* operation that is fairly slow, especially when it has to sort many rows. To optimize this query, create a combined index on both of the columns that are being sorted.
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
@@ -159,12 +160,12 @@ possible_keys: NULL
         Extra: Using where; Using index
 ```
 
-The EXPLAIN now shows that MySQL is able to use combined index to avoid additional sorting since the index is already sorted.
+The output of the EXPLAIN statement now shows that MySQL uses a combined index to avoid additional sorting as the index is already sorted.
 
 ## Conclusion
 
-Using EXPLAIN and different type of Indexes can increase performance significantly. Having an index on the table does not necessarily mean MySQL would be able to use it for your queries. Always validate your assumptions using EXPLAIN and optimize your queries using indexes.
+You can increase performance significantly by using EXPLAIN together with different types of indexes. Having an index on a table doesn't necessarily mean that MySQL can use it for your queries. Always validate your assumptions by using EXPLAIN and optimize your queries using indexes.
 
 ## Next steps
 
-- To find peer answers to your most concerned questions or post a new question/answer, visit [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- To find peer answers to your most important questions or to post or answer a question, visit [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

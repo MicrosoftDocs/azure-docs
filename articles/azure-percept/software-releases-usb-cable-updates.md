@@ -23,7 +23,7 @@ This page provides information and download links for all the dev kit OS/firmwar
 ## Latest releases
 
 - **Latest service release**  
-January Service Release (2201): [Azure-Percept-DK-1.0.20220112.1519-public_preview_1.0.zip](<https://download.microsoft.com/download/1/6/4/164cfcf2-ce52-4e75-9dee-63bb4a128e71/Azure-Percept-DK-1.0.20220112.1519-public_preview_1.0.zip>)
+March Service Release (2203): [Azure-Percept-DK-1.0.20220310.1223-public_preview_1.0.zip](<https://download.microsoft.com/download/c/6/f/c6f6b152-699e-4f60-85b7-17b3ea57c189/Azure-Percept-DK-1.0.20220310.1223-public_preview_1.0.zip>)
 - **Latest major update or known stable version**  
 Feature Update (2104): [Azure-Percept-DK-1.0.20210409.2055.zip](https://download.microsoft.com/download/6/4/d/64d53e60-f702-432d-a446-007920a4612c/Azure-Percept-DK-1.0.20210409.2055.zip)
 
@@ -31,6 +31,8 @@ Feature Update (2104): [Azure-Percept-DK-1.0.20210409.2055.zip](https://download
 
 |Release|Download Links|Note|
 |---|---|:---:|
+|March Service Release (2203)|[Azure-Percept-DK-1.0.20220310.1223-public_preview_1.0.zip](<https://download.microsoft.com/download/c/6/f/c6f6b152-699e-4f60-85b7-17b3ea57c189/Azure-Percept-DK-1.0.20220310.1223-public_preview_1.0.zip>)||
+|February Service Release (2202)|[Azure-Percept-DK-1.0.20220209.1156-public_preview_1.0.zip](<https://download.microsoft.com/download/f/8/6/f86ce7b3-8d76-494e-82d9-dcfb71fc2580/Azure-Percept-DK-1.0.20220209.1156-public_preview_1.0.zip>)||
 |January Service Release (2201)|[Azure-Percept-DK-1.0.20220112.1519-public_preview_1.0.zip](<https://download.microsoft.com/download/1/6/4/164cfcf2-ce52-4e75-9dee-63bb4a128e71/Azure-Percept-DK-1.0.20220112.1519-public_preview_1.0.zip>)||
 |November Service Release (2111)|[Azure-Percept-DK-1.0.20211124.1851-public_preview_1.0.zip](<https://download.microsoft.com/download/9/5/4/95464a73-109e-46c7-8624-251ceed0c5ea/Azure-Percept-DK-1.0.20211124.1851-public_preview_1.0.zip>)||
 |September Service Release (2109)|[Azure-Percept-DK-1.0.20210929.1747-public_preview_1.0.zip](https://go.microsoft.com/fwlink/?linkid=2174462)||

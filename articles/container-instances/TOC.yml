@@ -13,6 +13,9 @@
     href: container-instances-quickstart-portal.md
   - name: Deploy a container instance - PowerShell
     href: container-instances-quickstart-powershell.md
+  - name: Deploy a container instance - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: container-instances-quickstart-bicep.md
   - name: Deploy a container instance - ARM template
     displayName: Resource Manager
     href: container-instances-quickstart-template.md
@@ -108,6 +111,8 @@
       href: container-instances-application-gateway.md  
     - name: Use Azure Firewall for ingress and egress
       href: container-instances-egress-ip-address.md
+    - name: Configure container group egress with NAT gateway
+      href: container-instances-nat-gateway.md
   - name: Mount data volumes
     items:
     - name: Azure file share

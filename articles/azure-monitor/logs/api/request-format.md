@@ -9,7 +9,7 @@ ms.topic: article
 # Azure Monitor Log Analytics API request format
 
 There are two endpoints through which you can communicate with the Log Analytics API:
-- A direct URL for the API: [api.loganalytics.io](https://api.loganalytics.io/)
+- A direct URL for the API: `https://api.loganalytics.io`
 - Through Azure Resource Manager (ARM).
 
 While the URLs are different, the query parameters are the same for each endpoint. Both endpoints require authorization through Azure Active Directory (Azure AD).

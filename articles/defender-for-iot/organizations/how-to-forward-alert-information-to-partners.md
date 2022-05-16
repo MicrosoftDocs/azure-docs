@@ -256,6 +256,6 @@ The administrator might have defined alert exclusion rules. These rules help adm
 
 This means that the forwarding rules you define might be ignored based on exclusion rules that your administrator has created. Exclusion rules are defined in the on-premises management console.
 
-## See also
+## Next steps
 
-[Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+For more information, see [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md).

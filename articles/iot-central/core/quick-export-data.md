@@ -3,11 +3,12 @@ title: Quickstart - Export data from Azure IoT Central
 description: Quickstart - Learn how to use the data export feature in IoT Central to integrate with other cloud services.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/28/2021
+ms.date: 02/18/2022
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc, mode-other
+ms.custom: mvc, mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Export data from an IoT Central application
@@ -22,6 +23,7 @@ In this quickstart, you:
 ## Prerequisites
 
 - Before you begin, you should complete the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md). The second quickstart, [Configure rules and actions for your device](quick-configure-rules.md), is optional.
+- You need the IoT Central application *URL prefix* that you chose in the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -29,7 +31,7 @@ In this quickstart, you:
 
 Before you can export data from your IoT Central application, you need an Azure Data Explorer cluster and database. In this quickstart, you use the bash environment in the [Azure Cloud Shell](https://shell.azure.com) to create and configure them.
 
-Run the following script in the Azure Cloud Shell. Replace the `clustername` value with a unique name for your cluster before you run the script. The cluster name can contain only lowercase letters and numbers:
+Run the following script in the Azure Cloud Shell. Replace the `clustername` value with a unique name for your cluster before you run the script. The cluster name can contain only lowercase letters and numbers. Replace the `centralurlprefix` value with the URL prefix you chose in the first quickstart:
 
 > [!IMPORTANT]
 > The script can take 20 to 30 minutes to run.
@@ -38,6 +40,9 @@ Run the following script in the Azure Cloud Shell. Replace the `clustername` val
 # The cluster name can contain only lowercase letters and numbers.
 # It must contain from 4 to 22 characters.
 clustername="<A unique name for your cluster>"
+
+centralurlprefix="<The URL prefix of your IoT Central application>"
+
 databasename="phonedata"
 location="eastus"
 resourcegroup="IoTCentralExportData"
@@ -62,24 +67,27 @@ az kusto database create --cluster-name $clustername \
     --read-write-database location=$location soft-delete-period=P365D hot-cache-period=P31D \
     --resource-group $resourcegroup
 
-# Create a service principal to use when authenticating from IoT Central
-SP_JSON=$(az ad sp create-for-rbac --skip-assignment --name $clustername)
+# Create and assign a managed identity to use
+# when authenticating from IoT Central.
+# This assumes your IoT Central was created in the default
+# IOTC resource group.
+MI_JSON=$(az iot central app identity assign --name $centralurlprefix \
+    --resource-group IOTC --system-assigned)
 
+## Assign the managed identity permissions to use the database.
 az kusto database-principal-assignment create --cluster-name $clustername \
                                               --database-name $databasename \
-                                              --principal-id $(jq -r .appId <<< $SP_JSON) \
-                                              --principal-assignment-name $clustername \
+                                              --principal-id $(jq -r .principalId <<< $MI_JSON) \
+                                              --principal-assignment-name $centralurlprefix \
                                               --resource-group $resourcegroup \
                                               --principal-type App \
+                                              --tenant-id $(jq -r .tenantId <<< $MI_JSON) \
                                               --role Admin
 
-echo "Azure Data Explorer URL: $(az kusto cluster show --name $clustername --resource-group $resourcegroup --query uri -o tsv)"
-echo "Client ID: $(jq -r .appId <<< $SP_JSON)"
-echo "Tenant ID: $(jq -r .tenant <<< $SP_JSON)"
-echo "Client secret: $(jq -r .password <<< $SP_JSON)" 
+echo "Azure Data Explorer URL: $(az kusto cluster show --name $clustername --resource-group $resourcegroup --query uri -o tsv)" 
 ```
 
-Make a note of the **Azure Data Explorer URL**, **Client ID**, **Tenant ID**, and **Client secret**. You use these values later in the quickstart.
+Make a note of the **Azure Data Explorer URL**. You use this value later in the quickstart.
 
 ## Configure the database
 
@@ -123,9 +131,7 @@ To configure the data export destination from IoT Central:
 1. In **Cluster URL**, enter the **Azure Data Explorer URL** you made a note of previously.
 1. In **Database name**, enter *phonedata*.
 1. In **Table name**, enter *acceleration*.
-1. In **Client ID**, enter the **Client ID** you made a note of previously.
-1. In **Tenant ID**, enter the **Tenant ID** you made a note of previously.
-1. In **Client secret**, enter the **Client secret** you made a note of previously.
+1. In **Authorization**, select **System-assigned managed identity**.
 1. Select **Save**.
 
 To configure the data export:

@@ -5,14 +5,11 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/03/2021
-ms.author: cavoeg
+ms.date: 03/01/2022
+ms.author: mikaelw
 ---
 
 # FHIR search examples
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Below are some examples of using FHIR search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a `POST` request. For more information about search, see [Overview of FHIR Search](overview-of-search.md).
    
@@ -53,14 +50,14 @@ In this request, you'll get back a bundle of patients, but each resource will on
 
 ### :not
 
-`:not` allows you to find resources where an attribute is not true. For example, you could search for patients where the gender is not female:
+`:not` allows you to find resources where an attribute isn't true. For example, you could search for patients where the gender isn't female:
 
 ```rest
 GET [your-fhir-server]/Patient?gender:not=female
 
 ```
 
-As a return value, you would get all patient entries where the gender is not female, including empty values (entries specified without gender). This is different than searching for Patients where gender is male, since that would not include the entries without a specific gender.
+As a return value, you would get all patient entries where the gender isn't female, including empty values (entries specified without gender). This is different than searching for Patients where gender is male, since that wouldn't include the entries without a specific gender.
 
 ### :missing
 
@@ -79,7 +76,7 @@ GET [your-fhir-server]/Patient?name:exact=Jon
 
 ```
 
-This request returns `Patient` resources that have the name exactly the same as `Jon`. If the resource had patients with names such as `Jonathan` or `joN`, the search would ignore and skip the resource as it does not exactly match the specified value.
+This request returns `Patient` resources that have the name exactly the same as `Jon`. If the resource had patients with names such as `Jonathan` or `joN`, the search would ignore and skip the resource as it doesn't exactly match the specified value.
 
 ### :contains
 `:contains` is used for `string` parameters and searches for resources with partial matches of the specified value anywhere in the string within the field being searched. `contains` is case insensitive and allows character concatenating. For example:
@@ -109,7 +106,7 @@ GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e661
 
 ```
 
-Using chained search, you can find all the `Encounter` resources that matches a particular piece of `Patient` information, such as the `birthdate`:
+Using chained search, you can find all the `Encounter` resources that match a particular piece of `Patient` information, such as the `birthdate`:
 
 ```rest
 GET [your-fhir-server]/Encounter?subject:Patient.birthdate=1987-02-20
@@ -218,6 +215,8 @@ name=John
 
 ```
 ## Next steps
+
+In this article, you learned about how to search using different search parameters, modifiers, and other search tools for FHIR. For more information about FHIR search, see
 
 >[!div class="nextstepaction"]
 >[Overview of FHIR Search](overview-of-search.md)

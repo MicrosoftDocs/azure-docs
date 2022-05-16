@@ -1,11 +1,11 @@
 ---
 title: SMB Multichannel performance - Azure Files
 description: Learn about SMB Multichannel performance.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/25/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 

@@ -2,14 +2,13 @@
 title: Azure CLI Script Sample - Delete containers by prefix | Microsoft Docs
 description: Delete Azure Storage blob containers based on a container name prefix, then clean up the deployment. See help links for commands used in the script sample.
 services: storage
-author: tamram
-
+author: stevenmatthew
 ms.service: storage
 ms.subservice: blobs
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 06/22/2017
-ms.author: tamram 
+ms.date: 03/01/2022
+ms.author: shaas 
 ms.custom: devx-track-azurecli
 ---
 
@@ -17,23 +16,27 @@ ms.custom: devx-track-azurecli
 
 This script first creates a few sample containers in Azure Blob storage, then deletes some of the containers based on a prefix in the container name.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/storage/delete-containers-by-prefix/delete-containers-by-prefix.sh?highlight=2-3 "Delete containers by prefix")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Clean up deployment
+### Run the script
 
-Run the following command to remove the resource group, remaining containers, and all related resources.
+:::code language="azurecli" source="~/azure_cli_scripts/storage/delete-containers-by-prefix/delete-containers-by-prefix.sh" id="FullScript":::
 
-```azurecli-interactive
-az group delete --name myResourceGroup
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands to delete containers based on container name prefix. Each item in the table links to command-specific documentation.
 

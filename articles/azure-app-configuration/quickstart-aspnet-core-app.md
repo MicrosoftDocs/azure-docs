@@ -179,7 +179,7 @@ dotnet new mvc --no-https --output TestAppConfig
         ```  
 ---
 
-This code will connect to your App Configuration store using a connection string and load all keys that have the *TestApp* prefix from a previous step. For more information on the configuration provider APIs, reference the [configuration provider for App Configuration docs](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). 
+This code will connect to your App Configuration store using a connection string and load all key-values. For more information on the configuration provider APIs, reference the [configuration provider for App Configuration docs](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). 
 
 ## Read from the App Configuration store
 

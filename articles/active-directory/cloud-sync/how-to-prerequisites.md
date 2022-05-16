@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 03/04/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -104,22 +104,10 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
 
 2. The PowerShell execution policy on the local server must be set to Undefined or RemoteSigned.
 
-3. If there's a firewall between your servers and Azure AD, configure the following items:
-    - Ensure that agents can make *outbound* requests to Azure AD over the following ports:
+3. If there's a firewall between your servers and Azure AD, configure see [Firewall and proxy requirements](#firewall-and-proxy-requirements) below.  
 
-      | Port number | How it's used |
-      | --- | --- |
-      | **80** | Downloads the certificate revocation lists (CRLs) while validating the TLS/SSL certificate.  |
-      | **443** | Handles all outbound communication with the service. |
-      | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed in the Azure AD portal. |
-
-    - If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
-    - If your firewall or proxy allows you to specify safe suffixes, add connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
-    - Your agents need access to login.windows.net and login.microsoftonline.com for initial registration. Open your firewall for those URLs as well.
-    - For certificate validation, unblock the following URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80, and www\.microsoft.com:80. These URLs are used for certificate validation with other Microsoft products, so you might already have these URLs unblocked.
-
-    >[!NOTE]
-    > Installing the cloud provisioning agent on Windows Server Core is not supported.
+>[!NOTE]
+> Installing the cloud provisioning agent on Windows Server Core is not supported.
 
 ### Additional requirements
 
@@ -144,6 +132,47 @@ To enable TLS 1.2, follow these steps.
     ```
 
 1. Restart the server.
+
+## Firewall and Proxy requirements
+If there's a firewall between your servers and Azure AD, configure the following items:
+
+- Ensure that agents can make *outbound* requests to Azure AD over the following ports:
+
+   | Port number | How it's used |
+   | --- | --- |
+   | **80** | Downloads the certificate revocation lists (CRLs) while validating the TLS/SSL certificate.  |
+   | **443** | Handles all outbound communication with the service. |
+   | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed in the Azure AD portal. |
+ 
+- If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
+- If your firewall or proxy allows you to specify safe suffixes, add connections: 
+
+#### [Public Cloud](#tab/public-cloud)
+
+
+  |URL |How it's used|
+  |-----|-----|
+  |&#42;.msappproxy.net</br>&#42;.servicebus.windows.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
+  |&#42;.microsoftonline.com</br>&#42;.microsoft.com</br>&#42;.msappproxy.com</br>&#42;.windowsazure.com|The agent uses these URLs to communicate with the Azure AD cloud service. |
+   |`mscrl.microsoft.com:80` </br>`crl.microsoft.com:80` </br>`ocsp.msocsp.com:80` </br>`www.microsoft.com:80`| The agent uses these URLs to verify certificates.|
+   |login.windows.net</br>|The agent uses these URLs during the registration process.
+
+
+
+#### [U.S. Government Cloud](#tab/us-government-cloud)
+
+ |URL |How it's used|
+ |-----|-----|
+ |&#42;.msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
+ |`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| The agent uses these URLs to verify certificates.|
+ |login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctldl.windowsupdate.us:80| The agent uses these URLs during the registration process.
+
+
+
+
+- If you are unable to add connections, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
+
+---
 ## NTLM requirement
 
 You should not enable NTLM on the Windows Server that is running the Azure AD Connect Provisioning Agent and if it is enabled you should make sure you disable it. 

@@ -59,8 +59,10 @@ additionalContent:
           links:
             - text: What is Azure VPN Gateway?
               url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
-            - text: Site-to-site-connections
+            - text: Site-to-site connections
               url: ../vpn-gateway/tutorial-site-to-site-portal.md
+            - text: Point-to-site connections
+              url: ../vpn-gateway/point-to-site-about.md
             - text: See more
               url: ../vpn-gateway/index.yml   
         # Card
@@ -109,7 +111,7 @@ additionalContent:
             - text: What is Azure Virtual Network NAT?
               url: ../virtual-network/nat-gateway/nat-overview.md
             - text: Create and configure NAT gateway resource
-              url: ../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md
+              url: ../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md
             - text: See more
               url: ../virtual-network/nat-gateway/index.yml
 
@@ -159,9 +161,9 @@ additionalContent:
         - title: Secure cloud CDN and global load balancer
           links:
             - text: What is Azure Front Door Service?
-              url: ../frontdoor/standard-premium/overview.md
-            - text:  Add a custom domain to your Azure Front Door Service
-              url: ../frontdoor/front-door-how-to-redirect-https.md
+              url: ../frontdoor/front-door-overview.md
+            - text:  Create an Azure Front Door profile
+              url: ../frontdoor/create-front-door-portal.md
             - text: See more
               url: ../frontdoor/index.yml
 
@@ -227,16 +229,6 @@ additionalContent:
               url: ../bastion/tutorial-create-host-portal.md
             - text: See more
               url: ../bastion/index.yml
-
-        # Card
-        - title: Secure cloud CDN and global load balancer
-          links:
-            - text: What is Azure Front Door Service?
-              url: ../frontdoor/standard-premium/overview.md
-            - text:  Add a custom domain to your Azure Front Door Service
-              url: ../frontdoor/front-door-how-to-redirect-https.md
-            - text: See more
-              url: ../frontdoor/index.yml
 
         # Card
         - title: Network security management

@@ -1,40 +1,20 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/azure/marketplace/reference-architecture-diagram.md",
+            "source_path_from_root": "/articles/marketplace/reference-architecture-diagram.md",
             "redirect_url": "/partner-center/reference-architecture-diagram",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure/marketplace/commercial-marketplace-co-sell-states.md",
+            "source_path_from_root": "/articles/marketplace/commercial-marketplace-co-sell-states.md",
             "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure/marketplace/commercial-marketplace-co-sell-countries.md",
+            "source_path_from_root": "/articles/marketplace/commercial-marketplace-co-sell-countries.md",
             "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
             "redirect_document_id": false
         },
-        {
-            "source_path_from_root": "/articles/azure/marketplace/co-sell-status.md",
-            "redirect_url": "/partner-center/co-sell-status",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure/marketplace/co-sell-requirements.md",
-            "redirect_url": "/partner-center/co-sell-requirements",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure/marketplace/co-sell-configure.md",
-            "redirect_url": "/partner-center/co-sell-configure",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure/marketplace/co-sell-overview.md",
-            "redirect_url": "/partner-center/co-sell-overview",
-            "redirect_document_id": false
-        },            
         {
             "source_path_from_root": "/articles/azure-resource-manager/managed-application-consume-marketplace.md",
             "redirect_url": "/azure/marketplace/azure-app-offer-setup",
@@ -46,18 +26,18 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure/marketplace/third-party-license.md",
+            "source_path_from_root": "/articles/marketplace/third-party-license.md",
             "redirect_url": "/azure/marketplace/isv-app-license",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cloud-partner-portal/cloud-partner-portal-manage-publisher-profile.md",
-            "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+            "redirect_url": "/partner-center/create-user-accounts-and-set-permissions",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cloud-partner-portal/cloud-partner-portal-manage-users.md",
-            "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
+            "redirect_url": "/azure/marketplace/manage-account",
             "redirect_document_id": false
         },
         {
@@ -77,12 +57,12 @@
         },
         {
             "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md",
-            "redirect_url": "/azure/marketplace/create-account",
-            "redirect_document_id": true
+            "redirect_url": "/partner-center/create-user-accounts-and-set-permissions",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-azure-certification.md",
-            "redirect_url": "/azure/marketplace/become-publisher",
+            "redirect_url": "/azure/marketplace/create-account",
             "redirect_document_id": false
         },
         {
@@ -159,7 +139,17 @@
             "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-vm-image-test-in-staging.md",
             "redirect_url": "/azure/marketplace/azure-vm-image-test",
             "redirect_document_id": false
-        },       
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/saas-go-live.md",
+            "redirect_url": "/azure/marketplace/test-publish-saas-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-saas-dev-test-offer.md",
+            "redirect_url": "/azure/marketplace/plan-saas-dev-test-offer",
+            "redirect_document_id": false
+        },   
         {
             "source_path_from_root": "/articles/marketplace/account-migration-from-cpp-to-pc.md",
             "redirect_url": "/partner-center/overview",
@@ -1432,7 +1422,17 @@
         },
         {
             "source_path_from_root": "/articles/marketplace/commercial-marketplace-co-sell.md",
-            "redirect_url": "/azure/marketplace/co-sell-configure",
+            "redirect_url": "/partner-center/co-sell-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/co-sell-requirements.md",
+            "redirect_url": "/partner-center/co-sell-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/co-sell-configure.md",
+            "redirect_url": "/partner-center/co-sell-configure",
             "redirect_document_id": false
         },
         {
@@ -1440,6 +1440,12 @@
             "redirect_url": "/azure/marketplace/overview",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/marketplace/co-sell-status.md",
+            "redirect_url": "/partner-center/co-sell-status",
+            "redirect_document_id": false
+        },
+
         {
             "source_path_from_root": "/articles/marketplace/consulting-services.md",
             "redirect_url": "/azure/marketplace/plan-consulting-service-offer",
@@ -1585,7 +1591,12 @@
             "redirect_url": "/azure/marketplace/integrated-solutions-for-publishers",
             "redirect_document_id": false
         },
-        {
+         {
+            "source_path_from_root": "/articles/marketplace/isv-private-offer-faq.yml",
+            "redirect_url": "/azure/marketplace/isv-csp-faq",
+            "redirect_document_id": false
+        },
+       {
             "source_path_from_root": "/articles/marketplace/iot-edge-module.md",
             "redirect_url": "/azure/marketplace/marketplace-iot-edge",
             "redirect_document_id": false
@@ -1612,7 +1623,7 @@
         },                
         {
             "source_path_from_root": "/articles/marketplace/marketplace-co-sell.md",
-            "redirect_url": "/azure/marketplace/co-sell-overview",
+            "redirect_url": "/partner-center/co-sell-overview",
             "redirect_document_id": false
         },
         {
@@ -1702,17 +1713,12 @@
         },
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-co-sell-countries.md",
-            "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell-countries",
+            "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-co-sell-states.md",
-            "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell-states",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-co-sell.md",
-            "redirect_url": "/azure/marketplace/co-sell-overview",
+            "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
             "redirect_document_id": false
         },
         {
@@ -1951,8 +1957,13 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/marketplace/partner-center-portal/vm-images-to-managed-disks-faq.md",
+            "redirect_url": "/azure/marketplace/azure-vm-faq",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/marketplace/preferred-solutions.md",
-            "redirect_url": "https://docs.microsoft.com/marketplace/appsource-overview#microsoft-preferred-solutions",
+            "redirect_url": "/marketplace/appsource-overview#microsoft-preferred-solutions",
             "redirect_document_id": false
         },
         {

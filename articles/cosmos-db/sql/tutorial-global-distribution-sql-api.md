@@ -6,7 +6,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 04/03/2022
 ms.reviewer: sngun
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 
@@ -173,6 +173,19 @@ The following code shows how to set preferred locations by using the Java SDK:
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=TutorialGlobalDistributionPreferredLocationSync)]
 
 --- 
+
+## Spark 3 Connector
+
+You can define the preferred regional list using the `spark.cosmos.preferredRegionsList` [configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3_2-12/docs/configuration-reference.md), for example:
+
+```scala
+val sparkConnectorConfig = Map(
+  "spark.cosmos.accountEndpoint" -> cosmosEndpoint,
+  "spark.cosmos.accountKey" -> cosmosMasterKey,
+  "spark.cosmos.preferredRegionsList" -> "[West US, East US, North Europe]"
+  // other settings
+)
+```
 
 ## REST
 

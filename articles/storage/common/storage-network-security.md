@@ -5,11 +5,11 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2021
+ms.date: 03/31/2022
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure Azure Storage firewalls and virtual networks
@@ -18,7 +18,7 @@ Azure Storage provides a layered security model. This model enables you to secur
 
 Storage accounts have a public endpoint that is accessible through the internet. You can also create [Private Endpoints for your storage account](storage-private-endpoints.md), which assigns a private IP address from your VNet to the storage account, and secures all traffic between your VNet and the storage account over a private link. The Azure storage firewall provides access control for the public endpoint of your storage account. You can also use the firewall to block all access through the public endpoint when using private endpoints. Your storage firewall configuration also enables select trusted Azure platform services to access the storage account securely.
 
-An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with an SAS token.
+An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with an SAS token. When a blob container is configured for anonymous public access, requests to read data in that container do not need to be authorized, but the firewall rules remain in effect and will block anonymous traffic.
 
 > [!IMPORTANT]
 > Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on.
@@ -47,70 +47,76 @@ You can use unmanaged disks in storage accounts with network rules applied to ba
 
 ## Change the default network access rule
 
-By default, storage accounts accept connections from clients on any network. To limit access to selected networks, you must first change the default action.
+By default, storage accounts accept connections from clients on any network. You can limit access to selected networks **or** prevent traffic from all networks and permit access only through a [private endpoint](storage-private-endpoints.md).
 
 > [!WARNING]
-> Making changes to network rules can impact your applications' ability to connect to Azure Storage. Setting the default network rule to **deny** blocks all access to the data unless specific network rules that **grant** access are also applied. Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
-
-### Managing default network access rules
-
-You can manage default network access rules for storage accounts through the Azure portal, PowerShell, or CLIv2.
-
-#### [Portal](#tab/azure-portal)
+> Changing this setting can impact your application's ability to connect to Azure Storage. Make sure to grant access to any allowed networks or set up access through a [private endpoint](storage-private-endpoints.md) before you change this setting.
+     
+### [Portal](#tab/azure-portal)
 
 1. Go to the storage account you want to secure.
 
-2. Select on the settings menu called **Networking**.
+2. Locate the **Networking** settings under **Security + networking**. 
 
-3. To deny access by default, choose to allow access from **Selected networks**. To allow traffic from all networks, choose to allow access from **All networks**.
+3. Choose which type of public network access you want to allow.
+
+   - To allow traffic from all networks, select **Enabled from all networks**.
+   
+   - To allow traffic only from specific virtual networks, select **Enabled from selected virtual networks and IP addresses**. 
+    
+   - To block traffic from all networks, select **Disabled**.
 
 4. Select **Save** to apply your changes.
 
 <a id="powershell"></a>
 
-#### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 1. Install the [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
 
-2. Display the status of the default rule for the storage account.
+2. Choose which type of public network access you want to allow.
 
-    ```powershell
-    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
-    ```
+    - To allow traffic from all networks, use the `Update-AzStorageAccountNetworkRuleSet` command, and set the `-DefaultAction` parameter to `Allow`.
 
-3. Set the default rule to deny network access by default.
+      ```powershell
+      Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
+      ```
+  
+   - To allow traffic only from specific virtual networks, use the `Update-AzStorageAccountNetworkRuleSet` command and set the `-DefaultAction` parameter to `Deny`.
 
-    ```powershell
-    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
-    ```
+     ```powershell
+     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
+     ```
 
-4. Set the default rule to allow network access by default.
+   - To block traffic from all networks, use the `Set-AzStorageAccount` command and set the `-PublicNetworkAccess` parameter to `Disabled`. Traffic will be allowed only through a [private endpoint](storage-private-endpoints.md). You'll have to create that private endpoint. 
+   
+     ```powershell
+     Set-AzStorageAccount -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -PublicNetworkAccess Disabled
+     ```
 
-    ```powershell
-    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
-    ```
-
-#### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 1. Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 
-2. Display the status of the default rule for the storage account.
+2. Choose which type of public network access you want to allow.
 
-    ```azurecli
-    az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
-    ```
+    - To allow traffic from all networks, use the `az storage account update` command, and set the `--default-action` parameter to `Allow`.
 
-3. Set the default rule to deny network access by default.
+      ```azurecli
+      az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
+      ```
+   
+   - To allow traffic only from specific virtual networks, use the `az storage account update` command and set the `--default-action` parameter to `Deny`.
 
-    ```azurecli
-    az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
-    ```
+     ```azurecli
+     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
+     ```
 
-4. Set the default rule to allow network access by default.
+   - To block traffic from all networks, use the `az storage account update` command and set the `--public-network-access` parameter to `Disabled`. Traffic will be allowed only through a [private endpoint](storage-private-endpoints.md). You'll have to create that private endpoint. 
 
-    ```azurecli
-    az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
-    ```
+     ```azurecli
+     az storage account update --name MyStorageAccount --resource-group MyResourceGroup --public-network-access Disabled
+     ```
 
 ---
 
@@ -132,11 +138,11 @@ To apply a virtual network rule to a storage account, the user must have the app
 Storage account and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
 > [!NOTE]
-> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through Powershell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
 ### Available virtual network regions
 
-By default, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, service endpoints also work between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md). If you want to use a service endpoint to grant access to virtual networks in other regions, you must register the `AllowGlobalTagsForStorage` feature. This capability is currently in public preview. 
+By default, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, service endpoints also work between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md). If you want to use a service endpoint to grant access to virtual networks in other regions, you must register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. This capability is currently in public preview. 
 
 Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
@@ -144,7 +150,7 @@ When planning for disaster recovery during a regional outage, you should create 
 
 ### Enabling access to virtual networks in other regions (preview)
 
-To enable access from a virtual network that is located in another region, register the `AllowGlobalTagsForStorage` feature. Subnets in other regions which have storage service endpoints will no longer use a public IP address to communicate with the storage account. All traffic will originate from a private IP address and any IP network rules that permit traffic from those subnets will no longer have an effect.
+To enable access from a virtual network that is located in another region, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. All the subnets in the subscription that has the _AllowedGlobalTagsForStorage_ feature enabled will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from these subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
 > [!IMPORTANT]
 > This capability is currently in PREVIEW.
@@ -165,7 +171,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, then set your active subscription.
+2. If your identity is associated with more than one subscription, then set your active subscription to the subscription of the virtual network.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
@@ -193,7 +199,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 
 1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the virtual network.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
@@ -201,7 +207,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. Register the `AllowGlobalTagsForStorage` feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
+3. Register the `AllowGlobalTagsForStorage` feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
 
    ```azurecli
    az feature register --namespace Microsoft.Network --name AllowGlobalTagsForStorage
@@ -210,7 +216,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
    > [!NOTE]
    > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
 
-4. To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
+4. To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
 
    ```azurecli
    az feature show --namespace Microsoft.Network --name AllowGlobalTagsForStorage
@@ -223,7 +229,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 You can manage virtual network rules for storage accounts through the Azure portal, PowerShell, or CLIv2. 
 
 > [!NOTE]
-> If you registered the `AllowGlobalTagsForStorageOnly` feature, and you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the storage account or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
+> If you registered the `AllowGlobalTagsForStorage` feature, and you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the storage account or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
 
 #### [Portal](#tab/azure-portal)
 
@@ -238,7 +244,7 @@ You can manage virtual network rules for storage accounts through the Azure port
     > [!NOTE]
     > If a service endpoint for Azure Storage wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
     >
-    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use , Powershell, CLI or REST APIs.
+    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use , PowerShell, CLI or REST APIs.
     > 
     > Even if you registered the `AllowGlobalTagsForStorageOnly` feature, subnets in regions other than the region of the storage account or its paired region aren't shown for selection. If you want to enable access to your storage account from a virtual network/subnet in a different region, use the instructions in the PowerShell or Azure CLI tabs.
 
@@ -634,7 +640,7 @@ You can grant access to trusted Azure services by creating a network rule except
 When you grant access to trusted Azure services, you grant the following types of access:
 
 - Trusted access for select operations to resources that are registered in your subscription.
-- Trusted access to resources based on system-assigned managed identity.
+- Trusted access to resources based on a managed identity.
 
 <a id="trusted-access-resources-in-subscription"></a>
 
@@ -657,14 +663,15 @@ Resources of some services, **when registered in your subscription**, can access
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Enable replication for disaster-recovery of Azure IaaS virtual machines when using firewall-enabled cache, source, or target storage accounts.  [Learn more](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 
 <a id="trusted-access-system-assigned-managed-identity"></a>
+<a id="trusted-access-based-on-system-assigned-managed-identity"></a>
 
-### Trusted access based on system-assigned managed identity
+### Trusted access based on a managed identity
 
 The following table lists services that can have access to your storage account data if the resource instances of those services are given the appropriate permission.
 
-If your account does not have the hierarchical namespace feature enabled on it, you can grant permission, by explicitly assigning an Azure role to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for each resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+If your account does not have the hierarchical namespace feature enabled on it, you can grant permission, by explicitly assigning an Azure role to the [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for each resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
 
-You can use the same technique for an account that has the hierarchical namespace feature enable on it. However, you don't have to assign an Azure role if you add the system-assigned managed identity to the access control list (ACL) of any directory or blob contained in the storage account. In that case, the scope of access for the instance corresponds to the directory or file to which the system-assigned managed identity has been granted access. You can also combine Azure roles and ACLs together. To learn more about how to combine them together to grant access, see [Access control model in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
+You can use the same technique for an account that has the hierarchical namespace feature enable on it. However, you don't have to assign an Azure role if you add the managed identity to the access control list (ACL) of any directory or blob contained in the storage account. In that case, the scope of access for the instance corresponds to the directory or file to which the managed identity has been granted access. You can also combine Azure roles and ACLs together. To learn more about how to combine them together to grant access, see [Access control model in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
 
 > [!TIP]
 > The recommended way to grant access to specific resources is to use resource instance rules. To grant access to specific resource instances, see the [Grant access from Azure resource instances (preview)](#grant-access-specific-instances) section of this article.
@@ -687,11 +694,11 @@ You can use the same technique for an account that has the hierarchical namespac
 | Azure Machine Learning Service | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
 | Azure Media Services           | Microsoft.Media/mediaservices          | Allows access to storage accounts through Media Services. |
 | Azure Migrate                  | Microsoft.Migrate/migrateprojects      | Allows access to storage accounts through Azure Migrate. |
-| Azure Purview                  | Microsoft.Purview/accounts             | Allows Azure Purview to access storage accounts. |
+| Microsoft Purview                  | Microsoft.Purview/accounts             | Allows Microsoft Purview to access storage accounts. |
 | Azure Remote Rendering         | Microsoft.MixedReality/remoteRenderingAccounts | Allows access to storage accounts through Remote Rendering. |
 | Azure Site Recovery            | Microsoft.RecoveryServices/vaults      | Allows access to storage accounts through Site Recovery. |
-| Azure SQL Database             | Microsoft.Sql                          | Allows [writing](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) audit data to storage accounts behind firewall. |
-| Azure Synapse Analytics        | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase (in dedicated pool), or the `openrowset` function and external tables in serverless pool. [Learn more](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Azure SQL Database             | Microsoft.Sql                          | Allows [writing](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) audit data to storage accounts behind firewall. |
+| Azure Synapse Analytics        | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase (in dedicated pool), or the `openrowset` function and external tables in serverless pool. [Learn more](/azure/azure-sql/database/vnet-service-endpoint-rule-overview). |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics              | Allows data from a streaming job to be written to Blob storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces           | Enables access to data in Azure Storage from Azure Synapse Analytics. |
 

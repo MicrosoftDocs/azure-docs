@@ -1,11 +1,11 @@
 ---
 title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/13/2021
-ms.author: rogarana
+ms.date: 04/05/2022
+ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
 ---
@@ -69,6 +69,7 @@ Azure File Sync is supported with the following versions of Windows Server:
 
 | Version | Supported SKUs | Supported deployment options |
 |---------|----------------|------------------------------|
+| Windows Server 2022 | Azure, Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2019 | Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2016 | Datacenter, Standard, and Storage Server | Full and Core |
 | Windows Server 2012 R2 | Datacenter, Standard, and Storage Server | Full and Core |

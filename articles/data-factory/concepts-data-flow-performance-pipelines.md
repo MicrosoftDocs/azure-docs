@@ -26,7 +26,7 @@ If your data flows execute in parallel, we recommend that you don't enable the A
 
 ## Execute data flows sequentially
 
-If you execute your data flow activities in sequence, it is recommended that you set a TTL in the Azure IR configuration. The service will reuse the compute resources, resulting in a faster cluster start-up time. Each activity will still be isolated and receive a new Spark context for each execution. To reduce the time between sequential activities even more, set the **quick re-use** checkbox on the Azure IR to tell the service to re-use the existing cluster.
+If you execute your data flow activities in sequence, it is recommended that you set a TTL in the Azure IR configuration. The service will reuse the compute resources, resulting in a faster cluster start-up time. Each activity will still be isolated and receive a new Spark context for each execution.
 
 ## Overloading a single data flow
 

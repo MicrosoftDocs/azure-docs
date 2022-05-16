@@ -3,13 +3,14 @@ title: Troubleshoot common errors - Azure Database for MySQL
 description: Learn how to troubleshoot common migration errors encountered by users new to the Azure Database for MySQL service
 author: savjani
 ms.service: mysql
+ms.subservice: single-server
 ms.author: pariks
 ms.custom: mvc
-ms.topic: overview
+ms.topic: troubleshooting
 ms.date: 5/21/2021
 ---
 
-# Commonly encountered errors during or post migration to Azure Database for MySQL
+# Troubleshoot errors commonly encountered during or post migration to Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
@@ -83,8 +84,8 @@ The above error may occur while executing CREATE VIEW with DEFINER statements as
 
 **Resolution**:
 
-* Use the definer user to execute CREATE VIEW if possible. It's likely that there are many views with different definers having different permissions so this may not be feasible.  OR
-* Edit the dump file or CREATE VIEW script and remove the DEFINER= statement from the dump file OR 
+* Use the definer user to execute CREATE VIEW if possible. It's likely that there are many views with different definers having different permissions, so this may not be feasible. OR
+* Edit the dump file or CREATE VIEW script and remove the DEFINER= statement from the dump file. OR
 * Edit the dump file or CREATE VIEW script and replace the definer values with user with admin permissions who is performing the import or execute the script file.
 
 > [!Tip]

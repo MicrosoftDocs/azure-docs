@@ -4,7 +4,7 @@ description: Learn how to use create ETL pipelines with Azure HDInsight to deriv
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
-ms.date: 04/15/2020
+ms.date: 05/13/2022
 ---
 
 # Tutorial: Create an end-to-end data pipeline to derive sales insights in Azure HDInsight
@@ -85,7 +85,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    If you're not sure which region to specify, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az_account_list_locations) command.
+    If you're not sure which region to specify, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az-account-list-locations) command.
 
     The command will deploy the following resources:
 

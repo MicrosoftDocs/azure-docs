@@ -1,11 +1,12 @@
 ---
 title: Azure Database for PostgreSQL - Flexible Server
 description: Provides an overview of Azure Database for PostgreSQL - Flexible Server.
-author: sunilagarwal
 ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 12/06/2021
+ms.date: 05/11/2022
 ms.custom: "mvc, references_regions"
 ---
 
@@ -14,8 +15,8 @@ ms.custom: "mvc, references_regions"
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
 - [Single Server](../overview-single-server.md)
-- Flexible Server 
-- Hyperscale (Citus)
+- [Flexible Server](./overview.md) 
+- [Hyperscale (Citus)](../hyperscale/overview.md)
 
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
 
@@ -94,32 +95,42 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Australia Southeast | :heavy_check_mark: | :x: | :x: |
 | Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | 
-| Central India | :heavy_check_mark: | :x: | :x: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| East Asia | :heavy_check_mark: | :x: | :x: |
+| East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| East US 2 | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :x: $ | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Korea Central | :heavy_check_mark: | :x: | :x: |
+| Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 | Korea South | :heavy_check_mark: | :x: | :x: |
 | North Central US | :heavy_check_mark: | :x: | :x: |
 | North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Norway East | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :x: | :x: |
+| South India | :x: $$ | :x: | :heavy_check_mark: |
+| Southeast Asia | :heavy_check_mark: | :x: $  | :x: |
 | Sweden Central | :heavy_check_mark: | :x: | :x: |
-| Switzerland North | :heavy_check_mark: | :x: | :x: |
+| Switzerland North | :heavy_check_mark: | :x: $ ** | :x: |
 | UAE North | :heavy_check_mark: | :x: | :x: |
+| US Gov Arizona | :heavy_check_mark: | :x: | :x: |
+| US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK West | :heavy_check_mark: | :x: | :x: |
+| West Central US | :heavy_check_mark: | :x: | :x: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :x: | :x: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| West US 3 | :heavy_check_mark: | :x: | :x: |
+| West US 2 | :x: $$ | :x: $ | :x: |
+| West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
+
+$ New Zone-redundant high availability deployments are temporarily blocked in these regions. Already provisioned HA servers are fully supported. 
+
+$$ New server deployments are temporarily blocked in these regions. Already provisioned servers are fully supported.
+
+** Zone-redundant high availability can now be deployed when you provision new servers in these regions. Pre-existing servers deployed in AZ with *no preference* (which you can check on the Azure portal), the standby will be provisioned in the same AZ. To configure zone-redundant high availability, perform a point-in-time restore of the server and enable HA on the restored server.
 
 <!-- We continue to add more regions for flexible server. -->
 > [!NOTE]

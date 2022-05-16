@@ -5,7 +5,7 @@ description: Understand how to use C# to develop and publish code as class libra
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 07/24/2021
+ms.date: 02/08/2022
 
 ---
 # Develop C# class library functions using Azure Functions
@@ -59,7 +59,7 @@ When you build the project, a folder structure that looks like the following exa
  | - host.json
 ```
 
-This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](./functions-bindings-register.md#vs).
+This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](./functions-develop-vs.md?tabs=in-process#add-bindings).
 
 > [!IMPORTANT]
 > The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md).
@@ -336,17 +336,6 @@ namespace ServiceBusCancellationToken
 }
 ```
 
-As in the previous example, you commonly iterate through an array using a `foreach` loop. Within this loop and before processing the message, you should check the value of `cancellationToken.IsCancellationRequested` to see if cancellation is pending. In the case where `IsCancellationRequested` is `true`, you might need to take some actions to prepare for a graceful shutdown. For example, you might want to log the status of your code before the shutdown, or perhaps write to a persisted store the portion of the message batch which hasn't yet been processed. If you write this kind of information to a persisted store, your startup code needs to check the store for any unprocessed message batches that were written during shutdown. What your code needs to do during graceful shutdown depends on your specific scenario.
-
-Azure Event Hubs is an other trigger that supports batch processing messages. The following example is a function method definition for an Event Hubs trigger with a cancellation token that accepts an incoming batch as an array of [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) objects:
-
-```csharp
-public async Task Run([EventHubTrigger("csharpguitar", Connection = "EH_CONN")] 
-       EventData[] events, CancellationToken cancellationToken, ILogger log)
-```
-
-The pattern to process a batch of Event Hubs events is similar to the previous example of processing a batch of Service Bus messages. In each case, you should check the cancellation token for a cancellation state before processing each item in the array. When a pending shutdown is detected in the middle of the batch, handle it gracefully based on your business requirements.
-
 ## Logging
 
 In your function code, you can write output to logs that appear as traces in Application Insights. The recommended way to write to the logs is to include a parameter of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), which is typically named `log`. Version 1.x of the Functions runtime used `TraceWriter`, which also writes to Application Insights, but doesn't support structured logging. Don't use `Console.Write` to write your logs, since this data isn't captured by Application Insights. 
@@ -579,6 +568,13 @@ Don't call `TrackRequest` or `StartOperation<RequestTelemetry>` because you'll s
 
 Don't set `telemetryClient.Context.Operation.Id`. This global setting causes incorrect correlation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). This method ensures that the telemetry has the correct correlation details for the current function invocation.
 
+## Testing functions
+
+The following articles show how to run an in-process C# class library function locally for testing purposes:
+
++ [Visual Studio](functions-develop-vs.md#testing-functions)
++ [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp#debugging-functions-locally)
++ [Command line](functions-run-local.md?tabs=v4%2Ccsharp%2Cazurecli%2Cbash#start)
 
 ## Environment variables
 

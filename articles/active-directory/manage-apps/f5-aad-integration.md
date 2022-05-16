@@ -2,14 +2,14 @@
 title: Secure hybrid access with F5
 titleSuffix: Azure AD
 description: F5 BIG-IP Access Policy Manager and Azure Active Directory integration for Secure Hybrid Access
-author: NishthaBabith-V
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/12/2020
-ms.author: v-nisba
+ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
@@ -24,7 +24,7 @@ SHA addresses this blind spot by enabling organizations to continue using their 
 
 Having Azure AD pre-authenticate access to BIG-IP published services provides many benefits:
 
-- Password-less authentication through [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a), [Fast Identity Online (FIDO) keys](../authentication/howto-authentication-passwordless-security-key.md), and [Certificate-based authentication](../authentication/active-directory-certificate-based-authentication-get-started.md)
+- Password-less authentication through [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a), [Fast Identity Online (FIDO) keys](../authentication/howto-authentication-passwordless-security-key.md), and [Certificate-based authentication](../authentication/concept-certificate-based-authentication.md)
 
 - Preemptive [Conditional Access](../conditional-access/overview.md) and [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md)
 
@@ -168,19 +168,21 @@ Refer to the following guided configuration tutorials using Easy Button template
 
 - [BIG-IP Easy Button for SSO to Oracle JD Edwards](f5-big-ip-oracle-jde-easy-button.md)
 
+- [BIG-IP Easy Button for SSO to SAP ERP](f5-big-ip-sap-erp-easy-button.md)
+
 ## Azure AD B2B guest access
 Azure AD B2B guest access to SHA protected applications is also possible, but some scenarios may require some additional steps not covered in the tutorials. One example is Kerberos SSO, where a BIG-IP will perform kerberos constrained delegation (KCD) to obtain a service ticket from domain contollers. Without a local representation of a guest user exisiting locally, a domain controller will fail to honour the request on the basis that the user does not exist. To support this scenario, you would need to ensure external identities are flowed down from your Azure AD tenant to the directory used by the application. See [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md) for guidance.
 
 
 ## Next steps
 
-Consider running an SHA Proof of concept (POC) using your existing BIG-IP infrastructure, or by [Deploying a BIG-IP Virtual Edition (VE) VM into Azure](f5-bigip-deployment-guide.md) takes approximately 30 minutes, at which point you'll have:
+Consider running a SHA Proof of concept (POC) using your existing BIG-IP infrastructure, or by [Deploying a BIG-IP Virtual Edition (VE) VM into Azure](f5-bigip-deployment-guide.md). Deploying a VM in Azure takes approximately 30 minutes, at which point you'll have:
 
-- A fully secured platform to model a SHA proof of concept
+- A fully secured platform to model a SHA pilot
 
 - A pre-production instance for testing new BIG-IP system updates and hotfixes
 
-At the same time, you should identify one or two applications that can be published via the BIG-IP and protected with SHA.
+You should should also identify one or two applications that can be published via the BIG-IP and protected with SHA.
 
 Our recommendation is to start with an application that isn’t yet published via a BIG-IP, so as to avoid potential disruption to production services. The guidelines mentioned in this article will help you get acquainted with the general procedure for creating the various BIG-IP configuration objects and setting up SHA. Once complete you should be able to do the same with any other new services, plus also have enough knowledge to convert existing BIG-IP published services over to SHA with minimal effort.
 

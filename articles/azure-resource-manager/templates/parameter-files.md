@@ -10,6 +10,9 @@ ms.custom: devx-track-azurepowershell
 
 Rather than passing parameters as inline values in your script, you can use a JSON file that contains the parameter values. This article shows how to create a parameter file that you use with a JSON template.
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [parameter files](../bicep/parameter-files.md).
+
 ## Parameter file
 
 A parameter file uses the following format:

@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 11/30/2021
+ms.date: 02/15/2022
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to identify and fix bottlenecks in a web app so that I can improve the performance of the web apps that I'm running in Azure.
 ---
@@ -16,6 +16,8 @@ ms.topic: tutorial
 In this tutorial, you'll learn how to identify performance bottlenecks in a web application by using Azure Load Testing Preview. You'll create a load test for a sample Node.js application.
 
 The sample application consists of a Node.js web API, which interacts with a NoSQL database. You'll deploy the web API to Azure App Service web apps and use Azure Cosmos DB as the database.
+
+Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 
 In this tutorial, you'll learn how to:
 
@@ -42,7 +44,7 @@ Before you can load test the sample app, you have to get it deployed and running
 
 1. Open Windows PowerShell, sign in to Azure, and set the subscription:  
 
-   ```powershell
+   ```azurecli
    az login
    az account set --subscription <your-Azure-Subscription-ID>
    ```
@@ -165,13 +167,9 @@ In this section, you'll use the Azure portal to manually start the load test tha
    >[!TIP]
    > You can use the search box and the **Time range** filter to limit the number of tests.
 
-1. On the page that shows test details, select **Run** or **Run test**.
+1. On the test details page, select **Run** or **Run test**. Then, select **Run** on the **Run test** confirmation pane to start the load test.
 
     :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/test-runs-run.png" alt-text="Screenshot that shows selections for running a test." :::
-
-1. Select **Run** on the run summary page to start the load test. You'll then see the list of test runs.
-
-    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/test-run-list.png" alt-text="Screenshot that shows the run summary page." :::
 
     Azure Load Testing begins to monitor and display the application's server metrics on the dashboard.
     
@@ -238,7 +236,7 @@ For Azure Cosmos DB, increase the database RU scale setting:
 
 Now that you've increased the database throughput, rerun the load test and verify that the performance results have improved:
 
-1. Return to the page that shows test run details and select **Rerun**. Then select **Run** on the run summary page.
+1. On the test run dashboard, select **Rerun**, and then select **Rerun** on the **Rerun test** pane.
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/rerun-test.png" alt-text="Screenshot that shows selections for running the load test.":::
 

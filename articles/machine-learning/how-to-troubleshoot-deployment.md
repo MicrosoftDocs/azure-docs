@@ -9,7 +9,7 @@ ms.date: 10/21/2021
 author: blackmist
 ms.author: larryfr
 ms.topic: troubleshooting
-ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
+ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2, cliv1
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
 ---
 
@@ -49,9 +49,11 @@ Understanding these high-level steps should help you understand where errors are
 
 ## Get deployment logs
 
-The first step in debugging errors is to get your deployment logs. First, follow the [instructions here](how-to-deploy-and-where.md#connect-to-your-workspace) to connect to your workspace.
+The first step in debugging errors is to get your deployment logs. First, follow the [instructions here to connect to your workspace](how-to-deploy-and-where.md#connect-to-your-workspace).
 
 # [Azure CLI](#tab/azcli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 To get the logs from a deployed webservice, do:
 

@@ -11,7 +11,9 @@ ms.custom: devx-track-java
 
 # Bind Azure Cache for Redis to your application in Azure Spring Cloud
 
-**This article applies to:** ✔️ Java
+**This article applies to:** ✔️ Java ❌ C#
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 Instead of manually configuring your Spring Boot applications, you can automatically bind select Azure services to your applications by using Azure Spring Cloud. This article shows how to bind your application to Azure Cache for Redis.
 

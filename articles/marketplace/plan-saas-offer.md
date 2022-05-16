@@ -12,7 +12,7 @@ ms.date: 10/26/2021
 
 # Plan a SaaS offer for the commercial marketplace
 
-This article explains the different options and requirements for publishing software as a service (SaaS) offers to the Microsoft commercial marketplace. SaaS offers to let you deliver and license software solutions to your customers via online subscriptions. As a SaaS publisher, you manage and pay for the infrastructure required to support your customers' use of your offer. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
+This article explains the different options and requirements for publishing software as a service (SaaS) offers to the Microsoft commercial marketplace. SaaS offers let you deliver and license software solutions to your customers via online subscriptions. As a SaaS publisher, you manage and pay for the infrastructure required to support your customers' use of your offer. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
 
 > [!TIP]
 > To see the customer's view of purchasing a SaaS offer in the Azure portal, see [Purchase a SaaS offer in the Azure portal](/marketplace/purchase-saas-offer-in-azure-portal) and [Purchase SaaS apps on Microsoft AppSource](/marketplace/purchase-software-appsource).
@@ -29,7 +29,6 @@ The following table shows the listing options for SaaS offers in the commercial 
 | Free trial | The customer is redirected to your target URL via Azure Active Directory (Azure AD).``*``<br>You can change to a different listing option after publishing the offer. |
 | Get it now (Free) | The customer is redirected to your target URL via Azure AD.``*``<br>You can change to a different listing option after publishing the offer. |
 | Sell through Microsoft  | Offers sold through Microsoft are called _transactable_ offers. An offer that is transactable is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. We bill SaaS offers using the pricing model you choose, and manage customer transactions on your behalf. Azure infrastructure usage fees are billed to you, the partner, directly. You should account for infrastructure costs in your pricing model. This is explained in more detail in [SaaS billing](#saas-billing) below.<br><br>**Note**: You cannot change this option once your offer is published.  |
-|||
 
 ``*`` Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to order, fulfillment, metering, billing, invoicing, payment, and collection.
 
@@ -114,7 +113,6 @@ If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business s
 | Yes             | Yes         | Yes          | Azure Marketplace and Azure portal* |
 | Yes             | No          | Yes          | Azure portal only |
 | No              | No          | Yes          | Azure portal and AppSource |
-|||||
 
 &#42; The private plan of the offer will only be available via the Azure portal and AppSource.
 
@@ -190,11 +188,11 @@ The following example shows an offer listing in the Azure portal.
 
 To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
 
-- **Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
+- **Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 200 characters.
 - **Search results summary**: Describe the purpose or function of your offer as a single sentence with no line breaks in 100 characters or less. This summary is used in the commercial marketplace listing(s) search results.
 - **Description**: This description will be displayed in the commercial marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
 
-    This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](/windows/uwp/publish/write-a-great-app-description).
+    This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 5,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](/windows/uwp/publish/write-a-great-app-description).
 
 - **Getting Started instructions**: If you choose to sell your offer through Microsoft (transactable offer), this field is required. These instructions help customers connect to your SaaS offer. You can add up to 3,000 characters of text and links to more detailed online documentation.
 - **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online stores. You don't need to include the offer **Name** and **Description**: that text is automatically included in search.
@@ -257,7 +255,7 @@ For SaaS apps that run in your (the publisher’s) Azure subscription, infrastru
 
 SaaS app offers that are sold through Microsoft support monthly or annual billing based on a flat fee, per user, or consumption charges using the [metered billing service](./partner-center-portal/saas-metered-billing.md). The commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to publishers while withholding an agency fee.
 
-The following example shows a sample breakdown of costs and payouts to demonstrate the agency model. In this example, Microsoft bills $100.00 to the customer for your software license and pays out $80.00 to the publisher.
+The following example shows a sample breakdown of costs and payouts to demonstrate the agency model. In this example, Microsoft bills $100.00 to the customer for your software license and pays out $97.00 to the publisher.
 
 | Your license cost | $100 per month |
 | ------------ | ------------- |
@@ -265,7 +263,6 @@ The following example shows a sample breakdown of costs and payouts to demonstra
 | Customer is billed by Microsoft | $100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee) |
 | **Microsoft bills** | **$100 per month** |
 | Microsoft charges a 3% Marketplace Service Fee and pays you 97% of your license cost | $97.00 per month |
-|
 
 A preview audience can access your offer prior to being published live in the online stores. They can see how your offer will look in the commercial marketplace and test the end-to-end functionality before you publish it live. 
 
@@ -277,37 +274,12 @@ Before you publish your offer live, you should use the preview functionality to 
 
 To develop and test your SaaS offer with the lowest amount of risk, we recommend that you create a test and development (DEV) offer for experimentation and testing. The DEV offer will be separate from your production (PROD) offer.
 
-To prevent accidental purchases of the DEV offer, you’ll never push the **Go live** button to publish the DEV offer live.
+> [!IMPORTANT]
+> To prevent accidental purchases of the DEV offer, you’ll never push the **Go live** button to publish the DEV offer live.
 
 ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown. The View validation report link is also shown under Automated validation.](./media/review-publish-offer/publish-status-saas.png)
 
-Here are some reasons to create a separate DEV offer for the development team to use for development and testing of the PROD offer:
-
-- Avoid accidental customer charges
-- Evaluate pricing models
-- Not adding plans that do not target actual customers
-
-### Avoid accidental customer charges
-
-By using a DEV offer instead of the PROD offer and treating them as development and production environments, you can avoid accidental charges to customers.
-
-We recommend that you register two different Azure AD apps for calling the marketplace APIs. Developers will use one Azure AD app with the DEV offer’s settings, and the operations team will use the PROD app registration. By doing this, you can isolate the development team from making inadvertent mistakes, such as calling the API to cancel a customer’s subscription who pays $100K per month. You can also avoid charging a customer for metered usage they didn’t consume.
-
-### Evaluate pricing models
-
-Testing pricing models in the DEV offer reduces risk when developers experiment with different pricing models.
-
-Publishers can create the plans they need in the DEV offer to determine which pricing model works best for their offer. Developers might want to create multiple plans in the DEV offer to test different pricing combinations. For example, you might create plans with different sets of custom metered dimensions. You might create a different plan with a mix of flat rate and custom metered dimensions.
-
-To test multiple pricing options, you need to create a plan for each unique pricing model. To learn more, see [Plans](#plans).
-
-### Not adding plans that do not target actual customers
-
-By using a DEV offer for development and testing, you can reduce unnecessary clutter in the PROD offer. For example, you can’t delete plans you create to test different pricing models or technical configurations (without filing a support ticket). So by creating plans for testing in the DEV offer, you reduce the clutter in the PROD offer.
-
-Clutter in the PROD offer frustrates product and marketing teams, as they expect all the plans to target actual customers. Especially with large teams that are disjointed who all want different sandboxes to work with, creating two offers will provide two different environments for DEV and PROD. In some cases, you might want to create multiple DEV offers to support a larger team who have different people running different test scenarios. Letting different team members work in the DEV offer separate from the PROD offer , helps to keep production plans as close to production-ready as possible.
-
-Testing a DEV offer helps to avoid the 30 custom metered dimensions limit per offer. Developers can try different meter combinations in the DEV offer without affecting the custom metered dimension limit in the PROD offer.
+For information about the benefits of a DEV offer, and the configuration difference between a DEV and production offer, see [Plan a test and development (DEV) offer](plan-saas-dev-test-offer.md).
 
 ## Additional sales opportunities
 
@@ -319,5 +291,6 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 
 ## Next steps
 
-- [How to create a SaaS offer in the commercial marketplace](create-new-saas-offer.md)
+- [Plan a test SaaS offer](plan-saas-dev-test-offer.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
+- [Create a SaaS offer](create-new-saas-offer.md)
