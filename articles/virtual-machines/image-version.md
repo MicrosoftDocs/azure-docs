@@ -44,21 +44,22 @@ Allowed characters for the image version are numbers and periods. Numbers must b
 When working through this article, replace the resource names where needed.
 
 For [generalized](generalize.md) images, see the OS specific guidance before capturing the image:
+   
+   - **Linux**
+     - [Generic steps](./linux/create-upload-generic.md)
+     - [CentOS](./linux/create-upload-centos.md)
+     - [Debian](./linux/debian-create-upload-vhd.md)
+     - [Flatcar](./linux/flatcar-create-upload-vhd.md)
+     - [FreeBSD](./linux/freebsd-intro-on-azure.md)
+     - [Oracle Linux](./linux/oracle-create-upload-vhd.md)
+     - [OpenBSD](./linux/create-upload-openbsd.md)
+     - [Red Hat](./linux/redhat-create-upload-vhd.md)
+     - [SUSE](./linux/suse-create-upload-vhd.md)
+     - [Ubuntu](./linux/create-upload-ubuntu.md)
 
-   **Linux**
-   - [Generic steps](./linux/create-upload-generic.md)
-   - [CentOS](./linux/create-upload-centos.md)
-   - [Debian](./linux/debian-create-upload-vhd.md)
-   - [Flatcar](./linux/flatcar-create-upload-vhd.md)
-   - [FreeBSD](./linux/freebsd-intro-on-azure.md)
-   - [Oracle Linux](./linux/oracle-create-upload-vhd.md)
-   - [OpenBSD](./linux/create-upload-openbsd.md)
-   - [Red Hat](./linux/redhat-create-upload-vhd.md)
-   - [SUSE](./linux/suse-create-upload-vhd.md)
-   - [Ubuntu](./linux/create-upload-ubuntu.md)
-
-   **Windows**
-   If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](./windows/prepare-for-upload-vhd-image.md).  
+   - **Windows**
+   
+      If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](./windows/prepare-for-upload-vhd-image.md).  
 
 ## Community gallery (preview)
 
