@@ -66,12 +66,12 @@ If you want to do bulk *patch* (similar to using [DocumentBulkExecutor.mergeAll]
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=PatchOperations)]
 
-Then pass them to a method like the below:
+Then you can pass the operations, along with the reactive stream of documents, to a method like the below:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkPatchItems)]
 
 > [!NOTE]
-> In the above example, we apply `add` and `set` to patch elements whose root parent exists, but you cannot do this where the root parent does not exist. When this is required, first read the full document, then use replace:
+> In the above example, we apply `add` and `set` to patch elements whose root parent exists. However, you cannot do this where the root parent does not exist. When this is required, first read the full document, then use a method like the below to replace the documents:
 > [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkReplaceItems)]               
 
 
