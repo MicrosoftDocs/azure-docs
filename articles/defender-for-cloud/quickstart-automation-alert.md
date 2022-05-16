@@ -121,22 +121,27 @@ For other Defender for Cloud quickstart templates, see these [community contribu
 
     ```azurecli
     az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters automationName=<automation-name> logicAppName=<logic-name> logicAppResourceGroupName=<group-name>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters automationName=<automation-name> logicAppName=<logic-name> logicAppResourceGroupName=<group-name> alertSettings={alert-settings}
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -automationName "<automation-name>" -logicAppName "<logic-name>" -logicAppResourceGroupName "<group-name>"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -automationName "<automation-name>" -logicAppName "<logic-name>" -logicAppResourceGroupName "<group-name>" -alertSettings "{alert-settings}"
     ```
 
     ---
 
-    > [!NOTE]
-    > **\<automation-username\>** has a minimum length of 3 characters and a maximum length of 24 characters. **\<logic-name\>** and **\<group-name\>** have a minimum length of 3 characters.
+    You're required to enter the following parameters:
 
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
+    - **automationName**: Replace **\<automation-name\>** with the name of the automation. It has a minimum length of 3 characters and a maximum length of 24 characters.
+    - **logicAppName**: Replace **\<logic-name\>** with the name of the logic app. It has a minimum length of 3 characters.
+    - **logicAppResourceGroupName**: Replace **\<group-name\>** with the name of the resource group in which the resources are located. It has a minimum length of 3 characters.
+    - **alertSettings**: Replace **\{alert-settings\}** with the alert settings object used for deploying the automation.
+
+    > [!NOTE]
+    > When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ### Review deployed resources
 
