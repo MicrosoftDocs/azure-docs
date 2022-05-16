@@ -319,22 +319,25 @@ Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
 ## [CLI](#tab/cli)
 
-Move the existing VM to a dedicated host using the [CLI](). The VM must be Stop/Deallocated in order to assign it to a dedicated host.
+Move the existing VM to a dedicated host using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to a dedicated host. 
+
+Replace the values with your own information.
 
 ```azurecli-interactive
-az vmss create \
-  --resource-group myResourceGroup \
-  --name myScaleSet \
-  --image UbuntuLTS \
-  --upgrade-policy-mode automatic \
-  --admin-username azureuser \
-  --host-group myHostGroup \
-  --generate-ssh-keys \
-  --size Standard_D4s_v3 \
-  -g myDHResourceGroup \
-  --zone 1
+az vm deallocate -n myVM -g myResourceGroup
+az vm update - n myVM -g myResourceGroup --host myHost
+az vm start -n myVM -g myResourceGroup
 ```
 
+For automatically placed VMs, only update the host group. For more information, see [Manual vs. automatic placement](dedicated-hosts.md#manual-vs-automatic-placement).
+
+Replace the values with your own information.
+
+```azurecli-interactive
+az vm deallocate -n myVM -g myResourceGroup
+az vm update -n myVM -g myResourceGroup --host-group myHostGroup
+az vm start -n myVM -g myResourceGroup
+```
 
 ### [PowerShell](#tab/powershell)
 
