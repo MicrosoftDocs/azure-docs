@@ -35,7 +35,7 @@ The following example shows you how to create a Container Apps environment in an
 
     | Setting | Value |
     |---|---|
-    | Subnet Name | Enter **my-vnet-subnet**. |
+    | Subnet Name | Enter **infrastructure-subnet**. |
     | Virtual Network Address Block | Keep the default values. |
     | Subnet Address Block | Keep the default values. |
 
@@ -111,7 +111,7 @@ az network vnet create `
 az network vnet subnet create `
   --resource-group $RESOURCE_GROUP `
   --vnet-name $VNET_NAME `
-  --name infrastructure `
+  --name infrastructure-subnet `
   --address-prefixes 10.0.0.0/23
 ```
 
@@ -126,7 +126,7 @@ VNET_RESOURCE_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name
 ```
 
 ```bash
-INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure --query "id" -o tsv | tr -d '[:space:]'`
+INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [PowerShell](#tab/powershell)
@@ -136,7 +136,7 @@ $VNET_RESOURCE_ID=(az network vnet show --resource-group $RESOURCE_GROUP --name 
 ```
 
 ```powershell
-$INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure --query "id" -o tsv)
+$INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv)
 ```
 
 ---
