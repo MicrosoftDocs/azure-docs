@@ -163,6 +163,8 @@
       href: sentinel-solutions-deploy.md
     - name: Deploy custom content from your repository
       href: ci-cd.md
+    - name: Delete out-of-the-box content
+      href: sentinel-solutions-delete.md
   - name: Collect data
     items:
     - name: Connect your data source
