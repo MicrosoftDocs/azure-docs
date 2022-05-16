@@ -104,30 +104,7 @@ The following sections explain how to use the Azure portal to create a service p
 
 ## Create a service principal - Azure portal 
 
-To create a service principal using the Azure portal, complete the following steps.
 
-1. On the Create Azure Red Hat OpenShift **Basics** tab, create a resource group for your subscription, and then select **Next: Authentication**.
-
-   :::image type="content" source="./media/basics-openshift-sp.png" alt-text="Screenshot that shows how to use the Azure Red Hat service principal with Azure portal to create a cluster." lightbox="./media/basics-openshift-sp.png":::
-
-2. On the **Authentication** tab in the **Service Principal Type** field, select **Create New**.
-  
-   :::image type="content" source="./media/authentication-openshift-sp.png" alt-text="Screenshot that shows the Authentication tab of the Azure portal used to create a service principal." lightbox="./media/authentication-openshift-sp.png":::
-
-3. On the **Create New** dialog, configure the new service principal. 
-
-     :::image type="content" source="./media/openshift-service-principal-portal.png" alt-text="Screenshot of Authentication dialog used to create create a service principal." lightbox="./media/openshift-service-principal-portal.png":::
-
-In the **Service principal information** section:
-
-- **Service principal client ID** is your appId. 
-- **Service principal client secret** is the service principal's decrypted Secret value.
-
-In the **Cluster pull secret** section:
-
-- **Pull secret** is your cluster's pull secret's decrypted value.
-
-After completing this tab, select **Next: Networking** to continue creating your cluster. Select **Review + Create** when you complete the remaining tabs.
 
 > [!NOTE]
 > This service principal only allows a contributor over the resource group the Azure Red Hat OpenShift cluster is located in. If your VNet is in another resource group, you need to assign the service principal contributor role to that resource group as well.
