@@ -240,7 +240,7 @@ httpEndpoint=$(az storage account show \
 smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
 if [ -z "$(grep $smbPath\ $mntPath /etc/fstab)" ]; then
-    echo "$smbPath $mntPath cifs nofail,credentials=$smbCredentialFile,serverino" | sudo tee -a /etc/fstab > /dev/null
+    echo "$smbPath $mntPath cifs nofail,credentials=$smbCredentialFile,serverino,nosharesock,actimeo=30" | sudo tee -a /etc/fstab > /dev/null
 else
     echo "/etc/fstab was not modified to avoid conflicting entries as this Azure file share was already present. You may want to double check /etc/fstab to ensure the configuration is as desired."
 fi
