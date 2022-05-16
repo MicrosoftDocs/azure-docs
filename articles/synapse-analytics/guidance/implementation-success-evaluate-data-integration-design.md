@@ -1,6 +1,6 @@
 ---
 title: Evaluate data integration design
-description: TODO (solution-evaluation)
+description: "TODO: Evaluate data integration design"
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun

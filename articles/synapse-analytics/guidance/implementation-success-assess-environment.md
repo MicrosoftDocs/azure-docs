@@ -1,6 +1,6 @@
 ---
 title: Assess environment
-description: TODO ()
+description: "TODO: Assess environment"
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
@@ -241,7 +241,7 @@ Synapse Serverless SQL Pool has three major use cases:
 
 For complete guide on Synapse Serverless Sql Pool follow below learning path:
 
-[Build data analytics solutions using Azure Synapse serverless SQL pools - Learn \| Microsoft Docs](https://docs.microsoft.com/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/)
+[Build data analytics solutions using Azure Synapse serverless SQL pools - Learn \| Microsoft Docs](/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/)
 
 Different professional roles can benefit from serverless SQL pool:
 
@@ -284,7 +284,7 @@ To get started with Synapse spark refer below guided learning:
 
 [What is Apache Spark - Azure Synapse Analytics | Microsoft Docs](../spark/apache-spark-overview.md#where-do-i-start)
 
-[Perform data engineering with Azure Synapse Apache Spark Pools - Learn | Microsoft Docs](https://docs.microsoft.com/learn/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/)
+[Perform data engineering with Azure Synapse Apache Spark Pools - Learn | Microsoft Docs](/learn/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/)
 
 Azure Spark supports Delta Lake, for complete guide follow the below guide:
 

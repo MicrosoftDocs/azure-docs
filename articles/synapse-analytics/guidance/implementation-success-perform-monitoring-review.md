@@ -38,7 +38,7 @@ How to use [Azure Monitor](../monitoring/how-to-monitor-using-azure-monitor.md) 
 
 ### Alerting
 
-Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold. This article shows you how to set up alerts for databases in Azure SQL Database and Azure Synapse Analytics using the Azure portal. [TODO](../../azure-sql/database/alerts-insights-configure-portal.md)
+Alerts can send you an email or call a webhook when some metric (for example database size or CPU usage) reaches the threshold. For more information, see [Create alerts for Azure SQL Database and Azure Synapse Analytics using the Azure portal](/azure/azure-sql/database/alerts-insights-configure-portal).
 
 ### Dynamic Management Views
 

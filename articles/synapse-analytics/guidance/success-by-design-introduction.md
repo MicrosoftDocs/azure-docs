@@ -1,12 +1,12 @@
 ---
 title: Success by design
-description: TODO ()
+description: "TODO: Success by design"
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 04/30/2022
+ms.date: 05/23/2022
 ---
 
 # Success by design

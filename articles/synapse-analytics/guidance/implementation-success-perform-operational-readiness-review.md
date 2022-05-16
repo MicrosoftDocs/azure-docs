@@ -1,6 +1,6 @@
 ---
 title: Perform operational readiness review
-description: TODO (pre-golive)
+description: "TODO: Perform operational readiness review"
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun

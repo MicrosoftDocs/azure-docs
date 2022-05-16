@@ -179,7 +179,7 @@ You can set up a POC on Azure Synapse by following these steps:
 Once you've set up the dedicated SQL pool, you can follow these steps to load data:
 
 1. Load the data into [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md). For a POC, we recommend that you use a [general-purpose V2 storage account](../../storage/common/storage-account-overview.md) with [locally-redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage). While there are several tools for migrating data to Azure Blob Storage, the easiest way is to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), which can copy files into a storage container.
-2. Load the data into the dedicated SQL pool. Azure Synapse supports two T-SQL loading methods: [PolyBase](../sql-data-warehouse/design-elt-data-loading.md) and the [COPY](sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) statement. You can use SSMS to connect to the dedicated SQL pool to use either method.
+2. Load the data into the dedicated SQL pool. Azure Synapse supports two T-SQL loading methods: [PolyBase](../sql-data-warehouse/design-elt-data-loading.md) and the [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) statement. You can use SSMS to connect to the dedicated SQL pool to use either method.
 
 When you load data into the dedicated SQL pool for the first time, you need to consider which [distribution pattern](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md) and [index option](../sql-data-warehouse/sql-data-warehouse-tables-index.md) to use. While a dedicated SQL pool supports a variety of both, it's a best practice to rely on default settings. Default settings use round-robin distribution and a clustered columnstore index. If necessary, you can adjust these settings later, which is described later in this article.
 
@@ -267,9 +267,9 @@ To improve query performance, you can:
 
 Once query performance testing is complete, it's a good time to test specific features to verify that they satisfy your intended use cases. These features include:
 
-- [Row-level security](../../sql/relational-databases/security/row-level-security.md?view=azure-sqldw-latest&preserve-view=true)
+- [Row-level security](/sql/relational-databases/security/row-level-security?view=azure-sqldw-latest&preserve-view=true)
 - [Column-level security](../sql-data-warehouse/column-level-security.md)
-- [Dynamic data masking](azure/azure-sql/database/dynamic-data-masking-overview)
+- [Dynamic data masking](/azure/azure-sql/database/dynamic-data-masking-overview)
 - Intra-cluster scaling via [workload isolation](../sql-data-warehouse/sql-data-warehouse-workload-isolation.md)
 
 Finally, you need to interpret your POC results.

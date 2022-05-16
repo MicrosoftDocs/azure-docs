@@ -26,7 +26,7 @@ A POC project can help you make an informed business decision about implementing
 Different professional roles can benefit from serverless SQL pool:
 
 - **Data engineers** can explore the data lake, transform and prepare data by using serverless SQL pool, and simplify their data transformation pipelines.
-- **Data scientists** can quickly reason about the contents and structure of the data stored in the data lake by using the [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest) T-SQL function and its automatic schema inference.
+- **Data scientists** can quickly reason about the contents and structure of the data stored in the data lake by using the [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest&preserve-view=true) T-SQL function and its automatic schema inference.
 - **Data analysts** can write T-SQL queries in their preferred query tools, which can connect to serverless SQL pool. They can explore data in Spark external tables that were created by data scientists or data engineers.
 - **BI professionals** can quickly create Power BI reports that connect to data lake or Spark tables.
 

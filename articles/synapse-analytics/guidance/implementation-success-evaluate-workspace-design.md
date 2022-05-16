@@ -1,6 +1,6 @@
 ---
 title: Evaluate workspace design
-description: TODO (solution-evaluation)
+description: "TODO: Evaluate workspace design"
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun

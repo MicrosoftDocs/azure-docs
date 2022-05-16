@@ -1,6 +1,6 @@
 ---
 title: Synapse implementation success methodology
-description: TODO ()
+description: "TODO: Synapse implementation success methodology"
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
