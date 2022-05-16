@@ -94,7 +94,7 @@
     - name: Database Migration Service
       href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: SQL Database
-      href: /azure-sql/database/single-database-create-bicep-quickstart.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/azure-sql/database/single-database-create-bicep-quickstart
   - name: DevOps
     items:
     - name: App Configuration
@@ -109,6 +109,10 @@
     items:
     - name: IoT Hub
       href: ../../iot-hub/quickstart-bicep-route-messages.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Media Services
+    items:
+    - name: Media Services account
+      href: /azure/media-services/latest/media-services-bicep-quickstart
   - name: Networking
     items:
     - name: Application Gateway
