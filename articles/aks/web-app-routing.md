@@ -99,11 +99,11 @@ osm namespace add hello-web-app-routing
 
 Identify the Web Application Routing-associated managed identity within the cluster resource group `webapprouting-<MY_CLUSTER_NAME>`. In this walkthrough, the identity is named `webapprouting-myakscluster`.
 
-:::image type="content" source="media/web-app-routing/identify-msi-web-app-routing.png" alt-text="Cluster resource group in the Azure Portal is shown, and the webapprouting-myakscluster user-assigned managed identity is highlighted." lightbox="media/web-app-routing/identify-msi-web-app-routing.png":::
+:::image type="content" source="media/web-app-routing/identify-msi-web-app-routing.png" alt-text="Cluster resource group in the Azure portal is shown, and the webapprouting-myakscluster user-assigned managed identity is highlighted." lightbox="media/web-app-routing/identify-msi-web-app-routing.png":::
 
 Copy the identity's object ID:
 
-:::image type="content" source="media/web-app-routing/msi-web-app-object-id.png" alt-text="The webapprouting-myakscluster managed identity screen in Azure Portal, the identity's object id is highlighted. " lightbox="media/web-app-routing/msi-web-app-object-id.png":::
+:::image type="content" source="media/web-app-routing/msi-web-app-object-id.png" alt-text="The webapprouting-myakscluster managed identity screen in Azure portal, the identity's object ID is highlighted. " lightbox="media/web-app-routing/msi-web-app-object-id.png":::
 
 ### Grant Access to Keyvault
 
