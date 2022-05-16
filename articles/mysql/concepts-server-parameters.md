@@ -4,6 +4,7 @@ description: This topic provides guidelines for configuring server parameters in
 author: Bashar-MSFT
 ms.author: bahusse
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 1/26/2021
 ---

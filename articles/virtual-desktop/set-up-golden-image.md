@@ -20,7 +20,9 @@ Make sure you've done the following things before taking the final snapshot:
 - Install the latest Windows updates.
 - Complete any necessary cleanup, such as cleaning up temporary files, defragmenting disks, and removing unnecessary user profiles.
 > [!NOTE]
-> If your machine will include an antivirus app, it may cause issues when you start sysprep. To avoid this, disable all antivirus programs before running sysprep.
+> 1. If your machine will include an antivirus app, it may cause issues when you start sysprep. To avoid this, disable all antivirus programs before running sysprep.
+> 
+> 1. [Unified Write Filter](/windows-hardware/customize/enterprise/unified-write-filter) (UWF) is not supported for session hosts. Please ensure it is not enabled in your image.
 ### Take the final snapshot
 When you are done installing your applications to the image VM, take a final snapshot of the disk. If sysprep or capture fails, you will be able to create a new base VM with your applications already installed from this snapshot. 
 ### Run sysprep

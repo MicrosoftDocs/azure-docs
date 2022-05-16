@@ -73,11 +73,11 @@ To disable listening on a port for images that aren't web applications, add the 
 1. Select **Apps** from left the menu, then select **Create App**.
 1. Name your app, and in the **Runtime platform** pulldown list, select **Custom Container**.
 
-   :::image type="content" source="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png" alt-text="Azure portal screenshot of Create App page with Runtime platform dropdown showing and Custom Container selected." lightbox="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png":::
+   :::image type="content" source="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png" alt-text="Screenshot of Azure portal Create App page with Runtime platform dropdown showing and Custom Container selected." lightbox="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png":::
 
 1. Select **Edit** under *Image*, then fill in the fields as shown in the following image:
 
-   :::image type="content" source="media/how-to-deploy-with-custom-container-image/custom-image-settings.png" alt-text="Azure portal screenshot showing the Custom Image Settings pane." lightbox="media/how-to-deploy-with-custom-container-image/custom-image-settings.png":::
+   :::image type="content" source="media/how-to-deploy-with-custom-container-image/custom-image-settings.png" alt-text="Screenshot of Azure portal showing the Custom Image Settings pane." lightbox="media/how-to-deploy-with-custom-container-image/custom-image-settings.png":::
 
    > [!NOTE]
    > The **Commands** and **Arguments** field are optional, which are used to overwrite the `cmd` and `entrypoint` of the image.
