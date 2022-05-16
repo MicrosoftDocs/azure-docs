@@ -4,7 +4,7 @@ description: Tips to avoid and fix configuration errors and other problems that 
 author: ekpgh    
 ms.service: hpc-cache
 ms.topic: troubleshooting
-ms.date: 05/02/2022
+ms.date: 05/16/2022
 ms.author: v-erinkelly
 ---
 
@@ -47,26 +47,30 @@ Make sure that all of the ports returned by the ``rpcinfo`` query allow unrestri
 
 Check these settings both on the NAS itself and also on any firewalls between the storage system and the cache subnet.
 
-<!--- ## Check root access
+## Check root squash settings
 
-Azure HPC Cache needs access to your storage system's exports to create the storage target. Specifically, it mounts the exports as user ID 0.
+Check that the access settings for the superuser root are properly configured. Check the settings that affect each mount point and the cache itself.
 
-Different storage systems use different methods to enable this access:
+> [!TIP]
+>
+> Older versions of Azure HPC Cache required NAS storage systems to allow root access from the HPC Cache, but this requirement has changed. You only need to configure root squash on a storage target export if you want HPC Cache clients to have root access to that path.
 
-* Linux servers generally add ``no_root_squash`` to the exported path in ``/etc/exports``.
-* NetApp and EMC systems typically control access with export rules that are tied to specific IP addresses or networks.
+This table explains the behavior for different root squash scenarios.
 
-If using export rules, remember that the cache can use multiple different IP addresses from the cache subnet. Allow access from the full range of possible subnet IP addresses.
+| HPC Cache root setting | Storage target export root squash setting | Effective client access |
+|--|--|--|
+| no root squash (off) | root squash (on) | ? |
+| root squash (on) | no root squash (off) | ? |
 
-> [!NOTE]
-> Although the cache needs root access to the back-end storage system, you can restrict access for clients that connect through the cache. Read [Control client access](access-policies.md#root-squash) for details.
+Squashing on in core filer, root disallowed or reassigned at filer
+Squashing on in cache, root disallowed before sending to core filer. Core filer will never see root except to mount. 
+Squashing on in cache, root reassigned to non-root user before sending to filer. Core filer will never see root except for mount. 
+***xxx start here xxx*** 
 
-Work with your NAS storage vendor to enable the right level of access for the cache.
+## Check access on directory paths
+<!-- previously linked in prereqs article as allow-root-access-on-directory-paths -->
 
-### Allow root access on directory paths
-<!-- linked in prereqs article -->
-<!--
-For NAS systems that export hierarchical directories, Azure HPC Cache needs root access to each export level.
+For NAS systems that export hierarchical directories, check that Azure HPC Cache has appropriate access to each export level in the path to the files you are using.
 
 For example, a system might show three exports like these:
 
@@ -76,7 +80,7 @@ For example, a system might show three exports like these:
 
 The export ``/ifs/accounting/payroll`` is a child of ``/ifs/accounting``, and ``/ifs/accounting`` is itself a child of ``/ifs``.
 
-If you add the ``payroll`` export as an HPC Cache storage target, the cache actually mounts ``/ifs/`` and accesses the payroll directory from there. So Azure HPC Cache needs root access to ``/ifs`` in order to access the ``/ifs/accounting/payroll`` export.
+If you add the ``payroll`` export as an HPC Cache storage target, the cache actually mounts ``/ifs/`` and accesses the payroll directory from there. So Azure HPC Cache needs sufficient access to ``/ifs`` in order to access the ``/ifs/accounting/payroll`` export.
 
 This requirement is related to the way the cache indexes files and avoids file collisions, using file handles that the storage system provides.
 
@@ -84,7 +88,7 @@ A NAS system with hierarchical exports can give different file handles for the s
 
 The back-end storage system keeps internal aliases for file handles, but Azure HPC Cache cannot tell which file handles in its index reference the same item. So it is possible that the cache can have different writes cached for the same file, and apply the changes incorrectly because it does not know that they are the same file.
 
-To avoid this possible file collision for files in multiple exports, Azure HPC Cache automatically mounts the shallowest available export in the path (``/ifs`` in the example) and uses the file handle given from that export. If multiple exports use the same base path, Azure HPC Cache needs root access to that path. -->
+To avoid this possible file collision for files in multiple exports, Azure HPC Cache automatically mounts the shallowest available export in the path (``/ifs`` in the example) and uses the file handle given from that export. If multiple exports use the same base path, Azure HPC Cache needs access to that path.
 
 <!-- ## Enable export listing
 
