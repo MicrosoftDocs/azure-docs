@@ -169,4 +169,3 @@ You can view count of top five searches with a result returned. The table also s
 
 Learn more about Microsoft Purview Data estate insights through:
 * [Concepts](concept-insights.md)
-* [Insights permissions](insights-permissions.md)
