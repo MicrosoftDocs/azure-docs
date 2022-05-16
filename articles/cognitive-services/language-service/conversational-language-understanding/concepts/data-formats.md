@@ -92,7 +92,7 @@ If you're [importing a project](../how-to/create-project.md#import-project) into
 | `length` | ` ` |  The character length of the entity.      |`5`|
 | `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the utterances used in your project. If your project is a multilingual project, choose the [language code](../language-support.md) of the majority of the utterances. |`en-us`|
 
-## Utterance  file format
+## Utterance file format
 
 CLU offers the option to upload your utterance directly to the project rather than typing them in one by one. You can find this option in the [data labeling](../how-to/tag-utterances.md) page for your project.
 

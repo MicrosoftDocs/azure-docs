@@ -102,7 +102,7 @@ This is the step where you make your trained model available form consumption vi
 
 Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [deploy model](../includes/rest-api/deploy-model.md)]
+[!INCLUDE [deploy model](../includes/rest-api/deploy-model.md)]
 
 ### Get the deployment status
 

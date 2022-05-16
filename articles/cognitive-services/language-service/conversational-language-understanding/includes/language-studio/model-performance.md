@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 04/26/2022
+ms.date: 05/16/2022
 ms.author: aahi
 ---
 
@@ -13,7 +13,7 @@ ms.author: aahi
 
 2. Select **View model details** from the menu on the left side of the screen.
 
-3. In this page you can only view the successfully trained models, F1 score of each model and [model expiry date](../../../concepts/model-lifecycle.md#custom-features). You can click on the model name for more details about its performance.
+3. In this page you can only view the successfully trained models, F1 score of each model and [model expiration date](../../../concepts/model-lifecycle.md#expiration-timeline). You can click on the model name for more details about its performance.
 
 4. You can find the *model-level evaluation metrics* under **Overview**, and the *intent-level* and *entity-level* evaluation metrics. See [Evaluation metrics](../../concepts/evaluation-metrics.md#) for more information.
 

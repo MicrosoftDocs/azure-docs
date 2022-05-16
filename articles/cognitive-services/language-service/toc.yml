@@ -227,7 +227,7 @@ items:
       - name: Call the API to make predictions
         href: conversational-language-understanding/how-to/call-api.md
       - name: Back up and recover your models
-        href: conversational-language-understanding/fail-over.md
+        href: conversational-language-understanding/how-to/fail-over.md
   - name: Concepts
     items:
       - name: Backwards compatibility
@@ -528,7 +528,7 @@ items:
       - name: Deploy a model and get predictions
         href: orchestration-workflow/how-to/deploy-query-model.md
       - name: Back up and recover your models
-        href: conversational-language-understanding/fail-over.md
+        href: conversational-language-understanding/how-to/fail-over.md
   - name: Concepts
     items: 
       - name: Evaluation metrics
