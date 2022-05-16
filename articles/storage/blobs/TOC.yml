@@ -66,6 +66,8 @@ items:
       items:
       - name: Upload and analyze an image using .NET
         href: blob-upload-function-trigger.md
+      - name: Upload and analyze an image using JavaScript
+        href: blob-upload-function-trigger-javascript.md
     - name: Migrate data to cloud with AzCopy
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Optimize storage application performance and scalability
