@@ -38,12 +38,12 @@
           href: how-to-monitor-server-side-metrics.md
         - name: Configure for high scale loads
           href: how-to-high-scale-load.md
-        - name: Troubleshoot test execution errors
-          href: how-to-find-download-logs.md
         - name: Define test criteria
           href: how-to-define-test-criteria.md
         - name: Parameterize load tests
           href: how-to-parameterize-load-tests.md
+        - name: Use JMeter user properties
+          href: how-to-configure-user-properties.md
         - name: Read data from a CSV file
           href: how-to-read-csv-data.md
     - name: Analyze test results
@@ -55,6 +55,8 @@
           href: how-to-appservice-insights.md
         - name: Export test results
           href: how-to-export-test-results.md
+        - name: Troubleshoot test execution errors
+          href: how-to-find-download-logs.md
     - name: Security
       expanded: true
       items:

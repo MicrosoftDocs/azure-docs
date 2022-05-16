@@ -31,6 +31,9 @@ Many of the following examples use tools like [Managed Identities](../managed-id
 
 ### PowerShell
 
+> [!IMPORTANT]
+> Due to the planned deprecation of PowerShell modules (MSOL & AAD) after December 2022, no further updates are planned for these modules to support new Conditional Access features. See recent announcements for more information: https://aka.ms/AzureADPowerShellDeprecation. New Conditional Access features may not be available or may not be functional within these PowerShell modules as a result of this announcement. Please consider [migrating to Microsoft Graph PowerShell](https://aka.ms/MigrateMicrosoftGraphPowerShell). Additional guidance and examples will be released soon.
+
 For many administrators, PowerShell is already an understood scripting tool. The following example shows how to use the [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD) to manage Conditional Access policies.
 
 - [Configure Conditional Access policies with Azure AD PowerShell commands](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/01-configure/powershell)
