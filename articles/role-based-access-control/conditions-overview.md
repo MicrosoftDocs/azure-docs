@@ -107,7 +107,7 @@ Here's a list of the primary features of conditions:
 
 | Feature | Status | Date |
 | --- | --- | --- |
-| Use the following [attributes](../storage/common/storage-auth-abac-attributes.md#azure-blob-storage-attributes) in a condition<ul><li>Account name</li><li>Blob prefix</li><li>Encryption scope name</li><li>Is hierarchical namespace enabled</li><li>Snapshot</li><li>Version ID</li></ul> | Preview | May 2022 |
+| Use the following [attributes](../storage/common/storage-auth-abac-attributes.md#azure-blob-storage-attributes) in a condition: Account name, Blob prefix, Encryption scope name, Is hierarchical namespace enabled, Snapshot, Version ID | Preview | May 2022 |
 | Use [custom security attributes on a principal in a condition](conditions-format.md#principal-attributes) | Preview | November 2021 |
 | Add conditions to blob storage data role assignments | Preview | May 2021 |
 | Use attributes on a resource in a condition | Preview | May 2021 |
