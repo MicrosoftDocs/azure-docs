@@ -31,8 +31,8 @@ The following table shows popular Gremlin drivers that you can use against Azure
 | [Go Lang](https://github.com/supplyon/gremcos/) | [Go Lang](https://github.com/supplyon/gremcos/) | | This library is built by external contributors. The Azure Cosmos DB team doesn't offer any support or maintain the library. |
 
 > [!NOTE]
-> Gremlin client driver versions for __3.5.*__, __3.6.*__ have known compatibility issues, so we recommend customers stick to latest supported 3.4.* driver versions.
-> This table will be updated once these compatibility issues have been addressed.
+> Gremlin client driver versions for __3.5.*__, __3.6.*__ have known compatibility issues, so we recommend using the latest supported 3.4.* driver versions listed above.
+> This table will be updated when compatibility issues have been addressed for these newer driver versions.
 
 ## Supported Graph Objects
 
