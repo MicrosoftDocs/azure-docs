@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 05/12/2022
+ms.date: 05/16/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -82,7 +82,7 @@ For more information, see [how to protect Recovery Services vault and manage cri
 
 Low RPO (Recovery Point Objective) is a key requirement for Azure Files that contains the frequently updated, business-critical data. To ensure minimal data loss in the event of a disaster or unwanted changes to file share content, you may prefer to take backups more frequently than once a day.
 
-Using Azure Backup you can now  create a backup policy or modify an existing backup policy to take multiple snapshots in a  day. With this capability, you can also define the duration in which your backup jobs would trigger. This capability empowers you to align your backup schedule with the working hours when there are frequent updates to Azure Files content.
+Using Azure Backup, you can now  create a backup policy or modify an existing backup policy to take multiple snapshots in a  day. With this capability, you can also define the duration in which your backup jobs would trigger. This capability empowers you to align your backup schedule with the working hours when there are frequent updates to Azure Files content.
 
 For more information, see [how to configure multiple backups per day via backup policy](./manage-afs-backup.md#create-a-new-policy).
 
