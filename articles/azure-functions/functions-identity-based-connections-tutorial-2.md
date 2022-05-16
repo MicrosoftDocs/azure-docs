@@ -98,7 +98,7 @@ You've granted your function app access to the service bus namespace using manag
 1. After you create the two settings, select **Save** > **Confirm**.
 
 > [!NOTE]
-> When using [Azure App Configuration](../../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> When using [Azure App Configuration](../../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../articles/key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
 > 
 > E.g.  `ServiceBusConnection:fullyQualifiedNamespace`
 
@@ -156,7 +156,7 @@ Now that you've prepared the function app to connect to the service bus namespac
 > If you try to run your functions now using `func start` you'll receive an error. This is because you don't have an identity-based connection defined locally. If you want to run your function locally, set the app setting `ServiceBusConnection__fullyQualifiedNamespace` in `local.settings.json` as you did in [the previous section](#connect-to-service-bus-in-your-function-app). In addition, you'll need to assign the role to your developer identity. For more details, please refer to the [local development with identity-based connections documentation](./functions-reference.md#local-development-with-identity-based-connections).
 
 > [!NOTE]
-> When using [Azure App Configuration](../../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> When using [Azure App Configuration](../../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../articles/key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
 > 
 > E.g.  `ServiceBusConnection:fullyQualifiedNamespace`
 
