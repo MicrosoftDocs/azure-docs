@@ -31,7 +31,7 @@ This article provides an overview about custom connectors for [Consumption logic
 
 ## Consumption logic apps
 
-In [multi-tenant Azure Logic Apps](logic-apps-overview.md), you can create [Swagger-based or SOAP-based custom connectors](/connectors/custom-connectors/) from REST APIs to use in Consumption logic app workflows. The [Connectors documentation](/connectors/connectors) provides more overview information about how to create custom connectors for Consumption logic apps, including complete basic and advanced tutorials. The following list also provides direct links to information about custom connectors for Consumption logic apps:
+In [multi-tenant Azure Logic Apps](logic-apps-overview.md), you can create [custom connectors from Swagger-based or SOAP-based APIs](/connectors/custom-connectors/) up to [specific limits](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits) for use in Consumption logic app workflows. The [Connectors documentation](/connectors/connectors) provides more overview information about how to create custom connectors for Consumption logic apps, including complete basic and advanced tutorials. The following list also provides direct links to information about custom connectors for Consumption logic apps:
 
   * [Create an Azure Logic Apps connector](/connectors/custom-connectors/create-logic-apps-connector)
   * [Create a custom connector from an OpenAPI definition](/connectors/custom-connectors/define-openapi-definition)
@@ -87,11 +87,11 @@ The following sections provide more information about the interfaces that your c
 
 #### IServiceOperationsProvider
 
-This interface includes the methods that provide the operation descriptions and invocations for your custom built-in connector.
+This interface includes the methods that provide the operations manifest for your custom built-in connector.
 
-* Operation descriptions
+* Operations manifest
 
-  Operation descriptions are metadata about the implemented operations in your custom built-in connector. The Azure Logic Apps designer primarily uses these descriptions to drive the authoring and monitoring experiences for your connector's operations. For example, the designer uses operation descriptions to understand the input parameters required by a specific operation and to facilitate generating the outputs' property tokens, based on the schema for the operation's outputs.
+  The operations manifest includes metadata about the implemented operations in your custom built-in connector. The Azure Logic Apps designer primarily uses this metadata to drive the authoring and monitoring experiences for your connector's operations. For example, the designer uses operation metadata to understand the input parameters required by a specific operation and to facilitate generating the outputs' property tokens, based on the schema for the operation's outputs.
 
   The designer requires and uses the [**GetService()**](#getservice) and [**GetOperations()**](#getoperations) methods to query the operations that your connector provides and shows on the designer surface. The **GetService()** method also specifies the connection's input parameters that are required by the designer.
 
@@ -99,7 +99,7 @@ This interface includes the methods that provide the operation descriptions and 
 
 * Operation invocations
 
-  Operation invocations are the implementations used during workflow execution by the Azure Logic Apps runtime to call the specified operation in the workflow definition.
+  Operation invocations are the method implementations used during workflow execution by the Azure Logic Apps runtime to call the specified operations in the workflow definition.
 
   * If your trigger is an Azure Functions-based trigger type, the [**GetBindingConnectionInformation()**](#getbindingconnectioninformation) method is used by the runtime in Azure Logic Apps to provide the required connection parameters information to the Azure Functions trigger binding.
 
@@ -113,7 +113,7 @@ Custom built-in trigger capabilities support adding or exposing an [Azure Functi
 
 * The [**GetFunctionTriggerType()**](#getfunctiontriggertype) method is required to return the string that's the same as the **type** parameter in the Azure Functions trigger binding.
 
-* The [**GetFunctionTriggerDefinition()**](#getfunctiontriggerdefinition) has a default implementation, so you don't need to explicitly implement this method.
+* The [**GetFunctionTriggerDefinition()**](#getfunctiontriggerdefinition) has a default implementation, so you don't need to explicitly implement this method. However, if you want to update the trigger's default behavior, such as provide extra parameters that the designer doesn't expose, you can implement this method and override the default behavior.
 
 <a name="method-implementation"></a>
 
@@ -136,7 +136,7 @@ For more information, review [Sample CosmosDbServiceOperationProvider.cs](https:
 
 #### GetOperations()
 
-The designer requires this method to get the operations implemented by your service. The operations list is based on Swagger schema. The designer also uses operation descriptions to understand the input parameters for specific operations and generate the outputs as property tokens, based on the schema of the output for an operation.
+The designer requires this method to get the operations implemented by your service. The operations list is based on Swagger schema. The designer also uses the operation metadata to understand the input parameters for specific operations and generate the outputs as property tokens, based on the schema of the output for an operation.
 
 ```csharp
 public IEnumerable<ServiceOperation> GetOperations(bool expandManifest)
@@ -200,7 +200,7 @@ For more information, review [Sample CosmosDbServiceOperationProvider.cs](https:
 
 #### GetFunctionTriggerDefinition()
 
-This method has a default implementation, so you don't need to explicitly implement this method.
+This method has a default implementation, so you don't need to explicitly implement this method. However, if you want to update the trigger's default behavior, such as provide extra parameters that the designer doesn't expose, you can implement this method and override the default behavior.
 
 ## Next steps
 

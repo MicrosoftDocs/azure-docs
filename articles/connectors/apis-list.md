@@ -137,17 +137,17 @@ To make sure that your workflow runs at your specified start time and doesn't mi
 
 ## Custom connectors and APIs
 
-In Consumption logic apps, you can call APIs that run custom code or aren't available as connectors in the following ways:
+In Consumption logic apps that run in multi-tenant Azure Logic Apps, you can call Swagger-based or SOAP-based APIs that aren't available as connectors or run custom code in the following ways:
 
-* [Create custom API Apps](../logic-apps/logic-apps-create-api-app.md)
-
-* [Create custom connectors](../logic-apps/custom-connector-overview.md) for REST or SOAP-based APIs [up to specific limits](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
+* [About custom connectors for Consumption logic apps](../logic-apps/custom-connector-overview.md#custom-connector-consumption)
 
   Custom connectors make these APIs available to any Consumption logic app in your Azure subscription. To make custom API Apps or connectors public for anyone to use in Azure, you can [submit connectors for Microsoft certification](/connectors/custom-connectors/submit-certification).
 
-In Standard logic apps, you can create natively running custom [built-in connectors](../connectors/built-in.md) that are available to any Standard logic app. For more information, review the following documentation:
+* [Create custom API Apps](../logic-apps/logic-apps-create-api-app.md)
 
-* [Custom connectors for Standard logic apps](../logic-apps/custom-connector-overview.md#custom-connector-standard)
+In Standard logic apps, you can create natively running [service provider-based custom built-in connectors](../connectors/built-in.md) that are available to any Standard logic app. For more information, review the following documentation:
+
+* [About custom built-in connectors for Standard logic apps](../logic-apps/custom-connector-overview.md#custom-connector-standard)
 
 * [Create custom built-in connectors for Standard logic apps](../logic-apps/create-custom-built-in-connector-standard.md)
 
