@@ -56,7 +56,7 @@ To redirect agent traffic requests, the Azure Linux Agent has proxy server suppo
 
 ## Discover VM extensions
 
-Many VM extensions are available for use with Azure VMs. To see a complete list, use [az vm extension image list](/cli/azure/vm/extension/image#az_vm_extension_image_list). The following example lists all available extensions in the *westus* location:
+Many VM extensions are available for use with Azure VMs. To see a complete list, use [az vm extension image list](/cli/azure/vm/extension/image#az-vm-extension-image-list). The following example lists all available extensions in the *westus* location:
 
 ```azurecli
 az vm extension image list --location westus --output table
@@ -70,7 +70,7 @@ You can use the following methods to run an extension against an existing VM.
 
 ### Azure CLI
 
-You can run Azure VM extensions against an existing VM by using the [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*. Replace the example resource group name, VM name, and script to run (https:\//raw.githubusercontent.com/me/project/hello.sh) with your own information. 
+You can run Azure VM extensions against an existing VM by using the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*. Replace the example resource group name, VM name, and script to run (https:\//raw.githubusercontent.com/me/project/hello.sh) with your own information. 
 
 ```azurecli
 az vm extension set \
@@ -207,6 +207,7 @@ When an update is available and automatic updates are enabled, the update is ins
 
 - Data disks
 - Extensions
+- Extension Tags
 - Boot diagnostics container
 - Guest OS secrets
 - VM size
@@ -272,13 +273,13 @@ Automatic extension updates are either *minor* or *hotfix*. You can opt in or op
 
 To get the latest minor-release bug fixes, we highly recommend that you always select automatic update in your extension deployments. You can't opt out of hotfix updates that carry security or key bug fixes.
 
-If you disable automatic updates or you need to upgrade a major version, use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) and specify the target version.
+If you disable automatic updates or you need to upgrade a major version, use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) and specify the target version.
 
 ### How to identify extension updates
 
 #### Identify if the extension is set with autoUpgradeMinorVersion on a VM
 
-You can see from the VM model if the extension was provisioned with `autoUpgradeMinorVersion`. To check, use [az vm show](/cli/azure/vm#az_vm_show) and provide the resource group and VM name as follows:
+You can see from the VM model if the extension was provisioned with `autoUpgradeMinorVersion`. To check, use [az vm show](/cli/azure/vm#az-vm-show) and provide the resource group and VM name as follows:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM
@@ -347,7 +348,7 @@ The following troubleshooting actions apply to all VM extensions:
 
 ### View extension status
 
-After a VM extension has been run against a VM, use [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) to return extension status as follows:
+After a VM extension has been run against a VM, use [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) to return extension status as follows:
 
 ```azurecli
 az vm get-instance-view \
@@ -380,7 +381,7 @@ You can also find extension execution status in the Azure portal. Select the VM,
 
 ### Rerun a VM extension
 
-There might be cases in which a VM extension needs to be rerun. You can rerun an extension by removing it, and then rerunning the extension with an execution method of your choice. To remove an extension, use [az vm extension delete](/cli/azure/vm/extension#az_vm_extension_delete) as follows:
+There might be cases in which a VM extension needs to be rerun. You can rerun an extension by removing it, and then rerunning the extension with an execution method of your choice. To remove an extension, use [az vm extension delete](/cli/azure/vm/extension#az-vm-extension-delete) as follows:
 
 ```azurecli
 az vm extension delete \

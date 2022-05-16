@@ -2,11 +2,11 @@
 title: Configure end-to-end TLS with Azure Application Gateway
 description: This article describes how to configure end-to-end TLS with Azure Application Gateway by using PowerShell
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.author: victorh 
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -150,7 +150,7 @@ All configuration items are set before creating the application gateway. The fol
    ```
 
    > [!NOTE]
-   > This sample configures the certificate used for the TLS connection. The certificate needs to be in .pfx format, and the password must be 4 to 12 characters.
+   > This sample configures the certificate used for the TLS connection. The certificate needs to be in .pfx format.
 
 6. Create the HTTP listener for the application gateway. Assign the front-end IP configuration, port, and TLS/SSL certificate to use.
 

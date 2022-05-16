@@ -11,7 +11,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2022
+ms.date: 03/21/2022
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -163,7 +163,7 @@ The Azure services that support each encryption model:
 | Azure Data Factory               | Yes                | Yes, including Managed HSM | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
 | **Containers**                   |                    |                    |                    |
-| Azure Kubernetes Service         | Yes                | Yes                | -                  |
+| Azure Kubernetes Service         | Yes                | Yes, including Managed HSM | -                  |
 | Container Instances              | Yes                | Yes                | -                  |
 | Container Registry               | Yes                | Yes                | -                  |
 | **Compute**                      |                    |                    |                    |

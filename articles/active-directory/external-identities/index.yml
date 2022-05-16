@@ -24,7 +24,7 @@ landingContent:
             url: external-identities-overview.md
           - text: What is Azure AD B2B collaboration?
             url: what-is-b2b.md
-          - text: What is Azure AD B2B direct connect?
+          - text: What is Azure AD B2B direct connect? (preview)
             url: b2b-direct-connect-overview.md
           - text: What is Azure AD B2C (business-to-consumer) identity?
             url: ../../active-directory-b2c/overview.md
@@ -42,7 +42,7 @@ landingContent:
         links:
           - text: Configure your external collaboration settings
             url: external-collaboration-settings-configure.md
-          - text: Set up SAML/WS-Fed IdP federation (preview)
+          - text: Set up SAML/WS-Fed IdP federation
             url: direct-federation.md
           - text: Set up One-time passcodes
             url: one-time-passcode.md

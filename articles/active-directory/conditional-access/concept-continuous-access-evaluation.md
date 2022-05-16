@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/08/2022
+ms.date: 03/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,7 +21,7 @@ Token expiration and refresh are a standard mechanism in the industry. When a cl
 
 Customers have expressed concerns about the lag between when conditions change for a user, and when policy changes are enforced. Azure AD has experimented with the "blunt object" approach of reduced token lifetimes but found they can degrade user experiences and reliability without eliminating risks.
 
-Timely response to policy violations or security issues really requires a "conversation" between the token issuer (Azure AD), and the relying party (enlightened app). This two-way conversation gives us two important capabilities. The relying party can see when properties change, like network location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user because of account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE). The goal is for response to be near real time, but latency of up to 15 minutes may be observed because of event propagation time.
+Timely response to policy violations or security issues really requires a "conversation" between the token issuer (Azure AD), and the relying party (enlightened app). This two-way conversation gives us two important capabilities. The relying party can see when properties change, like network location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user because of account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE). The goal for critical event evaluation is for response to be near real time, but latency of up to 15 minutes may be observed because of event propagation time; however, IP locations policy enforcement is instant.
 
 The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
 
@@ -41,7 +41,7 @@ There are two scenarios that make up continuous access evaluation, critical even
 
 ### Critical event evaluation
 
-Continuous access evaluation is implemented by enabling services, like Exchange Online, SharePoint Online, and Teams, to subscribe to critical Azure AD events. Those events can then be evaluated and enforced near real time. Critical event evaluation doesn't rely on Conditional Access policies so it is available in any tenant. The following events are currently evaluated:
+Continuous access evaluation is implemented by enabling services, like Exchange Online, SharePoint Online, and Teams, to subscribe to critical Azure AD events. Those events can then be evaluated and enforced near real time. Critical event evaluation doesn't rely on Conditional Access policies so it's available in any tenant. The following events are currently evaluated:
 
 - User Account is deleted or disabled
 - Password for a user is changed or reset
@@ -191,6 +191,10 @@ CAE only has insight into [IP-based named locations](../conditional-access/locat
 
 > [!IMPORTANT]
 > If you want your location policies to be enforced in real time by continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
+
+### Named location limitations
+
+When the sum of all IP ranges specified in location policies exceeds 5,000, user change location flow won't be enforced by CAE in real time. In this case, Azure AD will issue a one-hour CAE token. CAE will continue enforcing [all other events and policies](#critical-event-evaluation) besides client location change events. With this change, you still maintain stronger security posture compared to traditional one-hour tokens, since [other events](#critical-event-evaluation) will be evaluated in near real time.
 
 ### Office and Web Account Manager settings
 

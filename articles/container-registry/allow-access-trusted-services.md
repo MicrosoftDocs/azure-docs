@@ -48,7 +48,7 @@ Where indicated, access by the trusted service requires additional configuration
 
 ## Allow trusted services - CLI
 
-By default, the allow trusted services setting is enabled in a new Azure container registry. Disable or enable the setting by running the [az acr update](/cli/azure/acr#az_acr_update) command.
+By default, the allow trusted services setting is enabled in a new Azure container registry. Disable or enable the setting by running the [az acr update](/cli/azure/acr#az-acr-update) command.
 
 To disable:
 

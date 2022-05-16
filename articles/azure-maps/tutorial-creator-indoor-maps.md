@@ -41,7 +41,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Upload a Drawing package
 
-Use the [Data Upload API](/rest/api/maps/data-v2/upload-preview) to upload the Drawing package to Azure Maps resources.
+Use the [Data Upload API](/rest/api/maps/data-v2/upload) to upload the Drawing package to Azure Maps resources.
 
 The Data Upload API is a long running transaction that implements the pattern defined in [Creator Long-Running Operation API V2](creator-long-running-operation-v2.md).
 
@@ -55,7 +55,7 @@ To upload the Drawing package:
 
 4. Select the **POST** HTTP method.
 
-5. Enter the following URL to the [Data Upload API](/rest/api/maps/data-v2/upload-preview) The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key)::
+5. Enter the following URL to the [Data Upload API](/rest/api/maps/data-v2/upload) The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key)::
 
     ```http
     https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=dwgzippackage&subscription-key={Your-Azure-Maps-Primary-Subscription-key}

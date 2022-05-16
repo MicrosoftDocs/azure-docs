@@ -9,8 +9,6 @@ author: bmansheim
 
 # Introduction to Microsoft Defender for Resource Manager
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [Azure Resource Manager](../azure-resource-manager/management/overview.md) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
 The cloud management layer is a crucial service connected to all your cloud resources. Because of this, it is also a potential target for attackers. Consequently, we recommend security operations teams monitor the resource management layer closely. 
@@ -33,7 +31,7 @@ Microsoft Defender for Resource Manager automatically monitors the resource mana
 |Release state:|General availability (GA)|
 |Pricing:|**Microsoft Defender for Resource Manager** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China 21Vianet|
-|||
+
 
 ## What are the benefits of Microsoft Defender for Resource Manager?
 

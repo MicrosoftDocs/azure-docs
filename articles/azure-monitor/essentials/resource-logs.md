@@ -5,14 +5,12 @@ author: bwren
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 05/09/2022
 ms.author: bwren
 ---
 
 # Azure resource logs
-Azure resource logs are [platform logs](../essentials/platform-logs-overview.md) that provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type. Resource logs are not collected by default. You must create a diagnostic setting for each Azure resource to send its resource logs to a Log Analytics workspace to use with [Azure Monitor Logs](../logs/data-platform-logs.md), Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving.
-
-See [Create diagnostic settings to send platform logs and metrics to different destinations](../essentials/diagnostic-settings.md) for details on creating a diagnostic setting and [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md) for details on using Azure Policy to automatically create a diagnostic setting for each Azure resource you create.
+Azure resource logs are [platform logs](../essentials/platform-logs-overview.md) that provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type. Resource logs are not collected by default. This article describes the [diagnostic setting](diagnostic-settings.md) required for each Azure resource to send its resource logs to different destinations.
 
 ## Send to Log Analytics workspace
  Send resource logs to a Log Analytics workspace to enable the features of [Azure Monitor Logs](../logs/data-platform-logs.md) which includes the following:
@@ -26,27 +24,6 @@ See [Create diagnostic settings to send platform logs and metrics to different d
 
 - Azure diagnostics - All data written is to the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
 - Resource-specific - Data is written to individual table for each category of the resource.
-
-### Azure diagnostics mode 
-In this mode, all data from any diagnostic setting will be collected in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. This is the legacy method used today by most Azure services. Since multiple resource types send data to the same table, its schema is the superset of the schemas of all the different data types being collected. See [AzureDiagnostics reference](/azure/azure-monitor/reference/tables/azurediagnostics) for details on the structure of this table and how it works with this potentially large number of columns.
-
-Consider the following example where diagnostic settings are being collected in the same workspace for the following data types:
-
-- Audit logs of service 1 (having a schema consisting of columns A, B, and C)  
-- Error logs of service 1 (having a schema consisting of columns D, E, and F)  
-- Audit logs of service 2 (having a schema consisting of columns G, H, and I)  
-
-The AzureDiagnostics table will look as follows:  
-
-| ResourceProvider    | Category     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft.Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
-| Microsoft.Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
-| Microsoft.Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | l1 |
-| Microsoft.Service1 | ErrorLogs    |    |    |    | q2 | w2 | e2 |    |    |    |
-| Microsoft.Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | l3 |
-| Microsoft.Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
-| ... |
 
 ### Resource-specific
 In this mode, individual tables in the selected workspace are created for each category selected in the diagnostic setting. This method is recommended since it makes it much easier to work with the data in log queries, provides better discoverability of schemas and their structure, improves performance across both ingestion latency and query times, and the ability to grant Azure RBAC rights on a specific table. All Azure services will eventually migrate to the Resource-Specific mode. 
@@ -77,7 +54,26 @@ The example above would result in three tables being created:
     | Service2 | AuditLogs | j3 | k3 | l3|
     | ... |
 
+### Azure diagnostics mode 
+In this mode, all data from any diagnostic setting will be collected in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. This is the legacy method used today by most Azure services. Since multiple resource types send data to the same table, its schema is the superset of the schemas of all the different data types being collected. See [AzureDiagnostics reference](/azure/azure-monitor/reference/tables/azurediagnostics) for details on the structure of this table and how it works with this potentially large number of columns.
 
+Consider the following example where diagnostic settings are being collected in the same workspace for the following data types:
+
+- Audit logs of service 1 (having a schema consisting of columns A, B, and C)  
+- Error logs of service 1 (having a schema consisting of columns D, E, and F)  
+- Audit logs of service 2 (having a schema consisting of columns G, H, and I)  
+
+The AzureDiagnostics table will look as follows:  
+
+| ResourceProvider    | Category     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| Microsoft.Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
+| Microsoft.Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
+| Microsoft.Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | l1 |
+| Microsoft.Service1 | ErrorLogs    |    |    |    | q2 | w2 | e2 |    |    |    |
+| Microsoft.Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | l3 |
+| Microsoft.Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
+| ... |
 
 ### Select the collection mode
 Most Azure resources will write data to the workspace in either **Azure Diagnostic** or **Resource-Specific mode** without giving you a choice. See the [documentation for each service](./resource-logs-schema.md) for details on which mode it uses. All Azure services will eventually use Resource-Specific mode. As part of this transition, some resources will allow you to select a mode in the diagnostic setting. Specify resource-specific mode for any new diagnostic settings since this makes the data easier to manage and may help you to avoid complex migrations at a later date.
@@ -160,7 +156,12 @@ Following is sample output data from Event Hubs for a resource log:
 ```
 
 ## Send to Azure Storage
-Send resource logs to Azure storage to retain it for archiving. Once you have created the diagnostic setting, a storage container is created in the storage account as soon as an event occurs in one of the enabled log categories. The blobs within the container use the following naming convention:
+Send resource logs to Azure storage to retain it for archiving. Once you have created the diagnostic setting, a storage container is created in the storage account as soon as an event occurs in one of the enabled log categories. 
+
+> [!NOTE]
+> An alternate strategy for archiving is to send the resource log to a Log Analytics workspace with an [archive policy](../logs/data-retention-archive.md).
+
+The blobs within the container use the following naming convention:
 
 ```
 insights-logs-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/RESOURCEGROUPS/{resource group name}/PROVIDERS/{resource provider name}/{resource type}/{resource name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
@@ -176,13 +177,16 @@ Each PT1H.json blob contains a JSON blob of events that occurred within the hour
 
 Within the PT1H.json file, each event is stored with the following format. This will use a common top-level schema but be unique for each Azure service as described in [Resource logs schema](./resource-logs-schema.md).
 
+> [!NOTE]
+> Logs are written to the blob relevant to time that the log was generated, not time that it was received. This means at the turn of the hour, both the previous hour and current hour blobs could be receiving new writes. 
+
+
 ``` JSON
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}
 ```
 
-> [!NOTE]
-> Platform logs are written to blob storage using [JSON lines](http://jsonlines.org/), where each event is a line and the newline character indicates a new event. This format was implemented in November 2018. Prior to this date, logs were written to blob storage as a json array of records as described in [Prepare for format change to Azure Monitor platform logs archived to a storage account](resource-logs-blob-format.md).
-
+## Azure Monitor partner integrations
+Resource logs can also be sent partner solutions that are fully integrated into Azure. See [Azure Monitor partner integrations](../../partner-solutions/overview.md) for a list of these solutions and details on configuring them.
 
 ## Next steps
 

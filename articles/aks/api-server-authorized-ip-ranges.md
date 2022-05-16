@@ -103,7 +103,7 @@ az aks create \
 
 ## Update a cluster's API server authorized IP ranges
 
-To update the API server authorized IP ranges on an existing cluster, use [az aks update][az-aks-update] command and use the *`--api-server-authorized-ip-ranges`*,--load-balancer-outbound-ip-prefixes*, *`--load-balancer-outbound-ips`*, or--load-balancer-outbound-ip-prefixes* parameters.
+To update the API server authorized IP ranges on an existing cluster, use [az aks update][az-aks-update] command and use the *`--api-server-authorized-ip-ranges`*, *`--load-balancer-outbound-ip-prefixes`*, *`--load-balancer-outbound-ips`*, or *`--load-balancer-outbound-ip-prefixes`* parameters.
 
 The following example updates API server authorized IP ranges on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address range to authorize is *73.140.245.0/24*:
 

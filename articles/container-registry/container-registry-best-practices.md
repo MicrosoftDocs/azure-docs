@@ -58,7 +58,7 @@ When authenticating with an Azure container registry, there are two primary scen
 
 | Type | Example scenario | Recommended method |
 |---|---|---|
-| Individual identity | A developer pulling images to or pushing images from their development machine. | [az acr login](/cli/azure/acr#az_acr_login) |
+| Individual identity | A developer pulling images to or pushing images from their development machine. | [az acr login](/cli/azure/acr#az-acr-login) |
 | Headless/service identity | Build and deployment pipelines where the user isn't directly involved. | [Service principal](container-registry-authentication.md#service-principal) |
 
 For in-depth information about these and other Azure Container Registry authentication scenarios, see [Authenticate with an Azure container registry](container-registry-authentication.md).

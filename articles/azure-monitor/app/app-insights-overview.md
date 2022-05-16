@@ -187,7 +187,6 @@ There are many ways to explore Application Insights telemetry. For more informat
 
 ## Next steps
 
-- [Manage usage and costs for Application Insights](pricing.md#manage-usage-and-costs-for-application-insights)
 - [Instrument your web pages](./javascript.md) for page view, AJAX, and other client-side telemetry.
 - [Analyze mobile app usage](../app/mobile-center-quickstart.md) by integrating with Visual Studio App Center.
 - [Monitor availability with URL ping tests](./monitor-web-app-availability.md) to your website from Application Insights servers.

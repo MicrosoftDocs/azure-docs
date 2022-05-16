@@ -150,6 +150,7 @@ When prioritizing `Latency`, the Speech service returns one of the candidate lan
 > [!NOTE]
 > You may see cases where an empty string will be returned instead of `Unknown`, due to Speech service inconsistency.
 > While this note is present, applications should check for both the `Unknown` and empty string case and treat them identically.
+
 ### Recognize once or continuous
 
 Language identification is completed with recognition objects and operations. You will make a request to the Speech service for recognition of audio.
@@ -224,6 +225,8 @@ You use standalone language identification when you only need to identify the la
 > Standalone source language identification is only supported with the Speech SDKs for C#, C++, and Python.
 ::: zone pivot="programming-language-csharp"
 
+See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs).
+
 ### [Recognize once](#tab/once)
 
 :::code language="csharp" source="~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs" id="languageDetectionInAccuracyWithFile":::
@@ -234,11 +237,11 @@ You use standalone language identification when you only need to identify the la
 
 ---
 
-See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs).
-
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+
+See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp).
 
 ### [Recognize once](#tab/once)
 
@@ -250,11 +253,11 @@ See more examples of standalone language identification on [GitHub](https://gith
 
 ---
 
-See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp).
-
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_language_detection_sample.py).
 
 ### [Recognize once](#tab/once)
 
@@ -266,8 +269,6 @@ See more examples of standalone language identification on [GitHub](https://gith
 
 ---
 
-See more examples of standalone language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_language_detection_sample.py).
-
 ::: zone-end
 
 ## Speech-to-text
@@ -277,7 +278,10 @@ You use Speech-to-text recognition when you need to identify the language in an 
 > [!NOTE]
 > Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
 > Currently for speech-to-text recognition with continuous language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
+
 ::: zone pivot="programming-language-csharp"
+
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
 
 ### [Recognize once](#tab/once)
 
@@ -361,7 +365,7 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"en-us_zh-cn.wav"))
             {
                 Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
                 Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
-                Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
             }
 
             stopRecognition.TrySetResult(0);
@@ -391,12 +395,13 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"en-us_zh-cn.wav"))
     }
 }
 ```
-
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
+---
 
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp).
 
 ### [Recognize once](#tab/once)
 
@@ -426,11 +431,11 @@ auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 
 :::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp" id="SpeechContinuousRecognitionAndLanguageIdWithMultiLingualFile":::
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp).
-
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java).
 
 ```java
 AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
@@ -453,12 +458,13 @@ autoDetectSourceLanguageConfig.close();
 audioConfig.close();
 result.close();
 ```
-
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java).
+---
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
 
 ### [Recognize once](#tab/once)
 
@@ -523,8 +529,6 @@ while not done:
 speech_recognizer.stop_continuous_recognition()
 ```
 
-See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
-
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
@@ -561,7 +565,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 ### Using Speech-to-text custom models
 
 ::: zone pivot="programming-language-csharp"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```csharp
 var sourceLanguageConfigs = new SourceLanguageConfig[]
@@ -577,7 +581,7 @@ var autoDetectSourceLanguageConfig =
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```cpp
 std::vector<std::shared_ptr<SourceLanguageConfig>> sourceLanguageConfigs;
@@ -594,7 +598,7 @@ auto autoDetectSourceLanguageConfig =
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```java
 List sourceLanguageConfigs = new ArrayList<SourceLanguageConfig>();
@@ -611,7 +615,7 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```Python
  en_language_config = speechsdk.languageconfig.SourceLanguageConfig("en-US")
@@ -623,7 +627,7 @@ This sample shows how to use language detection with a custom endpoint. If the d
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```Objective-C
 SPXSourceLanguageConfiguration* enLanguageConfig = [[SPXSourceLanguageConfiguration alloc]init:@"en-US"];
@@ -656,6 +660,8 @@ You use Speech translation when you need to identify the language in an audio so
 > Speech translation with language identification is only supported with Speech SDKs in C#, C++, and Python. 
 > Currently for speech translation with language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 ::: zone pivot="programming-language-csharp"
+
+See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
 
 ### [Recognize once](#tab/once)
 
@@ -781,7 +787,7 @@ public static async Task MultiLingualTranslation()
                 {
                     Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
                     Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
-                    Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                    Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                 }
 
                 stopTranslation.TrySetResult(0);
@@ -815,12 +821,13 @@ public static async Task MultiLingualTranslation()
     }
 }
 ```
-
-See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
+---
 
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+
+See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/translation_samples.cpp).
 
 ### [Recognize once](#tab/once)
 
@@ -883,7 +890,7 @@ else if (result->Reason == ResultReason::Canceled)
     {
         cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
         cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-        cout << "CANCELED: Did you update the subscription info?" << std::endl;
+        cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
     }
 }
 ```
@@ -956,7 +963,7 @@ void MultiLingualTranslation()
             {
                 cout << "CANCELED: ErrorCode=" << (int)e.ErrorCode << std::endl;
                 cout << "CANCELED: ErrorDetails=" << e.ErrorDetails << std::endl;
-                cout << "CANCELED: Did you update the subscription info?" << std::endl;
+                cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
 
                 recognitionEnd.set_value();
             }
@@ -981,12 +988,13 @@ void MultiLingualTranslation()
     recognizer->StopContinuousRecognitionAsync().get();
 }
 ```
-
-See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/translation_samples.cpp).
+---
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/translation_sample.py).
 
 ### [Recognize once](#tab/once)
 
@@ -1142,6 +1150,8 @@ recognizer.stop_continuous_recognition()
 
 ---
 
-See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/translation_sample.py).
-
 ::: zone-end
+
+## Next steps
+
+* [Captioning concepts](captioning-concepts.md)

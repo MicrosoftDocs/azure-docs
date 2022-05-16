@@ -1,79 +1,21 @@
 ---
-title: Provide a virtual network to an Azure Container Apps Preview environment
-description: Learn how to provide a VNET to an Azure Container Apps environment.
+title: Provide an external virtual network to an Azure Container Apps Preview environment
+description: Learn how to provide an external VNET to an Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 2/3/2022
+ms.date: 05/16/2022
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Provide a virtual network to an Azure Container Apps (Preview) environment
-
-As you create an Azure Container Apps [environment](environment.md), a virtual network (VNET) is created for you, or you can provide your own. Network addresses are assigned from a subnet range you define as the environment is created.
-
-- You control the subnet range used by the Container Apps environment.
-- Once the environment is created, the subnet range is immutable.
-- A single load balancer and single Kubernetes service are associated with each container apps environment.
-- Each [revision pod](revisions.md) is assigned an IP address in the subnet.
-- You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as internal.
-
-> [!IMPORTANT]
-> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to [Known issues for public preview](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview) for additional details.
-
-:::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
-
-## Restrictions
-
-Subnet address ranges can't overlap with the following reserved ranges:
-
-- 169.254.0.0/16
-- 172.30.0.0/16
-- 172.31.0.0/16
-- 192.0.2.0/24
-
-Additionally, subnets must have a size between /21 and /12.
-
-## Subnet types
-
-As a Container Apps environment is created, you provide resource IDs for two different subnets. Both subnets must be defined in the same container apps.
-
-- **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers.
-- **Control plane subnet**: Subnet for [control plane infrastructure](../azure-resource-manager/management/control-plane-and-data-plane.md) components and user app containers.
-
-::: zone pivot="azure-cli"
-
-If the [platformReservedCidr](#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
-
-::: zone-end
-
-## Accessibility level
-
-You can deploy your Container Apps environment with an internet-accessible endpoint or with an IP address in your VNET. The accessibility level determines the type of load balancer used with your Container Apps instance.
-
-### External
-
-Container Apps environments deployed as external resources are available for public requests. External environments are deployed with a virtual IP on an external, public facing IP address.
-
-### Internal
-
-When set to internal, the environment has no public endpoint. Internal environments are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNET's list of private IP addresses.
-
-::: zone pivot="azure-cli"
-
-To create an internal only environment, provide the `--internal-only` parameter to the `az containerapp env create` command.
-
-::: zone-end
-
-## Managed resources
-
-When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment as well as a load balancer. As the load balancer is created in your subscription, there are additional costs associated with deploying the service to a custom virtual network.
-
-## Example
+# Provide a virtual network to an external Azure Container Apps (Preview) environment
 
 The following example shows you how to create a Container Apps environment in an existing virtual network.
+
+> [!IMPORTANT]
+> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. For more information, see [Known issues for public preview](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview).
 
 ::: zone pivot="azure-portal"
 
@@ -82,28 +24,24 @@ The following example shows you how to create a Container Apps environment in an
 
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
-9. Next to the *Virtual network* box, select the **Create new** link.
-10. Enter **my-custom-vnet** in the name box.
-11. Select the **OK** button.
-12. Next to the *Control plane subnet* box, select the **Create new** link and enter the following values:
+9. Next to the *Virtual network* box, select the **Create new** link and enter the following value.
+
+    | Setting | Value |
+    |--|--|
+    | Name | Enter **my-custom-vnet**. |
+
+10. Select the **OK** button.
+11. Next to the *Infrastructure subnet* box, select the **Create new** link and enter the following values:
 
     | Setting | Value |
     |---|---|
-    | Subnet name | Enter **my-control-plane-vnet**. |
+    | Subnet Name | Enter **infrastructure-subnet**. |
     | Virtual Network Address Block | Keep the default values. |
     | Subnet Address Block | Keep the default values. |
 
-13. Select the **OK** button.
-14. Next to the *Control plane subnet* box, select the **Create new** link and enter the following values:
-
-    | Setting | Value |
-    |---|---|
-    | Subnet name | Enter **my-apps-vnet**. |
-    | Virtual Network Address Block | Keep the default values. |
-    | Subnet Address Block | Keep the default values. |
-
-15. Under *Virtual IP*, select **External**.
-16. Select **Create**.
+12. Select the **OK** button.
+13. Under *Virtual IP*, select **External**.
+14. Select **Create**.
 
 <!-- Deploy -->
 [!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
@@ -136,10 +74,10 @@ $VNET_NAME="my-custom-vnet"
 
 ---
 
-Now create an instance of the virtual network to associate with the Container Apps environment. The virtual network must have two subnets available for the container apps instance.
+Now create an Azure virtual network to associate with the Container Apps environment. The virtual network must have a subnet available for the environment deployment.
 
 > [!NOTE]
-> You can use an existing virtual network, but two empty subnets are required to use with Container Apps.
+> You can use an existing virtual network, but a dedicated subnet is required for use with Container Apps.
 
 # [Bash](#tab/bash)
 
@@ -155,16 +93,8 @@ az network vnet create \
 az network vnet subnet create \
   --resource-group $RESOURCE_GROUP \
   --vnet-name $VNET_NAME \
-  --name control-plane \
-  --address-prefixes 10.0.0.0/21
-```
-
-```azurecli
-az network vnet subnet create \
-  --resource-group $RESOURCE_GROUP \
-  --vnet-name $VNET_NAME \
-  --name applications \
-  --address-prefixes 10.0.8.0/21
+  --name infrastructure-subnet \
+  --address-prefixes 10.0.0.0/23
 ```
 
 # [PowerShell](#tab/powershell)
@@ -181,21 +111,13 @@ az network vnet create `
 az network vnet subnet create `
   --resource-group $RESOURCE_GROUP `
   --vnet-name $VNET_NAME `
-  --name control-plane `
-  --address-prefixes 10.0.0.0/21
-```
-
-```powershell
-az network vnet subnet create `
-  --resource-group $RESOURCE_GROUP `
-  --vnet-name $VNET_NAME `
-  --name applications `
-  --address-prefixes 10.0.8.0/21
+  --name infrastructure-subnet `
+  --address-prefixes 10.0.0.0/23
 ```
 
 ---
 
-With the VNET established, you can now query for the VNET, control plane, and app subnet IDs.
+With the virtual network created, you can retrieve the IDs for both the VNET and the infrastructure subnet.
 
 # [Bash](#tab/bash)
 
@@ -204,11 +126,7 @@ VNET_RESOURCE_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name
 ```
 
 ```bash
-CONTROL_PLANE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name control-plane --query "id" -o tsv | tr -d '[:space:]'`
-```
-
-```bash
-APP_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name ${VNET_NAME} --name applications --query "id" -o tsv | tr -d '[:space:]'`
+INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [PowerShell](#tab/powershell)
@@ -218,16 +136,12 @@ $VNET_RESOURCE_ID=(az network vnet show --resource-group $RESOURCE_GROUP --name 
 ```
 
 ```powershell
-$CONTROL_PLANE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name control-plane --query "id" -o tsv)
-```
-
-```powershell
-$APP_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name applications --query "id" -o tsv)
+$INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv)
 ```
 
 ---
 
-Finally, create the Container Apps environment with the VNET and subnets.
+Finally, create the Container Apps environment using the custom VNET deployed in the preceding steps.
 
 # [Bash](#tab/bash)
 
@@ -235,11 +149,8 @@ Finally, create the Container Apps environment with the VNET and subnets.
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
   --location "$LOCATION" \
-  --app-subnet-resource-id $APP_SUBNET \
-  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
+  --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET
 ```
 
 # [PowerShell](#tab/powershell)
@@ -248,11 +159,8 @@ az containerapp env create \
 az containerapp env create `
   --name $CONTAINERAPPS_ENVIRONMENT `
   --resource-group $RESOURCE_GROUP `
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
   --location "$LOCATION" `
-  --app-subnet-resource-id $APP_SUBNET `
-  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
+  --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET
 ```
 
 ---
@@ -260,20 +168,16 @@ az containerapp env create `
 > [!NOTE]
 > As you call `az containerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
 
-The following table describes the parameters used in for `containerapp env create`.
+The following table describes the parameters used in `containerapp env create`.
 
 | Parameter | Description |
 |---|---|
 | `name` | Name of the container apps environment. |
 | `resource-group` | Name of the resource group. |
-| `logs-workspace-id` | The ID of the Log Analytics workspace. |
-| `logs-workspace-key` | The Log Analytics client secret.  |
 | `location` | The Azure location where the environment is to deploy.  |
-| `app-subnet-resource-id` | The resource ID of a subnet where containers are injected into the container app. This subnet must be in the same VNET as the subnet defined in `--control-plane-subnet-resource-id`. |
-| `controlplane-subnet-resource-id` | The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `--app-subnet-resource-id`. |
-| `internal-only` | Optional parameter that scopes the environment to IP addresses only available the custom VNET. |
+| `infrastructure-subnet-resource-id` | Resource ID of a subnet for infrastructure components and user application containers. |
 
-With your environment created with your custom-virtual network, you can create container apps into the environment using the `az containerapp create` command.
+With your environment created using a custom virtual network, you can now deploy container apps using the `az containerapp create` command.
 
 ### Optional configuration
 

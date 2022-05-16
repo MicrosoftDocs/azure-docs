@@ -1,5 +1,5 @@
 ---
-title: Service remoting by using C# in Service Fabric 
+title: Service remoting by using C# in Service Fabric
 description: Service Fabric remoting allows clients and services to communicate with C# services by using a remote procedure call.
 ms.topic: conceptual
 ms.date: 09/20/2017
@@ -346,7 +346,7 @@ This step makes sure that the service is listening only on the V2 listener.
     ```csharp
     [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1, RemotingClientVersion = RemotingClientVersion.V2_1)]
     ```
-  
+
 ### Use custom serialization with a remoting wrapped message
 
 For a remoting wrapped message, we create a single wrapped object with all the parameters as a field in it.
@@ -523,8 +523,7 @@ Follow these steps:
        {
            new ServiceInstanceListener((c) =>
            {
-               return new FabricTransportServiceRemotingListener(c, this,
-                   new ServiceRemotingJsonSerializationProvider());
+               return new FabricTransportServiceRemotingListener(context, _calculatorFactory.GetCalculator(Context), serializationProvider: new         ServiceRemotingJsonSerializationProvider());
            })
        };
    }
@@ -542,6 +541,7 @@ Follow these steps:
 
 ## Next steps
 
+* [Enabling DataContract remoting exception serialization](./service-fabric-reliable-services-exception-serialization.md)
 * [Web API with OWIN in Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Windows Communication Foundation communication with Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Secure communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)

@@ -1,5 +1,5 @@
 ---
-title: Create custom .NET deserializers for Azure Stream Analytics cloud jobs using Visual Studio Code
+title: Tutorial - Create custom .NET deserializers for Azure Stream Analytics cloud jobs using Visual Studio Code
 description: This tutorial demonstrates how to create a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio Code.
 author: su-jie
 ms.author: sujie
@@ -9,21 +9,27 @@ ms.date: 12/22/2020
 ---
 
 
-# Create custom .NET deserializers for Azure Stream Analytics in Visual Studio Code
+# Tutorial: Custom .NET deserializers for Azure Stream Analytics in Visual Studio Code
 
 Azure Stream Analytics has [built-in support for three data formats](stream-analytics-parsing-json.md): JSON, CSV, and Avro. With custom .NET deserializers, you can read data from other formats such as [Protocol Buffer](https://developers.google.com/protocol-buffers/), [Bond](https://github.com/Microsoft/bond) and other user defined formats for cloud jobs.
 
-## Custom .NET deserializers in Visual Studio Code
+This tutorial demonstrates how to create, test, and debug a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio Code. To learn how to create .NET deserializers in Visual Studio, see [Create .NET deserializers for Azure Stream Analytics jobs in Visual Studio](custom-deserializer.md).
 
-You can create, test and debug a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio Code.
+In this tutorial, you learn how to:
 
-### Prerequisites
+> [!div class="checklist"]
+> * Create a custom deserializer for protocol buffer.
+> * Create an Azure Stream Analytics job in Visual Studio.
+> * Configure your Stream Analytics job to use the custom deserializer.
+> * Run your Stream Analytics job locally to test and debug the custom deserializer.
+
+## Prerequisites
 
 * Install [.NET core SDK](https://dotnet.microsoft.com/download) and restart Visual Studio Code.
 
 * Use this [quickstart](quick-create-visual-studio-code.md) to learn how to create a Stream Analytics job using Visual Studio Code.
 
-### Create a custom deserializer
+## Create a custom deserializer
 
 1. Open a terminal and run following command to create a .NET class library in Visual Studio Code for your custom deserializer called **ProtobufDeserializer**.
 
@@ -45,11 +51,11 @@ You can create, test and debug a custom .NET deserializer for an Azure Stream An
 
 4. Build the **ProtobufDeserializer** project.
 
-### Add an Azure Stream Analytics project
+## Add an Azure Stream Analytics project
 
-1. Open Visual Studio Code and select **Ctrl+Shift+P** to open the command palette. Then enter ASA and select **ASA: Create New Project**. Name it **ProtobufCloudDeserializer**.
+Open Visual Studio Code and select **Ctrl+Shift+P** to open the command palette. Then enter ASA and select **ASA: Create New Project**. Name it **ProtobufCloudDeserializer**.
 
-### Configure a Stream Analytics job
+## Configure a Stream Analytics job
 
 1. Double-click **JobConfig.json**. Use the default configurations, except for the following settings:
 
@@ -88,7 +94,7 @@ You can create, test and debug a custom .NET deserializer for an Azure Stream An
    |-------|---------------|
    |Select local file path|Click CodeLens to select < The file path for the downloaded sample protobuf input file>|
 
-### Execute the Stream Analytics job
+## Execute the Stream Analytics job
 
 1. Open **ProtobufCloudDeserializer.asaql** and select **Run Locally** from CodeLens then choose **Use Local Input** from the dropdown list.
 
@@ -98,7 +104,7 @@ You can create, test and debug a custom .NET deserializer for an Azure Stream An
 
 You have successfully implemented a custom deserializer for your Stream Analytics job! In this tutorial, you tested the custom deserializer locally with local input data. You can also test it [using live data input in the cloud](visual-studio-code-local-run-live-input.md). For running the job in the cloud, you would properly configure the input and output. Then submit the job to Azure from Visual Studio Code to run your job in the cloud using the custom deserializer you just implemented.
 
-### Debug your deserializer
+## Debug your deserializer
 
 You can debug your .NET deserializer locally the same way you debug standard .NET code. 
 

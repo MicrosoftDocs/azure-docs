@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 02/03/2022
+ms.date: 04/01/2022
 ---
 
 # Plans and pricing for commercial marketplace offers
@@ -31,7 +31,6 @@ The following table shows the plan options for each offer type. The following se
 | Managed service |  | &#10004; (BYOL) | &#10004; |
 | Software as a service | &#10004; |  | &#10004; |
 | Azure virtual machine | &#10004; |  | &#10004; |
-|||||
 
 Plans are not supported for the following offer types:
 
@@ -95,7 +94,25 @@ If you have already set prices for your plan in United States Dollars (USD) and 
 > [!IMPORTANT]
 > After your offer is published, the pricing model choice cannot be changed.
 
+#### Metered billing
+
 Flat-rate SaaS offers and managed application offers support metered billing using the marketplace metering service. This is a usage-based billing model that lets you define non-standard units, such as bandwidth or emails, that your customers will pay on a consumption basis. See related documentation to learn more about metered billing for [managed applications](marketplace-metering-service-apis.md) and [SaaS apps](./partner-center-portal/saas-metered-billing.md).
+
+#### Pricing information specific to offer types
+
+This table provides pricing information that’s specific to various offer types.
+
+| Offer type | &#8195; Articles |
+| ------------ | ------------- |
+| Azure Application<br> (Managed application plan) | <ul><li>[Plan an Azure managed application for an Azure application offer](plan-azure-app-managed-app.md#define-pricing)</li><li>[Configure a managed application plan](azure-app-managed.md#define-pricing)</li></ul> |
+| Azure Container | <ul><li>[Plan an Azure container offer](marketplace-containers.md#plans-and-pricing)</li></ul> |
+| Azure virtual machine | <ul><li>[Plan a virtual machine offer](marketplace-virtual-machines.md#plans-pricing-and-trials)</li><li>[Configure pricing and availability for a virtual machine offer](azure-vm-plan-pricing-and-availability.md#pricing)</li></ul> |
+| Consulting service | <ul><li>[Plan a consulting service offer](plan-consulting-service-offer.md#pricing-and-availability)</li><li>[Configure consulting service offer pricing and availability](create-consulting-service-pricing-availability.md#pricing-informational-only) |
+| IoT Edge module | <ul><li>[Plan an IoT Edge module offer](marketplace-iot-edge.md#licensing-options)</li></ul> |
+| Managed service | <ul><li>[Plan a Managed Service offer](plan-managed-service-offer.md#plans-and-pricing)</li><li>[Create plans for a Managed Service offer](create-managed-service-offer-plans.md#define-pricing-and-availability) |
+| Power BI app | <ul><li>[Plan a Power BI App offer](marketplace-power-bi.md#licensing-options)</li></ul> |
+| Software as a Service (SaaS) | <ul><li>[SaaS pricing models](plan-saas-offer.md#saas-pricing-models)</li><li>[SaaS billing](plan-saas-offer.md#saas-billing)</li><li>[Create plans for a SaaS offer](create-new-saas-offer-plans.md#define-a-pricing-model)</li></ul> |
+
 
 ## Custom prices
 
@@ -105,7 +122,7 @@ Review your prices carefully before publishing, as there are some restrictions o
 
 - After a plan is published, the pricing model can't be changed.
 - After a billing term is published for a plan, it can't be removed later.
-- After a price for a market in your plan is published, it can't be changed later.
+- See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
 
 Prices set in United States Dollars (USD) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market you selected.
 

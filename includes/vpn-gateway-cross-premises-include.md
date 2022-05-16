@@ -1,13 +1,9 @@
 ---
- title: include file
- description: include file
  services: vpn-gateway
  author: cherylmc
- ms.service: vpn-gateway
  ms.topic: include
- ms.date: 12/17/2020
+ ms.date: 04/22/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
 |  | **Point-to-Site** | **Site-to-Site** | **ExpressRoute** |
 | --- | --- | --- | --- |

@@ -55,6 +55,10 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-service-health](../../../../includes/resource-graph/samples/bycat/azure-service-health.md)]
 
+## Azure Spot
+
+[!INCLUDE [azure-resource-graph-samples-cat-azure-spot](../../../../includes/resource-graph/samples/bycat/azure-spot.md)]
+
 ## Azure SQL
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-sql](../../../../includes/resource-graph/samples/bycat/azure-sql.md)]
