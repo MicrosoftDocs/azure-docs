@@ -12,9 +12,10 @@ ms.service: azure-communication-services
 ms.custom: private_preview
 ---
 # Best practices for sender authentication support in Azure Communication Services Email
-> [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
-> Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+This article provides the best practices on how to use the sender authentication methods that help prevent attackers from sending messages that look like they come from your domain.
 
 ## Email authentication
 Sending an email requires several steps which include verifying the sender of the email actually owns the domain, checking the domain reputation, virus scanning, filtering for spam, phishing attempts, malware etc. Configuring proper email authentication is a foundational principle for establishing trust in email and protecting your domain’s reputation. If an email passes authentication checks, the receiving domain can apply policy to that email in keeping with the reputation already established for the identities associated with those authentication checks, and the recipient can be assured that those identities are valid. 
@@ -35,15 +36,15 @@ The ARC protocol [RFC 8617](https://tools.ietf.org/html/rfc8617)  provides an au
 Email authentication verifies that email messages from a sender (for example, notification@contoso.com) are legitimate and come from expected sources for that email domain (for example, contoso.com.) 
 An email message may contain multiple originator or sender addresses. These addresses are used for different purposes. For example, consider these addresses:
 
-**Mail From** address: Identifies the sender and specifies where to send return notices if any problems occur with the delivery of the message, such as non-delivery notices. This appears in the envelope portion of an email message and is not displayed by your email application. This is sometimes called the 5321.MailFrom address or the reverse-path address.
+* Mail From address identifies the sender and specifies where to send return notices if any problems occur with the delivery of the message, such as non-delivery notices. This appears in the envelope portion of an email message and is not displayed by your email application. This is sometimes called the 5321.MailFrom address or the reverse-path address.
 
-**From** address: The address displayed as the From address by your mail application. This address identifies the author of the email. That is, the mailbox of the person or system responsible for writing the message. This is sometimes called the 5322.From address.
+* From address is the address displayed as the From address by your mail application. This address identifies the author of the email. That is, the mailbox of the person or system responsible for writing the message. This is sometimes called the 5322.From address.
 
-**Sender Policy Framework (SPF)** helps validate outbound email sent from your mail from domain (is coming from who it says it is).
+* Sender Policy Framework (SPF) helps validate outbound email sent from your mail from domain (is coming from who it says it is).
 
-**DomainKeys Identified Mail (DKIM)** helps to ensure that destination email systems trust messages sent outbound from your mail from domain.
+* DomainKeys Identified Mail (DKIM) helps to ensure that destination email systems trust messages sent outbound from your mail from domain.
 
-**Domain-based Message Authentication, Reporting, and Conformance(DMARC)** works with Sender Policy Framework (SPF) and DomainKeys Identified Mail (DKIM) to authenticate mail senders and ensure that destination email systems trust messages sent from your domain.
+* Domain-based Message Authentication, Reporting, and Conformance(DMARC) works with Sender Policy Framework (SPF) and DomainKeys Identified Mail (DKIM) to authenticate mail senders and ensure that destination email systems trust messages sent from your domain.
 
 ### Implementing DMARC
 Implementing DMARC with SPF and DKIM provides rich protection against spoofing and phishing email. SPF uses a DNS TXT record to provide a list of authorized sending IP addresses for a given domain. Normally, SPF checks are only performed against the 5321.MailFrom address. This means that the 5322.From address is not authenticated when you use SPF by itself. This allows for a scenario where a user can receive a message, which passes an SPF check but has a spoofed 5322.From sender address.
@@ -57,15 +58,15 @@ A DMARC policy record allows a domain to announce that their email uses authenti
 
 ## Next steps
 
-> [Best practices for implementing DMARC](https://docs.microsoft.com/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#best-practices-for-implementing-dmarc-in-microsoft-365&preserve-view=true)
+* [Best practices for implementing DMARC](https://docs.microsoft.com/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#best-practices-for-implementing-dmarc-in-microsoft-365&preserve-view=true)
   
-> [Troubleshoot your DMARC implementation](https://docs.microsoft.com/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#troubleshooting-your-dmarc-implementation&preserve-view=true) 
+* [Troubleshoot your DMARC implementation](https://docs.microsoft.com/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#troubleshooting-your-dmarc-implementation&preserve-view=true) 
 
-> [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
+* [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
 
-> [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
+* [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
+* [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following documents may be interesting to you:
 

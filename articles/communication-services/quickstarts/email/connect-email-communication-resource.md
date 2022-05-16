@@ -13,46 +13,46 @@ ms.custom: private_preview
 ---
 # Quickstart: How to connect a verified email domain with Azure Communication Service resource
 
-> [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
-> Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+In this quick start, you'll learn about how to connect a verified domain in Azure Communication Services to send email.
 
 ## Connect an email domain to a Communication Service Resource
 
-- [Create a Communication Services Resources](../create-communication-resource.md) to connect to a verified domain.
-- In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
+1. [Create a Communication Services Resources](../create-communication-resource.md) to connect to a verified domain.
+2. In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
 
-    :::image type="content" source="./media/email-domains.png" alt-text="Diagram that shows the left navigation panel for linking Email Domains":::
+    :::image type="content" source="./media/email-domains.png" alt-text="Screehshot that shows the left navigation panel for linking Email Domains.":::
 
-- Select one of the options below
+3. Select one of the options below
     - Click **Connect domain** in the upper navigation bar.
     - Click **Connect domain** in the splash screen.
      
-        :::image type="content" source="./media/email-domains-connect.png" alt-text="Diagram that shows how to connect one of your verified email domains":::
-- Select a one of the verified domains by filtering 
+        :::image type="content" source="./media/email-domains-connect.png" alt-text="Screehshot that shows how to connect one of your verified email domains.":::
+4. Select a one of the verified domains by filtering 
     - Subscription
     - Resource Group
     - Email Service
     - Verified Domain
     
-    :::image type="content" source="./media/email-domains-connect-select.png" alt-text="Diagram that shows how to filter and select one of the verified email domains to connect":::
-- Click Connect
+    :::image type="content" source="./media/email-domains-connect-select.png" alt-text="Screehshot that shows how to filter and select one of the verified email domains to connect.":::
+5. Click Connect
  
-    :::image type="content" source="./media/email-domains-connected.png" alt-text="Diagram that shows one of the verified email domain is now connected":::
+    :::image type="content" source="./media/email-domains-connected.png" alt-text="Screehshot that shows one of the verified email domain is now connected.":::
 
 ## Disconnect an email domain from the Communication Service Resource
 
--  In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
--  Select the Connected Domains click the ... and click Disconnect.  
+1. In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
+2. Select the Connected Domains click the ... and click Disconnect.  
 
-    :::image type="content" source="./media/email-domains-connect-disconnect.png" alt-text="Diagram that shows how to disconnect the connected domain":::
+    :::image type="content" source="./media/email-domains-connect-disconnect.png" alt-text="Screehshot that shows how to disconnect the connected domain.":::
 
 
 ## Next steps
 
-> [How to send an Email](../../quickstarts/email/send-email.md)
+* [How to send an Email](../../quickstarts/email/send-email.md)
 
-> [What is Email Communication Resource for Azure Communication Service](../../concepts/email/prepare-email-communication-resource.md)
+* [What is Email Communication Resource for Azure Communication Service](../../concepts/email/prepare-email-communication-resource.md)
 
 
 The following documents may be interesting to you:

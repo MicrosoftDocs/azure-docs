@@ -13,12 +13,9 @@ ms.custom: private_preview
 ---
 # Prepare Email Communication resource for Azure Communication Service 
 
-> [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
-> Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Similar to Chat, VoIP and SMS modalities under the Azure Communication Services, you'll be able to send an email using an Azure Communication Resource. However
-sending an email requires certain pre-configuration steps and you have to rely on your organization admins help setting that up. The administrator of your organization needs to,
+Similar to Chat, VoIP and SMS modalities under the Azure Communication Services, you'll be able to send an email using Azure Communication Resource. However sending an email requires certain pre-configuration steps and you have to rely on your organization admins help setting that up. The administrator of your organization needs to,
 - Approve the domain that your organization allows you to send mail from 
 - Define the sender domain they'll  use as the P1 sender email address (also known as MailFrom email address) that shows up on the envelope of the email [RFC 5321](https://tools.ietf.org/html/rfc5321)
 - Define the P2 sender email address that most email recipients will see on their email client [RFC 5322](https://tools.ietf.org/html/rfc5322). 
@@ -46,15 +43,15 @@ Your Azure Administrators will create a new resource of type “Email Communicat
   - Recipient list
   - Attachments if any
 - Submits to Communication Services Email API.
-- Verify the status of Email Delivery.
+- Verify the status of Email delivery.
 
 ## Next steps
 
-> [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
+* [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
 
-> [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
+* [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
+* [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following documents may be interesting to you:
 

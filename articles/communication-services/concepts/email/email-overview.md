@@ -1,5 +1,5 @@
 ---
-title: Email as Service Overview in Azure Communication Services
+title: Email as service overview in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services Email concepts.
 author: bashan-git
@@ -13,9 +13,7 @@ ms.custom: private_preview
 ---
 # Email in Azure Communication Services
 
-> [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
-> Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services Email is a new primitive that facilitates high volume transactional, bulk and marketing emails on the Azure Communication Services platform and will enable Application-to-Person (A2P) use cases. Azure Communication Services Email is going to simplify the integration of email capabilities to your applications using production-ready email SDK options. Email enables rich collaboration in communication modalities combining with SMS and other communication channels to build collaborative applications to help reach your customers in their preferred communication channel.
 
@@ -45,13 +43,13 @@ Key features include:
 
 ## Next steps
 
-> [What is Email Communication Communication Service](./prepare-email-communication-resource.md)
+* [What is Email Communication Communication Service](./prepare-email-communication-resource.md)
 
-> [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
+* [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
 
-> [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
+* [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
+* [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following documents may be interesting to you:
 

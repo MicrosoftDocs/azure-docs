@@ -12,11 +12,10 @@ ms.service: azure-communication-services
 ms.custom: private_preview
 ---
 # Email client library overview for Azure Communication Services
-> [!IMPORTANT]
-> Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
-> Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-Azure Communication Services Email client libraries can be used to add transactional Email Support to your applications.
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+Azure Communication Services Email client libraries can be used to add transactional Email support to your applications.
 
 ## Client libraries
 | Assembly               | Protocols             |Open vs. Closed Source| Namespaces                          | Capabilities                                                      |
@@ -46,9 +45,9 @@ Your Azure account has a set of limitation on the number of email messages that 
 
 ## Next steps
 
-> [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
+* [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
+* [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following documents may be interesting to you:
 
