@@ -80,7 +80,7 @@ Future versions of Windows Server will be added as they are released.
 > We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
 
 ### Minimum system resources
-Azure File Sync requires a server, either physical or virtual, with at least one CPU and a minimum of 2 GiB of memory.
+Azure File Sync requires a server, either physical or virtual, with at least one CPU, minimum of 2 GiB of memory and a locally attached volume formatted with the NTFS file system.
 
 > [!Important]  
 > If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum of 2048 MiB of memory.
@@ -111,8 +111,6 @@ In the following table, we have provided both the size of the namespace as well 
 > Initial synchronization of a namespace is an intensive operation and we recommend allocating more memory until initial synchronization is complete. This isn't required but, may speed up initial sync. 
 > 
 > Typical churn is 0.5% of the namespace changing per day. For higher levels of churn, consider adding more CPU. 
-
-- A locally attached volume formatted with the NTFS file system.
 
 ### Evaluation cmdlet
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation cmdlet. This cmdlet checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported operating system version. Its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
