@@ -85,15 +85,21 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 
     :::image type="content" source="media/alerts-log/alerts-create-log-rule-logic.png" alt-text="Screenshot of alert logic section of a new log alert rule.":::
 
-1. (Optional) In the **Advanced options** section, you can specify an impact time to trigger an alert. For example, if the Aggregation granularity is set to 5 minutes, you can trigger an alert only if three failures (15 minutes) occurred in the last hour. This setting is defined by your application business policy.
+1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy.
    
-  Select values for these fields:
+  Select values for these fields under **Number of violations to trigger the alert**:
 
-    :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Advanced options.":::
+   |Field  |Description  |
+   |---------|---------|
+   |Number of violations|The number of violations that have to occur to trigger the alert.|
+   |Evaluation period|The amount of time within which those violations have to occur. |
+   |Override query time range| Enter a value for this field if the alert evaluation period is different than the query time range.| 
+
+   :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
 
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
-    :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Alert rule preview.":::
+    :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
 
 1. From this point on, you can select the **Review + create** button at any time. 
 1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
@@ -101,7 +107,7 @@ You can also [create log alert rules using Azure Resource Manager templates](../
     :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
 
 1. In the **Details** tab, define the **Project details** and the **Alert rule details**.
-1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to [**Mute actions**](./alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
+1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to **Mute actions** for a period of time after the alert rule fires.
     
     :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
 
@@ -194,7 +200,7 @@ az deployment group create \
 On success for creation, 201 is returned. On success for update, 200 is returned.
 ## Next steps
 
-* Learn about [log alerts](./alerts-unified-log.md).
+* Learn about [Log alerts](alerts-types.md#log-alerts).
 * Create log alerts using [Azure Resource Manager Templates](./alerts-log-create-templates.md).
 * Understand [webhook actions for log alerts](./alerts-log-webhook.md).
 * Learn more about [log queries](../logs/log-query-overview.md).
