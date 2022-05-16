@@ -56,13 +56,13 @@ This allows you to not have to spend as much effort fine tuning your configurati
 > [!NOTE]
 > The auto-tuning feature is only applied on the 'Smart detection' method.
 
-### Prerequisite for triggering auto-tuning
+#### Prerequisite for triggering auto-tuning
 
 After the metrics are onboarded to Metrics Advisor, the system will try to perform statistics on the metrics to categorize **anomaly pattern** types and **series value** distribution. By providing this functionality, you can further fine tune the configuration based on their specific preferences. At the beginning, it will show a status of 'Initializing'.
 
 :::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-initializing.png":::
 
-### Choose to enable auto-tuning on anomaly pattern and series value
+#### Choose to enable auto-tuning on anomaly pattern and series value
 
 The feature enables you to tune detection configuration from two perspectives **anomaly pattern** and **series value**. Based on your specific use case, you can choose which one to enabled or enable both.
 
@@ -72,7 +72,7 @@ The feature enables you to tune detection configuration from two perspectives **
 
 :::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-preference.png":::
 
-### Tune the configuration for selected anomaly patterns
+#### Tune the configuration for selected anomaly patterns
 
 If specific anomaly patterns are chosen, the next step is to fine tune the configuration for each. There's a global **sensitivity** that is applied for all series. For each anomaly pattern, you can tune the **adjustment**, which is based on the global **sensitivity**.
 
@@ -80,7 +80,7 @@ You must tune each anomaly pattern that has been chosen individually.
 
 :::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-pattern.png":::
 
-### Tune the configuration for each series value group
+#### Tune the configuration for each series value group
 
 After the system generates statistics on all time series within the metric, several series value groups are created automatically. As described above, you can fine tune the **adjustment** for each series value group according to your specific business needs.
 
@@ -88,7 +88,7 @@ There will be a default adjustment configured to get the best detection results,
 
 :::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-value.png":::
 
-### Set up alert rules
+#### Set up alert rules
 
 Even once the detection configuration on capturing valid anomalies is tuned, it's still important to input **alert
 rules** to make sure the final alert rules can meet eventual business needs. There are a number of rules that can be set, like **filter rules** or **snooze continuous alert rules**.
