@@ -90,7 +90,7 @@ Access policies determine which identities can use the authorization that the ac
 
 The following image shows the process flow for creating an authorization in API Management using the grant type authorization code. For public preview no API documentation is available please see [this](https://aka.ms/apimauthorizations/postmancollection) Postman collection. 
 
-:::image type="content" source="media/authorizations-overview/get-token.png" alt-text="Process flow for creating authorizations" border="false":::
+:::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Process flow for creating authorizations" border="false":::
 
 1. Client sends a request to create an authorization provider. 
 1. Authorization provider is created and a response is sent back.
@@ -108,7 +108,7 @@ The following image shows the process flow for creating an authorization in API 
 
 The following image shows the process flow to fetch and store authorization and refresh tokens based on a configured authorization. After the tokens has been retrieved a call is made to the backend API. 
 
-:::image type="content" source="media/authorizations-overview/get-token-for-backend.png" alt-text="Process flow for creating runtime" border="false":::
+:::image type="content" source="media/authorizations-overview/get-token-for-backend.svg" alt-text="Process flow for creating runtime" border="false":::
 
 1. Client sends request to API Management instance.
 1. The policy [`get-authorization-context`](api-management-access-restriction-policies.md#GetAuthorizationContext) checks if the access token is valid for the current authorization.
