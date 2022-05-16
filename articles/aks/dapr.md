@@ -40,7 +40,7 @@ The Dapr extension support varies depending on how you manage the runtime.
 
 **Self-managed**  
 For self-managed runtime, the Dapr extension supports:
-- [The latest version of Dapr and 2 previous versions (N-2)][dapr-supported-version]
+- [The latest version of Dapr and 1 previous version (N-1)][dapr-supported-version]
 - Upgrading minor version incrementally (for example, 1.5 -> 1.6 -> 1.7) 
 
 Self-managed runtime requires manual upgrade to remain in the support window. To upgrade Dapr via the extension, follow the [Update extension instance instructions][update-extension].
