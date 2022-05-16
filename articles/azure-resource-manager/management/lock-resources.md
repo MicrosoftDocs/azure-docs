@@ -71,7 +71,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses a POST method](/rest/api/application-gateway/application-gateways/backend-health), which a read-only lock blocks.
 
-- A read-only lock on a AKS cluster limits how you can access cluster resources through the portal. A read-only lock prevents you from using the AKS cluster's Kubernetes Resources section in the Azure portal to choose a cluster resource. These operations require a POST method request for authentication.
+- A read-only lock on an AKS cluster limits how you can access cluster resources through the portal. A read-only lock prevents you from using the AKS cluster's Kubernetes Resources section in the Azure portal to choose a cluster resource. These operations require a POST method request for authentication.
 
 ## Who can create or delete locks
 
