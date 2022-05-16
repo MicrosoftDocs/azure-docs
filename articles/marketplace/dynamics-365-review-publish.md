@@ -30,6 +30,8 @@ This article shows you how to use Partner Center to submit your Dynamics 365 off
 1. After all of the pages are complete, if you see a **Notes for certification** box, provide testing instructions to the certification team to ensure that your app is tested correctly. Provide any supplementary notes helpful for understanding your app.
 1. To start the publishing process for your offer, select **Publish**. The **Offer overview** page appears and shows the offer's **Publish status**.
 
+## Publish status
+
 Your offer's publish status will change as it moves through the publication process. You can review your offer status on the **Overview** tab of the commercial marketplace offer in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). The **Status** of each offer will be one of the following:
 
 | Status | Description |
