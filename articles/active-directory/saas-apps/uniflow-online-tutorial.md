@@ -13,7 +13,7 @@ ms.date: 05/16/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with uniFLOW Online
+# Tutorial: Azure AD SSO integration with uniFLOW Online
 
 In this tutorial, you'll learn how to integrate uniFLOW Online with Azure Active Directory (Azure AD). When you integrate uniFLOW Online with Azure AD, you can:
 
