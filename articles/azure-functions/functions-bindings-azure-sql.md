@@ -133,7 +133,7 @@ You can add the preview extension bundle by adding or replacing the following co
 
 ## Update packages
 
-The SQL bindings extension is available in the 1.11.3b1 version of the [Azure Functions Python library](https://pypi.org/project/azure-functions/).  Add this version of the library to your functions project with an update to the line for `azure-functions==` in the `requirements.txt` file in your Python Azure Functions project as seen in the following snippet:
+Support for the SQL bindings extension is available in the 1.11.3b1 version of the [Azure Functions Python library](https://pypi.org/project/azure-functions/).  Add this version of the library to your functions project with an update to the line for `azure-functions==` in the `requirements.txt` file in your Python Azure Functions project as seen in the following snippet:
 
 ```
 azure-functions==1.11.3b1
