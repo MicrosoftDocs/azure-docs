@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/13/2022
+ms.date: 05/25/2022
 ---
 
 # Plan a Microsoft Dynamics 365 offer
@@ -29,10 +29,13 @@ These are the available licensing options for Dynamics 365 offer types:
 
 <sup>1</sup> Customers will see a **Get it now** button on the offer listing page in AppSource for offers configured for [ISV app license management](isv-app-license.md). Customers can select this button to contact you to purchase licenses for the app.
 
+## Listing options
+
 The following table describes the transaction process of each listing option.
 
-| Licensing option | Transaction process |
+| Listing option | Transaction process |
 | --- | --- |
+| Sell through Microsoft | For the _Dynamics 365 apps on Dataverse and Power Apps_ offer type only, you can choose to sell through Microsoft and have Microsoft host transactions on your behalf. For more information about this option, see [ISV app license management](isv-app-license.md). |
 | Contact me | Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see the **Customer leads** section of your offer type's **Offer setup** page. |
 | Free trial (listing) | Offer your customers a one-, three- or six-month free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft. |
 | Get it now (free) | List your offer to customers for free. |
