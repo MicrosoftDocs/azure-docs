@@ -31,6 +31,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 >     * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
 >     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 > * [Use Azure Machine Learning studio in a VNet](how-to-enable-studio-virtual-network.md).
+> * [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
 
 ## Prerequisites
 
@@ -449,3 +450,5 @@ If you want to create an isolated Azure Kubernetes Service used by the workspace
 * For more information on securing your Azure Machine Learning workspace, see the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
 
 * If you plan on using a custom DNS solution in your virtual network, see [how to use a workspace with a custom DNS server](how-to-custom-dns.md).
+
+* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
