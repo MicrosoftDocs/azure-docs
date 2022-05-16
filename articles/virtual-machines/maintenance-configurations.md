@@ -20,16 +20,17 @@ Manage platform updates, that don't require a reboot, using Maintenance Configur
 
 With Maintenance Configurations, you can:
 - Batch updates into one update package.
-- Wait up to 35 days to apply updates for Host machines. 
+- Wait up to 35 days to apply updates for **Host** machines. 
 - Automate platform updates by configuring your maintenance schedule.
 - Maintenance Configurations work across subscriptions and resource groups. 
 
 ## Limitations
 
 - Maintenance window duration can vary month over month and sometimes it can take up to 2 hours to apply the pending updates once it is initiated by the user.  
-- After 35 days, an update will automatically be applied to your Host machines.
+- After 35 days, an update will automatically be applied to your **Host** machines.
 - Rack level maintenance cannot be controlled through maintenance configurations.
 - User must have **Resource Contributor** access.
+- Users need to know the nuances of the scopes required for their machine.
 
 ## Management options
 

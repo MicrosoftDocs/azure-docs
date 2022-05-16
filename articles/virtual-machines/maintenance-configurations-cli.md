@@ -15,7 +15,10 @@ ms.author: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Maintenance Configurations lets you decide when to apply platform updates to various Azure resources. This topic covers the Azure CLI options for Maintenance Configurations. For more about benefits of using Maintenance COnfigurations, its limitations, and other management options, see [Managing platform updates with Maintenance Configurations](maintenance-configurations.md).
+Maintenance Configurations lets you decide when to apply platform updates to various Azure resources. This topic covers the Azure CLI options for Dedicated Hosts and Isolated VMs. For more about benefits of using Maintenance Configurations, its limitations, and other management options, see [Managing platform updates with Maintenance Configurations](maintenance-configurations.md).
+
+> [!IMPORTANT]
+> There are different **scopes** which support certain machine types and schedules, so please ensure you are selecting the right scope for your virtual machine.
 
 ## Create a maintenance configuration
 
@@ -92,7 +95,7 @@ az maintenance assignment create \
 
 To apply a configuration to a dedicated host, you need to include `--resource-type hosts`, `--resource-parent-name` with the name of the host group, and `--resource-parent-type hostGroups`. 
 
-The parameter `--resource-id` is the ID of the host. You can use [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) to get the ID of your dedicated host.
+The parameter `--resource-id` is the ID of the host. You can use [az-vm-host-get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) to get the ID of your dedicated host.
 
 ```azurecli-interactive
 az maintenance assignment create \

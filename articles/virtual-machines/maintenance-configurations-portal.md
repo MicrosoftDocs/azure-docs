@@ -32,7 +32,7 @@ With Maintenance Configurations, you can now take more control over when to appl
 1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select one of the scopes we offer which you wish to apply updates for. Click **Add a schedule** to add or modify the schedule for your configuration.
     
     > [!IMPORTANT]
-    > There are different **scopes** which support certain machine types, so please ensure you are selecting the right scope for your virtual machine.
+    > There are different **scopes** which support certain machine types and schedules, so please ensure you are selecting the right scope for your virtual machine.
 
     :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics-tab.png" alt-text="Screenshot showing Maintenance Configuration basics":::
 
