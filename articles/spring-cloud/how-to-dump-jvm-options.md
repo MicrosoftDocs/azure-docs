@@ -22,7 +22,7 @@ This article shows you how to use diagnostic settings through JVM options to con
 
 There are several JVM-based application startup parameters related to heap dump, Java Flight Recorder (JFR), and garbage collection (GC) logs. In Azure Spring Apps, we support JVM configuration using JVM options.
 
-For more information on configuring JVM-based application startup parameters, see [az spring app deployment](/cli/azure/spring-cloud/app/deployment) in the Azure CLI reference documentation. The following sections provide several examples of useful values for the `--jvm-options` parameter.
+For more information on configuring JVM-based application startup parameters, see [az spring app deployment](/cli/azure/spring/app/deployment) in the Azure CLI reference documentation. The following sections provide several examples of useful values for the `--jvm-options` parameter.
 
 ## Prerequisites
 

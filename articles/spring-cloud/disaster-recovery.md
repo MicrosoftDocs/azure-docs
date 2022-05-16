@@ -54,15 +54,15 @@ Follow [Custom Domain Document](./tutorial-custom-domain.md) to set up custom do
 3. Create a traffic manager and two endpoints: [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 Here is the traffic manager profile:
-* Traffic Manager DNS Name: `http://asc-bcdr.trafficmanager.net`
+* Traffic Manager DNS Name: `http://asa-bcdr.trafficmanager.net`
 * Endpoint Profiles:
 
 | Profile | Type | Target | Priority | Custom Header Settings |
 |--|--|--|--|--|
-| Endpoint A Profile | External Endpoint | service-sample-a.asc-test.net | 1 | host: bcdr-test.contoso.com |
-| Endpoint B Profile | External Endpoint | service-sample-b.asc-test.net | 2 | host: bcdr-test.contoso.com |
+| Endpoint A Profile | External Endpoint | service-sample-a.azuremicroservices.io | 1 | host: bcdr-test.contoso.com |
+| Endpoint B Profile | External Endpoint | service-sample-b.azuremicroservices.io | 2 | host: bcdr-test.contoso.com |
 
-4. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net.
+4. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asa-bcdr.trafficmanager.net.
 
 5. Now, the environment is completely set up. Customers should be able to access the app via: bcdr-test.contoso.com
 

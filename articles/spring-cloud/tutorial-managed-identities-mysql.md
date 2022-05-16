@@ -76,7 +76,7 @@ az mysql db create \
 
 ## Create an app and service in Azure Spring Apps
 
-After installing the corresponding extension, create an Azure Spring Apps instance with the Azure CLI command [az spring create](/cli/azure/spring-cloud#az-spring-cloud-create).
+After installing the corresponding extension, create an Azure Spring Apps instance with the Azure CLI command [az spring create](/cli/azure/spring#az-spring-cloud-create).
 
 ```azurecli
 az extension add --name spring
@@ -135,7 +135,7 @@ This [sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/m
     mvn clean package
     ```
 
-4. Now deploy the app to Azure with the Azure CLI command [az spring app deploy](/cli/azure/spring-cloud/app#az-spring-cloud-app-deploy).
+4. Now deploy the app to Azure with the Azure CLI command [az spring app deploy](/cli/azure/spring/app#az-spring-cloud-app-deploy).
 
     ```azurecli
     az spring app deploy \
