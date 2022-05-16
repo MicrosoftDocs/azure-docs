@@ -102,29 +102,6 @@ Centrally manage content items for an installed solution deployed by the content
 
 1. **Playbook** - Not yet supported in this view. In Microsoft Sentinel, go to **Playbook** to find and use the solution's playbook.
 
-## Delete content items
-
-Delete content items for an installed solution deployed by the content hub.
-
-1. In the content hub, select an installed solution where the content source is **Content hub**.
-1. On the solutions details page, select **Manage**.
-1. Select the content item or items you want to delete.
-1. Select **Delete items**.
-
-    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-delete-item.png" alt-text="Screenshot of solution with content items selected for deletion.":::
-
-To restore deleted content items, select **Reinstall** on the solution.
-
-## Delete the solution
-
-Delete a solution and the related content templates from the content hub or in the manage solution view. Active, cloned, saved, or custom items associated with a content template aren't deleted.
-
-1. In the content hub, select an installed solution.
-1. On the solutions details page, select **Delete**.
-1. Select **Yes** to delete the solution and the templates.
-
-    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-delete.png" alt-text="Screenshot of the delete confirmation prompt.":::
-
 ## Find the support model for your solution
 
 Each solution lists details about its support model on the solution's details pane, in the **Support** box, where either **Microsoft** or a partner's name is listed. For example:
@@ -141,6 +118,7 @@ In this document, you learned about Microsoft Sentinel solutions and how to find
 
 - Learn more about [Microsoft Sentinel solutions](sentinel-solutions.md).
 - See the full [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
+- [Delete installed Microsoft Sentinel out-of-the-box content and solutions (public preview)](sentinel-solutions-delete.md)
 
 Many solutions include data connectors that you'll need to configure so that you can start ingesting your data into Microsoft Sentinel. Each data connector will have its own set of requirements, detailed on the data connector page in Microsoft Sentinel. 
 
