@@ -78,7 +78,7 @@ An easy option to create the connector is from the Confluent Control Center port
 
 Alternatively, in the connectors page, you can upload the JSON file built from the previous section by using the **Upload connector config file** option.
 
-:::image type="content" source="./media/kafka-connector-source/upload-connector-config.png" alt-text="Upload connector config.":::
+:::image type="content" source="./media/kafka-connector-source/upload-source-connector-config.png" lightbox="./media/kafka-connector-source/upload-source-connector-config.png" alt-text="Screenshot of 'Upload connector config file' option in the Browse connectors dialog.":::
 
 #### Create connector using REST API
 
@@ -131,7 +131,7 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 To delete the connector from the Confluent Control Center, navigate to the source connector you created and select the **Delete** icon.
 
-:::image type="content" source="./media/kafka-connector-source/delete-source-connector.png" alt-text="Delete connector from Confluent center":::
+:::image type="content" source="./media/kafka-connector-source/delete-source-connector.png" lightbox="./media/kafka-connector-source/delete-source-connector.png" alt-text="Screenshot of delete option in the source connector dialog.":::
 
 Alternatively, use the connector’s REST API:
 

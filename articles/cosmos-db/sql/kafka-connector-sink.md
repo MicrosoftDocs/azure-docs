@@ -109,7 +109,7 @@ An easy option to create the connector is by going through the Control Center we
 
 Alternatively, in the connectors page, you can upload the JSON file created earlier by using the **Upload connector config file** option.
 
-:::image type="content" source="./media/kafka-connector-sink/upload-connector-config.png" alt-text="Upload connector config.":::
+:::image type="content" source="./media/kafka-connector-sink/upload-sink-connector-config.png" lightbox="./media/kafka-connector-sink/upload-sink-connector-config.png" alt-text="Screenshot of 'Upload connector config file' option in the Browse connectors dialog.":::
 
 ### Create connector using REST API
 
@@ -129,7 +129,7 @@ Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) 
 
 To delete the connector from the Control Center, navigate to the sink connector you created and select the **Delete** icon.
 
-:::image type="content" source="./media/kafka-connector-sink/delete-connector.png" alt-text="Delete connector.":::
+:::image type="content" source="./media/kafka-connector-sink/delete-sink-connector.png" lightbox="./media/kafka-connector-sink/delete-sink-connector.png" alt-text="Screenshot of delete option in the sink connector dialog.":::
 
 Alternatively, use the Connect REST API to delete:
 
