@@ -18,10 +18,6 @@ To interact with Azure APIs, an Azure Red Hat OpenShift cluster requires an Azur
 
 This article explains how to create and use a service principal for your Azure Red Hat OpenShift clusters using the Azure command-line interface (Azure CLI) or the Azure portal.
 
-## Prerequisite
-
-On [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) create a service principal. Be sure to save the client ID and the appID.
-
 > [!NOTE]
 > Service principals expire in one year unless configured for longer periods. For information on extending your service principal expiration period, see [Rotate service principal credentials for your Azure Red Hat OpenShift (ARO) Cluster](howto-service-principal-credential-rotation.md).
 
@@ -31,11 +27,12 @@ On [Use the portal to create an Azure AD application and service principal that 
 
 The following sections explain how to use the Azure CLI to create a service principal for your Azure Red Hat OpenShift cluster 
 
-## Prerequisites
+## Prerequisites - Azure CLI
 
 If you’re using the Azure CLI, you’ll need Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
- 
+On [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) create a service principal. Be sure to save the client ID and the appID.
+
 ## Create a resource group
 
 ```azurecli-interactive
@@ -106,6 +103,10 @@ az aro create \
 ## Create a service principal with the Azure portal
 
 The following sections explain how to use the Azure portal to create a service principal for your Azure Red Hat OpenShift cluster.
+
+## Prerequiste - Azure portal
+
+On [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) create a service principal. Be sure to save the client ID and the appID.
 
 ## Create a service principal - Azure portal 
 
