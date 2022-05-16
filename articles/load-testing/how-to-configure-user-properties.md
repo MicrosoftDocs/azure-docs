@@ -41,6 +41,9 @@ You can define user properties for your JMeter test script by uploading a *.prop
 threadCount=250
 rampUpSeconds=30
 durationSeconds=600
+
+# Override default JMeter properties
+jmeter.save.saveservice.thread_name=false
 ```
 
 Azure Load Testing supports using a single properties file per load test. Additional property files are ignored.
