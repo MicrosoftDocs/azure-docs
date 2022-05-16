@@ -131,7 +131,7 @@ Support for the SQL bindings extension is available in the 1.11.3b1 version of t
 azure-functions==1.11.3b1
 ```
 
-Following setting the library version, update your application settings to [isolate the dependencies](./functions-app-settings#python_isolate_worker_dependencies-preview) by adding `PYTHON_ISOLATE_WORKER_DEPENDENCIES` with the value `1` to your application settings.  Locally, this is set in the `local.settings.json` file as seen below:
+Following setting the library version, update your application settings to [isolate the dependencies](./functions-app-settings.md#python_isolate_worker_dependencies-preview) by adding `PYTHON_ISOLATE_WORKER_DEPENDENCIES` with the value `1` to your application settings.  Locally, this is set in the `local.settings.json` file as seen below:
 
 ```json
 "PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"
