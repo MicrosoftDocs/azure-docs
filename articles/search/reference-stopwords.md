@@ -1,7 +1,7 @@
 ---
 title: Stopwords
 titleSuffix: Azure Cognitive Search
-description: 
+description: Reference document of the stopwords list for Microsoft language analyszers. 
 
 manager: nitinme
 author: HeidiSteen
@@ -14,7 +14,9 @@ ms.date: 05/16/2022
 
 # Stopwords reference (Microsoft analyzers)
 
-When text is indexed into Azure Cognitive Search, it's processed by analyzers so it can be efficiently stored in a search index. During this [lexical analysis](tutorial-create-custom-analyzer.md#how-analyzers-work) process, [language analyzers](index-add-language-analyzers.md) will remove stopwords specific to that language. Stopword removal applies to all supported [Lucene and Microsoft analyzers](index-add-language-analyzers.md#supported-language-analyzers) used in Azure Cognitive Search.
+When text is indexed into Azure Cognitive Search, it's processed by analyzers so it can be efficiently stored in a search index. During this [lexical analysis](tutorial-create-custom-analyzer.md#how-analyzers-work) process, [language analyzers](index-add-language-analyzers.md) will remove stopwords specific to that language. Stopwords are non-essential words such as "the" or "an" that can be removed without compromising the lexical integrity of your content. 
+
+Stopword removal applies to all supported [Lucene and Microsoft analyzers](index-add-language-analyzers.md#supported-language-analyzers) used in Azure Cognitive Search.
 
 This article lists the stopwords used by the Microsoft analyzer for each language. 
 
