@@ -84,7 +84,7 @@ Here are some examples of POC goal setting:
     - We need to know if we can shorten our data integration run times and by how much.
     - We need to know if our data scientists can build and train machine learning models and leverage AI/ML libraries as needed in a Spark pool.     - We need to know if our data scientists use the Spark pool, Azure Machine Learning (AML), or Azure SQL Kubernetes for deployment of trained models to do scoring.
     - Will the move to cloud-based Synapse Analytics meet our cost goals?
-- At the conclusion of this PoC:
+- At the conclusion of this POC:
     - We will have the data to determine if our data processing performance requirements can be met for both batch and real-time streaming.
     - We will have tested ingestion and processing of all our different data types (structured, semi and unstructured) that support our use cases.
     - We will have tested some of our existing complex data processing and can identify the work that will need to be completed to migrate our portfolio of data integration to the new environment.

@@ -43,14 +43,14 @@ This assessment exercise will provide you with the opportunity gather all the av
 - What are the RPO/RTO/HA/SLA requirements in the existing environment?
 - What are the RPO/RTO/HA/SLA requirements in the planned environment?
 
-### Analytical workload personas
+### Analytical workload roles
 
-- Who are the different data personas (Data Scientist, Data Engineer, Data Analyst etc.)?
-- Describe the access control requirement on analytical platform for these personas.
-- Identify the platform owners who is responsible to provision compute and grant access.
-- Describe how different data personas are collaborating today?
-- Do you have multiple teams collaborating/sharing the same analytical platform? What is the access control/isolation requirements for each of these teams/data sets?
-- What are different client tools end user use to interact with Analytical platform?
+- Describe the different data roles (data scientist, data engineer, data Analyst, and others).
+- Describe the analytical platform access control requirement for these roles.
+- Identify the platform owner who is responsible to provision compute resources and grant access.
+- Describe how different data roles collaborate today.
+- Are there multiple teams collaborating on the same analytical platform? If so, what is the access control and isolation requirements for each of these teams?
+- What are different client tools end user use to interact with the analytical platform?
 
 ### ETL/ELT, transformation, and orchestration
 
@@ -115,19 +115,19 @@ This assessment exercise will provide you with the opportunity gather all the av
 - Identify all data consumers
 - Identify data exports and data sharing scenarios
 
-## Assessment by Synapse analytics Services
+## Assessment by Azure Synapse services
 
 This section covers assessment aligned with services within Azure Synapse analytics. Synapse has the following components for compute and data movement:
 
 ### Synapse SQL
 
-Synapse SQL is a distributed query system for T-SQL that enables data warehousing and data virtualization scenarios and extends T-SQL to address streaming and machine learning scenarios.
+Synapse SQL is a distributed query system for T-SQL that enables data warehousing and data virtualization scenarios. It also extends T-SQL to address streaming and machine learning scenarios.
 
-Synapse SQL offers both **serverless** and **dedicated** resource models.
+Synapse SQL offers both *serverless* and *dedicated* resource models.
 
 ### Serverless SQL pool
 
-Serverless SQL pool is a distributed data processing system, built for large-scale data, and computational functions. There's no infrastructure to setup or clusters to maintain. Best for unplanned or burst workloads, use the always available, serverless SQL endpoint. The recommended scenarios include quick data exploration on files directly on Data Lake, Logical date warehouse, Data Transformation of raw data.
+Serverless SQL pool is a distributed data processing system, built for large-scale data and computational functions. There's no infrastructure to set up or clusters to maintain. Suited for unplanned or burst workloads, use the always available, serverless SQL endpoint. The recommended scenarios include quick data exploration on files directly on the data lake, logical data warehouse, Data Transformation of raw data.
 
 ### Dedicated SQL pool
 
@@ -135,11 +135,11 @@ Represents a collection of analytic resources that are provisioned when using Sy
 
 ### Apache Spark
 
-Apache Spark for Azure Synapse deeply and seamlessly integrates Apache Spark - the most popular open-source big data engine used for data preparation, data engineering, ETL, and machine learning.
+Apache Spark for Azure Synapse deeply and seamlessly integrates Apache Spark, which is the most popular open source big data engine used for data preparation, data engineering, ETL, and machine learning.
 
 ### Data integration pipelines
 
-Azure Synapse contains the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Azure Synapse Analytics.
+Azure Synapse contains the same data integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Azure Synapse Analytics.
 
 ## Additional assessment information focused on Synapse SQL  
 
