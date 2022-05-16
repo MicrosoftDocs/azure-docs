@@ -184,6 +184,8 @@ For more information about configuring Dapr components, see [Configure Dapr comp
 
 Navigate to the directory in which you stored the *statestore.yaml* file and run the following command to configure the Dapr component in the Container Apps environment.
 
+If you need to add multiple components, run the `az containerapp env dapr-component set` command multiple times to add each component.
+
 # [Bash](#tab/bash)
 
 ```azurecli
@@ -376,3 +378,4 @@ This command deletes the resource group that includes all of the resources creat
 
 > [!div class="nextstepaction"]
 > [Application lifecycle management](application-lifecycle-management.md)
+
