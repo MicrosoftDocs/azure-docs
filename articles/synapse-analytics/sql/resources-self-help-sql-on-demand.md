@@ -1054,7 +1054,7 @@ Learn how to [query Azure Cosmos DB analytical store](query-cosmos-db-analytical
 
 ### Query JSON data
 
-Learn how to [query JSON files](query-json-files.md). You can also [query partitioned files](query-specific-files.md)
+Learn how to [query JSON files](query-json-files.md). You can also [query partitioned files](query-specific-files.md).
 
 ### Create views, tables, and other database objects
 
