@@ -16,12 +16,12 @@ Azure Automation can send runbook job status and job streams to your Log Analyti
   - Trigger an email or alert based on your runbook job status (for example, failed or suspended).
   - Write advanced queries across your job streams.
   - Correlate jobs across Automation accounts.
-  - Use customized views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics through an [Azure dashboard](/azure/azure-portal/azure-portal-dashboards).
+  - Use customized views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics through an [Azure dashboard](../azure-portal/azure-portal-dashboards.md).
   - Get the audit logs related to Automation accounts, runbooks, and other asset create, modify and delete operations. 
 
-Using Azure Monitor logs, you can consolidate logs from different resources in the same workspace where it can be analyzed with [queries](/azure/azure-monitor/logs/log-query-overview) to quickly retrieve, consolidate, and analyze the collected data. You can create and test queries using [Log Analytics](/azure/azure-monitor/logs/log-query-overview) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualization](/azure/azure-monitor/best-practices-analysis) or [alert rules](/azure/azure-monitor/alerts/alerts-overview).
+Using Azure Monitor logs, you can consolidate logs from different resources in the same workspace where it can be analyzed with [queries](../azure-monitor/logs/log-query-overview.md) to quickly retrieve, consolidate, and analyze the collected data. You can create and test queries using [Log Analytics](../azure-monitor/logs/log-query-overview.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualization](../azure-monitor/best-practices-analysis.md) or [alert rules](../azure-monitor/alerts/alerts-overview.md).
 
-Azure Monitor uses a version of the [Kusto query language (KQL)](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries. It also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](/azure/azure-monitor/logs/get-started-queries).
+Azure Monitor uses a version of the [Kusto query language (KQL)](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries. It also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](../azure-monitor/logs/get-started-queries.md).
 
 
 ## Azure Automation diagnostic settings
@@ -60,22 +60,22 @@ You can configure diagnostic settings in the Azure portal from the menu for the 
     
        :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/destination-details-options-inline.png" alt-text="Screenshot showing selections in destination details section." lightbox="media/automation-manage-send-joblogs-log-analytics/destination-details-options-expanded.png":::
 
-       -  **Log Analytics** : Enter the Subscription ID and workspace name. If you don't have a workspace, you must [create one before proceeding](/azure/azure-monitor/logs/quick-create-workspace).
+       -  **Log Analytics** : Enter the Subscription ID and workspace name. If you don't have a workspace, you must [create one before proceeding](../azure-monitor/logs/quick-create-workspace.md).
        
        - **Event Hubs**: Specify the following criteria:
           - Subscription: The same subscription as that of the Event Hub.
-          - Event Hub namespace: [Create Event Hub](/azure/event-hubs/event-hubs-create) if you don't have one yet.
-          - Event Hub name (optional): If you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, specify a name to limit the number of Event Hubs created. See [Azure Event Hubs quotas and limits](/azure/event-hubs/event-hubs-quotas) for details.
-          - Event Hub policy (optional): A policy defines the permissions that the streaming mechanism has. See [Event Hubs feature](/azure/event-hubs/event-hubs-features#publisher-policy).
+          - Event Hub namespace: [Create Event Hub](../event-hubs/event-hubs-create.md) if you don't have one yet.
+          - Event Hub name (optional): If you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, specify a name to limit the number of Event Hubs created. See [Azure Event Hubs quotas and limits](../event-hubs/event-hubs-quotas.md) for details.
+          - Event Hub policy (optional): A policy defines the permissions that the streaming mechanism has. See [Event Hubs feature](../event-hubs/event-hubs-features.md#publisher-policy).
         
         - **Storage**: Choose the subscription, storage account, and retention policy.
           :::image type="content" source="media/automation-manage-send-joblogs-log-analytics/storage-account-details-inline.png" alt-text="Screenshot showing the storage account." lightbox="media/automation-manage-send-joblogs-log-analytics/storage-account-details-expanded.png":::
 
-        - **Partner integration**: You must first install a partner integration into your subscription. Configuration options will vary by partner. For more information, see [Azure Monitor integration](/azure/partner-solutions/overview).
+        - **Partner integration**: You must first install a partner integration into your subscription. Configuration options will vary by partner. For more information, see [Azure Monitor integration](../partner-solutions/overview.md).
         
 1. Click **Save**.
 
-After a few moments, the new setting appears in your list of settings for this resource, and logs are streamed to the specified destinations as new event data is generated. There can be 15 minutes time difference between the event emitted and its appearance in [Log Analytics workspace](/azure/azure-monitor/logs/data-ingestion-time).
+After a few moments, the new setting appears in your list of settings for this resource, and logs are streamed to the specified destinations as new event data is generated. There can be 15 minutes time difference between the event emitted and its appearance in [Log Analytics workspace](../azure-monitor/logs/data-ingestion-time.md).
 
 ## Query the logs
 
@@ -264,7 +264,7 @@ To create an alert rule, create a log search for the runbook job records that sh
     ```kusto
     AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and     Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s 
     ```
- 1. To open the **Create alert rule** screen, click **+New alert rule** on the top of the page. For more information on the options to configure the alerts, see [Log alerts in Azure](/azure/azure-monitor/alerts/alerts-log#create-a-log-alert-rule-in-the-azure-portal)
+ 1. To open the **Create alert rule** screen, click **+New alert rule** on the top of the page. For more information on the options to configure the alerts, see [Log alerts in Azure](../azure-monitor/alerts/alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal)
 
 
 ## Azure Automation diagnostic audit logs
@@ -274,7 +274,7 @@ You can now send audit logs also to the Azure Monitor workspace. This allows ent
 
 ## Difference between activity logs and audit logs
 
-Activity log is a [platform log](/azure/azure-monitor/essentials/platform-logs-overview)in Azure that provides insight into subscription-level events. The activity log for Automation account includes information about when an automation resource is modified or created or deleted. However, it does not capture the name or ID of the resource. 
+Activity log is a [platform log](../azure-monitor/essentials/platform-logs-overview.md)in Azure that provides insight into subscription-level events. The activity log for Automation account includes information about when an automation resource is modified or created or deleted. However, it does not capture the name or ID of the resource. 
 
 Audit logs for Automation accounts capture the name and ID of the resource such as automation variable, credential, connection and so on, along with the type of the operation performed for the resource and Azure Automation would scrub some details like client IP data conforming to the GDPR compliance.
 
@@ -338,4 +338,4 @@ AzureDiagnostics
 * To understand creation and retrieval of output and error messages from runbooks, see [Monitor runbook output](automation-runbook-output-and-messages.md).
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
 * To learn more about Azure Monitor logs and data collection sources, see [Collecting Azure storage data in Azure Monitor logs overview](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
-* For help troubleshooting Log Analytics, see [Troubleshooting why Log Analytics is no longer collecting data](../azure-monitor/logs/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).
+* For help troubleshooting Log Analytics, see [Troubleshooting why Log Analytics is no longer collecting data](../azure-monitor/logs/data-collection-troubleshoot.md).

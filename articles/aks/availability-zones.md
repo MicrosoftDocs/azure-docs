@@ -4,7 +4,7 @@ description: Learn how to create a cluster that distributes nodes across availab
 services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
-ms.date: 12/10/2021
+ms.date: 03/31/2022
 
 ---
 
@@ -39,6 +39,7 @@ AKS clusters can currently be created using availability zones in the following 
 * North Europe
 * Norway East
 * Southeast Asia
+* South Africa North
 * South Central US
 * Sweden Central
 * UK South

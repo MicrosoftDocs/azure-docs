@@ -7,8 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/25/2022
-ms.author: tamram 
+ms.date: 04/14/2022
+ms.author: tamram
+ms.reviewer: nachakra 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -287,3 +288,4 @@ To bring a storage account into compliance, rotate the account access keys.
 
 - [Azure storage account overview](storage-account-overview.md)
 - [Create a storage account](storage-account-create.md)
+- [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md)

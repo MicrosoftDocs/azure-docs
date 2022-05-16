@@ -38,8 +38,8 @@ You'll use a command like the following to create an image classification projec
 
 Copy the command to a text editor and make the following changes:
 
-* Replace `{subscription key}` with your valid Face subscription key.
-* Replace `{endpoint}` with the endpoint that corresponds to your subscription key.
+* Replace `{subscription key}` with your valid Face key.
+* Replace `{endpoint}` with the endpoint that corresponds to your key.
    [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
 * Replace `{name}` with the name of your project.
 * Optionally set other URL parameters to configure what type of model your project will use. See the [CreatProject API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) for options.

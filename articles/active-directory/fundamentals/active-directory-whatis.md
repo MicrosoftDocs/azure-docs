@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # What is Azure Active Directory?
 
-Azure Active Directory (Azure AD) is a cloud-based identity and access management service. This service helps your employees access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. Azure AD also helps them access internal resources. These are resources like apps on your corporate network and intranet, along with any cloud apps developed by your own organization. For more information about creating a tenant for your organization, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
+Azure Active Directory (Azure AD) is a cloud-based identity and access management service. This service helps your employees access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. Azure Active Directory also helps them access internal resources like apps on your corporate intranet network, along with any cloud apps developed for your own organization. For more information about creating a tenant for your organization, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-To learn the difference between Azure AD and Active Directory Domain Services, see [Compare Active Directory to Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). You can also use the various [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models) posters to better understand the core identity services in Azure, Azure AD, and Microsoft 365.
+To learn the differences between Active Directory and Azure Active Directory, see [Compare Active Directory to Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). You can also refer [Microsoft Cloud for Enterprise Architects Series](/microsoft-365/solutions/cloud-architecture-models) posters to better understand the core identity services in Azure like Azure AD and Microsoft-365.
 
 ## Who uses Azure AD?
 

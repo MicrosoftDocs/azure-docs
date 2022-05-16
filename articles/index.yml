@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 03/17/2022
+  ms.date: 04/18/2022
   featureFlags:
   - clicktale
 
@@ -20,9 +20,9 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample tutorial | video | whats-new
   items:
     # Card
-    - title: Get started guide for Azure developers
+    - title: Get started for Azure developers
       itemType: get-started
-      url: guides/developer/azure-developer-guide.md
+      url: /azure/developer/
     # Card
     - title: Design your app using the Azure Architecture Center
       itemType: architecture
@@ -287,7 +287,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - media
-      url: azure-video-analyzer/video-analyzer-for-media-docs/index.yml
+      url: /azure-video-indexer/index.yml
     # Card
     - title: Azure Analysis Services
       summary: Enterprise-grade analytics engine as a service
@@ -349,7 +349,7 @@ productDirectory:
         - analytics
       url: data-catalog/index.yml
     # Card
-    - title: Azure Purview
+    - title: Microsoft Purview
       summary: Maximize business value with unified data governance
       imageSrc: https://static.docs.com/ui/media/product/azure/purview.svg
       azureCategories:
@@ -399,13 +399,6 @@ productDirectory:
       azureCategories:
         - analytics
       url: /power-bi/developer/azure-pbie-what-is-power-bi-embedded
-    # Card
-    - title: R Server for HDInsight
-      summary: Predictive analytics, machine learning, and statistical modeling for big data
-      imageSrc: https://static.docs.com/ui/media/product/azure/hdinsight.svg
-      azureCategories:
-        - analytics
-      url: hdinsight/r-server/r-server-overview.md
     # Card
     - title: Azure Cosmos DB
       summary: Fast NoSQL database with open APIs for any scale
@@ -558,7 +551,7 @@ productDirectory:
       azureCategories:
         - compute
         - databases
-      url: ./azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      url: /azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - title: Static Web Apps
       summary: A modern web app service that offers streamlined full-stack development from source code to global high availability
       imageSrc: ./media/index/static-apps.svg
@@ -695,21 +688,21 @@ productDirectory:
         - featured
         - hybrid
         - databases
-      url: azure-sql/index.yml
+      url: /azure/azure-sql/index
     # Card
     - title: Azure SQL Database
       summary: Managed, intelligent SQL in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
       azureCategories:
         - databases
-      url: azure-sql/database/index.yml
+      url: /azure/azure-sql/database/index
     # Card
     - title: Azure SQL Managed Instance
       summary: Managed, always up-to-date SQL instance in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/sql-managed-instance.svg
       azureCategories:
         - databases
-      url: azure-sql/managed-instance/index.yml
+      url: /azure/azure-sql/managed-instance/index
     # Card
     - title: Azure SQL Edge
       summary: Small-footprint, edge-optimized data engine with built-in AI
@@ -830,12 +823,20 @@ productDirectory:
         - devops
       url: /azure/devops/test/
     # Card
-    - title: Azure Load Testing
+    - title: Azure Load Testing (Preview)
       summary: Generate high-scale load and identify app performance bottlenecks
       imageSrc: https://static.docs.com/ui/media/product/azure/load-testing.svg
       azureCategories:
         - devops
       url: load-testing/index.yml
+    # Card
+    - title: Azure Managed Grafana (Preview)
+      summary: Deploy Grafana dashboards as a fully managed Azure service
+      imageSrc: ./media/index/managed-grafana.svg
+      azureCategories:
+        - devops
+        - management-and-governance
+      url: managed-grafana/index.yml
     # Card
     - title: GitHub Actions for Azure
       summary: Build, test and deploy any app from GitHub to Azure
@@ -1159,7 +1160,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
-      url: /media-services/latest/player-use-azure-media-player-how-to
+      url: /azure/media-services/latest/player-use-azure-media-player-how-to
     # Card
     - title: Content Delivery Network
       summary: Ensure secure, reliable content delivery with broad global reach
@@ -1175,28 +1176,28 @@ productDirectory:
       imageSrc: ./media/index/media-protection.svg
       azureCategories:
         - media
-      url: /media-services/latest/drm-content-protection-concept
+      url: /azure/media-services/latest/drm-content-protection-concept
     # Card
     - title: Encoding
       summary: Studio grade encoding at cloud scale
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
-      url: /media-services/latest/encode-concept
+      url: /azure/media-services/latest/encode-concept
     # Card
     - title: Live and On-Demand Streaming
       summary: Deliver content to virtually all devices with scale to meet business needs
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
-      url: /media-services/latest/stream-live-tutorial-with-api
+      url: /azure/media-services/latest/stream-live-tutorial-with-api
     # Card
     - title: Media Services
       summary: Encode, store, and stream video and audio at scale
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
-      url: /media-services/latest/
+      url: /azure/media-services/latest/
     # Card
     - title: Data Box
       summary: Appliances and solutions for data transfer to Azure
@@ -1480,7 +1481,7 @@ productDirectory:
       url: storsimple/index.yml
     # Card
     - title: Azure SignalR Service
-      summary: Add real-time web functionalities easily
+      summary: Add real-time web functionality easily
       imageSrc: https://static.docs.com/ui/media/product/azure/signalr-service.svg
       azureCategories:
         - web
@@ -1492,7 +1493,14 @@ productDirectory:
       azureCategories:
         - networking
       url: orbital/index.yml
-
+    # Card
+    - title: Azure Web PubSub
+      summary: Easily build real-time messaging web applications using WebSockets and the publish-subscribe pattern
+      imageSrc: ./media/index/web-pubsub.svg
+      azureCategories:
+        - integration
+        - web
+      url: azure-web-pubsub/index.yml
 tools:
   title: Languages and tools
   items:

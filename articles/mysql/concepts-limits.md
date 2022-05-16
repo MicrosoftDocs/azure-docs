@@ -4,6 +4,7 @@ description: This article describes limitations in Azure Database for MySQL, suc
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 10/1/2020
 ---
@@ -20,9 +21,9 @@ The following sections describe capacity, storage engine support, privilege supp
 
 Azure Database for MySQL supports tuning the values of server parameters. The min and max value of some parameters (ex. `max_connections`, `join_buffer_size`, `query_cache_size`) is determined by the pricing tier and vCores of the server. Refer to [server parameters](./concepts-server-parameters.md) for more information about these limits.
 
-Upon initial deployment, an Azure for MySQL server includes systems tables for time zone information, but these tables are not populated. The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](howto-server-parameters.md#working-with-the-time-zone-parameter) or [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
+Upon initial deployment, an Azure for MySQL server includes systems tables for time zone information, but these tables aren't populated. The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](howto-server-parameters.md#working-with-the-time-zone-parameter) or [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
 
-Password plugins such as "validate_password" and "caching_sha2_password" are not supported by the service.
+Password plugins such as "validate_password" and "caching_sha2_password" aren't supported by the service.
 
 ## Storage engines
 
@@ -40,9 +41,9 @@ MySQL supports many storage engines. On Azure Database for MySQL, the following 
 
 ## Privileges & data manipulation support
 
-Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the MySQL server. To maintain the service integrity and SLA at a product level, this service does not expose multiple roles. 
+Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the MySQL server. To maintain the service integrity and SLA at a product level, this service doesn't expose multiple roles. 
 
-The MySQL service does not allow direct access to the underlying file system. Some data manipulation commands are not supported. 
+The MySQL service doesn't allow direct access to the underlying file system. Some data manipulation commands aren't supported. 
 
 ### Unsupported
 
@@ -50,9 +51,10 @@ The following are unsupported:
 - DBA role: Restricted. Alternatively, you can use the administrator user (created during new server creation), allows you to perform most of DDL and DML statements. 
 - SUPER privilege: Similarly, [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is restricted.
 - DEFINER: Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html).
-- System databases: The [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only and used to support various PaaS functionality. You cannot make changes to the `mysql` system database.
+- System databases: The [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only and used to support various PaaS functionality. You can't make changes to the `mysql` system database.
 - `SELECT ... INTO OUTFILE`: Not supported in the service.
 - `LOAD_FILE(file_name)`: Not supported in the service.
+- [BACKUP_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_backup-admin) privilege: Granting BACKUP_ADMIN privilege is not supported for taking backups using any [utility tools](./how-to-decide-on-right-migration-tools.md).
 
 ### Supported
 - `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB). Additionally, if you are using MySQL client version >= 8.0 you need to include `-–local-infile=1` parameter in your connection string.

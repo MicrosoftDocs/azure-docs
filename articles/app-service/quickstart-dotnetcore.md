@@ -33,15 +33,6 @@ target cross-platform with .NET 6.0.
 
 In this quickstart, you'll learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
-<!-- markdownlint-disable MD044 -->
-:::zone target="docs" pivot="development-environment-ps"
-<!-- markdownlint-enable MD044 -->
-
-> [!NOTE]
-> Azure PowerShell is recommended for creating apps on the Windows hosting platform. To create apps on Linux, use a different tool, such as [Azure CLI](quickstart-dotnetcore.md?pivots=development-environment-cli)
-
-:::zone-end
-
 ## Prerequisites
 
 :::zone target="docs" pivot="development-environment-vs"

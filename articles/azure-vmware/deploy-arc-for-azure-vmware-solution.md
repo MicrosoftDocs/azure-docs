@@ -22,7 +22,7 @@ Before you begin checking off the prerequisites, verify the following actions ha
 The following items are needed to ensure you're set up to begin the onboarding process to deploy Arc for Azure VMware Solution (Preview).
 
 - A jump box virtual machine (VM) with network access to the Azure VMware Solution vCenter. 
-    - From the jump-box VM, verify you have access to [vCenter and NSX-T portals](/azure/azure-vmware/tutorial-configure-networking). 
+    - From the jump-box VM, verify you have access to [vCenter and NSX-T portals](./tutorial-configure-networking.md). 
 - Verify that your Azure subscription has been enabled or you have connectivity to Azure end points, mentioned in the [Appendices](#appendices).
 - Resource group in the subscription where you have owner or contributor role.  
 - A minimum of three free non-overlapping IPs addresses.  
@@ -36,7 +36,7 @@ The following items are needed to ensure you're set up to begin the onboarding p
 
 At this point, you should have already deployed an Azure VMware Solution private cluster. You need to have a connection from your on-prem environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
 
-For Network planning and setup, use the [Network planning checklist - Azure VMware Solution | Microsoft Docs](/azure/azure-vmware/tutorial-network-checklist)
+For Network planning and setup, use the [Network planning checklist - Azure VMware Solution | Microsoft Docs](./tutorial-network-checklist.md)
 
 ### Registration to Arc for Azure VMware Solution feature set
 
@@ -64,7 +64,7 @@ az feature show --name AzureArcForAVS --namespace Microsoft.AVS
 
 Use the following steps to guide you through the process to onboard in Arc for Azure VMware Solution (Preview).
 
-1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases). The extracted file contains the scripts to install the preview software.
+1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/tag/v2.0.0). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
@@ -97,7 +97,7 @@ Use the following steps to guide you through the process to onboard in Arc for A
     ```json
     { 
       "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
-      "resourceGroup": "test-rg ", 
+      "resourceGroup": "test-rg", 
       "applianceControlPlaneIpAddress": "10.14.10.10", 
       "privateCloud": "test-pc", 
       "isStatic": true, 
@@ -153,7 +153,7 @@ After you've enabled VMs to be managed from Azure, you can install guest managem
     - To enable guest management, customers will be required to use admin credentials
     - VMtools should already be running on the VM
 > [!NOTE] 
-> Azure VMware Solution vCenter will be available in global search but will NOT be available in the list of vCenters for ARc for VMware.
+> Azure VMware Solution vCenter will be available in global search but will NOT be available in the list of vCenters for Arc for VMware.
 
 - Customers can view the list of VM extensions available in public preview.
     - Change tracking
@@ -183,7 +183,7 @@ This section will demonstrate how to use custom roles to manage granular access 
 
 #### Arc-enabled VMware vSphere custom roles
 
-We provide three custom roles to meet your Role-based access controls (RBACs). These roles can be applied to a whole subscription, resource group, or a single resource.
+Three custom roles are provided to meet your Role-based access control (RBAC) requirements. These roles can be applied to a whole subscription, resource group, or a single resource.
 
 - Azure Arc VMware Administrator role
 - Azure Arc VMware Private Cloud User role
@@ -282,8 +282,8 @@ The guest management must be enabled on the VMware virtual machine (VM) before y
 >[!NOTE]
 > The following conditions are necessary to enable guest management on a VM.
 
-- The machine must be running a [Supported operating system](/azure/azure-arc/servers/agent-overview).
-- The machine needs to connect through the firewall to communicate over the Internet. Make sure the [URLs](/azure/azure-arc/servers/agent-overview) listed aren't blocked.
+- The machine must be running a [Supported operating system](../azure-arc/servers/agent-overview.md).
+- The machine needs to connect through the firewall to communicate over the Internet. Make sure the [URLs](../azure-arc/servers/agent-overview.md) listed aren't blocked.
 - The machine can't be behind a proxy, it's not supported yet.
 - If you're using Linux VM, the account must not prompt to sign in on pseudo commands.
     
@@ -324,7 +324,7 @@ Use the **`Set Credential`** command to update the provider credentials for appl
 1. Run the onboard command again. See step 3 in the [Process to onboard]() in Arc for Azure VMware Preview. 
     
 > [!NOTE]
-> Customers need to ensure kubeconfig and SSH remain available as they will be required for log collection, appliance Upgrade, and credential rotation. These parameters will be required at the time of upgrade, log collection, and credential update scenarios. 
+> Customers need to ensure kubeconfig and SSH keys remain available as they will be required for log collection, appliance Upgrade, and credential rotation. These parameters will be required at the time of upgrade, log collection, and credential update scenarios. 
 
 **Parameters**
 
@@ -343,10 +343,11 @@ The following command invokes the set credential for the specified appliance res
 Use the following steps to perform a manual upgrade for Arc appliance virtual machine (VM).
 
 1. Log into vCenter.
-1. Locate the arc appliance VM, which should be in the resource pool that was configured during onboarding.
+1. Locate the Arc appliance VM, which should be in the resource pool that was configured during onboarding.
     1. Power off the VM.
     1. Delete the VM.
 1. Delete the download template corresponding to the VM.
+1. Delete the resource bridge ARM resource.
 1. Get the previous script `Config_avs` file and add the following configuration item:
     1. `"register":false`
 1. Download the latest version of the Azure VMware Solution onboarding script.
@@ -403,9 +404,9 @@ For the final step, you'll need to delete the resource bridge VM and the VM temp
 
 ## Preview FAQ
 
-**How do you onboard a customer?**
+**Is Arc supported in all the Azure VMware Solution regions?**
  
-Fill in the [Customer Enrollment form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0SUP-7nYapHr1Tk0MFNflVUNEJQNzFONVhVOUlVTVk3V1hNTjJPVDM5WS4u) and we'll be in touch.
+Arc is supported in EastUS and WestEU regions however we are working to extend the regional support.
 
 **How does support work?**
 
@@ -467,7 +468,7 @@ Use the following tips as a self-help guide.
 
 **Where can I find more information related to Azure Arc resource bridge?**
 
-- For more information, go to [Azure Arc resource bridge (preview) overview](/azure/azure-arc/resource-bridge/overview)
+- For more information, go to [Azure Arc resource bridge (preview) overview](../azure-arc/resource-bridge/overview.md)
 
 ## Appendices
 
@@ -492,6 +493,3 @@ Appendix 1 shows proxy URLs required by the Azure Arc-enabled private cloud. The
 
 - [Google Container Registry](http://gcr.io/)
 - [Red Hat Quay.io](http://quay.io/)
-
-
-

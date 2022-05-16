@@ -131,7 +131,7 @@ Most applications must store data, so however you decide to host your applicatio
 
   > **When to use**: When your application requires data storage with referential integrity, transactional support, and support for TSQL queries.
   >
-  > **Get started**: [Create a database in Azure SQL Database in minutes by using the Azure portal](../../azure-sql/database/single-database-create-quickstart.md).
+  > **Get started**: [Create a database in Azure SQL Database in minutes by using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 
 
 You can use [Azure Data Factory](../../data-factory/introduction.md) to move existing on-premises data to Azure. If you aren't ready to move data to the cloud, [Hybrid Connections](../../app-service/app-service-hybrid-connections.md) in Azure App Service lets you connect your App Service hosted app to on-premises resources. You can also connect to Azure data and storage services from your on-premises applications.
@@ -262,7 +262,7 @@ Along with REST APIs, many Azure services also let you programmatically manage r
 * [Go](/azure/go)
 
 Services such as [Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library)
-and [Azure Media Services](/media-services/previous/media-services-dotnet-how-to-use) provide client-side SDKs to let you access services from web and mobile client apps.
+and [Azure Media Services](/azure/media-services/previous/media-services-dotnet-how-to-use) provide client-side SDKs to let you access services from web and mobile client apps.
 
 ### Azure Resource Manager
 

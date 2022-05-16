@@ -2,6 +2,7 @@
 title: Overview - Azure Database for MySQL - Flexible Server
 description: Learn about the Azure Database for MySQL Flexible server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: overview
 author: savjani
 ms.author: pariks
@@ -177,8 +178,8 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | China North 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
@@ -189,15 +190,15 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 
 ## Contacts

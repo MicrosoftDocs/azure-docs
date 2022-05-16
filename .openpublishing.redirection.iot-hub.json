@@ -939,6 +939,81 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-500xxx-internal-errors.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#500xxx-internal-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-400027-connectionforcefullyclosedonnewconnection.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#40027-connectionforcefullyclosedonnewconnection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-401003-iothubunauthorized.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#401003-iothubunauthorized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-403004-devicemaximumqueuedepthexceeded.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#403004-devicemaximumqueuedepthexceeded",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-403002-iothubquotaexceeded.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#403002-iothubquotaexceeded",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-403006-devicemaximumactivefileuploadlimitexceeded.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#403006-devicemaximumactivefileuploadlimitexceeded",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-404001-devicenotfound.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#404001-devicenotfound",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-404103-devicenotonline.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#404103-devicenotonline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#404104-deviceconnectionclosedremotely",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-409001-devicealreadyexists.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#409001-devicealreadyexists",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-409002-linkcreationconflict.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#409002-linkcreationconflict",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-412002-devicemessagelocklost.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#412002-devicemessagelocklost",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-429001-throttlingexception.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#429001-throttlingexception",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-503003-partitionnotfound.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#503003-partitionnotfound",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-troubleshoot-error-504101-gatewaytimeout.md",
+      "redirect_url": "/azure/iot-hub/troubleshoot-error-codes#504101-gatewaytimeout",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md",
       "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md",
       "redirect_document_id": false
@@ -958,7 +1033,6 @@
       "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md",
       "redirect_document_id": false
     },
-
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-iot-edge-overview.md",
       "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/iot-hub-iot-edge-overview.md",
@@ -1012,6 +1086,21 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-visual-studio.md",
       "redirect_url": "/azure/iot-hub/iot-hub-device-management-iot-toolkit",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-operations-monitoring.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-migrate-to-diagnostics-settings.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-protocol-gateway.md",
+      "redirect_url": "/azure/iot-edge/iot-edge-as-gateway",
       "redirect_document_id": false
     },
     {

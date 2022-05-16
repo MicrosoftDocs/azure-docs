@@ -149,10 +149,10 @@ This section guides you through the steps to configure the Azure AD provisioning
     |Attribute|Type|Supported for filtering|Required by Meta Networks Connector|
     |---|---|---|---|
     |userName|String|&check;|&check;
+	|active|Boolean||
+	|phonenumbers[type eq "work"].value|String||
     |name.givenName|String||&check;
     |name.familyName|String||&check;
-    |active|Boolean||
-    |phonenumbers[type eq "work"].value|String||
 
 	> [!NOTE]
 	> phonenumbers value should be in E164 format. For example +16175551212
@@ -189,8 +189,10 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
+## Change Log
+04/06/2022 - Added support for **phoneNumbers[type eq "work"].value**. Removed support for **emails[type eq "work"].value** and **manager** . **name.givenName** and **name.familyName** made required attributes.
 
 ## More resources
 

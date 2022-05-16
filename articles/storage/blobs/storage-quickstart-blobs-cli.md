@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 04/04/2022
 ms.author: shaas
 ms.custom: devx-track-azurecli, mode-api
 ---
@@ -31,6 +31,14 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization.
+
+To begin, sign-in to to your Azure account with the [az login](/cli/azure/reference-index#az-login).
+
+```azurecli
+az login \
+    --name <resource-group> \
+    --location <location>
+```
 
 ## Create a resource group
 
@@ -159,7 +167,10 @@ az group delete \
 
 ## Next steps
 
-In this quickstart, you learned how to transfer files between a local file system and a container in Azure Blob storage. To learn more about working with Blob storage by using Azure CLI, explore Azure CLI samples for Blob storage.
+In this quickstart, you learned how to transfer files between a local file system and a container in Azure Blob storage. To learn more about working with Blob storage by using Azure CLI, select an option below.
+
+> [!div class="nextstepaction"]
+> [Manage block blobs with Azure CLI](blob-cli.md)
 
 > [!div class="nextstepaction"]
 > [Azure CLI samples for Blob storage](./storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

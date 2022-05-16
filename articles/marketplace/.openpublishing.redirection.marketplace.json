@@ -139,7 +139,17 @@
             "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-vm-image-test-in-staging.md",
             "redirect_url": "/azure/marketplace/azure-vm-image-test",
             "redirect_document_id": false
-        },       
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/saas-go-live.md",
+            "redirect_url": "/azure/marketplace/test-publish-saas-offer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/create-saas-dev-test-offer.md",
+            "redirect_url": "/azure/marketplace/plan-saas-dev-test-offer",
+            "redirect_document_id": false
+        },   
         {
             "source_path_from_root": "/articles/marketplace/account-migration-from-cpp-to-pc.md",
             "redirect_url": "/partner-center/overview",

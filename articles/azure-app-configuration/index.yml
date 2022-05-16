@@ -50,6 +50,8 @@ landingContent:
           url: concept-point-time-snapshot.md
         - text: Feature Management
           url: concept-feature-management.md
+        - text: Configuration files
+          url: concept-config-file.md
         - text: Azure App Configuration Events 
           url: concept-app-configuration-event.md
         - text: Soft delete

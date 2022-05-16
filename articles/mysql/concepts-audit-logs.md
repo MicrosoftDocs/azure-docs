@@ -4,6 +4,7 @@ description: Describes the audit logs available in Azure Database for MySQL, and
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 6/24/2020
 ---

@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/02/2022
+ms.date: 05/04/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -19,6 +19,42 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 - Bug fixes
 
 Make sure to check back here often to keep up with new updates.
+
+## April 2022
+
+Here's what changed in April 2022:
+
+### Intune device configuration for Windows multisession now generally available
+
+Deploying Intune device configuration policies from Microsoft Endpoint Manager admin center to Windows multisession VMs on Azure Virtual Desktop is now generally available. Learn more at [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) and[ our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/intune-device-configuration-for-azure-virtual-desktop-multi/ba-p/3294444).
+
+### Scheduled Agent Updates public preview
+
+Scheduled Agent Updates is a new feature in public preview that lets IT admins specify the time and day the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent will update. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/scheduled-agent-updates-is-now-in-public-preview-on-azure/m-p/3285874).
+
+### RDP Shortpath for public networks now in public preview
+
+A new feature for RDP Shortpath is now in public preview. With this feature, RDP Shortpath can provide a direct UDP-based network transport for user sessions over public networks. Learn more at [Azure Virtual Desktop RDP Shortpath for public networks (preview)](shortpath-public.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-public-preview-of-azure-virtual-desktop-rdp-shortpath/m-p/3284763).
+
+### The Azure Virtual Desktop web client has a new URL
+
+Starting April 18, 2022, the Azure Virtual Desktop and Azure Virtual Desktop (classic) web clients will redirect to a new URL. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/reminder-the-avd-web-client-will-be-moving-to-a-new-url/m-p/3278231).
+
+## March 2022
+
+Here's what changed in March 2022:
+
+### Live Captions with Teams on Azure Virtual Desktop now generally available
+
+Accessibility has always been important to us, so we are pleased to announce that Teams for Azure Virtual Desktop now supports real-time captions. Learn how to use live captions at [Use live captions in a Teams meeting](https://support.microsoft.com/office/use-live-captions-in-a-teams-meeting-4be2d304-f675-4b57-8347-cbd000a21260). For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-live-captions-is-now-generally-available-on/ba-p/3264148).
+
+### Multimedia redirection enhancements now in public preview
+
+An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in public preview. We've made various improvements to this version, including more supported websites and media controls for our users. Learn more at [Multimedia redirection for Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/ba-p/3264146).
+
+### FSLogix version 2201 is now generally available
+
+FSLogix version 2201 is now generally available. This version includes improved sign-in and sign-out times, cloud cache performance improvements, and accessibility updates. For more information, see [the FSLogix release notes](/fslogix/whats-new?context=/azure/virtual-desktop/context/context#fslogix-2201-29811153415) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-fslogix-2201-2-9-8111-53415/m-p/3270742).
 
 ## February 2022
 
@@ -312,7 +348,7 @@ Here's what's new for April:
 
 ### Use the Start VM on Connect feature (preview) in the Azure portal
 
-You can now configure Start VM on Connect (preview) in the Azure portal. With this update, users can access their VMs from the Android and macOS clients. To learn more, see [Start VM on Connect](start-virtual-machine-connect.md#use-the-azure-portal).
+You can now configure Start VM on Connect (preview) in the Azure portal. With this update, users can access their VMs from the Android and macOS clients. To learn more, see [Start VM on Connect](start-virtual-machine-connect.md).
 
 ### Required URL Check tool 
 
@@ -492,7 +528,7 @@ We've fixed two bugs in the Azure portal user experience:
 
 ### FSLogix client, version 2009 
 
-We've released a new version of the FSLogix client with many fixes and improvements. Learn more at [our blog post](https://social.msdn.microsoft.com/Forums/en-US/defe5828-fba4-4715-a68c-0e4d83eefa6b/release-notes-for-fslogix-apps-release-2009-29762130127?forum=FSLogix).
+We've released a new version of the FSLogix client with many fixes and improvements. Learn more at [our blog post](https://social.msdn.microsoft.com/Forums/defe5828-fba4-4715-a68c-0e4d83eefa6b/release-notes-for-fslogix-apps-release-2009-29762130127?forum=FSLogix).
 
 ### RDP Shortpath public preview
 

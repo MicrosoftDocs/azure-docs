@@ -6,13 +6,15 @@ ms.author: umaheshwari
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to 
-ms.date: 01/26/2022 
+ms.date: 04/14/2022 
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 ---
 
 # Improve recognition accuracy with phrase list
 
 A phrase list is a list of words or phrases provided ahead of time to help improve their recognition. Adding a phrase to a phrase list increases its importance, thus making it more likely to be recognized.
+
+For supported phrase list locales, see [Language and voice support for the Speech service](language-support.md?tabs=phraselist).
 
 Examples of phrases include:
 * Names
@@ -24,16 +26,16 @@ Phrase lists are simple and lightweight:
 - **Just-in-time**: A phrase list is provided just before starting the speech recognition, eliminating the need to train a custom model. 
 - **Lightweight**: You don't need a large data set. Simply provide a word or phrase to give it importance.
 
-You can use the Speech SDK or Speech Command Line Interface (CLI). The Batch transcription API does not support phrase lists. 
+You can use phrase lists with the [Speech Studio](speech-studio-overview.md), [Speech SDK](quickstarts/setup-platform.md), or [Speech Command Line Interface (CLI)](spx-overview.md). The Batch transcription API does not support phrase lists. 
 
 There are some situations where [training a custom model](custom-speech-overview.md) that includes phrases is likely the best option to improve accuracy. In these cases you would not use a phrase list: 
 - If you need to use a large list of phrases. A phrase list shouldn't have more than 500 phrases. 
-- If you need a phrase list for languages that are not currently supported. For supported phrase list locales see [Language and voice support for the Speech service](language-support.md?tabs=phraselist).
+- If you need a phrase list for languages that are not currently supported. 
 - If you use a custom endpoint. Phrase lists can't be used with custom endpoints. 
 
 ## Try it in Speech Studio
 
-You can use Speech Studio to test how phrase list would help improve recognition for your audio. To implement a phrase list with your application in production, you'll use the Speech SDK or Speech CLI. 
+You can use [Speech Studio](speech-studio-overview.md) to test how phrase list would help improve recognition for your audio. To implement a phrase list with your application in production, you'll use the Speech SDK or Speech CLI. 
 
 For example, let's say that you want the Speech service to recognize this sentence:
 "Hi Rehaan, this is Jessie from Contoso bank. "
@@ -46,16 +48,16 @@ In this case you would want to add "Rehaan", "Jessie", and "Contoso" to your phr
 Now try Speech Studio to see how phrase list can improve recognition accuracy.
 
 > [!NOTE]
-> You may be prompted to select your Azure subscription and Speech resource, and then acknowledge billing for your region. If you are new to Azure or Speech, see [Try the Speech service for free](overview.md#try-the-speech-service-for-free).
+> You may be prompted to select your Azure subscription and Speech resource, and then acknowledge billing for your region. 
 
 1. Sign in to [Speech Studio](https://speech.microsoft.com/). 
 1. Select **Real-time Speech-to-text**.
 1. You test speech recognition by uploading an audio file or recording audio with a microphone. For example, select **record audio with a microphone** and then say "Hi Rehaan, this is Jessie from Contoso bank. " Then select the red button to stop recording. 
-1. You should see the transcription result in the **Test results** text box. If "Rehaan", "Jesse", or "Contoso" were recognized incorrectly, you can add the terms to a phrase list in the next step.
+1. You should see the transcription result in the **Test results** text box. If "Rehaan", "Jessie", or "Contoso" were recognized incorrectly, you can add the terms to a phrase list in the next step.
 1. Select **Show advanced options** and turn on **Phrase list**. 
 1. Enter "Contoso;Jessie;Rehaan" in the phrase list text box. Note that multiple phrases need to be separated by a semicolon.
     :::image type="content" source="./media/custom-speech/phrase-list-after-zoom.png" alt-text="Screenshot of a phrase list applied in Speech Studio." lightbox="./media/custom-speech/phrase-list-after-full.png":::
-1. Use the microphone to test recognition again. Otherwise you can select the retry arrow next to your audio file to re-run your audio. The terms "Rehaan", "Jesse", or "Contoso" should be recognized. 
+1. Use the microphone to test recognition again. Otherwise you can select the retry arrow next to your audio file to re-run your audio. The terms "Rehaan", "Jessie", or "Contoso" should be recognized. 
 
 ## Implement phrase list
 

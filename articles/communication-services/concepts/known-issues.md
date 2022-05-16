@@ -166,6 +166,6 @@ The following are known issues in the Communication Services Call Automation API
 
 Up to 100 users can join a group call using the JS web calling SDK. 
 
-##Android API emulators
-When utilizing Android API emulators some crashes are expected.  
+## Android API emulators
+When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22) some crashes are expected.  
 

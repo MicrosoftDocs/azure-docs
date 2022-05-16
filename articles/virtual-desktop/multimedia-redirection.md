@@ -3,7 +3,7 @@ title: Multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/29/2022
+ms.date: 04/29/2022
 ms.author: helohr
 manager: femila
 ---
@@ -28,6 +28,15 @@ The following list shows websites that are known to work with MMR. MMR is suppos
 - Facebook
 - Fox Sports
 - IMDB
+- [Microsoft Learn](/learn)
+- LinkedIn Learning
+- Fox Weather
+- Yammer
+- The Guardian
+- Fidelity
+- Udemy
+- BBC
+- Pluralsight
 - Sites with embedded YouTube videos, such as Medium, Udacity, Los Angeles Times, and so on.
 - Teams Live Events (on web)
   - Currently, Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365. MMR is a short-term workaround for a smoother Teams live events playback on Azure Virtual Desktop.  
@@ -52,7 +61,7 @@ The following screenshot highlights the areas described in the previous steps:
 Before you can use Multimedia Redirection on Azure Virtual Desktop, you'll need
 to do these things:
 
-1. [Install the Windows Desktop client](./user-documentation/connect-windows-7-10.md#install-the-windows-desktop-client) on a Windows 11, Windows 10, or Windows 10 IoT Enterprise device that meets the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). Installing version 1.2.2999 or later of the client will also install the multimedia redirection plugin (MsMmrDVCPlugin.dll) on the client device. To learn more about updates and new versions, see [What's new in the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
+1. [Install the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) on a Windows 11, Windows 10, or Windows 10 IoT Enterprise device that meets the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). Installing version 1.2.2999 or later of the client will also install the multimedia redirection plugin (MsMmrDVCPlugin.dll) on the client device. To learn more about updates and new versions, see [What's new in the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 
 2. [Create a host pool for your users](create-host-pools-azure-marketplace.md).
 

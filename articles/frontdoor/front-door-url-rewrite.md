@@ -15,7 +15,7 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-standard-premium"
 
-Azure Front Door supports URL rewrite to change the path of a request that is being routed to your origin. URL rewrite also allows you to add conditions to make sure that the URL or the specified headers gets rewritten only when certain conditions gets met. These conditions are based on the request and response information.
+Azure Front Door supports URL rewrite to change the path of a request that is being routed to your origin. URL rewrite also allows you to add conditions to make sure that the URL or the specified headers gets rewritten only when certain conditions get met. These conditions are based on the request and response information.
 
 With this feature, you can redirect users to different origins based on scenarios, device types, or the requested file type.
 
@@ -53,9 +53,11 @@ For example, if I set **Preserve unmatched path to No**.
 
 Azure Front Door (classic) supports URL rewrite by configuring an optional **Custom Forwarding Path** to use when constructing the request to forward to the backend. By default, if a custom forwarding path isn't provided, the Front Door will copy the incoming URL path to the URL used in the forwarded request. The Host header used in the forwarded request is as configured for the selected backend. Read [Backend Host Header](front-door-backend-pool.md#hostheader) to learn what it does and how you can configure it.
 
-The robust part of URL rewrite is that the custom forwarding path will copy any part of the incoming path that matches the wildcard path to the forwarded path (these path segments are the **green** segments in the example below):
+The robust part of URL rewrite is that the custom forwarding path will copy any part of the incoming path that matches the wildcard path to the forwarded path.
 
-:::image type="content" source="./media/front-door-url-rewrite/front-door-url-rewrite-example.jpg" alt-text="Azure Front Door URL Rewrite":::
+For example, if you have a **match path** of `/foo/*` and configured `/fwd/` for the **custom forwarding path**, any path segment from the wildcard onward will be copied to the forwarding path, shown in orange in the diagram below. In this example, when the **incoming URL path** is `/foo/a/b/c` you'll have a **forwarded path** of `/fwd/a/b/c`. Noticed that the `a/b/c` path segment will replace the wildcard, which is show in green in the below diagram.
+
+:::image type="content" source="./media/front-door-url-rewrite/url-rewrite-example.png" alt-text="Diagram of a URL path rewrite in Azure Front Door":::
 
 ## URL rewrite example
 

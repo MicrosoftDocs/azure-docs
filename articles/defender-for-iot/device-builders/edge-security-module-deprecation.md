@@ -9,6 +9,16 @@ ms.topic: how-to
 
 This article describes Microsoft Defender for IoT features and support for different capabilities within Defender for IoT.
 
+## Legacy Defender for IoT micro-agent
+
+The Defender-IoT-micro-agent has been replaced by our newer micro-agent experience.
+
+For more information, see [Tutorial: Create a DefenderIotMicroAgent module twin (Preview)](tutorial-create-micro-agent-module-twin.md) and [Tutorial: Install the Defender for IoT micro agent (Preview)](tutorial-standalone-agent-binary-installation.md).
+
+### Timeline
+
+Microsoft Defender for IoT will continue to support the legacy Microsoft Defender for IoT experience under IoT hub until March 31, 2023.
+
 ## Defender for IoT C, C#, and Edge Defender-IoT-micro-agent deprecation
 
 The new micro agent will replace the current C, C#, and Edge Defender-IoT-micro-agent.  

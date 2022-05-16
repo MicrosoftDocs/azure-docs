@@ -86,4 +86,4 @@ public static async void AppendToBlob
 
 - [Understanding block blobs, append blobs, and page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 - [OpenWrite](/dotnet/api/azure.storage.blobs.specialized.appendblobclient.openwrite) / [OpenWriteAsync](/dotnet/api/azure.storage.blobs.specialized.appendblobclient.openwriteasync)
-- [Append Block](/api/storageservices/append-block) (REST API)
+- [Append Block](/rest/api/storageservices/append-block) (REST API)

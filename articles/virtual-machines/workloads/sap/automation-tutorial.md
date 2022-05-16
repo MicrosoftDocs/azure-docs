@@ -383,7 +383,7 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 
 - If you have authentication issues directly after running the script `prepare_region.sh`, run:
 
-    ```bash
+    ```azurecli
     az logout
 
     az login
@@ -421,6 +421,47 @@ Make sure you can connect to your deployer VM:
 
 - Once connected to the deployer VM, you can now download the SAP software using the Bill of Materials (BOM).
 
+## Connect to deployer VM when not using a public IP
+
+For deployments without public IPs connectivity direct connectivity over the internet is not allowed. In these cases you may use either Azure Bastion, a jump box or perform the next step from a computer that has connectivity to the Azure virtual network.
+
+The following example uses Azure Bastion.
+
+Connect to the deployer by following these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to the resource group containing the deployer virtual machine.
+
+1. Connect to the virtual machine using Azure Bastion.
+
+1. The default username is *azureadm*
+
+1. Choose *SSH Private Key from Azure Key Vault* 
+
+1. Select the subscription containing the control plane.
+
+1. Select the deployer key vault.
+
+1. From the list of secrets choose the secret ending with *-sshkey*.
+
+1. Connect to the virtual machine.
+
+Run the following script to configure the deployer.
+
+```bash
+mkdir -p ~/Azure_SAP_Automated_Deployment
+
+cd ~/Azure_SAP_Automated_Deployment
+
+git clone https://github.com/Azure/sap-automation.git
+
+cd sap-automation/deploy/scripts
+
+./configure_deployer.sh
+```
+
+The script will install Terraform and Ansible and configure the deployer.
 
 > [!IMPORTANT]
 > The rest of the tasks need to be executed on the Deployer
@@ -488,7 +529,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     > [!NOTE]
     > The use of single quotes when setting `sap_user_password` is important. The use of special characters in the password can otherwise cause unpredictable results!
 
-    ```bash
+    ```azurecli
     sap_user_password='<sap-password>'
 
     az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";

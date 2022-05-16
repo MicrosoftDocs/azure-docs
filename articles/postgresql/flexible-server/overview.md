@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 03/21/2022
+ms.date: 05/11/2022
 ms.custom: "mvc, references_regions"
 ---
 
@@ -111,23 +111,26 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Norway East | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| South India | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| South India | :x: $$ | :x: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :x: $  | :x: |
 | Sweden Central | :heavy_check_mark: | :x: | :x: |
-| Switzerland North | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
+| Switzerland North | :heavy_check_mark: | :x: $ ** | :x: |
 | UAE North | :heavy_check_mark: | :x: | :x: |
 | US Gov Arizona | :heavy_check_mark: | :x: | :x: |
 | US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK West | :heavy_check_mark: | :x: | :x: |
+| West Central US | :heavy_check_mark: | :x: | :x: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :x: | :x: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West US 2 | :x: $$ | :x: $ | :x: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 
 $ New Zone-redundant high availability deployments are temporarily blocked in these regions. Already provisioned HA servers are fully supported. 
 
-** Zone-redundant high availability can now be deployed when you provision new servers in these regions. Pre-existing servers deployed in AZ with *no preference* (which you can check on the Azure Portal), the standby will be provisioned in the same AZ. To configure zone-redundant high availability, perform a point-in-time restore of the server and enable HA on the restored server.
+$$ New server deployments are temporarily blocked in these regions. Already provisioned servers are fully supported.
+
+** Zone-redundant high availability can now be deployed when you provision new servers in these regions. Pre-existing servers deployed in AZ with *no preference* (which you can check on the Azure portal), the standby will be provisioned in the same AZ. To configure zone-redundant high availability, perform a point-in-time restore of the server and enable HA on the restored server.
 
 <!-- We continue to add more regions for flexible server. -->
 > [!NOTE]

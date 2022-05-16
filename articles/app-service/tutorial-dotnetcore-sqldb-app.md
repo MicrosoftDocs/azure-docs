@@ -70,7 +70,7 @@ az appservice plan create \
 Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az-webapp-create) command.  
 
 * The App Service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of .NET your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
+* The runtime specifies what version of .NET your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table` for Linux and `az webapp list-runtimes --os windows --output table` for Windows.
 
 ```azurecli-interactive
 
@@ -157,7 +157,7 @@ We're now ready to deploy our .NET app to the App Service.
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Deploy app service step 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01-240px.png" alt-text="A screenshot showing how to install the Azure Account and App Service extensions in Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01.png"::: |
-| [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-02-240px.png" alt-text="A screenshot showing how to use the Azure App Service extension to deploy an app to Azure from Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-02.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-folder-small.png" alt-text="A screenshot showing how to deploy using the publish folder." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-folder.png"::: :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-workflow-small.png" alt-text="A screenshot showing the command palette deployment workflow." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-workflow.png"::: |
 
 ### [Deploy using Local Git](#tab/azure-cli-deploy)
 
@@ -226,16 +226,16 @@ In the Azure portal:
 Run the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) command to add a firewall rule to your SQL Server instance.
 
 ```azurecli-interactive
-az sql server firewall-rule create -resource-group msdocs-core-sql --server <yoursqlserver> --name LocalAccess --start-ip-address <your-ip> --end-ip-address <your-ip>
+az sql server firewall-rule create --resource-group msdocs-core-sql --server <yoursqlserver> --name LocalAccess --start-ip-address <your-ip> --end-ip-address <your-ip>
 ```
 
 ---
 
-Next, update the appsettings.json file in our local app code with the Connection String of our Azure SQL Database. The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
+Next, update the appsettings.json file in our local app code with the [Connection String of our Azure SQL Database](#5---connect-the-app-to-the-database). The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
 
 ```json
 "ConnectionStrings": {
-    "MyDbConnection": "Server=tcp:coredbserver456.database.windows.net,1433;
+    "MyDbConnection": "Server=tcp:<your-server-name>.database.windows.net,1433;
         Initial Catalog=coredb;
         Persist Security Info=False;
         User ID=<username>;Password=<password>;
