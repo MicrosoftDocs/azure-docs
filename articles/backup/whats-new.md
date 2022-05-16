@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 02/14/2022
+ms.date: 05/16/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -16,6 +16,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- May 2022
+  - [Archive tier support for Azure Virtual Machines is now generally available](#archive-tier-support-for-azure-virtual-machines-is-now-generally-available)
 - February 2022
   - [Multiple backups per day for Azure Files is now generally available](#multiple-backups-per-day-for-azure-files-is-now-generally-available)
 - January 2022
@@ -37,6 +39,14 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Archive tier support for Azure Virtual Machines is now generally available
+
+Azure Backup now supports the movement of recovery points to the Vault-archive tier for Azure Virtual Machines from the Azure portal. This allows you to move the archivable/recommended recovery points (corresponding to a backup item) to the Vault-archive tier at one go.
+
+Azure Backup also supports Vault-archive tier for SQL Server in Azure VM and SAP HANA in Azure VM. The support has been extended via Azure portal.
+ 
+For more information, see [Archive tier support in Azure Backup](archive-tier-support.md).
 
 ## Multiple backups per day for Azure Files is now generally available
 
@@ -72,7 +82,7 @@ For more information, see [how to protect Recovery Services vault and manage cri
 
 Low RPO (Recovery Point Objective) is a key requirement for Azure Files that contains the frequently updated, business-critical data. To ensure minimal data loss in the event of a disaster or unwanted changes to file share content, you may prefer to take backups more frequently than once a day.
 
-Using Azure Backup you can now  create a backup policy or modify an existing backup policy to take multiple snapshots in a  day. With this capability, you can also define the duration in which your backup jobs would trigger. This capability empowers you to align your backup schedule with the working hours when there are frequent updates to Azure Files content.
+Using Azure Backup, you can now  create a backup policy or modify an existing backup policy to take multiple snapshots in a  day. With this capability, you can also define the duration in which your backup jobs would trigger. This capability empowers you to align your backup schedule with the working hours when there are frequent updates to Azure Files content.
 
 For more information, see [how to configure multiple backups per day via backup policy](./manage-afs-backup.md#create-a-new-policy).
 
