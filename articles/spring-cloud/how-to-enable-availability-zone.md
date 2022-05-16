@@ -21,7 +21,7 @@ This article explains availability zones in Azure Spring Cloud, and how to enabl
 
 In Microsoft Azure, [Availability Zones (AZ)](../availability-zones/az-overview.md) are unique physical locations within an Azure region. Each zone is made up of one or more data centers that are equipped with independent power, cooling, and networking. Availability zones protect your applications and data from data center failures.
 
-When a service in Azure Spring Cloud has availability zone enabled, Azure automatically spreads the application's deployment instance across all three zones in the selected region. If the application's deployment instance count is larger than three and is divisible by three, the instances will be spread evenly. Otherwise, the extra instance counts are spread across the remaining zones.
+When an Azure Spring Cloud service instance is created with availability zone enabled, Azure Spring Cloud will automatically distribute fundamental resources across logical sections of underlying Azure infrastructure. This distribution provides a higher level of availability to protect against a hardware failure or a planned maintenance event.
 
 ## How to create an instance in Azure Spring Cloud with availability zone enabled
 
@@ -35,9 +35,10 @@ You can enable availability zone in Azure Spring Cloud using the [Azure CLI](/cl
 To create a service in Azure Spring Cloud with availability zone enabled using the Azure CLI, include the `--zone-redundant` parameter when you create your service in Azure Spring Cloud.
 
 ```azurecli
-az spring-cloud create -name <MyService> \
-    -group <MyResourceGroup> \
-    -location <MyLocation> \
+az spring-cloud create \
+    --resource-group <your-resource-group-name> \
+    --name <your-Azure-Spring-Cloud-instance-name> \
+    --location <location> \
     --zone-redundant true
 ```
 
@@ -52,17 +53,36 @@ To create a service in Azure Spring Cloud with availability zone enabled using t
 ## Region availability
 
 Azure Spring Cloud currently supports availability zones in the following regions:
-- Central US
-- West US 2
-- East US
+
 - Australia East
-- North Europe
-- East US 2
-- West Europe
-- South Central US
-- UK South
 - Brazil South
+- Canada Central
+- Central US
+- East US
+- East US 2
 - France Central
+- Germany West Central
+- North Europe
+- Japan East
+- Korea Central
+- South Africa North
+- South Central US
+- Southeast Asia
+- UK South
+- West Europe
+- West US 2
+- West US 3
+
+> [!NOTE]
+> The following regions could only be created with availability zone enabled by using Azure CLI, and Azure Portal will coming soon.
+>
+> - Canada Central
+> - Germany West Central
+> - Japan East
+> - Korea Central
+> - South Africa North
+> - Southeast Asia
+> - West US 3
 
 ## Pricing
 
@@ -70,4 +90,4 @@ There's no extra cost for enabling the availability zone.
 
 ## Next steps
 
-* [Plan for disaster recovery](disaster-recovery.md)
+- [Plan for disaster recovery](disaster-recovery.md)

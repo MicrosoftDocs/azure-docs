@@ -17,6 +17,8 @@ This article introduces the workings of the attestation service and the policy e
 
 ## Policy version 1.1
 
+:::image type="content" source="./media/maa-policy-version-1-1-small.png" alt-text="A diagram showing Azure attestation using policy version 1.1" lightbox="./media/maa-policy-version-1-1.png":::
+
 The attestation flow is as follows:
 - The platform sends the attestation evidence in the attest call to the attestation service.
 - The attestation service parses the evidence and creates a list of claims that is then used during rule evaluation. The claims are logically categorized as incoming claims sets.

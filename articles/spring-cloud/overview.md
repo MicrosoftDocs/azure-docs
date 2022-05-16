@@ -65,7 +65,7 @@ The following quickstarts apply to Basic/Standard tier only. For Enterprise tier
 
 ## Enterprise Tier overview
 
-Based on our learnings from customer engagements, we built Azure Spring Cloud Enterprise tier with commercially supported Spring runtime components to help enterprise customers to ship faster and unlock Spring’s full potential.
+Based on our learnings from customer engagements, we built Azure Spring Cloud Enterprise tier with commercially supported Spring runtime components to help enterprise customers to ship faster and unlock Spring’s full potential, including feature parity and region parity with Standard tier.
 
 The following video introduces Azure Spring Cloud Enterprise tier.
 

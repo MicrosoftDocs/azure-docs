@@ -1,5 +1,5 @@
 ---
-title: Azure Attestation TPM attestation overview
+title: TPM attestation overview for Azure
 description: TPM Attestation overview
 services: attestation
 author: prsriva
@@ -37,6 +37,8 @@ Validate the measurements made during the boot using the Azure Attestation servi
 - At boot, an Attestation Identity Key is generated which is used to provide a cryptographic proof to the attestation service that the TPM in use has been issued a cert after EK validation was performed.
 - Relying parties can perform an attestation against the Azure Attestation service, which can be used to validate measurements made during the boot process.
 - A relying party can then rely on the attestation statement to gate access to resources or other actions.
+
+![Conceptual device attestation flow](./media/device-tpm-attestation-flow.png)
 
 Conceptually, TPM attestation can be visualized as above, where the relying party applies Azure Attestation service to verify the platform(s) integrity and any violation of promises, providing the confidence to run workloads or provide access to resources.
 
