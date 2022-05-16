@@ -4,7 +4,7 @@ description: Learn about Azure ExpressRoute monitoring, metrics, and alerts usin
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/14/2021
+ms.date: 05/10/2022
 ms.author: duau
 ---
 # ExpressRoute monitoring, metrics, and alerts
@@ -17,7 +17,7 @@ This article helps you understand ExpressRoute monitoring, metrics, and alerts u
 
 ## ExpressRoute metrics
 
-To view **Metrics**, navigate to the *Azure Monitor* page and select *Metrics*. To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
+To view **Metrics**, go to the *Azure Monitor* page and select *Metrics*. To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
 
 Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
 
@@ -257,7 +257,7 @@ This metric shows the bits per second for ingress and egress to Azure through th
 
 ## Alerts for ExpressRoute gateway connections
 
-1. To configure alerts, navigate to **Azure Monitor**, then select **Alerts**.
+1. To set up alerts, go to **Azure Monitor**, then select **Alerts**.
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg" alt-text="alerts":::
 2. Select **+Select Target** and select the ExpressRoute gateway connection resource.
@@ -274,7 +274,7 @@ This metric shows the bits per second for ingress and egress to Azure through th
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg" alt-text="each peering":::
 
-## Configure alerts for activity logs on circuits
+## Set up alerts for activity logs on circuits
 
 In the **Alert Criteria**, you can select **Activity Log** for the Signal Type and select the Signal.
 
@@ -282,7 +282,7 @@ In the **Alert Criteria**, you can select **Activity Log** for the Signal Type a
 
 ## More metrics in Log Analytics
 
-You can also view ExpressRoute metrics by navigating to your ExpressRoute circuit resource and selecting the *Logs* tab. For any metrics you query, the output will contain the columns below.
+You can also view ExpressRoute metrics by going to your ExpressRoute circuit resource and selecting the *Logs* tab. For any metrics you query, the output will contain the columns below.
 
 | **Column** | **Type** | **Description** | 
 |  ---  |  ---  |  ---  | 
@@ -295,7 +295,7 @@ You can also view ExpressRoute metrics by navigating to your ExpressRoute circui
   
 ## Next steps
 
-Configure your ExpressRoute connection.
+Set up your ExpressRoute connection.
   
 * [Create and modify a circuit](expressroute-howto-circuit-arm.md)
 * [Create and modify peering configuration](expressroute-howto-routing-arm.md)
