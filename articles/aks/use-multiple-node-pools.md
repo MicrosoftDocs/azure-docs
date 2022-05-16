@@ -120,17 +120,67 @@ The following example output shows that *mynodepool* has been successfully creat
 > [!TIP]
 > If no *VmSize* is specified when you add a node pool, the default size is *Standard_D2s_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools. If no *OrchestratorVersion* is specified, it defaults to the same version as the control plane.
 
+### Add an ARM64 node pool (preview)
+
+The ARM64 processor provides low power compute for your Kubernetes workloads. To create an ARM64 node pool, you will need to choose an [ARM capable instance SKU][arm-sku-vm].
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+#### Install the `aks-preview` Azure CLI
+
+You also need the *aks-preview* Azure CLI extension version 0.5.23 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+#### Register the `AKSARM64Preview` preview feature
+
+To use the feature, you must also enable the `AKSARM64Preview` feature flag on your subscription.
+
+Register the `AKSARM64Preview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "AKSARM64Preview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSARM64Preview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Use `az aks nodepool add` command to add an ARM64 node pool.
+
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name armpool \
+    --node-count 3 \
+    --node-vm-size Standard_Dpds_v5
+```
+
 ### Add a node pool with a unique subnet (preview)
 
 A workload may require splitting a cluster's nodes into separate pools for logical isolation. This isolation can be supported with separate subnets dedicated to each node pool in the cluster. This can address requirements such as having non-contiguous virtual network address space to split across node pools.
 
 #### Limitations
 
-* All subnets assigned to nodepools must belong to the same virtual network.
+* All subnets assigned to node pools must belong to the same virtual network.
 * System pods must have access to all nodes/pods in the cluster to provide critical functionality such as DNS resolution and tunneling kubectl logs/exec/port-forward proxy.
 * If you expand your VNET after creating the cluster you must update your cluster (perform any managed cluster operation but node pool operations don't count) before adding a subnet outside the original cidr. AKS will error out on the agent pool add now though we originally allowed it. If you don't know how to reconcile your cluster file a support ticket.
 * In clusters with Kubernetes version < 1.23.3, kube-proxy will SNAT traffic from new subnets, which can cause Azure Network Policy to drop the packets.
-* Windows nodes will SNAT traffic to the new subnets until the nodepool is reimaged.
+* Windows nodes will SNAT traffic to the new subnets until the node pool is reimaged.
 * Internal load balancers default to one of the node pool subnets (usually the first subnet of the node pool at cluster creation). To override this behavior, you can [specify the load balancer's subnet explicitly using an annotation][internal-lb-different-subnet].
 
 To create a node pool with a dedicated subnet, pass the subnet resource ID as an additional parameter when creating a node pool.
@@ -305,7 +355,7 @@ AKS offers a separate feature to automatically scale node pools with a feature c
 If you no longer need a pool, you can delete it and remove the underlying VM nodes. To delete a node pool, use the [az aks node pool delete][az-aks-nodepool-delete] command and specify the node pool name. The following example deletes the *mynodepool* created in the previous steps:
 
 > [!CAUTION]
-> When you delete a node pool, AKS doesn't perform cordon and drain, and there are no recovery options for data loss that may occur when you delete a node pool. If pods can't be scheduled on other node pools, those applications become unavailable. Make sure you don't delete a node pool when in-use applications don't have data backups or the ability to run on other node pools in your cluster. To minimize the disruption of rescheduling pods currently running on the node pool you are going to delete, perform a cordon and drain on all nodes in the node pool before deleting. For more details, see [cordon and drain node pools][cordon-and-drain].
+> When you delete a node pool, AKS doesn't perform cordon and drain, and there are no recovery options for data loss that may occur when you delete a node pool. If pods can't be scheduled on other node pools, those applications become unavailable. Make sure you don't delete a node pool when in-use applications don't have data backups or the ability to run on other node pools in your cluster. To minimize the disruption of rescheduling pods currently running on the node pool you are going to delete, perform a cordon and drain on all nodes in the node pool before deleting. For more information, see [cordon and drain node pools][cordon-and-drain].
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
@@ -544,15 +594,15 @@ Only pods that have this toleration applied can be scheduled on nodes in *taintn
 
 ### Setting nodepool labels
 
-For more details on using labels with node pools, see [Use labels in an Azure Kubernetes Service (AKS) cluster][use-labels].
+For more information on using labels with node pools, see [Use labels in an Azure Kubernetes Service (AKS) cluster][use-labels].
 
 ### Setting nodepool Azure tags
 
-For more details on using Azure tags with node pools, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
+For more information on using Azure tags with node pools, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Add a FIPS-enabled node pool
 
-The Federal Information Processing Standard (FIPS) 140-2 is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. AKS allows you to create Linux-based node pools with FIPS 140-2 enabled. Deployments running on FIPS-enabled node pools can use those cryptographic modules to provide increased security and help meet security controls as part of FedRAMP compliance. For more details on FIPS 140-2, see [Federal Information Processing Standard (FIPS) 140-2][fips].
+The Federal Information Processing Standard (FIPS) 140-2 is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. AKS allows you to create Linux-based node pools with FIPS 140-2 enabled. Deployments running on FIPS-enabled node pools can use those cryptographic modules to provide increased security and help meet security controls as part of FedRAMP compliance. For more information on FIPS 140-2, see [Federal Information Processing Standard (FIPS) 140-2][fips].
 
 ### Prerequisites
 
@@ -828,6 +878,7 @@ To create and use Windows Server container node pools, see [Create a Windows Ser
 Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your AKS applications.
 
 <!-- EXTERNAL LINKS -->
+[arm-vm-sku]: https://azure.microsoft.com/updates/public-preview-arm64based-azure-vms-can-deliver-up-to-50-better-priceperformance/
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
