@@ -14,7 +14,7 @@ ms.date: 05/16/2022
 
 # Stopwords reference (Microsoft analyzers)
 
-When text is indexed into Azure Cognitive Search, it is processed by analyzers so it can be efficiently stored in a search index. During this [lexical analysis](tutorial-create-custom-analyzer.md#how-analyzers-work) process, [language analyzers](index-add-language-analyzers.md) will remove stopwords specific to that language. Stopward removal applies to all supported [Lucene and Microsoft analyzers](index-add-language-analyzers.md#supported-language-analyzers) used in Azure Cognitive Search.
+When text is indexed into Azure Cognitive Search, it's processed by analyzers so it can be efficiently stored in a search index. During this [lexical analysis](tutorial-create-custom-analyzer.md#how-analyzers-work) process, [language analyzers](index-add-language-analyzers.md) will remove stopwords specific to that language. Stopword removal applies to all supported [Lucene and Microsoft analyzers](index-add-language-analyzers.md#supported-language-analyzers) used in Azure Cognitive Search.
 
 This article lists the stopwords used by the Microsoft analyzer for each language. 
 
