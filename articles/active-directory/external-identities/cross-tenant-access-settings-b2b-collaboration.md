@@ -58,7 +58,7 @@ Use External Identities cross-tenant access settings to manage how you collabora
 Follow these steps to configure customized settings for specific organizations.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
-1. Select **External Identities**, and then select **Cross-tenant access settings (preview)**.
+1. Select **External Identities**, and then select **Cross-tenant access settings (Preview)**.
 1. Select **Organizational settings**.
 1. Select **Add organization**.
 1. On the **Add organization** pane, type the full domain name (or tenant ID) for the organization.
@@ -82,7 +82,7 @@ With inbound settings, you select which external users and groups will be able t
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
 
-1. Select **External Identities** > **Cross-tenant access settings (preview)**.
+1. Select **External Identities** > **Cross-tenant access settings (Preview)**.
 
 1. Navigate to the settings you want to modify:
    - **Default settings**: To modify default inbound settings, select the **Default settings** tab, and then under **Inbound access settings**, select **Edit inbound defaults**.

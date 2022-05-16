@@ -45,7 +45,7 @@ After each organization has completed these steps, Azure AD B2B collaboration be
 In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to collaborate with.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
-1. Select **External Identities**, and then select **Cross-tenant access settings (preview)**.
+1. Select **External Identities**, and then select **Cross-tenant access settings (Preview)**.
 1. Select **Cross cloud settings**.
 1. Select the checkboxes next to the external Microsoft Azure clouds you want to enable.
 
@@ -59,7 +59,7 @@ In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to c
 Follow these steps to add the tenant you want to collaborate with to your Organizational settings.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
-1. Select **External Identities**, and then select **Cross-tenant access settings (preview)**.
+1. Select **External Identities**, and then select **Cross-tenant access settings (Preview)**.
 1. Select **Organizational settings**.
 1. Select **Add organization**.
 1. On the **Add organization** pane, type the tenant ID for the organization (cross-cloud lookup by domain name isn't currently available).

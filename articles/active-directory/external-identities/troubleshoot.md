@@ -163,7 +163,7 @@ As of November 18, 2019, guest users in your directory (defined as user accounts
 
 Within the Azure US Government cloud, B2B collaboration is enabled between tenants that are both within Azure US Government cloud and that both support B2B collaboration. If you invite a user in a tenant that doesn't yet support B2B collaboration, you'll get an error. For details and limitations, see [Azure Active Directory Premium P1 and P2 Variations](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
 
-If you need to collaborate with an Azure AD organization that's outside of the Azure US Government cloud, you can use [Microsoft cloud settings](cross-cloud-settings.md) to enable B2B collaboration.
+If you need to collaborate with an Azure AD organization that's outside of the Azure US Government cloud, you can use [Microsoft cloud settings (preview)](cross-cloud-settings.md) to enable B2B collaboration.
 
 ## Invitation is blocked due to cross-tenant access policies
 

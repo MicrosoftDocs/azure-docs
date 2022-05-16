@@ -24,7 +24,7 @@ Microsoft Azure [national clouds](../develop/authentication-national-cloud.md) a
 
 ## B2B collaboration across Microsoft clouds
 
-To set up B2B collaboration between tenants in different clouds, both tenants need to configure their Microsoft cloud settings to enable collaboration with the other cloud. Then each tenant must configure inbound and outbound cross-tenant access with the tenant in the other cloud. For details, see [Microsoft cloud settings](cross-cloud-settings.md).
+To set up B2B collaboration between tenants in different clouds, both tenants need to configure their Microsoft cloud settings to enable collaboration with the other cloud. Then each tenant must configure inbound and outbound cross-tenant access with the tenant in the other cloud. For details, see [Microsoft cloud settings (preview)](cross-cloud-settings.md).
 
 ## B2B collaboration within the Microsoft Azure Government cloud
 
