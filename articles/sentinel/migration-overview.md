@@ -44,6 +44,8 @@ This section describes the high-level phases that a typical migration includes. 
 
 The phases below are a guideline to a complete and typical migration procedure. An actual migration may not include some phases or may include additional phases. Rather than reviewing the full set of phases, the following sections in this guide review specific tasks and steps that are especially important to a Microsoft Sentinel migration.
 
+:::image type="content" source="media/migration-overview/migration-phases.png" alt-text="Screenshot of the Microsoft Sentinel Edit watchlist items screen, showing an example list of watchlist items." lightbox="media/migration-overview/migration-phases.png":::
+
 |Phase |Key activities  |Deliverables |Considerations |
 |---------|---------|---------|---------|
 |**Discover**<br><br>Collect information about your current SIEM and environment to better understand the state of your current SIEM, and collect monitoring and alerting use cases and requirements. |<ul><li>[Identify use cases](#identify-use-cases)</li><li>Identify your existing automation and remediation tools.</li><li>Identify your existing SOC processes, including investigation, automation, and remediation.</li><li> integrations with IT service management (ITSM), threat intelligence, and automation solutions.</li></ul> |<ul><li>Project plan</li><li>Current state analysis</li><li>Business and technical requirements</li><li>Use cases</li></ul>    |          |
