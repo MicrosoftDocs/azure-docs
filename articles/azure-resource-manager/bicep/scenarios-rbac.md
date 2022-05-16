@@ -4,7 +4,7 @@ description: Describes how to create role assignments and role definitions by us
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 12/20/2021
+ms.date: 05/15/2022
 ---
 # Create Azure RBAC resources by using Bicep
 
@@ -68,7 +68,9 @@ The following example shows how to create a user-assigned managed identity and a
 
 ### Resource deletion behavior
 
-<!-- TODO -->
+When you delete a user, group, service principal, or managed identity from Azure AD, it's a good practice to delete any role assignments. They aren't deleted automatically.
+
+Any role assignments that refer to a deleted principal ID become invalid. If you try to reuse a role assignment's name for another role assignment, the deployment will fail.
 
 ## Custom role definitions
 
