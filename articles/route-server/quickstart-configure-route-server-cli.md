@@ -74,7 +74,7 @@ az network vnet create \
 
 Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or short prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
 
-1. Run the follow command to add the *RouteServerSubnet* to your virtual network.
+1. Run the following command to add the *RouteServerSubnet* to your virtual network.
 
     ```azurecli-interactive 
     az network vnet subnet create \
@@ -170,7 +170,7 @@ If you have an ExpressRoute and an Azure VPN gateway in the same virtual network
 > For greenfield deployments make sure to create the Azure VPN gateway before creating Azure Route Server; otherwise the deployment of Azure VPN Gateway will fail.
 > 
 
-1. To enable route exchange between Azure Route Server and the gateway(s) use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **true**:
+1. To enable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **true**:
 
     ```azurecli-interactive 
     az network routeserver update \

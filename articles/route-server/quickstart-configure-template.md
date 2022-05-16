@@ -4,10 +4,10 @@ description: This quickstart shows you how to create an Azure Route Server by us
 services: route-server
 author: halkazwini
 ms.service: route-server
-ms.topic: halkazwini
+ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 04/05/2021
-ms.author: duau
+ms.author: halkazwini
 ---
 
 # Quickstart: Create an Azure Route Server using an ARM template
