@@ -1,163 +1,141 @@
-## How-to Guide: Microsoft Security DevOps Azure DevOps Extension
+---
+title: Microsoft Defender for DevOps - the benefits and features
+description: Learn about the benefits and features of Microsoft Defender for
+ms.date: 05/16/2022
+ms.topic: how-to
+---
 
-Microsoft Security DevOps (MSDO) is a command line application that integrates static analysis tools into the development lifecycle. MSDO installs, configures, and runs the latest versions of static analysis tools (including, but not limited to, SDL/security and compliance tools). MSDO is data-driven with portable configurations that enable deterministic execution across multiple environments.
+## Configure the Microsoft Security DevOps Azure DevOps extension
 
-The MSDO leverages the following Open Source tools:
-|  Name  |  Language   |  License  |
-|----------------|-------|---------|
-|[Bandit](https://github.com/PyCQA/bandit) | Python  | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
-|[BinSkim](https://github.com/Microsoft/binskim) | Binary -- Windows, ELF  | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE)|
-|[ESlint](https://github.com/eslint/eslint)  |  Javascript |  [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE)  |
-|[Credscan](https://secdevtools.azurewebsites.net/helpcredscan.html)   |   Credential Scanner (aka CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files <br> common types: defaul passwords, SQL connection strings, Certificates with private keys | Not Open Source
-|[Template Analyzer](https://github.com/Azure/template-analyzer) |  ARM template | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt)
-|[Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE)
-|[Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE)
+Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Microsoft Security DevOps installs, configures, and runs the latest versions of static analysis tools (including, but not limited to, SDL/security and compliance tools). Microsoft Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
 
+The Microsoft Security DevOps leverages the following Open Source tools:
 
-*Prerequisite: During Preview, access to the Extension must be granted to your Azure DevOps Organization. Contact the Preview Team to request access.*
+| Name | Language | License |
+|--|--|--|
+| [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
+| [BinSkim](https://github.com/Microsoft/binskim) | Binary -- Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
+| [ESlint](https://github.com/eslint/eslint) | Javascript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
+| [Credscan](https://secdevtools.azurewebsites.net/helpcredscan.html) | Credential Scanner (aka CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files <br> common types: defaul passwords, SQL connection strings, Certificates with private keys | Not Open Source |
+| [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM template | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
+| [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
+| [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
 
-*Prerequisite: Admin privileges to the Azure DevOps organization are required to install the extension. If you don\'t have access to install the extension, request access from your Azure DevOps organization Admin during the installation process.*
+## Prerequisites 
 
-### Steps: Configure the Extension
+- Admin privileges to the Azure DevOps organization are required to install the extension. 
+
+If you don't have access to install the extension, you must request access from your Azure DevOps organization's administrator during the installation process.
+
+## Configure the Microsoft Security DevOps extension
+
+**To configure the Microsoft Security DevOps extension**:
 
 1.  Sign into [Azure DevOps](https://dev.azure.com/)
 
-2.  Click on the **Shopping Bag icon** at the top right
+1.  Navigate to **Shopping Bag** > **Manage extensions**.
 
-    Click on **Manage extensions**
+    :::image type="content" source="media/msdo-azure-devops-extension/manage-extensions.png" alt-text="Screenshot that shows how to navigate to the manage extensions screen.":::
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/msdo-azure-devops-extension/image039.png)
+1.  Select **Shared**.
 
-3.  If the Microsoft Security DevOps Extension is listed in the Installed tab move to the next step
+    > [!Note] If you have already installed the Microsoft Security DevOps extension, it will be listed in the Installed tab.
 
-    If not, click on the **Shared** tab
+1.  Select **Microsoft Security DevOps extension**.
 
-![Graphical user interface, application Description automatically
-generated](./media/msdo-azure-devops-extension/image040.png)
+1. Select **Install**.
 
-4.  Select the Microsoft Security DevOps Extension
+1. Select the appropriate Organization from the dropdown menu.
 
-    Click **Install**
+1. Select **Install**.
 
-> ![Graphical user interface, text, application, email Description
-> automatically
-> generated](./media/msdo-azure-devops-extension/image041.png)
+1. Select **Proceed to organization**.
 
-5.  On the Extension installation page, Select the appropriate Organization from the dropdown menu, click **Install**
+## Configure your Pipelines using YAML
 
-![Graphical user interface, text, application Description automatically
-generated](./media/msdo-azure-devops-extension/image042.png)
+1.  Sign into [Azure DevOps](https://dev.azure.com/)
 
-6.  Click **Proceed to organization**
+1.  Navigate to **Project** > **Pipelines**
 
-![Graphical user interface, application Description automatically
-generated](./media/msdo-azure-devops-extension/image043.png)
+1. Select **Create Pipeline**.
 
-### Steps: Configure using YAML Pipelines
+    :::image type="content" source="../batch/media/run-python-batch-azure-data-factory/create-pipeline.png" alt-text="Screenshot showing where to locate create pipeline in Devops.":::
 
-1.  Select a Project
+1. Select **Azure Repos Git**.
 
-2.  Click **Pipelines**
+1.  Select a repository.
 
-    Click **Create Pipeline**
+    :::image type="content" source="media/msdo-azure-devops-extension/repository.png" alt-text="Screenshot showing where to select your repository.":::
 
-![Graphical user interface, text, application Description automatically
-generated](./media/msdo-azure-devops-extension/image044.png)
+5.  Select **Starter pipeline**.
 
-3.  Click **Azure Repos Git**
+    :::image type="content" source="media/msdo-azure-devops-extension/starter-piepline.png" alt-text="Screenshot showing where to select starter piepline.":::
 
-![Graphical user interface, text, application Description automatically
-generated](./media/msdo-azure-devops-extension/image045.png)
+6.  Paste the following YAML into the pipeline
 
-4.  Select a repository
+    ```yml
+    # Starter pipeline
+    # Start with a minimal pipeline that you can customize to build and deploy your code.
+    # Add steps that build, run tests, deploy, and more
+    # https://aka.ms/yaml
+    trigger:
+    - main
+    pool:
+    vmImage: windows-latest
+    steps:
+    - task: UseDotNet@2
+    displayName: \'Use dotnet\'
+    inputs:
+    version: 3.1.x
+    - task: UseDotNet@2
+    displayName: \'Use dotnet\'
+    inputs:
+    version: 5.0.x
+    - task: UseDotNet@2
+    displayName: \'Use dotnet\'
+    inputs:
+    version: 6.0.x
+    - task: MicrosoftSecurityDevOps@1
+    displayName: \'Microsoft Security DevOps\'
+    ```
 
-![Graphical user interface, application, Teams Description automatically
-generated](./media/msdo-azure-devops-extension/image046.png)
+1. Select **Save and run**.
 
-5.  Click **Starter pipeline**
+1. Select **Save and run** to commit the pipeline.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/msdo-azure-devops-extension/image047.png)
+    :::image type="content" source="media/msdo-azure-devops-extension/sand-and-run.png" alt-text="Screenshot showing where to select save and run.":::
 
-6.  Cut and paste the following YAML into the pipeline
+Pipelines will run for a few minutes and save the results.
 
-```
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more
-# https://aka.ms/yaml
-trigger:
-- main
-pool:
-vmImage: windows-latest
-steps:
-- task: UseDotNet@2
-displayName: \'Use dotnet\'
-inputs:
-version: 3.1.x
-- task: UseDotNet@2
-displayName: \'Use dotnet\'
-inputs:
-version: 5.0.x
-- task: UseDotNet@2
-displayName: \'Use dotnet\'
-inputs:
-version: 6.0.x
-- task: MicrosoftSecurityDevOps@1
-displayName: \'Microsoft Security DevOps\'
-```
+### Configure WHAT???? using Azure DevOps Pipeline Classic Editor
 
-7.  Click **Save and run**
+1. Sign into [Azure DevOps](https://dev.azure.com/)
 
-    Click **Save and run** to Commit the pipeline
+1. Navigate to **Project** > **Pipelines**.
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/msdo-azure-devops-extension/image048.png)
+1. Select **Create Pipeline**.
 
->*It will take a few minutes to run pipelines and save the results. To make viewing the scan results easier, you can install this free extension in your Azure DevOps organization: [SARIF SAST Scans Tab - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=sariftools.scans)*
+1. Select **Use the classic editor to create a pipeline without YAML**.
 
-### Steps: Configure using Azure DevOps Pipeline Classic Editor
+1. Select a source, Team project, Repository, and Default branch from the dropdown menus.
 
-1.  Select a Project
+1. Select **Continue**.
 
-2.  Click **Pipelines**
+    :::image type="content" source="media/msdo-azure-devops-extension/selection-screen.png" alt-text="Screenshot showing where to select , source, team project, repository and default branch.":::
 
-    Click **Create Pipeline**
+1. Select **Empty job**.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/msdo-azure-devops-extension/image049.png)
+    :::image type="content" source="media/msdo-azure-devops-extension/empty-job.png" alt-text="Screenshot showing where to locate the empty job button.":::
 
-3.  Click **Use the classic editor to create a pipeline without YAML**
+1. On the Agent job 1, select **+**.
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/msdo-azure-devops-extension/image050.png)
+    :::image type="content" source="media/msdo-azure-devops-extension/plus-sign.png" alt-text="Screenshot showing where to locate the + sign.":::
 
-4.  Select a source, Team project, Repository, and Default branch from the dropdown menus
+1. In the search box, enter `Use .NET Core`.
 
-    Click **Continue**
+1. Select Click **Add** three times.
 
-![Graphical user interface, application Description automatically
-generated](./media/msdo-azure-devops-extension/image051.png)
-
-5.  Click **Empty job**
-
-![Graphical user interface, application Description automatically
-generated](./media/msdo-azure-devops-extension/image052.png)
-
-6.  On the Agent job 1, click the **+** to add a step
-
-![Graphical user interface, application Description automatically
-generated](./media/msdo-azure-devops-extension/image053.png)
-
-7.  In the search box type *Use .NET Core*
-
-    Click **Add** *3 times*
-
-![Graphical user interface, text, application, email Description
-automatically generated](./media/msdo-azure-devops-extension/image054.png)
-
-8.  Type *Microsoft Security* in the search box
+1. In the search box, enter `Microsoft Security` 
 
     Click **Add** on **Microsoft Security DevOps** to add it to the Agent job 1
 
