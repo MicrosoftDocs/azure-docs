@@ -25,7 +25,7 @@ For example, the sample record below has useful data buried in the event descrip
 ![Sample extract](media/custom-fields/sample-extract.png)
 
 > [!NOTE]
-> In the Preview, you are limited to 100 custom fields in your workspace.  This limit will be expanded when this feature reaches general availability.
+> In the Preview, you are limited to 500 custom fields in your workspace.  This limit will be expanded when this feature reaches general availability.
 
 ## Creating a custom field
 When you create a custom field, Log Analytics must understand which data to use to populate its value.  It uses a technology from Microsoft Research called FlashExtract to quickly identify this data.  Rather than requiring you to provide explicit instructions, Azure Monitor learns about the data you want to extract from examples that you provide.
@@ -41,7 +41,7 @@ The first step is to identify the records that will get the custom field.  You s
 
 1. Go to **Logs** and use a [query to retrieve the records](./log-query-overview.md) that will have the custom field.
 2. Select a record that Log Analytics will use to act as a model for extracting data to populate the custom field.  You will identify the data that you want to extract from this record, and Log Analytics will use this information to determine the logic to populate the custom field for all similar records.
-3. Expand the record properties, click the ellipsis to the left of the top property of the record, and select **Extract fields from**.
+3. Right-click on the record, and select **Extract fields from**.
 4. The **Field Extraction Wizard** is opened, and the record you selected is displayed in the **Main Example** column.  The custom field will be defined for those records with the same values in the properties that are selected.  
 5. If the selection is not exactly what you want, select additional fields to narrow the criteria.  In order to change the field values for the criteria, you must cancel and select a different record matching the criteria you want.
 

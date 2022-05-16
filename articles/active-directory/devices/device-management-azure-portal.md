@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 05/06/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -77,7 +77,7 @@ There are two ways to delete a device:
 - The toolbar, after you drill down for a specific device.
 
 > [!IMPORTANT]
-> - You must be a Cloud Device Administrator, Intune Administrator, or Global Administrator in Azure AD to delete a device.
+> - You must be a Cloud Device Administrator, Intune Administrator, Windows 365 Administrator or Global Administrator in Azure AD to delete a device.
 > - Printers and Windows Autopilot devices can't be deleted in Azure AD.
 > - Deleting a device:
 >    - Prevents it from accessing your Azure AD resources.

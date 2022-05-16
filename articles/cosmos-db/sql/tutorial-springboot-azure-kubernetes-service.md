@@ -157,13 +157,13 @@ If you intend to run the application on Azure Kubernetes Service, skip this sect
 
 1. Log into Azure Container Registry.
 
-   ```bash
+   ```azurecli
    az acr login -n cosmosdbspringbootregistry
    ```
 
 1. Push image to Azure Container Registry and list it.
 
-   ```bash
+   ```azurecli
    docker push cosmosdbspringbootregistry.azurecr.io/spring-cosmos-app:v1
 
    az acr repository list --name cosmosdbspringbootregistry --output table

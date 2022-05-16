@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 This is the third tutorial in a series. It assumes that you have already completed the tasks in the previous tutorials:
 
-1. [Prepare Azure](https://docs.microsoft.com/azure/site-recovery/tutorial-prepare-azure-for-hyperv)
+1. [Prepare Azure](./tutorial-prepare-azure-for-hyperv.md)
 2. [Prepare on-premises Hyper-V](./hyper-v-prepare-on-premises-tutorial.md)
 
 ## Select a replication goal

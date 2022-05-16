@@ -1,6 +1,6 @@
 ---
 title: How to create, import, export, and manage glossary terms
-description: Learn how to create, import, export, and manage business glossary terms in Azure Purview.
+description: Learn how to create, import, export, and manage business glossary terms in Microsoft Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -11,7 +11,7 @@ ms.date: 03/09/2022
 
 # How to create, import, and export glossary terms
 
-This article describes how to work with the business glossary in Azure Purview. Steps are provided to create a business glossary term in Azure Purview data catalog, and import and export glossary terms using .csv files.
+This article describes how to work with the business glossary in Microsoft Purview. Steps are provided to create a business glossary term in Microsoft Purview data catalog, and import and export glossary terms using .csv files.
 
 ## Create a new term
 
@@ -52,7 +52,7 @@ To create a new glossary term, follow these steps:
 
 ## Import terms into the glossary
 
-The Azure Purview Data Catalog provides a template .csv file for you to import your terms into your Glossary.
+The Microsoft Purview Data Catalog provides a template .csv file for you to import your terms into your Glossary.
 
 You can import terms in the catalog. The duplicate terms in file will be overwritten.
 
@@ -146,7 +146,7 @@ If [workflows](concept-workflow.md) are enabled on a term, then any creates, upd
 
 - **Deletion** - when a delete approval workflow is enabled on the parent term, you'll see **Submit for approval** instead of **Delete** when deleting the term. Selecting **Submit for approval** will trigger the workflow. However, the term won't be deleted from catalog until all the approvals are met.
 
-- **Importing terms** - when an import approval workflow enabled for Azure Purview's glossary, you'll see **Submit for approval** instead of **OK** in the Import window when importing terms via csv. Selecting **Submit for approval** will trigger the workflow. However, the terms in the file won't be updated in catalog until all the approvals are met.
+- **Importing terms** - when an import approval workflow enabled for Microsoft Purview's glossary, you'll see **Submit for approval** instead of **OK** in the Import window when importing terms via csv. Selecting **Submit for approval** will trigger the workflow. However, the terms in the file won't be updated in catalog until all the approvals are met.
 
 :::image type="content" source="media/how-to-create-import-export-glossary/create-submit-for-approval.png" alt-text="Screenshot of the create new term window. The parent term requires approval, so the available buttons at the bottom of the page are 'Submit for approval' and 'Cancel'." border="true":::
 

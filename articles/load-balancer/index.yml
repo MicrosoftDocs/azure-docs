@@ -36,6 +36,8 @@ landingContent:
             url: skus.md
       - linkListType: learn
         links:
+          - text: Introduction to Azure Load Balancer
+            url: /learn/paths/intro-to-azure-application-delivery-services
           - text: Improve application scalability and resiliency by using Azure Load Balancer
             url: /learn/modules/improve-app-scalability-resiliency-with-load-balancer/
 

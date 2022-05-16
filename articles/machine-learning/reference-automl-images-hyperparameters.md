@@ -68,7 +68,6 @@ The following table describes the hyperparameters that are model agnostic.
 |`beta2` | Value of `beta2` when optimizer is `adam` or `adamw`.<br> Must be a float in the range [0, 1]. | 0.999 |
 |`amsgrad` | Enable `amsgrad` when optimizer is `adam` or `adamw`.<br> Must be 0 or 1. | 0 |
 |`evaluation_frequency`| Frequency to evaluate validation dataset to get metric scores. <br> Must be a positive integer. | 1 |
-|`split_ratio`| If validation data is not defined, this specifies the split ratio for splitting train data into random train and validation subsets. <br> Must be a float in the range [0, 1].| 0.2 |
 |`checkpoint_frequency`| Frequency to store model checkpoints. <br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation.|
 |`checkpoint_run_id`| The run id of the experiment that has a pretrained checkpoint for incremental training.| no default  |
 |`checkpoint_dataset_id`| FileDataset id containing pretrained checkpoint(s) for incremental training. Make sure to pass `checkpoint_filename` along with `checkpoint_dataset_id`.| no default  |

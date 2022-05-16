@@ -1,0 +1,60 @@
+### YamlMime:Landing
+
+title: Azure Managed Grafana Preview documentation
+summary: Learn how to use Azure Managed Grafana. Access quickstarts and how-to guides to learn how to create, configure and share your Azure Managed Grafana Preview dashboards.
+
+metadata:
+  title: Azure Managed Grafana
+  description: Learn about Azure Managed Grafana
+  ms.service: managed-grafana
+  ms.topic: landing-page
+  author: maud-lv
+  ms.author: malev
+  ms.date: 03/31/2022
+
+landingContent:
+  - title: About Azure Managed Grafana Preview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Managed Grafana?
+            url: overview.md
+            
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Create a Managed Grafana workspace from the Azure portal
+            url: quickstart-managed-grafana-portal.md
+
+  - title: Configure a dashboard
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure data source plugins with Managed Identity
+            url: how-to-data-source-plugins-managed-identity.md
+          - text: Call Grafana APIs programmatically
+            url: how-to-api-calls.md
+
+  - title: Manage your dashboard
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure permissions for Managed Grafana
+            url: how-to-permissions.md
+          - text: Share your Managed Grafana workspace
+            url: how-to-share-grafana-workspace.md
+          - text: Monitor your Managed Grafana workspace
+            url: how-to-monitor-managed-grafana-workspace.md
+  - title: More resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Control Plane
+            url: /rest/api/managed-grafana
+          - text: Data Plane
+            url: https://aka.ms/managed-grafana-dataplane
+          - text: Grafana Enterprise
+            url: https://grafana.com/docs/grafana/latest/enterprise
+          - text: Grafana UI
+            url: grafana-app-ui.md

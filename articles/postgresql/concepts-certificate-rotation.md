@@ -4,8 +4,9 @@ description: Learn about the upcoming changes of root certificate changes that w
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.date: 09/02/2020
 ---
 

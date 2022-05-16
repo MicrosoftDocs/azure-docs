@@ -7,10 +7,6 @@ ms.date: 03/28/2022
 
 # Investigate a suspicious IoT device
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Tutorial: Investigate security recommendations](tutorial-investigate-security-recommendations.md).
->
-
 Defender for IoT service alerts provides clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised.
 
 In this guide, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.
@@ -18,6 +14,11 @@ In this guide, use the investigation suggestions provided to help determine the 
 > [!div class="checklist"]
 > * Find your device data
 > * Investigate using kql queries
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
+>
+> For more information, see [Tutorial: Investigate security recommendations](tutorial-investigate-security-recommendations.md) and [Tutorial: Investigate security alerts](tutorial-investigate-security-alerts.md).
 
 ## How can I access my data?
 

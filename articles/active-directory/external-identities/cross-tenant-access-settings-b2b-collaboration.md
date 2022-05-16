@@ -263,6 +263,21 @@ With outbound settings, you select which of your users and groups will be able t
 
 1. Select **Save**.
 
+## Remove an organization
+
+When you remove an organization from your Organizational settings, the default cross-tenant access settings will go into effect for that organization.
+
+> [!NOTE]
+> If the organization is a cloud service provider for your organization (the isServiceProvider property in the Microsoft Graph [partner-specific configuration](/graph/api/resources/crosstenantaccesspolicyconfigurationpartner) is true), you won't be able to remove the organization.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
+
+1. Select **External Identities**, and then select **Cross-tenant access settings (Preview)**.
+
+1. Select the **Organizational settings** tab.
+
+1. Find the organization in the list, and then select the trash can icon on that row.
+
 ## Next steps
 
 - See [Configure external collaboration settings](external-collaboration-settings-configure.md) for B2B collaboration with non-Azure AD identities, social identities, and non-IT managed external accounts.

@@ -4,6 +4,7 @@ description: This article provides information on high availability in Azure Dat
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 7/7/2020
 ---
