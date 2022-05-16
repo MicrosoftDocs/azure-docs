@@ -409,7 +409,7 @@ The following table applies to U-SQL.
 
 - **Cause**: Insufficient vcores
 
-- **Recommendation**: Try reducing the numbers of vCores requested or increasing your vCores quota. For more information, see [Apache Spark core concepts](../synapse-analytics/spark/apache-spark-concepts.md).
+- **Recommendation**: Try reducing the numbers of vCores requested or increasing your vCore quota. For more information, see [Apache Spark core concepts](../synapse-analytics/spark/apache-spark-concepts.md).
 
 ### Error code: 3253
 
