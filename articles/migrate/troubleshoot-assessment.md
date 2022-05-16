@@ -191,12 +191,12 @@ When you select **Reserved Instances**, the **Discount (%)** and **VM uptime** p
 
 ## Why are some of my assessments marked as "to be upgraded to latest assessment version"? 
 
-Please recalculate your assessment to view the upgraded Azure SQL assessment experience to help you identify the ideal migration target for your SQL deployments across Azure SQL Managed Instances, SQL Server on Azure VM, and Azure SQL DB:
-   - Recommended strategy for migrating "Instances to SQL Server on Azure VM" as per Azure best practices.
-   - Right sized Lift and Shift, that is, "Server to SQL Server on Azure VM" recommendations when SQL Server credentials are not available.
-   - Enhanced user-experience covering readiness and cost estimates for multiple migration targets for SQL deployments in one assessment.
+Recalculate your assessment to view the upgraded Azure SQL assessment experience to identify the ideal migration target for your SQL deployments across Azure SQL Managed Instances, SQL Server on Azure VM, and Azure SQL DB:
+   - We recommended migrating instances to *SQL Server on Azure VM* as per the Azure best practices.
+   - *Right sized Lift and Shift* - Server to *SQL Server on Azure VM*. We recommend this when SQL Server credentials are not available. 
+   - Enhanced user-experience that covers readiness and cost estimates for multiple migration targets for SQL deployments in one assessment.
 
-We recommend that you to export your existing assessment before recalculating.
+We recommend that you export your existing assessment before recalculating.
 
 ## I don't see performance data for some network adapters on my physical servers
 
