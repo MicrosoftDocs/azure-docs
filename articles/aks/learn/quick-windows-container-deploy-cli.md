@@ -111,7 +111,7 @@ az aks create \
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.
 
-## Add a Windows Server node pool
+## Add a Windows Server 2019 node pool
 
 By default, an AKS cluster is created with a node pool that can run Linux containers. Use `az aks nodepool add` command to add an additional node pool that can run Windows Server containers alongside the Linux node pool.
 
@@ -125,6 +125,57 @@ az aks nodepool add \
 ```
 
 The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
+
+## Add a Windows Server 2022 node pool (preview)
+
+When creating a Windows node pool, the default operating system will be Windows Server 2019. To use Windows Server 2022 nodes, you will need to specify an OS SKU type of `Windows2022`.
+
+[!INCLUDE [preview features callout](../includes/preview/preview-callout.md)]
+
+### Install the `aks-preview` Azure CLI
+
+You also need the *aks-preview* Azure CLI extension version `0.5.68` or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command, or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### Register the `AKSWindows2022Preview` preview feature
+
+To use the feature, you must also enable the `AKSWindows2022Preview` feature flag on your subscription.
+
+Register the `AKSWindows2022Preview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "AKSWindows2022Preview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSWindows2022Preview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Use `az aks nodepool add` command to add a Windows Server 2022 node pool:
+
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --os-type Windows \
+    --os-sku Windows2022 \ 
+    --name npwin \
+    --node-count 1
+```
 
 ## Optional: Using `containerd` with Windows Server node pools
 
