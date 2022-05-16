@@ -4,7 +4,7 @@ description: This article explains how to disable internet access for Azure VMwa
 ms.topic: how-to
 ms.date: 05/12/2022
 ---
-# 1. Disable Internet access or enable a default route 
+# Disable Internet access or enable a default route 
 In this article, you’ll learn how to disable internet access to enable a default route   or enable a default route for your Azure VMware Solution private cloud. There are multiple options to facilitate this. These options include: Virtual WAN hub, Network Virtual Appliance in a Virtual Network, or a default route from on-premises. Please ensure you understand your options and their impact. You should select this option   if you want to provide a default route. If no default route is provided, there's no internet access to your Azure VMware Solution Private Cloud. 
 With  this capability, you can achieve the following tasks:
 - Disable internet access to your Azure VMware Solution Private Cloud. (Note: Ensure that a default route is not advertised from on-premises or Azure as that will override this behavior) 
@@ -23,3 +23,9 @@ With  this capability, you can achieve the following tasks:
 1. Select Do not connect or connect using default route from Azure and click Save.
    :::image type="content" source="media/public-ip-usage/private-cloud-default-route-internet-connectivity_2.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 If you don't have a default route from On-Prem or Azure, you have successfully disabled internet connectivity to your Azure VMware Solution Private Cloud. 
+
+### Next Steps 
+>[!div class="nextstepaction"]
+>[Internet connectivity design considerations](concepts-design-avs-public-internet-access.md)<br>
+>[Enable Managed SNAT for Azure VMware Solution Workloads](enable-managed-snat-for-avs-workloads.md)<br>
+>[Enable internet access for your Azure VMware Solution](concepts-design-avs-public-internet-access.md)<br>

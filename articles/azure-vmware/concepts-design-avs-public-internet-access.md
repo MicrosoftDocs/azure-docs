@@ -1,10 +1,10 @@
 ---
-title: Concept -Design considerations for Azure VMware Solution public Internet access
+title: Concept - Internet connectivity design considerations
 description: Options for Azure VMware Solution Internet Connectivity. 
 ms.topic: conceptual
 ms.date: 5/12/2022
 ---
-# 4 Design considerations for Azure VMware Solution public Internet access 
+# Internet connectivity design considerations 
 
 There are three primary patterns for creating outbound access to the Internet from Azure VMware Solution and to enable the Internet to access resources your Azure VMware Solution Private Cloud (inbound). 
 
@@ -14,7 +14,7 @@ There are three primary patterns for creating outbound access to the Internet fr
 
 Your requirements for security controls, visibility, capacity, and operations drive the selection of the appropriate method for delivery of Internet access to the Azure VMware Solution Private Cloud.  
 
-Internet Service hosted in Azure (or On Prem) 
+## Internet Service hosted in Azure (or On Prem) 
 
 There are multiple ways to generate a default route in Azure and send it towards your Azure VMware Solution Private Cloud. These include the following: 
 
@@ -60,9 +60,7 @@ The option that you select depends on the following factors.
 1. If you have multiple Azure VMware Solution private clouds in multiple Azure regions which need to communicate with each other, and communicate with the Internet, it can be challenging to match a PC with a security service in Azure because of the way a default route from Azure is propagated.  Using Public IP to the NSX edge allows for localized exit to the internet from each private cloud in its local region. 
 
 ### Next Steps 
-
-•	[Link to Doc1] 
-
-•	[Link to Doc2] 
-
-•	[Link to Doc3] 
+>[!div class="nextstepaction"]
+>[Enable Managed SNAT for Azure VMware Solution Workloads](enable-managed-snat-for-avs-workloads.md)<br>
+>[Enable internet access for your Azure VMware Solution](concepts-design-avs-public-internet-access.md)<br>
+>[Disable Internet access or enable a default route](disable-internet-access.md)

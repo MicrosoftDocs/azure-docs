@@ -20,24 +20,21 @@ With this capability, you have:
 :::image type="content" source="media/public-ip-usage/architecture-internet-access-avs-public-ip.png" alt-text="The architecture diagram shows internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-usage/architecture-internet-access-avs-public-ip.png":::
 
 ## How to Configure a Public IP in the Azure Portal
-1.	Sign into the Azure portal and then search for and select Azure VMware Solution.
+1.	Sign into the Azure portal.
+1. Search for and select Azure VMware Solution.
 2.	Select the Azure VMware Solution private cloud.
     :::image type="content" source="media/public-ip-usage/private-cloud-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-
 1. Under Workload Networking, select Internet Connectivity.
    :::image type="content" source="media/public-ip-usage/private-cloud-workload-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-
 4.	Select Connect using Public IP down to the NSX-T Edge. Before selecting, please ensure you understand the implications to your existing environment. Learn more. (link to doc4)
     :::image type="content" source="media/public-ip-usage/public-ip-to-nsx-t-edge-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 5.	Once selected, click + Public IP.
-
     :::image type="content" source="media/public-ip-usage/public-ip-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 6.	Enter the name of the Public IP block and select a subnet size.
      :::image type="content" source="media/public-ip-usage/public-ip-block-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 7.	Click Configure. This Public IP should be configured within x minutes.
 8.	After completion, record the subnet that has been allocated. You may need to refresh the list to view the subnet. If this fails, please try the configuration again.
     :::image type="content" source="media/public-ip-usage/public-ip-subnet-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-
 9.	Once the configuration is complete, select the checkbox below. By selecting this checkbox, you confirm executing this change will immediately disable all other internet options. 
 10.	Select Save. 
 :::image type="content" source="media/public-ip-usage/public-ip-to-nsx-t-edge-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
@@ -48,19 +45,16 @@ There are three options for configuring your reserved Public IP down to the NSX 
 
 
 
-### 1. Outbound Internet Access for VMs
+### Outbound Internet Access for VMs
  
 A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT) is used to allow many to one SNAT. This means you can provide internet connectivity for many VMs.
 1.	From your Azure VMware Solution Private Cloud, select vCenter Credentials
 2.	Locate your NSX-T URL and credentials.
 3.	Login to NSX-T.
    :::image type="content" source="media/public-ip-usage/nsx-t-login-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-
 4.	Navigate to NAT rules.
    :::image type="content" source="media/public-ip-usage/nsx-t-3nat-rules-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-
 5.	Select the T1 Router and click ADD NAT RULE.
-
 6.	Configure the rule. 
     <ol type="A">
      <li> Enter a name </li>
@@ -72,12 +66,9 @@ A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT)
     </ol>
 Logging can be enabled via the logging slider. For more information on NSX-T NAT configuration and options, please see the 
 [NSX-T NAT Administration Guide](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-7AD2C384-4303-4D6C-A44A-DEF45AA18A92.html)
-
-
-
-### 2. Inbound Internet Access for VMs
+### Inbound Internet Access for VMs
 A Destination Network Translation Service (DNAT) is used to expose a VM on a specific Public IP address and/or a specific port. This provides inbound internet access to your workload VMs.
-1.	From your Azure VMware Solution Private Cloud, select VMware Credentials
+1.	From your Azure VMware Solution Private Cloud, select VMware Credentials.
 2.	Locate your NSX-T URL and credentials.
 3.	Login to NSX-T.
     :::image type="content" source="media/public-ip-usage/nsx-t-login-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
@@ -95,9 +86,7 @@ A Destination Network Translation Service (DNAT) is used to expose a VM on a spe
 
 The VM is now exposed to the internet on the specific Public IP and/or specific ports.
 
-
-
-### 3. Gateway Firewall used to Filter Traffic to VMs at T1 Gateways
+### Gateway Firewall used to Filter Traffic to VMs at T1 Gateways
  
 Using a Gateway Firewall, you can provide security protection for your network traffic in and out of the public Internet. 
 1.	From your Azure VMware Solution Private Cloud, select VMware Credentials
@@ -117,8 +106,13 @@ Using a Gateway Firewall, you can provide security protection for your network t
     </ol>
 1. You can set a firewall match rule to determine how firewall is applied during NAT. To apply firewall rules to the external address of a NAT rule, select Match External Address. For instance, the following rule is set to "Match External Address”, and this will allow SSH traffic inbound to the Public IP.
      :::image type="content" source="media/public-ip-usage/gateway-specific-rules-match-external-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-
 If “Match Internal Address” was specified, the destination would be the internal or private IP address of the VM. 
-
 For more information on the NSX-T Gateway Firewall please see the [NSX-T Gateway Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A52E1A6F-F27D-41D9-9493-E3A75EC35481.html)
 The Distributed Firewall may also be used to filter traffic to VMs. This feature is outside the scope of this document. The [NSX-T Distributed Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-6AB240DB-949C-4E95-A9A7-4AC6EF5E3036.html) .
+
+
+### Next Steps 
+>[!div class="nextstepaction"]
+>[Internet connectivity design considerations](concepts-design-avs-public-internet-access.md)<br>
+>[Enable Managed SNAT for Azure VMware Solution Workloads](enable-managed-snat-for-avs-workloads.md)<br>
+>[Disable Internet access or enable a default route](disable-internet-access.md)<br>
