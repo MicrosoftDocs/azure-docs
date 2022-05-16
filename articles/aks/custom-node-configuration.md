@@ -170,7 +170,7 @@ az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-gr
 
 ## Confirm settings have been applied
 
-After you have applied custom node configuration, you can confirm the settings have been applied to the nodes by [connecting to the host](node-access) and verifying `sysctl` or configuration changes have been made on the filesystem.
+After you have applied custom node configuration, you can confirm the settings have been applied to the nodes by [connecting to the host][node-access] and verifying `sysctl` or configuration changes have been made on the filesystem.
 
 ## Next steps
 
