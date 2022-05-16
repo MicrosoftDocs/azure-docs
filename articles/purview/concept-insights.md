@@ -94,9 +94,7 @@ For more information, see the [sensitivity label insights about your data in Mic
 
 Learn how to use Data Estate Insights with resources below:
 
-* [Learn about permissions to Data estate insights](insights-permissions.md)
 * [Learn how to use Asset insights](asset-insights.md)
-* [Learn how to use Data Stewardship](data-stewardship.md)
 * [Learn how to use Classification insights](classification-insights.md)
 * [Learn how to use Glossary insights](glossary-insights.md)
 * [Learn how to use Label insights](sensitivity-insights.md)
