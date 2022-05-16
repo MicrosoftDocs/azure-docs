@@ -60,7 +60,7 @@ This allows you to not have to spend as much effort fine tuning your configurati
 
 After the metrics are onboarded to Metrics Advisor, the system will try to perform statistics on the metrics to categorize **anomaly pattern** types and **series value** distribution. By providing this functionality, you can further fine tune the configuration based on their specific preferences. At the beginning, it will show a status of **Initializing**.
 
-:::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Screenshot of Metrics Advisor UI with Initializing auto-tuning text visible" lightbox="../media/metrics/autotuning-initializing.png":::
+:::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Screenshot of Metrics Advisor U I with Initializing auto-tuning text visible." lightbox="../media/metrics/autotuning-initializing.png":::
 
 #### Choose to enable auto-tuning on anomaly pattern and series value
 
@@ -78,7 +78,7 @@ If specific anomaly patterns are chosen, the next step is to fine tune the confi
 
 You must tune each anomaly pattern that has been chosen individually.
 
-:::image type="content" source="../media/metrics/autotuning-pattern.png" alt-text="Screenshot of auto-tuning pattern UI within Metrics Advisor" lightbox="../media/metrics/autotuning-pattern.png":::
+:::image type="content" source="../media/metrics/autotuning-pattern.png" alt-text="Screenshot of auto-tuning pattern U I within Metrics Advisor." lightbox="../media/metrics/autotuning-pattern.png":::
 
 #### Tune the configuration for each series value group
 
@@ -86,7 +86,7 @@ After the system generates statistics on all time series within the metric, seve
 
 There will be a default adjustment configured to get the best detection results, but it can be further tuned.
 
-:::image type="content" source="../media/metrics/autotuning-value.png" alt-text="Screenshot of pattern based sensitivity UI with adjustment for anomaly patterns, spike -30 highlighted on a slider with a range from -100 to 100." lightbox="../media/metrics/autotuning-value.png":::
+:::image type="content" source="../media/metrics/autotuning-value.png" alt-text="Screenshot of pattern based sensitivity U I with adjustment for anomaly patterns, spike -30 highlighted on a slider with a range from -100 to 100." lightbox="../media/metrics/autotuning-value.png":::
 
 #### Set up alert rules
 
