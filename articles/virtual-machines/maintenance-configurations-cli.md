@@ -1,6 +1,6 @@
 ---
-title: Maintenance control for Azure virtual machines using CLI 
-description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and CLI.
+title: Maintenance Configurations for Azure virtual machines using CLI 
+description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance configurations and CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: maintenance
@@ -11,11 +11,14 @@ ms.author: cynthn
 #pmcontact: shants
 ---
 
-# Control updates with Maintenance Control and the Azure CLI
+# Control updates with Maintenance Configurations and the Azure CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Maintenance control lets you decide when to apply platform updates to host infrastructure of your isolated VMs and Azure dedicated hosts. This topic covers the Azure CLI options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
+Maintenance Configurations lets you decide when to apply platform updates to various Azure resources. This topic covers the Azure CLI options for Dedicated Hosts and Isolated VMs. For more about benefits of using Maintenance Configurations, its limitations, and other management options, see [Managing platform updates with Maintenance Configurations](maintenance-configurations.md).
+
+> [!IMPORTANT]
+> There are different **scopes** which support certain machine types and schedules, so please ensure you are selecting the right scope for your virtual machine.
 
 ## Create a maintenance configuration
 
@@ -60,7 +63,8 @@ az maintenance configuration create \
 ```
 
 > [!IMPORTANT]
-> Maintenance **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to at least occur once in 35-days.
+> Maintenance **duration** must be *2 hours* or longer.
+
 
 Maintenance recurrence can be expressed as daily, weekly or monthly. Some examples are:
 - **daily**- maintenance-window-recur-every: "Day" **or** "3Days"
@@ -70,7 +74,7 @@ Maintenance recurrence can be expressed as daily, weekly or monthly. Some exampl
 
 ## Assign the configuration
 
-Use `az maintenance assignment create` to assign the configuration to your isolated VM or Azure Dedicated Host.
+Use `az maintenance assignment create` to assign the configuration to your machine.
 
 ### Isolated VM
 
@@ -91,7 +95,7 @@ az maintenance assignment create \
 
 To apply a configuration to a dedicated host, you need to include `--resource-type hosts`, `--resource-parent-name` with the name of the host group, and `--resource-parent-type hostGroups`. 
 
-The parameter `--resource-id` is the ID of the host. You can use [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) to get the ID of your dedicated host.
+The parameter `--resource-id` is the ID of the host. You can use [az-vm-host-get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) to get the ID of your dedicated host.
 
 ```azurecli-interactive
 az maintenance assignment create \

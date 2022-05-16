@@ -1,6 +1,6 @@
 ---
-title: Maintenance control for Azure virtual machines using PowerShell
-description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and PowerShell.
+title: Maintenance Configurations for Azure virtual machines using PowerShell
+description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Configurations and PowerShell.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: maintenance
@@ -12,13 +12,16 @@ ms.custom: devx-track-azurepowershell
 #pmcontact: shants
 ---
 
-# Control updates with Maintenance Control and Azure PowerShell
+# Control updates with Maintenance Configurations and Azure PowerShell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Maintenance control lets you decide when to apply platform updates to the host infrastructure of your isolated VMs and Azure dedicated hosts. This topic covers the Azure PowerShell options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
+Creating a Maintenance Configurations lets you decide when to apply platform updates to various Azure resources. This topic covers the Azure PowerShell options for Dedicated Hosts and Isolated VMs. For more about benefits of using Maintenance Configurations, its limitations, and other management options, see [Managing platform updates with Maintenance Configurations](maintenance-configurations.md).
 
-If you are looking for information about Maintenance Control for scale sets, see [Maintenance Control for virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
+If you are looking for information about Maintenance Configurations for scale sets, see [Maintenance Control for virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
+
+> [!IMPORTANT]
+> There are different **scopes** which support certain machine types and schedules, so please ensure you are selecting the right scope for your virtual machine.
  
 ## Enable the PowerShell module
 
@@ -41,7 +44,7 @@ You may also be asked to confirm that you want to install from an *untrusted rep
 
 ## Create a maintenance configuration
 
-Create a resource group as a container for your configuration. In this example, a resource group named *myMaintenanceRG* is created in *eastus*. If you already have a resource group that you want to use, you can skip this part and replace the resource group name with you own in the rest of the examples.
+Create a resource group as a container for your configuration. In this example, a resource group named *myMaintenanceRG* is created in *eastus*. If you already have a resource group that you want to use, you can skip this part and replace the resource group name with your own in the rest of the examples.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -85,7 +88,7 @@ $config = New-AzMaintenanceConfiguration `
    -RecurEvery "Month Fourth Monday"
 ```
 > [!IMPORTANT]
-> Maintenance **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to at least occur once in 35-days.
+> Maintenance **duration** must be *2 hours* or longer.
 
 Maintenance **recurrence** can be expressed as daily, weekly or monthly. Some examples are:
  - **daily**- RecurEvery "Day" **or** "3Days" 
@@ -221,7 +224,7 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
-LastUpdateTime will be the time when the update got complete, either initiated by you or by the platform in case self-maintenance window was not used. If there has never been an update applied through maintenance control it will show default value.
+LastUpdateTime will be the time when the update got complete, either initiated by you or by the platform in case self-maintenance window was not used. If there has never been an update applied through maintenance configurations it will show default value.
 
 ### Isolated VM
 
