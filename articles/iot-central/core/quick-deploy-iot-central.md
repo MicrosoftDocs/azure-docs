@@ -108,7 +108,7 @@ To send a command from IoT Central to your device, select the **Commands** view 
 
 To make the light on your smartphone flash, use the **LightOn** command. Set the duration to three seconds, the pulse interval to five seconds, and the number of pulses to two. Select **Run** to send the command to the smartphone app. The light on your smartphone app flashes twice.
 
-To see the acknowledgement from the smartphone app, select **command history**.
+To see the acknowledgment from the smartphone app, select **command history**.
 
 ## Clean up resources
 
