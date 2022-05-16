@@ -2,14 +2,14 @@
 title: View analytic information with the Analytics dashboard in CloudKnox Permissions Management
 description: How to use the Analytics dashboard in CloudKnox Permissions Management to view details about users, groups, active resources, active tasks, access keys, and serverless functions.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # View analytic information with the Analytics dashboard
