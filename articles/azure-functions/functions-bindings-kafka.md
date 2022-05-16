@@ -104,7 +104,7 @@ This section describes the configuration settings available for this binding in 
 | MaxBatchSize | 64 | Trigger | Maximum batch size when calling a Kafka triggered function. | 
 | SubscriberIntervalInSeconds | 1 | Trigger | Defines the minimum frequency incoming messages are executed, per function in seconds. Only when the message volume is less than `MaxBatchSize` / `SubscriberIntervalInSeconds`| 
 
-The following properties, which are inherited from the [Apache Kafka C/C++ client library](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md), are also supported in the `kafka` section of host.json, for either triggers, output bindings, or both:
+The following properties, which are inherited from the [Apache Kafka C/C++ client library](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md), are also supported in the `kafka` section of host.json, for either triggers or both output bindings and triggers:
 
 |Property  | Applies to | librdkafka equivalent |
 |---------|---------|---------| 
@@ -116,7 +116,7 @@ The following properties, which are inherited from the [Apache Kafka C/C++ clien
 | MetadataMaxAgeMs | Both | `metadata.max.age.ms` |
 | QueuedMinMessages	| Trigger | `queued.min.messages` |
 | QueuedMaxMessagesKbytes	| Trigger | `queued.max.messages.kbytes` |
-| ReconnectBackoffMs | Output binding | `reconnect.backoff.max.ms` |	
+| ReconnectBackoffMs | Trigger | `reconnect.backoff.max.ms` |	
 | ReconnectBackoffMaxMs | Trigger | `reconnect.backoff.max.ms` |
 | SessionTimeoutMs	| Trigger | `session.timeout.ms` |
 | SocketKeepaliveEnable	| Both | `socket.keepalive.enable` |
