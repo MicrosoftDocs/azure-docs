@@ -12,15 +12,11 @@ ms.author: jahabibi
 
 The Web Application Routing solution makes it easy to access applications that are deployed to your Azure Kubernetes Service (AKS) cluster. When the solution's enabled, it configures an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in your AKS cluster, SSL termination, and Open Service Mesh (OSM) for E2E encryption of inter cluster communication. As applications are deployed, the solution also creates publicly accessible DNS names for application endpoints.
 
-> [!IMPORTANT]
-> AKS preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use. For more information, see the following support articles:
->
-> - [AKS support policies](support-policies.md)
-> - [Azure support FAQ](faq.md)
- 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Limitations
-* Web Application Routing currently does not support named ports in ingress backend.
+
+- Web Application Routing currently does not support named ports in ingress backend.
 
 ## Web Application Routing solution overview
 The add-on deploys four components: a [NGINX Ingress controller][nginx], [Secrets Store CSI Driver][csi-driver], [Open Service Mesh (OSM)][osm], and [External-DNS][external-dns] controller.

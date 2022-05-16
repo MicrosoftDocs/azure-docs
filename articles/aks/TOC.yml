@@ -467,7 +467,7 @@
           href: open-service-mesh-uninstall-add-on.md
     - name: Kubernetes Event-driven Autoscaler add-on (preview)
       href: keda.md
-    - name: Web Application Routing
+    - name: Web Application Routing (preview)
       href: web-app-routing.md
     - name: Use cluster extensions (preview)
       href: cluster-extensions.md
