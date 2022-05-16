@@ -5,7 +5,7 @@ author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.topic: overview
-ms.date: 12/06/2021
+ms.date: 05/16/2022
 ---
 
 # What is Microsoft Purview?
@@ -42,7 +42,7 @@ With the Microsoft Purview Data Catalog, business and technical users can quickl
 For more information, see our [introduction to search using Data Catalog](how-to-search-catalog.md).
 
 ## Data Estate Insights
-With the Microsoft Purview Data Estate Insights, data officers and security officers can get a bird’s eye view and at a glance understand what data is actively scanned, where sensitive data is and how it moves.
+With the Microsoft Purview Data Estate Insights, the chief data officers and other governance stakeholders can get a bird’s eye view of their data estate and can gain actionable insights into the governance gaps that can be resolved from the experience itself.
 
 For more information, see our [introduction to Data Estate Insights](concept-insights.md).
 
