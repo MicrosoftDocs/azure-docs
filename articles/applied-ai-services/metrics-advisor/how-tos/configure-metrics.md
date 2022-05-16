@@ -58,7 +58,7 @@ This allows you to not have to spend as much effort fine tuning your configurati
 
 #### Prerequisite for triggering auto-tuning
 
-After the metrics are onboarded to Metrics Advisor, the system will try to perform statistics on the metrics to categorize **anomaly pattern** types and **series value** distribution. By providing this functionality, you can further fine tune the configuration based on their specific preferences. At the beginning, it will show a status of 'Initializing'.
+After the metrics are onboarded to Metrics Advisor, the system will try to perform statistics on the metrics to categorize **anomaly pattern** types and **series value** distribution. By providing this functionality, you can further fine tune the configuration based on their specific preferences. At the beginning, it will show a status of **Initializing**.
 
 :::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-initializing.png":::
 
@@ -70,7 +70,7 @@ The feature enables you to tune detection configuration from two perspectives **
 
 - For the **series value** option, your selection will depend on your specific use case. You'll have to decide if you want to use a higher sensitivity for series with higher values, and decrease sensitivity on low value ones, or vice versa. Then check the checkbox.
 
-:::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-preference.png":::
+:::image type="content" source="../media/metrics/autotuning-preference.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-preference.png":::
 
 #### Tune the configuration for selected anomaly patterns
 
@@ -78,7 +78,7 @@ If specific anomaly patterns are chosen, the next step is to fine tune the confi
 
 You must tune each anomaly pattern that has been chosen individually.
 
-:::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-pattern.png":::
+:::image type="content" source="../media/metrics/autotuning-pattern.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-pattern.png":::
 
 #### Tune the configuration for each series value group
 
@@ -86,14 +86,14 @@ After the system generates statistics on all time series within the metric, seve
 
 There will be a default adjustment configured to get the best detection results, but it can be further tuned.
 
-:::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-value.png":::
+:::image type="content" source="../media/metrics/autotuning-value.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-value.png":::
 
 #### Set up alert rules
 
 Even once the detection configuration on capturing valid anomalies is tuned, it's still important to input **alert
 rules** to make sure the final alert rules can meet eventual business needs. There are a number of rules that can be set, like **filter rules** or **snooze continuous alert rules**.
 
-:::image type="content" source="../media/metrics/autotuning-initializing.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-alert.png":::
+:::image type="content" source="../media/metrics/autotuning-alert.png" alt-text="Initializing auto-tuning" lightbox="../media/metrics/autotuning-alert.png":::
 
 After configuring all the settings described in the section above, the system will orchestrate them together and automatically detect anomalies based on your inputted preferences. The goal is to get the best configuration that works for each metric, which can be achieved much easier through use of the new **auto-tuning** capability.
 
