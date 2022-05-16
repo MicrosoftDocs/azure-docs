@@ -389,7 +389,7 @@ The following table applies to U-SQL.
 
 ### Error code: 3250
 
-- **Message**: `There is not enough resource available in the workspace, details: '%errorMessage;'`
+- **Message**: `There are not enough resources available in the workspace, details: '%errorMessage;'`
 
 - **Cause**: Insufficient resources
 
@@ -397,7 +397,7 @@ The following table applies to U-SQL.
 
 ### Error code: 3251
 
-- **Message**: `There is not enough resource available in the pool, details: '%errorMessage;'`
+- **Message**: `There are not enough resources available in the pool, details: '%errorMessage;'`
 
 - **Cause**: Insufficient resources
 
@@ -405,7 +405,7 @@ The following table applies to U-SQL.
 
 ### Error code: 3252
 
-- **Message**: `There is not enough vcore available for your spark job, details: '%errorMessage;'`
+- **Message**: `There are not enough vcores available for your spark job, details: '%errorMessage;'`
 
 - **Cause**: Insufficient vcores
 

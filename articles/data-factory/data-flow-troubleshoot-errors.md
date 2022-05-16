@@ -609,11 +609,6 @@ This article lists common error codes and messages reported by mapping data flow
 - **Cause**: Operation times out while reading data.
 - **Recommendation**: Increase the value in **Timeout** option in source transformation settings.
 
-## Error code: 4502
-- **Message**: There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime '%IRName;', ActivityId: '%activityId;'.
-- **Cause**: Throttling threshold was reached.
-- **Recommendation**: Retry the request after a wait period.
-
 ## Error code: 4503
 - **Message**: There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under subscription '%subscriptionId;', ActivityId: '%activityId;'.
 - **Cause**: Throttling threshold was reached.
