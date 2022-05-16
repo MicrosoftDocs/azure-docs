@@ -61,7 +61,7 @@ The output is similar to the following example.
 
   "password": "yourpassword", 
 
-  "tenant": "yourtenantname" 
+  "tenant": "yourtenantname" t
 
 }
 ``` 
@@ -71,7 +71,7 @@ Retain your `appId` and `password`. These values are used when you create an
 > [!NOTE]
 > This service principal only allows a contributor over the resource group the ARO cluster is located in. If your VNet is in another resource group, you need to assign the service principal contributor role to that resource group as well. 
 
-For more information, see [Manage service principal roles](../cli/azure/create-an-azure-service-principal-azure-cli#3-manage-service-principal-roles).
+For more information, see [Manage service principal roles](/cli/azure/create-an-azure-service-principal-azure-cli#3-manage-service-principal-roles).
 
 To grant permissions to an existing service principal with the Azure portal, see [Create an Azure AD app and service principal in the portal](../active-directory/develop/howto-create-service-principal-portal.md#configure-access-policies-on-resources).
 
