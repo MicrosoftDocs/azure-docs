@@ -5,8 +5,9 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 05/16/2022
 ms.custom: template-how-to, ignite-fall-2021
+ms.custom: references_regions
 ---
 
 # Connect to Azure Blob storage in Microsoft Purview
@@ -291,7 +292,7 @@ Scans can be managed or run again on completion
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-full-inc-scan.png" alt-text="full or incremental scan":::
 
 ## Data sharing
-Microsoft Purview Data Sharing (preview) enables sharing of data in-place from Azure Blob storage account to Azure Blob storage account. This section provides details about the Azure Blob storage account specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive shared data](how-to-receive-share.md) for step by step guide on how to use data share.
+Microsoft Purview Data Sharing (preview) enables sharing of data in-place from Azure Blob storage account to Azure Blob storage account. This section provides details about the Azure Blob storage account specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive share](how-to-receive-share.md) for step by step guide on how to use data share.
 
 ### Storage accounts supported for in-place data sharing
 The following storage accounts are supported for in-place data sharing:

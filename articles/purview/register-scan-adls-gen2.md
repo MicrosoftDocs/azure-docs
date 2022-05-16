@@ -1,16 +1,17 @@
 ---
-title: 'Register and scan Azure Data Lake Storage (ADLS) Gen2'
+title: 'Register and scan Azure Data Lake Storage (ADLS Gen2)'
 description: This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 05/16/2022
 ms.custom: template-how-to, ignite-fall-2021
+ms.custom: references_regions
 ---
-# Connect to Azure Data Lake Gen2 in Microsoft Purview
+# Connect to Azure Data Lake Storage in Microsoft Purview
 
-This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
+This article outlines the process to register an Azure Data Lake Storage (ADLS Gen2) data source in Microsoft Purview including instructions to authenticate and interact with the ADLS Gen2 source.
 
 ## Supported capabilities
 
@@ -253,7 +254,7 @@ It's important to give your service principal the permission to scan the ADLS Ge
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## Data sharing
-Microsoft Purview Data Sharing (preview) enables sharing of data in-place from ADLS Gen2 to ADLS Gen2. This section provides details about the ADLS Gen2 specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive shared data](how-to-receive-share.md) for step by step guide on how to use data share.
+Microsoft Purview Data Sharing (preview) enables sharing of data in-place from ADLS Gen2 to ADLS Gen2. This section provides details about the ADLS Gen2 specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive share](how-to-receive-share.md) for step by step guide on how to use data share.
 
 ### Storage accounts supported for in-place data sharing
 The following storage accounts are supported for in-place data sharing:
