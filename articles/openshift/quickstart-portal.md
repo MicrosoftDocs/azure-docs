@@ -44,7 +44,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
    :::image type="content" source="./media/openshift-service-principal-portal.png" alt-text="Screenshot that shows how to use the Authentication tab with Azure portal to create a service principal." lightbox="./media/openshift-service-principal-portal.png":::
 
-5.	On the **Networking** tab make sure to configure:
+5.	On the **Networking** tab, which follows, make sure to configure the required options.
+
    **Note**: Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets: one for the control plane and one for worker nodes.
 
 ![**Networking** tab on Azure portal](./media/Networking.png)
@@ -53,7 +54,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ![**Tags** tab on Azure portal](./media/Tags.png)
  
-7.	Click **Review + create** and then **Create** when validation completes. 
+7.	Click **Review + create** and then **Create** when validation completes.   
 
 ![**Review + create** tab on Azure portal](./media/Review+Create.png)
  
