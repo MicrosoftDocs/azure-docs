@@ -43042,6 +43042,11 @@
       "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/terminology.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/key-terms",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "articles/aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet-preview",
+      "redirect_url": "articles/aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet",
+      "redirect_document_id": false
     }
   ]
 }
