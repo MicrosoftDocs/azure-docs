@@ -24,6 +24,7 @@ This article demonstrates how to deploy an existing container to Azure Container
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
+- Access to a public or private container registry.
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
@@ -67,6 +68,22 @@ For details on how to provide values for any of these parameters to the `create`
 
 ::: zone pivot="container-apps-private-registry"
 
+If you are using Azure Container Registry (ACR), you can login to your registry and forego the need to use the `--registry-username` and `--registry-password` parameters in the `az containerapp create` command and eliminate the need to set the REGISTRY_USERNAME and REGISTRY_PASSWORD variables.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az acr login --name <REGISTRY_NAME>
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az acr login --name <REGISTRY_NAME>
+```
+
+---
+
 # [Bash](#tab/bash)
 
 ```bash
@@ -76,7 +93,9 @@ REGISTRY_USERNAME=<REGISTRY_USERNAME>
 REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
 ```
 
-As you define these variables, replace the placeholders surrounded by `<>` with your values.
+(Replace the \<placeholders\> with your values.)
+
+If you have logged in to ACR, you can omit the `--registry-username` and `--registry-password` parameters in the `az containerapp create` command.
 
 ```azurecli
 az containerapp create \
@@ -98,7 +117,9 @@ $REGISTRY_USERNAME=<REGISTRY_USERNAME>
 $REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
 ```
 
-As you define these variables, replace the placeholders surrounded by `<>` with your values.
+(Replace the \<placeholders\> with your values.)
+
+If you have logged in to ACR, you can omit the `--registry-username` and `--registry-password` parameters in the `az containerapp create` command.
 
 ```powershell
 az containerapp create `
