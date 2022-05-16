@@ -28,7 +28,7 @@ Fees for toll-free leasing are charged after provisioning and then recur on a mo
 |Canada| Toll-free |$2/mo|
 
 ### Usage Fee
-SMS offers pay-as-you-go pricing. The price is a per-message segment* charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States.
+SMS offers pay-as-you-go pricing. The price is a per-message segment* charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States, Canada, and Puerto Rico.
 
 The following prices include required communications taxes and fees:
 
@@ -41,7 +41,7 @@ The following prices include required communications taxes and fees:
 *Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
 
 ## Carrier surcharge
-A standard carrier surcharge is applicable to messages exchanged via toll-free numbers. A carrier surcharge is a per-message segment* charge and is subject to change. Carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages.  See our guide on [Carrier surcharges](https://github.com/Azure/Communication/blob/master/sms-carrier-surcharge.md) for details.
+A standard carrier surcharge is applicable to messages exchanged via toll-free numbers. A carrier surcharge is a per-message segment* charge and is subject to change. Carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages.  See our guide on [Carrier surcharges](https://github.com/Azure/Communication/blob/master/sms-carrier-surcharge.md) for details. See our pricing example [here](../pricing.md#pricing-example-11-sms-receiving) to see how SMS prices are calculated.
 
 |Country| Send Message | Receive Message|
 |-----------|---------|--------------|
