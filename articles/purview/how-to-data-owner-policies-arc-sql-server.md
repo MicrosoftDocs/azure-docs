@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/10/2022
+ms.date: 05/16/2022
 ms.custom: references_regions
 ---
 # Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
@@ -95,6 +95,7 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 
 > [!Note]
 > Given that scan is not currently available for this data source, data reader policies can only be created at server level. Use the **Data sources** box instead of the Asset box when authoring the **data resources** part of the policy.
+> There is a know issue with SQL Server Management Studio that prevents right-clicking on a table and choosing option “Select Top 1000 rows”.
 
 
 >[!Important]
