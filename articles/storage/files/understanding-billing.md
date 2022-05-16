@@ -17,7 +17,7 @@ Azure Files provides two distinct billing models: provisioned and pay-as-you-go.
         <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/m5_-GsKv4-o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     :::column-end:::
     :::column:::
-        This video is an interview discussing covering the basics of the Azure Files billing model, including how to optimize Azure file shares to achieve the lowest costs possible and how to compare Azure Files to other file storage offerings on-premises and in the cloud.
+        This video is an interview that discusses the basics of the Azure Files billing model, including how to optimize Azure file shares to achieve the lowest costs possible and how to compare Azure Files to other file storage offerings on-premises and in the cloud.
    :::column-end:::
 :::row-end:::
 
@@ -40,7 +40,7 @@ Azure Files uses the base-2 units of measurement to represent storage capacity: 
 | GiB     | 1024 MiB (1,073,741,824 bytes)     | gibibyte |
 | TiB     | 1024 GiB (1,099,511,627,776 bytes) | tebibyte |
 
-Although these are the units commonly used by most operating systems and tools, they are frequently mislabeled as the base-10 units, which you may be more familiar with: KB, MB, GB, and TB. Although the rationale may vary, the common reason why operating systems like Windows mislabel the storage units is because many operating systems began using these acronyms before they were standardized by the IEC, BIPM, and NIST.
+Although the base-2 units of measure are commonly used by most operating systems and tools to measure storage quantities, they are frequently mislabeled as the base-10 units, which you may be more familiar with: KB, MB, GB, and TB. Although the reasons for the mislabeling may vary, the common reason why operating systems like Windows mislabel the storage units is because many operating systems began using these acronyms before they were standardized by the IEC, BIPM, and NIST.
 
 The following table shows how common operating systems measure and label storage:
 
@@ -55,7 +55,7 @@ Check with your operating system vendor if your operating system is not listed.
 ## File share total cost of ownership checklist
 If you are migrating to Azure Files from on-premises or comparing Azure Files to other cloud storage solutions, you should consider the following factors to ensure a fair, apples-to-apples comparison:
 
-- **How do you pay for storage, IOPS, and bandwidth?** With Azure Files, the billing model you use depends on whether you are deploying [premium](#provisioned-model) or [standard](#pay-as-you-go-model) file shares. Most cloud solutions have models that align with the principles of either provisioned storage (price determinism, simplicity) or pay-as-you-go storage (pay only for what you actually use). Of particular interest for provisioned models are minimum provisioned share size, the provisioning unit, and the ability to increase and decrease provisioning.
+- **How do you pay for storage, IOPS, and bandwidth?** With Azure Files, the billing model you use depends on whether you are deploying [premium](#provisioned-model) or [standard](#pay-as-you-go-model) file shares. Most cloud solutions have models that align with the principles of either provisioned storage, such as price determinism and simplicity, or pay-as-you-go storage, which can optimize costs by only charging you for what you actually use. Of particular interest for provisioned models are minimum provisioned share size, the provisioning unit, and the ability to increase and decrease provisioning.
 
 - **Are there any methods to optimize storage costs?** With Azure Files, you can use [capacity reservations](#reserve-capacity) to achieve an up to 36% discount on storage. Other solutions may employ storage efficiency strategies like deduplication or compression to optionally optimize storage, but remember, these storage optimization strategies often have non-monetary costs, such as reducing performance. Azure Files capacity reservations have no side effects on performance. 
 
@@ -63,7 +63,7 @@ If you are migrating to Azure Files from on-premises or comparing Azure Files to
 
 - **What do you need to manage?** With Azure Files, the basic unit of management is a storage account. Other solutions may require additional management, such as operating system updates or virtual resource management (VMs, disks, network IP addresses, etc.).
 
-- **What are the costs of value-added products, like backup, security, etc.?** Azure Files supports integrations with multiple first- and third-party [value-added services](#value-added-services), such as Azure Backup, Azure File Sync, and Azure Defender, that provide backup, replication and caching, and additional security functionality for Azure Files. Value-added solutions, whether on-premises or in the cloud, will have their own licensing and product costs, and should be considered as part of the total cost of ownership for file storage.
+- **What are the costs of value-added products, like backup, security, etc.?** Azure Files supports integrations with multiple first- and third-party [value-added services](#value-added-services). Value-added services such as Azure Backup, Azure File Sync, and Azure Defender provide backup, replication and caching, and security functionality for Azure Files. Value-added solutions, whether on-premises or in the cloud, have their own licensing and product costs, but are often considered part of the total cost of ownership for file storage.
 
 ## Reserve capacity
 Azure Files supports storage capacity reservations, which enable you to achieve a discount on storage by pre-committing to storage utilization. You should consider purchasing reserved instances for any production workload, or dev/test workloads with consistent footprints. When you purchase reserved capacity, your reservation must specify the following dimensions:
@@ -79,11 +79,11 @@ Once you purchase a capacity reservation, it will automatically be consumed by y
 For more information on how to purchase storage reservations, see [Optimize costs for Azure Files with reserved capacity](files-reserve-capacity.md).
 
 ## Provisioned model
-Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. This is similar to buying hardware on-premises in that when you provision an Azure file share with a certain amount of storage, you pay for that storage regardless of whether you use it or not, just like you don't start paying the costs of physical media on-premises when you start to use space. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
+Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. A provisioned model for storage is similar to buying an on-premises storage solution because when you provision an Azure file share with a certain amount of storage capacity, you pay for that storage capacity regardless of whether you use it or not. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
 
 The provisioned size of the file share can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a quota increase, you can decrease the share quota as many times as you like, until you increase it again. IOPS/throughput scale changes will be effective within a few minutes after the provisioned size change.
 
-It is possible to decrease the size of your provisioned share below your used GiB. If you do this, you will not lose data, but you will still be billed for the size used and receive the performance (baseline IOPS, throughput, and burst IOPS) of the provisioned share, not the size used.
+It is possible to decrease the size of your provisioned share below your used GiB. If you do this, you will not lose data, but you will still be billed for the size used and receive the performance of the provisioned share, not the size used.
 
 ### Provisioning method
 When you provision a premium file share, you specify how many GiBs your workload requires. Each GiB that you provision entitles you to additional IOPS and throughput on a fixed ratio. In addition to the baseline IOPS for which you are guaranteed, each premium file share supports bursting on a best effort basis. The formulas for IOPS and throughput are as follows:
@@ -137,7 +137,7 @@ When you create a standard file share, you pick between the following tiers: tra
 - Hot is for active workloads that do not involve a large number of transactions, and has a slightly lower data at-rest storage price, but slightly higher transaction prices as compared to transaction optimized. Think of it as the middle ground between the transaction optimized and cool tiers.
 - Cool optimizes the price for workloads that do not have much activity, offering the lowest data at-rest storage price, but the highest transaction prices.
 
-If you put an infrequently accessed workload in the transaction optimized tier, you will pay almost nothing for the few times in a month that you make transactions against your share, but you will pay a high amount for the data storage costs. If you were to move this same share to the cool tier, you would still pay almost nothing for the transaction costs, simply because you are very infrequently making transactions for this workload, but the cool tier has a much cheaper data storage price. Selecting the appropriate tier for your use case allows you to considerably reduce your costs.
+If you put an infrequently accessed workload in the transaction optimized tier, you will pay almost nothing for the few times in a month that you make transactions against your share, but you will pay a high amount for the data storage costs. If you were to move this same share to the cool tier, you would still pay almost nothing for the transaction costs, simply because you are infrequently making transactions for this workload, but the cool tier has a much cheaper data storage price. Selecting the appropriate tier for your use case allows you to considerably reduce your costs.
 
 Similarly, if you put a highly accessed workload in the cool tier, you will pay a lot more in transaction costs, but less for data storage costs. This can lead to a situation where the increased costs from the transaction prices increase outweigh the savings from the decreased data storage price, leading you to pay more money on cool than you would have on transaction optimized. For some usage levels, it's possible that the hot tier will be the most cost efficient, and the cool tier will be more expensive than transaction optimized.
 
@@ -169,7 +169,7 @@ There are five basic transaction categories: write, list, read, other, and delet
 | Write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> |
 | List transactions | <ul><li>`ListShares`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
 | Read transactions | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> |
-| Other transactions | | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> |
+| Other/protocol transactions | | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> |
 | Delete transactions | <ul><li>`DeleteShare`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |  
 
 > [!Note]  
