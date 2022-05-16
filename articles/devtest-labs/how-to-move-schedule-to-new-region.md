@@ -76,7 +76,7 @@ Use the following steps to export and redeploy your schedule in another Azure re
 
 ## Discard or clean up
 
-Now you can choose to clean up the original schedules if they're longer used. Go to the original schedule resource group (where you exported templates from in step 5 above), and delete the schedule resource.
+Now you can choose to clean up the original schedules if they're no longer used. Go to the original schedule resource group (where you exported templates from in step 5 above) and delete the schedule resource.
 
 ## Next steps
 
