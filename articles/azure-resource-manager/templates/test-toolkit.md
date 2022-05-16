@@ -2,7 +2,7 @@
 title: ARM template test toolkit
 description: Describes how to run the Azure Resource Manager template (ARM template) test toolkit on your template. The toolkit lets you see if you have implemented recommended practices.
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 01/28/2022
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -19,6 +19,9 @@ The toolkit contains four sets of tests:
 - [Test cases for parameter files](parameter-file-test-cases.md)
 - [Test cases for createUiDefinition.json](createUiDefinition-test-cases.md)
 - [Test cases for all files](all-files-test-cases.md)
+
+> [!NOTE]
+> The test toolkit is only available for ARM templates. To validate Bicep files, use the [Bicep linter](../bicep/linter.md).
 
 ### Microsoft Learn
 

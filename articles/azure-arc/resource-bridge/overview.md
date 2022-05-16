@@ -82,14 +82,14 @@ While Azure has a number of redundancy features at every level of failure, if a 
 
 The following private cloud environments and their versions are officially supported for the Azure Arc resource bridge:
 
-* VMware vSphere version 6.5
+* VMware vSphere version 6.7
 * Azure Stack HCI
 
 ### Required Azure permissions
 
 * To onboard the Arc resource bridge, you are a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
-* To read, modify, and delete the resource bridge, you are a member of the **Name of role** role in the resource group.
+* To read, modify, and delete the resource bridge, you are a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
 ### Networking
 
@@ -112,4 +112,4 @@ URLS:
 
 ## Next steps
 
-To learn more about how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure, see the following [Overview](/azure/azure-arc/vmware-vsphere/overview) article.
+To learn more about how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure, see the following [Overview](../vmware-vsphere/overview.md) article.

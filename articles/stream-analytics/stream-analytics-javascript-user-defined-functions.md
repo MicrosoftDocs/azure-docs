@@ -1,8 +1,8 @@
 ---
 title: Azure Stream Analytics JavaScript user-defined functions
 description: This article is an introduction to JavaScript user-defined functions in Stream Analytics.
-author: rodrigoaatmicrosoft
-ms.author: rodrigoa
+author: fleid
+ms.author: fleide
 ms.service: stream-analytics
 ms.topic: tutorial
 
@@ -193,7 +193,7 @@ This method follows the same implementation behavior as the one available in Int
 ```javascript
 function main(datetime){
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    return event.toLocaleDateString('de-DE', options);
+    return datetime.toLocaleDateString('de-DE', options);
 }
 ```
 

@@ -4,35 +4,52 @@ description: Learn how to reconfigure an Azure-SSIS integration runtime in Azure
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 02/17/2022
 author: swinarko
 ms.author: sawinark
 ---
 
 # Reconfigure the Azure-SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
-This article describes how to reconfigure an existing Azure-SSIS integration runtime. To create an Azure-SSIS integration runtime (IR) in Azure Data Factory, see [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md).  
+This article describes how to reconfigure an existing Azure-SSIS integration runtime. To create an Azure-SSIS integration runtime (IR), see [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md).  
 
-## Data Factory UI 
+## Azure portal
+
+# [Azure Data Factory](#tab/data-factory)
 You can use Data Factory UI to stop, edit/reconfigure, or delete an Azure-SSIS IR. 
 
 1. Open Data Factory UI by selecting the **Author & Monitor** tile on the home page of your data factory.
 2. Select the **Manage** hub below **Home**, **Edit**, and **Monitor** hubs to show the **Connections** pane.
 
 ### To reconfigure an Azure-SSIS IR
-On the **Connections** pane of **Manage** hub, switch to the **Integration runtimes** page and select **Refresh**. 
+On **Manage** hub, switch to the **Integration runtimes** page and select **Refresh**. 
 
    :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png" alt-text="Connections pane":::
 
    You can edit/reconfigure your Azure-SSIS IR by selecting its name. You can also select the relevant buttons to monitor/start/stop/delete your Azure-SSIS IR, auto-generate an ADF pipeline with Execute SSIS Package activity to run on your Azure-SSIS IR, and view the JSON code/payload of your Azure-SSIS IR.  Editing/deleting your Azure-SSIS IR can only be done when it's stopped.
+
+# [Synapse Analytics](#tab/synapse-analytics)
+You can use Synapse workspace to stop, edit/reconfigure, or delete an Azure-SSIS IR.
+
+### To reconfigure an Azure-SSIS IR
+On **Manage** hub, switch to the **Integration runtimes** page. 
+
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/connections-pane-synapse.png" lightbox="./media/tutorial-create-azure-ssis-runtime-portal/connections-pane-synapse.png" alt-text="Screenshot of connections pane in Synapse.":::
+
+   You can edit/reconfigure your Azure-SSIS IR by selecting its name. You can also select the relevant buttons to monitor/start/stop/delete your Azure-SSIS IR, auto-generate an ADF pipeline with Execute SSIS Package activity to run on your Azure-SSIS IR, and view the JSON code/payload of your Azure-SSIS IR.  Editing/deleting your Azure-SSIS IR can only be done when it's stopped.
+
+---
 
 ## Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 After you provision and start an instance of Azure-SSIS integration runtime, you can reconfigure it by running a sequence of `Stop` - `Set` - `Start` PowerShell cmdlets consecutively. For example, the following PowerShell script changes the number of nodes allocated for the Azure-SSIS integration runtime instance to five.
+
+> [!NOTE]
+> For Azure-SSIS IR in Azure Synapse Analytics, replace with corresponding Azure Synapse Analytics PowerShell interfaces:  [Get-AzSynapseIntegrationRuntime](/powershell/module/az.synapse/get-azsynapseintegrationruntime), [Set-AzSynapseIntegrationRuntime (Az.Synapse)](/powershell/module/az.synapse/set-azsynapseintegrationruntime), [Remove-AzSynapseIntegrationRuntime](/powershell/module/az.synapse/remove-azsynapseintegrationruntime), [Start-AzSynapseIntegrationRuntime](/powershell/module/az.synapse/start-azsynapseintegrationruntime) and [Stop-AzSynapseIntegrationRuntime](/powershell/module/az.synapse/stop-azsynapseintegrationruntime).
 
 ### Reconfigure an Azure-SSIS IR
 

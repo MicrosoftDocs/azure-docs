@@ -17,6 +17,9 @@
           href: event-hubs-quickstart-cli.md
         - name: Azure PowerShell
           href: event-hubs-quickstart-powershell.md
+        - name: Bicep
+          displayName: ARM, Resource Manager, Template
+          href: event-hubs-bicep-namespace-event-hub.md
         - name: ARM template
           displayName: Resource Manager
           href: event-hubs-resource-manager-namespace-event-hub.md
@@ -50,9 +53,9 @@
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
     - name: Use Schema Registry
       items:
-        - name: Create a schema registry
+        - name: Create a schema registry - Azure portal
           href: create-schema-registry.md  
-        - name: Validate events using a schema (.NET and AMQP)
+        - name: Validate events using a schema (.NET + AMQP)
           href: schema-registry-dotnet-send-receive-quickstart.md
     - name: Create a dedicated cluster
       href: event-hubs-dedicated-cluster-create-portal.md
@@ -62,7 +65,7 @@
       href: event-hubs-tutorial-visualize-anomalies.md
     - name: Analyze fraudulent call data with Stream Analytics
       href: ../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/event-hubs/TOC.json
-    - name: Store captured data in a Azure Synapse Analytics
+    - name: Store captured data in Azure Synapse Analytics
       href: store-captured-data-data-warehouse.md
     - name: Process Apache Kafka for Event Hubs events using Stream analytics
       href: event-hubs-kafka-stream-analytics.md
@@ -142,6 +145,8 @@
           href: ./security-controls-policy.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/event-hubs-security-baseline?toc=/azure/event-hubs/TOC.json
+        - name: Enforce minimum required TLS version
+          href: transport-layer-security-enforce-minimum-version.md
     - name: Availability and consistency
       href: event-hubs-availability-and-consistency.md
     - name: Scalability
@@ -237,6 +242,12 @@
           href: private-link-service.md
         - name: Encrypt data using customer-managed keys
           href: configure-customer-managed-key.md
+        - name: Configure minimum required TLS version
+          href: transport-layer-security-configure-minimum-version.md
+        - name: Audit minimum required TLS version
+          href: transport-layer-security-audit-minimum-version.md
+        - name: Configure TLS version for client
+          href: transport-layer-security-configure-client-version.md
     - name: Troubleshoot
       items:
         - name: Troubleshoot connectivity issues
@@ -286,7 +297,7 @@
             - name: azure-messaging-eventhubs (latest)
               href: /java/api/overview/azure/messaging-eventhubs-readme
             - name: azure-eventhubs (legacy)
-              href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy
+              href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy&preserve-view=true
         - name: Management library
           href: /java/api/com.microsoft.azure.management.eventhub
     - name: Python

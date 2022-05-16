@@ -1,12 +1,12 @@
 ---
 title: Dv2 and DSv2-series - Azure Virtual Machines
 description: Specifications for the Dv2 and Dsv2-series VMs.
-author: joelpelley
+author: andysports8
+ms.author: shuji
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: jushiman
 ---
 
 # Dv2 and DSv2-series
@@ -27,7 +27,7 @@ Dv2-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice La
 [VM Generation Support](generation-2.md): Generation 1<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks | Throughput: IOPS | Max NICs | Expected network bandwidth (Mbps) |
@@ -52,6 +52,7 @@ DSv2-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice L
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |

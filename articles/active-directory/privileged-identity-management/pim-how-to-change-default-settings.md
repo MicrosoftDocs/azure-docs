@@ -88,6 +88,10 @@ Use the **Activation maximum duration** slider to set the maximum time, in hours
 
 You can require that users enter a business justification when they activate. To require justification, check the **Require justification on active assignment** box or the **Require justification on activation** box.
 
+## Require ticket information on activation
+
+If your organization uses a ticketing system to track help desk items or change requests for your enviornment, you can select the **Require ticket information on activation** box to require the elevation request to contain the name of the ticketing system (optional, if your organization uses multiple systems) and the ticket number that prompted the need for role activation.
+
 ## Require approval to activate
 
 If setting multiple approvers, approval completes as soon as one of them approves or denies. You can't force approval from a second or subsequent approver. To require approval to activate a role, follow these steps.

@@ -2,10 +2,11 @@
 metadata:
   title: Microsoft Azure Recovery Services (MARS) Agent – FAQ
   description: Addresses common questions about backing up files and folders with Azure Backup.
-  ms.topic: article
+  ms.topic: faq
   ms.service: backup
-  ms.date: 04/05/2021
-    
+  ms.date: 02/25/2022
+  author: v-amallick
+  ms.author: v-amallick
 title: Frequently asked questions - Microsoft Azure Recovery Services (MARS) agent
 summary: |
   This article answers common questions about backing up data with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
@@ -82,6 +83,11 @@ sections:
           Yes, the installation of the MARS Agent and configuration of backups using the MARS console need the user to be a local administrator on the protected server.
 
       - question: |
+          In tenant restrictions scenario, which tenant should I allow access to for successful MARS backups?
+        answer: |
+          To know about tenant details, open the vault credential file downloaded from Recovery Services vault and refer to the value of the `<AadTenantId>` attribute.
+
+      - question: |
           What is the impact on MARS Agent backups of transferring the vault subscription to a different Azure AD directory?
         answer: |
           The change of Azure AD directory will have no impact on MARS Agent backups. 
@@ -96,7 +102,7 @@ sections:
       - question: |
           What happens if I rename or change the FQDN of a Windows machine configured for backup?
         answer: |
-          When you rename a Windows machine or make changes to the FQDN by performing operations like adding machine to a domain, moving machine to another domain or disjoining machine from a domain ,  all currently configured backups are stopped.
+          When you rename a Windows machine or make changes to the FQDN by performing operations like adding machine to a domain, moving machine to another domain or disjoining machine from a domain,  all currently configured backups are stopped.
           
           * You need to register the new machine name with recovery services vault.
           * When you register the new name with the vault, the first operation is a *full* backup.
@@ -237,7 +243,7 @@ sections:
       - question: |
           My backup jobs have been failing or not running for a long time. I'm past the retention period. Can I still restore?
         answer: |
-          As a safety measure, Azure Backup will preserve the most recent recovery point, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
+          As a safety measure, Azure Backup will preserve the recovery point with the longest retention, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
 
       - question: |
           What happens if I cancel an ongoing restore job?

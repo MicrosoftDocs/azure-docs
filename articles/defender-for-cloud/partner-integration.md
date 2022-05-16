@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Integrate security solutions in Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This document helps you to manage security solutions already connected to Microsoft Defender for Cloud and add new ones.
 
 ## Integrated Azure security solutions
@@ -17,17 +15,17 @@ Defender for Cloud makes it easy to enable integrated security solutions in Azur
 - **Integrated detections**: Security events from partner solutions are automatically collected, aggregated, and displayed as part of Defender for Cloud alerts and incidents. These events also are fused with detections from other sources to provide advanced threat-detection capabilities.
 - **Unified health monitoring and management**: Customers can use integrated health events to monitor all partner solutions at a glance. Basic management is available, with easy access to advanced setup by using the partner solution.
 
-Currently, integrated security solutions include vulnerability assessment by [Qualys](https://www.qualys.com/public-cloud/#azure) and [Rapid7](https://www.rapid7.com/products/insightvm/) and [Microsoft Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
+Currently, integrated security solutions include vulnerability assessment by [Qualys](https://www.qualys.com/public-cloud/#azure) and [Rapid7](https://www.rapid7.com/products/insightvm/).
 
 > [!NOTE]
 > Defender for Cloud does not install the Log Analytics agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
 
-To learn more about the integration of vulnerability scanning tools from Qualys, including a built-in scanner available to customers who've enabled Microsoft Defender for servers, see [Defender for Cloud's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md).
+To learn more about the integration of vulnerability scanning tools from Qualys, including a built-in scanner available to customers who've enabled Microsoft Defender for Servers, see [Defender for Cloud's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md).
 
 Defender for Cloud also offers vulnerability analysis for your:
 
-* SQL databases - see [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)
-* Azure Container Registry images - see [Use Microsoft Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md)
+- SQL databases - see [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)
+* Azure Container Registry images - see [Use Microsoft Defender for container registries to scan your images for vulnerabilities](defender-for-containers-usage.md)
 
 ## How security solutions are integrated
 Azure security solutions that are deployed from Defender for Cloud are automatically connected. You can also connect other security data sources, including computers running on-premises or in other clouds.

@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources'
 description: Learn all about the SQL Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: javascript
 ms.topic: reference
 ms.date: 12/09/2021
-ms.author: anfeldma
+ms.author: jroth
 ms.custom: devx-track-js
 
 ---
@@ -172,7 +172,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 
 ### Improved browser experience
 
-While it was possible to use the v2 SDK in the browser, it was not an ideal experience. You needed to Polyfill several node.js built-in libraries and use a bundler like webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
+While it was possible to use the v2 SDK in the browser, it was not an ideal experience. You needed to Polyfill several Node.js built-in libraries and use a bundler like webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
 
 * Replace request internals with fetch (#245)
 * Remove usage of Buffer (#330)
@@ -197,7 +197,7 @@ While it was possible to use the v2 SDK in the browser, it was not an ideal expe
 Not always the most visible changes, but they help our team ship better code, faster.
 
 * Use rollup for production builds (#104)
-* Update to Typescript 3.5 (#327)
+* Update to TypeScript 3.5 (#327)
 * Convert to TS project references. Extract test folder (#270)
 * Enable noUnusedLocals and noUnusedParameters (#275)
 * Azure Pipelines YAML for CI builds (#298)

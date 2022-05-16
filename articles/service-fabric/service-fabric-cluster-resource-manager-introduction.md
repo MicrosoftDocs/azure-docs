@@ -30,6 +30,7 @@ The Cluster Resource Manager is the system component that handles orchestration 
 2. Optimizing Your Environment
 3. Helping with Other Processes
 
+[Check this page for a training video to understand how the Cluster Resource Manager works:](/shows/building-microservices-applications-on-azure-service-fabric/cluster-resource-manager)
 ### What it isn’t
 In traditional N tier applications, there's always a [Load Balancer](https://en.wikipedia.org/wiki/Load_balancing_(computing)). Usually this was a Network Load Balancer (NLB) or an Application Load Balancer (ALB) depending on where it sat in the networking stack. Some load balancers are Hardware-based like F5’s BigIP offering, others are software-based such as Microsoft’s NLB. In other environments, you might see something like HAProxy, nginx, Istio, or Envoy in this role. In these architectures, the job of load balancing is to ensure stateless workloads receive (roughly) the same amount of work. Strategies for balancing load varied. Some balancers would send each different call to a different server. Others provided session pinning/stickiness. More advanced balancers use actual load estimation or reporting to route a call based on its expected cost and current machine load.
 

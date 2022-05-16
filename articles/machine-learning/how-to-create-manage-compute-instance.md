@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, references_regions
+ms.custom: devx-track-azurecli, references_regions, cliv1
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
@@ -32,7 +32,7 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+* The [Azure CLI extension for Machine Learning service (v1)](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 ## Create
 
@@ -88,11 +88,13 @@ For more information on the classes, methods, and parameters used in this exampl
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 ```azurecli-interactive
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-For more information, see the [az ml computetarget create computeinstance](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_computeinstance) reference.
+For more information, see the [az ml computetarget create computeinstance](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-computeinstance) reference.
 
 # [Studio](#tab/azure-studio)
 
@@ -461,6 +463,8 @@ In the examples below, the name of the compute instance is **instance**
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 In the examples below, the name of the compute instance is **instance**
 
 * Stop
@@ -469,7 +473,7 @@ In the examples below, the name of the compute instance is **instance**
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    For more information, see [az ml computetarget stop computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
+    For more information, see [az ml computetarget stop computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az-ml-computetarget-computeinstance-stop).
 
 * Start
 
@@ -477,7 +481,7 @@ In the examples below, the name of the compute instance is **instance**
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    For more information, see [az ml computetarget start computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
+    For more information, see [az ml computetarget start computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az-ml-computetarget-computeinstance-start).
 
 * Restart
 
@@ -485,7 +489,7 @@ In the examples below, the name of the compute instance is **instance**
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    For more information, see [az ml computetarget restart computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart).
+    For more information, see [az ml computetarget restart computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az-ml-computetarget-computeinstance-restart).
 
 * Delete
 
@@ -493,7 +497,7 @@ In the examples below, the name of the compute instance is **instance**
     az ml computetarget delete -n instance -v
     ```
 
-    For more information, see [az ml computetarget delete computeinstance](/cli/azure/ml(v1)/computetarget#az_ml_computetarget_delete).
+    For more information, see [az ml computetarget delete computeinstance](/cli/azure/ml(v1)/computetarget#az-ml-computetarget-delete).
 
 # [Studio](#tab/azure-studio)
 <a name="schedule"></a>

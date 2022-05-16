@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Customize the set of standards in your regulatory compliance dashboard
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Cloud continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance requirements.
 
 > [!TIP]
@@ -28,18 +26,27 @@ Microsoft tracks the regulatory standards themselves and automatically improves 
 
 By default, every subscription has the **Azure Security Benchmark** assigned. This is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction).
 
-You can also add standards such as:
+Available regulatory standards:
 
-- NIST SP 800-53
-- SWIFT CSP CSCF-v2020
-- UK Official and UK NHS
+- PCI-DSS v3.2.1:2018
+- SOC TSP
+- NIST SP 800-53 R4
+- NIST SP 800 171 R2
+- UK OFFICIAL and UK NHS
 - Canada Federal PBMM
-- Azure CIS 1.3.0
-- CMMC Level 3
+- Azure CIS 1.1.0
+- HIPAA/HITRUST
+- SWIFT CSP CSCF v2020
+- ISO 27001:2013
 - New Zealand ISM Restricted
+- CMMC Level 3
+- Azure CIS 1.3.0
+- NIST SP 800-53 R5
+- FedRAMP H
+- FedRAMP M
 
-Standards are added to the dashboard as they become available.
-
+> [!TIP]
+> Standards are added to the dashboard as they become available. The preceding list might not contain recently added standards.
 
 ## Add a regulatory standard to your dashboard
 
@@ -64,17 +71,7 @@ To add standards to your dashboard:
 
 1. To add the standards relevant to your organization, expand the **Industry & regulatory standards** section and select **Add more standards**.
 
-1. From the **Add regulatory compliance standards** page, you can search for any of the available standards, including:
-
-    - **NIST SP 800-53**
-    - **NIST SP 800 171**
-    - **SWIFT CSP CSCF v2020**
-    - **UKO and UK NHS**
-    - **Canada Federal PBMM**
-    - **HIPAA HITRUST**
-    - **Azure CIS 1.3.0**
-    - **CMMC Level 3**
-    - **New Zealand ISM Restricted**
+1. From the **Add regulatory compliance standards** page, you can search for any of the available standards:
     
     ![Adding regulatory standards to Microsoft Defender for Cloud's regulatory compliance dashboard.](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 

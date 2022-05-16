@@ -10,6 +10,7 @@ ms.custom: devx-track-js
 # service-fabric-get-started-linux.md
 # service-fabric-get-started-mac.md
 # service-fabric-local-linux-cluster-windows.md
+# service-fabric-local-linux-cluster-windows-wsl2.md
 ---
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]
@@ -187,6 +188,10 @@ Start a container-based [Service Fabric Onebox](https://hub.docker.com/_/microso
     ```
 
 3. Start the cluster.<br/>
+    <b>Ubuntu 20.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u20
+    ```
     <b>Ubuntu 18.04 LTS:</b>
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
@@ -351,7 +356,7 @@ To remove the Service Fabric SDKs, run the following commands.
 
 * [Create and deploy your first Service Fabric Java application on Linux by using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Create and deploy your first Service Fabric Java application on Linux by using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
-* [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+* [Create your first C# application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 * [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * [Manage your applications by using the Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)

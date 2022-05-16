@@ -1,5 +1,5 @@
 ---
-title: Run automated integration tests 
+title: Run automated integration tests
 titleSuffix: Microsoft identity platform
 description: Learn how to run automated integration tests as a user against APIs protected by the Microsoft identity platform. Use the Resource Owner Password Credential Grant (ROPC) auth flow to sign in as a user instead of automating the interactive sign-in prompt UI.
 services: active-directory
@@ -41,20 +41,20 @@ Using the ROPC authentication flow is risky in a production environment, so [cre
 
 ## Create and configure a key vault
 
-We recommend you securely store the test usernames and passwords as [secrets](/azure/key-vault/secrets/about-secrets) in Azure Key Vault.  When you run the tests later, the tests run in the context of a security principal.  The security principal is an Azure AD user if you're running tests locally (for example, in Visual Studio or Visual Studio Code), or a service principal or managed identity if you're running tests in Azure Pipelines or another Azure resource.  The security principal must have **Read** and **List** secrets permissions so the test runner can get the test usernames and passwords from your key vault. For more information, read [Authentication in Azure Key Vault](/azure/key-vault/general/authentication).
+We recommend you securely store the test usernames and passwords as [secrets](../../key-vault/secrets/about-secrets.md) in Azure Key Vault.  When you run the tests later, the tests run in the context of a security principal.  The security principal is an Azure AD user if you're running tests locally (for example, in Visual Studio or Visual Studio Code), or a service principal or managed identity if you're running tests in Azure Pipelines or another Azure resource.  The security principal must have **Read** and **List** secrets permissions so the test runner can get the test usernames and passwords from your key vault. For more information, read [Authentication in Azure Key Vault](../../key-vault/general/authentication.md).
 
-1. [Create a new key vault](/azure/key-vault/general/quick-create-portal) if you don't have one already.
+1. [Create a new key vault](../../key-vault/general/quick-create-portal.md) if you don't have one already.
 1. Take note of the **Vault URI** property value (similar to `https://<your-unique-keyvault-name>.vault.azure.net/`) which is used in the example test later in this article.
-1. [Assign an access policy](/azure/key-vault/general/assign-access-policy) for the security principal running the tests. Grant the user, service principal, or managed identity **Get** and **List** secrets permissions in the key vault.
+1. [Assign an access policy](../../key-vault/general/assign-access-policy.md) for the security principal running the tests. Grant the user, service principal, or managed identity **Get** and **List** secrets permissions in the key vault.
 
 ## Create test users
 
-Create some test users in your tenant for testing. Since the test users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](/azure/key-vault/secrets/about-secrets) in Azure Key Vault.
+Create some test users in your tenant for testing. Since the test users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](../../key-vault/secrets/about-secrets.md) in Azure Key Vault.
 
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
 1. Go to **Users**.
 1. Select **New user** and create one or more test user accounts in your directory.
-1. The example test later in this article uses a single test user.  [Add the test username and password as secrets](/azure/key-vault/secrets/quick-create-portal) in the key vault you created previously. Add the username as a secret named "TestUserName" and the password as a secret named "TestPassword".
+1. The example test later in this article uses a single test user.  [Add the test username and password as secrets](../../key-vault/secrets/quick-create-portal.md) in the key vault you created previously. Add the username as a secret named "TestUserName" and the password as a secret named "TestPassword".
 
 ## Create and configure an app registration
 Register an application that acts as your client app when calling APIs during testing.  This should *not* be the same application you may already have in production.  You should have a separate app to use only for testing purposes.
@@ -73,7 +73,7 @@ ROPC is a public client flow, so you need to enable your app for public client f
 
 Since ROPC is not an interactive flow, you won't be prompted with a consent screen to consent to these at runtime.  Pre-consent to the permissions to avoid errors when acquiring tokens.
 
-Add the permissions to your app. Do not add any sensitive or high-privilege permissions to the app, we recommend you scope your testing scenarios to basic integration scenarios around integrating with Azure AD.  
+Add the permissions to your app. Do not add any sensitive or high-privilege permissions to the app, we recommend you scope your testing scenarios to basic integration scenarios around integrating with Azure AD.
 
 From your app registration in the [Azure portal](https://portal.azure.com), go to **API Permissions** > **Add a permission**.  Add the permissions you need to call the APIs you'll be using. A test example further in this article uses the `https://graph.microsoft.com/User.Read` and `https://graph.microsoft.com/User.ReadBasic.All` permissions.
 
@@ -104,10 +104,10 @@ client_id={your_client_ID}
 Replace *{tenant}* with your tenant ID, *{your_client_ID}* with the client ID of your application, and *{resource_you_want_to_call}* with the identifier URI (for example, "https://graph.microsoft.com") or app ID of the API you are trying to access.
 
 ## Exclude test apps and users from your MFA policy
-Your tenant likely has a conditional access policy that [requires multifactor authentication (MFA) for all users](/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa), as recommended by Microsoft.  MFA won't work with ROPC, so you'll need to exempt your test applications and test users from this requirement.
+Your tenant likely has a conditional access policy that [requires multifactor authentication (MFA) for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md), as recommended by Microsoft.  MFA won't work with ROPC, so you'll need to exempt your test applications and test users from this requirement.
 
 To exclude user accounts:
-1. Navigate to the [Azure portal](https://portal.azure.com) and sign in to your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional access**.
+1. Navigate to the [Azure portal](https://portal.azure.com) and sign in to your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional Access**.
 1. In **Policies**, select the conditional access policy that requires MFA.
 1. Select **Users or workload identities**.
 1. Select the **Exclude** tab and then the **Users and groups** checkbox.
@@ -133,16 +133,16 @@ Add the client ID of the test app you previously created, the necessary scopes, 
 {
   "Authentication": {
     "AzureCloudInstance": "AzurePublic", //Will be different for different Azure clouds, like US Gov
-    "AadAuthorityAudience": "AzureAdMultipleOrgs", 
+    "AadAuthorityAudience": "AzureAdMultipleOrgs",
     "ClientId": <your_client_ID>
   },
 
   "WebAPI": {
     "Scopes": [
       //For this Microsoft Graph example.  Your value(s) will be different depending on the API you're calling
-      "https://graph.microsoft.com/User.Read",  
+      "https://graph.microsoft.com/User.Read",
       //For this Microsoft Graph example.  Your value(s) will be different depending on the API you're calling
-      "https://graph.microsoft.com/User.ReadBasic.All"  
+      "https://graph.microsoft.com/User.ReadBasic.All"
     ]
   },
 
@@ -200,10 +200,10 @@ public async Task InitializeAsync()
                  }
             };
 
-            string keyVaultUri = Configuration.GetValue<string>("KeyVault:KeyVaultUri"); 
+            string keyVaultUri = Configuration.GetValue<string>("KeyVault:KeyVaultUri");
             var client = new SecretClient(new Uri(keyVaultUri), new DefaultAzureCredential(), options);
 
-            KeyVaultSecret userNameSecret = client.GetSecret("TestUserName");        
+            KeyVaultSecret userNameSecret = client.GetSecret("TestUserName");
             KeyVaultSecret passwordSecret = client.GetSecret("TestPassword");
 
             string password = passwordSecret.Value;

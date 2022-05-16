@@ -32,7 +32,7 @@ If you delete a tag, Azure Virtual Desktop will no longer report data associated
 
 ### View all existing tags
 
-You can view all existing tags for your Azure services by going to the Azure portal, then opening [the **Tags** tab](https://ms.portal.azure.com/#blade/HubsExtension/TagsBlade). The Tags tab will show you all tags in objects you have access to. You can also sort tags by their keys or values whenever you need to quickly update a large number of tags at the same time.
+You can view all existing tags for your Azure services by going to the Azure portal, then opening [the **Tags** tab](https://portal.azure.com/#blade/HubsExtension/TagsBlade). The Tags tab will show you all tags in objects you have access to. You can also sort tags by their keys or values whenever you need to quickly update a large number of tags at the same time.
 
 ### What tags can and can't do
 

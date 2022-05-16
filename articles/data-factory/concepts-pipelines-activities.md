@@ -82,6 +82,38 @@ Control activity | Description
 [Web Activity](control-flow-web-activity.md) | Web Activity can be used to call a custom REST endpoint from a pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 [Webhook Activity](control-flow-webhook-activity.md) | Using the webhook activity, call an endpoint, and pass a callback URL. The pipeline run waits for the callback to be invoked before proceeding to the next activity.
 
+## Creating a pipeline with UI
+
+# [Azure Data Factory](#tab/data-factory)
+To create a new pipeline, navigate to the Author tab in Data Factory Studio (represented by the pencil icon), then click the plus sign and choose Pipeline from the menu, and Pipeline again from the submenu.
+
+:::image type="content" source="media/concepts-pipelines-activities/create-pipeline-with-ui.png" alt-text="Shows the steps to create a new pipeline using Azure Data Factory Studio.":::
+
+Data factory will display the pipeline editor where you can find:
+
+1. All activities that can be used within the pipeline.
+1. The pipeline editor canvas, where activities will appear when added to the pipeline.
+1. The pipeline configurations pane, including parameters, variables, general settings, and output.
+1. The pipeline properties pane, where the pipeline name, optional description, and annotations can be configured.  This pane will also show any related items to the pipeline within the data factory.
+
+:::image type="content" source="media/concepts-pipelines-activities/pipeline-configuration-with-ui.png" alt-text="Shows the pipeline editor pane in Azure Data Factory studio with each of the sections described above highlighted.":::
+
+# [Synapse Analytics](#tab/synapse-analytics)
+To create a new pipeline, navigate to the Integrate tab in Synapse Studio (represented by the pipeline icon), then click the plus sign and choose Pipeline from the menu.
+
+:::image type="content" source="media/concepts-pipelines-activities/create-pipeline-with-ui-synapse.png" alt-text="Shows the steps to create a new pipeline using Synapse Studio.":::
+
+Synapse will display the pipeline editor where you can find:
+
+1. All activities that can be used within the pipeline.
+1. The pipeline editor canvas, where activities will appear when added to the pipeline.
+1. The pipeline configurations pane, including parameters, variables, general settings, and output.
+1. The pipeline properties pane, where the pipeline name, optional description, and annotations can be configured.  This pane will also show any related items to the pipeline in the Synapse workspace.
+
+:::image type="content" source="media/concepts-pipelines-activities/pipeline-configuration-with-ui-synapse.png" alt-text="Shows the pipeline editor pane in Synapse studio with each of the sections described above highlighted.":::
+
+---
+
 ## Pipeline JSON
 Here is how a pipeline is defined in JSON format:
 
@@ -149,7 +181,7 @@ policy | Policies that affect the run-time behavior of the activity. This proper
 dependsOn | This property is used to define activity dependencies, and how subsequent activities depend on previous activities. For more information, see [Activity dependency](#activity-dependency) | No
 
 ### Activity policy
-Policies affect the run-time behavior of an activity, giving configurability options. Activity Policies are only available for execution activities.
+Policies affect the run-time behavior of an activity, giving configuration options. Activity Policies are only available for execution activities.
 
 ### Activity policy JSON definition
 

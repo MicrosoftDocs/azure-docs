@@ -28,15 +28,20 @@ If your Azure Migrate project has private endpoint connectivity, the request to 
 
 ## Common agentless dependency analysis errors
 
-Azure Migrate supports agentless dependency analysis by using Azure Migrate: Discovery and assessment. Agentless dependency analysis is currently supported for VMware only. [Learn more](how-to-create-group-machine-dependencies-agentless.md) about the requirements for agentless dependency analysis.
+Azure Migrate supports agentless dependency analysis by using Azure Migrate: Discovery and assessment. [Learn more](how-to-create-group-machine-dependencies-agentless.md) about how to perform agentless dependency analysis.
 
-The list of agentless dependency analysis errors is summarized in the following table.
+For VMware VMs, agentless dependency analysis is performed by connecting to the servers via the vCenter Server using the VMware APIs. For Hyper-V VMs and physical servers, agentless dependency analysis is performed by directly connecting to Windows servers using PowerShell remoting on port 5985 (HTTP) and to Linux servers using SSH connectivity on port 22 (TCP).
+
+The table below summarizes all errors encountered when gathering dependency data through VMware APIs or by directly connecting to servers:
 
 > [!Note]
 > The same errors can also be encountered with software inventory because it follows the same methodology as agentless dependency analysis to collect the required data.
 
 | **Error** | **Cause** | **Action** |
 |--|--|--|
+| **60001**:UnableToConnectToPhysicalServer | Either the [prerequisites](./migrate-support-matrix-physical.md) to connect to the server have not been met or there are network issues in connecting to the server, for instance some proxy settings.| - Ensure that the server meets the prerequisites and [port access requirements](./migrate-support-matrix-physical.md). <br/> - Add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the Azure Migrate appliance, and retry the operation. This is to allow remote inbound connections on servers - _Windows:_ WinRM port 5985 (HTTP) and _Linux:_ SSH port 22 (TCP). <br/>- Ensure that you have chosen the correct authentication method on the appliance to connect to the server. <br/> - If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).|
+| **60002**:InvalidServerCredentials| Unable to connect to server. Either you have provided incorrect credentials on the appliance or the credentials previously provided have expired.| - Ensure that you have provided the correct credentials for the server on the appliance. You can check that by trying to connect to the server using those credentials.<br/> - If the credentials added are incorrect or have expired, edit the credentials on the appliance and revalidate the added servers. If the validation succeeds, the issue is resolved.<br/> - If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).|
+| **60005**:SSHOperationTimeout | The operation took longer than expected either due to network latency issues or due to the lack of latest updates on the server.| - Ensure that the impacted server has the latest kernel and OS updates installed.<br/>- Ensure that there is no network latency between the appliance and the server. It is recommended to have the appliance and source server on the same domain to avoid latency issues.<br/> - Connect to the impacted server from the appliance and run the commands [documented here](./troubleshoot-appliance.md) to check if they return null or empty data.<br/>- If the issue persists, submit a Microsoft support case providing the appliance machine ID (available in the footer of the appliance configuration manager). | 
 | **9000**: VMware tools status on the server can't be detected. | VMware tools might not be installed on the server or the installed version is corrupted. | Ensure that VMware tools later than version 10.2.1 are installed and running on the server. |
 | **9001**: VMware tools aren't installed on the server. | VMware tools might not be installed on the server or the installed version is corrupted. | Ensure that VMware tools later than version 10.2.1 are installed and running on the server. |
 | **9002**: VMware tools aren't running on the server. | VMware tools might not be installed on the server or the installed version is corrupted. | Ensure that VMware tools later than version 10.2.0 are installed and running on the server. |
@@ -148,7 +153,7 @@ The error usually appears for servers running Windows Server 2008 or lower.
 ### Remediation
 Install the required PowerShell version (2.0 or later) at this location on the server: ($SYSTEMROOT)\System32\WindowsPowershell\v1.0\powershell.exe. [Learn more](/powershell/scripting/windows-powershell/install/installing-windows-powershell) about how to install PowerShell in Windows Server.
 
-After you install the required PowerShell version, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-by-using-vmware-powercli).
+After you install the required PowerShell version, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification).
 
 ## Error 9022: GetWMIObjectAccessDenied
 
@@ -167,7 +172,7 @@ Make sure that the user account provided in the appliance has access to the WMI 
 1. Ensure you grant execute permissions, and select **This namespace and subnamespaces** in the **Applies to** dropdown list.
 1. Select **Apply** to save the settings and close all dialogs.
 
-After you get the required access, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-by-using-vmware-powercli).
+After you get the required access, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification).
 
 ## Error 9032: InvalidRequest
 
@@ -176,7 +181,7 @@ There can be multiple reasons for this issue. One reason is when the username pr
 
 ### Remediation
 - Make sure the username of the server credentials doesn't have invalid XML characters and is in the username@domain.com format. This format is popularly known as the UPN format.
-- After you edit the credentials on the appliance, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-by-using-vmware-powercli).
+- After you edit the credentials on the appliance, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification).
 
 
 ## Error 10002: ScriptExecutionTimedOutOnVm
@@ -208,7 +213,7 @@ There can be multiple reasons for this issue. One reason is when the username pr
 - Ensure that you can log in to the affected server by using the same credential provided in the appliance.
 - You can try using another user account (for the same domain, in case the server is domain joined) for that server instead of the administrator account.
 - The issue can happen when Global Catalog <-> Domain Controller communication is broken. Check for this problem by creating a new user account in the domain controller and providing the same in the appliance. You might also need to restart the domain controller.
-- After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-by-using-vmware-powercli).
+- After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification).
 
 ## Error 10012: CredentialNotProvided
 
@@ -217,12 +222,13 @@ This error occurs when you've provided a domain credential with the wrong domain
 
 ### Remediation
 - Go to the appliance configuration manager to add a server credential or edit an existing one as explained in the cause.
-- After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-by-using-vmware-powercli).
+- After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification).
 
-## Mitigation verification by using VMware PowerCLI
+## Mitigation verification
 
 After you use the mitigation steps for the preceding errors, verify if the mitigation worked by running a few PowerCLI commands from the appliance server. If the commands succeed, it means that the issue is resolved. Otherwise, check and follow the remediation steps again.
 
+### For VMware VMs _(using VMware pipe)_
 1. Run the following commands to set up PowerCLI on the appliance server:
    ````
    Install-Module -Name VMware.PowerCLI -AllowClobber
@@ -252,7 +258,48 @@ After you use the mitigation steps for the preceding errors, verify if the mitig
     
           Invoke-VMScript -VM $vm -ScriptText "netstat -atnp | awk '{print $4,$5,$7}'" -GuestCredential $credential
           ````
-1. After you verify that the mitigation worked, go to the **Azure Migrate project** > **Discovery and assessment** > **Overview** > **Manage** > **Appliances**, select the appliance name, and select **Refresh services** to start a fresh discovery cycle.
+
+### For Hyper-V VMs and physical servers _(using direct connect pipe)_
+For Windows servers:
+
+1. Connect to Windows server by running the command:
+   ````
+   $Server = New-PSSession –ComputerName <IPAddress of Server> -Credential <user_name>
+   ````
+   and input the server credentials in the prompt.
+
+2. Run the following commands to validate for agentless dependency analysis to see if you get a successful output:
+   ````
+   Invoke-Command -Session $Server -ScriptBlock {Get-WmiObject Win32_Process}
+   Invoke-Command -Session $Server -ScriptBlock {netstat -ano -p tcp}
+   ````
+
+For Linux servers:
+
+1. Install the OpenSSH client
+   ````
+   Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+   ````
+2. Install the OpenSSH server
+   ````
+   Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+   ````
+3. Start and configure OpenSSH Server
+   ````
+   Start-Service sshd
+   Set-Service -Name sshd -StartupType 'Automatic'
+   ````
+4. Connect to OpenSSH Server
+   ````
+   ssh username@servername
+   ````
+5. Run the following commands to validate for agentless dependency analysis to see if you get a successful output:
+   ````
+   ps -o pid,cmd | grep -v ]$
+   netstat -atnp | awk '{print $4,$5,$7}'
+   ````
+
+After you verify that the mitigation worked, go to the **Azure Migrate project** > **Discovery and assessment** > **Overview** > **Manage** > **Appliances**, select the appliance name, and select **Refresh services** to start a fresh discovery cycle.
 
 ## My Log Analytics workspace isn't listed when you try to configure the workspace in Azure Migrate for agent-based dependency analysis
 Azure Migrate currently supports creation of OMS workspace in East US, Southeast Asia, and West Europe regions. If the workspace is created outside of Azure Migrate in any other region, it currently can't be associated with a project.

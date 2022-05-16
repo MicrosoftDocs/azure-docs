@@ -5,19 +5,20 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 12/02/2021
+ms.date: 05/03/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021
 ---
 
 # Quotas for Azure Container Apps Preview
 
-The following quotas exist per subscription for Azure Container Apps Preview.
+The following quotas are on a per subscription basis for Azure Container Apps.
 
 | Feature | Quantity |
 |---|---|
-| Environments | 2 |
+| Environments per region | 5 |
 | Container apps per environment | 20 |
-| Replicas per container app | 25 |
+| Replicas per container app | 30 |
 | Cores per replica | 2 |
-| Cores per environment | 50 |
+| Cores per environment | 20 |
+
+To request an increase in quota amounts for your container app, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/).

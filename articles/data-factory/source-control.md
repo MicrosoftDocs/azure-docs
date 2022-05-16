@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/23/2021
+ms.date: 03/01/2022
 ---
 
 # Source control in Azure Data Factory
@@ -78,7 +78,7 @@ When creating a new data factory in the Azure portal, you can configure Git repo
 
 ## Author with Azure Repos Git integration
 
-Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your resources.
+Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization?view=azure-devops&preserve-view=true) to create your resources.
 
 > [!NOTE]
 > You can store script and data files in an Azure Repos Git repository. However, you have to upload the files manually to Azure Storage. A data factory pipeline doesn't automatically upload script or data files stored in an Azure Repos Git repository to Azure Storage.
@@ -130,9 +130,10 @@ For more info about connecting Azure Repos to your organization's Active Directo
 
 Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
 
-The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)) and GitHub Enterprise. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub.
+The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)) and GitHub Enterprise. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub. ADF’s GitHub enterprise server integration only works with [officially supported versions of GitHub enterprise server.](https://docs.github.com/en/enterprise-server@3.1/admin/all-releases)  
 
-To configure a GitHub repo, you must have administrator permissions for the Azure subscription that you're using.
+> [!NOTE]
+> If you are using Microsoft Edge, GitHub Enterprise version less than 2.1.4 does not work with it. GitHub officially supports >=3.0 and these all should be fine for ADF. As GitHub changes its minimum version, ADF supported versions will also change. 
 
 ### GitHub settings
 
@@ -285,8 +286,11 @@ It imports the code from live mode into collaboration branch. It considers the c
 <u>*Code flow:*</u> ***Live mode -> Collaboration branch***  
 
 1. Remove your current Git repository
-1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **New branch**
-1. Create a pull request to merge the changes to the collaboration branch 
+1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **Collaboration branch (same branch)**
+1. Create a pull request to merge the changes to the collaboration branch.
+
+> [!NOTE]
+> It is only necessary to create and merge a pull request if you are working in a repository that does not allow direct commits.  In most organizations, submissions into the repository will require review before merging so the best practice is usually to use this approach.  But in some cases no review is required, in which case it isn't necessary to create and merge a pull request, but changes can be directly committed to the collaboration branch.
 
 Choose either method appropriately as needed. 
 

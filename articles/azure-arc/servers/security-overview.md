@@ -2,12 +2,15 @@
 title: Security overview
 description: Security information about Azure Arc-enabled servers.
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 04/15/2022
 ---
 
 # Azure Arc-enabled servers security overview
 
 This article describes the security configuration and considerations you should evaluate before deploying Azure Arc-enabled servers in your enterprise.
+
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
 
 ## Identity and access control
 
@@ -27,13 +30,133 @@ To manage the Azure Connected Machine agent (azcmagent) on Windows, your user ac
 
 The Azure Connected Machine agent is composed of three services, which run on your machine.
 
-* The Hybrid Instance Metadata Service (himds) service is responsible for all core functionality of Arc. This includes sending heartbeats to Azure, exposing a local instance metadata service for other apps to learn about the machine’s Azure resource ID, and retrieve Azure AD tokens to authenticate to other Azure services. This service runs as an unprivileged virtual service account on Windows, and as the **himds** user on Linux.
+* The Hybrid Instance Metadata Service (himds) service is responsible for all core functionality of Arc. This includes sending heartbeats to Azure, exposing a local instance metadata service for other apps to learn about the machine’s Azure resource ID, and retrieve Azure AD tokens to authenticate to other Azure services. This service runs as an unprivileged virtual service account (NT SERVICE\\himds) on Windows, and as the **himds** user on Linux. The virtual service account requires the Log on as a Service right on Windows.
 
 * The Guest Configuration service (GCService) is responsible for evaluating Azure Policy on the machine.
 
-* The Guest Configuration Extension service (ExtensionService) is responsible for installing, updating, and deleting extensions (agents, scripts, or other software) on the machine.
+* The Guest Configuration Extension service (ExtensionService) is responsible for installing, upgrading, and deleting extensions (agents, scripts, or other software) on the machine.
 
 The guest configuration and extension services run as Local System on Windows, and as root on Linux.
+
+## Local agent security controls
+
+Starting with agent version 1.16, you can optionally limit the extensions that can be installed on your server and disable Guest Configuration. These controls can be useful when connecting servers to Azure that need to be monitored or secured by Azure, but should not allow arbitrary management capabilities like running scripts with Custom Script Extension or configuring settings on the server with Guest Configuration.
+
+These security controls can only be configured by running a command on the server itself and cannot be modified from Azure. This approach preserves the server admin's intent when enabling remote management scenarios with Azure Arc, but also means that changing the setting is more difficult if you later decide to change them. This feature is intended for particularly sensitive servers (for example, Active Directory Domain Controllers, servers that handle payment data, and servers subject to strict change control measures). In most other cases, it is not necessary to modify these settings.
+
+### Extension allowlists and blocklists
+
+To limit which [extensions](manage-vm-extensions.md) can be installed on your server, you can configure lists of the extensions you wish to allow and block on the server. The extension manager will evaluate all requests to install, update, or upgrade extensions against the allowlist and blocklist to determine if the extension can be installed on the server. Delete requests are always allowed.
+
+The most secure option is to explicitly allow the extensions you expect to be installed. Any extension not in the allowlist is automatically blocked. To configure the Azure Connected Machine agent to allow only the Log Analytics Agent for Linux and the Dependency Agent for Linux, run the following command on each server:
+
+```bash
+azcmagent config set extensions.allowlist "Microsoft.EnterpriseCloud.Monitoring/OMSAgentForLinux,Microsoft.Azure.Monitoring.DependencyAgent/DependencyAgentLinux"
+```
+
+You can block one or more extensions by adding them to the blocklist. If an extension is present in both the allowlist and blocklist, it will be blocked. To block the Custom Script extension for Linux, run the following command:
+
+```bash
+azcmagent config set extensions.blocklist "Microsoft.Azure.Extensions/CustomScript"
+```
+
+Extensions are specified by their publisher and type, separated by a forward slash. See the list of the [most common extensions](manage-vm-extensions.md) in the docs or list the VM extensions already installed on your server in the [portal](manage-vm-extensions-portal.md#list-extensions-installed), [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed), or [Azure CLI](manage-vm-extensions-cli.md#list-extensions-installed).
+
+The table below describes the behavior when performing an extension operation against an agent that has the allowlist or blocklist configured.
+
+| Operation | In the allowlist | In the blocklist | In both the allowlist and blocklist | Not in any list, but an allowlist is configured |
+|--|--|--|--|
+| Install extension | Allowed | Blocked | Blocked | Blocked |
+| Update (reconfigure) extension | Allowed | Blocked | Blocked | Blocked |
+| Upgrade extension | Allowed | Blocked | Blocked | Blocked |
+| Delete extension | Allowed | Allowed | Allowed | Allowed |
+
+> [!IMPORTANT]
+> If an extension is already installed on your server before you configure an allowlist or blocklist, it will not automatically be removed. It is your responsibility to delete the extension from Azure to fully remove it from the machine. Delete requests are always accepted to accommodate this scenario. Once deleted, the allowlist and blocklist will determine whether or not to allow future install attempts.
+
+### Enable or disable Guest Configuration
+
+Azure Policy's Guest Configuration feature enables you to audit and configure settings on your server from Azure. You can disable Guest Configuration from running on your server if you don't want to allow this functionality by running the following command:
+
+```bash
+azcmagent config set guestconfiguration.enabled false
+```
+
+When Guest Configuration is disabled, any Guest Configuration policies assigned to the machine in Azure will report as non-compliant. Consider [creating an exemption](../../governance/policy/concepts/exemption-structure.md) for these machines or [changing the scope](../../governance/policy/concepts/assignment-structure.md#excluded-scopes) of your policy assignments if you don't want to see these machines reported as non-compliant.
+
+### Enable or disable the extension manager
+
+The extension manager is responsible for installing, updating, and removing [VM Extensions](manage-vm-extensions.md) on your server. You can disable the extension manager to prevent managing any extensions on your server, but we recommend using the [allow and blocklists](#extension-allowlists-and-blocklists) instead for more granular control.
+
+```bash
+azcmagent config set extensions.enabled false
+```
+
+Disabling the extension manager will not remove any extensions already installed on your server. Extensions that are hosted in their own Windows or Linux services, such as the Log Analytics Agent, may continue to run even if the extension manager is disabled. Other extensions that are hosted by the extension manager itself, like the Azure Monitor Agent, will not run if the extension manger is disabled. You should [remove any extensions](manage-vm-extensions-portal.md#remove-extensions) before disabling the extension manager to ensure no extensions continue to run on the server.
+
+### Locked down machine best practices
+
+When configuring the Azure Connected Machine agent with a reduced set of capabilities, it is important to consider the mechanisms that someone could use to remove those restrictions and implement appropriate controls. Anybody capable of running commands as an administrator or root user on the server can change the Azure Connected Machine agent configuration. Extensions and guest configuration policies execute in privileged contexts on your server, and as such may be able to change the agent configuration. If you apply these security controls to lock down the agent, Microsoft recommends the following best practices to ensure only local server admins can update the agent configuration:
+
+* Use allowlists for extensions instead of blocklists whenever possible.
+* Don't include the Custom Script Extension in the extension allowlist to prevent execution of arbitrary scripts that could change the agent configuration.
+* Disable Guest Configuration to prevent the use of custom Guest Configuration policies that could change the agent configuration.
+
+### Example configuration for monitoring and security scenarios
+
+It's common to use Azure Arc to monitor your servers with Azure Monitor and Microsoft Sentinel and secure them with Microsoft Defender for Cloud. The following configuration samples can help you configure the Azure Arc agent to only allow these scenarios.
+
+#### Azure Monitor Agent only
+
+On your Windows servers, run the following commands in an elevated command console:
+
+```powershell
+azcmagent config set extensions.allowlist "Microsoft.Azure.Monitor/AzureMonitorWindowsAgent"
+azcmagent config set guestconfiguration.enabled false
+```
+
+On your Linux servers, run the following commands:
+
+```bash
+sudo azcmagent config set extensions.allowlist "Microsoft.Azure.Monitor/AzureMonitorLinuxAgent"
+sudo azcmagent config set guestconfiguration.enabled false
+```
+
+#### Log Analytics and dependency (Azure Monitor VM Insights) only
+
+This configuration is for the legacy Log Analytics agents and the dependency agent.
+
+On your Windows servers, run the following commands in an elevated console:
+
+```powershell
+azcmagent config set extensions.allowlist "Microsoft.EnterpriseCloud.Monitoring/MicrosoftMonitoringAgent,Microsoft.Azure.Monitoring.DependencyAgent/DependencyAgentWindows"
+azcmagent config set guestconfiguration.enabled false
+```
+
+On your Linux servers, run the following commands:
+
+```bash
+sudo azcmagent config set extensions.allowlist "Microsoft.EnterpriseCloud.Monitoring/OMSAgentForLinux,Microsoft.Azure.Monitoring.DependencyAgent/DependencyAgentLinux"
+sudo azcmagent config set guestconfiguration.enabled false
+```
+
+#### Monitoring and security
+
+Microsoft Defender for Cloud enables additional extensions on your server to identify vulnerable software on your server and enable Microsoft Defender for Endpoint (if configured). Microsoft Defender for Cloud also uses Guest Configuration for its regulatory compliance feature. Since a custom Guest Configuration assignment could be used to undo the agent limitations, you should carefully evaluate whether or not you need the regulatory compliance feature and, as a result, Guest Configuration to be enabled on the machine.
+
+On your Windows servers, run the following commands in an elevated command console:
+
+```powershell
+azcmagent config set extensions.allowlist "Microsoft.EnterpriseCloud.Monitoring/MicrosoftMonitoringAgent,Qualys/WindowsAgent.AzureSecurityCenter,Microsoft.Azure.AzureDefenderForServers/MDE.Windows,Microsoft.Azure.AzureDefenderForSQL/AdvancedThreatProtection.Windows"
+azcmagent config set guestconfiguration.enabled true
+```
+
+On your Linux servers, run the following commands:
+
+```bash
+sudo azcmagent config set extensions.allowlist "Microsoft.EnterpriseCloud.Monitoring/OMSAgentForLinux,Qualys/LinuxAgent.AzureSecurityCenter,Microsoft.Azure.AzureDefenderForServers/MDE.Linux"
+sudo azcmagent config set guestconfiguration.enabled true
+```
 
 ## Using a managed identity with Azure Arc-enabled servers
 

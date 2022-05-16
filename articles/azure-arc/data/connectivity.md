@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 03/30/2022
 ms.topic: conceptual
 ---
 
@@ -25,7 +25,7 @@ Azure Arc-enabled data services provides you the option to connect to Azure in t
 
 The connectivity mode provides you the flexibility to choose how much data is sent to Azure and how users interact with the Arc Data Controller. Depending on the connectivity mode that is chosen, some functionality of Azure Arc-enabled data services may or may not be available.
 
-Importantly, if the Azure Arc-enabled data services are directly connected to Azure, then users can use [Azure Resource Manager APIs](/rest/api/resources/), the Azure CLI, and the Azure portal to operate the Azure Arc data services. The experience in directly connected mode is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure portal.  If the Azure Arc-enabled data services are indirectly connected to Azure, then the Azure portal is a read-only view. You can see the inventory of SQL managed instances and Postgres Hyperscale instances that you have deployed and the details about them, but you cannot take action on them in the Azure portal.  In the indirectly connected mode, all actions must be taken locally using Azure Data Studio, the appropriate CLI, or Kubernetes native tools like kubectl.
+Importantly, if the Azure Arc-enabled data services are directly connected to Azure, then users can use [Azure Resource Manager APIs](/rest/api/resources/), the Azure CLI, and the Azure portal to operate the Azure Arc data services. The experience in directly connected mode is much like how you would use any other Azure service with provisioning/de-provisioning, scaling, configuring, and so on all in the Azure portal.  If the Azure Arc-enabled data services are indirectly connected to Azure, then the Azure portal is a read-only view. You can see the inventory of SQL managed instances and PostgreSQL Hyperscale instances that you have deployed and the details about them, but you cannot take action on them in the Azure portal.  In the indirectly connected mode, all actions must be taken locally using Azure Data Studio, the appropriate CLI, or Kubernetes native tools like kubectl.
 
 Additionally, Azure Active Directory and Azure Role-Based Access Control can be used in the directly connected mode only because there is a dependency on a continuous and direct connection to Azure to provide this functionality.
 
@@ -50,7 +50,7 @@ Some Azure-attached services are only available when they can be directly reache
 |**Automatic upgrades and patching**|Supported<br/>The data controller must either have direct access to the Microsoft Container Registry (MCR) or the container images need to be pulled from MCR and pushed to a local, private container registry that the data controller has access to.|Supported|
 |**Automatic backup and restore**|Supported<br/>Automatic local backup and restore.|Supported<br/>In addition to automated local backup and restore, you can _optionally_ send backups to Azure blob storage for long-term, off-site retention.|
 |**Monitoring**|Supported<br/>Local monitoring using Grafana and Kibana dashboards.|Supported<br/>In addition to local monitoring dashboards, you can _optionally_ send monitoring data and logs to Azure Monitor for at-scale monitoring of multiple sites in one place. |
-|**Authentication**|Use local username/password for data controller and dashboard authentication. Use SQL and Postgres logins or Active Directory (AD is not currently supported) for connectivity to database instances.  Use K8s authentication providers for authentication to the Kubernetes API.|In addition to or instead of the authentication methods for the indirectly connected mode, you can _optionally_ use Azure Active Directory.|
+|**Authentication**|Use local username/password for data controller and dashboard authentication. Use SQL and Postgres logins or Active Directory (AD is not currently supported) for connectivity to database instances.  Use Kubernetes authentication providers for authentication to the Kubernetes API.|In addition to or instead of the authentication methods for the indirectly connected mode, you can _optionally_ use Azure Active Directory.|
 |**Role-based access control (RBAC)**|Use Kubernetes RBAC on Kubernetes API. Use SQL and Postgres RBAC for database instances.|You can use Azure Active Directory and Azure RBAC. **Pending availability in directly connected mode**|
 
 ## Connectivity requirements
@@ -194,6 +194,10 @@ A computer running Azure CLI that is uploading monitoring metrics or logs to Azu
 - `*.ods.opinsights.azure.com`
 - `*.oms.opinsights.azure.com`
 - `*.monitoring.azure.com`
+
+For example, to upload usage metrics data services will connect to `https://<azureRegion>.monitoring.azure.com/` where `<azureRegion>` is the region where data services is deployed.
+
+Likewise, data services will connect to the log analytics workspace at `https://<subscription_id>.ods.opinsights.azure.com` where `<subscription_id>` represents your Azure subscription.
 
 #### Protocol
 

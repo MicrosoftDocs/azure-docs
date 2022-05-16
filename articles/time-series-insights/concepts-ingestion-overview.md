@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 # Azure Time Series Insights Gen2 data ingestion overview
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 Your Azure Time Series Insights Gen2 environment contains an *ingestion engine* to collect, process, and store streaming time series data. As data arrives into your event source(s), Azure Time Series Insights Gen2 will consume and store your data in near real time.
 
 [![Ingestion overview](media/concepts-ingress-overview/ingress-overview.png)](media/concepts-ingress-overview/ingress-overview.png#lightbox)

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/23/2021
+ms.date: 01/28/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -172,7 +172,7 @@ If all DNS servers are unavailable, there's no fallback to another DNS server.
 
 ### Health checks
 
-DNS proxy performs five-second health check loops for as long as the upstream servers report as unhealthy. Once an upstream server is considered healthy, the firewall stops health checks until the next error. When a healthy proxy returns an error during the exchange, the firewall selects another DNS server in the list. 
+DNS proxy performs five-second health check loops for as long as the upstream servers report as unhealthy. The health checks are a recursive DNS query to the root name server. Once an upstream server is considered healthy, the firewall stops health checks until the next error. When a healthy proxy returns an error, the firewall selects another DNS server in the list. 
 
 ## Next steps
 

@@ -162,7 +162,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Sonarqube test user
 
-In this section, you create a user called B.Simon in Sonarqube. Work with [Sonarqube Client support team](https://www.sonarsource.com/support/) to add the users in the Sonarqube platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called B.Simon in Sonarqube. Work with [Sonarqube Client support team](https://sonarsource.com/company/contact/) to add the users in the Sonarqube platform. Users must be created and activated before you use single sign-on. 
 
 ## Test SSO 
 

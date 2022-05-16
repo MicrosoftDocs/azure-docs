@@ -3,13 +3,14 @@ title: Troubleshoot common errors - Azure Database for MySQL
 description: Learn how to troubleshoot common migration errors encountered by users new to the Azure Database for MySQL service
 author: savjani
 ms.service: mysql
+ms.subservice: single-server
 ms.author: pariks
 ms.custom: mvc
-ms.topic: overview
+ms.topic: troubleshooting
 ms.date: 5/21/2021
 ---
 
-# Commonly encountered errors during or post migration to Azure Database for MySQL
+# Troubleshoot errors commonly encountered during or post migration to Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
@@ -83,8 +84,8 @@ The above error may occur while executing CREATE VIEW with DEFINER statements as
 
 **Resolution**:
 
-* Use the definer user to execute CREATE VIEW if possible. It's likely that there are many views with different definers having different permissions so this may not be feasible.  OR
-* Edit the dump file or CREATE VIEW script and remove the DEFINER= statement from the dump file OR 
+* Use the definer user to execute CREATE VIEW if possible. It's likely that there are many views with different definers having different permissions, so this may not be feasible. OR
+* Edit the dump file or CREATE VIEW script and remove the DEFINER= statement from the dump file. OR
 * Edit the dump file or CREATE VIEW script and replace the definer values with user with admin permissions who is performing the import or execute the script file.
 
 > [!Tip]
@@ -130,5 +131,5 @@ If you didn't find the answer you're looking for, consider the following options
 
 * Post your question on [Microsoft Q&A question page](/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 * Send an email to the Azure Database for MySQL Team [@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). This email address isn't a technical support alias.
-* Contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+* Contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 * To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0).

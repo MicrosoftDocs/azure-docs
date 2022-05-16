@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-ner, ignite-fall-2021
@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 - A Microsoft Azure account. [Create a free account](https://azure.microsoft.com/free/cognitive-services/) or [sign in](https://portal.azure.com/).
-- A Language resource. If you don't have one, you can [create one in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and use the free tier to complete this tutorial.
+- A Language resource. If you don't have one, you can [create one in the Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and use the free tier to complete this tutorial.
 - The [key and endpoint](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
 - A spreadsheet containing tenant issues. Example data is provided on GitHub
 - Microsoft 365, with OneDrive for business.
@@ -95,7 +95,7 @@ Click on **Select an output from previous step**. In the Dynamic content box tha
 
 ## Send a request for entity recognition
 
-If you haven't already, you need to create a [Language resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal.
+If you haven't already, you need to create a [Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal.
 
 ### Create a Language service connection
 

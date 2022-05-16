@@ -4,6 +4,7 @@ description: Learn about using Data-in Replication to synchronize from an extern
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 04/08/2021
 ---
@@ -38,6 +39,9 @@ To learn more about this parameter, review the [MySQL documentation](https://dev
 ## Supported in General Purpose or Memory Optimized tier only
 
 Data-in Replication is only supported in General Purpose and Memory Optimized pricing tiers.
+
+>[!Note]
+>GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB (General purpose storage v2).
 
 ### Requirements
 

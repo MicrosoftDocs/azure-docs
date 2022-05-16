@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 06/09/2020
+ms.date: 05/11/2022
 ms.author: victorh
 ---
 
@@ -27,16 +27,18 @@ WAF with Front Door provides detailed reporting on each threat it detects. Loggi
 
 ![WAFDiag](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
 
-[FrontdoorAccessLog](../../frontdoor/front-door-diagnostics.md) logs all requests. FrontdoorWebApplicationFirewallLog logs any request that matches a WAF rule having the below schema:
+[FrontDoorAccessLog](../../frontdoor/standard-premium/how-to-logs.md#access-log) logs all requests. `FrontDoorWebApplicationFirewalllog` logs any request that matches a WAF rule and each log entry has the following schema.  
+
+For logging on the classic tier, use [FrontdoorAccessLog](../../frontdoor/front-door-diagnostics.md) logs for Front Door requests and `FrontdoorWebApplicationFirewallLog` logs for matched WAF rules using the following schema:
 
 | Property  | Description |
 | ------------- | ------------- |
-|Action|Action taken on the request|
+|Action|Action taken on the request. WAF log shows all action values. WAF metrics show all action values, except *Log*.|
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the header field. |
 | ClientPort | The IP port of the client that made the request. |
 | Details|Additional details on the matched request |
-|| matchVariableName:   http parameter name of the request matched, for example, header names|
-|| matchVariableValue:  values that triggered the match|
+|| matchVariableName:   http parameter name of the request matched, for example, header names (max chars 100)|
+|| matchVariableValue:  values that triggered the match (max chars 100)|
 | Host | The host header of the matched request |
 | Policy | The name of the WAF policy that the request matched. |
 | PolicyMode | Operations mode of the WAF policy. Possible values are "Prevention" and "Detection" |

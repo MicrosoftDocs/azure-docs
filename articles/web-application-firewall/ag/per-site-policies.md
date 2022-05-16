@@ -263,7 +263,9 @@ $wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
   -PolicySetting $PolicySettingURI `
   -CustomRule $rule4, $rule5
 
-$Gateway = Get-AzApplicationGateway -Name "myAppGateway"
+$appgw = Get-AzApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
 
 $PathRuleConfig = New-AzApplicationGatewayPathRuleConfig -Name "base" `
   -Paths "/base" `
@@ -281,7 +283,7 @@ $URLPathMap = New-AzApplicationGatewayUrlPathMapConfig -Name "PathMap" `
   -DefaultBackendAddressPoolId $defaultPool.Id `
   -DefaultBackendHttpSettingsId $poolSettings.Id
 
-Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw `
+Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $appgw `
   -Name "RequestRoutingRule" `
   -RuleType PathBasedRouting `
   -HttpListener $siteListener `

@@ -1,25 +1,28 @@
 ---
-title: Create a container in Azure Cosmos DB API for MongoDB
-description: Learn how to create a container in Azure Cosmos DB API for MongoDB by using Azure portal, .NET, Java, Node.js, and other SDKs. 
+title: Create a collection in Azure Cosmos DB API for MongoDB
+description: Learn how to create a collection in Azure Cosmos DB API for MongoDB by using Azure portal, .NET, Java, Node.js, and other SDKs. 
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 04/07/2022
 author: gahl-levy
 ms.author: gahllevy
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
-# Create a container in Azure Cosmos DB API for MongoDB
+# Create a collection in Azure Cosmos DB API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-This article explains the different ways to create a container in Azure Cosmos DB API for MongoDB. It shows how to create a container using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
+This article explains the different ways to create a collection in Azure Cosmos DB API for MongoDB. It shows how to create a collection using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a collection, specify the partition key, and provision throughput.
 
-This article explains the different ways to create a container in Azure Cosmos DB API for MongoDB. If you are using a different API, see [SQL API](../how-to-create-container.md), [Cassandra API](../cassandra/how-to-create-container-cassandra.md), [Gremlin API](../how-to-create-container-gremlin.md), and [Table API](../table/how-to-create-container.md) articles to create the container.
+>[!NOTE]
+> **Containers** and **collections** are similar to a table in a relational database. We refer to **containers** in the Cosmos DB SQL API and throughout the Azure portal, while we use **collections** in the context of the Cosmos DB MongoDB API to match the terminology used in Mongo DB.
+
+This article explains the different ways to create a collection in Azure Cosmos DB API for MongoDB. If you are using a different API, see [SQL API](../how-to-create-container.md), [Cassandra API](../cassandra/how-to-create-container-cassandra.md), [Gremlin API](../how-to-create-container-gremlin.md), and [Table API](../table/how-to-create-container.md) articles to create the collection.
 
 > [!NOTE]
-> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
+> When creating collections, make sure you don’t create two collections with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on collections with such names.
 
 ## <a id="portal-mongodb"></a>Create using Azure portal
 
@@ -57,7 +60,7 @@ If you encounter timeout exception when creating a collection, do a read operati
 
 [Create a collection for Azure Cosmos DB for MongoDB API with PowerShell](../scripts/powershell/mongodb/create.md). For a listing of all PowerShell samples across all Azure Cosmos DB APIs see, [PowerShell Samples](powershell-samples.md)
 
-## Create a container using Azure Resource Manager templates
+## Create a collection using Azure Resource Manager templates
 
 [Create a collection for Azure Cosmos DB for MongoDB API with Resource Manager template](../manage-with-templates.md#azure-cosmos-account-with-standard-provisioned-throughput).
 

@@ -10,7 +10,7 @@ ms.author: victorh
 ms.custom: devx-track-azurepowershell
 ---
 
-# Migrate Azure Firewall configurations to Azure Firewall policy using Powershell
+# Migrate Azure Firewall configurations to Azure Firewall policy using PowerShell
 
 You can use an Azure PowerShell script to migrate existing Azure Firewall configurations to an Azure Firewall policy resource. You can then use Azure Firewall Manager to deploy the policy.
 
@@ -121,13 +121,13 @@ If ($azfw.NetworkRuleCollections.Count -gt 0) {
                     }
                     elseif($rule.DestinationIpGroups)
                     {
-                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $rule.Name -SourceIpGroup $rule.SourceIpGroups -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $rule.Name -SourceAddress $rule.SourceAddresses -DestinationIpGroup $rule.DestinationIpGroups -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
                     }
                 }
                 elseif($rule.SourceIpGroups){
                     If($rule.DestinationAddresses)
                     {
-                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $rule.Name -SourceAddress $rule.SourceAddresses -DestinationIpGroup $rule.DestinationIpGroups -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+                        $firewallPolicyNetRule = New-AzFirewallPolicyNetworkRule -Name $rule.Name -SourceIpGroup $rule.SourceIpGroups -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
                     }
                     elseif($rule.DestinationIpGroups)
                     {

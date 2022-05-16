@@ -4,11 +4,10 @@ metadata:
   description: Use these frequently asked questions to decide if Avere vFXT for Azure fits your needs. Learn how Avere vFXT for Azure works with other Azure components.
   author: ekpgh
   ms.service: avere-vfxt
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 12/19/2019
   ms.author: rohogue
   ms.custom: references_regions
-    
 title: Avere vFXT for Azure FAQ
 summary: This article answers questions that can help you decide if Avere vFXT for Azure is right for your needs. It gives basic information about Avere vFXT and explains how it works with other Azure components and with products from outside vendors.
 

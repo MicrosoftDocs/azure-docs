@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Create a dedicated SQL pool using Synapse Studio'
 description: Create a dedicated SQL pool using Synapse Studio by following the steps in this guide.
-services: synapse-analytics
 author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
@@ -68,7 +67,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
     ![SQL pools create flow - basics tab.](media/quickstart-create-sql-pool/create-sql-pool-studio-24.png)
     > [!IMPORTANT]
-    > Note that there are specific limitations for the names that dedicated SQL pools can use. Names can't contain special characters, must be 15 or less characters, not contain reserved words, and be unique in the workspace.
+    > Note that there are specific limitations for the names that dedicated SQL pools can use. Names can't contain special characters, must be 60 or less characters, not contain reserved words, and be unique in the workspace.
 
 4. In the next tab, **Additional settings**, select **none** to provision the SQL pool without data. Leave the default collation as selected.
 

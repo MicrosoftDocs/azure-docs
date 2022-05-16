@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 # Create a reference data set for your Azure Time Series Insights Gen1 environment using the Azure portal
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 > [!CAUTION]
 > This is a Gen1 article.
 

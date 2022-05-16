@@ -4,7 +4,7 @@ description: Learn how to use an Azure Resource Manager template to create an Az
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 02/15/2022
 author: swinarko
 ms.author: sawinark 
 ms.custom: devx-track-azurepowershell
@@ -12,9 +12,14 @@ ms.custom: devx-track-azurepowershell
 
 # Use an Azure Resource Manager template to create an integration runtime
 
-In this section, you use an Azure Resource Manager template to create the Azure-SSIS integration runtime. 
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+
+In this section, you use an Azure Resource Manager template to create the Azure-SSIS integration runtime in Azure Data Factory. 
 
 ## Sample Azure Resource Manager template
+
+>[!NOTE] 
+> For Azure-SSIS IR in Azure Synapse Analytics, use corresponding Azure Synapse Analytics ARM template [Microsoft.Synapse workspaces/integrationRuntimes](/azure/templates/microsoft.synapse/workspaces/integrationruntimes), and corresponding Azure Synapse Analytics PowerShell interfaces: [Set-AzSynapseIntegrationRuntime (Az.Synapse)](/powershell/module/az.synapse/set-azsynapseintegrationruntime), [Start-AzSynapseIntegrationRuntime](/powershell/module/az.synapse/start-azsynapseintegrationruntime) and [Stop-AzSynapseIntegrationRuntime](/powershell/module/az.synapse/stop-azsynapseintegrationruntime).
 
 Following are steps to create an Azure-SSIS integration runtime with an Azure Resource Manager template:
 
@@ -87,6 +92,7 @@ Following are steps to create an Azure-SSIS integration runtime with an Azure Re
 > If you use SSISDB, the Data Factory service will connect to your database server to prepare SSISDB. It also configures permissions and settings for your virtual network, if specified, and joins your Azure-SSIS IR to the virtual network.
 > 
 > When you provision an Azure-SSIS IR, Access Redistributable and Azure Feature Pack for SSIS are also installed. These components provide connectivity to Excel files, Access files, and various Azure data sources, in addition to the data sources that built-in components already support. For more information about built-in/preinstalled components, see [Built-in/preinstalled components on Azure-SSIS IR](./built-in-preinstalled-components-ssis-integration-runtime.md). For more information about additional components that you can install, see [Custom setups for Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md).
+
 
 ## Next steps
 

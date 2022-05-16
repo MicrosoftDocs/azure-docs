@@ -18,7 +18,7 @@ This article describes some patterns appropriate for use with Table service solu
 
 ![to look up related data](media/storage-table-design-guide/storage-table-design-IMAGE05.png)
 
-The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to use the [Materialized View Pattern](/previous-versions/msp-n-p/dn589782(v=pandp.10)) from the [Command Query Responsibility Segregation (CQRS)](/previous-versions/msp-n-p/jj554200(v=pandp.10)) pattern.  
+The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to use the [Materialized View Pattern](/previous-versions/msp-n-p/dn589782(v=pandp.10)) from the [Command Query Responsibility Segregation (CQRS)](/previous-versions/msp-n-p/jj554200(v=pandp.10)) pattern.  
 
 ## Intra-partition secondary index pattern
 
@@ -740,7 +740,7 @@ employees.max = 50;
 
 ### Server-side projection
 
-A single entity can have up to 255 properties and be up to 1 MB in size. When you query the table and retrieve entities, you may not need all the properties and can avoid transferring data unnecessarily (to help reduce latency and cost). You can use server-side projection to transfer just the properties you need. The following example is retrieves just the **Email** property (along with **PartitionKey**, **RowKey**, **Timestamp**, and **ETag**) from the entities selected by the query.  
+A single entity can have up to 255 properties and be up to 1 MB in size. When you query the table and retrieve entities, you may not need all the properties and can avoid transferring data unnecessarily (to help reduce latency and cost). You can use server-side projection to transfer just the properties you need. The following example  retrieves just the **Email** property (along with **PartitionKey**, **RowKey**, **Timestamp**, and **ETag**) from the entities selected by the query.  
 
 ```csharp
 var subsetResults  = query{

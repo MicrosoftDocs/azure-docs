@@ -5,12 +5,12 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 11/29/2021
-ms.author: cavoeg
+ms.date: 02/15/2022
+ms.author: mikaelw
 ---
 # Overview of search in Azure API for FHIR
 
-The FHIR specification defines the fundamentals of search for FHIR resources. This article will guide you through some key aspects to searching resources in FHIR. For complete details about searching FHIR resources, refer to [Search](https://www.hl7.org/fhir/search.html) in the HL7 FHIR Specification. Throughout this article, we will give examples of search syntax. Each search will be against your FHIR server, which typically has a URL of `https://<FHIRSERVERNAME>.azurewebsites.net`. In the examples, we will use the placeholder {{FHIR_URL}} for this URL. 
+The FHIR specification defines the fundamentals of search for FHIR resources. This article will guide you through some key aspects to searching resources in FHIR. For complete details about searching FHIR resources, refer to [Search](https://www.hl7.org/fhir/search.html) in the HL7 FHIR Specification. Throughout this article, we'll give examples of search syntax. Each search will be against your FHIR server, which typically has a URL of `https://<FHIRSERVERNAME>.azurewebsites.net`. In the examples, we'll use the placeholder {{FHIR_URL}} for this URL. 
 
 FHIR searches can be against a specific resource type, a specified [compartment](https://www.hl7.org/fhir/compartmentdefinition.html), or all resources. The simplest way to execute a search in FHIR is to use a `GET` request. For example, if you want to pull all patients in the database, you could use the following request: 
 
@@ -33,7 +33,7 @@ Each search parameter has a defined [data types](https://www.hl7.org/fhir/search
 > [!WARNING]
 > There is currently an issue when using _sort on the Azure API for FHIR with chained search. For more information, see  open-source issue [#2344](https://github.com/microsoft/fhir-server/issues/2344). This will be resolved during a release in December 2021. 
 
-| **Search parameter type**  | **Azure API for FHIR** | **FHIR service in Azure Healthcare APIs** | **Comment**|
+| **Search parameter type**  | **Azure API for FHIR** | **FHIR service in Azure Health Data Services** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
 |  number                    | Yes                  | Yes                       |
 |  date                      | Yes                  | Yes                       |
@@ -49,7 +49,7 @@ Each search parameter has a defined [data types](https://www.hl7.org/fhir/search
 
 There are [common search parameters](https://www.hl7.org/fhir/search.html#all) that apply to all resources. These are listed below, along with their support within the Azure API for FHIR:
 
-| **Common search parameter** | **Azure API for FHIR** | **FHIR service in Azure Healthcare APIs** | **Comment**|
+| **Common search parameter** | **Azure API for FHIR** | **FHIR service in Azure Health Data Services** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
 | _id                         | Yes                  | Yes                       
 | _lastUpdated                | Yes                  | Yes                       |
@@ -104,7 +104,7 @@ For more information, see the HL7 [Composite Search Parameters](https://www.hl7.
 
 [Modifiers](https://www.hl7.org/fhir/search.html#modifiers) allow you to modify the search parameter. Below is an overview of all the FHIR modifiers and the support in the Azure API for FHIR. 
 
-| **Modifiers** | **Azure API for FHIR** | **FHIR service in Azure Healthcare APIs** | **Comment**|
+| **Modifiers** | **Azure API for FHIR** | **FHIR service in Azure Health Data Services** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
 |  :missing     | Yes                  | Yes                       |
 |  :exact       | Yes                  | Yes                       |
@@ -124,15 +124,15 @@ For search parameters that have a specific order (numbers, dates, and quantities
  ### Search result parameters
 To help manage the returned resources, there are search result parameters that you can use in your search. For details on how to use each of the search result parameters, refer to the [HL7](https://www.hl7.org/fhir/search.html#return) website. 
 
-| **Search result parameters**  | **Azure API for FHIR** | **FHIR service in Azure Healthcare APIs** | **Comment**|
+| **Search result parameters**  | **Azure API for FHIR** | **FHIR service in Azure Health Data Services** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
 | _elements                     | Yes                  | Yes                       |
 | _count                        | Yes                  | Yes                       | _count is limited to 1000 resources. If it's set higher than 1000, only 1000 will be returned and a warning will be returned in the bundle.                               |
-| _include                      | Yes                  | Yes                       | Included items are limited to 100. _include on PaaS and OSS on Cosmos DB do not include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).                               |
-| _revinclude                   | Yes                  | Yes                       |Included items are limited to 100. _revinclude on PaaS and OSS on Cosmos DB do not include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).  There is also an incorrect status code for a bad request [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
+| _include                      | Yes                  | Yes                       | Included items are limited to 100. _include on PaaS and OSS on Cosmos DB don't include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).                               |
+| _revinclude                   | Yes                  | Yes                       |Included items are limited to 100. _revinclude on PaaS and OSS on Cosmos DB don't include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).  There's also an incorrect status code for a bad request [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Yes             | Yes                   |
 | _total                        | Partial              | Partial                   | _total=none and _total=accurate                               |
-| _sort                         | Partial              | Partial                   | sort=_lastUpdated is supported on Azure API for FHIR and the FHIR service. For Azure API for FHIR and OSS Cosmos DB databases created after April 20, 2021, sort is supported on first name, last name, birthdate, and clinical date. Note there is an open issue using _sort with chained search which is documented in open-source issue [#2344](https://github.com/microsoft/fhir-server/issues/2344).         |
+| _sort                         | Partial              | Partial                   | sort=_lastUpdated is supported on Azure API for FHIR and the FHIR service. For Azure API for FHIR and OSS Cosmos DB databases created after April 20, 2021, sort is supported on first name, last name, birthdate, and clinical date. Note there's an open issue using _sort with chained search, which is documented in open-source issue [#2344](https://github.com/microsoft/fhir-server/issues/2344).         |
 | _contained                    | No                   | No                        |
 | _containedType                | No                   | No                        |
 | _score                        | No                   | No                        |

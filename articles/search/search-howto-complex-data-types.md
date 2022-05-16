@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Nested or hierarchical data structures can be modeled in an Azure Cognitive Search index using ComplexType and Collections data types.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: how-to
@@ -25,7 +25,7 @@ To get started, we recommend the [Hotels data set](https://github.com/Azure-Samp
 > [!Note]
 > Support for complex types became generally available starting in `api-version=2019-05-06`. 
 >
-> If your search solution is built on earlier workarounds of flattened datasets in a collection, you should change your index to include complex types as supported in the newest API version. For more information about upgrading API versions, see [Upgrade to the newest REST API version](search-api-migration.md) or [Upgrade to the newest .NET SDK version](search-dotnet-sdk-migration-version-9.md).
+> If your search solution is built on earlier workarounds of flattened datasets in a collection, you should change your index to include complex types as supported in the newest API version. For more information about upgrading API versions, see [Upgrade to the newest REST API version](search-api-migration.md) or [Upgrade to the newest .NET SDK version](/previous-versions/azure/search/search-dotnet-sdk-migration-version-9).
 
 ## Example of a complex structure
 
@@ -71,7 +71,9 @@ As with any index definition, you can use the portal, [REST API](/rest/api/searc
 
 Other Azure SDKs provide samples in [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py), [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/indexes/CreateIndexExample.java), and [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v11/javascript/indexOperations.js).
 
-### [**Azure portal**](#tab/complex-type-portal)
+### [**Azure portal**](#tab/portal)
+
+1. [Sign in to Azure portal](https://portal.azure.com).
 
 1. On the search service **Overview** page, select the **Indexes** tab.
 

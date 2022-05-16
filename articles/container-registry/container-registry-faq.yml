@@ -3,10 +3,9 @@ metadata:
   title: Azure Container Registry
   description: Answers for frequently asked questions related to the Azure Container Registry service 
   author: sajayantony
-  ms.topic: article
+  ms.topic: faq
   ms.date: 09/17/2021
   ms.author: sajaya
-    
 title: Frequently asked questions - Azure Container Registry
 summary: |
   This article addresses frequently asked questions and known issues about Azure Container Registry.
@@ -39,7 +38,7 @@ sections:
           How do I get admin credentials for a container registry?
         answer: |
           > [!IMPORTANT]
-          > The admin user account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials with multiple users. Individual identity is recommended for users and service principals for headless scenarios. See [Authentication overview](container-registry-authentication.md).
+          > The admin user account is designed for a single user to access the registry, mainly for testing purposes. We don't recommend sharing the admin account credentials with multiple users. Individual identity is recommended for users and service principals for headless scenarios. See [Authentication overview](container-registry-authentication.md).
           
           Before getting admin credentials, make sure the registry's admin user is enabled.
           
@@ -59,7 +58,7 @@ sections:
           How do I get admin credentials in a Resource Manager template?
         answer: |
           > [!IMPORTANT]
-          > The admin user account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials with multiple users. Individual identity is recommended for users and service principals for headless scenarios. See [Authentication overview](container-registry-authentication.md).
+          > The admin user account is designed for a single user to access the registry, mainly for testing purposes. We don't recommend sharing the admin account credentials with multiple users. Individual identity is recommended for users and service principals for headless scenarios. See [Authentication overview](container-registry-authentication.md).
           
           Before getting admin credentials, make sure the registry's admin user is enabled.
           
@@ -90,7 +89,7 @@ sections:
           ```
           
       - question:  |
-          Firewall rules are updated successfully but they do not take effect
+          Firewall rules are updated successfully but they don't take effect
         answer: |
           It takes some time to propagate firewall rule changes. After you change firewall settings, please wait for a few minutes before verifying this change.
           
@@ -104,7 +103,7 @@ sections:
 
           
       - question: |
-          How do I delete all manifests that are not referenced by any tag in a repository?
+          How do I delete all manifests that aren't referenced by any tag in a repository?
         answer: |
           If you are on bash:
           
@@ -131,7 +130,7 @@ sections:
       - question:  |
           How do I validate storage quota changes?
         answer: |
-          Create an image with a 1GB layer using the following docker file. This ensures that the image has a layer that is not shared by any other image in the registry.
+          Create an image with a 1GB layer using the following docker file. This ensures that the image has a layer that isn't shared by any other image in the registry.
           
           ```dockerfile
           FROM alpine
@@ -200,7 +199,7 @@ sections:
           * Public keys and certificates of all roles (except delegation roles) are stored in the `root.json`.
           * Public keys and certificates of the delegation role are stored in the JSON file of its parent role (for example `targets.json` for the `targets/releases` role).
           
-          It is suggested to verify those public keys and certificates after the overall TUF verification done by the Docker and Notary client.
+          It's suggested to verify those public keys and certificates after the overall TUF verification done by the Docker and Notary client.
           
       - question:  |
           How do I grant access to pull or push images without permission to manage the registry resource?
@@ -308,12 +307,12 @@ sections:
       - question:  |
           Docker pull is slow
         answer: |
-          Use [this](http://www.azurespeed.com/Azure/Download) tool to test your machine network download speed. If machine network is slow, consider using Azure VM in the same region as your registry. This usually gives you faster network speed.
+          Use [the speed tool](http://www.azurespeed.com/Azure/Download) to test your machine network download speed. If machine network is slow, consider using Azure VM in the same region as your registry to improve network speed.
           
       - question:  |
           Docker push is slow
         answer: |
-          Use [this](http://www.azurespeed.com/Azure/Upload) tool to test your machine network upload speed. If machine network is slow, consider using Azure VM in the same region as your registry. This usually gives you faster network speed.
+          Use [the speed tool](http://www.azurespeed.com/Azure/Upload) to test your machine network upload speed. If machine network is slow, consider using Azure VM in the same region as your registry to improve network speed.
           
       - question: |
            Docker push succeeds but docker pull fails with error: unauthorized: authentication required
@@ -393,7 +392,7 @@ sections:
           When you grant new permissions (new roles) to a service principal, the change might not take effect immediately. There are two possible reasons:
           
           * Azure Active Directory role assignment delay. Normally it's fast, but it could take minutes due to propagation delay.
-          * Permission delay on ACR token server. This could take up to 10 minutes. To mitigate, you can `docker logout` and then authenticate again with the same user after 1 minute:
+          * Permission delay on ACR token server could take up to 10 minutes. To mitigate, you can `docker logout` and then authenticate again with the same user after 1 minute:
           
             ```bash
             docker logout myregistry.azurecr.io
@@ -417,7 +416,7 @@ sections:
           ```
           
       - question:  |
-          Authentication information is not given in the correct format on direct REST API calls
+          Authentication information isn't given in the correct format on direct REST API calls
         answer: |
           You may encounter an `InvalidAuthenticationInfo` error, especially using the `curl` tool with the option `-L`, `--location` (to follow redirects).
           For example, fetching the blob using `curl` with `-L` option and basic authentication:
@@ -447,7 +446,7 @@ sections:
       - question:  |
           Why does the Azure portal not list all my repositories or tags? 
         answer: |
-          If you are using the Microsoft Edge/IE browser, you can see at most 100 repositories or tags. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
+          If you're using the Microsoft Edge/IE browser, you can see at most 100 repositories or tags. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
 
       - question:  |
           Why does the Azure portal fail to fetch repositories or tags?
@@ -525,7 +524,7 @@ sections:
       - question:  |
           Does Tasks support GitLab for Source triggers?
         answer: |
-          We currently do not support GitLab for Source triggers.
+          We currently don't support GitLab for Source triggers.
 
       - question:  |
           What git repository management service does Tasks support?
@@ -547,7 +546,12 @@ sections:
 
           - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
           - [GitHub Actions](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
-          
+
+      - question:  |
+          How to resolve if the Agent pool creation fails due to timeout issues?
+        answer: |
+          Set up the correct [firewalls rules](/azure/container-registry/tasks-agent-pools#add-firewall-rules) to the existing network security groups or user-defined routes. After the setup, wait a few minutes for the firewall rules to apply.
+
 additionalContent: |
 
   ## Next steps

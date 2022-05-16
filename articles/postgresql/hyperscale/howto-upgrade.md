@@ -1,8 +1,8 @@
 ---
 title: Upgrade server group - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: This article describes how you can upgrade PostgreSQL and Citus in Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
@@ -18,7 +18,7 @@ on all server group nodes.
 
 Upgrading PostgreSQL causes more changes than you might imagine, because
 Hyperscale (Citus) will also upgrade the [database
-extensions](concepts-extensions.md), including the Citus extension.
+extensions](reference-extensions.md), including the Citus extension.
 We strongly recommend you to test your application with the new PostgreSQL and
 Citus version before you upgrade your production environment.
 
@@ -39,6 +39,6 @@ works properly, upgrade the original server group.
 
 ## Next steps
 
-* Learn about [supported PostgreSQL versions](concepts-versions.md).
-* See [which extensions](concepts-extensions.md) are packaged with
+* Learn about [supported PostgreSQL versions](reference-versions.md).
+* See [which extensions](reference-extensions.md) are packaged with
   each PostgreSQL version in a Hyperscale (Citus) server group.

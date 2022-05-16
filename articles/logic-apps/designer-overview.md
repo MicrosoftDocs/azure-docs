@@ -3,7 +3,7 @@ title: About single-tenant workflow designer
 description: Learn how the designer in single-tenant Azure Logic Apps helps you visually create workflows through the Azure portal. Discover the benefits and features in this latest version.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 06/30/2021
 ---

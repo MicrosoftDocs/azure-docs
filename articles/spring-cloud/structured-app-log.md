@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Structured application log for Azure Spring Cloud
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article explains how to generate and collect structured application log data in Azure Spring Cloud. With proper configuration, Azure Spring Cloud provides useful application log query and analysis through Log Analytics.
 
 ## Log schema requirements

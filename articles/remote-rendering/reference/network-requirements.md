@@ -54,7 +54,7 @@ Here is some sample output from running the ```RenderingSession.ps1``` script:
 
 ![Retrieve hostname from powershell output](./media/session-hostname-powershell.png)
 
-ARR session VMs do not work with the built-in command line 'ping' tool. Instead, a ping tool that works with TCP/UDP must be used. A simple tool called PsPing [(download link)](https://docs.microsoft.com/sysinternals/downloads/psping) can be used for this purpose.
+ARR session VMs do not work with the built-in command line 'ping' tool. Instead, a ping tool that works with TCP/UDP must be used. A simple tool called PsPing [(download link)](/sysinternals/downloads/psping) can be used for this purpose.
 The calling syntax is:
 
 ```PowerShell

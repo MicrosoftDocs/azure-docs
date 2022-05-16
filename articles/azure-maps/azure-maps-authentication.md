@@ -141,7 +141,7 @@ Here are some example scenarios where custom roles can improve application secur
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
 | A public facing or interactive sign-in web page with base map tiles and no other REST APIs.                                                                                                                                | `Microsoft.Maps/accounts/services/render/read`                                                                                              |
 | An application, which only requires reverse geocoding and no other REST APIs.                                                                                                                                              | `Microsoft.Maps/accounts/services/search/read`                                                                                              |
-| A role for a security principal, which requests reading of Azure Maps Creator based map data and base map tile REST APIs.                                                                                                  | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/render/read`                                                |
+| A role for a security principal, which requests a reading of Azure Maps Creator based map data and base map tile REST APIs.                                                                                                  | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/render/read`                                                |
 | A role for a security principal, which requires reading, writing, and deleting of Creator based map data. This can be defined as a map data editor role, but does not allow access to other REST APIs like base map tiles. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/data/write`, `Microsoft.Maps/accounts/services/data/delete` |
 
 ### Understand scope
@@ -173,7 +173,7 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 
 Shared Access Signature token authentication is in preview.
 
-Shared access signature (SAS) tokens are authentication tokens created using the JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST API. A SAS token is created by first integrating a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview) with an Azure Maps account in your Azure subscription. The user-assigned managed identity is given authorization to the Azure Maps account through Azure RBAC using one of the built-in or custom role definitions.
+Shared access signature (SAS) tokens are authentication tokens created using the JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST API. A SAS token is created by first integrating a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) with an Azure Maps account in your Azure subscription. The user-assigned managed identity is given authorization to the Azure Maps account through Azure RBAC using one of the built-in or custom role definitions.
 
 Functional key differences of SAS token from Azure AD Access tokens:
 
@@ -220,7 +220,7 @@ The first table shows 1 token which has a maximum request per second of 500, and
 | :---- | :---------------------------------- | :--------------------- | :------------------------------------ | :---------------------------------------- |
 | token | 500                                 | 500                    | 60                                    | ~15000                                    |
 
-For example, if two SAS tokens are created in, and use the same location as an Azure Maps account, each token now shares the default rate limit of 250 QPS. If each token are used at the same time with the same throughput token 1 and token 2 would successfully grant 7500 successful transactions each.
+For example, if two SAS tokens are created in, and use the same location as an Azure Maps account, each token now shares the default rate limit of 250 QPS. If each token is used at the same time with the same throughput token 1 and token 2 would successfully grant 7500 successful transactions each.
 
 | Name    | Approximate Maximum Rate Per Second | Actual Rate Per Second | Duration of sustained rate in seconds | Approximate total successful transactions |
 | :------ | :---------------------------------- | :--------------------- | :------------------------------------ | :---------------------------------------- |
@@ -266,7 +266,7 @@ After the account has been successfully created or updated with the managed iden
 
 Next, you'll need to create a SAS token using the Azure Management SDK tooling, List SAS operation on Account Management API, or the Azure portal Shared Access Signature page of the Map account resource.
 
-SAS token parameters :
+SAS token parameters:
 
 | Parameter Name   | Example Value                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | :--------------- | :----------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -285,7 +285,7 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 | :------------ | :------------------- |
 | Authorization | jwt-sas eyJ0e….HNIVN |
 
-> [!NOTE] 
+> [!NOTE]
 > `jwt-sas` is the authentication scheme to denote using SAS token. Do not include `x-ms-client-id` or other Authorization headers or `subscription-key` query string parameter.
 
 ## Cross origin resource sharing (CORS)
@@ -375,7 +375,7 @@ Only one CORS rule with its list of allowed origins can be specified. Each origi
 
 ### Remove CORS policy
 
-You can remove CORS manually in the Azure portal, or programmatically using the Azure Maps SDK, Azure Maps management REST API or an [ARM template](/azure/azure-resource-manager/templates/overview). 
+You can remove CORS manually in the Azure portal, or programmatically using the Azure Maps SDK, Azure Maps management REST API or an [ARM template](../azure-resource-manager/templates/overview.md). 
 
 > [!TIP]
 > If you use the Azure Maps management REST API , use `PUT` or `PATCH` with an empty `corsRule` list in the request body.
@@ -410,12 +410,17 @@ See [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps)
 
 ## Next steps
 
+To learn more about security best practices, see
+
+> [!div class="nextstepaction"]
+> [Authentication and authorization best practices](authentication-best-practices.md)
+
 To learn more about authenticating an application with Azure AD and Azure Maps, see
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Manage authentication in Azure Maps](./how-to-manage-authentication.md)
 
 To learn more about authenticating the Azure Maps Map Control with Azure AD, see
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Use the Azure Maps Map Control](./how-to-use-map-control.md)

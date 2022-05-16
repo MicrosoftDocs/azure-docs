@@ -8,7 +8,7 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 11/19/2021
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli
 ---
 
 # Deploy a Java application with Azure Database for PostgreSQL server to Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -33,7 +33,7 @@ For more information on Open Liberty, see [the Open Liberty project page](https:
   * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-  * Create a user-assigned managed identity and assign `Contributor` role to that identity by following the steps in [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). Return to this document after creating the identity and assigning it the necessary role.
+  * Create a user-assigned managed identity and assign `Owner` role or `Contributor` and `User Access Administrator` roles to that identity by following the steps in [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). Assign `Directory readers` role to the identity in Azure AD by following [Assign Azure AD roles to users](../active-directory/roles/manage-roles-portal.md). Return to this document after creating the identity and assigning it the necessary roles.
 
 ## Create a Jakarta EE runtime using the portal
 
@@ -69,7 +69,7 @@ The steps in this section guide you through creating an Azure Database for Postg
 
    An Azure resource group is a logical group in which Azure resources are deployed and managed.  
 
-   Create a resource group called *java-liberty-project-postgresql* using the [az group create](/cli/azure/group#az_group_create) command in the *eastus* location.
+   Create a resource group called *java-liberty-project-postgresql* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus* location.
 
    ```bash
    RESOURCE_GROUP_NAME=java-liberty-project-postgresql
@@ -78,7 +78,7 @@ The steps in this section guide you through creating an Azure Database for Postg
 
 1. Create the PostgreSQL server
 
-   Use the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command to create the DB server. The following example creates a DB server named *youruniquedbname*. Make sure *youruniqueacrname* is unique within Azure.
+   Use the [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) command to create the DB server. The following example creates a DB server named *youruniquedbname*. Make sure *youruniqueacrname* is unique within Azure.
    
    > [!TIP]
    > To help ensure a globally unique name, prepend a disambiguation string such as your intitials and the MMDD of today's date.
@@ -111,7 +111,7 @@ The steps in this section guide you through creating an Azure Database for Postg
                                            --end-ip-address YOUR_IP_ADDRESS
    ```
 
-If you don't want to use the CLI, you may use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal). You must also grant access to Azure services by following the steps in [Firewall rules in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-firewall-rules#connecting-from-azure). Return to this document after creating and configuring the database server.
+If you don't want to use the CLI, you may use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](../postgresql/quickstart-create-server-database-portal.md). You must also grant access to Azure services by following the steps in [Firewall rules in Azure Database for PostgreSQL - Single Server](../postgresql/concepts-firewall-rules.md#connecting-from-azure). Return to this document after creating and configuring the database server.
 
 ## Configure and deploy the sample application
 
@@ -151,7 +151,7 @@ In directory *liberty/config*, the *server.xml* is used to configure the DB conn
 
 ### Acquire necessary variables from AKS deployment
 
-After the offer is successfully deployed, an AKS cluster with a namespace will be generated automatically. The AKS cluster is configured to connect to the ACR using a pre-created secret under the generated namespace. Before we get started with the application, we need to extract the namespace and the pull-secret name of the ACR configured for the AKS.
+After the offer is successfully deployed, an AKS cluster will be generated automatically. The AKS cluster is configured to connect to the ACR. Before we get started with the application, we need to extract the namespace configured for the AKS.
 
 1. Run following command to print the current deployment file, using the `appDeploymentTemplateYamlEncoded` you saved above. The output contains all the variables we need.
 
@@ -159,7 +159,7 @@ After the offer is successfully deployed, an AKS cluster with a namespace will b
    echo <appDeploymentTemplateYamlEncoded> | base64 -d
    ```
 
-1. Save the `metadata.namespace` and `spec.pullSecret` from this yaml output aside for later use in this article.
+1. Save the `metadata.namespace` from this yaml output aside for later use in this article.
 
 ### Build the project
 
@@ -179,7 +179,6 @@ export DB_TYPE=postgres
 export DB_USER=${DB_ADMIN_USERNAME}@${DB_NAME}
 export DB_PASSWORD=${DB_ADMIN_PASSWORD}
 export NAMESPACE=<metadata.namespace>
-export PULL_SECRET=<pullSecret>
 
 mvn clean install
 ```
@@ -288,7 +287,7 @@ The steps in this section deploy and test the application.
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli-interactive
 az group delete --name <RESOURCE_GROUP_NAME> --yes --no-wait

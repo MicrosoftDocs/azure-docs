@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/16/2021
 ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin, jeedes, luleon
+ms.reviewer: ludwignick
 ---
 
 # Customize claims emitted in tokens for a specific app in a tenant

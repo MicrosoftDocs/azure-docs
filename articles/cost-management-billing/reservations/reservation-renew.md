@@ -16,7 +16,7 @@ You can renew reservations to automatically purchase a replacement when an exist
 
 Renewing a reservation creates a new reservation when the existing reservation expires. It doesn't extend the term of the existing reservation.
 
-Opt in to automatically renew at any time. The renewal price is available 30 days before the expiry of existing reservation. When you enable renewal more than 30 days before the reservation expiration, you're sent an email detailing renewal costs 30 days before expiration. The reservation price might change between the time that you lock the renewal price and the renewal time. If so, your renewal cost is the lower of the two costs. You can make changes to the reservation quantity. If you do, the renewal is updated to use the in-market price set at the time of the quantity change.
+Opt in to automatically renew at any time. The renewal price is available 30 days before the expiry of existing reservation. When you enable renewal more than 30 days before the reservation expiration, you're sent an email detailing renewal costs 30 days before expiration. The reservation price might change between the time that you lock the renewal price and the renewal time. If so, your renewal will not be processed and you can purchase a new reservation in order to continue getting the benefit.
 
 There's no obligation to renew and you can opt out of the renewal at any time before the existing reservation expires.
 
@@ -25,7 +25,7 @@ There's no obligation to renew and you can opt out of the renewal at any time be
 Go to Azure portal > **Reservations**.
 
 1. Select the reservation.
-2. Click **Renewal**.
+2. Select **Renewal**.
 3. Select **Automatically purchase a new reservation upon expiry**.  
   ![Example showing reservation renewal](./media/reservation-renew/reservation-renewal.png)
 
@@ -86,7 +86,7 @@ Emails are sent to different people depending on your purchase method:
 
 - EA customers - Emails are sent to the notification contacts set on the EA portal or Enterprise Administrators who are automatically enrolled to receive usage notifications.
 - Individual subscription customers with pay-as-you-go rates - Emails are sent to users who are set up as account administrators.
-- Cloud Solution Provider customers - Emails are sent to the partner notification contact.
+- Cloud Solution Provider customers - Emails are sent to the partner notification contact. This notification isn't currently supported for Microsoft Customer Agreement subscriptions (CSP Azure Plan subscription).
 
 ## Next steps
 - To learn more about Azure Reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)

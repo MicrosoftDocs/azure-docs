@@ -115,6 +115,7 @@ Notice that the cardinality of `"/document/people/*/lastname"` is larger than th
 
 
 ## See also
++ [Skill context and input annotation language](cognitive-search-skill-annotation-language.md)
 + [How to integrate a custom skill into an enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Skillset (REST)](/rest/api/searchservice/create-skillset)

@@ -17,7 +17,7 @@
       },
       {
         "source_path_from_root": "/articles/purview/tutorial-asset-search.md",
-        "redirect_url": "/azure/purview/concept-search",
+        "redirect_url": "/azure/purview/how-to-search-catalog",
         "redirect_document_id": true
       },
       {
@@ -46,18 +46,113 @@
         "redirect_document_id": true
       },
       {
-        "source_path_from_root": "/articles/purview/concept-data-policies.md",
-        "redirect_url": "/azure/purview/how-to-access-policies-storage",
+        "source_path_from_root": "/articles/purview/how-to-access-policies-storage.md",
+        "redirect_url": "/azure/purview/tutorial-data-owner-policies-storage",
         "redirect_document_id": true
       },
       {
-        "source_path_from_root": "/articles/purview/concept-self-service.md",
-        "redirect_url": "/azure/purview/overview",
+        "source_path_from_root": "/articles/purview/tutorial-access-policies-resource-group.md",
+        "redirect_url": "/azure/purview/tutorial-data-owner-policies-resource-group",
         "redirect_document_id": true
       },
       {
         "source_path_from_root": "/articles/purview/concept-account-upgrade.md",
         "redirect_url": "/azure/purview/catalog-permissions",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-cassandra.md",
+        "redirect_url": "/azure/purview/register-scan-cassandra-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-erwin.md",
+        "redirect_url": "/azure/purview/register-scan-erwin-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-looker.md",
+        "redirect_url": "/azure/purview/register-scan-looker-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-google-bigquery.md",
+        "redirect_url": "/azure/purview/register-scan-google-bigquery-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-oracle.md",
+        "redirect_url": "/azure/purview/register-scan-oracle-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-saps4hana.md",
+        "redirect_url": "/azure/purview/register-scan-saps4hana-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-sapecc.md",
+        "redirect_url": "/azure/purview/register-scan-sapecc-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-teradata.md",
+        "redirect_url": "/azure/purview/register-scan-teradata-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/sources-and-scans.md",
+        "redirect_url": "/azure/purview/purview-connector-overview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-purview-dotnet.md",
+        "redirect_url": "/azure/purview/create-azure-purview-dotnet",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-purview-portal-faq.md",
+        "redirect_url": "/azure/purview/create-azure-purview-portal-faq",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-purview-python.md",
+        "redirect_url": "/azure/purview/create-azure-purview-python",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/purview-connector-overview.md",
+        "redirect_url": "/azure/purview/azure-purview-connector-overview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/reference-purview-glossary.md",
+        "redirect_url": "/azure/purview/reference-azure-purview-glossary",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/tutorial-purview-tools.md",
+        "redirect_url": "/azure/purview/tutorial-azure-purview-tools",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/use-purview-studio.md",
+        "redirect_url": "/azure/purview/use-azure-purview-studio",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/scan-insights.md",
+        "redirect_url": "/azure/purview/how-to-monitor-scan-runs",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/tutorial-data-owner-policies-resource-group.md",
+        "redirect_url": "/azure/purview/how-to-data-owner-policies-resource-group",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-enable-data-use-governance.md",
+        "redirect_url": "/azure/purview/how-to-enable-data-use-management",
         "redirect_document_id": true
       }
 ]

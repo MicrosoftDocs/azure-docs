@@ -9,11 +9,13 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This article provides guidance on how to configure and deploy the Azure Video Analyzer edge module and cloud service in production environments. You should also review [Prepare to deploy your IoT Edge solution in production](../../../iot-edge/production-checklist.md) article on preparing your IoT Edge solution.
 
 You should consult your organization's IT department on aspects related to security.
 
-## Creating the Video Analyzer account
+## Create the Video Analyzer account
 
 When you [create](../create-video-analyzer-account.md) a Video Analyzer account, the following is recommended:
 
@@ -21,7 +23,7 @@ When you [create](../create-video-analyzer-account.md) a Video Analyzer account,
 1. Then, the owner should grant you [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) and [User Access Administrator](../../../role-based-access-control/built-in-roles.md#user-access-administrator) roles to that resource group.
 1. You can then create the relevant resources: Storage account, IoT Hub, user-assigned managed identity, and Video Analyzer account under that resource group.
 
-## Running the module as a local user
+## Run the module as a local user
 
 When you deploy the Video Analyzer edge module to an IoT Edge device, by default it runs with elevated privileges. You can check this using the logs from the module (`sudo iotedge logs {name-of-module}`) which would show:
 
@@ -33,7 +35,7 @@ When you deploy the Video Analyzer edge module to an IoT Edge device, by default
 
 The sections below discuss how you can address the above warning.
 
-### Creating and using a local user account
+### Create and use a local user account
 
 You can and should run the Video Analyzer edge module in production using an account with as few privileges as possible. The following commands, for example, show how you can create a local user account on a Linux VM:
 
@@ -60,7 +62,7 @@ Next, in the deployment manifest, you can set the LOCAL_USER_ID and LOCAL_GROUP_
 …
 ```
 
-### Granting permissions to device storage
+### Grant permissions to device storage
 
 The Video Analyzer edge module requires the ability to write files to the local file system when:
 

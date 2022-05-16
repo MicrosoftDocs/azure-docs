@@ -13,14 +13,14 @@ ms.date: 12/30/2021
 
 # Debug Sessions in Azure Cognitive Search
 
-Debug Sessions is a visual editor that works with an existing skillset in the Azure portal, exposing the structure and content of a single enriched document, as its produced by an indexer and skillset, for the duration of the session. Because you are working with a live document, the session is interactive - you can identify errors, modify and invoke skill execution, and validate the results in real time. If your changes resolve the problem, you can commit them to a published skillset to apply the fixes globally.
+Debug Sessions is a visual editor that works with an existing skillset in the Azure portal, exposing the structure and content of a single enriched document, as it's produced by an indexer and skillset, for the duration of the session. Because you are working with a live document, the session is interactive - you can identify errors, modify and invoke skill execution, and validate the results in real time. If your changes resolve the problem, you can commit them to a published skillset to apply the fixes globally.
 
 > [!Important]
 > Debug Sessions is a preview feature provided under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How a debug session works
 
-When you start a session, the search service creates a copy of the skillset, indexer, and a search index containing a single document that will be used to test the skillset. All session state will be saved to a container in an Azure Storage account that you provide. 
+When you start a session, the search service creates a copy of the skillset, indexer, and a data source containing a single document that will be used to test the skillset. All session state will be saved to a container in an Azure Storage account that you provide. 
 
 A cached copy of the enriched document and skillset is loaded into the visual editor so that you can inspect the content and metadata of the enriched document, with the ability to check each document node and edit any aspect of the skillset definition. Any changes made within the session are cached. Those changes will not affect the published skillset unless you commit them. Committing changes will overwrite the production skillset.
 
@@ -44,7 +44,7 @@ Skill details includes the following areas:
 
 + **Skill Settings** shows a formatted version of the skill definition.
 + **Skill JSON Editor** shows the raw JSON document of the definition.
-+ **Executions** shows the number of times a skill was executed.
++ **Executions** shows the data corresponding to each time a skill was executed.
 + **Errors and warnings** shows the messages generated upon session start or refresh.
 
 On Executions or Skill Settings, select the **`</>`** symbol to open the [**Expression Evaluator**](#expression-evaluator) used for viewing and editing the expressions of the skills inputs and outputs.

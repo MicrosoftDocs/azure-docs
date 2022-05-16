@@ -1,106 +1,126 @@
 ---
-title: Add owners and users
-description: Add owners and users in Azure DevTest Labs using either the Azure portal or PowerShell
+title: Add lab owners and users with role-based access control (RBAC)
+description: Learn about the Azure DevTest Labs Owner, Contributor, and DevTest Labs User roles, and how to add members to lab roles by using the Azure portal or Azure PowerShell.
 ms.topic: how-to
-ms.date: 06/26/2020 
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 01/26/2022
 ms.custom: devx-track-azurepowershell
 ---
 
-# Add owners and users in Azure DevTest Labs
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
-> 
-> 
+# Add lab owners, contributors, and users in Azure DevTest Labs 
 
-Access in Azure DevTest Labs is controlled by [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Using Azure RBAC, you can segregate duties within your team into *roles* where you grant only the amount of access necessary to users to perform their jobs. Three of these Azure roles are *Owner*, *DevTest Labs User*, and *Contributor*. In this article, you learn what actions can be performed in each of the three main Azure roles. From there, you learn how to add users to a lab - both via the portal and via a PowerShell script, and how to add users at the subscription level.
+Azure DevTest Labs uses Azure [role-based access control](../role-based-access-control/overview.md) (Azure RBAC) to define roles that have only the access necessary to do specific lab tasks. DevTest Labs has three built-in roles: *Owner*, *Contributor*, and *DevTest Labs User*. This article describes the tasks each role can do, and how to add members to lab roles by using the Azure portal or an Azure PowerShell script.
 
-## Actions that can be performed in each role
-There are three main roles that you can assign a user:
+## Actions each role can take
 
-* Owner
-* DevTest Labs User
-* Contributor
+Lab Owner, Contributor, and DevTest Labs User roles can take the following actions in DevTest Labs:
 
-The following table illustrates the actions that can be performed by users in each of these roles:
+### Owner
 
-| **Actions users in this role can perform** | **DevTest Labs User** | **Owner** | **Contributor** |
-| --- | --- | --- | --- |
-| **Lab tasks** | | | |
-| Add users to a lab |No |Yes |No |
-| Update cost settings |No |Yes |Yes |
-| **VM base tasks** | | | |
-| Add and remove custom images |No |Yes |Yes |
-| Add, update, and delete formulas |Yes |Yes |Yes |
-| Enable Marketplace images |No |Yes |Yes |
-| **VM tasks** | | | |
-| Create VMs |Yes |Yes |Yes |
-| Start, stop, and delete VMs |Only VMs created by the user |Yes |Yes |
-| Update VM policies |No |Yes |Yes |
-| Add/remove data disks to/from VMs |Only VMs created by the user |Yes |Yes |
-| **Artifact tasks** | | | |
-| Add and remove artifact repositories |No |Yes |Yes |
-| Apply artifacts |Yes |Yes |Yes |
+The lab Owner role can take all of the following actions:
+
+Lab tasks:
+- Add users to the lab.
+- Update cost settings.
+
+Virtual machine (VM) base tasks:
+- Add and remove custom images.
+- Add, update, and delete formulas.
+- Enable Marketplace images.
+
+VM tasks:
+- Create VMs.
+- Start, stop, or delete VMs.
+- Update VM policies.
+- Add or remove VM data disks.
+
+Artifact tasks:
+- Add and remove artifact repositories.
+- Apply artifacts to VMs.
+
+### Contributor
+
+The lab Contributor role can take all the same actions as lab Owner, except can't add users to labs.
+
+### DevTest Labs User
+
+The DevTest Labs User role can take the following actions in DevTest Labs:
+
+- Add, update, and delete VM base formulas.
+- Create VMs.
+- Start, stop, or delete VMs the user creates.
+- Add or remove data disks from VMs the user creates.
+- Apply artifacts to VMs.
 
 > [!NOTE]
-> When a user creates a VM, that user is automatically assigned to the **Owner** role of the created VM.
-> 
-> 
+> Lab users automatically have the **Owner** role on VMs they create.
 
-## Add an owner or user at the lab level
-Owners and users can be added at the lab level via the Azure portal. 
-A user can be an external user with a valid [Microsoft account (MSA)](./devtest-lab-faq.yml).
-The following steps guide you through the process of adding an owner or user to a lab in Azure DevTest Labs:
+## Add Owners, Contributors, or DevTest Labs Users
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+A lab owner can add members to lab roles by using the Azure portal or an Azure PowerShell script. The user to add can be an external user with a valid [Microsoft account (MSA)](./devtest-lab-faq.yml).
 
-1. Open the desired resource group and select **DevTest Labs**.
+Azure permissions propagate from parent scope to child scope. Owners of an Azure subscription that contains labs are automatically owners of the subscription's DevTest Labs service, labs, and lab VMs and resources. Subscription owners can add Owners, Contributors, and DevTest Labs Users to labs in the subscription.
 
-1. In the navigation menu, select **Access control (IAM)**.
+> [!NOTE]
+> Added lab Owners' scope of administration is narrower than the subscription owner's scope. Added Owners don't have full access to some resources that the DevTest Labs service creates.
+
+### Prerequisites
+
+To add members to a lab, you must:
+
+- Be an Owner of the lab, either directly or by inheritance as a subscription owner.
+- Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator).
+
+### Add a lab member by using the Azure portal
+
+To add a member:
+
+- At the subscription level, open the subscription page.
+- At the lab level, open the resource group that has the lab, and select the lab from the list of resources.
+
+1. In the left navigation for the subscription or lab, select **Access control (IAM)**.
 
 1. Select **Add** > **Add role assignment**.
 
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+   ![Screenshot that shows an access control (IAM) page with the Add role assignment menu open.](media/devtest-lab-add-devtest-user/add-role-assignment-menu-generic.png)
 
-1. On the **Role** tab, select the **OWNER** or **USER** role.
+1. On the **Add Role Assignment** page, select the **Owner**, **Contributor**, or **DevTest Labs User** role, and then select **Next**.
 
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+   ![Screenshot that shows the Add role assignment page with the Role tab selected.](media/devtest-lab-add-devtest-user/add-role-assignment-role-generic.png)
 
-1. On the **Members** tab, select the user you want to give the desired role to.
+1. On the **Members** tab, select **Select members**.
 
-1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+1. On the **Select members** screen, select the member you want to add, and then select **Select**.
 
+1. Select **Review + assign**, and after reviewing the details, select **Review + assign** again.
 
-## Add an external user to a lab using PowerShell
+<a name="add-an-external-user-to-a-lab-using-powershell"></a>
+### Add a DevTest Labs User to a lab by using Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-In addition to adding users in the Azure portal, you can add an external user to your lab using a PowerShell script. 
-In the following example, modify the parameter values under the **Values to change** comment.
-You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab blade in the Azure portal.
+You can add a DevTest Labs User to a lab by using the following Azure PowerShell script. The script requires the user to be in the Azure Active Directory (Azure AD). For information about adding an external user to Azure AD as a guest, see [Add a new guest user](../active-directory/fundamentals/add-users-azure-active-directory.md#add-a-new-guest-user). If the user isn't in Azure AD, use the portal procedure instead.
 
-> [!NOTE]
-> The sample script assumes that the specified user has been added as a guest to the Active Directory, and will fail if that is not the case. To add a user not in the Active Directory to a lab, use the Azure portal to assign the user to a role as illustrated in the section, [Add an owner or user at the lab level](#add-an-owner-or-user-at-the-lab-level).   
-> 
-> 
+In the following script, update the parameter values under the `# Values to change` comment. You can get the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab's main page in the Azure portal.
 
 ```azurepowershell
-# Add an external user in DevTest Labs user role to a lab
-# Ensure that guest users can be added to the Azure Active directory:
-# https://azure.microsoft.com/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
+# Add an external user to a lab user role in DevTest Labs.
+# Make sure the guest user is added to Azure AD.
 
 # Values to change
-$subscriptionId = "<Enter Azure subscription ID here>"
-$labResourceGroup = "<Enter lab's resource name here>"
-$labName = "<Enter lab name here>"
-$userDisplayName = "<Enter user's display name here>"
+$subscriptionId = "<Azure subscription ID>"
+$labResourceGroup = "<Lab's resource group name>"
+$labName = "<Lab name>"
+$userDisplayName = "<User's display name>"
 
-# Log into your Azure account
+# Log into your Azure account.
 Connect-AzAccount
 
-# Select the Azure subscription that contains the lab. 
-# This step is optional if you have only one subscription.
+# Select the Azure subscription that contains the lab. This step is optional if you have only one subscription.
 Select-AzSubscription -SubscriptionId $subscriptionId
 
-# Retrieve the user object
+# Get the user object.
 $adObject = Get-AzADUser -SearchString $userDisplayName
 
 # Create the role assignment. 
@@ -108,32 +128,7 @@ $labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResource
 New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
 ```
 
-## Add an owner or user at the subscription level
-Azure permissions are propagated from parent scope to child scope in Azure. Therefore, owners of an Azure subscription that contains labs are automatically owners of those labs. They also own the VMs and other resources created by the lab's users, and the Azure DevTest Labs service. 
+## Next steps
 
-You can add additional owners to a lab via the lab's blade in the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040). 
-However, the added owner's scope of administration is more narrow than the subscription owner's scope. 
-For example, the added owners do not have full access to some of the resources that are created in the subscription by the DevTest Labs service. 
-
-To add an owner to an Azure subscription, follow these steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
-
-1. Open the desired Subscription group.
-
-1. In the navigation menu, select **Access control (IAM)**.
-
-1. Select **Add** > **Add role assignment**.
-
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
-
-1. On the **Role** tab, select the **OWNER** role.
-
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
-
-1. On the **Members** tab, select the user you want to give the owner role to.
-
-1. On the **Review + assign** tab, select **Review + assign** to assign the role.
-
-
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+- [Customize permissions with custom roles](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
+- [Automate adding lab users](automate-add-lab-user.md)

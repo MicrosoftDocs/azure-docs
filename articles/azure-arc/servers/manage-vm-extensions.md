@@ -59,7 +59,7 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Log Analytics VM extension for Windows](../../virtual-machines/extensions/oms-windows.md)|
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Dependency agent virtual machine extension for Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
 |Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForWindows | [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md) |
-|Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Install the Azure Monitor agent (preview)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
+|Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Install the Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-manage.md) |
 |Azure Automation Hybrid Runbook Worker extension (preview) |Microsoft.Compute |HybridWorkerForWindows |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally. |
 
 ### Linux extensions
@@ -71,7 +71,7 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |[Log Analytics VM extension for Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Dependency agent virtual machine extension for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 |Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) |
-|Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Install the Azure Monitor agent (preview)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
+|Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Install the Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-manage.md) |
 |Azure Automation Hybrid Runbook Worker extension (preview) |Microsoft.Compute |HybridWorkerForLinux |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally.|
 
 ## Prerequisites
@@ -81,7 +81,7 @@ This feature depends on the following Azure resource providers in your subscript
 - **Microsoft.HybridCompute**
 - **Microsoft.GuestConfiguration**
 
-If they aren't already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
+If they aren't already registered, follow the steps under [Register Azure resource providers](prerequisites.md#azure-resource-providers).
 
 Be sure to review the documentation for each VM extension referenced in the previous table to understand if it has any network or system requirements. This can help you avoid experiencing any connectivity issues with an Azure service or feature that relies on that VM extension.
 
@@ -113,11 +113,11 @@ Before you deploy the extension, you need to complete the following:
 
 ### Connected Machine agent
 
-Verify your machine matches the [supported versions](agent-overview.md#supported-operating-systems) of Windows and Linux operating system for the Azure Connected Machine agent.
+Verify your machine matches the [supported versions](prerequisites.md#supported-operating-systems) of Windows and Linux operating system for the Azure Connected Machine agent.
 
 The minimum version of the Connected Machine agent that is supported with this feature on Windows and Linux is the 1.0 release.
 
-To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrading-agent).
+To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrade-the-agent).
 
 ## Next steps
 

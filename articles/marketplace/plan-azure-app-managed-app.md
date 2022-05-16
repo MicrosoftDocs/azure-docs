@@ -1,8 +1,8 @@
 ---
 title: Plan an Azure managed application for an Azure application offer
 description: Learn what is required to create a managed application plan for a new Azure application offer using the commercial marketplace portal in Microsoft Partner Center.
-author: aarathin
-ms.author: aarathin
+author: macerru
+ms.author: macerr
 ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -30,7 +30,6 @@ Use an Azure Application: Managed application plan when the following conditions
 | Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. For more information, see:<br> * [Create an Azure VM technical asset](./azure-vm-certification-faq.yml#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (for Windows VHDs).<br> *  [Linux distributions endorsed on Azure](../virtual-machines/linux/endorsed-distros.md) (for Linux VHDs). |
 | Customer usage attribution | All new Azure application offers must also include an [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md) GUID. For more information about customer usage attribution and how to enable it, see [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md). |
 | Deployment package | You'll need a deployment package that will let customers deploy your plan. If you create multiple plans that require the same technical configuration, you can use the same package. For details, see the next section: Deployment package. |
-|||
 
 > [!NOTE]
 > Managed applications must be deployable through Azure Marketplace. If customer communication is a concern, reach out to interested customers after you've enabled lead sharing.
@@ -152,7 +151,6 @@ You can configure a maximum of five policies, and only one instance of each Poli
 | Azure Data Lake Store Encryption | No |
 | Audit Diagnostic Setting | Yes |
 | Audit Resource Location compliance | No |
-|||
 
 For each policy type you add, you must associate Standard or Free Policy SKU. The Standard SKU is required for audit policies. Policy names are limited to 50 characters.
 

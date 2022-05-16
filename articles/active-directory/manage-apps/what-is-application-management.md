@@ -3,15 +3,14 @@ title: What is application management?
 description: An overview of managing the lifecycle of an application in Azure Active Directory.
 titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 10/22/2021
-ms.author: davidmu
-ms.reviewer: sureshja, napuri
+ms.author: jomondi
 ---
 
 # What is application management in Azure Active Directory?
@@ -20,7 +19,7 @@ Application management in Azure Active Directory (Azure AD) is the process of cr
 
 In this article, you learn these important aspects of managing the lifecycle of an application:
 
-- **Develop, add, or connect** – You take different paths depending on whether you are developing your own application, using a pre-integrated application, or connecting to an on-premises application.
+- **Develop, add, or connect** – You take different paths depending on whether you're developing your own application, using a pre-integrated application, or connecting to an on-premises application.
 - **Manage access** – Access can be managed by using single sign-on (SSO), assigning resources, defining the way access is granted and consented to, and using automated provisioning.
 - **Configure properties** – Configure the requirements for signing into the application and how the application is represented in user portals.
 - **Secure the application** – Manage configuration of permissions, multifactor authentication (MFA), conditional access, tokens, and certificates.
@@ -43,7 +42,7 @@ Many applications are already pre-integrated (shown as “Cloud applications” 
 
 If you develop your own business application, you can register it with Azure AD to take advantage of the security features that the tenant provides. You can register your application in **App Registrations**, or you can register it using the **Create your own application** link when adding a new application in **Enterprise applications**. Consider how [authentication](../develop/authentication-vs-authorization.md) is implemented in your application for integration with Azure AD. 
 
-If you want to make your application available through the gallery, you can [submit a request to have it added](../develop/v2-howto-app-gallery-listing.md).
+If you want to make your application available through the gallery, you can [submit a request to have it added](../manage-apps/v2-howto-app-gallery-listing.md).
 
 
 ### On-premises applications
@@ -94,7 +93,7 @@ Azure AD provides customizable ways to deploy applications to users in your orga
 
 ## Configure properties
 
-When you add an application to your Azure AD tenant, you have the opportunity to [configure properties](add-application-portal-configure.md) that affect the way users can sign in. You can enable or disable the ability to sign in and user assignment can be required. You can also determine the visibility of the application, what logo represents the application, and any notes about the application.
+When you add an application to your Azure AD tenant, you have the opportunity to configure properties that affect the way users can interact with the application. You can enable or disable the ability to sign in and user assignment can be required. You can also determine the visibility of the application, what logo represents the application, and any notes about the application. For more information about the properties that can be configured, see [Properties of an enterprise application](application-properties.md).
 
 ## Secure the application
 
@@ -128,7 +127,7 @@ Your Azure AD reporting and monitoring solution depends on your legal, security,
 
 ## Clean up
 
-You can clean up access to applications. For example, [removing a user’s access](methods-for-removing-user-access.md). You can also [disable how a user signs in](disable-user-sign-in-portal.md). And finally, you can delete the application if it is no longer needed for the organization. For a simple example of how to delete an enterprise application from your Azure AD tenant, see [Quickstart: Delete an enterprise application](delete-application-portal.md).
+You can clean up access to applications. For example, [removing a user’s access](methods-for-removing-user-access.md). You can also [disable how a user signs in](disable-user-sign-in-portal.md). And finally, you can delete the application if it's no longer needed for the organization. For a simple example of how to delete an enterprise application from your Azure AD tenant, see [Quickstart: Delete an enterprise application](delete-application-portal.md).
 
 ## Next steps
 

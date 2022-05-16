@@ -4,6 +4,7 @@ description: Describes the audit logs available in Azure Database for MySQL Flex
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 9/21/2020
 ---
@@ -45,6 +46,9 @@ Other parameters you can adjust to control audit logging behavior include:
 ## Access audit logs
 
 Audit logs are integrated with Azure Monitor diagnostic settings. Once you've enabled audit logs on your MySQL flexible server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about diagnostic settings, see the [diagnostic logs documentation](../../azure-monitor/essentials/platform-logs-overview.md). To learn more about how to enable diagnostic settings in the Azure portal, see the [audit log portal article](tutorial-configure-audit.md#set-up-diagnostics).
+
+>[!Note]
+>Premium Storage accounts are not supported if you sending the logs to Azure storage via diagnostics and settings 
 
 The following sections describe the output of MySQL audit logs based on the event type. Depending on the output method, the fields included and the order in which they appear may vary.
 
@@ -143,9 +147,9 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
     ```kusto
     AzureDiagnostics
-    | where LogicalServerName_s == '<your server name>'
+    | where Resource  == '<your server name>'
     | where Category == 'MySqlAuditLogs' and event_class_s == "general_log"
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
     ```
 
@@ -153,9 +157,9 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
     ```kusto
     AzureDiagnostics
-    | where LogicalServerName_s == '<your server name>'
+    | where Resource  == '<your server name>'
     | where Category == 'MySqlAuditLogs' and event_class_s == "connection_log"
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
     ```
 
@@ -163,9 +167,9 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
     ```kusto
     AzureDiagnostics
-    | where LogicalServerName_s == '<your server name>'
+    | where Resource  == '<your server name>'
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | summarize count() by event_class_s, event_subclass_s, user_s, ip_s
     ```
 
@@ -173,10 +177,10 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
     ```kusto
     AzureDiagnostics
-    | where LogicalServerName_s == '<your server name>'
+    | where Resource  == '<your server name>'
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
-    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | summarize count() by Resource, bin(TimeGenerated, 5m)
     | render timechart
     ```
 
@@ -185,7 +189,7 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
     ```kusto
     AzureDiagnostics
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
     ```
 

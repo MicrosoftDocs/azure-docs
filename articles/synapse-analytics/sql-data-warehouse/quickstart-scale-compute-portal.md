@@ -1,12 +1,11 @@
 ---
 title: 'Quickstart: Scale compute for Synapse SQL pool (Azure portal)'
 description: You can scale compute for Synapse SQL pool (data warehouse) using the Azure portal.
-services: synapse-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: kedodd
+ms.author: kedodd
 manager: craigg
 ms.reviewer: sngun
-ms.date: 04/28/2020
+ms.date: 03/09/2022
 ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw

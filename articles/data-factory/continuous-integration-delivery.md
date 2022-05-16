@@ -26,7 +26,8 @@ In Azure Data Factory, continuous integration and delivery (CI/CD) means moving 
 
 ## CI/CD lifecycle
 
-[!NOTE] See also: [Continuous deployment improvements](continuous-integration-delivery-improvements.md#continuous-deployment-improvements)
+> [!NOTE]
+> For more information, see [Continuous deployment improvements](continuous-integration-delivery-improvements.md#continuous-deployment-improvements).
 
 Below is a sample overview of the CI/CD lifecycle in an Azure data factory that's configured with Azure Repos Git. For more information on how to configure a Git repository, see [Source control in Azure Data Factory](source-control.md).
 
@@ -65,7 +66,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 -  **Resource naming**. Due to ARM template constraints, issues in deployment may arise if your resources contain spaces in the name. The Azure Data Factory team recommends using '_' or '-' characters instead of spaces for resources. For example, 'Pipeline_1' would be a preferable name over 'Pipeline 1'.
 
-- **Exposure control and feature flags**.  When working on a team, there are instances where you may merge changes, but don't want them to be run in elevated environments such as PROD and QA. To handle this scenario, the ADF team recommends [the DevOps concept of using feature flags](/azure/devops/migrate/phase-features-with-feature-flags). In ADF, you can combine [global parameters](author-global-parameters.md) and the [if condition activity](control-flow-if-condition-activity.md) to hide sets of logic based upon these environment flags.
+- **Exposure control and feature flags**.  When working on a team, there are instances where you may merge changes, but don't want them to be run in elevated environments such as PROD and QA. To handle this scenario, the ADF team recommends [the DevOps concept of using feature flags](/devops/operate/progressive-experimentation-feature-flags). In ADF, you can combine [global parameters](author-global-parameters.md) and the [if condition activity](control-flow-if-condition-activity.md) to hide sets of logic based upon these environment flags.
 
     To learn how to set up a feature flag, see the below video tutorial:
 

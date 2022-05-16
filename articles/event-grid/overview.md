@@ -2,7 +2,7 @@
 title: What is Azure Event Grid? 
 description: Send event data from a source to handlers with Azure Event Grid. Build event-based applications, and integrate with Azure services.
 ms.topic: overview
-ms.date: 07/27/2021
+ms.date: 03/15/2022
 ---
 
 # What is Azure Event Grid?
@@ -24,37 +24,14 @@ This article provides an overview of Azure Event Grid. If you want to get starte
 
 Currently, the following Azure services support sending events to Event Grid. For more information about a source in the list, select the link.
 
-- [Azure App Configuration](event-schema-app-configuration.md)
-- [Azure Blob Storage](event-schema-blob-storage.md)
-- [Azure Communication Services](event-schema-communication-services.md) 
-- [Azure Container Registry](event-schema-container-registry.md)
-- [Azure Event Hubs](event-schema-event-hubs.md)
-- [Azure IoT Hub](event-schema-iot-hub.md)
-- [Azure Key Vault](event-schema-key-vault.md)
-- [Azure Machine Learning](event-schema-machine-learning.md)
-- [Azure Maps](event-schema-azure-maps.md)
-- [Azure Media Services](event-schema-media-services.md)
-- [Azure Policy](./event-schema-policy.md)
-- [Azure resource groups](event-schema-resource-groups.md)
-- [Azure Service Bus](event-schema-service-bus.md)
-- [Azure SignalR](event-schema-azure-signalr.md)
-- [Azure subscriptions](event-schema-subscriptions.md)
-- [Azure Cache for Redis](event-schema-azure-cache.md)
-- [Azure Kubernetes Service (preview)](event-schema-aks.md)
+[!INCLUDE [event-sources-system-topics.md](includes/event-sources-system-topics.md)]
+
 
 ## Event handlers
 
 For full details on the capabilities of each handler as well as related articles, see [event handlers](event-handlers.md). Currently, the following Azure services support handling events from Event Grid: 
 
-* [Azure Automation](handler-webhooks.md#azure-automation)
-* [Azure Functions](handler-functions.md)
-* [Event Hubs](handler-event-hubs.md)
-* [Relay Hybrid Connections](handler-relay-hybrid-connections.md)
-* [Logic Apps](handler-webhooks.md#logic-apps)
-* [Power Automate (Formerly known as Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
-* [Service Bus](handler-service-bus.md)
-* [Queue Storage](handler-storage-queues.md)
-* [WebHooks](handler-webhooks.md)
+[!INCLUDE [event-handlers.md](includes/event-handlers.md)]
 
 ## Concepts
 

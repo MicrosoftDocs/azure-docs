@@ -28,7 +28,23 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: cli-samples.md
+    items:
+    - name: Samples overview
+      href: cli-samples.md
+    - name: Create a virtual network for multi-tier applications
+      href: ./scripts/virtual-network-cli-sample-multi-tier-application.md
+    - name: Peer two virtual networks
+      href: ./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md
+    - name: Route traffic through nva
+      href: ./scripts/virtual-network-cli-sample-route-traffic-through-nva.md
+    - name: Filter network traffic
+      href: ./scripts/virtual-network-cli-sample-filter-network-traffic.md
+    - name: Basic load balancer with IPv4 + IPv6 dual stack 
+      href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack.md
+    - name: Standard load balancer with IPv4 + IPv6 dual stack 
+      href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md
+    - name: Create and test a NAT gateway
+      href: ./nat-gateway/quickstart-create-nat-gateway-cli.md
   - name: Azure PowerShell
     href: powershell-samples.md
   - name: Resource Manager templates
@@ -230,6 +246,8 @@
         href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json
   - name: VM networking
     items:      
+    - name: Migrate a virtual machine public IP address
+      href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-network/toc.json
     - name: Add or remove network interfaces
       href: virtual-network-network-interface-vm.md
     - name: Create VM - multiple NICs
@@ -238,13 +256,17 @@
         href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
       - name: Azure CLI
         href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-    - name: Create VM - accelerated networking
+    - name: Accelerated Networking (AccelNet)
       items:
-      - name: Azure PowerShell
+      - name: Accelerated Networking overview
+        href: accelerated-networking-overview.md
+      - name: Creating an AccelNet VM with PowerShell
         href: create-vm-accelerated-networking-powershell.md
-      - name: Azure CLI
+      - name: Creating an AccelNet VM with Azure CLI
         href: create-vm-accelerated-networking-cli.md
         items:
+        - name: How Accelerated Networking works
+          href: accelerated-networking-how-it-works.md
         - name: Setup DPDK
           href: setup-dpdk.md
     - name: TCP/IP Performance Tuning for Azure VMs
@@ -305,6 +327,8 @@
     href: monitor-virtual-network.md
   - name: Classic deployment
     href: /previous-versions/azure/virtual-network/create-virtual-network-classic
+  - name: Migrate from classic to Resource Manager
+    href: migrate-classic-vnet-powershell.md
 - name: Reference
   items:
   - name: Monitor data reference

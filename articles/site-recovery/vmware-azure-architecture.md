@@ -52,8 +52,11 @@ For exhaustive list of URLs to be filtered for communication between on-premises
     - For VMware VMs, replication is block-level, near-continuous, using the Mobility service agent running on the VM.
     - Any replication policy settings are applied:
         - **RPO threshold**. This setting does not affect replication. It helps with monitoring. An event is raised, and optionally an email sent, if the current RPO exceeds the threshold limit that you specify.
-        - **Recovery point retention**. This setting specifies how far back in time you want to go when a disruption occurs. Maximum retention on premium storage is 24 hours. On standard storage it's 72 hours.
+        - **Recovery point retention**. This setting specifies how far back in time you want to go when a disruption occurs. Maximum retention is 15 days on Managed disk.
         - **App-consistent snapshots**. App-consistent snapshot can be taken every 1 to 12 hours, depending on your app needs. Snapshots are standard Azure blob snapshots. The Mobility agent running on a VM requests a VSS snapshot in accordance with this setting, and bookmarks that point-in-time as an application consistent point in the replication stream.
+        >[!NOTE]
+        >High recovery point retention period may have an implication on the storage cost since more recovery points may need to be saved. 
+        
 
 2. Traffic replicates to Azure storage public endpoints over the internet. Alternately, you can use Azure ExpressRoute with [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
 3. Initial replication operation ensures that entire data on the machine at the time of enable replication is sent to Azure. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are sent to the process server.
@@ -79,19 +82,9 @@ For exhaustive list of URLs to be filtered for communication between on-premises
 6. If default resynchronization fails outside office hours and a manual intervention is required, then an error is generated on the specific machine in Azure portal. You can resolve the error and trigger the resynchronization manually.
 7. After completion of resynchronization, replication of delta changes will resume.
 
-## Replication policy
-
-When you enable Azure VM replication, by default Site Recovery creates a new replication policy with the default settings summarized in the table.
-
-**Policy setting** | **Details** | **Default**
---- | --- | ---
-**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 24 hours
-**App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every four hours
-
 ### Managing replication policies
 
-You can manage and modify the default replication policies settings as follows:
-- You can modify the settings as you enable replication.
+- You can customize the settings of replication policies as you enable replication.
 - You can create a replication policy at any time, and then apply it when you enable replication.
 
 ### Multi-VM consistency

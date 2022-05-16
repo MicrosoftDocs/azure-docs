@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 08/10/2021
+ms.date: 03/23/2022
 ms.topic: how-to
 ---
 
@@ -12,9 +12,6 @@ You can change the default settings of the Azure portal to meet your own prefere
 Most settings are available from the **Settings** menu in the top right section of global page header.
 
 :::image type="content" source="media/set-preferences/settings-top-header.png" alt-text="Screenshot showing the settings icon in the global page header.":::
-
-> [!NOTE]
-> We're in the process of moving all users to the newest settings experience described in this topic. For information about the older experience, see [Manage Azure portal settings and preferences (older version)](original-preferences.md).
 
 ## Directories + subscriptions
 
@@ -127,7 +124,7 @@ Choose your language and the regional format that will influence how data such a
 
 ### Language
 
-Use the drop-down list to select from the list of available languages. This setting controls the language you see for text throughout the Azure portal.
+Use the drop-down list to select from the list of available languages. This setting controls the language you see for text throughout the Azure portal. Azure portal supports the following 18 languages in addition to English: Chinese (Simplified), Chinese (Traditional), Czech, Dutch, French, German, Hungarian, Indonesian, Italian, Japanese, Korean, Polish, Portuguese (Brazil), Portuguese (Portugal), Russian, Spanish, Swedish, and Turkish.
 
 ### Regional format
 

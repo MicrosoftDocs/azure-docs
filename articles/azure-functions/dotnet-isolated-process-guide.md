@@ -42,6 +42,9 @@ A .NET isolated function project is basically a .NET console app project that ta
 + [local.settings.json](functions-develop-local.md#local-settings-file) file.
 + C# project file (.csproj) that defines the project and dependencies.
 + Program.cs file that's the entry point for the app.
+ 
+> [!NOTE]
+> To be able to publish your isolated function project to either a Windows or a Linux function app in Azure, you must set a value of `dotnet-isolated` in the remote [FUNCTIONS_WORKER_RUNTIME](functions-app-settings.md#functions_worker_runtime) application setting. To support [zip deployment](deployment-zip-push.md) and [running from the deployment package](run-functions-from-deployment-package.md) on Linux, you also need to update the `linuxFxVersion` site config setting to `DOTNET-ISOLATED|6.0`. To learn more, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux). 
 
 ## Package references
 
@@ -109,7 +112,23 @@ The [ConfigureFunctionsWorkerDefaults] extension method has an overload that let
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
 
-For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
+ The `UseWhen` extension method can be used to register a middleware which gets executed conditionally. A predicate which returns a boolean value needs to be passed to this method and the middleware will be participating in the invocation processing pipeline if the return value of the predicate is true.
+
+The following extension methods on [FunctionContext] make it easier to work with middleware in the isolated model.
+
+| Method | Description |
+| ---- | ---- |
+| **`GetHttpRequestDataAsync`** | Gets the `HttpRequestData` instance when called by an HTTP trigger. This method returns an instance of `ValueTask<HttpRequestData?>`, which is useful when you want to read message data, such as request headers and cookies. |
+| **`GetHttpResponseData`** | Gets the `HttpResponseData` instance when called by an HTTP trigger. |
+|  **`GetInvocationResult`** | Gets an instance of `InvocationResult`, which represents the result of the current function execution. Use the `Value` property to get or set the value as needed. |
+|  **` GetOutputBindings`** | Gets the output binding entries for the current function execution. Each entry in the result of this method is of type `OutputBindingData`. You can use the `Value` property to get or set the value as needed. | 
+|  **` BindInputAsync`** | Binds an input binding item for the requested `BindingMetadata` instance. For example, you can use this method when you have a function with a `BlobInput` input binding that needs to be accessed or updated by your middleware. |
+
+The following is an example of a middleware implementation which reads the `HttpRequestData` instance and updates the `HttpResponseData` instance during function execution. This middleware checks for the presence of a specific request header(x-correlationId), and when present uses the header value to stamp a response header. Otherwise, it generates a new GUID value and uses that for stamping the response header.
+ 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/StampHttpHeaderMiddleware.cs" id="docsnippet_middleware_example_stampheader" :::
+ 
+For a more complete example of using custom middlewares in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
 ## Execution context
 

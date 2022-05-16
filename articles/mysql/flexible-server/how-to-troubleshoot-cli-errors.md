@@ -4,12 +4,14 @@ description: This topic gives guidance on troubleshooting common issues with Azu
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.topic: how-to
+ms.subservice: flexible-server
+ms.topic: troubleshooting
 ms.date: 08/24/2021
 ---
 
 
 # Troubleshoot Azure Database for MySQL Flexible Server CLI errors
+
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This doc will help you troubleshoot common issues with Azure CLI when using MySQL Flexible Server.
@@ -18,11 +20,12 @@ This doc will help you troubleshoot common issues with Azure CLI when using MySQ
 
  If you receive and error that a command **is misspelled or not recognized by the system**. This could mean that CLI version on your client machine may not be up to date. Run ```az upgrade``` to upgrade to latest version. Doing an upgrade of your CLI version can help resolve issues with incompatibilities of a command due to any API changes.
 
- 
 ## Debug deployment failures 
+
 Currently, Azure CLI doesn't support turning on debug logging, but you can retrieve debug logging following the steps below.
 
 >[!NOTE]
+>
 > - Replace ```examplegroup``` and ```exampledeployment``` with the correct resource group and deployment name for your database server. 
 > - You can see the Deployment name in the deployments page in your resource group. See [how to find the deployment name](../../azure-resource-manager/templates/deployment-history.md?tabs=azure-portal).
 
@@ -65,13 +68,13 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 |SubscriptionNotFound| The requested subscription was not found. Run ```az account list all``` to see all your current subscriptions.|
 |InvalidParameterValue| An invalid value was given to a parameter.Check the [CLI reference docs](/cli/azure/mysql/flexible-server) to see what is the correct values supported for the arguments.|
 |InvalidLocation| An invalid location was specified. Check availability of Azure Database for MySQL Flexible Server in [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=mysql) |
-|InvalidServerName| Identified an invalid server name. Check the sever name. Run the command [az mysql flexible-server list](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_list) to see all the list of Flexible servers available. |
+|InvalidServerName| Identified an invalid server name. Check the sever name. Run the command [az mysql flexible-server list](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-list) to see all the list of Flexible servers available. |
 |InvalidResourceIdSegment| A syntax error was identified in your Azure Resource Manager template. Use an JSON formatter tool to validate the JSON to identify the syntax error.|
 |InvalidUserName| Enter a valid username. The admin user name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_.|
 |BlockedUserName| The admin user name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_. Avoid using these patterns in the admin name.|
 
 ## Next steps
 
-- If you are still experiencing issues, please [report the issue](https://github.com/Azure/azure-cli/issues). 
+- If you are still experiencing issues, please [report the issue](https://github.com/Azure/azure-cli/issues).
 - If you have questions, visit our Stack Overflow page: https://aka.ms/azcli/questions. 
 - Let us know how we are doing with this short survey https://aka.ms/azureclihats. 

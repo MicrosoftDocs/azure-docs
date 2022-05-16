@@ -3,7 +3,6 @@ title: Usage analysis with Application Insights | Azure Monitor
 description: Understand your users and what they do with your app.
 ms.topic: conceptual
 ms.date: 07/30/2021
-
 ---
 
 # Usage analysis with Application Insights
@@ -37,8 +36,9 @@ The best experience is obtained by installing Application Insights both in your 
     }});
     </script>
     ```
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-    To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
+To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
 
 3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](../app/mobile-center-quickstart.md).
 
@@ -87,7 +87,7 @@ With specific business events, you can chart your users' progress through your s
 Events can be logged from the client side of the app:
 
 ```JavaScript
-    appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
+      appInsights.trackEvent({name: "incrementCount"});
 ```
 
 Or from the server side:
@@ -130,14 +130,16 @@ To do this, [set up a telemetry initializer](./api-filtering-sampling.md#addmodi
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
+        // In this example, to differentiate versions, we use the value specified in the AssemblyInfo.cs
+        // for ASP.NET apps, or in your project file (.csproj) for the ASP.NET Core apps. Make sure that
+        // you set a different assembly version when you deploy your application for A/B testing.
+        static readonly string _version = 
+            System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            
         public void Initialize(ITelemetry item)
-            {
-                var itemProperties = item as ISupportProperties;
-                if (itemProperties != null && !itemProperties.Properties.ContainsKey("AppVersion"))
-                {
-                    itemProperties.Properties["AppVersion"] = "v2.1";
-                }
-            }
+        {
+            item.Context.Component.Version = _version;
+        }
     }
 ```
 
@@ -149,7 +151,7 @@ In the web app initializer such as Global.asax.cs:
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers
-         .Add(new MyTelemetryInitializer());
+            .Add(new MyTelemetryInitializer());
     }
 ```
 
@@ -161,15 +163,13 @@ In the web app initializer such as Global.asax.cs:
 For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
- using Microsoft.ApplicationInsights.Extensibility;
- using CustomInitializer.Telemetry;
- public void ConfigureServices(IServiceCollection services)
+using Microsoft.ApplicationInsights.Extensibility;
+
+public void ConfigureServices(IServiceCollection services)
 {
     services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 }
 ```
-
-All new TelemetryClients automatically add the property value you specify. Individual telemetry events can override the default values.
 
 ## Next steps
    - [Users, Sessions, Events](usage-segmentation.md)

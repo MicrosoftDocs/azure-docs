@@ -1,9 +1,9 @@
 ---
 title: Manage device enrollments for Azure IoT Hub Device Provisioning Service in the Azure portal 
 description: How to manage device enrollments for your Device Provisioning Service (DPS) in the Azure portal
-author: wesmc7777
-ms.author: wesmc
-ms.date: 10/25/2021
+author: kgremban
+ms.author: kgremban
+ms.date: 03/21/2022
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
@@ -18,6 +18,9 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 
 * [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
 * [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+> [!IMPORTANT]
+> If you have trouble accessing enrollments from the Azure portal, it may be because you have public network access disabled or IP filtering rules configured that block access for the Azure portal. To learn more, see [Disable public network access limitations](public-network-access.md#disable-public-network-access-limitations) and [IP filter rules limitations](iot-dps-ip-filtering.md#ip-filter-rules-limitations).
 
 ## Create an enrollment group
 
@@ -43,7 +46,7 @@ To create a symmetric key enrollment group:
 
    | Field | Description |
     | :--- | :--- |
-    | **Group name** | The name of the group of devices.|
+    | **Group name** | The name of the group of devices. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).|
     | **Attestation Type** |Select **Symmetric Key**.|
     | **Auto Generate Keys** |Check this box.|
     | **Select how you want to assign devices to hubs** |Select *Static configuration* so that you can assign to a specific hub|
@@ -112,7 +115,7 @@ To create a symmetric key individual enrollment:
     | **Mechanism** | Select *Symmetric Key* |
     | **Auto Generate Keys** |Check this box. |
     | **Registration ID** | Type in a unique registration ID.|
-    | **IoT Hub Device ID** |  This ID will represent your device. It must follow the rules for a device ID. For more information, see [Device identity properties](../iot-hub/iot-hub-devguide-identity-registry. If the device ID is left unspecified, then the registration ID will be used.|
+    | **IoT Hub Device ID** |  This ID will represent your device. It must follow the rules for a device ID. For more information, see [Device identity properties](../iot-hub/iot-hub-devguide-identity-registry.md). If the device ID is left unspecified, then the registration ID will be used.|
     | **Select how you want to assign devices to hubs** |Select *Static configuration* so that you can assign to a specific hub|
     | **Select the IoT hubs this group can be assigned to** |Select one of your hubs.|
 

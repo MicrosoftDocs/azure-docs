@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 01/27/2022
 ---
 
 # Build the landing page for your transactable SaaS offer in the commercial marketplace
@@ -91,7 +91,7 @@ The SaaS fulfillment APIs implement the [resolve](./partner-center-portal/pc-saa
 
 ## Read information from claims encoded in the ID token
 
-As part of the [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md) flow, Azure AD adds an [ID token](../active-directory/develop/id-tokens.md) to the request when the buyer is sent to the landing page. This token contains multiple pieces of basic information that could be useful in the activation process, including the information seen in this table.
+As part of the [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md) flow, put the tenant id value you receive in `https://login.microsoftonline.com/{tenant}/v2.0`. Azure AD adds an [ID token](../active-directory/develop/id-tokens.md) to the request when the buyer is sent to the landing page. This token contains multiple pieces of basic information that could be useful in the activation process, including the information seen in this table.
 
 | Value | Description |
 | ------------ | ------------- |
@@ -100,9 +100,8 @@ As part of the [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md
 | email | User's email address. Note that this field may be empty. |
 | name | Human-readable value that identifies the subject of the token. In this case, it will be the buyer's name. |
 | oid | Identifier in the Microsoft identity system that uniquely identifies the user across applications. Microsoft Graph will return this value as the ID property for a given user account. |
-| tid | Identifier that represents the Azure AD tenant the buyer is from. In the case of an MSA identity, this will always be ``9188040d-6c67-4c5b-b112-36a304b66dad``. For more information, see the note in the next section: Use the Microsoft Graph API. |
+| tid | Identifier that represents the Azure AD tenant the buyer is from. In the case of an MSA identity, this will always be `9188040d-6c67-4c5b-b112-36a304b66dad`. For more information, see the note in the next section: Use the Microsoft Graph API. |
 | sub | Identifier that uniquely identifies the user in this specific application. |
-|||
 
 ## Use the Microsoft Graph API
 
@@ -117,7 +116,6 @@ The ID token contains basic information to identify the buyer, but your activati
 | mobilePhone | Primary cellular telephone number for the user. |
 | preferredLanguage | ISO 639-1 code for the user's preferred language. |
 | surname | Last name of the user. |
-|||
 
 Additional properties—such as the name of the user's company or the user's location (country)—can be selected for inclusion in the request. See [properties for the user resource type](/graph/api/resources/user#properties) for more details.
 

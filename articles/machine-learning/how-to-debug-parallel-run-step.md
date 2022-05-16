@@ -83,11 +83,16 @@ def run(mini_batch):
     return resultList
 ```
 
-If you have another file or folder in the same directory as your inference script, you can reference it by finding the current working directory.
+If you have another file or folder in the same directory as your inference script, you can reference it by finding the current working directory. If you want to import your packages, you can also append your package folder to `sys.path`.
 
 ```python
 script_dir = os.path.realpath(os.path.join(__file__, '..',))
 file_path = os.path.join(script_dir, "<file_name>")
+
+packages_dir = os.path.join(file_path, '<your_package_folder>')
+if packages_dir not in sys.path:
+    sys.path.append(packages_dir)
+from <your_package> import <your_class>
 ```
 
 ### Parameters for ParallelRunConfig
@@ -208,7 +213,7 @@ def init():
     """Init once in a worker process."""
     entry_script = EntryScript()
     logger = entry_script.logger
-    logger.debug("This will show up in files under logs/user on the Azure portal.")
+    logger.info("This will show up in files under logs/user on the Azure portal.")
 
 
 def run(mini_batch):
@@ -216,7 +221,7 @@ def run(mini_batch):
     # This class is in singleton pattern and will return same instance as the one in init()
     entry_script = EntryScript()
     logger = entry_script.logger
-    logger.debug(f"{__file__}: {mini_batch}.")
+    logger.info(f"{__file__}: {mini_batch}.")
     ...
 
     return mini_batch
@@ -225,7 +230,7 @@ def run(mini_batch):
 ## Where does the message from Python `logging` sink to?
 ParallelRunStep sets a handler on the root logger, which sinks the message to `logs/user/stdout/<node_id>/processNNN.stdout.txt`.
 
-`logging` defaults to `WARNING` level. By default, levels below `WARNING` won't show up, such as `INFO` or `DEBUG`.
+`logging` defaults to `INFO` level. By default, levels below `INFO` won't show up, such as `DEBUG`.
 
 ## How could I write to a file to show up in the portal?
 Files in `logs` folder will be uploaded and show up in the portal.

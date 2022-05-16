@@ -6,7 +6,7 @@ summary: Use the Education Hub to quickly and easily provide students with all t
 metadata:
   title: Azure Education Hub Documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Use the Education Hub to quickly and easily provide students with all the necessary software, learning, and Azure services they need to become cloud proficient. #< 160 chars.
-  ms.service: azure-education . 
+  ms.service: azure-education
   ms.subservice: education-hub
   ms.topic: landing-page # Required
   author: tfosmark 
@@ -29,6 +29,10 @@ landingContent:
         links:
           - text: Use the Education Hub
             url: access-education-hub.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a lab in Education Hub using REST APIs
+            url: create-lab-education-hub.md
 
   # Card
   - title: Azure Dev Tools for Teaching
@@ -49,3 +53,17 @@ landingContent:
             url: ./azure-dev-tools-teaching/manage-students.md
           - text: How to download software
             url: ./azure-dev-tools-teaching/download-software.md
+
+  # Card
+  - title: Education Hub REST APIs
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Find IDs
+            url: find-ids.md
+      - linkListType: how-to-guide
+        links:
+          - text: How to create a lab
+            url: create-lab-education-hub.md
+          - text: How to delete a lab
+            url: delete-lab-education-hub-apis.md

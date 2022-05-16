@@ -21,7 +21,7 @@ If you already have both a Microsoft 365 account and an Azure subscription, see 
 
 Save time and avoid account proliferation by signing up for Azure using your Microsoft 365 user name and password.
 
-1. Sign up at [Azure.com](https://account.azure.com/signup?offer=MS-AZR-0044p&appId=docs).
+1. Sign up at [Azure.com](https://signup.azure.com/signup?offer=MS-AZR-0044p&appId=docs).
 2. Sign in by using your Microsoft 365 user name and password. The account you use doesn't need to have administrator permissions. If you have more than one Microsoft 365 account, make sure you use the credentials for the Microsoft 365 account that you want to associate with your Azure subscription.
 
    ![Screenshot that shows the sign-in page.](./media/microsoft-365-account-for-azure-subscription/billing-sign-in-with-office-365-account.png)

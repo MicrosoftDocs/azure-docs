@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 02/14/2021
+ms.date: 2/23/2022
 ---
 # How to update alert rules or alert processing rules when their target resource moves to a different Azure region
 
@@ -13,7 +13,7 @@ This article describes why existing [alert rules](./alerts-overview.md) and [ale
 
 ## Why the problem exists
 
-Alert rules and alert processing rules reference other Azure resources. Examples include [Azure VMs](../../site-recovery/azure-to-azure-tutorial-migrate.md), [Azure SQL](../../azure-sql/database/move-resources-across-regions.md), and [Azure Storage](../../storage/common/storage-account-move.md). When you move the resources those rules refer to, the rules are likely to stop working correctly because they can't find the resources they reference.
+Alert rules and alert processing rules reference other Azure resources. Examples include [Azure VMs](../../site-recovery/azure-to-azure-tutorial-migrate.md), [Azure SQL](/azure/azure-sql/database/move-resources-across-regions), and [Azure Storage](../../storage/common/storage-account-move.md). When you move the resources those rules refer to, the rules are likely to stop working correctly because they can't find the resources they reference.
 
 There are two main reasons why your rules might stop working after moving the target resources:
 
@@ -100,8 +100,8 @@ Navigate to Alerts > Alert processing rules (preview) > filter by the containing
 
 ### Change the scope of a rule using Azure CLI
 
-1.  Get the existing rule ([metric alerts](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_show), [activity log alerts](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log-alert_list)).
-2.  Update the rule scope directly ([metric alerts](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_update), [activity log alerts](/cli/azure/monitor/activity-log/alert/scope))
+1.  Get the existing rule ([metric alerts](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show), [activity log alerts](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
+2.  Update the rule scope directly ([metric alerts](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [activity log alerts](/cli/azure/monitor/activity-log/alert/scope))
 3.  If needed, split into two rules (relevant for some cases of metric alerts, as noted above).
 
 ## Next steps

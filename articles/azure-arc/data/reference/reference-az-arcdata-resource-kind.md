@@ -12,6 +12,8 @@ ms.subservice: azure-arc-data
 ---
 
 # az arcdata resource-kind
+
+Resource-kind commands to define and template custom resources on your cluster.
 ## Commands
 | Command | Description|
 | --- | --- |
@@ -19,12 +21,12 @@ ms.subservice: azure-arc-data
 [az arcdata resource-kind get](#az-arcdata-resource-kind-get) | Get the Arc resource-kind's template file.
 ## az arcdata resource-kind list
 List the available custom resource kinds for Arc that can be defined and created. After listing, you can proceed to getting the template file needed to define or create that custom resource.
-```bash
+```azurecli
 az arcdata resource-kind list 
 ```
 ### Examples
 Example command for listing the available custom resource kinds for Arc.
-```bash
+```azurecli
 az arcdata resource-kind list
 ```
 ### Global Arguments
@@ -40,12 +42,12 @@ JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more 
 Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata resource-kind get
 Get the Arc resource-kind's template file.
-```bash
+```azurecli
 az arcdata resource-kind get 
 ```
 ### Examples
 Example command for getting an Arc resource-kind's CRD template file.
-```bash
+```azurecli
 az arcdata resource-kind get --kind SqlManagedInstance
 ```
 ### Global Arguments

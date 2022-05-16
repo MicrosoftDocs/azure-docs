@@ -1,5 +1,5 @@
 ---
-title: "How to use table tags to train your custom form model - Form Recognizer"
+title: "How to use table tags to train your custom template model - Form Recognizer"
 titleSuffix: Azure Applied AI Services
 description: Learn how to effectively use supervised table tag labeling.
 author: laujan
@@ -13,9 +13,9 @@ ms.author: lajanuar
 ms.custom: ignite-fall-2021
 ---
 
-# Use table tags to train your custom form model
+# Use table tags to train your custom template model
 
-In this article, you'll learn how to train your custom form model with table tags (labels). Some scenarios require more complex labeling than simply aligning key-value pairs. Such scenarios include extracting information from forms with complex hierarchical structures or encountering items that not automatically detected and extracted by the service. In these cases, you can use table tags to train your custom form model.
+In this article, you'll learn how to train your custom template model with table tags (labels). Some scenarios require more complex labeling than simply aligning key-value pairs. Such scenarios include extracting information from forms with complex hierarchical structures or encountering items that not automatically detected and extracted by the service. In these cases, you can use table tags to train your custom template model.
 
 ## When should I use table tags?
 

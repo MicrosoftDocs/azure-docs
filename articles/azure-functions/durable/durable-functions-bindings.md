@@ -2,7 +2,7 @@
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 08/03/2021
+ms.date: 02/08/2022
 ms.author: azfuncdf
 ---
 
@@ -85,7 +85,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> The `durable-functions` library takes care of calling the `context.done` method when the generator function exits.
+> The `durable-functions` library takes care of calling the synchronous `context.done` method when the generator function exits.
 
 # [Python](#tab/python)
 
@@ -93,9 +93,9 @@ module.exports = df.orchestrator(function*(context) {
 import azure.durable_functions as df
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
-    input_ = context.get_input()
+    input = context.get_input()
     # Do some work
-    return f"Hello {name}!"
+    return f"Hello {input['name']}!"
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
@@ -149,8 +149,8 @@ module.exports = df.orchestrator(function*(context) {
 import azure.durable_functions as df
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
-    input_ = context.get_input()
-    result = yield context.call_activity('SayHello', name)
+    input = context.get_input()
+    result = yield context.call_activity('SayHello', input['name'])
     return result
 
 main = df.Orchestrator.create(orchestrator_function)
@@ -432,7 +432,7 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
 
 **run.ps1**
 ```powershell
-param($[string] $input, $TriggerMetadata)
+param([string] $input, $TriggerMetadata)
 
 $InstanceId = Start-DurableOrchestration -FunctionName $FunctionName -Input $input
 ```

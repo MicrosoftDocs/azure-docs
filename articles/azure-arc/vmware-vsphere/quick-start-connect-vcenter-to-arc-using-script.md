@@ -1,18 +1,18 @@
 ---
-title: Connect your VMware vCenter to Azure Arc using the helper script
-description: In this quickstart, you'll learn how to use the helper script to connect your VMware vCenter to Azure Arc.
+title: Connect VMware vCenter Server to Azure Arc by using the helper script
+description: In this quickstart, you'll learn how to use the helper script to connect your VMware vCenter Server instance to Azure Arc.
 ms.topic: quickstart 
 ms.custom: references_regions
 ms.date: 11/10/2021
 
-# Customer intent: As a VI admin, I want to connect my vCenter to Azure to enable self-service through Arc.
+# Customer intent: As a VI admin, I want to connect my vCenter Server instance to Azure to enable self-service through Azure Arc.
 ---
 
-# Quickstart: Connect your VMware vCenter to Azure Arc using the helper script
+# Quickstart: Connect VMware vCenter Server to Azure Arc by using the helper script
 
-Before using the Azure Arc-enabled VMware vSphere features, you'll need to connect your VMware vCenter Server to Azure Arc. This quickstart shows you how to connect your VMware vCenter Server to Azure Arc using a helper script.
+To start using the Azure Arc-enabled VMware vSphere (preview) features, you need to connect your VMware vCenter Server instance to Azure Arc. This quickstart shows you how to connect your VMware vCenter Server instance to Azure Arc by using a helper script.
 
-First, the script deploys a lightweight Azure Arc appliance, called [Azure Arc resource bridge](../resource-bridge/overview.md) (preview), as a virtual machine running in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between your vCenter Server and Azure Arc.
+First, the script deploys a virtual appliance called [Azure Arc resource bridge (preview)](../resource-bridge/overview.md) in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between vCenter Server and Azure Arc.
 
 ## Prerequisites
 
@@ -20,131 +20,141 @@ First, the script deploys a lightweight Azure Arc appliance, called [Azure Arc r
 
 - An Azure subscription.
 
-- A resource group in the subscription where you are a member of the *Owner/Contributor* role.
+- A resource group in the subscription where you're a member of the *Owner/Contributor* role.
 
 ### vCenter Server
 
-- vCenter Server running version 6.5 or later.
+- vCenter Server version 6.7.
 
-- Allow inbound connections on TCP port 443 so that the Arc resource bridge and VMware cluster extension can communicate with the vCenter server.  
+- A virtual network that can provide internet access, directly or through a proxy. It must also be possible for VMs on this network to communicate with the vCenter server on TCP port (usually 443).
 
-   >[!NOTE]
-   >In this release, only the default port of 443 is supported. If you use a different port, the resource bridge (preview) VM creation fails.  
+- At least one free IP address on the above network that isn't in the DHCP range. At least three free IP addresses if there's no DHCP server on the network.
 
-- A resource pool with a minimum capacity of 16 GB of RAM, four vCPUs.
+- A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
 
-- A datastore with a minimum of 100 GB of free disk space available through the resource pool.
+- A datastore with a minimum of 100 GB of free disk space available through the resource pool or cluster.
 
-- An external virtual network/switch and internet access, directly or through a proxy.
+> [!NOTE]
+> Azure Arc-enabled VMware vSphere (preview) supports vCenter Server instances with a maximum of 2,500 virtual machines (VMs). If your vCenter Server instance has more than 2,500 VMs, we don't recommend that you use Azure Arc-enabled VMware vSphere with it at this point.
 
-### vSphere accounts
+### vSphere account
 
-A vSphere account that can read all inventory, deploy, and update VMs to all the resource pools (or clusters), networks, and virtual machine templates that you want to use with Azure Arc. This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere and the Azure Arc resource bridge (preview) VM deployment.
+You need a vSphere account that can:
+- Read all inventory. 
+- Deploy and update VMs to all the resource pools (or clusters), networks, and VM templates that you want to use with Azure Arc.
 
->[!NOTE]
->If you are using the Azure VMware solution, this account would be the `cloudadmin` account.  
+This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere (preview) and the deployment of the Azure Arc resource bridge (preview) VM.
 
 ### Workstation
 
-A Windows or Linux machine that can access both your vCenter Server and internet, directly or through proxy.
+You need a Windows or Linux machine that can access both your vCenter Server instance and the internet, directly or through a proxy.
 
 ## Prepare vCenter Server
 
-1. Create a resource pool with a reservation of at least 16 GB of RAM and four vCPUs. It should also have at least 100 GB of disk space.
+1. Create a resource pool with a reservation of at least 16 GB of RAM and four vCPUs. It should also have access to a datastore with at least 100 GB of free disk space.
 
-1. Ensure the vSphere accounts have the appropriate permissions.
+2. Ensure that the vSphere accounts have the appropriate permissions.
+
+## Download the onboarding script
+
+1. Go to the Azure portal.
+
+2. Search for **Azure Arc** and select it.
+
+3. On the **Overview** page, select **Add** under **Add your infrastructure for free** or move to the **Infrastructure** tab.
+
+4. In the **Platform** section, select **Add** under **VMware vCenter**.
+
+    :::image type="content" source="media/add-vmware-vcenter.png" alt-text="Screenshot that shows how to add VMware vCenter through Azure Arc.":::
+
+5. Select **Create a new resource bridge**, and then select **Next**.
+
+6. Provide a name of your choice for the Azure Arc resource bridge. For example: **contoso-nyc-resourcebridge**.
+
+7. Select a subscription and resource group where the resource bridge will be created.
+
+8. Under **Region**, select an Azure location where the resource metadata will be stored. Currently, supported regions are **East US** and **West Europe**.
+
+9. Provide a name for **Custom location**. This is the name that you'll see when you deploy VMs. Name it for the datacenter or the physical location of your datacenter. For example: **contoso-nyc-dc**.
+
+10. Leave **Use the same subscription and resource group as your resource bridge** selected.
+
+11. Provide a name for your vCenter Server instance in Azure. For example: **contoso-nyc-vcenter**.
+
+12. Select **Next: Download and run script**.
+
+13. If your subscription is not registered with all the required resource providers, a **Register** button will appear. Select the button before you proceed to the next step.
+
+    :::image type="content" source="media/register-arc-vmware-providers.png" alt-text="Screenshot that shows the button to register required resource providers during vCenter onboarding to Azure Arc.":::
+
+14. Based on the operating system of your workstation, download the PowerShell or Bash script and copy it to the [workstation](#prerequisites).
+
+15. If you want to see the status of your onboarding after you run the script on your workstation, select **Next: Verification**. Closing this page won't affect the onboarding.
 
 ## Run the script
 
- Refer to the table for the script parameters:
-
-| **Parameter** | **Details** |
-| --- | --- |
-| **Subscription** | Azure subscription name or ID where you'll create the Azure resources. |
-| **ResourceGroup** | Resource group where you'll create the Azure Arc resources. |
-| **AzLocation** | Azure location ([region](overview.md#supported-regions)) where the resource metadata would be stored.  |
-| **ApplianceName** | You can provide the Azure Arc resource bridge (preview) a name of your choice, for example, *contoso-nyc-appliance*. |
-| **CustomLocationName** | Name for the custom location in Azure. |
-| **VcenterName** | Name for the vCenter Server in Azure, which is the name your teams see when deploying their VMs through Azure Arc. </br> Use the name of the data center or its physical location, for example, *contoso-nyc-dc*. |
+Use the following instructions to run the script, depending on which operating system your machine is using.
 
 ### Windows
 
-1. Open a PowerShell console and navigate to the folder where you want to keep the setup files.
+1. Open a PowerShell window and go to the folder where you've downloaded the PowerShell script.
 
-2. Download the script by running the following command.
+2. Run the following command to allow the script to run, because it's an unsigned script. (If you close the session before you complete all the steps, run this command again for the new session.)
 
-   ```powershell
-   Invoke-WebRequest https://arcvmwaredl.blob.core.windows.net/arc-appliance/arcvmware-setup.ps1 -OutFile arcvmware-setup.ps1
-
-   ```
-
-3. Run the following command to allow the script to run as an unsigned script. If you close the session before completing all the steps, rerun this in a new session.
-
-    ```powershell
+    ``` powershell-interactive
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
     ```
 
-4. Execute the script by providing the parameters `Subscription`, `ResourceGroup`, `AzLocation`, `ApplianceName`, `CustomLocationName`, and `VcenterName` (refer to the table [above](#run-the-script) to understand the parameters).
+3. Run the script:
 
-     ```powershell
-     ./arcvmware-setup.ps1 -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VcenterName <VcenterName>
+     ``` powershell-interactive
+     ./resource-bridge-onboarding-script.ps1
      ```
 
 ### Linux
 
-1. Open a terminal and navigate to the folder where you want to keep the setup files.
+1. Open the terminal and go to the folder where you've downloaded the Bash script.
 
-2. Run the following command to download the onboarding script.
+2. Run the script by using the following command:
 
-   ```bash
-   wget https://arcvmwaredl.blob.core.windows.net/arc-appliance/arcvmware-setup.sh
-   ```
-
-3. Update the script with the parameters `ResourceGroup`,`AzLocation`, `ApplianceName`, `CustomerLocationName`, and `VcenterName` (refer to the table [above](#run-the-script) to understand the parameters).
-
-4. Run the following command to execute the script.
-
-    ```bash
-    sudo bash arcvmware-setup.sh 
+    ``` sh
+    bash resource-bridge-onboarding-script.sh
     ```
 
-## Script runtime
+## Inputs for the script
 
-Script execution can take up to 30 minutes to complete. You're prompted to provide values for several parameters and you can refer to the following table for detailed information.
+A typical onboarding that uses the script takes 30 to 60 minutes. During the process, you're prompted for the following details:
 
-| Requirement | Description |
+| **Requirement** | **Details** |
 | --- | --- |
-| **Azure login** | You're prompted to sign into Azure by visiting the [device login](https://www.microsoft.com/devicelogin) site and then pasting the prompted code. |
-| **vCenter FQDN/Address** | Fully qualified domain name (FQDN) for vCenter Server (or an IP address). For example, *10.160.0.1* or *nyc-vcenter.contoso.com*. |
-| **vCenter Username** | Username for the vSphere account. For more information, see [vSphere accounts](#vsphere-accounts) above. |
-| **vCenter password** | Password for the vSphere account. |
-| **Data center selection** | Select the name of the data center (as shown in vSphere client) where the Azure Arc resource bridge (preview) VM should be deployed. |
-| **Network selection** | Select the name of the virtual network or segment to which VM must be connected. This network should allow the appliance to talk to the vCenter Server and the Azure endpoints (or internet). |
-| **Static IP / DHCP** | If you have a DHCP server on your network and want to use it, type **y** and then populate the following: <ul><li><b>Static IP address prefix</b>: Network address in CIDR notation, for example, 192.168.0.0/24.</li><li><b>Static gateway</b>: For example, 192.168.0.0.</li><li><b>DNS servers</b>: Comma-separated list of DNS servers.</li><li><b>Start range IP</b>: Minimum size of two available addresses is required for upgrade scenarios. Provide the start IP of that range.</li><li><b>End range IP</b>: Last IP of the IP range requested in the previous field.</li><li><b>VLAN ID</b> (optional)</li></ul> |
-| **Resource pool** | Select the name of the resource pool to which the Azure Arc resource bridge (preview) VM would be deployed. |
-| **Data store** | Select the name of the datastore to be used for the Azure Arc resource bridge (preview) VM. |
-| **Folder** | Select the name of the vSphere folder where the Azure Arc resource bridge (preview) VM should be deployed. |
-| **Vm template Name** | Provide a name for the VM template that is created in your vCenter based on the downloaded OVA. For example,  `arc-appliance-template`. |
-| **Control Pane IP** | Provide a reserved IP address. A reserved IP address in your DHCP range or a static IP outside of DHCP range, but still available on the network. This IP address shouldn't be assigned to any other machine on the network. |
-| **Appliance proxy settings** | If you have a proxy in your appliance network, type **y** and then populate the following: <ul><li><b>Http</b>: Address of HTTP proxy server.</li><li><b>NoProxy</b>: addresses to be excluded from proxy.</li><li><b>CertificateFilePath</b>: for SSL-based proxies, path to certificate to be used.</li></ul> |
+| **Azure login** | When you're prompted, go to the [device sign-in page](https://www.microsoft.com/devicelogin), enter the authorization code shown in the terminal, and sign in to Azure. |
+| **vCenter FQDN/Address** | Enter the fully qualified domain name for the vCenter Server instance (or an IP address). For example: **10.160.0.1** or **nyc-vcenter.contoso.com**. |
+| **vCenter Username** | Enter the username for the vSphere account. The required permissions for the account are listed in the [prerequisites](#prerequisites). |
+| **vCenter password** | Enter the password for the vSphere account. |
+| **Data center selection** | Select the name of the datacenter (as shown in the vSphere client) where the Azure Arc resource bridge's VM should be deployed. |
+| **Network selection** | Select the name of the virtual network or segment to which the VM must be connected. This network should allow the appliance to communicate with vCenter Server and the Azure endpoints (or internet). |
+| **Static IP / DHCP** | If you have DHCP server in your network and want to use it, enter **y**. Otherwise, enter **n**. </br>When you choose a static IP configuration, you're asked for the following information: </br> 1. **Static IP address prefix**: Network address in CIDR notation. For example: **192.168.0.0/24**. </br> 2. **Static gateway**: Gateway address. For example: **192.168.0.0**. </br> 3. **DNS servers**: Comma-separated list of DNS servers. </br> 4. **Start range IP**: Minimum size of two available IP addresses is required. One IP address is for the VM, and the other is reserved for upgrade scenarios. Provide the starting IP address of that range. </br> 5. **End range IP**: Last IP address of the IP range requested in the previous field. </br> 6. **VLAN ID** (optional) |
+| **Resource pool** | Select the name of the resource pool to which the Azure Arc resource bridge's VM will be deployed. |
+| **Data store** | Select the name of the datastore to be used for the Azure Arc resource bridge's VM. |
+| **Folder** | Select the name of the vSphere VM and the template folder where the Azure Arc resource bridge's VM will be deployed. |
+| **VM template Name** | Provide a name for the VM template that will be created in your vCenter Server instance based on the downloaded OVA file. For example: **arc-appliance-template**. |
+| **Control Pane IP** address | Provide a static IP address that's outside the DHCP range but still available on the network. Ensure that this IP address isn't assigned to any other machine on the network. Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address.|
+| **Appliance proxy settings** | Enter **y** if there's a proxy in your appliance network. Otherwise, enter **n**. </br> You need to populate the following boxes when you have a proxy set up: </br> 1. **Http**: Address of the HTTP proxy server. </br> 2. **Https**: Address of the HTTPS proxy server. </br> 3. **NoProxy**: Addresses to be excluded from the proxy. </br> 4. **CertificateFilePath**: For SSL-based proxies, the path to the certificate to be used.
 
-Once the command execution completes, you can [try out the capabilities](browse-and-enable-vcenter-resources-in-azure.md) of Azure Arc- enabled VMware vSphere.
+After the command finishes running, your setup is complete. You can now use the capabilities of Azure Arc-enabled VMware vSphere.
 
-### Retry command - Windows
+## Save SSH keys and kubeconfig
 
-If the appliance creation fails and you need to retry it. Run the command with `-Force` to clean up the previous deployment and onboard again.
+> [!IMPORTANT]
+> Performing [day 2 operations on the Arc resource bridge](day2-operations-resource-bridge.md) will require the SSH key to the resource bridge VM and kubeconfig to the Kubernetes cluster on it. It is important to store them to a secure location as it is not possible to retrieve them if the workstation used for the onboarding is deleted.
 
-```powershell
-./arcvmware-setup.ps1 -Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VcenterName <VcenterName>
-```
+You will find the kubeconfig file with the name `kubeconfig` in the folder where  the onboarding script is downloaded and run.
 
-### Retry command - Linux
+The SSH key pair will be available in the following location.
 
-If the appliance creation fails and you need to retry it, run the command with `--force` to clean up the previous deployment and onboard again.
-
-```bash
-sudo bash arcvmware-setup.sh --force
-```
+- If you used a Windows workstation, `C:\ProgramData\kva\.ssh\logkey` and `C:\ProgramData\kva\.ssh\logkey.pub`
+  
+- If you used a Linux workstation, `$HOME\.KVA\.ssh\logkey` and `$HOME\.KVA\.ssh\logkey.pub`
 
 ## Next steps
 

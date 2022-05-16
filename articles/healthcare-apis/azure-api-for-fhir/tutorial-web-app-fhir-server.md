@@ -6,22 +6,22 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: cavoeg
-author: caitlinv39
-ms.date: 01/03/2020
+ms.author: mikaelw
+author: mikaelweave
+ms.date: 02/15/2022
 ms.custom: devx-track-js
 
 ---
 
 # Deploy JavaScript app to read data from Azure API for FHIR
-In this tutorial, you will deploy a small JavaScript app, which reads data from a FHIR service. The steps in this tutorial are:
+In this tutorial, you'll deploy a small JavaScript app, which reads data from a FHIR service. The steps in this tutorial are:
 1. Deploy a FHIR server
 1. Register a public client application
 1. Test access to the application
 1. Create a web application that reads this FHIR data
 
 ## Prerequisites
-Before starting this set of tutorials, you will need the following items:
+Before starting this set of tutorials, you'll need the following items:
 1. An Azure subscription
 1. An Azure Active Directory tenant
 1. [Postman](https://www.getpostman.com/) installed
@@ -40,7 +40,7 @@ The first step in the tutorial is to get your Azure API for FHIR setup correctly
     1. Set the **Max age** to **600**
 
 ## Next Steps
-Now that you have your Azure API for FHIR deployed, you are ready to register a public client application.
+Now that you have your Azure API for FHIR deployed, you're ready to register a public client application.
 
 >[!div class="nextstepaction"]
 >[Register public client application](tutorial-web-app-public-app-reg.md)

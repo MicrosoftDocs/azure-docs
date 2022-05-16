@@ -153,6 +153,9 @@ In this section, you will create a private endpoint to the MariaDB server to it.
     |Target sub-resource |Select *mariadbServer*|
     |||
 7. Select **Next: Configuration**.
+    > [!Note]
+    > To enable virtual network service endpoints, you need a subscription with Network contributor role
+If your virtual network and Azure database for MariaDB account are in different subscriptions, make sure that the subscription that has virtual network also has Microsoft.DBforMariaDB resource provider registered. To register a resource provider, see [Azure resource providers and types article](../azure-resource-manager/management/resource-providers-and-types.md).
 8. In **Create a private endpoint - Configuration**, enter or select this information:
 
     | Setting | Value |

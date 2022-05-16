@@ -2,7 +2,7 @@
 title: Azure Event Hubs Firewall Rules | Microsoft Docs
 description: Use Firewall Rules to allow connections from specific IP addresses to Azure Event Hubs. 
 ms.topic: article
-ms.date: 10/28/2021
+ms.date: 02/23/2022
 ---
 
 # Allow access to Azure Event Hubs namespaces from specific IP addresses or ranges
@@ -63,74 +63,93 @@ The following Resource Manager template enables adding an IP filter rule to an e
 
 **ipMask** in the template is a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 70.37.104.0/24 represents the 256 IPv4 addresses from 70.37.104.0 to 70.37.104.255, with 24 indicating the number of significant prefix bits for the range.
 
-When adding virtual network or firewalls rules, set the value of `defaultAction` to `Deny`.
+> [!NOTE]
+> The default value of the `defaultAction` is `Allow`. When adding virtual network or firewalls rules, make sure you set the `defaultAction` to `Deny`.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "eventhubNamespaceName": {
-        "type": "string",
-        "metadata": {
-          "description": "Name of the Event Hubs namespace"
+        "eventhubNamespaceName": {
+            "type": "String"
         }
-      },
-      "location": {
-        "type": "string",
-        "metadata": {
-          "description": "Location for Namespace"
-        }
-      }
-    },
-    "variables": {
-      "namespaceNetworkRuleSetName": "[concat(parameters('eventhubNamespaceName'), concat('/', 'default'))]",
     },
     "resources": [
-      {
-        "apiVersion": "2018-01-01-preview",
-        "name": "[parameters('eventhubNamespaceName')]",
-        "type": "Microsoft.EventHub/namespaces",
-        "location": "[parameters('location')]",
-        "sku": {
-          "name": "Standard",
-          "tier": "Standard"
-        },
-        "properties": { }
-      },
-      {
-        "apiVersion": "2018-01-01-preview",
-        "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.EventHub/namespaces/networkrulesets",
-        "dependsOn": [
-          "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
-        ],
-        "properties": {
-		  "virtualNetworkRules": [<YOUR EXISTING VIRTUAL NETWORK RULES>],
-          "ipRules": 
-          [
-            {
-                "ipMask":"10.1.1.1",
-                "action":"Allow"
+        {
+            "type": "Microsoft.EventHub/namespaces",
+            "apiVersion": "2021-11-01",
+            "name": "[parameters('eventhubNamespaceName')]",
+            "location": "East US",
+            "sku": {
+                "name": "Standard",
+                "tier": "Standard",
+                "capacity": 1
             },
-            {
-                "ipMask":"11.0.0.0/24",
-                "action":"Allow"
+            "properties": {
+                "disableLocalAuth": false,
+                "zoneRedundant": true,
+                "isAutoInflateEnabled": false,
+                "maximumThroughputUnits": 0,
+                "kafkaEnabled": true
             }
-          ],
-          "trustedServiceAccessEnabled": false,
-          "defaultAction": "Deny"
+        },
+        {
+            "type": "Microsoft.EventHub/namespaces/networkRuleSets",
+            "apiVersion": "2021-11-01",
+            "name": "[concat(parameters('eventhubNamespaceName'), '/default')]",
+            "location": "East US",
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('eventhubNamespaceName'))]"
+            ],
+            "properties": {
+                "publicNetworkAccess": "Enabled",
+                "defaultAction": "Deny",
+                "virtualNetworkRules": [],
+                "ipRules": [
+                    {
+                        "ipMask":"10.1.1.1",
+                        "action":"Allow"
+                    },
+                    {
+                        "ipMask":"11.0.0.0/24",
+                        "action":"Allow"
+                    }                
+                ]
+            }
         }
-      }
-    ],
-    "outputs": { }
-  }
+    ]
+}
+
 ```
 
 To deploy the template, follow the instructions for [Azure Resource Manager][lnk-deploy].
 
 > [!IMPORTANT]
 > If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
+
+## default action and public network access 
+
+### REST API
+
+The default value of the `defaultAction` property was `Deny` for API version **2021-01-01-preview and earlier**. However, the deny rule isn't enforced unless you set IP filters or virtual network (VNet) rules. That is, if you didn't have any IP filters or VNet rules, it's treated as `Allow`. 
+
+From API version **2021-06-01-preview onwards**, the default value of the `defaultAction` property is `Allow`, to accurately reflect the service-side enforcement. If the default action is set to `Deny`, IP filters and VNet rules are enforced. If the default action is set to `Allow`, IP filters and VNet rules aren't enforced. The service remembers the rules when you turn them off and then back on again. 
+
+The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If it's set to `Disabled`, operations are restricted to private links only. If it's set to `Enabled`, operations are allowed over the public internet. 
+
+For more information about these properties, see [Create or Update Network Rule Set](/rest/api/eventhub/preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/eventhub/preview/private-endpoint-connections/create-or-update).
+
+> [!NOTE]
+> None of the above settings bypass validation of claims via SAS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
+
+### Azure portal
+
+Azure portal always uses the latest API version to get and set properties.  If you had previously configured your namespace using **2021-01-01-preview and earlier** with `defaultAction` set to `Deny`, and specified zero IP filters and VNet rules, the portal would have previously checked **Selected Networks** on the **Networking** page of your namespace. Now, it checks the **All networks** option. 
+
+:::image type="content" source="./media/event-hubs-firewall/firewall-all-networks-selected.png" lightbox="./media/event-hubs-firewall/firewall-all-networks-selected.png" alt-text="Screenshot that shows the Public access page with the All networks option selected.":::
+
+
 
 ## Next steps
 

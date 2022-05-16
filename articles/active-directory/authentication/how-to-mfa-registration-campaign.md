@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/15/2021
+ms.date: 05/05/2022
 
 ms.author: justinha
 author: mjsantani
@@ -24,11 +24,11 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
 ## Prerequisites 
 
-- Your organization must have enabled Azure MFA. 
+- Your organization must have enabled Azure MFA. Every edition of Azure AD includes Azure MFA. No additional license is needed for a registration campaign.
 - User must not have already set up Microsoft Authenticator for push notifications on their account. 
 - Admins need to enable users for Microsoft Authenticator using one of these policies:  
   - MFA Registration Policy: Users will need to be enabled for **Notification through mobile app**.  
-  - Authentication Methods Policy: Users will need to be enabled for the Microsoft Authenticator and the Authentication mode set to **Any** or **Push**. If the policy is set to **Passwordless**, the user will not be eligible for the nudge. 
+  - Authentication Methods Policy: Users will need to be enabled for the Microsoft Authenticator and the Authentication mode set to **Any** or **Push**. If the policy is set to **Passwordless**, the user will not be eligible for the nudge. For more information about how to set the Authentication mode, see [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md). 
 
 ## User experience
 
@@ -63,7 +63,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
       ![Installation complete](./media/how-to-nudge-authenticator-app/finish.png)
 
-1. If a user wishes to not install the Authenticator app, they can tap **Not now** to snooze the prompt for a number of days, which can be defined by an admin. 
+1. If a user wishes to not install Microsoft Authenticator, they can tap **Not now** to snooze the prompt for up to 14 days, which can be set by an admin. 
  
    ![Snooze installation](./media/how-to-nudge-authenticator-app/snooze.png)
 
@@ -101,7 +101,7 @@ The following table lists **authenticationMethodsRegistrationCampaign** properti
 | Name | Possible values | Description |
 |------|-----------------|-------------|
 | state | "enabled"<br>"disabled"<br>"default" | Allows you to enable or disable the feature.<br>Default value is used when the configuration hasn't been explicitly set and will use Azure AD default value for this setting. Currently maps to disabled.<br>Change states to either enabled or disabled as needed.  |
-| snoozeDurationInDays | Range: 0 – 14 | Defines after how many days the user will see the nudge again.<br>If the value is 0, the user is nudged during every MFA attempt.<br>Default: 1 day |
+| snoozeDurationInDays | Range: 0 – 14 | Defines the number of days before the user is nudged again.<br>If the value is 0, the user is nudged during every MFA attempt.<br>Default: 1 day |
 | includeTargets | N/A | Allows you to include different users and groups that you want the feature to target. |
 | excludeTargets | N/A | Allows you to exclude different users and groups that you want omitted from the feature. If a user is in a group that is excluded and a group that is included, the user will be excluded from the feature.|
 
@@ -253,39 +253,57 @@ The nudge will not appear on mobile devices that run Android or iOS.
 
 ## Frequently asked questions
 
-**Will this feature be available for MFA Server?** 
-No. This feature will be available only for users using Azure MFA. 
+**Is registration campaign available for MFA Server?** 
+
+No. This feature is available only for users using Azure MFA. 
+
+**Can users be nudged within an application?** 
+
+Nudge is available only on browsers and not on applications.
 
 **How long will the campaign run for?** 
+
 You can use the APIs to enable the campaign for as long as you like. Whenever you want to be done running the campaign, simply use the APIs to disable the campaign.  
  
 **Can each group of users have a different snooze duration?** 
+
 No. The snooze duration for the prompt is a tenant-wide setting and applies to all groups in scope. 
 
 **Can users be nudged to set up passwordless phone sign-in?** 
+
 The feature aims to empower admins to get users set up with MFA using the Authenticator app and not passwordless phone sign-in.  
 
 **Will a user who has a 3rd party authenticator app setup see the nudge?** 
+
 If this user doesn’t have the Microsoft Authenticator app set up for push notifications and are enabled for it by policy, yes, the user will see the nudge. 
 
-**Will a user who has a Microsoft Authenticator app setup only for TOTP codes see the nudge?** Yes. If the Microsoft Authenticator app is not set up for push notifications and the user is enabled for it by policy, yes, the user will see the nudge.
+**Will a user who has a Microsoft Authenticator app setup only for TOTP codes see the nudge?** 
+
+Yes. If the Microsoft Authenticator app is not set up for push notifications and the user is enabled for it by policy, yes, the user will see the nudge.
 
 **If a user just went through MFA registration, will they be nudged in the same sign-in session?** 
+
 No. To provide a good user experience, users will not be nudged to set up the Authenticator in the same session that they registered other authentication methods.  
 
 **Can I nudge my users to register another authentication method?** 
+
 No. The feature, for now, aims to nudge users to set up the Microsoft Authenticator app only. 
 
 **Is there a way for me to hide the snooze option and force my users to setup the Authenticator app?**  
+
 There is no way to hide the snooze option on the nudge. You can set the snoozeDuration to 0, which will ensure that users will see the nudge during each MFA attempt.  
 
 **Will I be able to nudge my users if I am not using Azure MFA?** 
+
 No. The nudge will only work for users who are doing MFA using the Azure MFA service. 
 
 **Will Guest/B2B users in my tenant be nudged?** 
+
 Yes. If they have been scoped for the nudge using the policy. 
 
-**What if the user closes the browser?** It's the same as snoozing.
+**What if the user closes the browser?** 
+
+It's the same as snoozing.
 
 
 ## Next steps

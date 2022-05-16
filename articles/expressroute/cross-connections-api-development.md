@@ -62,7 +62,7 @@ The authentication process involves two main steps:
 
 ### 4. Provide Network Contributor permission to the client application
 
-Once authentication has been successfully configured, you need to grant Network Contributor access to your client application, under the Dev_Provider_Sub. To grant permission, sign in to the [Azure portal](https://ms.portal.azure.com/#home) and complete the following steps:
+Once authentication has been successfully configured, you need to grant Network Contributor access to your client application, under the Dev_Provider_Sub. To grant permission, sign in to the [Azure portal](https://portal.azure.com/#home) and complete the following steps:
 
 1. Navigate to Subscriptions and select the Dev_Provider_Sub
 2. Navigate to Access Control (IAM)

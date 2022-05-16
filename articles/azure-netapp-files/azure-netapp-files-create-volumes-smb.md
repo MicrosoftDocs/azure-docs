@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 03/02/2022
 ms.author: anfdocs
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -147,7 +147,7 @@ You can set permissions for a file or folder by using the **Security** tab of th
 
 * [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
+* [Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) 
 * [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
 * [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)

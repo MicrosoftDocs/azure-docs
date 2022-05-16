@@ -1,7 +1,6 @@
 ---
 title: Manage and monitor workload importance in dedicated SQL pool
 description: Learn how to manage and monitor request level importance dedicated SQL pool for Azure Synapse Analytics.
-services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics

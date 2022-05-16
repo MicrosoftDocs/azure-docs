@@ -15,7 +15,7 @@ recommendations: false
 
 # Create a Form Recognizer resource
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine-learning models to extract and analyze form fields, text, and tables from your documents. Here, you'll learn how to create a Form Recognizer resource in the Azure portal.
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Here, you'll learn how to create a Form Recognizer resource in the Azure portal.
 
 ## Visit the Azure portal
 
@@ -23,7 +23,7 @@ The Azure portal is a single platform you can use to create and manage Azure ser
 
 Let's get started:
 
-1. Navigate to the Azure portal home page: [Azure home page](https://ms.portal.azure.com/#home).
+1. Navigate to the Azure portal home page: [Azure home page](https://portal.azure.com/#home).
 
 1. Select **Create a resource** from the Azure home page.
 
@@ -45,7 +45,7 @@ Let's get started:
 
 1. Select **Review + Create**.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-two.png" alt-text="Still image showing the correct values for creating Form Recognizer resource.":::
+    :::image type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-two.png" alt-text="Still image showing the correct values for creating Form Recognizer resource.":::
 
 1. Azure will run a quick validation check, after a few seconds you should see a green banner that says **Validation Passed**.
 
@@ -53,11 +53,11 @@ Let's get started:
 
 1. After you select create, you'll be redirected to a new page that says **Deployment in progress**. After a few seconds, you'll see a message that says, **Your deployment is complete**.
 
-## Get Endpoint URL and API keys
+:::image type="content" source="media/logic-apps-tutorial/form-recognizer-validation.gif" alt-text="GIF showing the Azure portal validation process.":::
+
+## Get Endpoint URL and keys
 
 1. Once you receive the *deployment is complete* message, select the **Go to resource** button.
-
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-three.gif" alt-text="Gif showing the validation process of creating Form Recognizer resource.":::
 
 1. Copy the key and endpoint values from your Form Recognizer resource paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
 
@@ -71,4 +71,4 @@ That's it! You're now ready to start automating data extraction using Azure Form
 
 * Try the [Form Recognizer Studio](concept-form-recognizer-studio.md), an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications.
 
-* Complete a Form Recognizer [C#](quickstarts/try-v3-csharp-sdk.md),[Python](quickstarts/try-v3-python-sdk.md), [Java](quickstarts/try-v3-java-sdk.md), or [JavaScript](quickstarts/try-v3-javascript-sdk.md) quickstart and get started creating a form processing app in the development language of your choice.
+* Complete a Form Recognizer [C#](quickstarts/try-v3-csharp-sdk.md),[Python](quickstarts/try-v3-python-sdk.md), [Java](quickstarts/try-v3-java-sdk.md), or [JavaScript](quickstarts/try-v3-javascript-sdk.md) quickstart and get started creating a document processing app in the development language of your choice.

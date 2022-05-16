@@ -1,12 +1,14 @@
 ---
 title: High availability - Azure Database for PostgreSQL - Single Server
 description: This article provides information on high availability in Azure Database for PostgreSQL - Single Server
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
+ms.subservice: single-server
 ms.topic: conceptual
+ms.author: srranga
+author: sr-msft
 ms.date: 6/15/2020
 ---
+
 # High availability in Azure Database for PostgreSQL – Single Server
 The Azure Database for PostgreSQL – Single Server service provides a guaranteed high level of availability with the financially backed service level agreement (SLA) of [99.99%](https://azure.microsoft.com/support/legal/sla/postgresql) uptime. Azure Database for PostgreSQL provides high availability during planned events such as user-initated scale compute operation, and also when unplanned events such as underlying hardware, software, or network failures occur. Azure Database for PostgreSQL can quickly recover from most critical circumstances, ensuring virtually no application down time when using this service.
 
@@ -64,7 +66,7 @@ Here are some failure scenarios that require user action to recover:
 | **Scenario** | **Recovery plan** |
 | ---------- | ---------- |
 | <b> Region failure | Failure of a region is a rare event. However, if you need protection from a region failure, you can configure one or more read replicas in other regions for disaster recovery (DR). (See [this article](./howto-read-replicas-portal.md) about creating and managing read replicas for details). In the event of a region-level failure, you can manually promote the read replica configured on the other region to be your production database server. |
-| <b> Availability zone failure | Failure of a Availability zone is also a rare event. However, if you need protection from a Availability zone failure, you can configure one or more read replicas or consider using our [Flexible Server](https://docs.microsoft.com/azure/postgresql/flexible-server/concepts-high-availability) offering which provides zone redundant high availability. 
+| <b> Availability zone failure | Failure of a Availability zone is also a rare event. However, if you need protection from a Availability zone failure, you can configure one or more read replicas or consider using our [Flexible Server](./flexible-server/concepts-high-availability.md) offering which provides zone redundant high availability. 
 | <b> Logical/user errors | Recovery from user errors, such as accidentally dropped tables or incorrectly updated data, involves performing a [point-in-time recovery](./concepts-backup.md) (PITR), by restoring and recovering the data until the time just before the error had occurred.<br> <br>  If you want to restore only a subset of databases or specific tables rather than all databases in the database server, you can restore the database server in a new instance, export the table(s) via [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), and then use [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) to restore those tables into your database. |
 
 

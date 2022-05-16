@@ -3,13 +3,13 @@ title: "Tutorial: Create an iOS app that takes a photo and launches it in the Im
 titleSuffix: Azure Applied AI Services
 description: In this tutorial, you will build an iOS app from scratch and add the Picture to Immersive Reader functionality.
 services: cognitive-services
-author: metanMSFT
+author: rwallerms
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.author: metang
+ms.author: rwaller
 #Customer intent: As a developer, I want to integrate two Cognitive Services, the Immersive Reader and the Read API into my iOS application so that I can view any text from a photo in the Immersive Reader.
 ---
 
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](./how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
-* Usage of this sample requires an Azure subscription to the Computer Vision Cognitive Service. [Create a Computer Vision Cognitive Service resource in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
+* Usage of this sample requires an Azure subscription to the Computer Vision Cognitive Service. [Create a Computer Vision Cognitive Service resource in the Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
 
 ## Create an Xcode project
 
@@ -65,7 +65,7 @@ You need some values from the Azure AD authentication configuration prerequisite
 TenantId     => Azure subscription TenantId
 ClientId     => Azure AD ApplicationId
 ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI PowerShell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
 In the main project folder, which contains the ViewController.swift file, create a Swift class file called Constants.swift. Replace the class with the following code, adding in your values where applicable. Keep this file as a local file that only exists on your machine and be sure not to commit this file into source control, as it contains secrets that should not be made public. It is recommended that you do not keep secrets in your app. Instead, we recommend using a backend service to obtain the token, where the secrets can be kept outside of the app and off of the device. The backend API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)) to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this tutorial.

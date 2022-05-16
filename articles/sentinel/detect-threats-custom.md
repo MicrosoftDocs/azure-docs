@@ -3,7 +3,7 @@ title: Create custom analytics rules to detect threats with Microsoft Sentinel |
 description: Learn how to create custom analytics rules to detect security threats with Microsoft Sentinel. Take advantage of event grouping, alert grouping, and alert enrichment, and understand AUTO DISABLED.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/30/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -37,7 +37,9 @@ Analytics rules search for specific events or sets of events across your environ
 
 - Provide a unique **Name** and a **Description**.
 
-- In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+- In the **Tactics and techniques** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+
+    [Incidents](investigate-cases.md) created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's mapping.
 
 - Set the alert **Severity** as appropriate.
 
@@ -63,6 +65,12 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     | where ActivityStatus == "Succeeded"
     | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
     ```
+
+    > [!IMPORTANT]
+    >
+    > We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a native table. This will ensure that the query supports any current or future relevant data source rather than a single data source.
+    >
+
 
     > [!NOTE]
     > **Rule query best practices**:
@@ -145,7 +153,7 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 
   - **Trigger an alert for each event**. The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters - by user, hostname, or something else. You can define these parameters in the query.
 
-    Currently the number of alerts a rule can generate is capped at 20. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 20 events, each of the first 19 events will generate a unique alert, and the 20th alert will summarize the entire set of returned events. In other words, the 20th alert is what would have been generated under the **Group all events into a single alert** option.
+    Currently the number of alerts a rule can generate is capped at 150. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 150 events, each of the first 149 events will generate a unique alert, and the 150th alert will summarize the entire set of returned events. In other words, the 150th alert is what would have been generated under the **Group all events into a single alert** option.
 
     If you choose this option, Microsoft Sentinel will add a new field, **OriginalQuery**, to the results of the query. Here is a comparison of the existing **Query** field and the new field:
 

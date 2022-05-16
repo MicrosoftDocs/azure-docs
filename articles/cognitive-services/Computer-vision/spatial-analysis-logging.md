@@ -7,9 +7,10 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2021
 ms.author: pafarley
+ms.custom: cogserv-non-critical-vision
 ---
 
 # Telemetry and troubleshooting
@@ -424,7 +425,7 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 If you need more support in finding a solution to a problem you're having with the Spatial Analysis container, follow these steps to fill out and submit a support ticket. Our team will get back to you with additional guidance. 
 
 ### Fill out the basics 
-Create a new support ticket at the [New support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) page. Follow the prompts to fill in the following parameters:
+Create a new support ticket at the [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) page. Follow the prompts to fill in the following parameters:
 
 ![Support basics](./media/support-ticket-page-1-final.png)
 
