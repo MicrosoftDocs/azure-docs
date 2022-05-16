@@ -38,7 +38,7 @@ A cloud-native SIEM addresses these challenges. Microsoft Sentinel collects data
 
 During the planning phase, you identify your existing SIEM components, existing SOC processes, and design and plan new use cases. It’s important that each phase includes clear goals for each phase, key activities and the outcome of that phase by specifying the deliverables. Learn about [migration phases](#migration-phases). Thorough planning allows you to maintain protection for both your cloud-based assets—Microsoft Azure, AWS, or GCP—and your SaaS solutions, such as Microsoft Office 365. 
 
-## Plan migration phases
+#### Plan migration phases
 
 This section describes the high-level phases that a typical migration includes. Each phase includes clear goals, activities, and specified outcomes and deliverables. 
 
@@ -46,14 +46,18 @@ The phases below are a guideline to a complete and typical migration procedure. 
 
 :::image type="content" source="media/migration-overview/migration-phases.png" alt-text="Diagram of the Microsoft Sentinel migration phases." lightbox="media/migration-overview/migration-phases.png":::
 
-|Phase |Key activities  |Deliverables |Considerations |
-|---------|---------|---------|---------|
-|**Discover**<br><br>Collect information about your current SIEM and environment to better understand the state of your current SIEM, and collect monitoring and alerting use cases and requirements. |<ul><li>[Identify use cases](#identify-use-cases)</li><li>Identify your existing automation and remediation tools.</li><li>Identify your existing SOC processes, including investigation, automation, and remediation.</li><li> integrations with IT service management (ITSM), threat intelligence, and automation solutions.</li></ul> |<ul><li>Project plan</li><li>Current state analysis</li><li>Business and technical requirements</li><li>Use cases</li></ul>    |          |
-|**Design**<br><br>Create a comprehensive migration design that aligns with your current security portfolio and existing data sources.       |<ul><li>Design the Microsoft and third-party log sources.</li><li>Map rules from your existing SIEM to Microsoft Sentinel [built-in threat detection rules](detect-threats-built-in.md).</li><li>Map your existing dashboard to Microsoft Sentinel [built-in workbooks](monitor-your-data.md).</li><li>Map your existing automation to Microsoft Sentinel [built-in playbooks](automate-responses-with-playbooks.md).</li><li>Create a list of use cases for custom alerts, automation, and dashboards to create in Microsoft Sentinel.</li><li>If you need to migrate your SIEM's historical logs, review the available [target platforms](migration-ingestion-target-platform.md) and [data ingestion tools](migration-ingestion-tool.md).</li></ul>    |<ul><li>Design workshop conclusions</li><li>Design documentation that covers data source integration, automation, and custom alerting</li></ul>         |Define a detailed design and architecture for your Microsoft Sentinel implementation. You will use this information to get approval from the relevant stakeholders before you start the implementation phase.    | 
-|**Implement**<br><br>Integrate data sources that connect to Microsoft Sentinel, and validate that Microsoft Sentinel operates as designed.          |Perform these key activities based on the design phase:<br><br><ul><li>Use Microsoft Sentinel connectors to connect Microsoft sources, additional cloud logs such as AWS or GCP, network devices, and other third-party security solutions.</li><li>Deploy the Azure Monitor Agent to collect logs from Windows or Linux VMs and network devices.</li><li>Deploy log collectors to collect logs from VM groups and/or network security devices.</li><li>Enable Microsoft Sentinel custom analytics rules, based on the log sources and use cases defined in the design phase.</li><li>Use the MITRE ATT&CK blade to review your [MITRE coverage](https://docs.microsoft.com/en-us/azure/sentinel/mitre-coverage).</li><li>Convert any remaining detection rules to Microsoft Sentinel custom analytics rules.</li><li>Deploy relevant playbooks and automation rules, and create custom playbooks or automations, as defined in the design phase.</li><li>Deploy and optionally create playbooks to integrate with ITSM platforms (such as ServiceNow), SOAR, and threat intelligence platforms.</li><li>Deploy the workbooks.</li><li>Convert dashboards to workbooks.</li><li>Review [SOC operations migration best practices](migration-soc-overview.md).</li></ul>    |<ul><li>Microsoft Sentinel POC plan</li><li>Successfully connected Microsoft data sources</li><li>Successfully connected external data sources</li><li>Successfully deployed Microsoft Sentinel agent</li><li>Successfully implemented Microsoft Sentinel workbooks and playbooks</li></ul>    |As you implement Microsoft Sentinel components according to the design phase, and before you convert your entire infrastructure, consider whether you can use Microsoft Sentinel out-of-the-box content instead of migrating all components. You can begin using Microsoft Sentinel gradually, starting with a minimum viable product (MVP) for several use cases. As you add more use cases, you can use Microsoft Sentinel as a user acceptance testing (UAT) environment to validate the use cases.          |
-|**Operationalize**<br><br>Microsoft Sentinel within your existing security monitoring, alerting, and incident response processes.         |         |<ul><li>Implemented Microsoft Sentinel configuration according to your organization's needs</li><li>Documentation covering your Microsoft Sentinel workbooks, playbooks, custom alerts, and Kusto Query Language (KQL) queries</li></ul>         |You migrate your content and SOC processes to ensure that the existing analyst experience is not disrupted.   |
+##### Considerations
 
-## Identify your migration priorities
+Review these key considerations for each phase.
+
+|Phase  |Consideration  |
+|---------|---------|
+|Discover     |[Identify use cases](#identify-use-cases) as part of this phase.        |
+|Design     |Define a detailed design and architecture for your Microsoft Sentinel implementation. You will use this information to get approval from the relevant stakeholders before you start the implementation phase.         |
+|Implement     |As you implement Microsoft Sentinel components according to the design phase, and before you convert your entire infrastructure, consider whether you can use Microsoft Sentinel out-of-the-box content instead of migrating all components. You can begin using Microsoft Sentinel gradually, starting with a minimum viable product (MVP) for several use cases. As you add more use cases, you can use Microsoft Sentinel as a user acceptance testing (UAT) environment to validate the use cases.         |
+|Operationalize     |You migrate your content and SOC processes to ensure that the existing analyst experience is not disrupted.         |
+
+#### Identify your migration priorities
 
 Use these questions to pin down your migration priorities:
 - What are the most critical infrastructure components, systems, apps, and data in your business?
@@ -65,7 +69,7 @@ Use these questions to pin down your migration priorities:
 
 Before you begin migration, identify key use cases, detection rules, data, and automation in your current SIEM. Approach your migration as a gradual process. Be intentional and thoughtful about what you migrate first, what you deprioritize, and what doesn’t actually need to be migrated. Your team might have an overwhelming number of detections and use cases running in your current SIEM. Before beginning migration, decide which ones are actively useful to your business.
 
-## Identify use cases 
+#### Identify use cases 
 
 When planning the discover phase, use the following guidance to identify your use cases.
 - Identify and analyze your current use cases by threat, operating system, product, and so on.
