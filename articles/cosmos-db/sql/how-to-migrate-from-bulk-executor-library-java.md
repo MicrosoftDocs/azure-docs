@@ -44,8 +44,8 @@ class SampleDoc {
     private String id="";
 }
 List<SampleDoc> docList = new ArrayList<>();
-SampleDoc doc = new SampleDoc();
-for (int i = 1; i <= 5; i++){            
+for (int i = 1; i <= 5; i++){ 
+    SampleDoc doc = new SampleDoc();           
     String id = "id-"+i;
     doc.setId(id);
     docList.add(doc);
