@@ -376,10 +376,10 @@ callComposite.setOnErrorHandler(communicationUIErrorEvent -> {
 -----
 ### Apply theme configuration
 
-To change the primary color of composite, create a new theme style in `src/main/res/values/themes.xml` and `src/main/res/values-night/themes.xml` by considering `AzureCommunicationUI.Theme.Calling` as parent theme. To apply theme, inject the theme ID in `CallCompositeBuilder`.
+To change the primary color of composite, create a new theme style in `src/main/res/values/themes.xml` and `src/main/res/values-night/themes.xml` by considering `AzureCommunicationUICalling.Theme` as parent theme. To apply theme, inject the theme ID in `CallCompositeBuilder`.
 
 ```xml
-<style name="MyCompany.CallComposite" parent="AzureCommunicationUICalling.Theme.Calling">
+<style name="MyCompany.CallComposite" parent="AzureCommunicationUICalling.Theme">
     <item name="azure_communication_ui_calling_primary_color">@color/purple_500</item>
     <item name="azure_communication_ui_calling_primary_color_tint10">@color/purple_600</item>
     <item name="azure_communication_ui_calling_primary_color_tint20">@color/purple_700</item>
