@@ -41,7 +41,7 @@ Metrics explorer supports Sum, Count, Average, Minimum and Maximum as [aggregati
 
 | Metric | Category | Unit | Aggregation Type | Description | Dimensions |  Exportable via Diagnostic Settings? | 
 | --- | --- | --- | --- | --- | --- | --- | 
-| [BGP Peer Status](#bgp) | Scalability | Count | Maximum | BGP availability from Route Server to Peer. | BGP Peer IP, BGP Peer Type, Route Server Instance |  Yes | 
+| [BGP Peer Status](#bgp) | Scalability | Count | Maximum | BGP availability from Route Server to Peer | BGP Peer IP, BGP Peer Type, Route Server Instance |  Yes | 
 | [Count of Routes Advertised to Peer](#advertised) | Scalability | Count | Maximum | Count of routes advertised from Route Server to Peer | BGP Peer IP, BGP Peer Type, Route Server Instance |  Yes|
 | [Count of Routes Received from Peer](#received) | Scalability | Count | Maximum | Count of routes received from Peer| BGP Peer IP, BGP Peer Type, Route Server Instance | Yes 
 
