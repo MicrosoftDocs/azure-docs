@@ -1,11 +1,8 @@
 ---
 title: Oxford COVID-19 Government Response Tracker
-titleSuffix: Azure Open Datasets
 description: Learn how to use the Oxford COVID-19 Government Response Tracker dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 

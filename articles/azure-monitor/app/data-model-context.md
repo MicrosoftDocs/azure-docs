@@ -3,7 +3,6 @@ title: Azure Application Insights Telemetry Data Model - Telemetry Context | Mic
 description: Application Insights telemetry context data model
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.reviewer: sergkanz
 ---
 
 # Telemetry context: Application Insights data model
@@ -73,6 +72,11 @@ Anonymous user ID. Represents the end user of the application. When telemetry is
 
 [Sampling](./sampling.md) is one of the techniques to minimize the amount of collected telemetry. Sampling algorithm attempts to either sample in or out all the correlated telemetry. Anonymous user ID is used for sampling score generation. So anonymous user ID should be a random enough value. 
 
+> [!NOTE]
+> The count of anonymous user IDs is not the same as the number of unique application users. The count of anonymous user IDs is typically higher because each time the user opens your app on a different device or browser, or cleans up browser cookies, a new unique anonymous user id is allocated. This may result in counting the same physical users multiple times.
+
+User IDs can be cross referenced with session IDs to provide unique telemetry dimensions and establish user activity over a session duration.
+
 Using anonymous user ID to store user name is a misuse of the field. Use Authenticated user ID.
 
 Max length: 128
@@ -81,6 +85,10 @@ Max length: 128
 ## Authenticated user ID
 
 Authenticated user ID. The opposite of anonymous user ID, this field represents the user with a friendly name. This is only collected by default with the ASP.NET Framework SDK's [`AuthenticatedUserIdTelemetryInitializer`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/WEB/Src/Web/Web/AuthenticatedUserIdTelemetryInitializer.cs).  
+
+When users authenticate in your app, you can use the Application Insights SDK to initialize the Authenticated User ID with a value that identifies the user in a persistent manner across browser and devices, all telemetry items are then attributed to that unique ID. This enables querying for all telemetry collected for a specific user (subject to [sampling configurations](./sampling.md) and [telemetry filtering](./api-filtering-sampling.md)). 
+
+User IDs can be cross referenced with session IDs to provide unique telemetry dimensions and establish user activity over a session duration.
 
 Max length: 1024
 

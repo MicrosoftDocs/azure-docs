@@ -5,16 +5,18 @@ description: 'Learn to deploy your model with NVIDIA Triton Inference Server in 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/03/2021
+ms.date: 03/31/2022
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: ssambare
 author: shivanissambare
-ms.custom: deploy, devplatv2, devx-track-azurecli 
+ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2
 ms.devlang: azurecli
 ---
 
-# High-performance serving with Triton Inference Server (Preview) 
+# High-performance serving with Triton Inference Server (Preview)
+
+[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
 Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) in Azure Machine Learning with [Managed online endpoints](concept-endpoints.md#managed-online-endpoints).
 
@@ -85,7 +87,7 @@ This section shows how you can deploy Triton to managed online endpoint using th
 1. Create a YAML configuration file for the deployment. The following example configures a deployment named __blue__ to the endpoint created in the previous step. The one used in the following commands is located at `/cli/endpoints/online/triton/single-model/create-managed-deployment.yml` in the azureml-examples repo you cloned earlier:
 
     > [!IMPORTANT]
-    > For Triton no-code-deployment (NCD) to work, setting **`model_format`** to **`Triton`** is required. For more information, [check CLI (v2) model YAML schema](reference-yaml-model.md).
+    > For Triton no-code-deployment (NCD) to work, setting **`type`** to **`triton_model​`** is required, `type: triton_model​`. For more information, see [CLI (v2) model YAML schema](reference-yaml-model.md).
     >
     > This deployment uses a Standard_NC6s_v3 VM. You may need to request a quota increase for your subscription before you can use this VM. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
 
@@ -146,8 +148,8 @@ This section shows how you can deploy Triton to managed online endpoint using [A
     ```yml
     name: densenet-onnx-model
     version: 1
-    local_path: ./models
-    model_format: Triton
+    path: ./models
+    type: triton_model​
     description: Registering my Triton format model.
     ```
 

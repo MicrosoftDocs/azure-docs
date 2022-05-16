@@ -4,9 +4,10 @@ description: Learn about Azure Cosmos DB transactional (row-based) and analytica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 03/24/2022
 ms.author: rosouz
 ms.custom: seo-nov-2020, devx-track-azurecli
+ms.reviewer: wiassaf
 ---
 
 # What is Azure Cosmos DB analytical store?
@@ -62,10 +63,10 @@ At the end of each execution of the automatic sync process, your transactional d
 
 * Azure Synapse Analytics Spark pools can read all data, including the most recent updates, through Spark tables, which are updated automatically, or via the `spark.read` command, that always reads the last state of the data.
 
-*  Azure Synapse Analytics SQL Serverless pools can read all data, including the most recent updates, through views, which are updated automatically, or via `SELECT` together with the` OPENROWSET` commands, which always reads the latest status of the data.
+*  Azure Synapse Analytics SQL Serverless pools can read all data, including the most recent updates, through views, which are updated automatically, or via `SELECT` together with the `OPENROWSET` commands, which always reads the latest status of the data.
 
 > [!NOTE]
-> Your transactional data will be synchronized to analytical store even if your transactional TTL is smaller than 2 minutes. 
+> Your transactional data will be synchronized to analytical store even if your transactional time-to-live (TTL) is smaller than 2 minutes. 
 
 > [!NOTE]
 > Please note that if you delete your container, analytical store is also deleted.
@@ -306,7 +307,7 @@ This is achieved by translating the leaf properties of the operational data into
 
 In the full fidelity schema representation, each datatype of each property will generate a column for that datatype. Each of them count as one of the 1000 maximum properties.
 
-For example, let’s take the following sample document in the transactional store:
+For example, let's take the following sample document in the transactional store:
 
 ```json
 {
@@ -322,7 +323,7 @@ salary: 1000000
 }
 ```
 
-The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it’s a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
+The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it's a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
 
 **Data type to suffix map**
 
@@ -330,18 +331,18 @@ Here's a map of all the property data types and their suffix representations in 
 
 |Original data type  |Suffix  |Example  |
 |---------|---------|---------|
-| Double |	".float64" |	24.99|
-| Array	| ".array" |	["a", "b"]|
-|Binary	| ".binary"	|0|
-|Boolean	| ".bool"	|True|
-|Int32	| ".int32"	|123|
-|Int64	| ".int64"	|255486129307|
-|NULL	| ".NULL"	| NULL|
-|String| 	".string" |	"ABC"|
-|Timestamp |	".timestamp" |	Timestamp(0, 0)|
-|DateTime	|".date"	| ISODate("2020-08-21T07:43:07.375Z")|
-|ObjectId	|".objectId"	| ObjectId("5f3f7b59330ec25c132623a2")|
-|Document	|".object" |	{"a": "a"}|
+| Double |    ".float64" |    24.99|
+| Array    | ".array" |    ["a", "b"]|
+|Binary    | ".binary"    |0|
+|Boolean    | ".bool"    |True|
+|Int32    | ".int32"    |123|
+|Int64    | ".int64"    |255486129307|
+|NULL    | ".NULL"    | NULL|
+|String|     ".string" |    "ABC"|
+|Timestamp |    ".timestamp" |    Timestamp(0, 0)|
+|DateTime    |".date"    | ISODate("2020-08-21T07:43:07.375Z")|
+|ObjectId    |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
+|Document    |".object" |    {"a": "a"}|
 
 * Expect different behavior in regard to explicit `NULL` values:
   * Spark pools in Azure Synapse will read these values as `0` (zero).
@@ -367,11 +368,11 @@ The possible ATTL configurations are:
 
 Some points to consider:
 
-*	After the analytical store is enabled with an ATTL value, it can be updated to a different valid value later. 
-*	While TTTL can be set at the container or item level, ATTL can only be set at the container level currently.
-*	You can achieve longer retention of your operational data in the analytical store by setting ATTL >= TTTL at the container level.
-*	The analytical store can be made to mirror the transactional store by setting ATTL = TTTL.
-*	If you have ATTL bigger than TTTL, at some point in time you'll have data that only exists in analytical store. This data is read only.
+*    After the analytical store is enabled with an ATTL value, it can be updated to a different valid value later. 
+*    While TTTL can be set at the container or item level, ATTL can only be set at the container level currently.
+*    You can achieve longer retention of your operational data in the analytical store by setting ATTL >= TTTL at the container level.
+*    The analytical store can be made to mirror the transactional store by setting ATTL = TTTL.
+*    If you have ATTL bigger than TTTL, at some point in time you'll have data that only exists in analytical store. This data is read only.
 
 How to enable analytical store on a container:
 
@@ -418,7 +419,7 @@ If you have a globally distributed Azure Cosmos DB account, after you enable ana
 
 ## Partitioning
 
-Analytical store partitioning is completely independent of partitioning in the transactional store. By default, data in analytical store isn't partitioned. If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. To learn more, see the [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md) articles.  
+Analytical store partitioning is completely independent of partitioning in the transactional store. By default, data in analytical store isn't partitioned. If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. To learn more, see [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md).  
 
 ## Security
 

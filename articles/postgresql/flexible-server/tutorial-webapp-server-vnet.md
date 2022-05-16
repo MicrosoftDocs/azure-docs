@@ -3,8 +3,9 @@ title: 'Tutorial: Create Azure Database for PostgreSQL - Flexible Server and Azu
 description: Quickstart guide to create Azure Database for PostgreSQL - Flexible Server with Web App in a virtual network
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/30/2021
@@ -121,7 +122,7 @@ az webapp vnet-integration add --resource-group demoresourcegroup -n  mywebapp -
 ```
 
 ## Configure environment variables to connect the database
-With the code now deployed to App Service, the next step is to connect the app to the flexible server in Azure. The app code expects to find database information in a number of environment variables. To set environment variables in App Service, use [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
+With the code now deployed to App Service, the next step is to connect the app to the flexible server in Azure. The app code expects to find database information in a number of environment variables. To set environment variables in App Service, use [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
   
 ```azurecli

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 04/06/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -89,6 +89,10 @@ To control the device registration, you should deploy the Windows Installer pack
 
 > [!NOTE]
 > If a SCP is not configured in AD, then you should follow the same approach as described to [Configure client-side registry setting for SCP](#configure-client-side-registry-setting-for-scp)) on your domain-joined computers using a Group Policy Object (GPO).
+
+## Why a device might be in a pending state
+
+When you configure a **Hybrid Azure AD join** task in the Azure AD Connect Sync for your on-premises devices, the task will sync the device objects to Azure AD, and temporarily set the registered state of the devices to "pending" before the device completes the device registration. This is because the device must be added to the Azure AD directory before it can be registered. For more information about the device registration process, see [How it works: Device registration](device-registration-how-it-works.md#hybrid-azure-ad-joined-in-managed-environments).
 
 ## Post validation
 

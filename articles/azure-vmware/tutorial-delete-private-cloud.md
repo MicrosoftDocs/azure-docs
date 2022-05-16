@@ -22,7 +22,7 @@ When you delete a private cloud, all VMs, their data, clusters, and network addr
 
 ## Prerequisites
 
-If you require the VMs and their data later, make sure to back up the data before you delete the private cloud.  Unfortunately, there's no way to recover the VMs and their data.
+If you require the VMs and their data later, make sure to backup the data before you delete the private cloud.  Unfortunately, there's no way to recover the VMs and their data.
 
 
 ## Delete the private cloud

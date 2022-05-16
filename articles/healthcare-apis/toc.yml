@@ -8,7 +8,7 @@ items:
   items:
     - name: About Azure Health Data Services
       href: healthcare-apis-overview.md
-    - name: About Workspace
+    - name: About workspace
       href: workspace-overview.md
     - name: FHIR service
       href: ./fhir/index.yml
@@ -76,6 +76,8 @@ items:
     href: healthcare-apis-faqs.md
   - name: GitHub projects
     href: github-projects.md
+  - name: Known issues
+    href: known-issues.md
   - name: Release notes
     href: release-notes.md 
    

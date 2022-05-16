@@ -53,15 +53,9 @@ const groupCall = callAgent.startCall([userCallee, pstnCallee], { threadId: '<TH
 > Join a group call is not supported for custom Teams application at the moment.
 ### Join a Teams meeting
 
-To join a Teams meeting, use the `join` method on `callAgent` and pass either one of the followings:
-1. `meetingId`
-2. `meetingLink`
-3. Combination of `threadId`, `organizerId`, `tenantId`, `messageId`
-
-#### Join using `meetingId`
-```js
-const meetingCall = callAgent.join({ meetingId: '<MEETING_ID>' });
-```
+To join a Teams meeting, use the `join` method on `callAgent` and pass either one of the following:
+1. `meetingLink`
+2. Combination of `threadId`, `organizerId`, `tenantId`, `messageId`
 
 #### Join using `meetingLink`
 ```js
@@ -84,7 +78,7 @@ const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
     var incomingCallId = incomingCall.id
     // Get information about this Call. This API is provided as a preview for developers
     // and may change based on feedback that we receive. Do not use this API in a production environment.
-    // To use this api please use 'beta' release of ACS Calling Web SDK
+    // To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
     var callInfo = incomingCall.info;
     // Get information about caller
     var callerInfo = incomingCall.callerInfo
@@ -166,7 +160,7 @@ Remote participants have a set of associated properties and collections:
 
 It can be one of the following `CommunicationIdentifier` types:
 
-- `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the ACS user.
+- `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the Azure Communication Services user.
 - `{ phoneNumber: '<E.164>' }`: Object representing the phone number in E.164 format.
 - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
 - `{ id: string }`: an object representing the identifier that doesn't fit any of the other identifier types
@@ -228,7 +222,7 @@ const callId: string = call.id;
 ```
 Get information about the call:
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this API please use the 'beta' release of ACS Calling Web SDK
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this API please use the 'beta' release of Azure Communication Services Calling Web SDK
 ```js
 const callInfo = call.info;
 ```

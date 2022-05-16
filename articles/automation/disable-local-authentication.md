@@ -17,6 +17,10 @@ Azure Automation provides an optional feature to "Disable local authentication" 
 In the Azure portal, you may receive a warning message on the landing page for the selected Automation account if authentication is disabled. To confirm if the local authentication policy is enabled, use the PowerShell cmdlet [Get-AzAutomationAccount](/powershell/module/az.automation/get-azautomationaccount) and check property `DisableLocalAuth`. A value of `true` means local authentication is disabled.
 
 Disabling local authentication doesn't take effect immediately. Allow a few minutes for the service to block future authentication requests.
+
+>[!NOTE]
+> Currently, PowerShell support for the new API version (2021-06-22) or the flag – `DisableLocalAuth` is not available. However, you can use the Rest-API with this API version to update the flag.
+To allow list and enroll your subscription for this feature in your respective regions, follow the steps in [how to create an Azure support request - Azure supportability | Microsoft Docs](/azure/azure-portal/supportability/how-to-create-azure-support-request).
  
 ## Re-enable local authentication
 

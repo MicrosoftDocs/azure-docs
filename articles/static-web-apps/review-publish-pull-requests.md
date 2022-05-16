@@ -116,4 +116,4 @@ To verify the changes in production,  open your production URL to load the live 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Setup a custom domain](custom-domain.md)
+> [Branch preview environments](branch-environments.md)

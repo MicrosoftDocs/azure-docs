@@ -1,12 +1,12 @@
 ---
 title: Configure Azure role-based access control (Azure RBAC) for Azure API for FHIR
 description: This article describes how to configure Azure RBAC for the Azure API for FHIR data plane
-author: caitlinv39
+author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference 
 ms.date: 02/15/2022
-ms.author: zxue
+ms.author: dseven
 ms.reviewer: matjazl
 ---
 # Configure Azure RBAC for FHIR 

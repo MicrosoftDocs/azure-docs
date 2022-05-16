@@ -5,8 +5,8 @@ description: Learn how Azure Machine Learning enables you to scale out a TensorF
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: minxia
-author: mx-iao
+ms.author: larryfr
+author: blackmist
 ms.date: 02/23/2022
 ms.topic: how-to
 

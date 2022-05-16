@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/10/2021
+ms.date: 04/12/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -420,6 +420,48 @@ The following are the IDs for a [Verification display control](display-control-v
     <LocalizedString ElementType="UxElement" StringId="verification_control_code_sent">Verification code has been sent. Please copy it to the input box below.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
+```
+
+## TOTP MFA controls display control user interface elements
+
+The following are the IDs for a [time-based one-time password (TOTP) display control](display-control-time-based-one-time-password.md) with [page layout version](page-layout.md) 2.1.9 and later. 
+
+| ID | Default value |
+| --- | ------------- |
+|title_text |Download the Microsoft Authenticator using the download links for iOS and Android or use any other authenticator app of your choice. |
+| DN |Once you've downloaded the Authenticator app, you can use any of the methods below to continue with enrollment. |
+|DisplayName |Once you've downloaded the Authenticator app, you can use any of the methods below to continue with enrollment. |
+|title_text |Scan the QR code |
+|info_msg |You can download the Microsoft Authenticator app or use any other authenticator app of your choice. |
+|link_text |Can't scan? Try this |
+|title_text| Enter the account details manually. |
+|account_name | Account Name: |
+|display_prefix | Secret |
+|collapse_text | Still having trouble? |
+|DisplayName | Enter the verification code from your authenticator app​.|
+|DisplayName | Enter your code. |
+| button_continue | Verify |
+
+### TOTP MFA controls display control example
+
+```xml
+      <LocalizedResources Id="api.selfasserted.totp.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorAppIconControl" StringId="title_text">Download the Microsoft Authenticator using the download links for iOS and Android or use any other authenticator app of your choice.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorAppIconControl" StringId="DN">Once you&#39;ve downloaded the Authenticator app, you can use any of the methods below to continue with enrollment.</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="QrCodeScanInstruction" StringId="DisplayName">Once you've downloaded the Authenticator app, you can use any of the methods below to continue with enrollment.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="totpQrCodeControl" StringId="title_text">Scan the QR code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="totpQrCodeControl" StringId="info_msg">You can download the Microsoft Authenticator app or use any other authenticator app of your choice.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="totpQrCodeControl" StringId="link_text">Can&#39;t scan? Try this</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorInfoControl" StringId="title_text">Enter the account details manually</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorInfoControl" StringId="account_name">Account Name:</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorInfoControl" StringId="display_prefix">Secret</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="authenticatorInfoControl" StringId="collapse_text">Still having trouble?</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="QrCodeVerifyInstruction" StringId="DisplayName">Enter the verification code from your authenticator app​.</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="otpCode" StringId="DisplayName">Enter your code.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_continue">Verify</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
 ```
 
 ## Restful service error messages

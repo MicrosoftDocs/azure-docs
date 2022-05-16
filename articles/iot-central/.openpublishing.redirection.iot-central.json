@@ -151,6 +151,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-central/core/howto-export-data.md",
+      "redirect_url": "/articles/iot-central/core/howto-export-to-blob-storage",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-central/concepts-architecture.md",
       "redirect_url": "/azure/iot-central/core/concepts-architecture/",
       "redirect_document_id": false
@@ -1333,6 +1338,11 @@
     {
       "source_path_from_root": "/articles/iot-central/preview/concepts-get-connected.md",
       "redirect_url": "/azure/iot-central/core/overview-iot-central-developer/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-migrate.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
       "redirect_document_id": false
     }
   ]

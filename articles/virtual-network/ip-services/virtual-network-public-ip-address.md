@@ -88,14 +88,18 @@ For more information, see [Networking for Azure Virtual Machine Scale Sets](../.
 Learn how to assign a public IP address to the following resources:
 
 - A [Windows](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Virtual Machine on creation. Add IP to an [existing virtual machine](./virtual-network-network-interface-addresses.md#add-ip-addresses).
-- [Public load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Application Gateway](../../application-gateway/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Site-to-site connection using a VPN gateway](../../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Virtual Machine Scale Set](../../virtual-machine-scale-sets/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [NAT gateway](../nat-gateway/tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Bastion](../../bastion/quickstart-host-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Firewall](../../firewall/tutorial-firewall-deploy-portal-policy.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Public load balancer](/configure-public-ip-load-balancer.md)
 - [Cross-region load balancer](../../load-balancer/tutorial-cross-region-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Application Gateway](/configure-public-ip-application-gateway.md)
+- [Site-to-site connection using a VPN gateway](configure-public-ip-vpn-gateway.md)
+- [NAT gateway](/configure-public-ip-nat-gateway.md)
+- [Azure Bastion](/configure-public-ip-bastion.md)
+- [Azure Firewall](/configure-public-ip-firewall.md)
+
+## Region availability
+
+Azure Public IP is available in all regions for both Public and US Gov clouds.  Azure Public IP doesn't move or store customer data out of the region it's deployed in.
 
 ## Permissions
 

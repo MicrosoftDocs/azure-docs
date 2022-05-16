@@ -43,7 +43,7 @@ Base All-Core Frequency: 2.8 GHz<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Trusted Launch](trusted-launch.md): Coming Soon<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported for DCdsv3-series<br>
 [Dedicated Host](dedicated-hosts.md): Coming Soon<br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 
@@ -51,14 +51,14 @@ Base All-Core Frequency: 2.8 GHz<br>
 
 | Size             | Physical Cores | Memory GB | Temp storage (SSD) GiB | Max data disks | Max NICs |  EPC Memory GB |
 |------------------|----------------|-------------|------------------------|----------------|---------|---------------------|
-| Standard_DC1s_v3 | 1              | 8           | N/A                    | 4              | 2     |  4                 |
-| Standard_DC2s_v3 | 2              | 16          | N/A                    | 8              | 2     |  8                 |
-| Standard_DC4s_v3 | 4              | 32          | N/A                    | 16             | 4     |  16                |
-| Standard_DC8s_v3 | 8              | 64          | N/A                    | 32             | 8     |  32                |
-| Standard_DC16s_v3  | 16           | 128         | N/A                    | 32             | 8     |  64                |
-| Standard_DC24s_v3  | 24           | 192         | N/A                    | 32             | 8     |  128               |
-| Standard_DC32s_v3  | 32           | 256         | N/A                    | 32             | 8     |  192               |
-| Standard_DC48s_v3  | 48           | 384         | N/A                    | 32             | 8     |  256               |
+| Standard_DC1s_v3 | 1              | 8           | Remote Storage Only    | 4              | 2     |  4                 |
+| Standard_DC2s_v3 | 2              | 16          | Remote Storage Only    | 8              | 2     |  8                 |
+| Standard_DC4s_v3 | 4              | 32          | Remote Storage Only    | 16             | 4     |  16                |
+| Standard_DC8s_v3 | 8              | 64          | Remote Storage Only    | 32             | 8     |  32                |
+| Standard_DC16s_v3  | 16           | 128         | Remote Storage Only    | 32             | 8     |  64                |
+| Standard_DC24s_v3  | 24           | 192         | Remote Storage Only    | 32             | 8     |  128               |
+| Standard_DC32s_v3  | 32           | 256         | Remote Storage Only    | 32             | 8     |  192               |
+| Standard_DC48s_v3  | 48           | 384         | Remote Storage Only    | 32             | 8     |  256               |
 
 ## DCdsv3-series Technical specifications
 

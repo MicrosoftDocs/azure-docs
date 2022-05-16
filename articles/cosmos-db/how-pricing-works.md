@@ -5,16 +5,18 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 03/24/2022
 ms.custom: cosmos-db-video
+ms.reviewer: wiassaf
 ---
 
 # Pricing model in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-📺 <B><a href="https://aka.ms/cosmos-db-video-overview-pricing-options" target="_blank">Video: Overview of Azure Cosmos DB pricing options</a></b>
-
 The pricing model of Azure Cosmos DB simplifies the cost management and planning. With Azure Cosmos DB, you pay for the operations you perform against the database and for the storage consumed by your data.
+
+>
+> [!VIDEO https://aka.ms/docs.how-pricing-works]
 
 - **Database operations**: The way you get charged for your database operations depends on the type of Azure Cosmos account you are using.
 
@@ -41,7 +43,7 @@ Azure Cosmos DB offers many options for developers to it for free. These options
 
 * **Try Azure Cosmos DB for free**: Azure Cosmos DB offers a time-limited experience by using try Azure Cosmos DB for free accounts. You can create an Azure Cosmos DB account, create database and collections and run a sample application by using the Quickstarts and tutorials. You can run the sample application without subscribing to an Azure account or using your credit card. [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) offers Azure Cosmos DB for one month, with the ability to renew your account any number of times.
 
-* **Azure Cosmos DB emulator**: Azure Cosmos DB emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Emulator is offered at no cost and with high fidelity to the cloud service. Using Azure Cosmos DB emulator, you can develop and test your applications locally, without creating an Azure subscription or incurring any costs. You can develop your applications by using the emulator locally before going into production. After you are satisfied with the functionality of the application against the emulator, you can switch to using the Azure Cosmos DB account in the cloud and significantly save on cost. For more information about emulator, see [Using Azure Cosmos DB for development and testing](local-emulator.md) article for more details.
+* **Azure Cosmos DB emulator**: Azure Cosmos DB emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Emulator is offered at no cost and with high fidelity to the cloud service. Using Azure Cosmos DB emulator, you can develop and test your applications locally, without creating an Azure subscription or incurring any costs. You can develop your applications by using the emulator locally before going into production. After you are satisfied with the functionality of the application against the emulator, you can switch to using the Azure Cosmos DB account in the cloud and significantly save on cost. For more information, see [Using Azure Cosmos DB for development and testing](local-emulator.md) for more details.
 
 ## Pricing with reserved capacity
 
@@ -54,7 +56,7 @@ Reserved capacity provides a billing discount and does not affect the runtime st
 You can learn more about optimizing the costs for your Azure Cosmos DB resources in the following articles:
 
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](./sql/estimate-ru-with-capacity-planner.md)
 * Learn about [Optimizing for development and testing](optimize-dev-test.md)
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)

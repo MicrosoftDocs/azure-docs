@@ -9,11 +9,6 @@ ms.author: bagol
 
 # Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT
 
-> [!IMPORTANT]
->
-> The *Microsoft Sentinel Data connector for Microsoft Defender for IoT* and the *IoT OT Threat Monitoring with Defender for IoT* solution are in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 ​[Microsoft Defender for IoT](../defender-for-iot/index.yml) enables you to secure your entire OT environment, whether you need to protect existing OT devices or build security into new OT innovations.
 
 Microsoft Sentinel and Microsoft Defender for IoT help to bridge the gap between IT and OT security challenges, and to empower SOC teams with out-of-the-box capabilities to efficiently and effectively detect and respond to OT threats. The integration between Microsoft Defender for IoT and Microsoft Sentinel helps organizations to quickly detect multistage attacks, which often cross IT and OT boundaries.
@@ -272,7 +267,7 @@ To use this playbook, create a watchlist that maps between the sensor names and 
 
 Typically, the entity authorized to program a PLC is the Engineering Workstation. Therefore, attackers might create new Engineering Workstations in order to create malicious PLC programming.
 
-This playbook opens a ticket in SerivceNow each time a new Engineering Workstation is detected, explicitly parsing the IoT device entity fields.
+This playbook opens a ticket in ServiceNow each time a new Engineering Workstation is detected, explicitly parsing the IoT device entity fields.
 
 ## Next steps
 

@@ -496,7 +496,7 @@ public class MyController : ApiController
 ```
 
 > [!NOTE]
-> If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](./asp-net-core.md#frequently-asked-questions).
+> If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](../faq.yml).
 
 ### What Application Insights telemetry type is produced from ILogger logs? Where can I see ILogger logs in Application Insights?
 
@@ -514,6 +514,10 @@ builder.AddApplicationInsights(
 ### I don't have the SDK installed, and I use the Azure Web Apps extension to enable Application Insights for my ASP.NET Core applications. How do I use the new provider? 
 
 The Application Insights extension in Azure Web Apps uses the new provider. You can modify the filtering rules in the *appsettings.json* file for your application.
+
+### I can't see some of the logs from my application in the workspace. 
+
+This may happen because of adaptive sampling. Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). See the [Sampling in Application Insights](./sampling.md) for more details. 
 
 ## Next steps
 

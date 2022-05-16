@@ -26,6 +26,8 @@
       href: tutorial-manage-access-security.md
     - name: Govern and monitor
       href: tutorial-govern-monitor.md
+    - name: Manage certificates
+      href: tutorial-manage-certificates-for-federated-single-sign-on.md 
   - name: Samples
     items: 
     - name: Overview of App Management samples
@@ -43,6 +45,8 @@
     items: 
     - name: Application gallery
       href: overview-application-gallery.md
+    - name: Application integration
+      href: plan-an-application-integration.md
     - name: Application ownership
       href: overview-assign-app-owners.md
     - name: Application properties
@@ -53,8 +57,6 @@
         href: what-is-access-management.md
       - name: Certificate signing options
         href: certificate-signing-options.md
-      - name: Manage certificates
-        href: manage-certificates-for-federated-single-sign-on.md 
       - name: Tenant restrictions
         href: tenant-restrictions.md
       - name: Configure SAML token encryption
@@ -65,12 +67,8 @@
         href: cloud-app-security.md
     - name: Home realm discovery policy
       href: home-realm-discovery-policy.md
-    - name: Planning a cloud app integration
-      items:
-      - name: Get started with app integration
-        href: plan-an-application-integration.md
-      - name: Plan a My Apps deployment
-        href: my-apps-deployment-plan.md
+    - name: My Apps overview
+      href: myapps-overview.md
     - name: Single sign-on
       items:
       - name: What is single sign-on?
@@ -81,6 +79,8 @@
       items:
       - name: Consent and permissions overview
         href: consent-and-permissions-overview.md
+      - name: Admin consent workflow overview
+        href: admin-consent-workflow-overview.md
       - name: Manage and evaluate consent requests
         href: manage-consent-requests.md
       - name: Protect against consent phishing
@@ -122,18 +122,20 @@
         href: assign-user-or-group-access-portal.md
       - name: Assign custom security attributes
         href: custom-security-attributes-apps.md
-      - name: Create collections on My Apps
-        href: access-panel-collections.md
-      - name: Enable self-service app access
-        href: manage-self-service-access.md
-      - name: Hide an app
-        href: hide-application-from-user-portal.md
       - name: Disable user sign-on
         href: disable-user-sign-in-portal.md
       - name: Force auto-acceleration
         href: configure-authentication-for-federated-users-portal.md
       - name: Prevent sign-in auto-acceleration
         href: prevent-domain-hints-with-home-realm-discovery.md
+    - name: Manage My Apps
+      items:
+      - name: Create collections
+        href: access-panel-collections.md
+      - name: Enable self-service access
+        href: manage-self-service-access.md
+      - name: Hide an application
+        href: hide-application-from-user-portal.md
     - name: Migrate applications
       items:
       - name: Migrate an AD FS app to Azure
@@ -164,44 +166,44 @@
         href: secure-hybrid-access-integrations.md
       - name: Datawiza
         href: datawiza-with-azure-ad.md 
-    - name: F5
-      items:
-      - name: Deploy F5 BIG-IP in Azure
-        href: f5-bigip-deployment-guide.md
-      - name: F5 BIG-IP and Azure AD integration
+      - name: F5
         items:
-        - name: Integrate F5 BIG-IP with Azure AD
-          href: f5-aad-integration.md
-        - name: Easy Button guided configuration
+        - name: Deploy F5 BIG-IP in Azure
+          href: f5-bigip-deployment-guide.md
+        - name: F5 BIG-IP and Azure AD integration
           items:
-          - name: Kerberos
-            href: f5-big-ip-kerberos-easy-button.md
-          - name: Headers
-            href: f5-big-ip-headers-easy-button.md
-          - name: Headers and LDAP
-            href: f5-big-ip-ldap-header-easybutton.md
-          - name: Oracle EBS
-            href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
-          - name: Oracle JDE
-            href: f5-big-ip-oracle-jde-easy-button.md
-          - name: Oracle PeopleSoft
-            href: f5-big-ip-oracle-peoplesoft-easy-button.md
-          - name: SAP ERP
-            href: f5-big-ip-sap-erp-easy-button.md
-        - name: Advanced configuration
-          items:
-            - name: Headers
-              href: f5-big-ip-header-advanced.md
+          - name: Integrate F5 BIG-IP with Azure AD
+            href: f5-aad-integration.md
+          - name: Easy Button guided configuration
+            items:
             - name: Kerberos
-              href: f5-big-ip-kerberos-advanced.md
-            - name: Form-based
-              href: f5-big-ip-forms-advanced.md 
-            - name: SSL-VPN
-              href: f5-aad-password-less-vpn.md  
-            - name: B2C
-              href: ../../active-directory-b2c/partner-f5.md
-    - name: Silverfort
-      href: silverfort-azure-ad-integration.md
+              href: f5-big-ip-kerberos-easy-button.md
+            - name: Headers
+              href: f5-big-ip-headers-easy-button.md
+            - name: Headers and LDAP
+              href: f5-big-ip-ldap-header-easybutton.md
+            - name: Oracle EBS
+              href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
+            - name: Oracle JDE
+              href: f5-big-ip-oracle-jde-easy-button.md
+            - name: Oracle PeopleSoft
+              href: f5-big-ip-oracle-peoplesoft-easy-button.md
+            - name: SAP ERP
+              href: f5-big-ip-sap-erp-easy-button.md
+          - name: Advanced configuration
+            items:
+              - name: Headers
+                href: f5-big-ip-header-advanced.md
+              - name: Kerberos
+                href: f5-big-ip-kerberos-advanced.md
+              - name: Form-based
+                href: f5-big-ip-forms-advanced.md 
+              - name: SSL-VPN
+                href: f5-aad-password-less-vpn.md  
+              - name: B2C
+                href: ../../active-directory-b2c/partner-f5.md
+      - name: Silverfort
+        href: silverfort-azure-ad-integration.md
     - name: Single sign-on
       items:
       - name: Linked

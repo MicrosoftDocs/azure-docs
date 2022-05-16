@@ -12,6 +12,9 @@
     href: expressroute-howto-circuit-arm.md
   - name: Create an ExpressRoute circuit - CLI
     href: howto-circuit-cli.md
+  - name: Create an ExpressRoute circuit - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-expressroute-vnet-bicep.md
   - name: Create an ExpressRoute circuit - ARM template
     displayName: Resource Manager
     href: quickstart-create-expressroute-vnet-template.md
@@ -94,8 +97,12 @@
     href: expressroute-about-encryption.md
   - name: Connect Azure to public cloud
     href: expressroute-connect-azure-to-public-cloud.md
+  - name: Connectivity between virtual networks
+    href: virtual-network-connectivity-guidance.md
   - name: Cross-network connectivity
     href: cross-network-connectivity.md
+  - name: BGP communities
+    href: bgp-communities.md
   - name: Security
     items:
     - name: Security baseline
@@ -285,11 +292,11 @@
     - name: Create an ExpressRoute circuit
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/
     - name: Evolve your network infrastructure for connectivity
-      href: https://go.microsoft.com/fwlink/p/?LinkId=615124
+      href: /events/ignite-2015/brk2481
     - name: How to set up private peering for your circuit
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/
     - name: 'Hybrid partnerships: Enabling on-premises scenarios'
-      href: https://go.microsoft.com/fwlink/p/?LinkId=615125
+      href: /events/ignite-2015/brk1454
     - name: Set up Microsoft peering for your circuit
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
     - name: Set up public peering for your circuit

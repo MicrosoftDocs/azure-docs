@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Automation?
+  - name: What is Azure Automation?
     href: overview.md
+  - name: What are the various Automation services in Azure?
+    href: automation-services.md
   - name: FAQ
     href: automation-faq.md
   - name: What's new?
@@ -158,7 +160,7 @@
               href: automation-runbook-output-and-messages.md
             - name: Handle errors in graphical runbooks
               href: automation-runbook-graphical-error-handling.md
-            - name: Forward job data to Azure Monitor Logs
+            - name: Forward Azure Automation diagnostic logs to Azure Monitor
               href: automation-manage-send-joblogs-log-analytics.md
         - name: Troubleshoot runbooks
           items:

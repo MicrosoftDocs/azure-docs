@@ -4,7 +4,7 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is Face service
+  - name: What is the Face service?
     href: Overview.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
@@ -18,6 +18,8 @@ items:
   items:
   - name: Detect and analyze faces
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+  - name: Find similar faces
+    href: Face-API-How-to-Topics/find-similar-faces.md
   - name: Specify a face detection model version
     href: Face-API-How-to-Topics/specify-detection-model.md
   - name: Specify a face recognition model version
@@ -67,7 +69,7 @@ items:
   - name: Java
     href: /java/api/overview/azure/cognitiveservices/client/faceapi
   - name: Node.js
-    href: /javascript/api/overview/azure/cognitive-services/face-readme
+    href: /javascript/api/overview/azure/cognitiveservices/face
   - name: Python
     href: /python/api/overview/azure/cognitiveservices/face-readme
 - name: Resources
