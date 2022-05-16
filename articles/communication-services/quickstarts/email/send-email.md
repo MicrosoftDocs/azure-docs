@@ -37,5 +37,5 @@ In this quick start, you learned how to send emails using Azure Communication Se
 
 You may also want to:
 
- - Learn about [email concepts](../../concepts/email/email-overview.md)
+ - Learn about [Email concepts](../../concepts/email/email-overview.md)
  - Familiarize yourself with [email client library](../../concepts/email/sdk-features.md)
