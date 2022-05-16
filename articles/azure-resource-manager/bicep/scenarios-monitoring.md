@@ -8,13 +8,13 @@ ms.date: 04/03/2022
 ---
 # Create monitoring resources by using Bicep
 
-Azure has a comprehensive suite of tools that can monitor your applications and services. We can programmictally create our monitoring resources using Bicep to automate the creation of rules, diagnostic settings and alerts when provisioning our Azure infrastructure.
+Azure has a comprehensive suite of tools that can monitor your applications and services. We can programmatically create our monitoring resources using Bicep to automate the creation of rules, diagnostic settings and alerts when provisioning our Azure infrastructure.
 
 ## Setting up monitoring configuration through Bicep
 
-Bringing your monitoring configuration into your Bicep code may seem unusal, considering that we have tools available inside the Azure Portal to set up rules, diagnostic settings and dashboards. 
+Bringing your monitoring configuration into your Bicep code may seem unusual, considering that we have tools available inside the Azure Portal to set up rules, diagnostic settings and dashboards. 
 
-However, by bringing your monitoring configuration to your Bicep code, we gain the benefit of having that configuration in our git commit history to see how alerts were set up and configured. Our alerts and diagnostic settings are essentially the same as our other infrastructure resources. By including them in our Bicep code, we can deploy and test our alerting resources as we would for our other Azure resources.
+However, by bringing your monitoring configuration to your Bicep code, you gain the benefit of having that configuration in our git commit history to see how alerts were set up and configured. Our alerts and diagnostic settings are essentially the same as our other infrastructure resources. By including them in our Bicep code, we can deploy and test our alerting resources as we would for our other Azure resources.
 
 ## Log Analytics and Application Insights workspaces
 
@@ -24,7 +24,7 @@ We can create Log Analytics workspaces with the type [`Microsoft.OperationalInsi
 
 When creating [Diagnostic settings](../../azure/azure-monitor/essentials/diagnostic-settings.md) in Bicep, bear in mind that this resource is an **extension resource**, meaning that we can apply is to another resource. We can create Diagnostic Settings in Bicep using the type [`Microsoft.Insights/diagnosticSettings`](/azure/templates/microsoft.insights/diagnosticsettings?tabs=bicep).
 
-When creating diagnostic settings in Bicep, we need to apply the scope of the diagnostic setting. The scope can be applied at the Management, Subscription or Resource Group level. [Use the *scope* property on this resource to set the scope for this resource](../../azure/azure-resource-manager/bicep/scope-extension-resources.md).
+When creating diagnostic settings in Bicep, we need to apply the scope of the diagnostic setting. The scope can be applied at the Management, Subscription or Resource Group level. [Use the *scope* property on this resource to set the scope for this resource](../../azure-resource-manager/bicep/scope-extension-resources.md).
 
 Take the following example:
 
@@ -36,7 +36,7 @@ Here, we create a diagnostic setting for our App Service Plan and send those dia
 
 Alerts proactively notify you when issues are found within your Azure infrastructure and applications by monitoring data within Azure Monitor. By configuring our monitoring and alerting configuration within our Bicep code, we can automate the creation of these alerts alongside the infrastructure that we are provisioning in Azure.
 
-Read [`Overview of alerts in Microsoft Azure`](../../azure/azure-monitor/alerts/alerts-overview.md) to further understand how alerts work in Azure, what you can alert on and how we can manage alerts and rules.
+Read [`Overview of alerts in Microsoft Azure`](../../azure-monitor/alerts/alerts-overview.md) to further understand how alerts work in Azure, what you can alert on and how we can manage alerts and rules.
 
 The following sections demonstrate how you can configure different types of alerts using Bicep code.
 
@@ -84,7 +84,7 @@ We define our alert rule conditions within the `condition` property and then con
 
 In Bicep, we can create Dashboards with the type [`Microsoft.Portal/dashboards`](/azure/templates/microsoft.portal/dashboards?tabs=bicep).
 
-For more information about creating dashboards with code, see the [`Programmatically create and Azure Dashboard`](../../azure/azure-portal/azure-portal-dashboards-create-programmatically.md) reference guide. 
+For more information about creating dashboards with code, see the [`Programmatically create and Azure Dashboard`](../../azure-portal/azure-portal-dashboards-create-programmatically.md) reference guide. 
 
 ## Resource health
 
@@ -104,18 +104,18 @@ Smart detection alerts warn you of potential performance problems and failure an
 
 ## Creating Autoscaling rules.
 
-To create a autoscaling setting, we define a resource of type [`Microsoft.Ingsights/autoscalesettings`](/azure/templates/microsoft.insights/autoscalesettings?tabs=bicep). 
+To create a autoscaling setting, we define a resource of type [`Microsoft.Insights/autoscalesettings`](/azure/templates/microsoft.insights/autoscalesettings?tabs=bicep). 
 
 To target the resource that we want to apply the autoscaling setting to, we need to provide the target resource identifier of the resource that the setting should be added to.
 
-In this example, we create a Scale Up condition for our App Service Plan based on the average CPU Percentage over a 10-minute timespan. If our App Service Plan exceeds 70% average CPU consumption over 10 minutes, we scale up our App Service Plan by one instance. 
+In this example, we create a Scale Up condition for our App Service Plan based on the average CPU Percentage over a 10-minute time period. If our App Service Plan exceeds 70% average CPU consumption over 10 minutes, we scale up our App Service Plan by one instance. 
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/resource-health-alerts.bicep" :::
 
 > [!NOTE]
-> When defining autoscaling rules, keep best practices in mind to avoid issues when attempting to autoscale, such as Flapping. For more information, see the following documentation on [best practices for Autoscale](../../azure/azure-monitor/autoscale/autoscale-best-practices.md)
+> When defining autoscaling rules, keep best practices in mind to avoid issues when attempting to autoscale, such as Flapping. For more information, see the following documentation on [best practices for Autoscale](../../azure-monitor/autoscale/autoscale-best-practices.md)
 
-Within our setting, we can define notification settings within our resource that sends emails to defined e-mail lists and administrators and webhook notifications that other services can subscribe to that informs subscribers when a autoscaling event has occured.
+Within our setting, we can define notification settings within our resource that sends emails to defined e-mail lists and administrators and webhook notifications that other services can subscribe to that informs subscribers when a autoscaling event has occurred.
 
 ## Related resources
 
