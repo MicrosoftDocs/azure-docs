@@ -1,7 +1,7 @@
 ---
 title: Stopwords
 titleSuffix: Azure Cognitive Search
-description: Reference document of the stopwords list for Microsoft language analyszers. 
+description: Reference documentation containing the stopwords list of the Microsoft language analyzers. 
 
 manager: nitinme
 author: HeidiSteen
