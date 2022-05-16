@@ -16,12 +16,12 @@ The Web Application Routing solution makes it easy to access applications that a
 
 ## Limitations
 
-- Web Application Routing currently does not support named ports in ingress backend.
+- Web Application Routing currently doesn't support named ports in ingress backend.
 
 ## Web Application Routing solution overview
-The add-on deploys four components: a [NGINX Ingress controller][nginx], [Secrets Store CSI Driver][csi-driver], [Open Service Mesh (OSM)][osm], and [External-DNS][external-dns] controller.
+The add-on deploys four components: an [NGINX Ingress controller][nginx], [Secrets Store CSI Driver][csi-driver], [Open Service Mesh (OSM)][osm], and [External-DNS][external-dns] controller.
 
-- **NGINX Ingress Controller**: The inress controller exposed to the internet.
+- **NGINX Ingress Controller**: The ingress controller exposed to the internet.
 - **External-dns**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
 - **CSI driver**: Connector used to communicate with keyvault to retrieve SSL certificates for ingress controller.
 - **OSM**: A lightweight, extensible, cloud native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
@@ -44,7 +44,7 @@ az extension update --name aks-preview
 ```
 
 ### Install `osm` CLI
-Since Web Application Routing uses OSM internally to secure intranet communication we need to setup the CLI. The OSM command-line tool contains everything needed to install and configure Open Service Mesh. The binary is available on the [OSM GitHub releases page][osm-release].
+Since Web Application Routing uses OSM internally to secure intranet communication, we need to set up the CLI. The OSM command-line tool contains everything needed to install and configure Open Service Mesh. The binary is available on the [OSM GitHub releases page][osm-release].
 
 ## Deploy Web Application Routing: CLI
 
@@ -97,15 +97,15 @@ osm namespace add hello-web-app-routing
 
 ## Grant permissions for Web Application Routing
 
-Identify the newly-created user-assigned managed identity within the cluster resource group `webapprouting-<MY_CLUSTER_NAME>`. In this walkthrough, the identity is named `webapprouting-myakscluster`.
+Identify the Web Application Routing-associated managed identity within the cluster resource group `webapprouting-<MY_CLUSTER_NAME>`. In this walkthrough, the identity is named `webapprouting-myakscluster`.
 
 :::image type="content" source="media/web-app-routing/identify-msi-web-app-routing.png" alt-text="Cluster resource group in the Azure Portal is shown, and the webapprouting-myakscluster user-assigned managed identity is highlighted." lightbox="media/web-app-routing/identify-msi-web-app-routing.png":::
 
-Copy the identity's object id:
+Copy the identity's object ID:
 
 :::image type="content" source="media/web-app-routing/msi-web-app-object-id.png" alt-text="The webapprouting-myakscluster managed identity screen in Azure Portal, the identity's object id is highlighted. " lightbox="media/web-app-routing/msi-web-app-object-id.png":::
 
-### Grant Acess to Keyvault
+### Grant Access to Keyvault
 
 Grant `GET` permissions for Web Application Routing to retrieve certificates from Azure Key Vault:
 
