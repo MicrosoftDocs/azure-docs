@@ -94,6 +94,7 @@ kubectl create namespace hello-web-app-routing
 ```bash
 osm namespace add hello-web-app-routing
 ```
+
 ## Grant permissions for Web Application Routing
 
 Identify the newly-created user-assigned managed identity within the cluster resource group `webapprouting-<MY_CLUSTER_NAME>`. In this walkthrough, the identity is named `webapprouting-myakscluster`.
