@@ -2,14 +2,14 @@
 title: CloudKnox Permissions Management - The CloudKnox glossary
 description:  CloudKnox Permissions Management glossary
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # The CloudKnox glossary

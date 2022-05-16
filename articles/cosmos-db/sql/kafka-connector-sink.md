@@ -5,18 +5,18 @@ author: kushagrathapar
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 05/13/2022
 ms.author: kuthapar
 ---
 
-# Kafka Connect for Azure Cosmos DB - Sink connector
+# Kafka Connect for Azure Cosmos DB - sink connector
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Kafka Connect for Azure Cosmos DB is a connector to read from and write data to Azure Cosmos DB. The Azure Cosmos DB sink connector allows you to export data from Apache Kafka topics to an Azure Cosmos DB database. The connector polls data from Kafka to write to containers in the database based on the topics subscription.
 
 ## Prerequisites
 
-* Start with the [Confluent platform setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md) because it gives you a complete environment to work with. If you do not wish to use Confluent Platform, then you need to install and configure Zookeeper, Apache Kafka, Kafka Connect, yourself. You will also need to install and configure the Azure Cosmos DB connectors manually.
+* Start with the [Confluent platform setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md) because it gives you a complete environment to work with. If you don't wish to use Confluent Platform, then you need to install and configure Zookeeper, Apache Kafka, Kafka Connect, yourself. You'll also need to install and configure the Azure Cosmos DB connectors manually.
 * Create an Azure Cosmos DB account, container [setup guide](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/CosmosDB_Setup.md)
 * Bash shell, which is tested on GitHub Codespaces, Mac, Ubuntu, Windows with WSL2. This shell doesn’t work in Cloud Shell or WSL1.
 * Download [Java 11+](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
@@ -24,7 +24,7 @@ Kafka Connect for Azure Cosmos DB is a connector to read from and write data to 
 
 ## Install sink connector
 
-If you are using the recommended [Confluent platform setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md), the Azure Cosmos DB sink connector is included in the installation, and you can skip this step.  
+If you're using the recommended [Confluent platform setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md), the Azure Cosmos DB sink connector is included in the installation, and you can skip this step.  
 
 Otherwise, you can download the JAR file from the latest [Release](https://github.com/microsoft/kafka-connect-cosmosdb/releases) or package this repo to create a new JAR file. To install the connector manually using the JAR file, refer to these [instructions](https://docs.confluent.io/current/connect/managing/install.html#install-connector-manually). You can also package a new JAR file from the source code.
 
@@ -42,13 +42,13 @@ ls target/*dependencies.jar
 
 ## Create a Kafka topic and write data
 
-If you are using the Confluent Platform, the easiest way to create a Kafka topic is by using the supplied Control Center UX. Otherwise, you can create a Kafka topic manually using the following syntax:
+If you're using the Confluent Platform, the easiest way to create a Kafka topic is by using the supplied Control Center UX. Otherwise, you can create a Kafka topic manually using the following syntax:
 
 ```bash
 ./kafka-topics.sh --create --zookeeper <ZOOKEEPER_URL:PORT> --replication-factor <NO_OF_REPLICATIONS> --partitions <NO_OF_PARTITIONS> --topic <TOPIC_NAME>
 ```
 
-For this scenario, we will create a Kafka topic named “hotels” and will write non-schema embedded JSON data to the topic. To create a topic inside Control Center, see the [Confluent guide](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-2-create-ak-topics).
+For this scenario, we'll create a Kafka topic named “hotels” and will write non-schema embedded JSON data to the topic. To create a topic inside Control Center, see the [Confluent guide](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-2-create-ak-topics).
 
 Next, start the Kafka console producer to write a few records to the “hotels” topic.
 
@@ -76,9 +76,9 @@ The three records entered are published to the “hotels” Kafka topic in JSON 
 
 ## Create the sink connector
 
-Create the Azure Cosmos DB sink connector in Kafka Connect. The following JSON body defines config for the sink connector. Make sure to replace the values for `connect.cosmos.connection.endpoint` and `connect.cosmos.master.key`, properties that you should have saved from the Azure Cosmos DB setup guide in the prerequisites.
+Create an Azure Cosmos DB sink connector in Kafka Connect. The following JSON body defines config for the sink connector. Make sure to replace the values for `connect.cosmos.connection.endpoint` and `connect.cosmos.master.key`, properties that you should have saved from the Azure Cosmos DB setup guide in the prerequisites.
 
-Refer to the [sink properties](#sink-configuration-properties) section for more information on each of these configuration properties.
+For more information on each of these configuration properties, see [sink properties](#sink-configuration-properties).
 
 ```json
 {
@@ -105,11 +105,11 @@ Once you have all the values filled out, save the JSON file somewhere locally. Y
 
 ### Create connector using Control Center
 
-An easy option to create the connector is by going through the Control Center webpage. Follow this [installation guide](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-3-install-a-ak-connector-and-generate-sample-data) to create a connector from Control Center. Instead of using the `DatagenConnector` option, use the `CosmosDBSinkConnector` tile instead. When configuring the sink connector, fill out the values as you have filled in the JSON file.
+An easy option to create the connector is by going through the Control Center webpage. Follow this [installation guide](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-3-install-a-ak-connector-and-generate-sample-data) to create a connector from Control Center. Instead of using the `DatagenConnector` option, use the `CosmosDBSinkConnector` tile instead. When configuring the sink connector, fill out the values as you've filled in the JSON file.
 
 Alternatively, in the connectors page, you can upload the JSON file created earlier by using the **Upload connector config file** option.
 
-:::image type="content" source="./media/kafka-connector-sink/upload-connector-config.png" alt-text="Upload connector config.":::
+:::image type="content" source="./media/kafka-connector-sink/upload-sink-connector-config.png" lightbox="./media/kafka-connector-sink/upload-sink-connector-config.png" alt-text="Screenshot of 'Upload connector config file' option in the Browse connectors dialog.":::
 
 ### Create connector using REST API
 
@@ -127,9 +127,9 @@ Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) 
 
 ## Cleanup
 
-To delete the connector from the Control Center, navigate to the sink connector you created and click the **Delete** icon.
+To delete the connector from the Control Center, navigate to the sink connector you created and select the **Delete** icon.
 
-:::image type="content" source="./media/kafka-connector-sink/delete-connector.png" alt-text="Delete connector.":::
+:::image type="content" source="./media/kafka-connector-sink/delete-sink-connector.png" lightbox="./media/kafka-connector-sink/delete-sink-connector.png" alt-text="Screenshot of delete option in the sink connector dialog.":::
 
 Alternatively, use the Connect REST API to delete:
 
@@ -142,7 +142,7 @@ To delete the created Azure Cosmos DB service and its resource group using Azure
 
 ## <a id="sink-configuration-properties"></a>Sink configuration properties
 
-The following settings are used to configure the Cosmos DB Kafka sink connector. These configuration values determine which Kafka topics data is consumed, which Azure Cosmos DB container’s data is written into, and formats to serialize the data. For an example configuration file with the default values, refer to [this config]( https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/src/docker/resources/sink.example.json).
+The following settings are used to configure an Azure Cosmos DB Kafka sink connector. These configuration values determine which Kafka topics data is consumed, which Azure Cosmos DB container’s data is written into, and formats to serialize the data. For an example configuration file with the default values, refer to [this config]( https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/src/docker/resources/sink.example.json).
 
 | Name | Type | Description | Required/Optional |
 | :--- | :--- | :--- | :--- |
@@ -191,18 +191,18 @@ The sink Connector also supports the following AVRO logical types:
 
 ## Single Message Transforms(SMT)
 
-Along with the sink connector settings, you can specify the use of Single Message Transformations (SMTs) to modify messages flowing through the Kafka Connect platform. For more information, refer to the [Confluent SMT Documentation](https://docs.confluent.io/platform/current/connect/transforms/overview.html).
+Along with the sink connector settings, you can specify the use of Single Message Transformations (SMTs) to modify messages flowing through the Kafka Connect platform. For more information, see [Confluent SMT Documentation](https://docs.confluent.io/platform/current/connect/transforms/overview.html).
 
 ### Using the InsertUUID SMT
 
-You can use InsertUUID SMT to automatically add item IDs. With the custom `InsertUUID` SMT, you can insert the `id` field with a random UUID value for each message, before it is written to Azure Cosmos DB.
+You can use InsertUUID SMT to automatically add item IDs. With the custom `InsertUUID` SMT, you can insert the `id` field with a random UUID value for each message, before it's written to Azure Cosmos DB.
 
 > [!WARNING]
 > Use this SMT only if the messages don’t contain the `id` field. Otherwise, the `id` values will be overwritten and you may end up with duplicate items in your database. Using UUIDs as the message ID can be quick and easy but are [not an ideal partition key](https://stackoverflow.com/questions/49031461/would-using-a-substring-of-a-guid-in-cosmosdb-as-partitionkey-be-a-bad-idea) to use in Azure Cosmos DB.
 
 ### Install the SMT
 
-Before you can use the `InsertUUID` SMT, you will need to install this transform in your Confluent Platform setup. If you are using the Confluent Platform setup from this repo, the transform is already included in the installation, and you can skip this step.
+Before you can use the `InsertUUID` SMT, you'll need to install this transform in your Confluent Platform setup. If you're using the Confluent Platform setup from this repo, the transform is already included in the installation, and you can skip this step.
 
 Alternatively, you can package the [InsertUUID source](https://github.com/confluentinc/kafka-connect-insert-uuid) to create a new JAR file. To install the connector manually using the JAR file, refer to these [instructions](https://docs.confluent.io/current/connect/managing/install.html#install-connector-manually).
 
@@ -253,7 +253,7 @@ Here are solutions to some common problems that you may encounter when working w
 
 ### Read non-JSON data with JsonConverter
 
-If you have non-JSON data on your source topic in Kafka and attempt to read it using the `JsonConverter`, you will see the following exception:
+If you have non-JSON data on your source topic in Kafka and attempt to read it using the `JsonConverter`, you'll see the following exception:
 
 ```console
 org.apache.kafka.connect.errors.DataException: Converting byte[] to Kafka Connect data failed due to serialization error:
@@ -273,7 +273,7 @@ This error is likely caused by data in the source topic being serialized in eith
 
 ### Read non-Avro data with AvroConverter
 
-This scenario is applicable when you try to use the Avro converter to read data from a topic that is not in Avro format. Which, includes data written by an Avro serializer other than the Confluent Schema Registry’s Avro serializer, which has its own wire format.
+This scenario is applicable when you try to use the Avro converter to read data from a topic that isn't in Avro format. Which, includes data written by an Avro serializer other than the Confluent Schema Registry’s Avro serializer, which has its own wire format.
 
 ```console
 org.apache.kafka.connect.errors.DataException: my-topic-name
@@ -314,7 +314,7 @@ Kafka Connect supports a special structure of JSON messages containing both payl
 }
 ```
 
-If you try to read JSON data that does not contain the data in this structure, you will get the following error:
+If you try to read JSON data that doesn't contain the data in this structure, you'll get the following error:
 
 ```none
 org.apache.kafka.connect.errors.DataException: JsonConverter with schemas.enable requires "schema" and "payload" fields and may not contain additional fields. If you are trying to deserialize plain JSON data, set schemas.enable=false in your converter configuration.
@@ -329,7 +329,7 @@ To be clear, the only JSON structure that is valid for `schemas.enable=true` has
 
 ## Limitations
 
-* Autocreation of databases and containers in Azure Cosmos DB are not supported. The database and containers must already exist, and they must be configured correctly.
+* Autocreation of databases and containers in Azure Cosmos DB aren't supported. The database and containers must already exist, and they must be configured correctly.
 
 ## Next steps
 
