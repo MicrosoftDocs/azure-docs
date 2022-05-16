@@ -31,6 +31,8 @@
   items:
   - name: Azure Video Indexer samples
     href: https://github.com/Azure-Samples/media-services-video-indexer
+  - name: Azure Video Indexer widgets 
+    href: https://www.npmjs.com/package/@azure/video-indexer-widgets
 - name: Concepts
   items:
   - name: Overview
