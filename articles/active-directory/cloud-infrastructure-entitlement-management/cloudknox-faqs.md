@@ -2,14 +2,14 @@
 title: Frequently asked questions (FAQs) about CloudKnox Permissions Management 
 description: Frequently asked questions (FAQs) about CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
 ms.date: 04/20/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Frequently asked questions (FAQs)
