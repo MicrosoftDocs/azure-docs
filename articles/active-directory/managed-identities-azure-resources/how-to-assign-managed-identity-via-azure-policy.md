@@ -28,7 +28,12 @@ While using system-assigned managed identity is possible, when used at scale (fo
 
 The policy is designed to implement this recommendation. 
 
-You can view the policy definition over here. 
+## Policy definition and details 
+
+- [Policy for Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd367bd60-64ca-4364-98ea-276775bddd94)
+- [Policy for Virtual Machine Scale Sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F516187d4-ef64-4a1b-ad6b-a7348502976c)
+
+
 
 When executed, the policy takes the following actions: 
 1.	Create, if not exist, a new built-in user-assigned managed identity in the subscription and each Azure region based on the VMs that are in scope of the policy. 
