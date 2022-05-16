@@ -71,7 +71,7 @@ Then you can pass the operations, along with the reactive stream of documents, t
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkPatchItems)]
 
 > [!NOTE]
-> In the above example, we apply `add` and `set` to patch elements whose root parent exists. However, you cannot do this where the root parent does not exist. When this is required, first read the full document, then use a method like the below to replace the documents:
+> In the above example, we apply `add` and `set` to patch elements whose root parent exists. However, you cannot do this where the root parent does not exist. When this is required, first read the full documents, then use a method like the below to replace the documents:
 > [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkReplaceItems)]               
 
 
