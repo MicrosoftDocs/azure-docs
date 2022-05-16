@@ -113,4 +113,4 @@ Enable CI/CD deployments via GitHub Actions integrations.
 
 ## Next steps
 
-For help with troubleshooting, see [Troubleshooting NGiNX integration with Azure](nginx-troubleshoot.md).
+For help with troubleshooting, see [Troubleshooting NGINX integration with Azure](nginx-troubleshoot.md).

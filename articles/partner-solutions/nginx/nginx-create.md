@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **NGINX for Azure**.
 
-## Create new NGINX account
+## Create new NGINX deployment
 
 ### Basics
 
