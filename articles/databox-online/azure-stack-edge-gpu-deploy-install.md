@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/11/2021
+ms.date: 05/16/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.  
@@ -253,7 +253,10 @@ The backplane of Azure Stack Edge device:
 For a full list of supported cables, switches, and transceivers for these network adapter cards, see:
 
 - [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
-- 25 GbE and 10 GbE cables and modules in [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
+- 25 GbE and 10 GbE cables and modules in [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
+
+> [!NOTE]
+> Using the USB port to connect any external device, including keyboards and monitors, is not supported for Azure Stack Edge devices.
 
 ### Power cabling 
 
