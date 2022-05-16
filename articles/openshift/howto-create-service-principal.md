@@ -112,7 +112,7 @@ To create a service principal using the Azure portal, complete the following ste
 
 2. Click **Next: Authentication** to configure and deploy the service principal on the **Authentication** page of the **Azure Red Hat OpenShift** dialog.
 
-     :::image type="content" source="./media/openshift-service-principal-portal.png" alt-text="Screenshot that shows how to use the Azure Red Hat service principal with Azure portal to create a cluster." lightbox="./media/openshift-service-principal-portal.png":::
+     :::image type="content" source="./media/openshift-service-principal-portal.png" alt-text="Screenshot that shows how to use the Authentication tab with Azure portal to create a service principal." lightbox="./media/openshift-service-principal-portal.png":::
 
 In the **Service principal information** section:
 
