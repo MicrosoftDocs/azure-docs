@@ -41,6 +41,7 @@ Support will still be provided for non-CNI-related issues.
 ```azurecli-interactive
 # Install the aks-preview extension
 az extension add --name aks-preview
+
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
