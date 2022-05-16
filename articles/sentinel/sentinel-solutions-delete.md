@@ -5,7 +5,6 @@ author: cwatson-cat
 ms.topic: how-to
 ms.date: 05/16/2022
 ms.author: cwatson
-ms.custom: ignite-fall-2021
 ---
 
 # Delete installed Microsoft Sentinel out-of-the-box content and solutions (public preview)
