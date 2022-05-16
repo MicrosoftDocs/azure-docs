@@ -27,8 +27,9 @@ There are two scale properties that apply to all rules in your container app:
 - Individual scale rules are defined in the `rules` array.
 - If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
 - Replicas not processing, but that remain in memory are billed in the "idle charge" category.
-- Changes to scaling rules are a [revision-scope](./revisions.md#revision-scope-changes) change.
-- When using non-HTTP event scale rules, setting the `activeRevisionMode` to `single` is recommended.
+- Changes to scaling rules are a [revision-scope](overview.md) change.
+- When using non-HTTP event scale rules, setting the `properties.configuration.activeRevisionsMode` property of the container app to `single` is recommended.
+
 
 
 
