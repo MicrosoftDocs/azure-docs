@@ -41,10 +41,10 @@ Kafka messages can be serialized to multiple formats. A complete set of samples
 
 The Kafka trigger supports two methods for consuming the [Avro format](http://avro.apache.org/docs/current/):
 
-- **Specific**: A concrete user-defined class is instantiated during message de-serialization.
+- **Specific**: A concrete user-defines class is instantiated during message de-serialization.
 - **Generic**: An Avro schema and a generic record instance are created during message de-serialization.
 
-In the first example, a specific `UserRecord` class, which inherits from `ISpecificRecord`, is instantiated during message de-serialization. The parameter to which the `KafkaTrigger` attribute is added should have a value type of the class defined in previous step: `KafkaEventData<UserRecord>`.
+In the first example, a specific `UserRecord` class, which inherits from `ISpecificRecord`, is instantiated during message de-serialization. The parameter to which the `KafkaTrigger` attribute is added should have a value type of the class defines in previous step: `KafkaEventData<UserRecord>`.
 
 ```csharp
 public class UserRecord : ISpecificRecord
@@ -211,6 +211,22 @@ The following function logs the message and headers for the Kafka Event:
 
 :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaTriggerWithHeaders.cs" range="10-27" :::
 
+You can define a generic [Avro schema] for the event passed to the trigger. The following string value defines the generic Avro schema:
+
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="23-41" :::
+
+In the following function, an instance of `GenericRecord` is available in the `KafkaEvent.Value` property:
+
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="43-60" :::
+
+You can define a specific [Avro schema] for the event passed to the trigger. The following string value defines the `UserRecord` class:
+
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/User.cs" range="9-32" :::
+
+In the following function, an instance of `UserRecord` is available in the `KafkaEvent.Value` property:
+
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroSpecificTriggers.cs" range="16-25" :::
+
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/). 
 
 # [Event Hubs](#tab/event-hubs/in-process)
@@ -226,6 +242,22 @@ To receive events in a batch, use a string array or `KafkaEventData` array as in
 The following function logs the message and headers for the Kafka Event:
 
 :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaTriggerWithHeaders.cs" range="10-26" :::
+
+You can define a generic [Avro schema] for the event passed to the trigger. The following string value defines the generic Avro schema:
+
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="23-41" :::
+
+In the following function, an instance of `GenericRecord` is available in the `KafkaEvent.Value` property:
+
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="43-60" :::
+
+You can define a specific [Avro schema] for the event passed to the trigger. The following string value defines the `UserRecord` class:
+
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/User.cs" range="9-32" :::
+
+In the following function, an instance of `UserRecord` is available in the `KafkaEvent.Value` property:
+
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroSpecificTriggers.cs" range="16-25" :::
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/). 
 
@@ -299,6 +331,22 @@ The following code also logs the header data:
 
 :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerManyWithHeaders/index.js" :::
 
+You can define a generic [Avro schema] for the event passed to the trigger. The following function.json defines the trigger for the specific provider with a generic Avro schema:
+
+# [Confluent](#tab/confluent)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerAvroGeneric/function.confluent.json" :::
+
+# [Event Hubs](#tab/event-hubs)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerAvroGeneric/function.eventhub.json" :::
+
+---
+
+The following code then runs when the function is triggered:
+
+:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerAvroGeneric/index.js" :::
+
 For a complete set of working JavaScript examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/javascript/). 
 
 ::: zone-end  
@@ -341,6 +389,22 @@ The following code then parses the array of events and logs the event data:
 The following code also logs the header data:
 
 :::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerManyWithHeaders/run.ps1" :::
+
+You can define a generic [Avro schema] for the event passed to the trigger. The following function.json defines the trigger for the specific provider with a generic Avro schema:
+
+# [Confluent](#tab/confluent)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerAvroGeneric/function.confluent.json" :::
+
+# [Event Hubs](#tab/event-hubs)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerAvroGeneric/function.eventhub.json" :::
+
+---
+
+The following code then runs when the function is triggered:
+
+:::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerAvroGeneric/run.ps1" :::
 
 For a complete set of working PowerShell examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/powershell/). 
 
@@ -385,6 +449,22 @@ The following code also logs the header data:
 
 :::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerManyWithHeaders/__init__.py" :::
 
+You can define a generic [Avro schema] for the event passed to the trigger. The following function.json defines the trigger for the specific provider with a generic Avro schema:
+
+# [Confluent](#tab/confluent)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerAvroGeneric/function.confluent.json" :::
+
+# [Event Hubs](#tab/event-hubs)
+
+:::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerAvroGeneric/function.eventhub.json" :::
+
+---
+
+The following code then runs when the function is triggered:
+
+:::code language="powershell" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerAvroGeneric/main.py" :::
+
 For a complete set of working Python examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/python/). 
 
 ::: zone-end  
@@ -406,6 +486,10 @@ The following function logs the message and headers for the Kafka Event:
 
 :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaTriggerManyWithHeaders.java" range="12-38" :::
 
+You can define a generic [Avro schema] for the event passed to the trigger. The following function defines a trigger for the specific provider with a generic Avro schema:
+
+:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/avro/generic/KafkaTriggerAvroGeneric.java" range="15-31" :::
+
 For a complete set of working Java examples for Confluent, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/tree/dev/samples/java/confluent/src/main/java/com/contoso/kafka). 
 
 # [Event Hubs](#tab/event-hubs)
@@ -421,6 +505,10 @@ To receive events in a batch, use an input string as an array, as shown in the f
 The following function logs the message and headers for the Kafka Event:
 
 :::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaTriggerManyWithHeaders.java" range="12-38" :::
+
+You can define a generic [Avro schema] for the event passed to the trigger. The following function defines a trigger for the specific provider with a generic Avro schema:
+
+:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/avro/generic/KafkaTriggerAvroGeneric.java" range="15-31" :::
 
 For a complete set of working Java examples for Event Hubs, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/tree/dev/samples/java/confluent/src/main/java/com/contoso/kafka). 
 
@@ -535,3 +623,5 @@ For a complete set of supported host.json settings for the Kafka trigger, see [h
 ## Next steps
 
 - [Write to an Apache Kafka stream from a function](./functions-bindings-kafka-output.md)
+
+[Avro schema]: http://avro.apache.org/docs/current/
