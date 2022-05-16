@@ -54,7 +54,7 @@ Azure + open source components are supported. Alpha and beta components are supp
 
 ### Clouds/regions
 
-Public Azure cloud is supported with Arc support on the regions listed by [Azure Products by Region][supported-cloud-regions].
+Global Azure cloud is supported with Arc support on the regions listed by [Azure Products by Region][supported-cloud-regions].
 
 ## Prerequisites 
 
