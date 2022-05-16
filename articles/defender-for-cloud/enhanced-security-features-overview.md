@@ -108,12 +108,12 @@ Yes. If you've configured your Log Analytics agent to send data to two or more d
 Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll get 500 MB free data ingestion. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solution installed. You'll be charged for any data ingested over the 500 MB limit.
 
 ### Is the 500 MB free data ingestion calculated for an entire workspace or strictly per machine?
-You'll get 500 MB free data ingestion per day, for every Windows machine connected to the workspace. Specifically for security data types directly collected by Defender for Cloud. 
+You'll get 500 MB free data ingestion per day, for every machine connected to the workspace. Specifically for security data types directly collected by Defender for Cloud. 
 
 This data is a daily rate averaged across all nodes. So even if some machines send 100-MB and others send 800-MB, if the total doesn't exceed the **[number of machines] x 500 MB** free limit, you won't be charged extra.
 
 ### What data types are included in the 500 MB data daily allowance?
-Defender for Cloud's billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides a 500 MB/node/day allocation for Windows machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
+Defender for Cloud's billing is closely tied to the billing for Log Analytics. [Microsoft Defender for Servers](defender-for-servers-introduction.md) provides a 500 MB/node/day allocation for machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
 - SecurityAlert
 - SecurityBaseline
 - SecurityBaselineSummary

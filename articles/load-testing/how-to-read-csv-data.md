@@ -97,7 +97,7 @@ To add a CSV file to your load test by using the Azure portal:
 
   1. Select the CSV file from your computer, and then select **Upload** to upload the file to Azure.
   
-      :::image type="content" source="media/how-to-read-csv-data/edit-test-upload-csv.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane.":::
+      :::image type="content" source="media/how-to-read-csv-data/edit-test-upload-csv.png" alt-text="Screenshot of the Test plan tab on the Edit test pane.":::
   
   1. Select **Apply** to modify the test and to use the new configuration when you rerun it.
   
