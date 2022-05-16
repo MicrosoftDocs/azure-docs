@@ -5,7 +5,7 @@ metadata:
   ms.reviewer: vijayts
   ms.topic: faq
   ms.service: backup
-  ms.date: 05/10/2022
+  ms.date: 05/16/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -38,11 +38,11 @@ sections:
       - question: |
           Can I cancel an auto-heal backup job?
         answer: |
-          No, you can’t cancel an auto-heal job. However, you can opt-out of it by following these steps:
+          No, you can’t cancel an auto-heal job. However, you can opt out of it by following these steps:
           
           1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create or edit the **ExtensionSettingsOverrides.json** file.
           1. In the **ExtensionSettingsOverrides.json** file, set *{"EnableAutoHealer": false}*.
-          1. Save the changesl and close the file.
+          1. Save the changes and close the file.
           1. On the SQL Server instance, open **Task Manage**, and then restart the **AzureWLBackupCoordinatorSvc** service.
           
       - question: |
@@ -122,7 +122,7 @@ sections:
         answer: |
           A database that you [add to an autoprotected instance](backup-sql-server-database-azure-vms.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours, and the actual protection of the system can take additional time as it depends on the size of the VM. However, you can discover new databases immediately if you manually run a discovery by selecting **Rediscover DBs**, as shown in the following image:
           
-            ![Manually discover a newly added database.](./media/backup-azure-sql-database/view-newly-added-database.png)
+            :::image type="content" source="./media/backup-azure-sql-database/view-newly-added-database.png" alt-text="Screenshot of manually discover a newly added database."
 
 
 additionalContent: |
