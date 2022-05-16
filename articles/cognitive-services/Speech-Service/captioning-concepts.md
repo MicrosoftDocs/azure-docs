@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-speech-sdk-cli
 
 # Captioning with speech to text
 
-In this guide, you learn how to create captions with speech to text. This guide covers captioning for speech, but doesn't include speaker ID or sound effects such as bells ringing. Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.
+In this guide, you learn how to create captions with speech to text. Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios. This guide covers captioning for speech, but doesn't include speaker ID or sound effects such as bells ringing. 
 
 Here are some common captioning scenarios:
 - Online courses and instructional videos
