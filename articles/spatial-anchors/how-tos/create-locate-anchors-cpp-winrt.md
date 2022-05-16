@@ -276,18 +276,10 @@ Learn more about the [AnchorLocatedDelegate](/cpp/api/spatial-anchors/winrt/anch
 
 Learn more about the [DeleteAnchorAsync](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#deleteanchorasync) method.
 
-### Delete anchor after locating (recommended)
-
 ```cpp
     co_await m_cloudSession.DeleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes
 ```
-
-### Delete anchor without locating
-```cpp
-    //TODO
-```
-
 
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]

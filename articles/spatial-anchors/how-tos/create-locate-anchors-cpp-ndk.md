@@ -320,17 +320,10 @@ Learn more about the [AnchorLocated](/cpp/api/spatial-anchors/ndk/anchorlocatedd
 
 Learn more about the [DeleteAnchorAsync](/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#deleteanchorasync) method.
 
-### Delete anchor after locating (recommended)
-
 ```cpp
     cloudSession_->DeleteAnchorAsync(cloudAnchor, [this](Status status) {
         // Perform any processing you may want when delete finishes
     });
-```
-
-### Delete anchor without locating
-```cpp
-    //TODO
 ```
 
 

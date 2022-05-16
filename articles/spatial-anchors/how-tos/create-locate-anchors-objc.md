@@ -279,21 +279,11 @@ Learn more about the [anchorLocated](/objectivec/api/spatial-anchors/asacloudspa
 
 Learn more about the [deleteAnchor](/objectivec/api/spatial-anchors/asacloudspatialanchorsession#deleteanchor) method.
 
-
-### Delete anchor after locating (recommended)
-
 ```objc
     [_cloudSession deleteAnchor:cloudAnchor withCompletionHandler:^(NSError *error) {
         // Perform any processing you may want when delete finishes
     }];
 ```
-
-### Delete anchor without locating
-
-```objc
-    //TODO
-```
-
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 

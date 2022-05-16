@@ -355,19 +355,10 @@ Learn more about the [AnchorLocatedListener](/java/api/com.microsoft.azure.spati
 
 Learn more about the [deleteAnchorAsync](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) method.
 
-### Delete anchor after locating (recommended)
-
 ```java
     Future deleteAnchorFuture = mCloudSession.deleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes (deleteAnchorFuture is done)
 ```
-
-### Delete anchor without locating
-
-```java
-   //TODO
-```
-
 
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
