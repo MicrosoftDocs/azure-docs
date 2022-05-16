@@ -11,35 +11,9 @@ ms.date: 05/17/2022
 
 # Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps
 
-If you need connectors that aren't available in Standard logic app workflows, you can create your own built-in connectors using the same built-in connector extensibility model, which is based on the Azure Functions extensibility model, that's used by built-in connectors available for Standard workflows in [single-tenant Azure Logic Apps](single-tenant-overview-compare.md).
+If you need connectors that aren't available in Standard logic app workflows, you can create your own built-in connectors using the same extensibility model that's used by the [*service provider-based built-in connectors*](custom-connector-overview.md#service-provider-interface-implementation) available for Standard workflows in single-tenant Azure Logic Apps. This extensibility model is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md).
 
-This article shows how to create an example custom built-in connector that's based on the Azure Functions extensibility framework. The example creates a sample custom built-in Azure Cosmos DB connector.
-
-For more information about custom connectors, review [Custom connectors for Standard logic apps](custom-connector-overview.md#custom-connector-standard) and [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md).
-
-## Prerequisites
-
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-* Basic knowledge about single-tenant Azure Logic Apps, Standard logic app workflows, connectors, and how to use Visual Studio Code for creating single tenant-based workflows. If you're new to Azure Logic Apps, review the following documentation:
-
-  * [What is Azure Logic Apps?](logic-apps-overview.md)
-
-  * [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
-
-  * [Create an integration workflow with single-tenant Azure Logic Apps (Standard) - Azure portal](create-single-tenant-workflows-azure-portal.md)
-
-  * [Custom connectors for Standard logic apps](custom-connector-overview.md#custom-connector-standard)
-
-* [Visual Studio Code with the Azure Logic Apps (Standard) extension and other prerequisites installed](create-single-tenant-workflows-azure-portal.md#prerequisites). Your installation should already include the [NuGet package for Microsoft.Azure.Workflows.WebJobs.Extension](https://www.nuget.org/packages/Microsoft.Azure.Workflows.WebJobs.Extension/).
-
-* An Azure Cosmos account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos account, database, container and items from the Azure portal](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
-
-<a name="example-custom-built-in-connector"></a>
-
-## Example custom built-in connector
-
-This example creates a sample custom built-in Cosmos DB connector that has a single Azure Functions-based trigger and no actions. The trigger fires when a new document is added to the lease collection or container in Cosmos DB and then runs a workflow that uses the input payload as the Cosmos document.
+This article shows how to create an example custom built-in Cosmos DB connector, which has a single Azure Functions-based trigger and no actions. The trigger fires when a new document is added to the lease collection or container in Cosmos DB and then runs a workflow that uses the input payload as the Cosmos document.
 
 | Operation | Operation details | Description |
 |-----------|-------------------|-------------|
@@ -47,7 +21,27 @@ This example creates a sample custom built-in Cosmos DB connector that has a sin
 | Action | None | This connector doesn't define any action operations. |
 ||||
 
-The sample connector uses the functionality from the [Azure Functions capability for the Cosmos DB trigger](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), based on the Azure Functions trigger binding. For the complete sample, review [Sample custom built-in Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB).
+This sample connector uses the same functionality as the [Azure Cosmos DB trigger for Azure Functions](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), which is based on [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md). For the complete sample, review [Sample custom built-in Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB).
+
+For more information, review the following documentation:
+
+* [Custom connectors for Standard logic apps](custom-connector-overview.md#custom-connector-standard)
+* [Service provider-based built-in connectors](custom-connector-overview.md#service-provider-interface-implementation)
+* [Single-tenant Azure Logic Apps](single-tenant-overview-compare.md)
+
+## Prerequisites
+
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* Basic knowledge about single-tenant Azure Logic Apps, Standard logic app workflows, connectors, and how to use Visual Studio Code for creating single tenant-based workflows. For more information, review the following documentation:
+
+  * [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+
+  * [Create an integration workflow with single-tenant Azure Logic Apps (Standard) - Azure portal](create-single-tenant-workflows-azure-portal.md)
+
+* [Visual Studio Code with the Azure Logic Apps (Standard) extension and other prerequisites installed](create-single-tenant-workflows-azure-portal.md#prerequisites). Your installation should already include the [NuGet package for Microsoft.Azure.Workflows.WebJobs.Extension](https://www.nuget.org/packages/Microsoft.Azure.Workflows.WebJobs.Extension/).
+
+* An Azure Cosmos account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos account, database, container and items from the Azure portal](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
 
 ## High-level steps
 
@@ -55,7 +49,7 @@ The following outline describes the high-level steps to build the example connec
 
 1. Create a class library project.
 
-1. IN your project, add a NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** as a NuGet reference.
+1. In your project, add the **Microsoft.Azure.Workflows.WebJobs.Extension** NuGet package as a NuGet reference.
 
 1. Provide the operations and operation descriptions for your built-in connector by using the NuGet package to implement methods for the interfaces named [**IServiceOperationsProvider**](custom-connector-overview.md#iserviceoperationsprovider) and [**IServiceOperationsTriggerProvider**](custom-connector-overview.md#iserviceoperationstriggerprovider).
 
@@ -65,17 +59,13 @@ The following outline describes the high-level steps to build the example connec
 
 ## Create your class library project
 
-To create the sample built-in Cosmos DB connector, complete the following tasks:
-
 1. In Visual Studio Code, create a .NET Core 3.1 class library project.
 
 1. In your project, add the NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** as a NuGet reference.
 
 ## Implement the service provider interface
 
-To provide the operations and their descriptions for the sample built-in connector, in the NuGet package named **Microsoft.Azure.Workflows.WebJobs.Extension** package, implement the methods for the following interfaces.
-
-The following diagram shows the interfaces with the method implementations that the Azure Logic Apps designer and runtime expect for a custom built-in connector that has an Azure Functions-based trigger:
+To provide the operations and their descriptions for the sample built-in connector, in the **Microsoft.Azure.Workflows.WebJobs.Extension** NuGet package, implement the methods for the following interfaces. The following diagram shows the interfaces with the method implementations that the Azure Logic Apps designer and runtime expect for a custom built-in connector that has an Azure Functions-based trigger:
 
 ![Conceptual class diagram showing method implementation for sample Cosmos DB custom built-in connector.](./media/create-custom-built-in-connector-standard/service-provider-cosmos-db-example.png)
 
@@ -192,11 +182,11 @@ The following sections show how to register your custom built-in connector as an
 
 ### Create the startup job
 
-1. Create a startup class by using the assembly attribute **[assembly:WebJobsStartup]**.
+1. Create a startup class using the assembly attribute named **[assembly:WebJobsStartup]**.
 
-1. Implement the **IWebJobsStartup** interface.
+1. Implement the **IWebJobsStartup** interface. In the **Configure()** method, register the extension and inject the service provider.
 
-1. In the **Configure()** method, register the extension and inject the service provider. For example, the following code snippet shows the startup class implementation for the sample custom built-in Cosmos DB connector:
+   For example, the following code snippet shows the startup class implementation for the sample custom built-in Cosmos DB connector:
 
    ```csharp
    using Microsoft.Azure.WebJobs;
@@ -279,23 +269,23 @@ namespace ServiceProviders.CosmosDb.Extensions
 Azure Logic Apps has a generic way to handle any Azure Functions built-in trigger by using the **JObject** array. However, if you want to convert the read-only list of Azure Cosmos DB documents into a **JObject** array, you can add a converter. When the converter is ready, register the converter as part of **ExtensionConfigContext** as shown earlier in this example:
 
 ```csharp
-// Convert the Cosmos cocument list to a JObject array.
+// Convert the Cosmos document list to a JObject array.
 context.AddConverter<IReadOnlyList<Document>, JObject[]>(ConvertDocumentToJObject);
 ```
 
 ### Class library diagram for implemented classes
 
-When you're done, review the following class diagram that shows the implementation for all the classes in **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB**:
+When you're done, review the following class diagram that shows the implementation for all the classes in the **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB.dll** extension bundle:
 
-* **CosmosDbServiceProviderStartup**
-* **CosmosDbServiceProvider**
 * **CosmosDbServiceOperationsProvider**
+* **CosmosDbServiceProvider**
+* **CosmosDbServiceProviderStartup**
 
 ![Conceptual code map diagram that shows complete class implementation.](./media/create-custom-built-in-connector-standard/methods-implementation-code-map-diagram.png)
 
 ## Install your connector
 
-To add the NuGet reference from the previous section, in the extension bundle named **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB**, update the **extensions.json** file. For more information, go to the **Azure/logicapps-connector-extensions** repo, and review the PowerShell script named [**add-extension.ps1**](https://github.com/Azure/logicapps-connector-extensions/blob/main/src/Common/tools/add-extension.ps1).
+To add the NuGet reference from the previous section, in the extension bundle named **Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB.dll**, update the **extensions.json** file. For more information, go to the **Azure/logicapps-connector-extensions** repo, and review the PowerShell script named [**add-extension.ps1**](https://github.com/Azure/logicapps-connector-extensions/blob/main/src/Common/tools/add-extension.ps1).
 
 1. Update the extension bundle to include the custom built-in connector.
 

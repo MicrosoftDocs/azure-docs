@@ -31,7 +31,7 @@ This article provides an overview about custom connectors for [Consumption logic
 
 ## Consumption logic apps
 
-In [multi-tenant Azure Logic Apps](logic-apps-overview.md), you can create [custom connectors](/connectors/custom-connectors/) from REST APIs to use in Consumption logic app workflows. The [Connectors documentation](/connectors/connectors) provides more overview information about how to create custom connectors for Consumption logic apps, including complete basic and advanced tutorials. The following list also provides direct links to information about custom connectors for Consumption logic apps:
+In [multi-tenant Azure Logic Apps](logic-apps-overview.md), you can create [Swagger-based or SOAP-based custom connectors](/connectors/custom-connectors/) from REST APIs to use in Consumption logic app workflows. The [Connectors documentation](/connectors/connectors) provides more overview information about how to create custom connectors for Consumption logic apps, including complete basic and advanced tutorials. The following list also provides direct links to information about custom connectors for Consumption logic apps:
 
   * [Create an Azure Logic Apps connector](/connectors/custom-connectors/create-logic-apps-connector)
   * [Create a custom connector from an OpenAPI definition](/connectors/custom-connectors/define-openapi-definition)
@@ -79,7 +79,7 @@ The following section provides more information about how the extensibility mode
 
 Based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md), the built-in connector extensibility model in single-tenant Azure Logic Apps has a service provider infrastructure that you can use to [create, package, register, and install your own built-in connectors](create-custom-built-in-connector-standard.md) as Azure Functions extensions that anyone can use in their Standard workflows. This model includes custom built-in trigger capabilities that support exposing an [Azure Functions trigger or action](../azure-functions/functions-bindings-example.md) as a service provider trigger in your custom built-in connector.
 
-The following diagram shows the method implementations that the Azure Logic Apps designer and runtime expects for a custom built-in connector with an Azure Functions-based trigger:
+The following diagram shows the method implementations that the Azure Logic Apps designer and runtime expects for a custom built-in connector with an [Azure Functions-based trigger](../azure-functions/functions-bindings-example.md):
 
 ![Conceptual diagram showing Azure Functions-based service provider infrastructure.](./media/custom-connector-overview/service-provider-azure-functions-based.png)
 
