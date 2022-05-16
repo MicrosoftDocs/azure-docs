@@ -32,7 +32,7 @@ As a container app is updated with a [revision scope-change](revisions.md#revisi
 
 ## Deactivate
 
-Once a revision is no longer needed, you can deactivate a revision with the option to reactivate later. During deactivation, the container is [shut down](#shutdown).
+Once a revision is no longer needed, you can deactivate a revision with the option to reactivate later. During deactivation, containers in the revision are [shut down](#shutdown).
 
 :::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-deactivate.png" alt-text="Azure Container Apps: Deactivation phase":::
 
@@ -46,7 +46,7 @@ The containers are shut down in the following situations:
 
 When a shutdown is initiated, the container host sends a [SIGTERM message](https://wikipedia.org/wiki/Signal_(IPC)) to your container. The code implemented in the container can respond to this operating system-level message to handle termination.
 
-If your application does not respond to the `SIGTERM` message, then [SIGKILL](https://wikipedia.org/wiki/Signal_(IPC)) terminates your container.
+If your application does not respond within 30 seconds to the `SIGTERM` message, then [SIGKILL](https://wikipedia.org/wiki/Signal_(IPC)) terminates your container.
 
 ## Next steps
 
