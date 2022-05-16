@@ -54,7 +54,7 @@ You can install this version of the extension in your function app by registerin
 ::: zone-end 
 
 
-::: zone pivot="programming-language-javascript,programming-language-python"  
+::: zone pivot="programming-language-javascript"
 
 
 ## Install bundle    
@@ -93,6 +93,56 @@ You can add the preview extension bundle by adding or replacing the following co
 
 ::: zone-end
 
+
+::: zone pivot="programming-language-python"  
+
+
+## Install bundle    
+
+The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
+
+# [Preview Bundle v3.x](#tab/extensionv3)
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+# [Preview Bundle v4.x](#tab/extensionv4)
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+```
+
+---
+
+## Update packages
+
+The SQL bindings extension is available in the 1.11.3b1 version of the [Azure Functions Python library](https://pypi.org/project/azure-functions/).  Add this version of the library to your functions project with an update to the line for `azure-functions==` in the `requirements.txt` file in your Python Azure Functions project as seen in the following snippet:
+
+```
+azure-functions==1.11.3b1
+```
+
+Support for durable functions is not available in this release. A future release will combine SQL bindings and durable functions capabilities.
+
+
+::: zone-end
 
 
 ::: zone pivot="programming-language-java,programming-language-powershell"  
