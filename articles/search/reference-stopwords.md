@@ -18,7 +18,7 @@ When text is indexed into Azure Cognitive Search, it's processed by analyzers so
 
 This article lists the stopwords used by the Microsoft analyzer for each language. 
 
-For the stopword list for Lucene analyzers, see [https://github.com/apache/lucene/tree/main/lucene/analysis/common/src/resources/org/apache/lucene/analysis](https://github.com/apache/lucene/tree/main/lucene/analysis/common/src/resources/org/apache/lucene/analysis).
+For the stopword list for Lucene analyzers, see the [Apache Lucene source code on GitHub](https://github.com/apache/lucene/tree/main/lucene/analysis/common/src/resources/org/apache/lucene/analysis).
 
 > [!TIP]
 > To view the output of any given analyzer, call the [Analyze Text REST API](/rest/api/searchservice/test-analyzer). This API is often helpful for debugging unexpected search results.
