@@ -52,7 +52,7 @@ For public preview the following limitations exist.
 - Maximum requests per minute per authorization: 100
 - Authorization code PKCE flow with code challenge isn't supported.
 - Authorizations feature isn't supported on self-hosted gateways.
-- No API documentation is available. Please see [this](scripts/authorizations_collection.json) Postman collection.   
+- No API documentation is available. Please see [this](https://aka.ms/apimauthorizations/postmancollection) Postman collection.   
 
 ### Authorization providers
  
