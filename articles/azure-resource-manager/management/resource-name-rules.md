@@ -4,7 +4,7 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/06/2022
+ms.date: 05/16/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -210,6 +210,13 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | communicationServices | global | 1-63 | Alphanumerics and hyphens.<br><br>Can't use underscores. |
+
+## Microsoft.ConfidentialLedger
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | ledgers | Resource group | 3-32 | Alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
 
 ## Microsoft.Consumption
 

@@ -17,7 +17,7 @@ This article walks you through the process for using an Azure Resource Manager (
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Only those properties included in the template are used in the deployment. If more customization is required, such as [setting up network security](search-security-overview.md#network-security), you can [update service configuration](/cli/azure/search/service?view=azure-cli-latest#az-search-service-update) after the service is deployed.
+Only those properties included in the template are used in the deployment. If more customization is required, such as [setting up network security](search-security-overview.md#network-security), you can [update the service configuration](/cli/azure/search/service?view=azure-cli-latest#az-search-service-update) as a post-deployment task.
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
