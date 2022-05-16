@@ -141,7 +141,7 @@ az monitor log-analytics workspace table update --subscription ContosoSID --reso
  
 ## Get retention and archive policy by table
 
-You can view a table's retention and archive policy in the table configuration screen, as described in [Set retention and archive policy by table](#set-retention-and-archive-policy-by-table), or you can retrieve the configuration using the **Tables - Get** API or Azure CLI.
+You can view a table's retention and archive policy in the Azure portal on the table configuration screen, as described in [Set retention and archive policy by table](#set-retention-and-archive-policy-by-table), and you can retrieve the configuration using the **Tables - Get** API or Azure CLI.
 
 # [API](#tab/api-2)
 
