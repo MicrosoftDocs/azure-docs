@@ -85,6 +85,8 @@ Use the `get-authorization-context` policy to get the authorization context of a
 
 The policy fetches and stores authorization and refresh tokens from the configured authorization provider.
 
+If identity-type=”jwt” is configured in the get-authorization-context policy a jwt token is required to be validated. The audience of this token must be  `https://azure-api.net/authorization-manager`.  
+
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 
@@ -151,6 +153,25 @@ The policy fetches and stores authorization and refresh tokens from the configur
     <value>@("Bearer " + ((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</value>
 </set-header>
 ```
+
+#### Example 4: Get token from incoming request and return token
+
+```xml
+<!-- Add to inbound policy. -->
+<get-authorization-context 
+    provider-id="github-01" 
+    authorization-id="auth-01" 
+    context-variable-name="auth-context" 
+    identity-type="jwt" 
+    identity="@(context.Request.Headers["Authorization"][0].Replace("Bearer ", ""))"
+    ignore-error="false" />
+<!-- Return the token -->
+<return-response>
+    <set-status code="200" />
+    <set-body template="none">@(((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</set-body>
+</return-response>
+```
+
 ### Elements
 
 | Name  | Description   | Required |
@@ -164,8 +185,8 @@ The policy fetches and stores authorization and refresh tokens from the configur
 | provider-id | The authorization provider resource identifier. | Yes |   |
 | authorization-id | The authorization resource identifier. | Yes |   |
 | context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). | Yes |   |
-| identity-type | Type of identity to be checked against the authorization permissions. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | managed |
-| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: https://management.core.windows.net/ <br> - `oid`: Permission object id <br> - `tid`: Permission tenant id | No |   |
+| identity-type | Type of identity to be checked against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | managed |
+| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: https://azure-api.net/authorization-manager <br> - `oid`: Permission object id <br> - `tid`: Permission tenant id | No |   |
 | ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource is not found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500` | No | false |
 
 ### Authorization object
