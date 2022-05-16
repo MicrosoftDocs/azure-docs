@@ -35,7 +35,7 @@ The following updates are new to Azure Synapse Analytics this month.
 
 ## Apache Spark for Synapse
 
-* Synapse Spark Dedicated SQL Pool (DW) Connector now supports Python. To learn more, see [Working with Azure Synapse Dedicated SQL Pool Connector in Python](./spark/synapse-spark-sql-pool-import-export.md#Using-the-Connector-with-Python).
+* Synapse Spark Dedicated SQL Pool (DW) Connector now supports Python. To learn more, see [Working with Azure Synapse Dedicated SQL Pool Connector](./spark/synapse-spark-sql-pool-import-export.md).
 
 * Synapse Spark Common Data Model (CDM) Connector is now Generally Available. The CDM format reader/writer enables a Spark program to read and write CDM entities in a CDM folder via Spark dataframes. To learn more, see [how the CDM connector supports reading, writing data, examples, & known issues](./spark/data-sources/apache-spark-cdm-connector.md).
 
