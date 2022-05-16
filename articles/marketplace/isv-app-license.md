@@ -48,8 +48,8 @@ These steps illustrate the high-level process to manage ISV app licenses:
 ### Step 1: ISV creates an offer
 
 **Transactable offers**:
-- The ISV [creates an offer in Partner Center](dynamics-365-customer-engage-offer-setup.md) and chooses to transact through Microsoft’s commerce system and enable Microsoft to manage the licenses of these add-ons. ISV also defines at least one plan and configures pricing information and availability. The ISV can optionally define a private plan which only specific customers can see and purchase on Microsoft AppSource.
-
+- The ISV [creates an offer in Partner Center](dynamics-365-customer-engage-offer-setup.md) and chooses to transact through Microsoft’s commerce system and enable Microsoft to manage the licenses of these add-ons. The ISV also defines at least one plan and configures pricing information and availability. The ISV can optionally define a private plan which only specific customers can see and purchase on [Microsoft AppSource](https://appsource.microsoft.com/).
+- 
 **List-only offers**:
 - The ISV [creates an offer in Partner Center](dynamics-365-customer-engage-offer-setup.md) and chooses to manage licenses for this offer through Microsoft. This includes defining one or more licensing plans for the offer.
 
@@ -79,15 +79,16 @@ Customers can manage the subscriptions of these add-ons and offers in [Microsoft
 **List-only offers:**
 - The license plans will appear in Microsoft 365 Admin Center for the customer to [assign to users or groups](/microsoft-365/commerce/licenses/manage-third-party-app-licenses) in their organization. The customer can also install the application in their tenant via the Power Platform Admin Center.
 
-### Power Platform performs license checks
+### Step 6: Power Platform performs license checks
 
 When a user within the customer’s organization tries to run an application, Microsoft checks to ensure that the user has a license before permitting them to run it. If they do not have a license, the user sees a message explaining that they need to contact an administrator for a license.
 
-### ISV can view reports
+### Step 7: ISV can view reports
 
-ISVs can view information on orders purchased, renewed, or cancelled over time and by geography.
+ISVs can view information on:
+- Orders purchased, renewed, or cancelled over time and by geography.
 
-ISVs can also view information on provisions and assigned licenses over a period of time and by geography.
+- Provisions and assigned licenses over a period of time and by geography.
 
 ## Enabling app license management through Microsoft
 
