@@ -43,7 +43,7 @@ Metrics explorer supports Sum, Count, Average, Minimum and Maximum as [aggregati
 | --- | --- | --- | --- | --- | --- | --- | 
 | [BGP Peer Status](#bgp) | Scalability | Count | Maximum | BGP availability from Route Server to Peer | BGP Peer IP, BGP Peer Type, Route Server Instance |  Yes | 
 | [Count of Routes Advertised to Peer](#advertised) | Scalability | Count | Maximum | Count of routes advertised from Route Server to Peer | BGP Peer IP, BGP Peer Type, Route Server Instance |  Yes|
-| [Count of Routes Received from Peer](#received) | Scalability | Count | Maximum | Count of routes received from Peer| BGP Peer IP, BGP Peer Type, Route Server Instance | Yes 
+| [Count of Routes Learned from Peer](#received) | Scalability | Count | Maximum | Count of routes learned from Peer | BGP Peer IP, BGP Peer Type, Route Server Instance | Yes 
 
 > [!IMPORTANT]
 > Azure Monitor exposes another metric for Route Server, **Data Processed by the Virtual Hub Router**. This metric doesn't apply to Route Server and should be ignored.
@@ -70,11 +70,11 @@ This metric shows the number of routes the Route Server advertised to NVA peers.
 
 :::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-advertised.png" alt-text="Screenshot of Count of Routes Advertised." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-advertised-expand.png":::
 
-### <a name = "received"></a>Count of Routes Received from Peer 
+### <a name = "received"></a>Count of Routes Learned from Peer 
 
 Aggregation type: **Max**
 
-This metric shows the number of routes the Route Server received from NVA peers.
+This metric shows the number of routes the Route Server learned from NVA peers.
 
 :::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-learned.png" alt-text="Screenshot of Count of Routes Learned." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-learned-expand.png":::
 
