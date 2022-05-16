@@ -259,6 +259,8 @@
       href: create-alerts.md
   - name: Move to new region
     href: how-to-move-labs.md
+  - name: Move schedules to another region
+    href: how-to-move-schedule-to-new-region.md
 - name: Reference
   items:
   - name: CLI
