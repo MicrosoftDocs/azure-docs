@@ -19,9 +19,9 @@ This article describes how to move Arc-enabled Kubernetes clusters (or connected
 ## Prerequisites
 
 - Ensure that Azure Arc-enabled Kubernetes resource (Microsoft.Kubernetes/connectedClusters) is supported in the target region.
-- Ensure that Azure Arc-enabled Kubernetes configuration (Microsoft.KubernetesConfiguration/SourceControlConfiguration, Microsoft.KubernetesConfiguration/Extensions, Microsoft.KubernetesConfiguration/FluxConfigurations) resources are supported in the target region. 
+- Ensure that Azure Arc-enabled Kubernetes configuration (Microsoft.KubernetesConfiguration/SourceControlConfigurations, Microsoft.KubernetesConfiguration/Extensions, Microsoft.KubernetesConfiguration/FluxConfigurations) resources are supported in the target region. 
 - Ensure that the Arc-enabled services you've deployed on top are supported in the target region.
-- Ensure you have line of sight to the api server of your underlying Kubernetes cluster.
+- Ensure you have network access to the api server of your underlying Kubernetes cluster.
 
 ## Prepare
 
@@ -29,20 +29,20 @@ This article describes how to move Arc-enabled Kubernetes clusters (or connected
 
 #### Connected Cluster 
 
-The connectedClusters resource is the ARM representation of your Kubernetes clusters outside of Azure (on-prem, another cloud, edge...). The underlying infrastructure lies in your environment and Arc provides a first-class representation of the cluster on Azure, by installing agents on your cluster.
+The connectedClusters resource is the ARM representation of your Kubernetes clusters outside of Azure (on-premises, another cloud, edge...). The underlying infrastructure lies in your environment and Arc provides a first-class representation of the cluster on Azure, by installing agents on your cluster.
 
 When it comes to "moving" your Arc connected cluster, it means deleting the ARM resource in the source region, cleaning up the agents on your cluster and re-onboarding your cluster again in the target region.
 
 #### Kubernetes Configurations
 
-Source control configurations and extensions are child resources to the connected cluster resource. In order to move these resources, you'll first need to move the parent connected cluster resource.
+Source control configurations, Flux configurations and extensions are child resources to the connected cluster resource. In order to move these resources, you'll first need to move the parent connected cluster resource.
 
 ## Move
 
 ### Kubernetes Configurations
 
 1. Do a LIST of all configuration resources in the source cluster (the cluster to be moved) and save the response body to be used as the request body when re-creating these resources.
-    - [Microsoft.KubernetesConfiguration/SourceControlConfiguration](/cli/azure/k8sconfiguration?view=azure-cli-latest&preserve-view=true#az-k8sconfiguration-list)
+    - [Microsoft.KubernetesConfiguration/SourceControlConfigurations](/cli/azure/k8sconfiguration?view=azure-cli-latest&preserve-view=true#az-k8sconfiguration-list)
     - [Microsoft.KubernetesConfiguration/Extensions](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true#az-k8s-extension-list)
     - [Microsoft.KubernetesConfiguration/FluxConfigurations](/cli/azure/k8s-configuration/flux?view=azure-cli-latest&preserve-view=true#az-k8s-configuration-flux-list)
     > [!NOTE]
@@ -54,8 +54,8 @@ Source control configurations and extensions are child resources to the connecte
 
 ### Connected Cluster
 
-1. With line of sight into the underlying Kubernetes cluster, run [this command](./quickstart-connect-cluster.md?tabs=azure-cli#clean-up-resources) to delete the Arc connected cluster. This command will clean up the Arc footprint on the underlying cluster as well as on ARM.
-2. With line of sight into the underlying Kubernetes cluster, run [this command](./quickstart-connect-cluster.md?tabs=azure-cli#connect-an-existing-kubernetes-cluster) to create the Arc connected cluster in the new region.
+1. With network access to the underlying Kubernetes cluster, run [this command](./quickstart-connect-cluster.md?tabs=azure-cli#clean-up-resources) to delete the Arc connected cluster. This command will clean up the Arc footprint on the underlying cluster as well as on ARM.
+2. With network access to the underlying Kubernetes cluster, run [this command](./quickstart-connect-cluster.md?tabs=azure-cli#connect-an-existing-kubernetes-cluster) to create the Arc connected cluster in the new region.
 > [!NOTE]
 > The above command creates the cluster by default in the same location as its resource group.
 > Use the `--location` parameter to explicitly provide the target region value.
