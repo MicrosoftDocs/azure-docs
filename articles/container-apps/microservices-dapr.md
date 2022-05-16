@@ -180,6 +180,8 @@ If you've changed the `STORAGE_ACCOUNT_CONTAINER` variable from its original val
 > [!NOTE]
 > Container Apps does not currently support the native [Dapr components schema](https://docs.dapr.io/operations/components/component-schema/). The above example uses the supported schema.
 
+For more information about configuring Dapr components, see [Configure Dapr components](dapr-overview.md#configure-dapr-components).
+
 Navigate to the directory in which you stored the *statestore.yaml* file and run the following command to configure the Dapr component in the Container Apps environment.
 
 # [Bash](#tab/bash)

@@ -71,10 +71,12 @@ Based on your needs, you can "plug in" certain Dapr component types like state s
 
 # [YAML](#tab/yaml)
 
-When defining a Dapr component via YAML, you will pass your component manifest into the Azure CLI. For example, deploy a `pubsub.yaml` component using the following command:
+When defining a Dapr component via YAML, you will pass your component manifest into the Azure CLI.  When configuring multiple components, you will create a separate YAML file and run the Azure CLI command for each component.
+
+For example, deploy a `pubsub.yaml` component using the following command:
 
 ```azurecli
-az containerapp env dapr-component set --name ENVIRONMENT_NAME --resource-group RESOURCE_GROUP_NAME --dapr-component-name pubsub--yaml "./pubsub.yaml"
+az containerapp env dapr-component set --name ENVIRONMENT_NAME --resource-group RESOURCE_GROUP_NAME --dapr-component-name pubsub --yaml "./pubsub.yaml"
 ```
 
 The `pubsub.yaml` spec will be scoped to the dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`.
