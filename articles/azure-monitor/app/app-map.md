@@ -285,7 +285,7 @@ In large distributed applications there's always some degree of noise coming fro
 
 ### Enabling Intelligent View in Application Map
 
-Enable the Intelligent View toggle. Optionally, to change the sensitivity of the detections choose--**Low**, **Medium**, or **High**. See more detail on [sensitivity here](#how-does-sensitivity-setting-in-intelligent-view-work).
+Enable the Intelligent View toggle. Optionally, to change the sensitivity of the detections choose--**Low**, **Medium**, or **High**. See more detail on [sensitivity here](#how-does-intelligent-view-sensitivity-work).
 
 :::image type="content" source="media/app-map/IntelligentViewToggle.png" alt-text="Screenshot of the Application Map user interface with options to toggle Intelligent View and provide feedback" lightbox="media/app-map/IntelligentViewToggle.png":::
 
