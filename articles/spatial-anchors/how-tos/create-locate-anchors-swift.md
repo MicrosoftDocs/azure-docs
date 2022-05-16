@@ -297,7 +297,6 @@ Learn more about the [delete](/objectivec/api/spatial-anchors/asacloudspatialanc
     })
 ```
 
-
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
 Learn more about the [stop](/objectivec/api/spatial-anchors/asacloudspatialanchorsession#stop) method.

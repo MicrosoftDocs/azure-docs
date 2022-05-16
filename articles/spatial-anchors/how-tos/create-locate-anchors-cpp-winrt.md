@@ -281,7 +281,6 @@ Learn more about the [DeleteAnchorAsync](/cpp/api/spatial-anchors/winrt/cloudspa
     // Perform any processing you may want when delete finishes
 ```
 
-
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
 Learn more about the [Stop](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#stop) method.

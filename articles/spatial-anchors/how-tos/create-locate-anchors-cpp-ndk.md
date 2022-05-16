@@ -326,7 +326,6 @@ Learn more about the [DeleteAnchorAsync](/cpp/api/spatial-anchors/ndk/cloudspati
     });
 ```
 
-
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
 Learn more about the [Stop](/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#stop) method.

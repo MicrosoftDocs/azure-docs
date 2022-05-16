@@ -360,7 +360,6 @@ Learn more about the [deleteAnchorAsync](/java/api/com.microsoft.azure.spatialan
     // Perform any processing you may want when delete finishes (deleteAnchorFuture is done)
 ```
 
-
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
 Learn more about the [stop](/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.stop) method.
