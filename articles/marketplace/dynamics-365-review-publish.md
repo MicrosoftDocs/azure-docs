@@ -12,7 +12,7 @@ ms.date: 05/25/2022
 
 # Review and publish a Dynamics 365 offer
 
-This article shows you how to use Partner Center to submit your Dynamics 365 offer for publishing, preview your offer, subscribe to a plan, and then publish it live to the commercial marketplace. It also covers how to check publishing status as it proceeds through the publishing steps. You must have already created the offer that you want to publish.
+This article shows you how to use Partner Center to submit your Dynamics 365 offer for publishing, preview your offer, subscribe to a plan, and then publish it live to the commercial marketplace. It also covers how to check the publishing status as it proceeds through the publishing steps. You must have already created the offer that you want to publish.
 
 ## Submit your offer to publishing
 
@@ -22,15 +22,15 @@ This article shows you how to use Partner Center to submit your Dynamics 365 off
 1. In the upper-right corner of the portal, select **Review and publish**.
 1. Make sure that the **Status column** for each page for the offer says **Complete**. The three possible statuses are as follows:
 
-- **Not started** – The page is incomplete.
-- **Incomplete** – The page is missing required information or has errors that need to be fixed. You'll need to go back to the page and update it.
-- **Complete** – The page is complete. All required data has been provided and there are no errors.
+    - **Not started** – The page is incomplete.
+    - **Incomplete** – The page is missing required information or has errors that need to be fixed. You'll need to go back to the page and update it.
+    - **Complete** – The page is complete. All required data has been provided and there are no errors.
 
 1. If any of the pages have a status other than **Complete**, select the page name, correct the issue, save the page, and then select **Review and publish** again to return to this page.
-1. Some offer types require testing. After all of the pages are complete, if you see a **Notes for certification** box, provide testing instructions to the certification team to ensure that your app is tested correctly. Provide any supplementary notes helpful for understanding your app.
-1. After all pages are complete and you’ve entered To start the publishing process for your offer, select **Publish**. The **Offer overview** page appears and shows the offer's **Publish status**.
+1. After all of the pages are complete, if you see a **Notes for certification** box, provide testing instructions to the certification team to ensure that your app is tested correctly. Provide any supplementary notes helpful for understanding your app.
+1. To start the publishing process for your offer, select **Publish**. The **Offer overview** page appears and shows the offer's **Publish status**.
 
-Your offer's publish status will change as it moves through the publication process. You can review your offer status on the **Overview** tab of a commercial marketplace offer in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). The **Status** of each offer will be one of the following:
+Your offer's publish status will change as it moves through the publication process. You can review your offer status on the **Overview** tab of the commercial marketplace offer in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). The **Status** of each offer will be one of the following:
 
 | Status | Description |
 | ------------ | ------------- |
@@ -59,7 +59,7 @@ If your offer is a _Contact Me_ listing, test that a lead is created as expected
 
 ## Test the offer in AppSource
 
-1. From the Product details page of the offer, select the **Buy Now** button.
+1. From the _Product details_ page of the offer, select the **Buy Now** button.
 1. Select the plan you want to purchase and then select **Next**.
 1. Select the billing term, recurring billing term, and number of users.
 1. On the Payment page, enter the sold-to address and payment method.
@@ -81,5 +81,5 @@ After these validation checks are complete, your offer will be live in the marke
 
 ## Next steps
 
-- If you enabled _Third-party app license management through Microsoft_ for your offer, after you sell your offer, you’ll need to register the deal in Partner Center. To learn more, see [Managing licensing in marketplace offers](/partner-center/csp-commercial-marketplace-licensing).
+- If you enabled _Third-party app license management through Microsoft_ for your offer, after you sell your offer, you’ll need to register the deal in Partner Center. To learn more, see [Register deals you've won in Partner Center](/partner-center/register-deals).
 - [Update an existing offer in the Commercial Marketplace](update-existing-offer.md)

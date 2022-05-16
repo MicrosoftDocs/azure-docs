@@ -15,7 +15,7 @@ If you enabled app license management for your offer, the **Plans overview** tab
 
 [ ![Screenshot of the Plan overview tab for a Dynamics 365 apps on Dataverse and Power Apps offer that's been enabled for third-party app licensing.](./media/third-party-license/plan-tab-d365-workspaces.png) ](./media/third-party-license/plan-tab-d365-workspaces.png#lightbox)
 
-You need to define at least one plan, if your offer has app license management enabled. You can create a variety of plans with different options for the same offer. These plans (sometimes referred to as SKUs) can differ in terms of monetization or tiers of service. Later, you will map the Service IDs of each plan in the metadata of your solution package to enable a runtime license check by the Dynamics platform against these plans (we'll walk you through this process later). You will map the Service ID of each plan in your solution package. This enables the Dynamics platform to run a license check against these plans.
+You need to define at least one plan, if your offer has app license management enabled. You can create a variety of plans with different options for the same offer. These plans (sometimes referred to as SKUs) can differ in terms of monetization or tiers of service. Later, you will map the Service IDs of each plan in the metadata of your solution package to enable a runtime license check by the Dynamics platform against these plans (we'll walk you through this process later). You will map the Service ID of each plan in your solution package.
 
 ## Create a plan
 
@@ -113,7 +113,7 @@ You need to copy the Service ID of each plan you created so you can map them to 
 
 1. To go to the **Plan overview** page, in the breadcrumb at the top of the page, select **Plan overview**. If you don’t see the breadcrumb, select **Plan overview** in the left-nav.
 
-1. For each plan you created, copy the Service ID to a safe place. You’ll add them to your solution package in the next section. The service ID is listed on the **Plan overview** page in the form of `ISV name.offer name.plan ID`. For example, Fabrikam.F365.bronze.
+1. For each plan you created, copy the Service ID to a safe place. You’ll add them to your solution package in the next section. The service ID is listed on the **Plan overview** page in the form of `ISV name.offer name.plan ID`. For example, fabrikam.f365.bronze.
 
     [ ![Screenshot of the Plan overview page. The service ID for the plan is highlighted.](./media/third-party-license/service-id-workspaces.png) ](./media/third-party-license/service-id-workspaces.png#lightbox)
 

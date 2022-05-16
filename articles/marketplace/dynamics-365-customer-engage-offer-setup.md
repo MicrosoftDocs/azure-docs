@@ -59,19 +59,21 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
 
 1. On the _Offer setup_ page, choose one of the following options:
 
-    - Select **Yes** to sell through Microsoft and have Microsoft host transactions on your behalf.
+    - Select **Yes** to sell through Microsoft and have Microsoft host transactions on your behalf. 
     
         If you choose this option, the Enable app license management through Microsoft check box is enabled and cannot be changed.
+
         > [!NOTE]
         > This capability is currently in Public Preview.
 
     - Select **No**, if you prefer to only list your offer through the marketplace and process transactions independently.
 
-        If you choose this option, you can use the **Enable app license management through Microsoft** check box to choose whether or not to enable app license management through Microsoft. For more information, see ISV app license management.
+        If you choose this option, you can use the **Enable app license management through Microsoft** check box to choose whether or not to enable app license management through Microsoft. For more information, see [ISV app license management](isv-app-license.md).
 
 1. To let customers run your app’s base functionality without a license and run premium features after they’ve purchased a license, select the **Allow customers to install my app even if licenses are not assigned** box. If you select this second box, you need to configure your solution package to not require a license.
 
 1. If you chose **No** in step 1 and chose not to enable app license management through Microsoft, then you can select one of the following:
+
     - **Get it now (free)** – List your offer to customers for free.
     - **Free trial (listing)** – List your offer to customers with a link to a free trial. The trial experience lets users deploy your solution to a live Dynamics 365 environment. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 

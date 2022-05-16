@@ -124,8 +124,6 @@ After your offer is published, the options you chose will drive which buttons ap
 
 :::image type="content" source="./media/third-party-license/f365.png" alt-text="Screenshot of an offer listing page on AppSource. The Get it now and Contact me buttons are shown.":::
 
-***Figure 1: Offer listing page on Microsoft AppSource***
-
 ## Next steps
 
 - [Plan a Dynamics 365 offer](marketplace-dynamics-365.md)
