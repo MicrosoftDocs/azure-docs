@@ -82,6 +82,7 @@ az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
 ```
 
 ## Create Application Namespace
+
 For the sample application environment, let's first create a namespace called `hello-web-app-routing` to run the example pods:
 
 ```bash
@@ -92,6 +93,23 @@ kubectl create namespace hello-web-app-routing
 
 ```bash
 osm namespace add hello-web-app-routing
+```
+## Grant permissions for Web Application Routing
+
+Identify the newly-created user-assigned managed identity within the cluster resource group `webapprouting-<MY_CLUSTER_NAME>`. In this walkthrough, the identity is named `webapprouting-myakscluster`.
+
+:::image type="content" source="media/web-app-routing/identify-msi-web-app-routing.png" alt-text="Cluster resource group in the Azure Portal is shown, and the webapprouting-myakscluster user-assigned managed identity is highlighted." lightbox="media/web-app-routing/identify-msi-web-app-routing.png":::
+
+Copy the identity's object id:
+
+:::image type="content" source="media/web-app-routing/msi-web-app-object-id.png" alt-text="The webapprouting-myakscluster managed identity screen in Azure Portal, the identity's object id is highlighted. " lightbox="media/web-app-routing/msi-web-app-object-id.png":::
+
+### Grant Acess to Keyvault
+
+Grant `GET` permissions for Web Application Routing to retrieve certificates from Azure Key Vault:
+
+```azurecli
+az keyvault set-policy --name myapp-contoso --object-id <WEB_APP_ROUTING_MSI_OBJECT_ID>  --secret-permissions get --certificate-permissions get
 ```
 
 ## Use Web Application Routing
