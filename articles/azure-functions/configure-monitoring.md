@@ -1,7 +1,7 @@
 ---
 title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
-ms.date: 05/13/2022
+ms.date: 05/16/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devdivchpfy22
 # Customer intent: As a developer, I want to understand how to correctly configure monitoring for my functions so I can collect the data that I need.
@@ -286,7 +286,7 @@ To disable built-in logging, delete the `AzureWebJobsDashboard` app setting. For
 
 ## Solutions with high volume of telemetry
 
-Your function apps can be an essential part of solutions that can cause high volumes of telemetry (IoT solutions, event driven based solutions, high load financial systems, integration systems, and so on). In this case, you should consider extra configuration to reduce costs while maintaining observability.
+Function apps are an essential part of solutions that can cause high volumes of telemetry (IoT solutions, event driven based solutions, high load financial systems, integration systems, and so on). In this case, you should consider extra configuration to reduce costs while maintaining observability.
 
 The generated telemetry can be consumed in real-time dashboards, alerting, detailed diagnostics, and so on. Depending on how the generated telemetry is going to be consumed, you'll need to define a strategy to reduce the volume of data generated. This strategy will allow you to properly monitor, operate, and diagnose your function apps in production. You can consider the following options:
 
