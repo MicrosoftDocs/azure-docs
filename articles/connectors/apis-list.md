@@ -137,19 +137,19 @@ To make sure that your workflow runs at your specified start time and doesn't mi
 
 ## Custom connectors and APIs
 
-In Consumption logic apps that run in multi-tenant Azure Logic Apps, you can call Swagger-based or SOAP-based APIs that aren't available as connectors or run custom code in the following ways:
+In Consumption logic apps that run in multi-tenant Azure Logic Apps, you can call Swagger-based or SOAP-based APIs that aren't available as out-of-the-box connectors. You can also run custom code by creating custom API Apps. For more information, review the following documentation:
 
-* [About custom connectors for Consumption logic apps](../logic-apps/custom-connector-overview.md#custom-connector-consumption)
+* [Swagger-based or SOAP-based custom connectors for Consumption logic apps](../logic-apps/custom-connector-overview.md#custom-connector-consumption)
 
-  Custom connectors make these APIs available to any Consumption logic app in your Azure subscription. To make custom API Apps or connectors public for anyone to use in Azure, you can [submit connectors for Microsoft certification](/connectors/custom-connectors/submit-certification).
+* Create a [Swagger-based](/connectors/custom-connectors/define-openapi-definition) or [SOAP-based](/connectors/custom-connectors/create-register-logic-apps-soap-connector) custom connector, which makes these APIs available to any Consumption logic app in your Azure subscription. To make your custom connector public for anyone to use in Azure, [submit your connector for Microsoft certification](/connectors/custom-connectors/submit-certification).
 
 * [Create custom API Apps](../logic-apps/logic-apps-create-api-app.md)
 
-In Standard logic apps, you can create natively running [service provider-based custom built-in connectors](../connectors/built-in.md) that are available to any Standard logic app. For more information, review the following documentation:
+In Standard logic apps that run in single-tenant Azure Logic Apps, you can create natively running service provider-based custom built-in connectors that are available to any Standard logic app. For more information, review the following documentation:
 
-* [About custom built-in connectors for Standard logic apps](../logic-apps/custom-connector-overview.md#custom-connector-standard)
+* [Service provider-based custom built-in connectors for Standard logic apps](../logic-apps/custom-connector-overview.md#custom-connector-standard)
 
-* [Create custom built-in connectors for Standard logic apps](../logic-apps/create-custom-built-in-connector-standard.md)
+* [Create service provider-based custom built-in connectors for Standard logic apps](../logic-apps/create-custom-built-in-connector-standard.md)
 
 ## ISE and connectors
 
