@@ -45,7 +45,7 @@ Key features include:
 
 ## Next steps
 
-> [Preparing Email Communication Resource for Azure Communication Service](./prepare-email-communication-resource.md)
+> [What is Email Communication Communication Service](./prepare-email-communication-resource.md)
 
 > [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
 

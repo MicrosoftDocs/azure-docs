@@ -24,9 +24,9 @@ Create the Email Communications Service resource using Portal
 1. Navigate to the [Azure Portal](https://portal.azure.com/) to create a new resource.
 2. Search for Email Communication Services and hit enter. Select **Email Communication Services** and press **Create**.
 
-   :::image type="content" source="./media/email-communication-search.png" alt-text="Search Email Communication Service":::
+   :::image type="content" source="./media/email-communication-search.png" alt-text="Diagram that shows how to search Email Communication Service in market place":::
 
-   :::image type="content" source="./media/email-communication-create.png" alt-text="Create Email Communication Service":::
+   :::image type="content" source="./media/email-communication-create.png" alt-text="Diagram that shows Create link to create Email Communication Service":::
 
 3. Complete the required information on the basics tab:
     - Select an existing Azure subscription.
@@ -37,12 +37,12 @@ Create the Email Communications Service resource using Portal
       - Add any name/value pairs. 
     - Click **Next: Review + create**.
     
-      :::image type="content" source="./media/email-communication-create-review.png" alt-text="Review and Create Email Communication Service":::
+      :::image type="content" source="./media/email-communication-create-review.png" alt-text="Diagram that shows how to the summary for review and create Email Communication Service":::
 
 4. Wait for the validation to pass. Click **Create**. 
 5. Wait for the Deployment to complete. Click **Go to Resource** will land on Email Communication Service Overview Page.
 
-   :::image type="content" source="./media/email-communication-overview.png" alt-text="Overview of Email Communication Service":::
+   :::image type="content" source="./media/email-communication-overview.png" alt-text="Diagram that shows the overview of Email Communication Service resource":::
 
 ## Next steps
 

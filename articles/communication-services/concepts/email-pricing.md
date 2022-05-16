@@ -38,13 +38,13 @@ Alice sends an Email of 1 MB Size to 100 patients every day and pricing for 30 d
 
 ## Next steps
 
-> [Understanding Email Communication Services](./email/Understanding-email-communication-resource.md)
+> [What is Email Communication Services](./email/prepare-email-communication-resource.md)
 
-> [Understanding Email Domains in Email Communication Services](./email/Understanding-email-domain-setup.md)
+> [What is Email Domains in Email Communication Services](./email/email-domain-and-sender-authentication.md)
 
 > [Get started with Creating Email Communication Resource](../quickstarts/email/create-email-communication-resource.md)
 
-> [Get started by Connecting Email Resource with a Communication Resource](../quickstarts/email/connect-email-communication-acs-resource.md)
+> [Get started by Connecting Email Resource with a Communication Resource](../quickstarts/email/connect-email-communication-resource.md)
 
 
 The following documents may be interesting to you:
