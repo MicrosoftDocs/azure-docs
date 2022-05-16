@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 05/12/2022
+ms.date: 05/16/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021
 ---
 
@@ -50,7 +50,7 @@ Enabling auto-upgrade keeps your Dapr extension updated to the latest minor vers
 
 ### Components
 
-Azure + open source components are supported. 
+Azure + open source components are supported. Alpha and beta components are supported via best effort.
 
 ### Clouds/regions
 
