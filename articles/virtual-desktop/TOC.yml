@@ -51,6 +51,8 @@
   items:
   - name: Azure Virtual Desktop environment
     href: environment-setup.md
+  - name: Disaster recovery concepts 
+    href: disaster-recovery-concepts.md
   - name: Azure Virtual Desktop Agent
     href: agent-overview.md
   - name: Example architecture scenarios
