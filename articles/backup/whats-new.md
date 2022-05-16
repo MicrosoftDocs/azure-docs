@@ -46,7 +46,7 @@ Azure Backup now supports the movement of recovery points to the Vault-archive t
 
 Azure Backup also supports Vault-archive tier for SQL Server in Azure VM and SAP HANA in Azure VM. The support has been extended via Azure portal.
  
-For more information, see [Archive Tier support in Azure Backup](archive-tier-support.md).
+For more information, see [Archive tier support in Azure Backup](archive-tier-support.md).
 
 ## Multiple backups per day for Azure Files is now generally available
 
