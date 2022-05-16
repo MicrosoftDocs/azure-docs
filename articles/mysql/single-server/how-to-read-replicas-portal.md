@@ -39,7 +39,7 @@ A read replica server can be created using the following steps:
 
 4. Select **Add Replica**.
 
-   :::image type="content" source="./media/how-to-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL - Replication":::
+   :::image type="content" source="./media/how-to-read-replica-portal/add-replica-1.png" alt-text="Azure Database for MySQL - Replication":::
 
 5. Enter a name for the replica server.
 
@@ -129,15 +129,15 @@ To delete a source server from the Azure portal, use the following steps:
 
 3. Select **Replication lag in seconds** from the dropdown list of available metrics.
 
-   :::image type="content" source="./media/how-to-read-replica-portal/monitor-select-replication-lag.png" alt-text="Select Replication lag":::
+   :::image type="content" source="./media/how-to-read-replica-portal/monitor-select-replication-lag-1.png" alt-text="Select Replication lag":::
 
 4. Select the time range you wish to view. The image below selects a 30 minute time range.
 
-   :::image type="content" source="./media/how-to-read-replica-portal/monitor-replication-lag-time-range.png" alt-text="Select time range":::
+   :::image type="content" source="./media/how-to-read-replica-portal/monitor-replication-lag-time-range-1.png" alt-text="Select time range":::
 
 5. View the replication lag for the selected time range. The image below displays the last 30 minutes.
 
-   :::image type="content" source="./media/how-to-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Select time range 30 minutes":::
+   :::image type="content" source="./media/how-to-read-replica-portal/monitor-replication-lag-time-range-thirty-mins-1.png" alt-text="Select time range 30 minutes":::
 
 ## Next steps
 
