@@ -26,7 +26,7 @@ If you want to interact with Azure disks on an AKS cluster with 1.20 or previous
 
 ## Storage class static provisioning
 
-The following table describes the StorageClass parameters for the Azure disk CSI driver static provisioning:
+The following table describes the Storage Class parameters for the Azure disk CSI driver static provisioning:
 
 |Name | Meaning | Available Value | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
