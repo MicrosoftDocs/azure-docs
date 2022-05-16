@@ -10,6 +10,7 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 05/06/2022
 ms.author: alkohli
+ms.custom: references_regions
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
 ---
 # What is Azure Data Box?
