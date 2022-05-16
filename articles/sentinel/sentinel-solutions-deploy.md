@@ -90,7 +90,7 @@ Centrally manage content items for an installed solution deployed by the content
 
 1. **Hunting query** - Select **Run query** from the details page. To customize the query, go to the hunting gallery and create a clone of the read-only hunting query template. The number of cloned queries associated with a hunting query is shown in the **Created content** column for the content item.  
 
-    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-hunting-rule.png" alt-text="Screenshot of cloned hunting query content item in solution for Azure Activity." lightbox="media/sentinel-solutions-deploy/manage-solution-hunting-query.png":::
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-hunting-query.png" alt-text="Screenshot of cloned hunting query content item in solution for Azure Activity." lightbox="media/sentinel-solutions-deploy/manage-solution-hunting-query.png":::
 
 1. **Workbook** - Select **View template** to open the workbook and see the visualizations. To create an instance of the workbook template to customize, select **Manage in gallery** > **Save**. View your saved customizable workbook by selecting **1 item** in the  **Created content** column.
 
