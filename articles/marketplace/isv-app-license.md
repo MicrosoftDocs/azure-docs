@@ -64,7 +64,7 @@ The ISV creates a solution package for the offer that includes license plan info
 - Customers discover the ISV’s offer in AppSource, purchase a subscription to the offer from AppSource, and get licenses for the ISV app.
 
 **List-only offers**:
-- Customers discover the ISV’s offer in AppSource or directly on the ISV’s website. Customers purchase licenses for the plans they want directly from the ISV (list-only offers are not purchasable through AppSource at this time).
+- Customers discover the ISV’s offer in AppSource or directly on the ISV’s website. Customers purchase licenses for the plans they want directly from the ISV.
 - The ISV registers the purchase with Microsoft in Partner Center. As part of [deal registration](/partner-center/csp-commercial-marketplace-licensing#register-isv-connect-deal-in-deal-registration), the ISV will specify the type and quantity of each licensing plan purchased by the customer.
 
 ### Step 4: Customers manage subscription
