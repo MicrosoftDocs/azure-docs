@@ -2,11 +2,11 @@
 title: 'Quickstart: Create and configure Route Server using Azure CLI'
 description: In this quickstart, you learn how to create and configure a Route Server using Azure CLI.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/01/2021
-ms.author: duau
+ms.author: halkazwini
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---

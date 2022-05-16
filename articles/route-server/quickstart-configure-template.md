@@ -2,9 +2,9 @@
 title: 'Quickstart: Create an Azure Route Server by using an Azure Resource Manager template (ARM template)'
 description: This quickstart shows you how to create an Azure Route Server by using Azure Resource Manager template (ARM template).
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
-ms.topic: quickstart
+ms.topic: halkazwini
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 04/05/2021
 ms.author: duau
