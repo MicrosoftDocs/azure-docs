@@ -161,9 +161,9 @@ You can view your data usage in two different ways, the Azure portal, or by runn
 
     :::image type="content" source="media/enhanced-security-features-overview/data-usage.png" alt-text="Screenshot of your data usage of your log analytics workspace. " lightbox="media/enhanced-security-features-overview/data-usage.png":::
 
-You can also view estimated costs under different pricing tiers by selecting :::image type="icon" source="media/enhanced-security-features-overview/drop-down-icon.png" border="false":::.
+You can also view estimated costs under different pricing tiers by selecting :::image type="icon" source="media/enhanced-security-features-overview/drop-down-icon.png" border="false"::: for each pricing tier.
 
-:::image type="content" source="media/enhanced-security-features-overview/estimated-costs.png" alt-text="Screenshot showing how to view estimated costs under additional pricing tiers.":::
+:::image type="content" source="media/enhanced-security-features-overview/estimated-costs.png" alt-text="Screenshot showing how to view estimated costs under additional pricing tiers." lightbox="media/enhanced-security-features-overview/estimated-costs.png":::
 
 **To view your usage by using a script**:
 
