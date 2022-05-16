@@ -173,7 +173,7 @@ In this section, you will create a PostgreSQL server and add a private endpoint 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 2. When you see the **Validation passed** message, select **Create**. 
 
-    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Private Link created":::
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link-1.png" alt-text="Private Link created":::
 
     > [!NOTE] 
     > The FQDN in the customer DNS setting does not resolve to the private IP configured. You will have to setup a DNS zone for the configured FQDN as shown [here](../../dns/dns-operations-recordsets-portal.md).
