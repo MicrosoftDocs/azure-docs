@@ -2,14 +2,14 @@
 title: Delete a role/policy in the Remediation dashboard in CloudKnox Permissions Management 
 description: How to delete a role/policy in the Just Enough Permissions (JEP) Controller.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Delete a role/policy in the Remediation dashboard
