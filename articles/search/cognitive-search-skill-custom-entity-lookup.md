@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 03/22/2022
+ms.date: 05/16/2022
 
 ---
 
@@ -46,14 +46,11 @@ Parameters are case-sensitive.
 | `text`          | The text to analyze.          |
 | `languageCode`    | Optional. Default is `"en"`.  |
 
-
 ## Skill outputs
-
 
 | Output name      | Description                   |
 |---------------|-------------------------------|
-| `entities` | An array of objects that contain information about the matches that were found, and related metadata. Each of the entities identified may contain the following fields:  <ul> <li> *name*: The top-level entity identified. The entity represents the "normalized" form. </li> <li> *id*:  A unique identifier for the entity as defined by the user in the "Custom Entity Definition Format".</li> <li> *description*: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li> *type:* Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> *subtype:* Entity subtype as defined by the user in the "Custom Entity Definition Format".</li>  <li> *matches*: Collection that describes each of the matches for that entity on the source text. Each match will have the following members: </li> <ul> <li> *text*: The raw text match from the source document. </li> <li> *offset*: The location where the match was found in the text. </li> <li> *length*:  The length of the matched text. </li> <li> *matchDistance*: The number of characters different this match was from original entity name or alias.  </li> </ul> </ul>
-  |
+| `entities` | An array of objects that contain information about the matches that were found, and related metadata. Each of the entities identified may contain the following fields:  <ul> <li> *name*: The top-level entity identified. The entity represents the "normalized" form. </li> <li> *id*:  A unique identifier for the entity as defined by the user in the "Custom Entity Definition Format".</li> <li> *description*: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li> *type:* Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> *subtype:* Entity subtype as defined by the user in the "Custom Entity Definition Format".</li>  <li> *matches*: Collection that describes each of the matches for that entity on the source text. Each match will have the following members: </li> <ul> <li> *text*: The raw text match from the source document. </li> <li> *offset*: The location where the match was found in the text. </li> <li> *length*:  The length of the matched text. </li> <li> *matchDistance*: The number of characters different this match was from original entity name or alias.  </li> </ul> </ul> |
 
 ## Custom Entity Definition Format
 
@@ -166,7 +163,7 @@ The tables below describe in more details the different configuration parameters
 In some cases, it may be more convenient to provide the list of custom entities to match inline directly into the skill definition. In that case you can use a similar  JSON format to the one described above, but it is inlined in the skill definition.
 Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
 
-## Sample definition
+## Sample skill definition
 
 A sample skill definition using an inline format is shown below:
 
@@ -228,6 +225,115 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
     ]
   }
 
+```
+
+## Sample index definition
+
+```json
+{
+    "fields": [
+        {
+            "name": "metadata_storage_name",
+            "type": "Edm.String",
+            "key": true,
+            "searchable": true,
+            "filterable": false,
+            "facetable": false,
+            "sortable": true
+        },
+        {
+            "name": "metadata_storage_path",
+            "type": "Edm.String",
+            "searchable": true,
+            "filterable": false,
+            "facetable": false,
+            "sortable": true
+        },
+        {
+            "name": "content",
+            "type": "Edm.String",
+            "sortable": false,
+            "searchable": true,
+            "filterable": false,
+            "facetable": false
+        },
+        {
+            "name": "entities",
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [
+                {
+                    "name": "name",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "id",
+                    "type": "Edm.String",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "description",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "type",
+                    "type": "Edm.String",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "subtype",
+                    "type": "Edm.String",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "matches",
+                    "type": "Edm.ComplexType",
+                    "fields": [
+                        {
+                            "name": "text",
+                            "type": "Edm.String",
+                            "searchable": true,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "offset",
+                            "type": "Edm.Int32",
+                            "searchable": true,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "length",
+                            "type": "Edm.Int32",
+                            "searchable": true,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "matchDistance",
+                            "type": "Edm.Int32",
+                            "searchable": true,
+                            "filterable": false,
+                            "facetable": false
+                        }
+                      ]
+                  }
+              ]
+        }
+    ]
+}
 ```
 
 ## Sample input
