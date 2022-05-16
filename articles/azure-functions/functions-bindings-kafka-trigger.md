@@ -219,7 +219,7 @@ In the following function, an instance of `GenericRecord` is available in the `K
 
 :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="43-60" :::
 
-You can define a specific [Avro schema] for the event passed to the trigger. The following string value defines the `UserRecord` class:
+You can define a specific [Avro schema] for the event passed to the trigger. The following defines the `UserRecord` class:
 
 :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/User.cs" range="9-32" :::
 
@@ -251,7 +251,7 @@ In the following function, an instance of `GenericRecord` is available in the `K
 
 :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="43-60" :::
 
-You can define a specific [Avro schema] for the event passed to the trigger. The following string value defines the `UserRecord` class:
+You can define a specific [Avro schema] for the event passed to the trigger. The following defines the `UserRecord` class:
 
 :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/User.cs" range="9-32" :::
 
