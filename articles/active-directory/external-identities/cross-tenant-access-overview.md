@@ -23,7 +23,7 @@ Azure AD organizations can use External Identities cross-tenant access settings 
 
 This article describes cross-tenant access settings, which are used to manage B2B collaboration and B2B direct connect with external Azure AD organizations, including across Microsoft clouds. Additional settings are available for B2B collaboration with non-Azure AD identities (for example, social identities or non-IT managed external accounts). These [external collaboration settings](external-collaboration-settings-configure.md) include options for restricting guest user access, specifying who can invite guests, and allowing or blocking domains.
 
-![Overview diagram of cross-tenant access settings](media/cross-tenant-access-overview/cross-tenant-access-settings-overview.png)
+![Overview diagram of cross-tenant access settings.](media/cross-tenant-access-overview/cross-tenant-access-settings-overview.png)
  
 ## Manage external access with inbound and outbound settings
 
@@ -149,7 +149,7 @@ If your organization exports sign-in logs to a Security Information and Event Ma
 
 The Azure AD audit logs capture all activity around cross-tenant access setting changes and activity. To audit changes to your cross-tenant access settings, use the **category** of ***CrossTenantAccessSettings*** to filter all activity to show changes to cross-tenant access settings.
 
-![Audit logs for cross-tenant access settings](media/cross-tenant-access-overview/cross-tenant-access-settings-audit-logs.png)
+![Audit logs for cross-tenant access settings.](media/cross-tenant-access-overview/cross-tenant-access-settings-audit-logs.png)
 
 ## Next steps
 

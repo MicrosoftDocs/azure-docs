@@ -64,12 +64,12 @@ Follow these steps to add the tenant you want to collaborate with to your Organi
 1. Select **Add organization**.
 1. On the **Add organization** pane, type the tenant ID for the organization (cross-cloud lookup by domain name isn't currently available).
 
-   ![Screenshot showing adding an organization](media/cross-cloud-settings/cross-tenant-add-organization.png)
+   ![Screenshot showing adding an organization.](media/cross-cloud-settings/cross-tenant-add-organization.png)
 
 1. Select the organization in the search results, and then select **Add**.
 1. The organization appears in the **Organizational settings** list. At this point, all access settings for this organization are inherited from your default settings.
 
-   ![Screenshot showing an organization added with default settings](media/cross-cloud-settings/org-specific-settings-inherited.png)
+   ![Screenshot showing an organization added with default settings.](media/cross-cloud-settings/org-specific-settings-inherited.png)
 
 
 1. If you want to change the cross-tenant access settings for this organization, select the **Inherited from default** link under the **Inbound access** or **Outbound access** column. Then follow the detailed steps in these sections:

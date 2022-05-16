@@ -81,7 +81,7 @@ By default, SharePoint Online and OneDrive have their own set of external user o
 
 If you're notified that you don't have permissions to invite users, verify that your user account is authorized to invite external users under Azure Active Directory > User settings > External users > Manage external collaboration settings:
 
-![Screenshot showing the External Users settings](media/troubleshoot/external-user-settings.png)
+![Screenshot showing the External Users settings.](media/troubleshoot/external-user-settings.png)
 
 If you've recently modified these settings or assigned the Guest Inviter role to a user, there might be a 15-60 minute delay before the changes take effect.
 
@@ -93,7 +93,7 @@ Common errors include:
 
 When inviting users whose organization is using Azure Active Directory, but where the specific user’s account doesn't exist (for example, the user doesn't exist in Azure AD contoso.com). The administrator of contoso.com may have a policy in place preventing users from being created. The user must check with their admin to determine if external users are allowed. The external user’s admin may need to allow Email Verified users in their domain (see this [article](/powershell/module/msonline/set-msolcompanysettings) on allowing Email Verified Users).
 
-![Error stating the tenant doesn't allow email verified users](media/troubleshoot/allow-email-verified-users.png)
+![Error stating the tenant doesn't allow email verified users.](media/troubleshoot/allow-email-verified-users.png)
 
 ### External user doesn't exist already in a federated domain
 

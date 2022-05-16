@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) B2B collaboration is a feature within External Identities that lets you invite guest users to collaborate with your organization. With B2B collaboration, you can securely share your company's applications and services with external users, while maintaining control over your own corporate data. Work safely and securely with external partners, large or small, even if they don't have Azure AD or an IT department.
 
-![Diagram illustrating B2B collaboration](media/what-is-b2b/b2b-collaboration-overview.png)
+![Diagram illustrating B2B collaboration.](media/what-is-b2b/b2b-collaboration-overview.png)
 
 A simple invitation and redemption process lets partners use their own credentials to access your company's resources. You can also enable self-service sign-up user flows to let external users sign up for apps or resources themselves. Once the external user has redeemed their invitation or completed sign-up, they're represented in your directory as a [user object](user-properties.md). B2B collaboration user objects are typically given a user type of "guest" and can be identified by the #EXT# extension in their user principal name.
 
@@ -54,11 +54,11 @@ As an administrator, you can easily add guest users to your organization in the 
 - Assign guest users to apps or groups.
 - Send an invitation email that contains a redemption link, or send a direct link to an app you want to share.
 
-![Screenshot showing the New Guest User invitation entry page](media/what-is-b2b/add-a-b2b-user-to-azure-portal.png)
+![Screenshot showing the New Guest User invitation entry page.](media/what-is-b2b/add-a-b2b-user-to-azure-portal.png)
 
 - Guest users follow a few simple [redemption steps](redemption-experience.md) to sign in.
 
-![Screenshot showing the Review permissions page](media/what-is-b2b/consentscreen.png)
+![Screenshot showing the Review permissions page.](media/what-is-b2b/consentscreen.png)
 
 ## Allow self-service sign-up
 
@@ -66,7 +66,7 @@ With a self-service sign-up user flow, you can create a sign-up experience for e
 
 You can also use [API connectors](api-connectors-overview.md) to integrate your self-service sign-up user flows with external cloud systems. You can connect with custom approval workflows, perform identity verification, validate user-provided information, and more.
 
-![Screenshot showing the user flows page](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+![Screenshot showing the user flows page.](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
 
 ## Use policies to securely share your apps and services
 
@@ -76,7 +76,7 @@ You can use authentication and authorization policies to protect your corporate 
 - At the application level.
 - For specific guest users to protect corporate apps and data.
 
-![Screenshot showing the Conditional Access option](media/what-is-b2b/tutorial-mfa-policy-2.png)
+![Screenshot showing the Conditional Access option.](media/what-is-b2b/tutorial-mfa-policy-2.png)
 
 ## Let application and group owners manage their own guest users
 
@@ -85,7 +85,7 @@ You can delegate guest user management to application owners so that they can ad
 - Administrators set up self-service app and group management.
 - Non-administrators use their [Access Panel](https://myapps.microsoft.com) to add guest users to applications or groups.
 
-![Screenshot showing the Access panel for a guest user](media/what-is-b2b/access-panel-manage-app.png)
+![Screenshot showing the Access panel for a guest user.](media/what-is-b2b/access-panel-manage-app.png)
 
 ## Customize the onboarding experience for B2B guest users
 
@@ -98,7 +98,7 @@ Bring your external partners on board in ways customized to your organization's 
 
 Azure AD supports external identity providers like Facebook, Microsoft accounts, Google, or enterprise identity providers. You can set up federation with identity providers so your external users can sign in with their existing social or enterprise accounts instead of creating a new account just for your application. Learn more about [identity providers for External Identities](identity-providers.md).
 
-![Screenshot showing the Identity providers page](media/what-is-b2b/identity-providers.png)
+![Screenshot showing the Identity providers page.](media/what-is-b2b/identity-providers.png)
 
 ## Integrate with SharePoint and OneDrive
 
