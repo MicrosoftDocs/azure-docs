@@ -37,7 +37,7 @@ An Azure SQL assessment provides one sizing criteria:
 
 ## How do I assess my on-premises SQL servers?
 
-You can assess your on-premises SQL Server instances by using the configuration and utilization data collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises SQL server instances and databases and sends the configuration and performance data to Azure Migrate. [Learn More](how-to-set-up-appliance-vmware.md)
+You can assess your on-premises SQL Server instances by using the configuration and utilization data collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises SQL server instances and databases and sends the configuration and performance data to Azure Migrate. [Learn More](how-to-set-up-appliance-vmware.md).
 
 ## How do I assess with the appliance?
 If you're deploying an Azure Migrate appliance to discover on-premises servers, do the following steps:
@@ -68,7 +68,7 @@ The appliance collects performance data for compute settings with these steps:
 
 ## What properties are used to create and customize an Azure SQL assessment?
 
-Here's what's included in Azure SQL assessment properties:
+The Azure SQL assessment properties include:
 
 **Section** | **Property** | **Details**
 | --- | --- | ---
@@ -79,7 +79,7 @@ Target and pricing settings | **Reserved Capacity** | You can specify reserved c
 Target and pricing settings | **Currency** | The billing currency for your account.
 Target and pricing settings | **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 Target and pricing settings | **VM uptime** | You can specify the duration (days per month/hour per day) that servers/VMs will run. This is useful for computing cost estimates for SQL Server on Azure VM where you are aware that Azure VMs might not run continuously. <br/> Cost estimates for servers where recommended target is *SQL Server on Azure VM* are based on the duration specified. Default is 31 days per month/24 hours per day.
-Target and pricing settings | **Azure Hybrid Benefit** | You can specify whether you already have a Windows Server and/or SQL Server license. Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance-enabled Windows Server and SQL Server licenses on Azure. For example, If you have SQL Server license and they're covered with active Software Assurance of SQL Server Subscriptions, you can apply for the Azure Hybrid Benefit when you bring licenses to Azure.
+Target and pricing settings | **Azure Hybrid Benefit** | You can specify whether you already have a Windows Server and/or SQL Server license. Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance-enabled Windows Server and SQL Server licenses on Azure. For example, if you have SQL Server license and they're covered with active Software Assurance of SQL Server Subscriptions, you can apply for the Azure Hybrid Benefit when you bring licenses to Azure.
 Assessment criteria | **Sizing criteria** | Defaulted to *Performance-based*, which means Azure migrate will collect performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized SQL Server on Azure VM and/or Azure SQL Database and/or Azure SQL Managed Instance configuration. 
 Assessment criteria | **Performance history** | You can indicate the data duration on which you want to base the assessment. (Default is one day)
 Assessment criteria | **Percentile utilization** | You can indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
@@ -150,7 +150,7 @@ After the assessment determines the readiness and the recommended Azure SQL depl
 
 ### Instances to SQL Server on Azure VM configuration
 
-"Instance to SQL Server on Azure VM" assessment report covers the ideal approach for migrating SQL Server instances and databases to SQL Server on Azure VM, adhering to the best practices. [Learn more](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?view=azuresql#vm-size&preserve-view=true).
+*Instance to SQL Server on Azure VM* assessment report covers the ideal approach for migrating SQL Server instances and databases to SQL Server on Azure VM, adhering to the best practices. [Learn more](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?view=azuresql#vm-size&preserve-view=true).
 
 #### Storage sizing
 For storage sizing, the assessment maps each of the instance disk to an Azure disk. Sizing works as follows:
@@ -159,7 +159,7 @@ For storage sizing, the assessment maps each of the instance disk to an Azure di
 
 - The assessment recommends creating a storage disk pool for all SQL Log and SQL Data drives. For temp drives, the assessment recommends storing the files in the local drive.
 
-As an example(estimations and costs, for example, only):
+As an example(estimations and costs):
     
 :::image type="content" source="./media/tutorial-assess-sql/vm-migration-guidance.png" alt-text="Screenshot of instance migration guidance.":::
 
@@ -208,11 +208,11 @@ Here are a few reasons why an assessment could get a low confidence rating:
 - The Assessment is not able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that:
     - Servers are powered on for the duration of the assessment.
     - Outbound connections on ports 443 are allowed.
-    - If Azure Migrate connection status of the SQL agent in Azure Migrate is "Connected", and check the last heartbeat.
+    - If Azure Migrate connection status of the SQL agent in Azure Migrate is "Connected" and check the last heartbeat.
     - If Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance blade.
 
     **Recalculate** the assessment to reflect the latest changes in confidence rating.
-- Some databases or instances were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some databases or instances were created only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low.
+- Some databases or instances were created during the time for which the assessment was calculated. For example, you created an assessment for the performance history of the last month, but some databases or instances were created only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low.
 
 > [!NOTE]
 > As Azure SQL assessments are performance-based assessments, if the confidence rating of any assessment is less than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable.
