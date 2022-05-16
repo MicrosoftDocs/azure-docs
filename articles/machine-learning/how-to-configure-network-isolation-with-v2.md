@@ -16,13 +16,21 @@ ms.date: 05/13/2022
 
 In this article, you'll learn about network isolation changes with our new v2 API platform on Azure Resource Manager (ARM) and its effect on network isolation.
 
+
+## Prerequisites
+
+* The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install) or [Azure CLI extension for machine learning v1](reference-azure-machine-learning-cli.md).
+
+    > [!IMPORTANT]
+    > The v1 extension (`azure-cli-ml`) version must be 1.41.0 or greater. Use the `az version` command to view version information.
+ 
 ## What is the new API platform on Azure Resource Manager (ARM)
 
 There are two types of operations used by the v1 and v2 APIs, __Azure Resource Manager (ARM)__ and __Azure Machine Learning workspace__.
 
 With the v1 API, most operations used the workspace. For v2, we've moved most operations to use public ARM.
 
-| API version | Public ARM | Workspace |
+| API version | Public ARM | Inside workspace virtual network |
 | ----- | ----- | ----- |
 | v1 | Workspace and compute create, update, and delete (CRUD) operations. | Other operations such as experiments. |
 | v2 | Most operations such as workspace, compute, datastore, dataset, job, environment, code, component, endpoints. | Remaining operations. |
@@ -42,15 +50,15 @@ With the __new v2 API__, most operations use ARM. So enabling a private endpoint
 > * Public ARM operations do not surface data in your storage account on public networks. 
 > * Your communication with public ARM is encrypted using TLS 1.2.
 
-If you need time to evaluate the new v2 API before adopting it in your enterprise solutions, or have a company policy that prohibits sending communication over public networks, we'll provide a *v1_legacy_mode* parameter. When enabled, this parameter disables the v2 API for your workspace.
+If you need time to evaluate the new v2 API before adopting it in your enterprise solutions, or have a company policy that prohibits sending communication over public networks, you can enable the *v1_legacy_mode* parameter. When enabled, this parameter disables the v2 API for your workspace.
 
 > [!IMPORTANT]
 > Enabling v1_legacy_mode may prevent you from using features provided by the v2 API. For example, some features of Azure Machine Learning studio may be unavailable.
 
 ## Scenarios and Required Actions
 
->[!WARNING]
->The *v1_legacy_mode* parameter is not implemented yet. It will be implemented the week of May 15th, 2022.
+> [!WARNING]
+> The *v1_legacy_mode* parameter is available now, but the v2 API blocking functionality will be enforced starting the week of May 15th, 2022.
 
 * If you don't plan on using a private endpoint with your workspace, you don't need to enable parameter.
 
@@ -70,12 +78,12 @@ After the parameter has been implemented, the default value of the flag depends 
 * If the API version is `2022-05-01` or __newer__, then the flag is __false__ by default.
 
 > [!IMPORTANT]
-> If you want to use the v2 API with your workspace, you must set the v1_legacy_mode parameter to false.
+> If you want to use the v2 API with your workspace, you must set the v1_legacy_mode parameter to __false__.
 
 ## How to update v1_legacy_mode parameter
 
->[!WARNING]
->This parameter is not implemented yet. It will be implemented the week of May 15th, 2022.
+> [!WARNING]
+> The *v1_legacy_mode* parameter is available now, but the v2 API blocking functionality will be enforced starting the week of May 15th, 2022.
 
 To update v1_legacy_mode, use the following steps:
 
@@ -92,7 +100,16 @@ ws.update(v1_legacy_mode=false)
 
 # [Azure CLI extension v1](#tab/azurecliextensionv1)
 
-The Azure CLI [extension v1 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable the parameter for a workspace, add the parameter `--set v1-legacy-mode=true`.
+The Azure CLI [extension v1 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable the parameter for a workspace, add the parameter `--v1-legacy-mode true`.
+
+> [!IMPORTANT]
+> The `v1-legacy-mode` parameter is only available in version 1.41.0 or newer of the Azure CLI extension for machine learning v1 (`azure-cli-ml`). Use the `az version` command to view version information.
+
+The return value of the `az ml workspace update` command may not show the updated value. To view the current state of the parameter, use the following command:
+ 
+```azurecli
+az ml workspace show -g <myresourcegroup> -w <myworkspace> --query v1LegacyMode
+```
 
 ---
 
