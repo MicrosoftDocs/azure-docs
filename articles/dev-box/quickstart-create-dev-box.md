@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a Dev Box '
-description: 'This quickstart shows how to create a Dev Box and connect to it.'
+title: 'Quickstart: Create a Dev Box.'
+description: 'This quickstart shows you how to create a Dev Box and connect to it.'
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.date: 04/15/2022
 ---
 <!-- 
   Customer intent:
-	As an enterprise admin I want to understand how to create and configure each Dev Box component so that I can provide Dev Boxes for my users.
+	As a dev box user I want to understand how to create and access a Dev Box so that I can start work.
  -->
 
 # Quickstart: Create a Dev Box

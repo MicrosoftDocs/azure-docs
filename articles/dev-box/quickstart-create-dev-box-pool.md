@@ -8,6 +8,10 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/15/2022
 ---
+<!-- 
+  Customer intent:
+	As an enterprise admin I want to understand how to create and configure each Dev Box component so that I can provide Dev Boxes for my users.
+ -->
 
 # Quickstart: Create a Dev Box Pool
 
