@@ -68,7 +68,7 @@ You can update software on your sensors individually, directly from each sensor 
 >
 > On-premises management software is backwards compatible, and can connect to sensors with earlier versions installed, but not later versions. If you update your sensor software before updating your on-premises management console, the updated sensor will be disconnected from the on-premises management console.
 >
-> For more information, see [Update the on-premises management console software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
+> For more information, see [Update an on-premises management console](#update-an-on-premises-management-console).
 >
 
 # [From the Azure portal (Public preview)](#tab/portal)
