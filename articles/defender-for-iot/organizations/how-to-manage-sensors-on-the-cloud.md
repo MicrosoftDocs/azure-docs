@@ -23,8 +23,8 @@ Sensors that you've on-boarded to Defender for IoT are listed on the Defender fo
 |---------|---------|
 | **Define OT sensor settings** | Select **Sensor settings (Preview**). For more information, see [Define and view OT sensor settings (Public preview)](#define-and-view-ot-sensor-settings-public-preview). |
 | **Push threat intelligence updates** | Select your sensor in the grid > **Push Threat Intelligence update**. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md). |
-|**Prepare an OT sensor to update to software version 22.x or higher**     | Select your sensor in the grid > **Prepare to update to 22.X**. For more information, see: <br><br>-[Reactivate a sensor for upgrades to version 22.x from a legacy version](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor-for-upgrades-to-version-22x-from-a-legacy-version)<br>-  [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version)     |
-| **Update an OT sensor** | Select an cloud-connected, active OT sensor with a legacy software version installed > **Update (Preview)** > **Download package**. For more information, see [Update your sensor software version](how-to-manage-individual-sensors.md#update-your-sensor-software-version). |
+|**Prepare an OT sensor to update to software version 22.x or higher**     | Select your sensor in the grid > **Prepare to update to 22.X**. For more information, see: <br><br>-[Reactivate a sensor for upgrades to version 22.x from a legacy version](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor-for-upgrades-to-version-22x-from-a-legacy-version)<br>-  [Update Defender for IoT OT monitoring software](update-ot-software.md#download-and-apply-a-new-activation-file)   |
+| **Update an OT sensor** | Select an cloud-connected, active OT sensor with a legacy software version installed > **Update (Preview)** > **Download package**. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md). |
 |**Export sensor data**     |Select **Export** at the top of the page.  A CSV file is downloaded with details about all sensors listed.       |
 |**Download an activation file**     |   Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Download activation file**. For more information, see [Reactivate a sensor](#reactivate-a-sensor).      |
 |**Edit a sensor zone**    | Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Edit**.  From the **Zone** menu, select a zone, or **Create new zone**. Select **Submit** to save your changes.     |
@@ -173,7 +173,7 @@ Defender for IoT will indicate a sensor health issue for any of the following sc
 - Sensor is overloaded and is dropping packets
 - No traffic detected by the sensor
 - Sensor software version is out of date and cannot connect
-- A [remote sensor upgrade from the Azure portal](how-to-manage-individual-sensors.md?tabs=portal#update-your-sensor-software-version) fails
+- A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-your-sensors) fails
 
 For more information, see our [Sensor health message reference](sensor-health-messages.md).
 

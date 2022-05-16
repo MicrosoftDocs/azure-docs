@@ -170,7 +170,7 @@ The sensor update process won't succeed if you don't update the on-premises mana
 
 **Relevant only when updating from a legacy version to version 22.x or higher**
 
-This procedure is relevant only if you're updating sensors from software versions earlier than 22.1.x. Such updates require a new activation file for each sensor, which you'll use to [activate the sensor](#apply-your-activation-file) before you [update the software](#update-your-sensors).
+This procedure is relevant only if you're updating sensors from software versions earlier than 22.1.x. Such updates require a new activation file for each sensor, which you'll use to activate the sensor before you [update the software](#update-your-sensors).
 
 **To prepare your sensor for update**:
 
@@ -210,7 +210,7 @@ If you're upgrading from a legacy version to version 22.x or higher, make sure t
 
 Your previous sensors continue to appear in the **Sites and sensors** page until you delete them. After you've applied your new activation file and updated sensor software, make sure to delete any remaining, previous sensors from Defender for IoT.
 
-Delete a sensor from the **Sites and sensors** page in the Azure portal. For more information, see [Manage on-boarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
+Delete a sensor from the **Sites and sensors** page in the Azure portal. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
 ## Remove private IoT Hubs
 

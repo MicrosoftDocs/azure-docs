@@ -97,7 +97,7 @@ For more information, see:
 
 - [Define and view OT sensor settings (Public preview)](how-to-manage-sensors-on-the-cloud.md#define-and-view-ot-sensor-settings-public-preview)
 - [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview)
-- [Update your sensor software version](how-to-manage-individual-sensors.md#update-your-sensor-software-version)
+- [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors)
 
 > [!NOTE]
 > When updating to version 22.2.x, make sure to update your firewall rules to support remote sensor upgrades from the Azure portal. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
