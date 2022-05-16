@@ -54,19 +54,19 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Select **Cloud Shell** button at the top.
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/azure-portal.png" alt-text="Azure portal":::
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/azure-portal.png" alt-text="Screenshot of Azure portal showing the selection of Cloud Shell button.":::
 3. You see the Cloud Shell opened at the bottom of the browser.
     1. If you're using the Cloud Shell for the first time:
         1. If you see an option to select between **Bash** and **PowerShell**, select **Bash**.
         
-            :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/launch-cloud-shell.png" alt-text="Cloud Shell":::
+            :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/launch-cloud-shell.png" alt-text="Screenshot of Cloud Shell with Bash selected.":::
 
         1. Create a storage account by selecting **Create storage**. Azure Cloud Shell requires an Azure storage account to store some files. 
 
-            :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/create-storage-cloud-shell.png" alt-text="Create storage for Cloud Shell":::
+            :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/create-storage-cloud-shell.png" alt-text="Screenshot showing the creation of storage for Cloud Shell.":::
         3. Wait until the Cloud Shell is initialized. 
 
-            :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/cloud-shell-initialized.png" alt-text="Cloud Shell initialized":::
+            :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/cloud-shell-initialized.png" alt-text="Screenshot showing the Cloud Shell initialized.":::
 4. In the Cloud Shell,  select **Bash** as shown in the above image, if it isn't already selected.     
 1. Create an Azure resource group by running the following CLI command: 
     1. Copy and paste the following command into the Cloud Shell window. Change the resource group name and location if you want.
@@ -121,10 +121,10 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 2. Filter the list of resource groups by entering the name of your resource group in the search box. 
 3. Select your resource group in the list.
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/select-resource-group.png" alt-text="Select your resource group":::
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/select-resource-group.png" alt-text="Screenshot showing the selection of your resource group.":::
 4. Confirm that you see the following resources in the resource group:
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/resources-in-resource-group.png" alt-text="Resources in the resource group" lightbox="media/event-grid-event-hubs-functions-synapse-analytics/resources-in-resource-group.png":::
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/resources-in-resource-group.png" alt-text="Screenshot showing resources in the resource group." lightbox="media/event-grid-event-hubs-functions-synapse-analytics/resources-in-resource-group.png":::
 
 ### Create a table in Azure Synapse Analytics
 In this section, you create a table in the dedicated SQL pool you created earlier.
@@ -132,7 +132,7 @@ In this section, you create a table in the dedicated SQL pool you created earlie
 1. In the list of resources in the resource group, select your **dedicated SQL pool**. 
 2. On the **Dedicated SQL pool** page, in the **Common Tasks** section on the left menu, select **Query editor (preview)**. 
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/sql-data-warehouse-page.png" alt-text="Azure Synapse Analytics page":::
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/sql-data-warehouse-page.png" alt-text="Screenshot showing the selection of Query Editor on a Dedicated SQL pool page in the Azure portal.":::
 2. Enter the name of **user** and **password** for the SQL server, and select **OK**. If you see a message about allowing your client to access the SQL server, follow these steps:
     1. Select the link: **Set server firewall**. 
     2. On the **Firewall settings** page, select **Add client IP** on the toolbar, and then select **Save** on the toolbar. 
@@ -152,7 +152,7 @@ In this section, you create a table in the dedicated SQL pool you created earlie
     WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
     ```
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/run-sql-query.png" alt-text="Run SQL query":::
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/run-sql-query.png" alt-text="Screenshot showing the query editor.":::
 5. Keep this tab or window open so that you can verify that the data is created at the end of the tutorial. 
 
 ## Publish the Azure Functions app
@@ -181,7 +181,7 @@ First, get the publish profile for the Functions app from the Azure portal. Then
 1. When Visual Studio has configured the profile, select **Publish**. Confirm that the publishing succeeded.
 2. In the web browser that has the **Azure Function** page open, select  **Functions** on the left menu. Confirm that the **EventGridTriggerMigrateData** function shows up in the list. If you don't see it, try publishing from Visual Studio again, and then refresh the page in the portal. 
 
-    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/confirm-function-creation.png" alt-text="Confirm function creation":::    
+    :::image type="content" source="media/event-grid-event-hubs-functions-synapse-analytics/confirm-function-creation.png" alt-text="Screenshot showing the confirmation of function creation.":::    
 
 After publishing the function, you're ready to subscribe to the event.
 
