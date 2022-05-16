@@ -11,7 +11,7 @@ ms.author: glenga
 All connection information required by your triggers and bindings should be maintained in application settings and not in the binding definitions in your code. This is true for credentials, which should never be stored in your code.
 
 > [!IMPORTANT]
-> Credential settings must reference an [application setting](functions-how-to-use-azure-function-app-settings.md#settings). Don't hard-code credentials in your code or configuration files. When running locally, use the [local.settings.json file](functions-develop-local.md#local-settings-file) for your credentials, and don't publish the local.settings.json file. 
+> Credential settings must reference an [application setting](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#settings). Don't hard-code credentials in your code or configuration files. When running locally, use the [local.settings.json file](../articles/azure-functions/functions-develop-local.md#local-settings-file) for your credentials, and don't publish the local.settings.json file. 
 
 # [Confluent](#tab/confluent)
 
@@ -35,6 +35,6 @@ When connecting to Event Hubs, make sure that the following authentication crede
 
 ---
 
-The string values you use for these settings must be present as [application settings in Azure](functions-how-to-use-azure-function-app-settings.md#settings) or in the `Values` collection in the [local.settings.json file](functions-develop-local.md#local-settings-file) during local development.
+The string values you use for these settings must be present as [application settings in Azure](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#settings) or in the `Values` collection in the [local.settings.json file](../articles/azure-functions/functions-develop-local.md#local-settings-file) during local development.
 
 You should also set the `Protocol`, `AuthenticationMode`, and `SslCaLocation` in your binding definitions.
