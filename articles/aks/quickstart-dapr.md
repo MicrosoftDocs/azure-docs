@@ -30,7 +30,7 @@ cd quickstarts/hello-kubernetes
 
 ## Create and configure a state store
 
-Dapr can use a number of different state stores (Redis, CosmosDB, DynamoDB, Cassandra, etc.) to persist and retrieve state. For this example, we will use Redis.
+Dapr can use a number of different state stores (Redis, Cosmos DB, DynamoDB, Cassandra, etc.) to persist and retrieve state. For this example, we will use Redis.
 
 ### Create a Redis store
 
