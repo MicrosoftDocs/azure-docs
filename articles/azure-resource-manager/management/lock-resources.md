@@ -8,9 +8,9 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Lock your resources to protect your infrastructure
 
-As an administrator, you can lock an [Azure subscription](https://azure.microsoft.com/en-us/free/search/?&ef_id=Cj0KCQjwg_iTBhDrARIsAD3Ib5hecBahFTjzy2h2fH9axGOwjtcGKkjRhHZ_kkPyYOOOylPbbQc-yQoaAhT-EALw_wcB:G:s&OCID=AID2200277_SEM_Cj0KCQjwg_iTBhDrARIsAD3Ib5hecBahFTjzy2h2fH9axGOwjtcGKkjRhHZ_kkPyYOOOylPbbQc-yQoaAhT-EALw_wcB:G:s&gclid=Cj0KCQjwg_iTBhDrARIsAD3Ib5hecBahFTjzy2h2fH9axGOwjtcGKkjRhHZ_kkPyYOOOylPbbQc-yQoaAhT-EALw_wcB), resource group, or resource to protect them from accidental user deletions and modifications. The lock overrides any user permissions.
+As an administrator, you can lock an Azure subscription, resource group, or resource to protect them from accidental user deletions and modifications. The lock overrides any user permissions.
 
-In the Azure portal, you can name your locks and set them to **CanNotDelete** or **ReadOnly**. There are only two lock types, **Delete** and **Read-only**, respectively. In the left navigation panel, the subscription lock feature's name is **Resource locks**, while the resource group lock feature's name is **Locks**.  
+You can set locks that prevent either deletions or modifications. In the portal, these locks are called Delete and Read-only. In the command line, these locks are called **CanNotDelete** or **ReadOnly**. In the left navigation panel, the subscription lock feature's name is **Resource locks**, while the resource group lock feature's name is **Locks**.  
 
 - **CanNotDelete** means authorized users can read and modify a resource, but they can't delete it.
 - **ReadOnly** means authorized users can read a resource, but they can't delete or update it. Applying this lock is similar to restricting all authorized users to the permissions that the **Reader** role provides.
@@ -24,24 +24,24 @@ When you apply a lock at a parent scope, all resources within that scope inherit
 If you have a **Delete** lock on a resource and attempt to delete its resource group, the feature blocks the whole delete operation. Even if the resource group or other resources in the resource group are unlocked, the deletion doesn't happen. You never have a partial deletion.
 
 When you [cancel an Azure subscription](../../cost-management-billing/manage/cancel-azure-subscription.md#what-happens-after-subscription-cancellation):
+* A resource lock doesn't block the subscription cancellation.
 * Azure preserves your resources by deactivating them instead of immediately deleting them.
-* Azure lets you cancel your subscription even with resource locks.
-* Azure only deletes your resources permanently after a waiting period. 
+* Azure only deletes your resources permanently after a waiting period.
 
-## Understand the scope of locks
+## Understand scope of locks
 
 > [!NOTE]
 > Locks only apply to control plane Azure operations and not data plane operations. 
 
 Azure control plane operations go to `https://management.azure.com`. Azure data plane operations go to your service instance, such as `https://myaccount.blob.core.windows.net/`. See [Azure control plane and data plane](control-plane-and-data-plane.md). To discover which operations use the control plane URL, see the [Azure REST API](/rest/api/azure/).
 
-The distinction means locks protect a resource from changes, but they don't restrict how a resource performs its functions. A ReadOnly lock, for example, on an SQL Database logical server, protects it from deletions or modifications. It allows you to create, update, or delete data in the server database. Azure control plane operations allow data transactions because they go to `https://myaccount.blob.core.windows.net/`.
+The distinction means locks protect a resource from changes, but they don't restrict how a resource performs its functions. A ReadOnly lock, for example, on an SQL Database logical server, protects it from deletions or modifications. It allows you to create, update, or delete data in the server database. Data plane operations allow data transactions. These requests don't go to `https://management.azure.com`.
 
 ## Considerations before applying your locks
 
 Applying locks can lead to unexpected results. Some operations, which don't seem to modify a resource, require blocked actions. Locks prevent the POST method from sending data to the Azure Resource Manager API. Some common examples of blocked operations are:
 
-- A read-only lock on a **storage account** protects it from users listing the account keys. A POST method request, to protect access to the account keys, gives complete access to the data in the storage account through the Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys). When a storage account has a read-only lock, users who don't have the account keys need to use their Azure Active Directory (AD) credentials to access blob or queue data. 
+-A read-only lock on a **storage account** prevents users from listing the account keys. The Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is handled through a POST request to protect access to the account keys, which provide complete access to data in the storage account. When a read-only lock is configured for a storage account, users who don't have the account keys must use Azure AD credentials to access blob or queue data. A read-only lock also prevents the assignment of Azure RBAC roles that are scoped to the storage account or to a data container (blob container or queue). 
 
 - A read-only lock on a **storage account** protects Azure Role-Based Access Control (RBAC) assignments scoped for a storage account or a data container (blob container or queue).
 
@@ -71,11 +71,11 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses a POST method](/rest/api/application-gateway/application-gateways/backend-health), which a read-only lock blocks.
 
-- A read-only lock on a **AKS cluster** prevents all users from accessing any cluster resources. You can find the AKS cluster's **Kubernetes Resources** section on the left side of the Azure portal. These operations require a POST method request for authentication.
+- A read-only lock on a AKS cluster limits how you can access cluster resources through the portal. A read-only lock prevents you from using the AKS cluster's Kubernetes Resources section in the Azure portal to choose a cluster resource. These operations require a POST method request for authentication.
 
 ## Who can create or delete locks
 
-To create or delete management locks, you need access to `Microsoft.Authorization/*` or `Microsoft.Authorization/locks/*` actions. Only the **Owner** and the **User Access Administrator** built-in roles can create and delete management locks.
+To create or delete management locks, you need access to `Microsoft.Authorization/*` or `Microsoft.Authorization/locks/*` actions. Only the **Owner** and the **User Access Administrator** built-in roles can create and delete management locks. You can create a custom role with the required permissions.
 
 ## Managed applications and locks
 
@@ -105,7 +105,7 @@ To delete everything for the service, including the locked infrastructure resour
 
 ### Template
 
-When using an Azure Resource Manager template (ARM template) or Bicep file to deploy a lock, it's good to understand the lock scope of the deployment scope. To apply a lock at the deployment scope, such as locking a resource group or a subscription, you can leave the scope property unset. When locking a resource, within the deployment scope, you can set the scope property.
+When using an Azure Resource Manager template (ARM template) or Bicep file to deploy a lock, it's good to understand how the deployment scope and the lock scope work together. To apply a lock at the deployment scope, such as locking a resource group or a subscription, leave the scope property unset. When locking a resource, within the deployment scope, set the scope property on the lock.
 
 The following template applies a lock to the resource group it's deployed to. Notice there isn't a scope property on the lock resource because the lock scope matches the deployment scope. Deploy this template at the resource group level.
 
