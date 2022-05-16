@@ -30,54 +30,6 @@ An [isolated process class library](dotnet-isolated-process-guide.md) compiled C
 
 ---
 
-<!--- Original draft content.---
-```csharp
-[FunctionName("ProduceStringTopic")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
-    [Kafka("stringTopicTenPartitions", BrokerList = "LocalBroker")] IAsyncCollector<KafkaEventData<string>> events,
-    ILogger log)
-{
-    var kafkaEvent = new KafkaEventData<string>()
-    {
-        Value = await new StreamReader(req.Body).ReadToEndAsync(),
-    };
-
-    await events.AddAsync(kafkaEvent);
-
-    return new OkResult();
-}
-```
-
-To define a key of type `string`, declare the key value as `KafkaEventData<string, string>`. Supported key types include `int`, `long`, `string`, and `byte[]`.
-
-To produce messages using Protobuf serialization, use a `KafkaEventData<MyProtobufClass>` as the message type. The `MyProtobufClass` must implement the `IMessage` interface.
-
-For Avro, provide a type that implements `ISpecificRecord`. If nothing is defined, the value is set to a  `byte[]` type, and no key is set.
-
-
-For ConfluentCloud, make sure that `Protocol`, `AuthenticationMode`, `Username`, `Password`, and `SslCaLocation` are set in the trigger attribute.
-
-```c#
-public static class ConfluentCloudTrigger
-{
-    [FunctionName(nameof(ConfluentCloudStringTrigger))]
-    public static void ConfluentCloudStringTrigger(
-        [KafkaTrigger("BootstrapServer", "my-topic",
-            ConsumerGroup = "azfunc",
-            Protocol = BrokerProtocol.SaslSsl,
-            AuthenticationMode = BrokerAuthenticationMode.Plain,
-            Username = "ConfluentCloudUsername",
-            Password = "ConfluentCloudPassword")]
-        KafkaEventData<string> kafkaEvent,
-        ILogger logger)
-    {
-        logger.LogInformation(kafkaEvent.Value.ToString());
-    }
-}
-```
--->
-
 The attributes you use depend on the specific event provider.
 
 # [Confluent](#tab/confluent/in-process)
@@ -130,6 +82,10 @@ The string array is defined as `Kevents` property on the class, on which the out
 
 :::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutputMany.cs" range="33-45" :::
 
+The following function adds headers to the Kafka output data:
+
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/Confluent/KafkaOutputWithHeaders.cs" range="11-31" :::
+
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/confluent). 
 
 # [Event Hubs](#tab/event-hubs/isolated-process)
@@ -150,6 +106,10 @@ To send a batch of events, pass a string array to the output type, as shown in t
 The string array is defined as `Kevents` property on the class, on which the output binding is defined:  
 
 :::code language="json" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputMany.cs" range="33-45" :::
+
+The following function adds headers to the Kafka output data:
+
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputWithHeaders.cs" range="11-31" :::
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/eventhub). 
 
@@ -408,7 +368,7 @@ The offset, partition, and timestamp for the event are generated at runtime. Onl
 
 Please make sure to have access to the Kafka topic to which you are trying to write. You configure the binding with access and connection credentials to the Kafka topic. 
 
-In a Premium plan, you must enable runtime scale monitoring for the Kafka output to be able to scale out to multiple instances. To learn more, see [Premium plan with virtual network triggers](functions-networking-options.md#premium-plan-with-virtual-network-triggers).
+In a Premium plan, you must enable runtime scale monitoring for the Kafka output to be able to scale out to multiple instances. To learn more, see [Enable runtime scaling](functions-bindings-kafka.md#enable-runtime-scaling).
 
 For a complete set of supported host.json settings for the Kafka trigger, see [host.json settings](functions-bindings-kafka.md#hostjson-settings). 
 

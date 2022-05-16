@@ -58,6 +58,26 @@ The Kafka extension is part of an [extension bundle], which is specified in your
 
 ::: zone-end
 
+## Enable runtime scaling
+
+To allow your functions to scale properly on the Premium plan when using Kafka triggers and bindings, you need to enable runtime scale monitoring. 
+
+# [Azure portal](#tab/portal)
+
+In the Azure portal, in your function app, choose **Configuration** and on the **Function runtime settings** tab turn **Runtime scale monitoring** to **On**.
+
+:::image type="content" source="media/functions-create-vnet/11-enable-runtime-scaling.png" alt-text="Enable runtime scaling in the Azure portal."::: 
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the following Azure CLI command to enable runtime scale monitoring:
+
+```azurecli-interactive
+az resource update -g <RESOURCE_GROUP> -n <FUNCTION_APP_NAME>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
+
+---
+
 ## host.json settings
 
 This section describes the configuration settings available for this binding in versions 3.x and higher. Settings in the host.json file apply to all functions in a function app instance. For more information about function app configuration settings in versions 3.x and later versions, see the [host.json reference for Azure Functions](functions-host-json.md).

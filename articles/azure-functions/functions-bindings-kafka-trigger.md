@@ -30,171 +30,6 @@ An [isolated process class library](dotnet-isolated-process-guide.md) compiled C
 
 ---
 
-<!--- Legacy .NET content from the repo
-Kafka messages can be serialized to multiple formats. A complete set of samples  
-
-# [JSON](#tab/string/in-process)
-
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/RawTypeTriggers.cs" range="14-20":::
-
-# [Avro](#tab/avro/in-process)
-
-The Kafka trigger supports two methods for consuming the [Avro format](http://avro.apache.org/docs/current/):
-
-- **Specific**: A concrete user-defines class is instantiated during message de-serialization.
-- **Generic**: An Avro schema and a generic record instance are created during message de-serialization.
-
-In the first example, a specific `UserRecord` class, which inherits from `ISpecificRecord`, is instantiated during message de-serialization. The parameter to which the `KafkaTrigger` attribute is added should have a value type of the class defines in previous step: `KafkaEventData<UserRecord>`.
-
-```csharp
-public class UserRecord : ISpecificRecord
-{
-    public const string SchemaText = @"    {
-  ""type"": ""record"",
-  ""name"": ""UserRecord"",
-  ""namespace"": ""KafkaFunctionSample"",
-  ""fields"": [
-    {
-      ""name"": ""registertime"",
-      ""type"": ""long""
-    },
-    {
-      ""name"": ""userid"",
-      ""type"": ""string""
-    },
-    {
-      ""name"": ""regionid"",
-      ""type"": ""string""
-    },
-    {
-      ""name"": ""gender"",
-      ""type"": ""string""
-    }
-    ]
-  }";
-
-  public static Schema _SCHEMA = Schema.Parse(SchemaText);
-
-    [JsonIgnore]
-    public virtual Schema Schema => _SCHEMA;
-    public long RegisterTime { get; set; }
-    public string UserID { get; set; }
-    public string RegionID { get; set; }
-    public string Gender { get; set; }
-
-    public virtual object Get(int fieldPos)
-    {
-        switch (fieldPos)
-        {
-            case 0: return this.RegisterTime;
-            case 1: return this.UserID;
-            case 2: return this.RegionID;
-            case 3: return this.Gender;
-            default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Get()");
-        };
-    }
-    public virtual void Put(int fieldPos, object fieldValue)
-    {
-        switch (fieldPos)
-        {
-            case 0: this.RegisterTime = (long)fieldValue; break;
-            case 1: this.UserID = (string)fieldValue; break;
-            case 2: this.RegionID = (string)fieldValue; break;
-            case 3: this.Gender = (string)fieldValue; break;
-            default: throw new AvroRuntimeException("Bad index " + fieldPos + " in Put()");
-        };
-    }
-}
-
-
-public static void User(
-    [KafkaTrigger("BrokerList", "users", ConsumerGroup = "myGroupId")] KafkaEventData<UserRecord>[] kafkaEvents,
-    ILogger logger)
-{
-    foreach (var kafkaEvent in kafkaEvents)
-    {
-        var user = kafkaEvent.Value;
-        logger.LogInformation($"{JsonConvert.SerializeObject(kafkaEvent.Value)}");
-    }
-}
-```
-
-The next example is a generic class set to a specific Avro schema. In this example the `KafkaTrigger` attribute sets the value of the `AvroSchema` property to the string representation of the schema name. The parameter type used with the trigger is of type `KafkaEventData<GenericRecord>`.
-
-
-```csharp
-public static class GenericRecord
-{
-      const string PageViewsSchema = @"{
-  ""type"": ""record"",
-  ""name"": ""pageviews"",
-  ""namespace"": ""ksql"",
-  ""fields"": [
-    {
-      ""name"": ""viewtime"",
-      ""type"": ""long""
-    },
-    {
-      ""name"": ""userid"",
-      ""type"": ""string""
-    },
-    {
-      ""name"": ""pageid"",
-      ""type"": ""string""
-    }
-  ]
-}";
-
-[FunctionName(nameof(PageViews))]
-public static void PageViews(
-    [KafkaTrigger("BrokerList", "pageviews", AvroSchema = PageViewsSchema, ConsumerGroup = "myGroupId")] KafkaEventData<GenericRecord> kafkaEvent,
-    ILogger logger)
-{
-    if (kafkaEvent.Value != null)
-    {
-        // Get the field values manually from genericRecord (kafkaEvent.Value)
-    }
-}
-```
-
-# [Protobuf](#tab/protobuf/in-process)
-
-[Protobuf](https://developers.google.com/protocol-buffers/) is supported in the trigger based on the `Google.Protobuf` NuGet package. To consume a topic using protobuf serialization, set the `TValue` generic argument to be of a type that implements `Google.Protobuf.IMessage`. The sample producer has a producer for topic `protoUser` (must be created). The sample function has a trigger handler for this topic in class `ProtobufTriggers`.
-
-```csharp
-public static class ProtobufTriggers
-{
-    [FunctionName(nameof(ProtobufUser))]
-    public static void ProtobufUser(
-        [KafkaTrigger("BrokerList", "protoUser", ConsumerGroup = "myGroupId")] KafkaEventData<ProtoUser>[] kafkaEvents,
-        ILogger logger)
-    {
-        foreach (var kafkaEvent in kafkaEvents)
-        {
-            var user = kafkaEvent.Value;
-            logger.LogInformation($"{JsonConvert.SerializeObject(user)}");
-        }
-    }
-}
-```
-
-# [JSON](#tab/string/isolated-process)
-
-The following example shows a Kafka trigger that writes output to a storage queue. 
-
-
-# [Avro](#tab/avro/isolated-process)
-
-Isolated process only supported string (JSON) payloads.
-
-# [Protobuf](#tab/protobuf/isolated-process)
-
-Isolated process only supported string (JSON) payloads.
-
----
-
--->
-
 The attributes you use depend on the specific event provider.
 
 # [Confluent](#tab/confluent/in-process)
@@ -271,6 +106,10 @@ To receive events in a batch, use a string array as input, as shown in the follo
 
 :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaTriggerMany.cs" range="12-27" :::
 
+The following function logs the message and headers for the Kafka Event:
+
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/Confluent/KafkaTriggerWithHeaders.cs" range="12-32" :::
+
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/). 
 
 # [Event Hubs](#tab/event-hubs/isolated-process)
@@ -282,6 +121,10 @@ The following example shows a C# function that reads and logs the Kafka message 
 To receive events in a batch, use a string array as input, as shown in the following example:
 
 :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTriggerMany.cs" range="12-27" :::
+
+The following function logs the message and headers for the Kafka Event:
+
+:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTriggerWithHeaders.cs" range="12-32" :::
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/). 
 
@@ -614,7 +457,7 @@ Kafka messages are passed to the function as strings and string arrays that are 
 
 ::: zone-end 
 
-You configure the trigger with access and connection credentials to the underlying Kafka topic. 
+In a Premium plan, you must enable runtime scale monitoring for the Kafka output to be able to scale out to multiple instances. To learn more, see [Enable runtime scaling](functions-bindings-kafka.md#enable-runtime-scaling). 
 
 For a complete set of supported host.json settings for the Kafka trigger, see [host.json settings](functions-bindings-kafka.md#hostjson-settings). 
 
