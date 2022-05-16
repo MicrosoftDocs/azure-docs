@@ -96,24 +96,12 @@ You can add the preview extension bundle by adding or replacing the following co
 
 ::: zone pivot="programming-language-python"  
 
+> [!NOTE]
+> Python language support for the SQL bindings extension is only available for v4 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) and requires runtime v4.5.0 for deployment in Azure.  Learn more about determining the runtime in the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) documentation.  Please see the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250) for the latest update on availability.
 
 ## Install bundle    
 
 The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
-
-# [Preview Bundle v3.x](#tab/extensionv3)
-
-You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[3.*, 4.0.0)"
-  }
-}
-```
 
 # [Preview Bundle v4.x](#tab/extensionv4)
 
@@ -129,6 +117,10 @@ You can add the preview extension bundle by adding or replacing the following co
 }
 ```
 
+# [Preview Bundle v3.x](#tab/extensionv3)
+
+Python support is not available with the SQL bindings extension in the v3 version of the functions runtime.
+
 ---
 
 ## Update packages
@@ -139,7 +131,13 @@ Support for the SQL bindings extension is available in the 1.11.3b1 version of t
 azure-functions==1.11.3b1
 ```
 
-Support for durable functions is not available in this release. A future release will combine SQL bindings and durable functions capabilities.
+Following setting the library version, update your application settings to [isolate the dependencies](./functions-app-settings#python_isolate_worker_dependencies-preview) by adding `PYTHON_ISOLATE_WORKER_DEPENDENCIES` with the value `1` to your application settings.  Locally, this is set in the `local.settings.json` file as seen below:
+
+```json
+"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"
+```
+
+Support for Python durable functions with SQL bindings isn't yet available.
 
 
 ::: zone-end
