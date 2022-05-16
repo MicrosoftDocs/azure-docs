@@ -412,7 +412,11 @@ The service principal's password will expire every six months. To update the pas
     $azureAdTenantId = $azureAdTenantDetail.ObjectId
     $azureAdPrimaryDomain = ($azureAdTenantDetail.VerifiedDomains | Where-Object {$_._Default -eq $true}).Name
     $application = Get-AzureADApplication -Filter "DisplayName eq '$($storageAccountName)'" -ErrorAction Stop;
-    $servicePrincipal = Get-AzureADServicePrincipal | Where-Object {$_.AppId -eq $($application.AppId)}
+    $servicePrincipal = Get-AzureADServicePrincipal -Filter "AppId eq '$($application.AppId)'"
+    if ($servicePrincipal -eq $null) {
+      Write-Host "Could not find service principal corresponding to application with app id $($application.AppId)"
+      Write-Error -Message "Make sure that both service principal and application exist and are correctly configured" -ErrorAction Stop
+    }
     ```
 
 5. Set the password for the storage account's service principal by running the following cmdlets.

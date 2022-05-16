@@ -19,6 +19,8 @@ All of these services can solve integration problems and automate business proce
 
 If you're looking for a more general comparison between Azure Functions and other Azure compute options, see [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) and [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options).
 
+For a good summary and comparison of automation service options in Azure, see [Choose the Automation services in Azure](../automation/automation-services.md). 
+
 ## Compare Microsoft Power Automate and Azure Logic Apps
 
 Power Automate and Logic Apps are both *designer-first* integration services that can create workflows. Both services integrate with various SaaS and enterprise applications. 

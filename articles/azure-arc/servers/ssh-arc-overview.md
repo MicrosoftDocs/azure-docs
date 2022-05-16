@@ -36,10 +36,10 @@ SSH access to Arc-enabled servers is currently supported in the following region
 ### Supported operating systems
  - Windows: Windows 7+ and Windows Server 2012+
  - Linux: 
-  - CentOS: CentOS 7, CentOS 8
-  - RedHat Enterprise Linux (RHEL): RHEL 7.4 to RHEL 7.10, RHEL 8.3+
-  - SUSE Linux Enterprise Server (SLES): SLES 12, SLES 15.1+
-  - Ubuntu Server: Ubuntu Server 16.04 to Ubuntu Server 20.04
+   - CentOS: CentOS 7, CentOS 8
+   - RedHat Enterprise Linux (RHEL): RHEL 7.4 to RHEL 7.10, RHEL 8.3+
+   - SUSE Linux Enterprise Server (SLES): SLES 12, SLES 15.1+
+   - Ubuntu Server: Ubuntu Server 16.04 to Ubuntu Server 20.04
 
 ## Getting started
 ### Register the HybridConnectivity resource provider
