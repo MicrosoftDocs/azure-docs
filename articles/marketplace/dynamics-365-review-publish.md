@@ -35,7 +35,7 @@ This article shows you how to use Partner Center to submit your Dynamics 365 off
 Your offer's publish status will change as it moves through the publication process. You can review your offer status on the **Overview** tab of the commercial marketplace offer in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). The **Status** of each offer will be one of the following:
 
 | Status | Description |
-| ------------ | ------------- |
+| ------------ | ------------ |
 | Draft | Offer has been created but it isn't being published. |
 | Publish in progress | Offer is working its way through the publishing process. |
 | Attention needed | We discovered a critical issue during certification or during another publishing phase. |
