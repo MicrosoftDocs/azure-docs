@@ -1,15 +1,15 @@
 ---
-title: 'Azure Route Server: Monitoring, Metrics, and Alerts'
-description: Learn about Azure Route Server monitoring, metrics, and alerts using Azure Monitor.
+title: 'Monitoring Azure Route Server'
+description: Learn Azure Route Server monitoring using Azure Monitor.
 author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: how-to
 ms.date: 05/16/2022
 ---
-# Monitor Azure Route Server and configure alerts
+# Monitor Azure Route Server
 
-This article helps you understand Route Server monitoring, metrics, and alerts using Azure Monitor. Azure Monitor is one stop shop for all metrics, alerting, diagnostic logs across all of Azure.
+This article helps you understand Azure Route Server monitoring and metrics using Azure Monitor. Azure Monitor is one stop shop for all metrics, alerting and diagnostic logs across all of Azure.
  
 >[!NOTE]
 >Using **Classic Metrics** is not recommended.
@@ -17,16 +17,18 @@ This article helps you understand Route Server monitoring, metrics, and alerts u
 
 ## Route Server metrics
 
-To view **Metrics**, navigate to your *Route Server* in the Azure portal  and select *Metrics*.
+To view Azure Route Server Metrics, go to your Route Server resource in the Azure portal and select **Metrics**.
 
 Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
+
+:::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics.png" alt-text="Screenshot of Route Server metrics." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-expand.png":::
 
 > [!IMPORTANT]
 > When viewing Route Server metrics in the Azure portal, select a time granularity of **5 minutes or greater** for best possible results.
 > 
-> :::image type="content" source="./media/routeserver-monitoring-metrics-alerts/metric-granularity.png" alt-text="Screenshot of time granularity options.":::
+> :::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-granularity.png" alt-text="Screenshot of time granularity options.":::
 
-### Aggregation Types:
+### Aggregation types
 
 Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each Route Server metric.
 
@@ -52,7 +54,13 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 
 Aggregation type: *Max*
 
-This metric shows the BGP availability of peer NVA connections. To check the status of a specific BGP peer, apply a split on the peer IP. The BGP Peer Status is a binary metric. 1 = BGP is up-and-running. 0 = BGP is unavailable.
+This metric shows the BGP availability of peer NVA connections. The BGP Peer Status is a binary metric. 1 = BGP is up-and-running. 0 = BGP is unavailable.
+
+:::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-bgp.png" alt-text="Screenshot of BGP Peer Status." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-bgp-expand.png":::
+
+To check the BGP status of a specific NVA peer, select **Apply splitting** and choose **BgpPeerIp**.
+
+:::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-bgp-split-by-peer.png" alt-text="Screenshot of BGP Peer Status - Split by Peer." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-bgp-split-by-peer-expand.png":::
 
 ### <a name = "advertised"></a>Count of Routes Advertised to Peer
 
@@ -60,16 +68,20 @@ Aggregation type: *Max*
 
 This metric shows the number of routes the Route Server advertised to NVA peers.
 
-### <a name = "received"></a>Count of Routes Received from the Peer 
+:::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-advertised.png" alt-text="Screenshot of Count of Routes Advertised." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-advertised-expand.png":::
+
+### <a name = "received"></a>Count of Routes Received from Peer 
 
 Aggregation type: *Max*
 
 This metric shows the number of routes the Route Server received from NVA peers.
 
+:::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-learned.png" alt-text="Screenshot of Count of Routes Learned." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-learned-expand.png":::
 
-## Configure Alerts in Azure Monitor
+To show the number of routes the Route Server received from a specific NVA peer, select **Apply splitting** and choose **BgpPeerIp**.
 
-1. To configure alerts, navigate to **Azure Monitor**, then select **Alerts**.
+:::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-learned-split-by-peer.png" alt-text="Screenshot of Count of Routes Learned - Split by Peer." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-learned-split-by-peer-expand.png":::
+
 
 ## Next steps
 
