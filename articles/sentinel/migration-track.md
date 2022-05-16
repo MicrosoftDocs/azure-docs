@@ -38,7 +38,7 @@ As the deployment progresses, you can update existing actions or add new actions
 
 ## View deployment status
 
-Select **Deployment** and locate the **Summary of progress** area to view the deployment status. This area which includes quantitative data for each tab. Information includes:
+Select **Deployment** and locate the **Summary of progress**, which displays the deployment status, including the following information:
 - Tables reporting data
 - Number of tables reporting data
 - Number of enabled rules vs. undeployed rules
@@ -50,16 +50,16 @@ Select **Deployment** and locate the **Summary of progress** area to view the de
 
 To monitor deployed resources and deploy new connectors, select **Data Connectors > Monitor**. The **Monitor** view lists:
 - Current ingestion trends
-- Tables reporting data
+- Tables ingesting data
 - How much data each table is reporting
-- Endpoints reporting with MMA
-- Endpoints reporting with AMA
-- Endpoints reporting with both agents
+- Endpoints reporting with Microsoft Monitoring Agent (MMA)
+- Endpoints reporting with Azure Monitoring Agent (AMA)
+- Endpoints reporting with both the MMA and AMA agents
 - Data connector health (changes and failures)
 
 :::image type="content" source="media/migration-track/migration-track-data-connectors.png" alt-text="Screenshot of the Microsoft Sentinel Data Connectors tab Monitor view." lightbox="media/migration-track/migration-track-data-connectors.png":::
 
-To configure a connector, select **Data Connectors > Configure**, select the button with the name of the connector you want to configure, and configure the connector in the connector status screen that opens. If you cannot a connector you need, open the connector gallery or solution gallery to deploy what is needed with a click of a button. 
+To configure a connector, select **Data Connectors > Configure**, select the button with the name of the connector you want to configure, and configure the connector in the connector status screen that opens. If you cannot find a connector you need, select the connector name to open the connector gallery or solution gallery. 
 
 :::image type="content" source="media/migration-track/migration-track-configure-data-connectors.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker Data Connectors tab Configure view and a specific connector view." lightbox="media/migration-track/migration-track-configure-data-connectors.png":::
 
@@ -96,7 +96,7 @@ Select **Automation** to view deployed playbooks, and to see which playbooks are
 - The last date the rule was modified and the user that modified the rule
 - The date the rule was created of the user that created the rule
 
-If you would like to deploy additional automation, a button can be added to open the **Automation** tab, allowing you to view, deploy, and test automation, within the current section of the workbook.
+To view, deploy, and test automation within the current section of the workbook, select **Deploy automation resources** on the bottom left.
 
 :::image type="content" source="media/migration-track/migration-track-automation.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker Automation tab playbooks view." lightbox="media/migration-track/migration-track-automation.png":::
 
@@ -115,11 +115,11 @@ Select **Data Management** to monitor and control the lifecycle of the workspace
 - Tables configured to be archived
 - Tables on the default workspace retention
 
-To modify the existing retention policy for tables, select the relevant table to edit the following information:
+To modify the existing retention policy for tables, select **Default Retention Tables view**, select the relevant table, and select **Update Retention** to edit the following information:
 - Current retention in the workspace
 - Current retention in the archive
 - Total number of days the data will live in the environment
 
-To edit the retention, edit the **TotalRetention** value to set a new total number of days that the data should exist within the environment. To calculate the archive retention policy, subtract the number of days that the data will exist in the workspace from the total number of days the data will exist within the environment. If you need to adjust the workspace retention, the change does not impact tables that include configured archives and data is not lost. If you edit the workspace retention and the total number of days that the data is kept within the environment does not change, Microsoft Sentinel adjusts the archive retention to compensate the change.
+Edit the **TotalRetention** value to set a new total number of days that the data should exist within the environment. The **ArchiveRetention** value is calculated by subtracting the **TotalRetention** value from the **InteractiveRetention** value. If you need to adjust the workspace retention, the change does not impact tables that include configured archives and data is not lost. If you edit the **InteractiveRetention** value and the **TotalRetention** value does not change, Microsoft Sentinel adjusts the archive retention to compensate the change.
 
 :::image type="content" source="media/migration-track/migration-track-data-management.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker Data Management tab." lightbox="media/migration-track/migration-track-data-management":::

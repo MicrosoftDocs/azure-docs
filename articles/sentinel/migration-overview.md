@@ -44,7 +44,7 @@ This section describes the high-level phases that a typical migration includes. 
 
 The phases below are a guideline to a complete and typical migration procedure. An actual migration may not include some phases or may include additional phases. Rather than reviewing the full set of phases, the following sections in this guide review specific tasks and steps that are especially important to a Microsoft Sentinel migration.
 
-:::image type="content" source="media/migration-overview/migration-phases.png" alt-text="Migrating to Microsoft Sentinel: Phases." lightbox="media/migration-overview/migration-phases.png":::
+:::image type="content" source="media/migration-overview/migration-phases.png" alt-text="Diagram of the Microsoft Sentinel migration phases." lightbox="media/migration-overview/migration-phases.png":::
 
 |Phase |Key activities  |Deliverables |Considerations |
 |---------|---------|---------|---------|
