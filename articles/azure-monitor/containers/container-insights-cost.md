@@ -144,7 +144,7 @@ After completing your analysis to determine which source or sources are generati
 
 The following are examples of what changes you can apply to your cluster by modifying the ConfigMap file to help control cost.
 
-1. Disable stdout logs across all namespaces in the cluster by modifying the following in the ConfigMap file:
+1. Disable stdout logs across all namespaces in the cluster by modifying the following in the ConfigMap file for the Azure Container Insights service pulling the metrics:
 
     ```
     [log_collection_settings]       
@@ -195,4 +195,4 @@ If you are utilizing [Prometheus metric scraping](container-insights-prometheus-
 
 ## Next steps
 
-For more information about how to understand what the costs are likely to be based on recent usage patterns from data collected with Container insights, see [Manage your usage and estimate costs](../logs/manage-cost-storage.md).
+For more information about how to understand what the costs are likely to be based on recent usage patterns from data collected with Container insights, see [Analyze usage in Log Analytics workspace](../logs/analyze-usage.md).

@@ -43,7 +43,7 @@ Enabling monitoring on your ASP.NET based web applications running on [Azure App
             
     | Data | ASP.NET Basic Collection | ASP.NET Recommended collection |
     | --- | --- | --- |
-    | Adds CPU, memory, and I/O usage trends |Yes |Yes |
+    | Adds CPU, memory, and I/O usage trends |No |Yes |
     | Collects usage trends, and enables correlation from availability results to transactions | Yes |Yes |
     | Collects exceptions unhandled by the host process | Yes |Yes |
     | Improves APM metrics accuracy under load, when sampling is used | Yes |Yes |
@@ -174,7 +174,6 @@ The table below provides a more detailed explanation of what these values mean, 
 |Problem Value|Explanation|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | This value indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off. It can be due to a reference to `System.Diagnostics.DiagnosticSource`,  `Microsoft.AspNet.TelemetryCorrelation`, or `Microsoft.ApplicationInsights`  | Remove the references. Some of these references are added by default from certain Visual Studio templates, and older versions of Visual Studio may add references to `Microsoft.ApplicationInsights`.
-|`AppAlreadyInstrumented:true` | If the application is targeting ASP.NET Core 2.1 or 2.2, this value indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off | Customers on .NET Core 2.1,2.2 are [recommended](https://github.com/aspnet/Announcements/issues/287) to use Microsoft.AspNetCore.App meta-package instead. In addition, turn on "Interop with Application Insights SDK" in portal (see the instructions above).|
 |`AppAlreadyInstrumented:true` | This value can also be caused by the presence of the above dlls in the app folder from a previous deployment. | Clean the app folder to ensure that these dlls are removed. Check both your local app's bin directory, and the wwwroot directory on the App Service. (To check the wwwroot directory of your App Service web app: Advanced Tools (Kudu) > Debug console > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | This value indicates that extension detected references to `Microsoft.AspNet.TelemetryCorrelation` in the application, and will back-off. | Remove the reference.
 |`AppContainsDiagnosticSourceAssembly**:true`|This value indicates that extension detected references to `System.Diagnostics.DiagnosticSource` in the application, and will back-off.| For ASP.NET remove the reference. 

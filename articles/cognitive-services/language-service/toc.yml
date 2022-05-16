@@ -47,8 +47,8 @@ items:
     href: custom-classification/faq.md
   - name: Responsible use of AI
     items: 
-    - name: Transparency note for custom classification
-      href: /legal/cognitive-services/language-service/ctc-characteristics-and-limitations?context=/azure/cognitive-services/language-service/context/context
+    - name: Transparency note for custom text classification
+      href: /legal/cognitive-services/language-service/ctc-transparency-note?context=/azure/cognitive-services/language-service/context/context
       displayName: Transparency note for Custom classification, Custom classification transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/ctc-guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
@@ -96,10 +96,10 @@ items:
       displayName: Model, Project, Class
     - name: Service limits
       href: custom-classification/service-limits.md
-    - name: REST API (v3.2-preview.2)
+    - name: REST API
       items:
       - name: Authoring API
-        href: https://aka.ms/ct-authoring-swagger
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-custom-text-authoring-apis-2022-03-01-preview/operations/Projects_TriggerExportProjectJob
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-swagger
     - name: SDKs (v3.2-preview.2)
@@ -170,10 +170,10 @@ items:
       href: custom-named-entity-recognition/glossary.md
     - name: Service limits
       href: custom-named-entity-recognition/service-limits.md
-    - name: REST API (v3.2-preview.2)
+    - name: REST API
       items:
       - name: Authoring API
-        href: https://aka.ms/ct-authoring-swagger
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-custom-text-authoring-apis-2022-03-01-preview/operations/Projects_TriggerExportProjectJob
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-swagger
     - name: SDKs (v3.2-preview.2)
@@ -245,7 +245,7 @@ items:
     - name: REST API
       items:
       - name: Authoring
-        href: https://aka.ms/clu-authoring-apis
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob
       - name: Runtime API
         href: https://aka.ms/clu-apis
     - name: SDKs
@@ -530,7 +530,7 @@ items:
     - name: REST API
       items:
       - name: Authoring
-        href: https://aka.ms/clu-authoring-apis
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob
       - name: Runtime API
         href: https://aka.ms/clu-apis
     - name: SDKs
@@ -624,6 +624,8 @@ items:
       href: question-answering/how-to/create-test-deploy.md
     - name: Export/import/refresh
       href: question-answering/how-to/export-import-refresh.md
+    - name: Refresh URL source content
+      href: question-answering/how-to/smart-url-refresh.md
     - name: Encrypt data at rest
       href: question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base

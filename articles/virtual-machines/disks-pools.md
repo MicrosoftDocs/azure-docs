@@ -38,12 +38,16 @@ Disk pools are currently available in the following regions:
 - Canada Central
 - Central US
 - East US
+- East US 2
 - West US 2
 - Japan East
 - North Europe
 - West Europe
 - Southeast Asia
 - UK South
+- Korea Central
+- Sweden Central
+- Central India
 
 
 ## Billing

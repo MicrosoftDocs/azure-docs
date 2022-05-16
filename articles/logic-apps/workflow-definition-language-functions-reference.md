@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, niding, azla
 ms.topic: reference
-ms.date: 03/01/2022
+ms.date: 05/05/2022
 ---
 
 # Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
@@ -102,10 +102,10 @@ To work with strings, you can use these string functions and also some [collecti
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
 | [nthIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#nthIndexOf) | Return the starting position or index value where the *n*th occurrence of a substring appears in a string. |
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Replace a substring with the specified string, and return the updated string. |
-| [slice](../logic-apps/workflow-definition-language-functions-reference.md#slice) | Return a substring by specifying the starting and ending position or value. |
+| [slice](../logic-apps/workflow-definition-language-functions-reference.md#slice) | Return a substring by specifying the starting and ending position or value. See also [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring). |
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Return an array that contains substrings, separated by commas, from a larger string based on a specified delimiter character in the original string. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Check whether a string starts with a specific substring. |
-| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Return characters from a string, starting from the specified position. |
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Return characters from a string, starting from the specified position. See also [slice](../logic-apps/workflow-definition-language-functions-reference.md#slice). |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Return a string in lowercase format. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Return a string in uppercase format. |
 | [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Remove leading and trailing whitespace from a string, and return the updated string. |
@@ -261,11 +261,11 @@ For the full reference about each function, see the
 
 | Date or time function | Task |
 | --------------------- | ---- |
-| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Add a number of days to a timestamp. |
-| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Add a number of hours to a timestamp. |
-| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Add a number of minutes to a timestamp. |
-| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Add a number of seconds to a timestamp. |
-| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Add a number of time units to a timestamp. See also [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). |
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Add days to a timestamp. |
+| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Add hours to a timestamp. |
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Add minutes to a timestamp. |
+| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Add seconds to a timestamp. |
+| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Add specified time units to a timestamp. See also [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). |
 | [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Convert a timestamp from Universal Time Coordinated (UTC) to the target time zone. |
 | [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Convert a timestamp from the source time zone to the target time zone. |
 | [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Convert a timestamp from the source time zone to Universal Time Coordinated (UTC). |
@@ -602,7 +602,7 @@ And returns this result: `2.5`
 
 ### addDays
 
-Add a number of days to a timestamp.
+Add days to a timestamp.
 
 ```
 addDays('<timestamp>', <days>, '<format>'?)
@@ -612,7 +612,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*days*> | Yes | Integer | The positive or negative number of days to add |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -644,7 +644,7 @@ And returns this result: `"2018-03-10T00:00:00.0000000Z"`
 
 ### addHours
 
-Add a number of hours to a timestamp.
+Add hours to a timestamp.
 
 ```
 addHours('<timestamp>', <hours>, '<format>'?)
@@ -654,7 +654,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*hours*> | Yes | Integer | The positive or negative number of hours to add |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -686,7 +686,7 @@ And returns this result: `"2018-03-15T10:00:00.0000000Z"`
 
 ### addMinutes
 
-Add a number of minutes to a timestamp.
+Add minutes to a timestamp.
 
 ```
 addMinutes('<timestamp>', <minutes>, '<format>'?)
@@ -696,7 +696,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*minutes*> | Yes | Integer | The positive or negative number of minutes to add |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -829,7 +829,7 @@ Here's the updated JSON object:
 
 ### addSeconds
 
-Add a number of seconds to a timestamp.
+Add seconds to a timestamp.
 
 ```
 addSeconds('<timestamp>', <seconds>, '<format>'?)
@@ -839,7 +839,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*seconds*> | Yes | Integer | The positive or negative number of seconds to add |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -871,8 +871,7 @@ And returns this result: `"2018-03-15T00:00:25.0000000Z"`
 
 ### addToTime
 
-Add a number of time units to a timestamp.
-See also [getFutureTime()](#getFutureTime).
+Add the specified time units to a timestamp. See also [getFutureTime()](#getFutureTime).
 
 ```
 addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
@@ -883,7 +882,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*interval*> | Yes | Integer | The number of specified time units to add |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -1350,8 +1349,8 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, please review: [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones). |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, review [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones). |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -1394,7 +1393,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones), but you might have to remove any punctuation from the time zone name. |
 | <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones), but you might have to remove any punctuation from the time zone name. |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -1436,7 +1435,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones), but you might have to remove any punctuation from the time zone name. |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -1745,7 +1744,7 @@ string(add(decimal('1.2345678912312131'), decimal('1.2345678912312131'))) // Ret
 
 ### decodeBase64 (deprecated)
 
-This function is deprecated, so please use [base64ToString()](#base64ToString) instead.
+This function is deprecated, so use [base64ToString()](#base64ToString) instead.
 
 <a name="decodeDataUri"></a>
 
@@ -1831,7 +1830,7 @@ div(<dividend>, <divisor>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Yes | Integer or Float | The number to divide by the *divisor* |
-| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but cannot be 0 |
+| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but can't be zero |
 |||||
 
 | Return value | Type | Description |
@@ -2092,8 +2091,8 @@ formatDateTime('<timestamp>', '<format>'?, '<locale>'?)
 | Parameter | Required | Type | Description |
 |-----------|----------|------|-------------|
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
-| <*locale*> | No | String | The locale to use. <br><br>- If unspecified, the current behavior is unchanged. <br><br>- If *locale* isn't a valid value, an error is generated that the provided locale isn't valid or doesn't have an associated locale. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*locale*> | No | String | The locale to use. If unspecified, the value is `en-us`. If *locale* isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -2194,7 +2193,7 @@ formatNumber(<number>, <format>, <locale>?)
 | --------- | -------- | ---- | ----------- |
 | <*number*> | Yes | Integer or Double | The value that you want to format. |
 | <*format*> | Yes | String | A composite format string that specifies the format that you want to use. For the supported numeric format strings, see [Standard numeric format strings](/dotnet/standard/base-types/standard-numeric-format-strings), which are supported by `number.ToString(<format>, <locale>)`. |
-| <*locale*> | No | String | The locale to use as supported by `number.ToString(<format>, <locale>)`. If not specified, the default value is `en-us`. If *locale* isn't a valid value, an error is generated that the provided locale isn't valid or doesn't have an associated locale. |
+| <*locale*> | No | String | The locale to use as supported by `number.ToString(<format>, <locale>)`. If unspecified, the value is `en-us`. If *locale* isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -2248,7 +2247,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Yes | Integer | The number of specified time units to add |
+| <*interval*> | Yes | Integer | The number of time units to add |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
 |||||
@@ -2615,7 +2614,7 @@ iterationIndexes('<loopName>')
 
 *Example*
 
-This example creates a counter variable and increments that variable by one during each iteration in an Until loop until the counter value reaches five. The example also creates a variable that tracks the current index for each iteration. In the Until loop, during each iteration, the example increments the counter and then assigns the counter value to the current index value and then increments the counter. While in the loop, this example references the current iteration index by using the `iterationIndexes` function:
+This example creates a counter variable and increments that variable by one during each iteration in an Until loop until the counter value reaches five. The example also creates a variable that tracks the current index for each iteration. During each iteration in the Until loop, the example increments the counter value and then assigns the counter value to the current index value and then increments the counter value. While in the loop, this example references the current iteration index by using the `iterationIndexes` function:
 
 `iterationIndexes('Until_Max_Increment')`
 
@@ -3160,7 +3159,7 @@ mod(<dividend>, <divisor>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Yes | Integer or Float | The number to divide by the *divisor* |
-| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but cannot be 0. |
+| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but can't be zero |
 |||||
 
 | Return value | Type | Description |
@@ -3315,7 +3314,7 @@ nthIndexOf('<text>', '<searchText>', <occurrence>)
 |-----------|----------|------|-------------|
 | <*text*> | Yes | String | The string that contains the substring to find |
 | <*searchText*> | Yes | String | The substring to find |
-| <*ocurrence*> | Yes | Integer | A positive number that specifies the *n*th occurrence of the substring to find. |
+| <*occurrence*> | Yes | Integer | A number that specifies the *n*th occurrence of the substring to find. If *occurrence* is negative, start searching from the end. |
 |||||
 
 | Return value | Type | Description |
@@ -3498,8 +3497,8 @@ parseDateTime('<timestamp>', '<locale>'?, '<format>'?)
 | Parameter | Required | Type | Description |
 |-----------|----------|------|-------------|
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*locale*> | No | String | The locale to use. <br><br>If not specified, default locale is used. <br><br>If *locale* isn't a valid value, an error is generated that the provided locale isn't valid or doesn't have an associated locale. |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br> If not specified, the parsing will be attempted with multiple compatible with the provided locale. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*locale*> | No | String | The locale to use. <br><br>If not specified, the default locale is `en-us`. <br><br>If *locale* isn't a valid value, an error is generated. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. If the format isn't specified, attempt parsing with multiple formats that are compatible with the provided locale. If the format isn't a valid value, an error is generated. |
 ||||
 
 | Return value | Type | Description |
@@ -3716,7 +3715,7 @@ Here's the updated JSON object:
 
 ### result
 
-Return the results from the top-level actions in the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. The `result()` function accepts a single parameter, which is the scope's name, and returns an array that contains information from the first-level actions in that scope. These action objects include the same attributes as those returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs.
+Return the results from the top-level actions in the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. The `result()` function accepts a single parameter, which is the scope's name, and returns an array that contains information from the first-level actions in that scope. These action objects include the same attributes as the attributes returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs.
 
 > [!NOTE]
 > This function returns information *only* from the first-level actions in the scoped action and not from deeper nested actions such as switch or condition actions.
@@ -3968,6 +3967,7 @@ And returns this array with the remaining items: `[1,2,3]`
 ### slice
 
 Return a substring by specifying the starting and ending position or value.
+See also [substring()](#substring).
 
 ```
 slice('<text>', <startIndex>, <endIndex>?)
@@ -4053,7 +4053,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -4084,7 +4084,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -4115,7 +4115,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -4260,6 +4260,7 @@ And returns this result: `10`
 ### substring
 
 Return characters from a string, starting from the specified position, or index. Index values start with the number 0.
+See also [slice()](#slice).
 
 ```
 substring('<text>', <startIndex>, <length>)
@@ -4307,7 +4308,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*interval*> | Yes | Integer | The number of specified time units to subtract |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -4939,7 +4940,7 @@ Optionally, you can specify a different format with the <*format*> parameter.
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |

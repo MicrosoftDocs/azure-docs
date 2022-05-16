@@ -22,7 +22,7 @@ Azure Advisor provides a consistent, consolidated view of recommendations for al
 > [!NOTE]
 > Before you can get recommendations, your database needs to be in use for about a week, and within that week there needs to be some consistent activity. SQL Database Advisor can optimize more easily for consistent query patterns than for random bursts of activity.
 
-For more information, see [SQL Database Advisor](../azure-sql/database/database-advisor-implement-performance-recommendations.md).
+For more information, see [SQL Database Advisor](/azure/azure-sql/database/database-advisor-implement-performance-recommendations).
 
 ## Upgrade your Storage client library to the latest version for better reliability and performance
 

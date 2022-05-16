@@ -24,7 +24,7 @@ Use this library to:
 - Close connections
 - Grant, revoke, and check permissions for an existing connection
 
-[Source code](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/webpubsub/azure-messaging-webpubsubservice) | [Package (Pypi)][package] | [API reference documentation](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/webpubsub/azure-messaging-webpubsubservice) | [Product documentation][webpubsubservice_docs]
+[Source code](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/webpubsub/azure-messaging-webpubsubservice) | [Package (Pypi)][package] | [API reference documentation](/python/api/overview/azure/messaging-webpubsubservice-readme) | [Product documentation][webpubsubservice_docs]
 
 > [!IMPORTANT]
 > Azure SDK Python packages support for Python 2.7 is ending 01 January 2022. For more information and questions, please refer to https://github.com/Azure/azure-sdk-for-python/issues/20691.

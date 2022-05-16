@@ -77,7 +77,7 @@ az spring-cloud api-portal update --assign-endpoint
 
 Select the `endpoint URL` to go to API portal. You'll see all the routes configured in Spring Cloud Gateway for Tanzu.
 
-:::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of API portal showing configured routes.":::
+:::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of A P I portal showing configured routes.":::
 
 ## Try APIs using API portal
 
@@ -87,7 +87,7 @@ Select the `endpoint URL` to go to API portal. You'll see all the routes configu
 1. Select the API you would like to try.
 1. Select **EXECUTE** and the response will be shown.
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of API portal.":::
+   :::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of A P I portal.":::
 
 ## Next steps
 

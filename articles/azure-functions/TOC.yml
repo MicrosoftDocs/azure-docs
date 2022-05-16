@@ -351,10 +351,8 @@
                   href: functions-add-output-binding-storage-queue-java.md
                 - name: Python
                   href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
-        - name: Debug and test
+        - name: Debug
           items:
-            - name: Test functions
-              href: functions-test-a-function.md
             - name: Debug local PowerShell functions
               href: functions-debug-powershell-local.md
             - name: Debug Event Grid trigger locally
@@ -636,7 +634,16 @@
               href: functions-bindings-event-iot-trigger.md
               displayName: Azure IoT Hubs
         - name: Kafka
-          href: https://github.com/azure/azure-functions-kafka-extension
+          items:
+            - name: Overview
+              href: functions-bindings-kafka.md
+              displayName: Kafka
+            - name: Trigger
+              href: functions-bindings-kafka-trigger.md
+              displayName: Kafka
+            - name: Output
+              href: functions-bindings-kafka-output.md
+              displayName: Kafka
         - name: HTTP and webhooks
           items:
             - name: Overview

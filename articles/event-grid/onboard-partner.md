@@ -31,7 +31,7 @@ For step #5, you should decide what kind of user experience you want to provide.
 This article shows you how to **onboard as an Azure Event Grid partner** using the **Azure portal**. 
 
 ## Communicate your interest in becoming a partner
-Fill out [this form](https://aka.ms/gridpartnerform) and contact the Event Grid team at [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com). We'll have a conversation with you providing detailed information on Partner Events’ use cases, personas, onboarding process, functionality, pricing, and more.
+Contact the Event Grid team at [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com) communicating your interest in becoming a partner. We'll have a conversation with you providing detailed information on Partner Events’ use cases, personas, onboarding process, functionality, pricing, and more.
 
 ## Prerequisites
 To complete the remaining steps, make sure you have:

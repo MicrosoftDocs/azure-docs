@@ -1,23 +1,23 @@
 ---
 title: Manage resources and quotas
-titleSuffix: Azure Purview
-description: Learn about the quotas and limits on resources for Azure Purview and how to request quota increases.
-author: chandrakavya
-ms.author: kchandra
+titleSuffix: Microsoft Purview
+description: Learn about the quotas and limits on resources for Microsoft Purview and how to request quota increases.
+author: whhender
+ms.author: whhender
 ms.service: purview
 ms.topic: conceptual
 ms.date: 03/21/2022
 ---
  
-# Manage and increase quotas for resources with Azure Purview
+# Manage and increase quotas for resources with Microsoft Purview
  
-This article highlights the limits that currently exist in the Azure Purview service. These limits are also known as quotas.
+This article highlights the limits that currently exist in the Microsoft Purview service. These limits are also known as quotas.
 
-## Azure Purview limits
+## Microsoft Purview limits
  
 |**Resource**|  **Default Limit**  |**Maximum Limit**|
 |---|---|---|
-|Azure Purview accounts per region, per tenant (all subscriptions combined)|3|Contact Support|
+|Microsoft Purview accounts per region, per tenant (all subscriptions combined)|3|Contact Support|
 |Data Map throughput^ <br><small>There's no default limit on the data map metadata storage</small>| 10 capacity units <br><small>250 operations per second</small> | 100 capacity units <br><small>2,500 operations per second</small> |
 |vCores available for scanning, per account*|160|160|
 |Concurrent scans per Purview account. The limit is based on the type of data sources scanned*|5 | 10 |
@@ -35,7 +35,7 @@ This article highlights the limits that currently exist in the Azure Purview ser
  
 ## Request quota increase
 
-Use the following steps to create a new support request from the Azure portal to increase quota for Azure Purview. You can create a quota request for Azure Purview accounts in a subscription, accounts in a tenant and the data map throughput of a specific account. 
+Use the following steps to create a new support request from the Azure portal to increase quota for Microsoft Purview. You can create a quota request for Microsoft Purview accounts in a subscription, accounts in a tenant and the data map throughput of a specific account. 
 
 1. On  the [Azure portal](https://portal.azure.com) menu, select **Help + support**.
 
@@ -49,24 +49,24 @@ Use the following steps to create a new support request from the Azure portal to
 
 1. For **Subscription**, select the subscription whose quota you want to increase.
 
-1. For **Quota type**, select Azure Purview. Then select **Next**.
+1. For **Quota type**, select Microsoft Purview. Then select **Next**.
 
     :::image type="content" source="./media/how-to-manage-quotas/enter-support-details.png" alt-text="Screenshot showing how to enter support information" border="true":::
 
 1. In the **Details** window, select **Enter details** to enter additional information.
 1. Choose your **Quota type**, scope (either location or account) and what you wish the new limit to be
 
-    :::image type="content" source="./media/how-to-manage-quotas/enter-quota-amount.png" alt-text="Screenshot showing how to enter quota amount for Azure Purview accounts per subscription" border="true":::
+    :::image type="content" source="./media/how-to-manage-quotas/enter-quota-amount.png" alt-text="Screenshot showing how to enter quota amount for Microsoft Purview accounts per subscription" border="true":::
 
 1. Enter the rest of the required support information. Review and create the support request
 
 ## Next steps
  
 > [!div class="nextstepaction"]
->[Concept: Elastic Data Map in Azure Purview](concept-elastic-data-map.md)
+>[Concept: Elastic Data Map in Microsoft Purview](concept-elastic-data-map.md)
 
 > [!div class="nextstepaction"]
->[Tutorial: Scan data with Azure Purview](tutorial-scan-data.md)
+>[Tutorial: Scan data with Microsoft Purview](tutorial-scan-data.md)
 
 > [!div class="nextstepaction"]
 >[Tutorial: Navigate the home page and search for an asset](tutorial-asset-search.md)

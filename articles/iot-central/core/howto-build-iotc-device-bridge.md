@@ -43,7 +43,7 @@ If your IoT Central application recognizes the device ID in the forwarded messag
 
 To deploy the device bridge to your subscription:
 
-1. In your IoT Central application, navigate to the **Administration > Device Connection** page.
+1. In your IoT Central application, navigate to the **Permissions > Device connection groups** page.
 
     1. Make a note of the **ID Scope**. You use this value when you deploy the device bridge.
 
@@ -90,13 +90,11 @@ Each key in the `measurements` object must match the name of a telemetry type in
 
 You can include a `timestamp` field in the body to specify the UTC date and time of the message. This field must be in ISO 8601 format. For example, `2020-06-08T20:16:54.602Z`. If you don't include a timestamp, the current date and time is used.
 
-You can include a `modelId` field in the body. Use this field to assign the device to a device template during provisioning. This functionality is only supported by [V3 applications](howto-faq.yml#how-do-i-get-information-about-my-application-).
+You can include a `modelId` field in the body. Use this field to assign the device to a device template during provisioning.
 
 The `deviceId` must be alphanumeric, lowercase, and may contain hyphens.
 
 If you don't include the `modelId` field, or if IoT Central doesn't recognize the model ID, then a message with an unrecognized `deviceId` creates a new _unassigned device_ in IoT Central. An operator can manually migrate the device to the correct device template. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
-
-In [V2 applications](howto-faq.yml#how-do-i-get-information-about-my-application-), the new device appears an unassigned device on the **Devices** page. Select **Assign template** and choose a device template to start receiving incoming telemetry from the device.
 
 > [!NOTE]
 > Until the device is assigned to a template, all HTTP calls to the function return a 403 error status.

@@ -25,7 +25,7 @@ There's no obligation to renew and you can opt out of the renewal at any time be
 Go to Azure portal > **Reservations**.
 
 1. Select the reservation.
-2. Click **Renewal**.
+2. Select **Renewal**.
 3. Select **Automatically purchase a new reservation upon expiry**.  
   ![Example showing reservation renewal](./media/reservation-renew/reservation-renewal.png)
 
@@ -86,7 +86,7 @@ Emails are sent to different people depending on your purchase method:
 
 - EA customers - Emails are sent to the notification contacts set on the EA portal or Enterprise Administrators who are automatically enrolled to receive usage notifications.
 - Individual subscription customers with pay-as-you-go rates - Emails are sent to users who are set up as account administrators.
-- Cloud Solution Provider customers - Emails are sent to the partner notification contact.
+- Cloud Solution Provider customers - Emails are sent to the partner notification contact. This notification isn't currently supported for Microsoft Customer Agreement subscriptions (CSP Azure Plan subscription).
 
 ## Next steps
 - To learn more about Azure Reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)

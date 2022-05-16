@@ -32,10 +32,16 @@ It also provides other features, such as:
 - Run commands in the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console).
 - Download IIS diagnostic dumps or Docker logs.
 - Manage IIS processes and site extensions.
-- Add deployment webhooks for Windows aps.
+- Add deployment webhooks for Windows apps.
 - Allow ZIP deployment UI with `/ZipDeploy`.
 - Generates [custom deployment scripts](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 - Allows access with [REST API](https://github.com/projectkudu/kudu/wiki/REST-API).
+
+## RBAC permissions required to access Kudu
+To access Kudu in the browser with Azure Active Directory authentication, you need to be a member of a built-in or custom role.
+
+- If using a built-in role, you must be a member of Website Contributor, Contributor, or Owner.
+- If using a custom role, you need the resource provider operation: `Microsoft.Web/sites/publish/Action`.
 
 ## More Resources
 

@@ -2,12 +2,12 @@
 title: Azure Virtual Network FAQ
 titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
-author: KumudD
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
-ms.author: kumud
+ms.author: mbender
 ---
 # Azure Virtual Network frequently asked questions (FAQ)
 
@@ -74,6 +74,14 @@ Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3
 - x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space
 - x.x.x.255: Network broadcast address for subnets of size /25 and larger. This will be a different address in smaller subnets. 
 
+For example, for the subnet with addressing 172.16.1.128/26:
+
+- 172.16.1.128: Network address
+- 172.16.1.129: Reserved by Azure for the default gateway
+- 172.16.1.130, 172.16.1.131: Reserved by Azure to map the Azure DNS IPs to the VNet space
+- 172.16.1.191: Network broadcast address
+
+
 ### How small and how large can VNets and subnets be?
 The smallest supported IPv4 subnet is /29, and the largest is /2 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
 
@@ -82,6 +90,12 @@ No. VNets are Layer-3 overlays. Azure does not support any Layer-2 semantics.
 
 ### Can I specify custom routing policies on my VNets and subnets?
 Yes. You can create a route table and associate it to a subnet. For more information about routing in Azure, see [Routing overview](virtual-networks-udr-overview.md#custom-routes).
+
+### What would be the behavior when I apply both NSG and UDR at subnet?
+For inbound traffic, NSG inbound rules are processed. For outbound, NSG outbound rules are processed followed by UDR rules.
+
+### What would be the behavior when I apply NSG at NIC and subnet for a VM?
+When NSGs are applied both at NIC & Subnets for a VM, subnet level NSG followed by NIC level NSG is processed for inbound and NIC level NSG followed by subnet level NSG for outbound traffic.
 
 ### Do VNets support multicast or broadcast?
 No. Multicast and broadcast are not supported.

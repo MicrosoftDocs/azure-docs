@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/02/2022
+ms.date: 04/06/2022
 ms.author: jasteppe
 ---
 
@@ -22,7 +22,7 @@ Events are a notification and subscription feature in the Azure Health Data Serv
 > 
 > For more information about the features, configurations, and to learn about the use cases of the Azure Event Grid service, see [Azure Event Grid](../../event-grid/overview.md)
 
-:::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to an F H I R service and then into the Events pipeline." lightbox="media/events-overview/events-overview-flow.png":::
+:::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to a FHIR service and then into the Events pipeline." lightbox="media/events-overview/events-overview-flow.png":::
 
 > [!IMPORTANT]
 > 
@@ -34,7 +34,7 @@ Events are a notification and subscription feature in the Azure Health Data Serv
 >
 > - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 > 
-> For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+> For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
 ## Scalable
 

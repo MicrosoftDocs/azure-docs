@@ -2,7 +2,7 @@
 title: "Overview of custom locations with Azure Arc"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2022
+ms.date: 02/24/2022
 ms.topic: conceptual
 description: "This article provides a conceptual overview of the custom locations capability of Azure Arc."
 ---

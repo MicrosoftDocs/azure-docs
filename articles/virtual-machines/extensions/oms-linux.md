@@ -64,6 +64,9 @@ The Log Analytics agent extension for Linux requires that the target virtual mac
 ## Extension schema
 
 The following JSON shows the schema for the Log Analytics agent extension. The extension requires the workspace ID and workspace key from the target Log Analytics workspace; these values can be [found in your Log Analytics workspace](../../azure-monitor/vm/monitor-virtual-machine.md) in the Azure portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
+> [!NOTE]
+> Because the [Container Monitoring solution](../../azure-monitor/containers/containers.md) is being retired, the following documentation uses the optional setting "skipDockerProviderInstall": true.
+
 
 ```json
 {
@@ -80,7 +83,8 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
     "typeHandlerVersion": "1.13",
     "autoUpgradeMinorVersion": true,
     "settings": {
-      "workspaceId": "myWorkspaceId"
+      "workspaceId": "myWorkspaceId",
+      "skipDockerProviderInstall": true
     },
     "protectedSettings": {
       "workspaceKey": "myWorkSpaceKey"
@@ -128,7 +132,8 @@ The following example assumes the VM extension is nested inside the virtual mach
     "type": "OmsAgentForLinux",
     "typeHandlerVersion": "1.13",
     "settings": {
-      "workspaceId": "myWorkspaceId"
+      "workspaceId": "myWorkspaceId",
+      "skipDockerProviderInstall": true
     },
     "protectedSettings": {
       "workspaceKey": "myWorkSpaceKey"
@@ -153,7 +158,8 @@ When placing the extension JSON at the root of the template, the resource name i
     "type": "OmsAgentForLinux",
     "typeHandlerVersion": "1.13",
     "settings": {
-      "workspaceId": "myWorkspaceId"
+      "workspaceId": "myWorkspaceId",
+      "skipDockerProviderInstall": true
     },
     "protectedSettings": {
       "workspaceKey": "myWorkSpaceKey"
@@ -173,7 +179,7 @@ az vm extension set \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
   --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
-  --settings '{"workspaceId":"myWorkspaceId"}'
+  --settings '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}'
 ```
 
 ## Troubleshoot and support

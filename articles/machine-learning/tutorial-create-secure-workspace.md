@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 04/04/2022
+ms.date: 04/06/2022
 ms.topic: how-to
 ms.custom: subject-rbac-steps, cliv2
 ---
@@ -32,14 +32,14 @@ In this tutorial, you accomplish the following tasks:
 > [!TIP]
 > If you're looking for a template (Microsoft Bicep or Hashicorp Terraform) that demonstrates how to create a secure workspace, see [Tutorial - Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
-> [!IMPORTANT]
-> The steps in this article put Azure Container Registry behind the VNet. In this configuration, you cannot use Azure Container Instances inside the VNet for deploying models. For more information, see [Secure the inference environment](how-to-secure-inferencing-vnet.md).
-
 ## Prerequisites
 
 * Familiarity with Azure Virtual Networks and IP networking. If you are not familiar, try the [Fundamentals of computer networking](/learn/modules/network-fundamentals/) module.
 * While most of the steps in this article use the Azure portal or the Azure Machine Learning studio, some steps use the Azure CLI extension for Machine Learning v2.
 
+## Limitations
+
+The steps in this article put Azure Container Registry behind the VNet. In this configuration, you can't deploy models to Azure Container Instances inside the VNet. For more information, see [Secure the inference environment](how-to-secure-inferencing-vnet.md).
 ## Create a virtual network
 
 To create a virtual network, use the following steps:
@@ -451,6 +451,9 @@ When Azure Container Registry is behind the virtual network, Azure Machine Learn
     > You can use the same compute cluster to train models and build Docker images for the workspace.
 
 ## Use the workspace
+
+> [!IMPORTANT]
+> The steps in this article put Azure Container Registry behind the VNet. In this configuration, you cannot deploy a model to Azure Container Instances inside the VNet. We do not recommend using Azure Container Instances with Azure Machine Learning in a virtual network. For more information, see [Secure the inference environment](how-to-secure-inferencing-vnet.md).
 
 At this point, you can use studio to interactively work with notebooks on the compute instance and run training jobs on the compute cluster. For a tutorial on using the compute instance and compute cluster, see [run a Python script](tutorial-1st-experiment-hello-world.md).
 

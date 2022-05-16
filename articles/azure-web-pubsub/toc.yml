@@ -118,6 +118,8 @@
     href: concept-billing-model.md
   - name: Azure AD Authorization
     href: concept-azure-ad-authorization.md
+  - name: Metrics
+    href: concept-metrics.md
 
 - name: Reference 
   items:

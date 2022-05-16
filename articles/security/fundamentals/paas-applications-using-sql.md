@@ -19,7 +19,7 @@ ms.author: terrylan
 ---
 # Best practices for securing PaaS databases in Azure
 
-In this article, we discuss a collection of [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) security best practices for securing your platform-as-a-service (PaaS) web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
+In this article, we discuss a collection of [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) security best practices for securing your platform-as-a-service (PaaS) web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
 
 Azure SQL Database and Azure Synapse Analytics provide a relational database service for your internet-based applications. Let’s look at services that help protect your applications and data when using Azure SQL Database and Azure Synapse Analytics in a PaaS deployment:
 
@@ -45,16 +45,16 @@ Azure SQL Database can be configured to use one of two types of authentication:
 - Uses contained database users to authenticate identities at the database level.
 - Supports token-based authentication for applications connecting to SQL Database.
 - Supports domain federation with Active Directory Federation Services (ADFS) or native user/password authentication for a local Azure AD without domain synchronization.
-- Supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes [Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [Universal Authentication with SQL Database and Azure Synapse Analytics](../../azure-sql/database/authentication-mfa-ssms-overview.md).
+- Supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes [Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [Universal Authentication with SQL Database and Azure Synapse Analytics](/azure/azure-sql/database/authentication-mfa-ssms-overview).
 
 To learn more about Azure AD authentication, see:
 
-- [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or Azure Synapse Analytics](../../azure-sql/database/authentication-aad-overview.md)
+- [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or Azure Synapse Analytics](/azure/azure-sql/database/authentication-aad-overview)
 - [Authentication to Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
-- [Token-based authentication support for Azure SQL Database using Azure AD authentication](../../azure-sql/database/authentication-aad-overview.md)
+- [Token-based authentication support for Azure SQL Database using Azure AD authentication](/azure/azure-sql/database/authentication-aad-overview)
 
 > [!NOTE]
-> To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations](../../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
+> To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
 
 ## Restrict access based on IP address
 
@@ -64,8 +64,8 @@ SQL Database default source IP address restrictions allow access from any Azure 
 
 To learn more about Azure SQL Firewall and IP restrictions, see:
 
-- [Azure SQL Database and Azure Synapse Analytics access control](../../azure-sql/database/logins-create-manage.md)
-- [Azure SQL Database and Azure Synapse Analytics firewall rules](../../azure-sql/database/firewall-configure.md)
+- [Azure SQL Database and Azure Synapse Analytics access control](/azure/azure-sql/database/logins-create-manage)
+- [Azure SQL Database and Azure Synapse Analytics firewall rules](/azure/azure-sql/database/firewall-configure)
 
 ## Encrypt data at rest
 

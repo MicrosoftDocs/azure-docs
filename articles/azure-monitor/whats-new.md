@@ -27,11 +27,6 @@ This article lists significant changes to Azure Monitor documentation.
 
 ### Application Insights
 
-**New articles**
-
-- [Error retrieving data message on Application Insights portal](app/troubleshoot-portal-connectivity.md)
-- [Troubleshooting Azure Application Insights auto-instrumentation](app/auto-instrumentation-troubleshoot.md)
-
 **Updated articles**
 
 - [Application Insights API for custom events and metrics](app/api-custom-events-metrics.md)
@@ -58,7 +53,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 **New articles**
 
-- [Activity logs insights (Preview)](essentials/activity-logs-insights.md)
+- [Activity logs insights (Preview)](essentials/activity-log.md)
 
 **Updated articles**
 
@@ -210,7 +205,6 @@ This article lists significant changes to Azure Monitor documentation.
 
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md)
 - [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
-- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
 
 ## December, 2021
 
@@ -320,7 +314,6 @@ This article lists significant changes to Azure Monitor documentation.
 **Updated articles**
 
 - [Troubleshooting no data - Application Insights for .NET/.NET Core](app/asp-net-troubleshoot-no-data.md)
-- [Manage usage and costs for Application Insights](app/pricing.md)
 - [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](app/java-in-process-agent.md)
 - [Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)](app/opentelemetry-enable.md)
 - [Release notes for Azure Web App extension for Application Insights](app/web-app-extension-release-notes.md)
@@ -353,8 +346,8 @@ This article lists significant changes to Azure Monitor documentation.
 
 **Updated articles**
 
-- [Enable SQL insights (preview)](insights/sql-insights-enable.md)
-- [Troubleshoot SQL insights (preview)](insights/sql-insights-troubleshoot.md)
+- [Enable SQL Insights (preview)](insights/sql-insights-enable.md)
+- [Troubleshoot SQL Insights (preview)](insights/sql-insights-troubleshoot.md)
 
 ### Logs
 
@@ -447,7 +440,6 @@ This article lists significant changes to Azure Monitor documentation.
 - [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md)
 - [Azure Monitor Logs Dedicated Clusters](logs/logs-dedicated-clusters.md)
-- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
 
 ### Virtual Machines
 
@@ -521,8 +513,8 @@ This article lists significant changes to Azure Monitor documentation.
 - [Azure Data Explorer Insights](insights/data-explorer.md)
 - [Agent Health solution in Azure Monitor](insights/solution-agenthealth.md)
 - [Monitoring solutions in Azure Monitor](insights/solutions.md)
-- [Monitor your SQL deployments with SQL insights (preview)](insights/sql-insights-overview.md)
-- [Troubleshoot SQL insights (preview)](insights/sql-insights-troubleshoot.md)
+- [Monitor your SQL deployments with SQL Insights (preview)](insights/sql-insights-overview.md)
+- [Troubleshoot SQL Insights (preview)](insights/sql-insights-troubleshoot.md)
 
 ### Logs
 
@@ -768,14 +760,13 @@ This article lists significant changes to Azure Monitor documentation.
 
 **Updated articles**
 
-- [Enable SQL insights (preview)](insights/sql-insights-enable.md)
+- [Enable SQL Insights (preview)](insights/sql-insights-enable.md)
 
 ### Logs
 
 **Updated articles**
 
 - [Log Analytics tutorial](logs/log-analytics-tutorial.md)
-- [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md)
 - [Use Azure Private Link to securely connect networks to Azure Monitor](logs/private-link-security.md)
 - [Azure Monitor Logs Dedicated Clusters](logs/logs-dedicated-clusters.md)
 - [Monitor health of Log Analytics workspace in Azure Monitor](logs/monitor-workspace.md)

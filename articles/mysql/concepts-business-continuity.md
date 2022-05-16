@@ -4,6 +4,7 @@ description: Learn about business continuity (point-in-time restore, data center
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.topic: conceptual
 ms.date: 7/7/2020
 ---

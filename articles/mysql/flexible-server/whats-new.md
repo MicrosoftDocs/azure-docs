@@ -3,6 +3,7 @@ title: What's new in Azure Database for MySQL - Flexible Server
 description: Learn about recent updates to Azure Database for MySQL - Flexible Server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: hjtoland3
 ms.service: mysql
+ms.subservice: flexible-server
 ms.author: jtoland
 ms.custom: mvc, references_regions
 ms.topic: conceptual
@@ -16,6 +17,20 @@ ms.date: 10/12/2021
 [Azure Database for MySQL - Flexible Server](./overview.md) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+
+## April 2022
+
+- **Minor version upgrade for Azure Database for MySQL - Flexible server to 8.0.28**
+    Azure Database for MySQL - Flexible Server 8.0 now is running on minor version 8.0.28*, to learn more about changes coming in this minor version [visit Changes in MySQL 8.0.28 (2022-01-18, General Availability)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-28.html)
+
+- **Minor version upgrade for Azure Database for MySQL - Flexible server to 5.7.37**
+    Azure Database for MySQL - Flexible Server 5.7 now is running on minor version 5.7.37*, to learn more about changes coming in this minor version [visit Changes in MySQL 5.7.37 (2022-01-18, General Availability](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-37.html)
+
+* Please note that some regions are still running older minor versions of the Azure Database for MySQL and will be patched by end of April 2022.
+
+- **Deprecation of TLSv1 or TLSv1.1 protocols with Azure Database for MySQL - Flexible Server (8.0.28)**
+
+    Starting version 8.0.28, MySQL community edition supports TLS protocol TLSv1.2 or TLSv1.3 only. Azure Database for MySQL – Flexible Server will also stop supporting TLSv1 and TLSv1.1 protocols, to align with modern security standards. You will no longer be able to configure TLSv1 or TLSv1.1 from the server parameter blade for newly created resources as well as for resources created previously. The default will be TLSv1.2. Resources created before the upgrade will still support communication through TLS protocol TLSv1 or TLSv1.1 through 1 May 2022. 
 
 ## March 2022
 
@@ -241,7 +256,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **GitHub actions support with Azure CLI**
 
-  Flexible Server CLI now allows customers to automate workflows to deploy updates with GitHub actions. This feature helps set up and deploy database updates with MySQL GitHub action workflow. These CLI commands assist with setting up a repository to enable continuous deployment for ease of development. [Learn more](/cli/azure/mysql/flexible-server/deploy).
+  Flexible Server CLI now allows customers to automate workflows to deploy updates with GitHub actions. This feature helps set up and deploy database updates with MySQL GitHub Actions workflow. These CLI commands assist with setting up a repository to enable continuous deployment for ease of development. [Learn more](/cli/azure/mysql/flexible-server/deploy).
 
 - **Zone redundant HA forced failover fixes**
 

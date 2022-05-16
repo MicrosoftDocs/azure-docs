@@ -43,7 +43,7 @@ Your Azure resources could be protected using any number of the network isolatio
 | Resource | IP restriction | Private endpoint |
 | --- | --- | ---- |
 | Azure Storage for text-based indexing (blobs, ADLS Gen 2, files, tables) | Supported only if the storage account and search service are in different regions. | Supported |
-| Azure Storage for AI enrichment (caching, debug sessions, knowledge store) | Supported only if the storage account and search service are in different regions. | Unsupported |
+| Azure Storage for AI enrichment (caching, debug sessions, knowledge store) | Supported only if the storage account and search service are in different regions. | Supported |
 | Azure Cosmos DB - SQL API | Supported | Supported |
 | Azure Cosmos DB - MongoDB API | Supported | Unsupported |
 | Azure Cosmos DB - Gremlin API | Supported | Unsupported |
@@ -76,13 +76,11 @@ When search and storage are in different regions, you can use the previously men
 
 Azure Cognitive Search indexers are capable of efficiently extracting content from data sources, adding enrichments to the extracted content, optionally generating projections before writing the results to the search index.
 
-For optimum processing, a search service will determine an internal execution environment to set up the operation. You can't control or configure the environment, but it's important to know they exist so that you can account for them when setting up IP firewall rules.
-
-Depending on the number and types of tasks assigned, the indexer will run in one of two environments:
+For optimum processing, a search service will determine an internal execution environment to set up the operation. Depending on the number and types of tasks assigned, the indexer will run in one of two environments:
 
 - An environment private to a specific search service. Indexers running in such environments share resources with other workloads (such as other customer-initiated indexing or querying workloads). Typically, only indexers that perform text-based indexing (for example, do not use a skillset) run in this environment.
 
-- A multi-tenant environment hosting indexers that are resource intensive, such as those with skillsets. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. This multi-tenant environment is managed and secured by Microsoft, at no extra cost to the customer.
+- A multi-tenant environment hosting indexers that are resource intensive - such as indexers with skillsets, indexers processing big documents, indexers processing a lot of documents and so on. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. This multi-tenant environment is managed and secured by Microsoft, at no extra cost to the customer.
 
 For any given indexer run, Azure Cognitive Search determines the best environment in which to run the indexer. If you're using an IP firewall to control access to Azure resources, knowing about execution environments will help you set up an IP range that is inclusive of both, as discussed in the next section.
 

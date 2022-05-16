@@ -380,7 +380,7 @@ To change the primary color of composite, create a new theme style in `src/main/
 
 ```xml
 <style name="MyCompany.CallComposite" parent="AzureCommunicationUI.Theme.Calling">
-    <item name="azure_communication_ui_calling_primary_color">@color/purple_500</item>
+    <item name="azure_communication_ui_communication_primary">@color/purple_500</item>
 </style>
 ```
 

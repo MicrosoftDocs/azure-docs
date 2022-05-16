@@ -13,18 +13,18 @@
 | `sapi` | `ipa` | `viseme` | Example 1    | Example 2     | Example 3      |
 |--------|-------|----------|--------------|---------------|----------------|
 | b      | `b`   | 21       | **b**aobab   | cam**b**io    | am**b**        |
-| bh     | `β`   | 21       |              | bao**b**ab    | baoba**b**     |
+|      | `β`   | 21       |              | bao**b**ab    | baoba**b**     |
 | ch     | `t͡ʃ` | 19,16    | **ch**eque   | co**ch**e     | Marraque**ch** |
 | d      | `d`   | 19       | **d**edo     | can**d**ado   | portlan**d**   |
-| dh     | `ð`   | 17       |              | de**d**o      | verda**d**     |
+|      | `ð`   | 17       |              | de**d**o      | verda**d**     |
 | f      | `f`   | 18       | **f**ácil    | ele**f**ante  | pu**f**        |
 | g      | `g`   | 20       | **g**anga    | gan**g**a     | dópin**g**     |
-| gh     | `ɣ`   | 20       |              | a**g**ua      | tuare**g**     |
+|      | `ɣ`   | 20       |              | a**g**ua      | tuare**g**     |
 | j      | `j`   | 6        | **i**odo     | cal**i**ente  | re**y**        |
 | jj     | `j͡j` | 6,6      |              | vi**ll**a     |                |
 | k      | `k`   | 20       | **c**oche    | bo**c**a      | titáni**c**    |
 | l      | `l`   | 14       | **l**ápiz    | a**l**a       | corde**l**     |
-| ll     | `j`   | 6        | **ll**ave    | con**ll**evar |                |
+| ll     | `ʎ`   | 14       | **ll**ave    | con**ll**evar |                |
 | m      | `m`   | 21       | **m**order   | a**m**ar      | álbu**m**      |
 | n      | `n`   | 19       | **n**ada     | ce**n**a      | rató**n**      |
 | nj     | `ɲ`   | 19       | **ñ**aña     | ara**ñ**azo   |                |

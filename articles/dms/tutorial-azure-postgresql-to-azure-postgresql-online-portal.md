@@ -50,8 +50,8 @@ To complete this tutorial, you need to:
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model. For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
 
 * Ensure that the Network Security Group (NSG) rules for your virtual network don't block the outbound port 443 of ServiceTag for ServiceBus, Storage and AzureMonitor. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Create a server-level [firewall rule](../azure-sql/database/firewall-configure.md) for Azure Database for PostgreSQL source to allow Azure Database Migration Service to access to the source databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
-* Create a server-level [firewall rule](../azure-sql/database/firewall-configure.md) for Azure Database for PostgreSQL target to allow Azure Database Migration Service to access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
+* Create a server-level [firewall rule](/azure/azure-sql/database/firewall-configure) for Azure Database for PostgreSQL source to allow Azure Database Migration Service to access to the source databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
+* Create a server-level [firewall rule](/azure/azure-sql/database/firewall-configure) for Azure Database for PostgreSQL target to allow Azure Database Migration Service to access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
 * [Enable logical replication](../postgresql/concepts-logical.md) in the Azure DB for PostgreSQL source. 
 * Set the following Server parameters in the Azure Database for PostgreSQL instance being used as a source:
 

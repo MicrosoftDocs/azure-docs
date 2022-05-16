@@ -2,7 +2,7 @@
 title: Connect Operations Manager to Azure Monitor | Microsoft Docs
 description: To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your workspace.
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 03/31/2022
 
 ---
 

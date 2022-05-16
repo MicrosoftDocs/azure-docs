@@ -41,7 +41,7 @@ See how data, including customer information, vendor details, and line items, is
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -76,16 +76,13 @@ You'll need an invoice document. You can use our [sample invoice document](https
 ## Input requirements
 
 * For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
+* Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 50 MB.
+* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 * PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
-* For unsupervised learning (without labeled data):
-  * Data must contain keys and values.
-  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 > [!NOTE]
 > The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
@@ -147,7 +144,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Unit | String| The unit of the line item, e.g,  kg, lb etc. | Hours | |
 | Date | Date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | Number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
-| VAT | Number | Stands for Value added tax. This is a flat tax levied on an item. Common in european countries | &euro;20.00 | |
+| VAT | Number | Stands for Value added tax. This is a flat tax levied on an item. Common in European countries | &euro;20.00 | |
 
 The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output. 
 

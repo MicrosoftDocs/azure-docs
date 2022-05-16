@@ -146,7 +146,7 @@ Share names must be all lower case letters, numbers, and single hyphens but cann
 
 # [PowerShell](#tab/azure-powershell)
 
-Now that you've created a storage account, you can create your first Azure file share. Create a file share by using the [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. This example creates a share named **myshare**.
+Now that you've created a storage account, you can create your first Azure file share by using the [New-AzRmStorageShare](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. This example creates a share named **myshare** with a quota of 1024 GiB. The quota can be a maximum of 5 TiB, or 100 TiB with large file shares enabled on the storage account.
 
 ```azurepowershell-interactive
 $shareName = "myshare"
@@ -160,7 +160,7 @@ New-AzRmStorageShare `
 
 # [Azure CLI](#tab/azure-cli)
 
-Now that you've created a storage account, you can create your first Azure file share. Create file shares by using the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. This example creates an Azure file share named **myshare**: 
+Now that you've created a storage account, you can create your first Azure file share by using the [az storage share-rm create](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. This example creates a share named **myshare**  with a quota of 1024 GiB. The quota can be a maximum of 5 TiB, or 100 TiB with large file shares enabled on the storage account.
 
 ```azurecli-interactive
 shareName="myshare"

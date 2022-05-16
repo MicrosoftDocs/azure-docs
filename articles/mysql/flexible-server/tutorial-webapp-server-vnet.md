@@ -4,6 +4,7 @@ description: Quickstart guide to create Azure Database for MySQL Flexible Server
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 03/18/2021

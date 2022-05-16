@@ -36,7 +36,7 @@ Once your request is approved, a private IP address gets assigned from the Azure
 
 ## Region availability
 
-Azure Front Door private endpoints are available in the following regions:
+Azure Front Door private link is available in the following regions:
 
 | Americas | Europe | Asia Pacific |
 |--|--|--|

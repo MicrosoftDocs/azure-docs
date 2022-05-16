@@ -55,7 +55,7 @@ Follow these steps to synthesize speech in a macOS application.
         // Checks result.
         if (SPXResultReason_Canceled == speechResult.reason) {
             SPXSpeechSynthesisCancellationDetails *details = [[SPXSpeechSynthesisCancellationDetails alloc] initFromCanceledSynthesisResult:speechResult];
-            NSLog(@"Speech synthesis was canceled: %@. Did you pass the correct key/region combination?", details.errorDetails);
+            NSLog(@"Speech synthesis was canceled: %@. Did you set the speech resource key and region values?", details.errorDetails);
         } else if (SPXResultReason_SynthesizingAudioCompleted == speechResult.reason) {
             NSLog(@"Speech synthesis was completed");
         } else {
