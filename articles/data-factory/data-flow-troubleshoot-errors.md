@@ -111,17 +111,6 @@ This article lists common error codes and messages reported by mapping data flow
 - **Cause**: Invalid store configuration is provided.
 - **Recommendation**: Check the parameter value assignment in the pipeline. A parameter expression may contain invalid characters.
 
-
-## Error code: 4502
-- **Message**: There are substantial concurrent MappingDataflow executions that are causing failures due to throttling under Integration Runtime.
-- **Cause**: A large number of Data Flow activity runs are occurring concurrently on the integration runtime. For more information, see [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
-- **Recommendation**: If you want to run more Data Flow activities in parallel, distribute them across multiple integration runtimes.
-
-## Error code: 4510
-- **Message**: Unexpected failure during execution. 
-- **Cause**: Since debug clusters work differently from job clusters, excessive debug runs could wear the cluster over time, which could cause memory issues and abrupt restarts.
-- **Recommendation**: Restart Debug cluster. If you are running multiple dataflows during debug session, use activity runs instead because activity level run creates separate session without taxing main debug cluster.
-
 ## Error code: InvalidTemplate
 - **Message**: The pipeline expression cannot be evaluated.
 - **Cause**: The pipeline expression passed in the Data Flow activity isn't being processed correctly because of a syntax error.
@@ -609,6 +598,11 @@ This article lists common error codes and messages reported by mapping data flow
 - **Cause**: Operation times out while reading data.
 - **Recommendation**: Increase the value in **Timeout** option in source transformation settings.
 
+## Error code: 4502
+- **Message**: There are substantial concurrent MappingDataflow executions that are causing failures due to throttling under Integration Runtime.
+- **Cause**: A large number of Data Flow activity runs are occurring concurrently on the integration runtime. For more information, see [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
+- **Recommendation**: If you want to run more Data Flow activities in parallel, distribute them across multiple integration runtimes.
+
 ## Error code: 4503
 - **Message**: There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under subscription '%subscriptionId;', ActivityId: '%activityId;'.
 - **Cause**: Throttling threshold was reached.
@@ -632,6 +626,11 @@ This article lists common error codes and messages reported by mapping data flow
 - **Message**: Hit unexpected failure while allocating compute resources, please retry. If the problem persists, please contact Azure Support
 - **Cause**: Transient error
 - **Recommendation**: Retry the request after a wait period.
+
+## Error code: 4510
+- **Message**: Unexpected failure during execution. 
+- **Cause**: Since debug clusters work differently from job clusters, excessive debug runs could wear the cluster over time, which could cause memory issues and abrupt restarts.
+- **Recommendation**: Restart Debug cluster. If you are running multiple dataflows during debug session, use activity runs instead because activity level run creates separate session without taxing main debug cluster.
 
 ## Error code: 4511
 - **Message**: java.sql.SQLTransactionRollbackException. Deadlock found when trying to get lock; try restarting transaction. If the problem persists, please contact Azure Support
