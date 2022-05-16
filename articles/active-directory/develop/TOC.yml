@@ -45,10 +45,12 @@
           href: application-consent-experience.md
         - name: Consent framework
           href: consent-framework.md
-        - name: Conditional access (CA) dev guide
+        - name: Conditional Access dev guide
           href: v2-conditional-access-dev-guide.md
-        - name: Conditional access (CA) auth context
+          displayName: ca
+        - name: Conditional Access auth context
           href: developer-guide-conditional-access-authentication-context.md
+          displayName: ca
     - name: App registrations and workload identities
       displayName: App configuration
       items:
@@ -233,7 +235,7 @@
         - name: Remove an app registration
           href: ./howto-remove-app.md
         - name: Restore or remove a deleted app registration
-          href: ./howto-restore-app.md            
+          href: ./howto-restore-app.md
 - name: Single-page app (SPA)
   items:
     - name: SPA authentication documentation
@@ -327,7 +329,7 @@
         - name: Secure web app accesses storage and Microsoft Graph
           items:
             - name: Overview
-              href: multi-service-web-app-overview.md        
+              href: multi-service-web-app-overview.md
             - name: Set up App Service authentication
               href: multi-service-web-app-authentication-app-service.md
             - name: Access storage as the app
@@ -370,7 +372,7 @@
             - name: Call a web API
               href: scenario-web-app-call-api-call-api.md
             - name: Move to production
-              href: scenario-web-app-call-api-production.md         
+              href: scenario-web-app-call-api-production.md
 - name: Web API
   items:
     - name: Web API authentication documentation
