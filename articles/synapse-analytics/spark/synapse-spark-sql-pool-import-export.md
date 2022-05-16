@@ -205,6 +205,8 @@ synapsesql(table_name: str) -> org.apache.spark.sql.DataFrame
 
 #### Read using Azure AD based authentication
 
+### [Scala](#tab/scala)
+
 ```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
 //Azure Active Directory based authentication approach is preferred here.
@@ -232,7 +234,9 @@ val dfToReadFromTable:DataFrame = spark.read.
 dfToReadFromTable.show()
 ```
 
-```Python
+### [Python](#tab/python)
+
+```python
 # Add required imports
 import com.microsoft.spark.sqlanalytics
 from com.microsoft.spark.sqlanalytics.Constants import Constants
@@ -259,6 +263,8 @@ dfToReadFromTable.show()
 ```
 
 #### Read using basic authentication
+
+### [Scala](#tab/scala)
 
 ```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
@@ -292,7 +298,9 @@ val dfToReadFromTable:DataFrame = spark.read.
 dfToReadFromTable.show()
 ```
 
-```Python
+### [Python](#tab/python)
+
+```python
 # Add required imports
 import com.microsoft.spark.sqlanalytics
 from com.microsoft.spark.sqlanalytics.Constants import Constants
@@ -356,6 +364,8 @@ synapsesql(table_name: str, table_type: str = Constants.INTERNAL, location: str 
 
 Following is a comprehensive code template that describes how to use the Connector for write scenarios:
 
+### [Scala](#tab/scala)
+
 ```Scala
 //Add required imports
 import org.apache.spark.sql.DataFrame
@@ -413,6 +423,8 @@ readDF.
 if(errorDuringWrite.isDefined) throw errorDuringWrite.get
 ```
 
+### [Python](#tab/python)
+
 ```python
 
 # Write using AAD Auth to internal table
@@ -435,9 +447,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
  # Required parameter - Three-part table name to which data will be written
  .synapsesql("<database_name>.<schema_name>.<table_name>"))
 
-```
 
-```python
 # Write using AAD Auth to external table
 # Add required imports
 import com.microsoft.spark.sqlanalytics
@@ -470,6 +480,8 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
 
 Following code snippet replaces the write definition described in the [Write using Azure AD based authentication](#write-using-azure-ad-based-authentication) section, to submit write request using SQL basic authentication approach:
 
+### [Scala](#tab/scala)
+
 ```Scala
 //Define write options to use SQL basic authentication
 val writeOptionsWithBasicAuth:Map[String, String] = Map(Constants.SERVER -> "<dedicated-pool-sql-server-name>.sql.azuresynapse.net",
@@ -497,35 +509,7 @@ readDF.
                 callBackHandle = Some(callBackFunctionToReceivePostWriteMetrics))
 ```
 
-In a basic authentication approach, in order to read data from a source storage path other configuration options are required. Following code snippet provides an example to read from an Azure Data Lake Storage Gen2 data source using Service Principal credentials:
-
- ```Scala
-//Specify options that Spark runtime must support when interfacing and consuming source data
-val storageAccountName="<storageAccountName>"
-val storageContainerName="<storageContainerName>"
-val subscriptionId="<AzureSubscriptionID>"
-val spnClientId="<ServicePrincipalClientID>"
-val spnSecretKeyUsedAsAuthCred="<spn_secret_key_value>"
-val dfReadOptions:Map[String, String]=Map("header"->"true",
-                                "delimiter"->",", 
-                                "fs.defaultFS" -> s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net",
-                                s"fs.azure.account.auth.type.$storageAccountName.dfs.core.windows.net" -> "OAuth",
-                                s"fs.azure.account.oauth.provider.type.$storageAccountName.dfs.core.windows.net" -> 
-                                    "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-                                "fs.azure.account.oauth2.client.id" -> s"$spnClientId",
-                                "fs.azure.account.oauth2.client.secret" -> s"$spnSecretKeyUsedAsAuthCred",
-                                "fs.azure.account.oauth2.client.endpoint" -> s"https://login.microsoftonline.com/$subscriptionId/oauth2/token",
-                                "fs.AbstractFileSystem.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.Abfs",
-                                "fs.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.SecureAzureBlobFileSystem")
-//Initialize the Storage Path string, where source data is maintained/kept.
-val pathToInputSource=s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net/<base_path_for_source_data>/<specific_file (or) collection_of_files>"
-//Define data frame to interface with the data source
-val df:DataFrame = spark.
-            read.
-            options(dfReadOptions).
-            csv(pathToInputSource).
-            limit(100)
-```
+### [Python](#tab/python)
 
 ```python
 # Write using Basic Auth to Internal table
@@ -553,9 +537,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
  .mode("overwrite")
  # Required parameter - Three-part table name to which data will be written
  .synapsesql("<database_name>.<schema_name>.<table_name>"))
-```
 
-```python
 # Write using Basic Auth to External table
 # Add required imports
 import com.microsoft.spark.sqlanalytics
@@ -587,6 +569,36 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
              # Optional parameter that is used to specify external table's base folder; defaults to `database_name/schema_name/table_name`
              "/path/to/external/table"))
 
+```
+
+In a basic authentication approach, in order to read data from a source storage path other configuration options are required. Following code snippet provides an example to read from an Azure Data Lake Storage Gen2 data source using Service Principal credentials:
+
+ ```Scala
+//Specify options that Spark runtime must support when interfacing and consuming source data
+val storageAccountName="<storageAccountName>"
+val storageContainerName="<storageContainerName>"
+val subscriptionId="<AzureSubscriptionID>"
+val spnClientId="<ServicePrincipalClientID>"
+val spnSecretKeyUsedAsAuthCred="<spn_secret_key_value>"
+val dfReadOptions:Map[String, String]=Map("header"->"true",
+                                "delimiter"->",", 
+                                "fs.defaultFS" -> s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net",
+                                s"fs.azure.account.auth.type.$storageAccountName.dfs.core.windows.net" -> "OAuth",
+                                s"fs.azure.account.oauth.provider.type.$storageAccountName.dfs.core.windows.net" -> 
+                                    "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+                                "fs.azure.account.oauth2.client.id" -> s"$spnClientId",
+                                "fs.azure.account.oauth2.client.secret" -> s"$spnSecretKeyUsedAsAuthCred",
+                                "fs.azure.account.oauth2.client.endpoint" -> s"https://login.microsoftonline.com/$subscriptionId/oauth2/token",
+                                "fs.AbstractFileSystem.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.Abfs",
+                                "fs.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.SecureAzureBlobFileSystem")
+//Initialize the Storage Path string, where source data is maintained/kept.
+val pathToInputSource=s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net/<base_path_for_source_data>/<specific_file (or) collection_of_files>"
+//Define data frame to interface with the data source
+val df:DataFrame = spark.
+            read.
+            options(dfReadOptions).
+            csv(pathToInputSource).
+            limit(100)
 ```
 
 #### Supported DataFrame save modes
