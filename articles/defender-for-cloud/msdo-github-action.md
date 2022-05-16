@@ -1,4 +1,4 @@
-## How-to Guide: Microsoft Security DevOps GitHub Action
+# How-to Guide: Microsoft Security DevOps GitHub Action
 
 Microsoft Security DevOps (MSDO) is a command line application that integrates static analysis tools into the development lifecycle. MSDO installs, configures, and runs the latest versions of static analysis tools (including, but not limited to, SDL/security and compliance tools). MSDO is data-driven with portable configurations that enable deterministic execution across multiple environments.
 
@@ -17,7 +17,7 @@ The MSDO leverages the following Open Source tools:
 
 Browse to the Microsoft DevOps Security GitHub Action [here](https://github.com/marketplace/actions/security-devops-action)
 
-### Steps: Setup GitHub Action
+## Setup GitHub Action
 
 1.  Sign into [GitHub](https://www.github.com)
 

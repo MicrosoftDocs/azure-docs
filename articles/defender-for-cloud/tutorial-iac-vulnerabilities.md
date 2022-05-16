@@ -1,85 +1,99 @@
 ---
-title: Discover vulnerabilities in Infrastructure as Code
+title: 'Tutorial: Discover vulnerabilities in Infrastructure as Code'
 description: Learn how to use Defender for DevOps to discover vulnerabilities in Infrastructure as Code (IAC)
-ms.date: 05/09/2022
+ms.date: 05/16/2022
 ms.topic: tutorial
 ---
 
-# Discover vulnerabilities in Infrastructure as Code (IaC)
+# Tutorial: Discover vulnerabilities in Infrastructure as Code (IaC)
 
-After setting up the Microsoft Security DevOps Extension or Workflow, there is support in the YAML configuration to run several of the tools, or a single tool. For instance, if you are only interested in Infrastructure as Code scanning, this tutorial guides you through setting up only IaC scanning.
+After setting up the Microsoft Security DevOps Extension, or Workflow, there is additional support located in the YAML configuration that can be used to run a tool, or several of the tools. For example, setting up Infrastructure as Code (IaC) scanning.
 
 ## Prerequisites
 
-[Microsoft Security DevOps GitHub action](#MSDO_GHaction) to setup and configure the Microsoft Security DevOps GitHub Action.
-### Steps: GitHub 
+- [Configure Microsoft Security DevOps GitHub action](msdo-github-action.md) prior to starting this tutorial.
+- [Setup and configure the Microsoft Security DevOps the Extension](msdo-azure-devops-extension.md)
 
-*Prerequisite: see* *
+## View the results of the IaC scan in GitHub 
 
-1.  From the Repository home page, click **.github/workflows folder**
+1. Sign in to [Github](https://www.github.com). 
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/tutorial-iac-vulnerabilities/image018.png)
+1. Navigate to the repository home page.
 
-2.  Click on the **workflow .yml** that you setup in the prerequisite steps
+1. Select the **.github/workflows** folder.
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/tutorial-iac-vulnerabilities/image019.png)
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/github-workflow-folder.png" alt-text="Screenshot showing where to locate the github workflow foleder.":::
 
-3.  Edit the workflow: in the "Run Analyzers" section add the following:
+1. Select **workflow .yml**, that was created in the [prerequisites](msdo-github-action.md#setup-github-action).
 
-![Graphical user interface, application Description automatically generated](./media/tutorial-iac-vulnerabilities/image020.png)
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/workflow-yaml.png" alt-text="Screenshot that shows where to find the workflow yaml.":::
 
-4.  Save the workflow by clicking **Start Commit-\>Commit changes**
+1. Select **Edit**.
 
-5.  (Skip this step if you already have an Infrastructure as Code template in your repository.)
+1. Under the Run Analyzers section, add the following:
 
-     If you need an IaC template, download a basic web app template from the Azure QuickStarts [here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-linux)
+    ```yml
+    with:
+        categories: 'Iac"
+    ```
 
-6.  Upload the template to your repository and commit the template to your repository
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/add-to-yaml.png" alt-text="Screenshot that shows the information that needs to be added to the yaml file.":::
 
-7.  Click on **Actions** and you should see a workflow running with the template committed in step 6
+1. Select **Start Commit-\>Commit changes**.
 
-8.  Click in the workflow to see the results
+1. (Optional) Skip this step if you already have an IaC template in your repository.
 
-9.  Scroll through the results and you will see the scan results. It should look like the following
+     [Install an IaC template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-linux).
 
-![Text Description automatically
-generated](./media/tutorial-iac-vulnerabilities/image021.png)
+    ```azcopy
+    HOW IS THIS DONE???????
+    1.  Upload the template to your repository and commit the template to your repository 
+    ```
 
-10. Click on the **Security** tab and then click on **Code scanning alerts** to see the results in the GitHub Code scanning interface
+1. Select **Actions**. 
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/tutorial-iac-vulnerabilities/image022.png)
+1. Select the workflow to see the results.
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/tutorial-iac-vulnerabilities/image023.png)
+1. Navigate in the results to the scan results section.
 
-### Steps: Azure DevOps 
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/scan-results.png" alt-text="Screenshot showing you where to navigate to, to see the scan results.":::
 
-*Prerequisite: see* [Microsoft Security DevOps Azure DevOps extension](#MSDO_ADOextension) *to setup and configure the Microsoft Security DevOps the Extension*
+1. To see the results in the GitHub Code scanning interface, navigate to **Security** > **Code scanning alerts**.
 
-1.  From the Pipeline, locate the pipeline with the MSDO Azure DevOps Extension configured
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/code-scan-results.png" alt-text="Screenshot that shows you how to find the results of your doe scan.":::
 
-2.  Edit the pipeline
+## View the results of the IaC scan in Azure DevOps
 
-3.  Add the following lines to the YAML file
+**To view the results of the IaC scan in Azure DevOps**
 
-![Graphical user interface, application Description automatically
-generated](./media/tutorial-iac-vulnerabilities/image024.png)
+1. Sign into [Azure DevOps](https://dev.azure.com/)
 
-4.  Click **Save**
+1. Navigate to **Pipeline**.
 
-5.  Click **Save** to commit directly to the main branch or Create a new branch for this commit
+1. Locate the pipeline with MSDO Azure DevOps Extension configured.
 
-6.  Click on the pipeline to view the results of the IaC scan and click on any result to see the details
+2. Select **Edit**.
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/tutorial-iac-vulnerabilities/image025.png)
+3. Add the following lines to the YAML file
 
-![Text Description automatically
-generated](./media/tutorial-iac-vulnerabilities/image026.png)
+    ```yml
+    inputs:
+        categories: 'IaC'
+    ```
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/addition-to-yaml.png" alt-text="Screenshot showing you where to add this line to the YAML file.":::
 
-### Summary
+4.  Select **Save**.
+
+5.  Select **Save** to commit directly to the main branch or Create a new branch for this commit
+
+6.  Select **Pipeline** > **`Your created pipeline`** to view the results of the IaC scan. and click on 
+
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/your-pipeline.png" alt-text="Screenshot showing you where your pipeline is located.":::
+
+1. Select any result to see the details.
+
+    :::image type="content" source="media/tutorial-iac-vulnerabilities/results-from-scan.png" alt-text="Screenshot that shows you where the results from your scan can be found.":::
+
+## Next steps
 
 In this tutorial you learned how to configure the Microsoft Security DevOps GitHub Action and Azure DevOps Extension to scan for only Infrastructure as Code vulnerabilities.

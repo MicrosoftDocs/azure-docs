@@ -1,11 +1,11 @@
 ---
-title: Microsoft Defender for DevOps - the benefits and features
-description: Learn about the benefits and features of Microsoft Defender for
+title: Configure the Microsoft Security DevOps Azure DevOps extension
+description: Learn how to configure the Microsoft Security DevOps Azure Devops extension.
 ms.date: 05/16/2022
 ms.topic: how-to
 ---
 
-## Configure the Microsoft Security DevOps Azure DevOps extension
+# Configure the Microsoft Security DevOps Azure DevOps extension
 
 Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Microsoft Security DevOps installs, configures, and runs the latest versions of static analysis tools (including, but not limited to, SDL/security and compliance tools). Microsoft Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
 
@@ -131,34 +131,31 @@ Pipelines will run for a few minutes and save the results.
 
     :::image type="content" source="media/msdo-azure-devops-extension/plus-sign.png" alt-text="Screenshot showing where to locate the + sign.":::
 
-1. In the search box, enter `Use .NET Core`.
+1. In the search box, search for `Use .NET Core`.
 
-1. Select Click **Add** three times.
+1. Select **Add** three times.
 
-1. In the search box, enter `Microsoft Security` 
+1. In the search box, search for `Microsoft Security`. 
 
-    Click **Add** on **Microsoft Security DevOps** to add it to the Agent job 1
+1. Select **Add**.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/msdo-azure-devops-extension/image055.png)
+    :::image type="content" source="media/msdo-azure-devops-extension/add.png" alt-text="Screenshot showing where to select add.":::
 
-9.  Click on *each* of the **Use .NET Core sdk** tasks and set the     versions as **3.1.x**, **5.0.x**, **6.0.x**
+1. Select the first **Use .NET Core sdk**, and set the versions as **3.1.x**. Repeat for the next two and fill in version **5.0.x**, and then **6.0.x**.
 
-![Graphical user interface, application Description automatically
-generated](./media/msdo-azure-devops-extension/image056.png)
+    :::image type="content" source="media/msdo-azure-devops-extension/set-versions.png" alt-text="Screenshot showing you how each Use .Net Core should be set with each version number.":::
 
-10. Click **Save & queue** to open the dropdown menu
+1. Select **Save & queue**, then **Save & queue**.
 
-    Click **Save & queue**
+    :::image type="content" source="media/msdo-azure-devops-extension/save-and-queue.png" alt-text="Screenshot showing where to go to select save and queue .":::
 
-![Graphical user interface, application Description automatically
-generated](./media/msdo-azure-devops-extension/image057.png)
+1. Enter a meaningful comment, for example, `Microsoft Security DevOps added`.
 
-11. Type a Save comment (example: *Microsoft Security DevOps added*)
+1. Select **Save and run**.
 
-    Click **Save and run**
+    :::image type="content" source="media/msdo-azure-devops-extension/comment-and-save.png" alt-text="Screenshot showing where to enter a comment and where to select save.":::
 
-![Graphical user interface, text, application Description automatically
-generated](./media/msdo-azure-devops-extension/image058.png)
+The process will run for a few minutes and results will be saved. 
 
->*It will take a few minutes to run pipelines and save the results. To make viewing the scan results easier, you can install this free extension in your Azure DevOps organization: [SARIF SAST Scans Tab - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=sariftools.scans)*
+## Next steps
+
