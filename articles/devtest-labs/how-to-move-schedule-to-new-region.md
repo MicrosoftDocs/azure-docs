@@ -14,7 +14,7 @@ DevTest Labs supports two types of schedules.
 
 - Schedules apply only to compute virtual machines (VMs): schedules are stored as microsoft.devtestlab/schedules resources, and often referred to as top level schedules, or simply schedules. 
 
-- Lab schedules apply only to DevTest Labs (DTL) VMs: lab schedules They are stored as microsoft.devtestlab/labs/schedules resources. This type of schedule is not covered in this article.
+- Lab schedules apply only to DevTest Labs (DTL) VMs: lab schedules. They are stored as microsoft.devtestlab/labs/schedules resources. This type of schedule is not covered in this article.
 
 In this article, you'll learn how to:
 > [!div class="checklist"]
