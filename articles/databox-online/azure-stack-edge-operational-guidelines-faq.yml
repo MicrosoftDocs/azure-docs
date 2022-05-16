@@ -28,7 +28,8 @@ sections:
           The customer is responsible for the day-to-day operation of the device, including:
           - Power, network, storage, and peripheral device operation.
           - Software operations, like application deployment, Kubernetes cluster operations, clustering, and virtual machine management.
-          - The device will be located on the customer's premises during regular operation, while the subscription is active. 
+          - The device will be located on the customer's premises during regular operation, while the subscription is active.
+          - To create a support ticket with Microsoft, see the section below to [open a support ticket](#how-do-i-open-a-support-ticket-with-microsoft-).
           
       - question: |
           What if the device is lost, damaged, or stolen while it's on-premises?
@@ -44,7 +45,7 @@ sections:
       - question: |
           Who fixes software issues on my applications that run on Azure Stack Edge? 
         answer: |
-          You're responsible for fixing issues in the applications that you deploy on the Azure Stack Edge platform, even if you're consuming services like Kubernetes that are provided by the platform.
+          You're responsible for fixing issues in the applications that you deploy on the Azure Stack Edge platform, even if you're consuming services like Kubernetes that are provided by the platform. To create a support ticket with Microsoft, see the section below to [open a support ticket](#how-do-i-open-a-support-ticket-with-microsoft-).
 
       - question: |
           How do I replace an Azure Stack Edge device if there's a hardware failure?
