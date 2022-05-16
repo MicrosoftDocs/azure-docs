@@ -123,7 +123,7 @@ The following sections provide more information about the methods that your conn
 
 #### GetService()
 
-The designer requires this method to get the high-level description for your service, including the service description, connection input parameters, capabilities, brand color, icon URL, and so on.
+The designer requires this method to get the high-level metadata for your service, including the service description, connection input parameters, capabilities, brand color, icon URL, and so on.
 
 ```csharp
 public ServiceOperationApi GetService()

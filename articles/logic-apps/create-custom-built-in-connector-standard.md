@@ -75,7 +75,7 @@ This interface includes the following methods that provide the operation manifes
 
 * [**GetService()**](#getservice)
 
-  The designer in Azure Logic Apps requires the [**GetService()**](#getservice) method to retrieve the high-level description for your custom service, including the service description, connection input parameters required on the designer, capabilities, brand color, icon URL, and so on.
+  The designer in Azure Logic Apps requires the [**GetService()**](#getservice) method to retrieve the high-level metadata for your custom service, including the service description, connection input parameters required on the designer, capabilities, brand color, icon URL, and so on.
 
 * [**GetOperations()**](#getoperations)
 
