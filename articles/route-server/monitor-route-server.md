@@ -21,12 +21,12 @@ To view Azure Route Server metrics, go to your Route Server resource in the Azur
 
 Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
 
-:::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics.png" alt-text="Screenshot of Route Server metrics." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-expand.png":::
+:::image type="content" source="./media/monitor-route-server/route-server-metrics.png" alt-text="Screenshot of Route Server metrics." lightbox="./media/monitor-route-server/route-server-metrics-expand.png":::
 
 > [!IMPORTANT]
 > When viewing Route Server metrics in the Azure portal, select a time granularity of **5 minutes or greater** for best possible results.
 > 
-> :::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-granularity.png" alt-text="Screenshot of time granularity options.":::
+> :::image type="content" source="./media/monitor-route-server/route-server-metrics-granularity.png" alt-text="Screenshot of time granularity options.":::
 
 ### Aggregation types
 
@@ -56,11 +56,11 @@ Aggregation type: **Max**
 
 This metric shows the BGP availability of peer NVA connections. The BGP Peer Status is a binary metric. 1 = BGP is up-and-running. 0 = BGP is unavailable.
 
-:::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-bgp.png" alt-text="Screenshot of BGP Peer Status." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-bgp-expand.png":::
+:::image type="content" source="./media/monitor-route-server/route-server-metrics-bgp.png" alt-text="Screenshot of BGP Peer Status." lightbox="./media/monitor-route-server/route-server-metrics-bgp-expand.png":::
 
 To check the BGP status of a specific NVA peer, select **Apply splitting** and choose **BgpPeerIp**.
 
-:::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-bgp-split-by-peer.png" alt-text="Screenshot of BGP Peer Status - Split by Peer." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-bgp-split-by-peer-expand.png":::
+:::image type="content" source="./media/monitor-route-server/route-server-metrics-bgp-split-by-peer.png" alt-text="Screenshot of BGP Peer Status - Split by Peer." lightbox="./media/monitor-route-server/route-server-metrics-bgp-split-by-peer-expand.png":::
 
 ### <a name = "advertised"></a>Count of Routes Advertised to Peer
 
@@ -68,7 +68,7 @@ Aggregation type: **Max**
 
 This metric shows the number of routes the Route Server advertised to NVA peers.
 
-:::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-advertised.png" alt-text="Screenshot of Count of Routes Advertised." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-advertised-expand.png":::
+:::image type="content" source="./media/monitor-route-server/route-server-metrics-routes-advertised.png" alt-text="Screenshot of Count of Routes Advertised." lightbox="./media/monitor-route-server/route-server-metrics-routes-advertised-expand.png":::
 
 ### <a name = "received"></a>Count of Routes Learned from Peer 
 
@@ -76,11 +76,11 @@ Aggregation type: **Max**
 
 This metric shows the number of routes the Route Server learned from NVA peers.
 
-:::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-learned.png" alt-text="Screenshot of Count of Routes Learned." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-learned-expand.png":::
+:::image type="content" source="./media/monitor-route-server/route-server-metrics-routes-learned.png" alt-text="Screenshot of Count of Routes Learned." lightbox="./media/monitor-route-server/route-server-metrics-routes-learned-expand.png":::
 
 To show the number of routes the Route Server received from a specific NVA peer, select **Apply splitting** and choose **BgpPeerIp**.
 
-:::image type="content" source="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-learned-split-by-peer.png" alt-text="Screenshot of Count of Routes Learned - Split by Peer." lightbox="./media/routeserver-monitoring-metrics-alerts/route-server-metrics-routes-learned-split-by-peer-expand.png":::
+:::image type="content" source="./media/monitor-route-server/route-server-metrics-routes-learned-split-by-peer.png" alt-text="Screenshot of Count of Routes Learned - Split by Peer." lightbox="./media/monitor-route-server/route-server-metrics-routes-learned-split-by-peer-expand.png":::
 
 
 ## Next steps
