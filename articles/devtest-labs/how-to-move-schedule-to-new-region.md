@@ -33,7 +33,7 @@ There are two ways to move a schedule:
  - Manually recreate the schedules on the moved VMs. This process can be time consuming and error prone. This approach is most useful when you have a few schedules and VMs.
  - Export and redeploy the schedules by using ARM templates.
 
-Move your existing schedule by using the following steps:
+Use the following steps to export and redeploy your schedule in another Azure region by using an ARM template:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -65,8 +65,8 @@ Move your existing schedule by using the following steps:
  
     :::image type="content" source="./media/how-to-move-schedule-to-new-region/move-schedule-custom-deployment.png" alt-text="Screenshot that shows the custom deployment page, with new location values for the relevant settings.":::
 
->[!IMPORTANT]
->Each schedule must have a globally unique name; you will need to change the schedule name for the new location.
+    >[!IMPORTANT]
+    >Each schedule must have a globally unique name; you will need to change the schedule name for the new location.
 
 10. Select **Review and create** to create the deployment.
 
