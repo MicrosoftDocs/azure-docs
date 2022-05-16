@@ -41,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Cerby to support provisioning with Azure AD
 
-To configure Cerby to support provisioning with Azure AD refer the [Cerby Help Doc](https://help.cerby.com/en/articles/5638472-how-to-configure-automatic-user-provisioning-for-azure-ad#h_6684c37cc7) .
+To configure Cerby to support provisioning with Azure AD, refer the [Cerby Help Doc](https://help.cerby.com/en/articles/5638472-how-to-configure-automatic-user-provisioning-for-azure-ad#h_6684c37cc7) .
 
 ## Step 3. Add Cerby from the Azure AD application gallery
 
@@ -53,8 +53,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
-
+* If you need other roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 ## Step 5. Configure automatic user provisioning to Cerby 
 
@@ -64,27 +63,27 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
 1. In the applications list, select **Cerby**.
 
-	![The Cerby link in the Applications list](common/all-applications.png)
+	![Screenshot of the Cerby link in the Applications list.](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of Provisioning tab.](common/provisioning.png)
 
 1. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab automatic](common/provisioning-automatic.png)
+	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
 1. In the **Admin Credentials** section, input your Cerby Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Cerby. If the connection fails, ensure your Cerby account has Admin permissions and try again.
 
-	![Token](common/provisioning-testconnection-tenanturltoken.png)
+	![Screenshot of Token & Tenant urlinput box.](common/provisioning-testconnection-tenanturltoken.png)
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-	![Notification Email](common/provisioning-notification-email.png)
+	![Screenshot of Notification Email.](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
@@ -105,15 +104,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. To enable the Azure AD provisioning service for Cerby, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+	![Screenshot of Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
 1. Define the users and groups that you would like to provision to Cerby by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Provisioning Scope](common/provisioning-scope.png)
+	![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
 
 1. When you're ready to provision, click **Save**.
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+	![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
