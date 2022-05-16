@@ -124,9 +124,6 @@ The following example output shows that *mynodepool* has been successfully creat
 
 A workload may require splitting a cluster's nodes into separate pools for logical isolation. This isolation can be supported with separate subnets dedicated to each node pool in the cluster. This can address requirements such as having non-contiguous virtual network address space to split across node pools.
 
-> [!NOTE]
-> To use this feature, make sure your Azure CLI version is `2.37.0` or later.
-
 #### Limitations
 
 * All subnets assigned to nodepools must belong to the same virtual network.
