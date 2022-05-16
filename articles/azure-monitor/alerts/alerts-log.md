@@ -37,7 +37,7 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 1. Write a query that will find the log events for which you want to create an alert. You can use the [alert query examples article](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. From the top command bar, Select **+ New Alert rule**.
 
-   :::image type="content" source="media/alerts-log/alerts-create-new-alert-rule.png" alt-text="Create new alert rule.":::
+   :::image type="content" source="media/alerts-log/alerts-create-new-alert-rule.png" alt-text="Create new alert rule." lightbox="media/alerts-log/alerts-create-new-alert-rule-expanded.png":::  
 
 1. The **Condition** tab opens, populated with your log query.
  
