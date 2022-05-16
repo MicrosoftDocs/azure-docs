@@ -47,13 +47,13 @@ Start by exporting the project assets from the project in your primary resource.
 
 Replace the placeholders in the following request with your `{PRIMARY-ENDPOINT}` and `{PRIMARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [Export project assets using the REST API](../includes/rest-api/export-project.md)]
+[!INCLUDE [Export project assets using the REST API](../includes/rest-api/export-project.md)]
 
 ### Get export job status
 
 Replace the placeholders in the following request with your `{PRIMARY-ENDPOINT}` and `{PRIMARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [Export project assets using the REST API](../includes/rest-api/get-export-status.md)]
+[!INCLUDE [Export project assets using the REST API](../includes/rest-api/get-export-status.md)]
 
 Copy the response body as you will use it as the body for the next import job.
 
@@ -65,13 +65,13 @@ Now go ahead and import the exported project assets in your new project in the s
 
 Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [Import project using the REST API](../includes/rest-api/import-project.md)]
+[!INCLUDE [Import project using the REST API](../includes/rest-api/import-project.md)]
 
 ### Get import job status
 
 Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [Import project using the REST API](../includes/rest-api/get-import-status.md)]
+[!INCLUDE [Import project using the REST API](../includes/rest-api/get-import-status.md)]
 
 
 ## Train your model
@@ -82,14 +82,14 @@ After importing your project, you only have copied the project's assets and meta
 
 Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [train model](../includes/rest-api/train-model.md)]
+[!INCLUDE [train model](../includes/rest-api/train-model.md)]
 
 
 ### Get Training Status
 
 Replace the placeholders in the following request with your `{SECONDARY-ENDPOINT}` and `{SECONDARY-RESOURCE-KEY}` that you obtained in the first step.
 
-  [!INCLUDE [get training model status](../includes/rest-api/get-training-status.md)]
+[!INCLUDE [get training model status](../includes/rest-api/get-training-status.md)]
 
 ## Deploy your model
 
