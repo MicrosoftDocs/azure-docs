@@ -22,7 +22,7 @@ Before you use the speech-to-text REST API for short audio, consider the followi
 
 * Requests that use the REST API for short audio and transmit audio directly can contain no more than 60 seconds of audio.
 * The REST API for short audio returns only final results. It doesn't provide partial results.
-* [Translation](../Translator/translator-overview.md) is not supported via REST API for short audio. You need to use [Speech SDK](speech-sdk.md).
+* [Speech translation](speech-translation.md) is not supported via REST API for short audio. You need to use [Speech SDK](speech-sdk.md).
 
 > [!TIP]
 > For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
