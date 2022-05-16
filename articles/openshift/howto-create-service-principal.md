@@ -67,7 +67,7 @@ The output is similar to the following example.
 ``` 
 
 Retain your `appId` and `password`. These values are used when you create an Azure Red Hat OpenShift cluster below. 
-
+ 
 > [!NOTE]
 > This service principal only allows a contributor over the resource group the ARO cluster is located in. If your VNet is in another resource group, you need to assign the service principal contributor role to that resource group as well. 
 
