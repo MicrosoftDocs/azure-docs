@@ -50,8 +50,8 @@
     href: enable-data-collection.md
   - name: 5. Set up email notifications
     href: configure-email-notifications.md
-  - name: 6. Create auto-responses to alerts
-    displayName: Resource Manager, ARM
+  - name: 6. Create auto-responses to alerts using an ARM template or Bicep
+    displayName: Resource Manager, ARM, Template
     href: quickstart-automation-alert.md
   - name: 7. Choose standards for your compliance dashboard
     displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA

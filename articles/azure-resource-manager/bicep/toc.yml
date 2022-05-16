@@ -56,7 +56,7 @@
   - name: Security
     items:
     - name: Defender for Cloud
-      href: ../../defender-for-cloud/quickstart-automation-alert-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Web
     items:
     - name: API Management
