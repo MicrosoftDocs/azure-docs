@@ -17,7 +17,7 @@ You can export data from ArcSight in several ways. The export methods you choose
 To export the data:
 1. Select one of the following export methods:
     - [Event transfer tool](https://www.microfocus.com/documentation/arcsight/arcsight-esm-7.6/ESM_AdminGuide/#ESM_AdminGuide/EventDataTransfer/EventDataTransfer.htm) in ArcSight ESM version 7.x
-    - [lacat script](https://github.com/hpsec/lacat). 
+    - [lacat script](https://github.com/hpsec/lacat) 
         - If you choose the `lacat` script and have large volumes of data, we suggest to make the following modifications to the script:
           
             ```bash
