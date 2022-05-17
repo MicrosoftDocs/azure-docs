@@ -49,7 +49,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
    Under **Trigger history**, all trigger attempts appear. Each time the trigger successfully fires, Azure Logic Apps creates an individual workflow instance and runs that instance. By default, each instance runs in parallel so that no workflow has to wait before starting a run. If your workflow triggers for multiple events or items at the same time, a trigger entry appears for each item with the same date and time. 
 
-   ![Screenshot showing the Overview pane with multiple trigger attempts for different items.](./media/monitor-logic-apps/logic-app-trigger-history.png)
+   ![Screenshot showing the Overview pane with multiple trigger attempts for different items.](./media/monitor-logic-apps/logic-app-triggers-history.png)
 
    The following table lists the possible trigger statuses:
 

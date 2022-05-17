@@ -20,7 +20,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
 If the trigger doesn't fire, follow these steps:
 
-1. To check the trigger's status, [review the trigger history](monitor-logic-apps.md#review-trigger-history). To review more information about the trigger attempt, select that trigger event, for example:
+1. To check the trigger's status, [review the trigger history](monitor-logic-apps.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
 
    ![Screenshot showing Azure portal with the workflow's trigger status and history.](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
@@ -30,15 +30,16 @@ If the trigger doesn't fire, follow these steps:
 
    For example, the `feedUrl` property here has an incorrect RSS feed value:
 
-   ![Review trigger inputs for errors](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
+   ![Screenshot showing the trigger inputs for errors.](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
 
 1. Check the triggers outputs, if any, to confirm that they appear as you expect. Under **Outputs link**, select the link, which shows the **Outputs** pane.
 
    Trigger outputs include the data that the trigger passes to the next step in your workflow. Reviewing these outputs can help you determine whether the correct or expected values passed on to the next step in your workflow, for example:
 
-   ![Review trigger outputs for errors](./media/logic-apps-diagnosing-failures/review-trigger-outputs-for-errors.png)
+   ![Screenshot showing the trigger outputs for errors.](./media/logic-apps-diagnosing-failures/review-trigger-outputs-for-errors.png)
 
    > [!TIP]
+   >
    > If you find any content that you don't recognize, learn more about 
    > [different content types](../logic-apps/logic-apps-content-type.md) in Azure Logic Apps.
 
@@ -48,31 +49,25 @@ If the trigger doesn't fire, follow these steps:
 
 Each time that the trigger fires, Azure Logic Apps creates a workflow instance and runs that instance. If a run fails, follow these steps to review what happened during that run, including the status for each step in the workflow plus the inputs and outputs for each step.
 
-1. Check the workflow's run status by [checking the runs history](../logic-apps/monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
+1. To check the workflow's run status, [review the runs history](monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
 
-   ![Screenshot showing the Azure portal, a logic app's  each workflow run, for each and select failed run](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
+   ![Screenshot showing the Azure portal with the workflow runs and a failed run selected.](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
-1. After all the steps in the run appear, expand the first failed step.
+1. After all the steps in the run appear, select each step to expand their shapes.
 
-   ![Expand first failed step](./media/logic-apps-diagnosing-failures/logic-app-run-pane.png)
+   ![Screenshot showing the failed step selected.](./media/logic-apps-diagnosing-failures/logic-app-run-pane.png)
 
-1. Check the failed step's inputs to confirm whether they appear as you expect.
+1. Review the inputs, outputs, and any error messages for the failed step.
 
-1. Review the details for each step in a specific run. Under **Runs history**, select the run that you want to examine.
+   ![Screenshot showing the step's inputs.](./media/logic-apps-diagnosing-failures/failed-action-inputs.png)
 
-   ![Review runs history](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
-
-   ![View details for a logic app workflow run](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
-
-1. To examine the inputs, outputs, and any error messages for a specific step, choose that step so that the shape expands and shows the details. For example:
-
-   ![View step details](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
+   ![View step details](./media/logic-apps-diagnosing-failures/review-action-outputs-for-errors.png)
 
 ## Perform runtime debugging
 
-To help with debugging, you can add diagnostic steps to a logic app workflow, along with reviewing the trigger and runs history. For example, you can add steps that use the [Webhook Tester](https://webhook.site/) service so that you can inspect HTTP requests and determine their exact size, shape, and format.
+To help with debugging, you can add diagnostic steps to a logic app workflow, along with reviewing the trigger and runs history. For example, you can add steps that use the [Webhook Tester](https://webhook.site/) service, so you can inspect HTTP requests and determine their exact size, shape, and format.
 
-1. Go to the [Webhook Tester](https://webhook.site/) site and copy the generated unique URL.
+1. In a browser, go to the [Webhook Tester](https://webhook.site/) site, and copy the generated unique URL.
 
 1. In your logic app, add an HTTP POST action plus the body content that you want to test, for example, an expression or another step output.
 
