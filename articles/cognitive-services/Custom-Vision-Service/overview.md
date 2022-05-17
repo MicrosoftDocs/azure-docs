@@ -52,9 +52,18 @@ The Custom Vision portal can be used by the following web browsers:
 
 ![Custom Vision website in a Chrome browser window](media/browser-home.png)
 
+## Backup and disaster recovery
+
+As a part of Azure, Custom Vision Service has components that are maintained across multiple regions. Service zones and regions are used by all of our services to provide continued service to our customers. For more information on zones and regions, see [Azure regions](../../availability-zones/az-overview.md). If you need additional information or have any issues, please [contact support](/answers/topics/azure-custom-vision.html).
+
+
 ## Data privacy and security
 
 As with all of the Cognitive Services, developers using the Custom Vision service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+
+## Data residency
+
+Custom Vision primarily doesn't replicate data out of the specified region, except for one region, `NorthCentralUS`, where there is no local Azure Support.
 
 ## Next steps
 
