@@ -93,7 +93,7 @@ Common errors include:
 
 When inviting users whose organization is using Azure Active Directory, but where the specific user’s account doesn't exist (for example, the user doesn't exist in Azure AD contoso.com). The administrator of contoso.com may have a policy in place preventing users from being created. The user must check with their admin to determine if external users are allowed. The external user’s admin may need to allow Email Verified users in their domain (see this [article](/powershell/module/msonline/set-msolcompanysettings) on allowing Email Verified Users).
 
-![Error stating the tenant doesn't allow email verified users.](media/troubleshoot/allow-email-verified-users.png)
+![Screenshot of the error stating the tenant doesn't allow email verified users.](media/troubleshoot/allow-email-verified-users.png)
 
 ### External user doesn't exist already in a federated domain
 
@@ -171,7 +171,7 @@ When you try to invite a B2B collaboration user in another Microsoft Azure cloud
 
 ## Invitation is blocked due to disabled Microsoft B2B Cross Cloud Worker application
 
-Rarely, you might see this message: “This action can't be completed because the Microsoft B2B Cross Cloud Worker application has been disabled in the invited user’s tenant. Please ask the invited user’s admin to re-enable it, then try again.” This error means that the Microsoft B2B Cross Cloud Worker application has been disabled in the B2B collaboration user’s home tenant. This app is typically enabled, but it might have been disabled by an admin in the user’s home tenant, either through PowerShell or the portal (see [Disable how a how a user signs in](../manage-apps/disable-user-sign-in-portal.md)). An admin in the user’s home tenant can re-enable the app through PowerShell or the Azure portal. In the portal, search for “Microsoft B2B Cross Cloud Worker” to find the app, select it, and then choose to re-enable it.
+Rarely, you might see this message: “This action can't be completed because the Microsoft B2B Cross Cloud Worker application has been disabled in the invited user’s tenant. Please ask the invited user’s admin to re-enable it, then try again.” This error means that the Microsoft B2B Cross Cloud Worker application has been disabled in the B2B collaboration user’s home tenant. This app is typically enabled, but it might have been disabled by an admin in the user’s home tenant, either through PowerShell or the portal (see [Disable how a user signs in](../manage-apps/disable-user-sign-in-portal.md)). An admin in the user’s home tenant can re-enable the app through PowerShell or the Azure portal. In the portal, search for “Microsoft B2B Cross Cloud Worker” to find the app, select it, and then choose to re-enable it.
 
 ## Redemption is blocked due to cross-tenant access settings
 
