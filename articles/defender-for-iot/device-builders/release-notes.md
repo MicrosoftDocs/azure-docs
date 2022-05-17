@@ -77,7 +77,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 - **[Login collector](concept-event-aggregation.md#login-collector-event-based-collector)** - The login collectors gather user logins, logouts, and failed login attempts. Such as SSH & telnet.
 
-- **[System information collector](concept-event-aggregation.md#system-information-trigger-based-collector)** - The system information collector gatherers information related to the device’s operating system and hardware details.
+- **[System information collector](concept-event-aggregation.md#system-information-trigger-based-collector)** - The system information collector gathers information related to the device’s operating system and hardware details.
 
 - **[Event aggregation](concept-event-aggregation.md#how-does-event-aggregation-work)** - The Defender for IoT agent aggregates events such as process, login, network events that reduce the number of messages sent and costs, all while maintaining your device's security.  
 
