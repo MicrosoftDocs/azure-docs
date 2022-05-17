@@ -144,9 +144,25 @@ As with triggers, input and output bindings are added to your function as bindin
 
 1. Make sure you've [configured the project for local development](#configure-the-project-for-local-development).
 
-2. Add the appropriate NuGet extension package for the specific binding. 
+1. Add the appropriate NuGet extension package for the specific binding by finding the binding-specific NuGet package requirements in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
 
-   For more information, see [C# class library with Visual Studio](./functions-bindings-register.md#local-csharp). Find the binding-specific NuGet package requirements in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
+1. Use the following command in the Package Manager Console to install a specific package:
+
+    # [In-process](#tab/in-process)
+
+    ```powershell
+    Install-Package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE> -Version <TARGET_VERSION>
+    ```
+    
+    # [Isolated process](#tab/isolated-process)
+
+    ```powershell
+    Install-Package Microsoft.Azure.Functions.Worker.Extensions.<BINDING_TYPE> -Version <TARGET_VERSION>
+    ```
+    
+    ---
+
+    In this example replace `<BINDING_TYPE>` with the name specific to the binding extension and `<TARGET_VERSION>` with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 
 3. If there are app settings that the binding needs, add them to the `Values` collection in the [local setting file](functions-develop-local.md#local-settings-file). 
 

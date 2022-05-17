@@ -97,6 +97,8 @@
     href: expressroute-about-encryption.md
   - name: Connect Azure to public cloud
     href: expressroute-connect-azure-to-public-cloud.md
+  - name: Connectivity between virtual networks
+    href: virtual-network-connectivity-guidance.md
   - name: Cross-network connectivity
     href: cross-network-connectivity.md
   - name: BGP communities

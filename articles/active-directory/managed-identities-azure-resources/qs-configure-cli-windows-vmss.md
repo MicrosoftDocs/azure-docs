@@ -63,8 +63,8 @@ To create a virtual machine scale set with the system-assigned managed identity 
 
 1. [Create](/cli/azure/vmss/#az-vmss-create) a virtual machine scale set. The following example creates a virtual machine scale set named *myVMSS* with a system-assigned managed identity, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
 
-   ```azurecli-interactive 
-   az vmss create --resource-group myResourceGroup --name myVMSS --image win2016datacenter --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --admin-password myPassword12 --assign-identity --generate-ssh-keys
+   ```azurecli-interactive
+   az vmss create --resource-group myResourceGroup --name myVMSS --image win2016datacenter --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --admin-password myPassword12 --assign-identity --generate-ssh-keys --role contributor 
    ```
 
 ### Enable system-assigned managed identity on an existing Azure virtual machine scale set
@@ -130,10 +130,10 @@ This section walks you through creation of a virtual machine scale set and assig
    }
    ```
 
-3. [Create](/cli/azure/vmss/#az-vmss-create) a virtual machine scale set. The following example creates a virtual machine scale set associated with the new user-assigned managed identity, as specified by the `--assign-identity` parameter. Be sure to replace the `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>`, and `<USER ASSIGNED IDENTITY>` parameter values with your own values. 
+3. [Create](/cli/azure/vmss/#az-vmss-create) a virtual machine scale set. The following example creates a virtual machine scale set associated with the new user-assigned managed identity, as specified by the `--assign-identity` parameter. Be sure to replace the `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>`, `<USER ASSIGNED IDENTITY>`, and `<ROLE>` parameter values with your own values.
 
-   ```azurecli-interactive 
-   az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
+   ```azurecli-interactive
+   az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY> --role <ROLE>
    ```
 
 ### Assign a user-assigned managed identity to an existing virtual machine scale set

@@ -182,6 +182,9 @@ If you've changed the `STORAGE_ACCOUNT_CONTAINER` variable from its original val
 
 Navigate to the directory in which you stored the *statestore.yaml* file and run the following command to configure the Dapr component in the Container Apps environment.
 
+If you need to add multiple components, create a separate YAML file for each component and run the `az containerapp env dapr-component set` command multiple times to add each component.  For more information about configuring Dapr components, see [Configure Dapr components](dapr-overview.md#configure-dapr-components).
+
+
 # [Bash](#tab/bash)
 
 ```azurecli
@@ -374,3 +377,4 @@ This command deletes the resource group that includes all of the resources creat
 
 > [!div class="nextstepaction"]
 > [Application lifecycle management](application-lifecycle-management.md)
+

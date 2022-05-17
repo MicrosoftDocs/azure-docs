@@ -1152,6 +1152,8 @@
           href: cassandra/lwt-cassandra-api.md
         - name: Cassandra API extensions overview
           href: cassandra/cassandra-driver-extensions.md
+        - name: Monitor and debug with insights in Cassandra API
+          href: cassandra/cassandra-monitor-insights.md
     - name: Reference
       items:
         - name: REST resource provider
@@ -1178,12 +1180,8 @@
           href: mongodb/create-mongodb-java.md
         - name: Node.js
           href: mongodb/create-mongodb-nodejs.md
-        - name: Xamarin
-          href: mongodb/create-mongodb-xamarin.md
         - name: Golang
           href: mongodb/create-mongodb-go.md
-        - name: Rust
-          href: mongodb/create-mongodb-rust.md 
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
