@@ -88,8 +88,9 @@ az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
 
 ---
 
-> [!NOTE]
-> Limitation: Private Endpoint cannot be used with Enterprise-grade edge. 
+## Limitations
+
+- Private Endpoint cannot be used with enterprise-grade edge. 
 
 ## Next steps
 
