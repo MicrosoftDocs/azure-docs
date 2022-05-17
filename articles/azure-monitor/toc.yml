@@ -47,6 +47,10 @@ items:
       href: app/tutorial-app-dashboards.md
     - name: Monitor mobile application
       href: app/mobile-center-quickstart.md
+  - name: Change Analysis
+    items:
+    - name: Track web outages
+      href: change/tutorial-outages.md
   - name: Custom logs
     items:
     - name: Azure portal
@@ -1185,8 +1189,6 @@ items:
       href: change/change-analysis-visualizations.md
     - name: Azure PowerShell
       href: change/change-analysis-powershell.md
-    - name: Track web outages
-      href: change/change-analysis-outages.md
     - name: Custom filters
       href: change/change-analysis-custom-filters.md
     - name: Troubleshoot

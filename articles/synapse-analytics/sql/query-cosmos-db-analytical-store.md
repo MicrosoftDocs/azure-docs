@@ -438,7 +438,7 @@ In this example, the number of cases is stored either as `int32`, `int64`, or `f
 
 ## Troubleshooting
 
-Review the [self-help page](resources-self-help-sql-on-demand.md#cosmos-db) to find the known issues or troubleshooting steps that can help you to resolve potential problems with Cosmos DB queries.
+Review the [self-help page](resources-self-help-sql-on-demand.md#azure-cosmos-db) to find the known issues or troubleshooting steps that can help you to resolve potential problems with Cosmos DB queries.
 
 ## Next steps
 
@@ -447,5 +447,5 @@ For more information, see the following articles:
 - [Use Power BI and serverless SQL pool with Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
 - [Create and use views in a serverless SQL pool](create-use-views.md)
 - [Tutorial on building serverless SQL pool views over Azure Cosmos DB and connecting them to Power BI models via DirectQuery](./tutorial-data-analyst.md)
-- Visit [Synapse link for Cosmos DB self-help page](resources-self-help-sql-on-demand.md#cosmos-db) if you are getting some errors or experiencing performance issues.
+- Visit [Synapse link for Cosmos DB self-help page](resources-self-help-sql-on-demand.md#azure-cosmos-db) if you are getting some errors or experiencing performance issues.
 - Checkout the learn module on how to [Query Azure Cosmos DB with SQL Serverless for Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).
