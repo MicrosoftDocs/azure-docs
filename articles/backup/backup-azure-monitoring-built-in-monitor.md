@@ -141,6 +141,8 @@ The following table summarizes the different backup alerts currently available (
 
 To opt in to Azure Monitor alerts for backup failure and restore failure scenarios, follow the below steps:
 
+**Choose a vault type**:
+
 # [Recovery Services vaults](#tab/recovery-services-vaults)
 
 1. Go to the Azure portal and search for **Preview Features**.
