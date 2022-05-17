@@ -138,13 +138,13 @@ If [host.json] includes multiple logs that start with the same string, the more 
 You can use a log level setting of `None` to prevent any logs from being written for a category.
 
 > [!CAUTION]
-> Azure Functions integrates with Application Insights by storing telemetry events in Application Insights tables, setting a category log level to any value different from `Information` will prevent the telemetry to flow to those tables. As outcome, you will not be able to see the related data in Application Insights or Function Monitor tab.
+> Azure Functions integrates with Application Insights by storing telemetry events in Application Insights tables, setting a category log level to any value different from `Information` will prevent the telemetry to flow to those tables. As outcome, you won't be able to see the related data in **Application Insights** or **Function Monitor** tab.
 >
 > From above samples:
-> + If `Host.Results` category is set to `Error` log level, it will only gather host execution telemetry events in the `requests` table for failed function executions, preventing to display host execution details of success executions in both Application Insights and Function Monitor tab.
+> + If `Host.Results` category is set to `Error` log level, it will only gather host execution telemetry events in the `requests` table for failed function executions, preventing to display host execution details of success executions in both **Application Insights** and **Function Monitor** tab.
 > + If `Function` category is set to `Error` log level, it will stop gathering function telemetry data related to `dependencies`, `customMetrics`, and `customEvents` for all the functions, preventing to see any of this data in Application Insights. It will only gather `traces` logged with `Error` level.
 >
-> In both cases you will continue to collect errors and exceptions data in Application Insights and Function Monitor tab. For more information, see [Solutions with high-volume of telemetry](#solutions-with-high-volume-of-telemetry).
+> In both cases you will continue to collect errors and exceptions data in **Application Insights** and **Function Monitor** tab. For more information, see [Solutions with high-volume of telemetry](#solutions-with-high-volume-of-telemetry).
 
 ## Configure the aggregator
 
@@ -271,7 +271,7 @@ If an Application Insights resource wasn't created with your function app, use t
 
 1. Select **Apply**.
 
-   The Application Insights resource is created in the same resource group and subscription as your function app. After the resource is created, close the Application Insights window.
+   The Application Insights resource is created in the same resource group and subscription as your function app. After the resource is created, close the **Application Insights** window.
 
 1. In your function app, select **Configuration** under **Settings**, and then select **Application settings**. If you see a setting named `APPINSIGHTS_INSTRUMENTATIONKEY`, Application Insights integration is enabled for your function app running in Azure. If for some reason this setting doesn't exist, add it using your Application Insights instrumentation key as the value.
 
@@ -306,9 +306,9 @@ The generated telemetry can be consumed in real-time dashboards, alerting, detai
 
   :::image type="content" source="media/configure-monitoring/host-aggregator-custom-metrics.png" alt-text="Screenshot of Host.Aggregator telemetry in customMetrics Application Insights table." lightbox="media/configure-monitoring/host-aggregator-custom-metrics-big.png":::
 
-+ **Host.Results category**: As described in [configure categories](#configure-categories), this category provides the runtime-generated logs indicating the success or failure of a function invocation. The information from this category is gathered in the Application Insights `requests` table, and it's shown in the function Monitor tab and in different Application Insights dashboards (Performance, Failures, and so on). If you set this category to other value different than `Information`, you'll only gather telemetry generated at the log level defined (or higher). For example, setting it to `error` results in tracking requests data only for failed executions.
++ **Host.Results category**: As described in [configure categories](#configure-categories), this category provides the runtime-generated logs indicating the success or failure of a function invocation. The information from this category is gathered in the Application Insights `requests` table, and it's shown in the function **Monitor** tab and in different Application Insights dashboards (Performance, Failures, and so on). If you set this category to other value different than `Information`, you'll only gather telemetry generated at the log level defined (or higher). For example, setting it to `error` results in tracking requests data only for failed executions.
 
-  The following screenshot shows the `Host.Results` telemetry data displayed in the function Monitor tab:
+  The following screenshot shows the `Host.Results` telemetry data displayed in the function **Monitor** tab:
 
   :::image type="content" source="media/configure-monitoring/host-results-function-monitor.png" alt-text="Screenshot of Host.Results telemetry in function Monitor tab." lightbox="media/configure-monitoring/host-results-function-monitor-big.png":::
 

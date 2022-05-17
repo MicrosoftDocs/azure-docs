@@ -18,7 +18,7 @@ ms.custom: include file, devdivchpfy22
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **Subscription** | Your subscription | The subscription under which this new function app is created. |
+    | **Subscription** | Your subscription | The subscription under which you'll create your new function app. |
     | **[Resource Group](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you'll create your function app. |
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     |**Publish**| Code | Option to publish code files or a Docker container. |
