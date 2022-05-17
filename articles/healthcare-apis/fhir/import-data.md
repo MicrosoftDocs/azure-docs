@@ -219,7 +219,7 @@ Below are some error codes you may encounter and the solutions to help you resol
 
 **Cause:** We use managed identity for source storage auth. This error may be caused by a missing or wrong role assignment.
 
-**Solution:** Assign _Storage Blob Data Contributor_ role to the FHIR server following [the RBAC guide.](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current)
+**Solution:** Assign _Storage Blob Data Contributor_ role to the FHIR server following [the RBAC guide.](../../role-based-access-control/role-assignments-portal.md?tabs=current)
 
 ### 500 Internal Server Error
 

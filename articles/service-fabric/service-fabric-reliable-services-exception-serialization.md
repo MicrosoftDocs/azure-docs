@@ -6,8 +6,8 @@ ms.date: 03/30/2022
 ms.custom: devx-track-csharp
 ---
 # Remoting Exception Serialization Overview
-BinaryFormatter based serialization is not secure and Microsoft strongly recommends not to use BinaryFormatter for data processing. More details on the security implications can be found [here](https://docs.microsoft.com/dotnet/standard/serialization/binaryformatter-security-guide).
-Service Fabric had been using BinaryFormatter for serializing Exceptions. Starting ServiceFabric v9.0, [Data Contract based serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.datacontractserializer?view=net-6.0) for remoting exceptions is made available as an opt-in feature. It is strongly recommended to opt for DataContract remoting exception serialization by following the below mentioned steps.
+BinaryFormatter based serialization is not secure and Microsoft strongly recommends not to use BinaryFormatter for data processing. More details on the security implications can be found [here](/dotnet/standard/serialization/binaryformatter-security-guide).
+Service Fabric had been using BinaryFormatter for serializing Exceptions. Starting ServiceFabric v9.0, [Data Contract based serialization](/dotnet/api/system.runtime.serialization.datacontractserializer?view=net-6.0) for remoting exceptions is made available as an opt-in feature. It is strongly recommended to opt for DataContract remoting exception serialization by following the below mentioned steps.
 
 Support for BinaryFormatter based remoting exception serialization will be deprecated in the future.
 

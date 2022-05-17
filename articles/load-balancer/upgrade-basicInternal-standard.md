@@ -27,7 +27,7 @@ This article introduces a PowerShell script that creates a Standard Load Balance
 * The Basic Load Balancer needs to be in the same resource group as the backend VMs and NICs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
 * If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Make sure they are not empty.
-* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. We recommend manually creating a Standard Load Balancer and follow [Update or delete a load balancer used by virtual machine scale sets](https://docs.microsoft.com/azure/load-balancer/update-load-balancer-with-vm-scale-set) to complete the migration.
+* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. We recommend manually creating a Standard Load Balancer and follow [Update or delete a load balancer used by virtual machine scale sets](./update-load-balancer-with-vm-scale-set.md) to complete the migration.
 
 ## Change IP allocation method to Static for frontend IP Configuration (Ignore this step if it's already static)
 

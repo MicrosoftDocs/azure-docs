@@ -116,7 +116,7 @@ tools:
     imageSrc: media/index/logo_go.svg
     url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
   - title: Java
-    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    imageSrc: /media/logos/logo_java.svg
     url: /java/api/com.microsoft.cognitiveservices.speech
 
 

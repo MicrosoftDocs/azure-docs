@@ -76,7 +76,7 @@ On the **Deploy Azure API for FHIR** page:
 
 4. Enter a new **Service Name** and choose the **Location** of the Azure API for FHIR. The location can be the same as or different from the region of the resource group.
 
-   [ ![Deploy Azure API for FHIR using the ARM template in the Azure portal.](media/fhir-resource-manager-template/deploy-azure-api-fhir.png) ](media/fhir-resource-manager-template/deploy-azure-api-fhir.png#lightbox)
+   [ ![Deploy Azure API for FHIR using the ARM template in the Azure portal.](media/fhir-resource-manager-template/deploy-azure-api-fhir.png)](media/fhir-resource-manager-template/deploy-azure-api-fhir.png#lightbox)
 
 5. Select **Review + create**.
 
