@@ -118,7 +118,7 @@ To stop or restart Profiler for an individual app's instance:
 
 1. Click **Stop** from the top menu.
 
-   :::image type="content" source="./media/profiler/stop-web-job.png" alt-text="Screenshot of selecting web jobs from the left side menu.":::
+   :::image type="content" source="./media/profiler/stop-web-job.png" alt-text="Screenshot of selecting stop for stopping the webjob.":::
 
 1. Select **Yes** to confirm.
 
