@@ -41,11 +41,11 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
    ```azurecli
    az redis create \
-     --resource-group <resource-group> \
-     --name <redis-cache-name> \
-     --location ${REGION} \
-     --sku Basic \
-     --vm-size c0
+       --resource-group <resource-group> \
+       --name <redis-cache-name> \
+       --location ${REGION} \
+       --sku Basic \
+       --vm-size c0
    ```
 
 > [!NOTE]
@@ -225,13 +225,13 @@ The following steps show how to bind applications running in Azure Spring Apps E
 
 Retrieve the URL for Spring Cloud Gateway and explore the updated application. The output from the following command can be used to explore the application:
 
-   ```azurecli
-   GATEWAY_URL=$(az spring-cloud gateway show \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> | jq -r '.properties.url')
+```azurecli
+GATEWAY_URL=$(az spring-cloud gateway show \
+    --resource-group <resource-group> \
+    --service <spring-cloud-service> | jq -r '.properties.url')
 
-   echo "https://${GATEWAY_URL}"
-   ```
+echo "https://${GATEWAY_URL}"
+```
 
 ## Clean up resources
 

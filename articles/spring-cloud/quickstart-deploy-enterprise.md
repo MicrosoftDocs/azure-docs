@@ -31,10 +31,10 @@ This quickstart shows you how to build and deploy applications to Azure Spring A
 
 Use the following commands to download the sample:
 
-   ```bash
-   git clone https://github.com/Azure-Samples/acme-fitness-store
-   cd acme-fitness-store
-   ```
+```bash
+git clone https://github.com/Azure-Samples/acme-fitness-store
+cd acme-fitness-store
+```
 
 ## Provision a service instance
 
@@ -58,7 +58,10 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
-   az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
+   az term accept \
+       --publisher vmware-inc \
+       --product azure-spring-cloud-vmware-tanzu-2 \
+       --plan tanzu-asc-ent-mtr
    ```
 
 1. Select a location. This location must be a location supporting Azure Spring Apps Enterprise tier.
