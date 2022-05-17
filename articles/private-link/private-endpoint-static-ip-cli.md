@@ -67,7 +67,7 @@ az network vnet subnet create \
     --resource-group myResourceGroup \
     --name AzureBastionSubnet \
     --vnet-name myVNet \
-    --address-prefixes 10.0.1.0/24
+    --address-prefixes 10.0.1.0/27
 ```
 
 Create a public IP address for the bastion host with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
@@ -109,7 +109,7 @@ id=$(az webapp list \
     --output tsv)
 
 az network private-endpoint create \
-    --connection-name myConnection
+    --connection-name myConnection \
     --name myPrivateEndpoint \
     --private-connection-resource-id $id \
     --resource-group myResourceGroup \
@@ -127,7 +127,7 @@ Create a new private Azure DNS zone with [az network private-dns zone create](/c
 
 ```azurecli-interactive
 az network private-dns zone create \
-    --resource-group CreatePrivateEndpointQS-rg \
+    --resource-group myResourceGroup \
     --name "privatelink.azurewebsites.net"
 ```
 
@@ -135,18 +135,18 @@ Link the DNS zone to the virtual network you created previously with [az network
 
 ```azurecli-interactive
 az network private-dns link vnet create \
-    --resource-group CreatePrivateEndpointQS-rg \
+    --resource-group myResourceGroup \
     --zone-name "privatelink.azurewebsites.net" \
     --name MyDNSLink \
     --virtual-network myVNet \
     --registration-enabled false
 ```
 
-Create a DNS zone group with [New-AzPrivateDnsZoneGroup](/powershell/module/az.network/new-azprivatednszonegroup)
+Create a DNS zone group with [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az-network-private-endpoint-dns-zone-group-create).
 
 ```azurecli-interactive
 az network private-endpoint dns-zone-group create \
-    --resource-group CreatePrivateEndpointQS-rg \
+    --resource-group myResourceGroup \
     --endpoint-name myPrivateEndpoint \
     --name MyZoneGroup \
     --private-dns-zone "privatelink.azurewebsites.net" \
@@ -161,7 +161,7 @@ Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
 az vm create \
-    --resource-group CreatePrivateEndpointQS-rg \
+    --resource-group myResourceGroup \
     --name myVM \
     --image Win2019Datacenter \
     --public-ip-address "" \
