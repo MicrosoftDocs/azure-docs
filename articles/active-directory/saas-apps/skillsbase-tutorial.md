@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * Skills Base supports **Just In Time** user provisioning.
 
 >[!NOTE]
-Skills Base does not support **IdP** initiated SSO.
+> Skills Base does not support **IdP** initiated SSO.
 
 ## Add Skills Base from the gallery
 
@@ -126,9 +126,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    
 1. In the **Authentication** panel, for **Single Sign-On** select the Identity Provider you added.
 
-   ![Screenshot for Authentication panel for SSO.](./media/skillsbase-tutorial/select-identity-provider.png)
+   ![Screenshot for Authentication panel for S S O.](./media/skillsbase-tutorial/select-identity-provider.png)
 
-1. Make sure the option to bypass the Skills Base login screen is **deselcted** for now.  You can enable this option later, once the integration is proved to be working.
+1. Make sure the option to bypass the Skills Base login screen is **deselected** for now.  You can enable this option later, once the integration is proved to be working.
 
 1. If you would like to enable **Just In Time** user provisioning, enable the **Automatic user account provisioning** option.
 
