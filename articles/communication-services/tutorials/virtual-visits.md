@@ -25,7 +25,7 @@ No matter the industry, there are at least three personas involved in a virtual 
 Azure and Teams are interoperable. This interoperability gives organizations choice in how they deliver virtual visits using Microsoft's cloud. Three examples include:
 
 -  **Microsoft 365** provides a zero-code suite for virtual visits using Microsoft [Teams](https://www.microsoft.com/microsoft-teams/group-chat-software/) and [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app). This is the easiest option but customization is limited. [Check out this video for an introduction.](https://www.youtube.com/watch?v=zqfGrwW2lEw)
--  **Microsoft 365 + Azure hybrid.** Combine Microsoft 365 Teams and Bookings with a custom Azure application for the consumer experience. Organizations take advantage of M365's employee familiarity but customize and embed the consumer visit experience in their own application.
+-  **Microsoft 365 + Azure hybrid.** Combine Microsoft 365 Teams and Bookings with a custom Azure application for the consumer experience. Organizations take advantage of Microsoft 365's employee familiarity but customize and embed the consumer visit experience in their own application.
 -  **Azure custom.** Build the entire solution on Azure primitives: the business experience, the consumer experience, and scheduling systems.
 
 ![Diagram of virtual visit implementation options](./media/sample-builder/virtual-visit-options.svg)
@@ -42,8 +42,8 @@ These three **implementation options** are columns in the table below, while eac
 | *Consumer*| Join the visit | Teams or Virtual Visits | ACS Calling & Chat | ACS Calling & Chat |
 
 There are other ways to customize and combine Microsoft tools to deliver a virtual visits experience:
--  **Replace Bookings with a custom scheduling experience with Graph.** You can build your own consumer-facing scheduling experience that controls M365 meetings with Graph APIs.
--  **Replace Teams’ provider experience with Azure.** You can still use M365 and Bookings to manage meetings but have the business user launch a custom Azure application to join the Teams meeting. This might be useful where you want to split or customize virtual visit interactions from day-to-day employee Teams activity.
+-  **Replace Bookings with a custom scheduling experience with Graph.** You can build your own consumer-facing scheduling experience that controls Microsoft 365 meetings with Graph APIs.
+-  **Replace Teams’ provider experience with Azure.** You can still use Microsoft 365 and Bookings to manage meetings but have the business user launch a custom Azure application to join the Teams meeting. This might be useful where you want to split or customize virtual visit interactions from day-to-day employee Teams activity.
 
 ## Extend Microsoft 365 with Azure
 The rest of this tutorial focuses on Microsoft 365 and Azure hybrid solutions. These hybrid configurations are popular because they combine employee familiarity of Microsoft 365 with the ability to customize the consumer experience. They’re also a good launching point to understanding more complex and customized architectures. The diagram below shows user steps for a virtual visit:
@@ -67,12 +67,12 @@ This sample uses takes advantage of the Microsoft 365 Bookings app to power the 
 ### Step 2 – Sample Builder
 Use the Sample Builder to customize the consumer experience. You can reach the Sampler Builder using this [link](https://aka.ms/acs-sample-builder), or navigating to the page within the Azure Communication Services resource in the Azure portal. Step through the Sample Builder wizard and configure if Chat or Screen Sharing should be enabled. Change themes and text to you match your application. You can preview your configuration live from the page in both Desktop and Mobile browser form-factors.
 
-![Sample builder start page](./media/sample-builder/sample-builder-start.png)
+[ ![Sample builder start page](./media/sample-builder/sample-builder-start.png)](./media/sample-builder/sample-builder-start.png#lightbox)
 
 ### Step 3 - Deploy
 At the end of the Sample Builder wizard, you can **Deploy to Azure** or download the code as a zip. The sample builder code is publicly available on [GitHub](https://github.com/Azure-Samples/communication-services-virtual-visits-js).
 
-![sample builder landing page](./media/sample-builder/sample-builder-landing.png)
+[ ![Sample builder deployment page](./media/sample-builder/sample-builder-landing.png)](./media/sample-builder/sample-builder-landing.png#lightbox)
 
 The deployment launches an Azure Resource Manager (ARM) template that deploys the themed application you configured.
 
