@@ -5,16 +5,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 04/06/2022
+ms.date: 05/05/2022
 ms.author: aahi
 ---
 
-> [!NOTE]
-> Project names is case sensitive.
+Use this **POST** request to submit an entity extraction task.
 
-Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
-
-`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
+```rest
+{ENDPOINT}/text/analytics/v3.2-preview.2/analyze
+```
 
 #### Headers
 
@@ -25,27 +24,28 @@ Use this **POST** request to start an entity extraction task. Replace `{projectN
 #### Body
 
 ```json
-    {
-    "displayName": "MyJobName",
+{
+    "displayName": "{JOB-NAME}",
     "analysisInput": {
         "documents": [
             {
-                "id": "doc1", 
-                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus, felis sed vehicula lobortis, lectus ligula facilisis quam, quis aliquet lectus diam id erat. Vivamus eu semper tellus. Integer placerat sem vel eros iaculis dictum. Sed vel congue urna."
+                "id": "{DOC-ID}",
+                "language": "{LANGUAGE-CODE}",
+                "text": "{DOC-TEXT}"
             },
             {
-                "id": "doc2",
-                "text": "Mauris dui dui, ultricies vel ligula ultricies, elementum viverra odio. Donec tempor odio nunc, quis fermentum lorem egestas commodo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+                "id": "{DOC-ID}",
+                "language": "{LANGUAGE-CODE}",
+                "text": "{DOC-TEXT}"
             }
         ]
     },
     "tasks": {
-        "customEntityRecognitionTasks": [      
+        "customEntityRecognitionTasks": [
             {
                 "parameters": {
-                      "project-name": "MyProject",
-                      "deployment-name": "MyDeploymentName"
-                      "stringIndexType": "TextElements_v8"
+                    "project-name": "`{PROJECT-NAME}`",
+                    "deployment-name": "`{DEPLOYMENT-NAME}`"
                 }
             }
         ]
@@ -53,23 +53,28 @@ Use this **POST** request to start an entity extraction task. Replace `{projectN
 }
 ```
 
-|Key|Sample Value|Description|
-|--|--|--|
-|displayName|"MyJobName"|Your job Name|
-|documents|[{},{}]|List of documents to run tasks on|
-|ID|"doc1"|a string document identifier|
-|text|"Lorem ipsum dolor sit amet"| You document in string format|
-|"tasks"|[]| List of tasks we want to perform.|
-|--|customEntityRecognitionTasks|Task identifer for task we want to perform. |
-|parameters|[]|List of parameters to pass to task|
-|project-name| "MyProject"| Your project name. The project name is case-sensitive.|
-|deployment-name| "MyDeploymentName"| Your deployment name|
+
+|Key  |Placeholder  |Value  | Example |
+|---------|---------|----------|--|
+| `displayName` | `{JOB-NAME}` | Your job name. | `MyJobName` |
+| `documents` | [{},{}] | List of documents to run tasks on. | `[{},{}]` |
+| `id` | `{DOC-ID}` | Document name or ID. | `doc1`|
+| `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the document. In case this key is not specified, the service will assume the default language of the project that was selected during project creation. See [language support](../../language-support.md) to learn more about supported language codes. |`en-us`|
+| `text` | `{DOC-TEXT}` | Document task to run the tasks on. | `Lorem ipsum dolor sit amet` |
+|`tasks`|`[]`| List of tasks we want to perform.|`[]`|
+| |customEntityRecognitionTasks|Task identifer for task we want to perform. | |
+|`parameters`|`[]`|List of parameters to pass to task|`[]`|
+| `project-name` |`{PROJECT-NAME}` | The name for your project. This value is case-sensitive.  | `myProject` |
+| `deployment-name` |`{DEPLOYMENT-NAME}` | The name of your deployment. This value is case-sensitive.  | `prod` |
+
 
 #### Response
 
-You will receive a 202 response indicating success. In the response **headers**, extract `operation-location`.
+You will receive a 202 response indicating that your task has been submitted successfully. In the response **headers**, extract `operation-location`.
 `operation-location` is formatted like this:
 
- `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
+```rest
+{ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/{JOB-ID}
+```
 
-You will use this endpoint in the next step to get the custom recognition task results.
+You can use this URL to query the task completion status and get the results when task is completed.

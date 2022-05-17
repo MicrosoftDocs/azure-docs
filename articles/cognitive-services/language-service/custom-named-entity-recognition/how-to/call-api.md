@@ -1,120 +1,57 @@
 ---
-title: Submit a Custom Named Entity Recognition (NER) task
+title: Send a Named Entity Recognition (NER) request to your custom model
+description: Learn how to send a request for custom NER.
 titleSuffix: Azure Cognitive Services
-description: Learn about sending a request for Custom Named Entity Recognition (NER).
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 04/06/2022
+ms.date: 05/09/2022
 ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021
+ms.devlang: csharp, python
+ms.custom: language-service-custom-ner
 ---
 
-# Deploy a model and extract entities from text using the runtime API.
+# Query deployment to extract entities
 
-Once you are satisfied with how your model performs, it is ready to be deployed, and used to recognize entities in text. You can only send entity recognition tasks through the API, not from Language Studio.
+After the deployment is added successfully, you can query the deployment to extract entities from your text based on the model you assigned to the deployment.
+You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-swagger) or through the [Client libraries (Azure SDK)](#get-task-results). 
 
-## Prerequisites
+## Test deployed model
 
-* A successfully [created project](create-project.md) with a configured Azure blob storage account
-    * Text data that [has been uploaded](create-project.md#prepare-training-data) to your storage account.
-* [Tagged data](tag-data.md)
-* A [successfully trained model](train-model.md)
-* Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
-    * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory.
+You can use the Language Studio to submit the custom entity recognition task and visualize the results. 
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+[!INCLUDE [Test model](../includes/language-studio/test-model.md)]
 
-## Deploy your model
-
-Deploying a model hosts it, and makes it available for predictions through an endpoint.
-
-When a model is deployed, you will be able to test the model directly in the portal or by calling the API associated with it.
-
-> [!NOTE]
-> You can only have ten deployment names
-
-[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
-   
-### Delete deployment
-
-To delete a deployment, select the deployment you want to delete and select **Delete deployment**
-
-> [!TIP]
-> You can test your model in Language Studio by sending samples of text for it to classify. 
-> 1. Select **Test model** from the menu on the left side of your project in Language Studio.
-> 2. Select the model you want to test.
-> 3. Add your text to the textbox, you can also upload a `.txt` file. 
-> 4. Click on **Run the test**.
-> 5. In the **Result** tab, you can see the extracted entities from your text. You can also view the JSON response under the **JSON** tab.
+---
 
 ## Send an entity recognition request to your model
 
-# [Using Language Studio](#tab/language-studio)
+# [Language Studio](#tab/language-studio)
 
-### Using Language studio
+[!INCLUDE [Get prediction URL](../includes/language-studio/get-prediction-url.md)]
 
-1. After the deployment is completed, select the model you want to use and from the top menu click on **Get prediction URL** and copy the URL and body.
+# [REST API](#tab/rest-api)
 
-    :::image type="content" source="../../custom-classification/media/get-prediction-url-1.png" alt-text="run-inference" lightbox="../../custom-classification/media/get-prediction-url-1.png":::
+First you will need to get your resource key and endpoint:
 
-2. In the window that appears, under the **Submit** pivot, copy the sample request into your command line
+[!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
 
-3. Replace `<YOUR_DOCUMENT_HERE>` with the actual text you want to classify.
+### Submit a custom NER task
 
-    :::image type="content" source="../../custom-classification/media/get-prediction-url-2.png" alt-text="run-inference-2" lightbox="../../custom-classification/media/get-prediction-url-2.png":::
+[!INCLUDE [submit a custom NER task using the REST API](../includes/rest-api/submit-task.md)]
 
-4. Submit the request
+### Get task results
 
-5. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId}>`
+[!INCLUDE [get custom NER task results](../includes/rest-api/get-results.md)]
 
-6. Copy the retrieve request and replace `jobId` and submit the request.
+# [Client libraries (Azure SDK)](#tab/client)
 
-    :::image type="content" source="../../custom-classification/media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../../custom-classification/media/get-prediction-url-3.png":::
-    
- ## Retrieve the results of your job
+First you will need to get your resource key and endpoint:
 
-1. Select **Retrieve** from the same window you got the example request you got earlier and copy the sample request into a text editor. 
-
-    :::image type="content" source="../media/get-prediction-retrieval-url.png" alt-text="Screenshot showing the prediction retrieval request and URL" lightbox="../media/get-prediction-retrieval-url.png":::
-
-2. Replace `<OPERATION_ID>` with the `jobId` from the previous step. 
-
-3. Submit the `GET` cURL request in your terminal or command prompt. You'll receive a 202 response with the API results if the request was successful.
-
-
-# [Using the REST API](#tab/rest-api)
-
-## Use the REST API
-
-First you will need to get your resource key and endpoint
-
-1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
-
-2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
-
-    :::image type="content" source="../../custom-classification/media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../../custom-classification/media/get-endpoint-azure.png":::
-
-### Submit custom NER task
-
-[!INCLUDE [Submit a custom NER task](../includes/rest-api/submit-task.md)]
-
-### Get the task results
-
-[!INCLUDE [Get the results of a custom NER task](../includes/rest-api/submit-task.md)]
-
-# [Using the client libraries (Azure SDK)](#tab/client)
-
-## Use the client libraries
-
-1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
-
-2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
-
-    :::image type="content" source="../../custom-classification/media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../../custom-classification/media/get-endpoint-azure.png":::
+[!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
 
 3. Download and install the client library package for your language of choice:
     
@@ -140,4 +77,10 @@ First you will need to get your resource key and endpoint
     * [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)
     
 ---
+
+## Next steps
+
+* [Custom NER overview](../overview.md)
+
+
 
