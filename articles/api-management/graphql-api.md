@@ -6,7 +6,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 05/17/2022
 ---
 
 # Import a GraphQL API

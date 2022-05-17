@@ -1,7 +1,7 @@
 ---
 title: Import GraphQL schema and set up field resolvers | Microsoft Docs
 titleSuffix: 
-description: Import a GraphQL schema to API Management and configure a policy to resolve a GraphQL query using an HTTP-based data sources.
+description: Import a GraphQL schema to API Management and configure a policy to resolve a GraphQL query using an HTTP-based data source.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
