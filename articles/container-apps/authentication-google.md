@@ -1,5 +1,5 @@
 ---
-title: Enable authentication and authorization in Azure Container Apps Preview with Google
+title: Enable authentication and authorization in Azure Container Apps with Google
 description: Learn to use the built-in Google authentication provider in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 04/20/2022
 ms.author: cshoe
 ---
 
-# Enable authentication and authorization in Azure Container Apps Preview with Google
+# Enable authentication and authorization in Azure Container Apps with Google
 
 This article shows you how to configure Azure Container Apps to use Google as an authentication provider.
 

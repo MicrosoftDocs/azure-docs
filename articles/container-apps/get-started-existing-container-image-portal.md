@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Deploy an existing container image in the Azure portal'
-description: Deploy an existing container image to Azure Container Apps Preview using the Azure portal.
+description: Deploy an existing container image to Azure Container Apps using the Azure portal.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -12,7 +12,7 @@ zone_pivot_groups: container-apps-registry-types
 
 # Quickstart: Deploy an existing container image in the Azure portal
 
-Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
 This article demonstrates how to deploy an existing container to Azure Container Apps using the Azure portal.
 

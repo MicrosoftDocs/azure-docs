@@ -1,5 +1,5 @@
 ---
-title: Enable authentication and authorization in Azure Container Apps Preview with Azure Active Directory
+title: Enable authentication and authorization in Azure Container Apps with Azure Active Directory
 description: Learn to use the built-in Azure Active Directory authentication provider in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 04/20/2022
 ms.author: cshoe
 ---
 
-# Enable authentication and authorization in Azure Container Apps Preview with Azure Active Directory
+# Enable authentication and authorization in Azure Container Apps with Azure Active Directory
 
 This article shows you how to configure authentication for Azure Container Apps so that your app signs in users with the [Microsoft identity platform](../active-directory/develop/v2-overview.md) (Azure AD) as the authentication provider.
 

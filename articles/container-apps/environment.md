@@ -1,5 +1,5 @@
 ---
-title: Azure Container Apps environments Preview
+title: Azure Container Apps environments
 description: Learn how environments are managed in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
 
-# Azure Container Apps Preview environments
+# Azure Container Apps environments
 
 Individual container apps are deployed to a single Container Apps environment, which acts as a secure boundary around groups of container apps. Container Apps in the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. You may provide an [existing virtual network](vnet-custom.md) when you create an environment.
 

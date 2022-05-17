@@ -1,5 +1,5 @@
 ---
-title: Provide an external virtual network to an Azure Container Apps Preview environment
+title: Provide an external virtual network to an Azure Container Apps environment
 description: Learn how to provide an external VNET to an Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Provide a virtual network to an external Azure Container Apps (Preview) environment
+# Provide a virtual network to an external Azure Container Apps environment
 
 The following example shows you how to create a Container Apps environment in an existing virtual network.
 

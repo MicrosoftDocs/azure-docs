@@ -1,6 +1,6 @@
 ---
-title: Securing a custom VNET in Azure Container Apps Preview
-description: Firewall settings to secure a custom VNET in Azure Container Apps Preview
+title: Securing a custom VNET in Azure Container Apps
+description: Firewall settings to secure a custom VNET in Azure Container Apps
 services: container-apps
 author: JennyLawrance
 ms.service: container-apps

@@ -1,5 +1,5 @@
 ---
-title: Enable authentication and authorization in Azure Container Apps Preview with a Custom OpenID Connect provider
+title: Enable authentication and authorization in Azure Container Apps with a Custom OpenID Connect provider
 description: Learn to use the built-in Custom OpenID Connect authentication provider in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 04/20/2022
 ms.author: cshoe
 ---
 
-# Enable authentication and authorization in Azure Container Apps Preview with a Custom OpenID Connect provider
+# Enable authentication and authorization in Azure Container Apps with a Custom OpenID Connect provider
 
 This article shows you how to configure Azure Container Apps to use a custom authentication provider that adheres to the [OpenID Connect specification](https://openid.net/connect/). OpenID Connect (OIDC) is an industry standard used by many identity providers (IDPs). You don't need to understand the details of the specification in order to configure your app to use an adherent IDP.
 
