@@ -23,7 +23,7 @@ You can create a custom storage class based on [Azure Premium LRS][premium-ssd] 
 
 Currently, as documented in [Managed disk bursting][azure-disk-bursting], there are two managed disk types that can burst: [Premium SSDs][premium-ssd] and [Standard SSDs][standard-ssd]. Other disk types cannot currently burst. There are two models of bursting for disks:
 
-- An on-demand bursting model, where the disk bursts whenever its needs exceed its current capacity. This model incurs additional charges anytime the disk bursts. On-demand bursting is only available for premium SSDs larger than 512 GiB. . On-demand bursting needs to be explicitly enabled. For more information, see [Enable on-demand disk bursting][on-demand-disk-bursting].
+- An on-demand bursting model, where the disk bursts whenever its needs exceed its current capacity. This model incurs additional charges anytime the disk bursts. On-demand bursting is only available for premium SSDs larger than 512 GiB. On-demand bursting needs to be explicitly enabled. For more information, see [Enable on-demand disk bursting][on-demand-disk-bursting].
 - A credit-based model, where the disk will burst only if it has burst credits accumulated in its credit bucket. This model does not incur additional charges when the disk bursts. Credit-based bursting is only available for premium SSDs 512 GiB and smaller, and standard SSDs 1024 GiB and smaller.
 
 Azure [Premium SSDs][premium-ssd] can use either bursting model, but [Standard SSDs][standard-ssd] currently only offer credit-based bursting. Consider increasing the [performance tier of your managed disks][change-disk-performance-tier] if your workload would otherwise be always running in burst mode.
@@ -73,7 +73,7 @@ A PersistentVolume can be *statically* created by a cluster administrator, or *d
 
 ## Storage Classes
 
-To define different tiers of storage, such as Premium and Standard, you can use an existing [Storage Class][kubernetes-storage-classes] or create your one. The StorageClass also defines the *reclaimPolicy*. When you delete the pod and the persistent volume is no longer required, the reclaimPolicy controls the behavior of the underlying Azure storage resource. The underlying storage resource can either be deleted or kept for use with a future pod. For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-drivers] the following extra `StorageClasses` are created:
+To define different tiers of storage, such as Premium and Standard, you can use an existing [Storage Class][kubernetes-storage-classes] or create your own. The StorageClass also defines the *reclaimPolicy*. When you delete the pod and the persistent volume is no longer required, the reclaimPolicy controls the behavior of the underlying Azure storage resource. The underlying storage resource can either be deleted or kept for use with a future pod. For clusters using the [Container Storage Interface (CSI) drivers][csi-storage-drivers] the following extra `StorageClasses` are created:
 
 | Permission | Reason |
 |---|---|
