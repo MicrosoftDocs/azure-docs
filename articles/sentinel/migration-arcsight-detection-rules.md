@@ -38,24 +38,21 @@ This diagram helps you to clarify the concept of a rule in Microsoft Sentinel co
 
 Use these samples to migrate rules from ArcSight to Microsoft Sentinel in various scenarios.
 
-|Rule  |Sample detection rule (ArcSight)  |Sample KQL query  |Resources  |
-|---------|---------|---------|---------|
-|Filter (and)     |[Sample detection rule in ArcSight](#filter-and-sample-detection-rule-in-arcsight)      |[Sample KQL query](#filter-and-sample-kql-query)         |<ul><li>[String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)</li><li>[Numerical operators](/azure/data-explorer/kusto/query/numoperators)</li><li>[ago](/azure/data-explorer/kusto/query/agofunction)</li><li>[Datetime](/azure/data-explorer/kusto/query/datetime-timespan-arithmetic)</li><li>[between](/azure/data-explorer/kusto/query/betweenoperator)</li><li>[now](/azure/data-explorer/kusto/query/nowfunction)</li><li>[parse](/azure/data-explorer/kusto/query/parseoperator)</li><li>[extract](/azure/data-explorer/kusto/query/extractfunction)</li><li>[parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)</li><li>[parse_csv](/azure/data-explorer/kusto/query/parseoperator)</li><li>[parse_path](/azure/data-explorer/kusto/query/parsepathfunction)</li><li>[parse_url](/azure/data-explorer/kusto/query/parseurlfunction)</li></ul>         |
-|Filter (or)    |[Sample detection rule in ArcSight](#filter-or-sample-detection-rule-in-arcsight)         |[Sample KQL query](#filter-and-sample-kql-queries)         |<ul><li>[String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)</li><li>[in](/azure/data-explorer/kusto/query/inoperator)</li>         |
+|Rule  |Description    |Sample detection rule (ArcSight)  |Sample KQL query  |Resources  |
+|---------|---------|---------|---------|---------|
+|Filter (`AND`)     |This is a sample rule with `AND` conditions. The event must match all conditions.    |:::image type="content" source="media/migration-arcsight-detection-rules/rule-1-sample.png" alt-text="Diagram illustrating a sample filter rule." lightbox="media/migration-arcsight-detection-rules/rule-1-sample.png":::<br>[Sample detection rule in ArcSight](#filter-and)      |[Sample KQL query](#filter-and-sample-kql-query)         |String filter:<br>• [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br><br>Numerical filter:<br>• [Numerical operators](/azure/data-explorer/kusto/query/numoperators)<br><br>Datetime filter:<br>• [ago](/azure/data-explorer/kusto/query/agofunction)<br>• [Datetime](/azure/data-explorer/kusto/query/datetime-timespan-arithmetic)<br>• [between](/azure/data-explorer/kusto/query/betweenoperator)<br>• [now](/azure/data-explorer/kusto/query/nowfunction)<br><br>Parsing:<br>• [parse](/azure/data-explorer/kusto/query/parseoperator)<br>• [extract](/azure/data-explorer/kusto/query/extractfunction)<br>• [parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)<br>• [parse_csv](/azure/data-explorer/kusto/query/parseoperator)<br>• [parse_path](/azure/data-explorer/kusto/query/parsepathfunction)<br>• [parse_url](/azure/data-explorer/kusto/query/parseurlfunction)  |
+|Filter (`OR`)    |This is a sample rule with `OR` conditions. The event can match any of the conditions.    |[Sample detection rule in ArcSight](#filter-or)         |[Sample KQL queries](#filter-or-sample-kql-queries)         |• [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• [in](/azure/data-explorer/kusto/query/inoperator)        |
+|Nested filter    |This is a sample rule with nested filtering conditions. The rule includes the `MatchesFilter` statement, which also includes filtering conditions. |[Sample detection rule in ArcSight](#nested-filter) |[Sample KQL queries](#nested-filter-sample-kql-queries) |• [Sample KQL function](https://techcommunity.microsoft.com/t5/azure-sentinel/using-kql-functions-to-speed-up-analysis-in-azure-sentinel/ba-p/712381)<br>• [Sample parameter function](https://github.com/Azure/Azure-Sentinel/blob/Downloads/Enriching%20Windows%20Security%20Events%20with%20Parameterized%20Function%20-%20Microsoft%20Tech%20Community)<br>• [join](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [where](/azure/data-explorer/kusto/query/whereoperator) |
 
+#### Filter (AND) 
 
-- [Filter (and)](#filter-and)
-- [Filter (or)](#filter-or)
+Here is a sample filter rule with `AND` conditions in ArcSight.
 
-#### Filter (and)
+:::image type="content" source="media/migration-arcsight-detection-rules/rule-1-sample.png" alt-text="Diagram illustrating a sample filter rule." lightbox="media/migration-arcsight-detection-rules/rule-1-sample.png":::
 
-This is a rule of type filter (and).
+##### Filter (AND): Sample KQL query
 
-##### Filter (and): Sample detection rule in ArcSight
-
-:::image type="content" source="media/migration-arcsight-detection-rules/rule-1-sample.png" alt-text="Diagram illustrating a sample filter rule (and)." lightbox="media/migration-arcsight-detection-rules/rule-1-sample.png":::
-
-##### Filter (and): Sample KQL query
+Here is the filter rule with `AND` conditions in KQL.  
 
 ```kusto
 SecurityEvent
@@ -70,30 +67,15 @@ Consider these best practices:
 - Use '==' if the value is not case-sensitive.
 - Order the filters by starting with the `where` statement, which filters out the most data.
 
-##### Related operators and functions
+#### Filter (OR)
 
-- [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)
-- [Numerical operators](/azure/data-explorer/kusto/query/numoperators)
-- [ago](/azure/data-explorer/kusto/query/agofunction)
-- [Datetime](/azure/data-explorer/kusto/query/datetime-timespan-arithmetic)
-- [between](/azure/data-explorer/kusto/query/betweenoperator)
-- [now](/azure/data-explorer/kusto/query/nowfunction)
-- [parse](/azure/data-explorer/kusto/query/parseoperator)
-- [extract](/azure/data-explorer/kusto/query/extractfunction)
-- [parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)
-- [parse_csv](/azure/data-explorer/kusto/query/parseoperator)
-- [parse_path](/azure/data-explorer/kusto/query/parsepathfunction)
-- [parse_url](/azure/data-explorer/kusto/query/parseurlfunction)
+Here is a sample filter rule with `OR` conditions in ArcSight.
 
-#### Filter (or)
-
-This is a rule of type filter (or).
-
-##### Filter (or): Sample detection rule in ArcSight
-
-:::image type="content" source="media/migration-arcsight-detection-rules/rule-2-sample.png" alt-text="Diagram illustrating a sample filter rule (or)." lightbox="media/migration-arcsight-detection-rules/rule-2-sample.png":::
+:::image type="content" source="media/migration-arcsight-detection-rules/rule-2-sample.png" alt-text="Diagram illustrating a sample filter rule (or).":::
 
 ##### Filter (or): Sample KQL queries
+
+Here are a few ways to write the filter rule with `OR` conditions in KQL.  
 
 ###### Option 1: Use in statement
 
@@ -112,16 +94,9 @@ SubjectUserName == "AutomationServices"
 ```
 While both options are identical in performance, we recommend option 1, which is easier to read.
 
-##### Related operators and functions
-
-- [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)
-- [in](/azure/data-explorer/kusto/query/inoperator)
-
 #### Nested filter
 
-This is a rule of type nested filter.
-
-##### Sample detection rule in ArcSight
+Here is a sample nested filter rule in ArcSight.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-3-sample-1.png" alt-text="Diagram illustrating a sample nested filter rule." lightbox="media/migration-arcsight-detection-rules/rule-3-sample-1.png":::
 
@@ -129,7 +104,9 @@ This is a rule of type nested filter.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-3-sample-2.png" alt-text="Diagram illustrating a sample nested filter rule." lightbox="media/migration-arcsight-detection-rules/rule-3-sample-2.png":::
 
-##### Sample KQL queries
+##### Nested filter: Sample KQL queries
+
+Here are a few ways to write the filter rule with `OR` conditions in KQL.
 
 ###### Option 1: Direct filter with where statement
 
@@ -214,13 +191,6 @@ $left.SubjectUserName == $right.SubjectUserName
 Considerations:
 - To optimize your queries, avoid the `=~` and `!~` case-insensitive operators when possible. Use the `==` and `!=` operators if the value is not case-sensitive.
 - We recommend that you use option 1 due to its simplicity. For optimized performance, avoid using option 4.
-
-##### Related operators and functions
-
-- [Sample KQL function](https://techcommunity.microsoft.com/t5/azure-sentinel/using-kql-functions-to-speed-up-analysis-in-azure-sentinel/ba-p/712381)
-- [Sample parameter function](https://github.com/Azure/Azure-Sentinel/blob/Downloads/Enriching%20Windows%20Security%20Events%20with%20Parameterized%20Function%20-%20Microsoft%20Tech%20Community)
-- [join](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)
-- [where](/azure/data-explorer/kusto/query/whereoperator)
 
 #### Active list (lookup)
 
