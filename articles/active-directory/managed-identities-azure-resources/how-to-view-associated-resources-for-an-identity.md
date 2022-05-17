@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/04/2022
+ms.date: 05/31/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -60,6 +60,7 @@ The list of associated resources can also be accessed using the REST API. This e
 ```https://management.azure.com/subscriptions/{resourceID of user-assigned identity}/listAssociatedResources?$filter={filter}&$orderby={orderby}&$skip={skip}&$top={top}&$skiptoken={skiptoken}&api-version=2021-09-30-preview ```
 
 *Parameters*
+
 | Parameter   | Example  |Description  |
 |---|---|---|
 | $filter  |  ```'type' eq 'microsoft.cognitiveservices/account' and contains(name, 'test')``` |  An OData expression that allows you to filter any of the available fields: name, type, resourceGroup, subscriptionId, subscriptionDisplayName, subscriptionId, subscriptionDisplayName<br/><br/>The following operations are supported: ```and```, ```or```, ```eq``` and ```contains``` |
