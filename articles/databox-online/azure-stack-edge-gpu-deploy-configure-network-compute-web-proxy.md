@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 04/06/2022
+ms.date: 05/17/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -86,7 +86,7 @@ Follow these steps to configure the network for your device.
     
     ![Screenshot of local web UI "Network" tile for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-1.png)
 
-    On your physical device, there are six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 6 are all data ports. For a new device, the **Network settings** page is as shown below.
+    On your physical device, there are six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 6 are all data ports. For a new device, the **Network** page is as shown below.
     
     ![Screenshot of local web UI "Network" page for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2a.png)
 
@@ -99,6 +99,10 @@ Follow these steps to configure the network for your device.
     - If you select Port 2, Port 3, Port 4, or Port 5, all of these ports are configured as DHCP by default.
 
         ![Screenshot of local web UI "Port 3 Network settings" for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-4.png)
+
+    - By default for all the ports, it is expected that you'll set an IP. If you decide not to set an IP for a network interface on your device, you can set the IP to **No** and then **Modify** the settings.
+
+        ![Screenshot of local web UI "Port 2 Network settings" for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/set-ip-no.png)
 
     As you configure the network settings, keep in mind:
 
@@ -123,12 +127,12 @@ Follow these steps to configure the network for your device.
 
     After you have configured and applied the network settings, select **Next: Advanced networking** to configure compute network.
 
-## Configure virtual switches and compute IPs
+## Configure virtual switches
 
-Follow these steps to enable compute on a virtual switch and configure virtual networks. 
+Follow these steps to add or delete virtual switches and virtual networks. 
 
 1. In the  local UI, go to **Advanced networking** page. 
-1. In the **Virtual switch** section, you'll assign compute intent to a virtual switch. Select **Add virtual switch** to create a new switch. 
+1. In the **Virtual switch** section, you'll add or delete virtual switches. Select **Add virtual switch** to create a new switch. 
 
     ![Screenshot of "Advanced networking" page in local UI for one node with Add virtual switch selected.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-1.png)
 
@@ -137,11 +141,44 @@ Follow these steps to enable compute on a virtual switch and configure virtual n
     1. Provide a name for your virtual switch.
     1. Choose the network interface on which the virtual switch should be created. 
     1. If deploying 5G workloads, set **Supports accelerated networking** to **Yes**.
-    1. Select the intent to associate with this network interface as **compute**. Alternatively, the switch can be used for management traffic as well. You can't configure storage intent as storage traffic was already configured based on the network topology that you selected earlier. 
-    
-    > [!TIP] 
-    > Use *CTRL + Click* to select more than one intent for your virtual switch.
+    1. Select **Apply**. You can see that the specified virtual switch is created. 
  
+    ![Screenshot of "Advanced networking" page with virtual switch added and enabled for compute in local UI for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
+
+1. You can create more than one switches by following the steps described earlier.
+1. To delete a virtual switch, under the **Virtual switch** section, select **Delete virtual switch**. When a virtual switch is deleted, the associated virtual networks will also be deleted.
+
+You can now create virtual networks and associate with the virtual switches you created.
+
+
+### Configure virtual network
+
+You can add or delete virtual networks associated with your virtual switches. To add a virtual switch, follow these steps:
+
+1. In the local UI on the **Advanced networking** page, under the **Virtual network** section, select **Add virtual network**.
+1. In the **Add virtual network** blade, input the following information:
+
+    1. Select a virtual switch for which you want to create a virtual network.
+    1. Provide a **Name** for your virtual network.
+    1. Enter a **VLAN ID** as a unique number in 1-4094 range. The VLAN ID that you provide should be in your trunk configuration. For more information on trunk configuration for your switch, refer to the instructions from your physical switch manufacturer. 
+    1. Specify the **Subnet mask** and **Gateway** for your virtual LAN network as per the physical network configuration.
+    1. Select **Apply**.
+
+    ![Screenshot of how to add virtual network in "Advanced networking" page in local UI for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-virtual-network-one-node-1.png)
+
+1. To delete a virtual network, under the **Virtual network** section, select **Delete virtual network** and select the virtual network you want to delete.
+
+Select **Next: Kubernetes >** to next configure your compute IPs for Kubernetes.
+
+
+## Configure compute IPs
+
+Follow these steps to configure compute IPs for your Kubernetes workloads. 
+
+1. In the  local UI, go to the **Kubernetes** page. 
+
+1. From the dropdown select a virtual switch that you will use for Kubernetes compute traffic. <!--By default, all switches are configured for management. You can't configure storage intent as storage traffic was already configured based on the network topology that you selected earlier.--> 
+  
 1. Assign **Kubernetes node IPs**. These static IP addresses are for the Kubernetes VMs.  
 
     For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. For a 1-node device, provide a minimum of 2 contiguous IPv4 addresses. 
@@ -160,34 +197,9 @@ Follow these steps to enable compute on a virtual switch and configure virtual n
 
     ![Screenshot of "Advanced networking" page in local UI with fully configured Add virtual switch blade for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-2.png)
 
-1. The configuration takes a couple minutes to apply and you may need to refresh the browser. You can see that the specified virtual switch is created and enabled for compute. 
- 
-    ![Screenshot of "Advanced networking" page with virtual switch added and enabled for compute in local UI for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
+1. The configuration takes a couple minutes to apply and you may need to refresh the browser. 
 
-
-To delete a virtual switch, under the **Virtual switch** section, select **Delete virtual switch**. When a virtual switch is deleted, the associated virtual networks will also be deleted.
-
-> [!IMPORTANT]
-> Only one virtual switch can be assigned for compute.
-
-### Configure virtual network
-
-You can add or delete virtual networks associated with your virtual switches. To add a virtual switch, follow these steps:
-
-1. In the local UI on the **Advanced networking** page, under the **Virtual network** section, select **Add virtual network**.
-1. In the **Add virtual network** blade, input the following information:
-
-    1. Select a virtual switch for which you want to create a virtual network.
-    1. Provide a **Name** for your virtual network.
-    1. Enter a **VLAN ID** as a unique number in 1-4094 range. The VLAN ID that you provide should be in your trunk configuration. For more information on trunk configuration for your switch, refer to the instructions from your physical switch manufacturer. 
-    1. Specify the **Subnet mask** and **Gateway** for your virtual LAN network as per the physical network configuration.
-    1. Select **Apply**.
-
-    ![Screenshot of how to add virtual network in "Advanced networking" page in local UI for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-virtual-network-one-node-1.png)
-
-To delete a virtual network, under the **Virtual network** section, select **Delete virtual network**. 
-
-Select **Next: Web proxy** to configure web proxy. 
+1. Select **Next: Web proxy** to configure web proxy. 
 
 ::: zone-end
 
@@ -226,6 +238,10 @@ To configure the network for a 2-node device, follow these steps on the first no
     To change the network settings, select a port and in the right pane that appears, modify the IP address, subnet, gateway, primary DNS, and secondary DNS. You can configure your network interface as IPv4.
 
     ![Local web UI "Advanced networking" page for a new device 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-network-settings-1m.png)
+
+    By default for all the ports, it is expected that you'll set an IP. If you decide not to set an IP for a network interface on your device, you can set the IP to **No** and then **Modify** the settings.
+
+    ![Screenshot of local web UI "Port 2 Network settings" for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/set-ip-no.png)
 
     As you configure the network settings, keep in mind:
 
@@ -412,7 +428,7 @@ For clients connecting via NFS protocol to the two-node device, follow these ste
 > [!NOTE]
 > Virtual IP settings are required. If you do not configure this IP, you will be blocked when configuring the **Device settings** in the next step.
 
-### Configure virtual switches and compute IPs
+### Configure virtual switches 
 
 After the cluster is formed and configured, you'll now create new virtual switches or assign intent to the existing virtual switches that are created based on the selected network topology.
 
@@ -420,7 +436,7 @@ After the cluster is formed and configured, you'll now create new virtual switch
 > On a two-node cluster, compute should only be configured on a virtual switch. 
 
 1. In the  local UI, go to **Advanced networking** page. 
-1. In the **Virtual switch** section, you'll assign compute intent to a virtual switch. You can select an existing virtual switch or select **Add virtual switch** to create a new switch. 
+1. In the **Virtual switch** section, add or delete virtual switches. Select **Add virtual switch** to create a new switch. 
 
     ![Configure compute page in Advanced networking in local UI 1](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-1.png)
 
@@ -429,11 +445,13 @@ After the cluster is formed and configured, you'll now create new virtual switch
     1. Provide a name for your virtual switch.
     1. Choose the network interface on which the virtual switch should be created. 
     1. If deploying 5G workloads, set **Supports accelerated networking** to **Yes**.
-    1. Select the intent to associate with this network interface as **compute**. Alternatively, the switch can be used for management traffic as well. You can't configure storage intent as storage traffic was already configured based on the network topology that you selected earlier. 
+
+
+### Configure compute IPs
+
+1. Select the intent to associate with this network interface as **compute**. Alternatively, the switch can be used for management traffic as well. You can't configure storage intent as storage traffic was already configured based on the network topology that you selected earlier. 
     
-    > [!TIP] 
-    > Use *CTRL + Click* to select more than one intent for your virtual switch.
- 
+
 1. Assign **Kubernetes node IPs**. These static IP addresses are for the Kubernetes VMs.  
 
     For an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. For a 1-node device, provide a minimum of 2 contiguous IPv4 addresses. For a two-node cluster, provide a minimum of 3 contiguous IPv4 addresses.
