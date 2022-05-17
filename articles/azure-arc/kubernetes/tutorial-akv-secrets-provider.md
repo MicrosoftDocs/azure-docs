@@ -317,11 +317,11 @@ spec:
         - "/bin/sleep"
         - "10000"
       volumeMounts:
-      - name: secrets-store01-inline
+      - name: secrets-store-inline
         mountPath: "/mnt/secrets-store"
         readOnly: true
   volumes:
-    - name: secrets-store01-inline
+    - name: secrets-store-inline
       csi:
         driver: secrets-store.csi.k8s.io
         readOnly: true
