@@ -207,7 +207,7 @@ This will open a **New twin alias** panel where you can name the alias and selec
 
 In the **Status** tab, you can define states for your element. *States* are data-driven overlays on your elements to indicate the health or status of the element. 
 
-To create a state, first choose whether the state is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of properties on the primary twin. For **Custom (advanced)**, you'll get a text box.
+To create a state, first choose whether the state is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The expression should have a numeric outcome. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
 Once you've defined your property expression, set value ranges to create state boundaries, and choose colors to represent each state in the visualization.
 
@@ -217,7 +217,9 @@ Once you've defined your property expression, set value ranges to create state b
 
 In the **Alerts** tab, you can set conditional notifications to help you quickly see when an element requires your attention.
 
-First, select a **Trigger expression** involving properties of *PrimaryTwin* that will generate an alert badge when it evaluates to true. Then, customize your alert badge with a **Badge icon**, **Badge color**, and **Notification text**.
+First, enter a **Trigger expression**. This is a JavaScript expression involving one or more properties of *PrimaryTwin* that yields a boolean result. This expression will generate an alert badge in the visualization when it evaluates to true. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
+
+Then, customize your alert badge with a **Badge icon**, **Badge color**, and **Notification text**.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-alerts.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Alerts tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-alerts.png":::
 
@@ -232,13 +234,45 @@ Select **Add widget** to bring up the **Widget library**, where you can select f
 Here are the types of widget that you can create:
  
 * **Gauge**: For representing numerical data points visually
+
+    Enter a **Label** and **Unit of measure**, then choose whether the gauge reflects a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The expression should have a numeric outcome. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
+
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png" alt-text="Screenshot of creating a new gauge-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png":::
 
-* **Link**: For including externally referenced content via a linked URL
+* **Link**: For including externally-referenced content via a linked URL
+
+    Enter a **Label** and destination **URL**.
+
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-link.png" alt-text="Screenshot of creating a new link-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-link.png":::
 
 * **Value**: For directly displaying twin property values
+
+    Enter a **Display name** and select a **Property expression** that you want to display. This can be a **Single property** of the primary twin, or a **Custom (advanced)** property expression. Custom expressions should be JavaScript expressions using one or more properties of the twin, and you'll select which outcome type the expression will produce. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
+
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png" alt-text="Screenshot of creating a new value-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png":::
+
+### Use custom (advanced) expressions
+
+While defining [status](#status), [alerts](#alerts), and [widgets](#widgets) in your behaviors, you may want to use custom expressions to define a property condition.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-status-custom.png" alt-text="Screenshot of defining a custom expression for a Status in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-status-custom.png":::
+
+These expressions use the JavaScript language, and allow you to use one or more properties of associated twins to define custom logic.
+
+The following chart indicates which [JavaScript operators](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Expressions_and_Operators#operators) are supported in 3D Scenes Studio.
+
+| Operator type | Supported? |
+| --- | --- |
+| Assignment operators | No |
+| Comparison operators | Yes |
+| Arithmetic operators | Yes |
+| Bitwise operators | Yes |
+| Logical operators | Yes |
+| String operators | Yes |
+| Conditional (ternary) operator | Yes |
+| Command operator | No |
+| Unary operators | No |
+| Relational operators | No |
 
 ## Manage layers 
 
