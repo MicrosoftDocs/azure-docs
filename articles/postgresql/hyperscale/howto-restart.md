@@ -1,6 +1,6 @@
 ---
 title: Restart server - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: How to restart the database in Azure Database for PostgreSQL - Hyperscale (Citus)
+description: Learn how to restart your Hyperscale (Citus) server group from the Azure portal.
 ms.author: jonels
 author: jonels-msft
 ms.service: postgresql

@@ -1,6 +1,7 @@
 ---
 title: Rebalance shards - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Distribute shards evenly across servers for better performance
+description: Learn how to use the Azure portal to rebalance data in a server group using the Shard rebalancer.
+ms.custom: kr2b-contr-experiment
 ms.author: jonels
 author: jonels-msft
 ms.service: postgresql
