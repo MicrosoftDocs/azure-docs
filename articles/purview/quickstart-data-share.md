@@ -6,7 +6,7 @@ ms.author: jife
 ms.service: purview
 ms.topic: quickstart
 ms.custom: references_regions
-ms.date: 05/16/2022
+ms.date: 05/17/2022
 ---
 # Quick start: Share Azure Storage data in-place and receive share with Microsoft Purview Data Sharing (preview)
 
@@ -68,40 +68,40 @@ Note: If you created the Purview account, you are automatically assigned all the
 ## Create a share
 1. Within Microsoft Purview governance portal, select **Data Share** icon from the left navigation, and then **Create a new share**.
 
-   <image src="./media/how-to-share-data/create-share.png" alt="Screenshot showing the data share overview."/>
+    ![Screenshot showing the data share overview.](./media/how-to-share-data/create-share.png "Data share overview.") 
 
 1. Provide the details for your share. Specify a name, share type, description of share contents (optional), and collection. Then select **Continue**.
 
     Note: If you don't see a collection from the drop-down list, it means you don't have Data Share Contributor role access to any Purview collection to share data. Contact your Collection Admin to grant you access. 
 
-    <img src="./media/how-to-share-data/create-share-details.png" alt="Create share and enter details" width=500/>
+    ![Screenshot showing create share and enter details.](./media/how-to-share-data/create-share-details.png "Create share and enter details.") 
 
 1. To add assets to your share, select **Add Assets**. 
 
-    <img src="./media/how-to-share-data/create-share-add-asset.png" alt="Add assets" width=500/>
+    ![Screenshot showing add assets.](./media/how-to-share-data/create-share-add-asset.png "Add assets.") 
 
 1. Select an asset type, and a storage account that has already been registered with Purview. Select **Continue**. 
 
     If you do not see a storage account from the drop down list, click on the **Register a new source to share from** link below to register your storage account. Azure resource needs to be registered with Purview before you can share data from that resource. Your storage account needs to be registered in the same collection as the share. 
 
-    <img src="./media/how-to-share-data/create-share-select-source.png" alt="Select source" width=500/> 
+    ![Screenshot showing select source.](./media/how-to-share-data/create-share-select-source.png "Select source.")  
 
 1. Browse your storage account hierarchy and select (check) the objects you want to share. Then select **Add**. 
 
     > [!NOTE]
     > When sharing from a storage account, only files and folders are currently supported. Sharing from container isn't currently supported. 
 
-    <img src="./media/how-to-share-data/create-share-select-contents.png" alt="Select objects to share" width=500/> 
+    ![Screenshot showing select objects to share.](./media/how-to-share-data/create-share-select-contents.png "Select objects to share.")   
 
 1. Review the assets selected. Optionally, edit **Name** and **Display name** which the recipient will see. Select **Continue**.
 
-    <img src="./media/how-to-share-data/create-share-edit-asset-name.png" alt="Edit asset name and display name" width=500/>   
+    ![Screenshot showing edit asset name and display name.](./media/how-to-share-data/create-share-edit-asset-name.png "Edit asset name and display name.")     
 
 1. Select **Add Recipient**. Enter the Azure login email address of who you want to share data with. Optionally, specify an expiration date for when to terminate the share. Select **Create and Share**. 
     
     You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
 
-    <img src="./media/how-to-share-data/create-share-add-recipient.png" alt="Add recipients" width=500/>   
+    ![Screenshot showing add recipients.](./media/how-to-share-data/create-share-add-recipient.png "Add recipients.")   
 
 You have now created your share. The recipients of your share will receive an invitation and they can view the pending share in their Purview account.
 
@@ -111,20 +111,20 @@ You have now created your share. The recipients of your share will receive an in
 
     If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant prior to viewing pending received share for the first time. Once verified, it's valid for 12 months.
 
-   ![Screenshot showing pending received share.](./media/how-to-receive-share/receive-share-invitation.png "Pending receive share.") 
+    ![Screenshot showing pending received share.](./media/how-to-receive-share/receive-share-invitation.png "Pending receive share.") 
 
 1. Select name of the pending share you want to view. 
 
-   ![Screenshot showing how to select pending received share.](./media/how-to-receive-share/receive-share-select-invitation.png "Select pending receive share.") 
+    ![Screenshot showing how to select pending received share.](./media/how-to-receive-share/receive-share-select-invitation.png "Select pending receive share.") 
 
 
 1. Specify a **Received share name** and a collection. Select **Accept and configure**. If you do not want to accept the invitation, select *Reject*.
-
-    <img src="./media/how-to-receive-share/receive-share-accept.png" alt="Accept pending share" width=500/>   
+ 
+    ![Screenshot showing accept pending share.](./media/how-to-receive-share/receive-share-accept.png "Accept pending share.") 
 
 1. Continue to map asset. Select **Map** next to the asset to specify a target data store to receive or access shared data. 
 
-    <img src="./media/how-to-receive-share/receive-share-map.png" alt="Map asset" width=500/>   
+    ![Screenshot showing map asset.](./media/how-to-receive-share/receive-share-map.png "Map asset.")   
 
 1. For in-place sharing, target type and locations are determined by the data provider's source type and location. Select a storage account with the same type and location as the source. 
 
@@ -135,14 +135,14 @@ You have now created your share. The recipients of your share will receive an in
     > [!NOTE] 
     > The container where shared data is mapped to is read-only. You cannot write to the container. You can map multiple shares into the same container.
  
-    <br>
-    <img src="./media/how-to-receive-share/receive-share-map-target.png" alt="Map asset to target" width=500/>  
+    <br> 
+    ![Screenshot showing map asset to target.](./media/how-to-receive-share/receive-share-map-target.png "Map asset to target.")   
 
 1. The screen will show *Mapping* in progress. Asset mapping can take a few minutes. Select **Close**. 
 
     You can select "Close" after you configured all the asset mapping. You don't need to wait for the mapping to complete.
-
-    <img src="./media/how-to-receive-share/receive-share-map-inprogress.png" alt="Map asset to target in progress" width=500/>  
+ 
+    ![Screenshot showing map asset to target in progress.](./media/how-to-receive-share/receive-share-map-inprogress.png "Map asset to target in progress.")   
 
 1. Select **Assets** tab to monitor mapping status. Once mapping is completed, you'll get a notification in the screen. The status will change from *Mapping* to *Mapped*. 
 

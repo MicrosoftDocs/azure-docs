@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 05/17/2022
 ---
 
 # Understand Microsoft Purview Data Sharing (preview)
@@ -28,11 +28,11 @@ Microsoft Purview Data Sharing can help with a variety of data sharing scenarios
 
 Microsoft Purview enables sharing of files and folders in-place from ADLS Gen2 and Blob storage accounts. A data provider creates a share by specifying files and folders to be shared, and who to share them with (one or more data consumers). Microsoft Purview sends an invitation to each data consumer, who accepts the invitation and specifies the target storage account in their own Azure subscription to access the shared data. This establishes a sharing relationship between the provider and consumer storage accounts. This sharing relationship provides data consumer read-only access to shared data through the consumer’s target storage account. Any changes to the data in the provider’s source storage account is reflected in near real-time in the consumer’s target storage account. The data provider pays for data storage and their own data access, while the data consumer pays for their own data access transactions.  Data provider can revoke access to the share or set a share expiration time for time-bound access to data. Data consumer can also terminate access to the share at any time.
 
-<img src="./media/concept-data-share/data-share-flow.png" alt="Data share flow" width=500/>
+![Screenshot showing data share flow.](./media/concept-data-share/data-share-flow.png "Data share flow.") 
 
 ## Key capabilities
 
-* Share data within the organization or with partners and customers outside of the organization (within the same Azure tenant or across different AAD tenants)
+* Share data within the organization or with partners and customers outside of the organization (within the same Azure tenant or across different Azure tenants)
 * Share data in-place without data duplication from ADLS Gen2 or Blob storage
 * Share data with multiple recipients
 * Access shared data in near real time
