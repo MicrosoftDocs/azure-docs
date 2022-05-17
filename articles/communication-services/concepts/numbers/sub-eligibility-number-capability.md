@@ -10,6 +10,7 @@ ms.author: sadas
 ms.date: 03/04/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: references_regions
 ---
 
 # Subscription eligibility and number capabilities
@@ -35,7 +36,7 @@ The capabilities that are available to you depend on the country that you're ope
 
 The tables below summarize current availability:
 
-## Customers with US Azure Billing Addresses
+## Customers with US Azure billing addresses
 
 | Number            | Type        | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------------- | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
@@ -45,7 +46,7 @@ The tables below summarize current availability:
 
 \* Available through Azure Bot Framework and Dynamics only
 
-## Customers with UK Azure Billing Addresses
+## Customers with UK Azure billing addresses
 
 | Number             | Type           | Send SMS             | Receive SMS          | Make Calls       | Receive Calls    |
 | :----------------- | :------------- | :------------------- | :------------------- | :--------------- | :--------------- |
@@ -58,7 +59,7 @@ The tables below summarize current availability:
 
 \* Available through Azure Bot Framework and Dynamics only
 
-## Customers with Ireland Azure Billing Addresses
+## Customers with Ireland Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls           | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------------- | :--------------- |
@@ -74,7 +75,7 @@ The tables below summarize current availability:
 
 \* Available through Azure Bot Framework and Dynamics only
 
-## Customers with Denmark Azure Billing Addresses
+## Customers with Denmark Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
@@ -89,7 +90,7 @@ The tables below summarize current availability:
 
 \* Available through Azure Bot Framework and Dynamics only
 
-## Customers with Canada Azure Billing Addresses
+## Customers with Canada Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
@@ -103,7 +104,7 @@ The tables below summarize current availability:
 
 \* Available through Azure Bot Framework and Dynamics only
 
-## Customers with Italy Azure Billing Addresses
+## Customers with Italy Azure billing addresses
 
 | Number  | Type      | Send SMS      | Receive SMS   | Make Calls     | Receive Calls    |
 | :------ | :-------- | :------------ | :------------ | :------------- | :--------------- |
@@ -114,7 +115,7 @@ The tables below summarize current availability:
 
 \** Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch.
 
-## Customers with Sweden Azure Billing Addresses
+## Customers with Sweden Azure billing addresses
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
