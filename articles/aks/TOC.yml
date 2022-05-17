@@ -181,6 +181,8 @@
           href: upgrade-cluster.md
         - name: Use Uptime SLA
           href: uptime-sla.md
+        - name: Use Draft
+          href: draft.md
         - name: Use proximity placement groups
           href: reduce-latency-ppg.md
         - name: Upgrade the node image
@@ -463,6 +465,10 @@
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on
           href: open-service-mesh-uninstall-add-on.md
+    - name: Kubernetes Event-driven Autoscaler add-on (preview)
+      href: keda.md
+    - name: Web Application Routing (preview)
+      href: web-app-routing.md
     - name: Use cluster extensions (preview)
       href: cluster-extensions.md
     - name: DevOps
