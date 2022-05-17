@@ -20,7 +20,7 @@ ms.custom: ignite-fall-2021
 
 :::image type="content" source="media/microservices/azure-container-services-microservices.png" alt-text="Container apps are deployed as microservices.":::
 
-A Container Apps [environment](environment.md) provides a security boundary around a group of container apps. A single container app typically represents a microservice, which is composed of pods made up of one or more [containers](containers.md).
+A Container Apps [environment](environment.md) provides a security boundary around a group of container apps. A single container app typically represents a microservice, which is composed of container apps made up of one or more [containers](containers.md).
 
 ## Dapr integration
 
