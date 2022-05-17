@@ -63,7 +63,7 @@ To provision a custom domain you need to
 
 10. If you would like to resume the verification later, you can click **Close** and resume the verification from **Provision Domains** by clicking **Configure** .
 
-    :::image type="content" source="./media/email-domains-custom-configure.png" alt-text="Screenshot that shows the added domain ready for verification in the list of provisioned domains.":::
+    :::image type="content" source="./media/email-domains-custom-configure.png" alt-text="Screenshot that shows the added domain ready for verification in the list of provisioned domains." lightbox="media/email-domains-custom-configure-expanded.png":::
 11. Clicking **Verify Domain** or **Configure** will navigate to "Verify Domain via TXT record" to follow. 
 
     :::image type="content" source="./media/email-domains-custom-verify.png" alt-text="Screenshot that shows the Configure link that you need to click to verify domain ownership." lightbox="media/email-domains-custom-verify-expanded.png":::
@@ -74,7 +74,7 @@ To provision a custom domain you need to
 14. DNS changes will take up to 15 to 30 minutes. Click **Close**
 
     :::image type="content" source="./media/email-domains-custom-verify-progress.png" alt-text="Screenshot that shows the domain verification is in progress.":::
-15. Once your domain is verified, you can add your SPF, DKIM, and DMARC records to authenticate your domains. 
+15. Once your domain is verified, you can add your SPF and DKIM records to authenticate your domains. 
 
     :::image type="content" source="./media/email-domains-custom-verified.png" alt-text="Screenshot that shows the the custom domain is verified." lightbox="media/email-domains-custom-verified-expanded.png":::
 
