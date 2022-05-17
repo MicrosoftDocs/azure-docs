@@ -183,7 +183,7 @@ This section contains the following examples:
 > - Download specific files
 
 > [!TIP]
-> You can tweak your download operation by using optional flags. Here's a few examples.
+> You can tweak your download operation by using optional flags. Here are a few examples:
 >
 > |Scenario|Flag|
 > |---|---|

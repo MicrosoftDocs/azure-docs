@@ -44,9 +44,6 @@ For information about gateway SKUs, see [VPN gateway SKUs](vpn-gateway-about-vpn
 
 Zone-redundant gateways and zonal gateways both rely on the Azure public IP resource *Standard* SKU. The configuration of the Azure public IP resource determines whether the gateway that you deploy is zone-redundant, or zonal. If you create a public IP resource with a *Basic* SKU, the gateway will not have any zone redundancy, and the gateway resources will be regional.
 
-> [!IMPORTANT]
-> *Standard* public IP resources with Tier = Global cannot be attached to a Gateway. Only *Standard* public IP resources with Tier = Regional can be used.
-
 ### <a name="pipzrg"></a>Zone-redundant gateways
 
 When you create a public IP address using the **Standard** public IP SKU without specifying a zone, the behavior differs depending on whether the gateway is a VPN gateway, or an ExpressRoute gateway. 

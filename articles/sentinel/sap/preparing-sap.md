@@ -37,7 +37,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 > [!IMPORTANT]
 > - This article presents a [**step-by-step guide**](#deploy-change-requests) to deploying the required CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
-> - Experienced SAP administrators that are familiar with CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900163* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below.
+> - Experienced SAP administrators that are familiar with CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900206* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below.
 
 > [!NOTE]
 > 
@@ -110,7 +110,7 @@ To deploy the CRs, follow the steps outlined below:
     cp -p R*.NPL /usr/sap/trans/data/
     ```
 
-### Set up the applications
+### Import the CRs
 
 1. Launch the **SAP Logon** application and sign in to the SAP GUI console.
 
@@ -157,7 +157,7 @@ To deploy the CRs, follow the steps outlined below:
 
     :::image type="content" source="media/preparing-sap/import-history.png" alt-text="Screenshot of import history.":::
 
-1. The *NPLK900180* change request is expected to display a **Warning**. Select the entry to verify that the warnings displayed are of type  "Table \<tablename\> was activated."
+1. The *NPLK900202* change request is expected to display a **Warning**. Select the entry to verify that the warnings displayed are of type  "Table \<tablename\> was activated."
 
     :::image type="content" source="media/preparing-sap/import-status.png" alt-text="Screenshot of import status display." lightbox="media/preparing-sap/import-status-lightbox.png":::
 
@@ -165,7 +165,7 @@ To deploy the CRs, follow the steps outlined below:
 
 ## Configure Sentinel role
 
-After the *NPLK900163* change request is deployed, a **/MSFTSEN/SENTINEL_CONNECTOR** role is created in SAP. If the role is created manually, it may bear a different name.
+After the *NPLK900206* change request is deployed, a **/MSFTSEN/SENTINEL_CONNECTOR** role is created in SAP. If the role is created manually, it may bear a different name.
 
 In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNECTOR**.
 
@@ -226,7 +226,7 @@ The following table lists the ABAP authorizations required to ensure that SAP lo
 The required authorizations are listed here by log type. Only the authorizations listed for the types of logs you plan to ingest into Microsoft Sentinel are required.
 
 > [!TIP]
-> To create a role with all the required authorizations, deploy the SAP change request *NPLK900163* on the SAP system. This change request creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the necessary permissions for the data connector to operate.
+> To create a role with all the required authorizations, deploy the SAP change request *NPLK900206* on the SAP system. This change request creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the necessary permissions for the data connector to operate.
 
 | Authorization Object | Field | Value |
 | -------------------- | ----- | ----- |

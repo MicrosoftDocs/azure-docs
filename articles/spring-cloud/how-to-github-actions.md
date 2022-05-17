@@ -225,7 +225,7 @@ jobs:
     runs-on: ubuntu-latest
     name: deploy to production with artifact
     steps:
-      - name: Checkout Github Action
+      - name: Checkout GitHub Action
         uses: actions/checkout@v2
         
       - name: Set up JDK 1.8
@@ -267,7 +267,7 @@ jobs:
     runs-on: ubuntu-latest
     name: deploy to production with soruce code
     steps:
-      - name: Checkout Github Action
+      - name: Checkout GitHub Action
         uses: actions/checkout@v2
 
       - name: Login via Azure CLI
