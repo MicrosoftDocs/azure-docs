@@ -112,8 +112,10 @@ In this section, you'll prepare a development environment that's used to build t
 
 7. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command to build a version of the SDK specific to your development platform that includes the device provisioning client. A Visual Studio solution for the simulated device is generated in the `cmake` directory.
 
+    When specifying the path used with `-Dhsm_custom_lib` in the command below, make sure to use the absolute path to the library in the `cmake` directory you previously created. The path shown below assumes that you cloned the C SDK in the root directory of the C drive. If you used another directory, adjust the path accordingly.
+
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=c:/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
     ```
 
     >[!TIP]
@@ -122,7 +124,7 @@ In this section, you'll prepare a development environment that's used to build t
 8. When the build succeeds, the last few output lines look similar to the following output:
 
     ```cmd
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=c:/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
     -- Building for: Visual Studio 16 2019
     -- The C compiler identification is MSVC 19.23.28107.0
     -- The CXX compiler identification is MSVC 19.23.28107.0
@@ -808,17 +810,27 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 ## Confirm your device provisioning registration
 
-1. Go to the [Azure portal](https://portal.azure.com).
+You can examine the individual enrollment you created previously to see the registration details of your device and learn which IoT Hub it was provisioned to.
 
-2. On the left-hand menu or on the portal page, select **All resources**.
+1. In Azure portal, go to your Device Provisioning Service.
 
-3. Select the IoT hub to which your device was assigned.
+1. In the **Settings** menu, select **Manage enrollments**.
 
-4. In the **Explorers** menu, select **IoT Devices**.
+1. Select **Individual Enrollments**. The X.509 enrollment entry that you created previously, *my-x509-device*, should appear in the list.
 
-5. If your device was provisioned successfully, its device ID, *my-x509-device*, should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
+1. Select your enrollment entry. The IoT hub that your device was assigned to and its device ID appears under **Registration Status**.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/hub-registration-csharp.png" alt-text="Screenshot that shows the device is registered with the IoT hub":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/individiual-enrollment-after-registration.png" alt-text="Screenshot that shows the individual enrollment registration status for the device.":::
+
+To verify the device on your IoT hub:
+
+1. In Azure portal, go to the IoT hub that your device was assigned to.
+
+1. In the **Device management** menu, select **Devices**.
+
+1. If your device was provisioned successfully, its device ID, *my-x509-device*, should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh**.
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/iot-hub-registration.png" alt-text="Screenshot that shows the device is registered with the IoT hub.":::
 
 ::: zone pivot="programming-language-csharp,programming-language-nodejs,programming-language-python,programming-language-java"
 
