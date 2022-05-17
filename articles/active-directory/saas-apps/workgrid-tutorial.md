@@ -67,7 +67,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot of Edit Basic SAML Configuration.](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -82,15 +82,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 5. Workgrid application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-   ![image](common/edit-attribute.png)
+   ![Screenshot of user attributes.](common/edit-attribute.png)
 
 6. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-   ![The Certificate download link](common/metadataxml.png)
+   ![Screenshot of The Certificate download link](common/metadataxml.png)
 
 7. On the **Set-up Workgrid** section, copy the appropriate URL(s) as per your requirement.
 
-   ![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Screenshot of Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
