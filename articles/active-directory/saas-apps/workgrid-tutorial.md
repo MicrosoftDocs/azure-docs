@@ -86,11 +86,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 6. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-   ![Screenshot of The Certificate download link](common/metadataxml.png)
+   ![Screenshot of The Certificate download link.](common/metadataxml.png)
 
 7. On the **Set-up Workgrid** section, copy the appropriate URL(s) as per your requirement.
 
-   ![Screenshot of Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Screenshot of Copy configuration U R Ls.](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -124,8 +124,8 @@ To configure single sign-on on **Workgrid** side, you need to add the downloaded
 
    > [!NOTE]
    > You will need to use the full schema URI for the Email, Name and Family Name claims when mapping the attributes in Workgrid:
-  
-   ![Screenshot of the Workgrid U I with the Security section attribute fields.](media/workgrid-tutorial/attribute-mappings.png)
+ >
+ >  ![Screenshot of the Workgrid U I with the Security section attribute fields.](media/workgrid-tutorial/attribute-mappings.png)
 
 
 ### Create Workgrid test user
