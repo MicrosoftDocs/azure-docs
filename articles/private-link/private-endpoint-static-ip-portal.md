@@ -1,7 +1,7 @@
 ---
 title: Create a private endpoint with a static IP address - Azure portal
 titleSuffix: Azure Private Link
-description: Learn how to create a private endpoint for an Azure service with a static private IP address.
+description: Learn how to create a private endpoint for an Azure service with a static private IP address in the Azure portal.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
