@@ -11,7 +11,7 @@ ms.custom: devdivchpfy22
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> If using a version of Azure Lab Services prior to the [April 2022 Update (preview)](lab-services-whats-new.md), see [Attach or detach a shared image gallery in Azure Lab Services (deprecated)](how-to-attach-detach-shared-image-gallery-1.md).
+> If using a version of Azure Lab Services prior to the [April 2022 Update (preview)](lab-services-whats-new.md), see [Attach or detach a shared image gallery to a lab account in Azure Lab Services](how-to-attach-detach-shared-image-gallery-1.md).
 
 This article shows you how to attach or detach an Azure Compute Gallery to a lab plan.
 

@@ -13,7 +13,7 @@ ms.author: enewman
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> If using a version of Azure Lab Services prior to the [April 2022 Update (preview)](lab-services-whats-new.md), see [How to create a lab with a shared resource in Azure Lab Services (deprecated)](how-to-create-a-lab-with-shared-resource-1.md).
+> If using a version of Azure Lab Services prior to the [April 2022 Update (preview)](lab-services-whats-new.md), see [How to create a lab with a shared resource in Azure Lab Services when using lab accounts](how-to-create-a-lab-with-shared-resource-1.md).
 
 When you're creating a lab, there might be some resources that need to be shared among all the students in a lab. For example, you have a licensing server or SQL Server for a database class. This article will discuss the steps to enable the shared resource for a lab. We’ll also talk about how to limit access to the shared resource.
 
