@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-pii
 ---
 
-# Supported Personally Identifiable Information (PII) entity categories in conversations
+# Supported customer content (PII) entity categories in conversations
 
 Use this article to find the entity categories that can be returned by the [conversational PII detection feature](../how-to-call-for-conversations.md). This feature runs a predictive model to identify, categorize, and redact sensitive information from an input conversation.
 
