@@ -128,3 +128,9 @@ let callComposite = CallComposite(withOptions: callCompositeOptions)
 ```
 
 :::image type="content" source="media/ios-custom-string.png" alt-text="iOS custom string":::
+
+### Accessibility VoiceOver for Localization
+
+For VoiceOver to work properly for a localization, make sure the language is added into your app's Localizations. So the VoiceOver will detect the app supports the language specified in LocalizationConfiguration locale, and select the Speech voice for the language using the voice found in device's Settings -> Accessibility -> Speech. You can verify if the language is added to your project as shown below.
+
+:::image type="content" source="media/ios-xcode-project-localizations.png" alt-text="iOS XCode Project Localizations":::
