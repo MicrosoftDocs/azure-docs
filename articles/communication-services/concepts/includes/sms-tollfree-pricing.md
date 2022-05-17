@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: prakulka
 ---
 >[!Important] 
->Toll-free availability is currently restricted to Azure subscriptions that have a billing address in the United States and Canada.
+>Toll-free availability is currently restricted to Azure subscriptions that have a billing address in the United States, Canada, United Kingdom, and Italy.
 
 The Toll-free SMS service requires provisioning a toll-free number through the Azure portal. Once a toll-free number is provisioned, pay-as-you-go pricing applies to the leasing fee, and the usage fee. The leasing fee, and the usage fee is determined by the short code type, location of the short code, and the destination.
 
@@ -34,8 +34,8 @@ The following prices include required communications taxes and fees:
 
 |Country| Send Message | Receive Message|
 |-----------|---------|--------------|
-| United States| $0.0075 | $0.0075|
-| Canada | $0.0075 | $0.0075|
+|United States| $0.0075 | $0.0075|
+|Canada | $0.0075 | $0.0075|
 
 
 *Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
@@ -45,7 +45,7 @@ A standard carrier surcharge is applicable to messages exchanged via toll-free n
 
 |Country| Send Message | Receive Message|
 |-----------|---------|--------------|
-| United States| $0.0025 | $0.0010|
-| Canada | $0.0085 | NA|
+|United States| $0.0025 | $0.0010|
+|Canada | $0.0085 | NA|
 
 *Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
