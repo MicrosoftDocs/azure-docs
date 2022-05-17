@@ -27,10 +27,12 @@ This article explains how to create and use a service principal for your Azure R
 
 The following sections explain how to use the Azure CLI to create a service principal for your Azure Red Hat OpenShift cluster 
 
-## Prerequisite
+## Prerequisites - Azure CLI
 
 If you’re using the Azure CLI, you’ll need Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
- 
+
+On [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) create a service principal. Be sure to save the client ID and the appID.
+
 ## Create a resource group
 
 ```azurecli-interactive
@@ -101,6 +103,10 @@ az aro create \
 ## Create a service principal with the Azure portal
 
 The following sections explain how to use the Azure portal to create a service principal for your Azure Red Hat OpenShift cluster.
+
+## Prerequiste - Azure portal
+
+On [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) create a service principal. Be sure to save the client ID and the appID.
 
 ## Create a service principal - Azure portal 
 
