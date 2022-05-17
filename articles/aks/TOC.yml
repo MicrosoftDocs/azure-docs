@@ -469,7 +469,7 @@
       href: keda.md
     - name: Web Application Routing (preview)
       href: web-app-routing.md
-    - name: Use cluster extensions (preview)
+    - name: Use cluster extensions
       href: cluster-extensions.md
     - name: DevOps
       items:
