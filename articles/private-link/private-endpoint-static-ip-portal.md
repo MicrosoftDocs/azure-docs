@@ -75,10 +75,10 @@ It can take a few minutes for the Azure Bastion host to deploy. The deployment i
 
 ## Create a private endpoint
 
-An Azure service that supports private endpoints is required to setup the private endpoint and connection to the virtual network. For the examples in this article, you'll use the Azure WebApp from the prerequisites. For more information on the Azure services that support a private endpoint, see [Azure Private Link availability](availability.md).
+An Azure service that supports private endpoints is required to set up the private endpoint and connection to the virtual network. For the examples in this article, you'll use the Azure WebApp from the prerequisites. For more information on the Azure services that support a private endpoint, see [Azure Private Link availability](availability.md).
 
 > [!IMPORTANT]
-> You must have a previously deployed Azure WebApp to proceed with the steps in this article. See [Prerequisites](#prerequisites) for more information.
+> You must have a previously deployed Azure WebApp to proceed with the steps in this article. For more information, see [Prerequisites](#prerequisites).
 
 1. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints**.
 
@@ -105,7 +105,7 @@ An Azure service that supports private endpoints is required to setup the privat
     | Subscription | Select your subscription. |
     | Resource type | Select **Microsoft.Web/sites**. |
     | Resource | Select **mywebapp1979**. |
-    | Target sub-resource | Select **sites**. |
+    | Target subresource | Select **sites**. |
 
 6. Select **Next: Virtual Network** at the bottom of the page.
 
@@ -162,7 +162,7 @@ To verify the static IP address and the functionality of the private endpoint, a
     | **Administrator account** |   |
     | Username | Enter a username. |
     | Password | Enter a password. |
-    | Confirm password | Re-enter password. |
+    | Confirm password | Reenter password. |
     | **Inbound port rules** |   |
     | Public inbound ports | Select **None**. |
 
@@ -203,7 +203,7 @@ Use the VM you created in the previous step to connect to the webapp across the 
 
 6. After you've connected, open PowerShell on the server.
 
-7. Enter `nslookup mywebapp1979.azurewebsites.net`. Replace **mywebapp1979** with the name of the web app that you created earlier. You'll receive a message that's similar to the following:
+7. Enter `nslookup mywebapp1979.azurewebsites.net`. Replace **mywebapp1979** with the name of the web app that you created earlier. You'll receive a message that's similar to the following example:
 
     ```powershell
     Server:  UnKnown
