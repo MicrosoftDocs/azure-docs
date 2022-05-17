@@ -12,25 +12,38 @@ ms.custom: template-tutorial
 
 # Tutorial: Deploy a Dapr application to Azure Container Apps using Github Actions
 
-[GitHub Actions](https://docs.github.com/en/actions) gives you the flexibility to build an automated software development lifecycle workflow. In this tutorial, you will leverage the Github Actions integration with Azure Container Apps to generate a workflow for deploying revision-scope changes on a [Dapr](./dapr-overview.md) container app.
+[GitHub Actions](https://docs.github.com/en/actions) gives you the flexibility to build an automated software development lifecycle workflow. In this tutorial, you will leverage the Github Actions integration with Azure Container Apps to generate a workflow for deploying revision-scope changes on a [Dapr](https://docs.dapr.io) container app. 
+
+Azure Container Apps integrates with a [managed version of Dapr](./dapr-overview.md). Dapr is an open source project that helps developers with the inherent challenges presented by distributed applications, such as state management and service invocation.
 
 You will:
 
 > [!div class="checklist"]
 >
-> - Deploy a Dapr container app sample microservice to Azure Container Apps.
-> - Run a GitHub Actions workflow for deploying Azure Container Apps revisions to the Dapr sample app.
+> - Deploy a Dapr container app microservice sample to Azure Container Apps.
+> - Run a GitHub Actions workflow for deploying Azure Container Apps revisions.
 > - Modify the generated workflow within the context of a monorepo.
-> - Make a [revision-scope change](revisions.md#revision-scope-changes) to a Dapr application to trigger the GitHub workflow.
+> - Make a [revision-scope change](revisions.md#revision-scope-changes) to the application to trigger the GitHub workflow.
 > - View the Container Apps revision you triggered.
 
-The [Container App Store Microservice sample](https://github.com/Azure-Samples/container-apps-store-api-microservice) consists of three microservices, which will be deployed as three container apps respectively:
+The [Container App Store Microservice sample](https://github.com/Azure-Samples/container-apps-store-api-microservice) is configured with GitHub Actions and Bicep for CI/CD. Once your solution is up and running in Azure, you will trigger new revisions for the order service using the Azure Container Apps GitHub Actions integration.
 
-- **Store API** (node-app): returns details on an order from the order service and details on an inventory item from the inventory service
-- **Order service** (python-app): Python flask app that retrieves and stores order state
-- **Inventory service** (go-app): Go mux app that returns a static value for inventory state for demo purposes
+The sample solution consists of three microservices, which will be deployed as three container apps:
 
-Once your solution is up and running in Azure, you will trigger new revisions for the order service using the Azure Container Apps GitHub Actions integration.
+**Store API** (node-app)
+
+The node-app is an `express.js` API that exposes three endpoints. 
+- `/` will return the primary index page.
+- `/order` will return details on an order (retrieved from the order service).
+- `/inventory` will return details on an inventory item (retrieved from the inventory service).
+
+**Order service** (python-app)
+
+The python-app is a Python flask app that will retrieve and store the state of orders. Th order service calls the Dapr state store APIs, which are bound to a Redis container preinstalled with Dapr. When the application is later deployed to Azure Container Apps, the component config YAML will be modified to point to an Azure CosmosDB instance. No code changes are needed, since the Dapr State Store API is completely portable.
+
+**Inventory service** (go-app)
+
+The go-app is a Go mux app that will retrieve and store the state of inventory. For this sample, the mux app just returns back a static value.
 
 > [!NOTE]
 > A new revision is created for a container app when the update contains **[revision-scope](revisions.md#revision-scope-changes)** changes. [Application-scope](revisions.md#application-scope-changes) changes do not create a new revision.
@@ -237,13 +250,13 @@ Navigate to GitHub and verify you're logged in.
 
 1. Create the following secrets: 
 
-   :::image type="content" source="media/dapr-github-actions/create-secret-pat.png" alt-text="Screenshot of creating a new secret, like the packages token secret.":::
-
    | Name | Value |
    | ---- | ----- |
    | PACKAGES_TOKEN | The PAT you saved in the previous step |
    | AZURE_CREDENTIALS | The JSON output you saved earlier from the service principal creation |
    | RESOURCE_GROUP | Set as "my-containerapp-store" |
+
+   :::image type="content" source="media/dapr-github-actions/create-secret-pat.png" alt-text="Screenshot of creating a new secret, like the packages token secret.":::
 
    :::image type="content" source="media/dapr-github-actions/secrets.png" alt-text="Screenshot of all three secrets once created.":::
 
@@ -494,21 +507,20 @@ For this tutorial, you'll add a **Delete Order** operation to your store.
 
 Notice the node-app now has two revisions:
 
-:::image type="content" source="media/dapr-github-actions/two-revisions.png" alt-text="Screenshot that shows both the inactive and active revisions on the node app.":::
-
-
 | Revision | Description |
 | -------- | ----------- |
 | **Inactive** | Created when the base application was first deployed |
 | **Active** | Created when you added the Delete Order operation and pushed the changes |
 
-Since our container app is in **single revision mode**, Container Apps created a new revision and automatically set it to `active` with 100% traffic. View this new revision in action by refreshing the node-app UI.
-
-:::image type="content" source="media/dapr-github-actions/revision-ui.png" alt-text="Screenshot of the node app after building and deploying the delete order revision.":::
+:::image type="content" source="media/dapr-github-actions/two-revisions.png" alt-text="Screenshot that shows both the inactive and active revisions on the node app.":::
 
 Select each revision in the **Revision management** table to view revision details.
 
 :::image type="content" source="media/dapr-github-actions/revision-details.png" alt-text="Screenshot of the revision details for the active node app revision.":::
+
+Since our container app is in **single revision mode**, Container Apps created a new revision and automatically set it to `active` with 100% traffic. View this new revision in action by refreshing the node-app UI.
+
+:::image type="content" source="media/dapr-github-actions/revision-ui.png" alt-text="Screenshot of the node app after building and deploying the delete order revision.":::
 
 
 ## Clean up resources
