@@ -1,6 +1,6 @@
 ---
 title: Create and run a load test with Azure Load Testing with a JMeter script
-description: 'Learn how to create an Azure Load Testing resource and run a high-scale load test for an external website by using the Azure portal.'
+description: 'Learn how to load test a website with Azure Load Testing in the Azure portal by using an existing Apache JMeter script.'
 services: load-testing
 ms.service: load-testing
 ms.topic: how-to
