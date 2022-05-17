@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 04/14/2022
+ms.date: 05/17/2022
 ms.custom: references_regions, language-service-custom-ner, ignite-fall-2021
 ms.author: aahi
 ---
@@ -19,12 +19,12 @@ Use this article to learn about the languages currently supported by orchestrati
 
 ## Multilingual options
 
-Orchestration workflow projects does not support the multi-lingual option.
+Orchestration workflow projects do not support the multi-lingual option.
 
 
 ## Language support
 
-Orchestration workflow projects supports the following languages:
+Orchestration workflow projects support the following languages:
 
 | Language | Language code |
 | --- | --- |

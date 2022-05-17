@@ -31,7 +31,7 @@ For this quickstart, complete the [CLU](../../../conversational-language-underst
 
 ## Build schema
 
-After completing the CLU quickstart, and creating an orchestration project, the next step is to add intents.
+After you complete the CLU quickstart and create an orchestration project, the next step is to add intents.
 
 To connect to the previously created CLU project:
 
