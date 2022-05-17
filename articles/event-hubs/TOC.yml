@@ -100,6 +100,9 @@
         href: event-hubs-event-processor-host.md
       - name: Event processor (latest SDK)
         href: event-processor-balance-partition-load.md
+      - name: Event processing with no code editor
+        href: ../stream-analytics/no-code-stream-processing.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+
     - name: Federation 
       items:
         - name: Multi-site and multi-region federation
@@ -194,6 +197,14 @@
               href: event-hubs-programming-guide.md
     - name: Process data
       items:
+        - name: Capture Event Hubs data in Parquet format
+          href: ../stream-analytics/capture-event-hub-data-parquet.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+        - name: Materialize data to Cosmos DB
+          href: ../stream-analytics/no-code-materialize-cosmos-db.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+        - name: Filter and ingest Synapse SQL data
+          href: ../stream-analytics/filter-ingest-synapse-sql.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+        - name: Filter and ingest to Data Lake Storage Gen2
+          href: ../stream-analytics/filter-ingest-data-lake-storage-gen2.md?toc=%2fazure%2fevent-hubs%2ftoc.json
         - name: Process data using Azure Stream Analytics
           href: process-data-azure-stream-analytics.md
     - name: Integrate with Spring framework
