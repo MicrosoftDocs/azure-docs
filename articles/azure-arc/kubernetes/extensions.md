@@ -62,7 +62,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc-enabled Kubernetes clusters. |
 | [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md) | Create and manage event grid resources such as topics and event subscriptions on top of Azure Arc-enabled Kubernetes clusters. |
 | [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Deploy and manage API Management gateway on Azure Arc-enabled Kubernetes clusters. |
-| [Azure Arc-enabled Machine Learning](../../machine-learning/how-to-attach-arc-kubernetes.md) | Deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters. |
+| [Azure Arc-enabled Machine Learning](../../machine-learning/how-to-attach-kubernetes-anywhere.md) | Deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters. |
 | [Flux (GitOps)](./conceptual-gitops-flux2.md) | Use GitOps with Flux to manage cluster configuration and application deployment. |
 | [Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes](/azure/aks/dapr)| Eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters. |
 

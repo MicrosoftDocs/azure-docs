@@ -10,13 +10,13 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/21/2021
-ms.custom: cliv1
+ms.custom: cliv1, sdkv1
 
 
 ---
 
 # Regenerate storage account access keys
-[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../../includes/machine-learning-dev-v1.md)]
 
 Learn how to change the access keys for Azure Storage accounts used by Azure Machine Learning. Azure Machine Learning can use storage accounts to store data or trained models.
 
@@ -31,7 +31,7 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 
-* The [Azure Machine Learning CLI extension v1](reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning CLI extension v1](v1/reference-azure-machine-learning-cli.md).
 
 > [!NOTE]
 > The code snippets in this document were tested with version 1.0.83 of the Python SDK.

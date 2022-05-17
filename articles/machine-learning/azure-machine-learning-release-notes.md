@@ -2865,7 +2865,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
 
 + **Improved Swagger schema generation experience**<br/> Our previous swagger generation method was error prone and impossible to automate. We have a new in-line way of generating swagger schemas from any Python function via decorators. We have open-sourced this code and our schema generation protocol is not coupled to the Azure ML platform.
 
-+ **Azure ML CLI is generally available (GA)**<br/> Models can now be deployed with a single CLI command. We got common customer feedback that no one deploys an ML model from a Jupyter notebook. The [**CLI reference documentation**](./reference-azure-machine-learning-cli.md) has been updated.
++ **Azure ML CLI is generally available (GA)**<br/> Models can now be deployed with a single CLI command. We got common customer feedback that no one deploys an ML model from a Jupyter notebook. The [**CLI reference documentation**](./v1/reference-azure-machine-learning-cli.md) has been updated.
 
 
 ## 2019-04-22

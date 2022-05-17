@@ -7,11 +7,14 @@ author: cesardl
 ms.author: cesardl
 ms.service: machine-learning
 ms.subservice: automl
+ms.custom: sdkv1
 ms.topic: how-to
 ms.date: 02/16/2022
 ---
 
 #  View automated ML model's training code (preview)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 

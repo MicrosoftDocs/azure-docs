@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 04/04/2022
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli, sdkv1
 
 ---
 
@@ -113,6 +113,8 @@ To add AKS in a virtual network to your workspace, use the following steps:
 
 You can also use the Azure Machine Learning SDK to add Azure Kubernetes Service in a virtual network. If you already have an AKS cluster in a virtual network, attach it to the workspace as described in [How to deploy to AKS](how-to-deploy-and-where.md). The following code creates a new AKS instance in the `default` subnet of a virtual network named `mynetwork`:
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
 
@@ -194,6 +196,8 @@ A private load balancer is enabled by configuring AKS to use an _internal load b
 The following examples demonstrate how to __create a new AKS cluster with a private IP/internal load balancer__ using the SDK and CLI:
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import azureml.core

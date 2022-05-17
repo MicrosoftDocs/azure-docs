@@ -10,11 +10,13 @@ ms.author: wibuchan
 author: buchananwp
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: data4ml, contperf-fy21q2
+ms.custom: data4ml, contperf-fy21q2, sdkv1
 #Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
 ---
 
 # Detect data drift (preview) on datasets
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Learn how to monitor data drift and set alerts when drift is high.  
 
@@ -26,7 +28,7 @@ With Azure Machine Learning dataset monitors (preview), you can:
 * **Set up alerts on data drift** for early warnings to potential issues. 
 * **[Create a new dataset version](how-to-version-track-datasets.md)** when you determine the data has drifted too much.
 
-An [Azure Machine learning dataset](how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
+An [Azure Machine learning dataset](./v1/how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
 
 You can view data drift metrics with the Python SDK or in Azure Machine Learning studio.  Other metrics and insights are available through the [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) resource associated with the Azure Machine Learning workspace.
 
@@ -91,7 +93,7 @@ Dataset monitors depend on the following Azure services.
 
 ### Baseline and target datasets 
 
-You monitor [Azure machine learning datasets](how-to-create-register-datasets.md) for data drift. When you create a dataset monitor, you will reference your:
+You monitor [Azure machine learning datasets](./v1/how-to-create-register-datasets.md) for data drift. When you create a dataset monitor, you will reference your:
 * Baseline dataset - usually the training dataset for a model.
 * Target dataset - usually model input data - is compared over time to your baseline dataset. This comparison means that your target dataset must have a timestamp column specified.
 
@@ -103,6 +105,8 @@ The target dataset needs the `timeseries` trait set on it by specifying the time
 
 # [Python](#tab/python)
 <a name="sdk-dataset"></a>
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 The [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) class [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  method defines the time stamp column for the dataset.
 
@@ -160,6 +164,9 @@ Create a dataset monitor to detect and alert to data drift on a new dataset.  Us
 
 # [Python](#tab/python)
 <a name="sdk-monitor"></a>
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 See the [Python SDK reference documentation on data drift](/python/api/azureml-datadrift/azureml.datadrift) for full details. 
 
 The following example shows how to create a dataset monitor using the Python SDK

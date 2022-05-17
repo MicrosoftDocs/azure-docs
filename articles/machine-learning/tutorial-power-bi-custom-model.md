@@ -10,9 +10,12 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/22/2021
+ms.custom: sdkv1
 ---
 
 # Tutorial: Power BI integration - Create the predictive model with a Jupyter Notebook (part 1 of 2)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter Notebook. You also create a scoring script to define the input and output schema of the model for integration into Power BI.  In part 2, you use the model to predict outcomes in Microsoft Power BI.
 

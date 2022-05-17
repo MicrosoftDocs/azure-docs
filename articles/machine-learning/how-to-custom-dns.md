@@ -26,7 +26,9 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 > * [Virtual network overview](how-to-network-security-overview.md)
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * For securing inference, see the following documents:
+>     * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+>     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 ## Prerequisites
@@ -64,6 +66,7 @@ Access to a given Azure Machine Learning workspace via Private Link is done by c
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.azureml.ms```
 - ```<compute instance name>.<region the workspace was created in>.instances.azureml.ms```
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.notebooks.azure.net```
+- ```*.<per-workspace globally-unique identifier>.inference.<region the workspace was created in>.api.azureml.ms``` - Used by managed online endpoints
 
 **Azure China 21Vianet regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
@@ -114,6 +117,8 @@ The following list contains the fully qualified domain names (FQDNs) used by you
     > [!NOTE]
     > * Compute instances can be accessed only from within the virtual network.
     > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
+
+* `*.<workspace-GUID>.inference.<region>.api.azureml.ms`
 
 #### Azure China region
 
@@ -211,6 +216,7 @@ The information returned from all methods is the same; a list of the FQDN and pr
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
+| `mymanagedonlineendpoint.fb7e20a0-8891-458b-b969-55ddb3382f51.inference.eastus.api.azureml.ms` | `10.1.0.7` |
 
 The following table shows example IPs from Azure China regions:
 
@@ -526,6 +532,7 @@ The following is an example of `hosts` file entries for Azure Machine Learning:
 10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms
 10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms
 10.1.0.6    ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net
+10.1.0.7    mymanagedonlineendpoint.fb7e20a0-8891-458b-b969-55ddb3382f51.inference.eastus.api.azureml.ms
 
 # For a compute instance named 'mycomputeinstance'
 10.1.0.5    mycomputeinstance.eastus.instances.azureml.ms
@@ -580,7 +587,9 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Virtual network overview](how-to-network-security-overview.md)
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
-* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* For securing inference, see the following documents:
+    * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 

@@ -2739,6 +2739,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-kubernetes-instance-type.md",
+      "redirect_url": "/azure/machine-learning/how-to-attach-kubernetes-anywhere",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-attach-arc-kubernetes.md",
+      "redirect_url": "/azure/machine-learning/how-to-attach-kubernetes-anywhere",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/reference-yaml-endpoint-managed-batch.md",
       "redirect_url": "/azure/machine-learning/reference-yaml-endpoint-batch.md",
       "redirect_document_id": false
@@ -20549,6 +20559,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/concept-azure-machine-learning-architecture.md",
+      "redirect_url": "/azure/machine-learning/concept-azure-machine-learning-v2",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/how-to-build-deploy-image-similarity-models.md",
       "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
       "redirect_document_id": false
@@ -21098,6 +21113,7 @@
       "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
       "redirect_document_id": true
     },
+  
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-data-prep.md",
       "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
@@ -21149,6 +21165,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/reference-azure-machine-learning-cli.md",
+      "redirect_url": "/azure/machine-learning/v1/reference-azure-machine-learning-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-pipeline-yaml.md",
+      "redirect_url": "/azure/machine-learning/v1/reference-pipeline-yaml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-azure-container-instance.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-azure-container-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-profile-model.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-profile-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-azure-kubernetes-service.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-azure-kubernetes-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-mlflow-models.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-mlflow-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-use-mlflow.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-use-mlflow",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-pipeline-batch-scoring-classification.md",
       "redirect_url": "/azure/machine-learning/tutorial-pipeline-batch-scoring-classification",
       "redirect_document_id": true
@@ -21178,10 +21229,15 @@
       "redirect_url": "/azure/machine-learning/tutorial-train-models-with-aml",
       "redirect_document_id": true
     },
-    {
+   {
       "source_path_from_root": "/articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md",
       "redirect_url": "/azure/machine-learning/tutorial-pipeline-python-sdk",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-attach-compute-targets.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-attach-compute-targets",
+      " redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",

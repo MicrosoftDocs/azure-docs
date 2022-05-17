@@ -16,15 +16,15 @@ ms.devlang: azurecli
 
 # High-performance serving with Triton Inference Server (Preview)
 
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+
 
 Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) in Azure Machine Learning with [Managed online endpoints](concept-endpoints.md#managed-online-endpoints).
 
 Triton is multi-framework, open-source software that is optimized for inference. It supports popular machine learning frameworks like TensorFlow, ONNX Runtime, PyTorch, NVIDIA TensorRT, and more. It can be used for your CPU or GPU workloads.
 
 In this article, you will learn how to deploy Triton and a model to a managed online endpoint. Information is provided on using both the CLI (command line) and Azure Machine Learning studio.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 > [!NOTE]
 > [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
