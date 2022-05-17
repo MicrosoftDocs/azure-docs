@@ -1,14 +1,15 @@
 ---
 title: "Quickstart - Securely Load Application Secrets using Key Vault"
 description: Explains how to use Azure Key Vault to securely load secrets for apps running Azure Spring Cloud Enterprise tier. 
-author: maly7
-ms.author: 
+author: KarlErickson
+ms.author: paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 
-ms.custom: 
+ms.date: 05/31/2022
+ms.custom: devx-track-java
 ---
-# Quickstart:  - Securely Load Application Secrets using Key Vault
+
+# Quickstart: Securely load application secrets using Key Vault
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 

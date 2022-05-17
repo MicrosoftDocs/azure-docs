@@ -1,15 +1,15 @@
 ---
 title: "Quickstart - Introduction to the sample app - Azure Spring Cloud Enterprise Tier"
 description: Describes the sample app used in this series of quickstarts for deployment to Azure Spring Cloud Enterprise Tier.
-author: maly7
-ms.author: 
+author: KarlErickson
+ms.author: paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 
-ms.custom:
+ms.date: 05/31/2022
+ms.custom: devx-track-java
 ---
 
-# Introduction to the ACME Fitness Store Sample App
+# Introduction to the ACME Fitness Store sample app
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 

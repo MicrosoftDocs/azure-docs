@@ -1,14 +1,15 @@
 ---
 title: "Quickstart - Set Request Rate Limits"
 description: Explains how to set request rate limits using Spring Cloud Gateway on Azure Spring Cloud Enterprise tier.
-author: maly7
-ms.author: 
+author: KarlErickson
+ms.author: paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 
-ms.custom: 
+ms.date: 05/31/2022
+ms.custom: devx-track-java
 ---
-# Quickstart:  - Set Request Rate Limits
+
+# Quickstart: Set request rate limits
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 

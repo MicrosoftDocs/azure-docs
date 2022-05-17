@@ -1,13 +1,14 @@
 ---
 title: "Quickstart - Automate Deployments"
 description: Explains how to automate deployments to Azure Spring Cloud Enterprise Tier using GitHub Actions and Terraform.
-author: maly7
-ms.author: 
+author: KarlErickson
+ms.author: paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 
-ms.custom: 
+ms.date: 05/31/2022
+ms.custom: devx-track-java
 ---
+
 # Quickstart:  - Automate Deployments
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
@@ -22,7 +23,6 @@ This quickstart shows you automate deployments to Azure Spring Cloud Enterprise 
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
-
 
 ## Set up GitHub repository and authenticate
 

@@ -1,14 +1,15 @@
 ---
 title: "Quickstart - Monitor Applications End-to-End"
 description: Explains how to monitor apps running Azure Spring Cloud Enterprise tier using Application Insights and Log Analytics.
-author: maly7
-ms.author: 
+author: KarlErickson
+ms.author: paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 
-ms.custom: 
+ms.date: 05/31/2022
+ms.custom: devx-track-java
 ---
-# Quickstart:  - Monitor Application End-to-End
+
+# Quickstart: Monitor application end-to-end
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 

@@ -1,14 +1,15 @@
 ---
-title: "Quickstart - Configure Single Sign-On for Applications Using Azure Spring Cloud Enterprise Tier"
+title: "Quickstart - Configure Single Sign-On for Applications Using Azure Spring Apps Enterprise tier"
 description: Describes single sign-on configuration for Azure Spring Cloud Enterprise tier.
-author: maly7
-ms.author: 
+author: KarlErickson
+ms.author: paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 
-ms.custom: 
+ms.date: 05/31/2022
+ms.custom: devx-track-java
 ---
-# Quickstart: Configure Single Sign-On for Applications Using Azure Spring Cloud Enterprise Tier
+
+# Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
@@ -23,13 +24,13 @@ This quickstart shows you how to configure Single Sign-On for applications runni
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Complete the previous quickstarts in this series:
-  - [Build and deploy apps to Azure Spring Cloud using the Enterprise Tier](./quickstart-deploy-enterprise.md).
+- [Build and deploy apps to Azure Spring Cloud using the Enterprise Tier](./quickstart-deploy-enterprise.md).
 
 ## Prepare Single Sign-On Credentials
 
 To configure Single Sign-On for the application, you will need to prepare credentials. The following sections describe steps for an existing provider or provisioning an Application Registration with Azure Active Directory.
 
-### Use an Existing Provider
+### Use an existing provider
 
 Follow these steps to configure Single Sign-On using an existing Identity Provider. If you're provisioning an Azure Active Directory App Registration, continue on to [Provision Azure Active Directory](#provision-azure-active-directory).
 
