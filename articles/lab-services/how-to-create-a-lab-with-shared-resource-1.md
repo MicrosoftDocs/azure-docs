@@ -1,6 +1,6 @@
 ---
 title: How to Create a lab with a shared resource when using lab accounts | Azure Lab Services
-description: Learn how to create a lab that requires a resource shared among the students.  
+description: Learn how to create a lab that requires a resource shared among the students when using lab accounts. 
 author: emaher
 ms.topic: how-to
 ms.date: 03/03/2022
