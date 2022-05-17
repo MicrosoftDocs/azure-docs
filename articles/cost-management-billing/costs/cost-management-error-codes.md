@@ -134,6 +134,8 @@ When using the Query or Forecast APIs to retrieve cost data, validate the query 
 
 When using portal experiences and you see the `object ID cannot be null` error, try refreshing your view.
 
+When using Power BI to pull reservation usage data for more than 3 months, you will need to break down the call into 3-month chunks.
+
 Also, see [SubscriptionTypeNotSupported](#SubscriptionTypeNotSupported).
 
 ### More information
@@ -141,6 +143,8 @@ Also, see [SubscriptionTypeNotSupported](#SubscriptionTypeNotSupported).
 For more information about the Query - Usage API body examples, see [Query - Usage](/rest/api/cost-management/query/usage).
 
 For more information about the Forecast - Usage API body examples, see [Forecast - Usage](/rest/api/cost-management/forecast/usage).
+
+For more information about chunking reservation usage calls in Power BI, see [Power BI considerations and limitations](/power-bi/connect-data/desktop-connect-azure-cost-management#considerations-and-limitations).
 
 ## BillingAccessDenied
 
