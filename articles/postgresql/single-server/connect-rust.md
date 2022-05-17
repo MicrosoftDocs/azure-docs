@@ -1,38 +1,39 @@
 ---
-title: 'Quickstart: Connect with Rust - Azure Database for PostgreSQL - Single Server'
-description: This quickstart provides Rust code samples that you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
+title: Use Rust to interact with Azure Database for PostgreSQL
+description: Learn to connect and query data in Azure Database for PostgreSQL Single Server using Rust code samples.
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
 ms.devlang: rust
-ms.custom: mode-other
-ms.date: 03/26/2021
+ms.custom: kr2b-contr-experiment
+ms.date: 05/17/2022
 ---
 
 # Quickstart: Use Rust to connect and query data in Azure Database for PostgreSQL - Single Server
 
-In this article, you will learn how to use the [PostgreSQL driver for Rust](https://github.com/sfackler/rust-postgres) to interact with Azure Database for PostgreSQL by exploring CRUD (create, read, update, delete) operations implemented in the sample code. Finally, you can run the application locally to see it in action.
+In this article, you will learn how to use the [PostgreSQL driver for Rust](https://github.com/sfackler/rust-postgres) to interact with Azure Database for PostgreSQL. You can explore CRUD (create, read, update, delete) operations implemented in sample code, and run the application locally to see it in action.
 
 ## Prerequisites
-For this quickstart you need:
+
+For this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - A recent version of [Rust](https://www.rust-lang.org/tools/install) installed.
-- An Azure Database for PostgreSQL single server - create one using [Azure portal](./quickstart-create-server-database-portal.md) <br/> or [Azure CLI](./quickstart-create-server-database-azure-cli.md).
+- An Azure Database for PostgreSQL single server. Create one using [Azure portal](./quickstart-create-server-database-portal.md) <br/> or [Azure CLI](./quickstart-create-server-database-azure-cli.md).
 - Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 
   |Action| Connectivity method|How-to guide|
   |:--------- |:--------- |:--------- |
   | **Configure firewall rules** | Public | [Portal](./how-to-manage-firewall-using-portal.md) <br/> [CLI](./quickstart-create-server-database-azure-cli.md#configure-a-server-based-firewall-rule)|
-  | **Configure Service Endpoint** | Public | [Portal](./how-to-manage-vnet-using-portal.md) <br/> [CLI](./how-to-manage-vnet-using-cli.md)|
+  | **Configure service endpoint** | Public | [Portal](./how-to-manage-vnet-using-portal.md) <br/> [CLI](./how-to-manage-vnet-using-cli.md)|
   | **Configure private link** | Private | [Portal](./how-to-configure-privatelink-portal.md) <br/> [CLI](./how-to-configure-privatelink-cli.md) |
 
 - [Git](https://git-scm.com/downloads) installed.
 
 ## Get database connection information
-Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can get this information from the Azure portal.
+Connecting to an Azure Database for PostgreSQL database requires a fully qualified server name and login credentials. You can get this information from the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select your Azure Database for PostgreSQL server name.
 1. On the server's **Overview** page, copy the fully qualified **Server name** and the **Admin username**. The fully qualified **Server name** is always of the form *\<my-server-name>.postgres.database.azure.com*, and the **Admin username** is always of the form *\<my-admin-username>@\<my-server-name>*.
