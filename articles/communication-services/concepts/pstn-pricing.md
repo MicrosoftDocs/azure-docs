@@ -8,7 +8,7 @@ ms.date: 1/28/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-# Telephony (PSTN) Pricing
+# Telephony (PSTN) pricing
 
 > [!IMPORTANT]
 > Number Retention and Portability: Phone numbers that are assigned to you during any preview program may need to be returned to Microsoft if you do not meet regulatory requirements before General Availability. During private preview and public preview, telephone numbers are not eligible for porting. [Details on offers in Public Preview / GA](../concepts/numbers/sub-eligibility-number-capability.md)
@@ -19,15 +19,15 @@ In most cases, customers with Azure subscriptions locations that match the count
 
 All prices shown below are in USD.
 
-## United States Telephony Offers
+## United States telephony offers
 
-### Phone Number Leasing Charges
+### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 1.00/mo        |
 |Toll-Free     |USD 2.00/mo        |
 
-### Usage Charges
+### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0130/min       |USD 0.0085/min        |
@@ -35,15 +35,15 @@ All prices shown below are in USD.
 
 \* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-## United Kingdom Telephony Offers
+## United Kingdom telephony offers
 
-### Phone Number Leasing Charges
+### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 1.00/mo        |
 |Toll-Free     |USD 2.00/mo        |
 
-### Usage Charges
+### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0150/min       |USD 0.0090/min        |
@@ -51,15 +51,15 @@ All prices shown below are in USD.
 
 \* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-## Denmark Telephony Offers
+## Denmark telephony offers
 
-### Phone Number Leasing Charges
+### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 0.82/mo        |
 |Toll-Free     |USD 25.00/mo        |
 
-### Usage Charges
+### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0190/min       |USD 0.0100/min        |
@@ -67,15 +67,15 @@ All prices shown below are in USD.
 
 \* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-## Canada Telephony Offers
+## Canada telephony offers
 
-### Phone Number Leasing Charges
+### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 1.00/mo        |
 |Toll-Free     |USD 2.00/mo        |
 
-### Usage Charges
+### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0130/min   |USD 0.0085/min |
@@ -83,15 +83,15 @@ All prices shown below are in USD.
 
 \* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-## Ireland Telephony Offers
+## Ireland telephony offers
 
-### Phone Number Leasing Charges
+### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 1.50/mo        |
 |Toll-Free     |USD 19.88/mo        |
 
-### Usage Charges
+### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic    |Starting at USD 0.0160/min   |USD 0.0100/min        |
@@ -99,15 +99,15 @@ All prices shown below are in USD.
 
 \* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-## Italy Telephony Offers
+## Italy telephony offers
 
-### Phone Number Leasing Charges
+### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 2.92/mo        |
 |Toll-Free     |USD 23.39/mo        |
 
-### Usage Charges
+### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0160/min       |USD 0.0100/min        |
@@ -115,15 +115,15 @@ All prices shown below are in USD.
 
 \* For destination-specific pricing for making outbound calls, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-## Sweden Telephony Offers
+## Sweden telephony offers
 
-### Phone Number Leasing Charges
+### Phone number leasing charges
 |Number type   |Monthly fee   |
 |--------------|-----------|
 |Geographic     |USD 1.00/mo        |
 |Toll-Free     |USD 21.05/mo        |
 
-### Usage Charges
+### Usage charges
 |Number type   |To make calls*   |To receive calls|
 |--------------|-----------|------------|
 |Geographic     |Starting at USD 0.0160/min       |USD 0.0080/min        |
