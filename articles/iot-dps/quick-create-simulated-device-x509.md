@@ -29,15 +29,17 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
-* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
-
 ::: zone pivot="programming-language-ansi-c"
+
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
 * Install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
+
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/doc/devbox_setup.md) in the SDK documentation.
 
 * Install [.NET SDK 6.0](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
@@ -49,11 +51,15 @@ The following prerequisites are for a Windows development environment. For Linux
 
 ::: zone pivot="programming-language-nodejs"
 
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/blob/main/doc/node-devbox-setup.md) in the SDK documentation.
+
 * Install [Node.js v4.0 or above](https://nodejs.org) on your machine.
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+The following prerequisites are for a Windows development environment.
 
 * [Python 3.6 or later](https://www.python.org/downloads/) on your machine.
 
@@ -61,11 +67,15 @@ The following prerequisites are for a Windows development environment. For Linux
 
 ::: zone pivot="programming-language-java"
 
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-java/blob/main/doc/java-devbox-setup.md) in the SDK documentation.
+
 * Install the [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) or later on your machine.
 
 * Download and install [Maven](https://maven.apache.org/install.html).
 
 ::: zone-end
+
+* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
 * Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash prompt. To verify that OpenSSL is installed, open a Git Bash prompt and enter `openssl version`.
 
