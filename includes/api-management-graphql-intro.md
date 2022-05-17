@@ -3,7 +3,7 @@ ms.service: api-management
 ms.topic: include
 author: dlepow
 ms.author: danlep
-ms.date: 05/10/2022
+ms.date: 05/17/2022
 ms.custom: 
 ---
 
@@ -17,4 +17,6 @@ Using API Management to expose your GraphQL APIs, you can:
 
 > [!NOTE]
 > * A single GraphQL API in API Management can map to a single GraphQL backend endpoint.
-> * API Management supports query, mutation, and subscription operation types in GraphQL schemas. A subscription must be implemented using the [graphql-ws](https://github.com/enisdenjo/graphql-ws) WebSocket protocol. Queries and mutations are not supported over WebSocket.
+> * API Management supports query, mutation, and subscription operation types in GraphQL schemas. 
+> * Subscriptions are not supported in the **Consumption** service tier.
+> * A subscription must be implemented using the [graphql-ws](https://github.com/enisdenjo/graphql-ws) WebSocket protocol. Queries and mutations are not supported over WebSocket.
