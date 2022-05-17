@@ -144,7 +144,7 @@ If you have an existing certificate, upload to Azure Key Vault and skip to [Crea
 
 1. Create a certificate policy file
 
-Once this policy is executed below, it creates a valid signing certificate compatible with **notation** in Azure Key Vault.  See the notary project [signing certificate requirements](https://github.com/notaryproject/notaryproject/blob/main/signature-specification.md#certificate-requirements) for more details to use your own signing key.
+Once this policy is executed below, it creates a valid signing certificate compatible with **notation** in Azure Key Vault.  For more information to use your own signing key, see the notary project [signing certificate requirements](https://github.com/notaryproject/notaryproject/blob/main/signature-specification.md#certificate-requirements).
 
     ```bash
     cat <<EOF > ./my_policy.json
@@ -259,7 +259,7 @@ ACR support for ORAS Artifacts creates a linked graph of supply chain artifacts 
 
 ## Verify the container image
 
-The notation command can also help ensure the container image has not been tampered with since build time by comparing the sha with what is in the registry.
+The notation command can also help ensure the container image hasn't been tampered with since build time by comparing the sha with what is in the registry.
 
 ```azure-cli
 notation verify wabbitnetworks.azurecr.io/net-monitor:v1
