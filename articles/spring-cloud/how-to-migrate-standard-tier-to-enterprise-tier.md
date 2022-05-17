@@ -245,7 +245,7 @@ For more information, see [Use Tanzu Service Registry](./how-to-enterprise-servi
 
 ## Build and deploy applications
 
-In Enterprise tier, Tanzu Build Service is used to build apps. It provides more features like polyglot app to deploy from artifacts (source code, zip, etc.), support static frontend files to deploy directly, etc. 
+In Enterprise tier, Tanzu Build Service is used to build apps. It provides more features like polyglot app to deploy from artifacts (source code, zip, etc.). 
 To use Tanzu Build Service, you need to specify resource for build task and builder to use. You can also specify `--build-env` param to set build envs.
 
 If the app binds with ACS, need specify an additional arg “—config-file-pattern”
@@ -296,7 +296,10 @@ To build locally, use the following steps:
 
 ## Use Application Insight
 
-Azure Enterprise tier uses [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`.
+Azure Enterprise tier uses one of the features in build service -- [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights` while Standard tier use In-Process Agent solution.
+| Standard Tier | Enterprise Tier |
+| - | - |
+| Application insight <br> New Relica <br> Dynatrace <br> AppDynamics | Application insight <br> New Relica <br> Dynatrace <br> AppDynamics <br> ElasticAPM |
 
 You can use the Portal to check or update the current settings in Application Insights.
 
