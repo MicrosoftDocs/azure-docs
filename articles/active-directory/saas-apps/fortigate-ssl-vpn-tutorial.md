@@ -67,7 +67,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the **Edit** button for **Basic SAML Configuration** to edit the settings:
 
-   ![Basic SAML config](./media/fortigate-ssl-vpn-tutorial/saml-configuration.png)
+   ![Screenshot of showing Basic SAML configuration page.](./media/fortigate-ssl-vpn-tutorial/saml-configuration.png)
 
 1. On the **Set up Single Sign-On with SAML** page, enter the following values:
 
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 1. The FortiGate SSL VPN application expects SAML assertions in a specific format, which requires you to add custom attribute mappings to the configuration. The following screenshot shows the list of default attributes.
 
-	![Attributes and Claims](./media/fortigate-ssl-vpn-tutorial/claims.png)
+	![Screenshot of showing Attributes and Claims section.](./media/fortigate-ssl-vpn-tutorial/claims.png)
 
 
 1. The claims required by FortiGate SSL VPN are shown in the following table. The names of these claims must match the names used in the **Perform FortiGate command-line configuration** section of this tutorial. Names are case-sensitive.
