@@ -67,7 +67,7 @@ In the **Core Bot** sample, update your [appsettings.json](https://aka.ms/clu-bo
 
 ## Identify integration points
 
-In the Core Bot sample, under the Clu folder, you can check out the **FlightBookingRecognizer.cs** file. Here is where the CLU API call to the deployed endpoint is made to retrieve the CLU prediction for intents and entities.
+In the Core Bot sample, under the CLU folder, you can check out the **FlightBookingRecognizer.cs** file. Here is where the CLU API call to the deployed endpoint is made to retrieve the CLU prediction for intents and entities.
 
 ```csharp
         public FlightBookingRecognizer(IConfiguration configuration)
