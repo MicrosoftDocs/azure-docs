@@ -1,6 +1,6 @@
 ---
-title: Select group-based permissions settings in CloudKnox Permissions Management with the User management dashboard
-description: How to select group-based permissions settings in CloudKnox Permissions Management with the User management dashboard.
+title: Select group-based permissions settings in Entra Permissions Management with the User management dashboard
+description: How to select group-based permissions settings in Entra Permissions Management with the User management dashboard.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -9,18 +9,18 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # Select group-based permissions settings
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how you can create  and manage group-based permissions in CloudKnox Permissions Management (CloudKnox) with the User management dashboard.
+This article describes how you can create  and manage group-based permissions in Entra Permissions Management (Entra) with the User management dashboard.
 
-[!NOTE] The CloudKnox Administrator for all authorization systems will be able to create the new group based permissions.
+[!NOTE] The Entra Administrator for all authorization systems will be able to create the new group based permissions.
 
 ## Select administrative permissions settings for a group
 
