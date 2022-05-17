@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) with [Datawiza](https://www.datawiza.com/) for secure hybrid access.
 
 Datawiza's [Datawiza Access Broker
-(DAB)](https://www.datawiza.com/access-broker) extends Azure AD to enable Single Sign-on (SSO) and granular access controls to protect on-premise and cloud-hosted applications, such as Oracle E-Business Suite, Microsoft IIS, and SAP.
+(DAB)](https://www.datawiza.com/access-broker) extends Azure AD to enable single sign-on (SSO) and granular access controls to protect on-premises and cloud-hosted applications, such as Oracle E-Business Suite, Microsoft IIS, and SAP.
 
-Using this solution enterprises can quickly transition from legacy Web Access Managers (WAMs), such as Symantec SiteMinder, NetIQ, Oracle, and IBM to Azure AD without rewriting applications. Enterprises can also use Datawiza as a no-code or low-code solution to integrate new applications to Azure AD. This saves engineering time, reduces cost significantly and delivers the project in a secured manner.
+By using this solution, enterprises can quickly transition from legacy web access managers (WAMs), such as Symantec SiteMinder, NetIQ, Oracle, and IBM to Azure AD without rewriting applications. Enterprises can also use Datawiza as a no-code or low-code solution to integrate new applications to Azure AD. This saves engineering time, reduces cost significantly, and delivers the project in a secured manner.
 
 ## Prerequisites
 
@@ -36,13 +36,13 @@ that's linked to your Azure subscription.
 [docker-compose](https://docs.docker.com/compose/install/)
 are required to run DAB. Your applications can run on any platform, such as the virtual machine and bare metal.
 
-- An application that you'll transition from a legacy identity system to Azure AD. In this example, DAB is deployed on the same server where the application is. The application will run on localhost: 3001 and DAB proxies traffic to the application via localhost: 9772. The traffic to the application will reach DAB first and then be proxied to the application.
+- An application that you'll transition from a legacy identity system to Azure AD. In this example, DAB is deployed on the same server where the application is. The application will run on localhost: 3001, and DAB proxies traffic to the application via localhost: 9772. The traffic to the application will reach DAB first and then be proxied to the application.
 
 ## Scenario description
 
 Datawiza integration includes the following components:
 
-- [Azure AD](../fundamentals/active-directory-whatis.md) - Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
+- [Azure AD](../fundamentals/active-directory-whatis.md) - A cloud-based identity and access management service from Microsoft, which helps users sign in and access external and internal resources.
 
 - Datawiza Access Broker (DAB) - The service user sign on and transparently passes identity to applications through HTTP headers.
 
