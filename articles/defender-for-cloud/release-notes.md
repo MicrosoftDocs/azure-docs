@@ -41,7 +41,7 @@ Updates in the UI include a reflection of the selected pricing tier and the requ
 
 We would like to announce that Just-in-Time VM access (JIT) is now available to protect your AWS EC2 instances.
 
-Learn how to [JIT protects](just-in-time-access-overview.md#how-jit-operates-with-network-resources) your AWS EC2 instances.
+Learn how to [JIT protects](just-in-time-access-overview.md#how-jit-operates-with-network-resources-in-azure-and-aws) your AWS EC2 instances.
 
 ## April 2022
 
