@@ -49,7 +49,7 @@ Filter the resources by typing in the filter box at the top of the summary page.
 Select the column title to sort alphabetically, ascending or descending.
 
 
-### REST API
+### REST API 
 
 The list of associated resources can also be accessed using the REST API. This endpoint is separate to the API endpoint used to retrieve a list of user-assigned managed identities. You'll need the following information:
  - Subscription ID
