@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault Secrets Provider extension
+title: Azure Key Vault Secrets Provider extension (Preview)
 description: Tutorial for setting up Azure Key Vault provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
 services: azure-arc
 ms.service: azure-arc
