@@ -251,15 +251,11 @@
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
     - name: Develop in .NET
-      items:
-      - name: Use Azure.Search.Documents
-        href: search-howto-dotnet-sdk.md
-    - name: Upgrade the SDK
-      items:
-      - name: .NET SDK 11.0
-        href: search-dotnet-sdk-migration-version-11.md
-      - name: .NET Management SDK
-        href: search-dotnet-mgmt-sdk-migration.md
+      href: search-howto-dotnet-sdk.md
+    - name: Upgrade to 11.0
+      href: search-dotnet-sdk-migration-version-11.md
+    - name: Upgrade the Management SDK
+      href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
   - name: Indexes
@@ -525,6 +521,8 @@
       href: ./policy-reference.md
     - name: Monitoring data reference
       href: monitor-azure-cognitive-search-data-reference.md
+  - name: Stopwords reference
+    href: reference-stopwords.md
   - name: OData language reference
     items:
     - name: Overview

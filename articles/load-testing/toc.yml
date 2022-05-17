@@ -45,6 +45,8 @@
       href: how-to-define-test-criteria.md
     - name: Parameterize load tests
       href: how-to-parameterize-load-tests.md
+    - name: Use JMeter user properties
+      href: how-to-configure-user-properties.md
     - name: Read a CSV file in load tests
       href: how-to-read-csv-data.md
     - name: Get insights from App Service Diagnostics
