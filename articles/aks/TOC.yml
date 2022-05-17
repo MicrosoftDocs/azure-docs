@@ -39,7 +39,7 @@
       items:
         - name: Develop with Helm
           href: quickstart-helm.md
-        - name: Develop with Dapr (preview)
+        - name: Develop with Dapr
           href: quickstart-dapr.md
     - name: Subscribe to AKS events with Event Grid (Preview)
       href: quickstart-event-grid.md
@@ -444,7 +444,7 @@
           items:
             - name: Dapr overview
               href: dapr-overview.md
-            - name: How to use Dapr (preview)
+            - name: How to use Dapr
               href: dapr.md
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
