@@ -10,8 +10,6 @@ ms.date: 05/16/2022
 
 Azure has a comprehensive suite of tools that can monitor your applications and services. You can programmatically create your monitoring resources using Bicep to automate the creation of rules, diagnostic settings and alerts when provisioning your Azure infrastructure.
 
-## Configure monitoring resources by using Bicep
-
 Bringing your monitoring configuration into your Bicep code might seem unusual, considering that there are tools available inside the Azure portal to set up alert rules, diagnostic settings and dashboards. 
 
 However, alerts and diagnostic settings are essentially the same as your other infrastructure resources. By including them in your Bicep code, you can deploy and test your alerting resources as you would for other Azure resources.
@@ -22,7 +20,7 @@ If you use Git or another version control tool to manage your Bicep files, you a
 
 You can create Log Analytics workspaces with the type [`Microsoft.OperationalInsights/workspaces`](/azure/templates/microsoft.operationalinsights/workspaces?tabs=bicep) and Application Insights workspaces with the type [`Microsoft.Insights/components`](/azure/templates/microsoft.insights/components?tabs=bicep). Both of these components are deployed to resource groups.
 
-## Diagnostic Settings
+## Diagnostic settings
 
 When creating [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in Bicep, remember that this resource is an [extension resource](scope-extension-resources.md), which means it's applied to another resource. You can create diagnostic settings in Bicep by using the resource type [`Microsoft.Insights/diagnosticSettings`](/azure/templates/microsoft.insights/diagnosticsettings?tabs=bicep).
 
@@ -34,7 +32,7 @@ Consider the following example:
 
 In the preceding example, you create a diagnostic setting for the App Service plan and send those diagnostics to Log Analytics. You can use the `scope` property to define your App Service plan as the scope for your diagnostic setting, and use the `workspaceId` property to define the Log Analytics workspace to send the diagnostic logs to. Diagnostic settings differ between resources, so ensure that the diagnostic settings you want to create are applicable for the resource you're using.
 
-## Alert rules
+## Alerts
 
 Alerts proactively notify you when issues are found within your Azure infrastructure and applications by monitoring data within Azure Monitor. By configuring your monitoring and alerting configuration within your Bicep code, you can automate the creation of these alerts alongside the infrastructure that you are provisioning in Azure.
 
@@ -84,13 +82,7 @@ You define your alert rule conditions within the `condition` property and then c
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/activity-log-alert.bicep" :::
 
-## Dashboards
-
-In Bicep, you can create portal dashboards with the type [`Microsoft.Portal/dashboards`](/azure/templates/microsoft.portal/dashboards?tabs=bicep).
-
-For more information about creating dashboards with code, see [`Programmatically create and Azure Dashboard`](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
-
-## Resource health
+### Resource health alerts
 
 Azure Resource Health keeps you informed about the current and historical health status of your Azure resources. By creating your resource health alerts using Bicep, you can create and customize these alerts in bulk.
 
@@ -102,13 +94,20 @@ Consider the following example, where you create a resource health alert that re
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/resource-health-alerts.bicep" :::
 
-## Smart detection alerts
 
-Smart detection alerts warn you of potential performance problems and failure anomalies in your web application. You can create smart detection alerts in Bicep using the type [`microsoft.alertsManagement/smartDetectorAlertRules](/azure/templates/microsoft.alertsmanagement/smartdetectoralertrules?tabs=bicep).
+### Smart detection alerts
+
+Smart detection alerts warn you of potential performance problems and failure anomalies in your web application. You can create smart detection alerts in Bicep using the type [`microsoft.AlertsManagement/smartDetectorAlertRules](/azure/templates/microsoft.alertsmanagement/smartdetectoralertrules?tabs=bicep).
+
+## Dashboards
+
+In Bicep, you can create portal dashboards by using the resource type [`Microsoft.Portal/dashboards`](/azure/templates/microsoft.portal/dashboards?tabs=bicep).
+
+For more information about creating dashboards with code, see [`Programmatically create an Azure Dashboard`](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## Creating autoscaling rules
 
-To create a autoscaling setting, you define a resource of type [`Microsoft.Insights/autoscalesettings`](/azure/templates/microsoft.insights/autoscalesettings?tabs=bicep). 
+To create an autoscaling setting, you define a resource of type [`Microsoft.Insights/autoscaleSettings`](/azure/templates/microsoft.insights/autoscalesettings?tabs=bicep). 
 
 To target the resource that you want to apply the autoscaling setting to, you need to provide the target resource identifier of the resource that the setting should be added to.
 
@@ -117,7 +116,7 @@ In this example, a *scale up* condition for the App Service plan based on the av
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/autoscaling-rules.bicep" :::
 
 > [!NOTE]
-> > When defining autoscaling rules, keep best practices in mind to avoid issues when attempting to autoscale, such as flapping. For more information, see the following documentation on [best practices for Autoscale](../../azure-monitor/autoscale/autoscale-best-practices.md)
+> When defining autoscaling rules, keep best practices in mind to avoid issues when attempting to autoscale, such as flapping. For more information, see the following documentation on [best practices for Autoscale](../../azure-monitor/autoscale/autoscale-best-practices.md)
 
 ## Related resources
 
