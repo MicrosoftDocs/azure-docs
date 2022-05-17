@@ -474,7 +474,13 @@ sections:
           - Reset the password by using the VM access extensions. Make sure to follow the password requirements, as described in [the FAQ](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
               
               Using a VM access extension doesn't require reimaging, because the extension doesn't update the password in the model. The extension runs a script to append the password to the password or to the SSH key file. The extension doesn't remove the original SSH key.
+               
+              Once the extension is updated to the scale set using below PowerShell/CLI cmd, upgrade the instances to update the username/password to VM instances.
 
+              Note: 
+              -If Auto upgrade policy set for manual, user has to manually select the instance to perform an "upgrade" operation on individual VM instances. 
+              -If auto upgrade set to Auto, it will automatically upgrade.
+              
               Use the following PowerShell example for a Windows virtual machine scale set:
 
               ```powershell
