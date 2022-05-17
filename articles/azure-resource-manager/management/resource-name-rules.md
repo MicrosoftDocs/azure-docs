@@ -481,7 +481,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | loadtests | global | 1-64 | Can't use:<br>`<>*&@:?+/\\,;=.|[]""` or space.<br><br>Can't start with underscore, hyphen, or number. Can't end with underscore or hyphen.  |
+> | loadtests | global | 1-64 | Can't use:<br>`<>*&@:?+/\,;=.|[]"` or space.<br><br>Can't start with underscore, hyphen, or number. Can't end with underscore or hyphen.  |
 
 ## Microsoft.Logic
 
