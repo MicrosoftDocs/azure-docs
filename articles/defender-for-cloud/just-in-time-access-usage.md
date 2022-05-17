@@ -6,8 +6,6 @@ ms.date: 01/06/2022
 ---
 # Secure your management ports with just-in-time access
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Lock down inbound traffic to your Azure Virtual Machines with Microsoft Defender for Cloud's just-in-time (JIT) virtual machine (VM) access feature. This reduces exposure to attacks while providing easy access when you need to connect to a VM.
 
 For a full explanation about how JIT works and the underlying logic, see [Just-in-time explained](just-in-time-access-overview.md).

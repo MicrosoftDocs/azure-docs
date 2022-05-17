@@ -145,6 +145,8 @@
           href: ./security-controls-policy.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/event-hubs-security-baseline?toc=/azure/event-hubs/TOC.json
+        - name: Enforce minimum required TLS version
+          href: transport-layer-security-enforce-minimum-version.md
     - name: Availability and consistency
       href: event-hubs-availability-and-consistency.md
     - name: Scalability
@@ -240,6 +242,12 @@
           href: private-link-service.md
         - name: Encrypt data using customer-managed keys
           href: configure-customer-managed-key.md
+        - name: Configure minimum required TLS version
+          href: transport-layer-security-configure-minimum-version.md
+        - name: Audit minimum required TLS version
+          href: transport-layer-security-audit-minimum-version.md
+        - name: Configure TLS version for client
+          href: transport-layer-security-configure-client-version.md
     - name: Troubleshoot
       items:
         - name: Troubleshoot connectivity issues

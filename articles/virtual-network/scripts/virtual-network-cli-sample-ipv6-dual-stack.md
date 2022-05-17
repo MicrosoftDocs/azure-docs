@@ -4,13 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Use an Azure CLI script sample to configure IPv6 endpoints and deploy a dual stack (IPv4 + IPv6) application in Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 manager: twooley
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2022
-ms.author: kumud 
+ms.author: mbender 
 ms.custom: devx-track-azurecli
 ---
 

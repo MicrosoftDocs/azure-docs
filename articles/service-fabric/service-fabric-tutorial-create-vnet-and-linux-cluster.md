@@ -1,5 +1,5 @@
 ---
-title: Create a Linux Service Fabric cluster in Azure 
+title: Create a Linux Service Fabric cluster in Azure
 description: Learn how to deploy a Linux Service Fabric cluster into an existing Azure virtual network using Azure CLI.
 
 ms.topic: conceptual
@@ -27,23 +27,30 @@ The following procedures create a seven-node Service Fabric cluster. To calculat
 Download the following Resource Manager template files:
 
 For Ubuntu 16.04 LTS:
-
-* [AzureDeploy.json][template]
-* [AzureDeploy.Parameters.json][parameters]
+- [AzureDeploy.json][template]
+  - **vmImageSku** attribute is to "16.04-LTS"
+  - Microsoft.ServiceFabric/clusters resource's
+    - **apiVersion** being set to "2018-02-01"
+    - **vmImage** property being set to "Linux"
+- [AzureDeploy.Parameters.json][parameters]
 
 For Ubuntu 18.04 LTS:
+- [AzureDeploy.json][template2]
+  - **vmImageSku** attribute is to "18.04-LTS"
+  - Microsoft.ServiceFabric/clusters resource's
+    - **apiVersion** being set to "2019-03-01"
+    - **vmImage** property being set to "Ubuntu18_04"
+- [AzureDeploy.Parameters.json][parameters2]
 
-* [AzureDeploy.json][template2]
-* [AzureDeploy.Parameters.json][parameters2]
+For Ubuntu 20.04 LTS:
+- [AzureDeploy.json][template3]
+  - **vmImageSku** attribute is to "20.04-LTS"
+  - Microsoft.ServiceFabric/clusters resource's
+    - **apiVersion** being set to "2019-03-01"
+    - **vmImage** property being set to "Ubuntu20_04"
+- [AzureDeploy.Parameters.json][parameters3]
 
-For Ubuntu 18.04 LTS the difference between the two templates are 
-* the **vmImageSku** attribute being set to "18.04-LTS"
-* each node's **typeHandlerVersion** being set to 1.1
-* Microsoft.ServiceFabric/clusters resource's
-   - **apiVersion** being set to "2019-03-01" or higher
-   - **vmImage** property being set to "Ubuntu18_04"
-
-This template deploys a secure cluster of seven virtual machines and three node types into a virtual network.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). The [AzureDeploy.json][template] deploys a number resources, including the following.
+These templates deploy a secure cluster of seven virtual machines and three node types into a virtual network.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). The AzureDeploy.json deploys a number of resources, including the following.
 
 ### Service Fabric cluster
 
@@ -174,3 +181,5 @@ The template in this article deploy a cluster that uses the certificate thumbpri
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json
 [template2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.json
 [parameters2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template3]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-2004-3-NodeTypes-Secure/AzureDeploy.json
+[parameters3]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-2004-3-NodeTypes-Secure/AzureDeploy.Parameters.json

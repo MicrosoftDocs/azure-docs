@@ -30,9 +30,9 @@ In this tutorial you will learn how to:
 
 - You must have [enabled Microsoft Defender for IoT on your Azure IoT Hub](quickstart-onboard-iot-hub.md).
 
-- You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md)
+- You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md).
 
-- You must have [Create a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
 
 ## Download and install the micro agent
 
@@ -143,7 +143,7 @@ You will need to copy the module identity connection string from the DefenderIoT
 
     `HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true`
 
-    This string alerts the Defender for IoT agent, to expect a certificate be provided for authentication.
+    This string alerts the Defender for IoT agent to expect a certificate to be provided for authentication.
 
 1. Restart the service using the following command:  
 
@@ -155,7 +155,7 @@ You will need to copy the module identity connection string from the DefenderIoT
 
 **To validate your installation**:
 
-1. Use the following command to ensure the micro agent is running properly with:  
+1. Use the following command to ensure the micro agent is running properly:  
 
     ```bash
     systemctl status defender-iot-micro-agent.service
@@ -185,7 +185,7 @@ You can test the system by creating a trigger file on the device. The trigger fi
 
 Allow up to one hour for the recommendation to appear in the hub.
 
-A baseline recommendation called 'IoT_CISBenchmarks_DIoTTest' is created. You can query this recommendation fro Log Analytics as follows:
+A baseline recommendation called 'IoT_CISBenchmarks_DIoTTest' is created. You can query this recommendation from Log Analytics as follows:
 
 ```kusto
 SecurityRecommendation

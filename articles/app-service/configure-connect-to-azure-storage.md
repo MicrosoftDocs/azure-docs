@@ -1,14 +1,14 @@
 ---
-title: Mount Azure Storage as a local share (container)
-description: Learn how to attach custom network share in a containerized app in Azure App Service. Share files between apps, manage static content remotely and access locally, etc.
+title: Mount Azure Storage as a local share
+description: Learn how to attach custom network share  in Azure App Service. Share files between apps, manage static content remotely and access locally, etc.
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 3/10/2022
+ms.date: 4/12/2022
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-code
 ---
-# Mount Azure Storage as a local share in a custom container in App Service
+# Mount Azure Storage as a local share in App Service
 
 ::: zone pivot="code-windows"
 > [!NOTE]
@@ -157,6 +157,16 @@ The following features are supported for Linux containers:
 1. From the left navigation, click **Configuration** > **Path Mappings** > **New Azure Storage Mount**. 
 1. Configure the storage mount according to the following table. When finished, click **OK**.
 
+    ::: zone pivot="code-windows"
+    | Setting | Description |
+    |-|-|
+    | **Name** | Name of the mount configuration. Spaces are not allowed. |
+    | **Configuration options** | Select **Basic** if the storage account is not using [private endpoints](../storage/common/storage-private-endpoints.md). Otherwise, select **Advanced**. |
+    | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
+    | **Share name** | Files share to mount. |
+    | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
+    | **Mount path** | Directory inside your file/blob storage that you want to mount. Only `/mounts/pathname` is supported.|
+    ::: zone-end
     ::: zone pivot="container-windows"
     | Setting | Description |
     |-|-|
@@ -323,7 +333,7 @@ To validate that the Azure Storage is mounted successfully for the app:
 
 ::: zone pivot="code-windows"
 
-- [Migrate custom software to Azure App Service using a custom container](tutorial-custom-container.md?pivots=container-windows).
+- [Migrate .NET apps to Azure App Service](app-service-asp-net-migration.md).
 
 ::: zone-end
 

@@ -29,58 +29,55 @@ Use the OCR client library to read printed and handwritten text from a remote im
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting up
-
-### Create a new C# application
-
-#### [Visual Studio IDE](#tab/visual-studio)
-
-Using Visual Studio, create a new .NET Core application. 
-
-### Install the client library 
-
-Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Select version `7.0.0`, and then **Install**. 
-
-#### [CLI](#tab/cli)
-
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `computer-vision-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
-
-```console
-dotnet new console -n computer-vision-quickstart
-```
-
-Change your directory to the newly created app folder. You can build the application with:
-
-```console
-dotnet build
-```
-
-The build output should contain no warnings or errors. 
-
-```console
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-### Install the client library
-
-Within the application directory, install the Computer Vision client library for .NET with the following command:
-
-```console
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
-```
-
----
-
-### Find the subscription key and endpoint
-
-[!INCLUDE [find key and endpoint](../find-key.md)]
-
-
 ## Read printed and handwritten text
+
+1. Create a new C# application.
+
+    #### [Visual Studio IDE](#tab/visual-studio)
+
+    Using Visual Studio, create a new .NET Core application. 
+
+    ### Install the client library 
+
+    Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Select version `7.0.0`, and then **Install**. 
+
+    #### [CLI](#tab/cli)
+
+    In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `computer-vision-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
+
+    ```console
+    dotnet new console -n computer-vision-quickstart
+    ```
+
+    Change your directory to the newly created app folder. You can build the application with:
+
+    ```console
+    dotnet build
+    ```
+
+    The build output should contain no warnings or errors. 
+
+    ```console
+    ...
+    Build succeeded.
+     0 Warning(s)
+     0 Error(s)
+    ...
+    ```
+
+    ### Install the client library
+
+    Within the application directory, install the Computer Vision client library for .NET with the following command:
+
+    ```console
+    dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
+    ```
+
+    ---
+
+1. Find the subscription key and endpoint.
+
+    [!INCLUDE [find key and endpoint](../find-key.md)]
 
 1. From the project directory, open the *Program.cs* file in your preferred editor or IDE. Replace the contents of *Program.cs* with the following code.
 
@@ -91,11 +88,11 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
    > [!IMPORTANT]
    > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
-1. As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use. The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model-version=`2022-01-30-preview` parameter, edit the ReadAsync call as shown:
+1. As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional). For example, to explicitly specify the latest GA model, edit the `ReadAsync` call as shown. Skipping the parameter or using `"latest"` automatically uses the most recent GA model.
 
    ```csharp
      // Read text from URL with a specific model version
-     var textHeaders = await client.ReadAsync(urlFile,null,null,"2022-01-30-preview");
+     var textHeaders = await client.ReadAsync(urlFile,null,null,"2022-04-30");
    ```
 
 1. Run the application.
@@ -113,6 +110,33 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
    ```
 
    ---
+
+## Output
+
+```console
+Azure Cognitive Services Computer Vision - .NET quickstart example
+
+----------------------------------------------------------
+READ FILE FROM URL
+
+Extracting text from URL file printed_text.jpg...
+
+
+Nutrition Facts Amount Per Serving
+Serving size: 1 bar (40g)
+Serving Per Package: 4
+Total Fat 13g
+Saturated Fat 1.5g
+Amount Per Serving
+Trans Fat 0g
+Calories 190
+Cholesterol 0mg
+ories from Fat 110
+Sodium 20mg
+nt Daily Values are based on Vitamin A 50%
+calorie diet.
+```
+
 
 ## Clean up resources
 

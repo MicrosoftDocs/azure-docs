@@ -3,7 +3,6 @@ title:  Profile web apps on an Azure VM - Application Insights Profiler
 description: Profile web apps on an Azure VM by using Application Insights Profiler.
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.reviewer: mbullwin
 ---
 
 # Profile web apps running on an Azure virtual machine or a virtual machine scale set by using Application Insights Profiler

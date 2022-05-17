@@ -30,45 +30,43 @@ Use the Optical character recognition client library to read printed and handwri
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting up
-
-### Create a new Node.js application
-
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
-
-```console
-mkdir myapp && cd myapp
-```
-
-Run the `npm init` command to create a node application with a `package.json` file.
-
-```console
-npm init
-```
-
-### Install the client library
-
-Install the `ms-rest-azure` and `@azure/cognitiveservices-computervision` NPM package:
-
-```console
-npm install @azure/cognitiveservices-computervision
-```
-
-Also install the async module:
-
-```console
-npm install async
-```
-
-Your app's `package.json` file will be updated with the dependencies.
-
-Create a new file, *index.js*, and open it in a text editor.
-
-### Find the subscription key and endpoint
-
-[!INCLUDE [find key and endpoint](../find-key.md)]
-
 ## Read printed and handwritten text
+
+1. Create a new Node.js application.
+
+    In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
+
+    ```console
+    mkdir myapp && cd myapp
+    ```
+
+    Run the `npm init` command to create a node application with a `package.json` file.
+
+    ```console
+    npm init
+    ```
+
+    ### Install the client library
+
+    Install the `ms-rest-azure` and `@azure/cognitiveservices-computervision` NPM package:
+
+    ```console
+    npm install @azure/cognitiveservices-computervision
+    ```
+
+    Also install the async module:
+
+    ```console
+    npm install async
+    ```
+
+    Your app's `package.json` file will be updated with the dependencies.
+
+    Create a new file, *index.js*, and open it in a text editor.
+
+1. Find the subscription key and endpoint.
+
+    [!INCLUDE [find key and endpoint](../find-key.md)]
 
 1. Paste the following code into your *index.js* file.
 
@@ -80,11 +78,10 @@ Create a new file, *index.js*, and open it in a text editor.
    > [!IMPORTANT]
    > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
-
-1. As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use. The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model version `2022-01-30-preview`, edit the `read` statement as shown:
+1. As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional). For example, to explicitly specify the latest GA model, edit the `read` statement as shown. Skipping the parameter or using `"latest"` automatically uses the most recent GA model.
 
    ```JS
-     let result = await client.read(url,{modelVersion:"2022-01-30-preview"});
+     let result = await client.read(url,{modelVersion:"2022-04-30"});
    ```
 
 1. Run the application with the `node` command on your quickstart file.
@@ -92,6 +89,32 @@ Create a new file, *index.js*, and open it in a text editor.
    ```console
    node index.js
    ```
+
+## Output
+
+```console
+-------------------------------------------------
+READ PRINTED, HANDWRITTEN TEXT AND PDF
+
+Read printed text from URL... printed_text.jpg
+Recognized text:
+Nutrition Facts Amount Per Serving
+Serving size: 1 bar (40g)
+Serving Per Package: 4
+Total Fat 13g
+Saturated Fat 1.5g
+Amount Per Serving
+Trans Fat 0g
+Calories 190
+Cholesterol 0mg
+ories from Fat 110
+Sodium 20mg
+nt Daily Values are based on Vitamin A 50%
+calorie diet.
+
+-------------------------------------------------
+End of quickstart.
+```
 
 ## Clean up resources
 

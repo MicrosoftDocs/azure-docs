@@ -432,7 +432,7 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
 
 **run.ps1**
 ```powershell
-param($[string] $input, $TriggerMetadata)
+param([string] $input, $TriggerMetadata)
 
 $InstanceId = Start-DurableOrchestration -FunctionName $FunctionName -Input $input
 ```

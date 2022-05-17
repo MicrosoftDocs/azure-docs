@@ -70,19 +70,8 @@ items:
   - name: FHIR operations
     expanded: true
     items:
-    - name: $validate
-      expanded: false
-      items:
-      - name: Store profiles
-        href: store-profiles-in-fhir.md
-      - name: Use $validate
-        href: validation-against-profiles.md
-    - name: Patient/$everything
-      href: patient-everything.md
-    - name: $member-match
-      href: tutorial-member-match.md
     - name: $export
-      expanded: true
+      expanded: false
       items:
       - name: Configure settings for export
         href: configure-export-data.md
@@ -90,10 +79,26 @@ items:
         href: export-data.md
       - name: De-identified export
         href: de-identified-export.md
-  - name: Bulk import data into the FHIR service
-    href: bulk-importing-fhir-data.md 
-  - name: Convert data
-    href: convert-data.md
+    - name: $member-match
+      href: tutorial-member-match.md
+    - name: Patient/$everything
+      href: patient-everything.md
+    - name: $purge-history operation
+      href: purge-history.md  
+    - name: $validate
+      expanded: false
+      items:
+      - name: Store profiles
+        href: store-profiles-in-fhir.md
+      - name: Use $validate
+        href: validation-against-profiles.md
+  - name: Bulk-import data
+    expanded: true
+    items:
+    - name: Configure bulk-import settings 
+      href: configure-import-data.md
+    - name: Use bulk-import
+      href: import-data.md   
   - name: Copy data to Synapse
     href: copy-to-synapse.md
 - name: Concepts
@@ -103,6 +108,8 @@ items:
     href: fhir-service-autoscale.md
   - name: FHIR REST API capabilities
     href: fhir-rest-api-capabilities.md
+  - name: Versioning policy and history management
+    href: fhir-versioning-policy-and-history-management.md
 - name: Resources
   expanded: true
   items:

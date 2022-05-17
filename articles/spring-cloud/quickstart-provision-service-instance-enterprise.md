@@ -38,7 +38,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
 
 1. On the Azure Spring Cloud **Create** page, select **Change** next to the **Pricing** option, then select the **Enterprise** tier.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png" alt-text="Azure portal screenshot of Azure Spring Cloud creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png" alt-text="Screenshot of Azure portal Azure Spring Cloud creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png":::
 
    Select the **Terms** checkbox to agree to the legal terms and privacy statements of the Enterprise tier offering in the Azure Marketplace.
 
@@ -47,7 +47,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
    > [!NOTE]
    > All Tanzu components are enabled by default. Be sure to carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Cloud instance, you can't enable or disable Tanzu components.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png" alt-text="Azure portal screenshot of Azure Spring Cloud creation page with VMware Tanzu Settings section showing." lightbox="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png" alt-text="Screenshot of Azure portal Azure Spring Cloud creation page with V M ware Tanzu Settings section showing." lightbox="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png":::
 
 1. Select the **Application Insights** section, then select **Enable Application Insights**. You can also enable Application Insights after you provision the Azure Spring Cloud instance.
 
@@ -57,7 +57,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
    > [!NOTE]
    > You'll pay for the usage of Application Insights when integrated with Azure Spring Cloud. For more information about Application Insights pricing, see [Application Insights billing](../azure-monitor/logs/cost-logs.md#application-insights-billing).
 
-    :::image type="content" source="media/enterprise/getting-started-enterprise/application-insights.png" alt-text="Azure portal screenshot of Azure Spring Cloud creation page with Application Insights section showing." lightbox="media/enterprise/getting-started-enterprise/application-insights.png":::
+    :::image type="content" source="media/enterprise/getting-started-enterprise/application-insights.png" alt-text="Screenshot of Azure portal Azure Spring Cloud creation page with Application Insights section showing." lightbox="media/enterprise/getting-started-enterprise/application-insights.png":::
 
 1. Select **Review and create**. After validation completes successfully, select **Create** to start provisioning the service instance.
 

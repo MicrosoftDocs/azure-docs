@@ -45,7 +45,7 @@ In this tutorial, you will learn how to:
 
 ## Deploy your model
 
-To deploy your model, go to your project in [Language Studio](https://aka.ms/custom-classification). You can also use the [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob).
+To deploy your model, go to your project in [Language Studio](https://aka.ms/custom-classification). You can also use the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob).
 
 [!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
 

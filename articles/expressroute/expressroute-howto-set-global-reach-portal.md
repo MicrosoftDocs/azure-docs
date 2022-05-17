@@ -11,7 +11,7 @@ ms.author: duau
 
 # Configure ExpressRoute Global Reach using the Azure portal
 
-This article helps you configure ExpressRoute Global Reach using PowerShell. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
+This article helps you configure ExpressRoute Global Reach using the Azure portal. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
 
 > [!NOTE]
 > IPv6 support for ExpressRoute Global Reach is now in Public Preview.
@@ -53,6 +53,12 @@ Enable connectivity between your on-premises networks. There are separate sets o
 
 1. Select **Save** to complete the Global Reach configuration. When the operation completes, you'll have connectivity between your two on-premises networks through both ExpressRoute circuits.
 
+    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-configuration.png" alt-text="Screenshot of the save button for Global Reach configuration.":::
+
+    > [!NOTE]
+    > The Global Reach configuration is bidirectional. Once you create the connection from one circuit the other circuit will also have the configuration.
+    > 
+
 ### ExpressRoute circuits in different Azure subscriptions
 
 If the two circuits aren't in the same Azure subscription, you'll need authorization. In the following configuration, authorization is generated from circuit 2's subscription. The authorization key is then passed to circuit 1.
@@ -87,6 +93,20 @@ Verify the Global Reach configuration by reviewing the list of Global Reach conn
 To disable connectivity between an individual circuit, select the delete button to the right of the Global Reach connection to remove connectivity between them. Then select **Save** to complete the operation.
 
 After the operation is complete, you no longer have connectivity between your on-premises network through your ExpressRoute circuits.
+
+## Update configuration
+
+1. To update the configuration for a Global Reach connection, select the connection name.
+
+:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/select-configuration.png" alt-text="Screenshot of Global Reach connection name.":::
+
+1. Update the configuration on the *Edit Global Reach** page and the select **Save**.
+
+:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/edit-configuration.png" alt-text="Screenshot of the edit Global Reach configuration page.":::
+
+1. Select **Save** on the main overview page to apply the configuration to the circuit.
+
+:::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-edit-configuration.png" alt-text="Screenshot of the save button after editing Global Reach configuration.":::
 
 ## Next steps
 - [Learn more about ExpressRoute Global Reach](expressroute-global-reach.md)

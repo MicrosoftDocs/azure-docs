@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: petrodeg
 ms.author:  petrodeg
 ms.reviewer: larryfr
-ms.date: 03/31/2022
+ms.date: 04/12/2022
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -121,6 +121,7 @@ There are three supported tracing headers:
 
 Below is a list of common deployment errors that are reported as part of the deployment operation status.
 
+* [ImageBuildFailure](#error-imagebuildfailure)
 * [OutOfQuota](#error-outofquota)
 * [OutOfCapacity](#error-outofcapacity)
 * [BadArgument](#error-badargument)
@@ -128,6 +129,14 @@ Below is a list of common deployment errors that are reported as part of the dep
 * [ResourceNotFound](#error-resourcenotfound)
 * [OperationCancelled](#error-operationcancelled)
 * [InternalServerError](#error-internalservererror)
+
+### ERROR: ImageBuildFailure
+
+This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location is returned as part of the error. For example, 'The build log is available in the workspace blob store "storage-account-name" under the path "/azureml/ImageLogs/your-image-id/build.log"'. In this case, "azureml" is the name of the blob container in the storage account.
+
+If no obvious error is found in the build log, and the last line is `Installing pip dependencies: ...working...`, then the error may be caused by a dependency. Pinning version dependencies in your conda file could fix this problem.
+
+We also recommend using a [local deployment](#deploy-locally) to test and debug your models locally before deploying in the cloud.
 
 ### ERROR: OutOfQuota
 
@@ -189,13 +198,16 @@ The specified VM Size failed to provision due to a lack of Azure Machine Learnin
 Below is a list of reasons you might run into this error:
 
 * [Resource request was greater than limits](#resource-requests-greater-than-limits)
-* [Unable to download resources](#unable-to-download-resources)
+* [Startup task failed due to authorization error](#authorization-error)
+* [Startup task failed due to incorrect role assignments on resource](#authorization-error)
+* [Unable to download user container image](#unable-to-download-user-container-image)
+* [Unable to download user model or code artifacts](#unable-to-download-user-model-or-code-artifacts)
 
 #### Resource requests greater than limits
 
 Requests for resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to an Azure Machine Learning workspace. You can check limits in the Azure portal or by using the `az ml compute show` command.
 
-#### Unable to download resources
+#### Authorization error
 
 After provisioning the compute resource, during deployment creation, Azure tries to pull the user container image from the workspace private Azure Container Registry (ACR) and mount the user model and code artifacts into the user container from the workspace storage account.
 
@@ -207,20 +219,9 @@ To pull blobs, Azure uses [managed identities](../active-directory/managed-ident
 
   - If you created the associated endpoint with UserAssigned, the user's managed identity must have Storage blob data reader permission on the workspace storage account.
 
-During this process, you can run into a few different issues depending on which stage the operation failed at:
-
-* [Unable to download user container image](#unable-to-download-user-container-image)
-* [Unable to download user model or code artifacts](#unable-to-download-user-model-or-code-artifacts)
-
-To get more details about these errors, run:
-
-```azurecli
-az ml online-deployment get-logs -n <endpoint-name> --deployment <deployment-name> --l 100
-``` 
-
 #### Unable to download user container image
 
-It is possible that the user container could not be found.
+It is possible that the user container could not be found. Check [container logs](#get-container-logs) to get more details.
 
 Make sure container image is available in workspace ACR.
 
@@ -229,7 +230,7 @@ For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed0
 
 #### Unable to download user model or code artifacts
 
-It is possible that the user model or code artifacts can't be found.
+It is possible that the user model or code artifacts can't be found. Check [container logs](#get-container-logs) to get more details.
 
 Make sure model and code artifacts are registered to the same workspace as the deployment. Use the `show` command to show details for a model or code artifact in a workspace. 
 

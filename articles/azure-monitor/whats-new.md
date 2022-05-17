@@ -27,11 +27,6 @@ This article lists significant changes to Azure Monitor documentation.
 
 ### Application Insights
 
-**New articles**
-
-- [Error retrieving data message on Application Insights portal](app/troubleshoot-portal-connectivity.md)
-- [Troubleshooting Azure Application Insights auto-instrumentation](app/auto-instrumentation-troubleshoot.md)
-
 **Updated articles**
 
 - [Application Insights API for custom events and metrics](app/api-custom-events-metrics.md)
@@ -58,7 +53,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 **New articles**
 
-- [Activity logs insights (Preview)](essentials/activity-logs-insights.md)
+- [Activity logs insights (Preview)](essentials/activity-log.md)
 
 **Updated articles**
 
@@ -351,8 +346,8 @@ This article lists significant changes to Azure Monitor documentation.
 
 **Updated articles**
 
-- [Enable SQL insights (preview)](insights/sql-insights-enable.md)
-- [Troubleshoot SQL insights (preview)](insights/sql-insights-troubleshoot.md)
+- [Enable SQL Insights (preview)](insights/sql-insights-enable.md)
+- [Troubleshoot SQL Insights (preview)](insights/sql-insights-troubleshoot.md)
 
 ### Logs
 
@@ -518,8 +513,8 @@ This article lists significant changes to Azure Monitor documentation.
 - [Azure Data Explorer Insights](insights/data-explorer.md)
 - [Agent Health solution in Azure Monitor](insights/solution-agenthealth.md)
 - [Monitoring solutions in Azure Monitor](insights/solutions.md)
-- [Monitor your SQL deployments with SQL insights (preview)](insights/sql-insights-overview.md)
-- [Troubleshoot SQL insights (preview)](insights/sql-insights-troubleshoot.md)
+- [Monitor your SQL deployments with SQL Insights (preview)](insights/sql-insights-overview.md)
+- [Troubleshoot SQL Insights (preview)](insights/sql-insights-troubleshoot.md)
 
 ### Logs
 
@@ -765,7 +760,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 **Updated articles**
 
-- [Enable SQL insights (preview)](insights/sql-insights-enable.md)
+- [Enable SQL Insights (preview)](insights/sql-insights-enable.md)
 
 ### Logs
 

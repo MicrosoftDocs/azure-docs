@@ -13,7 +13,7 @@ This article describes how to set up Container insights to monitor managed Kuber
 You can enable monitoring of an AKS cluster that's already deployed using one of the supported methods:
 
 * Azure CLI
-* Terraform
+* [Terraform](#enable-using-terraform)
 * [From Azure Monitor](#enable-from-azure-monitor-in-the-portal) or [directly from the AKS cluster](#enable-directly-from-aks-cluster-in-the-portal) in the Azure portal
 * With the [provided Azure Resource Manager template](#enable-using-an-azure-resource-manager-template) by using the Azure PowerShell cmdlet `New-AzResourceGroupDeployment` or with Azure CLI.
 

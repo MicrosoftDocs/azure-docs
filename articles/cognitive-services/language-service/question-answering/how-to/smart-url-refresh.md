@@ -87,5 +87,5 @@ If these two QnA pairs have individual prompts attached to them (for example, Q1
 
 ## Next steps
 
-* [Question answering quickstart](/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=studio)
+* [Question answering quickstart](../quickstart/sdk.md?pivots=studio)
 * [Update Sources API reference](/rest/api/cognitiveservices/questionanswering/question-answering-projects/update-sources)

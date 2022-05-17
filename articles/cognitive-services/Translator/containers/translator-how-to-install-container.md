@@ -103,7 +103,7 @@ docker run --rm -it -p 5000:5000 --memory 12g --cpus 4 \
 -e eula=accept \
 -e billing={ENDPOINT_URI} \
 -e Languages=en,fr,es,ar,ru  \
-mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.018950002-amd64-preview
+mcr.microsoft.com/azure-cognitive-services/translator/text-translation:1.0.019410001-amd64-preview
 ```
 
 The above command:

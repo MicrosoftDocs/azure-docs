@@ -7,16 +7,15 @@ ms.date: 03/31/2022
 ---
 
 # Install Log Analytics agent on Linux computers
-The Log Analytics agents are on a **deprecation path** and will no longer be supported after **August 31, 2024**. If you use the Log Analytics agents to ingest data to Azure Monitor, make sure to [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.  
-
-
 This article provides details on installing the Log Analytics agent on Linux computers using the following methods:
 
 * [Install the agent for Linux using a wrapper-script](#install-the-agent-using-wrapper-script) hosted on GitHub. This is the recommended method to install and upgrade the agent when the computer has connectivity with the Internet, directly or through a proxy server.
 * [Manually download and install](#install-the-agent-manually) the agent. This is required when the Linux computer does not have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](./gateway.md). 
 
+The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
+
 >[!IMPORTANT]
-> The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
+> The Log Analytics agents are on a **deprecation path** and will no longer be supported after **August 31, 2024**. If you use the Log Analytics agents to ingest data to Azure Monitor, make sure to [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.  
 
 
 
@@ -78,7 +77,7 @@ The following are not supported:
 - CIS
 - SELinux (custom hardening like MLS)
 
-CIS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent. For instance, OS images like Github Enterprise Server which include customizations such as limitations to user account privileges are not supported.
+CIS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent. For instance, OS images like GitHub Enterprise Server which include customizations such as limitations to user account privileges are not supported.
 
 ## Agent prerequisites
 
@@ -176,6 +175,8 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
 > [!NOTE]
 > For Azure VMs, we recommend you install the agent on them using the [Azure Log Analytics VM extension](../../virtual-machines/extensions/oms-linux.md) for Linux. 
 
+
+
 1. [Download](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) and transfer the appropriate bundle (x64 or x86) to your Linux VM or physical computer, using scp/sftp.
 
 2. Install the bundle by using the `--install` argument. To onboard to a Log Analytics workspace during installation, provide the `-w <WorkspaceID>` and `-s <workspaceKey>` parameters copied earlier.
@@ -183,9 +184,12 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
     >[!NOTE]
     >You need to use the `--upgrade` argument if any dependent packages such as omi, scx, omsconfig or their older versions are installed, as would be the case if the system Center Operations Manager agent for Linux is already installed. 
 
-    ```
-    sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key>
-    ```
+> [!NOTE]
+> Because the [Container Monitoring solution](../containers/containers.md) is being retired, the following documentation uses the optional setting --skip-docker-provider-install to disable the Container Monitoring data collection.
+
+   ```
+   sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key> --skip-docker-provider-install
+   ```
 
 3. To configure the Linux agent to install and connect to a Log Analytics workspace through a Log Analytics gateway, run the following command providing the proxy, workspace ID, and workspace key parameters. This configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The *proxyhost* property accepts a fully qualified domain name or IP address of the Log Analytics gateway server.  
 
@@ -220,6 +224,10 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 ## Upgrade from a previous release
 
 Upgrading from a previous version, starting with version 1.0.0-47, is supported in each release. Perform the installation with the `--upgrade` parameter to upgrade all components of the agent to the latest version.
+
+> [!NOTE]
+> There will be a warning message during the upgrade "docker provider package installation skipped" since --skip-docker-provider-install flag is set. If you are installing over an existing omsagent install and wish to remove the docker provider, you should first purge the existing installation and then install using the --skip-docker-provider-install flag.
+
 
 ## Cache information
 Data from the Log Analytics agent for Linux is cached on the local machine at *%STATE_DIR_WS%/out_oms_common*.buffer* before it's sent to Azure Monitor. Custom log data is buffered in *%STATE_DIR_WS%/out_oms_blob*.buffer*. The path may be different for some [solutions and data types](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).

@@ -46,7 +46,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
 
 > [!IMPORTANT]
-> Monitoring ASP.NET Core 3.X applications require Application Insights version 2.8.0 or above. To enable Application Insights ensure it is both activated in the Azure Portal and that the Application Insights NuGet package is included. Without the NuGet package some telemetry is sent to Application Insights but that telemetry will not show in the Live Metrics Stream.
+> Monitoring ASP.NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) applications require Application Insights version 2.8.0 or above. To enable Application Insights ensure it is both activated in the Azure Portal and that the Application Insights NuGet package is included. Without the NuGet package some telemetry is sent to Application Insights but that telemetry will not show in the Live Metrics Stream.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -249,9 +249,9 @@ However, if you recognize and trust all the connected servers, you can try the c
 
 | Language                         | Basic Metrics       | Performance metrics | Custom filtering    | Sample telemetry    | CPU split by process |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
-| .NET Framework                   | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+)  |
-| .NET Core (target=.NET Framework)| Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+)  |
-| .NET Core (target=.NET Core)     | Supported (V2.4.1+) | Supported*          | Supported (V2.4.1+) | Supported (V2.4.1+) | **Not Supported**    |
+| .NET Framework                   | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core))  |
+| .NET Core (target=.NET Framework)| Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core))  |
+| .NET Core (target=.NET Core)     | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported*          | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | **Not Supported**    |
 | Azure Functions v2               | Supported           | Supported           | Supported           | Supported           | **Not Supported**    |
 | Java                             | Supported (V2.0.0+) | Supported (V2.0.0+) | **Not Supported**   | Supported (V3.2.0+) | **Not Supported**    |
 | Node.js                          | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**   | Supported (V1.3.0+) | **Not Supported**    |
@@ -261,14 +261,38 @@ Basic metrics include request, dependency, and exception rate. Performance metri
  \* PerfCounters support varies slightly across versions of .NET Core that do not target the .NET Framework:
 
 - PerfCounters metrics are supported when running in Azure App Service for Windows. (AspNetCore SDK Version 2.4.1 or higher)
-- PerfCounters are supported when app is running in ANY Windows machines (VM or Cloud Service or On-prem etc.) (AspNetCore SDK Version 2.7.1 or higher), but for apps targeting .NET Core 2.0 or higher.
-- PerfCounters are supported when app is running ANYWHERE (Linux, Windows, app service for Linux, containers, etc.) in the latest versions (i.e. AspNetCore SDK Version 2.8.0 or higher), but only for apps targeting .NET Core 2.0 or higher.
+- PerfCounters are supported when app is running in ANY Windows machines (VM or Cloud Service or On-prem etc.) (AspNetCore SDK Version 2.7.1 or higher), but for apps targeting .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or higher.
+- PerfCounters are supported when app is running ANYWHERE (Linux, Windows, app service for Linux, containers, etc.) in the latest versions, but only for apps targeting .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or higher.
 
 ## Troubleshooting
 
 Live Metrics Stream uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall. Also check the [outgoing ports for Live Metrics Stream](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
-As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2 by default. If you are using an older version of TLS , Live Metrics will not display any data. For applications based on .NET Framework 4.5.1 refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version. 
+As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you are using an older version of TLS , Live Metrics will not display any data. For applications based on .NET Framework 4.5.1 refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version.
+
+> [!WARNING]
+> Currently, authenticated channel only supports manual SDK instrumentation. The authenticated channel cannot be configured with auto-instrumentation (used to be known as "codeless attach").
+
+### Missing configuration for .NET
+
+1. Verify you are using the latest version of the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
+2. Edit the `ApplicationInsights.config` file
+    * Verify that the connection string points to the Application Insights resource you are using
+    * Locate the `QuickPulseTelemetryModule` configuration option; if it is not there add it
+    * Locate the `QuickPulseTelemetryProcessor` configuration option; if it is not there add it
+     
+ ```xml
+<TelemetryModules>
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.
+QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector"/>
+</TelemetryModules>
+
+<TelemetryProcessors>
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.
+QuickPulse.QuickPulseTelemetryProcessor, Microsoft.AI.PerfCounterCollector"/>
+<TelemetryProcessors>
+````
+3. Restart the application
 
 ## Next steps
 

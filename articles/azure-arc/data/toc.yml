@@ -169,7 +169,7 @@ items:
               href: using-extensions-in-postgresql-hyperscale-server-group.md
         - name: Migrate
           items:
-            - name: Migrate PostgreSQL data into a Postgres Hyperscale server group
+            - name: Migrate PostgreSQL data into a PostgreSQL Hyperscale server group
               href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
             - name: Import the sample database AdventureWorks
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
@@ -237,14 +237,20 @@ items:
           items:
             - name: Introduction
               href: active-directory-introduction.md
+            - name: Prerequisites
+              href: active-directory-prerequisites.md
             - name: Deploy connector
               items:
-                - name: Automatic
-                  href: deploy-automatic-active-directory-connector.md
-                - name: Bring your own keytab
-                  href: deploy-byok-active-directory-connector.md
+                - name: System-managed keytab
+                  href: deploy-system-managed-keytab-active-directory-connector.md
+                - name: Customer-managed keytab
+                  href: deploy-customer-managed-keytab-active-directory-connector.md
+                - name: Deploy AD connector - CLI
+                  href: deploy-active-directory-connector-cli.md
             - name: Deploy SQL Managed Instance
               href: deploy-active-directory-sql-managed-instance.md
+            - name: Deploy SQL Managed Instance - CLI
+              href: deploy-active-directory-sql-managed-instance-cli.md
             - name: Connect SQL Managed Instance
               href: connect-active-directory-sql-managed-instance.md              
         - name: Business continuity
@@ -265,10 +271,14 @@ items:
     items:
     - name: arcdata
       href: ./reference/reference-az-arcdata.md
+    - name: arcdata ad-connector
+      href: ./reference/reference-az-arcdata-ad-connector.md
     - name: arcdata dc
       href: ./reference/reference-az-arcdata-dc.md
     - name: arcdata dc config
       href: ./reference/reference-az-arcdata-dc-config.md
+    - name: arccdata dc debug
+      href: ./reference/reference-az-arcdata-dc-debug.md
     - name: arcdata dc endpoint
       href: ./reference/reference-az-arcdata-dc-endpoint.md
     - name: arcdata dc status
@@ -281,12 +291,12 @@ items:
       href: ./reference/reference-az-postgres-arc-server-endpoint.md
     - name: sql mi-arc
       href: ./reference/reference-az-sql-mi-arc.md
-    - name: sql mi-arc endpoint
-      href: ./reference/reference-az-sql-mi-arc-endpoint.md
+    - name: sql instance-failover-group-arc
+      href: ./reference/reference-az-sql-instance-failover-group-arc.md
     - name: sql mi-arc config
       href: ./reference/reference-az-sql-mi-arc-config.md
-    - name: sql mi-arc dag
-      href: ./reference/reference-az-sql-mi-arc-dag.md
+    - name: sql mi-arc endpoint
+      href: ./reference/reference-az-sql-mi-arc-endpoint.md
     - name: sql midb-arc 
       href: ./reference/reference-az-sql-midb-arc.md
 - name: Resources

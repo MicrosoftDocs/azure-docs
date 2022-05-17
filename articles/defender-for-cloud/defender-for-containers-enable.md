@@ -2,11 +2,10 @@
 title: How to enable Microsoft Defender for Containers in Microsoft Defender for Cloud
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
-ms.author: elkrieger
-author: Elazark
 zone_pivot_groups: k8s-host
-ms.date: 03/27/2022
+ms.date: 05/10/2022
 ---
+
 # Enable Microsoft Defender for Containers
 
 Microsoft Defender for Containers is the cloud-native solution for securing your containers.
@@ -76,6 +75,18 @@ A full list of supported alerts is available in the [reference table of all Defe
 [!INCLUDE [Remove the extension](./includes/defender-for-containers-remove-extension.md)]
 ::: zone-end
 
+::: zone pivot="defender-for-container-aks,defender-for-container-arc"
+[!INCLUDE [Assign a custom workspace](./includes/defender-for-containers-assign-workspace.md)]
+::: zone-end
+
 ::: zone pivot="defender-for-container-aks"
 [!INCLUDE [Remove the profile](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end
+
+::: zone pivot="defender-for-container-aks,defender-for-container-arc"
+[!INCLUDE [FAQ](./includes/defender-for-containers-override-faq.md)]
+::: zone-end
+
+## Next steps
+
+[Use Defender for Containers to scan your ACR images for vulnerabilities](defender-for-container-registries-usage.md).

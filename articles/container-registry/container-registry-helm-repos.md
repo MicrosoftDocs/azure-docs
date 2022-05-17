@@ -62,10 +62,10 @@ The following resources are needed for the scenario in this article:
 
 - **An Azure container registry** in your Azure subscription. If needed, create a registry using the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
 - **Helm client version 3.7.1 or later** - Run `helm version` to find your current version. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install]. If you upgrade from an earlier version of Helm 3, review the [release notes](https://github.com/helm/helm/releases).
-- **A Kubernetes cluster** where you will install a Helm chart. If needed, create an [Azure Kubernetes Service cluster][aks-quickstart]. 
+- **A Kubernetes cluster** where you will install a Helm chart. If needed, create an AKS cluster [using the Azure CLI][./learn/quick-kubernetes-deploy-cli], [using Azure PowerShell][./learn/quick-kubernetes-deploy-powershell], or [using the Azure portal][./learn/quick-kubernetes-deploy-portal].
 - **Azure CLI version 2.0.71 or later** - Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Enable OCI support
+## Set up Helm client
 
 Use the `helm version` command to verify that you have installed Helm 3:
 
@@ -73,11 +73,8 @@ Use the `helm version` command to verify that you have installed Helm 3:
 helm version
 ```
 
-Set the following environment variable to enable OCI support in the Helm 3 client. Currently, this support is experimental and subject to change. 
-
-```console
-export HELM_EXPERIMENTAL_OCI=1
-```
+> [!NOTE]
+> The version indicated must be at least 3.8.0, as OCI support in earlier versions was experimental.
 
 Set the following environment variables for the target registry. The ACR_NAME is the registry resource name. If the ACR registry url is myregistry.azurecr.io, set the ACR_NAME to myregistry
 

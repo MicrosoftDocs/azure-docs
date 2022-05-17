@@ -62,7 +62,7 @@ Certain machine learning scenarios involve training models with private data. In
     - [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md)
     - [Azure Data Lake Storage Gen1](../data-lake-store/index.yml)
     - [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
-    - [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
+    - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
 
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install).
 

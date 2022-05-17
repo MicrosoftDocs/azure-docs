@@ -5,7 +5,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: tamram
 
 ms.author: tamram
-ms.date: 03/29/2022
+ms.date: 04/13/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -278,7 +278,7 @@ The following example shows a change event record in JSON format that uses event
         "sequencer": "00000000000000010000000000000002000000000000001d",
         "previousInfo": {
             "SoftDeleteSnapshot": "2022-02-17T13:08:42.4825913Z",
-            "WasBlobSoftDeleted": true,
+            "WasBlobSoftDeleted": "true",
             "BlobVersion": "2024-02-17T16:11:52.0781797Z",
             "LastVersion" : "2022-02-17T16:11:52.0781797Z",
             "PreviousTier": "Hot"
@@ -356,7 +356,7 @@ The following example shows a change event record in JSON format that uses event
         "sequencer": "00000000000000010000000000000002000000000000001d",
         "previousInfo": {
             "SoftDeleteSnapshot": "2022-02-17T13:08:42.4825913Z",
-            "WasBlobSoftDeleted": true,
+            "WasBlobSoftDeleted": "true",
             "BlobVersion": "2024-02-17T16:11:52.0781797Z",
             "LastVersion" : "2022-02-17T16:11:52.0781797Z",
             "PreviousTier": "Hot"
@@ -438,7 +438,7 @@ The following example shows a change event record in JSON format that uses event
         "sequencer": "00000000000000010000000000000002000000000000001d",
         "previousInfo": {
             "SoftDeleteSnapshot": "2022-02-17T13:12:11.5726507Z",
-            "WasBlobSoftDeleted": true,
+            "WasBlobSoftDeleted": "true",
             "BlobVersion": "2024-02-17T16:11:52.0781797Z",
             "LastVersion" : "2022-02-17T16:11:52.0781797Z",
             "PreviousTier": "Hot"

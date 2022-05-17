@@ -13,6 +13,9 @@
       href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
       href: quickstart-control-device.md
+    - name: Auto-route messages using Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-bicep-route-messages.md
     - name: Auto-route messages using an ARM template
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
@@ -435,10 +438,6 @@
       href: ./policy-reference.md
     - name: Feature and API retirement
       items:
-        - name: Operations monitoring
-          href: iot-hub-operations-monitoring.md
-        - name: Migrate to Azure Monitor
-          href: iot-hub-migrate-to-diagnostics-settings.md
         - name: TLS 1.0 and 1.1 deprecation
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
         - name: Classic IP filter
