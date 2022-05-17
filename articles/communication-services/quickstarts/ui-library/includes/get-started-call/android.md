@@ -412,7 +412,7 @@ CallComposite callComposite =
 -----
 ### Apply localization configuration
 
-To change the language of composite, create a `LocalizationConfiguration` with `languageCode`. To apply language, inject the localization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `LanguageCode.values()` provides list of supported languages.
+To change the language of composite, create a `LocalizationConfiguration` with `Locale` from `CommunicationUISupportedLocale`. To apply language, inject the localization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `CommunicationUISupportedLocale` provides the supported Locales. For example, to access English Locale, `CommunicationUISupportedLocale.EN` can be used. `CommunicationUISupportedLocale.getSupportedLocales()` provides list of supported language's Locale objects.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -422,7 +422,7 @@ import com.azure.android.communication.ui.calling.models.LocalizationConfigurati
 // LanguageCode.values() provides list of supported languages
 val callComposite: CallComposite =
             CallCompositeBuilder().localization(
-                LocalizationConfiguration(Locale("en"))
+                LocalizationConfiguration(Locale(CommunicationUISupportedLocale.EN))
             ).build()
 ```
 
@@ -434,7 +434,7 @@ import com.azure.android.communication.ui.calling.models.LocalizationConfigurati
 // LanguageCode.values() provides list of supported languages
 CallComposite callComposite = 
     new CallCompositeBuilder()
-        .localization(new LocalizationConfiguration(new Locale("en")))
+        .localization(new LocalizationConfiguration(new Locale(CommunicationUISupportedLocale.EN)))
         .build();
 ```
 
