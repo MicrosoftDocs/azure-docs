@@ -302,6 +302,8 @@
     items:
     - name: Investigate incidents
       href: investigate-cases.md
+    - name: Relate alerts to incidents
+      href: relate-alerts-to-incidents.md
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
