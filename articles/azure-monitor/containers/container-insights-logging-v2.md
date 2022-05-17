@@ -11,7 +11,7 @@ ms.date: 05/11/2022
 ---
 
 # Enable ContainerLogV2 schema (preview)
-As part of [Basic Logs](../logs/basic-logs-configure.md), Azure Monitor Container Insights is now in Public Preview of new schema for container logs called ContainerLogV2. As part of this schema, there new fields to make common queries to view AKS (Azure Kubernetes Service) and Azure Arc enabled Kubernetes data.
+Azure Monitor Container Insights is now in Public Preview of new schema for container logs called ContainerLogV2. As part of this schema, there new fields to make common queries to view AKS (Azure Kubernetes Service) and Azure Arc enabled Kubernetes data. In addition, this schema is compatible as a part of [Basic Logs](../logs/basic-logs-configure.md), which offer a low cost alternative to standard analytics logs.
 
 > [!NOTE]
 > The ContainerLogv2 schema is currently a preview feature.
@@ -66,5 +66,6 @@ containerlog_schema_version = "v2"
 >[!NOTE]
 >* The configuration change can take a few minutes to complete before taking effect, all omsagent pods in the cluster will restart. 
 >* The restart is a rolling restart for all omsagent pods, it will not restart all of them at the same time.
+
 ## Next steps
 * Configure [Basic Logs](../logs/basic-logs-configure.md) for ContainerLogv2
