@@ -360,7 +360,7 @@ To receive error events, inject a handler to the `CallCompositeBuilder`.
 ```kotlin
 val callComposite: CallComposite = CallCompositeBuilder().build()
 callComposite.setOnErrorHandler { communicationUIErrorEvent ->
-    //...
+    println(communicationUIErrorEvent.errorCode)
 }
 ```
 
@@ -369,7 +369,7 @@ callComposite.setOnErrorHandler { communicationUIErrorEvent ->
 ```java
 CallComposite callComposite = new CallCompositeBuilder().build();
 callComposite.setOnErrorHandler(communicationUIErrorEvent -> {
-    //...
+    System.out.println(communicationUIErrorEvent.getErrorCode());
 });
 ```
 
