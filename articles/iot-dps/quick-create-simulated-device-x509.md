@@ -33,6 +33,11 @@ The following prerequisites are for a Windows development environment. For Linux
 
 * Install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
+* Install the latest [CMake build system](https://cmake.org/download/). Make sure you check the option that adds the CMake executable to your path.
+
+    >[!IMPORTANT]
+    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
+
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -90,18 +95,13 @@ The following prerequisites are for a Windows development environment. For Linux
 
 In this section, you'll prepare a development environment that's used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device, during the device's boot sequence.
 
-1. Download the latest [CMake build system](https://cmake.org/download/).
+1. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
-    >[!IMPORTANT]
-    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
+2. Select the **Tags** tab at the top of the page.
 
-2. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
+3. Copy the tag name for the latest release of the Azure IoT C SDK.
 
-3. Select the **Tags** tab at the top of the page.
-
-4. Copy the tag name for the latest release of the Azure IoT C SDK.
-
-5. In your Windows command prompt, run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. (replace `<release-tag>` with the tag you copied in the previous step).
+4. In your Windows command prompt, run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. (replace `<release-tag>` with the tag you copied in the previous step).
 
     ```cmd
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -111,14 +111,14 @@ In this section, you'll prepare a development environment that's used to build t
 
     This operation could take several minutes to complete.
 
-6. When the operation is complete, run the following commands from the `azure-iot-sdk-c` directory:
+5. When the operation is complete, run the following commands from the `azure-iot-sdk-c` directory:
 
     ```cmd
     mkdir cmake
     cd cmake
     ```
 
-7. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command to build a version of the SDK specific to your development platform that includes the device provisioning client. A Visual Studio solution for the simulated device is generated in the `cmake` directory.
+6. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command to build a version of the SDK specific to your development platform that includes the device provisioning client. A Visual Studio solution for the simulated device is generated in the `cmake` directory.
 
     When specifying the path used with `-Dhsm_custom_lib` in the command below, make sure to use the absolute path to the library in the `cmake` directory you previously created. The path shown below assumes that you cloned the C SDK in the root directory of the C drive. If you used another directory, adjust the path accordingly.
 
@@ -129,19 +129,20 @@ In this section, you'll prepare a development environment that's used to build t
     >[!TIP]
     >If `cmake` does not find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-8. When the build succeeds, the last few output lines look similar to the following output:
+7. When the build succeeds, the last few output lines look similar to the following output:
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=c:/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
-    -- Building for: Visual Studio 16 2019
-    -- The C compiler identification is MSVC 19.23.28107.0
-    -- The CXX compiler identification is MSVC 19.23.28107.0
-
+    -- Building for: Visual Studio 17 2022
+    -- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.22000.
+    -- The C compiler identification is MSVC 19.32.31329.0
+    -- The CXX compiler identification is MSVC 19.32.31329.0
+    
     ...
 
     -- Configuring done
     -- Generating done
-    -- Build files have been written to: C:/code/azure-iot-sdk-c/cmake
+    -- Build files have been written to: C:/azure-iot-sdk-c/cmake
     ```
 
 ::: zone-end
@@ -301,16 +302,18 @@ Perform the steps in this section in your Git Bash prompt.
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl rsa -in device-key.pem -out unencrypted-device-key.pem -noout 
+    winpty openssl rsa -in device-key.pem -out unencrypted-device-key.pem
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl rsa -in device-key.pem -out unencrypted-device-key.pem -noout
+    openssl rsa -in device-key.pem -out unencrypted-device-key.pem
     ```
 
     ---
+
+7. When asked to **Enter pass phrase for device-key.pem:**, use the same pass phrase you did previously, `1234`.
 
 Keep the Git Bash prompt open. You'll need it later in this quickstart.
 
@@ -455,7 +458,7 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 1. Launch Visual Studio and open the new solution file that was created in the `cmake` directory you created in the root of the azure-iot-sdk-c git repository. The solution file is named `azure_iot_sdks.sln`.
 
-1. In Solution Explorer for Visual Studio, navigate to **Provisioning_Samples > prov_dev_client_sample > Source Files** and open *prov_dev_client_sample.c*.
+1. In Solution Explorer for Visual Studio, navigate to **Provision_Samples > prov_dev_client_sample > Source Files** and open *prov_dev_client_sample.c*.
 
 1. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied in step 2.
 
@@ -474,7 +477,7 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 1. Save your changes.
 
-1. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
+1. Right-click the **prov_dev_client_sample** project and select **Set as Startup Project**.
 
 ### Configure the custom HSM stub code
 
@@ -482,7 +485,7 @@ The specifics of interacting with actual secure hardware-based storage vary depe
 
 To update the custom HSM stub code to simulate the identity of the device with ID `my-x509-device`:
 
-1. In Solution Explorer for Visual Studio, navigate to **Provisioning_Samples > custom_hsm_example > Source Files** and open *custom_hsm_example.c*.
+1. In Solution Explorer for Visual Studio, navigate to **Provision_Samples > custom_hsm_example > Source Files** and open *custom_hsm_example.c*.
 
 1. Update the string value of the `COMMON_NAME` string constant using the common name you used when generating the device certificate, `my-x509-device`.
 
@@ -530,23 +533,28 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
     Copy and paste the output private key text for the constant value.
 
-1. Save *custom_hsm_example.c*.
+1. Save your changes.
+
+1. Right-click the **custom_hsm_-_example** project and select **Build**.
+
+    > [!IMPORTANT]
+    > You must build the **custom_hsm_example** project before you build the rest of the solution in the next section.
 
 ### Run the sample
 
-1. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. When prompted to rebuild the project, select **Yes** to rebuild the project before running.
+1. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. If you're prompted to rebuild the project, select **Yes** to rebuild the project before running.
 
     The following output is an example of the simulated device `my-x509-device` successfully booting up, and connecting to the provisioning service. The device is assigned to an IoT hub and registered:
 
     ```output
-    Provisioning API Version: 1.3.9
+    Provisioning API Version: 1.8.0
     
     Registering Device
     
     Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
     
-    Registration Information received from service: test-docs-hub.azure-devices.net, deviceId: my-x509-device
+    Registration Information received from service: contoso-iot-hub-2.azure-devices.net, deviceId: my-x509-device
     Press enter key to exit:
     ```
 
