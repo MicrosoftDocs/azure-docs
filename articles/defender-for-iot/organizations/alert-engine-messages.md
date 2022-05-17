@@ -240,7 +240,7 @@ Operational engine alerts describe detected operational incidents, or malfunctio
 | EtherNet/IP CIP Service Request Failed | A server returned an error code. This indicates a server error or an invalid request by a client. | Major |
 | EtherNet/IP Encapsulation Protocol Command Failed | A server returned an error code. This indicates a server error or an invalid request by a client. | Major |
 | Event Buffer Overflow in Outstation | A buffer overflow event was detected on a source device. The event may cause data corruption, program crashes, or execution of malicious code. | Major |
-| Expected Backup Operation Didn't Occur | Expected backup/file transfer activity didn't occur between two devices. This alert may indicate errors in the backup / file transfer process. | Major |
+| Expected Backup Operation Did Not Occur | Expected backup/file transfer activity didn't occur between two devices. This alert may indicate errors in the backup / file transfer process. | Major |
 | GE SRTP Command Failure | A server returned an error code.  This alert indicates a server error or an invalid request by a client. | Major |
 | GE SRTP Stop PLC Command was Sent | The source device sent a stop command to a destination controller. The controller will stop operating until a start command is sent. | Warning |
 | GOOSE Control Block Requires Further Configuration | A source device sent a GOOSE message indicating that the device needs commissioning. This means that the GOOSE control block requires further configuration and GOOSE messages are partially or completely non-operational. | Major |
