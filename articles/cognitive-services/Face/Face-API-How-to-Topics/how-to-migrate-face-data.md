@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: nitinme
 ms.devlang: csharp
-ms.custom: [devx-track-csharp, non-critical]
+ms.custom: [devx-track-csharp, cogserv-non-critical-vision]
 ---
 
 # Migrate your face data to a different Face subscription
