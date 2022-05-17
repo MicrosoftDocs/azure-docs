@@ -79,4 +79,4 @@ This glossary provides a list of some of the commonly used cloud terms in Entra 
 
 ## Next steps
 
-- For an overview of Entra, see [What's Entra Permissions Management?](Entra-overview.md).
+- For an overview of Entra, see [What's Entra Permissions Management?](cloudknox-overview.md).
