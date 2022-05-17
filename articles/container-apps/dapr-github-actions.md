@@ -6,7 +6,7 @@ ms.author: v-bcatherine
 ms.reviewer: keroden
 ms.service: container-apps
 ms.topic: tutorial 
-ms.date: 05/16/2022
+ms.date: 05/17/2022
 ms.custom: template-tutorial
 ---
 
@@ -30,7 +30,7 @@ The [Container App Store Microservice sample](https://github.com/Azure-Samples/c
 - **Order service** (python-app): Python flask app that retrieves and stores order state
 - **Inventory service** (go-app): Go mux app that returns a static value for inventory state for demo purposes
 
-Once your solution is up and running in Azure, you will leverage the Azure Container Apps GitHub Action integration feature to trigger new revisions for the Order Service.
+Once your solution is up and running in Azure, you will trigger new revisions for the order service using the Azure Container Apps GitHub Actions integration.
 
 > [!NOTE]
 > A new revision is created for a container app when the update contains **[revision-scope](revisions.md#revision-scope-changes)** changes. [Application-scope](revisions.md#application-scope-changes) changes do not create a new revision.
@@ -138,9 +138,9 @@ Inside the directory is:
 > [!NOTE]
 > For this tutorial, we focus on the baseline solution deployment outlined below. If you are interested in building and running the solution on your own, [follow the README instructions within the repo](https://github.com/azure-samples/container-apps-store-api-microservice#build-and-run).
 
-## Deploy baseline solution using GitHub Actions
+## Deploy baseline Dapr solution using GitHub Actions
 
-In your forked repository, an existing GitHub Actions workflow defined by a YAML file in the `/.github/workflows/` path will execute the following steps:
+In your forked repository, an existing GitHub Actions workflow defined by a YAML file in the `/.github/workflows/` path will execute the following steps in the background as you work through this tutorial:
 
 | Section            | Tasks                                                             |
 | ------------------ | ----------------------------------------------------------------- |
@@ -154,15 +154,15 @@ The following resources will be deployed via the bicep template in the `/deploy`
 
 - Log Analytics workspace
 - Application Insights
-- Container App Environment
-- Store API Container App
-- Order Container App
-- Inventory Container App
+- Container app environment
+- Store API container app
+- Order service container app
+- Inventory container app
 - CosmosDB
 
 ### Create a service principal
 
-The workflow requires a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) to authenticate to Azure. Replace <SERVICE_PRINCIPAL_NAME> with your own unique value.
+The workflow requires a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) to authenticate to Azure. In the console, run the following command and replace <SERVICE_PRINCIPAL_NAME> with your own unique value.
 
 # [Bash](#tab/bash)
 
@@ -211,11 +211,20 @@ Navigate to GitHub and verify you're logged in.
 1. In the upper-right corner of any GitHub page, click your profile photo, then click **Settings**.
 1. In the left sidebar, click **Developer Settings** > **Personal Access Tokens**.
 1. Click **Generate new token**. You may be asked to enter your GitHub password.
+
+   :::image type="content" source="media/dapr-github-actions/pat-generate.png" alt-text="Screenshot of the Personal Access Token page and the generate new token button.":::
+
 1. In the **Note** field, provide a descriptive name.
 1. Leave the **Expiration** value at default.
 1. Select the `write:packages` scope.
-1. Scroll down and click **Generate Token**.
+
+   :::image type="content" source="media/dapr-github-actions/name-scope.png" alt-text="Screenshot of creating a new token name and selecting the write packages scope.":::
+
+1. Scroll down and click **Generate token**.
 1. Copy the PAT value and **save it**. You will not be able to view it again after this initial creation.
+
+   :::image type="content" source="media/dapr-github-actions/save-token.png" alt-text="Screenshot of an example of the GitHub personal access token.":::
+
 
 ### Configure GitHub Secrets
 
@@ -223,13 +232,20 @@ Navigate to GitHub and verify you're logged in.
 1. Select the **Settings** tab. 
 1. Select **Secrets** > **Actions**. 
 1. On the **Actions secrets** page, select **New repository secret**.
+
+   :::image type="content" source="media/dapr-github-actions/secrets-actions.png" alt-text="Screenshot of selecting settings, then actions from under secrets in the menu, then the new repository secret button.":::
+
 1. Create the following secrets: 
+
+   :::image type="content" source="media/dapr-github-actions/create-secret-pat.png" alt-text="Screenshot of creating a new secret, like the packages token secret.":::
 
    | Name | Value |
    | ---- | ----- |
    | PACKAGES_TOKEN | The PAT you saved in the previous step |
    | AZURE_CREDENTIALS | The JSON output you saved earlier from the service principal creation |
    | RESOURCE_GROUP | Set as "my-containerapp-store" |
+
+   :::image type="content" source="media/dapr-github-actions/secrets.png" alt-text="Screenshot of all three secrets once created.":::
 
 ### Trigger the GitHub Action
 
@@ -279,9 +295,9 @@ After the workflow successfully completes, verify the application is running in 
 
       You will be redirected to a new page displaying the order object. 
 
-### Modify the source code to trigger a new revision
+## Modify the source code to trigger a new revision
 
-Once the source code is changed and committed, the Github build/deploy workflow will build and push a new container image to GitHub Container Registry. Changing the container image is considered a [revision-scope](revisions.md#revision-scope-changes) change and results in the creation of a new Container App revision. 
+Once the source code is changed and committed, the Github build/deploy workflow will build and push a new container image to GitHub Container Registry. Changing the container image is considered a [revision-scope](revisions.md#revision-scope-changes) change and results in the creation of a new container app revision. 
 
 For this tutorial, you'll add a **Delete Order** operation to your store. 
 
@@ -486,11 +502,14 @@ Notice the node-app now has two revisions:
 | **Inactive** | Created when the base application was first deployed |
 | **Active** | Created when you added the Delete Order operation and pushed the changes |
 
-Since our Container App is in **single revision mode**, Container Apps created a new revision and automatically set it to `active` with 100% traffic. View this new revision in action by refreshing the node-app UI.
+Since our container app is in **single revision mode**, Container Apps created a new revision and automatically set it to `active` with 100% traffic. View this new revision in action by refreshing the node-app UI.
 
 :::image type="content" source="media/dapr-github-actions/revision-ui.png" alt-text="Screenshot of the node app after building and deploying the delete order revision.":::
 
-Select on each revision in the **Revision management** table to view revision details.
+Select each revision in the **Revision management** table to view revision details.
+
+:::image type="content" source="media/dapr-github-actions/revision-details.png" alt-text="Screenshot of the revision details for the active node app revision.":::
+
 
 ## Clean up resources
 
