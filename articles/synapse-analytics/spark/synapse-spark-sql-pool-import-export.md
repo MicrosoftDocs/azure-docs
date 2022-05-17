@@ -205,7 +205,7 @@ synapsesql(table_name: str) -> org.apache.spark.sql.DataFrame
 
 #### Read using Azure AD based authentication
 
-### [Scala](#tab/scala)
+##### [Scala](#tab/scala)
 
 ```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
@@ -234,7 +234,7 @@ val dfToReadFromTable:DataFrame = spark.read.
 dfToReadFromTable.show()
 ```
 
-### [Python](#tab/python)
+##### [Python](#tab/python)
 
 ```python
 # Add required imports
@@ -264,7 +264,7 @@ dfToReadFromTable.show()
 
 #### Read using basic authentication
 
-### [Scala](#tab/scala)
+##### [Scala](#tab/scala1)
 
 ```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
@@ -298,7 +298,7 @@ val dfToReadFromTable:DataFrame = spark.read.
 dfToReadFromTable.show()
 ```
 
-### [Python](#tab/python)
+##### [Python](#tab/python1)
 
 ```python
 # Add required imports
@@ -364,7 +364,7 @@ synapsesql(table_name: str, table_type: str = Constants.INTERNAL, location: str 
 
 Following is a comprehensive code template that describes how to use the Connector for write scenarios:
 
-### [Scala](#tab/scala)
+##### [Scala](#tab/scala2)
 
 ```Scala
 //Add required imports
@@ -423,7 +423,7 @@ readDF.
 if(errorDuringWrite.isDefined) throw errorDuringWrite.get
 ```
 
-### [Python](#tab/python)
+##### [Python](#tab/python2)
 
 ```python
 
@@ -480,7 +480,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
 
 Following code snippet replaces the write definition described in the [Write using Azure AD based authentication](#write-using-azure-ad-based-authentication) section, to submit write request using SQL basic authentication approach:
 
-### [Scala](#tab/scala)
+##### [Scala](#tab/scala3)
 
 ```Scala
 //Define write options to use SQL basic authentication
@@ -509,7 +509,7 @@ readDF.
                 callBackHandle = Some(callBackFunctionToReceivePostWriteMetrics))
 ```
 
-### [Python](#tab/python)
+##### [Python](#tab/python3)
 
 ```python
 # Write using Basic Auth to Internal table
