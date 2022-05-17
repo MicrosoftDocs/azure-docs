@@ -105,10 +105,10 @@
         href: custom-locations.md
       - name: Azure Arc-enabled Machine Learning
         href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
-  - name: Troubleshooting
-    href: troubleshooting.md
   - name: Move between regions
     href: move-regions.md
+  - name: Troubleshooting
+    href: troubleshooting.md
 - name: Reference
   items:
   - name: Azure Policy built-ins
