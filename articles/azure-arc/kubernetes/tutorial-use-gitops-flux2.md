@@ -139,7 +139,7 @@ In the following example:
 * The namespace for configuration installation is `cluster-config`.
 * The URL for the public Git repository is `https://github.com/Azure/gitops-flux2-kustomize-helm-mt`.
 * The Git repository branch is `main`.
-* The scope of the configuration is `cluster`. It gives the operators permissions to make changes throughout cluster.
+* The scope of the configuration is `cluster`. This gives the operators permissions to make changes throughout cluster. To use `namespace` scope with this tutorial, [see the changes needed](#multi-tenancy).
 * Two kustomizations are specified with names `infra` and `apps`. Each is associated with a path in the repository.
 * The `apps` kustomization depends on the `infra` kustomization. (The `infra` kustomization must finish before the `apps` kustomization runs.)
 * Set `prune=true` on both kustomizations. This setting assures that the objects that Flux deployed to the cluster will be cleaned up if they're removed from the repository or if the Flux configuration or kustomizations are deleted.
