@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 05/16/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -83,6 +83,9 @@ To create the registry key that overrides push notifications:
 1. Restart the NPS Service. 
 
 ### Policy schema changes 
+
+>[!NOTE]
+>In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
 
 Identify your single target group for the schema configuration. Then use the following API endpoint to change the numberMatchingRequiredState property to **enabled**:
 
