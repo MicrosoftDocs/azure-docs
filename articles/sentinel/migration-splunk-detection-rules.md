@@ -149,3 +149,7 @@ LineFit)=series_fit_line(Trend)
 | extend (anomalies,score) = 
 series_decompose_anomalies(Trend)
 ```
+
+## Common eval commands
+
+TBD
