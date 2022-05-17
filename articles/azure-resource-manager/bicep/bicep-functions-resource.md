@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 04/28/2022
+ms.date: 05/16/2022
 ---
 
 # Resource functions for Bicep
@@ -479,7 +479,9 @@ You can use the response from `pickZones` to determine whether to provide null f
 
 ## providers
 
-**The providers function has been deprecated.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
+**The providers function has been deprecated in Bicep.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your Bicep file. Using a dynamically returned API version can break your template if the properties change between versions.
+
+The [providers operation](/rest/api/resources/providers) is still available through the REST API. It can be used outside of a Bicep file to get information about a resource provider.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -653,7 +655,7 @@ You use this function to get the resource ID for resources that are [deployed to
 
 ### managementGroupResourceID example
 
-The following template creates a policy definition, and assign the policy defintion. It uses the `managementGroupResourceId` function to get the resource ID for policy definition.
+The following template creates and assigns a policy definition. It uses the `managementGroupResourceId` function to get the resource ID for policy definition.
 
 ```bicep
 targetScope = 'managementGroup'

@@ -40,7 +40,7 @@ For Windows Server 2019, Windows Server 2016 1607, 1709, and Windows 10 and Wind
 - [GRID 13 (471.68)](https://download.microsoft.com/download/f/0/1/f0121609-68b4-48af-8426-ef454d4d2376/471.68_grid_win10_server2016_server2019_server-azure-swl.exe) (.exe) 
 
 For Windows Server 2012 R2: 
-- [GRID 13.1 (472.39)](https://download.microsoft.com/download/3/2/2/322f99aa-57f3-4539-b5fc-718f8c0e2579/472.39_grid_win11_win10_64bit_Azure-SWL.exe) (.exe)
+- [GRID 13.1 (472.39)](https://download.microsoft.com/download/7/3/5/735a46dd-7d61-4852-8e34-28bce7f68727/472.39_grid_win8_win7_64bit_Azure-SWL.exe) (.exe)
 - [GRID 13 (471.68)](https://download.microsoft.com/download/9/b/4/9b4d4f8d-7962-4a67-839b-37cc95756759/471.68_grid_winserver2012R2_64bit_azure_swl.exe) (.exe)
 
 
