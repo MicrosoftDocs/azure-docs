@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Use Text Summarization (preview)"
+title: "Quickstart: Use Document Summarization (preview)"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to start using Text Summarization.
+description: Use this quickstart to start using Document Summarization.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -15,9 +15,9 @@ ms.custom: language-service-summarization, ignite-fall-2021, mode-api
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: using the Text Summarization client library and REST API (preview)
+# Quickstart: using document summarization and conversation summarization (preview)
 
-Use this article to get started with Text Summarization using the client library and REST API. Follow these steps to try out examples code for mining text:
+Use this article to get started with document summarization and conversation summarization using the client library and REST API. Follow these steps to try out examples code for mining text:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -58,4 +58,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-* [Text Summarization overview](overview.md)
+* [Summarization overview](overview.md)

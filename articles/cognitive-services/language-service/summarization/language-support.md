@@ -1,25 +1,27 @@
 ---
-title: Text summarization language support
+title: Document summarization language support
 titleSuffix: Azure Cognitive Services
-description: Learn about which languages are supported by text summarization.
+description: Learn about which languages are supported by document summarization.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 05/11/2022
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021
 ---
 
-# Text summarization language support
+# Summarization language support
 
-Use this article to learn which natural languages are supported by text summarization feature. 
+Use this article to learn which natural languages are supported by document and conversation summarization. 
 
-## Languages supported by text summarization 
+# [Document summarization](#tab/document-summarization)
 
-Text summarization supports the following languages:
+## Languages supported by document summarization 
+
+Document summarization supports the following languages:
 
 | Language              | Language code |  Starting with v3 model version |     Notes          |
 |:----------------------|:-------------:|:-------------------------------:|:------------------:|
@@ -34,6 +36,18 @@ Text summarization supports the following languages:
 | Portuguese (Brazil)   | `pt-BR`       | 2021-08-01                      |                    |
 | Portuguese (Portugal) | `pt-PT`       | 2021-08-01                      | `pt` also accepted |
 
+# [Conversation summarization](#tab/conversation-summarization)
+
+## Languages supported by conversation summarization 
+
+Conversation summarization supports the following languages:
+
+| Language              | Language code |  Starting with model version |     Notes          |
+|:----------------------|:-------------:|:-------------------------------:|:------------------:|
+| English               | `en`          | `2022-05-15`                      |                    |
+
+---
+
 ## Next steps
 
-[Text summarization overview](overview.md)
+[Document summarization overview](overview.md)

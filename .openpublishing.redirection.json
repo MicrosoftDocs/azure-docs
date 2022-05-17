@@ -8115,8 +8115,8 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/extractive-summarization.md",
-      "redirect_url": "/azure/cognitive-services/language-service/text-summarization/overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/overview",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-how-to-install-containers.md",
@@ -43198,6 +43198,26 @@
       "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/terminology.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/key-terms",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/how-to/call-api.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/how-to/document-summarization",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/language-support.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/language-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/overview.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/quickstart.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/quickstart",
+      "redirect_document_id": true
     }
   ]
 }

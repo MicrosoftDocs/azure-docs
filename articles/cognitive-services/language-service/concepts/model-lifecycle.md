@@ -31,7 +31,7 @@ The model-version retirement period is defined as: the period of time from a rel
 
 #### Choose the model-version used on your data
 
-By default, API requests will use the latest Generally Available model. You can use an optional parameter to select the version of the model to be used.  
+By default, API requests will use the latest Generally Available model. You can use an optional parameter to select the version of the model to be used.
 
 > [!TIP] 
 > If you’re using the SDK for C#, Java, JavaScript or Python, see the reference documentation for information on the appropriate model-version parameter.
@@ -68,14 +68,14 @@ As new training configs and new functionality become available; older and less a
 
 New configs are being released every few months. So, training configs expiration of any publicly available config is **six months** after its release. If you have assigned a trained model to a deployment, this deployment expires after **twelve months** from the training config expiration.
 
-After training config version expires, API calls will return an error when called or used if called with an expired config version. By default, training requests will use the latest available training config version. To change the config version, use `trainingConfigVersion` when submitting a training job and assign the version you want. 
+After training config version expires, API calls will return an error when called or used if called with an expired config version. By default, training requests will use the latest available training config version. To change the config version, use `trainingConfigVersion` when submitting a training job and assign the version you want.
 
 > [!Tip]
 > It's recommended to use the latest supported config version
 
-You can train and deploy a custom AI model from the date of training config version release, up until the **Training config expiration** date. After this date, you will have to use another supported training config version for submitting any training or deployment jobs. 
+You can train and deploy a custom AI model from the date of training config version release, up until the **Training config expiration** date. After this date, you will have to use another supported training config version for submitting any training or deployment jobs.
 
-Deployment expiration is when your deployed model will be unavailable to be used for prediction. 
+Deployment expiration is when your deployed model will be unavailable to be used for prediction.
 
 Use the table below to find which model versions are supported by each feature:
 
@@ -91,7 +91,7 @@ Use the table below to find which model versions are supported by each feature:
 
 When you're making API calls to the following features, you need to specify the `API-VERISON` you want to use to complete your request. It's recommended to use the latest available API versions.
 
-If you are using the [Language Studio](https://aka.ms/languageStudio) for building your project you will be using the latest API version available. If you need to use another API version this is only available directly through APIs. 
+If you are using the [Language Studio](https://aka.ms/languageStudio) for building your project you will be using the latest API version available. If you need to use another API version this is only available directly through APIs.
 
 Use the table below to find which API versions are supported by each feature:
 

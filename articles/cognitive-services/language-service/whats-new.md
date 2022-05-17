@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 05/05/2022
+ms.date: 05/11/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -17,10 +17,16 @@ ms.custom: ignite-fall-2021
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## May 2022
+
+* Rebranded Text Summarization to Document Summarization.
+* Custom named entity recognition and custom text summarization are now Generally Available (GA).
+* Conversation summarization is now available in public preview.
+
+
 ## April 2022
 
 * Fast Healthcare Interoperability Resources (FHIR) support is available in the [Language REST API preview](text-analytics-for-health/quickstart.md?pivots=rest-api&tabs=language) for Text Analytics for health.
-
 
 ## March 2022
 
@@ -31,7 +37,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 ## February 2022
 
-* Model improvements for latest model-version for [text summarization](text-summarization/overview.md)
+* Model improvements for latest model-version for [text summarization](summarization/overview.md)
 
 * Model 2021-10-01 is Generally Available (GA) for [Sentiment Analysis and Opinion Mining](sentiment-opinion-mining/overview.md), featuring enhanced modeling for emojis and better accuracy across all supported languages.
 
@@ -53,7 +59,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
   * [Named Entity Recognition (NER), Personally Identifying Information (PII)](named-entity-recognition/overview.md)
   * [Language Detection](language-detection/overview.md)
   * [Text Analytics for health](text-analytics-for-health/overview.md)
-  * [Text summarization preview](text-summarization/overview.md)
+  * [Text summarization preview](summarization/overview.md)
   * [Custom Named Entity Recognition (Custom NER) preview](custom-named-entity-recognition/overview.md)
   * [Custom Text Classification preview](custom-classification/overview.md)
   * [Conversational Language Understanding preview](conversational-language-understanding/overview.md)

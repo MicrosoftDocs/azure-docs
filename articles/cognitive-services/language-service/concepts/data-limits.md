@@ -44,6 +44,7 @@ The following limit specifies the maximum number of characters that can be in a 
 
 | Feature | Value |
 |------------------------|---------------|
+| Conversation summarization | 7,000 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).|
 | Text Analytics for health | 30,720 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  | 
 | All other pre-configured features (synchronous) | 5,120 as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | All other pre-configured features ([asynchronous](use-asynchronously.md))  | 125,000 characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) (maximum of 25 documents). |
@@ -73,6 +74,7 @@ Exceeding the following document limits will generate an HTTP 400 error code.
 
 | Feature | Max Documents Per Request | 
 |----------|-----------|
+| Conversation summarization | 1 |
 | Language Detection | 1000 |
 | Sentiment Analysis | 10 |
 | Opinion Mining | 10 |
