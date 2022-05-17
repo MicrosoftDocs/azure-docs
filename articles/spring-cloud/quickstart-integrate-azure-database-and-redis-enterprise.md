@@ -26,80 +26,80 @@ This quickstart shows you how to provision and prepare an Azure Database for Pos
 - Complete the previous quickstarts in this series:
   - [Build and deploy apps to Azure Spring Cloud using the Enterprise Tier](./quickstart-deploy-enterprise.md).
 
-## Provision Services
+## Provision services
 
 To add persistence to the application, you must create an Azure Cache for Redis and a Azure Database for PostgreSQL Flexible Server. This guide provides instructions to [Provision Services using the Azure CLI](#provision-services-using-the-azure-cli) or to [Provision Services with an Arm Template](#provision-services-with-arm-template).
 
-### Provision Services Using the Azure CLI
+### Provision services by using the Azure CLI
 
 The following steps describe how to provision an Azure Cache for Redis instance and a Azure Database for PostgreSQL Flexible Server using the Azure CLI. To provision these resources using an ARM Template, continue on to [Provision Services with ARM Template](#provision-services-with-arm-template).
 
 1. Create an instance of Azure Cache for Redis using the following command:
 
-    ```azurecli
-    az redis create \
-      --resource-group <resource-group> \
-      --name <redis-cache-name> \
-      --location ${REGION} \
-      --sku Basic \
-      --vm-size c0
-    ```
+   ```azurecli
+   az redis create \
+     --resource-group <resource-group> \
+     --name <redis-cache-name> \
+     --location ${REGION} \
+     --sku Basic \
+     --vm-size c0
+   ```
 
 > [!NOTE]
 > Redis Cache creation takes approximately 20 minutes
 
 1. Create an Azure Database for PostgreSQL Flexible Server instance using the following command:
 
-    ```azurecli
-    az postgres flexible-server create \
-        --resource-group <resource-group> \
-        --name <postgres-server-name> \
-        --location <location> \
-        --admin-user <postgres-username> \
-        --admin-password <postgres-password> \
-        --yes
-    ```
+   ```azurecli
+   az postgres flexible-server create \
+       --resource-group <resource-group> \
+       --name <postgres-server-name> \
+       --location <location> \
+       --admin-user <postgres-username> \
+       --admin-password <postgres-password> \
+       --yes
+   ```
 
 1. Allow connections from other Azure Services to the newly created Flexible Server using the following command:
 
-    ```azurecli
-    az postgres flexible-server firewall-rule create \
-        --rule-name allAzureIPs \
-        --name <postgres-server-name> \
-        --resource-group <resource-group> \
-        --start-ip-address 0.0.0.0 \
-        --end-ip-address 0.0.0.0
-    ```
+   ```azurecli
+   az postgres flexible-server firewall-rule create \
+       --rule-name allAzureIPs \
+       --name <postgres-server-name> \
+       --resource-group <resource-group> \
+       --start-ip-address 0.0.0.0 \
+       --end-ip-address 0.0.0.0
+   ```
 
 1. Enable the `uuid-ossp` extension for the newly created Flexible Server using the following command:
 
-    ```azurecli
-    az postgres flexible-server parameter set \
-        --resource-group <resource-group> \
-        --name azure.extensions \
-        --value uuid-ossp \
-        --server-name <postgres-server-name> \
-    ```
+   ```azurecli
+   az postgres flexible-server parameter set \
+       --resource-group <resource-group> \
+       --name azure.extensions \
+       --value uuid-ossp \
+       --server-name <postgres-server-name> \
+   ```
 
 1. Create a database for the Order Service application using the following command:
 
-    ```azurecli
-    az postgres flexible-server db create \
-        --resource-group <resource-group> \
-        --server-name <postgres-server-name> \
-        --database-name acmefit_order
-    ```
+   ```azurecli
+   az postgres flexible-server db create \
+       --resource-group <resource-group> \
+       --server-name <postgres-server-name> \
+       --database-name acmefit_order
+   ```
 
 1. Create a database for the Catalog Service application using the following command:
 
-    ```azurecli
-    az postgres flexible-server db create \
-        --resource-group <resource-group> \
-        --server-name <postgres-server-name> \
-        --database-name acmefit_catalog
-    ```
+   ```azurecli
+   az postgres flexible-server db create \
+       --resource-group <resource-group> \
+       --server-name <postgres-server-name> \
+       --database-name acmefit_catalog
+   ```
 
-### Provision Services with ARM Template
+### Provision services by using ARM templates
 
 The following instructions describe how to provision an Azure Cache for Redis and a Azure Database for PostgreSQL Flexible Server using an Azure Resource Manager template (ARM template). Continue  on to [Create Service Connectors](#create-service-connectors) if these resource have already been provisioned using the Azure CLI.
 
@@ -110,7 +110,8 @@ The template used in this quickstart can be found in the [ACME Fitness Store Git
 To Deploy this template follow these steps:
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cache for Redis and a Azure Databse for PostgreSQL Flexible Server.
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure%2Ftemplates%2Fazuredeploy.json)
+
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure%2Ftemplates%2Fazuredeploy.json)
 
 1. Enter values for the following fields:
 
@@ -123,111 +124,111 @@ To Deploy this template follow these steps:
 
 1. Select **Review + Create** and then **Create**.
 
-## Create Service Connectors
+## Create service connectors
 
 The following steps show how to bind applications running in Azure Spring Cloud Enterprise tier to other Azure services using Service Connectors.
 
 1. Create a service connector to Azure Database for PostgreSQL for the Order Service Application using the following command:
 
-    ```azurecli
-    az spring-cloud connection create postgres-flexible \
-        --resource-group <resource-group> \
-        --target-resource-group <target-resource-group> \
-        --connection order_service_db \
-        --service <spring-cloud-service> \
-        --app order-service \
-        --deployment default \
-        --server <postgres-server-name> \
-        --database acmefit_order \
-        --secret name=<postgres-username> secret=<postgres-password> \
-        --client-type dotnet
-    ```
+   ```azurecli
+   az spring-cloud connection create postgres-flexible \
+       --resource-group <resource-group> \
+       --target-resource-group <target-resource-group> \
+       --connection order_service_db \
+       --service <spring-cloud-service> \
+       --app order-service \
+       --deployment default \
+       --server <postgres-server-name> \
+       --database acmefit_order \
+       --secret name=<postgres-username> secret=<postgres-password> \
+       --client-type dotnet
+   ```
 
 1. Create a service connector to Azure Database for PostgreSQL for the Catalog Service Application using the following command:
 
-    ```azurecli
-    az spring-cloud connection create postgres-flexible \
-        --resource-group <resource-group> \
-        --target-resource-group <target-resource-group> \
-        --connection catalog_service_db \
-        --service <spring-cloud-service> \
-        --app catalog-service \
-        --deployment default \
-        --server <postgres-server-name> \
-        --database acmefit_catalog \
-        --secret name=<postgres-username> secret=<postgres-password> \
-        --client-type springboot
-    ```
+   ```azurecli
+   az spring-cloud connection create postgres-flexible \
+       --resource-group <resource-group> \
+       --target-resource-group <target-resource-group> \
+       --connection catalog_service_db \
+       --service <spring-cloud-service> \
+       --app catalog-service \
+       --deployment default \
+       --server <postgres-server-name> \
+       --database acmefit_catalog \
+       --secret name=<postgres-username> secret=<postgres-password> \
+       --client-type springboot
+   ```
 
 1. Create a service connector to Azure Cache for Redis for the Cart Service Application using the following command:
 
-    ```azurecli
-    az spring-cloud connection create redis \
-        --resource-group <resource-group> \
-        --target-resource-group <target-resource-group> \
-        --connection cart_service_cache \
-        --service <spring-cloud-service> \
-        --app cart-service \
-        --deployment default \
-        --server <redis-cache-name> \
-        --database 0 \
-        --client-type java
-    ```
+   ```azurecli
+   az spring-cloud connection create redis \
+       --resource-group <resource-group> \
+       --target-resource-group <target-resource-group> \
+       --connection cart_service_cache \
+       --service <spring-cloud-service> \
+       --app cart-service \
+       --deployment default \
+       --server <redis-cache-name> \
+       --database 0 \
+       --client-type java
+   ```
 
 1. Use the following command to reload the Catalog Service Application to load the new connection properties:
 
-    ```azurecli
-    az spring app restart
-        --resource-group <resource-group> \
-        --name catalog-service \
-        --service <spring-cloud-service> 
-    ```
+   ```azurecli
+   az spring app restart
+       --resource-group <resource-group> \
+       --name catalog-service \
+       --service <spring-cloud-service> 
+   ```
 
 1. Retrieve the database connection information and update the Order Service Application using the following commands:
 
-    ```azurecli
-    POSTGRES_CONNECTION_STR=$(az spring-cloud connection show \
-        --resource-group <resource-group> \
-        --service <spring-cloud-service> \
-        --deployment default \
-        --connection order_service_db \
-        --app order-service | jq '.configurations[0].value' -r)
+   ```azurecli
+   POSTGRES_CONNECTION_STR=$(az spring-cloud connection show \
+       --resource-group <resource-group> \
+       --service <spring-cloud-service> \
+       --deployment default \
+       --connection order_service_db \
+       --app order-service | jq '.configurations[0].value' -r)
 
-    az spring-cloud app update \
-        --resource-group <resource-group> \
-        --name order-service \
-        --service <spring-cloud-service> \
-        --env "DatabaseProvider=Postgres" "ConnectionStrings__OrderContext=${POSTGRES_CONNECTION_STR}"
-    ```
+   az spring-cloud app update \
+       --resource-group <resource-group> \
+       --name order-service \
+       --service <spring-cloud-service> \
+       --env "DatabaseProvider=Postgres" "ConnectionStrings__OrderContext=${POSTGRES_CONNECTION_STR}"
+   ```
 
 1. Retrieve Redis connection information and update the Cart Service Application using the following commands:
 
-    ```azurecli
-    REDIS_CONN_STR=$(az spring-cloud connection show \
-        --resource-group <resource-group> \
-        --service <spring-cloud-service> \
-        --deployment default \
-        --app cart-service \
-        --connection cart_service_cache | jq -r '.configurations[0].value')
+   ```azurecli
+   REDIS_CONN_STR=$(az spring-cloud connection show \
+       --resource-group <resource-group> \
+       --service <spring-cloud-service> \
+       --deployment default \
+       --app cart-service \
+       --connection cart_service_cache | jq -r '.configurations[0].value')
 
-    az spring-cloud app update \
-        --resource-group <resource-group> \
-        --name cart-service \
-        --service <spring-cloud-service> \
-        --env "CART_PORT=8080" "REDIS_CONNECTIONSTRING=${REDIS_CONN_STR}"
-    ```
+   az spring-cloud app update \
+       --resource-group <resource-group> \
+       --name cart-service \
+       --service <spring-cloud-service> \
+       --env "CART_PORT=8080" "REDIS_CONNECTIONSTRING=${REDIS_CONN_STR}"
+   ```
 
-## Access the Application
+## Access the application
 
 Retrieve the URL for Spring Cloud Gateway and explore the updated application. The output from the following command can be used to explore the application:
 
-    ```azurecli
-    GATEWAY_URL=$(az spring-cloud gateway show \
-        --resource-group <resource-group> \
-        --service <spring-cloud-service> | jq -r '.properties.url')
+   ```azurecli
+   GATEWAY_URL=$(az spring-cloud gateway show \
+       --resource-group <resource-group> \
+       --service <spring-cloud-service> | jq -r '.properties.url')
 
-    echo "https://${GATEWAY_URL}"
-    ```
+   echo "https://${GATEWAY_URL}"
+   ```
 
 ## Clean up resources
 

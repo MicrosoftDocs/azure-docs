@@ -9,7 +9,7 @@ ms.date: 05/31/2022
 ms.custom: devx-track-java
 ---
 
-# Quickstart:  - Automate Deployments
+# Quickstart: Automate deployments
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
@@ -30,54 +30,54 @@ The automation associated with the sample application requires a Storage Account
 
 Create a new resource group to contain the Storage Account using the following command:
 
-    ```azurecli
-    az group create \
-        --name <storage-resource-group> \
-        --location <location>
-    ```
+```azurecli
+az group create \
+    --name <storage-resource-group> \
+    --location <location>
+```
 
 Create a Storage Account using the following command:
 
-    ```azurecli
-    az storage account create \
-        --resource-group <storage-resource-group> \
-        --name <storage-account-name> \
-        --location <location> \
-        --sku Standard_RAGRS \
-        --kind StorageV2
-    ```
+```azurecli
+az storage account create \
+    --resource-group <storage-resource-group> \
+    --name <storage-account-name> \
+    --location <location> \
+    --sku Standard_RAGRS \
+    --kind StorageV2
+```
 
 Create a Storage Container within the Storage Account using the following command:
 
-    ```azurecli
-    az storage container create \
-        --resource-group <storage-resource-group> \
-        --name terraform-state-container \
-        --account-name <storage-account-name> \
-        --auth-mode login
-    ```
+```azurecli
+az storage container create \
+    --resource-group <storage-resource-group> \
+    --name terraform-state-container \
+    --account-name <storage-account-name> \
+    --auth-mode login
+```
 
 You need an Azure service principal credential to authorize Azure login action. To get an Azure credential, execute the following commands:
 
-    ```azurecli
-    az login
-    az ad sp create-for-rbac \
-        --role contributor \
-        --scopes /subscriptions/<SUBSCRIPTION_ID> \
-        --sdk-auth
-    ```
+```azurecli
+az login
+az ad sp create-for-rbac \
+    --role contributor \
+    --scopes /subscriptions/<SUBSCRIPTION_ID> \
+    --sdk-auth
+```
 
 The command should output a JSON object:
 
-    ```json
-    {
-        "clientId": "<GUID>",
-        "clientSecret": "<GUID>",
-        "subscriptionId": "<GUID>",
-        "tenantId": "<GUID>",
-        ...
-    }
-    ```
+```json
+{
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    ...
+}
+```
 
 This example uses the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) sample on GitHub.  Fork the sample, open GitHub repository page, and select the **Settings** tab. Open **Secrets** menu, and select **Add a new secret**:
 

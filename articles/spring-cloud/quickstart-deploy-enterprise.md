@@ -28,10 +28,10 @@ This quickstart shows you how to build and deploy applications to Azure Spring C
 
 Use the following commands to download the sample:
 
-    ```bash
-    git clone https://github.com/Azure-Samples/acme-fitness-store
-    cd acme-fitness-store
-    ```
+   ```bash
+   git clone https://github.com/Azure-Samples/acme-fitness-store
+   cd acme-fitness-store
+   ```
 
 ## Provision a service instance
 
@@ -86,12 +86,12 @@ Use the following steps to provision an Azure Spring Cloud service instance.
 
 1. Create a Log Analytics Workspace to be used for your Azure Spring Cloud service using the following command:
 
-    ```azurecli
-    az monitor log-analytics workspace create \
-        --resource-group <resource-group-name> \
-        --workspace-name <workspace-name> \
-        --location <location>
-    ```
+   ```azurecli
+   az monitor log-analytics workspace create \
+       --resource-group <resource-group-name> \
+       --workspace-name <workspace-name> \
+       --location <location>
+   ```
 
 1. Retrieve the Resource ID for your Log Analytics Workspace and Azure Spring Cloud service using the following commands:
 
@@ -179,7 +179,7 @@ Use the following steps to provision an Azure Spring Cloud service instance.
        --service <spring-cloud-service>
    ```
 
-## Externalize Configuration with Application Configuration Service
+## Externalize configuration with Application Configuration Service
 
 Use the following steps to configure Application Configuration Service.
 
@@ -209,7 +209,7 @@ Use the following steps to configure Application Configuration Service.
        --service <spring-cloud-service> 
    ```
 
-## Service Registration and Discovery
+## Service registration and discovery
 
 Bind applications to Service Registry to activate Service Registration and Discovery using the following commands:
 
@@ -225,7 +225,7 @@ az spring-cloud service-registry bind \
     --service <spring-cloud-service> 
 ```
 
-## Deploy Polyglot Applications with Tanzu Build Service
+## Deploy polyglot applications with Tanzu Build Service
 
 Use the following steps to deploy and build applications. For these steps make sure that the terminal is in the project folder before running any commands.
 
@@ -297,7 +297,7 @@ Use the following steps to deploy and build applications. For these steps make s
 > [!TIP]
 > To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring-cloud app logs --name <app name> -f`.
 
-## Effortlessly Route Requests to Apps with Spring Cloud Gateway
+## Effortlessly route requests to apps with Spring Cloud Gateway
 
 Use the following steps to configure Spring Cloud Gateway and configure routes to applications.
 
@@ -383,7 +383,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 
     The above URL can be opened in a browser, use this to explore the deployed application.
 
-## Browse and Try APIs with API Portal
+## Browse and try APIs with API Portal
 
 Use the following steps to configure API Portal.
 
@@ -406,7 +406,7 @@ Use the following steps to configure API Portal.
    echo "https://${PORTAL_URL}"
    ```
 
-    The above URL can be opened in a browser, use this to explore the application APIs.
+   The above URL can be opened in a browser, use this to explore the application APIs.
 
 ---
 
