@@ -154,7 +154,7 @@ To create a load test by using an existing Apache JMeter script:
 
 ## <a name="run"></a> Run the load test
 
-In this section, you'll run the load test that you just created. If you selected the **Run test after creation** checkbox when you created the test, you can skip to [View the load test results](#view).
+In this section, you'll run the load test that you just created.
 
 1. Go to your Load Testing resource, select **Tests** from the left pane, and then select the test that you created.
 
