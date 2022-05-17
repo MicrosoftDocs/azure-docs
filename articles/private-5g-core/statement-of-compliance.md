@@ -97,6 +97,8 @@ The implementation of all of the 3GPP specifications given in [3GPP specificatio
 - IETF RFC 3748: Extensible Authentication Protocol (EAP).
 - IETF RFC 4187: Extensible Authentication Protocol Method for 3rd Generation Authentication and Key Agreement (EAP-AKA).
 - IETF RFC 5448: Improved Extensible Authentication Protocol Method for 3rd Generation Authentication and Key Agreement (EAP-AKA').
+- IETF RFC 6458: Sockets API Extensions for the Stream Control Transmission Protocol (SCTP).
+- IETF RFC 6733: Diameter Base Protocol.
 - IETF RFC 6749: The OAuth 2.0 Authorization Framework.
 
 ## ITU-T Recommendations
