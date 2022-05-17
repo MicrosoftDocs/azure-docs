@@ -151,6 +151,8 @@ $resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariabl
 #use an XmlReader to deal with even large files
 $result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
 $result=$reader.ReadToDescendant('cs-object')
+if($result)
+{
 do 
 {
 	#create the object placeholder
@@ -263,6 +265,11 @@ do 
 #export the collection of users as CSV
 Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
+} 
+else 
+{
+Write-Host "Imported XML file is empty. No work to do." -ForegroundColor Red
+}
 ```
 
 ## Next steps
