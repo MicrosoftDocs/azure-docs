@@ -453,7 +453,7 @@ To create a lock, run:
 PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 ```
 
-The scope could be a subscription, resource group, or resource. The lock name is whatever you want to call it. For the api-version, use **2016-09-01**.
+The scope could be a subscription, resource group, or resource. The lock name can be whatever you want to call it. For the API version, use **2016-09-01**.
 
 In the request, include a JSON object that specifies the lock properties.
 
