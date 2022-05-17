@@ -27,7 +27,7 @@ ms.custom: ignite-fall-2021
 
 ## Create a CLU project 
 
-Once you have a Language resource created, create a conversational language understanding project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource resource being used.
+Once you have a Language resource created, create a conversational language understanding project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
 For this quickstart, you can download [this sample project]() and import it. This project can predict the intended commands from user input, such as: reading emails, deleting emails, and attaching a document to an email. 
 
@@ -51,13 +51,13 @@ After your project has been imported, you can start training your model.
 
 ### Get Training Status
 
-Training could take sometime between 10 and 30 minutes. You can use the following request to keep polling the status of the trainng job until it is successfully completed.
+Training could take sometime between 10 and 30 minutes. You can use the following request to keep polling the status of the training job until it is successfully completed.
 
  [!INCLUDE [get training model status](../rest-api/get-training-status.md)]
 
 ## Deploy your model
 
-Generally after training a model you would review it's evaluation details. In this quickstart, you will just deploy your model, and call the [predection API](https://aka.ms/clu-apis) to query the results.
+Generally after training a model you would review its evaluation details. In this quickstart, you will just deploy your model, and call the [prediction API](https://aka.ms/clu-apis) to query the results.
 
 ### Submit deployment job
 

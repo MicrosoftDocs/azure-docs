@@ -106,7 +106,7 @@ ConversationsProject orchestrationProject = new ConversationsProject("Orchestrat
 :::image type="content" source="../media/clu-response-orchestration.png" alt-text="A screenshot showing the sample response from conversational language understanding." lightbox="../media/clu-response-orchestration.png":::
 
 **Custom Question Answering**:
-:::image type="content" source="../media/qna-response-orchestration.png" alt-text="A screenshot showing the sample response from custom question asnwering." lightbox="../media/qna-response-orchestration.png":::
+:::image type="content" source="../media/qna-response-orchestration.png" alt-text="A screenshot showing the sample response from custom question answering." lightbox="../media/qna-response-orchestration.png":::
 
 You can now connect other projects to your orchestrator and begin building complex architectures with various different projects.
 
