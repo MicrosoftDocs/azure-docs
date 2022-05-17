@@ -1,6 +1,6 @@
 ---
-title: Create and deploy applications in Azure Spring Cloud by using PowerShell
-description: How to create and deploy applications in Azure Spring Cloud by using PowerShell
+title: Create and deploy applications in Azure Spring Apps by using PowerShell
+description: How to create and deploy applications in Azure Spring Apps by using PowerShell
 author: karlerickson
 ms.author: karler
 ms.topic: conceptual
@@ -12,9 +12,12 @@ ms.custom: devx-track-azurepowershell
 
 # Create and deploy applications by using PowerShell
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article describes how you can create an instance of Azure Spring Cloud by using the [Az.SpringCloud](/powershell/module/Az.SpringCloud) PowerShell module.
+This article describes how you can create an instance of Azure Spring Apps by using the [Az.SpringCloud](/powershell/module/Az.SpringCloud) PowerShell module.
 
 ## Requirements
 
@@ -52,9 +55,9 @@ New-AzResourceGroup -Name <resource group name> -Location eastus
 
 ## Provision a new instance
 
-To create a new instance of Azure Spring Cloud, you use the
+To create a new instance of Azure Spring Apps, you use the
 [New-AzSpringCloud](/powershell/module/az.springcloud/new-azspringcloud) cmdlet. The following
-example creates an Azure Spring Cloud service, with the name that you specified in the resource group you created previously.
+example creates an Azure Spring Apps service, with the name that you specified in the resource group you created previously.
 
 ```azurepowershell-interactive
 New-AzSpringCloud -ResourceGroupName <resource group name> -name <service instance name> -Location eastus
@@ -63,7 +66,7 @@ New-AzSpringCloud -ResourceGroupName <resource group name> -name <service instan
 ## Create a new application
 
 To create a new app, you use the
-[New-AzSpringCloudApp](/powershell/module/az.springcloud/new-azspringcloudapp) cmdlet. The following example creates an app in Azure Spring Cloud named `gateway`.
+[New-AzSpringCloudApp](/powershell/module/az.springcloud/new-azspringcloudapp) cmdlet. The following example creates an app in Azure Spring Apps named `gateway`.
 
 ```azurepowershell-interactive
 New-AzSpringCloudApp -ResourceGroupName <resource group name> -ServiceName <service instance name> -AppName gateway
@@ -73,7 +76,7 @@ New-AzSpringCloudApp -ResourceGroupName <resource group name> -ServiceName <serv
 
 To create a new app Deployment, you use the
 [New-AzSpringCloudAppDeployment](/powershell/module/az.springcloud/new-azspringcloudappdeployment)
-cmdlet. The following example creates an app deployment in Azure Spring Cloud named `default`, for the `gateway` app.
+cmdlet. The following example creates an app deployment in Azure Spring Apps named `default`, for the `gateway` app.
 
 ```azurepowershell-interactive
 New-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -Name <service instance name> -AppName gateway -DeploymentName default
@@ -81,9 +84,9 @@ New-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -Name <s
 
 ## Get a service and its properties
 
-To get an Azure Spring Cloud service and its properties, you use the
+To get an Azure Spring Apps service and its properties, you use the
 [Get-AzSpringCloud](/powershell/module/az.springcloud/get-azspringcloud) cmdlet. The following
-example retrieves information about the specified Azure Spring Cloud service.
+example retrieves information about the specified Azure Spring Apps service.
 
 ```azurepowershell-interactive
 Get-AzSpringCloud -ResourceGroupName <resource group name> -ServiceName <service instance name>
@@ -91,7 +94,7 @@ Get-AzSpringCloud -ResourceGroupName <resource group name> -ServiceName <service
 
 ## Get an application
 
-To get an app and its properties in Azure Spring Cloud, you use the
+To get an app and its properties in Azure Spring Apps, you use the
 [Get-AzSpringCloudApp](/powershell/module/az.springcloud/get-azspringcloudapp) cmdlet. The following example retrieves information about the app `gateway`.
 
 ```azurepowershell-interactive
@@ -100,8 +103,8 @@ Get-AzSpringCloudApp -ResourceGroupName <resource group name> -ServiceName <serv
 
 ## Get an app deployment
 
-To get an app deployment and its properties in Azure Spring Cloud, you use the
-[Get-AzSpringCloudAppDeployment](/powershell/module/az.springcloud/get-azspringcloudappdeployment) cmdlet. The following example retrieves information about the `default` Azure Spring Cloud deployment.
+To get an app deployment and its properties in Azure Spring Apps, you use the
+[Get-AzSpringCloudAppDeployment](/powershell/module/az.springcloud/get-azspringcloudappdeployment) cmdlet. The following example retrieves information about the `default` Azure Spring Apps deployment.
 
 ```azurepowershell-interactive
 Get-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -ServiceName <service instance name> -AppName gateway -DeploymentName default
@@ -113,8 +116,8 @@ If the resources created in this article aren't needed, you can delete them by r
 
 ### Delete an app deployment
 
-To remove an app deployment in Azure Spring Cloud, you use the
-[Remove-AzSpringCloudAppDeployment](/powershell/module/az.springcloud/remove-azspringcloudappdeployment) cmdlet. The following example deletes an app deployed in Azure Spring Cloud named `default`, for the specified service and app.
+To remove an app deployment in Azure Spring Apps, you use the
+[Remove-AzSpringCloudAppDeployment](/powershell/module/az.springcloud/remove-azspringcloudappdeployment) cmdlet. The following example deletes an app deployed in Azure Spring Apps named `default`, for the specified service and app.
 
 ```azurepowershell-interactive
 Remove-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -ServiceName <service instance name> -AppName gateway -DeploymentName default
@@ -122,7 +125,7 @@ Remove-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -Serv
 
 ### Delete an app
 
-To remove an app in Azure Spring Cloud, you use the
+To remove an app in Azure Spring Apps, you use the
 [Remove-AzSpringCloudApp](/powershell/module/Az.SpringCloud/remove-azspringcloudapp) cmdlet. The following example deletes the `gateway` app in the specified service and resource group.
 
 ```azurepowershell
@@ -131,8 +134,8 @@ Remove-AzSpringCloudApp -ResourceGroupName <resource group name> -ServiceName <s
 
 ### Delete a service
 
-To remove an Azure Spring Cloud service, you use the
-[Remove-AzSpringCloud](/powershell/module/Az.SpringCloud/remove-azspringcloud) cmdlet. The following example deletes the specified Azure Spring Cloud service.
+To remove an Azure Spring Apps service, you use the
+[Remove-AzSpringCloud](/powershell/module/Az.SpringCloud/remove-azspringcloud) cmdlet. The following example deletes the specified Azure Spring Apps service.
 
 ```azurepowershell
 Remove-AzSpringCloud -ResourceGroupName <resource group name> -ServiceName <service instance name>
@@ -149,4 +152,4 @@ Remove-AzResourceGroup -Name <resource group name>
 
 ## Next steps
 
-[Azure Spring Cloud developer resources](./resources.md)
+[Azure Spring Apps developer resources](./resources.md)
