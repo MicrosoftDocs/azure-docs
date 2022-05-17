@@ -66,7 +66,6 @@ Intents will be added using calls to the IntentRecognizer->AddIntent() API.
 [!INCLUDE [cpp](includes/how-to/intent-recognition/cpp/simple-pattern-matching.md)]
 ::: zone-end
 
-## Next steps
-
-* Improve your pattern matching by using [custom entities](how-to-use-custom-entity-pattern-matching.md).
-* Look through our [GitHub samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+::: zone pivot="programming-language-java"
+[!INCLUDE [java](includes/how-to/intent-recognition/java/simple-pattern-matching.md)]
+::: zone-end

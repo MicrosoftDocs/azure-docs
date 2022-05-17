@@ -52,3 +52,7 @@ Be sure you have the following items before you begin this guide:
 ::: zone pivot="programming-language-cpp"
 [!INCLUDE [cpp](includes/how-to/intent-recognition/cpp/pattern-matching.md)]
 ::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [java](includes/how-to/intent-recognition/java/pattern-matching.md)]
+::: zone-end
