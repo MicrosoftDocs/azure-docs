@@ -2,7 +2,7 @@
 title: Just-in-time virtual machine access in Microsoft Defender for Cloud | Microsoft Docs
 description: Learn how just-in-time VM access (JIT) in Microsoft Defender for Cloud helps you control access to your Azure virtual machines.
 ms.topic: how-to
-ms.date: 05/12/2022
+ms.date: 05/17/2022
 ---
 # Secure your management ports with just-in-time access
 
@@ -23,7 +23,7 @@ This page teaches you how to include JIT in your security program. You'll learn 
 | Aspect | Details |
 |--|:-|
 | Release state: | General availability (GA) |
-| Supported VMs: | :::image type="icon" source="./media/icons/yes-icon.png"::: VMs deployed through Azure Resource Manager.<br>:::image type="icon" source="./media/icons/no-icon.png"::: VMs deployed with classic deployment models. [Learn more about these deployment models](../azure-resource-manager/management/deployment-models.md).<br>:::image type="icon" source="./media/icons/no-icon.png"::: VMs protected by Azure Firewalls<sup>[1](#footnote1)</sup> controlled by [Azure Firewall Manager](../firewall-manager/overview.md). <br> :::image type="icon" source="./media/icons/yes-icon.png"::: AWS EC2 instances |
+| Supported VMs: | :::image type="icon" source="./media/icons/yes-icon.png"::: VMs deployed through Azure Resource Manager.<br>:::image type="icon" source="./media/icons/no-icon.png"::: VMs deployed with classic deployment models. [Learn more about these deployment models](../azure-resource-manager/management/deployment-models.md).<br>:::image type="icon" source="./media/icons/no-icon.png"::: VMs protected by Azure Firewalls<sup>[1](#footnote1)</sup> controlled by [Azure Firewall Manager](../firewall-manager/overview.md). <br> :::image type="icon" source="./media/icons/yes-icon.png"::: AWS EC2 instances (Preview) |
 | Required roles and permissions: | **Reader** and **SecurityReader** roles can both view the JIT status and parameters.<br>To create custom roles that can work with JIT, see [What permissions are needed to configure and use JIT?](just-in-time-access-overview.md#what-permissions-are-needed-to-configure-and-use-jit).<br>To create a least-privileged role for users that need to request JIT access to a VM, and perform no other JIT operations, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) from the Defender for Cloud GitHub community pages. |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts (Preview) |
 
