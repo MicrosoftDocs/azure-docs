@@ -8,7 +8,7 @@ ms.date: 05/03/2022
 ms.custom: ignite-fall-2021
 ---
 
-# Export historical data from Splunk
+# Export historical data from Splunk to Microsoft Sentinel
 
 This article describes how to export your historical data from Splunk to Microsoft Sentinel. When you finish exporting the data, you ingest the data. Learn how to [select a target Azure platform to host the exported data](migration-ingestion-target-platform.md) and then [select an ingestion tool](migration-ingestion-tool.md).
 
