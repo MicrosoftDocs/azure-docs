@@ -144,7 +144,7 @@ If you have an existing certificate, upload to Azure Key Vault and skip to [Crea
 
 1. Create a certificate policy file
 
-Once this policy is executed below, it creates a valid signing certificate compatible with **notation** in Azure Key Vault.  For more information to use your own signing key, see the notary project [signing certificate requirements](https://github.com/notaryproject/notaryproject/blob/main/signature-specification.md#certificate-requirements).
+    Once this policy is executed below, it creates a valid signing certificate compatible with **notation** in Azure Key Vault.  For more information to use your own signing key, see the notary project [signing certificate requirements](https://github.com/notaryproject/notaryproject/blob/main/signature-specification.md#certificate-requirements).
 
     ```bash
     cat <<EOF > ./my_policy.json
