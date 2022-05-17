@@ -1,8 +1,8 @@
 ---
 title: "Quickstart - Configure Single Sign-On for Applications Using Azure Spring Apps Enterprise tier"
-description: Describes single sign-on configuration for Azure Spring Cloud Enterprise tier.
+description: Describes single sign-on configuration for Azure Spring Apps Enterprise tier.
 author: KarlErickson
-ms.author: paly@vmware.com
+ms.author: asirveda; paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/31/2022
@@ -11,20 +11,23 @@ ms.custom: devx-track-java
 
 # Quickstart: Configure Single Sign-On for applications using Azure Spring Apps Enterprise tier
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to configure Single Sign-On for applications running on Azure Spring Cloud Enterprise tier.
+This quickstart shows you how to configure Single Sign-On for applications running on Azure Spring Apps Enterprise tier.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Cloud Enterprise Tier. For more information, see [View Azure Spring Cloud Enterprise Tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Complete the previous quickstarts in this series:
-- [Build and deploy apps to Azure Spring Cloud using the Enterprise Tier](./quickstart-deploy-enterprise.md).
+- [Build and deploy apps to Azure Spring Apps using the Enterprise tier](./quickstart-deploy-enterprise.md).
 
 ## Prepare Single Sign-On credentials
 
@@ -46,7 +49,7 @@ Follow these steps to configure Single Sign-On using an existing Identity Provid
        --service <spring-cloud-service> | jq -r '.properties.url')
 
    echo "https://${GATEWAY_URL}/login/oauth2/code/sso"
-   echo "https://${PORTAL_URL}/oauth2-redirect.html" 
+   echo "https://${PORTAL_URL}/oauth2-redirect.html"
    echo "https://${PORTAL_URL}/login/oauth2/code/sso"
    ```
 
@@ -94,7 +97,7 @@ To register the application with Azure Active Directory, follow these steps. If 
    PORTAL_URL=$(az spring-cloud api-portal show \
        --resource-group <resource-group> \
        --service <spring-cloud-service> | jq -r '.properties.url')
-    
+
    az ad app update \
        --id ${APPLICATION_ID} \
        --reply-urls "https://${GATEWAY_URL}/login/oauth2/code/sso" "https://${PORTAL_URL}/oauth2-redirect.html" "https://${PORTAL_URL}/login/oauth2/code/sso"
@@ -145,7 +148,7 @@ To complete the Single Sign-On experience, deploy the Identity Service applicati
    az spring-cloud application-configuration-service bind \
        --resource-group <resource-group> \
        --app identity-service \
-       --service <spring-cloud-service> 
+       --service <spring-cloud-service>
    ```
 
 1. Enable service discovery and registration for the identity service by binding to Service Registry using the following command:
@@ -154,7 +157,7 @@ To complete the Single Sign-On experience, deploy the Identity Service applicati
    az spring-cloud service-registry bind \
        --resource-group <resource-group> \
        --app identity-service \
-       --service <spring-cloud-service> 
+       --service <spring-cloud-service>
    ```
 
 1. Deploy the identity service using the following command:
@@ -166,7 +169,7 @@ To complete the Single Sign-On experience, deploy the Identity Service applicati
        --service <spring-cloud-service> \
        --config-file-pattern identity/default \
        --source-path apps/acme-identity \
-       --env "JWK_URI=<jwk-uri>" 
+       --env "JWK_URI=<jwk-uri>"
    ```
 
 1. Route requests to the identity service using the following command:
@@ -222,7 +225,7 @@ Spring Cloud Gateway can be configured to authenticate requests via Single Sign-
        --resource-group <resource-group> \
        --name order-service \
        --service <spring-cloud-service> \
-       --env "AcmeServiceSettings__AuthUrl=https://${GATEWAY_URL}"    
+       --env "AcmeServiceSettings__AuthUrl=https://${GATEWAY_URL}"
    ```
 
 1. Retrieve the URL for Spring Cloud Gateway using the following command:

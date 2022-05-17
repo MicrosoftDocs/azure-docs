@@ -1,8 +1,8 @@
 ---
 title: "Quickstart - Monitor Applications End-to-End"
-description: Explains how to monitor apps running Azure Spring Cloud Enterprise tier using Application Insights and Log Analytics.
+description: Explains how to monitor apps running Azure Spring Apps Enterprise tier using Application Insights and Log Analytics.
 author: KarlErickson
-ms.author: paly@vmware.com
+ms.author: asirveda; paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/31/2022
@@ -11,20 +11,23 @@ ms.custom: devx-track-java
 
 # Quickstart: Monitor application end-to-end
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how monitor apps running Azure Spring Cloud Enterprise tier using Application Insights and Log Analytics.
+This quickstart shows you how monitor apps running Azure Spring Apps Enterprise tier using Application Insights and Log Analytics.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Cloud Enterprise Tier. For more information, see [View Azure Spring Cloud Enterprise Tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Complete the previous quickstarts in this series:
-  - [Build and deploy apps to Azure Spring Cloud using the Enterprise Tier](./quickstart-deploy-enterprise.md)
+  - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](./quickstart-deploy-enterprise.md)
   - [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](./quickstart-integrate-azure-database-and-redis-enterprise.md)
   - [Securely Load Application Secrets using Key Vault](./quickstart-key-vault-enterprise.md)
 
@@ -95,7 +98,7 @@ The Application Insights connection string must be provided manually to the Orde
 
 ## Logs
 
-There are two ways to see logs on Azure Spring Cloud: **Log Streaming** of real-time logs per app instance or **Log Analytics** for aggregated logs with advanced query capability
+There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-time logs per app instance or **Log Analytics** for aggregated logs with advanced query capability
 
 ### Log Streaming
 
@@ -135,15 +138,15 @@ az spring-cloud app logs \
 
 ### Log Analytics
 
-Open the Log Analytics that you created - you can find the Log Analytics in the same Resource Group where you created an Azure Spring Cloud service instance.
+Open the Log Analytics that you created - you can find the Log Analytics in the same Resource Group where you created an Azure Spring Apps service instance.
 
-In the Log Analytics page, selects `Logs` blade and run any of the sample queries supplied below for Azure Spring Cloud.
+In the Log Analytics page, selects `Logs` blade and run any of the sample queries supplied below for Azure Spring Apps.
 
 Type and run the following Kusto query to see application logs:
 
 ```kusto
-AppPlatformLogsforSpring 
-| where TimeGenerated > ago(24h) 
+AppPlatformLogsforSpring
+| where TimeGenerated > ago(24h)
 | limit 500
 | sort by TimeGenerated
 | project TimeGenerated, AppName, Log
@@ -154,7 +157,7 @@ AppPlatformLogsforSpring
 Type and run the following Kusto query to see `catalog-service` application logs:
 
 ```kusto
-AppPlatformLogsforSpring 
+AppPlatformLogsforSpring
 | where AppName has "catalog-service"
 | limit 500
 | sort by TimeGenerated
@@ -166,17 +169,17 @@ AppPlatformLogsforSpring
 Type and run the following Kusto query  to see errors and exceptions thrown by each app:
 
 ```kusto
-AppPlatformLogsforSpring 
+AppPlatformLogsforSpring
 | where Log contains "error" or Log contains "exception"
 | extend FullAppName = strcat(ServiceName, "/", AppName)
 | summarize count_per_app = count() by FullAppName, ServiceName, AppName, _ResourceId
-| sort by count_per_app desc 
+| sort by count_per_app desc
 | render piechart
 ```
 
 ![An example output from the Ingress Logs](media/spring-cloud-enterprise-quickstart-monitor/ingress-logs-in-log-analytics.jpg)
 
-Type and run the following Kusto query to see all in the inbound calls into Azure Spring Cloud:
+Type and run the following Kusto query to see all in the inbound calls into Azure Spring Apps:
 
 ```kusto
 AppPlatformIngressLogs
@@ -185,7 +188,7 @@ AppPlatformIngressLogs
 ```
 
 Type and run the following Kusto query to see all the logs from the managed Spring Cloud
-Config Gateway managed by Azure Spring Cloud:
+Config Gateway managed by Azure Spring Apps:
 
 ```kusto
 AppPlatformSystemLogs
@@ -196,7 +199,7 @@ AppPlatformSystemLogs
 ![An example out from the Spring Cloud Gateway Logs](media/spring-cloud-enterprise-quickstart-monitor/spring-cloud-gateway-logs-in-log-analytics.jpg)
 
 Type and run the following Kusto query to see all the logs from the managed Spring Cloud
-Service Registry managed by Azure Spring Cloud:
+Service Registry managed by Azure Spring Apps:
 
 ```kusto
 AppPlatformSystemLogs
@@ -208,7 +211,7 @@ AppPlatformSystemLogs
 
 ## Tracing
 
-Open the Application Insights created by Azure Spring Cloud and start monitoring Spring Boot applications. You can find the Application Insights in the same Resource Group where you created an Azure Spring Cloud service instance.
+Open the Application Insights created by Azure Spring Apps and start monitoring Spring Boot applications. You can find the Application Insights in the same Resource Group where you created an Azure Spring Apps service instance.
 
 Navigate to the `Application Map` blade:
 
@@ -241,7 +244,7 @@ Navigate to the `Metrics` blade - you can see metrics contributed by Spring Boot
 
 ![An image showing metrics over time](media/spring-cloud-enterprise-quickstart-monitor/metrics.jpg)
 
-Spring Boot registers a lot number of core metrics: JVM, CPU, Tomcat, Logback, etc. 
+Spring Boot registers a lot number of core metrics: JVM, CPU, Tomcat, Logback, etc.
 The Spring Boot auto-configuration enables the instrumentation of requests handled by Spring MVC.
 The REST controllers `ProductController`, and `PaymentController` have been instrumented by the `@Timed` Micrometer annotation at class level.
 
@@ -260,7 +263,7 @@ Navigate to the `Live Metrics` blade - you can see live metrics on screen with l
 
 ## Working with other monitoring tools
 
-In addition to Application Insights, Azure Spring Cloud enterprise tier supports exporting metrics to other tools including:
+In addition to Application Insights, Azure Spring Apps enterprise tier supports exporting metrics to other tools including:
 
 - AppDynamics
 - ApacheSkyWalking

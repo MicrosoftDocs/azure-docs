@@ -1,8 +1,8 @@
 ---
 title: "Quickstart - Automate Deployments"
-description: Explains how to automate deployments to Azure Spring Cloud Enterprise Tier using GitHub Actions and Terraform.
+description: Explains how to automate deployments to Azure Spring Apps Enterprise tier using GitHub Actions and Terraform.
 author: KarlErickson
-ms.author: paly@vmware.com
+ms.author: asirveda; paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/31/2022
@@ -11,14 +11,17 @@ ms.custom: devx-track-java
 
 # Quickstart: Automate deployments
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you automate deployments to Azure Spring Cloud Enterprise Tier using GitHub Actions and Terraform.
+This quickstart shows you automate deployments to Azure Spring Apps Enterprise tier using GitHub Actions and Terraform.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Cloud Enterprise Tier. For more information, see [View Azure Spring Cloud Enterprise Tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)

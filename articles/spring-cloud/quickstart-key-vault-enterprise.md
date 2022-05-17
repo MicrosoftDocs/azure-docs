@@ -1,8 +1,8 @@
 ---
 title: "Quickstart - Securely Load Application Secrets using Key Vault"
-description: Explains how to use Azure Key Vault to securely load secrets for apps running Azure Spring Cloud Enterprise tier. 
+description: Explains how to use Azure Key Vault to securely load secrets for apps running Azure Spring Apps Enterprise tier.
 author: KarlErickson
-ms.author: paly@vmware.com
+ms.author: asirveda; paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/31/2022
@@ -11,20 +11,23 @@ ms.custom: devx-track-java
 
 # Quickstart: Securely load application secrets using Key Vault
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to securely load secrets using Azure Key Vault for apps running Azure Spring Cloud Enterprise tier.
+This quickstart shows you how to securely load secrets using Azure Key Vault for apps running Azure Spring Apps Enterprise tier.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Cloud Enterprise Tier. For more information, see [View Azure Spring Cloud Enterprise Tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Complete the previous quickstarts in this series:
-  - [Build and deploy apps to Azure Spring Cloud using the Enterprise Tier](./quickstart-deploy-enterprise.md).
+  - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](./quickstart-deploy-enterprise.md).
   - [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](./quickstart-integrate-azure-database-and-redis-enterprise.md)
 
 ## Provision Key Vault and store secrets
@@ -112,7 +115,7 @@ The following instructions describe how to create a Key Vault and to securely sa
 
 ## Enable access to secrets in Key Vault
 
-The following instructions describe how to allow access to Key Vault secrets to applications deployed to Azure Spring Cloud Enterprise Tier.
+The following instructions describe how to allow access to Key Vault secrets to applications deployed to Azure Spring Apps Enterprise tier.
 
 1. Enable a System Assigned Identity for the Cart Service Application using the following command:
 
@@ -233,7 +236,7 @@ After granting access to read secrets from Key Vault, the applications must be u
        --connection order_service_db \
        --service <spring-cloud-service> \
        --deployment default \
-       --yes 
+       --yes
    ```
 
 1. Update the Order Service environment with the URI to access Key Vault using the following command:
@@ -243,7 +246,7 @@ After granting access to read secrets from Key Vault, the applications must be u
        --resource-group <resource-group> \
        --name order-service \
        --service <spring-cloud-service> \
-       --env "ConnectionStrings__KeyVaultUri=${KEYVAULT_URI}" "AcmeServiceSettings__AuthUrl=https://${GATEWAY_URL}" "DatabaseProvider=Postgres"   
+       --env "ConnectionStrings__KeyVaultUri=${KEYVAULT_URI}" "AcmeServiceSettings__AuthUrl=https://${GATEWAY_URL}" "DatabaseProvider=Postgres"
    ```
 
 1. Remove the Service Connector binding the Catalog Service application and the Azure Database for PostgreSQL Flexible Server using the following command:
@@ -255,7 +258,7 @@ After granting access to read secrets from Key Vault, the applications must be u
        --connection catalog_service_db \
        --service <spring-cloud-service> \
        --deployment default \
-       --yes 
+       --yes
    ```
 
 1. Update the Catalog Service environment and configuration pattern to access Key Vault using the following command:
@@ -278,7 +281,7 @@ After granting access to read secrets from Key Vault, the applications must be u
        --connection cart_service_cache \
        --service <spring-cloud-service> \
        --deployment default \
-       --yes 
+       --yes
    ```
 
 1. Update the Cart Service environment to access Key Vault using the following command:

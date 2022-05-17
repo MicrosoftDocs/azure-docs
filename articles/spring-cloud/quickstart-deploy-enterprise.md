@@ -1,24 +1,27 @@
 ---
-title: "Quickstart - Build and deploy apps to Azure Spring Cloud Enterprise Tier"
-description: Describes app deployment to Azure Spring Cloud Enterprise tier.
+title: "Quickstart - Build and deploy apps to Azure Spring Apps Enterprise tier"
+description: Describes app deployment to Azure Spring Apps Enterprise tier.
 author: KarlErickson
-ms.author: paly@vmware.com
+ms.author: asirveda; paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/31/2022
 ms.custom: devx-track-java
 ---
 
-# Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise Tier
+# Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to build and deploy applications to Azure Spring Cloud using the Enterprise tier.
+This quickstart shows you how to build and deploy applications to Azure Spring Apps using the Enterprise tier.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Cloud Enterprise Tier. For more information, see [View Azure Spring Cloud Enterprise Tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
@@ -35,9 +38,9 @@ Use the following commands to download the sample:
 
 ## Provision a service instance
 
-Use the following steps to provision an Azure Spring Cloud service instance.
+Use the following steps to provision an Azure Spring Apps service instance.
 
-1. Update Azure CLI with the Azure Spring Cloud extension using the following command:
+1. Update Azure CLI with the Azure Spring Apps extension using the following command:
 
    ```azurecli
    az extension update --name spring-cloud
@@ -51,14 +54,14 @@ Use the following steps to provision an Azure Spring Cloud service instance.
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to accept the legal terms and privacy statements for the Enterprise tier. This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Cloud.
+1. Use the following command to accept the legal terms and privacy statements for the Enterprise tier. This step is necessary only if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
    az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
    ```
 
-1. Select a location. This location must be a location supporting Azure Spring Cloud Enterprise tier.
+1. Select a location. This location must be a location supporting Azure Spring Apps Enterprise tier.
 
 1. Create a resource group using the following command:
 
@@ -69,9 +72,9 @@ Use the following steps to provision an Azure Spring Cloud service instance.
 
     For more information about resource groups, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md).
 
-1. Prepare a name for your Azure Spring Cloud service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+1. Prepare a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
-1. Create an Azure Spring Cloud service instance using the following the command:
+1. Create an Azure Spring Apps service instance using the following the command:
 
    ```azurecli
    az spring-cloud create \
@@ -84,7 +87,7 @@ Use the following steps to provision an Azure Spring Cloud service instance.
        --enable-api-portal
    ```
 
-1. Create a Log Analytics Workspace to be used for your Azure Spring Cloud service using the following command:
+1. Create a Log Analytics Workspace to be used for your Azure Spring Apps service using the following command:
 
    ```azurecli
    az monitor log-analytics workspace create \
@@ -93,7 +96,7 @@ Use the following steps to provision an Azure Spring Cloud service instance.
        --location <location>
    ```
 
-1. Retrieve the Resource ID for your Log Analytics Workspace and Azure Spring Cloud service using the following commands:
+1. Retrieve the Resource ID for your Log Analytics Workspace and Azure Spring Apps service using the following commands:
 
    ```bash
    LOG_ANALYTICS_RESOURCE_ID=$(az monitor log-analytics workspace show \
@@ -105,7 +108,7 @@ Use the following steps to provision an Azure Spring Cloud service instance.
        --name <spring-cloud-service> | jq -r '.id')
    ```
 
-1. Configure diagnostic settings for the Azure Spring Cloud Service using the following command:
+1. Configure diagnostic settings for the Azure Spring Apps Service using the following command:
 
    ```azurecli
    az monitor diagnostic-settings create \
@@ -201,12 +204,12 @@ Use the following steps to configure Application Configuration Service.
    az spring-cloud application-configuration-service bind \
        --resource-group <resource-group> \
        --app payment-service \
-       --service <spring-cloud-service> 
+       --service <spring-cloud-service>
 
    az spring-cloud application-configuration-service bind \
        --resource-group <resource-group> \
        --app catalog-service \
-       --service <spring-cloud-service> 
+       --service <spring-cloud-service>
    ```
 
 ## Service registration and discovery
@@ -217,12 +220,12 @@ Bind applications to Service Registry to activate Service Registration and Disco
 az spring-cloud service-registry bind \
     --resource-group <resource-group> \
     --app payment-service \
-    --service <spring-cloud-service> 
+    --service <spring-cloud-service>
 
 az spring-cloud service-registry bind \
     --resource-group <resource-group> \
     --app catalog-service \
-    --service <spring-cloud-service> 
+    --service <spring-cloud-service>
 ```
 
 ## Deploy polyglot applications with Tanzu Build Service
@@ -236,7 +239,7 @@ Use the following steps to deploy and build applications. For these steps make s
        --resource-group <resource-group> \
        --name quickstart-builder \
        --service <spring-cloud-service> \
-       --builder-file azure/builder.json 
+       --builder-file azure/builder.json
    ```
 
 1. Build and deploy the payment service using the following command:

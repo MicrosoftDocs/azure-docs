@@ -1,8 +1,8 @@
 ---
-title: "Quickstart - Introduction to the sample app - Azure Spring Cloud Enterprise Tier"
-description: Describes the sample app used in this series of quickstarts for deployment to Azure Spring Cloud Enterprise Tier.
+title: "Quickstart - Introduction to the sample app - Azure Spring Apps Enterprise tier"
+description: Describes the sample app used in this series of quickstarts for deployment to Azure Spring Apps Enterprise tier.
 author: KarlErickson
-ms.author: paly@vmware.com
+ms.author: asirveda; paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/31/2022
@@ -11,9 +11,12 @@ ms.custom: devx-track-java
 
 # Introduction to the ACME Fitness Store sample app
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-In this quickstart, we use the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) application that will show how to deploy polyglot applications to Azure Spring Cloud Enterprise tier. You will see how polyglot applications are built and deployed using Azure Spring Cloud Enterprise Tier capabilities including Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
+In this quickstart, we use the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) application that will show how to deploy polyglot applications to Azure Spring Apps Enterprise tier. You will see how polyglot applications are built and deployed using Azure Spring Apps Enterprise tier capabilities including Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
 
 The following diagram shows a common application architecture:
 
@@ -44,4 +47,4 @@ The following picture shows the ACME Fitness Store home page.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart - Build and deploy apps to Azure Spring Cloud Enterprise tier](quickstart-deploy-apps-enterprise.md)
+> [Quickstart - Build and deploy apps to Azure Spring Apps Enterprise tier](quickstart-deploy-apps-enterprise.md)
