@@ -39,27 +39,29 @@ Azure Monitor Container Insights is now in Public Preview of new schema for cont
 3. Follow the instructions accordingly when configuring an existing ConfigMap or using a new one.
 
 ### Configuring an existing ConfigMap
-* When configuring an existing ConfigMap, we have to append the following section in your existing ConfigMap yaml file:
-```yml
+When configuring an existing ConfigMap, we have to append the following section in your existing ConfigMap yaml file:
+
+```yaml
 [log_collection_settings.schema]
           # In the absense of this configmap, default value for containerlog_schema_version is "v1"
           # Supported values for this setting are "v1","v2"
           # See documentation for benefits of v2 schema over v1 schema before opting for "v2" schema
           containerlog_schema_version = "v2"
 ```
-### Configuring a new ConfigMap
-* Download the new ConfigMap from [here](https://aka.ms/container-azm-ms-agentconfig).
-* For new downloaded configmapdefault the value for containerlog_schema_version is "v1"
-* Update the "containerlog_schema_version = "v2""
 
-```yml
-[log_collection_settings.schema]
-# In the absense of this configmap, default value for containerlog_schema_version is "v1"
-# Supported values for this setting are "v1","v2"
-# See documentation for benefits of v2 schema over v1 schema before opting for "v2" schema
-containerlog_schema_version = "v2"
-```
-* Once you have finished configuring the configmap Run the following kubectl command: kubectl apply -f `<configname>`
+### Configuring a new ConfigMap
+1. Download the new ConfigMap from [here](https://aka.ms/container-azm-ms-agentconfig). For new downloaded configmapdefault the value for containerlog_schema_version is "v1"
+1. Update the "containerlog_schema_version = "v2""
+
+ ```yaml
+ [log_collection_settings.schema]
+ # In the absense of this configmap, default value for containerlog_schema_version is "v1"
+ # Supported values for this setting are "v1","v2"
+ # See documentation for benefits of v2 schema over v1 schema before opting for "v2" schema
+ containerlog_schema_version = "v2"
+ ```
+1. Once you have finished configuring the configmap Run the following kubectl command: kubectl apply -f `<configname>`
+
 >[!TIP]
 >Example: kubectl apply -f container-azm-ms-agentconfig.yaml.
 
