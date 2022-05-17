@@ -167,31 +167,8 @@ In this section, you'll run the load test that you just created. If you selected
     > [!TIP]
     > You can stop a load test at any time from the Azure portal.
 
-## <a name="view"></a> View the test results
-
-While the load test is running, Azure Load Testing captures both client-side metrics and server-side metrics. In this section, you'll use the dashboard to monitor the client-side metrics.
-
-1. Go to the page that shows test details. Select the most recent test run.
-
-    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-JMeter-script/test-runs-after-run.png" alt-text="Screenshot that shows the list of test runs." :::
-
-    You can see the streaming client-side metrics while the test is running. By default, the data refreshes every five seconds.
-
-    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-JMeter-script/test-run-aggregated-by-percentile.png" alt-text="Screenshot that shows results of the load test.":::
-
-1. Optionally, change the display filters to view a specific time range, result percentile, or error type.
-
-    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-JMeter-script/test-result-filters.png" alt-text="Screenshot that shows the filter criteria for the results of a load test.":::
- 
-## Clean up resources
-
-[!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
-
 ## Next steps
 
-You now have an Azure Load Testing resource, which you used to load test an external website.
+- To learn how to export test results, see [Export test results](./how-to-export-test-results.md).
 
-You can reuse this resource to learn how to identify performance bottlenecks in an Azure-hosted application by using server-side metrics.
-
-> [!div class="nextstepaction"]
-> [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
+- To learn how to monitor server side metrics, see [Monitor server side metrics](./how-to-monitor-server-side-metrics.md).
