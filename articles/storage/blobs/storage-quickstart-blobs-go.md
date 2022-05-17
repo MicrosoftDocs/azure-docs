@@ -58,7 +58,7 @@ To learn more about different authentication methods, check out [Azure authentic
 
 ## Assign RBAC permissions to the storage account
 
-Azure storage accounts require explicit permissions to perform read and write operations. In order to use the storage account, you must assign permissions to the account. To do that you'll need to assing an appropriate RBAC role to your account. To get the `objectID` of the currently signed in user, run `az ad signed-in-user show --query objectId`.
+Azure storage accounts require explicit permissions to perform read and write operations. In order to use the storage account, you must assign permissions to the account. To do that you'll need to assign an appropriate RBAC role to your account. To get the `objectID` of the currently signed in user, run `az ad signed-in-user show --query objectId`.
 
 Run the following AzureCli command to assign the storage account permissions:
 
@@ -264,7 +264,7 @@ if err != nil {
 
 ## Resources for developing Go applications with blobs
 
-See these additional resources for Go development with Blob storage:
+See these other resources for Go development with Blob storage:
 
 - View and install the [Go client library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob) for Azure Storage on GitHub.
 - Explore [Blob storage samples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#example-package) written using the Go client library.
