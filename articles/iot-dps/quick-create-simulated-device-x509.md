@@ -288,6 +288,22 @@ Perform the steps in this section in your Git Bash prompt.
 
 ::: zone pivot="programming-language-ansi-c"
 
+6. The sample code requires a private key that isn't encrypted. Run the following command to create an unencrypted private key:
+
+    # [Windows](#tab/windows)
+
+    ```bash
+    winpty openssl rsa -in device-key.pem -out unencrypted-device-key.pem -noout 
+    ```
+
+    # [Linux](#tab/linux)
+
+    ```bash
+    openssl rsa -in device-key.pem -out unencrypted-device-key.pem -noout
+    ```
+
+    ---
+
 Keep the Git Bash prompt open. You'll need it later in this quickstart.
 
 ::: zone-end
@@ -484,7 +500,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
     Copy and paste the output certificate text for the constant value.
 
-1. Update the string value of the `PRIVATE_KEY` constant with the private key for your device certificate, *device-key.pem*.
+1. Update the string value of the `PRIVATE_KEY` constant with the unencrypted private key for your device certificate, *unencrypted-device-key.pem*.
 
     The syntax of the private key text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
 
@@ -499,7 +515,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `PRIVATE_KEY` string constant value and write it to the output.
 
     ```Bash
-    sed 's/^/"/;/$/!s/$/\\n"/;/$/s/$/"/' device-key.pem
+    sed 's/^/"/;/$/!s/$/\\n"/;/$/s/$/"/' unencrypted-device-key.pem
     ```
 
     Copy and paste the output private key text for the constant value.
