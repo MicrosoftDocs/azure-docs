@@ -198,7 +198,7 @@ This table specifies the child workflow's behavior based on whether the parent a
 
 The single-tenant model and **Logic App (Standard)** resource type include many current and new capabilities, for example:
 
-* Create logic apps and their workflows from [400+ managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
+* Create logic apps and their workflows from [hundreds of managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
   * More managed connectors are now available as built-in operations and run similarly to other built-in operations, such as Azure Functions. Built-in operations run natively on the single-tenant Azure Logic Apps runtime. For example, new built-in operations include Azure Service Bus, Azure Event Hubs, SQL Server, MQ, DB2, and IBM Host File.
 
@@ -206,7 +206,7 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
     > For the built-in SQL Server version, only the **Execute Query** action can directly connect to Azure 
     > virtual networks without using the [on-premises data gateway](logic-apps-gateway-connection.md).
 
-  * You can create your own built-in connectors for any service that you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similarly to built-in operations such as Azure Service Bus and SQL Server but unlike [custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors), which aren't currently supported, custom built-in connectors provide higher throughput, low latency, and local connectivity because they run in the same process as the single-tenant runtime.
+  * You can create your own built-in connectors for any service that you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similarly to built-in operations such as Azure Service Bus and SQL Server but unlike [custom managed connectors](../connectors/apis-list.md#custom-connectors-and-apis), which aren't currently supported, custom built-in connectors provide higher throughput, low latency, and local connectivity because they run in the same process as the single-tenant runtime.
 
     The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, [switch your project from extension bundle-based (Node.js) to NuGet package-based (.NET)](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring). For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
@@ -288,7 +288,7 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
     * The Gmail connector currently isn't supported.
   
-    * [Custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
+    * [Custom managed connectors](../connectors/apis-list.md#custom-connectors-and-apis) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
 * **Authentication**: The following authentication types are currently unavailable for the **Logic App (Standard)** resource type:
 
