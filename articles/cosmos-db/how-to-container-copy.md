@@ -9,31 +9,34 @@ ms.author: shwetn
 ---
 
 # Create and manage intra-account container copy jobs in Azure Cosmos DB (Preview)
+[!INCLUDE[appliesto-sql-cassandra-api](includes/appliesto-sql-cassandra-api.md)]
 
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[Container copy jobs](intra-account-container-copy.md) creates offline copies of collections within an Azure Cosmos DB account.
 
-[Container copy jobs](./intra-account-container-copy.md) allow to create offline copies of collections within an Azure Cosmos DB account
+This article describes how to create, monitor, and manage intra-account container copy jobs using Azure CLI commands.
 
-This article describes you to create, monitor and manage intra-account container copy jobs using Azure CLI commands.
+## Set shell variables
+
+First, set all of the variables that each individual script will use.
+
+```azurecli-interactive
+$accountName = "<cosmos-account-name>"
+$resourceGroup = "<resource-group-name>"
+$jobName = ""
+$sourceDatabase = ""
+$sourceContainer = ""
+$destinationDatabase = ""
+$destinationContainer = ""
+```
 
 ## Create an intra-account container copy job for SQL API account
 
 Create a job to copy a container within an Azure Cosmos DB SQL API account:
 
 ```azurecli-interactive
-
-$cosmosdbaccountname = "cosmosDBAccountName"
-$rg = "resourceGroupName"
-$copyJobName = ""
-$sourceKeySpace = ""
-$sourceTable = ""
-$destinationKeySpace = ""
-$destinationTable = ""
-
-az cosmosdb dts copy -g $rg --job-name $jobName --account-name $cosmosdbaccountname \
-    --source-sql-container database=$sourceContainer container=$sourceDb \
-    --dest-sql-container database=$destinationContainer container=$destinationDb
+az cosmosdb dts copy --resource-group $resourceGroup --job-name $jobName --account-name $accountName \
+    --source-sql-container database=$sourceDatabase container=$sourceContainer \
+    --dest-sql-container database=$destinationDatabase container=$destinationContainer
 ```
 
 ## Create intra-account container copy job for Cassandra API account
@@ -41,16 +44,7 @@ az cosmosdb dts copy -g $rg --job-name $jobName --account-name $cosmosdbaccountn
 Create a job to copy a container within an Azure Cosmos DB Cassandra API account:
 
 ```azurecli-interactive
-
-$cosmosdbaccountname = "cosmosDBAccountName"
-$rg = "resourceGroupName"
-$copyJobName = ""
-$sourceKeySpace = ""
-$sourceTable = ""
-$destinationKeySpace = ""
-$destinationTable = ""
-
-az cosmosdb dts copy -g $rg --job-name $jobName --account-name $cosmosdbaccountname \
+az cosmosdb dts copy --resource-group $resourceGroup --job-name $jobName --account-name $accountName \
     --source-cassandra-table keyspace=$sourceKeySpace table=$sourceTable \
     --dest-cassandra-table keyspace=$destinationKeySpace table=$destinationTable
 ```
@@ -60,7 +54,7 @@ az cosmosdb dts copy -g $rg --job-name $jobName --account-name $cosmosdbaccountn
 View the progress and status of a copy job:
 
 ```azurecli-interactive
-az cosmosdb dts show --account-name  $cosmosdbaccountname -g $rg --job-name $copyJobname
+az cosmosdb dts show --account-name $accountName --resource-group $resourceGroup --job-name $jobName
 ```
 
 ## List all the container copy jobs created in an account
@@ -68,7 +62,7 @@ az cosmosdb dts show --account-name  $cosmosdbaccountname -g $rg --job-name $cop
 To list all the container copy jobs created in an account:
 
 ```azurecli-interactive
-az cosmosdb dts list --account-name  $cosmosdbaccountname -g $rg
+az cosmosdb dts list --account-name $accountName --resource-group $resourceGroup
 ```
 
 ## Pause a container copy job
@@ -76,7 +70,7 @@ az cosmosdb dts list --account-name  $cosmosdbaccountname -g $rg
 In order to pause an ongoing container copy job, you may use the command:
 
 ```azurecli-interactive
-az cosmosdb dts pause --account-name  $cosmosdbaccountname -g $rg --job-name $copyJobname
+az cosmosdb dts pause --account-name $accountName --resource-group $resourceGroup --job-name $jobName
 ```
 
 ## Resume a container copy job
@@ -84,5 +78,9 @@ az cosmosdb dts pause --account-name  $cosmosdbaccountname -g $rg --job-name $co
 In order to resume an ongoing container copy job, you may use the command:
 
 ```azurecli-interactive
-az cosmosdb dts resume --account-name  $cosmosdbaccountname -g $rg --job-name $copyJobname
+az cosmosdb dts resume --account-name $accountName --resource-group $resourceGroup --job-name $jobName
 ```
+
+## Next steps
+
+- For more information about intra-account container copy jobs, see [Container copy jobs](intra-account-container-copy.md).
