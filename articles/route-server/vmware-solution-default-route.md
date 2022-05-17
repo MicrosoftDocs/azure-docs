@@ -2,11 +2,11 @@
 title: 'Injecting default route to Azure VMware Solution'
 description: Learn about how to advertise a default route to Azure VMware Solution with Azure Route Server.
 services: route-server
-author: erjosito
+author: halkazwini
 ms.service: route-server
 ms.topic: conceptual
 ms.date: 02/03/2022
-ms.author: jomore
+ms.author: halkazwini
 ---
 
 # Injecting a default route to Azure VMware Solution
