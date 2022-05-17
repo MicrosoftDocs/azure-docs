@@ -153,7 +153,7 @@ To opt in to Azure Monitor alerts for backup failure and restore failure scenari
 
    To receive job failure alerts for workloads backed up to Recovery Services vaults, select the flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** corresponding to *Microsoft.RecoveryServices* provider (column 3).
 
-   :::image type="content" source="media/backup-azure-monitoring-laworkspace/alert-preview-feature-flags.png" alt-text="Screenshot for Alerts preview registration.":::!
+   :::image type="content" source="media/backup-azure-monitoring-laworkspace/alert-preview-feature-flags.png" alt-text="Screenshot for Alerts preview registration.":::
 
 1. Click **Register** to enable this feature for your subscription.
 
