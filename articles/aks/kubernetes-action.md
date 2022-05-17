@@ -57,9 +57,9 @@ In the above command, replace the placeholders with your subscription ID, and re
 ```
 Copy this JSON object, which you can use to authenticate from GitHub.
 
-# [OpenID Connect](#tab/openid)
+# [Open ID Connect](#tab/openid)
 
-OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
+Open ID Connect is an authentication method that uses short-lived tokens. Setting up [Open ID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
 
 1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
 
@@ -287,7 +287,9 @@ jobs:
         namespace: ${{ env.NAMESPACE }}
 ```
 
-# [OpenID Connect](#tab/openid)
+# [Open ID Connect](#tab/openid)
+
+The Azure Kubernetes Service set context action ([azure/aks-set-context](https://github.com/Azure/aks-set-context)) can be used to set cluster context before other actions like [k8s-deploy](https://github.com/Azure/k8s-deploy). For Open ID Connect, you'll use the Azure Login action before set context.
 
 ```yaml
 
