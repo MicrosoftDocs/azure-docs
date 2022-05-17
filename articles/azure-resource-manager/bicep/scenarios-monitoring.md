@@ -78,7 +78,7 @@ Activity log alerts are alerts that are activated when a new activity log event 
 
 You can use the `scope` property within the type [`Microsoft.Insights/activityLogAlerts`](/azure/templates/microsoft.insights/activitylogalerts?tabs=bicep) to create activity log alerts on a specific resource or a list of resources using the resource IDs as a prefix.
 
-You define your alert rule conditions within the `condition` property and then configure the alert group to trigger these alerts to using the `actionGroup` array. Here you can pass a single or multiple action groups to send activity log alerts to, depending on your requirements.
+You define your alert rule conditions within the `condition` property and then configure the alert group to trigger these alerts to by using the `actionGroup` array. Here you can pass a single or multiple action groups to send activity log alerts to, depending on your requirements.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/activity-log-alert.bicep" :::
 
@@ -97,7 +97,7 @@ Consider the following example, where you create a resource health alert that re
 
 ### Smart detection alerts
 
-Smart detection alerts warn you of potential performance problems and failure anomalies in your web application. You can create smart detection alerts in Bicep using the type [`microsoft.AlertsManagement/smartDetectorAlertRules](/azure/templates/microsoft.alertsmanagement/smartdetectoralertrules?tabs=bicep).
+Smart detection alerts warn you of potential performance problems and failure anomalies in your web application. You can create smart detection alerts in Bicep using the type [`Microsoft.AlertsManagement/smartDetectorAlertRules](/azure/templates/microsoft.alertsmanagement/smartdetectoralertrules?tabs=bicep).
 
 ## Dashboards
 
@@ -129,5 +129,5 @@ In this example, a *scale up* condition for the App Service plan based on the av
     - [`Microsoft.Insights/metricAlerts`](/azure/templates/microsoft.insights/metricalerts?tabs=bicep)
     - [`Microsoft.Portal/dashboards`](/azure/templates/microsoft.portal/dashboards?tabs=bicep)
     - [`Microsoft.Insights/activityLogAlerts`](/azure/templates/microsoft.insights/activitylogalerts?tabs=bicep)
-    - [`microsoft.alertsManagement/smartDetectorAlertRules`](/azure/templates/microsoft.alertsmanagement/smartdetectoralertrules?tabs=bicep).
-    - [`Microsoft.Ingsights/autoscalesettings`](/azure/templates/microsoft.insights/autoscalesettings?tabs=bicep)
+    - [`Microsoft.AlertsManagement/smartDetectorAlertRules`](/azure/templates/microsoft.alertsmanagement/smartdetectoralertrules?tabs=bicep).
+    - [`Microsoft.Insights/autoscaleSettings`](/azure/templates/microsoft.insights/autoscalesettings?tabs=bicep)
