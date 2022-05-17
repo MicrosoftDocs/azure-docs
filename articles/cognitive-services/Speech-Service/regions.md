@@ -15,12 +15,12 @@ ms.custom: references_regions, ignite-fall-2021
 
 # Speech service supported regions
 
-The Speech service allows your application to convert audio to text, perform speech translation, and convert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs. You can perform custom configurations to your speech experience, for all regions, at the [Speech portal](https://speech.microsoft.com).
+The Speech service allows your application to convert audio to text, perform speech translation, and convert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs. You can perform custom configurations to your speech experience, for all regions, at the [Speech Studio](https://speech.microsoft.com).
 
 Keep in mind the following points:
 
 * If your application uses a [Speech SDK](speech-sdk.md), you provide the region identifier, such as `westus`, when you create a speech configuration. Make sure the region matches the region of your subscription.
-* If your application uses one of the Speech service's [REST APIs](./overview.md#reference-docs), the region is part of the endpoint URI you use when making requests.
+* If your application uses one of the Speech service REST APIs, the region is part of the endpoint URI you use when making requests.
 * Keys created for a region are valid only in that region. If you attempt to use them with other regions, you get authentication errors.
 
 > [!NOTE]
@@ -36,7 +36,7 @@ The Speech service is available in these regions for speech-to-text, pronunciati
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-If you plan to train a custom model with audio data, use one of the [regions with dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for faster training. You can use the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to copy the fully trained model to another region later.
+If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. You can use the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to copy the fully trained model to another region later.
 
 > [!TIP]
 > For pronunciation assessment feature, `en-US` and `en-GB` are available in all regions listed above, `zh-CN` is available in East Asia and Southeast Asia regions, `es-ES` and `fr-FR` are available in West Europe region, and `en-AU` is available in Australia East region.

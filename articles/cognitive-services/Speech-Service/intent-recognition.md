@@ -50,6 +50,5 @@ Sample code for intent recognition:
 
 ## Next steps
 
-* Complete the intent recognition [quickstart](get-started-intent-recognition.md)
-* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
+* [Intent recognition quickstart](get-started-intent-recognition.md)
 * [Get the Speech SDK](speech-sdk.md)

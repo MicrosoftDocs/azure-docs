@@ -3277,7 +3277,7 @@
       "source_path_from_root": "/articles/app-service/scenario-secure-app-clean-up-resources.md",
       "redirect_url": "/azure/app-service/scenario-secure-app-access-storage#clean-up-resources",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/app-service/quickstart-nodejs-uiex.md",
       "redirect_url": "/azure/app-service/quickstart-nodejs",
@@ -14279,6 +14279,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-load.md",
+      "redirect_url": "/azure/storage/common/storage-ref-azcopy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-load-avere-cloud-file-system.md",
+      "redirect_url": "/azure/storage/common/storage-ref-azcopy",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-contact-microsoft-support.md",
       "redirect_url": "/azure/import-export/storage-import-export-contact-microsoft-support",
       "redirect_document_id": false
@@ -18094,7 +18104,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-classroom-lab.md",      
+      "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-classroom-lab.md",
       "redirect_url": "/azure/lab-services/tutorial-setup-classroom-lab",
       "redirect_document_id": true
     },
@@ -23375,7 +23385,7 @@
     },
     {
       "source_path_from_root": "/articles/app-service-web/sendgrid-dotnet-how-to-send-email.md",
-      "redirect_url": "/azure/sendgrid-dotnet-how-to-send-email",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
       "redirect_document_id": false
     },
     {
@@ -27106,6 +27116,11 @@
     {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-view-virtual-network-gateway-metrics.md",
       "redirect_url": "/azure/vpn-gateway/monitor-vpn-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-radius.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-configuration-radius-certificate",
       "redirect_document_id": false
     },
     {
@@ -37030,12 +37045,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-customize-speech-models.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-speech-deploy-model.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-choose-model",
       "redirect_document_id": false
     },
     {
@@ -38487,7 +38497,7 @@
       "source_path": "articles/aks/security-hardened-vm-host-image.md",
       "redirect_url": "/azure/aks/cis-ubuntu",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-create-templates.md",
       "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-create-templates",

@@ -46,7 +46,7 @@ With an HTTP scaling rule, you have control over the threshold that determines w
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `concurrentRequests`| Once the number of requests exceeds this then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent requests increase. | 100 | 1 | n/a |
+| `concurrentRequests`| Once the number of requests exceeds this then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent requests increase. | 10 | 1 | n/a |
 
 In the following example, the container app scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
 

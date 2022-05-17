@@ -47,7 +47,7 @@ This procedure describes how to install OT sensor software on a physical or virt
 
     :::image type="content" source="media/tutorial-install-components/language-select.png" alt-text="Screenshot of the sensor's language select screen.":::
 
-1. Select the sensor's architecture.
+1. Select the sensor's architecture. For example:
 
     :::image type="content" source="media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's architecture select screen.":::
 
