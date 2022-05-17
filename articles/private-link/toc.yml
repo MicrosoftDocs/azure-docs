@@ -69,6 +69,8 @@
     items:
     - name: PowerShell
       href: private-endpoint-static-ip-powershell.md
+    - name: CLI
+      href: private-endpoint-static-ip-cli.md
   - name: Export private endpoint DNS records
     href: private-endpoint-export-dns.md
   - name: Manage network policies for private endpoints
