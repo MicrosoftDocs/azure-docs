@@ -61,27 +61,23 @@ Some other resources:
 - To see the template reference, go to [Azure template reference](/azure/templates/microsoft.resourcegraph/allversions).
 - To learn how to create Bicep files, see [Quickstart: Create Bicep files with Visual Studio Code](../../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md).
 
-## Validate the deployment
+## Review deployed resources
 
-To run the new shared query, follow these steps:
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
 
-1. From the portal search bar, search for **Resource Graph queries** and select it.
+# [CLI](#tab/CLI)
 
-1. Select the shared query named **Count VMs by OS**, then select the **Results** tab on the
-   **Overview** page.
+```azurecli-interactive
+az resource list --resource-group exampleRG
+```
 
-The shared query can also be opened from Resource Graph Explorer:
+# [PowerShell](#tab/PowerShell)
 
-1. From the portal search bar, search for **Resource Graph Explorer** and select it.
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName exampleRG
+```
 
-1. Select the **Open a query** button.
-
-1. Change **Type** to _Shared queries_. If you don't see the **Count VMs by OS** in the list, use
-   the filter box to limit the results. Once the **Count VMs by OS** shared query is visible, select
-   its name.
-
-1. Once the query is loaded, select the **Run query** button. Results are displayed in the
-   **Results** tab.
+---
 
 ## Clean up resources
 
