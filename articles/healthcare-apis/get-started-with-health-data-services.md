@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 05/11/2022
+ms.date: 05/17/2022
 ms.author: ranku
 ---
 
