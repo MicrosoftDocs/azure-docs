@@ -5,18 +5,18 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/31/2020
+ms.date: 05/24/2022
 ---
 
 # Troubleshoot and diagnose workflow failures in Azure Logic Apps
 
-Your logic app workflow generates information that can help you diagnose and debug problems in your app. You can diagnose a logic app workflow by reviewing each step in the workflow through the Azure portal. Or, you can add some steps to a workflow for runtime debugging.
+Your logic app workflow generates information that can help you diagnose and debug problems in your app. You can diagnose your workflow by reviewing the inputs, outputs, and other information for each step in the workflow using the Azure portal. Or, you can add some steps to a workflow for runtime debugging.
 
 <a name="check-trigger-history"></a>
 
 ## Check trigger history
 
-Each workflow run starts with a trigger, which either fires on a schedule or waits for an incoming request or event. The trigger history lists all the trigger attempts that your logic app made and information about the inputs and outputs for each trigger attempt.
+Each workflow run starts with a trigger, which either fires on a schedule or waits for an incoming request or event. The trigger history lists all the trigger attempts that your workflow made and information about the inputs and outputs for each trigger attempt.
 
 If the trigger doesn't fire, follow these steps:
 
