@@ -44,7 +44,7 @@ The diagram below shows the logic that Defender for Cloud applies when deciding 
 [![Just-in-time (JIT) virtual machine (VM) logic flow.](media/just-in-time-explained/jit-logic-flow.png)](media/just-in-time-explained/jit-logic-flow.png#lightbox)
 
 ### [**AWS**](#tab/defender-for-container-arch-eks)
-:::image type="content" source="media/just-in-time-explained/aws-jit-logic-flow.png" alt-text="A chart that explains the logic flow for the AWS Just in time (JIT) virtual machine (VM) logic flow.":::
+:::image type="content" source="media/just-in-time-explained/aws-jit-logic-flow.png" alt-text="A chart that explains the logic flow for the AWS Just in time (J I T) virtual machine (V M) logic flow.":::
 
 ---
 
