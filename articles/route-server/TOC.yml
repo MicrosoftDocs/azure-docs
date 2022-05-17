@@ -45,6 +45,8 @@
   items:
   - name: Troubleshoot Route Server issues
     href: troubleshoot-route-server.md
+  - name: Monitor Route Server
+    href: monitor-route-server.md
 - name: Reference
   items:
   - name: Azure PowerShell

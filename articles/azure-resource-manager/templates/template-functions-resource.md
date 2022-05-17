@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 05/16/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -186,8 +186,8 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listKeys](/rest/api/eventhub) |
 | Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
 | Microsoft.Kusto/Clusters/Databases | [ListPrincipals](/rest/api/azurerekusto/databases/listprincipals) |
-| Microsoft.LabServices/users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
-| Microsoft.LabServices/users | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
+| Microsoft.LabServices/labs/users | [list](/rest/api/labservices/users/list-by-lab) |
+| Microsoft.LabServices/labs/virtualMachines | [list](/rest/api/labservices/virtual-machines/list-by-lab) |
 | Microsoft.Logic/integrationAccounts/agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
@@ -406,9 +406,11 @@ Cosmos DB isn't a zonal resource but you can use the `pickZones` function to det
 
 ## providers
 
-**The providers function has been deprecated.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
+**The providers function has been deprecated in ARM templates.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
 
 In Bicep, the [providers](../bicep/bicep-functions-resource.md#providers) function is deprecated.
+
+The [providers operation](/rest/api/resources/providers) is still available through the REST API. It can be used outside of an ARM template to get information about a resource provider.
 
 ## reference
 
@@ -782,7 +784,7 @@ You use this function to get the resource ID for resources that are [deployed to
 
 ### managementGrouopResourceID example
 
-The following template creates a policy definition, and assign the policy defintion. It uses the `managementGroupResourceId` function to get the resource ID for policy definition.
+The following template creates and assigns a policy definition. It uses the `managementGroupResourceId` function to get the resource ID for policy definition.
 
 ```json
 {

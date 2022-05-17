@@ -6,7 +6,7 @@ ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 05/12/2022
 ms.devlang: csharp, java, javascript
 ms.custom: devx-track-csharp, devx-track-java, devx-track-js
 ---
@@ -18,7 +18,7 @@ Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, an
 
 The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). Request charge is the request units consumed by all your database operations. You can think of RUs as a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs. To learn more, see the [request units and it's considerations](../request-units.md) article.
 
-This article presents the different ways you can find the [request unit](../request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB API for MongoDB. If you are using a different API, see [SQL API](../find-request-unit-charge.md), [Cassandra API](../cassandra/find-request-unit-charge-cassandra.md), [Gremlin API](../find-request-unit-charge-gremlin.md), and [Table API](../table/find-request-unit-charge.md) articles to find the RU/s charge.
+This article presents the different ways you can find the [request unit](../request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB API for MongoDB. If you're using a different API, see [SQL API](../find-request-unit-charge.md), [Cassandra API](../cassandra/find-request-unit-charge-cassandra.md), [Gremlin API](../find-request-unit-charge-gremlin.md), and [Table API](../table/find-request-unit-charge.md) articles to find the RU/s charge.
 
 The RU charge is exposed by a custom [database command](https://docs.mongodb.com/manual/reference/command/) named `getLastRequestStatistics`. The command returns a document that contains the name of the last operation executed, its request charge, and its duration. If you use the Azure Cosmos DB API for MongoDB, you have multiple options for retrieving the RU charge.
 
@@ -42,7 +42,9 @@ The RU charge is exposed by a custom [database command](https://docs.mongodb.com
 
    `db.runCommand({getLastRequestStatistics: 1})`
 
-## Use the MongoDB .NET driver
+## Use a MongoDB driver
+
+### [.NET driver](#tab/dotnet-driver)
 
 When you use the [official MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/), you can execute commands by calling the `RunCommand` method on a `IMongoDatabase` object. This method requires an implementation of the `Command<>` abstract class:
 
@@ -61,8 +63,7 @@ double requestCharge = (double)stats["RequestCharge"];
 
 For more information, see [Quickstart: Build a .NET web app by using an Azure Cosmos DB API for MongoDB](create-mongodb-dotnet.md).
 
-## Use the MongoDB Java driver
-
+### [Java driver](#tab/java-driver)
 
 When you use the [official MongoDB Java driver](https://mongodb.github.io/mongo-java-driver/), you can execute commands by calling the `runCommand` method on a `MongoDatabase` object:
 
@@ -73,7 +74,7 @@ Double requestCharge = stats.getDouble("RequestCharge");
 
 For more information, see [Quickstart: Build a web app by using the Azure Cosmos DB API for MongoDB and the Java SDK](create-mongodb-java.md).
 
-## Use the MongoDB Node.js driver
+### [Node.js driver](#tab/node-driver)
 
 When you use the [official MongoDB Node.js driver](https://mongodb.github.io/node-mongodb-native/), you can execute commands by calling the `command` method on a `db` object:
 
@@ -86,6 +87,15 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 
 For more information, see [Quickstart: Migrate an existing MongoDB Node.js web app to Azure Cosmos DB](create-mongodb-nodejs.md).
 
+### [Python driver](#tab/python-driver)
+
+```python
+response = db.command('getLastRequestStatistics')
+requestCharge = response['RequestCharge']
+```
+
+---
+
 ## Next steps
 
 To learn about optimizing your RU consumption, see these articles:
@@ -94,5 +104,5 @@ To learn about optimizing your RU consumption, see these articles:
 * [Optimize provisioned throughput cost in Azure Cosmos DB](../optimize-cost-throughput.md)
 * [Optimize query cost in Azure Cosmos DB](../optimize-cost-reads-writes.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
