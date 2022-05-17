@@ -85,13 +85,11 @@ Parameters are case-sensitive and all are optional.
 
 ```json
 {
-    "values": [
+    "documents": [
       {
-        "recordId": "1",
-        "data":
-           {
-             "text": "Microsoft employee with ssn 859-98-0987 is using our awesome API's."
-           }
+        "id": "1",
+        "language": "en",
+        "text": "Microsoft employee with ssn 859-98-0987 is using our awesome API's."
       }
     ]
 }
@@ -101,25 +99,38 @@ Parameters are case-sensitive and all are optional.
 
 ```json
 {
-  "values": [
-    {
-      "recordId": "1",
-      "data" : 
-      {
-        "piiEntities":[ 
-           { 
-              "text":"859-98-0987",
-              "type":"U.S. Social Security Number (SSN)",
-              "subtype":"",
-              "offset":28,
-              "length":11,
-              "score":0.65
-           }
-        ],
-        "maskedText": "Microsoft employee with ssn *********** is using our awesome API's."
-      }
-    }
-  ]
+    "documents": [
+        {
+            "redactedText":"********* ******** with ssn *********** is using our awesome API\'s.",
+            "id": "1",
+            "entities": [
+                {
+                    "text": "Microsoft",
+                    "category": "Organization",
+                    "offset": 0,
+                    "length": 9,
+                    "confidenceScore": 0.94
+                },
+                {
+                    "text": "employee",
+                    "category": "PersonType",
+                    "offset": 10,
+                    "length": 8,
+                    "confidenceScore": 0.95
+                },
+                {
+                    "text": "859-98-0987",
+                    "category": "USSocialSecurityNumber",
+                    "offset": 28,
+                    "length": 11,
+                    "confidenceScore": 0.65
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2021-01-15"
 }
 ```
 
