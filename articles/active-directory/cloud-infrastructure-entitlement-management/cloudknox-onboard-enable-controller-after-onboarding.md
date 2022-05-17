@@ -2,14 +2,14 @@
 title: Enable or disable the controller in Microsoft CloudKnox Permissions Management after onboarding is complete
 description: How to enable or disable the controller in Microsoft CloudKnox Permissions Management after onboarding is complete.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Enable or disable the controller after onboarding is complete

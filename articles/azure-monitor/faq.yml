@@ -444,7 +444,6 @@ sections:
           * [Node.js apps](app/nodejs.md)
           * [Web apps on Azure](app/azure-web-apps.md)
           * [Cloud Services on Azure](app/cloudservices.md)
-          * [App servers running in Docker](./azure-monitor-app-hub.yml)
           * [Single-page web apps](app/javascript.md)
           * [SharePoint](app/sharepoint.md)
           * [Windows desktop app](app/windows-desktop.md)
