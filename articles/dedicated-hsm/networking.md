@@ -37,6 +37,9 @@ Before provisioning a Dedicated HSM device, customers will first need to create 
 Subnets segment the virtual network into separate address spaces usable by the Azure resources you place in them. Dedicated HSMs are deployed into a subnet in the virtual network. Each Dedicated HSM device that is deployed in the customer’s subnet will receive a private IP address from this subnet. 
 The subnet in which the HSM device is deployed needs to be explicitly delegated to the service: Microsoft.HardwareSecurityModules/dedicatedHSMs. This grants certain permissions to the HSM service for deployment into the subnet. Delegation to Dedicated HSMs imposes certain policy restrictions on the subnet. Network Security Groups (NSGs) and User-Defined Routes (UDRs) are currently not supported on delegated subnets. As a result, once a subnet is delegated to dedicated HSMs, it can only be used to deploy HSM resources. Deployment of any other customer resources into the subnet will fail.  Their is no requirement on how large or small the subnet for Dedicated HSM should be, however each HSM device will consume one private IP, so it should be ensured the subnet is large enough to accommodate as many HSM devices as required for deployment.
 
+> [!NOTE]
+> When more than one HSM is attached to the same subnet you cannot ping between the devices. You can still configure HA groups with this configuration and can ping to HSM devices in other virtual networks out of the box.
+
 ### ExpressRoute gateway
 
 A requirement of the current architecture is configuration of an [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) in the customers subnet where an HSM device needs to be placed to enable integration of the HSM device into Azure. This [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) cannot be utilized for connecting on-premises locations to the customers HSM devices in Azure.
