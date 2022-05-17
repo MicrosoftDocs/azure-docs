@@ -40,9 +40,12 @@ Use these samples to migrate rules from ArcSight to Microsoft Sentinel in variou
 
 |Rule  |Description    |Sample detection rule (ArcSight)  |Sample KQL query  |Resources  |
 |---------|---------|---------|---------|---------|
-|Filter (`AND`)     |This is a sample rule with `AND` conditions. The event must match all conditions.    |:::image type="content" source="media/migration-arcsight-detection-rules/rule-1-sample.png" alt-text="Diagram illustrating a sample filter rule." lightbox="media/migration-arcsight-detection-rules/rule-1-sample.png":::<br>[Sample detection rule in ArcSight](#filter-and)      |[Sample KQL query](#filter-and-sample-kql-query)         |String filter:<br>• [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br><br>Numerical filter:<br>• [Numerical operators](/azure/data-explorer/kusto/query/numoperators)<br><br>Datetime filter:<br>• [ago](/azure/data-explorer/kusto/query/agofunction)<br>• [Datetime](/azure/data-explorer/kusto/query/datetime-timespan-arithmetic)<br>• [between](/azure/data-explorer/kusto/query/betweenoperator)<br>• [now](/azure/data-explorer/kusto/query/nowfunction)<br><br>Parsing:<br>• [parse](/azure/data-explorer/kusto/query/parseoperator)<br>• [extract](/azure/data-explorer/kusto/query/extractfunction)<br>• [parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)<br>• [parse_csv](/azure/data-explorer/kusto/query/parseoperator)<br>• [parse_path](/azure/data-explorer/kusto/query/parsepathfunction)<br>• [parse_url](/azure/data-explorer/kusto/query/parseurlfunction)  |
+|Filter (`AND`)     |This is a sample rule with `AND` conditions. The event must match all conditions.    |[Sample detection rule in ArcSight](#filter-and)      |[Sample KQL query](#filter-and-sample-kql-query)         |String filter:<br>• [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br><br>Numerical filter:<br>• [Numerical operators](/azure/data-explorer/kusto/query/numoperators)<br><br>Datetime filter:<br>• [ago](/azure/data-explorer/kusto/query/agofunction)<br>• [Datetime](/azure/data-explorer/kusto/query/datetime-timespan-arithmetic)<br>• [between](/azure/data-explorer/kusto/query/betweenoperator)<br>• [now](/azure/data-explorer/kusto/query/nowfunction)<br><br>Parsing:<br>• [parse](/azure/data-explorer/kusto/query/parseoperator)<br>• [extract](/azure/data-explorer/kusto/query/extractfunction)<br>• [parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)<br>• [parse_csv](/azure/data-explorer/kusto/query/parseoperator)<br>• [parse_path](/azure/data-explorer/kusto/query/parsepathfunction)<br>• [parse_url](/azure/data-explorer/kusto/query/parseurlfunction)  |
 |Filter (`OR`)    |This is a sample rule with `OR` conditions. The event can match any of the conditions.    |[Sample detection rule in ArcSight](#filter-or)         |[Sample KQL queries](#filter-or-sample-kql-queries)         |• [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• [in](/azure/data-explorer/kusto/query/inoperator)        |
 |Nested filter    |This is a sample rule with nested filtering conditions. The rule includes the `MatchesFilter` statement, which also includes filtering conditions. |[Sample detection rule in ArcSight](#nested-filter) |[Sample KQL queries](#nested-filter-sample-kql-queries) |• [Sample KQL function](https://techcommunity.microsoft.com/t5/azure-sentinel/using-kql-functions-to-speed-up-analysis-in-azure-sentinel/ba-p/712381)<br>• [Sample parameter function](https://github.com/Azure/Azure-Sentinel/blob/Downloads/Enriching%20Windows%20Security%20Events%20with%20Parameterized%20Function%20-%20Microsoft%20Tech%20Community)<br>• [join](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [where](/azure/data-explorer/kusto/query/whereoperator) |
+|Active list (lookup) |This is a sample lookup rule that uses the `InActiveList` statement. |[Sample detection rule in ArcSight](#active-list-lookup) |[Sample KQL query](#active-list-sample-kql-query) |• A watchlist is the equivalent of the active list feature. Learn more about [watchlists](watchlists.md).<br>• [Additional ways to implement lookups](https://techcommunity.microsoft.com/t5/azure-sentinel/implementing-lookups-in-azure-sentinel/ba-p/1091306) |
+|Correlation (matching) |This is a sample rule that defines a condition against a set of base events, using the `Matching Event` statement. |[Sample detection rule in ArcSight](#correlation-matching) |[Sample KQL query](#correlation-matching-sample-kql-query) |join operator:<br>• [join](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [join with time window](/azure/data-explorer/kusto/query/join-timewindow)<br>• [shuffle](/azure/data-explorer/kusto/query/shufflequery)<br>• [Broadcast](/azure/data-explorer/kusto/query/broadcastjoin)<br>• [Union](/azure/data-explorer/kusto/query/unionoperator?pivots=azuredataexplorer)<br><br>define statement:<br>• [let](/azure/data-explorer/kusto/query/letstatement)<br><br>Aggregation:<br>• [make_set](/azure/data-explorer/kusto/query/makeset-aggfunction)<br>• [make_list](/azure/data-explorer/kusto/query/makelist-aggfunction)<br>• [make_bag](/azure/data-explorer/kusto/query/make-bag-aggfunction)<br>• [pack](/azure/data-explorer/kusto/query/packfunction) |
+|Correlation (time window) |This is a sample rule that defines a condition against a set of base events, using the `Matching Event` statement, and uses the `Wait time` filter condition. |[Sample detection rule in ArcSight](#correlation-time-window) |[Sample KQL query](#correlation-time-window-sample-kql-query) |• [join](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [Microsoft Sentinel rules and join statement](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-correlation-rules-the-join-kql-operator/ba-p/1041500) |
 
 #### Filter (AND) 
 
@@ -100,7 +103,7 @@ Here is a sample nested filter rule in ArcSight.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-3-sample-1.png" alt-text="Diagram illustrating a sample nested filter rule." lightbox="media/migration-arcsight-detection-rules/rule-3-sample-1.png":::
 
-`/All Filters/Soc Filters/Exclude Valid Users`:
+Here is a rule for the `/All Filters/Soc Filters/Exclude Valid Users` filter:
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-3-sample-2.png" alt-text="Diagram illustrating a sample nested filter rule." lightbox="media/migration-arcsight-detection-rules/rule-3-sample-2.png":::
 
@@ -194,13 +197,11 @@ Considerations:
 
 #### Active list (lookup)
 
-This is a rule of type active list (lookup).
-
-##### Sample detection rule in ArcSight
+Here is an active list (lookup) rule in ArcSight.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-4-sample.png" alt-text="Diagram illustrating a sample active list rule (lookup)." lightbox="media/migration-arcsight-detection-rules/rule-4-sample.png":::
 
-##### Sample KQL query
+##### Active list: Sample KQL query
 
 This rule assumes that the Cyber-Ark Exception Accounts watchlist exists in Azure Sentinel with an Account field.
 
@@ -219,20 +220,13 @@ SourceUserName, DeviceEventClassID
 ```
 Order the filters by starting with the `where` statement that filters out the most data.
 
-##### Related resources
-
-- A watchlist is the equivalent of the active list feature. Learn more about [watchlists](watchlists.md).
-- [Additional ways to implement lookups](https://techcommunity.microsoft.com/t5/azure-sentinel/implementing-lookups-in-azure-sentinel/ba-p/1091306) 
-
 #### Correlation (matching)
 
-This is a rule of type correlation, which matches a rule condition against a set of base events.
-
-##### Sample detection rule in ArcSight
+Here is a sample ArcSight rule that defines a condition against a set of base events, using the `Matching Event` statement.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-5-sample.png" alt-text="Diagram illustrating a sample correlation rule (matching)." lightbox="media/migration-arcsight-detection-rules/rule-5-sample.png":::
 
-##### Sample KQL query
+##### Correlation (matching): Sample KQL query
 
 ```kusto
 let event1 =(
@@ -251,34 +245,13 @@ Best practices:
 - To optimize your query, ensure that the smaller table is on the left side of the `join` function. 
 - If the left side of the table is relatively small (up to 100K records), add `hint.strategy=broadcast` for better performance.
 
-##### Related operators and functions
-
-join operator:
-- [join](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)
-- [join with time window](/azure/data-explorer/kusto/query/join-timewindow)
-- [shuffle](/azure/data-explorer/kusto/query/shufflequery)
-- [Broadcast](/azure/data-explorer/kusto/query/broadcastjoin)
-- [Union](/azure/data-explorer/kusto/query/unionoperator?pivots=azuredataexplorer)
-
-define statement:
-- [let](/azure/data-explorer/kusto/query/letstatement)
-
-Aggregation:
-
-- [make_set](/azure/data-explorer/kusto/query/makeset-aggfunction)
-- [make_list](/azure/data-explorer/kusto/query/makelist-aggfunction)
-- [make_bag](/azure/data-explorer/kusto/query/make-bag-aggfunction)
-- [pack](/azure/data-explorer/kusto/query/packfunction) 
-
 #### Correlation (time window)
 
-This is a rule of type correlation, which uses a time window filter.
-
-##### Sample detection rule in ArcSight
+Here is a sample ArcSight rule that defines a condition against a set of base events, using the `Matching Event` statement, and uses the `Wait time` filter condition.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-6-sample.png" alt-text="Diagram illustrating a sample correlation rule (time window)." lightbox="media/migration-arcsight-detection-rules/rule-6-sample.png":::
 
-##### Sample KQL query
+##### Correlation (time window): Sample KQL query
 
 ```kusto
 let waittime = 10m;
@@ -321,9 +294,7 @@ event2_UPN=UserPrincipalName,
 
 #### Aggregation
 
-This is a rule of type aggregation.
-
-##### Sample detection rule in ArcSight
+Here is a sample ArcSight rule with aggregation settings: three matches within ten minutes.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-7-sample.png" alt-text="Diagram illustrating a sample aggregation rule." lightbox="media/migration-arcsight-detection-rules/rule-7-sample.png":::
 
