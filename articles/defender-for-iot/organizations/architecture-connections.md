@@ -28,7 +28,7 @@ For more information, see [Choose a sensor connection method](connect-sensors.md
 
 ## Proxy connections with an Azure proxy
 
-The following image shows how you can connect your sensors to the Defender for IoT portal in Azure through a proxy in the Azure VNET, ensuring confidentiality for all communications between your sensor and Azure.
+The following image shows how you can connect your sensors to the Defender for IoT portal in Azure through a proxy in the Azure VNET.Therefore, ensuring confidentiality for all communications between your sensor and Azure.
 
 :::image type="content" source="media/architecture-connections/proxy.png" alt-text="Diagram of a proxy connection using an Azure proxy." border="false":::
 
