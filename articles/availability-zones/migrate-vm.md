@@ -76,8 +76,8 @@ To learn how to move encrypted VMs to another region, see [Tutorial: Move encryp
 
 ## Migration Option 3: Regional to Zonal Move (Preview)
 
-[!IMPORTANT]
-This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+>[!IMPORTANT]
+>This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 ### When to use Regional to Zonal Move
 
