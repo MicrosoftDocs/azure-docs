@@ -509,6 +509,8 @@ items:
     href: orchestration-workflow/faq.md
   - name: Quickstart
     href: orchestration-workflow/quickstart.md
+  - name: Language support
+    href: orchestration-workflow/language-support.md
   - name: How-to guides
     items:
       - name: Create project and build schema
@@ -527,6 +529,8 @@ items:
         href: orchestration-workflow/concepts/evaluation-metrics.md
   - name: Reference
     items:
+    - name: Service limits
+      href: orchestration-workflow/service-limits.md
     - name: REST API
       items:
       - name: Authoring
