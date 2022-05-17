@@ -163,7 +163,7 @@ The [prerequisites][prerequisites] already listed for Azure CNI still apply, but
 
 * Only linux node clusters and node pools are supported.
 * AKS Engine and DIY clusters are not supported.
-* Azure CLI version `2.35.0` or later.
+* Azure CLI version `2.37.0` or later.
 
 ### Planning IP addressing
 
