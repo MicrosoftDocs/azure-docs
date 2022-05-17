@@ -33,6 +33,9 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 - The recommended configuration is to create a separate App Registration per SQL server instance. This prevents SQL server2 from reading the policies meant for SQL server1, in case a rogue admin in SQL server2 tampers with the ARM path.
 
 ## Configuration
+> [!Warning]
+> Azure portal does not currently offer the option to configure "Access control (IAM)" for the "SQL Server - Azure Arc" resource. You can use anothe method such as Azure CLI or PowerShell to grant the IAM side permissions required to enable the Data Use Management toggle (e.g. IAM Owner) or alternatively grant those IAM permissions to the parent resource group or subscription and leverage permission inheritance. 
+
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### SQL Server on Azure Arc-enabled server configuration
