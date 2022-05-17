@@ -1,28 +1,28 @@
 ---
 title: Add natural language understanding to your bot in Bot Framework SDK using conversational language understanding
-description: Learn how to use CLU for natural language understanding in your bot.
+description: Learn how to train a bot to understand natural language.
 keywords: conversational language understanding, bot framework, bot, language understanding, nlu
-author: hazemelh
-ms.author: hazemelh
-manager: cahann
-ms.reviewer: cahann
+author: aahill
+ms.author: aahi
+manager: nitinme
+ms.reviewer: cahann, hazemelh
 ms.service: language
 ms.topic: how-to
-ms.date: 05/10/2022
+ms.date: 05/17/2022
 ---
 
 # Integrate conversational language understanding with Bot Framework
 
-A dialog is the interaction that occurs between user queries and an application. Dialog management is the process that defines the automatic behaviour that should occur for different customer interactions. While conversational language understanding can classify intents and extract information through entities, the [Bot Framework SDK](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview?view=azure-bot-service-4.0) allows you to configure the applied logic for the responses returned from it.
+A dialog is the interaction that occurs between user queries and an application. Dialog management is the process that defines the automatic behavior that should occur for different customer interactions. While conversational language understanding can classify intents and extract information through entities, the [Bot Framework SDK](/azure/bot-service/bot-service-overview) allows you to configure the applied logic for the responses returned from it.
 
-This tutorial will explain how to integrate your own conversational language understanding project (CLU) for a flight booking project in the Bot Framework SDK that includes 3 intents: **Book Flight**, **Get Weather**, and **None**.
+This tutorial will explain how to integrate your own conversational language understanding (CLU) project for a flight booking project in the Bot Framework SDK that includes three intents: **Book Flight**, **Get Weather**, and **None**.
 
 
 ## Prerequisites
 
-- Create a [Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+- Create a [Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   - You will need the key and endpoint from the resource you create to connect your bot to the API. You'll paste your key and endpoint into the code below later in the tutorial.
-- Download the **Core Bot** for CLU sample in [**C#**](https://aka.ms/clu-botframework-overview).
+- Download the **Core Bot** for CLU [sample in C#](https://aka.ms/clu-botframework-overview).
   - Clone the entire Bot Framework Samples repository to get access to this sample project.
 
 
@@ -50,8 +50,8 @@ In the **Core Bot** sample, update your [appsettings.json](https://aka.ms/clu-bo
 
 - The _CluProjectName_ is **FlightBooking**.
 - The _CluDeploymentName_ is **Testing**
-- The _CluAPIKey_ are either of the keys in the Keys and Endpoint section for your Language resource in the Azure portal. You can also copy your key from the Project Settings tab in CLU. 
-- The _CluAPIHostName_ is the endpoint found in the Keys and Endpoint section for your Language resource in the Azure portal. Note the format should be ```<Language_Resource_Name>.cognitiveservices.azure.com``` without "https://"
+- The _CluAPIKey_ can be either of the keys in the **Keys and Endpoint** section for your Language resource in the [Azure portal](https://portal.azure.com). You can also copy your key from the Project Settings tab in CLU. 
+- The _CluAPIHostName_ is the endpoint found in the **Keys and Endpoint** section for your Language resource in the Azure portal. Note the format should be ```<Language_Resource_Name>.cognitiveservices.azure.com``` without `https://`
 
 ```json
 {
@@ -133,39 +133,43 @@ The logic that determines what to do with the CLU result follows it.
 
 Run the sample locally on your machine **OR** run the bot from a terminal or from Visual Studio:
 
-  A) From a terminal, navigate to `samples/csharp_dotnetcore/90.core-bot-with-clu/90.core-bot-with-clu`
+### Run the bot from a terminal
 
-  ```bash
-  # run the bot
-  dotnet run
-  ```
+From a terminal, navigate to `samples/csharp_dotnetcore/90.core-bot-with-clu/90.core-bot-with-clu`
 
-  B) Or from Visual Studio
+Then run the following command
 
-  - Launch Visual Studio
-  - File -> Open -> Project/Solution
-  - Navigate to `samples/csharp_dotnetcore/90.core-bot-with-clu/90.core-bot-with-clu` folder
-  - Select `CoreBotWithCLU.csproj` file
-  - Press `F5` to run the project
+```bash
+# run the bot
+dotnet run
+```
+
+### Run the bot from Visual Studio
+
+1. Launch Visual Studio
+1. From the top navigation menu, select **File**, **Open**, then **Project/Solution**
+1. Navigate to the `samples/csharp_dotnetcore/90.core-bot-with-clu/90.core-bot-with-clu` folder
+1. Select the `CoreBotWithCLU.csproj` file
+1. Press `F5` to run the project
 
 
 ## Testing the bot using Bot Framework Emulator
 
 [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) is a desktop application that allows bot developers to test and debug their bots on localhost or running remotely through a tunnel.
 
-- Install the latest Bot Framework Emulator from [here](https://github.com/Microsoft/BotFramework-Emulator/releases).
+- Install the [latest Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases).
 
 ## Connect to the bot using Bot Framework Emulator
 
-- Launch Bot Framework Emulator
-- File -> Open Bot
-- Enter a Bot URL of `http://localhost:3978/api/messages` and press Connect and wait for it to load
-- You can now query for different examples such as "Travel from Cairo to Paris" and observe the results
+1. Launch Bot Framework Emulator
+1. Select **File**, then **Open Bot**
+1. Enter a Bot URL of `http://localhost:3978/api/messages` and press Connect and wait for it to load
+1. You can now query for different examples such as "Travel from Cairo to Paris" and observe the results
 
-If the top intent returned from CLU resolves to "Book flight" your bot will ask additional questions until it has enough information stored to create a travel booking. At that point it will return this booking information back to your user.
+If the top intent returned from CLU resolves to "_Book flight_". Your bot will ask additional questions until it has enough information stored to create a travel booking. At that point it will return this booking information back to your user.
 
 ## Next Steps
 
-- Learn more about the [Bot Framework SDK](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview?view=azure-bot-service-4.0).
+- Learn more about the [Bot Framework SDK](/azure/bot-service/bot-service-overview).
 
 
