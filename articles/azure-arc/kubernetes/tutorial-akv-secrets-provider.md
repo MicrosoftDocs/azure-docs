@@ -9,7 +9,7 @@ author: mayurigupta13
 ms.author: mayg
 ---
 
-# Using Azure Key Vault Secrets Provider extension to fetch secrets into Arc clusters
+# Using Azure Key Vault Secrets Provider extension to fetch secrets into Arc clusters (Preview)
 
 The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/).
 
@@ -27,6 +27,8 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
     - Elastic Kubernetes Service
     - Tanzu Kubernetes Grid
 
+
+[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Features
 
