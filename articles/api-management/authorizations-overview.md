@@ -49,7 +49,6 @@ For public preview the following limitations exist.
 - Maximum configured number of authorization providers per API Management instance: 50
 - Maximum configured number of authorizations per Authorization provider: 500
 - Max configured number of access policies per authorization: 100
-- Maximum requests per minute per authorization: 100
 - Authorization code PKCE flow with code challenge isn't supported.
 - Authorizations feature isn't supported on self-hosted gateways.
 - No API documentation is available. Please see [this](https://aka.ms/apimauthorizations/postmancollection) Postman collection.   
@@ -90,7 +89,7 @@ Access policies determine which identities can use the authorization that the ac
 
 The following image shows the process flow for creating an authorization in API Management using the grant type authorization code. For public preview no API documentation is available please see [this](https://aka.ms/apimauthorizations/postmancollection) Postman collection. 
 
-:::image type="content" source="media/authorizations-overview/get-token.png" alt-text="Process flow for creating authorizations" border="false":::
+:::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Process flow for creating authorizations" border="false":::
 
 1. Client sends a request to create an authorization provider. 
 1. Authorization provider is created and a response is sent back.
@@ -173,8 +172,9 @@ The other identity providers support authorization code. After public preview, m
 
 ### Next steps
 
-- Learn how to [set up and use an authorization](authorizations-how-to.md).
+- Learn how to [configure and use an authorization](authorizations-how-to.md).
 - See [reference](authorizations-reference.md) for supported identity providers in authorizations.
+- Use [policies]() together with authorizations.  
 - Learn more about OAuth 2.0:
 
     * [OAuth 2.0 overview](https://aaronparecki.com/oauth-2-simplified/)
