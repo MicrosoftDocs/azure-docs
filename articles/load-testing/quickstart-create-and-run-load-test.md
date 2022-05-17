@@ -36,7 +36,7 @@ To create a Load Testing resource:
 
 [!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
 
-## <a name="create_test"></a> Run a load test
+## <a name="create_test"></a> Create a load test
 
 With Azure Load Testing, you can run a load test for a website.
 
