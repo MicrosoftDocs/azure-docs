@@ -8,47 +8,47 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 05/06/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
 
-# Data formats accepted by custom NER
+# Accepted custom NER data formats
 
-When data is used by your model for learning, it expects the data to be in a specific format. When you tag your data in Language Studio, it gets converted to the JSON format described in this article. You can also manually tag your files.
+If you are trying to [import your data](../how-to/create-project.md#import-project) into custom NER, it has to follow a specific format. If you don't have data to import, you can [create your project](../how-to/create-project.md) and use the Language Studio to [label your documents](../how-to/tag-data.md).
 
+## Labels file format
 
-## JSON file format
-
-When you tag entities, the tags are saved as in the following JSON format. If you upload a tags file, it should follow the same format.
+Your Labels file should be in the `json` format below to be used in [importing](../how-to/create-project.md#import-project) your labels into a project.
 
 ```json
 {
-    "extractors": [
+    "entities": [
         {
-            "name": "Entity1"
+            "category": "Entity1"
         },
         {
-            "name": "Entity2"
+            "category": "Entity2"
         }
     ],
     "documents": [
         {
-            "location": "file1.txt",
-            "language": "en-us",
-            "extractors": [
+            "location": "{DOCUMENT-NAME}",
+            "language": "{LANGUAGE-CODE}",
+            "dataset": "{DATASET}",
+            "entities": [
                 {
                     "regionOffset": 0,
-                    "regionLength": 5129,
+                    "regionLength": 500,
                     "labels": [
                         {
-                            "extractorName": "Entity1",
-                            "offset": 77,
+                            "category": "Entity1",
+                            "offset": 25,
                             "length": 10
                         },
                         {
-                            "extractorName": "Entity2",
-                            "offset": 3062,
+                            "category": "Entity2",
+                            "offset": 120,
                             "length": 8
                         }
                     ]
@@ -56,22 +56,18 @@ When you tag entities, the tags are saved as in the following JSON format. If yo
             ]
         },
         {
-            "location": "file2.txt",
-            "language": "en-us",
-            "extractors": [
+            "location": "{DOCUMENT-NAME}",
+            "language": "{LANGUAGE-CODE}",
+            "dataset": "{DATASET}",
+            "entities": [
                 {
                     "regionOffset": 0,
-                    "regionLength": 6873,
+                    "regionLength": 100,
                     "labels": [
                         {
-                            "extractorName": "Entity2",
-                            "offset": 60,
-                            "length": 7
-                        },
-                        {
-                            "extractorName": "Entity1",
-                            "offset": 2805,
-                            "length": 10
+                            "category": "Entity2",
+                            "offset": 20,
+                            "length": 5
                         }
                     ]
                 }
@@ -81,20 +77,21 @@ When you tag entities, the tags are saved as in the following JSON format. If yo
 }
 ```
 
-### Data description
+|Key  |Placeholder  |Value  | Example |
+|---------|---------|----------|--|
+| `entities` | | Array containing all the entity types you have in the project. These are the entity types that will be extracted from your documents into.|  |
+| `documents` | | Array containing all the documents in your project and list of the entities labeled within each document. | [] |
+| `location` | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
+| `dataset` | `{DATASET}` |  The test set to which this file will go to when split before training. Learn more about data splitting [here](../how-to/train-model.md#data-splitting) . Possible values for this field are `Train` and `Test`.      |`Train`|
+| `regionOffset` |  |  The inclusive character position of the start of the text.      |`0`|
+| `regionLength` |  |  The length of the bounding box in terms of UTF16 characters. Training only considers the data in this region.      |`500`|
+| `category` |  |  The type of entity associated with the span of text specified. | `Entity1`|
+| `offset` |  |  The type of entity associated with the span of text specified. | `25`|
+| `length` |  |  The length of the entity in terms of UTF16 characters. | `20`|
+| `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the document used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. See [Language support](../language-support.md) for more information about supported language codes. |`en-us`|
 
-* `extractors`: An array of extractors for your data. Each extractor represents one of the entities you want to extract from your data.
-* `documents`: An array of tagged documents.
-  * `location`: The path of the file. The file has to be in root of the storage container.
-  * `language`: Language of the file. Use one of the [supported culture locales](../language-support.md).
-  * `extractors`: Array of extractor objects to be extracted from the file.
-    * `regionOffset`: The inclusive character position of the start of the text.
-    * `regionLength`: The length of the bounding box in terms of UTF16 characters. Training only considers the data in this region.
-    * `labels`: Array of all the tagged entities within the specified region.
-      * `extractorName`: Type of the entity to be extracted.
-      * `offset`: The inclusive character position of the start of the entity. This is not relative to the bounding box.
-      * `length`: The length of the entity in terms of UTF16 characters.
+
 
 ## Next steps
-
-See the [how-to article](../how-to/tag-data.md)  more information about tagging your data. When you're done tagging your data, you can [train your model](../how-to/train-model.md).  
+* You can import your labeled data into your project directly. Learn how to [import project](../how-to/create-project.md#import-project)
+* See the [how-to article](../how-to/tag-data.md)  more information about labeling your data. When you're done labeling your data, you can [train your model](../how-to/train-model.md).  

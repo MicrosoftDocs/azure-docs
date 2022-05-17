@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Build and deploy apps to Azure Spring Cloud Enterprise tier"
-description: Describes app deployment to Azure Spring Cloud Enterprise tier.
+title: "Quickstart - Build and deploy apps to Azure Spring Apps Enterprise tier"
+description: Describes app deployment to Azure Spring Apps Enterprise tier.
 author: karlerickson
 ms.author: caiqing
 ms.service: spring-cloud
@@ -9,23 +9,26 @@ ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier
+# Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to build and deploy applications to Azure Spring Cloud using the Enterprise tier.
+This quickstart shows you how to build and deploy applications to Azure Spring Apps using the Enterprise tier.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Quickstart: Provision an Azure Spring Cloud service using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Provision an Azure Spring Apps service using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 - [Apache Maven](https://maven.apache.org/download.cgi)
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
 ## Create and configure apps
 
-To create apps on Azure Spring Cloud, follow these steps:
+To create apps on Azure Spring Apps, follow these steps:
 
 1. To set the CLI defaults, use the following commands. Be sure to replace the placeholders with your own values.
 
@@ -37,8 +40,8 @@ To create apps on Azure Spring Cloud, follow these steps:
 1. To create the two core applications for PetClinic, `api-gateway` and `customers-service`, use the following commands:
 
    ```azurecli
-   az spring-cloud app create --name api-gateway --instance-count 1 --memory 2Gi --assign-endpoint
-   az spring-cloud app create --name customers-service --instance-count 1 --memory 2Gi
+   az spring app create --name api-gateway --instance-count 1 --memory 2Gi --assign-endpoint
+   az spring app create --name customers-service --instance-count 1 --memory 2Gi
    ```
 
 ## Bind apps to Application Configuration Service for Tanzu and Tanzu Service Registry
@@ -51,11 +54,11 @@ To bind apps to Application Configuration Service for VMware Tanzu®, follow the
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown and select **Apply** to bind the application to Application Configuration Service for Tanzu.
 
-   ![Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and 'App binding' section with 'Bind app' dialog showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png)
+   :::image type="content" source="media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and 'App binding' section with 'Bind app' dialog showing.":::
 
 A list under **App name** shows the apps bound with Application Configuration Service for Tanzu, as shown in the following screenshot:
 
-![Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and 'App binding' section with app list showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
+:::image type="content" source="media/enterprise/getting-started-enterprise/config-service-app-bind.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and 'App binding' section with app list showing.":::
 
 To bind apps to VMware Tanzu® Service Registry, follow these steps.
 
@@ -63,21 +66,21 @@ To bind apps to VMware Tanzu® Service Registry, follow these steps.
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown, and then select **Apply** to bind the application to Tanzu Service Registry.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Cloud with Service Registry page and 'Bind app' dialog showing.":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Service Registry page and 'Bind app' dialog showing.":::
 
 A list under **App name** shows the apps bound with Tanzu Service Registry, as shown in the following screenshot:
 
-:::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind.png" alt-text="Screenshot of Azure portal Azure Spring Cloud with Service Registry page and 'App binding' section showing.":::
+:::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Service Registry page and 'App binding' section showing.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
 To bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry, use the following commands.
 
 ```azurecli
-az spring-cloud application-configuration-service bind --app api-gateway
-az spring-cloud application-configuration-service bind --app customers-service
-az spring-cloud service-registry bind --app api-gateway
-az spring-cloud service-registry bind --app customers-service
+az spring application-configuration-service bind --app api-gateway
+az spring application-configuration-service bind --app customers-service
+az spring service-registry bind --app api-gateway
+az spring service-registry bind --app customers-service
 ```
 
 ---
@@ -103,11 +106,11 @@ To build locally, use the following steps:
 1. Deploy the JAR files built in the previous step using the following commands:
 
    ```azurecli
-   az spring-cloud app deploy \
+   az spring app deploy \
        --name api-gateway \
        --artifact-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.3.6.jar \
        --config-file-patterns api-gateway
-   az spring-cloud app deploy \
+   az spring app deploy \
        --name customers-service \
        --artifact-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.3.6.jar \
        --config-file-patterns customers-service
@@ -116,16 +119,16 @@ To build locally, use the following steps:
 1. Query the application status after deployment by using the following command:
 
    ```azurecli
-   az spring-cloud app list --output table
+   az spring app list --output table
    ```
 
    This command produces output similar to the following example:
 
    ```output
-   Name                  Location    ResourceGroup       Public Url                                                 Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
-   --------------------  ----------  ---------------  ---------------------------------------------------------  -----------------------  --------------------  -----  --------  ------------------  ---------------------  --------------------  -----------------------  ----------------------------------------
-   api-gateway           eastus      <resource group>   https://<service_name>-api-gateway.asc-test.net                    default                  Succeeded             1      2Gi       1/1                1/1                    -                     True                     True
-   customers-service     eastus      <resource group>                                                                      default                  Succeeded             1      2Gi       1/1                1/1                    -                     True                     True
+   Name                  Location    ResourceGroup      Public Url                                                   Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
+   --------------------  ----------  ----------------   ----------------------------------------------------------   -----------------------  --------------------  -----  --------  ------------------  ---------------------  --------------------  -----------------------  ----------------------------------------
+   api-gateway           eastus      <resource group>   https://<service_name>-api-gateway.azuremicroservices.io     default                  Succeeded             1      2Gi       1/1                 1/1                    -                     True                     True
+   customers-service     eastus      <resource group>                                                                default                  Succeeded             1      2Gi       1/1                 1/1                    -                     True                     True
    ```
 
 ### Verify the applications

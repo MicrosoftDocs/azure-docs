@@ -35,53 +35,69 @@ items:
   - name: Data, privacy, and security  
     href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
     displayName: Data privacy, logging, data retention
-- name: Custom text classification (preview)
+- name: Custom text classification
   items:
   - name: Overview
-    href: custom-classification/overview.md
+    href: custom-text-classification/overview.md
   - name: Quickstart
-    href: custom-classification/quickstart.md
+    href: custom-text-classification/quickstart.md
   - name: Language support
-    href: custom-classification/language-support.md
+    href: custom-text-classification/language-support.md
   - name: FAQ
-    href: custom-classification/faq.md
+    href: custom-text-classification/faq.md
+  - name: Responsible use of AI
+    items:
+    - name: Transparency note for custom text classification
+      href: /legal/cognitive-services/language-service/ctc-transparency-note?context=/azure/cognitive-services/language-service/context/context
+      displayName: Transparency note for Custom classification, Custom classification transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language-service/ctc-guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/language-service/ctc-characteristics-and-limitations?context=/azure/cognitive-services/language-service/context/context
+      displayName: Custom classification characteristics, Custom classification limitations
+    - name: Data, privacy, and security
+      href: /legal/cognitive-services/language-service/ctc-data-privacy-security?context=/azure/cognitive-services/language-service/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Create projects
-      href: custom-classification/how-to/create-project.md
+      href: custom-text-classification/how-to/create-project.md
     - name: Data selection and schema design
-      href: custom-classification/how-to/design-schema.md
+      href: custom-text-classification/how-to/design-schema.md
       displayName: Best practices
     - name: Tag data
-      href: custom-classification/how-to/tag-data.md
+      href: custom-text-classification/how-to/tag-data.md
     - name: Train a model
-      href: custom-classification/how-to/train-model.md
+      href: custom-text-classification/how-to/train-model.md
     - name: View model evaluation
-      href: custom-classification/how-to/view-model-evaluation.md
+      href: custom-text-classification/how-to/view-model-evaluation.md
     - name: Improve a model
-      href: custom-classification/how-to/improve-model.md
-    - name: Deploy a model and classify text
-      href: custom-classification/how-to/call-api.md
+      href: custom-text-classification/how-to/improve-model.md
+    - name: Deploy a model
+      href: custom-text-classification/how-to/deploy-model.md
+    - name: Classify text
+      href: custom-text-classification/how-to/call-api.md
     - name: Back up and recover your models
-      href: custom-classification/fail-over.md
+      href: custom-text-classification/fail-over.md
   - name: Concepts
     items:
     - name: Evaluation metrics
-      href: custom-classification/concepts/evaluation.md
+      href: custom-text-classification/concepts/evaluation-metrics.md
     - name: Accepted data tag formats
-      href: custom-classification/concepts/data-formats.md
+      href: custom-text-classification/concepts/data-formats.md
       displayName: Data representation
   - name: Tutorials
     items:
     - name: Enrich a Cognitive Search index 
-      href: custom-classification/tutorials/cognitive-search.md
+      href: custom-text-classification/tutorials/cognitive-search.md
   - name: Reference
     items:
     - name: Glossary
-      href: custom-classification/glossary.md
+      href: custom-text-classification/glossary.md
       displayName: Model, Project, Class
     - name: Service limits
-      href: custom-classification/service-limits.md
+      href: custom-text-classification/service-limits.md
     - name: REST API
       items:
       - name: Authoring API
@@ -98,7 +114,7 @@ items:
           href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
         - name: Node.js
           href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
-- name: Custom Named Entity Recognition (NER) (preview)
+- name: Custom named entity recognition (NER)
   items:
   - name: Overview
     href: custom-named-entity-recognition/overview.md
@@ -130,13 +146,17 @@ items:
       href: custom-named-entity-recognition/how-to/design-schema.md
     - name: Tag data
       href: custom-named-entity-recognition/how-to/tag-data.md
+    - name: Use autotagging (preview) to automatically tag your data
+      href: custom-named-entity-recognition/how-to/use-autotagging.md
     - name: Train a model
       href: custom-named-entity-recognition/how-to/train-model.md
     - name: View model evaluation
       href: custom-named-entity-recognition/how-to/view-model-evaluation.md 
     - name: Improve a model
       href: custom-named-entity-recognition/how-to/improve-model.md
-    - name: Deploy a model and extract entities from text
+    - name: Deploy a model
+      href: custom-named-entity-recognition/how-to/deploy-model.md
+    - name: Extract entities from text
       href: custom-named-entity-recognition/how-to/call-api.md
     - name: Back up and recover your models
       href: custom-named-entity-recognition/fail-over.md

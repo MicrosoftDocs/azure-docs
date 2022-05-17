@@ -1,6 +1,6 @@
 ---
 title: "How to monitor Spring Boot apps using New Relic Java agent"
-titleSuffix: Azure Spring Cloud
+titleSuffix: Azure Spring Apps
 description: Learn how to monitor Spring Boot applications using the New Relic Java agent.
 author: karlerickson
 ms.author: karler
@@ -13,9 +13,12 @@ ms.devlang: azurecli
 
 # How to monitor Spring Boot apps using New Relic Java agent (Preview)
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to monitor of Spring Boot applications in Azure Spring Cloud with the New Relic Java agent.
+This article shows you how to monitor of Spring Boot applications in Azure Spring Apps with the New Relic Java agent.
 
 With the New Relic Java agent, you can:
 
@@ -23,7 +26,7 @@ With the New Relic Java agent, you can:
 * Configure the New Relic Java agent using environment variables.
 * Check all monitoring data from the New Relic dashboard.
 
-The following video describes how to activate and monitor Spring Boot applications in Azure Spring Cloud using New Relic One.
+The following video describes how to activate and monitor Spring Boot applications in Azure Spring Apps using New Relic One.
 
 <br>
 
@@ -38,25 +41,25 @@ The following video describes how to activate and monitor Spring Boot applicatio
 
 Use the following procedure to access the agent:
 
-1. Create an instance of Azure Spring Cloud.
+1. Create an instance of Azure Spring Apps.
 
 2. Create an application.
 
     ```azurecli
-      az spring-cloud app create --name "appName" --is-public true \
+      az spring app create --name "appName" --is-public true \
       -s "resourceName" -g "resourceGroupName"
     ```
 
 3. Create a deployment with the New Relic agent and environment variables.
 
     ```azurecli
-    az spring-cloud app deploy --name "appName" --jar-path app.jar \
+    az spring app deploy --name "appName" --jar-path app.jar \
        -s "resourceName" -g "resourceGroupName" \
        --jvm-options="-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar" \
        --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
     ```
 
-Azure Spring Cloud pre-installs the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+Azure Spring Apps pre-installs the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
 ## Portal
 
@@ -104,7 +107,7 @@ You can also run a provisioning automation pipeline using Terraform or an Azure 
 
 ### Automate provisioning using Terraform
 
-To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Cloud Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
+To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Apps Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
 
 ```terraform
 resource "azurerm_spring_cloud_java_deployment" "example" {
@@ -135,18 +138,18 @@ To configure the environment variables in an ARM template, add the following cod
 
 ## View New Relic Java Agent logs
 
-By default, Azure Spring Cloud will print the logs of the New Relic Java agent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps will print the logs of the New Relic Java agent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the New Relic agent from the following locations:
 
-* Azure Spring Cloud logs
-* Azure Spring Cloud Application Insights
-* Azure Spring Cloud LogStream
+* Azure Spring Apps logs
+* Azure Spring Apps Application Insights
+* Azure Spring Apps LogStream
 
 You can leverage some environment variables provided by New Relic to configure the logging of the New Agent, such as, `NEW_RELIC_LOG_LEVEL` to control the level of logs. For more information, see [New Relic Environment Variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
 > [!CAUTION]
-> We strongly recommend that you *do not* override the logging default behavior provided by Azure Spring Cloud for New Relic. If you do, the logging scenarios in above scenarios will be blocked, and the log file(s) may be lost. For example, you should not pass the following environment variables to your applications. Log file(s) may be lost after restart or redeployment of application(s).
+> We strongly recommend that you *do not* override the logging default behavior provided by Azure Spring Apps for New Relic. If you do, the logging scenarios in above scenarios will be blocked, and the log file(s) may be lost. For example, you should not pass the following environment variables to your applications. Log file(s) may be lost after restart or redeployment of application(s).
 >
 > * NEW_RELIC_LOG
 > * NEW_RELIC_LOG_FILE_PATH
@@ -161,7 +164,7 @@ The New Relic Java agent will update/upgrade the JDK regularly. The agent update
 
 ## Vnet Injection Instance Outbound Traffic Configuration
 
-For a vnet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for the New Relic Java agent. For more information, see [Networks of New Relic](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).
+For a vnet injection instance of Azure Spring Apps, you need to make sure the outbound traffic is configured correctly for the New Relic Java agent. For more information, see [Networks of New Relic](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).
 
 ## Next steps
 

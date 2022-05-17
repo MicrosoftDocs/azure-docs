@@ -1,6 +1,6 @@
 ---
-title: "How to self-diagnose Azure Spring Cloud VNET"
-description: Learn how to self-diagnose and solve problems in Azure Spring Cloud running in VNET.
+title: "How to self-diagnose Azure Spring Apps VNET"
+description: Learn how to self-diagnose and solve problems in Azure Spring Apps running in VNET.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -9,20 +9,23 @@ ms.date: 01/25/2021
 ms.custom: devx-track-java
 ---
 
-# Self-diagnose running Azure Spring Cloud in VNET
+# Self-diagnose running Azure Spring Apps in VNET
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use Azure Spring Cloud diagnostics to diagnose and solve problems in Azure Spring Cloud running in VNET.
+This article shows you how to use Azure Spring Apps diagnostics to diagnose and solve problems in Azure Spring Apps running in VNET.
 
-Azure Spring Cloud diagnostics supports interactive troubleshooting apps running in virtual networks without configuration. Azure Spring Cloud diagnostics identifies problems and guides you to information that helps troubleshoot and resolve them.
+Azure Spring Apps diagnostics supports interactive troubleshooting apps running in virtual networks without configuration. Azure Spring Apps diagnostics identifies problems and guides you to information that helps troubleshoot and resolve them.
 
 ## Navigate to the diagnostics page
 
 The following procedure starts diagnostics for networked applications.
 
 1. Sign in to the Azure portal.
-1. Go to your Azure Spring Cloud Overview page.
+1. Go to your Azure Spring Apps Overview page.
 1. Select **Diagnose and solve problems** in the menu on the left navigation pane.
 1. Select the third category, **Networking**.
 
@@ -30,7 +33,7 @@ The following procedure starts diagnostics for networked applications.
 
 ## View a diagnostic report
 
-After you select the **Networking** category, you can view two issues related to Networking specific to your VNet injected Azure Spring Cloud: **DNS Resolution** and **Required Outbound Traffic**.
+After you select the **Networking** category, you can view two issues related to Networking specific to your VNet injected Azure Spring Apps: **DNS Resolution** and **Required Outbound Traffic**.
 
    ![Self diagnostic options](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-req-outbound-options.png)
 
@@ -76,4 +79,4 @@ Maybe your network is blocked or the log service is down.
 
 ## Next steps
 
-* [How to self diagnose Azure Spring Cloud](./how-to-self-diagnose-solve.md)
+* [How to self diagnose Azure Spring Apps](./how-to-self-diagnose-solve.md)

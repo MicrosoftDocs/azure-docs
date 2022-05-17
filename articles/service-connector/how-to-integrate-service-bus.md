@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/21/2022
+ms.date: 05/03/2022
 ---
 
 # Integrate Service Bus with Service Connector
@@ -81,7 +81,7 @@ This page shows the supported authentication types and client types of Azure Ser
 | Default environment variable name       | Description           | Sample value                                   |
 | --------------------------------------- | --------------------- | ---------------------------------------------- |
 | spring.cloud.azure.servicebus.namespace | Service Bus namespace | `{ServiceBusNamespace}.servicebus.windows.net` |
-| spring.cloud.azure.client-id            | Your client ID        | `{yourClientID}                      `         |
+| spring.cloud.azure.client-id            | Your client ID        | `{yourClientID}`         |
 
 #### Spring Boot service principal
 
