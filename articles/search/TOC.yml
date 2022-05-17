@@ -521,6 +521,8 @@
       href: ./policy-reference.md
     - name: Monitoring data reference
       href: monitor-azure-cognitive-search-data-reference.md
+  - name: Stopwords reference
+    href: reference-stopwords.md
   - name: OData language reference
     items:
     - name: Overview

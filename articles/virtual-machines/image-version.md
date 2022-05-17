@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/26/2022
+ms.date: 05/13/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: 
@@ -43,6 +43,24 @@ Allowed characters for the image version are numbers and periods. Numbers must b
 
 When working through this article, replace the resource names where needed.
 
+For [generalized](generalize.md) images, see the OS specific guidance before capturing the image:
+   
+   - **Linux**
+     - [Generic steps](./linux/create-upload-generic.md)
+     - [CentOS](./linux/create-upload-centos.md)
+     - [Debian](./linux/debian-create-upload-vhd.md)
+     - [Flatcar](./linux/flatcar-create-upload-vhd.md)
+     - [FreeBSD](./linux/freebsd-intro-on-azure.md)
+     - [Oracle Linux](./linux/oracle-create-upload-vhd.md)
+     - [OpenBSD](./linux/create-upload-openbsd.md)
+     - [Red Hat](./linux/redhat-create-upload-vhd.md)
+     - [SUSE](./linux/suse-create-upload-vhd.md)
+     - [Ubuntu](./linux/create-upload-ubuntu.md)
+
+   - **Windows**
+   
+      If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](./windows/prepare-for-upload-vhd-image.md).  
+
 ## Community gallery (preview)
 
 > [!IMPORTANT]
@@ -54,7 +72,7 @@ When working through this article, replace the resource names where needed.
 
 If you will be sharing your images using a [community gallery (preview)](azure-compute-gallery.md#community), make sure that you create your gallery, image definitions, and image versions in the same region. 
 
-When users search for community gallery images, only the latest version of an image are shown.
+When users search for community gallery images, only the latest version of an image is shown.
 
 
 ## Create an image 
@@ -110,7 +128,7 @@ You can also capture an existing VM as an image, from the portal. For more infor
 
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them.
 
-Create an image definition in a gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
+Create an image definition in a gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). Make sure your image definition is the right type. If you have [generalized](generalize.md) the VM (using `waagent -deprovision` for Linux, or Sysprep for Windows) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
 
 For more information about the parameters you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
 

@@ -2,8 +2,8 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 05/11/2022
-ms.custom: template-quickstart, mode-other, devx-track-azurecli 
+ms.date: 05/16/2022
+ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
@@ -57,7 +57,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 * A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 
-* [Azure PowerShell version 5.9.0 or later](/powershell/azure/install-az-ps)
+* [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps)
 
 * Install the **Az.ConnectedKubernetes** PowerShell module:
 
@@ -314,7 +314,7 @@ az connectedk8s connect --name <cluster-name> --resource-group <resource-group> 
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-The ability to pass in the proxy certificate only without the proxy server endpoint details is not yet supported via PowerShell. 
+The ability to pass in the proxy certificate only without the proxy server endpoint details is not yet supported via PowerShell.
 
 ---
 
