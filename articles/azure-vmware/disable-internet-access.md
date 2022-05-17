@@ -33,4 +33,4 @@ If you don't have a default route from On-Prem or from Azure, you have successfu
 >[!div class="nextstepaction"]
 >[Internet connectivity design considerations](concepts-design-avs-public-internet-access.md)<br>
 >[Enable Managed SNAT for Azure VMware Solution Workloads](enable-managed-snat-for-avs-workloads.md)<br>
->[Enable Internet access for your Azure VMware Solution](concepts-design-avs-public-internet-access.md)<br>
+>[Enable Public IP to the NSX Edge for Azure VMware Solution](enable-public-ip-to-the-nsx-edge.md)<br>

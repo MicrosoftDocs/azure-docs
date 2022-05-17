@@ -35,5 +35,5 @@ You have successfully enabled outbound internet access for your Azure VMware Sol
 ## Next Steps 
 >[!div class="nextstepaction"]
 >[Internet connectivity design considerations](concepts-design-avs-public-internet-access.md)<br>
->[Enable internet access for your Azure VMware Solution](concepts-design-avs-public-internet-access.md)<br>
+>[Enable Public IP to the NSX Edge for Azure VMware Solution](concepts-design-avs-public-internet-access.md)<br>
 >[Disable Internet access or enable a default route](disable-internet-access.md)<br>
