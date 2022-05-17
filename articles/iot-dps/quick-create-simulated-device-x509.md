@@ -74,7 +74,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 * Open both a Windows command prompt and a Git Bash prompt.
 
-    The steps in this quickstart assume that you're using a Windows machine and the OpenSSL installation that is installed as part of Git. You'll use the Git Bash prompt to issue OpenSSL commands and the Windows command prompt for everything else. If you're using a different installation of OpenSSL on your Windows machine, you can modify the steps accordingly. If you're using Linux, you can issue all commands from a Bash shell.
+    The steps in this quickstart assume that you're using a Windows machine and the OpenSSL installation that is installed as part of Git. You'll use the Git Bash prompt to issue OpenSSL commands and the Windows command prompt for everything else. If you're using Linux, you can issue all commands from a Bash shell.
 
 ## Prepare your development environment
 
@@ -433,6 +433,8 @@ In this section, you'll update the sample code to send the device's boot sequenc
 
 ::: zone pivot="programming-language-ansi-c"
 
+In this section you'll use your Git Bash prompt and the Visual Studio IDE.
+
 ### Configure the provisioning device code
 
 In this section, you update the sample code with your Device Provisioning Service instance information.
@@ -544,6 +546,8 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 ::: zone pivot="programming-language-csharp"
 
+In this section, you'll use your Windows command prompt.
+
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
 2. Copy the **ID Scope** value.
@@ -587,6 +591,8 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 ::: zone pivot="programming-language-nodejs"
 
+In this section, you'll use your Windows command prompt.
+
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
 1. Copy the **ID Scope** and **Global device endpoint** values.
@@ -621,6 +627,8 @@ To update the custom HSM stub code to simulate the identity of the device with I
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+In this section, you'll use your Windows command prompt.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
@@ -708,6 +716,8 @@ To update the custom HSM stub code to simulate the identity of the device with I
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+
+In this section, you'll use both your Windows command prompt and your Git Bash prompt.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
@@ -826,7 +836,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 ## Confirm your device provisioning registration
 
-You can see which IoT hub your device was provisioned to in the registration details of the individual enrollment you created previously.
+To see which IoT hub your device was provisioned to, examine the registration details of the individual enrollment you created previously:
 
 1. In Azure portal, go to your Device Provisioning Service.
 
