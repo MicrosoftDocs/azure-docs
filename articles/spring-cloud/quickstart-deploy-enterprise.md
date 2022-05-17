@@ -2,7 +2,7 @@
 title: "Quickstart - Build and deploy apps to Azure Spring Apps Enterprise tier"
 description: Describes app deployment to Azure Spring Apps Enterprise tier.
 author: KarlErickson
-ms.author: asirveda, paly@vmware.com
+ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/31/2022
