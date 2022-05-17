@@ -7,7 +7,7 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 05/17/2022
-ms.custom: 
+ms.custom: event-tier1-build-2022
 ---
 
 # Import a GraphQL schema and set up field resolvers

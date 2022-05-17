@@ -7,7 +7,7 @@ ms.service: api-management
 ms.topic: reference
 ms.date: 05/17/2022
 ms.author: danlep
-ms.custom: ignite-fall-2021
+ms.custom: event-tier1-build-2022
 ---
 
 # API Management policies for GraphQL APIs
