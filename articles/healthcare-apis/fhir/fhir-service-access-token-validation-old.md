@@ -2,12 +2,12 @@
 title: FHIR service access token validation
 description: Access token validation procedure and troubleshooting guide for FHIR service
 services: healthcare-apis
-author: caitlinv39
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 03/01/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ---
 # FHIR service access token validation
 

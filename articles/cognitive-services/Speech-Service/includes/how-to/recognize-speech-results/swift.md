@@ -17,10 +17,7 @@ You might want to synchronize transcriptions with an audio track, whether it's d
 
 The Speech service returns the offset and duration of the recognized speech. 
 
-- **Offset**: Used to measure the relative position of the speech that is currently being recognized, from the time that you started speech recognition. Speech recognition does not necessarily start at the beginning of the audio track. Offset is measured in ticks, where a single tick represents one hundred nanoseconds or one ten-millionth of a second.
-- **Duration**: Duration of the utterance that is being recognized. The duration time span does not include trailing or leading silence. 
-
-As soon as you start continuous recognition, the offset starts incrementing in ticks from `0` (zero). 
+[!INCLUDE [Define offset and duration](define-offset-duration.md)]
 
 The end of a single utterance is determined by listening for silence at the end. You won't get the final recognition result until an utterance has completed. Recognizing events will provide intermediate results that are subject to change while an audio stream is being processed. Recognized events will provide the final transcribed text once processing of an utterance is completed.
 

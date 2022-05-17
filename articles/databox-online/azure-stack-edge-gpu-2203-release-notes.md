@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/23/2022
+ms.date: 04/14/2022
 ms.author: alkohli
 ---
 
@@ -37,6 +37,7 @@ The following table provides a summary of known issues in this release.
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
 |**1.**|Preview features |For this release, the following features are available in preview: <br> - Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only.  <br> - VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only. <br> - Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R. |These features will be generally available in later releases. |
+|**2.**|HPN VMs |For this release, the Standard_F12_HPN can only support one network interface and cannot be used for Multi-Access Edge Computing (MEC) deployments. | |
 
 
 ## Known issues from previous releases

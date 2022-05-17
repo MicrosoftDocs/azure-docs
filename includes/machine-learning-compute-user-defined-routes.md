@@ -8,6 +8,10 @@ ms.author: larryfr
 
 When using Azure Machine Learning __compute instance__ (with a public IP) or __compute cluster__, allow inbound traffic from Azure Batch management and Azure Machine Learning services. Compute instance with no public IP (preview) does not require this inbound communication. A Network Security Group allowing this traffic is dynamically created for you, however you may need to also create user-defined routes (UDR) if you have a firewall. When creating a UDR for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
 
+> [!IMPORTANT]
+> Using service tags with user-defined routes is now GA. For more information, see [Virtual Network routing](../articles/virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes).
+
+
 > [!TIP]
 > While a compute instance without a public IP (a preview feature) does not need a UDR for this inbound traffic, you will still need these UDRs if you also use a compute cluster or a compute instance with a public IP.
 
@@ -21,11 +25,11 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
 > [!IMPORTANT]
 > The IP addresses may change over time.
 
-When creating the UDR, set the __Next hop type__ to __Internet__. The following image shows an example IP address based UDR in the Azure portal:
+When creating the UDR, set the __Next hop type__ to __Internet__. This means the inbound communication from Azure skips your firewall to access the load balancers with public IPs of Compute Instance and Compute Cluster. UDR is required because Compute Instance and Compute Cluster will get random public IPs at creation, and you cannot know the public IPs before creation to register them on your firewall to allow the inbound from Azure to specific IPs for Compute Instance and Compute Cluster. The following image shows an example IP address based UDR in the Azure portal:
 
 :::image type="content" source="./media/machine-learning-compute-user-defined-routes/user-defined-route.png" alt-text="Image of a user-defined route configuration":::
 
-# [Service tag (preview) routes](#tab/servicetag)
+# [Service tag routes](#tab/servicetag)
 
 Create user-defined routes for the following service tags:
 

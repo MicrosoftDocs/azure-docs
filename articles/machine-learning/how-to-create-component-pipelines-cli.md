@@ -236,7 +236,7 @@ You can iterate quickly with command jobs and then connect them together into a 
 
 ### I'm doing distributed training in my component. The component, which is registered, specifies distributed training settings including node count. How can I change the number of nodes used during runtime? The optimal number of nodes is best determined at runtime, so I don't want to update the component and register a new version.
 
-You can use the overrides section in component job to change the resource and distribution settings. See [this example using TensorFlow](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/6a_tf_hello_world) or [this example using PyTorch](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/6c_pytorch_hello_world).  
+You can use the overrides section in component job to change the resource and distribution settings. See [this example using TensorFlow](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/6a_tf_hello_world) or [this example using PyTorch](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/6b_pytorch_hello_world).  
 
 ### How can I define an environment with conda dependencies inside a component?
 See [this example](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/5c_env_conda_file).

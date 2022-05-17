@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 04/01/2021
+ms.date: 04/22/2022
 ms.author: jroth
 ms.custom: devx-track-java, contperf-fy21q2
 ---
@@ -32,11 +32,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
 ## Networking
 
 * **Connection mode: Use Direct mode**
-<a id="direct-connection"></a>
-    
+
 Java SDK default connection mode is direct. You can configure the connection mode in the client builder using the *directMode()* or *gatewayMode()* methods, as shown below. To configure either mode with default settings, call either method without arguments. Otherwise, pass a configuration settings class instance as the argument (*DirectConnectionConfig* for *directMode()*,  *GatewayConnectionConfig* for *gatewayMode()*.). To learn more about different connectivity options, see the [connectivity modes](sql-sdk-connection-modes.md) article.
-    
-### <a id="override-default-consistency-javav4"></a> Java V4 SDK
 
 # [Async](#tab/api-async)
 
@@ -53,8 +50,6 @@ Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 --- 
 
 The *directMode()* method has an additional override, for the following reason. Control plane operations such as database and container CRUD *always* utilize Gateway mode; when the user has configured Direct mode for data plane operations, control plane operations use default Gateway mode settings. This suits most users. However, users who want Direct mode for data plane operations as well as tunability of control plane Gateway mode parameters can use the following *directMode()* override:
-
-### <a id="override-default-consistency-javav4"></a> Java V4 SDK
 
 # [Async](#tab/api-async)
 
@@ -96,13 +91,11 @@ Please see the [Windows](../../virtual-network/create-vm-accelerated-networking-
 
 The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sql-api-sdk-async-java.md) pages to determine the most recent SDK and review improvements.
 
-* **Use a singleton Azure Cosmos DB client for the lifetime of your application**
+* <a id="max-connection"></a> **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
 Each Azure Cosmos DB client instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by the Azure Cosmos DB client, it is recommended to use a single instance of the Azure Cosmos DB client per AppDomain for the lifetime of the application.
 
-<a id="max-connection"></a>
-
-* **Use the lowest consistency level required for your application**
+* <a id="override-default-consistency-javav4"></a> **Use the lowest consistency level required for your application**
 
 When you create a *CosmosClient*, the default consistency used if not explicitly set is *Session*. If *Session* consistency is not required by your application logic set the *Consistency* to *Eventual*. Note: it is recommended to use at least *Session* consistency in applications employing the Azure Cosmos DB Change Feed processor.
 
@@ -123,8 +116,6 @@ Geographic collocation can give you higher and more consistent throughput when u
 Some users may also be unfamiliar with [Project Reactor](https://projectreactor.io/), the Reactive Streams framework used to implement Azure Cosmos DB Java SDK v4 Async API. If this is a concern, we recommend you read our introductory [Reactor Pattern Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md) and then take a look at this [Introduction to Reactive Programming](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) in order to familiarize yourself. If you have already used Azure Cosmos DB with an Async interface, and the SDK you used was Azure Cosmos DB Async Java SDK v2, then you may be familiar with [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava) but be unsure what has changed in Project Reactor. In that case, please take a look at our [Reactor vs. RxJava Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) to become familiarized.
 
 The following code snippets show how to initialize your Azure Cosmos DB client for Async API or Sync API operation, respectively:
-
-### <a id="override-default-consistency-javav4"></a> Java V4 SDK
 
 # [Async](#tab/api-async)
 
@@ -147,6 +138,7 @@ By default, Direct mode Cosmos DB requests are made over TCP when using Azure Co
 In Azure Cosmos DB Java SDK v4, Direct mode is the best choice to improve database performance with most workloads. 
 
 * ***Overview of Direct mode***
+<a id="direct-connection"></a>
 
 :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration of the Direct mode architecture" border="false":::
 
@@ -181,13 +173,13 @@ A good rule of thumb is not to exceed >50% CPU utilization on any given server, 
 The asynchronous functionality of Azure Cosmos DB Java SDK is based on [netty](https://netty.io/) non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Flux returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
 
 For example the following code executes a cpu intensive work on the event loop IO netty thread:
-### <a id="java4-noscheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+<a id="java4-noscheduler"></a>
 
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNeedsSchedulerAsync)]
 
 After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work, as shown below (requires `import reactor.core.scheduler.Schedulers`).
 
-### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+<a id="java4-scheduler"></a>
 
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddSchedulerAsync)]
 
@@ -274,13 +266,11 @@ The latter is supported but will add latency to your application; the SDK must p
 
 For query operations see the [performance tips for queries](performance-tips-query-sdk.md?pivots=programming-language-java).
 
-## Indexing policy
+## <a id="java4-indexing"></a><a id="indexing-policy"></a> Indexing policy
  
 * **Exclude unused paths from indexing for faster writes**
 
 Azure Cosmos DB’s indexing policy allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (setIncludedPaths and setExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed. For example, the following code shows how to include and exclude entire sections of the documents (also known as a subtree) from indexing using the "*" wildcard.
-
-### <a id="java4-indexing"></a>Java SDK V4 (Maven com.azure::azure-cosmos)
 
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 

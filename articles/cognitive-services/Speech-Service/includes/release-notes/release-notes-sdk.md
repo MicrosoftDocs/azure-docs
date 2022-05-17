@@ -6,6 +6,33 @@ ms.date: 02/22/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.21.0: April 2022 release
+
+#### New features
+- **Java & JavaScript**: Added support for Continuous Language Identification when using the SpeechRecognizer object
+- **JavaScript**: Added Diagnostics APIs to enable console logging level and (Node only) file logging, to help Microsoft troubleshoot customer-reported issues
+- **Python**: Added support for Conversation Transcription
+- **Go**: Added support for Speaker Recognition
+- **C++ & C#**: Added support for a required group of words in the Intent Recognizer (simple pattern matching). For example: "(set|start|begin) a timer" where either "set", "start" or "begin" must be present for the intent to be recognized.
+- **All programming languages, Speech Synthesis**: Added duration property in word boundary events. Added support for punctuation boundary and sentence boundary
+- **Objective-C/Swift/Java**: Added word-level results on the Pronunciation Assessment result object (similar to  C#). The application no longer needs to parse a JSON result string to get word-level information ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1380))
+- **iOS platform**: Added experimental support for ARMv7 architecture
+
+#### Bug fixes
+- **iOS platform**: Fix to allow building for the target "Any iOS Device", when using Cocoapod ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1320))
+- **Android platform**: OpenSSL version has been updated to 1.1.1n to fix security vulnerability [CVE-2022-0778](https://nvd.nist.gov/vuln/detail/CVE-2022-0778)
+- **JavaScript**: Fix issue where wav header was not updated with file size ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/513))
+- **JavaScript**: Fix request ID desync issue breaking translation scenarios ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/511))
+- **JavaScript**: Fix issue when instantiating SpeakerAudioDestination with no stream ([GitHub issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/476)]
+- **C++**: Fix C++ headers to remove a warning when compiling for C++17 or newer
+
+#### Samples [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+- New **Java** samples for Speech Recognition with Language Identification
+- New **Python** and **Java** samples for Conversation Transcription
+- New **Go** sample for Speaker Recognition
+- New **C++ and C#** tool for Windows that enumerates all audio capture and render devices, for the purpose of finding their Device ID. This ID is needed by the Speech SDK if you plan to [capture audio from, or render audio to, a non-default device](../../how-to-select-audio-input-devices.md).
+
+
 ### Speech SDK 1.20.0: January 2022 release
 
 
@@ -35,7 +62,7 @@ ms.author: eur
 
 - **[C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L65), [C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L70), [Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L96)**, and **[Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L77)** samples showing how to get detailed recognition results. The details include alternative recognition results, confidence score, Lexical form, Normalized form, Masked Normalized form, with word-level timing for each.
 - **[iOS sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/swift/ios/from-external-microphone)** added using AVFoundation as external audio source.
-- **[Java sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechSynthesisSamples.java#L705)** added to show how to get SRT (SubRip File Format) subtitle using WordBoundary event.
+- **[Java sample](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechSynthesisSamples.java#L705)** added to show how to get SRT (SubRip Text) format using WordBoundary event.
 - **[Android samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo)** for Pronunciation Assessment.
 - **[C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/diagnostics_logging_samples.cpp), [C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_diagnostics_logging_samples.cs)** showing usage of the new Diagnostics Logging classes.
 
@@ -240,7 +267,7 @@ ms.author: eur
 - Smaller memory and disk footprint making the SDK more efficient.
 - Higher fidelity output formats available for custom-neural voice private preview.
 - Intent Recognizer can now get return more than the top intent, giving you the ability to make a separate assessment about your customer's intent.
-- Your voice assistant or bot are now easier to set up, and you can make it stop listening immediately, and exercise greater control over how it responds to errors.
+- Voice assistants and bots are now easier to set up, and you can make it stop listening immediately, and exercise greater control over how it responds to errors.
 - Improved on device performance through making compression optional.
 - Use the Speech SDK on Windows ARM/ARM64.
 - Improved low-level debugging.
@@ -250,7 +277,7 @@ ms.author: eur
 #### Improvements
 - The Speech SDK is now more efficient and lightweight. We've started a multi-release effort to reduce the Speech SDK's memory usage and disk footprint. As a first step we made significant file size reductions in shared libraries on most platforms. Compared to the 1.14 release:
   - 64-bit UWP-compatible Windows libraries are about 30% smaller.
-  - 32-bit Windows libraries are not yet seeing a size improvements.
+  - 32-bit Windows libraries are not yet seeing a size improvement.
   - Linux libraries are 20-25% smaller.
   - Android libraries are 3-5% smaller.
 

@@ -34,11 +34,6 @@ When you migrate to a workspace-based resource, no data is transferred from your
 Your classic resource data will persist and be subject to the retention settings on your classic Application Insights resource. All new data ingested post migration will be subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table).
 The migration process is **permanent, and cannot be reversed**. Once you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. However, once you migrate you're able to change the target workspace as often as needed. 
 
-<!-- This note duplicates information in pricing.md. Understanding workspace-based usage and costs has been added as a migration prerequisite.
-> [!NOTE]
-> Data ingestion and retention for workspace-based Application Insights resources are [billed through the Log Analytics workspace](../logs/manage-cost-storage.md) where the data is located. Pay-as-you-go data ingestion and data retention are billed similarly in Log Anaytics as they are in Application Insights. If you’ve selected data retention greater than 90 days on data ingested into the Classic Application Insights resource prior to migration, data retention will continue to be billed to through that Application Insights resource until that data exceeds the retention period. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources.
--->
-
 If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource use the [workspace-based resource creation guide](create-workspace-resource.md).
 
 ## Pre-requisites
@@ -53,13 +48,15 @@ If you don't need to migrate an existing resource, and instead want to create a 
 Once the migration is complete, you can use [diagnostic settings](../essentials/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hubs.  
 
     > [!CAUTION]
-    > Diagnostics settings uses a different export format/schema than continuous export, migrating will break any existing integrations with Stream Analytics.
+    > * Diagnostics settings uses a different export format/schema than continuous export, migrating will break any existing integrations with Stream Analytics.
+    > * Diagnostic settings export may increase costs. ([more information](export-telemetry.md#diagnostic-settings-based-export))
 
 - Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will affect how long any new ingested data is stored once you migrate your Application Insights resource.
 
     > [!NOTE]
     > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period, you may need to adjust your workspace retention settings.
     > - If you’ve selected data retention greater than 90 days on data ingested into the Classic Application Insights resource prior to migration, data retention will continue to be billed to through that Application Insights resource until that data exceeds the retention period.
+    > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, then use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 
 - Understand [Workspace-based Application Insights](../logs/cost-logs.md#application-insights-billing) usage and costs.
 
@@ -93,9 +90,9 @@ Clicking the blue link text will take you to the associated Log Analytics worksp
 
 We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. 
 
-To write queries against the [new workspace-based table structure/schema](apm-tables.md), you must first navigate to your Log Analytics workspace. 
+To write queries against the [new workspace-based table structure/schema](#workspace-based-resource-changes), you must first navigate to your Log Analytics workspace. 
 
-To ensure the queries successfully run, validate that the query's fields align with the [new schema fields](apm-tables.md#appmetrics). 
+To ensure the queries successfully run, validate that the query's fields align with the [new schema fields](#appmetrics).
 
 When you query directly from the Log Analytics UI within your workspace, you'll only see the data that is ingested post migration. To see both your classic Application Insights data + new data ingested after migration in a unified query experience use the Logs (Analytics) query view from within your migrated Application Insights resource.
 
@@ -256,6 +253,464 @@ The legacy continuous export functionality isn't supported for workspace-based r
 You don't have to make any changes prior to migrating. This message alerts you that your current Application Insights retention settings aren't set to the default 90-day retention period. This warning message means you may want to modify the retention settings for your Log Analytics workspace prior to migrating and starting to ingest new data. 
 
 You can check your current retention settings for Log Analytics under **General** > **Usage and estimated costs** > **Data Retention** from within the Log Analytics UI. This setting will affect how long any new ingested data is stored once you migrate your Application Insights resource.
+
+## Workspace-based resource changes
+
+Prior to the introduction of [workspace-based Application Insights resources](create-workspace-resource.md), Application Insights data was stored separate from other log data in Azure Monitor. Both are based on Azure Data Explorer and use the same Kusto Query Language (KQL). With workspace-based Application Insights resources data is stored in a Log Analytics workspace with other monitoring data and application data. This simplifies your configuration by allowing you to more easily analyze data across multiple solutions and to leverage the capabilities of workspaces.
+
+### Classic data structure
+The structure of a Log Analytics workspace is described in [Log Analytics workspace overview](../logs/log-analytics-workspace-overview.md). For a classic application, the data is not stored in a Log Analytics workspace. It uses the same query language, and you create and run queries by using the same Log Analytics tool in the Azure portal. Data items for classic applications are stored separately from each other. The general structure is the same as for workspace-based applications, although the table and column names are different. 
+
+> [!NOTE]
+> The classic Application Insights experience includes backward compatibility for your resource queries, workbooks, and log-based alerts. To query or view against the [new workspace-based table structure or schema](#table-structure), you must first go to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. For more information, see [Query scope](../logs/scope.md).
+
+[![Diagram that shows the Azure Monitor Logs structure for Application Insights.](../logs/media/data-platform-logs/logs-structure-ai.png)](../logs/media/data-platform-logs/logs-structure-ai.png#lightbox)
+
+### Table structure
+
+| Legacy table name | New table name | Description |
+|:---|:---|:---|
+| availabilityResults | AppAvailabilityResults |  Summary data from availability tests.|
+| browserTimings | AppBrowserTimings | Data about client performance, such as the time taken to process the incoming data.|
+| dependencies | AppDependencies | Calls from the application to other components (including external components) recorded via TrackDependency() – for example, calls to REST API, database or a file system.  |
+| customEvents | AppEvents | Custom events created by your application. |
+| customMetrics | AppMetrics | Custom metrics created by your application. |
+| pageViews | AppPageViews| Data about each website view with browser information. |
+| performanceCounters | AppPerformanceCounters | Performance measurements from the compute resources supporting the application, for example, Windows performance counters. |
+| requests | AppRequests | Requests received by your application. For example, a separate request record is logged for each HTTP request that your web app receives.  |
+| exceptions | AppExceptions | Exceptions thrown by the application runtime, captures both server side and client-side (browsers) exceptions. |
+| traces | AppTraces | Detailed logs (traces) emitted through application code/logging frameworks recorded via TrackTrace(). |
+
+### Table schemas
+
+The following sections show the mapping between the classic property names and the new workspace-based Application Insights property names.  Use this information to convert any queries using legacy tables.
+
+Most of the columns have the same name with different capitalization. Since KQL is case-sensitive, you will need to change each column name along with the table names in existing queries. Columns with changes in addition to capitalization are highlighted. You can still use your classic Application Insights queries within the **Logs** pane of your Application Insights resource, even if it is a workspace-based resource. The new property names are required for when querying from within the context of the Log Analytics workspace experience.
+
+#### AppAvailabilityResults
+
+Legacy table: availability
+
+|ApplicationInsights|Type|LogAnalytics|Type|
+|:---|:---|:---|:---|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dynamic|Properties|Dynamic|
+|customMeasurements|dynamic|Measurements|Dynamic|
+|duration|real|DurationMs|real|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
+|itemCount|int|ItemCount|int|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|String|
+|location|string|Location|string|
+|message|string|Message|string|
+|name|string|Name|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|size|real|Size|real|
+|success|string|Success|Bool|
+|timestamp|datetime|TimeGenerated|datetime|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
+
+#### AppBrowserTimings
+
+Legacy table: browserTimings
+
+|ApplicationInsights|Type|LogAnalytics|Type|
+|:---|:---|:---|:---|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dynamic|Properties|Dynamic|
+|customMeasurements|dynamic|Measurements|Dynamic|
+|iKey|string|IKey|string|
+|itemCount|int|ItemCount|int|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
+|name|string|Name|datetime|
+|networkDuration|real|NetworkDurationMs|real|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|processingDuration|real|ProcessingDurationMs|real|
+|receiveDuration|real|ReceiveDurationMs|real|
+|sdkVersion|string|SdkVersion|string|
+|sendDuration|real|SendDurationMs|real|
+|session_Id|string|SessionId|string|
+|timestamp|datetime|TimeGenerated|datetime|
+|totalDuration|real|TotalDurationMs|real|
+|url|string|Url|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
+
+#### AppDependencies
+
+Legacy table: dependencies
+
+|ApplicationInsights|Type|LogAnalytics|Type|
+|:---|:---|:---|:---|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dynamic|Properties|Dynamic|
+|customMeasurements|dynamic|Measurements|Dynamic|
+|data|string|Data|string|
+|duration|real|DurationMs|real|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
+|itemCount|int|ItemCount|int|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|String|
+|name|string|Name|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|resultCode|string|ResultCode|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|success|string|Success|Bool|
+|target|string|Target|string|
+|timestamp|datetime|TimeGenerated|datetime|
+|type|string|DependencyType|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
+
+#### AppEvents
+
+Legacy table: customEvents
+
+|ApplicationInsights|Type|LogAnalytics|Type|
+|:---|:---|:---|:---|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dynamic|Properties|Dynamic|
+|customMeasurements|dynamic|Measurements|Dynamic|
+|iKey|string|IKey|string|
+|itemCount|int|ItemCount|int|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
+|name|string|Name|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|timestamp|datetime|TimeGenerated|datetime|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
+
+#### AppMetrics
+
+Legacy table: customMetrics
+
+|ApplicationInsights|Type|LogAnalytics|Type|
+|:---|:---|:---|:---|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dynamic|Properties|Dynamic|
+|iKey|string|IKey|string|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
+|name|string|Name|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|timestamp|datetime|TimeGenerated|datetime|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
+|value|real|(removed)||
+|valueCount|int|ValueCount|int|
+|valueMax|real|ValueMax|real|
+|valueMin|real|ValueMin|real|
+|valueStdDev|real|ValueStdDev|real|
+|valueSum|real|ValueSum|real|
+
+#### AppPageViews
+
+Legacy table: pageViews
+
+|ApplicationInsights|Type|LogAnalytics|Type|
+|:---|:---|:---|:---|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dynamic|Properties|Dynamic|
+|customMeasurements|dynamic|Measurements|Dynamic|
+|duration|real|DurationMs|real|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
+|itemCount|int|ItemCount|int|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|String|
+|name|string|Name|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|timestamp|datetime|TimeGenerated|datetime|
+|url|string|Url|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
+
+#### AppPerformanceCounters
+
+Legacy table: performanceCounters
+
+|ApplicationInsights|Type|LogAnalytics|Type|
+|:---|:---|:---|:---|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|category|string|Category|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|counter|string|(removed)||
+|customDimensions|dynamic|Properties|Dynamic|
+|iKey|string|IKey|string|
+|instance|string|Instance|string|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
+|name|string|Name|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|timestamp|datetime|TimeGenerated|datetime|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
+|value|real|Value|real|
+
+#### AppRequests
+
+Legacy table: requests
+
+|ApplicationInsights|Type|LogAnalytics|Type|
+|:---|:---|:---|:---|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dynamic|Properties|Dynamic|
+|customMeasurements|dynamic|Measurements|Dynamic|
+|duration|real|DurationMs|Real|
+|`id`|string|`Id`|String|
+|iKey|string|IKey|string|
+|itemCount|int|ItemCount|int|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|String|
+|name|string|Name|String|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|String|
+|resultCode|string|ResultCode|String|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|source|string|Source|String|
+|success|string|Success|Bool|
+|timestamp|datetime|TimeGenerated|datetime|
+|url|string|Url|String|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
+
+#### AppExceptions
+
+Legacy table: exceptions
+
+|ApplicationInsights|Type|LogAnalytics|Type|
+|:---|:---|:---|:---|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|assembly|string|Assembly|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dynamic|Properties|dynamic|
+|customMeasurements|dynamic|Measurements|dynamic|
+|details|dynamic|Details|dynamic|
+|handledAt|string|HandledAt|string|
+|iKey|string|IKey|string|
+|innermostAssembly|string|InnermostAssembly|string|
+|innermostMessage|string|InnermostMessage|string|
+|innermostMethod|string|InnermostMethod|string|
+|innermostType|string|InnermostType|string|
+|itemCount|int|ItemCount|int|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
+|message|string|Message|string|
+|method|string|Method|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|outerAssembly|string|OuterAssembly|string|
+|outerMessage|string|OuterMessage|string|
+|outerMethod|string|OuterMethod|string|
+|outerType|string|OuterType|string|
+|problemId|string|ProblemId|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|severityLevel|int|SeverityLevel|int|
+|timestamp|datetime|TimeGenerated|datetime|
+|type|string|ExceptionType|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
+
+#### AppTraces
+
+Legacy table: traces
+
+|ApplicationInsights|Type|LogAnalytics|Type|
+|:---|:---|:---|:---|
+|appId|string|\_ResourceGUID|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|ClientOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dynamic|Properties|dynamic|
+|customMeasurements|dynamic|Measurements|dynamic|
+|iKey|string|IKey|string|
+|itemCount|int|ItemCount|int|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
+|message|string|Message|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|severityLevel|int|SeverityLevel|int|
+|timestamp|datetime|TimeGenerated|datetime|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ## Next steps
 

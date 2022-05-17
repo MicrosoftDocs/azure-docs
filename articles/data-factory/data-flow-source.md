@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/25/2022
+ms.date: 04/13/2022
 ---
 
 # Source transformation in mapping data flow
@@ -58,6 +58,7 @@ Mapping data flow follows an extract, load, and transform (ELT) approach and wor
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/✓ |
+| [data.world (Preview)](connector-dataworld.md#mapping-data-flow-properties) | | -/✓ |
 | [Dataverse](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Dynamics 365](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Dynamics CRM](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
@@ -69,6 +70,7 @@ Mapping data flow follows an extract, load, and transform (ELT) approach and wor
 | [SQL Server](connector-sql-server.md) | | ✓/✓ |
 | [REST](connector-rest.md#mapping-data-flow-properties) | | ✓/✓ |
 | [TeamDesk (Preview)](connector-teamdesk.md#mapping-data-flow-properties) | | -/✓ |
+| [Twilio (Preview)](connector-twilio.md#mapping-data-flow-properties) | | -/✓ |
 | [Zendesk (Preview)](connector-zendesk.md#mapping-data-flow-properties) | | -/✓ |
 
 Settings specific to these connectors are located on the **Source options** tab. Information and data flow script examples on these settings are located in the connector documentation.

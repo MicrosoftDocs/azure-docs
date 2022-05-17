@@ -51,7 +51,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | ------- | ----- |
     | Name | Enter a name to identify this custom origin. |
     | Origin Type | Custom |
-    | Host name | Select the host from the dropdown that you want as an origin. |
+    | Host name | HostName is used for SNI (SSL negotiation) and should match your server side certificate. |
     | Origin host header | You can customize the host header of the origin or leave it as default. |
     | HTTP port | 80 (default) |
     | HTTPS port | 443 (default) |
