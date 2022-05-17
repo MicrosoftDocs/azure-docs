@@ -22,7 +22,7 @@ Once your trials engineer has confirmed your access, register the Mobile Network
 
 ## Choose the core technology type (5G or 4G)
 
-Choose whether the private mobile network should provide coverage for 5G or 4G user equipment (UEs). A private mobile network cannot support 5G and 4G UEs simultaneously. If you have multiple sites in the same private mobile network, all of these sites must support the same technology type.
+Choose whether each site in the private mobile network should provide coverage for 5G or 4G user equipment (UEs). A single site cannot support 5G and 4G UEs simultaneously. If you're deploying multiple sites, you can choose to have some sites support 5G UEs and others support 4G UEs.
 
 ## Allocate subnets and IP addresses
 
