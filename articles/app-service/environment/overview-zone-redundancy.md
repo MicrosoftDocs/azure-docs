@@ -30,7 +30,7 @@ A zone redundant App Service Environment will only store customer data within th
 
 ## Pricing
 
- There's a minimum charge of nine App Service plan instances in a zone redundant App Service Environment. There's no added charge for availability zone support if you've nine or more instances. If you've fewer than nine instances (of any size) across App Service plans in the zone redundant App Service Environment, you're charged for the difference between nine and the running instance count. This difference is billed as Windows I1v2 instances.
+ There's a minimum charge of three App Service plan instances in a zone redundant App Service Environment. There's no added charge for availability zone support if you've three or more instances. If you've fewer than three instances (of any size) across App Service plans in the zone redundant App Service Environment, you're charged for the difference between three and the running instance count. This difference is billed as Windows I1v2 instances.
 
 ## Next steps
 
