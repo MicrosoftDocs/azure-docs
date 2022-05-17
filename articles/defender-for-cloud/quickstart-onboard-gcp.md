@@ -4,7 +4,7 @@ description: Monitoring your GCP resources from Microsoft Defender for Cloud
 author: bmansheim
 ms.author: benmansheim
 ms.topic: quickstart
-ms.date: 03/27/2022
+ms.date: 05/17/2022
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---
@@ -35,7 +35,7 @@ To protect your GCP-based resources, you can connect an account in two different
 |----|:----|
 | Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to the Azure features that are in beta, preview, or otherwise not yet released into general availability. |
 |Pricing:|The **CSPM plan** is free.<br> The **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine. <br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for GCP at the same price as for Azure resources.|
-|Required roles and permissions:| **Contributor** on the relevant Azure Subscription|
+|Required roles and permissions:| **Contributor** on the relevant Azure Subscription <br> **Owner** on the GCP organization or project 
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 
 
@@ -78,6 +78,8 @@ Follow the steps below to create your GCP cloud connector.
 1. Enter all relevant information.
 
     :::image type="content" source="media/quickstart-onboard-gcp/create-connector.png" alt-text="Screenshot of the Create GCP connector page where you need to enter all relevant information.":::
+
+1. Choose whether to onboard a single project or an entire organization. When choosing an organization, we'll create a management project and organization custom role on GCP side, for the onboarding process. Auto-provisioning for the onboarding of new projects will be enabled.
 
 1. Select the **Next: Select Plans**.
 
@@ -150,6 +152,8 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
     > <br><br> Microsoft Defender for Servers does not install the OS config agent to a VM that does not have it installed. However, Microsoft Defender for Servers will enable communication between the OS config agent and the OS config service if the agent is already installed but not communicating with the service. 
     > <br><br> This can change the OS config agent from `inactive` to `active`, and will lead to additional costs.   
 
+
+
     - **Manual installation** - You can manually connect your VM instances to Azure Arc for servers. Instances in projects with Defender for Servers plan enabled that are not connected to Arc will be surfaced by the recommendation “GCP VM instances should be connected to Azure Arc”. Use the “Fix” option offered in this recommendation to install Azure Arc on the selected machines.
 
 - Additional extensions should be enabled on the Arc-connected machines.
@@ -164,6 +168,9 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
     > [!NOTE]
     > Defender for Servers assigns tags to your GCP resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:
     **Cloud**, **InstanceName**, **MDFCSecurityConnector**, **MachineId**, **ProjectId**, **ProjectNumber**
+
+   > [!NOTE]
+   > To discover GCP resources, and for the authentication process, the following APIs must be enabled: iam.googleapis.com, sts.googleapis.com, cloudresourcemanager.googleapis.com, iamcredentials.googleapis.com, compute.googleapis.com. If these APIs are not enabled, we'll enable them during the onboarding process by running the GCloud script.
 
 **To configure the Servers plan**:
 
