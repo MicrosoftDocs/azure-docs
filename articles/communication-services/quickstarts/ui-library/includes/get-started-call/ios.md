@@ -38,11 +38,11 @@ Name the project `UILibraryQuickStart` and select `Storyboard` under the `Interf
 2. Add the following to your Podfile:
 
 ```
-platform :ios, '13.0'
+platform :ios, '14.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'AzureCommunicationUI', '1.0.0-beta.2'
+    pod 'AzureCommunicationUICalling', '1.0.0-beta.1'
 end
 ```
 
@@ -79,7 +79,7 @@ Go to 'ViewController'. Here we'll drop the following code to initialize our Com
 ```swift
 import UIKit
 import AzureCommunicationCalling
-import AzureCommunicationUI
+import AzureCommunicationUICalling
 
 class ViewController: UIViewController {
 
