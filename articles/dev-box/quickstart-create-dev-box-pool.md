@@ -37,7 +37,7 @@ The following steps illustrate how to use the Azure portal to create and configu
 1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters) using the credentials for your Azure subscription. 
 
 2. On the DevCenter page, select **+ Create** 
-:::image type="content" source="./media/quickstart-create-dev-box-pool/create-devcenter.png" alt-text="Azure portal create DevCenter":::
+   :::image type="content" source="./media/quickstart-create-dev-box-pool/create-devcenter.png" alt-text="Azure portal create DevCenter":::
 
 3. On the **Basics** tab of **Create a Fidalgo DevCenter** window, perform the following actions:
    :::image type="content" source="./media/quickstart-create-dev-box-pool/create-devcenter-basics.png" alt-text="Create DevCenter Basics tab":::
@@ -55,17 +55,17 @@ The following steps illustrate how to use the Azure portal to create and configu
 
 
 3. [Optional] In the 'Tags' tab, enter a name and value pair that you want to assign.
-:::image type="content" source="./media/quickstart-create-dev-box-pool/create-devcenter-tags.png" alt-text="Create DevCenter Tags tab":::
+   :::image type="content" source="./media/quickstart-create-dev-box-pool/create-devcenter-tags.png" alt-text="Create DevCenter Tags tab":::
 
 4. Review + Create
 
 5. Confirm that the DevCenter is created successfully by looking at the notifications. 
-:::image type="content" source="./media/quickstart-create-dev-box-pool/azure-notifications.png" alt-text="Azure portal notifications":::
+   :::image type="content" source="./media/quickstart-create-dev-box-pool/azure-notifications.png" alt-text="Azure portal notifications":::
 
 6. When the deployment is complete, select **Go to resource**.
 
 7. Confirm that you see the **DevCenter** page.
-:::image type="content" source="./media/quickstart-create-dev-box-pool/devcenter-overview.png" alt-text="DevCenter overview page":::
+   :::image type="content" source="./media/quickstart-create-dev-box-pool/devcenter-overview.png" alt-text="DevCenter overview page":::
 
 
 ## Create a Network Connection

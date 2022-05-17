@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a Dev Box.'
-description: 'This quickstart shows you how to create a Dev Box and connect to it.'
+title: Quickstart: Create a Microsoft Dev Box.
+description: This quickstart shows you how to create a Microsoft Dev Box and connect to it through RDP.'
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
@@ -13,9 +13,11 @@ ms.date: 04/15/2022
 	As a dev box user I want to understand how to create and access a Dev Box so that I can start work.
  -->
 
-# Quickstart: Create a Dev Box
+# Quickstart: Create a dev box by using the developer portal
 
-This quickstart describes how to create and connect to your first dev box resource, using the Developer portal. A dev box is created and managed by the [Dev Box User](./how-to-dev-box-user.md) persona.
+Get started with Microsoft Dev Box by creating a dev box through the developer portal. After creating the dev box, you connect to it with a remote desktop (RD) session through a browser, or through the Microsoft Remote Desktop app. 
+
+You can create and manage multiple dev boxes as a dev box user. Create a dev box for each project that you have access to, and create multiple dev boxes within a single project to help streamline work workflow. 
 
 In this quickstart, you will:
 
@@ -24,27 +26,32 @@ In this quickstart, you will:
 
 ## Prerequisites
 
-- Permissions as [Dev Box User](./how-to-dev-box-user.md) on the Project that has a configured Dev Box Pool. Follow the [Create Dev Box Pool Quickstart](./quickstart-create-dev-box-pool.md) if you do not have an available pool.
+- Permissions as a [Dev Box User](./how-to-dev-box-user.md) on the Project that has a configured Dev Box Pool. Follow the [Create Dev Box Pool Quickstart](./quickstart-create-dev-box-pool.md) if you do not have an available pool.
 
 ## Create a dev box
 
-1. Use the following link to open the [developer portal](https://portal.fidalgo.azure.com).
+1. Sign in to the [developer portal](https://portal.fidalgo.azure.com).
 
-1. Sign in with your work credentials. Confirm successful login by viewing your profile icon on the top right of the screen.
-:::image type="content" source="./media/quickstart-create-dev-box/dev-portal-profile.png" alt-text="Dev portal profile":::
+<!-- 1. Verify that you've logged on successfully by selecting your profile picture on the top right of the screen and viewing the user profile menu.
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-profile.png" alt-text="Screenshot of the developer portal showing the user profile menu."::: -->
 
 1. Select **+ Add dev box**.
-:::image type="content" source="./media/quickstart-create-dev-box/dev-portal-welcome.png" alt-text="Dev portal Welcome":::
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-welcome.png" alt-text="Screenshot of the developer portal showing the Add dev box button.":::
 
-1. For **Name**, enter in a name for your dev box. The name is required to be unique within a Project.
+1. In **Add a dev box**, enter the following values:
 
-1. For **Project**, select a Project from the dropdown list.
+   |Name|Value|
+   |----|----|
+   |**Name**|A name for your dev box. Dev box names must be unique within a project.|
+   |**Project**|Select a project from the dropdown list. |
+   |**Dev box type**|Select a type from the dropdown list. The Dev box type dropdown lists all the dev box pools for the selected project. |
+ 
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-add.png" alt-text="Screenshot of the Add a dev box dialog box.":::
 
-1. For **Type**, select a type from the dropdown list. Type maps to Dev Box Pools that were created in the Azure portal. The dropdown will display all Pools within the selected Project.
-:::image type="content" source="./media/quickstart-create-dev-box/dev-portal-add.png" alt-text="Dev portal create":::
-
-1. Select the **Add** button. Your dev box will begin creating. You can track the progress of creation in the developer portal home page. Creation will take 60-90 minutes initially.
-:::image type="content" source="./media/quickstart-create-dev-box/dev-portal-creating.png" alt-text="Dev portal creating":::
+1. To begin creating your dev box, select the **Add** button. You can track the progress of creation in the developer portal home page. 
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-creating.png" alt-text="Screenshot of the developer portal showing the Your dev box card with the status Creating.":::
+   >!NOTE
+   >The dev box creation can take between 60 and 90 minutes.
 
 ## Connect to a dev box
 Once provisioned successfully, your dev box will be running. You can access it in multiple ways. 
@@ -53,10 +60,10 @@ Once provisioned successfully, your dev box will be running. You can access it i
 
 For quick access in a browser tab, the Developer portal links directly to a browser session through which you can connect to and use your dev box.
 
-1. Open the [developer portal](https://portal.fidalgo.azure.com).
+1. Sign in to the [developer portal](https://portal.fidalgo.azure.com).
 
-1. Select the **Open in browser** button on your dev box card.
-:::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-browser.png" alt-text="Open in browser":::
+1. On the **Your dev box** card, select **Open in browser**.
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-browser.png" alt-text="Screenshot of the Your dev box card showing the Open in browser button.":::
 
 A new tab will open with an RD session to your dev box.
 
@@ -64,21 +71,21 @@ A new tab will open with an RD session to your dev box.
 
 The Microsoft Remote Desktop app lets users access and control any remote PC, including dev boxes. To set up the Remote Desktop client, follow these steps:
 
-1. Open the [developer portal](https://portal.fidalgo.azure.com).
+1. Sign in to the [developer portal](https://portal.fidalgo.azure.com).
 
-1. Select **Download RDP client** from the dropdown on your dev box card.
-:::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-download.png" alt-text="Download RD client":::
+1. In **Your dev box**, from the **Open in browser** dropdown, select **Download RDP client**.
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-card-download.png" alt-text="Screenshot of the Your dev box card showing the Download RD client option.":::
 
-1. Download Microsoft Remote Desktop for Windows
-:::image type="content" source="./media/quickstart-create-dev-box/dev-portal-download-rd-app.png" alt-text="Download RD App":::
+1. Download Microsoft Remote Desktop for Windows.
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-download-rd-app.png" alt-text="Screenshot of the Microsoft Remote Desktop apps dialog box with options to Download an RD App for Windows, Mac, iOS and Android.":::
 
 1. Copy the subscription URL from the popup window
-:::image type="content" source="./media/quickstart-create-dev-box/dev-portal-subscription-url.png" alt-text="Get Subscription URL":::
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-subscription-url.png" alt-text="Get Subscription URL":::
 
 1. In the Remote Desktop App, select the overflow menu from the top right and select **Subscribe with URL**. 
-:::image type="content" source="./media/quickstart-create-dev-box/rd-app-overflow-menu.png" alt-text="Subscribe with URL":::
+   :::image type="content" source="./media/quickstart-create-dev-box/rd-app-overflow-menu.png" alt-text="Subscribe with URL":::
 
 1. Paste the subscription URL to subscribe to the workspace.
-:::image type="content" source="./media/quickstart-create-dev-box/rd-app-subscribe.png" alt-text="Subscribe to workspace":::
+   :::image type="content" source="./media/quickstart-create-dev-box/rd-app-subscribe.png" alt-text="Subscribe to workspace":::
 
 1. Your dev box will appear in the list under the workspace **Cloud PC Fidalgo plan 1**. Double-click to connect. 
