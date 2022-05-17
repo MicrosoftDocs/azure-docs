@@ -13,7 +13,7 @@ adobe-target: true
 
 # Quickstart: Create and run a load test with Azure Load Testing Preview
 
-This quickstart describes how to create an Azure Load Testing Preview resource by using the Azure portal. With this resource, you'll create a load test for a website without requiring a JMeter script.
+This quickstart describes how to load test a web application with Azure Load Testing Preview from the Azure portal without prior knowledge about load testing tools. You'll first create an Azure Load Testing resource, and then create a load test by using the web application URL.
 
 After you complete this quickstart, you'll have a resource and load test that you can use for other tutorials.
 
