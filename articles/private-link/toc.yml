@@ -67,6 +67,8 @@
   items:
   - name: Private endpoint with static IP address
     items:
+    - name: Portal
+      href: private-endpoint-static-ip-portal.md
     - name: PowerShell
       href: private-endpoint-static-ip-powershell.md
     - name: CLI
