@@ -1,6 +1,6 @@
 ---
-title: CloudKnox Permissions Management - The CloudKnox glossary
-description:  CloudKnox Permissions Management glossary
+title: Entra Permissions Management - The Entra glossary
+description:  Entra Permissions Management glossary
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -9,16 +9,16 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
-# The CloudKnox glossary
+# The Entra glossary
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This glossary provides a list of some of the commonly used cloud terms in CloudKnox Permissions Management (CloudKnox). These terms will help CloudKnox users navigate through cloud-specific terms and cloud-generic terms.
+This glossary provides a list of some of the commonly used cloud terms in Entra Permissions Management (Entra). These terms will help Entra users navigate through cloud-specific terms and cloud-generic terms.
 
 ## Commonly-used acronyms and terms
 
@@ -79,4 +79,4 @@ This glossary provides a list of some of the commonly used cloud terms in CloudK
 
 ## Next steps
 
-- For an overview of CloudKnox, see [What's CloudKnox Permissions Management?](cloudknox-overview.md).
+- For an overview of Entra, see [What's Entra Permissions Management?](Entra-overview.md).
