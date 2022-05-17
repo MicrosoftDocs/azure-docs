@@ -385,4 +385,4 @@ if __name__ == '__main__':
 - Review the Node.js Scheduled Events code samples in [Azure Samples GitHub repository](https://github.com/Azure/vm-scheduled-events).
 - Read more about the APIs that are available in the [Instance Metadata Service](instance-metadata-service.md).
 - Learn about [planned maintenance for Linux virtual machines in Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json).
-- Learn how to log scheduled events using Azure Event Hub in the [Azure Samples GitHub repository](https://github.com/Azure-Samples/virtual-machines-python-scheduled-events-central-logging).
+- Learn how to log scheduled events by using Azure Event Hubs in the [Azure Samples GitHub repository](https://github.com/Azure-Samples/virtual-machines-python-scheduled-events-central-logging).
