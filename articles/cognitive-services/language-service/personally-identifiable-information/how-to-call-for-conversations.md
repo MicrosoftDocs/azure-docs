@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
 ms.date: 05/10/2022
-ms.author: bidisha-c
+ms.author: bidishac
 ms.custom:
 ---
 
