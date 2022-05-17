@@ -27,7 +27,7 @@ By default, this feature will use the latest available AI model on your input. Y
 
 ### Input languages
 
-Currently the conversational PII preview API only supports English language and is available in the following 3 regions East US, North Europe and UK south.
+Currently the conversational PII preview API only supports English language and is available in the following three regions East US, North Europe and UK south.
 
 ## Submitting data
 
@@ -43,7 +43,7 @@ For spoken transcripts, the entities detected will be returned on the `redaction
 
 ## Getting PII results
 
-When you get results from PII detection, you can stream the results to an application or save the output to a file on the local system. The API response will include [recognized entities](concepts/conversations-entity-categories.md), including their categories and sub-categories, and confidence scores. The text string with the PII entities redacted will also be returned.
+When you get results from PII detection, you can stream the results to an application or save the output to a file on the local system. The API response will include [recognized entities](concepts/conversations-entity-categories.md), including their categories and subcategories, and confidence scores. The text string with the PII entities redacted will also be returned.
 
 ## Service and data limits
 
