@@ -78,7 +78,7 @@ See the [storage-configuration](storage-configuration.md) article for details on
 
 Each SQL managed instance must have the following minimum resource requests and limits:
 
-|Service tier|General purpose|Business critical (preview)|
+|Service tier|General Purpose|Business Critical|
 |---|---|---|
 |CPU request|Minimum: 1; Maximum: 24; Default: 2|Minimum: 1; Maximum: unlimited; Default: 4|
 |CPU limit|Minimum: 1; Maximum: 24; Default: 2|Minimum: 1; Maximum: unlimited; Default: 4|
