@@ -6,7 +6,8 @@ author: aahill
 ms.author: aahi
 manager: nitinme
 ms.reviewer: cahann, hazemelh
-ms.service: language
+ms.service: cognitive-services
+ms.subservice: language-service
 ms.topic: tutorial
 ms.date: 05/17/2022
 ---
