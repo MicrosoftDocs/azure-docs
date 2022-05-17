@@ -109,7 +109,11 @@ items:
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
   - name: Data Estate Insights
-    href: concept-insights.md
+    items:
+    - name: Data Estate Insights
+      href: concept-insights.md
+    - name: Insights permissions
+      href: insights-permissions.md
 - name: How-to guides
   items:
   - name: Manage collections
@@ -275,6 +279,8 @@ items:
       href: sensitivity-labels-frequently-asked-questions.yml
   - name: Data Estate Insights
     items:
+    - name: View data stewardship
+      href: data-stewardship.md
     - name: View asset insights
       href: asset-insights.md
     - name: View glossary insights
