@@ -3,7 +3,7 @@ title: Azure Video Indexer (formerly Azure Video Analyzer for Media) release not
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer (formerly Azure Video Analyzer for Media).
 ms.topic: article
 ms.custom: references_regions
-ms.date: 05/12/2022
+ms.date: 05/16/2022
 ms.author: juliako
 ---
 
@@ -65,7 +65,7 @@ Azure Video Indexer is now part of [Network Service Tags](network-security.md). 
 
 You can now enable or disable the celebrity recognition model on the account level (on classic account only). To turn on or off the model, go to the account settings > and toggle on/off the model. Once you disable the model, Video Indexer insights will not include the output of celebrity model and will not run the celebrity model pipeline. 
 
-### Azure Video Indexer repository Name 
+### Azure Video Indexer repository name 
 
 As of May 1st, our new updated repository of Azure Video Indexer widget was renamed. Use https://www.npmjs.com/package/@azure/video-indexer-widgets instead
 
