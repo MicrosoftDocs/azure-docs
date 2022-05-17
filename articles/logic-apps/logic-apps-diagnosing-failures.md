@@ -20,9 +20,11 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
 If the trigger doesn't fire, follow these steps:
 
+### [Consumption](#tab/consumption)
+
 1. To check the trigger's status, [review the trigger history](monitor-logic-apps.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
 
-   ![Screenshot showing Azure portal with the workflow's trigger status and history.](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
+   ![Screenshot showing Azure portal with the workflow's trigger status and history.](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-consumption.png)
 
 1. Check the trigger's inputs to confirm that they appear as you expect. Under **Inputs link**, select the link, which shows the **Inputs** pane.
 
@@ -30,13 +32,13 @@ If the trigger doesn't fire, follow these steps:
 
    For example, the `feedUrl` property here has an incorrect RSS feed value:
 
-   ![Screenshot showing the trigger inputs for errors.](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
+   ![Screenshot showing the trigger inputs for errors.](./media/logic-apps-diagnosing-failures/review-trigger-inputs-consumption.png)
 
 1. Check the triggers outputs, if any, to confirm that they appear as you expect. Under **Outputs link**, select the link, which shows the **Outputs** pane.
 
    Trigger outputs include the data that the trigger passes to the next step in your workflow. Reviewing these outputs can help you determine whether the correct or expected values passed on to the next step in your workflow, for example:
 
-   ![Screenshot showing the trigger outputs for errors.](./media/logic-apps-diagnosing-failures/review-trigger-outputs-for-errors.png)
+   ![Screenshot showing the trigger outputs for errors.](./media/logic-apps-diagnosing-failures/review-trigger-outputs-consumption.png)
 
    > [!TIP]
    >
@@ -51,17 +53,23 @@ Each time that the trigger fires, Azure Logic Apps creates a workflow instance a
 
 1. To check the workflow's run status, [review the runs history](monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
 
-   ![Screenshot showing the Azure portal with the workflow runs and a failed run selected.](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
+   ![Screenshot showing the Azure portal with the workflow runs and a failed run selected.](./media/logic-apps-diagnosing-failures/logic-app-runs-history-consumption.png)
 
 1. After all the steps in the run appear, select each step to expand their shapes.
 
-   ![Screenshot showing the failed step selected.](./media/logic-apps-diagnosing-failures/logic-app-run-pane.png)
+   ![Screenshot showing the failed step selected.](./media/logic-apps-diagnosing-failures/logic-app-run-pane-consumption.png)
 
 1. Review the inputs, outputs, and any error messages for the failed step.
 
-   ![Screenshot showing the step's inputs.](./media/logic-apps-diagnosing-failures/failed-action-inputs.png)
+   ![Screenshot showing the step's inputs.](./media/logic-apps-diagnosing-failures/failed-action-inputs-consumption.png)
 
-   ![View step details](./media/logic-apps-diagnosing-failures/review-action-outputs-for-errors.png)
+   For example, the following screenshot shows the outputs from the failed Outlook action.
+
+   ![View step details](./media/logic-apps-diagnosing-failures/review-action-outputs-consumption.png)
+
+### [Standard](#tab/standard)
+
+---
 
 ## Perform runtime debugging
 
@@ -77,17 +85,147 @@ To help with debugging, you can add diagnostic steps to a logic app workflow, al
 
 ## Common errors in the Azure portal
 
+#### Errors in the Standard logic app Overview pane
 
 
-### Logic app's Overview pane
+
+###### System.private.corelib:Access to the path 'C:\\home\\site\\wwwroot\\hostj.son is denied
 
 
+###### Azure.Storage.Blobs: This request is not authorized to perform this operation
+
+
+
+
+
+ 
+
+Errors while accessing the Overview blade of Logic App Standard
+ 
 
 System.private.corelib:Access to the path 'C:\\home\\site\\wwwroot\\hostj.son is denied
 
  
 
-Azure.Storage.Blobs: This request is not authorized to perform this operation  
+Azure.Storage.Blobs: This request is not authorized to perform this operation
+
+ 
+
+Errors while accessing the Workflows blade of Logic App Standard:
+ 
+
+Cannot reach host runtime. Error details, Code: 'BadRequest', Message: 'Encountered an error (InternalServerError) from host runtime.'
+
+ 
+
+Cannot reach host runtime. Error details, Code: 'BadRequest', Message: 'Encountered an error (ServiceUnavailable) from host runtime.'
+
+ 
+
+Cannot reach host runtime. Error details, Code: 'BadRequest', Message: 'Encountered an error (BadGateway) from host runtime.'
+
+ 
+
+Errors while creating and running workflows:
+ 
+
+Failed to save workflow
+
+Error in the designer: GetCallFailed. Failed fetching operations
+
+ajaxExtended call failed
+
+ 
+
+ 
+
+Possible causes and Troubleshooting steps:
+ 
+
+Logic App standard uses storage account for storing all the artefacts. The above errors are thrown when these artefacts aren’t accessible.
+
+ 
+
+This could occur when the storage account configured for Logic App storage isn’t either accessible or it is behind the firewall and no-private endpoint configured for the storage services.
+
+ 
+
+Public storage account: Verify if storage account is accessible:
+ 
+
+Check the connectivity of the storage account through Azure Storage explorer tool using the connection string configured at below app settings.
+
+WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
+
+AzureWebJobsStorage
+
+ 
+
+If the connectivity fails, verify if the SAS key used in these connection string is latest.
+
+ 
+
+Storage account behind Firewall:
+ 
+
+ 
+
+If firewall restrictions enabled at the storage account, verify that the private endpoints are configured for blob, file, queue and table services.
+
+ 
+
+To verify the connectivity to the storage account behind firewall, please follow below steps.
+
+Create an Azure VM with in the same Logic App integrated VNET, it can be a different subnet.
+The simpler test can be accessing the Storage account services using the Storage explorer tool. If any issues in connectivity using this tool, continue with the below steps.
+Check nslookup in the command prompt and make sure that the storage services are resolvable to intended IP addresses. If its on Service Endpoint, it should resolve to Public IP and if it has Private Endpoints, verify all services are resolvable to respective NIC private IP addresses. 
+            nslookup [StorageaccountHostName] [OptionalDNSServer]
+ 
+
+          Verify for all storage services:
+
+                           nslookup {StorageaccountName}.blob.core.windows.net
+
+                           nslookup {StorageaccountName}.file.core.windows.net
+
+                           nslookup {StorageaccountName}.queue.core.windows.net
+
+                           nslookup {StorageaccountName}.table.core.windows.net
+
+ 
+
+ 
+
+If the DNS queries are resolvable, we can check psping or tcpping to storage account over 443 port.
+                 psping [StorageaccountHostName] [Port] [OptionalDNSServer]
+ 
+
+         Verify for all storage services:
+
+                         psping {StorageaccountName}.blob.core.windows.net:443
+
+                         psping {StorageaccountName}.file.core.windows.net:443
+
+                         psping {StorageaccountName}.queue.core.windows.net:443
+
+                         psping {StorageaccountName}.table.core.windows.net:443
+
+ 
+
+If it is resolvable from Azure VM, we can check the DNS server is used for resolution in VM and set the same in the Logic App WEBSITE_DNS_SERVER setting and verify. Also, make sure that VNET integration is done with the appropriate VNET and subnet in Logic App.
+If Azure Private DNS zones are used for storage account’s private endpoint services, make sure that the virtual network link is created to Logic App integrated VNET.
+
+ 
+
+Reference Blog:
+
+Deploying Standard Logic App to Storage Account behind Firewall using Service or Private Endpoints - Microsoft Tech Community
+
+
+
+
+
+
 
 ## Next steps
 
