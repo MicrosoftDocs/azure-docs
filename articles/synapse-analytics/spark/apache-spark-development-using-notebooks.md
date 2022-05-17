@@ -279,7 +279,7 @@ Notebook reference works in both interactive mode and Synapse pipeline.
 > [!NOTE]
 > - ```%run``` command currently only supports to pass a absolute path or notebook name only as parameter, relative path is not supported. 
 > - ```%run``` command currently only supports to 4 parameter value types: `int`, `float`, `bool`, `string`, variable replacement operation is not supported.
-> - The referenced notebooks are required to be published. You need to publish the notebooks to reference them unless [Reference unpublished notebook](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-development-using-notebooks#reference-unpublished-notebook) is enabled. Synapse Studio does not recognize the unpublished notebooks from the Git repo.
+> - The referenced notebooks are required to be published. You need to publish the notebooks to reference them unless [Reference unpublished notebook](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks#reference-unpublished-notebook) is enabled. Synapse Studio does not recognize the unpublished notebooks from the Git repo.
 > - Referenced notebooks do not support statement that depth is larger than **five**.
 >
 
