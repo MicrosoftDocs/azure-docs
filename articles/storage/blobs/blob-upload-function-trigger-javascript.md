@@ -89,12 +89,12 @@ Sign in to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Stor
 
 3) On the **Create a storage account** page, enter the following values:
 
- - **Subscription**: Choose your desired subscription.
- - **Resource Group**: Select **Create new** and enter a name of `msdocs-storage-function`, and then choose **OK**.
- - **Storage account name**: Enter a value of `msdocsstoragefunction`. The Storage account name must be unique across Azure, so you may need to add numbers after the name, such as `msdocsstoragefunction123`.
- - **Region**: Select the region that is closest to you.
- - **Performance**: Choose **Standard**.
- - **Redundancy**: Leave the default value selected.
+   - **Subscription**: Choose your desired subscription.
+   - **Resource Group**: Select **Create new** and enter a name of `msdocs-storage-function`, and then choose **OK**.
+   - **Storage account name**: Enter a value of `msdocsstoragefunction`. The Storage account name must be unique across Azure, so you may need to add numbers after the name, such as `msdocsstoragefunction123`.
+   - **Region**: Select the region that is closest to you.
+   - **Performance**: Choose **Standard**.
+   - **Redundancy**: Leave the default value selected.
  
     :::image type="content" source="./media/blob-upload-storage-function/portal-storage-create-small.png" alt-text="A screenshot showing how create a storage account in Azure."  lightbox="media/blob-upload-storage-function/portal-storage-create.png":::
      
@@ -160,12 +160,12 @@ Next, create the Computer Vision service account that will process our uploaded 
 
 3) On the **Create Computer Vision** page, enter the following values:
 
-- **Subscription**: Choose your desired Subscription.
-- **Resource Group**: Use the `msdocs-storage-function` resource group you created earlier.
-- **Region**: Select the region that is closest to you.
-- **Name**: Enter in a name of `msdocscomputervision`.
-- **Pricing Tier**: Choose **Free** if it's available, otherwise choose **Standard S1**.
-- Check the **Responsible AI Notice** box if you agree to the terms
+   - **Subscription**: Choose your desired Subscription.
+   - **Resource Group**: Use the `msdocs-storage-function` resource group you created earlier.
+   - **Region**: Select the region that is closest to you.
+   - **Name**: Enter in a name of `msdocscomputervision`.
+   - **Pricing Tier**: Choose **Free** if it's available, otherwise choose **Standard S1**.
+   - Check the **Responsible AI Notice** box if you agree to the terms
 
     :::image type="content" lightbox="./media/blob-upload-storage-function/computer-vision-create.png" source="./media/blob-upload-storage-function/computer-vision-create-small.png" alt-text="A screenshot showing how to create a new Computer Vision service." :::
      
