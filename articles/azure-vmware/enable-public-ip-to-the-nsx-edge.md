@@ -4,46 +4,44 @@ description: This article explains how to enable internet access for your Azure 
 ms.topic: how-to
 ms.date: 05/12/2022
 ---
-# Enable internet access for your Azure VMware Solution
+# How to enable Internet access for Azure VMware Solution
 
-Before selecting this option, please review Design Considerations for Internet Connectivity [Link to Doc4]. 
+In this article, you will learn how to enable Internet access for an Azure VMware Solution. Before you enable Internet access to your Azure VMware Solution, please review the [Internet connectivity design considerations](concepts-design-avs-public-internet-access.md). 
 
-Public IP to the NSX Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution Environment. The Public IP is configured in Azure VMware Solution via the Azure Portal as well as the NSX-T Data center interface all within your Azure VMware Solution Private cloud.
-With this capability, you have:
+Public IP to the NSX Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment. The Public IP is configured in Azure VMware Solution via the Azure Portal as well as the NSX-T Data center interface all within your Azure VMware Solution private cloud.
+With this capability, you have the following features:
 - A cohesive and simplified experience for reserving and consuming a Public IP down to the NSX Edge.
-- The ability to receive up to 1000 or more Public IPs, enabling internet access at scale.
+- The ability to receive up to 1000 or more Public IPs, enabling Internet access at scale.
 - Inbound and outbound internet access for your workload VMs.
-- DDoS Security protection against network traffic in and out of the internet. 
+- DDoS Security protection against network traffic in and out of the Internet. 
 - HCX Migration support over the Public Internet.
 
-## Reference   Architecture    
-:::image type="content" source="media/public-ip-usage/architecture-internet-access-avs-public-ip.png" alt-text="The architecture diagram shows internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-usage/architecture-internet-access-avs-public-ip.png":::
+## Reference   architecture    
+:::image type="content" source="media/public-ip-usage/architecture-internet-access-avs-public-ip.png" alt-text="The architecture diagram shows Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-usage/architecture-internet-access-avs-public-ip.png":::
 
-## How to Configure a Public IP in the Azure Portal
-1.	Sign into the Azure portal.
+## Configure a Public IP in the Azure Portal
+1. Log into the Azure portal.
 1. Search for and select Azure VMware Solution.
 2.	Select the Azure VMware Solution private cloud.
     :::image type="content" source="media/public-ip-usage/private-cloud-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 1. Under Workload Networking, select Internet Connectivity.
    :::image type="content" source="media/public-ip-usage/private-cloud-workload-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-4.	Select Connect using Public IP down to the NSX-T Edge. Before selecting, please ensure you understand the implications to your existing environment. Learn more. (link to doc4)
+4.	Select Connect using Public IP down to the NSX-T Edge. Before selecting, please ensure you understand the implications to your existing environment. For more information, see [Internet connectivity design considerations](concepts-design-avs-public-internet-access.md)
     :::image type="content" source="media/public-ip-usage/public-ip-to-nsx-t-edge-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 5.	Once selected, click + Public IP.
     :::image type="content" source="media/public-ip-usage/public-ip-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 6.	Enter the name of the Public IP block and select a subnet size.
      :::image type="content" source="media/public-ip-usage/public-ip-block-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 7.	Click Configure. This Public IP should be configured within x minutes.
-8.	After completion, record the subnet that has been allocated. You may need to refresh the list to view the subnet. If this fails, please try the configuration again.
+8.	After completion, record the subnet that has been allocated. Refresh the list to view the subnet. If the refresh fails, please try the configuration again.
     :::image type="content" source="media/public-ip-usage/public-ip-subnet-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 9.	Once the configuration is complete, select the checkbox below. By selecting this checkbox, you confirm executing this change will immediately disable all other internet options. 
 10.	Select Save. 
 :::image type="content" source="media/public-ip-usage/public-ip-to-nsx-t-edge-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 
-You have successfully enabled internet connectivity for your Azure VMware Solution Private Cloud and reserved a Microsoft allocated Public IP. You can now configure this Public IP down to the NSX Edge for your workloads. The NSX-T Datacenter is used for all VM communication. There are several applications for configuring your reserved Public IP down to the NSX Edge. 
+You have successfully enabled Internet connectivity for your Azure VMware Solution Private Cloud and reserved a Microsoft allocated Public IP. You can now configure this Public IP down to the NSX Edge for your workloads. The NSX-T Datacenter is used for all VM communication. There are several options for configuring your reserved Public IP down to the NSX Edge. 
 
-There are three options for configuring your reserved Public IP down to the NSX Edge:
-
-
+Here are three options for configuring your reserved Public IP down to the NSX Edge: Outbound Internet Access for VMs, Inbound Internet Access for VMs, and Gateway Firewall used to Filter Traffic to VMs at T1 Gateways.
 
 ### Outbound Internet Access for VMs
  
@@ -75,7 +73,7 @@ A Destination Network Translation Service (DNAT) is used to expose a VM on a spe
 1.	Configure the DNAT rule.
      <ol type="A">
      <li> Name the rule.</li>
-     <li> Select “DNAT” as the action. </li>
+     <li> Select DNAT as the action. </li>
      <li> Enter the reserved Public IP in the destination match.</li>
      <li>Enter the VM Private IP in the translated IP. This is from the range of Public IPs your reserved from the Azure VMware Solution Portal.</li>
       <li>Click SAVE </li>
@@ -95,12 +93,12 @@ Using a Gateway Firewall, you can provide security protection for your network t
     :::image type="content" source="media/public-ip-usage/nsx-t-login-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 4.	From the NSX-T home screen, click Gateway Policies. 
     :::image type="content" source="media/public-ip-usage/nsx-t-4nat-policies-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-5.	Select “Gateway Specific Rules”, choose the T1 Gateway and click “ADD POLICY”. 
-6.	Click “New Policy” and enter a policy name. 
-7.	Select the Policy and click “ADD RULE”. 
+5.	Select Gateway Specific Rules, choose the T1 Gateway and click ADD POLICY. 
+6.	Click New Policy and enter a policy name. 
+7.	Select the Policy and click ADD RULE. 
 8.	Configure the rule.
     <ol type="A"> 
-     <li>Click “New Rule”.</li>
+     <li>Click New Rule.</li>
      <li>Enter a descriptive name.</li>
      <li>Configure the source, destination, services, and action.</li>
     </ol>
