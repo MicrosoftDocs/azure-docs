@@ -188,9 +188,7 @@
       - name: Export historical data
         href: migration-qradar-historical-data.md
     - name: Ingest historical data
-      items:
-      - name: Identify historical data 
-        href: migration-identify-historical-data.md
+      items:      
       - name: Select target platform
         href: migration-ingestion-target-platform.md
       - name: Select data ingestion tool
