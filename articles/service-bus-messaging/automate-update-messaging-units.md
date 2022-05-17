@@ -23,10 +23,10 @@ This article shows you how you can automatically scale a Service Bus namespace (
 > [!IMPORTANT]
 > This article applies to only the **premium** tier of Azure Service Bus. 
 
-## Use Azure portal
+## Configure using the Azure portal
 In this section, you learn how to use the Azure portal to configure auto-scaling of messaging units for a Service Bus namespace. 
 
-### Autoscale setting page
+## Autoscale setting page
 First, follow these steps to navigate to the **Autoscale settings** page for your Service Bus namespace.
 
 1. Sign into [Azure portal](https://portal.azure.com). 
@@ -36,7 +36,7 @@ First, follow these steps to navigate to the **Autoscale settings** page for you
 
     :::image type="content" source="./media/automate-update-messaging-units/scale-page.png" alt-text="Service Bus Namespace - Scale page":::
 
-### Manual scale 
+## Manual scale 
 This setting allows you to set a fixed number of messaging units for the namespace. 
 
 1. On the **Autoscale setting** page, select **Manual scale** if it isn't already selected. 
@@ -46,7 +46,7 @@ This setting allows you to set a fixed number of messaging units for the namespa
     :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Manually scale messaging units":::       
 
 
-### Custom autoscale - Default condition
+## Custom autoscale - Default condition
 You can configure automatic scaling of messaging units by using conditions. This scale condition is executed when none of the other scale conditions match. You can set the default condition in one of the following ways:
 
 - Scale based on a metric (such as CPU or memory usage)
@@ -54,7 +54,7 @@ You can configure automatic scaling of messaging units by using conditions. This
 
 You can't set a schedule to autoscale on a specific days or date range for a default condition. This scale condition is executed when none of the other scale conditions with schedules match. 
 
-#### Scale based on a metric
+### Scale based on a metric
 The following procedure shows you how to add a condition to automatically increase messaging units (scale out) when the CPU usage is greater than 75% and decrease messaging units (scale in) when the CPU usage is less than 25%. Increments are done from 1 to 2, 2 to 4, 4 to 8, and 8 to 16. Similarly, decrements are done from 16 to 8, 8 to 4, 4 to 2, and 2 to 1. 
 
 1. On the **Autoscale setting** page, select **Custom auto scale** for the **Choose how to scale your resource** option. 
@@ -88,7 +88,7 @@ The following procedure shows you how to add a condition to automatically increa
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Default rule based on a metric":::
 1. Select **Save** on the toolbar to save the autoscale setting. 
         
-#### Scale to specific number of messaging units
+### Scale to specific number of messaging units
 Follow these steps to configure the rule to scale the namespace to use specific number of messaging units. Again, the default condition is applied when none of the other scale conditions match. 
 
 1. On the **Autoscale setting** page, select **Custom auto scale** for the **Choose how to scale your resource** option. 
@@ -98,10 +98,10 @@ Follow these steps to configure the rule to scale the namespace to use specific 
 
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Default - scale to specific messaging units":::       
 
-### Custom autoscale - additional conditions
+## Custom autoscale - additional conditions
 The previous section shows you how to add a default condition for the autoscale setting. This section shows you how to add more conditions to the autoscale setting. For these additional non-default conditions, you can set a schedule based on specific days of a week or a date range. 
 
-#### Scale based on a metric
+### Scale based on a metric
 1. On the **Autoscale setting** page, select **Custom auto scale** for the **Choose how to scale your resource** option. 
 1. Select **Add a scale condition** under the **Default** block. 
 
@@ -118,7 +118,7 @@ The previous section shows you how to add a default condition for the autoscale 
 
         :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Repeat specific days":::
   
-#### Scale to specific number of messaging units
+### Scale to specific number of messaging units
 1. On the **Autoscale setting** page, select **Custom auto scale** for the **Choose how to scale your resource** option. 
 1. Select **Add a scale condition** under the **Default** block. 
 
@@ -142,11 +142,24 @@ The previous section shows you how to add a default condition for the autoscale 
     > 
     > - If you see failures due to lack of capacity (no messaging units available), raise a support ticket with us.  
 
-## Use Resource Manager template
+## Run history
+Switch to the **Run history** tab on the **Scale** page to see a chart that plots number of messaging units as observed by the autoscale engine. If the chart is empty, it means either autoscale wasn't configured or configured but disabled, or is in a cool down period.  
+
+:::image type="content" source="./media/automate-update-messaging-units/run-history.png" alt-text="Screenshot showing **Run history** on the **Scale** page.":::
+
+## Notifications
+Switch to the **Notify** tab on the **Scale** page to:
+
+- Enable sending notification emails to administrators, co-administrators, and any additional administrators. 
+- Enable sending notification emails to an HTTP or HTTPS endpoints exposed by webhooks. 
+
+    :::image type="content" source="./media/automate-update-messaging-units/notify-page.png" alt-text="Screenshot showing the **Notify** tab of the **Scale** page.":::
+
+## Configure using a Resource Manager template
 You can use the following sample Resource Manager template to create a Service Bus namespace with a queue, and to configure autoscale settings for the namespace. In this example, two scale conditions are specified. 
 
 - Default scale condition: increase messaging units when the average CPU usage goes above 75% and decrease messaging units when the average CPU usage goes below 25%. 
-- Assign 2 messaging units to the namespace on weekends.
+- Assign two messaging units to the namespace on weekends.
 
 ### Template
 
