@@ -16,6 +16,20 @@ ms.custom: references_regions, devx-track-azurecli
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## May 24, 2022
+
+This release is published May 24, 2022.
+
+### Image tag
+
+`v1.7.0_2022-05-24`
+
+For complete release version information, see [Version log](version-log.md).
+
+### SQL Managed Instance
+
+Azure SQL Managed Instance Business Critical tier is generally available.
+
 ## May 4, 2022
 
 This release is published May 4, 2022.
@@ -92,7 +106,7 @@ For complete release version information, see [Version log](version-log.md).
 
 You can create a maintenance window on the data controller, and if you have SQL managed instances with a desired version set to `auto`, they will be upgraded in the next maintenance windows after a data controller upgrade. 
 
-Metrics for each replica in a business critical instance are now sent to the Azure portal so you can view them in the monitoring charts.
+Metrics for each replica in a Business Critical instance are now sent to the Azure portal so you can view them in the monitoring charts.
 
 AD authentication connectors can now be set up in an `automatic mode` or *system-managed keytab* which will use a service account to automatically create SQL service accounts, SPNs, and DNS entries as an alternative to the AD authentication connectors which use the *customer-managed keytab* mode.
 
@@ -184,14 +198,14 @@ For complete release version information, see [Version log](version-log.md).
 ### Data controller
 
 - Initiate an upgrade of the data controller from the portal in the direct connected mode
-- Removed block on data controller upgrade if there are business critical instances that exist
+- Removed block on data controller upgrade if there are Business Critical instances that exist
 - Better handling of delete user experiences in Azure portal
 
 ### SQL Managed Instance
 
-- Azure Arc-enabled SQL Managed Instance business critical instances can be upgraded from the January release and going forward (preview)
+- Azure Arc-enabled SQL Managed Instance Business Critical instances can be upgraded from the January release and going forward (preview)
 - Business critical distributed availability group failover can now be done through a Kubernetes-native experience or the Azure CLI (indirect mode only) (preview)
-- Added support for `LicenseType: DisasterRecovery` which will ensure that instances which are used for business critical distributed availability group secondary replicas:
+- Added support for `LicenseType: DisasterRecovery` which will ensure that instances which are used for Business Critical distributed availability group secondary replicas:
     - Are not billed for
     - Automatically seed the system databases from the primary replica when the distributed availability group is created. (preview)
 - New option added to `desiredVersion` called `auto` - automatically upgrades a given SQL instance when there is a new upgrade available (preview)
@@ -212,7 +226,7 @@ This release is published December 16, 2021.
 - Active Directory authentication in preview for SQL Managed Instance
 - Direct mode upgrade of SQL Managed Instance via Azure CLI
 - Edit memory and CPU configuration in Azure portal in directly connected mode
-- Ability to specify a single replica for a business critical instance using Azure CLI or Kubernetes yaml file
+- Ability to specify a single replica for a Business Critical instance using Azure CLI or Kubernetes yaml file
 - Updated SQL binaries to latest Azure PaaS-compatible binary version
 - Resolved issue where the point in time restore did not respect the configured time zone
 
@@ -248,7 +262,7 @@ The following `sql` commands now support directly connected mode:
 - Automatically upload metrics to Azure Monitor
 - Automatically upload logs to Azure Log Analytics
 - Enable or disable automatic upload of Metrics and/or logs to Azure after deployment of Azure Arc data controller.
-- Upgrade from July 2021 release in-place (only for generally available services such as Azure Arc data controller and general purpose SQL Managed Instance) using Azure CLI.
+- Upgrade from July 2021 release in-place (only for generally available services such as Azure Arc data controller and General Purpose SQL Managed Instance) using Azure CLI.
 - Set the metrics and logs dashboards usernames and passwords separately at DC deployment time using the new environment variables:
 
    ```console
@@ -274,10 +288,10 @@ For complete list, see [Supported regions](overview.md#supported-regions).
 
 ### Azure Arc-enabled SQL Managed Instance
 
-- Upgrade instances of Azure Arc-enabled SQL Managed Instance general purpose in-place
+- Upgrade instances of Azure Arc-enabled SQL Managed Instance General Purpose in-place
 - The SQL binaries are updated to a new version
 - Direct connected mode deployment of Azure Arc enabled SQL Managed Instance using Azure CLI
-- Point in time restore for Azure Arc enabled SQL Managed Instance is being made generally available with this release. Currently point in time restore is only supported for the general purpose SQL Managed Instance. Point in time restore for business critical SQL Managed Instance is still under preview.
+- Point in time restore for Azure Arc enabled SQL Managed Instance is being made generally available with this release. Currently point in time restore is only supported for the General Purpose SQL Managed Instance. Point in time restore for Business Critical SQL Managed Instance is still under preview.
 - New `--dry-run` option provided for point in time restore
 - Recovery point objective is set to 5 minutes by default and is not configurable
 - Backup retention period is set to 7 days by default. A new option to set the retention period to zero disables automatic backups for development and test instances that do not require backups
@@ -290,7 +304,7 @@ For complete list, see [Supported regions](overview.md#supported-regions).
 #### Data controller upgrade
 
 - At this time, upgrade of a directly connected data controller via CLI or the portal is not supported.
-- You can only upgrade generally available services such as Azure Arc data controller and general purpose SQL Managed Instance at this time. If you also have business critical SQL Managed Instance and/or Azure Arc enabled PostgreSQL Hyperscale, remove them first, before proceeding to upgrade.
+- You can only upgrade generally available services such as Azure Arc data controller and General Purpose SQL Managed Instance at this time. If you also have Business Critical SQL Managed Instance and/or Azure Arc enabled PostgreSQL Hyperscale, remove them first, before proceeding to upgrade.
 
 #### Commands
 
@@ -341,12 +355,12 @@ az arcdata sql mi-arc update
 
 This release is published July 30, 2021.
 
-This release announces general availability for Azure Arc-enabled SQL Managed Instance [general purpose service tier](service-tiers.md) in indirectly connected mode.
+This release announces general availability for Azure Arc-enabled SQL Managed Instance [General Purpose service tier](service-tiers.md) in indirectly connected mode.
 
    > [!NOTE]
    > In addition, this release provides the following Azure Arc-enabled services in preview: 
    > - SQL Managed Instance in directly connected mode
-   > - SQL Managed Instance [business critical service tier](service-tiers.md)
+   > - SQL Managed Instance [Business Critical service tier](service-tiers.md)
    > - PostgreSQL Hyperscale
 
 ### Breaking changes

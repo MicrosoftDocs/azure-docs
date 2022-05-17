@@ -6,7 +6,7 @@ ms.author: pariks
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 05/24/2022
 ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ---
 

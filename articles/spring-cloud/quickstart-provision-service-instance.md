@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Provision an Azure Spring Cloud service"
-description: Describes creation of an Azure Spring Cloud service instance for app deployment.
+title: "Quickstart - Provision an Azure Spring Apps service"
+description: Describes creation of an Azure Spring Apps service instance for app deployment.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -10,17 +10,20 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Quickstart: Provision an Azure Spring Cloud service instance
+# Quickstart: Provision an Azure Spring Apps service instance
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
 ::: zone pivot="programming-language-csharp"
-In this quickstart, you use the Azure CLI to provision an instance of the Azure Spring Cloud service.
+In this quickstart, you use the Azure CLI to provision an instance of the Azure Spring Apps service.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). The Azure Spring Cloud service supports .NET Core 3.1 and later versions.
+- [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). The Azure Spring Apps service supports .NET Core 3.1 and later versions.
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 
@@ -32,10 +35,10 @@ Verify that your Azure CLI version is 2.0.67 or later:
 az --version
 ```
 
-Install the Azure Spring Cloud extension for the Azure CLI using the following command:
+Install the Azure Spring Apps extension for the Azure CLI using the following command:
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 ```
 
 ## Sign in to Azure
@@ -56,18 +59,18 @@ az extension add --name spring-cloud
    az account set --subscription <Name or ID of a subscription from the last step>
    ```
 
-## Provision an instance of Azure Spring Cloud
+## Provision an instance of Azure Spring Apps
 
-1. Create a [resource group](../azure-resource-manager/management/overview.md) to contain your Azure Spring Cloud service. The resource group name can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters.
+1. Create a [resource group](../azure-resource-manager/management/overview.md) to contain your Azure Spring Apps service. The resource group name can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters.
 
    ```azurecli
    az group create --location eastus --name <resource group name>
    ```
 
-1. Provision an instance of Azure Spring Cloud service. The service instance name must be unique, between 4 and 32 characters long, and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+1. Provision an instance of Azure Spring Apps service. The service instance name must be unique, between 4 and 32 characters long, and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
    ```azurecli
-   az spring-cloud create -n <service instance name> -g <resource group name>
+   az spring create -n <service instance name> -g <resource group name>
    ```
 
    This command might take several minutes to complete.
@@ -85,34 +88,34 @@ az extension add --name spring-cloud
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-You can provision an instance of the Azure Spring Cloud service using the Azure portal or the Azure CLI.  Both methods are explained in the following procedures.
+You can provision an instance of the Azure Spring Apps service using the Azure portal or the Azure CLI.  Both methods are explained in the following procedures.
 
 ## Prerequisites
 
 - [Install JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
 - [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-- (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Cloud extension with the command: `az extension add --name spring-cloud`
+- (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Apps extension with the command: `az extension add --name spring`
 - (Optional) [Install the Azure Toolkit for IntelliJ IDEA](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
-## Provision an instance of Azure Spring Cloud
+## Provision an instance of Azure Spring Apps
 
 #### [Portal](#tab/Azure-portal)
 
-The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
+The following procedure creates an instance of Azure Spring Apps using the Azure portal.
 
 1. In a new tab, open the [Azure portal](https://portal.azure.com/).
 
-2. From the top search box, search for **Azure Spring Cloud**.
+2. From the top search box, search for **Azure Spring Apps**.
 
-3. Select **Azure Spring Cloud** from the results.
+3. Select **Azure Spring Apps** from the results.
 
-   ![ASC icon start](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
+   :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results.":::
 
-4. On the Azure Spring Cloud page, select **Create**.
+4. On the Azure Spring Apps page, select **Create**.
 
-   ![ASC icon add](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-create.png)
+   :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/spring-cloud-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted.":::
 
-5. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
+5. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
    - **Subscription**: Select the subscription you want to be billed for this resource.
    - **Resource group**: Creating new resource groups for new resources is a best practice. You will use this value in later steps as **\<resource group name\>**.
@@ -120,7 +123,7 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
    - **Location**: Select the location for your service instance.
    - Select **Standard** for the **Pricing tier** option.
 
-   ![ASC portal start](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
+   :::image type="content" source="media/spring-cloud-quickstart-launch-app-portal/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page.":::
 
 6. Select **Review and create**.
 
@@ -129,12 +132,12 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 #### [CLI](#tab/Azure-CLI)
 
-The following procedure uses the Azure CLI extension to provision an instance of Azure Spring Cloud.
+The following procedure uses the Azure CLI extension to provision an instance of Azure Spring Apps.
 
-1. Update Azure CLI with Azure Spring Cloud extension.
+1. Update Azure CLI with Azure Spring Apps extension.
 
    ```azurecli
-   az extension update --name spring-cloud
+   az extension update --name spring
    ```
 
 1. Sign in to the Azure CLI and choose your active subscription.
@@ -145,13 +148,13 @@ The following procedure uses the Azure CLI extension to provision an instance of
    az account set --subscription <Name or ID of subscription, skip if you only have 1 subscription>
    ```
 
-1. Prepare a name for your Azure Spring Cloud service.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
+1. Prepare a name for your Azure Spring Apps service.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
 
-1. Create a resource group to contain your Azure Spring Cloud service.  Create in instance of the Azure Spring Cloud service.
+1. Create a resource group to contain your Azure Spring Apps service.  Create in instance of the Azure Spring Apps service.
 
    ```azurecli
    az group create --name <resource group name>
-   az spring-cloud create -n <service instance name> -g <resource group name>
+   az spring create -n <service instance name> -g <resource group name>
    ```
 
    Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
@@ -179,4 +182,4 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Set up Azure Spring Cloud Config Server](./quickstart-setup-config-server.md)
+> [Quickstart: Set up Azure Spring Apps Config Server](./quickstart-setup-config-server.md)

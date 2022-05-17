@@ -16,9 +16,14 @@ ms.devlang: azurecli
 
 # Deploy MLflow models to online endpoints (preview)
 
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) (preview). When you deploy your MLflow model to an online endpoint, it's a no-code-deployment so you don't have to provide a scoring script or an environment. 
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](./v1/how-to-deploy-mlflow-models.md)
+> * [v2 (current version)](how-to-deploy-mlflow-models-online-endpoints.md)
+
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) (preview) for real-time inference. When you deploy your MLflow model to an online endpoint, it's a no-code-deployment so you don't have to provide a scoring script or an environment. 
 
 You only provide the typical MLflow model folder contents:
 
@@ -30,21 +35,19 @@ For no-code-deployment, Azure Machine Learning
 
 * Dynamically installs Python packages provided in the `conda.yaml` file, this means the dependencies are installed during container runtime.
     * The base container image/curated environment used for dynamic installation is `mcr.microsoft.com/azureml/mlflow-ubuntu18.04-py37-cpu-inference` or `AzureML-mlflow-ubuntu18.04-py37-cpu-inference`
-
-Provides a MLflow base image/curated environment that contains,
-
-* [`azureml-inference-server-http`](how-to-inference-server-http.md) 
-* [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
-* `pandas`
-* The scoring script baked into the image
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+* Provides a MLflow base image/curated environment that contains the following items:
+    * [`azureml-inference-server-http`](how-to-inference-server-http.md) 
+    * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
+    * `pandas`
+    * The scoring script baked into the image.
 
 ## Prerequisites
 
 [!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
 
 * You must have a MLflow model. The examples in this article are based on the models from [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow).
+
+    * If you don't have an MLflow formatted model, you can [convert your custom ML model to MLflow format](how-to-convert-custom-model-to-mlflow.md).  
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Spring Cloud documentation # < 60 chars
-summary: "Azure Spring Cloud is a managed service for hosting Spring apps, with Basic, Standard, and Enterprise tiers, each one adding features to the previous tier." #< 160 chars
+title: Azure Spring Apps documentation # < 60 chars
+summary: "Azure Spring Apps is a managed service for hosting Spring apps, with Basic, Standard, and Enterprise tiers, each one adding features to the previous tier." #< 160 chars
 
 metadata:
-  title: Azure Spring Cloud # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Spring Cloud is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Spring Apps # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure. # Required; article description that is displayed in search results. < 160 chars.
   services: spring-cloud
   ms.service: spring-cloud #Required; service per approved list. service slug assigned to your service.
   ms.topic: landing-page # Required
@@ -20,11 +20,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Spring Cloud
+  - title: About Azure Spring Apps
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Spring Cloud?
+          - text: What is Azure Spring Apps?
             url: overview.md
 
   # Card (optional)
@@ -32,7 +32,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Quickstart - Deploy your first application in Azure Spring Cloud
+          - text: Quickstart - Deploy your first application in Azure Spring Apps
             url: quickstart.md
 
   # Card (optional)
@@ -88,9 +88,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Start, stop, and delete an application in Azure Spring Cloud
+          - text: Start, stop, and delete an application in Azure Spring Apps
             url: how-to-start-stop-delete.md
-          - text: Use custom persistent storage in Azure Spring Cloud
+          - text: Use custom persistent storage in Azure Spring Apps
             url: how-to-custom-persistent-storage.md
 
   # Card (optional)
@@ -136,7 +136,7 @@ landingContent:
             url: diagnostic-services.md
       - linkListType: concept
         links:
-          - text: Understanding Azure Monitor Metrics for Spring Cloud
+          - text: Metrics for Azure Spring Apps
             url: concept-metrics.md
       - linkListType: how-to-guide
         links:

@@ -43,7 +43,7 @@ Developers find familiar interfaces in Azure Machine Learning, such as:
 
 - [Python SDK](/python/api/overview/azure/ml/)
 - [Azure Resource Manager REST APIs (preview)](/rest/api/azureml/)
-- [CLI v2 (preview)](/cli/azure/ml)
+- [CLI v2 ](/cli/azure/ml)
 
 ### Studio UI 
 

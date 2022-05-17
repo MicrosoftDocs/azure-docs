@@ -23,7 +23,7 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 - This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- The identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [Az account](/cli/azure/account) command.
@@ -42,13 +42,13 @@ The following additional limitations apply to Windows Server node pools:
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create][az-group-create] command.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create][az-group-create] command.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 > [!NOTE]
 > This article uses Bash syntax for the commands in this tutorial.
-> If you are using Azure Cloud Shell, ensure that the dropdown in the upper-left of the Cloud Shell window is set to **Bash**.
+> If you're using Azure Cloud Shell, ensure that the dropdown in the upper-left of the Cloud Shell window is set to **Bash**.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -111,7 +111,7 @@ az aks create \
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.
 
-## Add a Windows Server node pool
+## Add a Windows Server 2019 node pool
 
 By default, an AKS cluster is created with a node pool that can run Linux containers. Use `az aks nodepool add` command to add an additional node pool that can run Windows Server containers alongside the Linux node pool.
 
@@ -126,6 +126,57 @@ az aks nodepool add \
 
 The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
 
+## Add a Windows Server 2022 node pool (preview)
+
+When creating a Windows node pool, the default operating system will be Windows Server 2019. To use Windows Server 2022 nodes, you will need to specify an OS SKU type of `Windows2022`.
+
+[!INCLUDE [preview features callout](../includes/preview/preview-callout.md)]
+
+### Install the `aks-preview` Azure CLI
+
+You also need the *aks-preview* Azure CLI extension version `0.5.68` or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command, or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### Register the `AKSWindows2022Preview` preview feature
+
+To use the feature, you must also enable the `AKSWindows2022Preview` feature flag on your subscription.
+
+Register the `AKSWindows2022Preview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "AKSWindows2022Preview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSWindows2022Preview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Use `az aks nodepool add` command to add a Windows Server 2022 node pool:
+
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --os-type Windows \
+    --os-sku Windows2022 \ 
+    --name npwin \
+    --node-count 1
+```
+
 ## Optional: Using `containerd` with Windows Server node pools
 
 Beginning in Kubernetes version 1.20 and greater, you can specify `containerd` as the container runtime for Windows Server 2019 node pools.  From Kubernetes 1.23, containerd will be the default container runtime for Windows.
@@ -138,7 +189,7 @@ Beginning in Kubernetes version 1.20 and greater, you can specify `containerd` a
 
 ### Add a Windows Server node pool with `containerd`
 
-Use the `az aks nodepool add` command to add an additional node pool that can run Windows Server containers with the `containerd` runtime.
+Use the `az aks nodepool add` command to add a node pool that can run Windows Server containers with the `containerd` runtime.
 
 > [!NOTE]
 > If you do not specify the *WindowsContainerRuntime=containerd* custom header, the node pool will use Docker as the container runtime.

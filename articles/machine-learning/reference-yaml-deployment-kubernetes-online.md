@@ -19,8 +19,6 @@ ms.reviewer: nibaccam
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/kubernetesOnlineDeployment.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
@@ -28,7 +26,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
-| `name` | string | **Required.** Name of the deployment. <br><br> Naming rules are defined [here](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).| | |
+| `name` | string | **Required.** Name of the deployment. <br><br> Naming rules are defined [here](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).| | |
 | `description` | string | Description of the deployment. | | |
 | `tags` | object | Dictionary of tags for the deployment. | | |
 | `endpoint_name` | string | **Required.** Name of the endpoint to create the deployment under. | | |
@@ -39,7 +37,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `code_configuration.scoring_script` | string | Relative path to the scoring file in the source code directory. | | |
 | `environment_variables` | object | Dictionary of environment variable key-value pairs to set in the deployment container. You can access these environment variables from your scoring scripts. | | |
 | `environment` | string or object | **Required.** The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the environment separately and reference it here. | | |
-| `instance_type` | string | The instance type used to place the inference workload. If omitted, the inference workload will be placed on the default instance type of the Kubernetes cluster specified in the endpoint's `compute` field. If specified, the inference workload will be placed on that selected instance type. <br><br> Note that the set of instance types for a Kubernetes cluster is configured via the Kubernetes cluster custom resource definition (CRD), hence they are not part of the Azure ML YAML schema for attaching Kubernetes compute.For more information, see [Create and select Kubernetes instance types](how-to-kubernetes-instance-type.md). | | |
+| `instance_type` | string | The instance type used to place the inference workload. If omitted, the inference workload will be placed on the default instance type of the Kubernetes cluster specified in the endpoint's `compute` field. If specified, the inference workload will be placed on that selected instance type. <br><br> Note that the set of instance types for a Kubernetes cluster is configured via the Kubernetes cluster custom resource definition (CRD), hence they are not part of the Azure ML YAML schema for attaching Kubernetes compute.For more information, see [Create and select Kubernetes instance types](how-to-attach-kubernetes-anywhere.md). | | |
 | `instance_count` | integer | The number of instances to use for the deployment. Specify the value based on the workload you expect. This field is only required if you are using the `default` scale type (`scale_settings.type: default`). <br><br> `instance_count` can be updated after deployment creation using `az ml online-deployment update` command. | | |
 | `app_insights_enabled` | boolean | Whether to enable integration with the Azure Application Insights instance associated with your workspace. | | `false` |
 | `scale_settings` | object | The scale settings for the deployment. The two types of scale settings supported are the `default` scale type and the `target_utilization` scale type. <br><br> With the `default` scale type (`scale_settings.type: default`), you can manually scale the instance count up and down after deployment creation by updating the `instance_count` property. <br><br> To configure the `target_utilization` scale type (`scale_settings.type: target_utilization`), see [TargetUtilizationScaleSettings](#targetutilizationscalesettings) for the set of configurable properties. | | |

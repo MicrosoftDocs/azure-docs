@@ -20,7 +20,7 @@ Learn how to troubleshoot issues with Docker environment image builds and packag
 * An Azure subscription. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [CLI extension for Azure Machine Learning](v1/reference-azure-machine-learning-cli.md).
 * To debug locally, you must have a working Docker installation on your local system.
 
 ## Docker image build failures

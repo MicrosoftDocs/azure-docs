@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: larryfr
 author: rsethur
-ms.date: 03/31/2022
+ms.date: 04/07/2022
 ms.topic: how-to
 ms.custom: devplatv2, cliv2
 
@@ -16,24 +16,22 @@ ms.custom: devplatv2, cliv2
 # Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with an online endpoint and managed identity. 
 ---
 
-# Access Azure resources from an online endpoint (preview) with a managed identity 
+# Access Azure resources from an online endpoint with a managed identity 
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
 
 Learn how to access Azure resources from your scoring script with an online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
 
-Managed endpoints (preview) allow Azure Machine Learning to manage the burden of provisioning your compute resource and deploying your machine learning model. Typically your model needs to access Azure resources such as the Azure Container Registry or your blob storage for inferencing; with a managed identity you can access these resources without needing to manage credentials in your code. [Learn more about managed identities](../active-directory/managed-identities-azure-resources/overview.md).
+Managed endpoints allow Azure Machine Learning to manage the burden of provisioning your compute resource and deploying your machine learning model. Typically your model needs to access Azure resources such as the Azure Container Registry or your blob storage for inferencing; with a managed identity you can access these resources without needing to manage credentials in your code. [Learn more about managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 This guide assumes you don't have a managed identity, a storage account or an online endpoint. If you already have these components, skip to the [give access permission to the managed identity](#give-access-permission-to-the-managed-identity) section. 
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* Install and configure the Azure CLI and ML (v2) extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
+* Install and configure the Azure CLI and ML (v2) extension. For more information, see [Install, set up, and use the 2.0 CLI](how-to-configure-cli.md).
 
 * An Azure Resource group, in which you (or the service principal you use) need to have `User Access Administrator` and  `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article.
 
@@ -208,7 +206,7 @@ Check the status of the endpoint with the following.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
-If you encounter any issues, see [Troubleshooting online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
+If you encounter any issues, see [Troubleshooting online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md).
 
 # [User-assigned managed identity](#tab/user-identity)
 
@@ -218,7 +216,7 @@ Check the status of the endpoint with the following.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="check_endpoint_Status" :::
 
-If you encounter any issues, see [Troubleshooting online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
+If you encounter any issues, see [Troubleshooting online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md).
 
 ---
 
@@ -368,10 +366,10 @@ If you don't plan to continue using the deployed online endpoint and storage, de
 
 ## Next steps
 
-* [Deploy and score a machine learning model by using a online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
-* For more on deployment, see [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md).
+* [Deploy and score a machine learning model by using a online endpoint](how-to-deploy-managed-online-endpoints.md).
+* For more on deployment, see [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md).
 * For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* To see which compute resources you can use, see [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md).
-* For more on costs, see [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md).
-* For information on monitoring endpoints, see [Monitor managed online endpoints (preview)](how-to-monitor-online-endpoints.md).
-* For limitations for managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
+* To see which compute resources you can use, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
+* For more on costs, see [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
+* For information on monitoring endpoints, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+* For limitations for managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).

@@ -102,6 +102,15 @@ conceptualContent:
         - url: ./personalizer/index.yml
           itemType: overview
           text: Personalizer
+    - title: Azure OpenAI
+      summary: Apply advanced language models to variety of use cases with the Azure OpenAI service 
+      links:
+        - url: ./openai/overview.md
+          itemType: overview
+          text:  Azure OpenAI 
+        - url: ./openai/concepts/engines.md
+          itemType: overview
+          text: Azure OpenAI Engines
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:

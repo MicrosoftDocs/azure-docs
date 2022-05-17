@@ -13,16 +13,14 @@ ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2
 ---
 
-# Train models with the CLI (v2) (preview)
+# Train models with the CLI (v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
 
 The Azure Machine Learning CLI (v2) is an Azure CLI extension enabling you to accelerate the model training process while scaling up and out on Azure compute, with the model lifecycle tracked and auditable.
 
 Training a machine learning model is typically an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. Previously tedious manual processes like hyperparameter tuning and even algorithm selection are often automated. With the Azure Machine Learning CLI (v2), you can track your jobs (and models) in a [workspace](concept-workspace.md) with hyperparameter sweeps, scale-up on high-performance Azure compute, and scale-out utilizing distributed training.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -312,7 +310,46 @@ You can run this:
 
 ## Train a model
 
-At this point, a model still hasn't been trained. Let's add some `sklearn` code into a Python script with MLflow tracking to train a model on the Iris CSV:
+In Azure Machine Learning you basically have two possible ways to train a model:
+
+1. Leverage automated ML to train models with your data and get the best model for you. This approach maximizes productivity by automating the iterative process of tuning hyperparameters and trying out different algorithms. 
+1. Train a model with your own custom training script. This approach offers the most control and allows you to customize your training.  
+
+
+### Train a model with automated ML
+
+Automated ML is the easiest way to train a model because you don't need to know how training algorithms work exactly but you just need to provide your training/validation/test datasets and some basic configuration parameters such as 'ML Task', 'target column', 'primary metric, 'timeout' etc, and the service will train multiple models and try out various algorithms and hyperparameter combinations for you.
+
+When you train with automated ML via the CLI (v2), you just need to create a .YAML file with an AutoML configuration and provide it to the CLI for training job creation and submission.
+
+The following example shows an AutoML configuration file for training a classification model where, 
+* The primary metric is `accuracy` 
+* The training has a time out of 180 minutes 
+* The data for training is in the folder "./training-mltable-folder". Automated ML jobs only accept data in the form of an `MLTable`. 
+
+:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/basics/hello-automl/hello-automl-job-basic.yml":::
+
+That mentioned MLTable definition is what points to the training data file, in this case a local .csv file that will be uploaded automatically:
+
+:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/basics/hello-automl/training-mltable-folder/MLTable":::
+
+Finally, you can run it (create the AutoML job) with this CLI command:
+
+```
+/> az ml job create --file ./hello-automl-job-basic.yml 
+```
+
+Or like the following if providing workspace IDs explicitly instead of using the by default workspace:
+
+```
+/> az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
+```
+
+To investigate additional AutoML model training examples using other ML-tasks such as regression, time-series forecasting, image classification, object detection, NLP text-classification, etc., see the complete list of [AutoML CLI examples](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs).
+
+### Train a model with a custom script
+
+When training by using your own custom script, the first thing you need is that python script (.py), so let's add some `sklearn` code into a Python script with MLflow tracking to train a model on the Iris CSV:
 
 :::code language="python" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/src/main.py":::
 

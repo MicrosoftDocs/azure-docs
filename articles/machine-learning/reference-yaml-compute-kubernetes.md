@@ -19,7 +19,7 @@ ms.reviewer: nibaccam
 
 The source JSON schema can be found at `https://azuremlschemas.azureedge.net/latest/kubernetesCompute.schema.json`.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -44,4 +44,4 @@ The `az ml compute` commands can be used for managing Azure Arc-enabled Kubernet
 ## Next steps
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)
-- [Configure and attach Azure Arc-enabled Kubernetes clusters](how-to-attach-arc-kubernetes.md)
+- [Configure and attach Kubernetes clusters anywhere](how-to-attach-kubernetes-anywhere.md)

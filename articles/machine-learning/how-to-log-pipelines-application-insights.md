@@ -9,10 +9,11 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom: devx-track-python, sdkv1
 ---
 # Collect machine learning pipeline log files in Application Insights for alerts and debugging
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 The [OpenCensus](https://opencensus.io/quickstart/python/) Python library can be used to route logs to Application Insights from your scripts. Aggregating logs from pipeline runs in one place allows you to build queries and diagnose issues. Using Application Insights will allow you to track logs over time and compare pipeline logs across runs.
 

@@ -6,7 +6,7 @@ ms.author: bahusse
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 1/28/2021
+ms.date: 05/24/2022
 ---
 
 # Compute and storage options in Azure Database for MySQL - Flexible Server
@@ -14,9 +14,9 @@ ms.date: 1/28/2021
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
-You can create an Azure Database for MySQL Flexible Server in one of three different compute tiers: Burstable, General Purpose, and Memory Optimized. The compute tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all compute tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
+You can create an Azure Database for MySQL Flexible Server in one of three different compute tiers: Burstable, General Purpose, and Business Critical. The compute tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all compute tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
-| Resource / Tier | **Burstable** | **General Purpose** | **Memory Optimized** |
+| Resource / Tier | **Burstable** | **General Purpose** | **Business Critical** |
 |:---|:----------|:--------------------|:---------------------|
 | VM series| B-series | Ddsv4-series | Edsv4-series|
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
@@ -24,7 +24,7 @@ You can create an Azure Database for MySQL Flexible Server in one of three diffe
 | Storage size | 20 GiB to 16 TiB | 20 GiB to 16 TiB | 20 GiB to 16 TiB |
 | Database backup retention period | 1 to 35 days | 1 to 35 days | 1 to 35 days |
 
-\* With the exception of E64ds_v4 (Memory Optimized) SKU, which has 504 GB of memory
+\* With the exception of E64ds_v4 (Business Critical) SKU, which has 504 GB of memory
 
 To choose a compute tier, use the following table as a starting point.
 
@@ -32,7 +32,7 @@ To choose a compute tier, use the following table as a starting point.
 |:-------------|:-----------------|
 | Burstable | Best for workloads that don’t need the full CPU continuously. |
 | General Purpose | Most business workloads that require balanced compute and memory with scalable I/O throughput. Examples include servers for hosting web and mobile apps and other enterprise applications.|
-| Memory Optimized | High-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency. Examples include servers for processing real-time data and high-performance transactional or analytical apps.|
+| Business Critical | High-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency. Examples include servers for processing real-time data and high-performance transactional or analytical apps.|
 
 After you create a server, the compute tier, compute size, and storage size can be changed. Compute scaling requires a restart and takes between 60-120 seconds, while storage scaling does not require restart. You also can independently adjust the backup retention period up or down. For more information, see the [Scale resources](#scale-resources) section.
 
@@ -56,7 +56,7 @@ The detailed specifications of the available server types are as follows:
 | Standard_D32ds_v4    | 32     | 128               | 20000              | 768                               | 21845
 | Standard_D48ds_v4    | 48     | 192               | 20000              | 1152                              | 32768
 | Standard_D64ds_v4    | 64     | 256               | 20000              | 1200                              | 43691
-| **Memory Optimized** |        |                   |                    |                                   |
+| **Business Critical** |        |                   |                    |                                   |
 | Standard_E2ds_v4     | 2      | 16                | 3200               | 48                                | 2731
 | Standard_E4ds_v4     | 4      | 32                | 6400               | 96                                | 5461
 | Standard_E8ds_v4     | 8      | 64                | 12800              | 192                               | 10923
@@ -65,7 +65,7 @@ The detailed specifications of the available server types are as follows:
 | Standard_E48ds_v4    | 48     | 384               | 20000              | 1152                              | 65536
 | Standard_E64ds_v4    | 64     | 504               | 20000              | 1200                              | 86016
 
-To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optimized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
+To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Business Critical (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
 
 >[!NOTE]
 >For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
@@ -121,7 +121,7 @@ The minimum IOPS is 360 across all compute sizes and the maximum IOPS is determi
 | Standard_D32ds_v4    | 20000               |
 | Standard_D48ds_v4    | 20000               | 
 | Standard_D64ds_v4    | 20000               | 
-| **Memory Optimized** |                     | 
+| **Business Critical** |                     | 
 | Standard_E2ds_v4     | 3200                | 
 | Standard_E4ds_v4     | 6400                | 
 | Standard_ E8ds_v4    | 12800               | 
@@ -161,7 +161,7 @@ For the most up-to-date pricing information, see the service [pricing page](http
 If you would like to optimize server cost, you can consider following tips:
 
 - Scale down your compute tier or compute size (vCores) if compute is underutilized.
-- Consider switching to the Burstable compute tier if your workload doesn't need the full compute capacity continuously from the General Purpose and Memory Optimized tiers.
+- Consider switching to the Burstable compute tier if your workload doesn't need the full compute capacity continuously from the General Purpose and Business Critical tiers.
 - Stop the server when not in use.
 - Reduce the backup retention period if a longer retention of backup is not required.
 

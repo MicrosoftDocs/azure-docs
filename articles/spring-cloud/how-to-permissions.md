@@ -1,6 +1,6 @@
 ---
-title: "Use permissions in Azure Spring Cloud"
-description: This article shows you how to create custom roles that delegate permissions to Azure Spring Cloud resources.
+title: "Use permissions in Azure Spring Apps"
+description: This article shows you how to create custom roles that delegate permissions to Azure Spring Apps resources.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -9,11 +9,14 @@ ms.date: 09/04/2020
 ms.custom: devx-track-java
 ---
 
-# How to use permissions in Azure Spring Cloud
+# How to use permissions in Azure Spring Apps
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to create custom roles that delegate permissions to Azure Spring Cloud resources. Custom roles extend [Azure built-in roles](../role-based-access-control/built-in-roles.md) with various stock permissions.
+This article shows you how to create custom roles that delegate permissions to Azure Spring Apps resources. Custom roles extend [Azure built-in roles](../role-based-access-control/built-in-roles.md) with various stock permissions.
 
 We'll implement the following custom roles.
 
@@ -27,7 +30,7 @@ We'll implement the following custom roles.
 
 * **DevOps Engineer role**:
 
-  * Create, read, update, and delete everything in Azure Spring Cloud
+  * Create, read, update, and delete everything in Azure Spring Apps
 
 * **Ops - Site Reliability Engineering role**:
 
@@ -38,7 +41,7 @@ We'll implement the following custom roles.
 * **Azure Pipelines / Jenkins / GitHub Actions role**:
 
   * Perform create, read, update, and delete operations
-  * Use Terraform or ARM templates to create and configure everything in Azure Spring Cloud and apps within a service instance: Azure Pipelines, Jenkins, and GitHub Actions
+  * Use Terraform or ARM templates to create and configure everything in Azure Spring Apps and apps within a service instance: Azure Pipelines, Jenkins, and GitHub Actions
 
 ## Define the Developer role
 
@@ -58,7 +61,7 @@ The Developer role includes permissions to restart apps and see their log stream
 
    ![Screenshot that shows the Add permissions button.](media/spring-cloud-permissions/add-permissions.png)
 
-7. In the search box, search for **Microsoft.app**. Select **Microsoft Azure Spring Cloud**:
+7. In the search box, search for **Microsoft.app**. Select **Microsoft Azure Spring Apps**:
 
    ![Screenshot that shows the results of searching for Microsoft.app.](media/spring-cloud-permissions/spring-cloud-permissions.png)
 
@@ -66,70 +69,70 @@ The Developer role includes permissions to restart apps and see their log stream
 
    Under **Microsoft.AppPlatform/Spring**, select:
 
-   * **Write : Create or Update Azure Spring Cloud service instance**
-   * **Read : Get Azure Spring Cloud service instance**
-   * **Other : List Azure Spring Cloud service instance test keys**
+   * **Write : Create or Update Azure Spring Apps service instance**
+   * **Read : Get Azure Spring Apps service instance**
+   * **Other : List Azure Spring Apps service instance test keys**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Build Services**
-   * **Other : Get an Upload URL in Azure Spring Cloud**
+   * **Read : Read Microsoft Azure Spring Apps Build Services**
+   * **Other : Get an Upload URL in Azure Spring Apps**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Builds**
-   * **Write : Write Microsoft Azure Spring Cloud Builds**
+   * **Read : Read Microsoft Azure Spring Apps Builds**
+   * **Write : Write Microsoft Azure Spring Apps Builds**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Build Results**
-   * **Other : Get an Log File URL in Azure Spring Cloud**
+   * **Read : Read Microsoft Azure Spring Apps Build Results**
+   * **Other : Get an Log File URL in Azure Spring Apps**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Builders**
-   * **Write : Write Microsoft Azure Spring Cloud Builders**
-   * **Delete : Delete Microsoft Azure Spring Cloud Builders**
+   * **Read : Read Microsoft Azure Spring Apps Builders**
+   * **Write : Write Microsoft Azure Spring Apps Builders**
+   * **Delete : Delete Microsoft Azure Spring Apps Builders**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Builder BuildpackBinding**
-   * **Write : Write Microsoft Azure Spring Cloud Builder BuildpackBinding**
-   * **Delete : Delete Microsoft Azure Spring Cloud Builder BuildpackBinding**
+   * **Read : Read Microsoft Azure Spring Apps Builder BuildpackBinding**
+   * **Write : Write Microsoft Azure Spring Apps Builder BuildpackBinding**
+   * **Delete : Delete Microsoft Azure Spring Apps Builder BuildpackBinding**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Supported Buildpacks**
+   * **Read : Read Microsoft Azure Spring Apps Supported Buildpacks**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Supported Stacks**
+   * **Read : Read Microsoft Azure Spring Apps Supported Stacks**
 
    Under **Microsoft.AppPlatform/Spring/apps**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud application**
-   * **Other : Get Microsoft Azure Spring Cloud application resource upload URL**
+   * **Read : Read Microsoft Azure Spring Apps application**
+   * **Other : Get Microsoft Azure Spring Apps application resource upload URL**
 
    Under **Microsoft.AppPlatform/Spring/apps/bindings**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud application binding**
+   * **Read : Read Microsoft Azure Spring Apps application binding**
 
    Under **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 
-   * **Write : Write Microsoft Azure Spring Cloud application deployment**
-   * **Read : Read Microsoft Azure Spring Cloud application deployment**
-   * **Other : Start Microsoft Azure Spring Cloud application deployment**
-   * **Other : Stop Microsoft Azure Spring Cloud application deployment**
-   * **Other : Restart Microsoft Azure Spring Cloud application deployment**
-   * **Other : Get Microsoft Azure Spring Cloud application deployment log file URL**
+   * **Write : Write Microsoft Azure Spring Apps application deployment**
+   * **Read : Read Microsoft Azure Spring Apps application deployment**
+   * **Other : Start Microsoft Azure Spring Apps application deployment**
+   * **Other : Stop Microsoft Azure Spring Apps application deployment**
+   * **Other : Restart Microsoft Azure Spring Apps application deployment**
+   * **Other : Get Microsoft Azure Spring Apps application deployment log file URL**
 
    Under **Microsoft.AppPlatform/Spring/apps/domains**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud application custom domain**
+   * **Read : Read Microsoft Azure Spring Apps application custom domain**
 
    Under **Microsoft.AppPlatform/Spring/certificates**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud certificate**
+   * **Read : Read Microsoft Azure Spring Apps certificate**
 
    Under **Microsoft.AppPlatform/locations/operationResults/Spring**, select:
 
@@ -267,7 +270,7 @@ The Developer role includes permissions to restart apps and see their log stream
 
 ## Define the DevOps Engineer role
 
-This procedure defines a role that has permissions to deploy, test, and restart Azure Spring Cloud apps.
+This procedure defines a role that has permissions to deploy, test, and restart Azure Spring Apps apps.
 
 ### [Portal](#tab/Azure-portal)
 
@@ -277,77 +280,77 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
    Under **Microsoft.AppPlatform/Spring**, select:
 
-   * **Write : Create or Update Azure Spring Cloud service instance**
-   * **Delete : Delete Azure Spring Cloud service instance**
-   * **Read : Get Azure Spring Cloud service instance**
-   * **Other : Enable Azure Spring Cloud service instance test endpoint**
-   * **Other : Disable Azure Spring Cloud service instance test endpoint**
-   * **Other : List Azure Spring Cloud service instance test keys**
-   * **Other : Regenerate Azure Spring Cloud service instance test key**
+   * **Write : Create or Update Azure Spring Apps service instance**
+   * **Delete : Delete Azure Spring Apps service instance**
+   * **Read : Get Azure Spring Apps service instance**
+   * **Other : Enable Azure Spring Apps service instance test endpoint**
+   * **Other : Disable Azure Spring Apps service instance test endpoint**
+   * **Other : List Azure Spring Apps service instance test keys**
+   * **Other : Regenerate Azure Spring Apps service instance test key**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Build Services**
-   * **Other : Get an Upload URL in Azure Spring Cloud**
+   * **Read : Read Microsoft Azure Spring Apps Build Services**
+   * **Other : Get an Upload URL in Azure Spring Apps**
   
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/agentPools**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Agent Pools**
-   * **Write : Write Microsoft Azure Spring Cloud Agent Pools**
+   * **Read : Read Microsoft Azure Spring Apps Agent Pools**
+   * **Write : Write Microsoft Azure Spring Apps Agent Pools**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Builds**
-   * **Write : Write Microsoft Azure Spring Cloud Builds**
+   * **Read : Read Microsoft Azure Spring Apps Builds**
+   * **Write : Write Microsoft Azure Spring Apps Builds**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Build Results**
-   * **Other : Get an Log File URL in Azure Spring Cloud**
+   * **Read : Read Microsoft Azure Spring Apps Build Results**
+   * **Other : Get an Log File URL in Azure Spring Apps**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Builders**
-   * **Write : Write Microsoft Azure Spring Cloud Builders**
-   * **Delete : Delete Microsoft Azure Spring Cloud Builders**
+   * **Read : Read Microsoft Azure Spring Apps Builders**
+   * **Write : Write Microsoft Azure Spring Apps Builders**
+   * **Delete : Delete Microsoft Azure Spring Apps Builders**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Builder BuildpackBinding**
-   * **Write : Write Microsoft Azure Spring Cloud Builder BuildpackBinding**
-   * **Delete : Delete Microsoft Azure Spring Cloud Builder BuildpackBinding**
+   * **Read : Read Microsoft Azure Spring Apps Builder BuildpackBinding**
+   * **Write : Write Microsoft Azure Spring Apps Builder BuildpackBinding**
+   * **Delete : Delete Microsoft Azure Spring Apps Builder BuildpackBinding**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Supported Buildpacks**
+   * **Read : Read Microsoft Azure Spring Apps Supported Buildpacks**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Supported Stacks**
+   * **Read : Read Microsoft Azure Spring Apps Supported Stacks**
 
    Under **Microsoft.AppPlatform/Spring/apps**, select:
 
-   * **Write : Write Microsoft Azure Spring Cloud application**
-   * **Delete : Delete Microsoft Azure Spring Cloud application**
-   * **Read : Read Microsoft Azure Spring Cloud application**
-   * **Other : Get Microsoft Azure Spring Cloud application resource upload URL**
-   * **Other : Validate Microsoft Azure Spring Cloud application custom domain**
+   * **Write : Write Microsoft Azure Spring Apps application**
+   * **Delete : Delete Microsoft Azure Spring Apps application**
+   * **Read : Read Microsoft Azure Spring Apps application**
+   * **Other : Get Microsoft Azure Spring Apps application resource upload URL**
+   * **Other : Validate Microsoft Azure Spring Apps application custom domain**
 
    Under **Microsoft.AppPlatform/Spring/apps/bindings**, select:
 
-   * **Write : Write Microsoft Azure Spring Cloud application binding**
-   * **Delete : Delete Microsoft Azure Spring Cloud application binding**
-   * **Read : Read Microsoft Azure Spring Cloud application binding**
+   * **Write : Write Microsoft Azure Spring Apps application binding**
+   * **Delete : Delete Microsoft Azure Spring Apps application binding**
+   * **Read : Read Microsoft Azure Spring Apps application binding**
 
    Under **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 
-   * **Write : Write Microsoft Azure Spring Cloud application deployment**
-   * **Delete : Delete Azure Spring Cloud application deployment**
-   * **Read : Read Microsoft Azure Spring Cloud application deployment**
-   * **Other : Start Microsoft Azure Spring Cloud application deployment**
-   * **Other : Stop Microsoft Azure Spring Cloud application deployment**
-   * **Other : Restart Microsoft Azure Spring Cloud application deployment**
-   * **Other : Get Microsoft Azure Spring Cloud application deployment log file URL**
+   * **Write : Write Microsoft Azure Spring Apps application deployment**
+   * **Delete : Delete Azure Spring Apps application deployment**
+   * **Read : Read Microsoft Azure Spring Apps application deployment**
+   * **Other : Start Microsoft Azure Spring Apps application deployment**
+   * **Other : Stop Microsoft Azure Spring Apps application deployment**
+   * **Other : Restart Microsoft Azure Spring Apps application deployment**
+   * **Other : Get Microsoft Azure Spring Apps application deployment log file URL**
 
    Under **Microsoft.AppPlatform/Spring/apps/deployments/skus**, select:
 
@@ -514,7 +517,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
 ## Define the Ops - Site Reliability Engineering role
 
-This procedure defines a role that has permissions to deploy, test, and restart Azure Spring Cloud apps.
+This procedure defines a role that has permissions to deploy, test, and restart Azure Spring Apps apps.
 
 ### [Portal](#tab/Azure-portal)
 
@@ -523,19 +526,19 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
    Under **Microsoft.AppPlatform/Spring**, select:
 
-   * **Read : Get Azure Spring Cloud service instance**
-   * **Other : List Azure Spring Cloud service instance test keys**
+   * **Read : Get Azure Spring Apps service instance**
+   * **Other : List Azure Spring Apps service instance test keys**
 
    Under **Microsoft.AppPlatform/Spring/apps**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud application**
+   * **Read : Read Microsoft Azure Spring Apps application**
 
    Under **Microsoft.AppPlatform/apps/deployments**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud application deployment**
-   * **Other : Start Microsoft Azure Spring Cloud application deployment**
-   * **Other : Stop Microsoft Azure Spring Cloud application deployment**
-   * **Other : Restart Microsoft Azure Spring Cloud application deployment**
+   * **Read : Read Microsoft Azure Spring Apps application deployment**
+   * **Other : Start Microsoft Azure Spring Apps application deployment**
+   * **Other : Stop Microsoft Azure Spring Apps application deployment**
+   * **Other : Restart Microsoft Azure Spring Apps application deployment**
 
    Under **Microsoft.AppPlatform/locations/operationResults/Spring**, select:
 
@@ -607,7 +610,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
 ## Define the Azure Pipelines / Jenkins / GitHub Actions role
 
-This role can create and configure everything in Azure Spring Cloud and apps with a service instance. This role is for releasing or deploying code.
+This role can create and configure everything in Azure Spring Apps and apps with a service instance. This role is for releasing or deploying code.
 
 ### [Portal](#tab/Azure-portal)
 
@@ -618,72 +621,72 @@ This role can create and configure everything in Azure Spring Cloud and apps wit
 
    Under **Microsoft.AppPlatform/Spring**, select:
 
-   * **Write : Create or Update Azure Spring Cloud service instance**
-   * **Delete : Delete Azure Spring Cloud service instance**
-   * **Read : Get Azure Spring Cloud service instance**
-   * **Other : Enable Azure Spring Cloud service instance test endpoint**
-   * **Other : Disable Azure Spring Cloud service instance test endpoint**
-   * **Other : List Azure Spring Cloud service instance test keys**
-   * **Other : Regenerate Azure Spring Cloud service instance test key**
+   * **Write : Create or Update Azure Spring Apps service instance**
+   * **Delete : Delete Azure Spring Apps service instance**
+   * **Read : Get Azure Spring Apps service instance**
+   * **Other : Enable Azure Spring Apps service instance test endpoint**
+   * **Other : Disable Azure Spring Apps service instance test endpoint**
+   * **Other : List Azure Spring Apps service instance test keys**
+   * **Other : Regenerate Azure Spring Apps service instance test key**
   
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Build Services**
-   * **Other : Get an Upload URL in Azure Spring Cloud**
+   * **Read : Read Microsoft Azure Spring Apps Build Services**
+   * **Other : Get an Upload URL in Azure Spring Apps**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Builds**
-   * **Write : Write Microsoft Azure Spring Cloud Builds**
+   * **Read : Read Microsoft Azure Spring Apps Builds**
+   * **Write : Write Microsoft Azure Spring Apps Builds**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builds/results**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Build Results**
-   * **Other : Get an Log File URL in Azure Spring Cloud**
+   * **Read : Read Microsoft Azure Spring Apps Build Results**
+   * **Other : Get an Log File URL in Azure Spring Apps**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Builders**
-   * **Write : Write Microsoft Azure Spring Cloud Builders**
-   * **Delete : Delete Microsoft Azure Spring Cloud Builders**
+   * **Read : Read Microsoft Azure Spring Apps Builders**
+   * **Write : Write Microsoft Azure Spring Apps Builders**
+   * **Delete : Delete Microsoft Azure Spring Apps Builders**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/builders/buildpackBindings**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Builder BuildpackBinding**
-   * **Write : Write Microsoft Azure Spring Cloud Builder BuildpackBinding**
-   * **Delete : Delete Microsoft Azure Spring Cloud Builder BuildpackBinding**
+   * **Read : Read Microsoft Azure Spring Apps Builder BuildpackBinding**
+   * **Write : Write Microsoft Azure Spring Apps Builder BuildpackBinding**
+   * **Delete : Delete Microsoft Azure Spring Apps Builder BuildpackBinding**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedBuildpacks**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Supported Buildpacks**
+   * **Read : Read Microsoft Azure Spring Apps Supported Buildpacks**
 
    (For Enterprise tier only) Under **Microsoft.AppPlatform/Spring/buildServices/supportedStacks**, select:
 
-   * **Read : Read Microsoft Azure Spring Cloud Supported Stacks**
+   * **Read : Read Microsoft Azure Spring Apps Supported Stacks**
 
    Under **Microsoft.AppPlatform/Spring/apps**, select:
 
-   * **Write : Write Microsoft Azure Spring Cloud application**
-   * **Delete : Delete Microsoft Azure Spring Cloud application**
-   * **Read : Read Microsoft Azure Spring Cloud application**
-   * **Other : Get Microsoft Azure Spring Cloud application resource upload URL**
-   * **Other : Validate Microsoft Azure Spring Cloud application custom domain**
+   * **Write : Write Microsoft Azure Spring Apps application**
+   * **Delete : Delete Microsoft Azure Spring Apps application**
+   * **Read : Read Microsoft Azure Spring Apps application**
+   * **Other : Get Microsoft Azure Spring Apps application resource upload URL**
+   * **Other : Validate Microsoft Azure Spring Apps application custom domain**
 
    Under **Microsoft.AppPlatform/Spring/apps/bindings**, select:
 
-   * **Write : Write Microsoft Azure Spring Cloud application binding**
-   * **Delete : Delete Microsoft Azure Spring Cloud application binding**
-   * **Read : Read Microsoft Azure Spring Cloud application binding**
+   * **Write : Write Microsoft Azure Spring Apps application binding**
+   * **Delete : Delete Microsoft Azure Spring Apps application binding**
+   * **Read : Read Microsoft Azure Spring Apps application binding**
 
    Under **Microsoft.AppPlatform/Spring/apps/deployments**, select:
 
-   * **Write : Write Microsoft Azure Spring Cloud application deployment**
-   * **Delete : Delete Azure Spring Cloud application deployment**
-   * **Read : Read Microsoft Azure Spring Cloud application deployment**
-   * **Other : Start Microsoft Azure Spring Cloud application deployment**
-   * **Other : Stop Microsoft Azure Spring Cloud application deployment**
-   * **Other : Restart Microsoft Azure Spring Cloud application deployment**
-   * **Other : Get Microsoft Azure Spring Cloud application deployment log file URL**
+   * **Write : Write Microsoft Azure Spring Apps application deployment**
+   * **Delete : Delete Azure Spring Apps application deployment**
+   * **Read : Read Microsoft Azure Spring Apps application deployment**
+   * **Other : Start Microsoft Azure Spring Apps application deployment**
+   * **Other : Stop Microsoft Azure Spring Apps application deployment**
+   * **Other : Restart Microsoft Azure Spring Apps application deployment**
+   * **Other : Get Microsoft Azure Spring Apps application deployment log file URL**
 
    Under **Microsoft.AppPlatform/Spring/apps/deployments/skus**, select:
 
