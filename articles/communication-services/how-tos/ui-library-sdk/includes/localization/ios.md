@@ -14,7 +14,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Language Detection
 
-If your application supports localization, the UI Library will be displayed based on user's system preferred langauge if its part of the `Available Languages` listed below. Otherwise will default our predefined English (`en`) strings.
+If your application supports localization, the UI Library will be displayed based on user's system preferred language if it's part of the `Available Languages` listed below. Otherwise will default our predefined English (`en`) strings.
 
 ### Available Languages
 
