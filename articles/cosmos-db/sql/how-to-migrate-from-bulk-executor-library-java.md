@@ -25,7 +25,7 @@ To use bulk support in the Java SDK, include the import below:
 
 ## Add documents to a reactive stream 
 
-Bulk support in the Java SDK works by adding documents to a reactive stream object. For example, you can add each document individually:
+Bulk support in the Java V4 SDK works by adding documents to a reactive stream object. For example, you can add each document individually:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=AddDocsToStream)]
 
@@ -71,7 +71,7 @@ Then you can pass the operations, along with the reactive stream of documents, t
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkPatchItems)]
 
 > [!NOTE]
-> In the above example, we apply `add` and `set` to patch elements whose root parent exists. However, you cannot do this where the root parent does not exist. When this is required, first read the full documents, then use a method like the below to replace the documents:
+> In the above example, we apply `add` and `set` to patch elements whose root parent exists. However, you cannot do this where the root parent does **not** exist. When this is required, first read the full documents, then use a method like the below to replace the documents:
 > [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkReplaceItems)]               
 
 
