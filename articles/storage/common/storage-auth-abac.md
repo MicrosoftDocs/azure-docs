@@ -7,7 +7,7 @@ author: santoshc
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 05/16/2022
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
@@ -51,8 +51,12 @@ In this preview, you can add conditions to built-in roles or custom roles. The b
 - [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 - [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner).
+- [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)
+- [Storage Queue Data Message Processor](../../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor)
+- [Storage Queue Data Message Sender](../../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender)
+- [Storage Queue Data Reader](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader)
 
-You can use conditions with custom roles so long as the role includes [actions that support conditions](storage-auth-abac-attributes.md#actions-and-suboperations).
+You can use conditions with custom roles so long as the role includes [actions that support conditions](storage-auth-abac-attributes.md#azure-blob-storage-actions-and-suboperations).
 
 If you're working with conditions based on [blob index tags](../blobs/storage-manage-find-blobs.md), you should use the *Storage Blob Data Owner* since permissions for tag operations are included in this role.
 

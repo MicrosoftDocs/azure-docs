@@ -76,7 +76,7 @@ In this section, you clone the IoT Edge repo and execute the scripts.
    mkdir wrkdir
    cd .\wrkdir\
    cp ..\iotedge\tools\CACertificates\*.cnf .
-   cp ..\iotedge\tools\CACertificates\certGen.sh .
+   cp ..\iotedge\tools\CACertificates\ca-certs.ps1 .
    ```
 
    If you downloaded the repo as a ZIP, then the folder name is `iotedge-master` and the rest of the path is the same.
