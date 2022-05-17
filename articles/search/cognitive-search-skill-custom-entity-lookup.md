@@ -264,7 +264,7 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
         },
         {
             "name": "entities",
-            "type": "Collection(Edm.ComplexType)",
+            "type": "Edm.ComplexType",
             "fields": [
                 {
                     "name": "name",
@@ -303,7 +303,7 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
                 },
                 {
                     "name": "matches",
-                    "type": "Edm.ComplexType",
+                    "type": "Collection(Edm.ComplexType)",
                     "fields": [
                         {
                             "name": "text",
