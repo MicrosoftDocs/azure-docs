@@ -561,7 +561,7 @@ Available cell magics:
 --- 
 
 
-<h2 id="reference-npublished-notebook">Reference unpublished notebook</h2>
+<h2 id="reference-unpublished-notebook">Reference unpublished notebook</h2>
 
 
 Reference unpublished notebook is helpful when you want to debug "locally", when enabling this feature, notebook run will fetch the current content in web cache, if you run a cell including a reference notebooks statement, you will reference the presenting notebooks in the current notebook browser instead of a saved versions in cluster, that means the changes in your notebook editor can be referenced immediately by other notebooks without having to be published(Live mode) or committed(Git mode), by leveraging this approach you can easily avoid common libraries getting polluted during developing or debugging process. 
