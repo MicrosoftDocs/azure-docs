@@ -188,7 +188,7 @@ This section presents reference code templates to describe how to use and invoke
 
 > [!Note]
 > Using the Connector in Python-
-> * Spark 2.4 does not support the Connector in Python. However, we can use the Scala connector API to interact with content from a DataFrame in PySpark by using DataFrame.createOrReplaceTempView or DataFrame.createOrReplaceGlobalTempView. See Section - [Using materialized data across cells](#using-materialized-data-across-cells).
+> * The connector is supported in Python for Spark 3 only. For Spark 2.4, we can use the Scala connector API to interact with content from a DataFrame in PySpark by using DataFrame.createOrReplaceTempView or DataFrame.createOrReplaceGlobalTempView. See Section - [Using materialized data across cells](#using-materialized-data-across-cells).
 > * The call back handle is not available in Python.
 
 ### Read from Azure Synapse Dedicated SQL Pool
