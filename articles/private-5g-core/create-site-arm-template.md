@@ -22,10 +22,10 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Complete the steps in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices) for your new site.
+- Carry out the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) for your new site.
 - Identify the names of the interfaces corresponding to ports 5 and 6 on your Azure Stack Edge Pro device.
 - Collect all of the information in [Collect the required information for a site](collect-required-information-for-a-site.md).
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## Review the template
 

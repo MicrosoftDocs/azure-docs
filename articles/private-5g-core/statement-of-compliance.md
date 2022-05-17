@@ -30,6 +30,7 @@ All packet core network functions are compliant with Release 15 of the 3GPP spec
 - TS 23.401: General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access.
 - TS 29.272: Evolved Packet System (EPS); Mobility Management Entity (MME) and Serving GPRS Support Node (SGSN) related interfaces based on Diameter protocol.
 - TS 29.274: 3GPP Evolved Packet System (EPS); Evolved General Packet Radio Service (GPRS) Tunneling Protocol for Control plane (GTPv2-C); Stage 3.
+- TS 33.401: 3GPP System Architecture Evolution (SAE); Security architecture.
 - TS 36.413: Evolved Universal Terrestrial Radio Access Network (E-UTRAN); S1 Application Protocol (S1AP).
 
 ### Policy and charging control (PCC) framework
