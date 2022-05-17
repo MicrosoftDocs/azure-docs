@@ -163,7 +163,7 @@ This sample scene contains a visualization of the distribution center and its ar
     Once the file is uploaded, you'll see it listed back on the main screen of 3D Scenes Studio.
 1. Select the scene to open and view it. The scene will open in **Build** mode.
 
-    :::image type="content" source="media/quickstart-3d-scenes-studio/factory-scene.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/factory-scene.png":::
+    :::image type="content" source="media/quickstart-3d-scenes-studio/distribution-scene.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/distribution-scene.png":::
 
 ## Create a scene element
 
@@ -253,11 +253,11 @@ The *Packing Line Efficiency* behavior will now show up in the list of behaviors
 
 So far, you've been working with 3D Scenes Studio in **Build** mode. Now, switch the mode to **View**. 
 
-:::image type="content" source="media/quickstart-3d-scenes-studio/factory-scene-view-1.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio, highlighting the View mode button." lightbox="media/quickstart-3d-scenes-studio/factory-scene-view-1.png":::
+:::image type="content" source="media/quickstart-3d-scenes-studio/distribution-scene-view-1.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio, highlighting the View mode button." lightbox="media/quickstart-3d-scenes-studio/distribution-scene-view-1.png":::
 
 From the list of **Elements**, select the **Arm1** element that you created. The visualization will zoom in to show the visual element and display the behaviors you set up for it.
 
-:::image type="content" source="media/quickstart-3d-scenes-studio/factory-scene-view-element.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio, showing the viewer for the arm." lightbox="media/quickstart-3d-scenes-studio/factory-scene-view-element.png":::
+:::image type="content" source="media/quickstart-3d-scenes-studio/distribution-scene-view-element.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio, showing the viewer for the arm." lightbox="media/quickstart-3d-scenes-studio/distribution-scene-view-element.png":::
 
 ## Apply behavior to additional elements
 
@@ -274,7 +274,7 @@ Sometimes, an environment might contain multiple similar elements, which should 
 
 Switch to the **View** tab to see the behavior working on the new arm element. All the information you selected when [creating the behavior](#create-a-behavior) is now available for both of the arm elements in the scene.
 
-:::image type="content" source="media/quickstart-3d-scenes-studio/factory-scene-view-element-2.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio, showing the viewer for the second arm." lightbox="media/quickstart-3d-scenes-studio/factory-scene-view-element-2.png":::
+:::image type="content" source="media/quickstart-3d-scenes-studio/distribution-scene-view-element-2.png" alt-text="Screenshot of the factory scene in 3D Scenes Studio, showing the viewer for the second arm." lightbox="media/quickstart-3d-scenes-studio/distribution-scene-view-element-2.png":::
 
 >[!TIP]
 >If you'd like, you can repeat the steps in this section to create elements for the remaining four arms, and apply the behavior to all of them to make the visualization complete.
