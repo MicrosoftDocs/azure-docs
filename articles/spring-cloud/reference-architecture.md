@@ -14,6 +14,12 @@ description: This reference architecture is a foundation using a typical enterpr
 
 This reference architecture is a foundation using a typical enterprise hub and spoke design for the use of Azure Spring Apps. In the design, Azure Spring Apps is deployed in a single spoke that's dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenets in the [Microsoft Azure Well-Architected Framework][16].
 
+There are two flavors of Azure Spring Apps: Standard and Enterprise
+
+Azure Spring Apps Standard is comprised of the Spring Cloud Config Server, Spring Cloud Service Registry, and the kpack build service
+
+Azure Spring Apps Enterprise is comprised of the Tanzu Build Service, Application Configuration Service, Service Registry, Spring Cloud Gateway and API portal
+
 For an implementation of this architecture, see the [Azure Spring Apps Reference Architecture][10] repository on GitHub.
 
 Deployment options for this architecture include Azure Resource Manager (ARM), Terraform, Azure CLI, and Bicep. The artifacts in this repository provide a foundation that you can customize for your environment. You can group resources such as Azure Firewall or Application Gateway into different resource groups or subscriptions. This grouping helps keep different functions separate, such as IT infrastructure, security, business application teams, and so on.
