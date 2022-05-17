@@ -10,10 +10,12 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 10/21/2021
 ms.topic: how-to
-
+ms.custom: sdkv1
 ---
 
 # Use authentication credential secrets in Azure Machine Learning training runs
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to use secrets in training runs securely. Authentication information such as your user name and password are secrets. For example, if you connect to an external database in order to query training data, you would need to pass your username and password to the remote run context. Coding such values into training scripts in cleartext is insecure as it would expose the secret. 
 

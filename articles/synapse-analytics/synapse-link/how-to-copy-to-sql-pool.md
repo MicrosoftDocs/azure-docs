@@ -1,5 +1,5 @@
 ---
-title: Copy Synapse Link for Azure Cosmos DB data into a dedicated SQL pool using Apache Spark
+title: Copy Azure Synapse Link for Azure Cosmos DB data into a dedicated SQL pool using Apache Spark
 description: Load the data into a Spark dataframe, curate the data, and load it into a dedicated SQL pool table
 author: Rodrigossz
 ms.service: synapse-analytics
@@ -7,13 +7,13 @@ ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: rosouz
-ms.reviewer: sngun
+ms.reviewer: sngun, wiassaf, sidandrews
 ms.custom: cosmos-db, mode-other
 ---
 
 # Copy data from Azure Cosmos DB into a dedicated SQL pool using Apache Spark
 
-Azure Synapse Link for Azure Cosmos DB enables users to run near real-time analytics over operational data in Azure Cosmos DB. However, there are times when some data needs to be aggregated and enriched to serve data warehouse users. Curating and exporting Synapse Link data can be done with just a few cells in a notebook.
+Azure Synapse Link for Azure Cosmos DB enables users to run near real-time analytics over operational data in Azure Cosmos DB. However, there are times when some data needs to be aggregated and enriched to serve data warehouse users. Curating and exporting Azure Synapse Link data can be done with just a few cells in a notebook.
 
 ## Prerequisites
 * [Provision a Synapse workspace](../quickstart-create-workspace.md) with:
@@ -45,7 +45,7 @@ In that example, we use an HTAP container called **RetailSales**. It's part of a
 * weekStarting: long (nullable = true)
 * _etag: string (nullable = true)
 
-We'll aggregate the sales (*quantity*, *revenue* (price x quantity) by *productCode* and *weekStarting* for reporting purposes. Finally, we'll export that data into a dedicated SQL pool table called **dbo.productsales**.
+We'll aggregate the sales (*quantity*, *revenue* (price x quantity) by *productCode* and *weekStarting* for reporting purposes. Finally, we'll export that data into a dedicated SQL pool table called `dbo.productsales`.
 
 ## Configure a Spark Notebook
 Create a Spark notebook with Scala as Spark (Scala) as the main language. We use the notebook's default setting for the session.

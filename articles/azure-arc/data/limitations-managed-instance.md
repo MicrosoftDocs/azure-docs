@@ -15,8 +15,6 @@ ms.topic: conceptual
 
 This article describes limitations of Azure Arc-enabled SQL Managed Instance. 
 
-At this time, the business critical service tier is public preview. The general purpose service tier is generally available.
-
 ## Backup and restore
 
 ### Automated backups 

@@ -20,7 +20,7 @@ ms.reviewer: nibaccam
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandJob.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -42,7 +42,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `distribution` | object | The distribution configuration for distributed training scenarios. One of [MpiConfiguration](#mpiconfiguration), [PyTorchConfiguration](#pytorchconfiguration), or [TensorFlowConfiguration](#tensorflowconfiguration). | | |
 | `compute` | string | Name of the compute target to execute the job on. This can be either a reference to an existing compute in the workspace (using the `azureml:<compute_name>` syntax) or `local` to designate local execution. | | `local` |
 | `resources.instance_count` | integer | The number of nodes to use for the job. | | `1` |
-| `resources.instance_type` | string | The instance type to use for the job. Applicable for jobs running on Azure Arc-enabled Kubernetes compute (where the compute target specified in the `compute` field is of `type: kubernentes`). If omitted, this will default to the default instance type for the Kubernetes cluster. For more information, see [Create and select Kubernetes instance types](how-to-kubernetes-instance-type.md). | | |
+| `resources.instance_type` | string | The instance type to use for the job. Applicable for jobs running on Azure Arc-enabled Kubernetes compute (where the compute target specified in the `compute` field is of `type: kubernentes`). If omitted, this will default to the default instance type for the Kubernetes cluster. For more information, see [Create and select Kubernetes instance types](how-to-attach-kubernetes-anywhere.md). | | |
 | `limits.timeout` | integer | The maximum time in seconds the job is allowed to run. Once this limit is reached the system will cancel the job. | | |
 | `inputs` | object | Dictionary of inputs to the job. The key is a name for the input within the context of the job and the value is the input value. <br><br> Inputs can be referenced in the `command` using the `${{ inputs.<input_name> }}` expression. | | |
 | `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [job input data specification](#job-inputs). | | |

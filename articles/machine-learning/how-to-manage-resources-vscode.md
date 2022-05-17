@@ -116,7 +116,7 @@ The extension currently supports the following dataset types:
 - *Tabular*: Allows you to materialize data into a DataFrame.
 - *File*: A file or collection of files. Allows you to download or mount files to your compute.
 
-For more information, see [datasets](concept-data.md#datasets)
+For more information, see [datasets](./v1/concept-data.md)
 
 ### Create dataset
 
@@ -167,7 +167,7 @@ Alternatively, use the `> Azure ML: View Environment` command in the command pal
 
 ## Experiments
 
-For more information, see [experiments](concept-azure-machine-learning-architecture.md#experiments).
+For more information, see [experiments](v1/concept-azure-machine-learning-architecture.md#experiments).
 
 ### Create job
 
@@ -186,7 +186,7 @@ Alternatively, use the `> Azure ML: Create Job` command in the command palette.
 
 ### View job
 
-To view your job in Azure Machine Learning Studio:
+To view your job in Azure Machine Learning studio:
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
@@ -338,7 +338,7 @@ Alternatively, use the `> Azure ML: View Compute Properties` and `> Azure ML: De
 
 ## Models
 
-For more information, see [models](concept-azure-machine-learning-architecture.md#models)
+For more information, see [models](v1/concept-azure-machine-learning-architecture.md#models)
 
 ### Create model
 
@@ -377,7 +377,7 @@ Alternatively, use the `> Azure ML: Remove Model` command in the command palette
 
 ## Endpoints
 
-For more information, see [endpoints](concept-azure-machine-learning-architecture.md#endpoints).
+For more information, see [endpoints](v1/concept-azure-machine-learning-architecture.md#endpoints).
 
 ### Create endpoint
 

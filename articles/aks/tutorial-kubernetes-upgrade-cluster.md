@@ -119,6 +119,8 @@ To minimize disruption to running applications, AKS nodes are carefully cordoned
 1. When the new node is ready and joined to the cluster, the Kubernetes scheduler begins to run pods on it.
 1. The old node is deleted, and the next node in the cluster begins the cordon and drain process.
 
+[!INCLUDE [alias minor version callout](./includes/aliasminorversion/alias-minor-version-upgrade.md)]
+
 ### [Azure CLI](#tab/azure-cli)
 
 Use the [az aks upgrade][] command to upgrade the AKS cluster.

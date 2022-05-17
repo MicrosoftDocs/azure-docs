@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 04/20/2022
+ms.date: 05/05/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -67,8 +67,8 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 * SDK support for sending requests to custom models:
 
-  * [Custom Named Entity Recognition](custom-named-entity-recognition/how-to/call-api.md?tabs=client#use-the-client-libraries)
-  * [Custom text classification](custom-classification/how-to/call-api.md?tabs=api#use-the-client-libraries)
+  * [Custom Named Entity Recognition](custom-named-entity-recognition/how-to/call-api.md)
+  * [Custom text classification](custom-classification/how-to/call-api.md)
   * [Custom language understanding](conversational-language-understanding/how-to/deploy-query-model.md#use-the-client-libraries-azure-sdk)
 
 ## Next steps

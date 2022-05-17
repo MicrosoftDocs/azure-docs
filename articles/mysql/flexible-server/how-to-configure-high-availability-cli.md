@@ -6,8 +6,8 @@ ms.author: sumuth
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 04/1/2021
 ms.custom: references_regions, devx-track-azurecli
+ms.date: 05/24/2022
 ---
 
 # Manage zone redundant high availability in Azure Database for MySQL Flexible Server with Azure CLI
@@ -42,7 +42,7 @@ High availability feature provisions physically separate primary and standby rep
 
 ## Enable high availability during server creation
 
-You can only create server using  General purpose or Memory optimized pricing tiers with high availability. You can enable Zone redundant high availability for a server only during create time.
+You can only create server using  General purpose or Business Critical pricing tiers with high availability. You can enable Zone redundant high availability for a server only during create time.
 
 **Usage:**
 

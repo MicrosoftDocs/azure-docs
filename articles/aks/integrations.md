@@ -25,6 +25,8 @@ The below table shows the available add-ons.
 | ingress-appgw | Use Application Gateway Ingress Controller with your AKS cluster. | [What is Application Gateway Ingress Controller?][agic] |
 | open-service-mesh | Use Open Service Mesh with your AKS cluster. | [Open Service Mesh AKS add-on][osm] |
 | azure-keyvault-secrets-provider | Use Azure Keyvault Secrets Provider addon.| [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][keyvault-secret-provider] |
+| web_application_routing | Use a managed NGINX ingress Controller with your AKS cluster.| [Web Application Routing Overview][web-app-routing] |
+
 
 ## Extensions
 
@@ -82,6 +84,7 @@ The below table shows a few examples of open-source and third-party integrations
 [open-faas-aks]: openfaas.md
 [apache-spark]: https://spark.apache.org/
 [spark-job]: spark-job.md
-[azure-ml-overview]: ../machine-learning/how-to-attach-arc-kubernetes.md
+[azure-ml-overview]: ../machine-learning/how-to-attach-kubernetes-anywhere.md
 [dapr-overview]: ./dapr.md
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
+[web-app-routing]: web-app-routing.md

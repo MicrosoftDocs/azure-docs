@@ -9,11 +9,12 @@ author: blackmist
 ms.author: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
-
+ms.custom: sdkv1
 ---
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to view your experiment runs and metrics in TensorBoard using [the `tensorboard` package](/python/api/azureml-tensorboard/) in the main Azure Machine Learning SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
 

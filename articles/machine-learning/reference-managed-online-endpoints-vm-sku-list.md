@@ -6,22 +6,25 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.reviewer: laobri
+ms.reviewer: larryfr
 ms.author: seramasu
 author: rsethur
 ms.custom: devplatv2
-ms.date: 05/10/2021
+ms.date: 04/11/2022
 ---
 
 # Managed online endpoints SKU list (preview)
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 This table shows the VM SKUs that are supported for Azure Machine Learning managed online endpoints (preview).
 
 * The `instance_type` attribute used for deployment must be specified in the form "Standard_F4s_v2". The table below lists instance names, for example, F2s v2. These names should be put in the specified form (`Standard_{name}`) for Azure CLI or Azure Resource Manager templates (ARM templates) requests to create and update deployments. 
 
 * For more information on configuration details such as CPU and RAM, see [Azure Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
+
+> [!IMPORTANT]
+> If you use a Windows-based image for your deployment, we recommend using a VM SKU that provides a minimum of 4 cores.
 
 | Size | General Purpose | Compute Optimized | Memory Optimized | GPU |
 | --- | --- | --- | --- | --- | --- | 

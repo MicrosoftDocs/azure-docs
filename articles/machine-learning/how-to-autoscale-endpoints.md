@@ -7,13 +7,13 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: seramasu
 author: rsethur
-ms.reviewer: laobri
+ms.reviewer: larryfr
 ms.custom: devplatv2, cliv2
 
 ms.date: 04/27/2022
 
 ---
-# Autoscale a managed online endpoint (preview)
+# Autoscale a managed online endpoint
 
 Autoscale automatically runs the right amount of resources to handle the load on your application. [Managed endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure Monitor autoscale feature.
 
@@ -23,11 +23,9 @@ Azure Monitor autoscaling supports a rich set of rules. You can configure metric
 
 Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the browser-based Azure portal. Other Azure ML SDKs, such as the Python SDK, will add support over time.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+## Prerequisites
 
-## Prerequisites 
-
-* A deployed endpoint. [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md). 
+* A deployed endpoint. [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md). 
 
 ## Define an autoscale profile
 

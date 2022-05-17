@@ -10,10 +10,12 @@ author: blackmist
 ms.author: larryfr
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
-ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1
 ---
 
 # Tutorial: Train a regression model with AutoML and Python
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this tutorial, you learn how to train a regression model with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML. This regression model predicts NYC taxi fares. 
 

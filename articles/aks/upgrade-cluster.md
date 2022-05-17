@@ -89,6 +89,8 @@ With a list of available versions for your AKS cluster, use the [az aks upgrade]
 - This process repeats until all nodes in the cluster have been upgraded. 
 - At the end of the process, the last buffer node will be deleted, maintaining the existing agent node count and zone balance.
 
+[!INCLUDE [alias minor version callout](./includes/aliasminorversion/alias-minor-version-upgrade.md)]
+
 ```azurecli-interactive
 az aks upgrade \
     --resource-group myResourceGroup \

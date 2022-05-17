@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting guide for Azure Spring Cloud | Microsoft Docs
-description: Troubleshooting guide for Azure Spring Cloud
+title: Troubleshooting guide for Azure Spring Apps | Microsoft Docs
+description: Troubleshooting guide for Azure Spring Apps
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: troubleshooting
@@ -9,11 +9,14 @@ ms.author: karler
 ms.custom: devx-track-java
 ---
 
-# Troubleshoot common Azure Spring Cloud issues
+# Troubleshoot common Azure Spring Apps issues
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article provides instructions for troubleshooting Azure Spring Cloud development issues. For additional information, see [Azure Spring Cloud FAQ](./faq.md).
+This article provides instructions for troubleshooting Azure Spring Apps development issues. For additional information, see [Azure Spring Apps FAQ](./faq.md).
 
 ## Availability, performance, and application issues
 
@@ -81,17 +84,17 @@ To ascertain which situation applies, do the following:
 2. Add an **App=** filter to specify which application you want to monitor.
 3. Split the metrics by **Instance**.
 
-If *all instances* are experiencing high CPU or memory usage, you need to either scale out the application or scale up the CPU or memory usage. For more information, see [Tutorial: Scale an application in Azure Spring Cloud](./how-to-scale-manual.md).
+If *all instances* are experiencing high CPU or memory usage, you need to either scale out the application or scale up the CPU or memory usage. For more information, see [Tutorial: Scale an application in Azure Spring Apps](./how-to-scale-manual.md).
 
 If *some instances* are experiencing high CPU or memory usage, check the instance status and its discovery status.
 
-For more information, see [Metrics for Azure Spring Cloud](./concept-metrics.md).
+For more information, see [Metrics for Azure Spring Apps](./concept-metrics.md).
 
 If all instances are up and running, go to Azure Log Analytics to query your application logs and review your code logic. This will help you see whether any of them might affect scale partitioning. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
 To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
 
-### Checklist for deploying your Spring application to Azure Spring Cloud
+### Checklist for deploying your Spring application to Azure Spring Apps
 
 Before you onboard your application, ensure that it meets the following criteria:
 
@@ -105,20 +108,20 @@ Before you onboard your application, ensure that it meets the following criteria
 
 ## Configuration and management
 
-### I encountered a problem with creating an Azure Spring Cloud service instance
+### I encountered a problem with creating an Azure Spring Apps service instance
 
-When you set up an Azure Spring Cloud service instance by using the Azure portal, Azure Spring Cloud performs the validation for you.
+When you set up an Azure Spring Apps service instance by using the Azure portal, Azure Spring Apps performs the validation for you.
 
-But if you try to set up the Azure Spring Cloud service instance by using the [Azure CLI](/cli/azure/get-started-with-azure-cli) or the [Azure Resource Manager template](../azure-resource-manager/index.yml), verify that:
+But if you try to set up the Azure Spring Apps service instance by using the [Azure CLI](/cli/azure/get-started-with-azure-cli) or the [Azure Resource Manager template](../azure-resource-manager/index.yml), verify that:
 
 * The subscription is active.
-* The location is [supported](./faq.md) by Azure Spring Cloud.
+* The location is [supported](./faq.md) by Azure Spring Apps.
 * The resource group for the instance is already created.
 * The resource name conforms to the naming rule. It must contain only lowercase letters, numbers, and hyphens. The first character must be a letter. The last character must be a letter or number. The value must contain from 2 to 32 characters.
 
-If you want to set up the Azure Spring Cloud service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
+If you want to set up the Azure Spring Apps service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
-The name of the Azure Spring Cloud service instance will be used for requesting a subdomain name under `azureapps.io`, so the setup will fail if the name conflicts with an existing one. You might find more details in the activity logs.
+The name of the Azure Spring Apps service instance will be used for requesting a subdomain name under `azureapps.io`, so the setup will fail if the name conflicts with an existing one. You might find more details in the activity logs.
 
 ### I can't deploy a .NET Core app
 
@@ -137,7 +140,7 @@ When you deploy your application package by using the [Azure CLI](/cli/azure/get
 If the polling is interrupted, you can still use the following command to fetch the deployment logs:
 
 ```azurecli
-az spring-cloud app show-deploy-log --name <app-name>
+az spring app show-deploy-log --name <app-name>
 ```
 
 Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you will receive an error message similar to the following: `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
@@ -151,10 +154,10 @@ When you deploy your application package by using the [Azure CLI](/cli/azure/get
 If the polling is interrupted, you can still use the following command to fetch the build and deployment logs:
 
 ```azurecli
-az spring-cloud app show-deploy-log --name <app-name>
+az spring app show-deploy-log --name <app-name>
 ```
 
-However, note that one Azure Spring Cloud service instance can trigger only one build job for one source package at one time. For more information, see [Deploy an application](./quickstart.md) and [Set up a staging environment in Azure Spring Cloud](./how-to-staging-environment.md).
+However, note that one Azure Spring Apps service instance can trigger only one build job for one source package at one time. For more information, see [Deploy an application](./quickstart.md) and [Set up a staging environment in Azure Spring Apps](./how-to-staging-environment.md).
 
 ### My application can't be registered
 
@@ -162,7 +165,7 @@ In most cases, this situation occurs when *Required Dependencies* and *Service D
 
 Wait at least two minutes before a newly registered instance starts receiving traffic.
 
-If you're migrating an existing Spring Cloud-based solution to Azure, ensure that your ad-hoc *Service Registry* and *Config Server* instances are removed (or disabled) to avoid conflicting with the managed instances provided by Azure Spring Cloud.
+If you're migrating an existing Spring Cloud-based solution to Azure, ensure that your ad-hoc *Service Registry* and *Config Server* instances are removed (or disabled) to avoid conflicting with the managed instances provided by Azure Spring Apps.
 
 You can also check the *Service Registry* client logs in Azure Log Analytics. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)
 
@@ -170,7 +173,7 @@ To learn more about Azure Log Analytics, see [Get started with Log Analytics in 
 
 ### I want to inspect my application's environment variables
 
-Environment variables inform the Azure Spring Cloud framework, ensuring that Azure understands where and how to configure the services that make up your application. Ensuring that your environment variables are correct is a necessary first step in troubleshooting potential problems.  You can use the Spring Boot Actuator endpoint to review your environment variables.
+Environment variables inform the Azure Spring Apps framework, ensuring that Azure understands where and how to configure the services that make up your application. Ensuring that your environment variables are correct is a necessary first step in troubleshooting potential problems.  You can use the Spring Boot Actuator endpoint to review your environment variables.
 
 > [!WARNING]
 > This procedure exposes your environment variables by using your test endpoint.  Do not proceed if your test endpoint is publicly accessible or if you've assigned a domain name to your application.
@@ -233,11 +236,11 @@ If your application logs can be archived to a storage account but not sent to Az
 
 ### Error 112039: Failed to purchase on Azure Marketplace
 
-Creating an Azure Spring Cloud Enterprise tier instance fails with error code "112039". Check the detailed error message for below for more information:
+Creating an Azure Spring Apps Enterprise tier instance fails with error code "112039". Check the detailed error message for below for more information:
 
-* **"Failed to purchase on Azure Marketplace because the Microsoft.SaaS RP is not registered on the Azure subscription."** : Azure Spring Cloud Enterprise tier purchase a SaaS offer from VMware.
+* **"Failed to purchase on Azure Marketplace because the Microsoft.SaaS RP is not registered on the Azure subscription."** : Azure Spring Apps Enterprise tier purchase a SaaS offer from VMware.
   
-  You must register the Microsoft.SaaS resource provider before creating Azure Spring Cloud Enterprise instance. See how to [register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+  You must register the Microsoft.SaaS resource provider before creating Azure Spring Apps Enterprise instance. See how to [register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 * **"Failed to load catalog product vmware-inc.azure-spring-cloud-vmware-tanzu-2 in the Azure subscription market."**: Your Azure subscription's billing account address is not in the supported location.
 
@@ -257,26 +260,26 @@ Creating an Azure Spring Cloud Enterprise tier instance fails with error code "1
   If that doesn't help, you can contact the support team with the following info.
 
   * `AZURE_TENANT_ID`: the Azure tenant ID that hosts the Azure subscription
-  * `AZURE_SUBSCRIPTION_ID`: the Azure subscription ID used to create the Spring Cloud instance
+  * `AZURE_SUBSCRIPTION_ID`: the Azure subscription ID used to create the Azure Spring Apps instance
   * `SPRING_CLOUD_NAME`: the failed instance name
   * `ERROR_MESSAGE`: the observed error message
 
 ### No plans are available for market '\<Location>'
 
-When you visit the SaaS offer [Azure Spring Cloud Enterprise Tier](https://aka.ms/ascmpoffer) in the Azure Marketplace, it may say "No plans are available for market '\<Location>'" as in the following image.
+When you visit the SaaS offer [Azure Spring Apps Enterprise Tier](https://aka.ms/ascmpoffer) in the Azure Marketplace, it may say "No plans are available for market '\<Location>'" as in the following image.
 
 ![No plans available error image](./media/enterprise/how-to-enterprise-marketplace-offer/no-enterprise-plans-available.png)
 
-Azure Spring Cloud Enterprise tier needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
+Azure Spring Apps Enterprise tier needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
 
-[Azure Spring Cloud Enterprise Tier](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See [Marketplace supported geographic location](../marketplace/marketplace-geo-availability-currencies.md#supported-geographic-locations).
+[Azure Spring Apps Enterprise Tier](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See [Marketplace supported geographic location](../marketplace/marketplace-geo-availability-currencies.md#supported-geographic-locations).
 
 You can view the billing account for your subscription if you have admin access. See [view billing accounts](../cost-management-billing/manage/view-all-accounts.md#check-the-type-of-your-account).
 
 ### I need VMware Spring Runtime Support (Enterprise tier only)
 
-Enterprise tier has built-in VMware Spring Runtime Support so you can directly open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in scope of VMware Spring Runtime Support. For more information, see [https://tanzu.vmware.com/spring-runtime](https://tanzu.vmware.com/spring-runtime). For any other issues, directly open support tickets with Microsoft.
+Enterprise tier has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see <https://tanzu.vmware.com/spring-runtime>. To understand the details about how to register and use this support service, see the Support section in the [Enterprise tier FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open support tickets with Microsoft.
 
 ## Next steps
 
-* [How to self-diagnose and solve problems in Azure Spring Cloud](./how-to-self-diagnose-solve.md)
+* [How to self-diagnose and solve problems in Azure Spring Apps](./how-to-self-diagnose-solve.md)

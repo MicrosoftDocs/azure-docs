@@ -93,6 +93,8 @@
       href: ../../postgresql/quickstart-create-postgresql-server-database-using-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database Migration Service
       href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: SQL Database
+      href: /azure-sql/database/single-database-create-bicep-quickstart.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: DevOps
     items:
     - name: App Configuration

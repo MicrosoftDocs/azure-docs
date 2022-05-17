@@ -2,7 +2,7 @@
 title: Offerings from partners - Azure partner solutions
 description: Learn about solutions offered by partners on Azure.
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/12/2022
 ---
 
 # Extend Azure with solutions from partners
@@ -17,3 +17,4 @@ Partner solutions are available through the Marketplace.
 | [Datadog](./datadog/overview.md) | Monitor your servers, clouds, metrics, and apps in one place. |
 | [Elastic](./elastic/overview.md) | Monitor the health and performance of your Azure environment. |
 | [Logz.io](./logzio/overview.md)  | Monitor the health and performance of your Azure environment. |
+| [NGINX for Azure (preview)](./nginx/nginx-overview.md)  | Use NGINX for Azure (preview) as a reverse proxy within your Azure environment. |

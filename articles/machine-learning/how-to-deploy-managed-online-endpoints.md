@@ -1,5 +1,5 @@
 ---
-title: Deploy an ML model by using an online endpoint (preview)
+title: Deploy an ML model by using an online endpoint
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your machine learning model as a web service that's to Azure.
 services: machine-learning
@@ -8,33 +8,31 @@ ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: larryfr
 author: rsethur
-ms.date: 03/31/2022
+ms.date: 04/26/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2
 ---
 
-# Deploy and score a machine learning model by using an online endpoint (preview)
+# Deploy and score a machine learning model by using an online endpoint
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
-Learn how to use an online endpoint (preview) to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
+
+Learn how to use an online endpoint to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
 
 You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for online and real-time scoring. 
 
-Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. To use Kubernetes instead, see the notes in this document inline with the managed online endpoint discussion. For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. To use Kubernetes instead, see the notes in this document inline with the managed online endpoint discussion. For more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
 
 ## Prerequisites
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* Install and configure the Azure CLI and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md). 
+* Install and configure the Azure CLI and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
 
-* You must have an Azure resource group, and you (or the service principal you use) must have Contributor access to it. A resource group is created in [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md). 
+* You must have an Azure resource group, and you (or the service principal you use) must have Contributor access to it. A resource group is created in [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
 
-* You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
+* You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
 * If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
 
@@ -42,6 +40,8 @@ Managed online endpoints help to deploy your ML models in a turnkey manner. Mana
    az account set --subscription <subscription ID>
    az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
    ```
+
+* Azure role-based access controls (Azure RBAC) is used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
 
@@ -74,14 +74,14 @@ The following snippet shows the *endpoints/online/managed/sample/endpoint.yml* f
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
 > [!NOTE]
-> For a full description of the YAML, see [Online endpoint (preview) YAML reference](reference-yaml-endpoint-online.md).
+> For a full description of the YAML, see [Online endpoint YAML reference](reference-yaml-endpoint-online.md).
 
-The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the YAML example in [Prepare your system](#prepare-your-system) or the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
+The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the YAML example in [Prepare your system](#prepare-your-system) or the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
 
 | Key | Description |
 | --- | --- |
 | `$schema`    | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding example in a browser.|
-| `name`       | The name of the endpoint. It must be unique in the Azure region.<br>Naming rules are defined under [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).|
+| `name`       | The name of the endpoint. It must be unique in the Azure region.<br>Naming rules are defined under [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).|
 | `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. `key` doesn't expire, but `aml_token` does expire. (Get the most recent token by using the `az ml online-endpoint get-credentials` command.) |
 
 The example contains all the files needed to deploy a model on an online endpoint. To deploy a model, you must have:
@@ -101,17 +101,19 @@ The table describes the attributes of a `deployment`:
 | --- | --- |
 | `name`  | The name of the deployment. |
 | `model` | In this example, we specify the model properties inline: `path`. Model files are automatically uploaded and registered with an autogenerated name. For related best practices, see the tip in the next section. |
-| `code_configuration.code.path` | The directory that contains all the Python source code for scoring the model. You can use nested directories and packages. |
-| `code_configuration.scoring_script` | The Python file that's in the `code_configuration.code.path` scoring directory. This Python code must have an `init()` function and a `run()` function. The function `init()` will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
+| `code_configuration.code.path` | The directory on the local development environment that contains all the Python source code for scoring the model. You can use nested directories and packages. |
+| `code_configuration.scoring_script` | The Python file that's in the `code_configuration.code.path` scoring directory on the local development environment. This Python code must have an `init()` function and a `run()` function. The function `init()` will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
 | `environment` | Contains the details of the environment to host the model and code. In this example, we have inline definitions that include the`path`. We'll use `environment.docker.image` for the image. The `conda_file` dependencies will be installed on top of the image. For more information, see the tip in the next section. |
 | `instance_type` | The VM SKU that will host your deployment instances. For more information, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). |
-| `instance_count` | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `instance_count` to at least `3`. |
+| `instance_count` | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `instance_count` to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints). |
+
+During deployment, the local files such as the Python source for the scoring model, are uploaded from the development environment.
 
 For more information about the YAML schema, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md).
 
 > [!NOTE]
 > To use Kubernetes instead of managed endpoints as a compute target:
-> 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster).
+> 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](how-to-attach-kubernetes-anywhere.md?&tabs=studio#attach-a-kubernetes-cluster-to-an-azureml-workspace).
 > 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/amlarc/endpoint.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target. You can use this [deployment.yaml](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/amlarc/blue-deployment.yml) that has additional properties applicable to Kubernetes deployment.
 >
 > All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with Kubernetes endpoints.
@@ -188,6 +190,16 @@ The output should appear similar to the following JSON. Note that the `provision
 }
 ```
 
+The following table contains the possible values for `provisioning_state`:
+
+| State | Description |
+| ----- | ----- |
+| __Creating__ | The resource is being created. |
+| __Updating__ | The resource is being updated. |
+| __Deleting__ | The resource is being deleted. |
+| __Succeeded__ | The create/update operation was successful. |
+| __Failed__ | The create/update/delete operation has failed. |
+
 ### Invoke the local endpoint to score data by using your model
 
 Invoke the endpoint to score the model by using the convenience command `invoke` and passing query parameters that are stored in a JSON file:
@@ -225,7 +237,7 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 > [!TIP]
 > * If you prefer not to block your CLI console, you may add the flag `--no-wait` to the command. However, this will stop the interactive display of the deployment status.
 >
-> * Use [Troubleshooting online endpoints deployment (preview)](./how-to-troubleshoot-online-endpoints.md) to debug errors.
+> * Use [Troubleshooting online endpoints deployment](./how-to-troubleshoot-online-endpoints.md) to debug errors.
 
 ### Check the status of the deployment
 
@@ -255,6 +267,9 @@ You can use either the `invoke` command or a REST client of your choice to invok
 
 The following example shows how to get the key used to authenticate to the endpoint:
 
+> [!TIP]
+> You can control which Azure Active Directory security principals can get the authentication key by assigning them to a custom role that allows `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
 
 Next, use curl to score data.
@@ -265,11 +280,13 @@ Notice we use `show` and `get-credentials` commands to get the authentication cr
 
 To see the invocation logs, run `get-logs` again.
 
+For information on authenticating using a token, see [Authenticate to online endpoints](how-to-authenticate-online-endpoint.md).
+
 ### (Optional) Update the deployment
 
 If you want to update the code, model, or environment, update the YAML file, and then run the `az ml online-endpoint update` command. 
 
-> [!Note]
+> [!NOTE]
 > If you update instance count and along with other model settings (code, model, or environment) in a single `update` command: first the scaling operation will be performed, then the other updates will be applied. In production environment is a good practice to perform these operations separately.
 
 To understand how `update` works:
@@ -340,11 +357,12 @@ If you aren't going use the deployment, you should delete it by running the foll
 
 To learn more, review these articles:
 
-- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
-- [Create and use online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
-- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
+- [Deploy models with REST](how-to-deploy-with-rest.md)
+- [Create and use online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
-- [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)
-- [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
-- [Access Azure resources with a online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
+- [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md)
+- [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
+- [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
+- [Enable network isolation with managed online endpoints](how-to-secure-online-endpoint.md)

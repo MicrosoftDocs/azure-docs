@@ -13,16 +13,20 @@ ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2
 ---
 
-# Manage Azure Machine Learning environments with the CLI (v2) (preview)
+# Manage Azure Machine Learning environments with the CLI (v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](./v1/how-to-use-environments.md)
+> * [v2 (current version)](how-to-manage-environments-v2.md)
+
+
 
 Azure Machine Learning environments define the execution environments for your jobs or deployments and encapsulate the dependencies for your code. Azure ML uses the environment specification to create the Docker container that your training or scoring code runs in on the specified compute target. You can define an environment from a conda specification, Docker image, or Docker build context.
 
 In this article, learn how to create and manage Azure ML environments using the CLI (v2).
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 

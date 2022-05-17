@@ -57,7 +57,7 @@ if spec is None:
 
 ## Access to current workspace and registered datasets
 
-You can refer to the following sample code to access to the [registered datasets](../how-to-create-register-datasets.md) in your workspace:
+You can refer to the following sample code to access to the [registered datasets](../v1/how-to-create-register-datasets.md) in your workspace:
 
 ```Python
 def azureml_main(dataframe1 = None, dataframe2 = None):

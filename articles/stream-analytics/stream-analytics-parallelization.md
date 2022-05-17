@@ -3,7 +3,7 @@ title: Use query parallelization and scale in Azure Stream Analytics
 description: This article describes how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/10/2022
 ---
 # Leverage query parallelization in Azure Stream Analytics
 This article shows you how to take advantage of parallelization in Azure Stream Analytics. You learn how to scale Stream Analytics jobs by configuring input partitions and tuning the analytics query definition.
@@ -25,14 +25,14 @@ All Azure Stream Analytics streaming inputs can take advantage of partitioning: 
 ### Outputs
 
 When you work with Stream Analytics, you can take advantage of partitioning in the outputs:
--	Azure Data Lake Storage
--	Azure Functions
--	Azure Table
--	Blob storage (can set the partition key explicitly)
--	Cosmos DB  (need to set the partition key explicitly)
--	Event Hubs (need to set the partition key explicitly)
--	IoT Hub  (need to set the partition key explicitly)
--	Service Bus
+-    Azure Data Lake Storage
+-    Azure Functions
+-    Azure Table
+-    Blob storage (can set the partition key explicitly)
+-    Cosmos DB  (need to set the partition key explicitly)
+-    Event Hubs (need to set the partition key explicitly)
+-    IoT Hub  (need to set the partition key explicitly)
+-    Service Bus
 - SQL and Azure Synapse Analytics with optional partitioning: see more information on the [Output to Azure SQL Database page](./stream-analytics-sql-output-perf.md).
 
 Power BI doesn't support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
@@ -56,11 +56,11 @@ Only when all inputs, outputs and query steps are using the same key will the jo
 ## Embarrassingly parallel jobs
 An *embarrassingly parallel* job is the most scalable scenario in Azure Stream Analytics. It connects one partition of the input to one instance of the query to one partition of the output. This parallelism has the following requirements:
 
-1. If your query logic depends on the same key being processed by the same query instance, you must make sure that the events go to the same partition of your input. For outputs to Event Hubs or IoT Hub, the event data must have the **PartitionKey** value set. Alternatively, you can use partitioned senders. For blob storage, the events are sent to the same partition folder. An example would be a query instance that aggregates data per userID where input event hub is partitioned using userID as partition key. However, if your query logic does not require the same key to be processed by the same query instance, you can ignore this requirement. An example of this logic would be a simple select-project-filter query.
+1. If your query logic depends on the same key being processed by the same query instance, you must make sure that the events go to the same partition of your input. For Event Hubs or IoT Hub, this means that the event data must have the **PartitionKey** value set. Alternatively, you can use partitioned senders. For blob storage, this means that the events are sent to the same partition folder. An example would be a query instance that aggregates data per userID where input event hub is partitioned using userID as partition key. However, if your query logic doesn't require the same key to be processed by the same query instance, you can ignore this requirement. An example of this logic would be a simple select-project-filter query.  
 
-2. The next step is to make your query partitioned. For jobs with compatibility level 1.2 or higher (recommended), custom column can be specified as Partition Key in the input settings and the job will be parallelized automatically. Jobs with compatibility level 1.0 or 1.1, requires you to use **PARTITION BY PartitionId** in all the steps of your query. Multiple steps are allowed, but they all must be partitioned by the same key. 
+2. The next step is to make your query be partitioned. For jobs with compatibility level 1.2 or higher (recommended), custom column can be specified as Partition Key in the input settings and the job will be paralelled automatically. Jobs with compatibility level 1.0 or 1.1, requires you to use **PARTITION BY PartitionId** in all the steps of your query. Multiple steps are allowed, but they all must be partitioned by the same key. 
 
-3. Most of the outputs supported in Stream Analytics can take advantage of partitioning. If you use an output type that doesn't support partitioning your job won't be *embarrassingly parallel*. For Event Hubs outputs, ensure **Partition key column** is set to the same partition key used in the query. Refer to the [output section](#outputs) for more details.
+3. Most of the outputs supported in Stream Analytics can take advantage of partitioning. If you use an output type that doesn't support partitioning your job won't be *embarrassingly parallel*. For Event Hubs output, ensure **Partition key column** is set to the same partition key used in the query. Refer to the [output section](#outputs) for more details.
 
 4. The number of input partitions must equal the number of output partitions. Blob storage output can support partitions and inherits the partitioning scheme of the upstream query. When a partition key for Blob storage is specified, data is partitioned per input partition thus the result is still fully parallel. Here are examples of partition values that allow a fully parallel job:
 
@@ -112,7 +112,7 @@ Query:
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 ```
 
-This query has a grouping key. Therefore, the events grouped together must be sent to the same event hub partition. Since in this example we group by TollBoothID, we should be sure that TollBoothID is used as the partition key when the events are sent to Event Hubs. Then in ASA, we can use **PARTITION BY PartitionId** to inherit from this partition scheme and enable full parallelization. Since the output is blob storage, we don't need to worry about configuring a partition key value, as per requirement #4.
+This query has a grouping key. Therefore, the events grouped together must be sent to the same Event Hubs partition. Since in this example we group by TollBoothID, we should be sure that TollBoothID is used as the partition key when the events are sent to Event Hubs. Then in ASA, we can use **PARTITION BY PartitionId** to inherit from this partition scheme and enable full parallelization. Since the output is blob storage, we don't need to worry about configuring a partition key value, as per requirement #4.
 
 ## Example of scenarios that are *not* embarrassingly parallel
 
@@ -128,7 +128,7 @@ If the input partition count doesn't match the output partition count, the topol
 * Input: Event hub with eight partitions
 * Output: Power BI
 
-Power BI output doesn't currently support partitioning. Therefore, this scenario isn't parallel.
+Power BI output doesn't currently support partitioning. Therefore, this scenario isn't embarrassingly parallel.
 
 ### Multi-step query with different PARTITION BY values
 * Input: Event hub with eight partitions
@@ -149,7 +149,7 @@ Query:
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-As you can see, the second step uses **TollBoothId** as the partitioning key. This step isn't the same as the first step, and it therefore requires us to do a shuffle. This job isn't parallel.
+As you can see, the second step uses **TollBoothId** as the partitioning key. This step isn't the same as the first step, and it therefore requires us to do a shuffle. 
 
 ### Multi-step query with different PARTITION BY values
 * Input: Event hub with eight partitions ("Partition key column" not set, default to "PartitionId")
@@ -170,7 +170,7 @@ Query:
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-Compatibility level 1.2 or above enables parallel query execution by default. But here the keys aren't aligned. If we knew the input event hub to be partitioned by "TollBoothId", we could set it up in the input config and get a parallel job. In any case, the PARTITION BY clause isn't required.
+Compatibility level 1.2 or above enables parallel query execution by default. For example, query from the previous section will be partitioned as long as "TollBoothId" column is set as input Partition Key. PARTITION BY PartitionId clause isn't required.
 
 ## Calculate the maximum streaming units of a job
 The total number of streaming units that can be used by a Stream Analytics job depends on the number of steps in the query defined for the job and the number of partitions for each step.
@@ -272,7 +272,7 @@ The following observations use a Stream Analytics job with stateless (passthroug
 | 5 K     |    6    |  6 TU   |
 | 10 K    |    12   |  10 TU  |
 
-The [Event Hubs](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs) service scales linearly in terms of streaming units (SU) and throughput, making it the most efficient and performant way to analyze and stream data out of Stream Analytics. Jobs can be scaled up to 192 SU, which roughly translates to processing up to 200 MB/s, or 19 trillion events per day.
+The [Event Hubs](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs) solution scales linearly in terms of streaming units (SU) and throughput, making it the most efficient and performant way to analyze and stream data out of Stream Analytics. Jobs can be scaled up to 396 SU, which roughly translates to processing up to 400 MB/s, or 38 trillion events per day.
 
 #### Azure SQL
 |Ingestion Rate (events per second) | Streaming Units | Output Resources  |
