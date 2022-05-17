@@ -238,7 +238,7 @@ To build and deploy the initial solution to Azure Container Apps, run the "Build
 1. Open the **Actions** tab in your GitHub repository.
 1. In the left side menu, select the **Build and Deploy** baseline workflow.
 
-   :::image type="content" source="media/container-store-dapr/run-workflow.png" alt-text="Screenshot of the Actions tab in GitHub and running the workflow.":::
+   :::image type="content" source="media/dapr-github-actions/run-workflow.png" alt-text="Screenshot of the Actions tab in GitHub and running the workflow.":::
 
 1. Select **Run workflow**.
 1. In the prompt, leave the **Use workflow from** value as _Branch: main_.
@@ -251,21 +251,21 @@ After the workflow successfully completes, verify the application is running in 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. In the search field, enter _my-containerapp-store_ and select the "my-containerapp-store" resource group.
 
-   :::image type="content" source="media/container-store-dapr/search-resource-group.png" alt-text="Screenshot of searching for and finding the my container app store resoure group.":::
+   :::image type="content" source="media/dapr-github-actions/search-resource-group.png" alt-text="Screenshot of searching for and finding the my container app store resoure group.":::
 
 1. Navigate to the container app called **node-app**.
 
-   :::image type="content" source="media/container-store-dapr/node-app.png" alt-text="Screenshot of the node app container app in the resource group list of resources.":::
+   :::image type="content" source="media/dapr-github-actions/node-app.png" alt-text="Screenshot of the node app container app in the resource group list of resources.":::
 
 1. Select the **Application Url**.
 
-   :::image type="content" source="media/container-store-dapr/app-url.png" alt-text="Screenshot of the application url.":::
+   :::image type="content" source="media/dapr-github-actions/app-url.png" alt-text="Screenshot of the application url.":::
 
 1. Test successful deployment by creating a new order:
     1. Enter an **Id** and **Item**.
     1. Click **Create**.   
   
-       :::image type="content" source="media/container-store-dapr/create-order.png" alt-text="Screenshot of creating an order via the application url.":::
+       :::image type="content" source="media/dapr-github-actions/create-order.png" alt-text="Screenshot of creating an order via the application url.":::
 
     If the order was persisted, you will be redirected to a page that says "Order created!"  
 
@@ -275,7 +275,7 @@ After the workflow successfully completes, verify the application is running in 
     1. Enter the item **Id**.
     1. Select **View**. 
     
-       :::image type="content" source="media/container-store-dapr/view-order.png" alt-text="Screenshot of viewing the order via the view order form.":::
+       :::image type="content" source="media/dapr-github-actions/view-order.png" alt-text="Screenshot of viewing the order via the view order form.":::
 
       You will be redirected to a new page displaying the order object. 
 
@@ -470,15 +470,15 @@ For this tutorial, you'll add a **Delete Order** operation to your store.
 
 1. In the left side menu, select **Application** > **Revision Management**. 
 
-   :::image type="content" source="media/container-store-dapr/revision-mgmt.png" alt-text="Screenshot that shows Revision Management in the left side menu.":::
+   :::image type="content" source="media/dapr-github-actions/revision-mgmt.png" alt-text="Screenshot that shows Revision Management in the left side menu.":::
 
 1. Check the box in the upper-right corner for **Show inactive revisions**. 
 
-   :::image type="content" source="media/container-store-dapr/show-inactive.png" alt-text="Screenshot of selecting the Show inactive revisions checkbox.":::
+   :::image type="content" source="media/dapr-github-actions/show-inactive.png" alt-text="Screenshot of selecting the Show inactive revisions checkbox.":::
 
 Notice the node-app now has two revisions:
 
-:::image type="content" source="media/container-store-dapr/two-revisions.png" alt-text="Screenshot that shows both the inactive and active revisions on the node app.":::
+:::image type="content" source="media/dapr-github-actions/two-revisions.png" alt-text="Screenshot that shows both the inactive and active revisions on the node app.":::
 
 
 | Revision | Description |
@@ -488,7 +488,7 @@ Notice the node-app now has two revisions:
 
 Since our Container App is in **single revision mode**, Container Apps created a new revision and automatically set it to `active` with 100% traffic. View this new revision in action by refreshing the node-app UI.
 
-:::image type="content" source="media/container-store-dapr/revision-ui.png" alt-text="Screenshot of the node app after building and deploying the delete order revision.":::
+:::image type="content" source="media/dapr-github-actions/revision-ui.png" alt-text="Screenshot of the node app after building and deploying the delete order revision.":::
 
 Select on each revision in the **Revision management** table to view revision details.
 
