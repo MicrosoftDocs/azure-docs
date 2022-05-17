@@ -52,6 +52,8 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 
 [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
 
+See the [support matrix](azure-to-azure-support-matrix.md#replicated-machines---storage) for information about support for other encryption features.
+
 ### Can I select an automation account from a different resource group?
 
 When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account.
