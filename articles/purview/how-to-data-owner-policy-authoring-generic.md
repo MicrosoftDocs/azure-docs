@@ -53,7 +53,7 @@ This section describes the steps to create a new policy in Microsoft Purview.
 
 1. Select the **Data Resources** button to bring up the window to enter Data resource information, which will open to the right.
 
-1. Under the **Data Resources** Panel do one of two things depending on the granularity of the policy:
+1. Under the **Data Resources** Panel do **one of two things** depending on the granularity of the policy:
     - To create a broad policy statement that covers an entire data source, resource group, or subscription that was previously registered, use the **Data sources** box and select its **Type**.
     - To create a fine-grained policy, use the **Assets** box instead. Enter the **Data Source Type** and the **Name** of a previously registered and scanned data source. See example in the image.
 
