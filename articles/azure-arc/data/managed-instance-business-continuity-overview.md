@@ -11,13 +11,9 @@ ms.date: 01/27/2022
 ms.topic: conceptual
 ---
 
-# Overview: Azure Arc-enabled SQL Managed Instance business continuity (preview)
+# Overview: Azure Arc-enabled SQL Managed Instance business continuity
 
 Business continuity is a combination of people, processes, and technology that enables businesses to recover and continue operating in the event of disruptions. In hybrid scenarios there is a joint responsibility between Microsoft and customer, such that  customer owns and manages the on-premises infrastructure while the software is provided by Microsoft. 
-
-Business continuity for Azure Arc-enabled SQL Managed Instance is available as preview.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Features
 
