@@ -7,7 +7,7 @@ ms.author: aahi
 manager: nitinme
 ms.reviewer: cahann, hazemelh
 ms.service: language
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 05/17/2022
 ---
 
@@ -25,7 +25,7 @@ This tutorial will include creating a **chit chat** knowledge base and **email c
 - Create a [Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) **and select the custom question answering feature** in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
   - You will need the key and endpoint from the resource you create to connect your bot to the API. You'll paste your key and endpoint into the code below later in the tutorial. Copy them from the **Keys and Endpoint** tab in your resource.
   - When you enable custom question answering, you must select an Azure search resource to connect to.
-  - Make sure the region of your resource is supported by [conversational language understanding](../../conversational-language-understanding/service-limits#regional-availability).
+  - Make sure the region of your resource is supported by [conversational language understanding](../../conversational-language-understanding/service-limits.md#regional-availability).
 - Download the **OrchestrationWorkflowSample** sample in [**.NET**](https://aka.ms/orchestration-sample).
 
 ## Create a custom question answering knowledge base
@@ -35,7 +35,7 @@ This tutorial will include creating a **chit chat** knowledge base and **email c
 3. Click on **Create new project** and add the name **chitchat** with the language _English_ before clicking on **Create project**.
 4. When the project loads, click on **Add source** and select _Chit chat_. Select the professional personality for chit chat before
 
-:::image type="content" source="../media/chitchat.png" alt-text="A screenshot of the chit chat popup." lightbox="../media/chitchat":::
+:::image type="content" source="../media/chitchat.png" alt-text="A screenshot of the chit chat popup." lightbox="../media/chitchat.png":::
 
 5. Go to **Deploy knowledge base** from the left navigation menu and click on **Deploy** and confirm the popup that shows up.
 

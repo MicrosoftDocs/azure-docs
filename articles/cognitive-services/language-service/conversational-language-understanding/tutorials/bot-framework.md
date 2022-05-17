@@ -6,8 +6,8 @@ author: aahill
 ms.author: aahi
 manager: nitinme
 ms.reviewer: cahann, hazemelh
-ms.service: language
-ms.topic: how-to
+ms.service: language-service
+ms.topic: tutorial
 ms.date: 05/17/2022
 ---
 
