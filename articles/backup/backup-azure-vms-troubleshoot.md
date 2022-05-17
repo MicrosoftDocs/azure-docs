@@ -391,12 +391,13 @@ To resolve this issue, try to restore the VM from a different restore point.<br>
 
 Migration of Trusted Launch VM to Generation 2 VM is not supported. This is because the VM Guest State (VMGS) blob created for Trusted Launch VMs isn't present for Generation 2 VM. Therefore, the VM won't start. 
 
-**Scenario 2**: Unable to create a VM with the same name as of Trusted Launch VM that was previously deleted.
+**Scenario 2**: Unable to protect a Standard VM with the same name as of Trusted Launch VM that was previously deleted.
 
 To resolve this issue:
 
 1. [Disable soft delete](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal).
 1. [Stop VM protection with delete backup data](backup-azure-manage-vms.md#stop-protection-and-delete-backup-data).
+1. Re-enable soft delete.
 1. Configure VM protection again with the appropriate policy after the old backup data deletion is complete from the Recovery Services vault.
 
 >[!Note]
