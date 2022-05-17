@@ -55,6 +55,21 @@ Azure CLI authentication isn't recommended for applications running in Azure.
 
 To learn more about different authentication methods, check out [Azure authentication with the Azure SDK for Go](/azure/developer/go/azure-sdk-authentication).
 
+
+## Assign RBAC permissions to the storage account
+
+Azure storage accounts require explicit permissions to perform read and write operations. In order to use the storage account, you must assign permissions to the account. To do that you'll need to assing an appropriate RBAC role to your account. To get the `objectID` of the currently signed in user, run `az ad signed-in-user show --query objectId`.
+
+Run the following AzureCli command to assign the storage account permissions:
+
+```azurecli
+az role assignment create --assignee "<ObjectID>" --role "Storage Blob Data Contributor" --scope "<StorageAccountResourceID>"
+```
+
+Learn more about Azure's built-in RBAC roles, click [here](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+
+> Note: Azure Cli has built in helper fucntions that retrieve the storage access keys when permissions are not detected. That functionally does not transfer to the DefaultAzureCredential, which is the reason for assiging RBAC roles to your account.
+
 ## Run the sample
 
 This sample creates an Azure storage container, uploads a blob, lists the blobs in the container, then downloads the blob data into a buffer.
