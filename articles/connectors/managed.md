@@ -1,34 +1,73 @@
 ---
-title: Managed connector operations
-description: Use Microsoft-managed triggers and actions to create automated workflows that integrate other apps, data, services, and systems using Azure Logic Apps.
+title: Overview about managed connectors in Azure Logic Apps
+description: Learn about Microsoft-managed connectors to create automated integration workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/16/2021
+ms.date: 05/10/2022
 ---
 
 # Managed connectors in Azure Logic Apps
 
-[Managed connectors](apis-list.md) provide ways for you to access other services and systems where [built-in triggers and actions](built-in.md) aren't available. You can use these triggers and actions to create workflows that integrate data, apps, cloud-based services, and on-premises systems. Compared to built-in triggers and actions, these connectors are usually tied to a specific service or system such as Azure Blob Storage, Office 365, SQL, Salesforce, or SFTP servers. Managed by Microsoft and hosted in Azure, managed connectors usually require that you first create a connection from your workflow and authenticate your identity. Both recurrence-based and webhook-based triggers are available, so if you use a recurrence-based trigger, review the [Recurrence behavior overview](apis-list.md#recurrence-behavior).
+Managed connectors provide ways for you to access other services and systems where built-in connectors aren't available. You can use these triggers and actions to create workflows that integrate data, apps, cloud-based services, and on-premises systems. Different from built-in connectors, managed connectors are usually tied to a specific service or system such as Office 365, SharePoint, Azure Key Vault, Salesforce, Azure Automation, and so on. Managed by Microsoft and hosted in Azure, managed connectors usually require that you first create a connection from your workflow and authenticate your identity.
 
-For a small number of services, systems and protocols, Azure Logic Apps provides built-in operations along with their [managed connector versions](managed.md). The number and range available vary based on whether you create a Consumption plan-based logic app resource that runs in multi-tenant Azure Logic Apps, or a Standard plan-based logic app resource that runs in single-tenant Azure Logic Apps. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md). In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
+For a smaller number of services, systems and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app that runs in multi-tenant Azure Logic Apps, or a Standard logic app that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app type, and not the other.
 
-For example, if you create a single-tenant logic app, built-in operations are available for Azure Service Bus, Azure Event Hubs, SQL Server, and MQ. In a few cases, both a built-in version and a managed connector version are available. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. If you create a multi-tenant logic app, built-in operations are available for Azure Functions, Azure App Services, and Azure API Management.
+For example, a Standard logic app provides both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption logic app doesn't have the built-in versions. A Consumption logic app provides built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard logic app doesn't have these built-in connectors. For more information, review the following documentation: [Built-in connectors in Azure Logic Apps](built-in.md) and  [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
 
-Some managed connectors in Azure Logic Apps belong to multiple sub-categories. For example, the SAP connector is both an [enterprise connector](#enterprise-connectors) and an [on-premises connector](#on-premises-connectors).
+This article provides a general overview about managed connectors and how they're organized in Consumption logic apps versus Standard logic apps with examples. For technical reference information about each managed connector in Azure Logic Apps, review [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+
+## Managed connector categories
+
+In a *Standard* logic app, all managed connectors are organized into the **Azure** group. In a *Consumption* logic app, managed connectors are organized into the **Standard** group or **Enterprise** group. However, pricing for managed connectors works the same in both Standard and Consumption logic apps. For more information, review [Trigger and action operations in the Consumption model](../logic-apps/logic-apps-pricing.md#consumption-operations) and [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
 
 * [Standard connectors](#standard-connectors) provide access to services such as Azure Blob Storage, Office 365, SharePoint, Salesforce, Power BI, OneDrive, and many more.
-* [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems, such as SAP, IBM MQ, and IBM 3270.
+
+* [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems, such as SAP, IBM MQ, and IBM 3270 for an additional cost.
+
+Some managed connectors also belong to the following informal groups:
+
 * [On-premises connectors](#on-premises-connectors) provide access to on-premises systems such as SQL Server, SharePoint Server, SAP, Oracle DB, file shares, and others.
+
 * [Integration account connectors](#integration-account-connectors) help you transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages using AS2, EDIFACT, and X12 protocols.
-* [Integration service environment connectors](#ise-connectors) and are designed to run specifically in an ISE and offer benefits over their non-ISE versions.
+
+* [Integration service environment connectors](#ise-connectors) and are designed to run specifically in an ISE and provide benefits over their non-ISE versions.
+
+<a name="standard-connectors"></a>
 
 ## Standard connectors
 
-Azure Logic Apps provides these popular Standard connectors for building automated workflows using these services and systems. Some Standard connectors also support [on-premises systems](#on-premises-connectors) or [integration accounts](#integration-account-connectors).
+For a *Consumption* logic app, this section lists *some* of the popular connectors in the **Standard** group. In a *Standard* logic app, all managed connectors are in the **Azure** group, but pricing works the same as Consumption logic apps. For more information, review [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
 
 :::row:::
+    :::column:::
+        [![Azure Blob Storage icon][azure-blob-storage-icon]][azure-blob-storage-doc]
+        \
+        \
+        [**Azure Blob Storage**][azure-blob-storage-doc]
+        \
+        \
+        Connect to your Azure Storage account so that you can create and manage blob content.
+    :::column-end:::
+    :::column:::
+        [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
+        \
+        \
+        [**Azure Event Hubs**][azure-event-hubs-doc]
+        \
+        \
+        Consume and publish events through an event hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider.
+    :::column-end:::
+    :::column:::
+        [![Azure Queues icon][azure-queues-icon]][azure-queues-doc]
+        \
+        \
+        [**Azure Queues**][azure-queues-doc]
+        \
+        \
+        Connect to your Azure Storage account so that you can create and manage queues and messages.
+    :::column-end:::
     :::column:::
         [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
         \
@@ -38,23 +77,34 @@ Azure Logic Apps provides these popular Standard connectors for building automat
         \
         Manage asynchronous messages, sessions, and topic subscriptions with the most commonly used connector in Logic Apps.
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
-        [![SQL Server icon][sql-server-icon]][sql-server-doc]
+        [![Azure Table Storage icon][azure-table-storage-icon]][azure-table-storage-doc]
         \
         \
-        [**SQL Server**][sql-server-doc]
+        [**Azure Table Storage**][azure-table-storage-doc]
         \
         \
-        Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
+        Connect to your Azure Storage account so that you can create, update, query, and manage tables.
     :::column-end:::
     :::column:::
-        [![Azure Blog Storage icon][azure-blob-storage-icon]][azure-blob-storage-doc]
+        [![File System icon][file-system-icon]][file-system-doc]
         \
         \
-        [**Azure Blob Storage**][azure-blob-storage-doc]
+        [**File System**][file-system-doc]
         \
         \
-        Connect to your Azure Storage account so that you can create and manage blob content.
+        Connect to your on-premises file share so that you can create and manage files.
+    :::column-end:::
+    :::column:::
+        [![FTP icon][ftp-icon]][ftp-doc]
+        \
+        \
+        [**FTP**][ftp-doc]
+        \
+        \
+        Connect to FTP servers you can access from the internet so that you can work with your files and folders.
     :::column-end:::
     :::column:::
         [![Office 365 Outlook icon][office-365-outlook-icon]][office-365-outlook-doc]
@@ -68,13 +118,13 @@ Azure Logic Apps provides these popular Standard connectors for building automat
 :::row-end:::
 :::row:::
     :::column:::
-        [![STFP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
+        [![Salesforce icon][salesforce-icon]][salesforce-doc]
         \
         \
-        [**STFP-SSH**][sftp-ssh-doc]
+        [**Salesforce**][salesforce-doc]
         \
         \
-        Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
+        Connect to your Salesforce account so that you can create and manage items such as records, jobs, objects, and more.
     :::column-end:::
     :::column:::
         [![SharePoint Online icon][sharepoint-online-icon]][sharepoint-online-doc]
@@ -86,70 +136,69 @@ Azure Logic Apps provides these popular Standard connectors for building automat
         Connect to SharePoint Online so that you can manage files, attachments, folders, and more.
     :::column-end:::
     :::column:::
-        [![Azure Queues icon][azure-queues-icon]][azure-queues-doc]
+        [![SFTP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
         \
         \
-        [**Azure Queues**][azure-queues-doc]
+        [**SFTP-SSH**][sftp-ssh-doc]
         \
         \
-        Connect to your Azure Storage account so that you can create and manage queues and messages.
+        Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
     :::column-end:::
     :::column:::
-        [![FTP icon][ftp-icon]][ftp-doc]
+        [![SQL Server icon][sql-server-icon]][sql-server-doc]
         \
         \
-        [**FTP**][ftp-doc]
+        [**SQL Server**][sql-server-doc]
         \
         \
-        Connect to FTP servers you can access from the internet so that you can work with your files and folders.
+        Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
     :::column-end:::
 :::row-end:::
+
+<a name="enterprise-connectors"></a>
+
+## Enterprise connectors
+
+For a *Consumption* logic app, this section lists connectors in the **Enterprise** group, which can access enterprise systems for an additional cost. In a *Standard* logic app, all managed connectors are in the **Azure** group, but pricing is the same as for Consumption logic apps. For more information, review [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
+
 :::row:::
     :::column:::
-        [![File System icon][file-system-icon]][file-system-doc]
+        [![IBM 3270 icon][ibm-3270-icon]][ibm-3270-doc]
         \
         \
-        [**File System**][file-system-doc]
-        \
-        \
-        Connect to your on-premises file share so that you can create and manage files.
+        [**IBM 3270**][ibm-3270-doc]
     :::column-end:::
     :::column:::
-        [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
+        [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
         \
         \
-        [**Azure Event Hubs**][azure-event-hubs-doc]
-        \
-        \
-        Consume and publish events through an Event Hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider.
+        [**MQ**][ibm-mq-doc]
     :::column-end:::
     :::column:::
-        [![Azure Event Grid icon][azure-event-grid-icon]][azure-event-grid-doc]
+        [![SAP icon][sap-icon]][sap-connector-doc]
         \
         \
-        [**Azure Event Grid**][azure-event-grid-doc]
-        \
-        \
-        Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change.
+        [**SAP**][sap-connector-doc]
     :::column-end:::
     :::column:::
-        [![Salesforce icon][salesforce-icon]][salesforce-doc]
-        \
-        \
-        [**Salesforce**][salesforce-doc]
-        \
-        \
-        Connect to your Salesforce account so that you can create and manage items such as records, jobs, objects, and more.
     :::column-end:::
 :::row-end:::
+
+<a name="on-premises-connectors"></a>
 
 ## On-premises connectors
 
 Before you can create a connection to an on-premises system, you must first [download, install, and set up an on-premises data gateway][gateway-doc]. This gateway provides a secure communication channel without having to set up the necessary network infrastructure.
 
-The following connectors are some commonly used [Standard connectors](#standard-connectors) that Azure Logic Apps provides for accessing data and resources in on-premises systems. For the on-premises connectors list, see [Supported data sources](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
+For a *Consumption* logic app, this section lists example [Standard connectors](#standard-connectors) that can access on-premises systems. For the expanded on-premises connectors list, review [Supported data sources](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
+    :::column:::
+        [![Apache Impala][apache-impala-icon]][apache-impala-doc]
+        \
+        \
+        [**Apache Impala**][apache-impala-doc]
+    :::column-end:::
     :::column:::
         [![Biztalk Server icon][biztalk-server-icon]][biztalk-server-doc]
         \
@@ -174,14 +223,14 @@ The following connectors are some commonly used [Standard connectors](#standard-
         \
         [**IBM Informix**][ibm-informix-doc]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         [![MySQL icon][mysql-icon]][mysql-doc]
         \
         \
         [**MySQL**][mysql-doc]
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         [![Oracle DB icon][oracle-db-icon]][oracle-db-doc]
         \
@@ -195,13 +244,17 @@ The following connectors are some commonly used [Standard connectors](#standard-
         [**PostgreSQL**][postgre-sql-doc]
     :::column-end:::
     :::column:::
+        [![SAP icon][sap-icon]][sap-connector-doc]
+        \
+        \
+        [**SAP**][sap-connector-doc]
+    :::column-end:::
+    :::column:::
         [![SharePoint Server icon][sharepoint-server-icon]][sharepoint-server-doc]
         \
         \
         [**SharePoint Server**][sharepoint-server-doc]
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         [![SQL Server icon][sql-server-icon]][sql-server-doc]
         \
@@ -214,23 +267,28 @@ The following connectors are some commonly used [Standard connectors](#standard-
         \
         [**Teradata**][teradata-doc]
     :::column-end:::
-    :::column:::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
 :::row-end:::
 
 <a name="integration-account-connectors"></a>
 
 ## Integration account connectors
 
-Integration account connectors specifically support [business-to-business (B2B) communication scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md) in Azure Logic Apps. After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) and define your B2B artifacts, such as trading partners, agreements, maps, and schemas, you can use integration account connectors to encode and decode messages, transform content, and more.
+Integration account operations specifically support business-to-business (B2B) communication scenarios in Azure Logic Apps. After you create an integration account and define your B2B artifacts, such as trading partners, agreements, maps, and schemas, you can use integration account connectors to encode and decode messages, transform content, and more.
 
-For example, if you use Microsoft BizTalk Server, you can create a connection from your workflow using the [BizTalk Server on-premises connector](#on-premises-connectors). You can then extend or perform BizTalk-like operations in your workflow by using these integration account connectors.
+For example, if you use Microsoft BizTalk Server, you can create a connection from your workflow using the [on-premises BizTalk Server connector](/connectors/biztalk/). You can then extend or perform BizTalk-like operations in your workflow by using these integration account connectors.
 
-> [!NOTE]
-> Before you can use integration account connectors in multi-tenant, Consumption plan-based Azure Logic Apps, you must 
-> [link your logic app resource to an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). 
+* Consumption logic apps
+
+  Before you use any integration account operations in a Consumption logic app, you have to [link your logic app to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+
+* Standard logic apps
+
+  Integration account operations don't require that you link your logic app to your integration account. Instead, you create a connection to your integration account when you add the operation to your Standard logic app workflow.
+
+For more information, review the following documentation:
+
+* [Business-to-business (B2B) enterprise integration workflows](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Create and manage integration accounts for B2B workflows](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 :::row:::
     :::column:::
@@ -268,33 +326,6 @@ For example, if you use Microsoft BizTalk Server, you can create a connection fr
         \
         \
         [**X12 encoding**][x12-encode-doc]
-    :::column-end:::
-:::row-end:::
-
-## Enterprise connectors
-
-The following connectors provide access to enterprise systems for an additional cost:
-
-:::row:::
-    :::column:::
-        [![IBM 3270 icon][ibm-3270-icon]][ibm-3270-doc]
-        \
-        \
-        [**IBM 3270**][ibm-3270-doc]
-    :::column-end:::
-    :::column:::
-        [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
-        \
-        \
-        [**IBM MQ**][ibm-mq-doc]
-    :::column-end:::
-    :::column:::
-        [![SAP icon][sap-icon]][sap-connector-doc]
-        \
-        \
-        [**SAP**][sap-connector-doc]
-    :::column-end:::
-    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -474,6 +505,7 @@ For more information, see these topics:
 > [Create custom APIs you can call from Logic Apps](../logic-apps/logic-apps-create-api-app.md)
 
 <!--Managed connector icons-->
+[apache-impala-icon]: ./media/apis-list/apache-impala.png
 [appfigures-icon]: ./media/apis-list/appfigures.png
 [asana-icon]: ./media/apis-list/asana.png
 [azure-automation-icon]: ./media/apis-list/azure-automation.png
@@ -552,6 +584,7 @@ For more information, see these topics:
 [youtube-icon]: ./media/apis-list/youtube.png
 
 <!--Managed connector doc links-->
+[apache-impala-doc]: /connectors/azureimpala/ "Connect to your Impala database to read data from tables"
 [azure-automation-doc]: /connectors/azureautomation/ "Create and manage automation jobs for your cloud and on-premises infrastructure"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure blob storage connector"
 [azure-cosmos-db-doc]: ./connectors-create-api-cosmos-db.md "Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents"
@@ -593,7 +626,7 @@ For more information, see these topics:
 [slack-doc]: ./connectors-create-api-slack.md "Connect to Slack and post messages to Slack channels"
 [smtp-doc]: ./connectors-create-api-smtp.md "Connect to an SMTP server and send email with attachments"
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost for communication"
-[sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table"
+[sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in an SQL database table"
 [teradata-doc]: /connectors/teradata/ "Connect to your Teradata database to read data from tables"
 [twilio-doc]: ./connectors-create-api-twilio.md "Connect to Twilio. Send and get messages, get available numbers, manage incoming phone numbers, and more"
 [youtube-doc]: ./connectors-create-api-youtube.md "Connect to YouTube. Manage your videos and channels"
