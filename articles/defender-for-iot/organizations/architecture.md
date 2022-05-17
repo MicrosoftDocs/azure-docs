@@ -15,7 +15,7 @@ The following image shows how data can stream into Defender for IoT from network
 
 Defender for IoT connects to both cloud and on-premises components, and is built for scalability in large and geographically distributed environments.
 
-Defender for IoT systems includes the following components:
+Defender for IoT systems include the following components:
 
 - The Azure portal, for cloud management and integration to other Microsoft services, such as Microsoft Sentinel.
 - Network sensors, deployed on either a virtual machine or a physical appliance. You can configure your OT sensors as cloud-connected sensors, or fully on-premises sensors.
@@ -24,7 +24,7 @@ Defender for IoT systems includes the following components:
 
 ## Network sensors
 
-Defender for IoT network sensors discovers and continuously monitor network traffic on IoT and OT devices.
+Defender for IoT network sensors discover and continuously monitor network traffic on IoT and OT devices.
 
 - Purpose-built for IoT and OT networks, sensors connect to a SPAN port or network TAP and can provide visibility into IoT and OT risks within minutes of connecting to the network.
 
