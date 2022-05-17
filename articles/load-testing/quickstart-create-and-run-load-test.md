@@ -38,7 +38,7 @@ To create a Load Testing resource:
 
 ## <a name="create_test"></a> Create a load test
 
-With Azure Load Testing, you can run a load test for a website.
+Azure Load Testing enables you to quickly create a load test from the Azure portal. You'll specify the web application URL and the basic load testing parameters. Azure Load Testing abstracts the complexity of creating the load test script and provisioning the compute infrastructure.
 
 1. Go to your Azure Load Testing resource overview. On the **Get started** tab, click on the **Quickstart** button.
     
