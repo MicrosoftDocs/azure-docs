@@ -10,13 +10,14 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2022
+ms.custom: subject-rbac-steps
 ---
 
 # Set up a connection to an Azure Storage account using a managed identity
 
 This article describes how to set up an Azure Cognitive Search indexer connection to an Azure Storage account using a managed identity instead of providing credentials in the connection string.
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure AD logins and require Azure role assignments to access data in Azure Storage.
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure AD logins and require Azure role assignments to access data in Azure Storage. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 This article assumes familiarity with indexer concepts and configuration. If you're new to indexers, start with these links:
 

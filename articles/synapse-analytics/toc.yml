@@ -238,6 +238,8 @@ items:
       href: database-designer/create-lake-database-from-lake-database-templates.md
     - name: Modify a lake database
       href: database-designer/modify-lake-database.md
+    - name: Clone a lake database
+      href: database-designer/clone-lake-database.md  
 - name: Synapse SQL
   items:
   - name: Overview
@@ -430,7 +432,7 @@ items:
     - name: Security 
       items:
       - name: Database access control
-        href: ../azure-sql/database/logins-create-manage.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json
+        href: /azure/azure-sql/database/logins-create-manage?toc=%2fazure%2fsynapse-analytics%2ftoc.json
       - name: Shared database access control
         href: sql/shared-databases-access-control.md
       - name: Data security
@@ -442,9 +444,9 @@ items:
       - name: Data Encryption
         items:
         - name: Transparent Data Encryption overview
-          href: ../azure-sql/database/transparent-data-encryption-tde-overview.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json
+          href: /azure/azure-sql/database/transparent-data-encryption-tde-overview?toc=%2fazure%2fsynapse-analytics%2ftoc.json
         - name: TDE with bring your own key
-          href: ../azure-sql/database/transparent-data-encryption-byok-overview.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json
+          href: /azure/azure-sql/database/transparent-data-encryption-byok-overview?toc=%2fazure%2fsynapse-analytics%2ftoc.json
           displayName: transparent, data, encryption
     - name: Workload management
       items:
@@ -585,11 +587,11 @@ items:
       - name: Query with Visual Studio SSDT
         href: sql/get-started-visual-studio.md
       - name: Query using .NET Core
-        href: ../azure-sql/database/connect-query-dotnet-core.md?context=/azure/synapse-analytics/context/context
+        href: /azure/azure-sql/database/connect-query-dotnet-core?context=/azure/synapse-analytics/context/context
       - name: Query using Visual Studio .NET
-        href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?context=/azure/synapse-analytics/context/context
+        href: /azure/azure-sql/database/connect-query-dotnet-visual-studio?context=/azure/synapse-analytics/context/context
       - name: Query using Python
-        href: ../azure-sql/database/connect-query-python.md?context=/azure/synapse-analytics/context/context
+        href: /azure/azure-sql/database/connect-query-python?context=/azure/synapse-analytics/context/context
       - name: Query with sqlcmd
         href: sql/get-started-connect-sqlcmd.md
 - name: Data Explorer
@@ -706,10 +708,12 @@ items:
       items:
         - name: Runtime overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 2.4 runtime
-          href: ./spark/apache-spark-24-runtime.md
+        - name: Azure Synapse Apache Spark 3.2 runtime
+          href: ./spark/apache-spark-32-runtime.md
         - name: Azure Synapse Apache Spark 3.1 runtime
           href: ./spark/apache-spark-3-runtime.md
+        - name: Azure Synapse Apache Spark 2.4 runtime
+          href: ./spark/apache-spark-24-runtime.md
     - name: Machine learning
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
@@ -860,8 +864,6 @@ items:
   #   items:
   # - name: Quickstarts
   #   items:
-  # - name: Tutorials
-  #   items:  
   - name: Quickstarts
     items:
     - name: Load data into SQL pools using copy activity
@@ -987,6 +989,8 @@ items:
         href: ../data-factory/connector-concur.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Couchbase
         href: ../data-factory/connector-couchbase.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: data.world
+        href: ../data-factory/connector-dataworld.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Dataverse
         href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: DB2
@@ -1133,6 +1137,8 @@ items:
         href: ../data-factory/connector-teamdesk.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics      
       - name: Teradata
         href: ../data-factory/connector-teradata.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Twilio
+        href: ../data-factory/connector-twilio.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics 
       - name: Vertica
         href: ../data-factory/connector-vertica.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Web Table
@@ -1460,13 +1466,13 @@ items:
   items:
   - name: Quickstarts
     items:
-    - name: Connect an Azure Purview Account
+    - name: Connect a Microsoft Purview Account
       href: ./catalog-and-governance/quickstart-connect-azure-purview.md
   - name: How-to guides
     items:
-    - name: Access a secured Azure Purview account
+    - name: Access a secured Microsoft Purview account
       href: ./catalog-and-governance/how-to-access-secured-purview-account.md
-    - name: Discover, connect and explore data in Synapse using Azure Purview
+    - name: Discover, connect and explore data in Synapse using Microsoft Purview
       href: ./catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md
 - name: How-to
   items:

@@ -80,11 +80,12 @@ The following properties are supported for the Twilio linked service:
 }
 ```
 
+## Mapping data flow properties
+
+When transforming data in mapping data flow, you can read resources from Twilio. For more information, see the [source transformation](data-flow-source.md) in mapping data flows. You can only use an [inline dataset](data-flow-source.md#inline-datasets) as source type.
 
 
 ### Source transformation
-
-When transforming data in mapping data flow, you can read resources from Twilio. For more information, see the [source transformation](data-flow-source.md) in mapping data flows. You can only use an [inline dataset](data-flow-source.md#inline-datasets) as source type.
 
 The below table lists the properties supported by Twilio source. You can edit these properties in the **Source options** tab.
 

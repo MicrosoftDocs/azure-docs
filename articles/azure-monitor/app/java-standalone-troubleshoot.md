@@ -13,12 +13,12 @@ In this article, we cover some of the common issues that you might face while in
 ## Check the self-diagnostic log file
 
 By default, Application Insights Java 3.x produces a log file named `applicationinsights.log` in the same directory
-that holds the `applicationinsights-agent-3.2.9.jar` file.
+that holds the `applicationinsights-agent-3.2.11.jar` file.
 
 This log file is the first place to check for hints to any issues you might be experiencing.
 
 If no log file is generated, check that your Java application has write permission to the directory that holds the
-`applicationinsights-agent-3.2.9.jar` file.
+`applicationinsights-agent-3.2.11.jar` file.
 
 If still no log file is generated, check the stdout log from your Java application. Application Insights Java 3.x
 should log any errors to stdout that would prevent it from logging to its normal location.

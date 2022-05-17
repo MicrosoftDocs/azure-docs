@@ -157,7 +157,7 @@ We're now ready to deploy our .NET app to the App Service.
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Deploy app service step 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01-240px.png" alt-text="A screenshot showing how to install the Azure Account and App Service extensions in Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01.png"::: |
-| [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-02-240px.png" alt-text="A screenshot showing how to use the Azure App Service extension to deploy an app to Azure from Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-02.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-folder-small.png" alt-text="A screenshot showing how to deploy using the publish folder." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-folder.png"::: :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-workflow-small.png" alt-text="A screenshot showing the command palette deployment workflow." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-workflow.png"::: |
 
 ### [Deploy using Local Git](#tab/azure-cli-deploy)
 
@@ -231,11 +231,11 @@ az sql server firewall-rule create --resource-group msdocs-core-sql --server <yo
 
 ---
 
-Next, update the appsettings.json file in our local app code with the Connection String of our Azure SQL Database. The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
+Next, update the appsettings.json file in our local app code with the [Connection String of our Azure SQL Database](#5---connect-the-app-to-the-database). The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
 
 ```json
 "ConnectionStrings": {
-    "MyDbConnection": "Server=tcp:coredbserver456.database.windows.net,1433;
+    "MyDbConnection": "Server=tcp:<your-server-name>.database.windows.net,1433;
         Initial Catalog=coredb;
         Persist Security Info=False;
         User ID=<username>;Password=<password>;

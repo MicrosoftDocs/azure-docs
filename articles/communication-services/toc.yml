@@ -75,6 +75,8 @@ items:
     items:
     - name: Get started with UI Library
       href: quickstarts/ui-library/get-started-composites.md
+    - name: Design with UI Library Design Kit
+      href: quickstarts/ui-library/get-started-ui-kit.md
   - name: Access TURN relays
     href: quickstarts/relay-token.md    
 - name: Tutorials
@@ -347,3 +349,5 @@ items:
   items:
   - name: Release notes
     href: https://github.com/Azure/Communication/blob/master/releasenotes
+  - name: Learn modules
+    href: resources/learn-modules.md
