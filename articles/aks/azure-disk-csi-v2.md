@@ -3,7 +3,7 @@ title: Container Storage Interface (CSI) driver v2 (preview) for Azure Disk on A
 description: Learn how to use the Container Storage Interface (CSI) driver v2 (preview) for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/13/2022
+ms.date: 05/17/2022
 author: palma21
 
 ---
@@ -11,7 +11,7 @@ author: palma21
 
 # Azure disk Container Storage Interface (CSI) driver v2 (preview)
 
-Azure disk CSI Driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes, and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. This article provides an overview of the 
+Azure disk CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes, and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. This article provides an overview of the driver and how it supports Azure disk storage.
 
 ## Architecture and components
 
@@ -25,11 +25,11 @@ There are three important components in the driver v2 implementation:
 
 * Node plug-in - In addition to the CSI Node API Server, this plug-in also provides feedback for pod placement used by the scheduler extender described below. The node plug-in is deployed on each node in the cluster as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
 
-* Scheduler extender plug-in - Azure disk CSI driver V2 (preview) includes a [scheduler extender](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/scheduler_extender.md) that is responsible for influencing pod placements. Like the controller plug-in, the scheduler extender is deployed as a [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) through [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) with leader election.
+* Scheduler extender plug-in - Azure disk CSI driver v2 (preview) includes a [scheduler extender](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/scheduler_extender.md) that is responsible for influencing pod placements. Like the controller plug-in, the scheduler extender is deployed as a [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) through [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) with leader election.
 
 ## Implementation
 
-This section describes the changes and high-level implementation details of the different components in the Azure disk CSI driver V2.
+This section describes the changes and high-level implementation details of the different components in the Azure disk CSI driver v2 (preview).
 
 ### StorageClass
 
@@ -46,7 +46,7 @@ The Azure disk CSI driver v2 (preview) uses three different custom resources def
 
 #### AzDriverNode resource and controller
 
-The `AzDriverNode` custom resource represents a node in the cluster where the v2 node plug-in runs. An instance of `AzDriverNode` is created when the node plug-in starts. The node plug-in periodically updates the heartbeat in the `Status` field.
+The `AzDriverNode` custom resource represents a node in the cluster where the v2 (preview) node plug-in runs. An instance of `AzDriverNode` is created when the node plug-in starts. The node plug-in periodically updates the heartbeat in the `Status` field.
 
 The controller for `AzDriverNode` runs in the controller plug-in. It is responsible for deleting `AzDriverNode` instances that no longer have corresponding nodes in the cluster.
 
@@ -54,25 +54,25 @@ The controller for `AzDriverNode` runs in the controller plug-in. It is responsi
 
 The `AzVolume` custom resource represents the managed disk of a `PersistentVolume`. The controller for `AzVolume` runs in the controller plug-in. It watches for and reconciles changes in the `AzVolume` instances.
 
-An `AzVolume` instance is created by the `CreateVolume` API to the CSI Controller plug-in. The `AzVolume` controller responds to the new instance by creating a managed disk using the parameters in the referenced `StorageClass`. When disk creation is complete, the controller sets the `.Status.State` field to `Created` or suitable error state on failure. The `CreateVolume` request completes when the `AzVolume` state is updated.
+An `AzVolume` instance is created by the CreateVolume API to the CSI Controller plug-in. The `AzVolume` controller responds to the new instance by creating a managed disk using the parameters in the referenced `StorageClass`. When disk creation is complete, the controller sets the `.Status.State` field to `Created` or suitable error state on failure. The CreateVolume request completes when the `AzVolume` state is updated.
 
-To delete a managed disk, the `DeleteVolume` API in the CSI Controller plug-in schedules the corresponding `AzVolume` instance for deletion. The controller responds by garbage collecting the managed disk. When the managed disk has been deleted, the controller deletes the `AzVolume` instance. The `DeleteVolume` request completes once the `AzVolume` instance has been removed from the object store.
+To delete a managed disk, the DeleteVolume API in the CSI Controller plug-in schedules the corresponding `AzVolume` instance for deletion. The controller responds by garbage collecting the managed disk. When the managed disk has been deleted, the controller deletes the `AzVolume` instance. The DeleteVolume request completes once the `AzVolume` instance has been removed from the object store.
 
 #### AzVolumeAttachment resource and controller
 
 The `AzVolumeAttachment` custom resource represents the attachment of a managed disk to a specific node. The controller for this custom resource runs in the controller plug-in and watches for changes in the `AzVolumeAttachment` instances.
 
-An `AzVolumeAttachment` instance representing the primary node attachment is created by the `ControllerPublishVolume` API in the CSI Controller plug-in. If an instance for the current node already exists, it is updated to represent the primary node attachment. The `AzVolumeAttachment` controller then attaches the managed disk to the primary node if it was not already attached as an attachment replica. It then creates additional `AzVolumeAttachment` instances representing attachment replicas and attaches the shared managed disk to a number of backup nodes as specified by the `maxMountReplicaCount` parameter in the `StorageClass` instance of the `PersistentVolumeClaim` of the managed disk. The `ControllerPublishVolume` request is complete once the `AzVolumeAttachment` instance for primary node has been created. As each the attachment request completes, the controller sets the `.Status.State` field to `Attached`. When the `NodeStageVolume` API is called, the CSI Node plug-in will wait for the its `AzVolumeAttachment` instance's state to reach `Attached` before staging the mount point to the disk.
+An `AzVolumeAttachment` instance representing the primary node attachment is created by the ControllerPublishVolume API in the CSI Controller plug-in. If an instance for the current node already exists, it is updated to represent the primary node attachment. The `AzVolumeAttachment` controller then attaches the managed disk to the primary node if it was not already attached as an attachment replica. It then creates additional `AzVolumeAttachment` instances representing attachment replicas and attaches the shared managed disk to a number of backup nodes as specified by the `maxMountReplicaCount` parameter in the `StorageClass` instance of the `PersistentVolumeClaim` of the managed disk. The ControllerPublishVolume request is complete once the `AzVolumeAttachment` instance for primary node has been created. As each the attachment request completes, the controller sets the `.Status.State` field to `Attached`. When the NodeStageVolume API is called, the CSI Node plug-in will wait for the its `AzVolumeAttachment` instance's state to reach `Attached` before staging the mount point to the disk.
 
-When the `ControllerUnpublishVolume` API in the CSI Controller plug-in is called, it schedules the `AzVolumeAttachment` instance of the primary node for deletion. The controller responds by detaching the managed disk from the primary node. The `AzVolumeAttachment` instance is deleted When the detach operation completes, and schedules garbage collection to detach and delete the attachment replicas if no subsequent `ControllerPublishVolume` request is made for the disk within 5 minutes. The `ControllerUnpublishVolume` request is complete when the detach operation has completed and corresponding `AzVolumeAttachment` has been removed from the object store.
+When the ControllerUnpublishVolume API in the CSI Controller plug-in is called, it schedules the `AzVolumeAttachment` instance of the primary node for deletion. The controller responds by detaching the managed disk from the primary node. The `AzVolumeAttachment` instance is deleted When the detach operation completes, and schedules garbage collection to detach and delete the attachment replicas if no subsequent `ControllerPublishVolume` request is made for the disk within 5 minutes. The ControllerUnpublishVolume request is complete when the detach operation has completed and corresponding `AzVolumeAttachment` has been removed from the object store.
 
 ### Scheduler extender
 
-The Azure disk CSI Driver v2 (preview) scheduler extender influences pod placement by prioritizing healthy nodes where attachment replicas for the required persistent volume(s) already exist (that is, for one or more nodes where one or more managed disks are already attached). It relies on the `AzVolumeAttachment` instance to determine which nodes have attachment replicas, and the heartbeat information in the `AzDriverNode` to determine health. If no attachment replicas for the specified persistent volume currently exist, the scheduler extender will weight all nodes equally.
+The Azure disk CSI driver v2 (preview) scheduler extender influences pod placement by prioritizing healthy nodes where attachment replicas for the required persistent volume(s) already exist (that is, for one or more nodes where one or more managed disks are already attached). It relies on the `AzVolumeAttachment` instance to determine which nodes have attachment replicas, and the heartbeat information in the `AzDriverNode` to determine health. If no attachment replicas for the specified persistent volume currently exist, the scheduler extender will weight all nodes equally.
 
 ### Provisioner library
 
-The Provisioner Library is a common library to abstract the underlying platform for all the v2 driver plug-ins, services and controllers. It handles the platform-specific details of performing volume operations such as, but not necessarily limited to:
+The Provisioner Library is a common library to abstract the underlying platform for all the v2 (preview) driver plug-ins, services and controllers. It handles the platform-specific details of performing volume operations such as, but not necessarily limited to:
 
 * Create or delete
 * Attach or detach

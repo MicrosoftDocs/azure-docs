@@ -3,7 +3,7 @@ title: Optimization for Container Storage Interface (CSI) driver v2 (preview) fo
 description: Learn how to optimize performance of the Container Storage Interface (CSI) driver v2 (preview) for Azure disk in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/13/2022
+ms.date: 05/17/2022
 author: mgoedtel
 
 ---
@@ -18,7 +18,7 @@ Azure disk CSI driver v2 (preview) enables you to tweak the guest OS device sett
 feature for your Azure Kubernetes Services (AKS) cluster, by choosing from a list of options to
 tweak the IO behavior of block devices in accordance with their workloads.
 
-`perfProfile` can be set at the `StorageClass` level and applies to all the disks created using the `StorageClass`
+**perfProfile** can be set at the `StorageClass` level and applies to all the disks created using the `StorageClass`
 
 ## Limitations
 
@@ -29,7 +29,7 @@ tweak the IO behavior of block devices in accordance with their workloads.
 
 ## Perf Profiles
 
-perf, you can chose from three options:
+With `perProfile`, you can chose from three options:
 
 * **None** there are no optimizations for persistent volumes (PVs) created using this `StorageClass`.
 * **Basic** offers a pre-defined configuration to tune the device settings for balanced throughput and optimized Transactions per second (TPS).
@@ -91,9 +91,10 @@ the pod to be stuck.
   device-setting/../queue/scheduler: "mq-deadline"
 ```
 
-Care should be taken when using the **Advanced** option with `perfProfile`. Be sure to test all the
-`deviceSetting` overrides in Linux kernel that you plan to use before implementing them in a production
-cluster.
+>[!IMPORTANT]
+>Care should be taken when using the **Advanced** option with `perfProfile`. Be sure to test all the
+>`deviceSetting` overrides in Linux kernel that you plan to use before implementing them in a production
+>cluster.
 
 The example below is a YAML file with `StorageClass` that includes some well known block device settings
 on Linux.

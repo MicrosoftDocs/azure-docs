@@ -3,7 +3,7 @@ title: Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AK
 description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure disks and Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/13/2022
+ms.date: 05/17/2022
 author: palma21
 
 ---

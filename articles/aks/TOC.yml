@@ -382,12 +382,16 @@
           href: azure-netapp-files.md
         - name: Use Azure Ultra Disks
           href: use-ultra-disks.md
-    - name: CSI Storage Drivers
+    - name: CSI storage drivers
       items:
-        - name: Enable CSI Storage Drivers
+        - name: CSI storage drivers overview
           href: csi-storage-drivers.md
-        - name: Azure Disk CSI drivers
+        - name: Azure disk CSI drivers
           href: azure-disk-csi.md
+        - name: Azure disk CSI driver v2 (preview)
+          href: azure-disk-csi-v2.md
+        - name: Azure disk CSI driver optimizations
+          href: azure-disk-csi-optimization.md
         - name: Azure Files CSI drivers
           href: azure-files-csi.md
     - name: Monitoring and logging
