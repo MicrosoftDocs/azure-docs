@@ -41,7 +41,7 @@ This tutorial will explain how to integrate your own conversational language und
 
 5. Once training is complete, click to **Deployments** on the left. Click on Add Deployment and create a new deployment with the name **Testing**, and assign model **v1** to the deployment.
 
-:::image type="content" source="../media/deploy-model-tutorial.png" alt-text="A screenshot of the deploy model add deployment page in CLU." lightbox="../media/deploy-model-tutorial.png":::
+:::image type="content" source="../media/deploy-model-tutorial.png" alt-text="A screenshot of the deployment page within the deploy model screen in CLU." lightbox="../media/deploy-model-tutorial.png":::
 
 ## Update the settings file
 
