@@ -7,7 +7,7 @@ ms.subservice: flexible-server
 ms.author: jtoland
 ms.custom: mvc, references_regions
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 05/24/2022
 ---
 
 # What's new in Azure Database for MySQL - Flexible Server?
@@ -115,7 +115,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
     You won’t be able to create new or maintain existing read replicas on the Burstable tier server. In the interest of providing a good query and development experience for Burstable SKU tiers, the support for creating and maintaining read replica for servers in the Burstable pricing tier will be discontinued. 
 
-    If you have an existing Azure Database for MySQL - Flexible Server with read replica enabled, you’ll have to scale up your server to either General Purpose or Memory Optimized pricing tiers or delete the read replica within 60 days. After the 60-day period, while you can continue to use the primary server for your read-write operations, replication to read replica servers will be stopped. For newly created servers, read replica option will be available only for the General Purpose and Memory Optimized pricing tiers.  
+    If you have an existing Azure Database for MySQL - Flexible Server with read replica enabled, you’ll have to scale up your server to either General Purpose or Business Critical pricing tiers or delete the read replica within 60 days. After the 60-day period, while you can continue to use the primary server for your read-write operations, replication to read replica servers will be stopped. For newly created servers, read replica option will be available only for the General Purpose and Business Critical pricing tiers.  
 
  - **Monitoring Azure Database for MySQL - Flexible Server with Azure Monitor Workbooks**
 

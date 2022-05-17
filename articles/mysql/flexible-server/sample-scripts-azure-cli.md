@@ -8,7 +8,7 @@ ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 09/15/2021
+ms.date: 05/24/2022
 ---
 # Azure CLI samples for Azure Database for MySQL - Flexible Server
 

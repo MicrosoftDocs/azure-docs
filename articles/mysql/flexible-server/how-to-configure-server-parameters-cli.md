@@ -7,8 +7,8 @@ ms.service: mysql
 ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
+ms.date: 11/10/2020
 ---
 # Configure server parameters in Azure Database for MySQL Flexible Server using the Azure CLI
 
