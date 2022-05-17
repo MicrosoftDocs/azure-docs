@@ -118,7 +118,7 @@ An Azure service that supports private endpoints is required to set up the priva
     | Subnet | Select **myVNet/myBackendSubnet (10.0.0.0/24)**. |
     | Enable network policies for all private endpoints subnet. | Leave the default of the selection box checked. |
     | **Private IP configuration** | Select **Statically allocate IP address**. |
-    | Name | Enter **ipconfig**. |
+    | Name | Enter **myIPconfig**. |
     | Private IP | Enter **10.0.0.10**. |
 
 8. Select **Next: DNS** at the bottom of the page.
