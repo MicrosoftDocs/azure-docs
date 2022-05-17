@@ -378,13 +378,13 @@ You won't need the Git Bash prompt for the rest of this quickstart. However, you
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl pkey -in device-key.pem -out unenc-device-key.pem -noout 
+    winpty openssl pkey -in device-key.pem -out unencrypted-device-key.pem -noout 
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl pkey -in device-key.pem -out unenc-device-key.pem -noout
+    openssl pkey -in device-key.pem -out unencrypted-device-key.pem -noout
     ```
 
     ---
@@ -495,7 +495,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command will generate the syntax for the `CERTIFICATE` string constant value and write it to the output.
 
     ```Bash
-    sed 's/^/"/;/$/!s/$/\\n"/;/$/s/$/"/' device-cert.pem
+    sed -e 's/^/"/;$ !s/$/""\\n"/;$ s/$/"/' device-cert.pem
     ```
 
     Copy and paste the output certificate text for the constant value.
@@ -515,7 +515,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `PRIVATE_KEY` string constant value and write it to the output.
 
     ```Bash
-    sed 's/^/"/;/$/!s/$/\\n"/;/$/s/$/"/' unencrypted-device-key.pem
+    sed -e 's/^/"/;$ !s/$/""\\n"/;$ s/$/"/' unencrypted-device-key.pem
     ```
 
     Copy and paste the output private key text for the constant value.
@@ -747,12 +747,12 @@ To update the custom HSM stub code to simulate the identity of the device with I
         Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `leafPublicPem` string constant value and write it to the output.
 
         ```Bash
-        sed 's/^/"/;/$/!s/$/\\n" +/;/$/s/$/"/' device-cert.pem
+        sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' device-cert.pem
         ```
 
         Copy and paste the output certificate text for the constant value.
 
-    1. Update the string value of the `leafPrivateKey` constant with the private key for your device certificate.
+    1. Update the string value of the `leafPrivateKey` constant with the unencrypted private key for your device certificate, *unencrypted-device-key.pem*.
 
         The syntax of the private key text must follow the pattern below with no extra spaces or or characters.
 
@@ -767,7 +767,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
         Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command will generate the syntax for the `leafPrivateKey` string constant value and write it to the output.
 
         ```Bash
-        sed 's/^/"/;/$/!s/$/\\n" +/;/$/s/$/"/' device-key.pem
+        sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' unencrypted-device-key.pem
         ```
 
         Copy and paste the output private key text for the constant value.
@@ -826,7 +826,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 ## Confirm your device provisioning registration
 
-You can examine the individual enrollment you created previously to see the registration details of your device and learn which IoT Hub it was provisioned to.
+You can see which IoT hub your device was provisioned to in the registration details of the individual enrollment you created previously.
 
 1. In Azure portal, go to your Device Provisioning Service.
 
@@ -834,7 +834,7 @@ You can examine the individual enrollment you created previously to see the regi
 
 1. Select **Individual Enrollments**. The X.509 enrollment entry that you created previously, *my-x509-device*, should appear in the list.
 
-1. Select your enrollment entry. The IoT hub that your device was assigned to and its device ID appears under **Registration Status**.
+1. Select the enrollment entry. The IoT hub that your device was assigned to and its device ID appears under **Registration Status**.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/individiual-enrollment-after-registration.png" alt-text="Screenshot that shows the individual enrollment registration status for the device.":::
 
