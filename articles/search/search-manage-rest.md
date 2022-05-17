@@ -22,7 +22,7 @@ ms.date: 05/09/2022
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
-In this article, learn how to create and configure an Azure Cognitive Search service using using the [Management REST APIs](rest/api/searchmanagement/). Although you can use the portal, script, or other SDKs for most management tasks, the Management REST API is guaranteed to provide [preview features](/rest/api/searchmanagement/management-api-versions#2021-04-01-preview).
+In this article, learn how to create and configure an Azure Cognitive Search service using using the [Management REST APIs](/rest/api/searchmanagement/). Although you can use the portal, script, or other SDKs for most management tasks, the Management REST API is guaranteed to provide [preview features](/rest/api/searchmanagement/management-api-versions#2021-04-01-preview).
 
 > [!div class="checklist"]
 > * [List search services in a subscription](#list-search-services)

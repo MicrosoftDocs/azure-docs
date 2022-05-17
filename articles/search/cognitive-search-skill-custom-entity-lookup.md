@@ -13,15 +13,17 @@ ms.date: 05/16/2022
 
 # Custom Entity Lookup cognitive skill
 
-The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact.  
+The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using the list you provide, the skill labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact.  
 
 > [!NOTE]
-> This skill is not bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
+> This skill isn't bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
 
-## @odata.type  
+## @odata.type
+
 Microsoft.Skills.Text.CustomEntityLookupSkill 
 
 ## Data limits
+
 + The maximum input record size supported is 256 MB. If you need to break up your data before sending it to the custom entity lookup skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 + The maximum entities definition table supported is 10 MB if it is provided using the *entitiesDefinitionUri* parameter. 
 + If the entities are defined inline, using the *inlineEntitiesDefinition* parameter, the maximum supported size is 10 KB.
@@ -34,10 +36,10 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | `entitiesDefinitionUri`    | Path to a JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This config must be accessible over HTTPS. See [Custom Entity Definition](#custom-entity-definition-format) Format" below for expected CSV or JSON schema.|
 |`inlineEntitiesDefinition` | Inline JSON entity definitions. This parameter supersedes the entitiesDefinitionUri parameter if present. No more than 10 KB of configuration may be provided inline. See [Custom Entity Definition](#custom-entity-definition-format) below for expected JSON schema. |
-|`defaultLanguageCode` |    (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a languagecode-countrycode format, only the languagecode part of the format is used.  |
-|`globalDefaultCaseSensitive` | (Optional) Default case sensitive value for the skill. If `defaultCaseSensitive` value of an entity is not specified, this value will become the `defaultCaseSensitive` value for that entity. |
-|`globalDefaultAccentSensitive` | (Optional) Default accent sensitive value for the skill. If `defaultAccentSensitive` value of an entity is not specified, this value will become the `defaultAccentSensitive` value for that entity. |
-|`globalDefaultFuzzyEditDistance` | (Optional) Default fuzzy edit distance value for the skill. If `defaultFuzzyEditDistance` value of an entity is not specified, this value will become the `defaultFuzzyEditDistance` value for that entity. |
+|`defaultLanguageCode` |    (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a `languagecode-countrycode` format, only the `languagecode` part of the format is used.  |
+|`globalDefaultCaseSensitive` | (Optional) Default case sensitive value for the skill. If `defaultCaseSensitive` value of an entity isn't specified, this value will become the `defaultCaseSensitive` value for that entity. |
+|`globalDefaultAccentSensitive` | (Optional) Default accent sensitive value for the skill. If `defaultAccentSensitive` value of an entity isn't specified, this value will become the `defaultAccentSensitive` value for that entity. |
+|`globalDefaultFuzzyEditDistance` | (Optional) Default fuzzy edit distance value for the skill. If `defaultFuzzyEditDistance` value of an entity isn't specified, this value will become the `defaultFuzzyEditDistance` value for that entity. |
 
 ## Skill inputs
 
@@ -60,6 +62,9 @@ If the definition file is a .CSV or .JSON file, the path of the file needs to be
 
 If the definition is provided inline, it should be provided as inline as the content of the *inlineEntitiesDefinition* skill parameter. 
 
+> [!NOTE]
+> Indexers support specialized parsing modes for JSON and CSV files. When using the custom entity lookup skill, keep "parsingMode" set to "default". The skill expects JSON and CSV in an unparsed state.
+
 ### CSV format
 
 You can provide the definition of the custom entities to look for in a Comma-Separated Value (CSV) file by providing the path to the file and setting it in the *entitiesDefinitionUri*  skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
@@ -72,7 +77,7 @@ Microsoft, MSFT
 Satya Nadella 
 ```
 
-In this case, there are three entities that can be returned as entities found (Bill Gates, Satya Nadella, Microsoft), but they will be identified if any of the terms on the line (aliases) are matched on the text. For instance, if the string "William H. Gates" is found in a document, a match for the "Bill Gates" entity will be returned.
+In this case, there are three entities that can be returned as entities found (Bill Gates, Satya Nadella, Microsoft), but they'll be identified if any of the terms on the line (aliases) are matched on the text. For instance, if the string "William H. Gates" is found in a document, a match for the "Bill Gates" entity will be returned.
 
 ### JSON format
 
@@ -160,7 +165,7 @@ The tables below describe in more details the different configuration parameters
 
 ### Inline format
 
-In some cases, it may be more convenient to provide the list of custom entities to match inline directly into the skill definition. In that case you can use a similar  JSON format to the one described above, but it is inlined in the skill definition.
+In some cases, it might be more convenient to provide the list of custom entities to match inline directly into the skill definition. The JSON format is similar to the one described above, except that its expressed inline within the skill definition.
 Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
 
 ## Sample skill definition
