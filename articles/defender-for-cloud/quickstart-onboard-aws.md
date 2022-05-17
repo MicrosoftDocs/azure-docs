@@ -4,7 +4,7 @@ description: Defend your AWS resources with Microsoft Defender for Cloud
 author: bmansheim
 ms.author: benmansheim
 ms.topic: quickstart
-ms.date: 05/03/2022
+ms.date: 05/17/2022
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
@@ -37,9 +37,9 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
-|Pricing:|The **CSPM plan** is free.<br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for AWS at the same price as for Azure resources.<br>For every AWS machine connected to Azure with [Azure Arc-enabled servers](../azure-arc/servers/overview.md), the **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines. If an AWS EC2 doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
-|Required roles and permissions:|**Contributor** permission for the relevant Azure subscription.|
+|Release state:|General Availability (GA)|
+|Pricing:| The **CSPM plan** is free.<br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan for AWS is billed  at the same price as for Azure resources. <br>For every AWS machine connected to Azure with [Azure Arc-enabled servers](../azure-arc/servers/overview.md), the **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines. If an AWS EC2 doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
+|Required roles and permissions:|**Contributor** permission for the relevant Azure subscription. <br> **Administrator** on the AWS account.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
 
@@ -115,6 +115,8 @@ If you have any existing connectors created with the classic cloud connectors ex
 
 1. Enter the details of the AWS account, including the location where you'll store the connector resource.
 
+1. Choose whether to onboard a single account or an entire organization by selecting the 'Management account'. When choosing a management account, a connector will be created for the management account, and additional connectors will be created for each member account discovered under it. Auto-provisioning will be enabled for the onboarding of new accounts.
+
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Step 1 of the add AWS account wizard: Enter the account details.":::
 
 1. Select **Next: Select plans**.
@@ -143,7 +145,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 
 1. Download the CloudFormation template.
     
-1. Using the downloaded CloudFormation template, create the stack in AWS as instructed on screen.
+1. Using the downloaded CloudFormation template, create the stack in AWS as instructed on screen. If you are onboarding a management account, you'll need to run the CloudFormation template both as Stack and as StackSet. Connectors will be created for the member accounts up to 24 hours after the onboarding.
     
 1. Select **Next: Review and generate**.
     
