@@ -2,7 +2,7 @@
 title: "Quickstart - Automate Deployments"
 description: Explains how to automate deployments to Azure Spring Apps Enterprise tier using GitHub Actions and Terraform.
 author: KarlErickson
-ms.author: asirveda; paly@vmware.com
+ms.author: asirveda, paly@vmware.com
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/31/2022
