@@ -23,9 +23,9 @@ Get started with Email by provisioning your first Email Communication Services r
 1. Navigate to the [Azure portal](https://portal.azure.com/) to create a new resource.
 2. Search for Email Communication Services and hit enter. Select **Email Communication Services** and press **Create**
 
-   :::image type="content" source="./media/email-communication-search.png" alt-text="Screehshot that shows how to search Email Communication Service in market place.":::
+   :::image type="content" source="./media/email-communication-search.png" alt-text="Screenshot that shows how to search Email Communication Service in market place.":::
 
-   :::image type="content" source="./media/email-communication-create.png" alt-text="Screehshot that shows Create link to create Email Communication Service.":::
+   :::image type="content" source="./media/email-communication-create.png" alt-text="Screenshot that shows Create link to create Email Communication Service.":::
 
 3. Complete the required information on the basics tab:
     - Select an existing Azure subscription.
@@ -36,12 +36,12 @@ Get started with Email by provisioning your first Email Communication Services r
       - Add any name/value pairs. 
     - Click **Next: Review + create**.
     
-      :::image type="content" source="./media/email-communication-create-review.png" alt-text="Screehshot that shows how to the summary for review and create Email Communication Service.":::
+      :::image type="content" source="./media/email-communication-create-review.png" alt-text="Screenshot that shows how to the summary for review and create Email Communication Service.":::
 
 4. Wait for the validation to pass. Click **Create** 
 5. Wait for the Deployment to complete. Click **Go to Resource** will land on Email Communication Service Overview Page.
 
-   :::image type="content" source="./media/email-communication-overview.png" alt-text="Screehshot that shows the overview of Email Communication Service resource.":::
+   :::image type="content" source="./media/email-communication-overview.png" alt-text="Screenshot that shows the overview of Email Communication Service resource.":::
 
 ## Next steps
 
