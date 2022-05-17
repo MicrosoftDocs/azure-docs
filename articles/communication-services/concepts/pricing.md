@@ -196,17 +196,13 @@ Azure Communication Services allows for adding SMS messaging capabilities to you
 
 ### Pricing
 
-The SMS usage price is a per-message segment charge based on the destination of the message. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages.
-
-Please refer to the following links for details on SMS pricing
-
-- [SMS Pricing Details](./sms-pricing.md)
+The SMS usage price is a per-message segment charge based on the destination of the message. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages. Please refer to the [SMS Pricing Page](./sms-pricing.md) for pricing details. 
 
 ### Pricing example: 1:1 SMS sending
 
 Contoso is a healthcare company with clinics in US and Canada. Contoso has a Patient Appointment Reminder application that sends out SMS appointment reminders to patients regarding upcoming appointments. 
 
-- The application sends appointment reminders to 20 the US patients and 30 Canada patients.
+- The application sends appointment reminders to 20 US patients and 30 Canada patients using a US toll-free number.
 - Message length of the reminder message is 150 chars < 1 message segment*. Hence, total sent messages are 20 message segments for US and 30 message segments for CA.
 
 *Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
@@ -222,7 +218,7 @@ Contoso is a healthcare company with clinics in US and Canada. Contoso has a Pat
 
 Contoso is a healthcare company with clinics in US and Canada. Contoso has a Patient Appointment Reminder application that sends out SMS appointment reminders to patients regarding upcoming appointments. Patients can respond to the messages with "Reschedule" and include their date/time preference to reschedule their appointments.
 
-- The application sends appointment reminders to 20 the US patients and 30 Canada patients.
+- The application sends appointment reminders to 20 US patients and 30 Canada patients using a CA toll-free number.
 - 6 US patients and 4 CA patients respond back to reschedule their appointments. Contoso receives 10 SMS responses in total.
 - Message length of the reschedule messages is less than 1 message segment*. Hence, total messages received are 6 message segments for US and 4 message segments for CA.
 
@@ -235,13 +231,10 @@ Contoso is a healthcare company with clinics in US and Canada. Contoso has a Pat
 
 **Total cost for receiving patient responses from 6 US patients and 4 CA patients**: $0.051 + $0.03 = $0.081
 
-Please refer to the following links for details on SMS and Telephony pricing
-
 ## Telephony
 Please refer to the following links for details on Telephony pricing
 
 - [PSTN Pricing Details](./pstn-pricing.md)
-
 
 ## Next Steps
 Get started with Azure Communication Services:
