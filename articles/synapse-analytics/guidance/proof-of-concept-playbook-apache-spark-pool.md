@@ -178,10 +178,10 @@ resources identified in the POC plan.
 1. Load POC dataset:
     - Make data available in Azure by extracting from the source or by creating sample data in Azure. For more information, see:
         - [Transferring data to and from Azure](/architecture/databox/data-box-overview.md#use-cases)
-        - [Azure Data Box](https://azure.microsoft.com/en-us/services/databox/)
+        - [Azure Data Box](https://azure.microsoft.com/services/databox/)
         - [Copy activity performance and scalability guide](/data-factory/copy-activity-performance#copy-performance-and-scalability-achievable-using-adf.md)
         - [Data loading strategies for dedicated SQL pool in Azure Synapse Analytics](../sql-data-warehouse/design-elt-data-loading.md)
-        - [Bulk load data using the COPY statement](../sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?view=azure-sqldw-latest)
+        - [Bulk load data using the COPY statement](../sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?view=azure-sqldw-latest&preserve-view=true)
     - Test the dedicated connector for the Spark pool and the dedicated SQL pool.
 1. Migrate existing code to the Spark pool:
     - If you're migrating from Spark, your migration effort is likely to be straightforward given that the Spark pool leverages the open-source Spark distribution. However, if you're using vendor specific features on top of core Spark features, you'll need to correctly map these features to the Spark pool features.
