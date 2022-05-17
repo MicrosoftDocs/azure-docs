@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 As an administrator, you can lock an Azure subscription, resource group, or resource to protect them from accidental user deletions and modifications. The lock overrides any user permissions.
 
-You can set locks that prevent either deletions or modifications. In the portal, these locks are called Delete and Read-only. In the command line, these locks are called **CanNotDelete** or **ReadOnly**. In the left navigation panel, the subscription lock feature's name is **Resource locks**, while the resource group lock feature's name is **Locks**.  
+You can set locks that prevent either deletions or modifications. In the portal, these locks are called **Delete** and **Read-only**. In the command line, these locks are called **CanNotDelete** or **ReadOnly**. In the left navigation panel, the subscription lock feature's name is **Resource locks**, while the resource group lock feature's name is **Locks**.  
 
 - **CanNotDelete** means authorized users can read and modify a resource, but they can't delete it.
 - **ReadOnly** means authorized users can read a resource, but they can't delete or update it. Applying this lock is similar to restricting all authorized users to the permissions that the **Reader** role provides.
@@ -41,9 +41,9 @@ The distinction means locks protect a resource from changes, but they don't rest
 
 Applying locks can lead to unexpected results. Some operations, which don't seem to modify a resource, require blocked actions. Locks prevent the POST method from sending data to the Azure Resource Manager API. Some common examples of blocked operations are:
 
--A read-only lock on a **storage account** prevents users from listing the account keys. The Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is handled through a POST request to protect access to the account keys, which provide complete access to data in the storage account. When a read-only lock is configured for a storage account, users who don't have the account keys must use Azure AD credentials to access blob or queue data. A read-only lock also prevents the assignment of Azure RBAC roles that are scoped to the storage account or to a data container (blob container or queue). 
+- A read-only lock on a **storage account** prevents users from listing the account keys. The Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is handled through a POST request to protect access to the account keys, which provide complete access to data in the storage account. When a read-only lock is configured for a storage account, users who don't have the account keys must use Azure AD credentials to access blob or queue data. A read-only lock also prevents the assignment of Azure RBAC roles that are scoped to the storage account or to a data container (blob container or queue). 
 
-- A read-only lock on a **storage account** protects Azure Role-Based Access Control (RBAC) assignments scoped for a storage account or a data container (blob container or queue).
+- A read-only lock on a **storage account** protects RBAC assignments scoped for a storage account or a data container (blob container or queue).
 
 - A cannot-delete lock on a **storage account** doesn't protect account data from deletion or modification. It only protects the storage account from deletion. If a request uses [data plane operations](control-plane-and-data-plane.md#data-plane), the lock on the storage account doesn't protect blob, queue, table, or file data within that storage account. If the request uses [control plane operations](control-plane-and-data-plane.md#control-plane), however, the lock protects those resources.
 
@@ -85,7 +85,7 @@ If you try to delete the infrastructure resource group, you get an error stating
 
 Instead, delete the service, which also deletes the infrastructure resource group.
 
-For managed applications, select the service you deployed.
+For managed applications, choose the service you deployed.
 
 ![Select service](./media/lock-resources/select-service.png)
 
