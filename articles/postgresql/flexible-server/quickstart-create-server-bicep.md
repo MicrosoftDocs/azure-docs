@@ -72,7 +72,7 @@ resource serverName_resource 'Microsoft.DBforPostgreSQL/flexibleServers@2021-06-
 }
 ```
 
-These resources are defined in the template:
+These resources are defined in the Bicep file:
 
 - [Microsoft.DBforPostgreSQL/flexibleServers](/azure/templates/microsoft.dbforpostgresql/flexibleservers?tabs=bicep)
 
