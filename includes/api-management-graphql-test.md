@@ -23,13 +23,13 @@ ms.custom:
     1. Select at least one field or subfield from the list in the side menu. The fields and subfields you select appear in the query editor.
     1. Start typing in the query editor to compose a query.
     
-        :::image type="content" source="media/api-management-graphql-test/test-graphql-query.png" alt-text="Demonstrating adding fields to the query editor":::
+        :::image type="content" source="media/api-management-graphql-test/test-graphql-query.png" alt-text="Screenshot of adding fields to the query editor.":::
 
 1. Under **Query variables**, add variables to reuse the same query or mutation and pass different values.
 1. Select **Send**.
 1. View the **Response**.
 
-    :::image type="content" source="media/api-management-graphql-test/graphql-query-response.png" alt-text="View the test query response":::
+    :::image type="content" source="media/api-management-graphql-test/graphql-query-response.png" alt-text="Screenshot of viewing the test query response.":::
 
 1. Repeat preceding steps to test different payloads.
 1. When testing is complete, exit test console.

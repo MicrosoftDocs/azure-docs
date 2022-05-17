@@ -39,11 +39,11 @@ If you want to expose an existing GraphQL endpoint as an API, see [Import a Grap
 1. From the side navigation menu, under the **APIs** section, select **APIs**.
 1. Under **Define a new API**, select the **Synthetic GraphQL** icon.
 
-    :::image type="content" source="media/graphql-schema-resolve-api/import-graphql-api.png" alt-text="Selecting GraphQL icon from list of APIs":::
+    :::image type="content" source="media/graphql-schema-resolve-api/import-graphql-api.png" alt-text="Screenshot of selecting Synthetic GraphQL icon from list of APIs.":::
 
 1. In the dialog box, select **Full** and complete the required form fields.
 
-    :::image type="content" source="media/graphql-schema-resolve-api/create-from-graphql-schema.png" alt-text="Demonstrate fields for creating GraphQL":::
+    :::image type="content" source="media/graphql-schema-resolve-api/create-from-graphql-schema.png" alt-text="Screenshot of fields for creating a GraphQL API.":::
 
     | Field | Description |
     |----------------|-------|

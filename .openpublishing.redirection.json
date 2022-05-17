@@ -21,12 +21,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/germany/graphql-validation-policies.md",
-      "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-vs",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/api-management/germany-get-started-connect-with-vs.md",
+      "source_path": "articles/germany/germany-get-started-connect-with-vs.md",
       "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-vs",
       "redirect_document_id": false
     },
@@ -37,7 +32,7 @@
     },
     {
       "source_path": "articles/germany/germany-image-gallery.md",
-      "redirect_url": "/azure/api-management/validation-policies",
+      "redirect_url": "/previous-versions/azure/germany/germany-image-gallery",
       "redirect_document_id": false
     },
     {
@@ -2921,6 +2916,11 @@
     {
       "source_path_from_root": "/articles/api-management/api-management-product.md",
       "redirect_url": "/azure/api-management/api-management-howto-add-products",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/graphql-validation-policies.md",
+      "redirect_url": "/azure/api-management/graphql-policies",
       "redirect_document_id": false
     },
     {
@@ -14281,6 +14281,16 @@
     {
       "source_path_from_root": "/articles/databox-online/data-box-gateway-use-cases.md",
       "redirect_url": "/azure/databox-gateway/data-box-gateway-use-cases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-load.md",
+      "redirect_url": "/azure/storage/common/storage-ref-azcopy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-load-avere-cloud-file-system.md",
+      "redirect_url": "/azure/storage/common/storage-ref-azcopy",
       "redirect_document_id": false
     },
     {

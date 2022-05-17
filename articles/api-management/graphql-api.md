@@ -36,11 +36,11 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
 1. From the side navigation menu, under the **APIs** section, select **APIs**.
 1. Under **Define a new API**, select the **GraphQL** icon.
 
-    :::image type="content" source="media/graphql-api/import-graphql-api.png" alt-text="Selecting GraphQL icon from list of APIs":::
+    :::image type="content" source="media/graphql-api/import-graphql-api.png" alt-text="Screenshot of selecting GraphQL icon from list of APIs.":::
 
 1. In the dialog box, select **Full** and complete the required form fields.
 
-    :::image type="content" source="media/graphql-api/create-from-graphql-schema.png" alt-text="Demonstrate fields for creating GraphQL":::
+    :::image type="content" source="media/graphql-api/create-from-graphql-schema.png" alt-text="Screenshot of fields for creating a GraphQL API.":::
 
     | Field | Description |
     |----------------|-------|
@@ -59,39 +59,9 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
 
 1. Select **Create**.
 1. After the API is created, browse the schema on the **Design** tab, in the **Frontend** section.
-       :::image type="content" source="media/graphql-api/explore-schema.png" alt-text="Explore the GraphQL schema in the portal":::
+       :::image type="content" source="media/graphql-api/explore-schema.png" alt-text="Screenshot of exploring the GraphQL schema in the portal.":::
 
-## Test your GraphQL API
-
-1. Navigate to your API Management instance.
-1. From the side navigation menu, under the **APIs** section, select **APIs**.
-1. Under **All APIs**, select your GraphQL API.
-1. Select the **Test** tab to access the Test console. 
-1. Under **Headers**:
-    1. Select the header from the **Name** drop-down menu.
-    1. Enter the value to the **Value** field.
-    1. Add more headers by selecting **+ Add header**.
-    1. Delete headers using the **trashcan icon**.
-1. If you've added a product to your GraphQL API, apply product scope under **Apply product scope**.
-1. Under **Query editor**, either:
-    1. Select at least one field or subfield from the list in the side menu. The fields and subfields you select appear in the query editor.
-    1. Start typing in the query editor to compose a query.
-    
-        :::image type="content" source="media/graphql-api/test-graphql-query.png" alt-text="Demonstrating adding fields to the query editor":::
-
-1. Under **Query variables**, add variables to reuse the same query or mutation and pass different values.
-1. Click **Send**.
-1. View the **Response**.
-
-    :::image type="content" source="media/graphql-api/graphql-query-response.png" alt-text="View the test query response":::
-
-1. Repeat preceding steps to test different payloads.
-1. When testing is complete, exit test console.
-
-## Limitations
-
-* Only GraphQL pass through is supported. 
-* A single GraphQL API in API Management corresponds to only a single GraphQL backend endpoint.
+[!INCLUDE [api-management-graphql-test.md](../../includes/api-management-graphql-test.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
