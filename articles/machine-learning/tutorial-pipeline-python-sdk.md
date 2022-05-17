@@ -66,7 +66,7 @@ First you'll install the v2 SDK on your compute instance:
 1. In the terminal window, install Python SDK v2 (preview) with this command:
 
     ```
-    pip install azure-ai-ml
+    pip install --pre azure-ai-ml
     ```
 
     For more information, see [Install the Python SDK v2](https://aka.ms/sdk-v2-install).
