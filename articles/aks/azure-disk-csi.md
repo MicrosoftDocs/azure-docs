@@ -48,7 +48,7 @@ In addition to in-tree driver features, Azure disk CSI driver supports the follo
 |diskEncryptionSetID | ResourceId of the disk encryption set to use for [enabling encryption at rest](../virtual-machines/windows/disk-encryption.md) | format: `/subscriptions/{subs-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSet-name}` | No | ""|
 |diskEncryptionType | Encryption type of the disk encryption set | `EncryptionAtRestWithCustomerKey`(by default), `EncryptionAtRestWithPlatformAndCustomerKeys` | No | ""|
 |writeAcceleratorEnabled | [Write Accelerator on Azure Disks](../virtual-machines/windows/how-to-enable-write-accelerator.md) | `true`, `false` | No | ""|
-|perfProfile | [Block device performance tuning using perfProfiles](./perf-profiles.md) | `none`, `basic` | No | `none`|
+|perfProfile | [Block device performance tuning using perfProfiles](./azure-disk-csi-optimization.md) | `none`, `basic` | No | `none`|
 |networkAccessPolicy | NetworkAccessPolicy property to prevent generation of the SAS URI for a disk or a snapshot | `AllowAll`, `DenyAll`, `AllowPrivate` | No | `AllowAll`|
 |diskAccessID | ARM ID of the DiskAccess resource to use private endpoints on disks | | No  | ``|
 |enableBursting | [Enable on-demand bursting](../virtual-machines/disk-bursting.md) beyond the provisioned performance target of the disk. On-demand bursting should only be applied to Premium disk and when the disk size > 512GB. Ultra and shared disk is not supported. Bursting is disabled by default. | `true`, `false` | No | `false`|

@@ -60,13 +60,15 @@ When you create an Azure disk for use with AKS, you can create the disk resource
     > [!NOTE]
     > Azure disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 32TiB for S80 or P80 disks (in preview). The throughput and IOPS performance of a Premium managed disk depends on both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
 
-    The disk resource ID is displayed once the command has successfully completed, as shown in the following example output. This disk ID is used to mount the disk in the next step.
+    The disk resource ID is displayed once the command has successfully completed, as shown in the following example output. This disk ID is used to mount the disk in the next section.
 
     ```console
     /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
     ```
 
-3. Create a *pv-azuredisk.yaml* file with a *PersistentVolume*. Update `volumeHandle` with disk resource ID from the previous step. For example:
+## Mount disk as a volume
+
+1. Create a *pv-azuredisk.yaml* file with a *PersistentVolume*. Update `volumeHandle` with disk resource ID from the previous step. For example:
 
     ```yaml
     apiVersion: v1
@@ -88,7 +90,7 @@ When you create an Azure disk for use with AKS, you can create the disk resource
           fsType: ext4
     ```
 
-4. Create a *pvc-azuredisk.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume*. For example:
+2. Create a *pvc-azuredisk.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume*. For example:
 
     ```yaml
     apiVersion: v1
@@ -105,14 +107,14 @@ When you create an Azure disk for use with AKS, you can create the disk resource
       storageClassName: managed-csi
     ```
 
-5. Use the `kubectl` commands to create the *PersistentVolume* and *PersistentVolumeClaim*, referencing the two YAML files created earlier:
+3. Use the `kubectl` commands to create the *PersistentVolume* and *PersistentVolumeClaim*, referencing the two YAML files created earlier:
 
     ```console
     kubectl apply -f pv-azuredisk.yaml
     kubectl apply -f pvc-azuredisk.yaml
     ```
 
-6. To verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolume*, run the
+4. To verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolume*, run the
 following command:
 
     ```console
@@ -122,7 +124,7 @@ following command:
     pvc-azuredisk   Bound    pv-azuredisk   20Gi        RWO                           5s
     ```
 
-7. Create a *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*. For example:
+5. Create a *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*. For example:
 
     ```yaml
     apiVersion: v1
@@ -149,7 +151,7 @@ following command:
             claimName: pvc-azuredisk
     ```
 
-8. Run the following command to apply the configuration and mount the volume, referencing the YAML
+6. Run the following command to apply the configuration and mount the volume, referencing the YAML
 configuration file created in the previous steps:
 
     ```console
@@ -158,7 +160,7 @@ configuration file created in the previous steps:
 
 ## Next steps
 
-For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
+To learn about our recommended storage and backup practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
