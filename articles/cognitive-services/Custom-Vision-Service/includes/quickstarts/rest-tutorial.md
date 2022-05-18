@@ -182,7 +182,7 @@ Finally, use this command to test your trained model by uploading a new image fo
 * Add the binary data of your local image to the request body.
 * Optionally use other URL parameters. See the [Classify Image](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3) API.
 
-The returned JSON response will least each of the tags that the model applied to your image, along with probability scores for each tag. 
+The returned JSON response will list each of the tags that the model applied to your image, along with probability scores for each tag. 
 
 ```json
 {
