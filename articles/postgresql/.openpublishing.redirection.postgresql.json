@@ -931,6 +931,26 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/postgresql/how-to-migrate-single-to-flex-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-migrate-single-to-flex-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/how-to-setup-aad-app-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-setup-azure-ad-app-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-single-to-flexible.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-single-to-flexible",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/how-to-migrate-single-to-flex-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-migrate-single-to-flex-cli",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/dms/tutorial-oracle-azure-postgresql-online.md",
         "redirect_url": "/azure/postgresql/howto-migrate-from-oracle",
         "redirect_document_id": false
