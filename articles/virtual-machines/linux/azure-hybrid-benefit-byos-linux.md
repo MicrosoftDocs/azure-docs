@@ -26,13 +26,13 @@ ms.author: mathapli
 Azure Hybrid Benefit for BYOS VMs is a licensing benefit that helps you to get software updates and integrated support for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) directly from Azure infrastructure. This benefit is available to RHEL and SLES custom on-prem image VMs (VMs generated from on-prem images), and to RHEL and SLES Marketplace bring-your-own-subscription (BYOS) VMs.
 
 ## Benefit description
-Before AHB BYOS, RHEL and SLES customers who migrated their on-prem machines to Azure by creating images of on-prem systems and migrating them as VMs on Azure did not have the flexibility to get software updates directly from Azure similar to Marketplace PAYG VMs. Hence, you needed to still buy cloud access licenses from the Enterprise Linux distributors to get security support as well as software updates. With Azure Hybrid Benefit for BYOS VMs, we will allow you to get software updates and support for on-prem custom image VMs as well as RHEL and SLES BYOS VMs similar to PAYG VMs by paying the same software fees as charged to PAYG VMs. In addition, these conversions can happen without any redeployment, so you can avoid any downtime risk.  
+ Azure Hybrid Benefit for BYOS VMs allows you to get software updates and integrated support for Marketplace BYOS or on-prem migrated RHEL and SLES BYOS VMs without reboot. This benefit converts bring-your-own-subscription BYOS) billing model to pay-as-you-go (PAYG) billing model and you pay the same software fees as charged to PAYG VMs.   
 
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-byos-cost.png" alt-text="Azure Hybrid Benefit cost visualization on Linux VMs.":::
 
 After you enable the AHB for BYOS VMs benefit on RHEL or SLES VM, you will be charged for the additional software fee typically incurred on a PAYG VM and you will also start getting software updates typically provided to a PAYG VM. 
 
-You can also choose to convert a VM that has had the benefit enabled on it back to a BYOS billing model which will stop software billing and software updates from Azure infrastructure.
+You can also choose to convert a VM that has had the benefit enabled on it back to a BYOS billing model, which will stop software billing and software updates from Azure infrastructure.
 
 ## Scope of Azure Hybrid Benefit for BYOS VMs eligibility for Linux VMs
 
@@ -46,7 +46,7 @@ Azure Dedicated Host instances, and SQL hybrid benefits are not eligible for Azu
 
 To start using the benefit for Red Hat:
 
-1. Install the 'AHBForRHEL' extension on the virtual machine on which you wish to apply the AHB BYOS benefit. This is a prerequisite before moving to next step. You can do this via the portal or use Azure CLI.
+1. Install the 'AHBForRHEL' extension on the virtual machine on which you wish to apply the AHB BYOS benefit. You can do this installation via Azure CLI or PowerShell.
 
     
 1. Depending on the software updates you want, change the license type to relevant value. Here are the available license type values and the software updates associated with them:
@@ -66,7 +66,7 @@ To start using the benefit for Red Hat:
 
 1. In case the extension is not running by itself, you can run it on demand as well.
 
-1. In case you want to switch back to the bring-your-own-subscription model,  just change the license type to 'None' and run the extension. This will remove all RHUI repositories from your virtual machine and stop the billing.
+1. In case you want to switch back to the bring-your-own-subscription model,  just change the license type to 'None' and run the extension. This action will remove all RHUI repositories from your virtual machine and stop the billing.
 
 >[!Note]
 > In the unlikely event that extension is not able to install repositories or there are any issues, please change the license type back to empty and reach out to support for help. This will ensure you are not getting billed for software updates.  
@@ -74,9 +74,9 @@ To start using the benefit for Red Hat:
 
 ### SUSE customers
 
-To start using the benefit for SUSE:
+To start using the benefit for SLES VMs:
 
-1. Install the Azure Hybrid Benefit for BYOS VMs extension on the virtual machine on which you wish to apply the AHB BYOS benefit. This is a prerequisite before moving to next step.    
+1. Install the Azure Hybrid Benefit for BYOS VMs extension on the virtual machine on which you wish to apply the AHB BYOS benefit. 
 1. Depending on the software updates you want, change the license type to relevant value. Here are the available license type values and the software updates associated with them:
 
     | License Type  | Software Updates  | Allowed VMs|  
@@ -91,7 +91,7 @@ To start using the benefit for SUSE:
 
 1. In case the extension is not running by itself, you can run it on demand as well.
 
-1. In case you want to switch back to the bring-your-own-subscription model,  just change the license type to 'None' and run the extension. This will remove all repositories from your virtual machine and stop the billing.
+1. In case you want to switch back to the bring-your-own-subscription model,  just change the license type to 'None' and run the extension. This action will remove all repositories from your virtual machine and stop the billing.
 
 ## Enable and disable the benefit for RHEL
 
@@ -128,7 +128,7 @@ you can use the `az vm update` command to update existing license type on runnin
     ```
 1. Wait for 5 minutes for the extension to read the license type value and install the repositories. 
 
-1. You should now be connected to Azure Red Hat Update Infrastructure and the relevant repositories will be installed in your machine. You can check the same by  performing the command below on your VM which outputs installed repository packages on your VM:
+1. You should now be connected to Azure Red Hat Update Infrastructure and the relevant repositories will be installed in your machine. You can validate the same by performing the command below on your VM:
     ```bash
     yum repolist
     ```
@@ -166,7 +166,7 @@ you can use the `az vm update` command to update existing license type on runnin
     ```
 1. Wait for 5 minutes for the extension to read the license type value and install the repositories. 
 
-1. You should now be connected to the SUSE Public Cloud Update Infrastructure on Azure and the relevant repositories will be installed in your machine. You can verify this by performing the command below on your VM which list SUSE repositories on your VM:
+1. You should now be connected to the SUSE Public Cloud Update Infrastructure on Azure and the relevant repositories will be installed in your machine. You can verify this by performing the command below on your VM which lists SUSE repositories on your VM:
     ```bash
     zypper repos
     ```
@@ -200,12 +200,12 @@ Customers who use Azure Hybrid Benefit for BYOS VMs for RHEL agree to the standa
 
 ### SUSE
 
-To use Azure Hybrid Benefit for BYOS VMs for your SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Azure Hybrid Benefit](https://aka.ms/suse-ahb). 
+Customers who use Azure Hybrid Benefit for BYOS VMs for SLES and want more for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Azure Hybrid Benefit](https://aka.ms/suse-ahb). 
 
 ## Frequently asked questions
-*Q: What are the additional licensing cost I pay with AHB for BYOS VMs?*
+*Q: What is the licensing cost I pay with AHB for BYOS VMs?*
 
-A: On using AHB for BYOS VMs, you will essentially convert your bring your own subscription (BYOS) billing model to pay as you go (PAYG) billing model. Hence, you will be paying similar to PAYG VMs for software subscription cost. The table below maps the PAYG flavors available on Azure and links to pricing page to help you understand the cost associated with AHB for BYOS VMs.
+A: On using AHB for BYOS VMs, you will essentially convert bring-your-own-subscription (BYOS) billing model to pay-as-you-go (PAYG) billing model. Hence, you will be paying similar to PAYG VMs for software subscription cost. The table below maps the PAYG flavors available on Azure and links to pricing page to help you understand the cost associated with AHB for BYOS VMs.
 
 | License type | Relevant PAYG VM image & Pricing Link (Keep the AHB for PAYG filter off) |
 |---|---|---|   
@@ -229,7 +229,7 @@ A: RHEL versions greater than 7.4 are supported with AHB for BYOS VMs.
 
 *Q: I've uploaded my own RHEL or SLES image from on-premises (via Azure Migrate, Azure Site Recovery, or otherwise) to Azure. Can I convert the billing on these images from BYOS to PAYG?*
 
-A: Yes, this is the capability AHB for BYOS VMs supports. Please [follow steps shared here](#get-started). 
+A: Yes, this capability supports image from on-premises to Azure. Please [follow steps shared here](#get-started). 
 
 *Q: Can I use Azure Hybrid Benefit for BYOS VMs on RHEL and SLES PAYG Marketplace VMs?*
 
