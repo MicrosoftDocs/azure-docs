@@ -167,7 +167,7 @@ This indicates that the server could not determine which account to sign into, a
 
 ## Considerations when using `ssoSilent`
 
-### RedirectUri
+### Redirect URI (reply URL)
 
 When using popup and silent APIs we recommend setting the `redirectUri` to a blank page or a page that does not implement MSAL. This will help prevent potential issues as well as improve performance. If your application is only using popup and silent APIs you can set this on the `PublicClientApplication` configuration object. If your application also needs to support redirect APIs you can set the `redirectUri` on a per request basis.
 
