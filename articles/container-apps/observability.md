@@ -212,6 +212,8 @@ Container Apps provides these metrics.
 |Network in bytes|Network received bytes|RxBytes|bytes|
 |Network out bytes|Network transmitted bytes|TxBytes|bytes|
 |Requests|Requests processed|Requests|n/a|
+|Replica count| Number of active replicas|n/a|
+|Replica Restart Count| Number of replica restarts|n/a|
 
 The metrics namespace is `microsoft.app/containerapps`.
 
