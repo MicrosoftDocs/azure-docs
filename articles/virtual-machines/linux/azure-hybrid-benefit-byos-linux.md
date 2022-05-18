@@ -20,7 +20,7 @@ ms.author: mathapli
 >The below article is scoped to Azure Hybrid Benefit for BYOS VMs (AHB BYOS) which caters to conversion of custom on-prem image VMs and RHEL or SLES BYOS VMs. For conversion of RHEL PAYG or SLES PAYG VMs, refer to [Azure Hybrid Benefit for PAYG VMs here](./azure-hybrid-benefit-linux.md). 
 
 >[!NOTE]
->Azure Hybrid Benefit for BYOS VMs is in Preview now. You can [sign up for the preview here.](https://aka.ms/ahb-linux-form) You will receive a mail from Microsoft once your subscriptions are enabled for Preview. 
+>Azure Hybrid Benefit for BYOS VMs is in Preview now. You can [sign up for the preview here.](https://aka.ms/ahb-linux-form)you'll receive a mail from Microsoft once your subscriptions are enabled for Preview. 
 
 
 Azure Hybrid Benefit for BYOS VMs is a licensing benefit that helps you to get software updates and integrated support for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) directly from Azure infrastructure. This benefit is available to RHEL and SLES custom on-prem image VMs (VMs generated from on-prem images), and to RHEL and SLES Marketplace bring-your-own-subscription (BYOS) VMs.
@@ -30,15 +30,15 @@ Azure Hybrid Benefit for BYOS VMs is a licensing benefit that helps you to get s
 
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-byos-cost.png" alt-text="Azure Hybrid Benefit cost visualization on Linux VMs.":::
 
-After you enable the AHB for BYOS VMs benefit on RHEL or SLES VM, you will be charged for the additional software fee typically incurred on a PAYG VM and you will also start getting software updates typically provided to a PAYG VM. 
+After you enable the AHB for BYOS VMs benefit on RHEL or SLES VM,you'll be charged for the software fee typically incurred on a PAYG VM andyou'll also start getting software updates typically provided to a PAYG VM. 
 
-You can also choose to convert a VM that has had the benefit enabled on it back to a BYOS billing model, which will stop software billing and software updates from Azure infrastructure.
+You can also convert a VM that has the benefit enabled on it back to a BYOS billing model, which will stop software billing and software updates from Azure infrastructure.
 
 ## Scope of Azure Hybrid Benefit for BYOS VMs eligibility for Linux VMs
 
 **Azure Hybrid Benefit for BYOS VMs** is available for all RHEL and SLES custom on-prem image VMs as well as RHEL and SLES Marketplace BYOS VMs. For RHEL and SLES PAYG Marketplace VMs, [refer to AHB for PAYG VMs here](./azure-hybrid-benefit-linux.md)
 
-Azure Dedicated Host instances, and SQL hybrid benefits are not eligible for Azure Hybrid Benefit for BYOS VMs if you're already using the benefit with Linux VMs. Virtual Machine Scale Sets (VMSS) are Reserved Instances (RIs) are not in scope for AHB BYOS. 
+Azure Dedicated Host instances, and SQL hybrid benefits aren't eligible for Azure Hybrid Benefit for BYOS VMs if you're already using the benefit with Linux VMs. Virtual Machine Scale Sets (VMSS) are Reserved Instances (RIs) aren't in scope for AHB BYOS. 
 
 ## Get started
 
@@ -64,12 +64,12 @@ To start using the benefit for Red Hat:
 
 1. You should now be connected to Azure Red Hat Update Infrastructure and the relevant repositories will be installed in your machine.  
 
-1. In case the extension is not running by itself, you can run it on demand as well.
+1. In case the extension isn't running by itself, you can run it on demand as well.
 
 1. In case you want to switch back to the bring-your-own-subscription model,  just change the license type to 'None' and run the extension. This action will remove all RHUI repositories from your virtual machine and stop the billing.
 
 >[!Note]
-> In the unlikely event that extension is not able to install repositories or there are any issues, please change the license type back to empty and reach out to support for help. This will ensure you are not getting billed for software updates.  
+> In the unlikely event that extension isn't able to install repositories or there are any issues, please change the license type back to empty and reach out to support for help. This will ensure you aren't getting billed for software updates.  
 
 
 ### SUSE customers
@@ -89,14 +89,14 @@ To start using the benefit for SLES VMs:
 
 1. You should now be connected to the SUSE Public Cloud Update Infrastructure on Azure and the relevant repositories will be installed in your machine.
 
-1. In case the extension is not running by itself, you can run it on demand as well.
+1. In case the extension isn't running by itself, you can run it on demand as well.
 
 1. In case you want to switch back to the bring-your-own-subscription model,  just change the license type to 'None' and run the extension. This action will remove all repositories from your virtual machine and stop the billing.
 
 ## Enable and disable the benefit for RHEL
 
 You can install the `AHBForRHEL` extension to install the extension. After successfully installing the extension,
-you can use the `az vm update` command to update existing license type on running VMs. For SLES VMs, run the command and set `--license-type` parameter to one of the following: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPHA`, `RHEL_SAPAPPS`, `RHEL_BASESAPAPPS` or `RHEL_BASESAPHA`.
+you can use the `az vm update` command to update existing license type on running VMs. For SLES VMs, run the command and set `--license-type` parameter to one of the following license types: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPHA`, `RHEL_SAPAPPS`, `RHEL_BASESAPAPPS` or `RHEL_BASESAPHA`.
 
 
 ### CLI example to enable the benefit for RHEL
@@ -132,11 +132,11 @@ you can use the `az vm update` command to update existing license type on runnin
     ```bash
     yum repolist
     ```
- 1. In case the extension is not running by itself, you can try the below command on the VM:
+ 1. In case the extension isn't running by itself, you can try the below command on the VM:
     ```bash
         systemctl start azure-hybrid-benefit.service
     ```
- 1. You can the below command in your RHEL VM to get the current status of the service. This can definitely help 
+ 1. You can use the below command in your RHEL VM to get the current status of the service: 
     ```bash
         ahb-service -status
     ```
@@ -205,7 +205,7 @@ Customers who use Azure Hybrid Benefit for BYOS VMs for SLES and want more for i
 ## Frequently asked questions
 *Q: What is the licensing cost I pay with AHB for BYOS VMs?*
 
-A: On using AHB for BYOS VMs, you will essentially convert bring-your-own-subscription (BYOS) billing model to pay-as-you-go (PAYG) billing model. Hence, you will be paying similar to PAYG VMs for software subscription cost. The table below maps the PAYG flavors available on Azure and links to pricing page to help you understand the cost associated with AHB for BYOS VMs.
+A: On using AHB for BYOS VMs,you'll essentially convert bring-your-own-subscription (BYOS) billing model to pay-as-you-go (PAYG) billing model. Hence,you'll be paying similar to PAYG VMs for software subscription cost. The table below maps the PAYG flavors available on Azure and links to pricing page to help you understand the cost associated with AHB for BYOS VMs.
 
 | License type | Relevant PAYG VM image & Pricing Link (Keep the AHB for PAYG filter off) |
 |---|---|---|   
@@ -237,7 +237,7 @@ A: No, as these VMs are already pay-as-you-go (PAYG). However, with AHB v1 and v
 
 *Q: Can I use Azure Hybrid Benefit for BYOS VMs on virtual machine scale sets for RHEL and SLES?*
 
-A: No, Azure Hybrid Benefit for BYOS VMs is not available for virtual machine scale sets currently.   
+A: No, Azure Hybrid Benefit for BYOS VMs isn't available for virtual machine scale sets currently.   
 
 *Q: Can I use Azure Hybrid Benefit for BYOS VMs on a virtual machine deployed for SQL Server on RHEL images?*
 
@@ -245,7 +245,7 @@ A: No, you can't. There is no plan for supporting these virtual machines.
 
 *Q: Can I use Azure Hybrid Benefit for BYOS VMs on my RHEL Virtual Data Center subscription?*
 
-A: No, you cannot. VDC is not supported on Azure at all, including AHB.  
+A: No, you cannot. VDC isn't supported on Azure at all, including AHB.  
  
 
 ## Next steps
