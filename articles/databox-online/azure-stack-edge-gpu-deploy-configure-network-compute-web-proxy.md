@@ -151,7 +151,7 @@ Follow these steps to add or delete virtual switches and virtual networks.
 You can now create virtual networks and associate with the virtual switches you created.
 
 
-### Configure virtual network
+## Configure virtual networks
 
 You can add or delete virtual networks associated with your virtual switches. To add a virtual switch, follow these steps:
 
