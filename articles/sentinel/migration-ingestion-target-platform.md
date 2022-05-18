@@ -1,6 +1,6 @@
 ---
 title: Select a target Azure platform to host the exported historical data | Microsoft Docs
-description: TBD
+description: Select a target Azure platform to host the exported historical data 
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
@@ -10,64 +10,70 @@ ms.custom: ignite-fall-2021
 
 # Select a target Azure platform to host the exported historical data 
 
-In this section, we explain the different ways available to transfer the data to the selected target platform. In the next section, we will go into details on how the end-to-end process works for several SIEM vendors.
+One of the important decisions you make during your migration process regards the destination of your historical data. To make this decision, you need to understand and be able to compare the various alternatives. 
 
-What data is needed to support your use cases? [JS] "uses case" in SIEM world is equivalent to detection. You would not use historical data for detections. I guess this point is about what data needs to be migrated from old SIEM?
-Do all your current data sources provide valuable data? [JS] I think this is the same as previous point
-Are there visibility gaps in your current SIEM? [JS] This wouldn't influence your historical data migration, but rather the addition of new data sources in the new SIEM
-For each data source, do you need to migrate raw logs (which might be costly), or do enriched alerts have enough context for your key use cases? [JS] This question goes back to the first one, what data needs to be migrated and why
-What’s your target storage for the data? [JS] I'm good with this
-What storage tool do you want to use? [JS] "Storage tool" is not the right term. Should be migration tool or data transfer tool
+This article reviews a set of Azure platforms you can use for your historical logs, and compares them in terms of performance, cost, usability and management overhead.
 
-One of the important decisions you’ll have to make, already in the design phase, is the final destination of your historical data. Making that decision involves several considerations and requires some understanding of the various alternatives. We will start reviewing the different options in terms of target platform for the logs. For each target platform, we will discuss Performance, Cost, Usability and Management overhead. 
+|  |[Basic Logs](#azure-monitor-basic-logs)  |[Azure Data Explorer (ADX)](#azure-data-explorer)  |ADX + Azure Blob Storage  |Azure Blob Storage |
+|---------|---------|---------|---------|---------|
+|Usability     |**Great**<br><br>The archive and search options reside in Microsoft Sentinel, simplifying access to these options. |**Good**<br><br>Fairly easy to use in the context of Microsoft Sentinel. For example, you can use an Azure workbook to visualize data spread across both Microsoft Sentinel and ADX. You can also query ADX data from the Microsoft Sentinel portal using the [ADX proxy](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy).  |**Fair**<br><br>While using the `externaldata` operator is very challenging with large numbers of blobs to reference, using external ADX tables eliminates this issue. The external table definition understands the blob storage folder structure, and allows you to transparently query the data contained in many different blobs and folders.     |**Poor**<br><br>With historical data migrations, you might have to deal with millions of files, and exploring the data becomes a challenge. |
+|Management overhead     |**Fully managed**<br><br>The search and archive options are managed by Microsoft, so these options do not add management overhead.         |**High**<br><br>ADX is external to Microsoft Sentinel, which requires monitoring and maintenance.        |**Medium**<br><br>With this option, you maintain and monitor ADX and Azure Blob Storage, both of which are external components to Microsoft Sentinel. While ADX can be shut down at times, we recommend to consider the additional management with this option.          |
+|Performance     |**Medium**<br><br>You typically interact with basic logs within the archive using [search jobs](/azure/azure-monitor/logs/search-jobs), which are suitable when you want to maintain access to the data, but do not need immediate access to the data.         |**High to low**<br><br>- The query performance of an ADX cluster depend on multiple factors, including the number of nodes in the cluster, the cluster virtual machine SKU, data partitioning, and more.<br>- As you add nodes to the cluster, the performance increases, together with the cost.<br>- If you use ADX, we recommend that you configure your cluster size to balance performance and cost. This depends on your organizations needs, including how fast your migration needs to complete, how often the data is accessed, and the expected response time.         |**Low**<br><br>Because Blob Storage resides at the same location as the data, you can expect the same performance as with Azure Blob Storage.         |
+|Cost     |**Highest**<br><br>The cost is comprised of two components: - **Ingestion cost**: Every GB of data ingested into Basic Logs is subject to Microsoft Sentinel and Azure Monitor Logs ingestion costs, which sum up to approximately $1/GB. See the [pricing details](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).<br> - **Archival cost**: This is the cost for data in the archive tier, and sums up to approximately $0.02/GB per month. See the [pricing details](https://azure.microsoft.com/pricing/details/monitor/).         |**High to low**<br><br>- Because ADX is a cluster of virtual machines, you are charged based on compute, storage and networking usage, plus an ADX markup (see the [pricing details](https://azure.microsoft.com/pricing/details/data-explorer/). Therefore, the more nodes you add to your cluster and the more data you store, the higher the cost.<br>- ADX also offers autoscaling capabilities to adapt to workload on demand. On top of this, ADX can benefit from Reserved Instance pricing. You can run your own cost calculations in the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/).         |**Low**<br><br>The cluster size does not affect the cost, because ADX only acts as a proxy. In addition, you need to run the cluster only when you need quick and simple access to the data.         |
+|How to access data     |**Search jobs**         |**Direct KQL queries**         |**Modified KQL data**         |
+|Scenario     |**Occasional access**         |**Frequent access**         |**Occasional access**         |
+|Complexity     |**Very low**         |**Medium**         |**High**         |
+|Readiness     |**Public Preview**         |**GA**         |**GA**         |
 
-## Azure Monitor Basic Logs/Archive 
 
-Azure Monitor Logs offers the option to ingest data in two different plans: Analytics and Basic Logs. 
+## Azure Monitor Basic Logs
 
-Basic logs plan is tailored to high-volume verbose logs with very low security value, where you don’t need to run heavy analytics or trigger analytics rules on. With Basic Logs, you can use most of the existing Azure Monitor Logs experiences at a lower cost, making them a great candidate to be the destination of your historical logs. 
+The Azure Monitor [Basic Logs](/azure/azure-monitor/logs/basic-logs-configure) plan is suitable for high-volume verbose logs with very low security value, in a scenario where you don’t need to run heavy analytics or trigger analytics rules. With Basic Logs, you can use most of the existing Azure Monitor Logs experiences at a lower cost. 
 
-Basic logs are retained for 8 days and then automatically transferred into Archive tier (for as long as the original retention was set). To query logs in the archive tier, you can use the Search feature to easily search across petabytes of data to find specific events in your historical logs. 
+Here are a few main features and capabilities of Basic Logs:
 
-In cases where you need to run a deep investigation on a specific time range, you also have the option to restore data sitting in archive. The restore operation brings the data back into hot cache for full fledge analytics.  
+- Basic Logs are retained for 8 days, and are then automatically transferred to the archive. The logs are retained in the archive according to the original retention period. 
+- You can use a [search job](/azure/azure-monitor/logs/search-jobs) to easily search across petabytes of data and find specific events. 
+- If you need to run a deep investigation on a specific time range, you can [restore data from the archive](/azure/azure-monitor/logs/restore), which makes the selected data available in the hot cache for further analytics.  
 
-Performance: We will focus on the performance of logs stored in archive as this is how you would normally interact with logs ingested as Basic. As explained above, this access is done through Search jobs. These jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours (up to 24 hours) across extremely large datasets. Therefore, it fits the typical needs for historical data, where access needs to be maintained but where readiness of the data doesn’t need to be immediate. 
+You can evaluate Basic Logs according to the following criteria: 
 
-Costs: There are two main cost components in Basic logs: ingestion cost and archival cost. Every GB of data ingested into Basic logs is subject to ingestion costs into Microsoft Sentinel and Azure Monitor Logs which sum up to around $1/GB (see pricing details here). The second cost component is archival, which is incurred by data in the archive tier and is around $0.02/GB per month (see all pricing details here under Log Data Archive).   
+- **Performance**: You typically interact with basic logs within the archive using search jobs. Search jobs are asynchronous queries that import records into a new search table in your workspace, which you can use for further analytics. Search jobs use parallel processing and can run for up to 24 hours across extremely large datasets. This is suitable when dealing with historical data, where you typically want to maintain access to the data, but do not need the data to be ready immediately.
+- **Costs**: The cost of Basic Logs is comprised of two components:
+    - **Ingestion cost**: Every GB of data ingested into Basic Logs is subject to Microsoft Sentinel and Azure Monitor Logs ingestion costs, which sum up to approximately $1/GB. See the [pricing details](https://azure.microsoft.com/en-us/pricing/details/microsoft-sentinel/.
+    - **Archival cost**: This is the cost for data in the archive tier, and sums up to approximately $0.02/GB per month. See the [pricing details](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+- **Usability**: The archive and search options reside in Microsoft Sentinel, simplifying access to these options.
+- **Management overhead**: The search and archive options are managed by Microsoft, so these options do not add management overhead. 
 
-Usability: Using Basic Logs, Archive and Search is the simplest of all the options as all these features live within Microsoft Sentinel. 
-
-Management overhead: Search and Archive don’t add any management overhead as they are fully managed by Microsoft. 
-
-In summary, Basic logs offers a very solid option as the destination of historical data as it provides competitive ingestion costs (see prices), while making it very easy to search across the data and restore it if needed. Also, Basic logs are integrated in the Microsoft Sentinel experience with no additional infrastructure or services to maintain and no management overhead. 
+To conclude, if you select Basic Logs, you benefit from [competitive ingestion costs](https://azure.microsoft.com/en-us/pricing/details/monitor/), easily search across your data and restore data as needed. In addition, you use Basic Logs as part of your Microsoft Sentinel experience, with no additional maintenance for infrastructure or services, and no management overhead. 
 
 ## Azure Data Explorer
 
-Azure Data Explorer (ADX) is a big data analytics platform that is highly optimized for all types of logs and telemetry data analytics. ADX uses Kusto Query Language (KQL) as the query language, which is what we also use in Microsoft Sentinel. This is a great benefit as we can use the same queries in both, and even aggregate/correlate data stored across both. For example, from Microsoft Sentinel we can run a query that joins data stored in ADX with data stored in Log Analytics; see more about this feature here. 
+Azure Data Explorer (ADX) is a big data analytics platform that is highly optimized for all types of logs and telemetry data analytics. 
 
-From an infrastructure perspective, ADX is basically a cluster of virtual machines and as such is charged based on compute, storage and networking costs, plus an ADX markup (visit the pricing page for details). Therefore, the more nodes you add to your cluster and the more data you store, the higher the cost.  
+Here are some main ADX features and capabilities:
+- Because both ADX and Microsoft Sentinel both use the Kusto Query Language (KQL), you can use the same queries in both ADX and Microsoft Sentinel, and even aggregate or correlate data in both platforms. For example, you can run a KQL query from Microsoft Sentinel to [join data stored in ADX with data stored in Log Analytics](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy).
+- With ADX, you have substantial control over how the cluster is sized and configured. For example, you can create a larger cluster to achieve higher ingestion throughput, or create a smaller cluster to control your costs. 
 
-ADX offers great flexibility as you have great control over how the cluster is sized and configured. For example, you can choose to create a bigger cluster to achieve higher ingestion throughput or create it smaller to control your costs. 
+You can evaluate ADX according to the following criteria: 
 
-Performance: multiple factors contribute to ingestion and query performance of an ADX cluster: number of nodes in the cluster, cluster VM SKU, data partitioning, etc. As you add more nodes to the cluster, the performance will increase, but also the cost. You need to carefully size the cluster to find the sweet spot between performance and cost that works for your organization. This sweet spot will vary from one organization to another, highly dependent on how fast your migration needs to complete, how often the data is accessed and how quickly a response is expected. 
-
-Costs: As explained earlier, ADX can be tuned to offer the desired performance. It also offers autoscaling capabilities to adapt to workload on demand. On top of this, ADX can benefit from Reserved Instance pricing. You can run your own cost calculations in the Azure Pricing Calculator.  
-
-Usability: ADX is quite easy to use in the context of Microsoft Sentinel. You can for example have an Azure Workbook that visualizes data spread across both Microsoft Sentinel and ADX. You can also query ADX data from the Microsoft Sentinel portal using ADX proxy feature, which also allows correlating data from both datastores.  
-
-Management overhead: ADX adds some management overhead to your solution as you will have a platform that is external to Microsoft Sentinel and needs to be monitored and maintained. 
+- **Performance**: Multiple factors contribute to the ingestion and query performance of an ADX cluster, including the number of nodes in the cluster, the cluster virtual machine SKU, data partitioning, and more. As you add nodes to the cluster, the performance increases, together with the cost. If you use ADX, we recommend that you configure your cluster size to balance performance and cost. This depends on your organizations need, including how fast your migration needs to complete, how often the data is accessed, and the expected response time. 
+- **Costs**: Because ADX comprises a cluster of virtual machines, you are charged based on compute, storage and networking usage, plus an ADX markup (see the [pricing details](https://azure.microsoft.com/en-us/pricing/details/data-explorer/). Therefore, the more nodes you add to your cluster and the more data you store, the higher the cost. ADX also offers autoscaling capabilities to adapt to workload on demand. On top of this, ADX can benefit from Reserved Instance pricing. You can run your own cost calculations in the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/).  
+- **Usability**: ADX is fairly easy to use in the context of Microsoft Sentinel. For example, you can use an Azure workbook to visualize data spread across both Microsoft Sentinel and ADX. You can also query ADX data from the Microsoft Sentinel portal using the [ADX proxy](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy) feature, which also allows you to correlate data from both platforms.  
+- **Management overhead**: ADX is external to Microsoft Sentinel, which adds some management overhead and requires monitoring and maintenance. 
 
 ## Azure Blob Storage
 
-Blob storage is optimized for storing massive amounts of unstructured data. In the context of historical data migration, Blob storage offers very competitive costs and should be considered in situations where you don’t need great accessibility to the data or high performance. This normally happens in cases where the main driver for migration is compliance or audit requirements. 
-
-Accessing the data stored in Blob Storage can be more difficult when working in Sentinel. For this, you need to use externaldata operator, which requires you to specify the URL for every blob that needs to be accessed. This can become quite cumbersome if frequent access is required. Some examples on how to use this command in the Microsoft Sentinel context can be found here. 
+Azure Blob Storage is optimal for storing massive amounts of unstructured data. In the context of historical data migration, Azure Blob Storage offers very competitive costs. Consider this platform in a scenario where you do not need simple accessibility to the data or high performance, for example, if your migration is driven by compliance or audit requirements. 
 
 Performance: Azure Blob Storage offers two performance tiers: Premium or Standard. Although both tiers are an option for long-term storage, Standard is generally chosen due to greater cost savings. Here you can see the different performance and scalability limits for storage accounts and here the specifics about blob storage. 
 
 Costs: Blob storage is the cheapest of the options presented in this article if the right setup is implemented. In this article you can see all the details on how blob is charged and the different optimizations that can be done. It’s important to call out the ability to implement automatic lifecycle of the data so older blobs move into cheaper access tiers. 
 
 Usability: usability is the biggest concern when choosing Azure Blob as your long-term storage option. In historical data migrations you will probably end up with millions of files, which makes it more challenging to explore the data, being the externaldata operator in KQL the recommended option. You can see more details about the usage of this operator in this blog post. 
+
+Accessing the data stored in Blob Storage can be more difficult when working in Sentinel. For this, you need to use externaldata operator, which requires you to specify the URL for every blob that needs to be accessed. This can become quite cumbersome if frequent access is required. Some examples on how to use this command in the Microsoft Sentinel context can be found here. 
+
 
 Management overhead: Blob storage requires very little maintenance although it will add additional monitoring and configuration tasks like setting up lifecycle management. 
 
