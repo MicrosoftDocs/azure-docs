@@ -58,7 +58,7 @@ Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that
 
 ![Set secret data](./media/github-actions/actions2.png)
 
-You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
+You can also get the Azure login credential from Key Vault in GitHub Actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
 
 ## Provision service instance
 
@@ -187,7 +187,7 @@ Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that
 
 ![Set secret data](./media/github-actions/actions2.png)
 
-You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
+You can also get the Azure login credential from Key Vault in GitHub Actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
 
 ## Provision service instance
 
@@ -404,6 +404,6 @@ If your action runs in error, for example, if you haven't set the Azure credenti
 
 ## Next steps
 
-* [Key Vault for Spring Cloud GitHub actions](./github-actions-key-vault.md)
+* [Key Vault for Spring Cloud GitHub Actions](./github-actions-key-vault.md)
 * [Azure Active Directory service principals](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)
