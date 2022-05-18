@@ -91,11 +91,11 @@ The following list describes the Azure services in this reference architecture:
 
 The following diagrams represent a well-architected hub and spoke design that addresses the above requirements:
 
-[Azure Spring Standard](#tab/azure-spring-standard-private)
+# [Azure Spring Standard](#tab/azure-spring-standard-private)
 
 ![Reference architecture diagram for private applications](./media/spring-cloud-reference-architecture/architecture-private_standard.png)
 
-[Azure Spring Enterprise](#tab/azure-spring-enterprise-private)
+# [Azure Spring Enterprise](#tab/azure-spring-enterprise-private)
 
 ![Reference architecture diagram for private applications](./media/spring-cloud-reference-architecture/architecture-private_enterprise.png)
 
@@ -153,11 +153,11 @@ The following list describes the Azure services in this reference architecture:
 
 The following diagrams represent a well-architected hub and spoke design that addresses the above requirements. Only the hub-virtual-network communicates with the internet:
 
-[Azure Spring Standard](#tab/azure-spring-standard-public)
+# [Azure Spring Standard](#tab/azure-spring-standard-public)
 
 ![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public_standard.png)
 
-[Azure Spring Enterprise](#tab/azure-spring-enterprise-public)
+# [Azure Spring Enterprise](#tab/azure-spring-enterprise-public)
 
 ![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public_enterprise.png)
 
