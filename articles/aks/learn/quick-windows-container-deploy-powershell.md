@@ -211,9 +211,6 @@ spec:
           limits:
             cpu: 1
             memory: 800M
-          requests:
-            cpu: .1
-            memory: 300M
         ports:
           - containerPort: 80
   selector:
