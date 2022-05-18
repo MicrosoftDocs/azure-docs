@@ -27,9 +27,9 @@ To export your data with the Event Data Transfer Tool:
 1. [Install and configure the Event Transfer Tool](https://www.microfocus.com/documentation/arcsight/arcsight-esm-7.6/ESM_AdminGuide/#ESM_AdminGuide/EventDataTransfer/EventDataTransfer.htm).  
 1. Configure the logs export to use a CSV format. For example, this command exports data recorded between 15:45 and 16:45 on May 4, 2016 to a CSV file:
 
-        ```bash
-            arcsight event_transfer -dtype File -dpath <***path***> -format csv -start "05/04/2016 15:45:00" -end "05/04/2016 16:45:00" 
-        ```
+    ```bash
+        arcsight event_transfer -dtype File -dpath <***path***> -format csv -start "05/04/2016 15:45:00" -end "05/04/2016 16:45:00" 
+    ```
 ## lacat utility 
 
 Use this tool for any volume of data smaller than than a TB. lacat is a simple utility that exports CEF records from a logger archive file, and prints them the records to `stdout` by design. You can then redirect the records to a file or pipe them for further manipulation, such as `grep`, `awk`, and so on. 
