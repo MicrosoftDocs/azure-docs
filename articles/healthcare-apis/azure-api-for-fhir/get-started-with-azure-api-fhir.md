@@ -44,7 +44,7 @@ How Azure API for FHIR validates the access token will depend on implementation 
 
 For an application to interact with Azure AD, it needs to be registered. In the context of the FHIR server, there are two kinds of application registrations:
 
-1.	Resource application registrations
+-	Resource application registrations
 2.	Client application registrations
 
 For more information about the two kinds of application registrations, see [Register the Azure Active Directory apps for Azure API for FHIR](fhir-app-registration.md).
