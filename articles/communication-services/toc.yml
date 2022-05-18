@@ -33,7 +33,7 @@ items:
         href: quickstarts/chat/meeting-interop.md
       - name: Using Chat SDK with React Native
         href: quickstarts/chat/react-native.md
-   - name: Email
+  - name: Email
     items:
       - name: Create a Email Communication Services resource
         href: quickstarts/email/create-email-communication-resource.md
