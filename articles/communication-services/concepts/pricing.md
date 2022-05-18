@@ -205,8 +205,6 @@ Contoso is a healthcare company with clinics in US and Canada. Contoso has a Pat
 - The application sends appointment reminders to 20 US patients and 30 Canada patients using a US toll-free number.
 - Message length of the reminder message is 150 chars < 1 message segment*. Hence, total sent messages are 20 message segments for US and 30 message segments for CA.
 
-*Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
-
 **Cost calculations**
 
 - US - 20 message segments x $0.0075 per sent message segment + 20 message segments x $0.0025 carrier surcharge per sent message segment = $0.20
@@ -221,8 +219,6 @@ Contoso is a healthcare company with clinics in US and Canada. Contoso has a Pat
 - The application sends appointment reminders to 20 US patients and 30 Canada patients using a CA toll-free number.
 - 6 US patients and 4 CA patients respond back to reschedule their appointments. Contoso receives 10 SMS responses in total.
 - Message length of the reschedule messages is less than 1 message segment*. Hence, total messages received are 6 message segments for US and 4 message segments for CA.
-
-*Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
 
 **Cost calculations**
 
