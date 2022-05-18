@@ -1,12 +1,12 @@
 ---
-title: Classification reporting on your data in Microsoft Purview using Microsoft Purview Insights
+title: Classification reporting on your data in Microsoft Purview using Microsoft Purview Data Estate Insights
 description: This how-to guide describes how to view and use Microsoft Purview classification reporting on your data.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.topic: how-to
 ms.date: 09/27/2021
-# Customer intent: As a security officer, I need to understand how to use Microsoft Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
+# Customer intent: As a security officer, I need to understand how to use Microsoft Purview Data Estate Insights to learn about sensitive data identified and classified and labeled during scanning.
 ms.custom: ignite-fall-2021
 ---
 
@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 This how-to guide describes how to access, view, and filter Microsoft Purview Classification insight reports for your data.
 
 > [!IMPORTANT]
-> Microsoft Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Purview Data Estate Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (formerly SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, Amazon S3 buckets, and Amazon RDS databases (public preview), Power BI
 
@@ -28,7 +28,7 @@ In this how-to guide, you'll learn how to:
 
 ## Prerequisites
 
-Before getting started with Microsoft Purview insights, make sure that you've completed the following steps:
+Before getting started with Microsoft Purview Data Estate Insights, make sure that you've completed the following steps:
 
 - Set up your Azure resources and populated the relevant accounts with test data
 
@@ -38,7 +38,7 @@ Before getting started with Microsoft Purview insights, make sure that you've co
 
 For more information, see [Manage data sources in Microsoft Purview](manage-data-sources.md).
 
-## Use Microsoft Purview classification insights
+## Use Microsoft Purview Data Estate Insights for classifications
 
 In Microsoft Purview, classifications are similar to subject tags, and are used to mark and identify data of a specific type that's found within your data estate during scanning.
 
@@ -51,11 +51,11 @@ Microsoft Purview uses the same sensitive information types as Microsoft 365, al
 
 1. Go to the **Microsoft Purview** [instance screen in the Azure portal](https://aka.ms/purviewportal) and select your Microsoft Purview account.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Microsoft Purview Studio** tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Microsoft Purview governance portal** tile.
 
-1. In Microsoft Purview, select the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Insights** area.
+1. In Microsoft Purview, select the **Data Estate Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Data Estate Insights** area.
 
-1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Classification** to display the Microsoft Purview **Classification insights** report.
+1. In the **Data Estate Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Classification** to display the Microsoft Purview **Classification insights** report.
 
    :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification insights report" lightbox="media/insights/select-classification-labeling.png":::
 

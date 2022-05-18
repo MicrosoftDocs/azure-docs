@@ -118,7 +118,7 @@ Read the [User flows and custom policies overview](user-flow-overview.md) articl
 
 ## User interface
 
-In Azure AD B2C, you can craft your users' identity experiences so that the pages that are shown blend seamlessly with the look and feel of your brand. You get nearly full control of the HTML and CSS content presented to your users when they proceed through your application's identity journeys. With this flexibility, you can maintain brand and visual consistency between your application and Azure AD B2C.
+In Azure AD B2C, you can craft your users' identity experiences so that the pages that are shown blend seamlessly with the look and feel of your brand. You get nearly full control of the HTML and CSS content presented to your users when they proceed through your application's identity journeys. (Customizing the pages rendered by third parties when using social accounts is limited to the options provided by the identity provider, and these are outside the control of Azure AD B2C.) With this flexibility, you can maintain brand and visual consistency between your application and Azure AD B2C.
 
 
 
@@ -200,7 +200,7 @@ The following diagram shows how Azure AD B2C can communicate using various proto
 
 ## Application integration
 
-When a user wants to sign in to your application, the application initiates an authorization request to a user flow- or custom policy-provided endpoint. The user flow or custom policy defines and controls the user's experience. When they complete a user flow, for example the *sign-up or sign-in* flow, Azure AD B2C generates a token, then redirects the user back to your application.
+When a user wants to sign in to your application, the application initiates an authorization request to a user-flow or custom policy-provided endpoint. The user flow or custom policy defines and controls the user's experience. When they complete a user flow, for example the *sign up or sign in* flow, Azure AD B2C generates a token, then redirects the user back to your application. This token is specific to Azure AD B2C and is not to be confused with the token issued by third-party identity providers when using social accounts. For information about how to use third-party tokens, see [Pass an identity provider access token to your application in Azure Active Directory B2C](idp-pass-through-user-flow.md).
 
 :::image type="content" source="media/technical-overview/app-integration.png" alt-text="Mobile app with arrows showing flow between Azure AD B2C sign-in page.":::
 
@@ -226,7 +226,7 @@ Azure AD B2C evaluates each sign-in event and ensures that all policy requiremen
 
 ## Password complexity
 
-During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also provides configuration options for specifying the complexity requirements of the passwords your customers use.
+During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also provides configuration options for specifying the complexity requirements of the passwords your customers use when they use local accounts.
 
 ![Screenshot of password complexity user experience](media/technical-overview/password-complexity.png)
 
@@ -259,7 +259,7 @@ Sessions are modeled as encrypted data, with the decryption key known only to th
 
 ### Access to user data
 
-Azure AD B2C tenants share many characteristics with enterprise Azure Active Directory tenants used for employees and partners. Shared aspects include mechanisms for viewing administrative roles, assigning roles, and auditing activities.
+Azure AD B2C tenants share many characteristics with enterprise Azure Active Directory tenants used for employees and partners. Shared aspects include mechanisms for viewing administrative roles, assigning roles, and auditing activities. 
 
 You can assign roles to control who can perform certain administrative actions in Azure AD B2C, including:
 

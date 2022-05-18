@@ -39,6 +39,8 @@ An Azure PowerShell script is available that does the following procedures:
 
 * If the load balancer doesn't have a frontend IP configuration or backend pool, you'll encounter an error running the script. Ensure the load balancer has a frontend IP and backend pool
 
+* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. We recommend manually creating a Standard Load Balancer and follow [Update or delete a load balancer used by virtual machine scale sets](https://docs.microsoft.com/azure/load-balancer/update-load-balancer-with-vm-scale-set) to complete the migration.
+
 ### Change allocation method of the public IP address to static
 
 The following are the recommended steps to change the allocation method.

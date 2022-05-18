@@ -44,12 +44,12 @@ The template performs the following tasks:
 
 * Creates a Microsoft Purview account in the specified resource group.
 
-## Open Microsoft Purview Studio
+## Open Microsoft Purview governance portal
 
-After your Microsoft Purview account is created, you'll use the Microsoft Purview Studio to access and manage it. There are two ways to open Microsoft Purview Studio:
+After your Microsoft Purview account is created, you'll use the Microsoft Purview governance portal to access and manage it. There are two ways to open Microsoft Purview governance portal:
 
-* Open your Microsoft Purview account in the [Azure portal](https://portal.azure.com). Select the "Open Microsoft Purview Studio" tile on the overview page.
-    :::image type="content" source="media/create-catalog-portal/open-purview-studio.png" alt-text="Screenshot showing the Microsoft Purview account overview page, with the Microsoft Purview Studio tile highlighted.":::
+* Open your Microsoft Purview account in the [Azure portal](https://portal.azure.com). Select the "Open Microsoft Purview governance portal" tile on the overview page.
+    :::image type="content" source="media/create-catalog-portal/open-purview-studio.png" alt-text="Screenshot showing the Microsoft Purview account overview page, with the Microsoft Purview governance portal tile highlighted.":::
 
 * Alternatively, you can browse to [https://web.purview.azure.com](https://web.purview.azure.com), select your Microsoft Purview account, and sign in to your workspace.
 
@@ -76,15 +76,15 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you learned how to create a Microsoft Purview account and how to access it through the Microsoft Purview Studio.
+In this quickstart, you learned how to create a Microsoft Purview account and how to access it through the Microsoft Purview governance portal.
 
 Next, you can create a user-assigned managed identity (UAMI) that will enable your new Microsoft Purview account to authenticate directly with resources using Azure Active Directory (Azure AD) authentication.
 
 To create a UAMI, follow our [guide to create a user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity).
 
-Follow these next articles to learn how to navigate the Microsoft Purview Studio, create a collection, and grant access to Microsoft Purview:
+Follow these next articles to learn how to navigate the Microsoft Purview governance portal, create a collection, and grant access to Microsoft Purview:
 
 > [!div class="nextstepaction"]
-> [Using the Microsoft Purview Studio](use-azure-purview-studio.md)
+> [Using the Microsoft Purview governance portal](use-azure-purview-studio.md)
 > [Create a collection](quickstart-create-collection.md)
 > [Add users to your Microsoft Purview account](catalog-permissions.md)

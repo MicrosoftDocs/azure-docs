@@ -11,7 +11,7 @@ ms.date: 11/23/2021
 
 # Microsoft Purview automation best practices
 
-While Microsoft Purview provides an out of the box user experience with Microsoft Purview Studio, not all tasks are suited to the point-and-click nature of the graphical user experience. 
+While Microsoft Purview provides an out of the box user experience with the Microsoft Purview governance portal, not all tasks are suited to the point-and-click nature of the graphical user experience. 
 
 For example:
 * Triggering a scan to run as part of an automated process.

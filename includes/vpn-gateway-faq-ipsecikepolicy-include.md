@@ -27,8 +27,8 @@ The following table lists the supported cryptographic algorithms and key strengt
 
 | **IPsec/IKEv2**  | **Options**                                                                   |
 | ---              | ---                                                                           |
-| IKEv2 Encryption | AES256, AES192, AES128, DES3, DES                                             |
-| IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                     |
+| IKEv2 Encryption | GCMAES256, GCMAES128, AES256, AES192, AES128, DES3, DES                                             |
+| IKEv2 Integrity  | GCMAES256, GCMAES128, SHA384, SHA256, SHA1, MD5                                                     |
 | DH Group         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None  |
 | IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
 | IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |

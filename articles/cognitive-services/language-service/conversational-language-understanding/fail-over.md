@@ -133,7 +133,7 @@ Use the url from the `resultUrl` key in the body to view the exported assets fro
 
 ### Get export results
 
-Submit a **GET** request using the `{RESULT-URL}` you recieved from the previous step to view the results of the export job.
+Submit a **GET** request using the `{RESULT-URL}` you received from the previous step to view the results of the export job.
 
 #### Headers
 
@@ -366,7 +366,7 @@ Use the following header to authenticate your request.
 
 ## Deploy your model
 
-This is te step where you make your trained model available form consumption via the [runtime API](https://aka.ms/clu-apis). 
+This is the step where you make your trained model available form consumption via the [runtime API](https://aka.ms/clu-apis). 
 > [!TIP]
 > Use the same deployment name as your primary project for easier maintenance and minimal changes to your system to handle redirecting your traffic.
 
@@ -492,6 +492,6 @@ Repeat the same steps for your replicated project using `{YOUR-SECONDARY-ENDPOIN
 
 In this article, you have learned how to use the export and import APIs to replicate your project to a secondary Language resource in other region. Next, explore the API reference docs to see what else you can do with authoring APIs.
 
-* [Authoring REST API reference ](https://aka.ms/ct-authoring-swagger)
+* [Authoring REST API reference ](https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob)
 
 * [Runtime prediction REST API reference ](https://aka.ms/ct-runtime-swagger)

@@ -238,6 +238,8 @@ items:
       href: database-designer/create-lake-database-from-lake-database-templates.md
     - name: Modify a lake database
       href: database-designer/modify-lake-database.md
+    - name: Clone a lake database
+      href: database-designer/clone-lake-database.md  
 - name: Synapse SQL
   items:
   - name: Overview
@@ -430,7 +432,7 @@ items:
     - name: Security 
       items:
       - name: Database access control
-        href: ../azure-sql/database/logins-create-manage.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json
+        href: /azure/azure-sql/database/logins-create-manage?toc=%2fazure%2fsynapse-analytics%2ftoc.json
       - name: Shared database access control
         href: sql/shared-databases-access-control.md
       - name: Data security
@@ -442,9 +444,9 @@ items:
       - name: Data Encryption
         items:
         - name: Transparent Data Encryption overview
-          href: ../azure-sql/database/transparent-data-encryption-tde-overview.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json
+          href: /azure/azure-sql/database/transparent-data-encryption-tde-overview?toc=%2fazure%2fsynapse-analytics%2ftoc.json
         - name: TDE with bring your own key
-          href: ../azure-sql/database/transparent-data-encryption-byok-overview.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json
+          href: /azure/azure-sql/database/transparent-data-encryption-byok-overview?toc=%2fazure%2fsynapse-analytics%2ftoc.json
           displayName: transparent, data, encryption
     - name: Workload management
       items:
@@ -585,11 +587,11 @@ items:
       - name: Query with Visual Studio SSDT
         href: sql/get-started-visual-studio.md
       - name: Query using .NET Core
-        href: ../azure-sql/database/connect-query-dotnet-core.md?context=/azure/synapse-analytics/context/context
+        href: /azure/azure-sql/database/connect-query-dotnet-core?context=/azure/synapse-analytics/context/context
       - name: Query using Visual Studio .NET
-        href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?context=/azure/synapse-analytics/context/context
+        href: /azure/azure-sql/database/connect-query-dotnet-visual-studio?context=/azure/synapse-analytics/context/context
       - name: Query using Python
-        href: ../azure-sql/database/connect-query-python.md?context=/azure/synapse-analytics/context/context
+        href: /azure/azure-sql/database/connect-query-python?context=/azure/synapse-analytics/context/context
       - name: Query with sqlcmd
         href: sql/get-started-connect-sqlcmd.md
 - name: Data Explorer
@@ -706,10 +708,12 @@ items:
       items:
         - name: Runtime overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 2.4 runtime
-          href: ./spark/apache-spark-24-runtime.md
+        - name: Azure Synapse Apache Spark 3.2 runtime
+          href: ./spark/apache-spark-32-runtime.md
         - name: Azure Synapse Apache Spark 3.1 runtime
           href: ./spark/apache-spark-3-runtime.md
+        - name: Azure Synapse Apache Spark 2.4 runtime
+          href: ./spark/apache-spark-24-runtime.md
     - name: Machine learning
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
@@ -860,8 +864,6 @@ items:
   #   items:
   # - name: Quickstarts
   #   items:
-  # - name: Tutorials
-  #   items:  
   - name: Quickstarts
     items:
     - name: Load data into SQL pools using copy activity

@@ -77,7 +77,7 @@ As an example, if a Microsoft Purview account name is 'Contoso-Purview', when it
 | `Contoso-Purview.purview.azure.com` | CNAME | `Contoso-Purview.privatelink.purview.azure.com` |
 | `Contoso-Purview.privatelink.purview.azure.com` | CNAME | \<Microsoft Purview public endpoint\> |
 | \<Microsoft Purview public endpoint\> | A | \<Microsoft Purview public IP address\> |
-| `Web.purview.azure.com` | CNAME | \<Microsoft Purview Studio public endpoint\> |
+| `Web.purview.azure.com` | CNAME | \<Microsoft Purview governance portal public endpoint\> |
 
 The DNS resource records for Contoso-Purview, when resolved in the virtual network hosting the private endpoint, will be:
 
@@ -146,7 +146,7 @@ As an example, if a Microsoft Purview account name is 'Contoso-Purview', when it
 | `Contoso-Purview.purview.azure.com` | CNAME | `Contoso-Purview.privatelink.purview.azure.com` |
 | `Contoso-Purview.privatelink.purview.azure.com` | CNAME | \<Microsoft Purview public endpoint\> |
 | \<Microsoft Purview public endpoint\> | A | \<Microsoft Purview public IP address\> |
-| `Web.purview.azure.com` | CNAME | \<Microsoft Purview Studio public endpoint\> |
+| `Web.purview.azure.com` | CNAME | \<Microsoft Purview governance portal public endpoint\> |
 
 The DNS resource records for Contoso-Purview, when resolved in the virtual network hosting the private endpoint, will be:
 

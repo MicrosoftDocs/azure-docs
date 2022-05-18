@@ -143,7 +143,7 @@ This page lets you view and create rules based on device data. When a rule fires
 
 :::image type="content" source="Media/overview-iot-central-tour/export.png" alt-text="Data Export":::
 
-Data export enables you to set up streams of data to external systems. To learn more, see the [Export your data in Azure IoT Central](./howto-export-data.md) article.
+Data export enables you to set up streams of data to external systems. To learn more, see the [Export your data in Azure IoT Central](./howto-export-to-blob-storage.md) article.
 
 ### Permissions
 

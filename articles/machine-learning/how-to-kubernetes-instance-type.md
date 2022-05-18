@@ -88,10 +88,10 @@ items:
         limits:
           cpu: "100m"
           nvidia.com/gpu: 0
-          memory: "10Mi"
+          memory: "1Gi"
         requests:
           cpu: "100m"
-          memory: "1Gi"
+          memory: "10Mi"
 
   - metadata:
       name: defaultinstancetype
