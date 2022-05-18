@@ -13,7 +13,7 @@ ms.custom: references_regions
 [Azure VMware Solution](/azure/azure-vmware/introduction) supports attaching Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance.  
 
 > [!IMPORTANT]
-> Azure NetApp Files datastores for Azure VMware Solution (Preview) is currently in public preview. This version is provided without a service-level agreement and is not recommended for production workloads. Some features may not be supported or may have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure NetApp Files datastores for Azure VMware Solution hosts is currently in public preview. This version is provided without a service-level agreement and is not recommended for production workloads. Some features may not be supported or may have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 By using NFS datastores backed by Azure NetApp Files, you can expand your storage instead of scaling the clusters. You can also use Azure NetApp Files volumes to replicate data from on-premises or primary VMware environments for the secondary site. 
 
@@ -176,7 +176,7 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 
 - **What are my options for backup and recovery?**
     
-   Azure NetApp Files (ANF) supports [snapshots](/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) of datastores for quick checkpoints for near term recovery or quick clones. ANF backup lets you offload your ANF snapshots to Azure storage. This feature is available in public preview. Only for this technology are copies and stores-changed blocks relative to previously offloaded snapshots in an efficient format. This ability greatly increases Recovery Point Objective (RPO) and Recovery Time Objective (RTO) while lowering backup data transfer burden on the AVS service.   
+   Azure NetApp Files (ANF) supports [snapshots](/azure/azure-netapp-files/azure-netapp-files-manage-snapshots) of datastores for quick checkpoints for near term recovery or quick clones. ANF backup lets you offload your ANF snapshots to Azure storage. This feature is available in public preview. Only for this technology are copies and stores-changed blocks relative to previously offloaded snapshots in an efficient format. This ability decreases Recovery Point Objective (RPO) and Recovery Time Objective (RTO) while lowering backup data transfer burden on the Azure VMware Solution service.   
 
 - **How do I monitor Storage Usage?**
     
