@@ -37,7 +37,7 @@ This article also assumes you have a [GitHub][github] account to create your act
 
 ## Create a timed GitHub Action
 
-`cron` is a utility that allows you to run a set of commands, or job, on an automated schedule. To create job to update your AKS nodes on an automated schedule, you'll need a repository to host your actions. Usually, GitHub actions are configured in the same repository as your application, but you can use any repository. For this article we'll be using your [profile repository][profile-repository]. If you don't have one, create a new repository with the same name as your GitHub username.
+`cron` is a utility that allows you to run a set of commands, or job, on an automated schedule. To create job to update your AKS nodes on an automated schedule, you'll need a repository to host your actions. Usually, GitHub Actions are configured in the same repository as your application, but you can use any repository. For this article we'll be using your [profile repository][profile-repository]. If you don't have one, create a new repository with the same name as your GitHub username.
 
 1. Navigate to your repository on GitHub
 1. Click on the **Actions** tab at the top of the page.
