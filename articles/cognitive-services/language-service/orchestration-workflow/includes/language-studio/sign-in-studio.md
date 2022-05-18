@@ -21,6 +21,6 @@ ms.author: aahi
     |Azure resource group | Your Azure resource group. |
     |Azure resource name |  Your Azure resource name.        |
     |Location | A [valid location](../../service-limits.md#regional-support) for your Azure resource.       |
-    |Pricing tier     | A supported [pricing tier](../../service-limits.md#pricing-tiers) for your Azure resource.       |
+    |Pricing tier     | A supported [pricing tier](../../service-limits.md#language-resource-limits) for your Azure resource.       |
     
     :::image type="content" source="../../media/quickstart-language-resource.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="../../media/quickstart-language-resource.png":::

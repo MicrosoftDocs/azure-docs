@@ -1,14 +1,14 @@
 ---
-title: Conversational Language Understanding limits
+title: Orchestration workflow limits
 titleSuffix: Azure Cognitive Services
-description: Learn about the data, region, and throughput limits for Conversational Language Understanding
+description: Learn about the data, region, and throughput limits for Orchestration workflow
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 05/18/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021, mentions_regions
 ---
@@ -19,7 +19,7 @@ Use this article to learn about the data and service limits when using orchestra
 
 ## Language resource limits
 
-* Your Language resource has to be created in one of the [supported regions](region-support.md).
+* Your Language resource has to be created in one of the [supported regions](#regional-support).
 
 * Pricing tiers
   |Tier|Description|Limit|

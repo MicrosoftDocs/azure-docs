@@ -26,4 +26,4 @@ To test your model from the Language studio
 
 7. After you run the test, you should see the response of the model in the result. You can view the results in entities cards view, or view it in JSON format.
 
-    :::image type="content" source="../../media/test-model.png" alt-text="A screenshot showing testing the model." lightbox="../../media/test-model.png":::
+    :::image type="content" source="../../media/test-model.png" alt-text="A screenshot showing how to test a model in Language Studio." lightbox="../../media/test-model.png":::
