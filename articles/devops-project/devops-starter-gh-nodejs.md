@@ -23,7 +23,7 @@ In this quickstart, you use the simplified DevOps Starter experience to set up a
 
 ## Sign in to the Azure portal
 
-DevOps Starter creates a CI/CD workflow using GitHub actions. DevOps Starter also creates Azure resources in the Azure subscription of your choice.
+DevOps Starter creates a CI/CD workflow using GitHub Actions. DevOps Starter also creates Azure resources in the Azure subscription of your choice.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -72,7 +72,7 @@ DevOps Starter creates a CI/CD workflow using GitHub actions. DevOps Starter als
    
    ![Authorize_dashboard](_img/azure-devops-project-nodejs/authenticate-dashboard.png)
 
-DevOps Starter automatically configured a GitHub workflow with build and deploy jobs using GitHub actions. You're now ready to collaborate with a team on a Node.js app with a CI/CD process that automatically deploys your latest work to your web site.
+DevOps Starter automatically configured a GitHub workflow with build and deploy jobs using GitHub Actions. You're now ready to collaborate with a team on a Node.js app with a CI/CD process that automatically deploys your latest work to your web site.
 
    ![dashooard_view](_img/azure-devops-project-nodejs/full-dashboard.png)
 
