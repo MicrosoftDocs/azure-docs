@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/09/2022
+ms.date: 05/20/2022
 ms.author: glenga
 ms.custom: devdivchpfy22
 ---
@@ -11,7 +11,7 @@ ms.custom: devdivchpfy22
 
     :::image type="content" source="media/functions-vstools-publish/functions-vs-publish.png" alt-text="Screenshot of Publish window.":::
 
-1. For the **Specific target**, select **Azure Function App (Windows)**, which creates a function app that runs on Windows, and then select **Next**.
+1. Select **Azure Function App (Windows)** for the **Specific target**, which creates a function app that runs on Windows, and then select **Next**.
 
     :::image type="content" source="media/functions-vstools-publish/fucntions-vs-specific-target.png" alt-text="Screenshot of Publish window with specific target.":::
 
@@ -32,15 +32,15 @@ ms.custom: devdivchpfy22
 
     :::image type="content" source="./media/functions-vstools-publish/functions-vs-functionapp.png" alt-text="Screenshot of Create App Service dialog.":::
 
-1. Select **Create** to create a function app and its related resources in Azure. Status of resource creation is shown in the lower left of the window.
+1. Select **Create** to create a function app and its related resources in Azure. The status of resource creation is shown in the lower-left of the window.
 
-1. Back in **Functions instance**, ensure that **Run from package file** is checked. Your function app is deployed using [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) mode enabled. Zip Deploy is the recommended deployment method for your functions project, since it results in better performance.
+1. In the **Functions instance**, ensure that the **Run from package file** is checked. Your function app is deployed using [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) mode enabled. Zip Deploy is the recommended deployment method for your functions project resulting in better performance.
 
     :::image type="content" source="media/functions-vstools-publish/functions-vs-publish-profile-step-4.png" alt-text="Screenshot of Finish profile creation.":::
 
 1. Select **Finish**, and on the Publish page, select **Publish** to deploy the package containing your project files to your new function app in Azure.
 
-    After the deployment completes, the root URL of the function app in Azure is shown in the **Publish** tab.
+    After the deployment completes, the function app's root URL in Azure is shown in the **Publish** tab.
 
 1. In the Publish tab, select **Manage in Cloud Explorer**. It will open the new function app Azure resource in Cloud Explorer.
 

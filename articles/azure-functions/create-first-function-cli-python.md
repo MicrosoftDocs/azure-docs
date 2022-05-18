@@ -1,7 +1,7 @@
 ---
 title: Create a Python function from the command line - Azure Functions
 description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 05/12/2022
+ms.date: 05/20/2022
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, mode-api, devdivchpfy22
@@ -35,11 +35,11 @@ Before you begin, you must have the following requirements in place:
 
   + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
 
-+ [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
++ [Python versions supported by Azure Functions](supported-languages.md#languages-by-runtime-version).
 
 ### Prerequisite check
 
-Verify your prerequisites, which depend on whether you're using Azure CLI or Azure PowerShell for creating Azure resources:
+Verify your prerequisites, which depend on whether you're using Azure CLI or Azure PowerShell for creating Azure resources.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -111,7 +111,7 @@ You run all subsequent commands in this activated virtual environment.
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you'll create a function project that contains a single function.
 
-1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime.
+1. Run the `func init` command as follows to create a functions project in a folder named *LocalFunctionProj* with the specified runtime.
 
     ```console
     func init LocalFunctionProj --python
@@ -245,7 +245,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     ---
 
-    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Storage name must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements).
+    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Storage name must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](storage-considerations.md#storage-account-requirements).
 
     The storage account incurs only a few cents (USD) for this quickstart.
 
@@ -271,7 +271,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     In the previous example, replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
 
-    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md) free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 

@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/04/2022
+ms.date: 05/20/2022
 ms.author: glenga
 ms.custom: devdivchpfy22
 ---
@@ -20,11 +20,11 @@ In this section, you'll create a function app and related resources in your Azur
 
 1. Provide the following information at the prompts:
 
-    - **Select folder**: Choose a folder from your workspace or browse to the one that contains your function app. You won't see this prompt if you already have a valid function app opened.
+    - **Select folder**: Select a folder from your workspace or browse to the one that contains your function app. You won't see this prompt if you already have a valid function app opened.
 
-    - **Select subscription**: Choose the subscription to use. You won't see the subscription list if you only have one subscription.
+    - **Select subscription**: Select the subscription to use. You won't see the subscription list if you only have one subscription.
 
-    - **Select Function App in Azure**: Choose `- Create new Function App`. (Don't select the `Advanced` option, which isn't covered in this article.)
+    - **Select Function App in Azure**: Select `Create new Function App`. (Don't select the `Advanced` option, which isn't covered in this article.)
 
     - **Enter a globally unique name for the function app**: Enter a name that is valid in a URL path. The name you type is validated to ensure that it's unique in Azure Functions.
 
@@ -32,13 +32,13 @@ In this section, you'll create a function app and related resources in your Azur
 
     The extension shows the status of individual resources as they're being created in Azure in the notification area.
 
-    :::image type="content" source="media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification of Azure resource creation.":::
+    :::image type="content" source="media/functions-publish-project-vscode/resource-notification.png" alt-text="Screenshot that shows notification of Azure resource creation.":::
 
-1. When completed, the following Azure resources are created in your subscription, resources are named based on your function app name:
+1. When completed, the following Azure resources are created in your subscription, and resources are named based on your function app name:
 
     [!INCLUDE [functions-vs-code-created-resources](functions-vs-code-created-resources.md)]
 
-    A notification is displayed after your function app is created and the deployment package is applied.
+    A notification displays after your function app is created and the deployment package is applied.
 
     [!INCLUDE [functions-vs-code-create-tip](functions-vs-code-create-tip.md)]
 

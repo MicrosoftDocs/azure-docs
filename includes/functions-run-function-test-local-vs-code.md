@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/27/2022
+ms.date: 05/20/2022
 ms.custom: devdivchpfy22
 ms.author: glenga
 ---
@@ -11,7 +11,7 @@ ms.author: glenga
 
 Visual Studio Code integrates with [Azure Functions Core tools](../articles/azure-functions/functions-run-local.md) to let you run this project on your local development computer before you publish to Azure.
 
-1. Press <kbd>F5</kbd> to start the function app project. Output from Core Tools is displayed in the **Terminal** panel. Your app starts in the **Terminal** panel. You can see the URL endpoint of your HTTP-triggered function running locally.
+1. Press <kbd>F5</kbd> to start the function app project. The **Terminal** panel displays the Output from Core Tools. Your app starts in the **Terminal** panel. You can see the URL endpoint of your HTTP-triggered function running locally.
 
     :::image type="content" source="./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png" alt-text="Screenshot of the Local function VS Code output.":::
 
@@ -23,6 +23,6 @@ Visual Studio Code integrates with [Azure Functions Core tools](../articles/azur
 
 1. In the **Enter request body**, you'll see the request message body value as `{ "name": "Azure" }`. Press Enter to send this request message to your function.
 
-1. When the function executes locally and returns a response, a notification is raised in Visual Studio Code. Information about the function execution is shown in **Terminal** panel.
+1. When the function executes locally and returns a response, a notification is raised in Visual Studio Code. Information about the function execution is shown in the **Terminal** panel.
 
 1. With the **Terminal** panel focused, press <kbd>Ctrl + C</kbd> to stop Core Tools and disconnect the debugger.

@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure Storage using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Queue Storage by adding an output binding to your Visual Studio Code project.
-ms.date: 05/02/2022
+ms.date: 05/20/2022
 ms.topic: quickstart
 ms.devlang: csharp, java, javascript, powershell, python, typescript
 ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22
@@ -54,14 +54,14 @@ This article assumes that you're already signed in to your Azure subscription fr
 
 ## Download the function app settings
 
-In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in the app settings in Azure. In this article, you'll write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the local.settings.json file.
+In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in the app settings in Azure. In this article, you'll write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the *local.settings.json* file.
 
 1. Press the F1 key to open the command palette, then search for and run the command `Azure Functions: Download Remote Settings....`.
 
 1. Select the function app you created in the previous article. Select **Yes to all** to overwrite the existing local settings.
 
     > [!IMPORTANT]  
-    > Because it contains secrets, the local.settings.json file never gets published, and is excluded from the source control.
+    > Because it contains secrets, the *local.settings.json* file never gets published, and is excluded from the source control.
 
 1. Copy the value `AzureWebJobsStorage`, which is the key for the Storage account connection string value. You'll use this connection to verify that the output binding works as expected.
 
@@ -73,7 +73,7 @@ Because you're using a Queue storage output binding, you must have the Storage b
 
 Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages.
 
-Extension bundles usage is enabled in the host.json file at the root of the project, which appears as follows:
+Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
@@ -89,7 +89,7 @@ Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 
-In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
+In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the *function.json* file. The way you define these attributes depends on the language of your function app.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 
@@ -162,7 +162,7 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 1. With Core Tools running, go to the **Azure: Functions** area. Under **Functions**, expand **Local Project** > **Functions**. Right-click (Ctrl-click on Mac) the `HttpExample` function and choose **Execute Function Now...**.
 
-    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute function now from Visual Studio Code":::
+    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Screenshot of executing function from Visual Studio Code.":::
 
 1. In the **Enter request body**, you see the request message body value of `{ "name": "Azure" }`. Press Enter to send this request message to your function.  
 
@@ -188,7 +188,7 @@ After you successfully sign in to your account, you'll see all of the Azure subs
 
 ### Examine the output queue
 
-1. In Visual Studio Code, press the F1 key to open the command palette, then search for and run the command `Azure Storage: Open in Storage Explorer` and select your Storage account name. Your storage account opens in Azure Storage Explorer.  
+1. In Visual Studio Code, press the F1 key to open the command palette, then search for and run the command `Azure Storage: Open in Storage Explorer` and select your Storage account name. Your storage account opens in the Azure Storage Explorer.  
 
 1. Expand the **Queues** node, and then select the queue named **outqueue**.
 
@@ -196,7 +196,7 @@ After you successfully sign in to your account, you'll see all of the Azure subs
 
     ![Queue message shown in Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
-1. Run the function again, send another request, and you'll see a new message appears in the queue.  
+1. Run the function again, send another request, and you'll see a new message in the queue.  
 
 Now, it's time to republish the updated function app to Azure.
 
@@ -206,9 +206,9 @@ Now, it's time to republish the updated function app to Azure.
 
 1. Select the function app that you created in the first article. Because you're redeploying your project to the same app, select **Deploy** to dismiss the warning about overwriting files.
 
-1. After deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure.
+1. After the deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure.
 
-1. Again [view the message in the storage queue](#examine-the-output-queue) to verify that the output binding again generates a new message in the queue.
+1. Again [view the message in the storage queue](#examine-the-output-queue) to verify that the output binding generates a new message in the queue.
 
 ## Clean up resources
 

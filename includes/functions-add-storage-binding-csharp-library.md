@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/02/2022
+ms.date: 05/20/2022
 ms.custom: devdivchpfy22
 ms.author: glenga
 ---
@@ -15,7 +15,7 @@ Open the *HttpExample.cs* project file and add the following parameter to the `R
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="17":::
 
-The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. In this case, the output is a storage queue named `outqueue`. The connection string for the Storage account is set by the `StorageAccountAttribute`. This attribute indicates the setting that contains the Storage account connection string and can be applied at the class, method, or parameter level. In this case, you could omit `StorageAccountAttribute` because you're already using the default storage account.
+The `msg` parameter is an `ICollector<T>` type, representing a collection of messages written to an output binding when the function completes. In this case, the output is a storage queue named `outqueue`. The `StorageAccountAttribute` sets the connection string for the Storage account. This attribute indicates the setting that contains the Storage account connection string and can be applied at the class, method, or parameter level. In this case, you could omit `StorageAccountAttribute` because you're already using the default storage account.
 
 The Run method definition should now look like the following code:  
 
@@ -27,8 +27,8 @@ Open the *HttpExample.cs* project file and add the following `MultiResponse` cla
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="33-38":::
 
-The `MultiResponse` class allows you to write to both a storage queue named `outqueue` and an HTTP success message. Because the `QueueOutput` attribute is applied to a string array, multiple messages could be sent to the queue.
+The `MultiResponse` class allows you to write to a storage queue named `outqueue` and an HTTP success message. Multiple messages could be sent to the queue because the `QueueOutput` attribute is applied to a string array.
 
-The connection string for the Storage account is set by the `Connection` property. In this case, you could omit `Connection` because you're already using the default storage account.
+The `Connection` property sets the connection string for the Storage account. In this case, you could omit `Connection` because you're already using the default storage account.
 
 ---

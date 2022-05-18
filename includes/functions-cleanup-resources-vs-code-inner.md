@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/02/2022
+ms.date: 05/20/2022
 ms.custom: devdivchpfy22
 ms.author: glenga
 ---
@@ -13,9 +13,9 @@ ms.author: glenga
 
 1. In the **Overview** tab, select the named link next to **Resource group**.
 
-   :::image type="content" source="./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png" alt-text="Select the resource group to delete from the function app page.":::
+   :::image type="content" source="./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png" alt-text="Screenshot of select the resource group to delete from the function app page.":::
 
-1. In the **Resource group** page, review the list of included resources, and verify that they're the ones you want to delete.
+1. On the **Resource group** page, review the list of included resources, and verify that they're the ones you want to delete.
 
 1. Select **Delete resource group**, and follow the instructions.
 

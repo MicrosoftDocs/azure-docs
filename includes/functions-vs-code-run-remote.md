@@ -2,13 +2,13 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/27/2022
+ms.date: 05/20/2022
 ms.custom: devdivchpfy22	
 ms.author: glenga
 ---
 ## Run the function in Azure
 
-1. Back in the **Azure: Functions** area in the side bar, expand your subscription, your new function app, and **Functions**. Right-click (Windows) or <kbd>Ctrl -</kbd> click (macOS) the `HttpExample` function and select **Execute Function Now...**.
+1. In the **Azure: Functions** area in the sidebar, expand your subscription, your new function app, and **Functions**. Right-click (Windows) or <kbd>Ctrl -</kbd> click (macOS) the `HttpExample` function and select **Execute Function Now...**.
 
     :::image type="content" source="media/functions-vs-code-run-remote/execute-function-now.png" alt-text="Screenshot of Execute function now in Azure from Visual Studio Code.":::
 

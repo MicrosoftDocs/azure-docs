@@ -3,7 +3,7 @@ title: Create your first durable function in Azure using Python
 description: Create and publish an Azure Durable Function in Python using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 05/05/2022
+ms.date: 05/20/2022
 ms.reviewer: azfuncdf, antchu
 ms.devlang: python
 ms.custom: mode-api, devdivchpfy22
@@ -11,7 +11,7 @@ ms.custom: mode-api, devdivchpfy22
 
 # Create your first durable function in Python
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
+Durable Functions is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
 In this article, you'll learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function. This function will orchestrate and chain together calls to other functions. You can then publish the function code to Azure.
 
@@ -53,15 +53,15 @@ In this section, you'll use Visual Studio Code to create a local Azure Functions
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
 
-Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
+Visual Studio Code installs the Azure Functions Core Tools if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
 A *requirements.txt* file is also created in the root folder. It specifies the Python packages required to run your function app.
 
 ## Install azure-functions-durable from PyPI
 
-When you've created the project, the Azure Functions Visual Studio Code extension automatically created a virtual environment with your selected Python version. You'll activate the virtual environment in a terminal and install some dependencies required by Azure Functions and Durable Functions.
+When you've created the project, the Azure Functions Visual Studio Code extension automatically creates a virtual environment with your selected Python version. You then need to activate the virtual environment in a terminal and install some dependencies required by Azure Functions and Durable Functions.
 
-1. Open *requirements.txt* in the editor and change its content to the following code:
+1. Open the *requirements.txt* in the editor and change its content to the following code:
 
     ```
     azure-functions
@@ -86,7 +86,7 @@ When you've created the project, the Azure Functions Visual Studio Code extensio
 
     :::image type="content" source="media/quickstart-python-vscode/activate-venv.png" alt-text="Screenshot of how to activate virtual environment.":::
 
-1. In the integrated terminal where the virtual environment is activated, use pip to install the packages you defined:
+1. In the integrated terminal where the virtual environment is activated, use pip to install the packages you defined.
 
     ```bash
     python -m pip install -r requirements.txt
@@ -181,7 +181,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
-   The request will query the orchestration instance for the status. You should get an eventual response, which shows the instance has completed, and includes the outputs or results of the durable function. It looks like:
+   The request will query the orchestration instance for the status. You must get an eventual response, which shows the instance has completed and includes the outputs or results of the durable function. It looks like:
 
     ```json
     {
