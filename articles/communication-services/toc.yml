@@ -33,6 +33,18 @@ items:
         href: quickstarts/chat/meeting-interop.md
       - name: Using Chat SDK with React Native
         href: quickstarts/chat/react-native.md
+   - name: Email
+    items:
+      - name: Create a Email Communication Services resource
+        href: quickstarts/email/create-email-communication-resource.md
+      - name: Add Azure Managed domain
+        href: quickstarts/email/add-azure-managed-domains.md
+      - name: Add Custom domain
+        href: quickstarts/email/add-custom-verified-domains.md
+      - name: Connect domain to send Email
+        href: quickstarts/email/connect-email-communication-resource.md
+      - name: Send an Email
+        href: quickstarts/email/send-email.md
   - name: Telephony and phone numbers
     items:
       - name: Get and manage phone numbers
@@ -113,6 +125,18 @@ items:
         href: concepts/chat/sdk-features.md
       - name: Chat concepts
         href: concepts/chat/concepts.md
+  - name: Email
+    items:
+      -name: Email concepts
+       href: concepts/email/email-overview.md
+      -name: What is Email Communication Service
+       href: concepts/email/prepare-email-communication-resource.md
+      -name: Email domains and sender authentication 
+       href: concepts/email/email-domain-and-sender-authentication.md
+      -name: Best practices for sender authentication support 
+       href: concepts/email/email-authentication-best-practice.md
+      -name: Email client library
+       href: concepts/email/sdk-features.md
   - name: Telephony and phone numbers
     items:
       - name: Telephony Concepts
