@@ -9,9 +9,6 @@ ms.date: 05/17/2022
 ms.author: aahi
 ---
 
-
-## Test model
-
 To test your model from the Language studio
 
 1. Select **Test model** from the left side menu.
