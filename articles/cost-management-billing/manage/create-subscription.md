@@ -43,7 +43,7 @@ Use the following procedure to create a subscription for yourself or for someone
 1. Select the **Billing account** where the new subscription will get created.
 1. Select the **Billing profile** where the subscription will get created.
 1. Select the **Invoice section** where the subscription will get created.
-1. Next to **Plan**, select **Microsoft Azure Plan** for DevTest if the subscription will be used for development or testing workloads. Otherwise, select **Microsoft Azure Plan**.  
+1. Next to **Plan**, select **Microsoft Azure Plan for DevTest** if the subscription will be used for development or testing workloads. Otherwise, select **Microsoft Azure Plan**.  
     :::image type="content" source="./media/create-subscription/create-subscription-basics-tab.png" alt-text="Screenshot showing the Basics tab where you enter basic information about the subscription." lightbox="./media/create-subscription/create-subscription-basics-tab.png" :::
 1. Select the **Advanced** tab.
 1. Select your **Subscription directory**. It's the Azure Active Directory (Azure AD) where the new subscription will get created.
@@ -71,7 +71,7 @@ A link to the subscription request is also created. The creator can manually sha
 1. Select the **Billing account** where the new subscription will get created.
 1. Select the **Billing profile** where the subscription will get created.
 1. Select the **Invoice section** where the subscription will get created.
-1. Next to **Plan**, select **Microsoft Azure Plan** for DevTest if the subscription will be used for development or testing workloads. Otherwise, select **Microsoft Azure Plan**.  
+1. Next to **Plan**, select **Microsoft Azure Plan for DevTest** if the subscription will be used for development or testing workloads. Otherwise, select **Microsoft Azure Plan**.  
     :::image type="content" source="./media/create-subscription/create-subscription-basics-tab.png" alt-text="Screenshot showing the Basics tab where you enter basic information about the subscription." lightbox="./media/create-subscription/create-subscription-basics-tab.png" :::
 1. Select the **Advanced** tab.
 1. Select your **Subscription directory**. It's the Azure Active Directory (Azure AD) where the new subscription will get created.
@@ -136,15 +136,28 @@ After the new subscription is created, you'll see it in on the **Subscriptions**
 
 Partners with a Microsoft Partner Agreement use the following steps to create a new Microsoft Azure Plan subscription for their customers. The subscription is created under the partner’s billing account and billing profile.
 
-1.	Sign in to the Azure portal using your Partner Center account.
-Make sure you are in your Partner Center directory (tenant), not a customer’s tenant.
+1.	Sign in to the Azure portal using your Partner Center account.  
+    Make sure you are in your Partner Center directory (tenant), not a customer’s tenant.
 1.	Navigate to **Cost Management + Billing**.
-1.	Select the Billing scope for the billing account where the customer account resides.
-1.	In the left menu under **Billing**, select **Customers**.
+1.	Select the Billing scope for your billing account where the customer account resides.
+1.	In the left menu under **Billing**, select **Customers**.  
+    :::image type="content" source="./media/create-subscription/customers-list.png" alt-text="Screenshot showing the Customers list where you see your list of customers." lightbox="./media/create-subscription/customers-list.png" :::
 1.	On the Customers page, select the customer. If you have only one customer, the selection is unavailable.
-1.	In the left menu, under **Products + services**, select **Azure Subscriptions**.
-1.	On the Azure subscription page, select **+ Add** to create a subscription.
-1.	Enter details about the subscription and when complete, select **Review + create**.
+1.	In the left menu, under **Products + services**, select **All billing subscriptions**.
+1.	On the Azure subscription page, select **+ Add** to create a subscription. Then select the type of subscription to add. For example, **Usage based/ Azure subscription**.  
+    :::image type="content" source="./media/create-subscription/all-billing-subscriptions-add.png" alt-text="Screenshot showing navigation to Add where you create a customer subscription." lightbox="./media/create-subscription/all-billing-subscriptions-add.png" :::
+1. On the Basics tab, enter a subscription name.
+1. Select the partner's billing account.
+1. Select the partner's billing profile.
+1. Select the customer that you're creating the subscription for.
+1. If applicable, select a reseller.
+1. Next to **Plan**, select **Microsoft Azure Plan for DevTest** if the subscription will be used for development or testing workloads. Otherwise, select **Microsoft Azure Plan**.  
+    :::image type="content" source="./media/create-subscription/create-customer-subscription-basics-tab.png" alt-text="Screenshot showing the Basics tab where you enter basic information about the customer subscription." lightbox="./media/create-subscription/create-customer-subscription-basics-tab.png" :::
+1. Optionally, select the Tags tab and then enter tag pairs for **Name** and **Value**.
+1. Select **Review + create**. You should see a message stating `Validation passed`.
+1. Verify that the subscription information is correct, then select **Create**. You'll see a notification that the subscription is getting created.  
+
+After the new subscription is created, you'll see it in on the **Subscriptions** page.
 
 ## Create an additional Azure subscription programmatically
 
