@@ -18,7 +18,7 @@ keywords: image recognition, image identifier, image recognition app, custom vis
 
 # What is Custom Vision?
 
-Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images, according to their detected visual characteristics. Each label represents a classifications or objects. Unlike the [Computer Vision](../computer-vision/overview.md) service, Custom Vision allows you to specify your own labels and train custom models to detect them.
+Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images, according to their detected visual characteristics. Each label represents a classification or object. Unlike the [Computer Vision](../computer-vision/overview.md) service, Custom Vision allows you to specify your own labels and train custom models to detect them.
 
 This documentation contains the following types of articles:
 * The [quickstarts](./getting-started-build-a-classifier.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time.
