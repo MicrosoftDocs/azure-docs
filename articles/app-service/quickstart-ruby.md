@@ -22,7 +22,7 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
 
 ## Prerequisites
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.6 or higher</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.7 or higher</a>
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
 
 ## Download the sample
@@ -73,10 +73,10 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
 
 1. Create a [web app](overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan.
 
-    In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `RUBY|2.6`. To see all supported runtimes, run [`az webapp list-runtimes --os linux`](/cli/azure/webapp).
+    In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `RUBY|2.7`. To see all supported runtimes, run [`az webapp list-runtimes --os linux`](/cli/azure/webapp).
 
     ```azurecli-interactive
-    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'RUBY|2.6' --deployment-local-git
+    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'RUBY|2.7' --deployment-local-git
     ```
 
     When the web app has been created, the Azure CLI shows output similar to the following example:
