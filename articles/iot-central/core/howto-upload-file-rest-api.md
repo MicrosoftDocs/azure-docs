@@ -220,6 +220,7 @@ The response to this request looks like the following example:
   "sasTtl": "PT1H",
     "state": "succeeded",
     "etag": "\"7502ac89-0000-0300-0000-627eaf100000\""
+}
 ```
 
 ## Remove the file upload storage account configuration
