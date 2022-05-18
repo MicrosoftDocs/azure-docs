@@ -17,7 +17,7 @@ ms.author: gwallace
 ---
 # Overview of DevOps Starter
 
- DevOps Starter makes it easy to get started on Azure using either GitHub actions or Azure DevOps. It  helps you launch your favorite app on the Azure service of your choice in just a few quick steps from the Azure portal. 
+ DevOps Starter makes it easy to get started on Azure using either GitHub Actions or Azure DevOps. It  helps you launch your favorite app on the Azure service of your choice in just a few quick steps from the Azure portal. 
 
  DevOps Starter sets up everything you need for developing, deploying, and monitoring your application. You can use the DevOps Starter dashboard to monitor code commits, builds, and deployments, all from a single view in the Azure portal.
 
@@ -64,7 +64,7 @@ After you use DevOps Starter, you can also delete all of the resources from a si
 
 ## DevOps Starter and GitHub integration
 
-DevOps Starter now supports GitHub actions as a CI/CD provider. It automates all of the work that's needed in GitHub to set up a CI/CD workflow using GitHub Actions. It creates a GitHub repository in an existing GitHub organization, and then commits a sample application to the new GitHub repository.  
+DevOps Starter now supports GitHub Actions as a CI/CD provider. It automates all of the work that's needed in GitHub to set up a CI/CD workflow using GitHub Actions. It creates a GitHub repository in an existing GitHub organization, and then commits a sample application to the new GitHub repository.  
 
 The automation also establishes a trigger for the workflow so that every new code commit initiates a build and deploy job within the workflow. The application is deployed to the Azure service of your choice. The GitHub workflow can be customized for additional scenarios. 
 
