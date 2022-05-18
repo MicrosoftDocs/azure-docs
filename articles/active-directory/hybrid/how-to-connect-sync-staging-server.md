@@ -79,7 +79,7 @@ Most of the file is self-explanatory. Some abbreviations to understand the conte
 * AMODT – Attribute Modification Type. Indicates if the operation at an attribute level is an Add, Update, or delete.
 
 **Retrieve common identifiers**
-The export.csv file contains all changes that are about to be exported. Each row corresponds to a change for an object in the connector space and the object is identified by the DN attribute. The DN attribute is a unique identifier assigned to an object in the connector space. When you have many rows/changes in the export.csv to analyze, it may be difficult for you to figure out which objects the changes are for based on the DN attribute alone. To simplify the process of analyzing the changes, use the csanalyzer.ps1 PowerShell script. The script retrieves common identifiers (for example, displayName, userPrincipalName) of the objects. To use the script:
+The export.csv file contains all changes that are about to be exported. Each row corresponds to a change for an object in the connector space and the object is identified by the DN attribute. The DN attribute is a unique identifier assigned to an object in the connector space. When you have many rows/changes in the export.csv to analyze, it may be difficult for you to figure out which objects the changes are for based on the DN attribute alone. To simplify the process of analyzing the changes, use the `csanalyzer.ps1` PowerShell script. The script retrieves common identifiers (for example, displayName, userPrincipalName) of the objects. To use the script:
 1. Copy the PowerShell script from the section [CSAnalyzer](#appendix-csanalyzer) to a file named `csanalyzer.ps1`.
 2. Open a PowerShell window and browse to the folder where you created the PowerShell script.
 3. Run: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
@@ -126,7 +126,7 @@ Support for SQL AOA was added to Azure AD Connect in version 1.1.524.0. You must
 ## Appendix CSAnalyzer
 See the section [verify](#verify) on how to use this script.
 
-```
+```powershell
 Param(
 	[Parameter(Mandatory=$true, HelpMessage="Must be a file generated using csexport 'Name of Connector' export.xml /f:x)")]
 	[string]$xmltoimport="%temp%\exportedStage1a.xml",
@@ -151,118 +151,125 @@ $resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariabl
 #use an XmlReader to deal with even large files
 $result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
 $result=$reader.ReadToDescendant('cs-object')
-do 
+if($result)
 {
-	#create the object placeholder
-	#adding them up here means we can enforce consistency
-	$objOutputUser=New-Object psobject
-	Add-Member -InputObject $objOutputUser -MemberType NoteProperty -Name ID -Value ""
-	Add-Member -InputObject $objOutputUser -MemberType NoteProperty -Name Type -Value ""
-	Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name DN -Value ""
-	Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name operation -Value ""
-	Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name UPN -Value ""
-	Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name displayName -Value ""
-	Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name sourceAnchor -Value ""
-	Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name alias -Value ""
-	Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name primarySMTP -Value ""
-	Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name onPremisesSamAccountName -Value ""
-	Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name mail -Value ""
-
-	$user = [System.Xml.Linq.XElement]::ReadFrom($reader)
-	if ($showOutput) {Write-Host Found an exported object... -ForegroundColor Green}
-
-	#object id
-	$outID=$user.Attribute('id').Value
-	if ($showOutput) {Write-Host ID: $outID}
-	$objOutputUser.ID=$outID
-
-	#object type
-	$outType=$user.Attribute('object-type').Value
-	if ($showOutput) {Write-Host Type: $outType}
-	$objOutputUser.Type=$outType
-
-	#dn
-	$outDN= $user.Element('unapplied-export').Element('delta').Attribute('dn').Value
-	if ($showOutput) {Write-Host DN: $outDN}
-	$objOutputUser.DN=$outDN
-
-	#operation
-	$outOperation= $user.Element('unapplied-export').Element('delta').Attribute('operation').Value
-	if ($showOutput) {Write-Host Operation: $outOperation}
-	$objOutputUser.operation=$outOperation
-
-	#now that we have the basics, go get the details
-
-	foreach ($attr in $user.Element('unapplied-export-hologram').Element('entry').Elements("attr"))
+	do 
 	{
-		$attrvalue=$attr.Attribute('name').Value
-		$internalvalue= $attr.Element('value').Value
+		#create the object placeholder
+		#adding them up here means we can enforce consistency
+		$objOutputUser=New-Object psobject
+		Add-Member -InputObject $objOutputUser -MemberType NoteProperty -Name ID -Value ""
+		Add-Member -InputObject $objOutputUser -MemberType NoteProperty -Name Type -Value ""
+		Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name DN -Value ""
+		Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name operation -Value ""
+		Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name UPN -Value ""
+		Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name displayName -Value ""
+		Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name sourceAnchor -Value ""
+		Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name alias -Value ""
+		Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name primarySMTP -Value ""
+		Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name onPremisesSamAccountName -Value ""
+		Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name mail -Value ""
 
-		switch ($attrvalue)
+		$user = [System.Xml.Linq.XElement]::ReadFrom($reader)
+		if ($showOutput) {Write-Host Found an exported object... -ForegroundColor Green}
+
+		#object id
+		$outID=$user.Attribute('id').Value
+		if ($showOutput) {Write-Host ID: $outID}
+		$objOutputUser.ID=$outID
+
+		#object type
+		$outType=$user.Attribute('object-type').Value
+		if ($showOutput) {Write-Host Type: $outType}
+		$objOutputUser.Type=$outType
+
+		#dn
+		$outDN= $user.Element('unapplied-export').Element('delta').Attribute('dn').Value
+		if ($showOutput) {Write-Host DN: $outDN}
+		$objOutputUser.DN=$outDN
+
+		#operation
+		$outOperation= $user.Element('unapplied-export').Element('delta').Attribute('operation').Value
+		if ($showOutput) {Write-Host Operation: $outOperation}
+		$objOutputUser.operation=$outOperation
+
+		#now that we have the basics, go get the details
+
+		foreach ($attr in $user.Element('unapplied-export-hologram').Element('entry').Elements("attr"))
 		{
-			"userPrincipalName"
+			$attrvalue=$attr.Attribute('name').Value
+			$internalvalue= $attr.Element('value').Value
+
+			switch ($attrvalue)
 			{
-				if ($showOutput) {Write-Host UPN: $internalvalue}
-				$objOutputUser.UPN=$internalvalue
-			}
-			"displayName"
-			{
-				if ($showOutput) {Write-Host displayName: $internalvalue}
-				$objOutputUser.displayName=$internalvalue
-			}
-			"sourceAnchor"
-			{
-				if ($showOutput) {Write-Host sourceAnchor: $internalvalue}
-				$objOutputUser.sourceAnchor=$internalvalue
-			}
-			"alias"
-			{
-				if ($showOutput) {Write-Host alias: $internalvalue}
-				$objOutputUser.alias=$internalvalue
-			}
-			"proxyAddresses"
-			{
-				if ($showOutput) {Write-Host primarySMTP: ($internalvalue -replace "SMTP:","")}
-				$objOutputUser.primarySMTP=$internalvalue -replace "SMTP:",""
+				"userPrincipalName"
+				{
+					if ($showOutput) {Write-Host UPN: $internalvalue}
+					$objOutputUser.UPN=$internalvalue
+				}
+				"displayName"
+				{
+					if ($showOutput) {Write-Host displayName: $internalvalue}
+					$objOutputUser.displayName=$internalvalue
+				}
+				"sourceAnchor"
+				{
+					if ($showOutput) {Write-Host sourceAnchor: $internalvalue}
+					$objOutputUser.sourceAnchor=$internalvalue
+				}
+				"alias"
+				{
+					if ($showOutput) {Write-Host alias: $internalvalue}
+					$objOutputUser.alias=$internalvalue
+				}
+				"proxyAddresses"
+				{
+					if ($showOutput) {Write-Host primarySMTP: ($internalvalue -replace "SMTP:","")}
+					$objOutputUser.primarySMTP=$internalvalue -replace "SMTP:",""
+				}
 			}
 		}
-	}
 
-	$objOutputUsers += $objOutputUser
+		$objOutputUsers += $objOutputUser
 
-	Write-Progress -activity "Processing ${xmltoimport} in batches of ${batchsize}" -status "Batch ${outputfilecount}: " -percentComplete (($objOutputUsers.Count / $batchsize) * 100)
+		Write-Progress -activity "Processing ${xmltoimport} in batches of ${batchsize}" -status "Batch ${outputfilecount}: " -percentComplete (($objOutputUsers.Count / $batchsize) * 100)
 
-	#every so often, dump the processed users in case we blow up somewhere
-	if ($count % $batchsize -eq 0)
-	{
-		Write-Host Hit the maximum users processed without completion... -ForegroundColor Yellow
+		#every so often, dump the processed users in case we blow up somewhere
+		if ($count % $batchsize -eq 0)
+		{
+			Write-Host Hit the maximum users processed without completion... -ForegroundColor Yellow
 
-		#export the collection of users as a CSV
-		Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
-		$objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
+			#export the collection of users as a CSV
+			Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
+			$objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 
-		#increment the output file counter
-		$outputfilecount+=1
+			#increment the output file counter
+			$outputfilecount+=1
 
-		#reset the collection and the user counter
-		$objOutputUsers = $null
-		$count=0
-	}
+			#reset the collection and the user counter
+			$objOutputUsers = $null
+			$count=0
+		}
 
-	$count+=1
+		$count+=1
 
-	#need to bail out of the loop if no more users to process
-	if ($reader.NodeType -eq [System.Xml.XmlNodeType]::EndElement)
-	{
-		break
-	}
+		#need to bail out of the loop if no more users to process
+		if ($reader.NodeType -eq [System.Xml.XmlNodeType]::EndElement)
+		{
+			break
+		}
 
-} while ($reader.Read)
+	} while ($reader.Read)
 
-#need to write out any users that didn't get picked up in a batch of 1000
-#export the collection of users as CSV
-Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
-$objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
+	#need to write out any users that didn't get picked up in a batch of 1000
+	#export the collection of users as CSV
+	Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
+	$objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
+}
+else
+{
+    Write-Host "Imported XML file is empty. No work to do." -ForegroundColor Red
+}
 ```
 
 ## Next steps
