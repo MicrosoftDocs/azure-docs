@@ -80,12 +80,25 @@ The Microsoft Remote Desktop app lets users access and control any remote PC, in
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-download-rd-app.png" alt-text="Screenshot of the Microsoft Remote Desktop apps dialog box with options to Download an RD App for Windows, Mac, iOS and Android.":::
 
 1. Copy the subscription URL from the popup window
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-subscription-url.png" alt-text="Get Subscription URL":::
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-subscription-url.png" alt-text="Screenshot of the Set up Remote Desktop dialog box showing the Subscription URL.":::
 
 1. In the Remote Desktop App, select the overflow menu from the top right and select **Subscribe with URL**. 
-   :::image type="content" source="./media/quickstart-create-dev-box/rd-app-overflow-menu.png" alt-text="Subscribe with URL":::
+   :::image type="content" source="./media/quickstart-create-dev-box/rd-app-overflow-menu.png" alt-text="Screenshot of Subscribe with URL menu option.":::
 
 1. Paste the subscription URL to subscribe to the workspace.
-   :::image type="content" source="./media/quickstart-create-dev-box/rd-app-subscribe.png" alt-text="Subscribe to workspace":::
+   :::image type="content" source="./media/quickstart-create-dev-box/rd-app-subscribe.png" alt-text="Screenshot of the Subscribe to a Workspace dialog box showing Email or Workspace box.":::
 
 1. Your dev box will appear in the list under the workspace **Cloud PC Fidalgo plan 1**. Double-click to connect. 
+ 
+## Clean up resources
+When no longer needed, you can delete your dev box.
+
+
+## Next steps
+
+In this quickstart, you created a lab with Azure Lab Services.  To learn more about advanced options for labs, see [Tutorial: Create and publish a lab](tutorial-setup-lab.md).
+
+Advance to the next article to learn how to configure the template VM.
+
+> [!div class="nextstepaction"]
+> [Configure a template VM](how-to-create-manage-template.md)
