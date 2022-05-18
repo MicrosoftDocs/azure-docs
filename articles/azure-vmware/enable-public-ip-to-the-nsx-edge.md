@@ -6,7 +6,7 @@ ms.date: 05/12/2022
 ---
 # Enable Public IP to the NSX Edge for Azure VMware Solution
 
-In this article, you will learn how to enable Public IP to the NSX Edge for Azure VMware Solution. Before you enable Internet access to your Azure VMware Solution, please review the [Internet connectivity design considerations](concepts-design-avs-public-internet-access.md). 
+In this article, you will learn how to enable Public IP to the NSX Edge for your Azure VMware Solution. Before you enable Internet access to your Azure VMware Solution, please review the [Internet connectivity design considerations](concepts-design-avs-public-internet-access.md). 
 
 Public IP to the NSX Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment. The Public IP is configured in Azure VMware Solution via the Azure Portal as well as the NSX-T Data center interface all within your Azure VMware Solution private cloud.
 With this capability, you have the following features:
@@ -24,7 +24,7 @@ With this capability, you have the following features:
 1. Search for and select Azure VMware Solution.
 2.	Select the Azure VMware Solution private cloud.
     :::image type="content" source="media/public-ip-usage/private-cloud-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-1. Under Workload Networking, select Internet Connectivity.
+1. Under Workload Networking, select Internet connectivity.
    :::image type="content" source="media/public-ip-usage/private-cloud-workload-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 4.	Select Connect using Public IP down to the NSX-T Edge. Before selecting, please ensure you understand the implications to your existing environment. For more information, see [Internet connectivity design considerations](concepts-design-avs-public-internet-access.md)
     :::image type="content" source="media/public-ip-usage/public-ip-to-nsx-t-edge-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
@@ -32,7 +32,7 @@ With this capability, you have the following features:
     :::image type="content" source="media/public-ip-usage/public-ip-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 6.	Enter the name of the Public IP block and select a subnet size.
      :::image type="content" source="media/public-ip-usage/public-ip-block-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-7.	Click Configure. This Public IP should be configured within x minutes.
+7.	Click Configure. This Public IP should be configured within 20 minutes.
 8.	After completion, record the subnet that has been allocated. Refresh the list to view the subnet. If the refresh fails, please try the configuration again.
     :::image type="content" source="media/public-ip-usage/public-ip-subnet-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 9.	Once the configuration is complete, select the checkbox below. By selecting this checkbox, you confirm executing this change will immediately disable all other internet options. 
