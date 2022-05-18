@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall exclu
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/21/2022
+ms.date: 05/18/2022
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -86,7 +86,23 @@ You can use the following approaches to exclude the `User-Agent` header from eva
 
 # [Azure portal](#tab/portal)
 
-:::image type="content" source="../media/application-gateway-waf-configuration/waf-policy-exclusions-rule-edit.png" alt-text="Screenshot of the Azure portal that shows the per-rule exclusion configuration for the W A F policy.":::
+To configure a per-rule exclusion by using the Azure portal, follow these steps:
+
+1. Navigate to the WAF policy, and select **Managed rules**.
+
+1. Select **Add exclusions**.
+
+   :::image type="content" source="../media/application-gateway-waf-configuration/waf-policy-exclusions-rule-add.png" alt-text="Screenshot of the Azure portal that shows how to add a new per-rule exclusion for the W A F policy.":::
+
+1. In **Applies to**, select the CRS ruleset to apply the exclusion to, such as **OWASP_3.2**.
+
+   :::image type="content" source="../media/application-gateway-waf-configuration/waf-policy-exclusions-rule-edit.png" alt-text="Screenshot of the Azure portal that shows the per-rule exclusion configuration for the W A F policy.":::
+
+1. Select **Add rules**, and select the rules you want to apply exclusions to.
+
+1. Configure the match variable, operator, and selector. Then select **Save**.
+
+You can configure multiple exclusions.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -216,7 +232,21 @@ The following example shows how you can exclude the `user` query string argument
 
 # [Azure portal](#tab/portal)
 
-:::image type="content" source="../media/application-gateway-waf-configuration/waf-policy-exclusions-global-edit.png" alt-text="Screenshot of the Azure portal that shows the global exclusion configuration for the W A F policy.":::
+To configure a g;lobal exclusion by using the Azure portal, follow these steps:
+
+1. Navigate to the WAF policy, and select **Managed rules**.
+
+1. Select **Add exclusions**.
+
+   :::image type="content" source="../media/application-gateway-waf-configuration/waf-policy-exclusions-rule-add.png" alt-text="Screenshot of the Azure portal that shows how to add a new global exclusion for the W A F policy.":::
+
+1. In **Applies to**, select **Global**
+
+   :::image type="content" source="../media/application-gateway-waf-configuration/waf-policy-exclusions-global-edit.png" alt-text="Screenshot of the Azure portal that shows the global exclusion configuration for the W A F policy.":::
+
+1. Configure the match variable, operator, and selector. Then select **Save**.
+
+You can configure multiple exclusions.
 
 # [Azure PowerShell](#tab/powershell)
 
