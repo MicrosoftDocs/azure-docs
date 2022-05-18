@@ -25,15 +25,7 @@ Learn more about the [key concepts for Azure Load Testing](./concept-load-testin
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create_resource"></a> Create an Azure Load Testing resource
-
-First, you'll create the top-level resource for Azure Load Testing. It provides a centralized place to view and manage test plans, test results, and related artifacts.
-
-If you already have a Load Testing resource, skip this section and continue to [Create a load test](#create_test).
-
-To create a Load Testing resource:
-
-[!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
+- An Azure Load Testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
 ## <a name="jmeter"></a> Create an Apache JMeter script
 
