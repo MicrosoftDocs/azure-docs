@@ -59,7 +59,7 @@ The following screenshot shows the linter in the command line. The output from t
 
 :::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="Bicep linter usage in command line.":::
 
-You can integrate these checks as a part of your CI/CD pipelines. You can use a GitHub action to attempt a bicep build. Errors will fail the pipelines.
+You can integrate these checks as a part of your CI/CD pipelines. You can use a GitHub Action to attempt a bicep build. Errors will fail the pipelines.
 
 ## Next steps
 
