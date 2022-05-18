@@ -7,9 +7,16 @@ ms.topic: quickstart
 ms.date: 04/27/2021
 ms.devlang: ruby
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
+zone_pivot_groups: app-service-cli-portal
 ---
 
 # Create a Ruby on Rails App in App Service
+
+::: zone pivot="experience-azp"  
+[!INCLUDE [quickstart-ruby-azure-portal-](./includes/quickstart-ruby/quickstart-ruby-azure-portal-pivot.md)]
+::: zone-end 
+
+::: zone pivot="experience-azcli"
 
 [Azure App Service on Linux](overview.md#app-service-on-linux) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a Ruby on Rails app to App Service on Linux using the [Cloud Shell](../cloud-shell/overview.md).
 
@@ -149,6 +156,8 @@ http://<app-name>.azurewebsites.net
 >
 
 [!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
+
+:: zone-end
 
 ## Next steps
 
