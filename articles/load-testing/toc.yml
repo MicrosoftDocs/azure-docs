@@ -14,8 +14,6 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Create and run load test with a JMeter script
-      href: how-to-create-and-run-load-test-with-JMeter-script.md
     - name: Identify performance bottlenecks
       href: tutorial-identify-bottlenecks-azure-portal.md
     - name: Continuous regression testing (CI/CD)
@@ -32,7 +30,9 @@
       href: concept-load-testing-concepts.md
 - name: How-to guides
   expanded: true
-  items: 
+  items:
+    - name: Create and run load test with a JMeter script
+      href: how-to-create-and-run-load-test-with-JMeter-script.md 
     - name: Compare test runs
       href: how-to-compare-multiple-test-runs.md
     - name: Configure server-side monitoring
