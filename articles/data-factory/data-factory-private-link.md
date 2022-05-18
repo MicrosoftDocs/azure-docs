@@ -25,7 +25,7 @@ You can set up an Azure virtual network as a logical representation of your netw
 
 You can also connect an on-premises network to your virtual network. Set up an Internet Protocol security VPN connection, which is a site-to-site connection. Or set up an Azure ExpressRoute connection. which is a private peering connection.
 
-You can also install a self-hosted integration runtime on an on-premises machine or a virtual machine in the virtual network. Doing so lets you:
+You can also install a self-hosted integration runtime (IR) on an on-premises machine or a virtual machine in the virtual network. Doing so lets you:
 
 * Run copy activities between a cloud data store and a data store in a private network.
 * Dispatch transform activities against compute resources in an on-premises network or an Azure virtual network.
@@ -35,12 +35,12 @@ Several communication channels are required between Azure Data Factory and the c
 | Domain | Port | Description |
 | ---------- | -------- | --------------- |
 | `adf.azure.com` | 443 | The Data Factory portal is required by Data Factory authoring and monitoring. |
-| `*.{region}.datafactory.azure.net` | 443 | Required by the self-hosted integration runtime to connect to Data Factory. |
-| `*.servicebus.windows.net` | 443 | Required by the self-hosted integration runtime for interactive authoring. |
-| `download.microsoft.com` | 443 | Required by the self-hosted integration runtime for downloading the updates. |
+| `*.{region}.datafactory.azure.net` | 443 | Required by the self-hosted IR to connect to Data Factory. |
+| `*.servicebus.windows.net` | 443 | Required by the self-hosted IR for interactive authoring. |
+| `download.microsoft.com` | 443 | Required by the self-hosted IR for downloading the updates. |
 
 > [!NOTE]
-> Disabling public network access applies only to the self-hosted integration runtime, not to Azure integration runtime and SQL Server Integration Services integration runtime.
+> Disabling public network access applies only to the self-hosted IR, not to Azure IR and SQL Server Integration Services IR.
 
 The communications to Data Factory go through Private Link and help provide secure private connectivity.
 
@@ -50,25 +50,25 @@ Enabling Private Link for each of the preceding communication channels offers th
 
 - **Supported**:
    - You can author and monitor in the Data Factory portal from your virtual network, even if you block all outbound communications. If you create a private endpoint for the portal, others can still access the Data Factory portal through the public network.
-   - The command communications between the self-hosted integration runtime and Data Factory can be performed securely in a private network environment. The traffic between the self-hosted integration runtime and Data Factory goes through Private Link.
+   - The command communications between the self-hosted IR and Data Factory can be performed securely in a private network environment. The traffic between the self-hosted IR and Data Factory goes through Private Link.
 - **Not currently supported**:
-   - Interactive authoring that uses a self-hosted integration runtime, such as test connection, browse folder list and table list, get schema, and preview data, goes through Private Link.
-   - The new version of the self-hosted integration runtime that can be automatically downloaded from Microsoft Download Center if you enable auto-update isn't supported at this time.
+   - Interactive authoring that uses a self-hosted IR, such as test connection, browse folder list and table list, get schema, and preview data, goes through Private Link.
+   - The new version of the self-hosted IR that can be automatically downloaded from Microsoft Download Center if you enable auto-update isn't supported at this time.
 
    For functionality that isn't currently supported, you need to configure the previously mentioned domain and port in the virtual network or your corporate firewall.
 
-   Connecting to Data Factory via private endpoint is only applicable to self-hosted integration runtime in Data Factory. It isn't supported for Azure Synapse Analytics.
+   Connecting to Data Factory via private endpoint is only applicable to self-hosted IR in Data Factory. It isn't supported for Azure Synapse Analytics.
 
 > [!WARNING]
 > If you enable Private Link Data Factory and block public access at the same time, store your credentials in Azure Key Vault to ensure they're secure.
 
-## Configure private endpoint for communication between self-hosted integration runtime and Data Factory
+## Configure private endpoint for communication between self-hosted IR and Data Factory
 
-This section describes how to configure the private endpoint for communication between self-hosted integration runtime and Data Factory.
+This section describes how to configure the private endpoint for communication between self-hosted IR and Data Factory.
 
 ### Create a private endpoint and set up a private link for Data Factory
 
-The private endpoint is created in your virtual network for the communication between self-hosted integration runtime and Data Factory. Follow the steps in [Set up a private endpoint link for Data Factory](#set-up-a-private-endpoint-link-for-data-factory).
+The private endpoint is created in your virtual network for the communication between self-hosted IR and Data Factory. Follow the steps in [Set up a private endpoint link for Data Factory](#set-up-a-private-endpoint-link-for-data-factory).
 
 ### Make sure the DNS configuration is correct
 
@@ -76,19 +76,19 @@ Follow the instructions in [DNS changes for private endpoints](#dns-changes-for-
 
 ### Put FQDNs of Azure Relay and Download Center into the allowed list of your firewall
 
-If your self-hosted integration runtime is installed on the virtual machine in your virtual network, allow outbound traffic to below FQDNs in the NSG of your virtual network.
+If your self-hosted IR is installed on the virtual machine in your virtual network, allow outbound traffic to below FQDNs in the NSG of your virtual network.
 
-If your self-hosted integration runtime is installed on the machine in your on-premises environment, allow outbound traffic to below FQDNs in the firewall of your on-premises environment and NSG of your virtual network.
+If your self-hosted IR is installed on the machine in your on-premises environment, allow outbound traffic to below FQDNs in the firewall of your on-premises environment and NSG of your virtual network.
 
 | Domain | Port | Description |
 | ---------- | -------- | --------------- |
-| `*.servicebus.windows.net` | 443 | Required by the self-hosted integration runtime for interactive authoring |
-| `download.microsoft.com` | 443 | Required by the self-hosted integration runtime for downloading the updates |
+| `*.servicebus.windows.net` | 443 | Required by the self-hosted IR for interactive authoring |
+| `download.microsoft.com` | 443 | Required by the self-hosted IR for downloading the updates |
 
-If you don't allow the preceding outbound traffic in the firewall and NSG, self-hosted integration runtime is shown with a **Limited** status. But you can still use it to execute activities. Only interactive authoring and auto-update don't work.
+If you don't allow the preceding outbound traffic in the firewall and NSG, self-hosted IR is shown with a **Limited** status. But you can still use it to execute activities. Only interactive authoring and auto-update don't work.
 
 > [!NOTE]
-> If one data factory (shared) has a self-hosted integration runtime and the self-hosted integration runtime is shared with other data factories (linked), you only need to create a private endpoint for the shared data factory. Other linked data factories can leverage this private link for the communications between self-hosted integration runtime and Data Factory.
+> If one data factory (shared) has a self-hosted IR and the self-hosted IR is shared with other data factories (linked), you only need to create a private endpoint for the shared data factory. Other linked data factories can leverage this private link for the communications between self-hosted IR and Data Factory.
 
 ## DNS changes for private endpoints
 
@@ -122,13 +122,13 @@ If you're using a custom DNS server on your network, clients must be able to res
 
 In this section, you'll set up a private endpoint link for Data Factory.
 
-You can choose whether to connect your self-hosted integration runtime to Data Factory by selecting **Public endpoint** or **Private endpoint** during the Data Factory creation step, shown here:
+You can choose whether to connect your self-hosted IR to Data Factory by selecting **Public endpoint** or **Private endpoint** during the Data Factory creation step, shown here:
 
-:::image type="content" source="./media/data-factory-private-link/disable-public-access-shir.png" alt-text="Screenshot that shows blocking public access of self-hosted integration runtime.":::
+:::image type="content" source="./media/data-factory-private-link/disable-public-access-shir.png" alt-text="Screenshot that shows blocking public access of self-hosted IR.":::
 
 You can change the selection any time after creation from the Data Factory portal page on the **Networking** pane. After you enable **Private endpoint** there, you must also add a private endpoint to the data factory.
 
-A private endpoint requires a virtual network and subnet for the link. In this example, a virtual machine within the subnet is used to run the self-hosted integration runtime, which connects via the private endpoint link.
+A private endpoint requires a virtual network and subnet for the link. In this example, a virtual machine within the subnet is used to run the self-hosted IR, which connects via the private endpoint link.
 
 ### Create a virtual network
 
@@ -171,9 +171,9 @@ If you don't have an existing virtual network to use with your private endpoint 
 
 1. Select **Create**.
 
-### Create a virtual machine for the self-hosted integration runtime
+### Create a virtual machine for the self-hosted IR
 
-You must also create or assign an existing virtual machine to run the self-hosted integration runtime in the new subnet created in the preceding steps.
+You must also create or assign an existing virtual machine to run the self-hosted IR in the new subnet created in the preceding steps.
 
 1. In the upper-left corner of the portal, select **Create a resource** > **Compute** > **Virtual machine** or search for **Virtual machine** in the search box.
 
@@ -188,7 +188,7 @@ You must also create or assign an existing virtual machine to run the self-hoste
     | Virtual machine name | Enter a name for the virtual machine. |
     | Region | Select the region you used for your virtual network. |
     | Availability options | Select **No infrastructure redundancy required**. |
-    | Image | Select **Windows Server 2019 Datacenter - Gen1**, or any other Windows image that supports the self-hosted integration runtime. |
+    | Image | Select **Windows Server 2019 Datacenter - Gen1**, or any other Windows image that supports the self-hosted IR. |
     | Azure spot instance | Select **No**. |
     | Size | Choose the VM size or use the default setting. |
     | **Administrator account** |  |
@@ -243,7 +243,7 @@ Finally, you must create a private endpoint in your data factory.
     | Subscription | Select your subscription. |
     | Resource type | Select **Microsoft.Datafactory/factories**. |
     | Resource | Select your data factory. |
-    | Target sub-resource | If you want to use the private endpoint for command communications between the self-hosted integration runtime and Data Factory, select **datafactory** as **Target sub-resource**. If you want to use the private endpoint for authoring and monitoring the data factory in your virtual network, select **portal** as **Target sub-resource**.|
+    | Target sub-resource | If you want to use the private endpoint for command communications between the self-hosted IR and Data Factory, select **datafactory** as **Target sub-resource**. If you want to use the private endpoint for authoring and monitoring the data factory in your virtual network, select **portal** as **Target sub-resource**.|
 
 1. Select the **Configuration** tab or the **Next: Configuration** button at the bottom of the screen.
 
