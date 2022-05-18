@@ -60,7 +60,7 @@ Microsoft Graph enables event management platforms to empower organizers to sche
 >[!NOTE]
 >For each required Graph API has different required scopes, ensure that your application has the correct scopes to access the data.
 
-### Scheduling registartion-enabled events with Microsoft Graph
+### Scheduling registration-enabled events with Microsoft Graph
 
 1.	Authorize Graph APIs to act on their behalf:
 
