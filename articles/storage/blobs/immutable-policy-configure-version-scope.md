@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/01/2021
+ms.date: 05/17/2022
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -146,7 +146,7 @@ If the container has an existing container-level legal hold, then it cannot be m
 
 ##### [Portal](#tab/azure-portal)
 
-To migrate a container to support version-level immutable storage in the Azure portal, follow these steps:
+To migrate a container to support version-level immutability policies in the Azure portal, follow these steps:
 
 1. Navigate to the desired container.
 1. Select the **More** button on the right, then select **Access policy**.
@@ -157,7 +157,7 @@ To migrate a container to support version-level immutable storage in the Azure p
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/migrate-existing-container.png" alt-text="Screenshot showing how to migrate an existing container to support version-level immutability":::
 
-While the migration operation is underway, the scope of the policy on the container shows as *Container*.
+While the migration operation is underway, the scope of the policy on the container shows as *Container*. Any operations related to managing version-level immutability policies are not permitted while the container migration is in progress. Other operations on blob data will proceed normally during migration.
 
 :::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-in-process.png" alt-text="Screenshot showing container migration in process":::
 
