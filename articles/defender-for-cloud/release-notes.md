@@ -2,7 +2,9 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 05/15/2022
+=======
+ms.date: 05/17/2022
+>>>>>>> dad93e84291e22db2c12210a7cbaaa19bfebca5b
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,21 +22,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in May include:
 
-- [General availability (GA) of Defender for SQL for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-for-aws-and-gcp-environments)
 - [Multi-cloud settings of Servers plan are now available in connector level](#multi-cloud-settings-of-servers-plan-are-now-available-in-connector-level)
-- [Changes to vulnerability assessment](#changes-to-vulnerability-assessment)  
-
-### General availability (GA) of Defender for SQL for AWS and GCP environments
-
-The database protection capabilities provided by Microsoft Defender for Cloud now include support for your SQL databases hosted in AWS and GCP environments.
-
-Using Defender for SQL, enterprises can now protect their data, whether hosted in Azure, AWS, GCP, or on-premises machines.
-
-Microsoft Defender for SQL now provides a unified cross-environment experience to view security recommendations, security alerts and vulnerability assessment findings encompassing SQL servers and the underlying Windows OS.
-
-Using the multi-cloud onboarding experience, you can enable and enforce databases protection for VMs in AWS and GCP. After enabling multi-cloud protection, all supported resources covered by your subscription are protected. Future resources created within the same subscription will also be protected.
-
-Learn how to protect and connect your [AWS accounts](quickstart-onboard-aws.md) and your [GCP projects](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
+- [JIT is now available for AWS (Preview)](#jit-is-now-available-for-aws-preview)
 
 ### Multi-cloud settings of Servers plan are now available in connector level
 
@@ -59,6 +48,11 @@ As part of this update, vulnerabilities that have medium and low severities are 
 :::image type="content" source="media/release-notes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
 
 Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.md)
+### JIT is now available for AWS (Preview)
+
+We would like to announce that Just-in-Time VM access (JIT) is now available (in preview) to protect your AWS EC2 instances.
+
+Learn how to [JIT protects](just-in-time-access-overview.md#how-jit-operates-with-network-resources-in-azure-and-aws) your AWS EC2 instances.
 
 ## April 2022
 
