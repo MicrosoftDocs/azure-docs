@@ -62,7 +62,7 @@ print(locales)
 
 ### LocalizationConfiguration
 
-`LocalizationConfiguration` is an options wrapper that sets all the strings for UI Library components using a `locale` or `locale`. By default, all text labels use our English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `locale` or `locale`. Out of the box, the UI library includes a set of `locale` usable with the UI components and composites.
+`LocalizationConfiguration` is an options wrapper that sets all the strings for UI Library components using a `locale`. By default, all text labels use our English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `locale`. Out of the box, the UI library includes a set of `locale` usable with the UI components and composites.
 
 To use the `LocalizationConfiguration`, specify a `locale` Swift Locale struct (with or without a region code), and pass it to the `CallCompositeOptions`. For the example below, we'll localize the composite to French for France (`fr-FR`).
 
