@@ -239,7 +239,7 @@ You can filter your metrics by revision or replica.  For example, to filter by a
 
 :::image type="content" source="media/observability/metrics-add-filter.png" alt-text="Screenshot of the metrics explorer showing the chart filter options.":::
 
-You can split the information in your chart by revision or replica. For example, to split by revision, select **Apply splitting** and select **Revision** from the **Values** drop-down list. Splitting is only available when the chart contains a single metric.
+When applying splitting, you can split the metric information in your chart by revision or replica (except for Replica count, which you can only split by revision). The requests metric can also be split by status code and status code category. For example, to split by revision, select **Apply splitting** and select **Revision** from the **Values** drop-down list. Splitting is only available when the chart contains a single metric.
 
 :::image type="content" source="media/observability/metrics-apply-splitting.png" alt-text="Screenshot of the metrics explorer that shows a chart with metrics split by revision.":::
 
