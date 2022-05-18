@@ -2,6 +2,7 @@
 title: Develop Azure Functions by using Visual Studio Code 
 description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
 ms.topic: conceptual
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp
 ms.date: 02/21/2021
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
@@ -169,11 +170,21 @@ Except for HTTP and timer triggers, bindings are implemented in extension packag
 
 # [C\#](#tab/csharp)
 
-Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to install the extension packages that you need in your project. The following command installs the Azure Storage extension, which implements bindings for Blob, Queue, and Table storage.
+Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to install the extension packages that you need in your project. The following example demonstrates how you add a binding for an [in-process class library](functions-dotnet-class-library.md):
 
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
 ```
+
+The following example demonstrates how you add a binding for an [isolated-process class library](dotnet-isolated-process-guide.md):
+
+```terminal
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
+```
+
+In either case, replace `<BINDING_TYPE_NAME>` with the name of the package that contains the binding you need. You can find the desired binding reference article in the [list of supported bindings](./functions-triggers-bindings.md#supported-bindings).
+
+Replace `<TARGET_VERSION>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 
 # [Java](#tab/java)
 

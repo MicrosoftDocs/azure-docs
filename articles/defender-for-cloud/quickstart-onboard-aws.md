@@ -1,14 +1,14 @@
 ---
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
+author: bmansheim
+ms.author: benmansheim
 ms.topic: quickstart
-ms.date: 11/24/2021
+ms.date: 05/03/2022
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
 #  Connect your AWS accounts to Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
 
@@ -16,13 +16,15 @@ Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (A
 
 To protect your AWS-based resources, you can connect an account with one of two mechanisms:
 
-- **Classic cloud connectors experience** - As part of the initial multi-cloud offering, we introduced these cloud connectors as a way to connect your AWS and GCP accounts. If you've already configured an AWS connector through the classic cloud connectors experience, we recommend connecting the account again using the newer mechanism. When you've added your account through the environment settings page, remove the old connector to avoid seeing duplicate recommendations.
+- **Classic cloud connectors experience** - As part of the initial multi-cloud offering, we introduced these cloud connectors as a way to connect your AWS and GCP projects. If you've already configured an AWS connector through the classic cloud connectors experience, we recommend deleting these connectors (as explained in [Remove classic connectors](#remove-classic-connectors)), and connecting the account again using the newer mechanism. If you don't do this before creating the new connector through the environment settings page, do so afterwards to avoid seeing duplicate recommendations.
 
-- **Environment settings page (in preview)** (recommended) - This preview page provides a greatly improved, simpler, onboarding experience (including auto provisioning). This mechanism also extends Defender for Cloud's enhanced security features to your AWS resources.
+- **Environment settings page (in preview)** (recommended) - This preview page provides a greatly improved, simpler, onboarding experience (including auto provisioning). This mechanism also extends Defender for Cloud's enhanced security features to your AWS resources:
 
     - **Defender for Cloud's CSPM features** extend to your AWS resources. This agentless plan assesses your AWS resources according to AWS-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices). Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature helping you manage your AWS resources alongside your Azure resources.
-    - **Microsoft Defender for Containers** extends the container threat detection and advanced defenses of [Defender for Kubernetes](defender-for-kubernetes-introduction.md) to your **Amazon EKS clusters**.
-    - **Microsoft Defender for servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
+    - **Microsoft Defender for Containers** brings threat detection and advanced defenses to your Amazon EKS clusters. This plan includes Kubernetes threat protection, behavioral analytics, Kubernetes best practices, admission control recommendations and more. You can view the full list of available features in [Defender for Containers feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
+    - **Microsoft Defender for Servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more. You can view the full list of available features in the [feature availability table](supported-machines-endpoint-solutions-clouds-servers.md?tabs=tab/features-multi-cloud).
+
+For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
 This screenshot shows AWS accounts displayed in Defender for Cloud's [overview dashboard](overview-page.md).
 
@@ -35,62 +37,119 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
-|Pricing:|The **CSPM plan** is free.<br>The **Defender for Containers** plan is free during the preview. After which, it will be billed at the same price as the Defender for Kubernetes plan for Azure resources.<br>For every AWS machine connected to Azure with [Azure Arc-enabled servers](../azure-arc/servers/overview.md), the Defender for servers plan is billed at the same price as the [Microsoft Defender for servers](defender-for-servers-introduction.md) plan for Azure machines. If an AWS EC2 doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
-|Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details (required for the Defender for servers plan)|
+|Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
+|Pricing:|The **CSPM plan** is free.<br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for AWS at the same price as for Azure resources.<br>For every AWS machine connected to Azure with [Azure Arc-enabled servers](../azure-arc/servers/overview.md), the **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines. If an AWS EC2 doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
+|Required roles and permissions:|**Contributor** permission for the relevant Azure subscription.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 ## Prerequisites
 
-- To connect an AWS account to your Azure subscription, you'll obviously need access to an AWS account.
+- Access to an AWS account.
 
-- **To enable the Defender for Kubernetes plan**, you'll need:
+- **To enable the Defender for Containers plan**, you'll need:
     - At least one Amazon EKS cluster with permission to access to the EKS K8s API server. If you need to create a new EKS cluster, follow the instructions in [Getting started with Amazon EKS – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html).
     - The resource capacity to create a new SQS queue, Kinesis Fire Hose delivery stream, and S3 bucket in the cluster's region.
 
-- **To enable the Defender for servers plan**, you'll need:
-    - Microsoft Defender for servers enabled (see [Quickstart: Enable enhanced security features](enable-enhanced-security.md).
-    - An active AWS account with EC2 instances managed by AWS Systems Manager (SSM) and using SSM agent. Some Amazon Machine Images (AMIs) have the SSM agent pre-installed, their AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, follow the relevant instructions from Amazon:
-        - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
-        - [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
+- **To enable the Defender for Servers plan**, you'll need:
+    
+    - Microsoft Defender for Servers enabled on your subscription. Learn how to enable plans in [Enable enhanced security features](enable-enhanced-security.md).
+    
+    - An active AWS account, with EC2 instances.
+    
+    - Azure Arc for servers installed on your EC2 instances. 
+        - (Recommended) Use the auto provisioning process to install Azure Arc on all of your existing and future EC2 instances.
+            
+            Auto provisioning is managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent pre-installed. If that is the case, their AMI's are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you will need to install it using either of the following relevant instructions from Amazon:
+            - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
+            - [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
+        > [!NOTE]
+        > To enable the Azure Arc auto-provisioning, you'll need an **Owner** permission on the relevant Azure subscription.
+        
+        - If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that do not have Azure Arc installed.
+        
+    - Additional extensions should be enabled on the Arc-connected machines.
+        - Microsoft Defender for Endpoint
+        - VA solution (TVM/ Qualys)
+        - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
+        
+            The LA agent is currently configured in the subscription level, such that all the multi-cloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regards to the LA agent.
 
+        Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
+
+        > [!NOTE]
+        > Defender for Servers assigns tags to your AWS resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:
+        **AccountId**, **Cloud**, **InstanceId**, **MDFCSecurityConnector**
 
 ## Connect your AWS account
 
 Follow the steps below to create your AWS cloud connector. 
 
-1. From Defender for Cloud's menu, open **Environment settings**.
+### Remove 'classic' connectors
+
+If you have any existing connectors created with the classic cloud connectors experience, remove them first:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Defender for Cloud** > **Environment settings**.
+
+1. Select the option to switch back to the classic connectors experience.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
+
+1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
+
+1. On AWS, delete the role ARN, or the credentials created for the integration.
+
+### Create a new connector
+
+**To create a new connector**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Defender for Cloud** > **Environment settings**.
+
 1. Select **Add environment** > **Amazon Web Services**.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-environment-settings.png" alt-text="Connecting an AWS account to an Azure subscription.":::
 
-1. Enter the details of the AWS account, including the location where you'll store the connector resource, and select **Next: Select plans**.
+1. Enter the details of the AWS account, including the location where you'll store the connector resource.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Step 1 of the add AWS account wizard: Enter the account details.":::
 
-1. The select plans tab is where you choose which Defender for Cloud capabilities to enable for this AWS account. 
+1. Select **Next: Select plans**.
 
     > [!NOTE]
-    > Each capability has its own requirements for permissions and might incur charges.
+    > Each plan has its own requirements for permissions, and might incur charges.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-plans-selection.png" alt-text="The select plans tab is where you choose which Defender for Cloud capabilities to enable for this AWS account.":::
 
     > [!IMPORTANT]
-    > To present the current status of your recommendations, the CSPM plan queries the AWS resource APIs several times a day. These read-only API calls incur no charges, but they *are* registered in CloudTrail if you've enabled a trail for read events. As explained in [the AWS documentation](https://aws.amazon.com/cloudtrail/pricing/), there are no additional charges for keeping one trail. If you're exporting the data out of AWS (for example, to an external SIEM), this increased volume of calls might also increase ingestion costs. In such cases, We recommend filtering out the read-only calls from the Defender for Cloud user or role ARN: arn:aws:iam::[accountId]:role/CspmMonitorAws (this is the default role name, confirm the role name  configured on your account).
+    > To present the current status of your recommendations, the CSPM plan queries the AWS resource APIs several times a day. These read-only API calls incur no charges, but they *are* registered in CloudTrail if you've enabled a trail for read events. As explained in [the AWS documentation](https://aws.amazon.com/cloudtrail/pricing/), there are no additional charges for keeping one trail. If you're exporting the data out of AWS (for example, to an external SIEM), this increased volume of calls might also increase ingestion costs. In such cases, We recommend filtering out the read-only calls from the Defender for Cloud user or role ARN: `arn:aws:iam::[accountId]:role/CspmMonitorAws` (this is the default role name, confirm the role name configured on your account).
 
-    - To extend Defender for Servers coverage to your AWS EC2, set the **Servers** plan to **On** and edit the configuration as required. 
+1. By default the **Servers** plan is set to **On**. This is necessary to extend Defender for server's coverage to your AWS EC2.
+    
+    - (Optional) Select **Configure**, to edit the configuration as required. 
 
-    - For Defender for Kubernetes to protect your AWS EKS clusters, Azure Arc-enabled Kubernetes and the Defender extension should be installed. Set the **Containers** plan to **On**, and use the dedicated Defender for Cloud recommendation to deploy the extension (and Arc, if necessary) as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-kubernetes-introduction.md#protect-amazon-elastic-kubernetes-service-clusters).
+1. By default the **Containers** plan is set to **On**. This is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure you have fulfilled the  [network requirements](https://docs.microsoft.com/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks&source=docs#network-requirements) for the Defender for Containers plan.
 
-1. Complete the setup:
-    1. Select **Next: Configure access**.
-    1. Download the CloudFormation template.
-    1. Using the downloaded CloudFormation template, create the stack in AWS as instructed on screen.
-    1. Select **Next: Review and generate**.
-    1. Select **Create**.
+    > [!Note] 
+    > Azure Arc-enabled Kubernetes, the Defender Arc extension, and the Azure Policy Arc extension should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Arc, if necessary) as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
 
-Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations in within a few hours.
+
+    - (Optional) Select **Configure**, to edit the configuration as required. If you choose to disable this configuration, the `Threat detection (control plane)` feature will be disabled. Learn more about the [feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
+
+1. Select **Next: Configure access**.
+
+1. Download the CloudFormation template.
+    
+1. Using the downloaded CloudFormation template, create the stack in AWS as instructed on screen.
+    
+1. Select **Next: Review and generate**.
+    
+1. Select **Create**.
+
+Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations within a few hours. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
 ::: zone-end
 
@@ -102,10 +161,10 @@ Defender for Cloud will immediately start scanning your AWS resources and you'll
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans)|
 |Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 
 ## Connect your AWS account
@@ -180,7 +239,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 
 
 ### Step 4. Complete Azure Arc prerequisites
-1. Make sure the appropriate [Azure resources providers](../azure-arc/servers/agent-overview.md#register-azure-resource-providers) are registered:
+1. Make sure the appropriate [Azure resources providers](../azure-arc/servers/prerequisites.md#azure-resource-providers) are registered:
     - Microsoft.HybridCompute
     - Microsoft.GuestConfiguration
 
@@ -265,4 +324,5 @@ For other operating systems, the SSM Agent should be installed manually using th
 
 Connecting your AWS account is part of the multi-cloud experience available in Microsoft Defender for Cloud. For related information, see the following page:
 
-- [Connect your GCP accounts to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
+- [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
+- [Connect your GCP projects to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)

@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure Cognitive Services documentation
-summary: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
+summary: Learn how to use ready-made AI services to build intelligent apps, websites, and bots. Develop software that can see, hear, speak, and interpret your user's needs.
 brand: azure
 
 metadata:
@@ -13,7 +13,7 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.custom: custom-portals-hub
-  ms.date: 10/08/2021
+  ms.date: 01/05/2022
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -102,12 +102,6 @@ conceptualContent:
         - url: ./personalizer/index.yml
           itemType: overview
           text: Personalizer
-    - title: Search
-      summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
-      links:
-        - url: ./Bing-web-search/index.yml
-          itemType: overview
-          text: Bing Search APIs hub page
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:
@@ -117,18 +111,15 @@ conceptualContent:
         - url: ./cognitive-services-container-support.md
           itemType: overview
           text: What are Cognitive Service containers?
-        - url: ./containers/container-reuse-recipe.md
-          itemType: learn
-          text: Create containers for reuse
         - url: ./containers/azure-container-instance-recipe.md
           itemType: how-to-guide
           text: Deploy and run container on Azure Container Instance
-        - url: ./containers/azure-kubernetes-recipe.md
-          itemType: deploy
-          text: Deploy to Azure Kubernetes Service
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
+        - url: ./containers/disconnected-containers.md
+          itemType: get-started
+          text: Use Docker containers disconnected from the internet
         - url: ./containers/container-faq.yml
           itemType: reference
           text: Cognitive Services containers FAQ

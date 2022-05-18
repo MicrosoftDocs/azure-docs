@@ -4,12 +4,11 @@ description: Get an overview of Azure Active Directory entitlement management an
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
 ms.date: 11/23/2020
@@ -168,7 +167,10 @@ Here are some example license scenarios to help you determine the number of lice
 | Scenario | Calculation | Number of licenses |
 | --- | --- | --- |
 | A Global Administrator at Woodgrove Bank creates initial catalogs and delegates administrative tasks to 6 other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. 150 employees request the access packages. | 2,000 employees who **can** request the access packages | 2,000 |
-| A Global Administrator at Woodgrove Bank creates initial catalogs and delegates administrative tasks to 6 other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. Another policy specifies that some users from **Users from partner Contoso** (guests) can request the same access packages subject to approval. Contoso has 30,000 users. 150 employees request the access packages and 10,500 users from Contoso request access. | 2,000 employees + 500 guest users from Contoso that exceed the 1:5 ratio (10,500 - (2,000 * 5)) | 2,500 |
+| A Global Administrator at Woodgrove Bank creates initial catalogs and delegates administrative tasks to 6 other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. Another policy specifies that some users from **Users from partner Contoso** (guests) can request the same access packages subject to approval. Contoso has 30,000 users. 150 employees request the access packages and 10,500 users from Contoso request access. | 2,000 employees need licenses, guest users are billed on a monthly active user basis and no additional licenses are required for them. * | 2,000 |
+
+\* Azure AD External Identities (guest user) pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This model replaces the 1:5 ratio billing model, which allowed up to five guest users for each Azure AD Premium license in your tenant. When your tenant is linked to a subscription and you use External Identities features to collaborate with guest users, you'll be automatically billed using the MAU-based billing model. For more information, see [Billing model for Azure AD External Identities](../external-identities/external-identities-pricing.md).
+
 
 ## Next steps
 

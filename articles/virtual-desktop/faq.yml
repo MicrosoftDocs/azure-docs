@@ -3,13 +3,12 @@ metadata:
   title: Azure Virtual Desktop FAQ - Azure
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
   author: Heidilohr
-  ms.topic: conceptual
+  ms.topic: faq
   ms.service: virtual-desktop
-  ms.date: 03/09/2021
+  ms.date: 12/17/2021
   ms.author: helohr 
   ms.custom: devx-track-azurepowershell
   manager: femila
-    
 title: Azure Virtual Desktop FAQ
 summary: This article answers frequently asked questions and explains best practices for Azure Virtual Desktop.
 
@@ -101,7 +100,7 @@ sections:
 
       - question: |
          How does Azure Virtual Desktop handle backups?
-        answer: There are multiple options in Azure for handling backup. You can use Azure backup, Site Recovery, and snapshots.
+        answer: There are multiple options in Azure Virtual Desktop for handling backup. At the Compute level, backup is recommended only for Personal Host Pools through [Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction). At the Storage level, recomemmended backup solution varies based on the backend storage used to store user profiles. If Azure Files Share is used, [Azure Backup for File Share](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) is recommended. If Azure NetApp Files is used, [Snaphots/Policies](https://docs.microsoft.com/azure/azure-netapp-files/snapshots-manage-policy) or [Azure NetApp Files Backup](https://docs.microsoft.com/en-us/azure/azure-netapp-files/backup-introductionhttps://docs.microsoft.com/azure/azure-netapp-files/backup-introduction) are tools available.
 
       - question: |
          Does Azure Virtual Desktop support third-party collaboration apps?
@@ -155,6 +154,8 @@ sections:
         answer: |
           Yes. Azure Virtual Desktop host pools have an option for selecting either availability set or availability zones when you create a VM. These availability options are the same as the ones Azure Compute uses. If you select a zone for the VM you create in a host pool, the setting automatically applies to all VMs you create in that zone. If you'd prefer to spread your host pool VMs across multiple zones, you'll need to follow the directions in [Add virtual machines with the Azure portal](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) to manually select a new zone for each new VM you create.
           
+          Make sure that [your Azure availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) are available in the region where your VMs are located.
+          
       - question: |
          Which availability option is best for me?
         answer: |
@@ -176,3 +177,7 @@ sections:
         answer: |
           We recommend you use Windows Defender Application Control instead of AppLocker. 
 
+      - question: |
+         When I'm testing migration, can I have the two different Azure Virtual Desktop environments exist in the same tenant?
+        answer: |
+          Yes. You can have both deployments within the same Azure Active Directory tenant.

@@ -3,6 +3,7 @@ title: Azure Application Insights override default SDK endpoints
 description: Modify default Azure Monitor Application Insights SDK endpoints for regions like Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
+ms.devlang: csharp, java, javascript, python
 ms.custom: references_regions, devx-track-js
 ---
 
@@ -10,8 +11,8 @@ ms.custom: references_regions, devx-track-js
 
 To send data from Application Insights to certain regions, you'll need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article. These changes require adjusting the sample code and replacing the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your specific region. The end of this article contains links to the endpoint addresses for regions where this configuration is required.
 
-> [!NOTE]
-> [Connection strings](./sdk-connection-string.md?tabs=net) are the new preferred method of setting custom endpoints within Application Insights.
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 
 ---
 
@@ -184,9 +185,6 @@ If you currently use the [Application Insights REST API](https://dev.application
 |-----------------|:------------|:-------------|
 | Azure China | REST API | `api.applicationinsights.azure.cn` |
 | Azure Government | REST API | `api.applicationinsights.us`|
-
-> [!NOTE]
-> Codeless agent/extension based monitoring for Azure App Services is **currently not supported** in these regions. As soon as this functionality becomes available this article will be updated.
 
 ## Next steps
 

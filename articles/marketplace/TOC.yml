@@ -43,6 +43,8 @@
     href: isv-app-license.md
   - name: Private plans
     href: private-plans.md
+  - name: Private plans troubleshooting
+    href: azure-private-plan-troubleshooting.md           
   - name: Plans and pricing
     href: plans-pricing.md
   - name: Standard contract
@@ -53,7 +55,11 @@
     href: partner-center-portal/commercial-marketplace-get-customer-leads.md
   - name: Private offers
     items:
-      - name: For Cloud Resellers
+      - name: For customers
+        href: isv-customer.md
+      - name: FAQs
+        href: isv-customer-faq.yml
+      - name: For CSP partners
         href: isv-csp-reseller.md
       - name: FAQs
         href: isv-csp-faq.yml
@@ -76,13 +82,13 @@
     - name: Your marketplace benefits
       href: gtm-your-marketplace-benefits.md 
     - name: Co-sell with Microsoft overview
-      href: co-sell-overview.md
+      href: /partner-center/co-sell-overview?context=/azure/marketplace/context/context
     - name: Configure co-sell
-      href: co-sell-configure.md
+      href: /partner-center/co-sell-configure?context=/azure/marketplace/context/context
     - name: Co-sell requirements
-      href: co-sell-requirements.md
+      href: /partner-center/co-sell-requirements?context=/azure/marketplace/context/context
     - name: Verify co-sell status
-      href: co-sell-status.md
+      href: /partner-center/co-sell-status?context=/azure/marketplace/context/context
     - name: Migrate co-sell solutions from OCP GTM
       href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
@@ -150,7 +156,7 @@
         - name: Managed application plan
           href: azure-app-managed.md
     - name: Test and publish
-      href: azure-app-test-publish.md
+      href: azure-app-test-publish.md   
     - name: Market your offer
       href: azure-app-marketing.md
     - name: Managed app metered billing
@@ -207,8 +213,18 @@
         href: azure-vm-offer-listing.md
       - name: Preview audience
         href: azure-vm-preview-audience.md
-      - name: Plans
-        href: azure-vm-plan-overview.md
+      - name: Create plans
+        items:
+        - name: Create a plan
+          href: azure-vm-plan-overview.md
+        - name: Plan setup
+          href: azure-vm-plan-setup.md
+        - name: Plan listing
+          href: azure-vm-plan-listing.md
+        - name: Pricing and availability
+          href: azure-vm-plan-pricing-and-availability.md
+        - name: Technical configuration
+          href: azure-vm-plan-technical-configuration.md    
       - name: Resell through CSPs
         href: azure-vm-resell-csp.md
       - name: Configure a test drive
@@ -227,6 +243,14 @@
         href: azure-vm-faq.yml
       - name: VM certification troubleshooting
         href: azure-vm-certification-faq.yml
+    - name: Manage offers
+      items:
+      - name: Update pricing
+        href: azure-vm-plan-manage.md
+      - name: Reorder plans
+        href: azure-vm-plan-reorder-plans.md
+      - name: Deprecate or restore a VM
+        href: deprecate-vm.md
   - name: Consulting services offer
     items: 
     - name: Plan the offer
@@ -321,6 +345,8 @@
           href: iot-edge-plan-availability.md
         - name: Plan technical configuration
           href: iot-edge-plan-technical-configuration.md
+      - name: Pre-certification checklist
+        href: iot-edge-checklist.md
   - name: Managed Service offer
     items:
     - name: Plan the offer
@@ -375,6 +401,8 @@
     items:
     - name: Plan the offer
       href: plan-saas-offer.md
+    - name: Plan a test SaaS offer
+      href: plan-saas-dev-test-offer.md  
     - name: Azure AD auth for SaaS
       items:
         - name: Azure AD and SaaS overview
@@ -399,16 +427,28 @@
         href: create-new-saas-offer-technical.md  
       - name: Plans
         href: create-new-saas-offer-plans.md
-      - name: Create a test SaaS offer
-        href: create-saas-dev-test-offer.md          
-      - name: Test and publish
-        href: test-publish-saas-offer.md
+    - name: Test the offer
+      items:            
+      - name: Test SaaS overview
+        href: test-saas-overview.md
+      - name: Preview and subscribe
+        href: test-saas-preview-offer.md
+      - name: Test a SaaS plan
+        href: test-saas-plan.md
+      - name: Unsubscribe from and deactivate a test plan
+        href: test-saas-unsubscribe.md  
     - name: Market your offer
       href: create-new-saas-offer-marketing.md 
+    - name: Go live
+      href: test-publish-saas-offer.md
   - name: Review and publish offers
     href: review-publish-offer.md
-  - name: Update existing offers
+  - name: Update existing offer
     href: update-existing-offer.md   
+  - name: Update offer pricing
+    href: price-changes.md
+  - name: Update offer pricing FAQ
+    href: price-changes-faq.yml
 - name: Sell and market your offer
   items: 
   - name: Marketing best practices
@@ -433,12 +473,12 @@
       href: lead-management-faq.yml
 - name: Data and analytics
   items:
-  - name: Commercial marketplace analytics 
+  - name: Commercial marketplace insights 
     href: analytics.md
   - name: Summary dashboard
     href: summary-dashboard.md
   - name: Revenue dashboard
-    href: revenue-dashboard.md
+    href: revenue-dashboard.md  
   - name: Orders dashboard
     href: orders-dashboard.md
   - name: Usage dashboard
@@ -455,6 +495,8 @@
     href: downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: ratings-reviews.md
+  - name: Customer retention dashboard
+    href: customer-retention-dashboard.md
   - name: Programmatic access to analytics
     items:
     - name: Get started
@@ -499,7 +541,7 @@
         href: analytics-api-resume-report-executions.md
   - name: Manage metered billing anomalies
     href: anomaly-detection.md
-  - name: Analytics common questions
+  - name: Analytics FAQ
     href: analytics-faq.yml
 - name: Policies and terms
   items:    
@@ -510,11 +552,11 @@
   - name: Commercial marketplace review policies
     href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
   - name: Commercial Marketplace terms
-    href: /legal/marketplace/marketplace-terms
+    href: /legal/marketplace/marketplace-terms?context=/azure/marketplace/context/context
   - name: Microsoft Publisher Agreement
-    href: /legal/marketplace/msft-publisher-agreement
+    href: /legal/marketplace/msft-publisher-agreement?context=/azure/marketplace/context/context
   - name: Change history for Microsoft Publisher Agreement
-    href: /legal/marketplace/mpa-change-history
+    href: /legal/marketplace/mpa-change-history?context=/azure/marketplace/context/context
 - name: Reference
   items:
   - name: Guide to Marketplace APIs
@@ -527,8 +569,6 @@
       items:
       - name: API prerequisites
         href: submission-api-onboard.md
-      - name: Partner Center submission APIs
-        href: https://apidocs.microsoft.com/services/partneringestion/
     - name: Legacy submission APIs
       items: 
       - name: Legacy API overview
@@ -595,36 +635,30 @@
     href: marketplace-faq-publisher-guide.yml
   - name: Cloud Partner Portal migration FAQ
     href: cloud-partner-portal-migration-faq.yml
-  - name: Revenue dashboard FAQ
-    href: revenue-dashboard-faq.yml
-  - name: Business opportunity office hours
-    href: https://aka.ms/marketplaceofficehours
-  - name: Technical and publishing office hours
-    href: https://aka.ms/marketplacepublishingofficehours   
+  - name: Marketplace Office Hours
+    href: https://go.microsoft.com/fwlink/?linkid=2185526
   - name: Partner Center support options
     href: support.md
   - name: Partner Center announcements
     href: /partner-center/announcements
   - name: Microsoft Partner Community
-    href: https://www.microsoftpartnercommunity.com/
+    href: https://www.microsoftpartnercommunity.com/?source=DOCS
   - name: Partner Community forum
-    href: https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222
+    href: https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222?source=DOCS
   - name: Geographic availability and currencies
     href: marketplace-geo-availability-currencies.md
   - name: Find Tenant and Object IDs
     href: find-tenant-object-id.md
   - name: Supported countries and regions
     href: sell-from-countries.md  
-  - name: Co-sell country and region codes
-    href: commercial-marketplace-co-sell-countries.md 
-  - name: Co-sell state codes
-    href: commercial-marketplace-co-sell-states.md
+  - name: Co-sell country, region, state, and province codes
+    href: /partner-center/commercial-marketplace-co-sell-location-codes?context=/azure/marketplace/context/context
   - name: Categories and subcategories
     href: categories.md  
   - name: Supported HTML tags
     href: supported-html-tags.md
   - name: Reference architecture diagram
-    href: reference-architecture-diagram.md
+    href: /partner-center/reference-architecture-diagram?context=/azure/marketplace/context/context
   - name: Customer documentation
     href: /marketplace/
   - name: Azure Blob

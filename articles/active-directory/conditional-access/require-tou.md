@@ -10,9 +10,9 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
-#Customer intent: As an IT admin, I want to ensure that users have accepted my terms of use before accessing selected cloud apps, so that I have a consent from them.
 ms.collection: M365-identity-device-management
 ms.custom: mode-other
+#Customer intent: As an IT admin, I want to ensure that users have accepted my terms of use before accessing selected cloud apps, so that I have a consent from them.
 ---
 # Quickstart: Require terms of use to be accepted before accessing cloud apps
 

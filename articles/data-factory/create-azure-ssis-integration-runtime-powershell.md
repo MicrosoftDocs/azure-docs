@@ -4,7 +4,7 @@ description: Learn how to create an Azure-SSIS integration runtime in Azure Data
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 02/15/2022
 author: swinarko
 ms.author: sawinark 
 ms.custom: devx-track-azurepowershell
@@ -12,7 +12,12 @@ ms.custom: devx-track-azurepowershell
 
 # Create an Azure-SSIS integration runtime via Azure PowerShell 
 
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+
 This article shows you how to create an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) via Azure PowerShell.
+
+> [!NOTE]
+> For Azure-SSIS IR in Azure Synapse Analytics, replace with corresponding Azure Synapse Analytics PowerShell interfaces:  [Set-AzSynapseIntegrationRuntime (Az.Synapse)](/powershell/module/az.synapse/set-azsynapseintegrationruntime), [Start-AzSynapseIntegrationRuntime](/powershell/module/az.synapse/start-azsynapseintegrationruntime) and [Stop-AzSynapseIntegrationRuntime](/powershell/module/az.synapse/stop-azsynapseintegrationruntime).
 
 ## Create variables
 
@@ -164,7 +169,7 @@ If you don't use SSISDB, you can omit the `CatalogServerEndpoint`, `CatalogPrici
 
 If you don't use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or require access to on-premises data, you can omit the `VNetId` and `Subnet` parameters or pass empty values for them. You can also omit them if you configure a self-hosted IR as proxy for your Azure-SSIS IR to access data on-premises. Otherwise, you can't omit them and must pass valid values from your virtual network configuration. For more information, see [Join an Azure-SSIS IR to a virtual network](./join-azure-ssis-integration-runtime-virtual-network.md).
 
-If you use managed instance to host SSISDB, you can omit the `CatalogPricingTier` parameter or pass an empty value for it. Otherwise, you can't omit it and must pass a valid value from the list of supported pricing tiers for Azure SQL Database. For more information, see [SQL Database resource limits](../azure-sql/database/resource-limits-logical-server.md).
+If you use managed instance to host SSISDB, you can omit the `CatalogPricingTier` parameter or pass an empty value for it. Otherwise, you can't omit it and must pass a valid value from the list of supported pricing tiers for Azure SQL Database. For more information, see [SQL Database resource limits](/azure/azure-sql/database/resource-limits-logical-server).
 
 If you use Azure AD authentication with the specified system/user-assigned managed identity for your data factory to connect to the database server, you can omit the `CatalogAdminCredential` parameter. But you must add the specified system/user-assigned managed identity for your data factory into an Azure AD group with access permissions to the database server. For more information, see [Enable Azure AD authentication for an Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md). Otherwise, you can't omit it and must pass a valid object formed from your server admin username and password for SQL authentication.
 
@@ -575,7 +580,7 @@ if(![string]::IsNullOrEmpty($ExpressCustomSetup))
         -ExpressCustomSetup $setups
 }
 
-# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
+# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data access
 if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
 {
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

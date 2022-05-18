@@ -11,6 +11,7 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -113,7 +114,7 @@ az account set --subscription "<subscription name or subscription id>"
 Then create your service principal. (This process might take some time to finish.)
 
 ```azurecli
-az ad sp create-for-rbac --name <servicePrincipalName> --role Contributor --password <yourSPStrongPassword>
+az ad sp create-for-rbac --name <servicePrincipalName> --role Contributor --scopes /subscriptions/<subscription_id> --password <yourSPStrongPassword>
 ```
 
 Upon successful completion, you should see the following JSON output, including the necessary credentials.
@@ -170,7 +171,7 @@ Follow these steps to run the app:
 
 ## Clean up resources
 
-If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, go to the [Azure portal](https://ms.portal.azure.com/). There, cancel the services you don't want to use.
+If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, go to the [Azure portal](https://portal.azure.com/). There, cancel the services you don't want to use.
 
 If you plan to create your own object detection project with Custom Vision, you might want to delete the logo detection project you created in this tutorial. A free subscription for Custom Vision allows for only two projects. To delete the logo detection project, on the [Custom Vision website](https://customvision.ai), open **Projects** and then select the trash icon under **My New Project**.
 

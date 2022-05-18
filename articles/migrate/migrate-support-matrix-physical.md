@@ -31,7 +31,7 @@ To assess physical servers, you create a project, and add the Azure Migrate: Dis
 
 **Type of servers:** Bare metal servers, virtualized servers running on-premises or other clouds like AWS, GCP, Xen etc.
 >[!Note]
-> Currently, Azure Migrate does not support the discovery of para-virtualized servers. 
+> Currently, Azure Migrate does not support the discovery of para-virtualized servers.
 
 **Operating system:** All Windows and Linux operating systems can be assessed for migration.
 
@@ -41,18 +41,36 @@ Set up an account that the appliance can use to access the physical servers.
 
 **Windows servers**
 
-- For Windows servers, use a domain account for domain-joined servers, and a local account for servers that are not domain-joined. 
-- The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users. 
+For Windows servers, use a domain account for domain-joined servers, and a local account for servers that are not domain-joined. The user account can be created in one of the two ways:
+
+### Option 1
+
+- Create an account that has administrator privileges on the servers. This account can be used to pull configuration and performance data through CIM connection and perform software inventory (discovery of installed applications) and enable agentless dependency analysis using PowerShell remoting.
+
+> [!Note]
+> If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Windows servers, it recommended to use Option 1.
+
+### Option 2
+- The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
 - If Remote management Users group isn't present, then add user account to the group: **WinRMRemoteWMIUsers_**.
-- The account needs these permissions for appliance to create a CIM connection with the server and pull the required configuration and performance metadata from the WMI classes listed [here.](migrate-appliance.md#collected-data---physical)
-- In some cases, adding the account to these groups may not return the required data from WMI classes as the account might be filtered by [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, user account needs to have necessary permissions on CIMV2 Namespace and sub-namespaces on the target server. You can follow the steps [here](troubleshoot-appliance.md#access-is-denied-error-occurs-when-you-connect-to-physical-servers-during-validation) to enable the required permissions.
+- The account needs these permissions for appliance to create a CIM connection with the server and pull the required configuration and performance metadata from the WMI classes listed here.
+- In some cases, adding the account to these groups may not return the required data from WMI classes as the account might be filtered by [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, user account needs to have necessary permissions on CIMV2 Namespace and sub-namespaces on the target server. You can follow the steps [here](troubleshoot-appliance.md) to enable the required permissions.
 
     > [!Note]
     > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
 
 **Linux servers**
 
-- You need a root account on the servers that you want to discover. Alternately, you can provide a user account with sudo permissions.
+For Linux servers, based on the features you want to perform, you can create a user account in one of three ways:
+
+### Option 1
+- You need a root account on the servers that you want to discover. This account can be used to pull configuration and performance metadata, perform software inventory (discovery of installed applications) and enable agentless dependency analysis.
+
+> [!Note]
+> If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Linux servers, it recommended to use Option 1.
+
+### Option 2
+- To discover the configuration and performance metadata from Linux servers, you can provide a user account with sudo permissions.
 - The support to add a user account with sudo access is provided by default with the new appliance installer script downloaded from portal after July 20,2021.
 - For older appliances, you can enable the capability by following these steps:
     1. On the server running the appliance, open the Registry Editor.
@@ -61,7 +79,7 @@ Set up an account that the appliance can use to access the physical servers.
 
     :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Screenshot that shows how to enable sudo support.":::
 
-- To discover the configuration and performance metadata from target server, you need to enable sudo access for the commands listed [here](migrate-appliance.md#linux-server-metadata). Make sure that you have enabled 'NOPASSWD' for the account to run the required commands without prompting for a password every time sudo command is invoked.
+- You need to enable sudo access for the commands listed [here](discovered-metadata.md#linux-server-metadata). Make sure that you have enabled 'NOPASSWD' for the account to run the required commands without prompting for a password every time sudo command is invoked.
 - The following Linux OS distributions are supported for discovery by Azure Migrate using an account with sudo access:
 
     Operating system | Versions 
@@ -73,15 +91,20 @@ Set up an account that the appliance can use to access the physical servers.
     Debian | 7, 10
     Amazon Linux | 2.0.2021
     CoreOS Container | 2345.3.0
+    > [!Note]
+    > 'Sudo' account is currently not supported to perform software inventory (discovery of installed applications) and enable agentless dependency analysis.
 
+### Option 3
 - If you cannot provide root account or user account with sudo access, then you can set 'isSudo' registry key to value '0' in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry and provide a non-root account with the required capabilities using the following commands:
 
-**Command** | **Purpose**
---- | --- |
-setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | To collect disk configuration data
-setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | To collect disk performance data
-setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number
-chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID
+    **Command** | **Purpose**
+    --- | --- |
+    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | To collect disk configuration data
+    setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br> cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br> cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | To collect disk performance data
+    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number
+    chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID
+
+    To perform agentless dependency analysis on the server, ensure that you also set the required permissions on /bin/netstat and /bin/ls files by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
 
 ## Azure Migrate appliance requirements
 
@@ -100,6 +123,35 @@ The following table summarizes port requirements for assessment.
 --- | ---
 **Appliance** | Inbound connections on TCP port 3389, to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368, to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Outbound connections on ports 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
 **Physical servers** | **Windows:** Inbound connection on WinRM port 5985 (HTTP) to pull configuration and performance metadata from Windows servers. <br/><br/> **Linux:**  Inbound connections on port 22 (TCP), to pull configuration and performance metadata from Linux servers. |
+
+## Software inventory requirements
+
+In addition to discovering servers, Azure Migrate: Discovery and assessment can perform software inventory on servers. Software inventory provides the list of applications, roles and features running on Windows and Linux servers, discovered using Azure Migrate. It helps you to identify and plan a migration path tailored for your on-premises workloads.
+
+Support | Details
+--- | ---
+**Supported servers** | You can perform software inventory on up to 1,000 servers discovered from each Azure Migrate appliance.
+**Operating systems** | Servers running all Windows and Linux versions that meet the server requirements and have the required access permissions are supported.
+**Server requirements** | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.<br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers to pull the application data: list, tail, awk, grep, locate, head, sed, ps, print, sort, uniq. Based on OS type and the type of package manager being used, here are some additional commands: rpm/snap/dpkg, yum/apt-cache, mssql-server.
+**Windows server access** | A guest user account for Windows servers
+**Linux server access** | A standard user account (non-`sudo` access) for all Linux servers
+**Port access** | For Windows server, need access on port 5985 (HTTP) and for Linux servers, need access on port 22(TCP).
+**Discovery** | Software inventory is performed by directly connecting to the servers using the server credentials added on the appliance. <br/><br/> The appliance gathers the information about the software inventory from Windows servers using PowerShell remoting and from Linux servers using SSH connection. <br/><br/> Software inventory is agentless. No agent is installed on the servers.
+
+## Dependency analysis requirements (agentless)
+
+[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers which can be easily visualized with a map view in Azure Migrate project and can be used to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis:
+
+Support | Details
+--- | ---
+**Supported servers** | You can enable agentless dependency analysis on up to 1000 servers, discovered per appliance.
+**Operating systems** | Servers running all Windows and Linux versions that meet the server requirements and have the required access permissions are supported.
+**Server requirements** | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date
+**Windows server access** | A user account (local or domain) with administrator permissions on servers.
+**Linux server access** | A root user account, or an account that has these permissions on /bin/netstat and /bin/ls files: <br />CAP_DAC_READ_SEARCH<br /> CAP_SYS_PTRACE<br /><br /> Set these capabilities by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
+**Port access** | For Windows server, need access on port 5985 (HTTP) and for Linux servers, need access on port 22(TCP).
+**Discovery method** |  Agentless dependency analysis is performed by directly connecting to the servers using the server credentials added on the appliance. <br/><br/> The appliance gathers the dependency information from Windows servers using PowerShell remoting and from Linux servers using SSH connection. <br/><br/> No agent is installed on the servers to pull dependency data.
+
 
 ## Agent-based dependency analysis requirements
 

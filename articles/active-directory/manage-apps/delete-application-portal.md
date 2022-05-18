@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/22/2021
-ms.author: davidmu
-ms.reviewer: ergleenl
-# Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.
+ms.date: 03/24/2022
+ms.author: sureshja
+ms.reviewer: sureshja
 ms.custom: mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.
 ---
 
 # Quickstart: Delete an enterprise application
@@ -26,7 +26,7 @@ It is recommended that you use a non-production environment to test the steps in
 
 To delete an enterprise application, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - Completion of the steps in [Quickstart: Add an enterprise application](add-application-portal.md).
 

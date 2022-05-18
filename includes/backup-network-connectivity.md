@@ -19,17 +19,13 @@ If your machine has limited internet access, ensure that firewall, proxy, and ne
 
 **FQDNs**
 
-- `www.msftncsi.com`
-- `www.msftconnecttest.com`
 - `*.microsoft.com`
 - `*.windowsazure.com`
 - `*.microsoftonline.com`
 - `*.windows.net`
-
-**IP addresses**
-
-- `20.190.128.0/18`
-- `40.126.0.0/18`
+- `*blob.core.windows.net`
+- `*queue.core.windows.net`
+- `*blob.storage.azure.net`
 
 If you are a US Government customer, ensure that you have access to the following URLs:
 
@@ -39,6 +35,9 @@ If you are a US Government customer, ensure that you have access to the followin
 - `*.microsoftonline.us`
 - `*.windows.net`
 - `*.usgovcloudapi.net`
+- `*blob.core.windows.net`
+- `*queue.core.windows.net`
+- `*blob.storage.azure.net`
 
 Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
 
@@ -62,16 +61,13 @@ You can back up your data through Azure ExpressRoute by using public peering (av
 
 To use public peering, ensure that the following domains and addresses have HTTPS access on port 443 to:
 
-- `www.msftncsi.com`
-- `www.msftconnecttest.com`
 - `*.microsoft.com`
 - `*.windowsazure.com`
 - `*.microsoftonline.com`
 - `*.windows.net`
-
-**IP addresses**
-- `20.190.128.0/18`
-- `40.126.0.0/18`
+- `*blob.core.windows.net`
+- `*queue.core.windows.net`
+- `*blob.storage.azure.net`
 
 To use Microsoft peering, select the following services, regions, and relevant community values:
 - Azure Active Directory (12076:5060)

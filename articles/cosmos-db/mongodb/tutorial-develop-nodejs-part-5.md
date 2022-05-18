@@ -4,7 +4,7 @@ description: This tutorial describes how to build a Node.js application by using
 author: johnpapa
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: jopapa

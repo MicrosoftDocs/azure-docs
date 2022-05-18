@@ -3,14 +3,15 @@ title: Introduction to ASEv2
 description: Learn how Azure App Service Environments v2 help you scale, secure, and optimize your apps in a fully isolated and dedicated environment.
 author: madsd
 ms.topic: overview
-ms.date: 11/15/2021
+ms.date: 03/29/2022
 ms.author: madsd
 ---
 
 # Introduction to App Service Environment v2
-> [!NOTE]
-> This article is about the App Service Environment v2 which is used with Isolated App Service plans. There is a newer version of the App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version start with the [Introduction to the App Service Environment](overview.md).
-> 
+
+> [!IMPORTANT]
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
 
 ## Overview
 
@@ -74,8 +75,6 @@ In ASEv1, you need to manage all of the resources manually. That includes the fr
 ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU allocated. That includes vCPUs used for front ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
 
 <!--Links-->
-[App Service Environments v2]: https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment
-[Isolated offering]: https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
 [MakeASEfromTemplate]: ./create-from-template.md

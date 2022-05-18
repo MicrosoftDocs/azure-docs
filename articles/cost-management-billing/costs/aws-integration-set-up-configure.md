@@ -1,13 +1,14 @@
 ---
-title: Set up AWS integration with Azure Cost Management
+title: Set up AWS integration with Cost Management
+titleSuffix: Azure Cost Management + Billing
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 04/28/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: matrive
+ms.reviewer: shasulin
 ---
 
 # Set up and configure AWS Cost and Usage report integration
@@ -15,10 +16,6 @@ ms.reviewer: matrive
 With Amazon Web Services (AWS) Cost and Usage report (CUR) integration, you monitor and control your AWS spending in Cost Management. The integration allows a single location in the Azure portal where you monitor and control spending for both Azure and AWS. This article explains how to set up the integration and configure it so that you can use Cost Management features to analyze costs and review budgets.
 
 Cost Management processes the AWS Cost and Usage report stored in an S3 bucket by using your AWS access credentials to get report definitions and download report GZIP CSV files.
-
-Watch the video [How to set up Connectors for AWS in Cost Management](https://www.youtube.com/watch?v=Jg5KC1cx5cA) to learn more about how to set up AWS report integration. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
-
->[!VIDEO https://www.youtube.com/embed/Jg5KC1cx5cA]
 
 ## Create a Cost and Usage report in AWS
 
@@ -35,11 +32,11 @@ Use the **Cost & Usage Reports** page of the Billing and Cost Management console
 7. Select **Next**.
 8. For **S3 bucket**, choose **Configure**.
 9. In the Configure S3 Bucket dialog box, enter a bucket name and the Region where you want to create a new bucket and choose **Next**.
-10. Select **I have confirmed that this policy is correct**, then click **Save**.
+10. Select **I have confirmed that this policy is correct**, then select **Save**.
 11. (Optional) For Report path prefix, enter the report path prefix that you want prepended to the name of your report.
 If you don't specify a prefix, the default prefix is the name that you specified for the report. The date range has the `/report-name/date-range/` format.
 12. For **Time unit**, choose  **Hourly**.
-13. For **Report versioning**, choose whether you want each version of the report to overwrite the previous version, or if you want additional new reports.
+13. For **Report versioning**, choose whether you want each version of the report to overwrite the previous version, or if you want more new reports.
 14. For **Enable data integration for**, no selection is required.
 15. For **Compression**, select **GZIP**.
 16. Select **Next**.
@@ -63,14 +60,14 @@ Use the Create a New Role wizard:
 1. Sign in to your AWS console and select **Services**.
 2. In the list of services, select **IAM**.
 3. Select **Roles** and then select **Create Role**.
-4. On the next page, select **Another AWS account**.
-5. In **Account ID**, enter **432263259397**.
-6. In **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
-7. In **External ID**, enter the external ID which is a shared passcode between the AWS role and Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID.
+4. On the **Select trusted entity** page, select **AWS account** and then under **An AWS account**, select **Another AWS account**.
+5. Under **Account ID**, enter **432263259397**.
+6. Under **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
+7. Under **External ID**, enter the external ID, which is a shared passcode between the AWS role and Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID.
     > [!NOTE]
     > Don't change the selection for **Require MFA**. It should remain cleared.
 8. Select **Next: Permissions**.
-9. Select **Create policy**. A new browser tab opens. That's where you create a policy.
+9. Select **Create policy**. A new browser tab opens where you create a policy.
 10. Select **Choose a service**.
 
 Configure permission for the Cost and Usage report:
@@ -104,16 +101,29 @@ Add permission for AWS Organizations:
 
 1. Enter **Organizations**.
 2. Select **Access level** > **List** > **ListAccounts**. This action gets the names of the accounts.
-3. In **Review Policy**, enter a name for the new policy. Check that you entered the correct information, and then select **Create Policy**.
-4. Go back to the previous tab and refresh your browser's webpage. On the search bar, search for your new policy.
-5. Select **Next: Review**.
-6. Enter a name for the new role. Check that you entered the correct information, and then select **Create Role**.
+3. Select **Add Additional permissions**.
 
-    Note the role ARN and the external ID used in the preceding steps when you created the role. You'll use them later when you set up the Cost Management connector.
+Configure permissions for Policies
 
-The policy JSON should resemble the following example. Replace _bucketname_ with the name of your S3 bucket.
+1.	Enter **IAM**.
+1.	Select Access level > List > **ListAttachedRolePolicies** and **ListPolicyVersions** and **ListRoles**.
+1.	Select Access level > Read > **GetPolicyVersion**.
+1.	Select **Resources** > policy, and then select **Any**. These actions allow verification that only the minimal required set of permissions were granted to the connector.
+1.	Select role - **Add ARN**. The account number should be automatically populated.
+1.	In **Role name with path**, enter a role name and note it. You need to use it in the final role creation step.
+1.	Select **Add**.
+1.	Select **Next: Tags**. You may enter tags you wish to use or skip this step. This step isn't required to create a connector in Cost Management.
+1.	Select **Next: Review Policy**.
+1.	In Review Policy, enter a name for the new policy. Verify that you entered the correct information, and then select **Create Policy**.
+1.	Go back to the previous tab and refresh the policies list. On the search bar, search for your new policy.
+1.	Select **Next: Review**.
+1.	Enter the same role name you defined and noted while configuring the IAM permissions. Verify that you entered the correct information, and then select **Create Role**.
 
-```JSON
+Note the role ARN and the external ID used in the preceding steps when you created the role. You'll use them later when you set up the Cost Management connector.
+
+The policy JSON should resemble the following example. Replace `bucketname` with the name of your S3 bucket, `accountname` with your account number and `rolename` with the role name you created.
+
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -121,9 +131,10 @@ The policy JSON should resemble the following example. Replace _bucketname_ with
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
-"organizations:ListAccounts",
-             "ce:*",
-             "cur:DescribeReportDefinitions"
+                "organizations:ListAccounts",
+                "iam:ListRoles",
+                "ce:*",
+                "cur:DescribeReportDefinitions"
             ],
             "Resource": "*"
         },
@@ -132,11 +143,16 @@ The policy JSON should resemble the following example. Replace _bucketname_ with
             "Effect": "Allow",
             "Action": [
                 "s3:GetObject",
-                "s3:ListBucket"
+                "s3:ListBucket",
+                "iam:GetPolicyVersion",
+                "iam:ListPolicyVersions",
+                "iam:ListAttachedRolePolicies"
             ],
             "Resource": [
                 "arn:aws:s3:::bucketname",
-                "arn:aws:s3:::bucketname/*"
+                "arn:aws:s3:::bucketname/*",
+                "arn:aws:iam::accountnumber:policy/*",
+                "arn:aws:iam::accountnumber:role/rolename"
             ]
         }
     ]
@@ -147,11 +163,14 @@ The policy JSON should resemble the following example. Replace _bucketname_ with
 
 Use the following information to create an AWS connector and start monitoring your AWS costs.
 
+> [!NOTE]
+> The Connector for AWS remains active after the trial period ends if you set the auto-renew configuration to **On** during the initial setup. Otherwise, the connector is disabled following its trial. It may remain disabled for three months before it's permanently deleted. After the connector is deleted, the same connection can't be reactivated. For assistance with a disabled connector or to create a new connection after it's deleted, create a [support request in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
 ### Prerequisites
 
 - Ensure you have at least one management group enabled. A management group is required to link your subscription to the AWS service. For more information about creating a management group, see [Create a management group in Azure](../../governance/management-groups/create-management-group-portal.md). 
 - Ensure that you're an administrator of the subscription.
-- Complete the set up required for a new AWS connector, as described in the [Create a Cost and Usage report in AWS](#create-a-cost-and-usage-report-in-aws) section.
+- Complete the setup required for a new AWS connector, as described in the [Create a Cost and Usage report in AWS](#create-a-cost-and-usage-report-in-aws) section.
 
 
 ### Create a new connector
@@ -176,7 +195,7 @@ After you create the connector, we recommend that you assign access control to i
 
 Assigning connector permissions to users after discovery occurs doesn't assign permissions to the existing AWS scopes. Instead, only new linked accounts are assigned permissions.
 
-## Take additional steps
+## Take other steps
 
 - [Set up management groups](../../governance/management-groups/overview.md#initial-setup-of-management-groups), if you haven't already.
 - Check that new scopes are added to your scope picker. Select **Refresh** to view the latest data.

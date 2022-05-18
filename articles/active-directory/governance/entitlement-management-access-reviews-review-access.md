@@ -4,12 +4,11 @@ description: Learn how to complete an access review of entitlement management ac
 services: active-directory
 documentationCenter: ''
 author: amsliu
-manager: KarenH444
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 09/15/2021

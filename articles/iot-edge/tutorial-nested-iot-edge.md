@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge
 description: This tutorial shows you how to create a hierarchical structure of IoT Edge devices using gateways.
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
-ms.date: 2/26/2021
+ms.author: patricka
+ms.date: 05/04/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -56,7 +56,7 @@ To create a hierarchy of IoT Edge devices, you will need:
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A Bash shell in Azure Cloud Shell using Azure CLI v2.3.1 with the Azure IoT extension v0.10.6 or higher installed. This tutorial uses the [Azure Cloud Shell](../cloud-shell/overview.md). If you're unfamiliar with the Azure Cloud Shell, [check out a quickstart for details](./quickstart-linux.md#prerequisites).
-  * To see your current versions of the Azure CLI modules and extensions, run [az version](/cli/azure/reference-index?#az_version).
+  * To see your current versions of the Azure CLI modules and extensions, run [az version](/cli/azure/reference-index?#az-version).
 * A Linux device to configure as an IoT Edge device for each device in your hierarchy. This tutorial uses two devices. If you don't have devices available, you can create Azure virtual machines for each device in your hierarchy using the command below.
 
    Replace the placeholder text in the following command and run it twice, once for each virtual machine. Each virtual machine needs a unique DNS prefix, which will also serve as its name. The DNS prefix must conform to the following regular expression: `[a-z][a-z0-9-]{1,61}[a-z0-9]`.
@@ -141,7 +141,7 @@ To use the `iotedge-config` tool to create and configure your hierarchy, follow 
 
    In the **iothub** section, populate the `iothub_hostname` and `iothub_name` fields with your information. This information can be found on the overview page of your IoT Hub on the Azure portal.
 
-   In the optional **certificates** section, you can populate the fields with the absolute paths to your certificate and key. If you leave these fields blank, the script will automatically generate self-signed test certificates for your use. If you're unfamiliar with how certificates are used in a gateway scenario, check out [the how-to guide's certificate section](how-to-connect-downstream-iot-edge-device.md#prepare-certificates).
+   In the optional **certificates** section, you can populate the fields with the absolute paths to your certificate and key. If you leave these fields blank, the script will automatically generate self-signed test certificates for your use. If you're unfamiliar with how certificates are used in a gateway scenario, check out [the how-to guide's certificate section](how-to-connect-downstream-iot-edge-device.md#generate-certificates).
 
    In the **configuration** section, the `template_config_path` is the path to the `device_config.toml` template used to create your device configurations. The `default_edge_agent` field determines what Edge Agent image lower layer devices will pull and from where.
 
@@ -215,7 +215,7 @@ To configure the IoT Edge runtime, you need to apply the configuration bundles c
 
    On the **top layer device**, you will receive a prompt to enter the hostname. On the **lower layer device**, it will ask for the hostname and parent's hostname. Supply the appropriate IP or FQDN for each prompt. You can use either, but be consistent in your choice across devices. The output of the install script is pictured below.
 
-   If you want a closer look at what modifications are being made to your device's configuration file, see [the configure IoT Edge on devices section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
+   If you want a closer look at what modifications are being made to your device's configuration file, see [the configure IoT Edge on devices section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#configure-parent-device).
 
   ![Installing the configuration bundles will update the config.toml files on your device and restart all IoT Edge services automatically](./media/tutorial-nested-iot-edge/configuration-install-output.png)
 
@@ -278,7 +278,7 @@ You can view the status of your modules using the command:
 
    This command will output all the edgeAgent reported properties. Here are some helpful ones for monitoring the status of the device: *runtime status*, *runtime start time*, *runtime last exit time*, *runtime restart count*.
 
-You can also see the status of your modules on the [Azure portal](https://ms.portal.azure.com/). Navigate to the **IoT Edge** section of your IoT Hub to see your devices and modules.
+You can also see the status of your modules on the [Azure portal](https://portal.azure.com/). Navigate to the **IoT Edge** section of your IoT Hub to see your devices and modules.
 
 Once you are satisfied with your module deployments, you are ready to proceed.
 

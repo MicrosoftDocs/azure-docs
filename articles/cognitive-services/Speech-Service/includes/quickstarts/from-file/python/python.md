@@ -11,7 +11,7 @@ ms.author: eur
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 > * [Create a LUIS application and get an endpoint key](../../../../get-started-intent-recognition.md)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 
@@ -82,7 +82,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ### Install and use the Speech SDK with Visual Studio Code
 
-1. Download and install a 64-bit version of [Python](https://www.python.org/downloads/), 3.6 to 3.9, on your computer.
+1. Download and install a 64-bit version of [Python](https://www.python.org/downloads/), 3.7 to 3.10, on your computer.
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python**.
 

@@ -14,6 +14,8 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 This quickstart shows how to deploy a basic HTML+CSS site to <abbr title="An HTTP-based service for hosting web applications, REST APIs, and mobile back-end applications.">Azure App Service</abbr>. You'll complete this quickstart in [Cloud Shell](../cloud-shell/overview.md), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
 ## 1. Prepare your environment
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -35,9 +37,9 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## 2. Create a web app
 
-Change to the directory that contains the sample code and run the `az webapp up` command. **Replace** `<app-name>` with a globally unique name.
+Change to the directory that contains the sample code and run the [az webapp up](/cli/azure/webapp#az-webapp-up) command. **Replace** `<app-name>` with a globally unique name.
 
-```bash
+```azurecli
 cd html-docs-hello-world
 
 az webapp up --location westeurope --name <app_name> --html
@@ -50,7 +52,7 @@ az webapp up --location westeurope --name <app_name> --html
 <li>Replace <code>&lt;app-name&gt;</code> with a name that's unique across all of Azure (<em>valid characters are <code>a-z</code>, <code>0-9</code>, and <code>-</code></em>). A good pattern is to use a combination of your company name and an app identifier.</li>
 <li>The <code>--sku F1</code> argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.</li>
 <li>The <code>--html</code> argument says to treat all folder content as static content and disable build automation.</li>
-<li>You can optionally include the argument <code>--location &lt;location-name&gt;</code> where <code>&lt;location-name&gt;</code> is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the <a href="/cli/azure/appservice#az_appservice_list_locations"><code>az account list-locations</code></a> command.</li>
+<li>You can optionally include the argument <code>--location &lt;location-name&gt;</code> where <code>&lt;location-name&gt;</code> is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the <a href="/cli/azure/appservice#az-appservice-list-locations"><code>az account list-locations</code></a> command.</li>
 </ul>
 </details>
 
@@ -62,7 +64,7 @@ The command may take a few minutes to complete.
 <ul>
 <li>Create a default resource group.</li>
 <li>Create a default App Service plan.</li>
-<li><a href="/cli/azure/webapp#az_webapp_create">Create an App Service app</a> with the specified name.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Create an App Service app</a> with the specified name.</li>
 <li><a href="/azure/app-service/deploy-zip">Zip deploy</a> files from the current working directory to the app.</li>
 <li>While running, it provides messages about resource creation, logging, and ZIP deployment.</li>
 </ul>
@@ -113,7 +115,7 @@ In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" 
 
 Redeploy the app with `az webapp up` command.
 
-```bash
+```azurecli
 az webapp up --html
 ```
 
@@ -149,7 +151,7 @@ The left menu provides different pages for configuring your app.
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#2-create-a-web-app) step.
 
-```bash
+```azurecli
 az group delete --name appsvc_rg_Windows_westeurope
 ```
 

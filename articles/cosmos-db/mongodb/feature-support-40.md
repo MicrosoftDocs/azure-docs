@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB's API for MongoDB 4.0 server version su
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 08/26/2021
+ms.date: 04/05/2022
 author: gahl-levy
 ms.author: gahllevy
 ---
@@ -399,7 +399,7 @@ In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to
 |---------|---------|
 | TTL | Yes |
 | Unique | Yes |
-| Partial | No |
+| Partial | Only supported with unique indexes |
 | Case Insensitive | No |
 | Sparse | No |
 | Background | Yes |
@@ -426,7 +426,7 @@ In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to
 
 | Command | Supported |
 |---------|---------|
-| $expr | No |
+| $expr | Yes |
 | $jsonSchema | No |
 | $mod | Yes |
 | $regex | Yes |
@@ -557,7 +557,7 @@ Azure Cosmos DB does not yet support server-side sessions commands.
 
 ## Time-to-live (TTL)
 
-Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections by going to the [Azure portal](https://portal.azure.com).
+Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections from the [Azure portal](https://portal.azure.com).
 
 ## Transactions
 
@@ -577,5 +577,5 @@ Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/refe
 - Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB's API for MongoDB.
 - Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.
 - Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)

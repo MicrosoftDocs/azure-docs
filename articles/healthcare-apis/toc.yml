@@ -1,31 +1,31 @@
 items:
 - name: Azure API for FHIR documentation
   href: ./azure-api-for-fhir/index.yml
-- name: Azure Healthcare APIs (preview) documentation
+- name: Azure Health Data Services documentation
   href: index.yml
-
 - name: Overview
   expanded: true
   items:
-    - name: About Healthcare APIs
+    - name: About Azure Health Data Services
       href: healthcare-apis-overview.md
-    - name: About Workspace
+    - name: About workspace
       href: workspace-overview.md
     - name: FHIR service
       href: ./fhir/index.yml
     - name: DICOM service
       href: ./dicom/index.yml
-    - name: IoT connector
+    - name: MedTech service
       href: ./iot/index.yml
-    - name: Transfer and Transform Data
-      href: ./data-transformation/index.yml
-
 - name: Quickstarts
   expanded: true
   items:
-    - name: Deploy Healthcare APIs
-      href: healthcare-apis-quickstart.md
-
+    - name: Deploy Azure Health Data Services
+      expanded: true
+      items:
+        - name: Using Portal
+          href: healthcare-apis-quickstart.md
+        - name: Using Bicep
+          href: deploy-healthcare-apis-using-bicep.md
 - name: How-to guides
   expanded: true
   items:
@@ -37,36 +37,49 @@ items:
         - name: Register a client application
           expanded: true
           items:
-           - name: Register a client application using the portal
+           - name: Register application using the portal
              href: register-application.md
-           - name: Register a client application using scripts
+           - name: Register application using scripts
              href: register-application-cli-rest.md  
-        - name: Grant access permissions using the portal
-          href: configure-azure-rbac.md
-        - name: Get an Access Token
-          href: get-access-token.md
-    - name: Access using Postman
-      href: use-postman.md  
-    - name: Access using cURL
-      href: using-curl.md
-    - name: Access using REST Client
-      href: using-rest-client.md
-    - name: Logging
-      href: logging.md
-
+        - name: Grant access permissions
+          expanded: true
+          items:
+           - name: Grant permissions using the portal
+             href: configure-azure-rbac.md
+           - name: Grant permissions using scripts
+             href: configure-azure-rbac-using-scripts.md
+    - name: Get an Access Token
+      href: get-access-token.md
+    - name: Access Azure Health Data Services
+      href: access-healthcare-apis.md  
+    - name: Configure settings
+      expanded: true
+      items:
+      - name: Configure Private Link
+        href: healthcare-apis-configure-private-link.md
+      - name: Configure Events
+        href: ./events/events-deploy-portal.md
+    - name: Diagnostic logging
+      expanded: true
+      items:
+      - name: Enable diagnostic logging in Azure Health Data Services
+        href: logging.md
 - name: Concepts
+  expanded: true
   items:
-    - name: Security controls by Azure Policy
-      href: security-controls-policy.md
-
+  - name: Security controls by Azure Policy
+    href: security-controls-policy.md
 - name: Resources
   expanded: true
   items:
-    - name: Release notes
-      href: release-notes.md 
-    - name: FAQs
-      href: healthcare-apis-faqs.md
-    - name: GitHub projects
-      href: github-projects.md
+  - name: FAQs - Azure Health Data Services
+    href: healthcare-apis-faqs.md
+  - name: GitHub projects
+    href: github-projects.md
+  - name: Known issues
+    href: known-issues.md
+  - name: Release notes
+    href: release-notes.md 
+   
     
      

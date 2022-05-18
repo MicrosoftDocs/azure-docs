@@ -2,7 +2,7 @@
 author: memildin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 12/04/2021
+ms.date: 03/13/2022
 ms.author: memildin
 ms.custom: generated
 ---
@@ -20,13 +20,13 @@ ms.custom: generated
 - Container with privilege escalation should be avoided
 - Containers sharing sensitive host namespaces should be avoided
 - Containers should listen on allowed ports only
+- Containers should only use allowed AppArmor profiles
 - Immutable (read-only) root filesystem should be enforced for containers
 - Key Vault keys should have an expiration date
 - Key Vault secrets should have an expiration date
 - Key vaults should have purge protection enabled
 - Key vaults should have soft delete enabled
 - Least privileged Linux capabilities should be enforced for containers
-- Overriding or disabling of containers AppArmor profile should be restricted
 - Privileged containers should be avoided
 - Redis Cache should allow access only via SSL
 - Running containers as root user should be avoided

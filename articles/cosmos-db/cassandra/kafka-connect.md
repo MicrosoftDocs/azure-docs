@@ -1,12 +1,12 @@
 ---
 title: Integrate Apache Kafka and Azure Cosmos DB Cassandra API using Kafka Connect
 description: Learn how to ingest data from Kafka to Azure Cosmos DB Cassandra API using DataStax Apache Kafka Connector
-author: abhirockzz
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.author: abhishgu
+ms.author: jroth
 ms.reviewer: abhishgu
 ---
 
@@ -29,7 +29,7 @@ Here is a breakdown of the components and their service definitions - you can re
 
 * [Provision an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account)
 
-* [Use cqlsh or hosted shell for validation](cassandra-support.md#hosted-cql-shell-preview)
+* [Use cqlsh for validation](cassandra-support.md#cql-shell)
 
 * Install [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install)
 

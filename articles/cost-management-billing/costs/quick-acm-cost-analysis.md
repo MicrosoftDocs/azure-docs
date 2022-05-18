@@ -3,12 +3,12 @@ title: Quickstart - Explore Azure costs with cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/03/2021
+ms.date: 03/22/2022
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy22q1, mode-other
+ms.custom: contperf-fy22q2, mode-other
 ---
 # Quickstart: Explore and analyze costs with cost analysis
 
@@ -34,7 +34,7 @@ If you have a new subscription, you can't immediately use Cost Management featur
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal.
+- Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/costanalysis).
 
 ## Get started in Cost analysis
 
@@ -117,7 +117,6 @@ Here's a view of Azure service costs for the current month, grouped by Service n
 
 ![Grouped daily accumulated view showing example Azure service costs for last month](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-
 The following image shows resource group names. You can group by tag to view total costs per tag or use the **Cost by resource** view to see all tags for a particular resource.
 
 ![Full data for current view showing resource group names](./media/quick-acm-cost-analysis/full-data-set.png)
@@ -136,7 +135,9 @@ By default, cost analysis shows all usage and purchase costs as they're accrued 
 
 ![Change between actual and amortized cost to see reservation purchases spread across the term and allocated to the resources that used the reservation](./media/quick-acm-cost-analysis/metric-picker.png)
 
-Amortized cost breaks down reservation purchases into daily chunks and spreads them over the duration of the reservation term. For example, instead of seeing a $365 purchase on January 1, you'll see a $1.00 purchase every day from January 1 to December 31. In addition to basic amortization, these costs are also reallocated and associated by using the specific resources that used the reservation. For example, if that $1.00 daily charge was split between two virtual machines, you'd see two $0.50 charges for the day. If part of the reservation isn't utilized for the day, you'd see one $0.50 charge associated with the applicable virtual machine and another $0.50 charge with a charge type of `UnusedReservation`. Unused reservation costs can be seen only when viewing amortized cost.
+Amortized cost breaks down reservation purchases into daily chunks and spreads them over the duration of the reservation term. Most reservation terms are one or three years. Let's look at a one-year reservation example. Instead of seeing a $365 purchase on January 1, you'll see a $1.00 purchase every day from January 1 to December 31. In addition to basic amortization, these costs are also reallocated and associated by using the specific resources that used the reservation. For example, if that $1.00 daily charge was split between two virtual machines, you'd see two $0.50 charges for the day. If part of the reservation isn't utilized for the day, you'd see one $0.50 charge associated with the applicable virtual machine and another $0.50 charge with a charge type of `UnusedReservation`. Unused reservation costs can be seen only when viewing amortized cost.
+
+If you buy a one-year reservation on May 26 with an upfront payment, the amortized cost is divided by 365 (assuming it's not a leap year) and spread from May 26 through May 25 of the next year. If you pay monthly, the monthly fee is divided by the number of days in that month and spread evenly across May 26 through June 25, with the next month's fee spread across June 26 through July 25.
 
 Because of the change in how costs are represented, it's important to note that actual cost and amortized cost views will show different total numbers. In general, the total cost of months with a reservation purchase will decrease when viewing amortized costs, and months following a reservation purchase will increase. Amortization is available only for reservation purchases and doesn't apply to Azure Marketplace purchases at this time.
 

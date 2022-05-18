@@ -4,18 +4,73 @@ description: How to export data from your Azure IoT Central application to Azure
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/30/2021
+ms.date: 01/06/2022
 ms.topic: how-to
 ms.service: iot-central
 ---
-
 # Export IoT data to cloud destinations using data export (legacy)
 
+The legacy data export (classic) feature is now deprecated and you should plan to migrate to the new [data export feature](howto-export-to-blob-storage.md). The legacy data export lacks important capabilities such as the availability of different data types, filtering, and message transformation. See the following table for a comparison of legacy data export with new data export:
+
+| Capability  | Legacy data export (classic) | New data export |
+| :------------- | :---------- | :----------- |
+| Available data types | Telemetry, devices, device templates | Telemetry, property changes, device connectivity changes, device lifecycle changes, device template lifecycle changes |
+| Filtering | None | Depends on the data type exported. For telemetry, filtering by telemetry, message properties, property values |
+| Enrichments | None | Enrich with a custom string or a property value on the device |
+| Transforms| None | Transform the export message to your desired shape |
+| Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for legacy data export plus Azure Data Explorer and webhooks|
+| Notable limits | Five exports per app, one destination per export | 10 export-destination connections per app |
+
+## Migration considerations
+
+To migrate a legacy data export (classic) to new data export, you should:
+
+1. Use a test IoT Central application and create a new data export with the same data type and destination. You can optionally use the enrichments and data transformation functionality to make your export message shape similar to the message shape from your legacy data export.
+1. When you've tested your new data export and are ready to go to production, ensure any workflows or dependencies on your active legacy data exports are safely removed.
+1. Create your new data exports in your production environments and verify that the export messages are meeting your requirements. You can then add any workflows or dependencies to your new data export.
+1. After you've successfully migrated all your legacy data exports to new data exports, you can delete the legacy data exports.
+
+### Data type migration considerations
+
+The default data format varies for data types between legacy data export and new data export. For more information, see [data formats for new data export](howto-export-data.md#data-formats) and [data formats for legacy data export](#export-contents-and-format). When you migrate to the new data export, you should remove any dependencies on data format of your legacy data export. However, if you have strong dependencies or workflows tied to your legacy data exports then the following considerations can help address any migration challenges.
+
+Telemetry: If you choose to match the legacy data export format for your telemetry in your new data export, you can use the transform functionality and build a transformation query similar to the following example:
+
+```jq
+.telemetry | map({ key: .name, value: .value }) | from_entries
+```
+
+Devices: If you're currently using legacy data exports with the devices data type then you can use both the property changes and device lifecycle events data types in new export to export the same data. You can achieve a comparable data structure using the following transformation query on both data types:
+
+```jq
+approved: .device.approved, 
+provisioned: .device.provisioned, 
+simulated: .device.simulated, 
+cloudProperties: .device.cloudProperties | map({ key: .name, value: .value }) | from_entries, 
+displayName: .device.name, 
+id: .device.id, 
+instanceOf: .device.templateId, 
+properties: .device.properties.reported | map({ key: .name, value: .value }) | from_entries 
+```
+
+Device templates: If you're currently using legacy data exports with the device templates data type, then you can obtain the same data using the [Device Templates - Get API call](/rest/api/iotcentral/1.0dataplane/device-templates/get).
+
+### Destination migration considerations
+
+In the new data export, you can create a destination and reuse it across different data exports. When you migrate from legacy data exports, you should create destinations in the new data exports that store information on your existing legacy data export destinations.  
+
 > [!Note]
-> This article describes the legacy data export features in IoT Central.
+> The new data export doesn't support exporting non-valid JSON messages.
+
+## Export IoT data to cloud destinations (legacy)
+
+> [!Note]
+> This article describes the legacy data export features in IoT Central
 >
-> - For information about the latest data export features, see [Export IoT data to cloud destinations using data export](./howto-export-data.md).
-> - To learn about the differences between the preview data export and legacy data export features, see the [comparison table](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
+> - Legacy data exports (classic) are scheduled to be retired. Migrate any legacy data exports to new exports
+> 
+> - For information about the latest data export features, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
+
 
 This article describes how to use the data export feature in Azure IoT Central. This feature lets you export your data continuously to **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** instances. Data export uses the JSON format and can include telemetry, device information, and device template information. Use the exported data for:
 
@@ -37,7 +92,7 @@ Your export destination must exist before you configure your data export.
 
 If you don't have an existing Event Hubs namespace to export to, follow these steps:
 
-1. Create a [new Event Hubs namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
+1. Create a [new Event Hubs namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
 
 2. Choose a subscription. You can export data to other subscriptions that aren't in the same subscription as your IoT Central application. You connect using a connection string in this case.
 
@@ -47,7 +102,7 @@ If you don't have an existing Event Hubs namespace to export to, follow these st
 
 If you don't have an existing Service Bus namespace to export to, follow these steps:
 
-1. Create a [new Service Bus namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
+1. Create a [new Service Bus namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
 2. Choose a subscription. You can export data to other subscriptions that aren't in the same subscription as your IoT Central application. You connect using a connection string in this case.
 
 3. To create a queue or topic to export to, go to your Service Bus namespace, and select **+ Queue** or **+ Topic**.
@@ -58,7 +113,7 @@ When you choose Service Bus as an export destination, the queues and topics must
 
 If you don't have an existing Azure storage account to export to, follow these steps:
 
-1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
+1. Create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
 
     |Performance Tier|Account Type|
     |-|-|

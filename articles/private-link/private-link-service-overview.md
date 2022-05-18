@@ -120,6 +120,9 @@ Custom TLV details:
  > [!NOTE]
  > Service provider is responsible for making sure that the service behind the standard load balancer is configured to parse the proxy protocol header as per the [specification](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) when proxy protocol is enabled on private link service. The request will fail if proxy protocol setting is enabled on private link service but service provider's service is not configured to parse the header. Similarly, the request will fail if the service provider's service is expecting a proxy protocol header while the setting is not enabled on the private link service. Once proxy protocol setting is enabled, proxy protocol header will also be included in HTTP/TCP health probes from host to the backend virtual machines, even though there will be no client information in the header. 
 
+The matching `LINKID` that is part of the PROXYv2 (TLV) protocol can be found at the `PrivateEndpointConnection` as property `linkIdentifier`, see
+[Private Link Services API](/../../../rest/api/virtualnetwork/private-link-services/get-private-endpoint-connection#privateendpointconnection) for more details.
+
 ## Limitations
 
 The following are the known limitations when using the Private Link service:

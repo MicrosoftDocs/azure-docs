@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 12/07/2021
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Create an Azure Cognitive Search index using REST APIs
 
-This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and an API client for sending and receiving requests. With an API client and these instructions, you can send requests and view responses before writing any code.
+This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and an API client for sending and receiving requests. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -27,7 +27,7 @@ The following services and tools are required for this quickstart.
 
 + [Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Cognitive Search.
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Copy a key and URL
 

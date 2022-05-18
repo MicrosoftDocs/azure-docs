@@ -8,14 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/29/2021
+ms.date: 04/21/2022
 ---
 
 # How to work with search results in Azure Cognitive Search
 
 This article explains how to work with a query response in Azure Cognitive Search. 
 
-The structure of a response is determined by parameters in the query itself: [Search Documents (REST)](/rest/api/searchservice/Search-Documents) or [SearchResults Class (Azure for .NET)](/dotnet/api/azure.search.documents.models.searchresults-1). Parameters on the query determine:
+The structure of a response is determined by parameters in the query itself, as described in [Search Documents (REST)](/rest/api/searchservice/Search-Documents) or [SearchResults Class (Azure for .NET)](/dotnet/api/azure.search.documents.models.searchresults-1). Parameters on the query determine:
 
 + Number of results in the response (up to 50, by default)
 + Fields in each result
@@ -26,7 +26,7 @@ The structure of a response is determined by parameters in the query itself: [Se
 
 While a search document might consist of a large number of fields, typically only a few are needed to represent each document in the result set. On a query request, append `$select=<field list>` to specify which fields show up in the response. A field must be attributed as **Retrievable** in the index to be included in a result. 
 
-Fields that work best include those that contrast and differentiate among documents, providing sufficient information to invite a click-through response on the part of the user. On an e-commerce site, it might be a product name, description, brand, color, size, price, and rating. For the hotels-sample-index built-in sample, it might be fields in the following example:
+Fields that work best include those that contrast and differentiate among documents, providing sufficient information to invite a click-through response on the part of the user. On an e-commerce site, it might be a product name, description, brand, color, size, price, and rating. For the built-in hotels-sample index, it might be the "select" fields in the following example:
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
@@ -42,7 +42,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 
 ### Tips for unexpected results
 
-Occasionally, the substance and not the structure of results are unexpected. When query outcomes are unexpected, you can try these query modifications to see if results improve:
+Occasionally, the substance and not the structure of results are unexpected. For example, you might find that some results appear to be duplicates, or a result that *should* appear near the top is positioned lower in the results. When query outcomes are unexpected, you can try these query modifications to see if results improve:
 
 + Change **`searchMode=any`** (default) to **`searchMode=all`** to require matches on all criteria instead of any of the criteria. This is especially true when boolean operators are included the query.
 
@@ -50,7 +50,7 @@ Occasionally, the substance and not the structure of results are unexpected. Whe
 
 ## Paging results
 
-By default, the search engine returns up to the first 50 matches. The top 50 is determined by search score, assuming the query is full text search or semantic search, or in an arbitrary order for exact match queries (where "@searchScore=1.0").
+By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic search, or in an arbitrary order for exact match queries (where "@searchScore=1.0").
 
 To control the paging of all documents returned in a result set, add `$top` and `$skip` parameters to the query request. The following list explains the logic.
 
@@ -61,7 +61,7 @@ To control the paging of all documents returned in a result set, add `$top` and 
 + Return the second set, skipping the first 15 to get the next 15: `$top=15&$skip=15`. Repeat for the third set of 15: `$top=15&$skip=30`
 
 The results of paginated queries are not guaranteed to be stable if the underlying index is changing. Paging changes the value of `$skip` for each page, but each query is independent and operates on the current view of the data as it exists in the index at query time (in other words, there is no caching or snapshot of results, such as those found in a general purpose database).
- 
+
 Following is an example of how you might get duplicates. Assume an index with four documents:
 
 ```text
@@ -70,21 +70,21 @@ Following is an example of how you might get duplicates. Assume an index with fo
 { "id": "3", "rating": 2 }
 { "id": "4", "rating": 1 }
 ```
- 
+
 Now assume you want results returned two at a time, ordered by rating. You would execute this query to get the first page of results: `$top=2&$skip=0&$orderby=rating desc`, producing the following results:
 
 ```text
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 ```
- 
+
 On the service, assume a fifth document is added to the index in between query calls: `{ "id": "5", "rating": 4 }`.  Shortly thereafter, you execute a query to fetch the second page: `$top=2&$skip=2&$orderby=rating desc`, and get these results:
 
 ```text
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
 ```
- 
+
 Notice that document 2 is fetched twice. This is because the new document 5 has a greater value for rating, so it sorts before document 2 and lands on the first page. While this behavior might be unexpected, it's typical of how a search engine behaves.
 
 ## Ordering results
@@ -113,33 +113,132 @@ Another approach that promotes order consistency is using a [custom scoring prof
 
 ## Hit highlighting
 
-Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Hit highlighting instructions are provided on the [query request](/rest/api/searchservice/search-documents).  Queries that trigger query expansion in the engine, such as fuzzy and wildcard search, have limited support for hit highlighting.
+Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Highlighting is useful for longer content fields, such as a description field, where the match is not immediately obvious. 
 
-To enable hit highlighting, add `highlight=[comma-delimited list of string fields]` to specify which fields will use highlighting. Highlighting is useful for longer content fields, such as a description field, where the match is not immediately obvious. Only field definitions that are attributed as **searchable** qualify for hit highlighting.
+Notice that highlighting is applied to individual terms. There is no highlight capability for the contents of an entire field. If you want highlighting over a phrase, you'll have to provide the matching terms (or phrase) in a quote-enclosed query string. This technique is described further on in this section.
 
-By default, Azure Cognitive Search returns up to five highlights per field. You can adjust this number by appending to the field a dash followed by an integer. For example, `highlight=Description-10` returns up to 10 highlights on matching content in the Description field.
+Hit highlighting instructions are provided on the [query request](/rest/api/searchservice/search-documents). Queries that trigger query expansion in the engine, such as fuzzy and wildcard search, have limited support for hit highlighting.
 
-Formatting is applied to whole term queries. The type of formatting is determined by tags, `highlightPreTag` and `highlightPostTag`, and your code handles the response (for example, applying a bold font or a yellow background).
+### Requirements for hit highlighting
 
-In the following query request example, the terms "divine", "secrets", and "secret" found within the Description field are tagged for highlighting.
++ Fields must be Edm.String or Collection(Edm.String)
++ Fields must be attributed at **searchable**
+
+### Specify highlighting in the request
+
+To return highlighted terms, include the "highlight" parameter in the query request. The parameter is set to a comma-delimited list of fields. 
+
+By default, the format mark up is `<em>`, but you can override the tag using `highlightPreTag` and `highlightPostTag` parameters. Your client code handles the response (for example, applying a bold font or a yellow background).
 
 ```http
 POST /indexes/good-books/docs/search?api-version=2020-06-30 
     {  
       "search": "divine secrets",  
-      "highlight": "Description"
+      "highlight": "title, original_title",
+      "highlightPreTag": "<b>",
+      "highlightPostTag": "</b>"
     }
 ```
 
-The following portal screenshot illustrates the results of phrase query highlighting. Results are returned in the "@search.highlights" field. Individual terms, single or consecutive, are marked up in the result.
+By default, Azure Cognitive Search returns up to five highlights per field. You can adjust this number by appending a dash followed by an integer. For example, `"highlight": "description-10"` returns up to 10 highlighted terms on matching content in the "description" field.
+
+### Highlighted results
+
+When highlighting is added to the query, the response includes an "@search.highlights" for each result so that your application code can target that structure. The list of fields specified for "highlight" are included in the response.
+
+In a keyword search, each term is scanned for independently. A query for "divine secrets" will return matches on any document containing either term.
 
 :::image type="content" source="media/search-pagination-page-layout/highlighting-example.png" alt-text="Screenshot of highlighting over a phrase query." border="true":::
 
-### Highlighting behavior on older search services
+### Keyword search highlighting 
+
+Within a highlighted field, formatting is applied to whole terms. For example, on a match against "The Divine Secrets of the Ya-Ya Sisterhood", formatting is applied to each term separately, even though they are consecutive. 
+
+```json
+"@odata.count": 39,
+"value": [
+    {
+        "@search.score": 19.593246,
+        "@search.highlights": {
+            "original_title": [
+                "<em>Divine</em> <em>Secrets</em> of the Ya-Ya Sisterhood"
+            ],
+            "title": [
+                "<em>Divine</em> <em>Secrets</em> of the Ya-Ya Sisterhood"
+            ]
+        },
+        "original_title": "Divine Secrets of the Ya-Ya Sisterhood",
+        "title": "Divine Secrets of the Ya-Ya Sisterhood"
+    },
+    {
+        "@search.score": 12.779835,
+        "@search.highlights": {
+            "original_title": [
+                "<em>Divine</em> Madness"
+            ],
+            "title": [
+                "<em>Divine</em> Madness (Cherub, #5)"
+            ]
+        },
+        "original_title": "Divine Madness",
+        "title": "Divine Madness (Cherub, #5)"
+    },
+    {
+        "@search.score": 12.62534,
+        "@search.highlights": {
+            "original_title": [
+                "Grave <em>Secrets</em>"
+            ],
+            "title": [
+                "Grave <em>Secrets</em> (Temperance Brennan, #5)"
+            ]
+        },
+        "original_title": "Grave Secrets",
+        "title": "Grave Secrets (Temperance Brennan, #5)"
+    }
+```
+
+### Phrase search highlighting
+
+Whole-term formatting applies even on a phrase search, where multiple terms are enclosed in double quotation marks. The following example is the same query, except that "divine search" is submitted as a quotation-enclosed  phrase (some clients, such as Postman, require that you escape the interior quotation marks with a backslash `\"`):
+
+```http
+POST /indexes/good-books/docs/search?api-version=2020-06-30 
+    {  
+      "search": "\"divine secrets\"",,
+      "select": "title,original_title",
+      "highlight": "title",
+      "highlightPreTag": "<b>",
+      "highlightPostTag": "</b>",
+      "count": true
+    }
+```
+
+Because the criteria now specifies both terms, only one match is found in the search index. The response to the above query looks like this:
+
+```json
+{
+    "@odata.count": 1,
+    "value": [
+        {
+            "@search.score": 19.593246,
+            "@search.highlights": {
+                "title": [
+                    "<b>Divine</b> <b>Secrets</b> of the Ya-Ya Sisterhood"
+                ]
+            },
+            "original_title": "Divine Secrets of the Ya-Ya Sisterhood",
+            "title": "Divine Secrets of the Ya-Ya Sisterhood"
+        }
+    ]
+}
+```
+
+#### Phrase highlighting on older services
 
 Search services that were created before July 15, 2020 implement a different highlighting experience for phrase queries.
 
-Before July 2020, any term in the phrase is highlighted:
+For the following examples, assume a query string that includes the quote-enclosed phrase "super bowl". Before July 2020, any term in the phrase is highlighted:
 
   ```json
   "@search.highlights": {
@@ -148,7 +247,7 @@ Before July 2020, any term in the phrase is highlighted:
      ]
   ```
 
-After July 2020, only phrases that match the full phrase query will be returned in "@search.highlights":
+For search services created after July 2020, only phrases that match the full phrase query will be returned in "@search.highlights":
 
   ```json
   "@search.highlights": {

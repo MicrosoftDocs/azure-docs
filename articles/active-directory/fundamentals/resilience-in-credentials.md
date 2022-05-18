@@ -4,7 +4,7 @@ description: A guide for architects
  and IT administrators on building a resilient credential strategy.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

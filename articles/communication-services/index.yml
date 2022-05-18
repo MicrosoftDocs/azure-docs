@@ -67,6 +67,10 @@ landingContent:
             url: concepts/call-flows.md
   - title: UI Library
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with UI Library
+            url: quickstarts/ui-library/get-started-composites.md
       - linkListType: concept
         links:
           - text: UI Library overview
@@ -83,6 +87,8 @@ landingContent:
             url: quickstarts/sms/send.md
           - text: Handle SMS events
             url: quickstarts/sms/handle-sms-events.md
+          - text: Add PSTN calling
+            url: quickstarts/telephony/pstn-call.md
       - linkListType: concept
         links:
           - text: SMS concepts

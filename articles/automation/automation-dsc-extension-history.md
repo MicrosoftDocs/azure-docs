@@ -281,7 +281,7 @@ This article provides information about each version of the Azure DSC VM extensi
   Windows OSs, it installs the [Windows Management Framework 5.0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (installing WMF requires a reboot).
 - **New features:**
   - Support for WMF 4.0 Update. For more information on WMF 4.0 Update, see [this blog](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-4-0-update-now-available-for-windows-server-2012-windows-server-2008-r2-sp1-and-windows-7-sp1/).
-  - Retry logic on errors that occur during the DSC extension install or while applying a DSC configuration post extension install. As a part of this change, the extension will retry the installation if a previous install failed or re-enact a DSC configuration that had previously failed, for a maximum three times until it reaches the completion state (Success/Error) or if a new request comes. If the extension fails due to invalid user settings/user input, it does not retry. In this case, the extension needs to be invoked again with a new request and correct user settings. 
+  - Retry logic on errors that occur during the DSC extension install or while applying a DSC configuration post extension install. As a part of this change, the extension will retry the installation if a previous install failed or re-enact a DSC configuration that had previously failed, for a maximum three times until it reaches the completion state (Success/Error) or if a new request comes. If the extension fails due to invalid user settings/user input, it does not retry. In this case, the extension needs to be invoked again with a new request and correct user settings.
 
   > [!NOTE]
    > The DSC extension is dependent on the Azure VM agent for the retries. Azure VM agent invokes the extension with the last failed request until it reaches a success or error state.
@@ -309,7 +309,7 @@ This article provides information about each version of the Azure DSC VM extensi
 - **Remarks:** This version uses DSC as included in Windows Server 2016 Technical Preview; for other
   Windows OSs, it installs the [Windows Management Framework 5.0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (installing WMF requires a reboot).
 - **New features:**
-  - In extension version 2.14, changes to install WMF RTM were included. While upgrading from extension version 2.13.2.0 to 2.14.0.0, you may notice that some DSC cmdlets fail or your configuration fails with an error - 'No Instance found with given property values'. For more information, see the [DSC release notes](/powershell/scripting/wmf/known-issues/known-issues-dsc). The workarounds for these issues have been added in 2.15 version. 
+  - In extension version 2.14, changes to install WMF RTM were included. While upgrading from extension version 2.13.2.0 to 2.14.0.0, you may notice that some DSC cmdlets fail or your configuration fails with an error - 'No Instance found with given property values'. For more information, see the [DSC release notes](/powershell/scripting/wmf/known-issues/known-issues-dsc). The workarounds for these issues have been added in 2.15 version.
   - If you already installed version 2.14 and are running into one of the above two issues, you need to perform these steps manually. In an elevated PowerShell session run the following commands:
     - `Remove-Item -Path $env:SystemRoot\system32\Configuration\DSCEngineCache.mof`
     - `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
@@ -332,7 +332,7 @@ This article provides information about each version of the Azure DSC VM extensi
 
 ## Next steps
 
-- For more information about PowerShell DSC, see [PowerShell documentation center](/powershell/scripting/dsc/overview/overview).
+- For more information about PowerShell DSC, see [PowerShell documentation center](/powershell/dsc/overview).
 - Examine the [Resource Manager template for the DSC extension](../virtual-machines/extensions/dsc-template.md).
 - For other functionality and resources that you can manage with PowerShell DSC, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](../virtual-machines/extensions/dsc-credentials.md).

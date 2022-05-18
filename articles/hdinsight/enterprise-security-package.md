@@ -37,7 +37,7 @@ Enterprise Security is an optional package that you can add on your HDInsight cl
 
 Currently, only the following cluster types support the Enterprise Security Package:
 
-* Hadoop (HDInsight 3.6 only)
+* Hadoop
 * Spark
 * Kafka
 * HBase

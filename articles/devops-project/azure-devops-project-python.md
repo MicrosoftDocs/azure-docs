@@ -12,7 +12,7 @@ ms.technology: devops-cicd
 ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.custom: mvc, devx-track-python, mode-other
+ms.custom: mvc, devx-track-python, mode-api
 ---
 
 # Create a CI/CD pipeline for Python with Azure DevOps Starter

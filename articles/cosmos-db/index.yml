@@ -42,6 +42,8 @@ landingContent:
             url: how-to-model-partition-example.md 
           - text: Service quotas
             url: concepts-limits.md 
+          - text: Analytics with Azure Synapse Link
+            url: synapse-link.md
       - linkListType: quickstart
         links:
           - text: Create an Azure Cosmos account
@@ -49,7 +51,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Data modeling - improve your application's speed and performance
-            url: https://www.youtube.com/watch?v=wOWa8ecFo88
+            url: https://aka.ms/docs.modeling-data
 
   # Card
   - title: Use Azure Cosmos DB SQL API 
@@ -166,6 +168,8 @@ landingContent:
             url: cassandra/cassandra-partitioning.md                  
       - linkListType: how-to-guide
         links:
+          - text: From Apache Cassandra to Cassandra API
+            url: cassandra/cassandra-adoption.md         
           - text: Connect to Cassandra API from Spark
             url: cassandra/connect-spark-configuration.md 
           - text: Change feed support with query predicates
@@ -190,10 +194,10 @@ landingContent:
             url: cosmosdb-sql-api-migrate-data-striim.md
           - text: Oracle DB to Cosmos DB Cassandra API using Striim
             url: cassandra/migrate-data-striim.md                                        
-          - text: Oracle DB to Cosmos DB Cassandra API using Blitzz
-            url: cassandra/oracle-migrate-cosmos-db-blitzz.md 
-          - text: Apache Cassandra to Cosmos DB using Blitzz
-            url: cassandra/migrate-data-blitzz.md 
+          - text: Oracle DB to Cosmos DB Cassandra API using Arcion
+            url: cassandra/oracle-migrate-cosmos-db-arcion.md 
+          - text: Apache Cassandra to Cosmos DB using Arcion
+            url: cassandra/migrate-data-arcion.md 
           - text: Migrate 100’s TBs of data
             url: migrate-cosmosdb-data.md 
 

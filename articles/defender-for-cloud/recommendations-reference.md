@@ -1,11 +1,11 @@
 ---
 title: Reference table for all Microsoft Defender for Cloud recommendations 
 description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your resources.
-author: memildin
+author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 12/04/2021
-ms.author: memildin
+ms.date: 03/13/2022
+ms.author: elkrieger
 ms.custom: generated
 ---
 # Security recommendations - a reference guide
@@ -74,7 +74,7 @@ impact on your secure score.
 |Install Azure Security Center for IoT security module to get more visibility into your IoT devices|Install Azure Security Center for IoT security module to get more visibility into your IoT devices.|Low|
 |Your machines should be restarted to apply system updates|Restart your machines to apply the system updates and secure the machine from vulnerabilities. (Related policy: System updates should be installed on your machines)|Medium|
 |Monitoring agent should be installed on your machines|This action installs a monitoring agent on the selected virtual machines. Select a workspace for the agent to report to. (No related policy)|High|
-||||
+
 
 ## Next steps
 

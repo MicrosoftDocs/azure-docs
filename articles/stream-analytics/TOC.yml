@@ -37,7 +37,7 @@
   - name: Run a C# UDF
     href: stream-analytics-edge-csharp-udf.md
   - name: Create a custom .NET deserializer
-    href: custom-deserializer.md
+    href: visual-studio-code-custom-deserializer.md
   - name: Create an IoT Edge job
     href: ../iot-edge/tutorial-deploy-stream-analytics.md
     maintainContext: true
@@ -74,6 +74,8 @@
       href: stream-analytics-use-reference-data.md
     - name: Read inputs in any format using custom deserializers
       href: custom-deserializer-examples.md
+    - name: Validate input schema
+      href: input-validation.md
   - name: Output types for a job
     items:
     - name: Outputs overview
@@ -81,7 +83,7 @@
       displayName: adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions
     - name: Azure Data Lake Storage Gen 1
       href: azure-data-lake-storage-gen1-output.md
-    - name: Azure Database Explorer
+    - name: Azure Data Explorer
       href: azure-database-explorer-output.md
     - name: Azure Database for PostgreSQL
       href: postgresql-database-output.md
@@ -168,6 +170,8 @@
         href: manage-jobs-cluster.md
       - name: Scale cluster size
         href: scale-cluster.md
+      - name: Move cluster to another region
+        href: move-cluster.md
     - name: Autoscale jobs
       href: stream-analytics-autoscale.md
     - name: Update credentials
@@ -196,11 +200,20 @@
       href: geo-redundancy.md
   - name: Authenticate with managed identity
     items:
+    - name: Managed Identities Overview
+      href: stream-analytics-managed-identities-overview.md
+      displayName: managed identity, identities, authenticate
+    - name: User Assigned Managed Identities
+      href: stream-analytics-user-assigned-managed-identity-overview.md
+      displayName: managed identity, identities, authenticate
     - name: ADLS Gen 1
       href: stream-analytics-managed-identities-adls.md
       displayName: managed identity, identities, authenticate
     - name: Blob storage
       href: blob-output-managed-identity.md
+      displayName: managed identity, identities, authenticate
+    - name: Cosmos DB
+      href: cosmos-db-managed-identity.md
       displayName: managed identity, identities, authenticate
     - name: Event Hubs
       href: event-hubs-managed-identity.md
@@ -210,6 +223,9 @@
       displayName: managed identity, identities, authenticate
     - name: Azure SQL & Azure Synapse
       href: sql-database-output-managed-identity.md
+      displayName: managed identity, identities, authenticate
+    - name: Service Bus
+      href: service-bus-managed-identity.md
       displayName: managed identity, identities, authenticate
   - name: Build solutions
     items:
@@ -225,6 +241,8 @@
       href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
     - name: Threshold-based rules
       href: stream-analytics-threshold-based-rules.md
+    - name: Update or merge in a SQL Database with Azure Functions
+      href: sql-database-upsert.md
     - name: Process Kafka events
       href: ../event-hubs/event-hubs-kafka-stream-analytics.md
       maintainContext: true
@@ -232,7 +250,7 @@
       href: ../event-hubs/process-data-azure-stream-analytics.md
       maintainContext: true
     - name: Process Azure SQL Database
-      href: ../azure-sql/database/stream-data-stream-analytics-integration.md
+      href: /azure/azure-sql/database/stream-data-stream-analytics-integration
       maintainContext: true
     - name: Geospatial scenarios
       href: geospatial-scenarios.md
@@ -276,6 +294,8 @@
       href: stream-analytics-vs-tools.md
     - name: Debug queries using job diagram
       href: debug-locally-using-job-diagram.md
+    - name: Create a custom .NET deserializer
+      href: custom-deserializer.md
     - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline

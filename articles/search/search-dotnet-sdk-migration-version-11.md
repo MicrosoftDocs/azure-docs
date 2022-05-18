@@ -7,9 +7,9 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 04/25/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -17,13 +17,13 @@ ms.custom: devx-track-csharp
 
 If your search solution is built on the [**Azure SDK for .NET**](/dotnet/azure/), this article will help you migrate your code from earlier versions of [**Microsoft.Azure.Search**](/dotnet/api/overview/azure/search/client10) to version 11, the new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library. Version 11 is a fully redesigned client library, released by the Azure SDK development team (previous versions were produced by the Azure Cognitive Search development team). 
 
-With [one exception](#WhatsNew), all features from version 10 are implemented in version 11. Key differences include:
+All features from version 10 are implemented in version 11. Key differences include:
 
 + One package (**Azure.Search.Documents**) instead of four
 + Three clients instead of two: SearchClient, SearchIndexClient, SearchIndexerClient
 + Naming differences across a range of APIs and small structural differences that simplify some tasks
 
-The client library's [Change Log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) has an itemized list of updates.
+The client library's [Change Log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) has an itemized list of updates. You can review a [summarized version](#WhatsNew) in this article.
 
 All C# code samples and snippets in the Cognitive Search product documentation have been revised to use the new **Azure.Search.Documents** client library.
 
@@ -31,7 +31,7 @@ All C# code samples and snippets in the Cognitive Search product documentation h
 
 The benefits of upgrading are summarized as follows:
 
-+ New features will be added to **Azure.Search.Documents** only. The previous version, Microsoft.Azure.Search, is now a legacy client. Updates to legacy libraries are limited to high priority bug fixes only.
++ New features will be added to **Azure.Search.Documents** only. The previous version, Microsoft.Azure.Search, is now retired. Updates to deprecated libraries are limited to high priority bug fixes only.
 
 + Consistency with other Azure client libraries. **Azure.Search.Documents** takes a dependency on [Azure.Core](/dotnet/api/azure.core) and [System.Text.Json](/dotnet/api/system.text.json), and follows conventional approaches for common tasks such as client connections and authorization.
 
@@ -103,6 +103,7 @@ Field definitions are streamlined: [SearchableField](/dotnet/api/azure.search.do
 |------------|-----------------------|
 | [IndexAction](/dotnet/api/microsoft.azure.search.models.indexaction) | [IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction) |
 | [IndexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch) | [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) |
+| [IndexBatchException.FindFailedActionsToRetry()](/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) | [SearchIndexingBufferedSender](/dotnet/api/azure.search.documents.searchindexingbufferedsender-1) |
 
 ### Query requests and responses
 
@@ -177,13 +178,16 @@ Version 11.2 additions ([change log](https://github.com/Azure/azure-sdk-for-net/
 
   You can also continue to explicitly declare a dependency on [Microsoft.Spatial](https://www.nuget.org/packages/Microsoft.Spatial/). Examples of this technique are available for [System.Text.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/README.md) and [Newtonsoft.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md).
 
-Currently unsupported in any version of Azure.Search.Documents:
+Version 11.3 additions ([change log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1130-2021-06-08) details):
 
-+ [Knowledge store](knowledge-store-concept-intro.md)
++ [KnowledgeStore](/dotnet/api/azure.search.documents.indexes.models.knowledgestore)
++ Added support for Azure.Core.GeoJson types in [SearchDocument](/dotnet/api/azure.search.documents.models.searchdocument), [SearchFilter](/dotnet/api/azure.search.documents.searchfilter) and [FieldBuilder](/dotnet/api/azure.search.documents.indexes.fieldbuilder).
++ Added EventSource based logging. Event source name is Azure-Search-Documents. Current set of events are focused on tuning batch sizes for [SearchIndexingBufferedSender](/dotnet/api/azure.search.documents.searchindexingbufferedsender-1).
++ Added [CustomEntityLookupSkill](/dotnet/api/azure.search.documents.indexes.models.customentitylookupskill) and [DocumentExtractionSkill](/dotnet/api/azure.search.documents.indexes.models.documentextractionskill). Added DefaultCountryHint in [LanguageDetectionSkill](/dotnet/api/azure.search.documents.indexes.models.languagedetectionskill).
 
 ## Before upgrading
 
-+ [Quickstarts](search-get-started-dotnet.md), tutorials, and [C# samples](samples-dotnet.md) have been updated to use the Azure.Search.Documents package. We recommend reviewing existing samples and walkthroughs to learn about the new APIs before embarking on a migration exercise.
++ [Quickstarts](search-get-started-dotnet.md), tutorials, and [C# samples](samples-dotnet.md) have been updated to use the Azure.Search.Documents package. We recommend reviewing the samples and walkthroughs to learn about the new APIs before embarking on a migration exercise.
 
 + [How to use Azure.Search.Documents](search-howto-dotnet-sdk.md) introduces the most commonly used APIs. Even  knowledgeable users of Cognitive Search might want to review this introduction to the new library as a precursor to migration.
 

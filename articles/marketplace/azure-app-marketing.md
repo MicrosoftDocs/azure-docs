@@ -1,13 +1,13 @@
 ---
 title: Sell your Azure application offer 
 description: Learn about the co-sell with Microsoft and resell through Cloud Solution Providers (CSP) program options for an Azure application offer in the Microsoft commercial marketplace (Azure Marketplace).
-author: aarathin
-ms.author: aarathin
+author: macerru
+ms.author: macerr
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 04/29/2022
 ---
 
 # Sell an Azure Application offer
@@ -18,7 +18,7 @@ This article describes additional options you can choose if you’re selling you
 
 Providing information on the **Co-sell with Microsoft** tab is entirely optional. But it’s required to achieve _Co-sell Ready_ and _IP Co-sell Ready_ status. The Microsoft sales teams use this information to learn more about your solution when evaluating its fit for customer needs. The information you provide on this tab isn't available directly to customers.
 
-For details and instructions to configure the **Co-sell with Microsoft** tab, see [Co-sell option in the commercial marketplace](co-sell-configure.md).
+For details and instructions to configure the **Co-sell with Microsoft** tab, see [Co-sell option in the commercial marketplace](/partner-center/co-sell-configure?context=/azure/marketplace/context/context).
 
 ## Resell through CSPs
 

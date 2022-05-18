@@ -30,7 +30,7 @@ wget -q -O- --{ <method> } -data="<request body>" --header=Content-Type:applicat
  
 ### Windows
 
-For Windows, use Powershell: 
+For Windows, use PowerShell: 
 
 ```powershell 
 $user = "<username>" 

@@ -4,7 +4,7 @@ description: Learn the Azure Functions concepts and techniques that you need to 
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 9/02/2021
-
+ms.devlang: csharp
 ---
 # Azure Functions developer guide
 In Azure Functions, specific functions share a few core technical concepts and components, regardless of the language or binding you use. Before you jump into learning details specific to a given language or binding, be sure to read through this overview that applies to all of them.
@@ -100,7 +100,7 @@ When the connection name resolves to a single exact value, the runtime identifie
 
 However, a connection name can also refer to a collection of multiple configuration items, useful for configuring [identity-based connections](#configure-an-identity-based-connection). Environment variables can be treated as a collection by using a shared prefix that ends in double underscores `__`. The group can then be referenced by setting the connection name to this prefix.
 
-For example, the `connection` property for a Azure Blob trigger definition might be "Storage1". As long as there is no single string value configured by an environment variable named "Storage1",  an environment variable named `Storage1__blobServiceUri` could be used to inform the `blobServiceUri` property of the connection. The connection properties are different for each service. Refer to the documentation for the component that uses the connection.
+For example, the `connection` property for an Azure Blob trigger definition might be "Storage1". As long as there is no single string value configured by an environment variable named "Storage1",  an environment variable named `Storage1__blobServiceUri` could be used to inform the `blobServiceUri` property of the connection. The connection properties are different for each service. Refer to the documentation for the component that uses the connection.
 
 ### Configure an identity-based connection
 
@@ -110,15 +110,14 @@ Identity-based connections are supported by the following components:
 
 | Connection source                                       | Plans supported | Learn more                                                                                                         |
 |---------------------------------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------|
-| Azure Blob triggers and bindings               | All             | [Extension version 5.0.0 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)     |
+| Azure Blob triggers and bindings               | All             | [Extension version 5.0.0 or later](./functions-bindings-storage-blob.md#install-extension)     |
 | Azure Queue triggers and bindings            | All             | [Extension version 5.0.0 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)    |
-| Azure Event Hubs triggers and bindings     | All             | [Extension version 5.0.0 or later](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher)    |
-| Azure Service Bus triggers and bindings       | All             | [Extension version 5.0.0 or later](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher)  |
-| Azure Cosmos DB triggers and bindings - Preview         | Elastic Premium | [Extension version 4.0.0-preview1 or later](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) |
+| Azure Event Hubs triggers and bindings     | All             | [Extension version 5.0.0 or later](./functions-bindings-event-hubs.md?tabs=extensionv5)    |
+| Azure Service Bus triggers and bindings       | All             | [Extension version 5.0.0 or later](./functions-bindings-service-bus.md)  |
+| Azure Cosmos DB triggers and bindings - Preview         | Elastic Premium | [Extension version 4.0.0-preview1 or later](.//functions-bindings-cosmosdb-v2.md?tabs=extensionv4) |
+| Azure Tables (when using Azure Storage) - Preview | All | [Table API extension](./functions-bindings-storage-table.md#table-api-extension) |
+| Durable Functions storage provider (Azure Storage) - Preview | All | [Extension version 2.7.0 or later](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.7.0) | 
 | Host-required storage ("AzureWebJobsStorage") - Preview | All             | [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity-preview)                        |
-
-> [!NOTE]
-> Identity-based connections are not supported with Durable Functions.
 
 [!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]
 
@@ -143,6 +142,14 @@ Choose a tab below to learn about permissions for each component:
 # [Azure Cosmos DB extension (preview)](#tab/cosmos)
 
 [!INCLUDE [functions-cosmos-permissions](../../includes/functions-cosmos-permissions.md)]
+
+# [Azure Tables API extension (preview)](#tab/table)
+
+[!INCLUDE [functions-table-permissions](../../includes/functions-table-permissions.md)]
+
+# [Durable Functions storage provider (preview)](#tab/durable)
+
+[!INCLUDE [functions-durable-permissions](../../includes/functions-durable-permissions.md)]
 
 # [Functions host storage (preview)](#tab/azurewebjobsstorage)
 
@@ -175,7 +182,7 @@ When running locally, the above configuration tells the runtime to use your loca
 
 If none of these options are successful, an error will occur.
 
-Because this is using the your developer identity, you may already have some roles against development resources, but they may not provide data access. Management roles like [Owner](../role-based-access-control/built-in-roles.md#owner) are not sufficient. Double-check what permissions are required for connections for each component, and make sure that you have them assigned to yourself.
+Your identity may already have some role assignments against Azure resources used for development, but those roles may not provide the necessary data access. Management roles like [Owner](../role-based-access-control/built-in-roles.md#owner) are not sufficient. Double-check what permissions are required for connections for each component, and make sure that you have them assigned to yourself.
 
 In some cases, you may wish to specify use of a different identity. You can add configuration properties for the connection that point to the alternate identity based on a client ID and client Secret for an Azure Active Directory service principal. **This configuration option is not supported when hosted in the Azure Functions service.** To use an ID and secret on your local machine, define the connection with the following additional properties:
 
@@ -202,10 +209,10 @@ Here is an example of `local.settings.json` properties required for identity-bas
 
 #### Connecting to host storage with an identity (Preview)
 
-Azure Functions by default uses the "AzureWebJobsStorage" connection for core behaviors such as coordinating singleton execution of timer triggers and default app key storage. This can be configured to leverage an identity as well.
+The Azure Functions host uses the "AzureWebJobsStorage" connection for core behaviors such as coordinating singleton execution of timer triggers and default app key storage. This can be configured to leverage an identity as well.
 
 > [!CAUTION]
-> Other components in Functions rely on "AzureWebJobsStorage" for default behaviors. You should not move it to an identity-based connection if you are using older versions of extensions that do not support this type of connection, including triggers and bindings for Azure Blobs and Event Hubs. Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption, and if you enable this, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
+> Other components in Functions rely on "AzureWebJobsStorage" for default behaviors. You should not move it to an identity-based connection if you are using older versions of extensions that do not support this type of connection, including triggers and bindings for Azure Blobs, Event Hubs, and Durable Functions. Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption, and if you enable this, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
 >
 > In addition, some apps reuse "AzureWebJobsStorage" for other storage connections in their triggers, bindings, and/or function code. Make sure that all uses of "AzureWebJobsStorage" are able to use the identity-based connection format before changing this connection from a connection string.
 
@@ -215,14 +222,15 @@ To use an identity-based connection for "AzureWebJobsStorage", configure the fol
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
 | `AzureWebJobsStorage__blobServiceUri`| The data plane URI of the blob service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.blob.core.windows.net |
 | `AzureWebJobsStorage__queueServiceUri` | The data plane URI of the queue service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.queue.core.windows.net |
+| `AzureWebJobsStorage__tableServiceUri` | The data plane URI of a table service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.table.core.windows.net |
 
 [Common properties for identity-based connections](#common-properties-for-identity-based-connections) may also be set as well.
 
-If you are using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The blob and queue endpoints will be inferred for this account. This will not work if the storage account is in a sovereign cloud or has a custom DNS.
+If you are configuring "AzureWebJobsStorage" using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The endpoints for each storage service will be inferred for this account. This will not work if the storage account is in a sovereign cloud or has a custom DNS.
 
 | Setting                       | Description                                | Example value                                        |
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
-| `AzureWebJobsStorage__accountName` | The account name of a storage account, valid only if the account is not in a sovereign cloud and does not have a custom DNS. | <storage_account_name> |
+| `AzureWebJobsStorage__accountName` | The account name of a storage account, valid only if the account is not in a sovereign cloud and does not have a custom DNS. This syntax is unique to "AzureWebJobsStorage" and cannot be used for other identity-based connections. | <storage_account_name> |
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 

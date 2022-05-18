@@ -22,41 +22,41 @@ This article provides information about limitations and known issues related to 
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
+### Chrome M98 - regression 
+
+Chrome version 98 introduced a regression with anormal generation of video keyframes that impacts resolution of a sent video stream negatively for majority (70%+) of users.
+- This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1295815)
+
+### Some Android devices failing call scenarios except for group calls.
+
+A number of specific Android devices fail to start, accept calls, and meetings. The devices that run into this issue, won't recover and will fail on every attempt. These are mostly Samsung model A devices, particularly models A326U, A125U and A215U.
+- This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/webrtc/issues/detail?id=13223).
+
+### iOS 15.1 users joining group calls or Microsoft Teams meetings.
+
+* Sometimes when incoming PSTN is received the tab with the call or meeting will hang. Related webkit bugs [here](https://bugs.webkit.org/show_bug.cgi?id=233707) and [here](https://bugs.webkit.org/show_bug.cgi?id=233708#c0).
+
+### Device mutes and incoming video stops rendering when certain interruptions occur on iOS Safari.
+
+This problem can occur if another application or the operating system takes over the control of the microphone or camera. Here are a few examples that might happen while a user is in the call:
+
+- An incoming call arrives via PSTN (Public Switched Telephone Network), and it captures the microphone device access.
+- A user plays a YouTube video, for example, or starts a FaceTime call. Switching to another native application can capture access to the microphone or camera.
+- A user enables Siri, which will capture access to the microphone.
+
+To recover from all these cases, the user must go back to the application to unmute. In the case of video, the user must start the video in order to have the audio and video start flowing after the interruption.
+
+Occasionally, microphone or camera devices won't be released on time, and that can cause issues with the original call. For example, if the user tries to unmute while watching a YouTube video, or if a PSTN call is active simultaneously.
+
+Incoming video streams won't stop rendering if the user is on iOS 15.2+ and is using SDK version 1.4.1-beta.1+, the unmute/start video steps will still be required to re-start outgoing audio and video. 
+
 ### iOS with Safari crashes and refreshes the page if a user tries to switch from front camera to back camera.
 
-ACS Calling SDK version 1.2.3-beta.1 introduced a bug that affects all of the calls made from iOS Safari. The problem occurs when a user tries to switch the camera video stream from front to back. Switching camera results in Safari browser to crash and reload the page.
+Azure Communication Services Calling SDK version 1.2.3-beta.1 introduced a bug that affects all of the calls made from iOS Safari. The problem occurs when a user tries to switch the camera video stream from front to back. Switching camera results in Safari browser to crash and reload the page.
 
-This issue is fixed in ACS Calling SDK version 1.3.1-beta.1.
+This issue is fixed in Azure Communication Services Calling SDK version 1.3.1-beta.1 +
 
 * iOS Safari version: 15.1
-
-### iOS with Safari crashes and refreshes the page if a user tries to send video in a call
-
-iOS 15.1 introduced a bug that affects the majority of Communication Services calls with video that are placed in iOS with Safari. Specifically, the problem occurs when a user joins a Communication Services call or a meeting in Microsoft Teams by using Communication Services on iOS 15.1 on any browser with video turned on. This set of circumstances causes the Safari browser to crash.
-
-We managed to bypass that bug and now users will be able to join calls with video on iOS 15.1 but that uncovered other issues with Webkit.
-
-* Orientation on the receiver's end won't be correct. Mitigation: Switch device orientation to horizontal.
-* Going to background will refresh user's call. Mitigation: Stop video before going to background.
-
-This is a [known bug on iOS 15.1 with Safari](https://bugs.webkit.org/show_bug.cgi?id=231505).
-
-
-### Safari on macOS Monterey blocks the connections 
-
-macOS Monterey introduced on new beta privacy feature on Safari that sends the traffic through a relay. That feature blocks SDK connections and prevents the SDK initialization process. 
-
-Mitigation
-
-Application can proactivevly inform the user to disable that setting. 
-
-Safari -> Preferences -> Privacy -> Disable "Hide IP address"
-
-### Android 12 causes video artifacts when user is sending video in a call
-
-Android 12 introduced a bug that affects outgoing video on all Chromium based browsers. Specifically, the problem occurs when a user joins a call using Communication Services on Android 12 with video turned on. The video will render on the receiver's end with artifacts. 
-
-This is a [known bug on Android 12](https://bugs.chromium.org/p/chromium/issues/detail?id=1237677).
 
 ### Refreshing a page doesn't immediately remove the user from their call
 
@@ -77,24 +77,6 @@ Applications can't enumerate or select speaker devices (like Bluetooth) on Safar
 If you're using Safari on macOS, your app won't be able to enumerate or select speakers through the Communication Services device manager. In this scenario, you must select devices via the operating system. If you use Chrome on macOS, the app can enumerate or select devices through the Communication Services device manager.
 
 * iOS Safari version: 15.1
-
-### Device mutes and incoming video stops rendering when certain interruptions occur
-
-This problem can occur if another application or the operating system takes over the control of the microphone or camera. Here are a few examples that might happen while a user is in the call:
-
-- An incoming call arrives via PSTN (Public Switched Telephone Network), and it captures the microphone device access.
-- A user plays a YouTube video, for example, or starts a FaceTime call. Switching to another native application can capture access to the microphone or camera.
-- A user enables Siri, which will capture access to the microphone.
-
-To recover from all these cases, the user must go back to the application to unmute. In the case of video, the user must start the video in order to have the audio and video start flowing after the interruption.
-
-Occasionally, microphone or camera devices won't be released on time, and that can cause issues with the original call. For example, if the user tries to unmute while watching a YouTube video, or if a PSTN call is active simultaneously. 
-
-The environment in which this problem occurs is the following:
-
-- Client library: Calling (JavaScript)
-- Browser: Safari
-- Operating system: iOS
 
 ### Repeatedly switching video devices might cause video streaming to stop temporarily
 
@@ -180,8 +162,10 @@ The following are known issues in the Communication Services Call Automation API
 
 - If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities drops.
 
-## Group call limiations for JS web Calling SDK users		
+## Group call limitations for JS web Calling SDK users		
 
 Up to 100 users can join a group call using the JS web calling SDK. 
 
+## Android API emulators
+When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22) some crashes are expected.  
 

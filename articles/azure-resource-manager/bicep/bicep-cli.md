@@ -2,8 +2,9 @@
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 03/15/2022
 ---
+
 # Bicep CLI commands
 
 This article describes the commands you can use in the Bicep CLI. You must have the [Bicep CLI installed](./install.md) to run the commands.
@@ -141,6 +142,8 @@ The `publish` command doesn't recognize aliases that you've defined in a [bicepc
 
 When your Bicep file uses modules that are published to a registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. A Bicep file can only be built when the external files are available in the local cache. Typically, you don't need to run `restore` because it's called automatically by `build`.
 
+To restore external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry in the [Bicep config file](./bicep-config-modules.md#credentials-for-publishingrestoring-modules).
+
 To use the restore command, you must have Bicep CLI version **0.4.1008 or later**. This command is currently only available when calling the Bicep CLI directly. It's not currently available through the Azure CLI command.
 
 To manually restore the external modules for a file, use:
@@ -160,11 +163,19 @@ module stgModule 'br:exampleregistry.azurecr.io/bicep/modules/storage:v1' = {
 }
 ```
 
-The local cache is found at:
+The local cache is found in:
 
-```path
-%USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
-```
+- On Windows
+
+    ```path
+    %USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
+    ```
+
+- On Linux
+
+    ```path
+    /home/<username>/.bicep
+    ```
 
 ## upgrade
 
@@ -200,6 +211,6 @@ If you haven't installed Bicep CLI, you see an error indicating Bicep CLI wasn't
 
 To learn about deploying a Bicep file, see:
 
-* [Azure CLI](deploy-cli.md)
-* [Cloud Shell](deploy-cloud-shell.md)
-* [PowerShell](deploy-powershell.md)
+- [Azure CLI](deploy-cli.md)
+- [Cloud Shell](deploy-cloud-shell.md)
+- [PowerShell](deploy-powershell.md)

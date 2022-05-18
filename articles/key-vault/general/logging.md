@@ -86,40 +86,40 @@ The following table lists the **operationName** values and corresponding REST AP
 | operationName | REST API command |
 | --- | --- |
 | **Authentication** |Authenticate via Azure Active Directory endpoint |
-| **VaultGet** |[Get information about a key vault](/rest/api/keyvault/vaults) |
-| **VaultPut** |[Create or update a key vault](/rest/api/keyvault/vaults) |
-| **VaultDelete** |[Delete a key vault](/rest/api/keyvault/vaults) |
-| **VaultPatch** |[Update a key vault](/rest/api/keyvault/vaults) |
-| **VaultList** |[List all key vaults in a resource group](/rest/api/keyvault/vaults) |
-| **VaultPurge** |[Purge deleted vault](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultGet** |[Get information about a key vault](/rest/api/keyvault/keyvault/vaults) |
+| **VaultPut** |[Create or update a key vault](/rest/api/keyvault/keyvault/vaults) |
+| **VaultDelete** |[Delete a key vault](/rest/api/keyvault/keyvault/vaults) |
+| **VaultPatch** |[Update a key vault](/rest/api/keyvault/keyvault/vaults) |
+| **VaultList** |[List all key vaults in a resource group](/rest/api/keyvault/keyvault/vaults) |
+| **VaultPurge** |[Purge deleted vault](/rest/api/keyvault/keyvault/vaults/purge-deleted) |
 | **VaultRecover** |Recover deleted vault|
-| **VaultGetDeleted** |[Get deleted vault](/rest/api/keyvault/vaults/getdeleted) |
-| **VaultListDeleted** |[List deleted vaults](/rest/api/keyvault/vaults/listdeleted) |
+| **VaultGetDeleted** |[Get deleted vault](/rest/api/keyvault/keyvault/vaults/get-deleted) |
+| **VaultListDeleted** |[List deleted vaults](/rest/api/keyvault/keyvault/vaults/list-deleted) |
 | **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published |
 
 # [Keys](#tab/Keys)
 
 | operationName | REST API command |
 | --- | --- |
-| **KeyCreate** |[Create a key](/rest/api/keyvault/createkey) |
-| **KeyGet** |[Get information about a key](/rest/api/keyvault/getkey) |
-| **KeyImport** |[Import a key into a vault](/rest/api/keyvault/vaults) |
-| **KeyDelete** |[Delete a key](/rest/api/keyvault/deletekey) |
-| **KeySign** |[Sign with a key](/rest/api/keyvault/sign) |
-| **KeyVerify** |[Verify with a key](/rest/api/keyvault/vaults) |
-| **KeyWrap** |[Wrap a key](/rest/api/keyvault/wrapkey) |
-| **KeyUnwrap** |[Unwrap a key](/rest/api/keyvault/unwrapkey) |
-| **KeyEncrypt** |[Encrypt with a key](/rest/api/keyvault/encrypt) |
-| **KeyDecrypt** |[Decrypt with a key](/rest/api/keyvault/decrypt) |
-| **KeyUpdate** |[Update a key](/rest/api/keyvault/updatekey) |
-| **KeyList** |[List the keys in a vault](/rest/api/keyvault/getkeys) |
-| **KeyListVersions** |[List the versions of a key](/rest/api/keyvault/getkeyversions) |
-| **KeyPurge** |[Purge a key](/rest/api/keyvault/purgedeletedkey) |
-| **KeyBackup** |[Backup a key](/rest/api/keyvault/backupkey) |
-| **KeyRestore** |[Restore a key](/rest/api/keyvault/restorekey) |
-| **KeyRecover** |[Recover a key](/rest/api/keyvault/recoverdeletedkey) |
-| **KeyGetDeleted** |[Get deleted key](/rest/api/keyvault/getdeletedkey) |
-| **KeyListDeleted** |[List the deleted keys in a vault](/rest/api/keyvault/getdeletedkeys) |
+| **KeyCreate** |[Create a key](/rest/api/keyvault/keys/create-key) |
+| **KeyGet** |[Get information about a key](/rest/api/keyvault/keys/get-key) |
+| **KeyImport** |[Import a key into a vault](/rest/api/keyvault/keyvault/vaults) |
+| **KeyDelete** |[Delete a key](/rest/api/keyvault/keys/delete-key) |
+| **KeySign** |[Sign with a key](/rest/api/keyvault/keys/sign) |
+| **KeyVerify** |[Verify with a key](/rest/api/keyvault/keyvault/vaults) |
+| **KeyWrap** |[Wrap a key](/rest/api/keyvault/keys/wrap-key) |
+| **KeyUnwrap** |[Unwrap a key](/rest/api/keyvault/keys/unwrap-key) |
+| **KeyEncrypt** |[Encrypt with a key](/rest/api/keyvault/keys/encrypt) |
+| **KeyDecrypt** |[Decrypt with a key](/rest/api/keyvault/keys/decrypt) |
+| **KeyUpdate** |[Update a key](/rest/api/keyvault/keys/update-key) |
+| **KeyList** |[List the keys in a vault](/rest/api/keyvault/keys/get-keys) |
+| **KeyListVersions** |[List the versions of a key](/rest/api/keyvault/keys/get-key-versions) |
+| **KeyPurge** |[Purge a key](/rest/api/keyvault/keys/purge-deleted-key) |
+| **KeyBackup** |[Backup a key](/rest/api/keyvault/keys/backup-key) |
+| **KeyRestore** |[Restore a key](/rest/api/keyvault/keys/restore-key) |
+| **KeyRecover** |[Recover a key](/rest/api/keyvault/keys/recover-deleted-key) |
+| **KeyGetDeleted** |[Get deleted key](/rest/api/keyvault/keys/get-deleted-key) |
+| **KeyListDeleted** |[List the deleted keys in a vault](/rest/api/keyvault/keys/get-deleted-keys) |
 | **KeyNearExpiryEventGridNotification** |Key near expiry event published |
 | **KeyExpiredEventGridNotification** |Key expired event published |
 
@@ -127,18 +127,18 @@ The following table lists the **operationName** values and corresponding REST AP
 
 | operationName | REST API command |
 | --- | --- |
-| **SecretSet** |[Create a secret](/rest/api/keyvault/updatecertificate) |
-| **SecretGet** |[Get a secret](/rest/api/keyvault/getsecret) |
-| **SecretUpdate** |[Update a secret](/rest/api/keyvault/updatesecret) |
-| **SecretDelete** |[Delete a secret](/rest/api/keyvault/deletesecret) |
-| **SecretList** |[List secrets in a vault](/rest/api/keyvault/getsecrets) |
-| **SecretListVersions** |[List versions of a secret](/rest/api/keyvault/getsecretversions) |
-| **SecretPurge** |[Purge a secret](/rest/api/keyvault/purgedeletedsecret) |
-| **SecretBackup** |[Backup a secret](/rest/api/keyvault/backupsecret) |
-| **SecretRestore** |[Restore a secret](/rest/api/keyvault/restoresecret) |
-| **SecretRecover** |[Recover a secret](/rest/api/keyvault/recoverdeletedsecret) |
-| **SecretGetDeleted** |[Get deleted secret](/rest/api/keyvault/getdeletedsecret) |
-| **SecretListDeleted** |[List the deleted secrets in a vault](/rest/api/keyvault/getdeletedsecrets) |
+| **SecretSet** |[Create a secret](/rest/api/keyvault/certificates/update-certificate) |
+| **SecretGet** |[Get a secret](/rest/api/keyvault/secrets/get-secret) |
+| **SecretUpdate** |[Update a secret](/rest/api/keyvault/secrets/update-secret) |
+| **SecretDelete** |[Delete a secret](/rest/api/keyvault/secrets/delete-secret) |
+| **SecretList** |[List secrets in a vault](/rest/api/keyvault/secrets/get-secret) |
+| **SecretListVersions** |[List versions of a secret](/rest/api/keyvault/secrets/get-secret-versions) |
+| **SecretPurge** |[Purge a secret](/rest/api/keyvault/secrets/purge-deleted-secret) |
+| **SecretBackup** |[Backup a secret](/rest/api/keyvault/secrets/backup-secret) |
+| **SecretRestore** |[Restore a secret](/rest/api/keyvault/secrets/restore-secret) |
+| **SecretRecover** |[Recover a secret](/rest/api/keyvault/secrets/recover-deleted-secret) |
+| **SecretGetDeleted** |[Get deleted secret](/rest/api/keyvault/secrets/get-deleted-secret) |
+| **SecretListDeleted** |[List the deleted secrets in a vault](/rest/api/keyvault/secrets/get-deleted-secrets) |
 | **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
 | **SecretExpiredEventGridNotification** |Secret expired event published |
 
@@ -146,30 +146,30 @@ The following table lists the **operationName** values and corresponding REST AP
 
 | operationName | REST API command |
 | --- | --- |
-| **CertificateGet** |[Get information about a certificate](/rest/api/keyvault/getcertificate) |
-| **CertificateCreate** |[Create a certificate](/rest/api/keyvault/createcertificate) |
-| **CertificateImport** |[Import a certificate into a vault](/rest/api/keyvault/importcertificate) |
-| **CertificateUpdate** |[Update a certificate](/rest/api/keyvault/updatecertificate) |
-| **CertificateList** |[List the certificates in a vault](/rest/api/keyvault/getcertificates) |
-| **CertificateListVersions** |[List the versions of a certificate](/rest/api/keyvault/getcertificateversions) |
-| **CertificateDelete** |[Delete a certificate](/rest/api/keyvault/deletecertificate) |
-| **CertificatePurge** |[Purge a certificate](/rest/api/keyvault/purgedeletedcertificate) |
-| **CertificateBackup** |[Backup a certificate](/rest/api/keyvault/backupcertificate) |
-| **CertificateRestore** |[Restore a certificate](/rest/api/keyvault/restorecertificate) |
-| **CertificateRecover** |[Recover a certificate](/rest/api/keyvault/recoverdeletedcertificate) |
-| **CertificateGetDeleted** |[Get deleted certificate](/rest/api/keyvault/getdeletedcertificate) |
-| **CertificateListDeleted** |[List the deleted certificates in a vault](/rest/api/keyvault/getdeletedcertificates) |
-| **CertificatePolicyGet** |[Get certificate policy](/rest/api/keyvault/getcertificatepolicy) |
-| **CertificatePolicyUpdate** |[Update certificate policy](/rest/api/keyvault/updatecertificatepolicy) |
-| **CertificatePolicySet** |[Create certificate policy](/rest/api/keyvault/createcertificate) |
-| **CertificateContactsGet** |[Get certificate contacts](/rest/api/keyvault/getcertificatecontacts) |
-| **CertificateContactsSet** |[Set certificate contacts](/rest/api/keyvault/setcertificatecontacts) |
-| **CertificateContactsDelete** |[Delete certificate contacts](/rest/api/keyvault/deletecertificatecontacts) |
-| **CertificateIssuerGet** |[Get certificate issuer](/rest/api/keyvault/getcertificateissuer) |
-| **CertificateIssuerSet** |[Set certificate issuer](/rest/api/keyvault/setcertificateissuer) |
-| **CertificateIssuerUpdate** |[Update certificate issuer](/rest/api/keyvault/updatecertificateissuer) |
-| **CertificateIssuerDelete** |[Delete certificate issuer](/rest/api/keyvault/deletecertificateissuer) |
-| **CertificateIssuersList** |[List the certificate issuers](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateGet** |[Get information about a certificate](/rest/api/keyvault/certificates/get-certificate) |
+| **CertificateCreate** |[Create a certificate](/rest/api/keyvault/certificates/create-certificate) |
+| **CertificateImport** |[Import a certificate into a vault](/rest/api/keyvault/certificates/import-certificate) |
+| **CertificateUpdate** |[Update a certificate](/rest/api/keyvault/certificates/update-certificate) |
+| **CertificateList** |[List the certificates in a vault](/rest/api/keyvault/certificates/get-certificate) |
+| **CertificateListVersions** |[List the versions of a certificate](/rest/api/keyvault/certificates/get-certificate-versions) |
+| **CertificateDelete** |[Delete a certificate](/rest/api/keyvault/certificates/delete-certificate) |
+| **CertificatePurge** |[Purge a certificate](/rest/api/keyvault/certificates/purge-deleted-certificate) |
+| **CertificateBackup** |[Backup a certificate](/rest/api/keyvault/certificates/backup-certificate) |
+| **CertificateRestore** |[Restore a certificate](/rest/api/keyvault/certificates/restore-certificate) |
+| **CertificateRecover** |[Recover a certificate](/rest/api/keyvault/certificates/recover-deleted-certificate) |
+| **CertificateGetDeleted** |[Get deleted certificate](/rest/api/keyvault/certificates/get-deleted-certificate) |
+| **CertificateListDeleted** |[List the deleted certificates in a vault](/rest/api/keyvault/certificates/get-deleted-certificates) |
+| **CertificatePolicyGet** |[Get certificate policy](/rest/api/keyvault/certificates/get-certificate-policy) |
+| **CertificatePolicyUpdate** |[Update certificate policy](/rest/api/keyvault/certificates/update-certificate-policy) |
+| **CertificatePolicySet** |[Create certificate policy](/rest/api/keyvault/certificates/create-certificate) |
+| **CertificateContactsGet** |[Get certificate contacts](/rest/api/keyvault/certificates/get-certificate-contacts) |
+| **CertificateContactsSet** |[Set certificate contacts](/rest/api/keyvault/certificates/set-certificate-contacts) |
+| **CertificateContactsDelete** |[Delete certificate contacts](/rest/api/keyvault/certificates/delete-certificate-contacts) |
+| **CertificateIssuerGet** |[Get certificate issuer](/rest/api/keyvault/certificates/get-certificate-issuer) |
+| **CertificateIssuerSet** |[Set certificate issuer](/rest/api/keyvault/certificates/set-certificate-issuer) |
+| **CertificateIssuerUpdate** |[Update certificate issuer](/rest/api/keyvault/certificates/update-certificate-issuer) |
+| **CertificateIssuerDelete** |[Delete certificate issuer](/rest/api/keyvault/certificates/delete-certificate-issuer) |
+| **CertificateIssuersList** |[List the certificate issuers](/rest/api/keyvault/certificates/get-certificate-issuers) |
 | **CertificateEnroll** |Enroll a certificate |
 | **CertificateRenew** |Renew a certificate |
 | **CertificatePendingGet** |Retrieve pending certificate |
@@ -186,6 +186,8 @@ The following table lists the **operationName** values and corresponding REST AP
 You can use the Key Vault solution in Azure Monitor logs to review Key Vault `AuditEvent` logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. 
 
 For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
+
+For understanding how to analyze logs, see [Sample kusto log queries](./monitor-key-vault.md#analyzing-logs)
 
 ## Next steps
 

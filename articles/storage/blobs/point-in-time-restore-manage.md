@@ -83,7 +83,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure point-in-time restore with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command to enable point-in-time restore and the other required data protection settings for the storage account.
+To configure point-in-time restore with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command to enable point-in-time restore and the other required data protection settings for the storage account.
 
 The following example enables soft delete and sets the soft-delete retention period to 14 days, enables change feed and versioning, and enables point-in-time restore with a restore period of 7 days. When running the example, remember to replace the values in angle brackets with your own values:
 
@@ -172,9 +172,9 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/azure-cli)
 
-To restore all containers and blobs in the storage account with Azure CLI, call the [az storage blob restore](/cli/azure/storage/blob#az_storage_blob_restore) command and provide the restore point as a UTC date/time value.
+To restore all containers and blobs in the storage account with Azure CLI, call the [az storage blob restore](/cli/azure/storage/blob#az-storage-blob-restore) command and provide the restore point as a UTC date/time value.
 
-The following example asynchronously restores all containers in the storage account to their state 12 hours before a specified date and time. To check the status of the restore operation, call [az storage account show](/cli/azure/storage/account#az_storage_account_show):
+The following example asynchronously restores all containers in the storage account to their state 12 hours before a specified date and time. To check the status of the restore operation, call [az storage account show](/cli/azure/storage/account#az-storage-account-show):
 
 ```azurecli
 az storage blob restore \
@@ -184,7 +184,7 @@ az storage blob restore \
     --no-wait
 ```
 
-To check the properties of a restore operation, call [az storage account show](/cli/azure/storage/account#az_storage_account_show) and expand the **blobRestoreStatus** property. The following example shows how to check the **status** property.
+To check the properties of a restore operation, call [az storage account show](/cli/azure/storage/account#az-storage-account-show) and expand the **blobRestoreStatus** property. The following example shows how to check the **status** property.
 
 ```azurecli
 az storage account show \
@@ -290,7 +290,7 @@ To run the restore operation synchronously and block on execution until it is co
 
 # [Azure CLI](#tab/azure-cli)
 
-To restore a range of blobs, call the [az storage blob restore](/cli/azure/storage/blob#az_storage_blob_restore) command and specify a lexicographical range of container and blob names for the `--blob-range` parameter. To specify multiple ranges, provide the `--blob-range` parameter for each distinct range.
+To restore a range of blobs, call the [az storage blob restore](/cli/azure/storage/blob#az-storage-blob-restore) command and specify a lexicographical range of container and blob names for the `--blob-range` parameter. To specify multiple ranges, provide the `--blob-range` parameter for each distinct range.
 
 For example, to restore the blobs in a single container named *container1*, you can specify a range that starts with *container1* and ends with *container2*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *container2*, only the container named *container1* will be restored.
 

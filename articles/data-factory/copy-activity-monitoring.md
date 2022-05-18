@@ -5,7 +5,7 @@ description: Learn about how to monitor the copy activity execution in Azure Dat
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse
+ms.custom: synapse, contperf-fy22q2
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: jianleishen

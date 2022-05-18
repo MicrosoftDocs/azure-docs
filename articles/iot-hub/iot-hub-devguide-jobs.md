@@ -1,9 +1,9 @@
 ---
 title: Understand Azure IoT Hub jobs | Microsoft Docs
 description: Developer guide - scheduling jobs to run on multiple devices connected to your IoT hub. Jobs can update tags and desired properties and invoke direct methods on multiple devices.
-author: eross-msft
+author: kgremban
 
-ms.author: lizross
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -29,6 +29,9 @@ Jobs are initiated by the solution back end and maintained by IoT Hub. You can i
 
 > [!NOTE]
 > When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
+
+> [!NOTE]
+> The `jobId` field must be 64 characters or less and can only contain US-ASCII letters, numbers, and the dash (`-`) character.
 
 ## Jobs to execute direct methods
 

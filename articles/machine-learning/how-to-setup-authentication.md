@@ -3,14 +3,13 @@ title: Set up authentication
 titleSuffix: Azure Machine Learning
 description: Learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning.
 services: machine-learning
-author: cjgronlund
-ms.author: cgronlun
-ms.reviewer: larryfr
+author: blackmist
+ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 10/21/2021
+ms.date: 02/02/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv1
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
@@ -74,7 +73,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 1. Create the service principal. In the following example, an SP named **ml-auth** is created:
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --sdk-auth --name ml-auth --role Contributor
+    az ad sp create-for-rbac --sdk-auth --name ml-auth --role Contributor --scopes /subscriptions/<subscription id>
     ```
 
     The output will be a JSON similar to the following. Take note of the `clientId`, `clientSecret`, and `tenantId` fields, as you will need them for other steps in this article.
@@ -119,6 +118,8 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
     > [!IMPORTANT]
     > Owner access allows the service principal to do virtually any operation in your workspace. It is used in this document to demonstrate how to grant access; in a production environment Microsoft recommends granting the service principal the minimum access needed to perform the role you intend it for. For information on creating a custom role with the access needed for your scenario, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md).
+
+    [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
     ```azurecli-interactive
     az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
@@ -243,149 +244,16 @@ You can use a service principal for Azure CLI commands. For more information, se
 
 ### Use a service principal with the REST API (preview)
 
-The service principal can also be used to authenticate to the Azure Machine Learning [REST API](/rest/api/azureml/) (preview). You use the Azure Active Directory [client credentials grant flow](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md), which allow service-to-service calls for headless authentication in automated workflows. The examples are implemented with the [ADAL library](../active-directory/azuread-dev/active-directory-authentication-libraries.md) in both Python and Node.js, but you can also use any open-source library that supports OpenID Connect 1.0.
+The service principal can also be used to authenticate to the Azure Machine Learning [REST API](/rest/api/azureml/) (preview). You use the Azure Active Directory [client credentials grant flow](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md), which allow service-to-service calls for headless authentication in automated workflows. 
 
-> [!NOTE]
-> MSAL.js is a newer library than ADAL, but you cannot do service-to-service authentication using client credentials with MSAL.js, since it is primarily a client-side library intended
-> for interactive/UI authentication tied to a specific user. We recommend using ADAL as shown below to build automated workflows with the REST API.
+> [!IMPORTANT]
+> If you are currently using Azure Active Directory Authentication Library (ADAL) to get credentials, we recommend that you [Migrate to the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-migration.md). ADAL support is scheduled to end on June 30, 2022.
 
-#### Node.js
+For information and samples on authenticating with MSAL, see the following articles:
 
-Use the following steps to generate an auth token using Node.js. In your environment, run `npm install adal-node`. Then, use your `tenantId`, `clientId`, and `clientSecret` from the service principal you created in the steps above as values for the matching variables in the following script.
-
-```javascript
-const adal = require('adal-node').AuthenticationContext;
-
-const authorityHostUrl = 'https://login.microsoftonline.com/';
-const tenantId = 'your-tenant-id';
-const authorityUrl = authorityHostUrl + tenantId;
-const clientId = 'your-client-id';
-const clientSecret = 'your-client-secret';
-const resource = 'https://management.azure.com/';
-
-const context = new adal(authorityUrl);
-
-context.acquireTokenWithClientCredentials(
-  resource,
-  clientId,
-  clientSecret,
-  (err, tokenResponse) => {
-    if (err) {
-      console.log(`Token generation failed due to ${err}`);
-    } else {
-      console.dir(tokenResponse, { depth: null, colors: true });
-    }
-  }
-);
-```
-
-The variable `tokenResponse` is an object that includes the token and associated metadata such as expiration time. Tokens are valid for 1 hour, and can be refreshed by running the same call again to retrieve a new token. The following snippet is a sample response.
-
-```javascript
-{
-    tokenType: 'Bearer',
-    expiresIn: 3599,
-    expiresOn: 2019-12-17T19:15:56.326Z,
-    resource: 'https://management.azure.com/',
-    accessToken: "random-oauth-token",
-    isMRRT: true,
-    _clientId: 'your-client-id',
-    _authority: 'https://login.microsoftonline.com/your-tenant-id'
-}
-```
-
-Use the `accessToken` property to fetch the auth token. See the [REST API documentation](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) for examples on how to use the token to make API calls.
-
-#### Python
-
-Use the following steps to generate an auth token using Python. In your environment, run `pip install adal`. Then, use your `tenantId`, `clientId`, and `clientSecret` from the service principal you created in the steps above as values for the appropriate variables in the following script.
-
-```python
-from adal import AuthenticationContext
-
-client_id = "your-client-id"
-client_secret = "your-client-secret"
-resource_url = "https://login.microsoftonline.com"
-tenant_id = "your-tenant-id"
-authority = "{}/{}".format(resource_url, tenant_id)
-
-auth_context = AuthenticationContext(authority)
-token_response = auth_context.acquire_token_with_client_credentials("https://management.azure.com/", client_id, client_secret)
-print(token_response)
-```
-
-The variable `token_response` is a dictionary that includes the token and associated metadata such as expiration time. Tokens are valid for 1 hour, and can be refreshed by running the same call again to retrieve a new token. The following snippet is a sample response.
-
-```python
-{
-    'tokenType': 'Bearer',
-    'expiresIn': 3599,
-    'expiresOn': '2019-12-17 19:47:15.150205',
-    'resource': 'https://management.azure.com/',
-    'accessToken': 'random-oauth-token',
-    'isMRRT': True,
-    '_clientId': 'your-client-id',
-    '_authority': 'https://login.microsoftonline.com/your-tenant-id'
-}
-```
-
-Use `token_response["accessToken"]` to fetch the auth token. See the [REST API documentation](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) for examples on how to use the token to make API calls.
-
-#### Java
-
-In Java, retrieve the bearer token using a standard REST call:
-
-```java
-String tenantId = "your-tenant-id";
-String clientId = "your-client-id";
-String clientSecret = "your-client-secret";
-String resourceManagerUrl = "https://management.azure.com";
-
-HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
-
-HttpClient client = HttpClient.newBuilder().build();
-Gson gson = new Gson();
-HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-if (response.statusCode == 200)
-{
-     body = gson.fromJson(body, AuthenticationBody.class);
-
-    // ... etc ... 
-}
-// ... etc ...
-
-static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl){
-    String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
-    String clientIdParam = String.format("client_id=%s", clientId);
-    String resourceParam = String.format("resource=%s", resourceManagerUrl);
-    String clientSecretParam = String.format("client_secret=%s", clientSecret);
-
-    String bodyString = String.format("grant_type=client_credentials&%s&%s&%s", clientIdParam, resourceParam, clientSecretParam);
-
-    HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create(authUrl))
-            .POST(HttpRequest.BodyPublishers.ofString(bodyString))
-            .build();
-    return request;
-}
-
-class AuthenticationBody {
-    String access_token;
-    String token_type;
-    int expires_in;
-    String scope;
-    String refresh_token;
-    String id_token;
-    
-    AuthenticationBody() {}
-}
-```
-
-The preceding code would have to handle exceptions and status codes other than `200 OK`, but shows the pattern: 
-
-- Use the client ID and secret to validate that your program should have access
-- Use your tenant ID to specify where `login.microsoftonline.com` should be looking
-- Use Azure Resource Manager as the source of the authorization token
+* JavaScript - [How to migrate a JavaScript app from ADAL.js to MSAL.js](../active-directory/develop/msal-compare-msal-js-and-adal-js.md).
+* Node.js - [How to migrate a Node.js app from ADAL to MSAL](../active-directory/develop/msal-node-migration.md).
+* Python - [ADAL to MSAL migration guide for Python](../active-directory/develop/migrate-python-adal-msal.md).
 
 ## Use managed identity authentication
 

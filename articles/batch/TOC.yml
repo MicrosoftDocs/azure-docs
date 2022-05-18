@@ -20,9 +20,12 @@
   - name: Run a Batch job - Python
     displayName: quickstart, first, create
     href: quick-run-python.md
+  - name: Create a Batch account - Bicep
+    href: quick-create-bicep.md
+    displayName: Resource Manager, ARM, Template
   - name: Create a Batch account - ARM template
     href: quick-create-template.md
-    displayName: Resource Manager, quickstart, first, create
+    displayName: Resource Manager
 - name: Tutorials
   items:
   - name: Parallel file processing - .NET
@@ -185,9 +188,9 @@
       href: batch-pool-compute-intensive-sizes.md
     - name: Use Linux compute nodes
       href: batch-linux-nodes.md
-    - name: Use low-priority VMs
+    - name: Use Azure Spot VMs
       displayName: preempted, surplus, capacity
-      href: batch-low-pri-vms.md
+      href: batch-spot-vms.md
     - name: Checking for pool and node errors
       displayName: troubleshoot, failure
       href: batch-pool-node-error-checking.md

@@ -1,12 +1,12 @@
 ---
 title: Overview - On-premises AD DS authentication to Azure file shares
 description: Learn about Active Directory Domain Services (AD DS) authentication to Azure file shares. This article goes over support scenarios, availability, and explains how the permissions work between your AD DS and Azure active directory. 
-author: roygara
+author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.author: rogarana
+ms.author: kendownie
 ---
 
 # Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares
@@ -26,7 +26,7 @@ If you are new to Azure file shares, we recommend reading our [planning guide](s
 
 - AD DS Identities used for Azure Files on-premises AD DS authentication must be synced to Azure AD or use a default share-level permission. Password hash synchronization is optional. 
 - Supports Azure file shares managed by Azure File Sync.
-- Supports Kerberos authentication with AD with RC4-HMAC and [AES 256 encryption](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). AES 256 encryption support is currently limited to storage accounts with names <= 15 characters in length. AES 128 Kerberos encryption is not yet supported.
+- Supports Kerberos authentication with AD with [AES 256 encryption](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption is not yet supported.
 - Supports single sign-on experience.
 - Only supported on clients running on OS versions newer than Windows 7 or Windows Server 2008 R2.
 - Only supported against the AD forest that the storage account is registered to. You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured, see the [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) for details.
@@ -39,7 +39,7 @@ When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines
 
 To help you setup Azure Files AD authentication for some common use cases, we published two videos with step by step guidance for the following scenarios:
 
-| Replacing on-premises file servers with Azure Files (including setup on private link for files and AD authentication) | Using Azure Files as the profile container for Windows Virtual Desktop (including setup on AD authentication and FsLogix configuration)  |
+| Replacing on-premises file servers with Azure Files (including setup on private link for files and AD authentication) | Using Azure Files as the profile container for Azure Virtual Desktop (including setup on AD authentication and FSLogix configuration)  |
 |-|-|
 | [![Screencast of the replacing on-premises file servers video - click to play.](./media/storage-files-identity-auth-active-directory-enable/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![Screencast of the Using Azure Files as the profile container video - click to play.](./media/storage-files-identity-auth-active-directory-enable/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
 
@@ -61,7 +61,7 @@ Before you enable AD DS authentication for Azure file shares, make sure you have
     Make sure that the storage account containing your file shares is not already configured for Azure AD DS Authentication. If Azure Files Azure AD DS authentication is enabled on the storage account, it needs to be disabled before changing to use on-premises AD DS. This implies that existing ACLs configured in Azure AD DS environment will need to be reconfigured for proper permission enforcement.
 
 
-    If you experience issues in connecting to Azure Files, refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). We also provide [guidance](./storage-files-faq.md#on-premises-access) to work around scenarios when port 445 is blocked. 
+    If you experience issues in connecting to Azure Files, refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/).
 
 
 - Make any relevant networking configuration prior to enabling and configuring AD DS authentication to your Azure file shares. See [Azure Files networking considerations](storage-files-networking-overview.md) for more information.

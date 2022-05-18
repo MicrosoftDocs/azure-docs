@@ -5,9 +5,9 @@ keywords: SQL Edge, troubleshooting, deployment errors
 services: sql-edge
 ms.service: sql-edge
 ms.topic: troubleshooting
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
 ms.date: 09/22/2020
 ---
 

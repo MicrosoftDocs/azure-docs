@@ -4,16 +4,15 @@ description: A tutorial that shows you how to use a Windows VM system-assigned m
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: daveba
 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/24/2021
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
@@ -185,7 +184,7 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-You can also download the blob you just uploaded, using the `Get-AzStorageBlobContent` PowerShell cmdlet:
+You can also download the blob you uploaded, using the `Get-AzStorageBlobContent` PowerShell cmdlet:
 
 ```powershell
 Get-AzStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx

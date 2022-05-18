@@ -3,7 +3,7 @@ title: Storage FSLogix profile container Azure Virtual Desktop - Azure
 description: Options for storing your Azure Virtual Desktop FSLogix profile on Azure Storage.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 01/04/2021
 ms.author: helohr
 manager: femila
 ---
@@ -61,12 +61,12 @@ For more information about Azure Files performance, see [File share and file sca
 
 ## Next steps
 
-To learn more about FSLogix profile containers, user profile disks, and other user profile technologies, see the table in [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
+To learn more about FSLogix profile containers, user profile disks, and other user profile technologies, see the table in [FSLogix profile containers and Azure Files](fslogix-containers-azure-files.md).
 
 If you're ready to create your own FSLogix profile containers, get started with one of these tutorials:
 
-- [Getting started with FSLogix profile containers on Azure Files in Azure Virtual Desktop](create-file-share.md)
+- [Create an Azure file share with Active Directory Domain Services](create-file-share.md)
+- [Create an Azure file share with Azure Active Directory](create-profile-container-azure-ad.md)
+- [Create an Azure file share with Azure Active Directory Domain Services](create-profile-container-adds.md)
 - [Create an FSLogix profile container for a host pool using Azure NetApp files](create-fslogix-profile-container.md)
 - The instructions in [Deploy a two-node Storage Spaces Direct scale-out file server for UPD storage in Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) also apply when you use an FSLogix profile container instead of a user profile disk
-
-You can also start from the very beginning and set up your own Azure Virtual Desktop solution at [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

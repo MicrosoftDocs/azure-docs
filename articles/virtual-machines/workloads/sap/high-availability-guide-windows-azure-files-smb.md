@@ -85,7 +85,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
      1. Create the **sapmnt** File share with an appropriate size.  The suggested size is 256GB which delivers 650 IOPS, 75 MB/sec Egress and 50 MB/sec Ingress.
          ![create-storage-account-5](media/virtual-machines-shared-sap-high-availability-guide/create-sa-5.png)Azure portal screenshot for the SMB share definition. 
       
-     1. Download the [Azure Files GitHub](../../../storage/files/storage-files-identity-ad-ds-enable.md#download-azfileshybrid-module) content and execute the [script](../../../storage/files/storage-files-identity-ad-ds-enable.md#run-join-azstorageaccountforauth).   
+     1. Download the [Azure Files GitHub](../../../storage/files/storage-files-identity-ad-ds-enable.md#download-azfileshybrid-module) content and execute the [script](../../../storage/files/storage-files-identity-ad-ds-enable.md#run-join-azstorageaccount).   
      This script will create either a Computer Account or Service Account in Active Directory.  The user running the script must have the following properties: 
          * The user running the script must have permission to create objects in the Active Directory Domain containing the SAP servers. Typically, a domain administrator account is used such as **SAPCONT_ADMIN@SAPCONTOSO.local** 
          * Before executing the script confirm that this Active Directory Domain user account is synchronized with Azure Active Directory (AAD).  An example of this would be to open the Azure portal and navigate to AAD users and check that the user **SAPCONT_ADMIN@SAPCONTOSO.local** exists and verify the AAD user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.
@@ -137,7 +137,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
      8. Verify the ACLs on the SID and trans directory.
 
 ## Disaster Recovery setup
-Disaster Recovery scenarios or Cross-Region Replication scenarios are supported with Azure Files Premium SMB. All data in Azure Files Premium SMB directories can be continuously synchronized to a DR region storage account using [Synchronize Files under Transfer data with AzCopy and file storage.](/azure/storage/common/storage-use-azcopy-files#synchronize-files) After a Disaster Recovery event and failover of the ASCS instance to the DR region, change the SAPGLOBALHOST profile parameter to the point to Azure Files SMB in the DR region. The same preparation steps should be performed on the DR storage account to join the storage account to Active Directory and assign RBAC roles for SAP users and groups.
+Disaster Recovery scenarios or Cross-Region Replication scenarios are supported with Azure Files Premium SMB. All data in Azure Files Premium SMB directories can be continuously synchronized to a DR region storage account using [Synchronize Files under Transfer data with AzCopy and file storage.](../../../storage/common/storage-use-azcopy-files.md#synchronize-files) After a Disaster Recovery event and failover of the ASCS instance to the DR region, change the SAPGLOBALHOST profile parameter to the point to Azure Files SMB in the DR region. The same preparation steps should be performed on the DR storage account to join the storage account to Active Directory and assign RBAC roles for SAP users and groups.
 
 ## Troubleshooting
 The PowerShell scripts downloaded in step 3.c contain a debug script to conduct some basic checks to validate the configuration.

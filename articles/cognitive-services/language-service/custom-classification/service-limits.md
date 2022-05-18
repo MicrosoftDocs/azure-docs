@@ -5,10 +5,10 @@ description: Learn about the data and rate limits when using custom text classif
 services: cognitive-services
 author: aahill
 manager: nitinme
+ms.date: 01/25/2022
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: overview
-ms.date: 11/02/2021
+ms.topic: conceptual
 ms.author: aahi
 ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
 ---
@@ -25,7 +25,7 @@ Use this article to learn about the data and rate limits when using custom text 
 
 * All files should be available at the root of your container.
 
-* Your [training dataset](how-to/train-model.md#data-splits) should include at least 10 files and no more than 1,000,000 files.
+* Your [training dataset](how-to/train-model.md) should include at least 10 files and no more than 1,000,000 files.
 
 ## API limits
 
@@ -64,11 +64,15 @@ Custom text classification is only available select Azure regions. When you crea
 
 * You can't rename your project after creation.
 
+* Your project name must only contain alphanumeric characters (letters and numbers). Spaces and special characters are not allowed. Project names can have a maximum of 50 characters.
+
 * You must have minimum of 10 files in your project and a maximum of 1,000,000 files.
 
 * You can have up to 10 trained models per project.
 
 * Model names have to be unique within the same project.
+
+* Model name must only contain alphanumeric characters (letters and numbers). Spaces and special characters are not allowed. Project names can have a maximum of 50 characters.
 
 * You can't rename your model after creation.
 
@@ -84,7 +88,7 @@ Custom text classification is only available select Azure regions. When you crea
 
 | Attribute | Limits |
 |--|--|
-| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
-| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]` |
-| entity names| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]` |
-| File names | You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
+| Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. Maximum allowed length is 50 characters. |
+| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
+| Class name| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
+| File name | You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |

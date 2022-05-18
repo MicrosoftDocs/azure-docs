@@ -1,7 +1,7 @@
 ---
 title: Managed Service offers in Azure Marketplace
 description: Offer your Azure Lighthouse management services to customers through Managed Services offers in Azure Marketplace.
-ms.date: 09/08/2021
+ms.date: 02/02/2022
 ms.topic: conceptual
 ---
 
@@ -13,19 +13,19 @@ This article describes the **Managed Service** offer type in [Azure Marketplace]
 
 Managed Service offers streamline the process of onboarding customers to Azure Lighthouse. When a customer purchases an offer in Azure Marketplace, they'll be able to specify which subscriptions and/or resource groups should be onboarded.
 
-For each offer, you define the access that users in your organization will have to work on resources in the customer tenant. This is done through a manifest that specifies the Azure Active Directory (Azure AD) users, groups, and service principals that will have access to customer resources, along with [roles](tenants-users-roles.md) that define their level of access.
+For each offer, you define the access that users in your organization will have to work on resources in the customer tenant. This is done through a manifest that specifies the Azure Active Directory (Azure AD) users, groups, and service principals that will have access to customer resources, along with [roles](tenants-users-roles.md#role-support-for-azure-lighthouse) that define their level of access.
 
 > [!NOTE]
 > Managed Service offers may not be available in Azure Government and other national clouds.
 
-## Public and private offers
+## Public and private plans
 
 Each Managed Service offer includes one or more plans. Plans can be either private or public.
 
-If you want to limit your offer to specific customers, you can publish a private plan. When you do so, the plan can only be purchased for the specific subscription IDs that you provide. For more info, see [Private offers](../../marketplace/private-offers.md).
+If you want to limit your offer to specific customers, you can publish a private plan. When you do so, the plan can only be purchased for the specific subscription IDs that you provide. For more info, see [Private plans](../../marketplace/private-plans.md).
 
 > [!NOTE]
-> Private offers are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
+> Private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
 
 Public plans let you promote your services to new customers. These are usually more appropriate when you only require limited access to the customer's tenant. Once you've established a relationship with a customer, if they decide to grant your organization additional access, you can do so either by publishing a new private plan for that customer only, or by [onboarding them for further access using Azure Resource Manager templates](../how-to/onboard-customer.md).
 

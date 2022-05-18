@@ -37,7 +37,7 @@ az group create --name mySparkCluster --location eastus
 Create a Service Principal for the cluster. After it is created, you will need the Service Principal appId and password for the next command.
 
 ```azurecli
-az ad sp create-for-rbac --name SparkSP --role Contributor
+az ad sp create-for-rbac --name SparkSP --role Contributor --scopes /subscriptions/mySubscriptionID
 ```
 
 Create the AKS cluster with nodes that are of size `Standard_D3_v2`, and values of appId and password passed as service-principal and client-secret parameters.
@@ -335,7 +335,7 @@ Check out Spark documentation for more details.
 [docker-hub]: https://docs.docker.com/docker-hub/
 [java-install]: /azure/developer/java/fundamentals/java-support-on-azure
 [maven-install]: https://maven.apache.org/install.html
-[sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
+[sbt-install]: https://www.scala-sbt.org/1.x/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [spark-kubernetes-earliest-version]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html

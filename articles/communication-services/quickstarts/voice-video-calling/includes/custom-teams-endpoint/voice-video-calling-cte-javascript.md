@@ -17,7 +17,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 - [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows).
 - Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../manage-teams-identity.md?pivots=programming-language-javascript).
-- Obtain Teams thread ID to for call operations using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Read more about [how to create chat thread ID](https://docs.microsoft.com/graph/api/chat-post?view=graph-rest-1.0&tabs=javascript#example-2-create-a-group-chat&preserve-view=true).
+- Obtain Teams thread ID to for call operations using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Read more about [how to create chat thread ID](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat).
 
 ## Setting up
 ### Create a new Node.js application
@@ -28,10 +28,10 @@ mkdir calling-quickstart && cd calling-quickstart
 ### Install the package
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 > [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `1.3.1-beta.1`.
+> This quickstart uses the Azure Communication Services Calling SDK version `1.3.2-beta.1`.
 ```console
 npm install @azure/communication-common --save
-npm install @azure/communication-calling@1.3.1-beta.1 --save
+npm install @azure/communication-calling@1.3.2-beta.1 --save
 ```
 ### Set up the app framework
 This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
@@ -84,7 +84,7 @@ Here's the code:
 </html>
 ```
 
-## ACS Calling Web SDK Object model
+## Azure Communication Services Calling Web SDK Object model
 
 The following classes and interfaces handle some of the main features of the Azure Communication Services Calling SDK:
 
@@ -402,7 +402,7 @@ On the first tab, enter a valid user access token. On the second tab, enter anot
 On both tabs, click on the "Initialize Call Agent" buttons. Tabs should show the similar result like the following image:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png" alt-text="Screenshot is showing steps to initialize each Teams user in the browser tab."  lightbox="../../media/javascript/1-on-1-video-calling-b.png":::
 
-On the first tab, enter the ACS user identity of the second tab, and select the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
+On the first tab, enter the Azure Communication Services user identity of the second tab, and select the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-c.png" alt-text="Screenshot is showing experience when Teams users initialize the SDK and shows steps to start a call to second user and way how to accept the call." lightbox="../../media/javascript/1-on-1-video-calling-c.png":::
 
 From the second tab, select the "Accept Call" button. The call will be answered and connected. Tabs should show the similar result like the following image:

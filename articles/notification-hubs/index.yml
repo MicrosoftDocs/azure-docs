@@ -32,11 +32,6 @@ landingContent:
             url: notification-hubs-enterprise-push-notification-architecture.md
           - text: Registration management
             url: notification-hubs-push-notification-registration-management.md
-      - linkListType: video
-        links:
-          - text: Send push notifications to Android applications
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Notification-Hubs-in-an-Android-Application
-
   # Card (optional)
   - title: Get started
     linkLists:

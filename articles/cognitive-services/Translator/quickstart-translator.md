@@ -10,6 +10,7 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 07/06/2021
 ms.author: lajanuar
+ms.devlang: csharp, golang, java, javascript, python
 ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: translator, translator service, translate text, transliterate text, language detection
 ---
@@ -27,7 +28,7 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have an Azure subscription, [create a Translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+* Once you have an Azure subscription, [create a Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code below later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
 
     :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
@@ -40,25 +41,20 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 
 * Create a new project: `dotnet new console -o your_project_name`
 * Replace Program.cs with the C# code shown below.
-* Set the subscription key and endpoint values in Program.cs.
+* Set the key and endpoint values in Program.cs.
 * [Add Newtonsoft.Json using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Run the program from the project directory: ``dotnet run``
 
-> [!div class="nextstepaction"]
-> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 # [Go](#tab/go)
 
 * Create a new Go project in your favorite code editor.
 * Add the code provided below.
-* Replace the `subscriptionKey` value with an access key valid for your subscription.
+* Replace the `key` value with an access key valid for your subscription.
 * Save the file with a '.go' extension.
 * Open a command prompt on a computer with Go installed.
 * Build the file, for example: 'go build example-code.go'.
 * Run the file, for example: 'example-code'.
-
-> [!div class="nextstepaction"]
-> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 # [Java](#tab/java)
 
@@ -81,31 +77,28 @@ In this quickstart, you learn to use the Translator service via REST. You start 
     compile("com.google.code.gson:gson:2.8.5")
   }
   ```
-* Create a Java file and copy in the code from the provided sample. Don't forget to add your subscription key.
+* Create a Java file and copy in the code from the provided sample. Don't forget to add your key.
 * Run the sample: `gradle run`.
 
-> [!div class="nextstepaction"]
-> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 
 # [Node.js](#tab/nodejs)
 
 * Create a new project in your favorite IDE or editor.
 * Copy the code from one of the samples into your project.
-* Set your subscription key.
+* Set your key.
 * Run the program. For example: `node Translate.js`.
 
-> [!div class="nextstepaction"]
-> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 
 # [Python](#tab/python)
 
 * Create a new project in your favorite IDE or editor.
 * Copy the code from one of the samples into your project.
-* Set your subscription key.
+* Set your key.
 * Run the program. For example: `python translate.py`.
 
-> [!div class="nextstepaction"]
-> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 
 ---
 
@@ -153,7 +146,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+    private static readonly string key = "YOUR-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
@@ -175,7 +168,7 @@ class Program
             request.Method = HttpMethod.Post;
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
@@ -188,8 +181,6 @@ class Program
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=translate-text)
 
 # [Go](#tab/go)
 
@@ -206,14 +197,14 @@ import (
 )
 
 func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    key := "YOUR-KEY"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("from", "en")
@@ -235,7 +226,7 @@ func main() {
         log.Fatal(err)
     }
     // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Key", key)
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -256,8 +247,6 @@ func main() {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=translate-text)
 
 
 # [Java](#tab/java)
@@ -270,7 +259,7 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class Translate {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+    private static String key = "YOUR_KEY";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -295,7 +284,7 @@ public class Translate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Hello World!\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -323,8 +312,6 @@ public class Translate {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=translate-text)
 
 # [Node.js](#tab/nodejs)
 
@@ -332,7 +319,7 @@ public class Translate {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+var key = "YOUR_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
@@ -344,7 +331,7 @@ axios({
     url: '/translate',
     method: 'post',
     headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Key': key,
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -363,16 +350,15 @@ axios({
 })
 ```
 
-> [!div class="nextstepaction"]
-> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 
 
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
+# Add your key and endpoint
+key = "YOUR_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
@@ -387,10 +373,9 @@ params = {
     'from': 'en',
     'to': ['de', 'it']
 }
-constructed_url = endpoint + path
 
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': key,
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -407,8 +392,6 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-> [!div class="nextstepaction"]
-> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=translate-text)
 
 ---
 
@@ -450,7 +433,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+    private static readonly string key = "YOUR-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
@@ -472,7 +455,7 @@ class Program
             request.Method = HttpMethod.Post;
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
@@ -484,9 +467,6 @@ class Program
     }
 }
 ```
-
-> [!div class="nextstepaction"]
-> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
 
 
 # [Go](#tab/go)
@@ -504,14 +484,14 @@ import (
 )
 
 func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    key := "YOUR-KEY"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("to", "de")
@@ -532,7 +512,7 @@ func main() {
         log.Fatal(err)
     }
     // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Key", key)
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -553,8 +533,7 @@ func main() {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 
 # [Java](#tab/java)
@@ -567,7 +546,7 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class Translate {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+    private static String key = "YOUR_KEY";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -591,7 +570,7 @@ public class Translate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Hello World!\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -619,8 +598,6 @@ public class Translate {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
 
 
 # [Node.js](#tab/nodejs)
@@ -629,7 +606,7 @@ public class Translate {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+var key = "YOUR_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
@@ -641,14 +618,13 @@ axios({
     url: '/translate',
     method: 'post',
     headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Key': key,
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
     params: {
         'api-version': '3.0',
-        'from': 'en',
         'to': ['de', 'it']
     },
     data: [{
@@ -660,16 +636,14 @@ axios({
 })
 ```
 
-> [!div class="nextstepaction"]
-> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
 
 
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
+# Add your key and endpoint
+key = "YOUR_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
@@ -683,10 +657,9 @@ params = {
     'api-version': '3.0',
     'to': ['de', 'it']
 }
-constructed_url = endpoint + path
 
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': key,
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -703,8 +676,6 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-> [!div class="nextstepaction"]
-> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
 
 
 ---
@@ -747,7 +718,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+    private static readonly string key = "YOUR-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
@@ -769,7 +740,7 @@ class Program
             request.Method = HttpMethod.Post;
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
@@ -782,8 +753,6 @@ class Program
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
 
 
 # [Go](#tab/go)
@@ -801,7 +770,7 @@ import (
 )
 
 func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    key := "YOUR-KEY"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     location := "YOUR_RESOURCE_LOCATION";   
@@ -809,7 +778,7 @@ func main() {
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/detect?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     u.RawQuery = q.Encode()
@@ -828,7 +797,7 @@ func main() {
         log.Fatal(err)
     }
     // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Key", key)
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -849,8 +818,6 @@ func main() {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
 
 # [Java](#tab/java)
 
@@ -862,7 +829,7 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class Detect {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+    private static String key = "YOUR_KEY";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -884,7 +851,7 @@ public class Detect {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -912,8 +879,6 @@ public class Detect {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
 
 # [Node.js](#tab/nodejs)
 
@@ -921,7 +886,7 @@ public class Detect {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+var key = "YOUR_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
@@ -933,7 +898,7 @@ axios({
     url: '/detect',
     method: 'post',
     headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Key': key,
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -950,15 +915,13 @@ axios({
 })
 ```
 
-> [!div class="nextstepaction"]
-> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
 
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
+# Add your key and endpoint
+key = "YOUR_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
@@ -971,10 +934,9 @@ constructed_url = endpoint + path
 params = {
     'api-version': '3.0'
 }
-constructed_url = endpoint + path
 
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': key,
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -991,8 +953,6 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-> [!div class="nextstepaction"]
-> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
 
 ---
 
@@ -1040,7 +1000,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+    private static readonly string key = "YOUR-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
@@ -1062,7 +1022,7 @@ class Program
             request.Method = HttpMethod.Post;
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
@@ -1075,8 +1035,6 @@ class Program
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I transliterated text during translation](#transliterate-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 # [Go](#tab/go)
 
@@ -1093,14 +1051,14 @@ import (
 )
 
 func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    key := "YOUR-KEY"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     location := "YOUR_RESOURCE_LOCATION";   
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("to", "th")
@@ -1121,7 +1079,7 @@ func main() {
         log.Fatal(err)
     }
     // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Key", key)
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -1142,8 +1100,6 @@ func main() {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I transliterated text during translation](#transliterate-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 # [Java](#tab/java)
 
@@ -1155,7 +1111,7 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class Translate {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+    private static String key = "YOUR_KEY";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -1179,7 +1135,7 @@ public class Translate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Hello\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -1207,8 +1163,6 @@ public class Translate {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I transliterated text during translation](#transliterate-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 # [Node.js](#tab/nodejs)
 
@@ -1216,7 +1170,7 @@ public class Translate {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+var key = "YOUR_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
@@ -1228,7 +1182,7 @@ axios({
     url: '/translate',
     method: 'post',
     headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Key': key,
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -1247,15 +1201,13 @@ axios({
 })
 ```
 
-> [!div class="nextstepaction"]
-> [I transliterated text during translation](#transliterate-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 # [Python](#tab/python)
 ```Python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
+# Add your key and endpoint
+key = "YOUR_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
@@ -1270,10 +1222,9 @@ params = {
     'to': 'th',
     'toScript': 'latn'
 }
-constructed_url = endpoint + path
 
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': key,
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -1289,8 +1240,6 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-> [!div class="nextstepaction"]
-> [I transliterated text during translation](#transliterate-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 ---
 
@@ -1335,7 +1284,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+    private static readonly string key = "YOUR-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
@@ -1358,7 +1307,7 @@ class Program
             request.Method = HttpMethod.Post;
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
@@ -1371,8 +1320,6 @@ class Program
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I transliterated text without translation](#get-sentence-length) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
 
 # [Go](#tab/go)
 
@@ -1389,14 +1336,14 @@ import (
 )
 
 func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    key := "YOUR-KEY"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/transliterate?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("language", "th")
@@ -1418,7 +1365,7 @@ func main() {
         log.Fatal(err)
     }
     // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Key", key)
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -1439,8 +1386,7 @@ func main() {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I transliterated text without translation](#get-sentence-length) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
+
 
 # [Java](#tab/java)
 
@@ -1452,7 +1398,7 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class Transliterate {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+    private static String key = "YOUR_KEY";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -1477,7 +1423,7 @@ public class Transliterate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"สวัสดี\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -1505,8 +1451,6 @@ public class Transliterate {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I transliterated text without translation](#get-sentence-length) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
 
 # [Node.js](#tab/nodejs)
 
@@ -1514,7 +1458,7 @@ public class Transliterate {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+var key = "YOUR_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
@@ -1526,7 +1470,7 @@ axios({
     url: '/transliterate',
     method: 'post',
     headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Key': key,
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -1546,15 +1490,13 @@ axios({
 })
 ```
 
-> [!div class="nextstepaction"]
-> [I transliterated text without translation](#get-sentence-length) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
 
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
+# Add your key and endpoint
+key = "YOUR_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
@@ -1570,10 +1512,9 @@ params = {
     'fromScript': 'thai',
     'toScript': 'latn'
 }
-constructed_url = endpoint + path
 
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': key,
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -1590,8 +1531,6 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 ```
 
-> [!div class="nextstepaction"]
-> [I transliterated text without translation](#get-sentence-length) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
 
 ---
 
@@ -1625,7 +1564,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+    private static readonly string key = "YOUR-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
@@ -1648,7 +1587,7 @@ class Program
             request.Method = HttpMethod.Post;
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
@@ -1661,8 +1600,6 @@ class Program
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I got sentence length during translation](#get-sentence-length-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
 
 # [Go](#tab/go)
 
@@ -1679,14 +1616,14 @@ import (
 )
 
 func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    key := "YOUR-KEY"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("to", "es")
@@ -1707,7 +1644,7 @@ func main() {
         log.Fatal(err)
     }
     // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Key", key)
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -1728,8 +1665,7 @@ func main() {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I got sentence length during translation](#get-sentence-length-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
+
 
 # [Java](#tab/java)
 
@@ -1741,7 +1677,7 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class Translate {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+    private static String key = "YOUR_KEY";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -1765,7 +1701,7 @@ public class Translate {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -1793,16 +1729,13 @@ public class Translate {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I got sentence length during translation](#get-sentence-length-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
-
 # [Node.js](#tab/nodejs)
 
 ```javascript
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+var key = "YOUR_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
@@ -1814,7 +1747,7 @@ axios({
     url: '/translate',
     method: 'post',
     headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Key': key,
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -1833,15 +1766,13 @@ axios({
 })
 ```
 
-> [!div class="nextstepaction"]
-> [I got sentence length during translation](#get-sentence-length-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
 
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
+# Add your key and endpoint
+key = "YOUR_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
@@ -1856,10 +1787,9 @@ params = {
     'to': 'es',
     'includeSentenceLength': True
 }
-constructed_url = endpoint + path
 
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': key,
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -1875,8 +1805,7 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-> [!div class="nextstepaction"]
-> [I got sentence length during translation](#get-sentence-length-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
+
 
 ---
 
@@ -1926,7 +1855,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+    private static readonly string key = "YOUR-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
@@ -1949,7 +1878,7 @@ class Program
             request.Method = HttpMethod.Post;
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
@@ -1962,8 +1891,7 @@ class Program
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I got sentence length without translation](#dictionary-lookup-alternate-translations) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
+
 
 # [Go](#tab/go)
 
@@ -1980,14 +1908,14 @@ import (
 )
 
 func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    key := "YOUR-KEY"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/breaksentence?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     u.RawQuery = q.Encode()
@@ -2006,7 +1934,7 @@ func main() {
         log.Fatal(err)
     }
     // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Key", key)
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -2027,9 +1955,6 @@ func main() {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I got sentence length without translation](#dictionary-lookup-alternate-translations) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
-
 # [Java](#tab/java)
 
 ```java
@@ -2040,7 +1965,7 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class BreakSentence {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+    private static String key = "YOUR_KEY";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -2062,7 +1987,7 @@ public class BreakSentence {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -2090,8 +2015,7 @@ public class BreakSentence {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I got sentence length without translation](#dictionary-lookup-alternate-translations) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
+
 
 # [Node.js](#tab/nodejs)
 
@@ -2099,7 +2023,7 @@ public class BreakSentence {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+var key = "YOUR_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
@@ -2111,7 +2035,7 @@ axios({
     url: '/breaksentence',
     method: 'post',
     headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Key': key,
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -2128,15 +2052,14 @@ axios({
 })
 ```
 
-> [!div class="nextstepaction"]
-> [I got sentence length without translation](#dictionary-lookup-alternate-translations) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
+
 
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
+# Add your key and endpoint
+key = "YOUR_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
@@ -2149,10 +2072,9 @@ constructed_url = endpoint + path
 params = {
     'api-version': '3.0'
 }
-constructed_url = endpoint + path
 
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': key,
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -2169,8 +2091,6 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 ```
 
-> [!div class="nextstepaction"]
-> [I got sentence length without translation](#dictionary-lookup-alternate-translations) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
 
 ---
 
@@ -2207,7 +2127,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+    private static readonly string key = "YOUR-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
@@ -2229,7 +2149,7 @@ class Program
             request.Method = HttpMethod.Post;
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
@@ -2242,8 +2162,6 @@ class Program
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I got alternate translations](#dictionary-examples-translations-in-context) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
 
 # [Go](#tab/go)
 
@@ -2260,14 +2178,14 @@ import (
 )
 
 func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    key := "YOUR-KEY"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/lookup?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("from", "en")
@@ -2288,7 +2206,7 @@ func main() {
         log.Fatal(err)
     }
     // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Key", key)
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -2309,8 +2227,6 @@ func main() {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I got alternate translations](#dictionary-examples-translations-in-context) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
 
 # [Java](#tab/java)
 
@@ -2322,7 +2238,7 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class DictionaryLookup {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+    private static String key = "YOUR_KEY";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -2346,7 +2262,7 @@ public class DictionaryLookup {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Shark\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -2374,8 +2290,7 @@ public class DictionaryLookup {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I got alternate translations](#dictionary-examples-translations-in-context) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
+
 
 # [Node.js](#tab/nodejs)
 
@@ -2383,7 +2298,7 @@ public class DictionaryLookup {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+var key = "YOUR_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
@@ -2395,7 +2310,7 @@ axios({
     url: '/dictionary/lookup',
     method: 'post',
     headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Key': key,
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -2414,15 +2329,13 @@ axios({
 })
 ```
 
-> [!div class="nextstepaction"]
-> [I got alternate translations](#dictionary-examples-translations-in-context) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
 
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
+# Add your key and endpoint
+key = "YOUR_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
@@ -2437,10 +2350,9 @@ params = {
     'from': 'en',
     'to': 'es'
 }
-constructed_url = endpoint + path
 
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': key,
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -2456,8 +2368,6 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-> [!div class="nextstepaction"]
-> [I got alternate translations](#dictionary-examples-translations-in-context) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
 
 ---
 
@@ -2519,7 +2429,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+    private static readonly string key = "YOUR-KEY";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
@@ -2540,7 +2450,7 @@ class Program
             request.Method = HttpMethod.Post;
             request.RequestUri = new Uri(endpoint + route);
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
     
             // Send the request and get response.
@@ -2553,8 +2463,7 @@ class Program
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I got translations in context](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
+
 
 # [Go](#tab/go)
 
@@ -2571,14 +2480,14 @@ import (
 )
 
 func main() {
-    subscriptionKey := "YOUR-SUBSCRIPTION-KEY"
+    key := "YOUR-KEY"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/examples?api-version=3.0"
 
-    // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("from", "en")
@@ -2603,7 +2512,7 @@ func main() {
         log.Fatal(err)
     }
     // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+    req.Header.Add("Ocp-Apim-Subscription-Key", key)
     req.Header.Add("Ocp-Apim-Subscription-Region", location)
     req.Header.Add("Content-Type", "application/json")
 
@@ -2624,8 +2533,6 @@ func main() {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I got translations in context](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
 
 # [Java](#tab/java)
 
@@ -2637,7 +2544,7 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class DictionaryExamples {
-    private static String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+    private static String key = "YOUR_KEY";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -2661,7 +2568,7 @@ public class DictionaryExamples {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Shark\", \"Translation\": \"tiburón\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -2689,8 +2596,6 @@ public class DictionaryExamples {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [I got translations in context](#troubleshooting) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
 
 # [Node.js](#tab/nodejs)
 
@@ -2698,7 +2603,7 @@ public class DictionaryExamples {
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+var key = "YOUR_KEY";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
@@ -2710,7 +2615,7 @@ axios({
     url: '/dictionary/examples',
     method: 'post',
     headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'Ocp-Apim-Subscription-Key': key,
         'Ocp-Apim-Subscription-Region': location,
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
@@ -2730,15 +2635,13 @@ axios({
 })
 ```
 
-> [!div class="nextstepaction"]
-> [I got translations in context](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
 
 # [Python](#tab/python)
 ```python
 import requests, uuid, json
 
-# Add your subscription key and endpoint
-subscription_key = "YOUR_SUBSCRIPTION_KEY"
+# Add your key and endpoint
+key = "YOUR_KEY"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
@@ -2753,10 +2656,9 @@ params = {
     'from': 'en',
     'to': 'es'
 }
-constructed_url = endpoint + path
 
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': key,
     'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
@@ -2774,8 +2676,7 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-> [!div class="nextstepaction"]
-> [I got translations in context](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
+
 
 ---
 
@@ -2824,7 +2725,7 @@ After a successful call, you should see the following response. For more informa
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. |
 | 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
-| 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. *See also* [Authentication](reference/v3-0-reference.md#authentication).|
+| 401 | Unauthorized | The request is not authorized. Check to make sure your key or token is valid and in the correct region. *See also* [Authentication](reference/v3-0-reference.md#authentication).|
 | 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
 | 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
 

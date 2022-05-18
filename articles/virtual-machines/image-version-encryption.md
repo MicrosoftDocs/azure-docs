@@ -3,11 +3,12 @@ title: Create an image version encrypted with your own keys
 description: Create an image version in an Azure Compute Gallery, by using customer-managed encryption keys.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 7/1/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Use customer-managed keys for encrypting images
@@ -101,7 +102,7 @@ For data disks, add the `-DiskEncryptionSetId $setID` parameter when you use [Ad
 
 ## CLI 
 
-To specify a disk encryption set for an image version, use [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a comma-separated list of keys for encrypting the OS and data disks. It should look like this: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
+To specify a disk encryption set for an image version, use [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a comma-separated list of keys for encrypting the OS and data disks. It should look like this: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
 
 If the source for the OS disk is a managed disk or a VM, use `--managed-image` to specify the source for the image version. In this example, the source is a managed image that has an OS disk and a data disk at LUN 0. The OS disk will be encrypted with DiskEncryptionSet1, and the data disk will be encrypted with DiskEncryptionSet2.
 

@@ -1,8 +1,8 @@
 ---
 title: 'Dasv5 and Dadsv5-series - Azure Virtual Machines'
 description: Specifications for the Dasv5 and Dadsv5-series VMs. 
-author: brbell 
-ms.author: brbell
+author: mamccrea 
+ms.author: mamccrea
 ms.reviewer: mimckitt
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general
@@ -32,7 +32,9 @@ Dasv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 [Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
 [VM Generation Support](generation-2.md): Generation 1 and 2 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br><br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
@@ -62,7 +64,9 @@ Dadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 [Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
 [VM Generation Support](generation-2.md): Generation 1 and 2 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br><br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -71,7 +75,7 @@ Dadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 | Standard_D8ads_v5  | 8  | 32  | 300  | 16 | 38000 / 500   | 12800/200  | 20000/600  | 4 | 12500  |
 | Standard_D16ads_v5 | 16 | 64  | 600  | 32 | 75000 / 1000  | 25600/384  | 40000/800  | 8 | 12500 |
 | Standard_D32ads_v5 | 32 | 128 | 1200 | 32 | 150000 / 2000 | 51200/768  | 80000/1000 | 8 | 16000 |
-| Standard_D48ads_v5 | 48 | 192 | 1800 | 32 | 225000 / 3000 | 76800/1152 | 80000/200 | 8 | 24000 |
+| Standard_D48ads_v5 | 48 | 192 | 1800 | 32 | 225000 / 3000 | 76800/1152 | 80000/2000 | 8 | 24000 |
 | Standard_D64ads_v5 | 64 | 256 | 2400 | 32 | 300000 / 4000 | 80000/1200 | 80000/2000 | 8 | 32000 |
 | Standard_D96ads_v5 | 96 | 384 | 3600 | 32 | 450000 / 4000 | 80000/1600 | 80000/2000 | 8 | 40000 |
 

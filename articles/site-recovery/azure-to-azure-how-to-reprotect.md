@@ -43,6 +43,7 @@ You can customize the following properties of the target VM during reprotection.
 |---------|---------|
 |Target resource group | Modify the target resource group in which the VM is created. As the part of reprotection, the target VM is deleted. You can choose a new resource group under which to create the VM after failover. |
 |Target virtual network | The target network can't be changed during the reprotect job. To change the network, redo the network mapping. |
+|Capacity reservation | Configure a capacity reservation for the VM. You can create a new capacity reservation group to reserve capacity or select an existing capacity reservation group. [Learn more](azure-to-azure-how-to-enable-replication.md#enable-replication) about capacity reservation. |
 |Target storage (Secondary VM doesn't use managed disks) | You can change the storage account that the VM uses after failover. |
 |Replica managed disks (Secondary VM uses managed disks) | Site Recovery creates replica managed disks in the primary region to mirror the secondary VM's managed disks. |
 |Cache storage | You can specify a cache storage account to be used during replication. By default, a new cache storage account is created, if it doesn't exist. |

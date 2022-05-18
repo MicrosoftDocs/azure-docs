@@ -8,9 +8,11 @@ zone_pivot_groups: video-analyzer-programming-languages
 ms.custom: ignite-fall-2021, mode-other
 ---
 
-# Quickstart: Analyze live video with your own model - gRPC
+# Quickstart: Analyze a live video feed from a (simulated) IP camera using your own gRPC model
 
 [!INCLUDE [header](includes/edge-env.md)]
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 This quickstart shows you how to use Azure Video Analyzer to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed is sent to an inference service. The results are sent to IoT Edge Hub.
 

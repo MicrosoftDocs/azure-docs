@@ -3,10 +3,8 @@ title: Monitor Python applications with Azure Monitor | Microsoft Docs
 description: Provides instructions to wire up OpenCensus Python with Azure Monitor
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.reviewer: mbullwin
+ms.devlang: python
 ms.custom: devx-track-python
-author: lzchen
-ms.author: lechen
 ---
 
 # Set up Azure Monitor for your Python application
@@ -27,6 +25,8 @@ You may have noted that OpenCensus is converging into [OpenTelemetry](https://op
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The Opencensus Python SDK only supports Python v2.7 and v3.4+.
 - Create an Application Insights [resource](./create-new-resource.md). You'll be assigned your own instrumentation key (ikey) for your resource.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Introducing Opencensus Python SDK
 
@@ -524,6 +524,10 @@ Each exporter accepts the same arguments for configuration, passed through the c
 - `max_batch_size`: Specifies the maximum size of telemetry that's exported at once.
 - `proxies`: Specifies a sequence of proxies to use for sending data to Azure Monitor. For more information, see [proxies](https://requests.readthedocs.io/en/master/user/advanced/#proxies).
 - `storage_path`: A path to where the local storage folder exists (unsent telemetry). As of `opencensus-ext-azure` v1.0.3, the default path is the OS temp directory + `opencensus-python` + `your-ikey`. Prior to v1.0.3, the default path is $USER + `.opencensus` + `.azure` + `python-file-name`.
+
+## Integrate with Azure Functions
+
+Users who want to capture custom telemetry in Azure Functions environments are encouraged to used the OpenCensus Python Azure Functions [extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure/tree/main/extensions/functions#opencensus-python-azure-functions-extension). More details can be found in this [document](../../azure-functions/functions-reference-python.md#log-custom-telemetry).
 
 ## Authentication (preview)
 > [!NOTE]

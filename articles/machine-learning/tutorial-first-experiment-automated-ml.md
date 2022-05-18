@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-author: cartacioS
-ms.author: sacartac
+author: blackmist
+ms.author: larryfr
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
@@ -81,11 +81,9 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. On the **Datastore and file selection** form, select the default datastore that was automatically set up during your workspace creation, **workspaceblobstore (Azure Blob Storage)**. This is where you'll upload your data file to make it available to your workspace.
 
-    1. Select **Browse**.
+    1. Select **Upload files** from the **Upload** drop-down.
     
     1. Choose the **bankmarketing_train.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
-
-    1. Give your dataset a unique name and provide an optional description. 
 
     1. Select **Next** on the bottom left, to  upload it to the default container that was automatically set up during your workspace creation.  
     
@@ -131,7 +129,8 @@ After you load and configure your data, you can set up your experiment. This set
 
             Field | Description | Value for tutorial
             ----|---|---
-            Virtual&nbsp;machine&nbsp;priority |Select what priority your experiment should have| Dedicated
+            Location | Your region that you'd like to run the machine from |West US 2
+            Virtual&nbsp;machine&nbsp;tier |Select what priority your experiment should have| Dedicated
             Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
             Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute. A list of recommended sizes is provided based on your data and experiment type. |Standard_DS12_V2
         
@@ -165,12 +164,17 @@ After you load and configure your data, you can set up your experiment. This set
         Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted
         Explain best model| Automatically shows explainability on the best model created by automated ML.| Enable
         Blocked algorithms | Algorithms you want to exclude from the training job| None
+        Additional&nbsp;classification settings | These settings help improve the accuracy of your model |Positive class label: None
         Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 1 <br> Metric&nbsp;score&nbsp;threshold: None
-        Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 2
         Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 5
         
         Select **Save**.
+    1. Select **Next**.
     
+1. On the **[Optional] Validate and test** form, 
+    1. Select k-fold cross-validation as your **Validation type**.
+    1.  Select 2 as your **Number of cross validations**.
+
 1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio to inform you of the status of your experiment.
 
 >[!IMPORTANT]
@@ -226,7 +230,7 @@ We deploy this model, but be advised, deployment takes about 20 minutes to compl
 
 1. Select **VotingEnsemble** to open the model-specific page.
 
-1. Select the **Deploy** button in the top-left.
+1. Select the **Deploy** menu in the top-left and select **Deploy to web service**.
 
 1. Populate the **Deploy a model** pane as follows:
 
@@ -234,7 +238,7 @@ We deploy this model, but be advised, deployment takes about 20 minutes to compl
     ----|----
     Deployment name| my-automl-deploy
     Deployment description| My first automated machine learning experiment deployment
-    Compute type | Select Azure Compute Instance (ACI)
+    Compute type | Select Azure Container Instance (ACI)
     Enable authentication| Disable. 
     Use custom deployments| Disable. Allows for the default driver file (scoring script) and environment file to be auto-generated. 
     

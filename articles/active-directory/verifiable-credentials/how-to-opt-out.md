@@ -3,14 +3,14 @@ title: Opt out of the Azure Active Directory Verifiable Credentials (preview)
 description: Learn how to Opt Out of the Verifiable Credentials Preview
 documentationCenter: ''
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 04/01/2021
+ms.date: 02/08/2022
 ms.author: barclayn
 
-#Customer intent: As an administrator I am looking for information to help me disable 
+#Customer intent: As an administrator, I am looking for information to help me disable 
 ---
 
 # Opt out of the verifiable credentials (preview)
@@ -24,47 +24,48 @@ In this article:
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
 - Complete verifiable credentials onboarding.
 
-## Potential reasons for opting out
+## When do you need to opt out?
 
-At this time, we don't have the ability to make modifications to the domain information. As a result, if you make a mistake or decide that you want to make a change, there is no other option available besides opting out and starting again.
+Opting out is a one-way operation, after you opt-out your Azure Active Directory Verifiable Credentials environment will be reset. During the Public Preview opting out may be required to:
+- Enable new service capabilities.
+- Reset your service configuration.
 
-## The steps required
-
-1. From the Azure portal search for verifiable credentials.
-2. Choose **Settings** from the left side menu.
-3. Under the section, **Reset your organization**, select **Delete all credentials, and opt out of preview**.
-
-   ![settings reset org](media/how-to-opt-out/settings-reset.png)
-
-4. Read the warning message and to continue select **Delete and opt out**.
-
-   ![settings delete and opt out](media/how-to-opt-out/delete-and-opt-out.png)
-
-You have now opted out of the Verifiable Credentials Preview. Keep reading to understand what is happening under the hood.
-
-## What happens to your data?
+## What happens to your data when you opt-out?
 
 When you complete opting out of the Azure Active Directory Verifiable Credentials service, the following actions will take place:
 
 - The DID keys in Key Vault will be [soft deleted](../../key-vault/general/soft-delete-overview.md).
 - The issuer object will be deleted from our database.
-- The tenant identifer will be deleted from our database. 
-- All of the contracts objects will be deleted from our database.
+- The tenant identifier will be deleted from our database.
+- All of the verifiable credentials contracts will be deleted from our database.
 
-Once an opt-out takes place, you will not be able to recover your DID or conduct any operations on your DID. This step is a one-way operation, and you need to opt in again, which results in a new DID being created.  
+Once an opt-out takes place, you won't be able to recover your DID or conduct any operations on your DID. This step is a one-way operation, and you need to opt in again, which results in a new environment being created.
 
 ## Effect on existing verifiable credentials
 
-All verifiable credentials already issued will continue to exist. They will not be cryptographically invalidated as your DID will remain resolvable through ION.
-However, when relying parties call the status API, they will always receive back a failure message.
+All verifiable credentials already issued will continue to exist. They won't be cryptographically invalidated as your DID will remain resolvable through ION.
+However, when relying parties call the status API, they will always receive back a failure message.  
+
+## How to opt-out from the Azure Active Directory Verifiable Credentials Public Preview?
+
+1. From the Azure portal search for verifiable credentials.
+2. Choose **Organization Settings** from the left side menu.
+3. Under the section, **Reset your organization**, select **Delete all credentials, and opt out of preview**.
+
+    :::image type="content" source="media/how-to-opt-out/settings-reset.png" alt-text="Section in settings that allows you to reset your organization":::
+
+
+4. Read the warning message and to continue select **Delete and opt out**.
+
+    :::image type="content" source="media/how-to-opt-out/delete-and-opt-out.png" alt-text="settings delete and opt out":::
 
 ## Next steps
 
-- Set up verifiable credentials on your [Azure tenant](get-started-verifiable-credentials.md)
+- Set up verifiable credentials on your [Azure tenant](verifiable-credentials-configure-tenant.md)

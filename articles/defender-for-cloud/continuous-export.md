@@ -2,12 +2,12 @@
 title: Continuous export can send Microsoft Defender for Cloud's alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
 description: Learn how to configure continuous export of security alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.author: benmansheim
+author: bmansheim
+ms.date: 12/09/2021
 
 ---
 # Continuously export Microsoft Defender for Cloud data
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Microsoft Defender for Cloud generates detailed security alerts and recommendations. You can view them in the portal or through programmatic tools. You might also need to export some or all of this information for tracking with other monitoring tools in your environment. 
 
@@ -37,7 +37,7 @@ This article describes how to configure continuous export to Log Analytics works
 |Pricing:|Free|
 |Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource.</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li><li>To export data to Event Hub, you'll need Write permission on the Event Hub Policy.</li><li>To export to a Log Analytics workspace:<ul><li>if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`</li><li>if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`</li><li>Learn more about [Azure Monitor and Log Analytics workspace solutions](../azure-monitor/insights/solutions.md)</li></ul></li></ul>|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)| 
-|||
+
 
 
 ## What data types can be exported?
@@ -47,8 +47,8 @@ Continuous export can export the following data types whenever they change:
 - Security alerts.
 - Security recommendations.
 - Security findings. These can be thought of as 'sub' recommendations and belong to a 'parent' recommendation. For example:
-    - The recommendation "System updates should be installed on your machines" will have a ‘sub’ recommendation for every outstanding system update.
-    - The recommendation “Vulnerabilities in your virtual machines should be remediated” will have a ‘sub’ recommendation for every vulnerability identified by the vulnerability scanner.
+    - The recommendations [System updates should be installed on your machines (powered by Update Center)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e1145ab1-eb4f-43d8-911b-36ddf771d13f) and [System updates should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4ab6e3c5-74dd-8b35-9ab9-f61b30875b27) each has one 'sub' recommendation per outstanding system update.
+    - The recommendation [Machines should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1195afff-c881-495e-9bc5-1486211ae03f) has a 'sub' recommendation for every vulnerability identified by the vulnerability scanner.
     > [!NOTE]
     > If you’re configuring a continuous export with the REST API, always include the parent with the findings. 
 - Secure score per subscription or per control.
@@ -82,11 +82,11 @@ The steps below are necessary whether you're setting up a continuous export to L
     - **Snapshots** – a snapshot of the current state of the selected data types will be sent once a week per subscription. To identify snapshot data, look for the field ``IsSnapshot``.
 
 1. Optionally, if your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:
-    - SQL databases should have vulnerability findings resolved
-    - SQL servers on machines should have vulnerability findings resolved
-    - Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
-    - Vulnerabilities in your virtual machines should be remediated
-    - System updates should be installed on your machines
+    - [SQL databases should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/82e20e14-edc5-4373-bfc4-f13121257c37)
+    - [SQL servers on machines should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f97aa83c-9b63-4f9a-99f6-b22c4398f936)
+    - [Container registry images should have vulnerability findings resolved (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648)
+    - [Machines should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1195afff-c881-495e-9bc5-1486211ae03f)
+    - [System updates should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4ab6e3c5-74dd-8b35-9ab9-f61b30875b27)
 
     To include the findings with these recommendations, enable the **include security findings** option.
 
@@ -134,7 +134,7 @@ To deploy your continuous export configurations across your organization, use th
     |---------|---------|---------|
     |Continuous export to Event Hub|[Deploy export to Event Hub for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
     |Continuous export to Log Analytics workspace|[Deploy export to Log Analytics workspace for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
-    ||||
+
 
     > [!TIP]
     > You can also find these by searching Azure Policy:

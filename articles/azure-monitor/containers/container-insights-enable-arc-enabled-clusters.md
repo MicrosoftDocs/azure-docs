@@ -48,6 +48,8 @@ description: "Collect metrics and logs of Azure Arc-enabled Kubernetes clusters 
     | `dc.services.visualstudio.com` | 443 |
     
 
+- If you are using an Arc enabled cluster on AKS, and previously installed [monitoring for AKS](./container-insights-enable-existing-clusters.md), please ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install
+
 - If you had previously deployed Azure Monitor Container Insights on this cluster using script without cluster extensions, follow the instructions listed [here](container-insights-optout-hybrid.md) to delete this Helm chart. You can then continue to creating a cluster extension instance for Azure Monitor Container Insights.
 
 
@@ -69,7 +71,7 @@ Run the following commands to locate the full Azure Resource Manager identifier 
 
 3. The following example displays the list of workspaces in your subscriptions in the default JSON format.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
@@ -183,7 +185,7 @@ az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-nam
 
 The following command only deletes the extension instance, but doesn't delete the Log Analytics workspace. The data within the Log Analytics resource is left intact.
 
-```bash
+```azurecli
 az k8s-extension delete --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group>
 ```
 

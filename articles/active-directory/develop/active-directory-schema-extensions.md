@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin, jeedes, luleon
+ms.reviewer: paulgarn, ludwignick, jeedes, luleon
 ---
 # Using directory schema extension attributes in claims
 

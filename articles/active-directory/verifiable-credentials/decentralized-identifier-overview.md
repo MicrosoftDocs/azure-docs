@@ -3,7 +3,7 @@ title: Introduction to Azure Active Directory Verifiable Credentials (preview)
 description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn
-manager: karenh444
+manager: karenhoran
 editor:
 ms.service: active-directory
 ms.subservice: verifiable-credentials
@@ -94,9 +94,9 @@ The scenario we use to explain how VCs work involves:
 
 
 
-Today, Alice provides a username and password to log onto Woodgrove’s networked environment. Woodgrove is deploying a VC solution to provide a more manageable way for Alice to prove she is an employee of Woodgrove. Proseware is using a VC solution compatible with Woodgrove's VC solution and they accept credentials issued by Woodgrove as proof of employment.
+Today, Alice provides a username and password to log onto Woodgrove’s networked environment. Woodgrove is deploying a verifiable credential solution to provide a more manageable way for Alice to prove that she is an employee of Woodgrove. Proseware accepts verifiable credentials issued by Woodgrove as proof of employment to offer corporate discounts as part of their corporate discount program.
 
-The issuer of the credential, Woodgrove Inc., creates a public key and a private key. The public key is stored on ION. When the key is added to the infrastructure, the entry is recorded in a blockchain-based decentralized ledger. The issuer provides Alice the private key that is stored in a wallet application. Each time Alice successfully uses the private key the transaction is logged in the wallet application.
+Alice requests Woodgrove Inc for a proof of employment verifiable credential. Woodgrove Inc attests Alice's identiy and issues a signed verfiable credential that Alice can accept and store in her digital wallet application. Alice can now present this verifiable credential as a proof of employement on the Proseware site. After a succesfull presentation of the credential, Prosware offers discount to Alice and the transaction is logged in Alice's wallet application so that she can track where and to whom she has presented her proof of employment verifiable credential.
 
 ![microsoft-did-overview](media/decentralized-identifier-overview/did-overview.png)
 

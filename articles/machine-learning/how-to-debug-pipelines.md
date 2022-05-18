@@ -5,8 +5,8 @@ description: How to troubleshoot when you get errors running a machine learning 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: lobrien
-ms.author: laobri
+author: blackmist
+ms.author: larryfr
 ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
@@ -209,11 +209,11 @@ run.log("scalar_value", 0.95)
 # Python print statement
 print("I am a python print statement, I will be sent to the driver logs.")
 
-# Initialize python logger
+# Initialize Python logger
 logger = logging.getLogger(__name__)
 logger.setLevel(args.log_level)
 
-# Plain python logging statements
+# Plain Python logging statements
 logger.debug("I am a plain debug statement, I will be sent to the driver logs.")
 logger.info("I am a plain info statement, I will be sent to the driver logs.")
 
@@ -253,7 +253,7 @@ You can also find the log files for specific runs in the pipeline run detail pag
 
 1. Select a component in the preview pane.
 1. In the right pane of the component, go to the  **Outputs + logs** tab.
-1. Expand the right pane to view the **70_driver_log.txt** file in browser, or select the file to download the logs locally.
+1. Expand the right pane to view the **std_log.txt** file in browser, or select the file to download the logs locally.
 
 > [!IMPORTANT]
 > To update a pipeline from the pipeline run details page, you must **clone** the pipeline run to a new pipeline draft. A pipeline run is a snapshot of the pipeline. It's similar to a log file, and cannot be altered. 

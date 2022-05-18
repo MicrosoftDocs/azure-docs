@@ -1,509 +1,361 @@
 ---
-title: 'Tutorial: ASP.NET Core with Azure SQL Database' 
-description: Learn how to get a .NET Core app working in Azure App Service, with connection to an Azure SQL Database.
-
-ms.devlang: dotnet
+title: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service
+description: Learn how to deploy an ASP.NET Core web app to Azure App Service and connect to an Azure SQL Database.
 ms.topic: tutorial
-ms.date: 10/06/2021
-ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli"
-zone_pivot_groups: app-service-platform-windows-linux
+ms.date: 03/02/2022
+author: alexwolfmsft
+ms.author: alexwolf
+ms.devlang: csharp
+ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli, devdivchpfy22"
 ---
 
-# Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service
+# Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service
 
-::: zone pivot="platform-windows"  
+In this tutorial, you'll learn how to deploy an ASP.NET Core app to Azure App Service and connect to an Azure SQL Database. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. Although this tutorial uses an ASP.NET Core 6.0 app, the process is the same for other versions of ASP.NET Core and ASP.NET Framework.
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create an ASP.NET Core app and connect it to SQL Database. When you're done, you'll have a .NET MVC app running in App Service on Windows.
+This article assumes you're familiar with [.NET](https://dotnet.microsoft.com/download/dotnet/6.0) and have it installed locally. You'll also need an Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
 
-::: zone-end
+## 1 - Set up the Sample Application
 
-::: zone pivot="platform-linux"
+To follow along with this tutorial, [Download the Sample Project](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore/archive/refs/heads/main.zip) from the repository [https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore) or clone it using the Git command below:
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create an ASP.NET Core app and connect it to a SQL Database. When you're done, you'll have an ASP.NET Core MVC app running in App Service on Linux.
+```terminal
+git clone https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore.git
+cd msdocs-app-service-sqldb-dotnetcore
+```
 
-::: zone-end
+:::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
 
-![app running in App Service](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+## 2 - Create the App Service
 
-In this tutorial, you learn how to:
+Let's first create the Azure App Service that hosts our deployed Web App. There are several different ways to create an App Service depending on your ideal workflow.
 
-> [!div class="checklist"]
-> * Create a SQL Database in Azure
-> * Connect an ASP.NET Core app to SQL Database
-> * Deploy the app to Azure
-> * Update the data model and redeploy the app
-> * Stream diagnostic logs from Azure
-> * Manage the app in the Azure portal
+### [Azure portal](#tab/azure-portal)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources:
 
-## Prerequisites
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Create app service step 1](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-1.png"::: |
+| [!INCLUDE [Create app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-2.png"::: |
+| [!INCLUDE [Create app service step 3](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-03.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-3-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-3.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-04.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-4-240px.png" alt-text="A screenshot of the Spec Picker dialog that lets you select the App Service plan to use for your web app." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-4.png"::: |
+| [!INCLUDE [Create app service step 5](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-05.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-5-240px.png" alt-text="A screenshot of the main web app create page showing the button to select on to create your web app in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-service-5.png"::: |
 
-To complete this tutorial:
+### [Azure CLI](#tab/azure-cli)
 
-- <a href="https://git-scm.com/" target="_blank">Install Git</a>
-- <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">Install the latest .NET 5.0 SDK</a>
+You can run Azure CLI commands in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-## Create local ASP.NET Core app
-
-In this step, you set up the local ASP.NET Core project.
-
-### Clone the sample application
-
-1. In the terminal window, `cd` to a working directory.
-
-1. Run the following commands to clone the sample repository and change to its root.
-
-    ```bash
-    git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
-    cd dotnetcore-sqldb-tutorial
-    ```
-
-    The sample project contains a basic CRUD (create-read-update-delete) app using [Entity Framework Core](/ef/core/).
-
-1. Make sure the default branch is `main`.
-
-    ```bash
-    git branch -m main
-    ```
-    
-    > [!TIP]
-    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main` (see [Change deployment branch](deploy-local-git.md#change-deployment-branch)), this tutorial also shows you how to deploy a repository from `main`.
-
-### Run the application
-
-1. Run the following commands to install the required packages, run database migrations, and start the application.
-
-    ```bash
-    dotnet tool install -g dotnet-ef
-    dotnet ef database update
-    dotnet run
-    ```
-
-1. Navigate to `http://localhost:5000` in a browser. Select the **Create New** link and create a couple _to-do_ items.
-
-    ![connects successfully to SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
-
-1. To stop ASP.NET Core at any time, press `Ctrl+C` in the terminal.
-
-## Create production SQL Database
-
-In this step, you create a SQL Database in Azure. When your app is deployed to Azure, it uses this cloud database.
-
-For SQL Database, this tutorial uses [Azure SQL Database](/azure/sql-database/).
-
-### Create a resource group
-
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
-
-### Create a SQL Database logical server
-
-In the Cloud Shell, create a SQL Database logical server with the [`az sql server create`](/cli/azure/sql/server#az_sql_server_create) command.
-
-Replace the *\<server-name>* placeholder with a *unique* SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, `<server-name>.database.windows.net`. Valid characters are `a`-`z`, `0`-`9`, `-`. Also, replace *\<db-username>* and *\<db-password>* with a username and password of your choice. 
-
+First, create a resource group using the [az group create](/cli/azure/group#az-group-create) command. The resource group acts as a container for all of the Azure resources related to this application.
 
 ```azurecli-interactive
-az sql server create --name <server-name> --resource-group myResourceGroup --location "West Europe" --admin-user <db-username> --admin-password <db-password>
+# Use 'az account list-locations --output table' to list available locations close to you
+# Create a resource group
+az group create --location eastus --name msdocs-core-sql
 ```
 
-When the SQL Database logical server is created, the Azure CLI shows information similar to the following example:
+Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
-<pre>
-{
-  "administratorLogin": "&lt;db-username&gt;",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "&lt;server-name&gt;.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/&lt;server-name&gt;",
-  "identity": null,
-  "kind": "v12.0",
-  "location": "westeurope",
-  "name": "&lt;server-name&gt;",
-  "resourceGroup": "myResourceGroup",
-  "state": "Ready",
-  "tags": null,
-  "type": "Microsoft.Sql/servers",
-  "version": "12.0"
-}
-</pre>
-
-### Configure a server firewall rule
-
-1. Create an [Azure SQL Database server-level firewall rule](../azure-sql/database/firewall-configure.md) using the [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
-
-    ```azurecli-interactive
-    az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
-    ```
-    
-    > [!TIP] 
-    > You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](overview-inbound-outbound-ips.md#find-outbound-ips).
-    >
-
-1. In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your-ip-address>* with [your local IPv4 IP address](https://www.whatsmyip.org/).
-
-    ```azurecli-interactive
-    az sql server firewall-rule create --name AllowLocalClient --server <server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
-    ```
-
-### Create a database
-
-Create a database with an [S0 performance level](../azure-sql/database/service-tiers-dtu.md) in the server using the [`az sql db create`](/cli/azure/sql/db#az_sql_db_create) command.
+* The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan. This example uses the F1 (Free) service plan. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) page.
 
 ```azurecli-interactive
-az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
+
+ # Change 123 to any three characters to form a unique name
+az appservice plan create \
+    --name msdocs-core-sql-plan-123 \
+    --resource-group msdocs-core-sql \
+    --sku F1
 ```
 
-### Retrieve connection string
+Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az-webapp-create) command.  
 
-Get the connection string using the [`az sql db show-connection-string`](/cli/azure/sql/db#az_sql_db_show_connection_string) command.
+* The App Service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
+* The runtime specifies what version of .NET your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table` for Linux and `az webapp list-runtimes --os windows --output table` for Windows.
 
 ```azurecli-interactive
-az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
+
+az webapp create \
+    --name <your-app-service-name> \
+    --runtime "DOTNET|6.0" \
+    --plan <your-app-service-plan-name> \
+    --resource-group msdocs-core-sql
 ```
 
-In the command output, replace *\<username>*, and *\<password>* with the database administrator credentials you used earlier.
+---
 
-This is the connection string for your ASP.NET Core app. Copy it for use later.
+## 3 - Create the Database
 
-### Configure app to connect to production database
+Next, let's create the Azure SQL Database that manages the data in our app.
 
-In your local repository, open Startup.cs and find the following code:
+### [Azure portal](#tab/azure-portal)
 
-```csharp
-services.AddDbContext<MyDatabaseContext>(options =>
-        options.UseSqlite("Data Source=localdatabase.db"));
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources:
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Create database step 1](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Azure SQL in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-01.png"::: |
+| [!INCLUDE [Create database step 2](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-02-240px.png" alt-text="A screenshot showing the create button on the SQL Servers page used to create a new database server." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-02.png"::: |
+| [!INCLUDE [Create database step 3](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-03.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-03-240px.png" alt-text="A screenshot showing the form to fill out to create a SQL Server in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-03.png"::: |
+| [!INCLUDE [Create database step 4](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-04.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-04-240px.png" alt-text="A screenshot showing the form used to allow other Azure services to connect to the database." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-04.png"::: |
+| [!INCLUDE [Create database step 5](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-05.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-05-240px.png" alt-text="A screenshot showing how to use the search box to find the SQL databases item in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-05.png"::: |
+| [!INCLUDE [Create database step 6](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-06.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-06-240px.png" alt-text="A screenshot showing the create button in on the SQL databases page." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-06.png"::: |
+| [!INCLUDE [Create database step 7](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-07.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-07-240px.png" alt-text="A screenshot showing the form to fill out to create a new SQL database in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-07.png"::: |
+
+### [Azure CLI](#tab/azure-cli)
+
+First, create an Azure SQL Server to host the database. A new Azure SQL Server is created by using the [az sql server create ](/cli/azure/sql/server#az-sql-server-create) command.
+
+Replace the *server-name* placeholder with a unique SQL Database name. The SQL Database name is used as part of the globally unique SQL Database endpoint. Also, replace *db-username* and *db-username* with a username and password of your choice.
+
+```azurecli-interactive
+az sql server create \
+    --location eastus \
+    --resource-group msdocs-core-sql \
+    --name <server-name> \
+    --admin-user <db-username> \
+    --admin-password <db-password>
 ```
 
-Replace it with the following code.
+Setting up an SQL Server might take a few minutes. When the resource is available, we can create a database with the [az sql db create](/cli/azure/sql/db#az-sql-db-create) command.
 
-```csharp
-services.AddDbContext<MyDatabaseContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
+```azurecli-interactive
+az sql db create \
+    --resource-group msdocs-core-sql \
+    --server <server-name> \
+    --name coreDb
 ```
 
-> [!IMPORTANT]
-> For production apps that need to scale out, follow the best practices in [Applying migrations in production](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
-> 
+We also need to add the following firewall rule to our database server to allow other Azure resources to connect to it.
 
-### Run database migrations to the production database
+```azurecli-interactive
+az sql server firewall-rule create \
+    --resource-group msdocs-core-sql \
+    --server <server-name> \
+    --name AzureAccess \
+    --start-ip-address 0.0.0.0 \
+    --end-ip-address 0.0.0.0
+```
 
-Your app currently connects to a local Sqlite database. Now that you configured an Azure SQL Database, recreate the initial migration to target it. 
+---
 
-From the repository root, run the following commands. Replace *\<connection-string>* with the connection string you created earlier.
+## 4 - Deploy to the App Service
+
+We're now ready to deploy our .NET app to the App Service.
+
+### [Deploy using Visual Studio](#tab/visualstudio-deploy)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Deploy app service step 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-01-240px.png" alt-text="A screenshot showing the publish dialog in Visual Studio." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-01.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-02-240px.png" alt-text="A screenshot showing how to select the deployment target in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-02.png"::: |
+| [!INCLUDE [Deploy app service step 3](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-03.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-03-240px.png" alt-text="A screenshot showing the sign-in to Azure dialog in Visual Studio." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-03.png"::: |
+| [!INCLUDE [Deploy app service step 4](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-04.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-04-240px.png" alt-text="A screenshot showing the dialog to select the App Service instance to deploy to in Visual Studio." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-04.png"::: |
+| [!INCLUDE [Deploy app service step 5](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-05.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-05-240px.png" alt-text="A screenshot showing the publishing profile summary dialog in Visual Studio and the location of the publish button used to publish the app." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-05.png"::: |
+
+### [Deploy using Visual Studio Code](#tab/visual-studio-code-deploy)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Deploy app service step 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01-240px.png" alt-text="A screenshot showing how to install the Azure Account and App Service extensions in Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-01.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-folder-small.png" alt-text="A screenshot showing how to deploy using the publish folder." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-folder.png"::: :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-workflow-small.png" alt-text="A screenshot showing the command palette deployment workflow." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-publish-workflow.png"::: |
+
+### [Deploy using Local Git](#tab/azure-cli-deploy)
+
+[!INCLUDE [Deploy using Local Git](<./includes/tutorial-dotnetcore-sqldb-app/deploy-local-git.md>)]
+
+---
+
+## 5 - Connect the App to the Database
+
+Next, we must connect the App hosted in our App Service to our database using a Connection String.
+
+### [Azure portal](#tab/azure-portal)
+
+Sign in to the [Azure portal](https://portal.azure.com/) and follow the steps to create your Azure App Service resources:
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Connect Service step 1](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-connect-database-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-01-240px.png" alt-text="A screenshot showing how to locate the database used by the App in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-01.png"::: |
+| [!INCLUDE [Connect Service step 2](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-connect-database-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-02-240px.png" alt-text="A screenshot showing how to get the connection string used to connect to the database from the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-02.png"::: |
+| [!INCLUDE [Connect Service step 3](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-connect-database-03.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-03-240px.png" alt-text="A screenshot showing how to use the search box to find the App Service instance for the app in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-03.png"::: |
+| [!INCLUDE [Connect Service step 4](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-connect-database-04.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-04-240px.png" alt-text="A screenshot showing how to enter the connection string as an app setting for the web app in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-04.png"::: |
+
+### [Azure CLI](#tab/azure-cli)
+
+Run Azure CLI commands in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+
+We can retrieve the Connection String for our database using the [az sql db show-connection-string](/cli/azure/sql/db#az-sql-db-show-connection-string) command. This command allows us to add the Connection String to our App Service configuration settings. Copy this Connection String value for later use.
+
+```azurecli-interactive
+az sql db show-connection-string \
+    --client ado.net \
+    --name coreDb \
+    --server <your-server-name>
+```
+
+Next, let's assign the Connection String to our App Service using the command below. `MyDbConnection` is the name of the Connection String in our appsettings.json file, which means it gets loaded by our app during startup.
+
+Replace the username and password in the connection string with your own before running the command.
+
+```azurecli-interactive
+az webapp config connection-string set \
+    -g msdocs-core-sql \
+    -n <your-app-name> \
+    -t SQLServer \
+    --settings MyDbConnection=<your-connection-string>
 
 ```
-# Delete old migrations
-rm -r Migrations
-# Recreate migrations with UseSqlServer (see previous snippet)
-dotnet ef migrations add InitialCreate
 
-# Set connection string to production database
-# PowerShell
-$env:ConnectionStrings:MyDbConnection="<connection-string>"
-# CMD (no quotes)
-set ConnectionStrings:MyDbConnection=<connection-string>
-# Bash (no quotes)
-export ConnectionStrings__MyDbConnection=<connection-string>
+---
 
-# Run migrations
+## 6 - Generate the Database Schema
+
+To generate our database schema, we need to set up a firewall rule on our Database Server. This rule allows our local computer to connect to Azure. For this step, you'll need to know your local computer's IP address. For more information about how to find the IP address, [see here](https://whatismyipaddress.com/).  
+
+### [Azure portal](#tab/azure-portal)
+
+In the Azure portal:
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Generate schema step 1](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-generate-schema-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-schema-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find database server for the app in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-schema-01.png"::: |
+| [!INCLUDE [Generate schema step 2](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-generate-schema-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-schema-02-240px.png" alt-text="A screenshot showing how to allow access to the database server from your workstation's IP address in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-schema-02.png"::: |
+
+### [Azure CLI](#tab/azure-cli)
+
+Run the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) command to add a firewall rule to your SQL Server instance.
+
+```azurecli-interactive
+az sql server firewall-rule create --resource-group msdocs-core-sql --server <yoursqlserver> --name LocalAccess --start-ip-address <your-ip> --end-ip-address <your-ip>
+```
+
+---
+
+Next, update the appsettings.json file in our local app code with the [Connection String of our Azure SQL Database](#5---connect-the-app-to-the-database). The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
+
+```json
+"ConnectionStrings": {
+    "MyDbConnection": "Server=tcp:<your-server-name>.database.windows.net,1433;
+        Initial Catalog=coredb;
+        Persist Security Info=False;
+        User ID=<username>;Password=<password>;
+        Encrypt=True;
+        TrustServerCertificate=False;"
+  }
+```
+
+Finally, run the following commands to install the necessary CLI tools for Entity Framework Core. Create an initial database migration file and apply those changes to update the database:
+
+```dotnetcli
+dotnet tool install -g dotnet-ef \
+dotnet ef migrations add InitialCreate \
 dotnet ef database update
 ```
 
-### Run app with new configuration
+After the migration finishes, the correct schema is created.
 
-1. Now that database migrations is run on the production database, test your app by running:
+If you receive an error stating `Client with IP address xxx.xxx.xxx.xxx is not allowed to access the server`, that means the IP address you entered into your Azure firewall rule is incorrect. To fix this issue, update the Azure firewall rule with the IP address provided in the error message.
 
-    ```
-    dotnet run
-    ```
+## 7 - Browse the Deployed Application and File Directory
 
-1. Navigate to `http://localhost:5000` in a browser. Select the **Create New** link and create a couple _to-do_ items. Your app is now reading and writing data to the production database.
+Go back to your web app in the browser. You can always get back to your site by selecting the **Browse** link at the top of the App Service overview page. If you refresh the page, you can now create todos and see them displayed on the home page. Congratulations!
 
-1. Commit your local changes, then commit it into your Git repository. 
+:::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/app-success.png" alt-text="A screenshot showing the app successfully deployed to Azure." :::
 
-    ```bash
-    git add .
-    git commit -m "connect to SQLDB in Azure"
-    ```
+Next, let's take a closer look at the deployed files of our app using a tool called Kudu.
 
-You're now ready to deploy your code.
+Azure App Service provides a web-based diagnostics console named Kudu. Kudu lets you examine the server-hosting environment, view deployed files to Azure, review deployment history, and even open an SSH session into the hosting environment.
 
-## Deploy app to Azure
+To use Kudu, go to one of the following URLs. You'll need to sign into the Kudu site with your Azure credentials.
 
-In this step, you deploy your SQL Database-connected ASP.NET Core application to App Service.
+* For apps deployed in Free, Shared, Basic, Standard, and Premium App Service plans - `https:/<app-name>.scm.azurewebsites.net`
+* For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
+From the main page in Kudu, you can find information about the application-hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
 
-### Configure local git deployment
+:::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/kudu-main-page.png" alt-text="A screenshot showing the Kudu admin page." :::
 
-[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
+## 8 - Configure and Stream Application Logs
 
-### Create an App Service plan
+Azure App Service captures messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability. The contents of the App Service diagnostic logs can be reviewed in the Azure portal, Visual Studio Code, or using the Azure CLI.
 
-::: zone pivot="platform-windows"  
+### [Azure portal](#tab/azure-portal-logs)
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from Azure portal 1](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-stream-logs-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-stream-logs-1-240px.png" alt-text="A screenshot showing how to enable logging for the web app in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 2](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-stream-logs-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-stream-logs-2-240px.png" alt-text="A screenshot showing application logs in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-stream-logs-2.png"::: |
 
-::: zone-end
+### [Visual Studio Code](#tab/visual-studio-code-logs)
 
-::: zone pivot="platform-linux"
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from Visual Studio Code 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-1-240px.png" alt-text="A screenshot showing the menu item used to enable application logging for a web app in Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from Visual Studio Code 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-2-240px.png" alt-text="A screenshot showing the output stream of an application login Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-stream-logs-2.png"::: |
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+### [Azure CLI](#tab/azure-cli-logs)
 
-::: zone-end
+You can configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az-webapp-log-config) command.
 
-### Create a web app
-
-::: zone pivot="platform-windows"  
-
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)]
-
-::: zone-end
-
-::: zone pivot="platform-linux"
-
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
-
-::: zone-end
-
-### Configure connection string
-
-To set connection strings for your Azure app, use the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command in the Cloud Shell. In the following command, replace *\<app-name>*, as well as the *\<connection-string>* parameter with the connection string you created earlier.
-
-```azurecli-interactive
-az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLAzure
+```azurecli
+az webapp log config \
+    --web-server-logging 'filesystem' \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
 ```
 
-In ASP.NET Core, you can use this named connection string (`MyDbConnection`) using the standard pattern, like any connection string specified in *appsettings.json*. In this case, `MyDbConnection` is also defined in your *appsettings.json*. When running in App Service, the connection string defined in App Service takes precedence over the connection string defined in your *appsettings.json*. The code uses the *appsettings.json* value during local development, and the same code uses the App Service value when deployed.
+You can also stream logs directly to the console using the [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail) command.
 
-To see how the connection string is referenced in your code, see [Configure app to connect to production database](#configure-app-to-connect-to-production-database).
-
-### Push to Azure from Git
-
-[!INCLUDE [push-to-azure-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
-
-::: zone pivot="platform-windows"  
-
-   <pre>
-   Enumerating objects: 268, done.
-   Counting objects: 100% (268/268), done.
-   Compressing objects: 100% (171/171), done.
-   Writing objects: 100% (268/268), 1.18 MiB | 1.55 MiB/s, done.
-   Total 268 (delta 95), reused 251 (delta 87), pack-reused 0
-   remote: Resolving deltas: 100% (95/95), done.
-   remote: Updating branch 'main'.
-   remote: Updating submodules.
-   remote: Preparing deployment for commit id '64821c3558'.
-   remote: Generating deployment script.
-   remote: Project file path: .\DotNetCoreSqlDb.csproj
-   remote: Generating deployment script for ASP.NET MSBuild16 App
-   remote: Generated deployment script files
-   remote: Running deployment command...
-   remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
-   remote: .
-   remote: .
-   remote: .
-   remote: Finished successfully.
-   remote: Running post deployment command(s)...
-   remote: Triggering recycle (preview mode disabled).
-   remote: App container will begin restart within 10 seconds.
-   To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
-    * [new branch]      main -> main
-   </pre>
-
-::: zone-end
-
-::: zone pivot="platform-linux"
-
-   <pre>
-   Enumerating objects: 273, done.
-   Counting objects: 100% (273/273), done.
-   Delta compression using up to 4 threads
-   Compressing objects: 100% (175/175), done.
-   Writing objects: 100% (273/273), 1.19 MiB | 1.85 MiB/s, done.
-   Total 273 (delta 96), reused 259 (delta 88)
-   remote: Resolving deltas: 100% (96/96), done.
-   remote: Deploy Async
-   remote: Updating branch 'main'.
-   remote: Updating submodules.
-   remote: Preparing deployment for commit id 'cccecf86c5'.
-   remote: Repository path is /home/site/repository
-   remote: Running oryx build...
-   remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
-   remote: You can report issues at https://github.com/Microsoft/Oryx/issues
-   remote: .
-   remote: .
-   remote: .
-   remote: Done.
-   remote: Running post deployment command(s)...
-   remote: Triggering recycle (preview mode disabled).
-   remote: Deployment successful.
-   remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/cccecf86c56493ffa594e76ea1deb3abb3702d89/log'
-   To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
-    * [new branch]      main -> main
-   </pre>
-
-::: zone-end
-
-### Browse to the Azure app
-
-1. Browse to the deployed app using your web browser.
-
-    ```bash
-    http://<app-name>.azurewebsites.net
-    ```
-
-1. Add a few to-do items.
-
-    ![app running in App Service](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
-
-**Congratulations!** You're running a data-driven ASP.NET Core app in App Service.
-
-## Update locally and redeploy
-
-In this step, you make a change to your database schema and publish it to Azure.
-
-### Update your data model
-
-Open _Models/Todo.cs_ in the code editor. Add the following property to the `ToDo` class:
-
-```csharp
-public bool Done { get; set; }
+```azurecli
+az webapp log tail \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
 ```
 
-### Rerun database migrations
+Refresh the home page in the app or attempt other requests to generate some log messages. The output should look similar to the below output.
 
-Run a few commands to make updates to the production database.
-
-```bash
-dotnet ef migrations add AddProperty
-dotnet ef database update
+```Console
+2022-01-06T22:37:11  Welcome, you are now connected to log-streaming service. The default timeout is 2 hours. Change the timeout with the App Setting SCM_LOGSTREAM_TIMEOUT (in seconds).
+2022-01-06 22:37:16.195 +00:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET https://coresql456.azurewebsites.net/ - -
+2022-01-06 22:37:16.195 +00:00 [Trace] Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware: All hosts are allowed.
+2022-01-06 22:37:16.195 +00:00 [Debug] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The request path / does not match a supported file type
+2022-01-06 22:37:16.195 +00:00 [Debug] Microsoft.AspNetCore.Routing.Matching.DfaMatcher: 1 candidate(s) found for the request path '/'
+2022-01-06 22:37:16.195 +00:00 [Debug] Microsoft.AspNetCore.Routing.Matching.DfaMatcher: Endpoint 'DotNetCoresql-db.Controllers.TodosController.Index (DotNetCoresql-db)' with route pattern '{controller=Todos}/{action=Index}/{id?}' is valid for the request path '/'
 ```
 
-> [!NOTE]
-> If you open a new terminal window, you need to set the connection string to the production database in the terminal, like you did in [Run database migrations to the production database](#run-database-migrations-to-the-production-database).
->
+---
 
-### Use the new property
+## Clean up resources
 
-Make some changes in your code to use the `Done` property. For simplicity in this tutorial, you're only going to change the `Index` and `Create` views to see the property in action.
+When you're finished, you can delete all of the resources from Azure by deleting the resource group for the application. It deletes all of the resources contained inside the group.
 
-1. Open _Controllers/TodosController.cs_.
+### [Azure portal](#tab/azure-portal-resources)
 
-1. Find the `Create([Bind("ID,Description,CreatedDate")] Todo todo)` method and add `Done` to the list of properties in the `Bind` attribute. When you're done, your `Create()` method signature looks like the following code:
+Follow these steps while signed-in to the Azure portal to delete a resource group:
 
-    ```csharp
-    public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
-    ```
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group Azure portal 1](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-clean-resources-1.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for and navigate to a resource group in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-remove-resource-group-1.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 2](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-clean-resources-2.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-remove-resource-group-2.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 3](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-clean-resources-3.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-remove-resource-group-3.png"::: |
 
-1. Open _Views/Todos/Create.cshtml_.
+### [Visual Studio Code](#tab/visual-studio-code-resources)
 
-1. In the Razor code, you should see a `<div class="form-group">` element for `Description`, and then another `<div class="form-group">` element for `CreatedDate`. Immediately following these two elements, add another `<div class="form-group">` element for `Done`:
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group Visual Studio Code 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-clean-resources-1.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to delete a resource group in Visual Studio Code using the Azure Tools extension." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-remove-resource-group-1.png"::: |
+| [!INCLUDE [Remove resource group Visual Studio Code 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-code-clean-resources-2.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from Visual Studio Code." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-code-remove-resource-group-2.png"::: |
 
-    ```csharp
-    <div class="form-group">
-        <label asp-for="Done" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            <input asp-for="Done" class="form-control" />
-            <span asp-validation-for="Done" class="text-danger"></span>
-        </div>
-    </div>
-    ```
+### [Azure CLI](#tab/azure-cli-resources)
 
-1. Open _Views/Todos/Index.cshtml_.
+You can delete the resource group you created by using the [az group delete](/cli/azure/group#az-group-delete) command. Deleting the resource group deletes all of the resources contained within it.
 
-1. Search for the empty `<th></th>` element. Just above this element, add the following Razor code:
+```azurecli
+az group delete --name msdocs-core-sql
+```
 
-    ```csharp
-    <th>
-        @Html.DisplayNameFor(model => model.Done)
-    </th>
-    ```
+---
 
-1. Find the `<td>` element that contains the `asp-action` tag helpers. Just above this element, add the following Razor code:
-
-    ```csharp
-    <td>
-        @Html.DisplayFor(modelItem => item.Done)
-    </td>
-    ```
-
-That's all you need to see the changes in the `Index` and `Create` views.
-
-### Test your changes locally
-
-1. Run the app locally.
-
-    ```bash
-    dotnet run
-    ```
-
-    > [!NOTE]
-    > If you open a new terminal window, you need to set the connection string to the production database in the terminal, like you did in [Run database migrations to the production database](#run-database-migrations-to-the-production-database).
-    >
-
-1. In your browser, navigate to `http://localhost:5000/`. You can now add a to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that the `Edit` view doesn't show the `Done` field, because you didn't change the `Edit` view.
-
-### Publish changes to Azure
-
-1. Commit your changes to Git and push it to your App Service app.
-
-    ```bash
-    git add .
-    git commit -m "added done field"
-    git push azure main
-    ```
-
-1. Once the `git push` is complete, navigate to your App Service app and try adding a to-do item and check **Done**.
-
-    ![Azure app after Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
-
-All your existing to-do items are still displayed. When you republish your ASP.NET Core app, existing data in your SQL Database isn't lost. Also, Entity Framework Core Migrations only changes the data schema and leaves your existing data intact.
-
-## Stream diagnostic logs
-
-While the ASP.NET Core app runs in Azure App Service, you can get the console logs piped to the Cloud Shell. That way, you can get the same diagnostic messages to help you debug application errors.
-
-The sample project already follows the guidance for the [Azure App Service logging provider](/dotnet/core/extensions/logging-providers#azure-app-service) with two configuration changes:
-
-- Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
-- Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
-
-1. To set the ASP.NET Core [log level](/dotnet/core/extensions/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) command in the Cloud Shell.
-
-    ```azurecli-interactive
-    az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
-    ```
-
-    > [!NOTE]
-    > The project's log level is already set to `Information` in *appsettings.json*.
-
-1. To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az_webapp_log_tail) command in the Cloud Shell.
-
-    ```azurecli-interactive
-    az webapp log tail --name <app-name> --resource-group myResourceGroup
-    ```
-
-1. Once log streaming has started, refresh the Azure app in the browser to get some web traffic. You can now see console logs piped to the terminal. If you don't see console logs immediately, check again in 30 seconds.
-
-1. To stop log streaming at any time, type `Ctrl`+`C`.
-
-For more information on customizing the ASP.NET Core logs, see [Logging in .NET](/dotnet/core/extensions/logging).
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-
-<a name="next"></a>
 ## Next steps
-
-What you learned:
-
-> [!div class="checklist"]
-> * Create a SQL Database in Azure
-> * Connect a ASP.NET Core app to SQL Database
-> * Deploy the app to Azure
-> * Update the data model and redeploy the app
-> * Stream logs from Azure to your terminal
-> * Manage the app in the Azure portal
 
 Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
@@ -511,6 +363,9 @@ Advance to the next tutorial to learn how to map a custom DNS name to your app.
 > [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
 
 Or, check out other resources:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Connect to SQL Database from App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md)
 
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)

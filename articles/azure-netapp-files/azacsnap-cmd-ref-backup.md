@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: phjensen
@@ -160,6 +159,9 @@ In this example the *log file* name is `azacsnap-backup-bootVol.log` (see [Log f
 ## Log files
 
 The log file name is constructed from the following "(command name)-(the `-c` option)-(the config filename)".  For example, if running the command `azacsnap -c backup --configfile h80.json --retention 5 --prefix one-off` then the log file will be called `azacsnap-backup-h80.log`.  Or if using the `-c test` option with the same configuration file (e.g. `azacsnap -c test --configfile h80.json`) then the log file will be called `azacsnap-test-h80.log`.
+
+> [!NOTE]
+> Log files can be automatically maintained using [this guide](azacsnap-tips.md#manage-azacsnap-log-files).
 
 ## Next steps
 

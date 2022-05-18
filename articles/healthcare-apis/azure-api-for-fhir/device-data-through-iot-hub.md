@@ -6,7 +6,7 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 09/10/2021
+ms.date: 02/15/2022
 ms.author: rabhaiya
 ---
 
@@ -41,7 +41,7 @@ Setting up a message routing consists of two steps.
 ### Add an endpoint
 This step defines an endpoint to which the IoT Hub would route the data. Create this endpoint using either [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell command or [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint) CLI command, based on your preference.
 
-Here is the list of parameters to use with the command to create an endpoint:
+Here's the list of parameters to use with the command to create an endpoint:
 
 |PowerShell Parameter|CLI Parameter|Description|
 |---|---|---|
@@ -54,15 +54,15 @@ Here is the list of parameters to use with the command to create an endpoint:
 |ConnectionString|connection-string|Connection string to your Azure IoT Connector for FHIR. Use the value you obtained in the previous step.|
 
 ### Add a message route
-This step defines a message route using the endpoint created above. Create a route using either [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell command or [az iot hub route create](/cli/azure/iot/hub/route#az_iot_hub_route_create) CLI command, based on your preference.
+This step defines a message route using the endpoint created above. Create a route using either [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell command or [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create) CLI command, based on your preference.
 
-Here is the list of parameters to use with the command to add a message route:
+Here's the list of parameters to use with the command to add a message route:
 
 |PowerShell Parameter|CLI Parameter|Description|
 |---|---|---|
 |ResourceGroupName|g|Resource group name of your IoT Hub resource.|
 |Name|hub-name|Name of your IoT Hub resource.|
-|EndpointName|endpoint-name|Name of the endpoint you have created above.|
+|EndpointName|endpoint-name|Name of the endpoint you've created above.|
 |RouteName|route-name|A name you want to assign to message route being created.|
 |Source|source-type|Type of data to send to the endpoint. Use literal value of "DeviceMessages" for PowerShell and "devicemessages" for CLI.|
 
@@ -88,7 +88,7 @@ Use your device (real or simulated) to send the sample heart rate message shown 
 
 ## View device data in Azure API for FHIR
 
-You can view the FHIR Observation resource(s) created by Azure IoT Connector for FHIR using Postman. For more information, see [Access the FHIR service using Postman](./../use-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with the heart rate value submitted in the above sample message.
+You can view the FHIR Observation resource(s) created by Azure IoT Connector for FHIR using Postman. For more information, see [Access the FHIR service using Postman](./../fhir/use-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with the heart rate value submitted in the above sample message.
 
 > [!TIP]
 > Ensure that your user has appropriate access to Azure API for FHIR data plane. Use [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md) to assign required data plane roles.

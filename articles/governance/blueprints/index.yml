@@ -27,7 +27,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure Friday - Azure Blueprints Overview
-            url: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+            url: /Shows/Azure-Friday/An-overview-of-Azure-Blueprints
 
   - title: Get started
     linkLists:

@@ -37,7 +37,7 @@ Details for configuring IP address range restrictions for each data source type 
 
 * [Cosmos DB](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
 
-* [Azure SQL](../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules)
+* [Azure SQL](/azure/azure-sql/database/firewall-configure#create-and-manage-ip-firewall-rules)
 
 **Limitation**: As stated in the documentation above for Azure Storage, IP address range restrictions will only work if your search service and your storage account are in different regions.
 
@@ -57,19 +57,19 @@ More details for accessing data in a SQL managed instance are outlined [here](se
 
 ## Azure SQL Database serverless indexing (error code 40613)
 
-If your SQL database is on a [serverless compute tier](../azure-sql/database/serverless-tier-overview.md), make sure that the database is running (and not paused) when the indexer connects to it.
+If your SQL database is on a [serverless compute tier](/azure/azure-sql/database/serverless-tier-overview), make sure that the database is running (and not paused) when the indexer connects to it.
 
 If the database is paused, the first login from your search service will auto-resume the database, but it will also return an error stating that the database is unavailable with error code 40613. After the database is running, retry the login to establish connectivity.
 
-## SharePoint Online Conditional Access policies
+## SharePoint Conditional Access policies
 
-When creating a SharePoint Online indexer you will go through a step that requires you to sign in to your Azure AD app after providing a device code. If you receive a message that says `"Your sign-in was successful but your admin requires the device requesting access to be managed"` the indexer is likely being blocked from accessing the SharePoint Online document library due to a [Conditional Access](../active-directory/conditional-access/overview.md) policy.
+When creating a SharePoint indexer you will go through a step that requires you to sign in to your Azure AD app after providing a device code. If you receive a message that says `"Your sign-in was successful but your admin requires the device requesting access to be managed"` the indexer is likely being blocked from accessing the SharePoint document library due to a [Conditional Access](../active-directory/conditional-access/overview.md) policy.
 
 To update the policy to allow the indexer access to the document library, follow the below steps:
 
 1. Open the Azure portal and search **Azure AD Conditional Access**, then select **Policies** on the left menu. If you don't have access to view this page you will need to either find someone who has access or get access.
 
-1. Determine which policy is blocking the SharePoint Online indexer from accessing the document library. The policy that might be blocking the indexer will include the user account that you used to authenticate during the indexer creation step in the **Users and groups** section. The policy also might have **Conditions** that:
+1. Determine which policy is blocking the SharePoint indexer from accessing the document library. The policy that might be blocking the indexer will include the user account that you used to authenticate during the indexer creation step in the **Users and groups** section. The policy also might have **Conditions** that:
     * Restrict **Windows** platforms.
     * Restrict **Mobile apps and desktop clients**.
     * Have **Device state** configured to **Yes**.
@@ -172,9 +172,9 @@ Indexers extract documents or rows from an external [data source](/rest/api/sear
 
 ## Missing content from Blob Storage
 
-The blob indexer [finds and extracts text from blobs in a container](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). Some problems with extracting text include:
+The blob indexer [finds and extracts text from blobs in a container](search-howto-indexing-azure-blob-storage.md). Some problems with extracting text include:
 
-* The document only contains scanned images. PDF blobs that have non-text content, such as scanned images (JPGs), don't produce results in a standard blob indexing pipeline. If you have image content with text elements, you can use [cognitive search](cognitive-search-concept-image-scenarios.md) to find and extract the text.
+* The document only contains scanned images. PDF blobs that have non-text content, such as scanned images (JPGs), don't produce results in a standard blob indexing pipeline. If you have image content with text elements, you can use [OCR or image analysis](cognitive-search-concept-image-scenarios.md) to find and extract the text.
 
 * The blob indexer is configured to only index metadata. To extract content, the blob indexer must be configured to [extract both content and metadata](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex):
 

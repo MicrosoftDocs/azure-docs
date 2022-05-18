@@ -3,7 +3,8 @@ title: Create a Java function from the command line - Azure Functions
 description: Learn how to create a Java function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-other
+ms.devlang: java
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -165,7 +166,7 @@ A function app and related resources are created in Azure when you first deploy 
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az_login) command signs you into your Azure account.
+    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
 
     # [Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell

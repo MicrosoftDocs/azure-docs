@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 05/12/2022
 ---
 
 # Copy and transform data in Azure Database for MySQL using Azure Data Factory or Synapse Analytics
@@ -17,7 +17,19 @@ ms.date: 09/09/2021
 
 This article outlines how to use Copy Activity in Azure Data Factory or Synapse Analytics pipelines to copy data from and to Azure Database for MySQL, and use Data Flow to transform data in Azure Database for MySQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
-This connector is specialized for [Azure Database for MySQL service](../mysql/overview.md). To copy data from generic MySQL database located on-premises or in the cloud, use [MySQL connector](connector-mysql.md).
+This connector is specialized for 
+- [Azure Database for MySQL Single Server](../mysql/single-server-overview.md)
+- [Azure Database for MySQL Flexible Server](../mysql/flexible-server/overview.md) (Currently public access is only supported)
+
+ 
+ To copy data from generic MySQL database located on-premises or in the cloud, use [MySQL connector](connector-mysql.md).
+
+## Prerequisites
+
+This quickstart requires the following resources and configuration mentioned below as a starting point:
+
+- An existing Azure database for MySQL Single server or MySQL Flexible Server.
+- Enable **Allow public access from any Azure service within Azure to this server** in networking page of the MySQL server . This will allow you to use Data factory studio.
 
 ## Supported capabilities
 
@@ -277,6 +289,16 @@ The below table lists the properties supported by Azure Database for MySQL sink.
 | Table action |Determines whether to recreate or remove all rows from the destination table prior to writing.<br>- **None**: No action will be done to the table.<br>- **Recreate**: The table will get dropped and recreated. Required if creating a new table dynamically.<br>- **Truncate**: All rows from the target table will get removed. | No | `true` or `false` | recreate<br/>truncate |
 | Batch size | Specify how many rows are being written in each batch. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data. | No | Integer | batchSize |
 | Pre and Post SQL scripts | Specify multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database. | No | String | preSQLs<br>postSQLs |
+
+> [!TIP]
+> 1. It's recommended to break single batch scripts with multiple commands into multiple batches.
+> 2. Only Data Definition Language (DDL) and Data Manipulation Language (DML) statements that return a simple update count can be run as part of a batch. Learn more from [Performing batch operations](/sql/connect/jdbc/performing-batch-operations)
+
+* Enable incremental extract: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.
+
+* Incremental date column: When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table.
+
+* Start reading from beginning: Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on.
 
 #### Azure Database for MySQL sink script example
 

@@ -1,8 +1,6 @@
 ---
 title: Check for pool and node errors
 description: This article covers the background operations that can occur, along with errors to check for and how to avoid them when creating pools and nodes.
-author: mscurrell
-ms.author: markscu
 ms.date: 03/15/2021
 ms.topic: how-to
 ---

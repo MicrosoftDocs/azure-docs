@@ -4,8 +4,8 @@ description: Deploy the Log Analytics agent on Windows virtual machine using a v
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: amjads1
-ms.author: amjads
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
 ms.date: 11/02/2021 
 ms.custom: devx-track-azurepowershell
@@ -30,6 +30,8 @@ The following table provides a mapping of the version of the Windows Log Analyti
 
 | Log Analytics Windows agent bundle version | Log Analytics Windows VM extension version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 1.20.18064.0|1.0.18064 | December 2021   | <ul><li>Bug fix for intermittent crashes</li></ul> |
+| 1.20.18062.0| 1.0.18062 | November 2021   | <ul><li>Minor bug fixes and stabilizattion improvements</li></ul> |
 | 10.20.18053| 1.0.18053.0 | October 2020   | <ul><li>New Agent Troubleshooter</li><li>Updates to how the agent handles certificate changes to Azure services</li></ul> |
 | 10.20.18040 | 1.0.18040.2 | August 2020   | <ul><li>Resolves an issue on Azure Arc</li></ul> |
 | 10.20.18038 | 1.0.18038 | April 2020   | <ul><li>Enables connectivity over Private Link using Azure Monitor Private Link Scopes</li><li>Adds ingestion throttling to avoid a sudden, accidental influx in ingestion to a workspace</li><li>Adds support for additional Azure Government clouds and regions</li><li>Resolves a bug where HealthService.exe crashed</li></ul> |

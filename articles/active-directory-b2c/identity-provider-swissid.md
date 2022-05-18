@@ -29,7 +29,7 @@ In this article, you learn how to provide sign-up and sign-in to customers with 
 
 To enable sign-in for users with a SwissID account in Azure AD B2C, you need to create an application. To create SwissID application, follow these steps:
 
-1. Contact [SwissID Business Partner support](https://www.swissid.ch/en/b2b-kontakt.html).
+1. Contact [SwissID Business Partner support](https://www.swissid.ch/en/b2c-kontakt.html).
 1. After the sign up with SwissID, provide information about your Azure AD B2C tenant:
 
 

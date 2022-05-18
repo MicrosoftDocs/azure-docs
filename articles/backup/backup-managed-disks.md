@@ -2,7 +2,7 @@
 title: Back up Azure Managed Disks
 description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: conceptual
-ms.date: 11/25/2021
+ms.date: 03/10/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -130,20 +130,7 @@ To configure disk backup, follow these steps:
 
    - You can't create an incremental snapshot for a particular disk outside of that disk's subscription. So, choose the resource group within the same subscription where the disk needs to be backed up. [Learn more](../virtual-machines/disks-incremental-snapshots.md#restrictions) about incremental snapshot for managed disks.
 
-   - Once you configure the backup of a disk, you can’t change the Snapshot Resource Group that’s assigned to a backup instance.
-
-   - During a backup operation, Azure Backup creates a Storage Account in the Snapshot resource group. Only one Storage Account is created per snapshot resource group. The account is reused across multiple disk backup instances that use the same resource group as the snapshot resource group.
-
-     - The Storage account doesn’t store the Snapshots. The Managed-disk’s incremental snapshots are ARM resources created on resource group and not in a Storage Account.
-     - Storage Account stores the metadata for each recovery point. Azure Backup service creates a blob container per disk backup instance. For each recovery point, a block blob will be created to store metadata describing the recovery point (such as subscription, disk ID, disk attributes, and so on) that occupies a small space (in a few KiBs).
-     - Storage Account is created as RA GZRS if the region supports zonal redundancy. If the region doesn’t support Zonal redundancy, the Storage Account is created as RA GRS.
-       If any existing policy stops the creation of a Storage Account on the subscription or resource group with GRS redundancy, the Storage Account is created as LRS. The Storage Account that’s created is **General Purpose v2**, with block blobs stored on the hot tier in the Blob container.
-     - The number of recovery points is determined by the Backup policy used to configure backup of the disk backup instance. According to the Garbage collection process, the older block blobs are deleted, as the corresponding older recovery points are pruned.
-
-   - Don’t apply resource lock or policies or firewall on the snapshot resource group or Storage Account created by Azure Backup service. The service creates and manages resources in this Snapshot resource group that’s assigned to a backup instance when you configure a disk backup. The service creates the Storage Account and its resources, and this shouldn’t be deleted or moved.
-
-     >[!Note]
-     >If a Storage Account is deleted, backups will fail, and restore will fail for all existing recovery points.
+   - Once you configure the backup of a disk, you can’t change the Snapshot Resource Group that’s assigned to a backup instance.   
 
    :::image type="content" source="./media/backup-managed-disks/validate-snapshot-resource-group-inline.png" alt-text="Screenshot showing the process to initiate prerequisites checks." lightbox="./media/backup-managed-disks/validate-snapshot-resource-group-expanded.png":::
 

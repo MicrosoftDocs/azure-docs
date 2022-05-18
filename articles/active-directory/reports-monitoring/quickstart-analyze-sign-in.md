@@ -10,9 +10,9 @@ ms.author: markvi
 author: MarkusVi
 manager: karenhoran
 ms.reviewer: besiler
-# Customer intent: As an IT admin, you need to know how to use the sign-ins log so that you can fix sign-in issues.
 ms.collection: M365-identity-device-management
 ms.custom: mode-other
+#Customer intent: As an IT admin, you need to know how to use the sign-ins log so that you can fix sign-in issues.
 ---
 # Quickstart: Analyze sign-ins with the Azure AD sign-ins log 
 

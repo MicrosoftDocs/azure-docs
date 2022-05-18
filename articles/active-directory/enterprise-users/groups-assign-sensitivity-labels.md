@@ -4,12 +4,12 @@ description: Learn how to assign sensitivity labels to groups. See troubleshooti
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/19/2021
+ms.date: 04/19/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Assign sensitivity labels to Microsoft 365 groups in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports applying sensitivity labels published by the [Microsoft 365 compliance center](https://sip.protection.office.com/homepage) to Microsoft 365 groups. Sensitivity labels apply to group across services like Outlook, Microsoft Teams, and SharePoint. For more information about Microsoft 365 apps support, see [Microsoft 365 support for sensitivity labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD) supports applying sensitivity labels published by the [Microsoft Purview compliance portal](https://compliance.microsoft.com) to Microsoft 365 groups. Sensitivity labels apply to group across services like Outlook, Microsoft Teams, and SharePoint. For more information about Microsoft 365 apps support, see [Microsoft 365 support for sensitivity labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > To configure this feature, there must be at least one active Azure Active Directory Premium P1 license in your Azure AD organization.
@@ -37,22 +37,19 @@ To apply published labels to groups, you must first enable the feature. These st
     ```
 
     In the **Sign in to your account** page, enter your admin account and password to connect you to your service, and select **Sign in**.
-1. Fetch the current group settings for the Azure AD organization.
+1. Fetch the current group settings for the Azure AD organization and display the current group settings.
 
     ```powershell
     $grpUnifiedSetting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
-    $template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
-    $setting = $template.CreateDirectorySetting()
+    $Setting = $grpUnifiedSetting
+    $grpUnifiedSetting.Values
     ```
 
     > [!NOTE]
-    > If no group settings have been created for this Azure AD organization you will get an error that reads "Cannot bind argument to parameter 'Id' because it is null". In this case, you must first create the settings. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to create group settings for this Azure AD organization.
-
-1. Next, display the current group settings.
-
-    ```powershell
-    $Setting.Values
-    ```
+    > If no group settings have been created for this Azure AD organization, you will get an empty screen. In this case, you must first create the settings. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to create group settings for this Azure AD organization.  
+    
+    > [!NOTE]
+    > If the sensitivity label has been enabled previously, you will see **EnableMIPLabels** =  **True**. In this case, you do not need to do anything.
 
 1. Enable the feature:
 
@@ -69,7 +66,7 @@ To apply published labels to groups, you must first enable the feature. These st
 1. Save the changes and apply the settings:
 
     ```powershell
-    Set-AzureADDirectorySetting -Id $grpUnifiedSetting.Id -DirectorySetting $setting
+    Set-AzureADDirectorySetting -Id $grpUnifiedSetting.Id -DirectorySetting $Setting
     ```
 
 If you’re receiving a Request_BadRequest error, it's because the settings already exist in the tenant, so when you try to create a new property:value pair, the result is an error. In this case, take the following steps:
@@ -124,12 +121,14 @@ After you enable this feature, the “classic” classifications for groups will
 
 The sensitivity label option is only displayed for groups when all the following conditions are met:
 
-1. Labels are published in the Microsoft 365 Compliance Center for this Azure AD organization.
+1. Labels are published in the Microsoft Purview compliance portal for this Azure AD organization.
 1. The feature is enabled, EnableMIPLabels is set to True in from the Azure AD PowerShell module.
-1. Labels are synchronized to Azure AD with the Execute-AzureAdLabelSync cmdlet in the Security & Compliance PowerShell module.
+1. Labels are synchronized to Azure AD with the Execute-AzureAdLabelSync cmdlet in the Security & Compliance PowerShell module. It can take up to 24 hours after synchronization for the label to be available to Azure AD.
 1. The group is a Microsoft 365 group.
 1. The organization has an active Azure Active Directory Premium P1 license.
-1. The current signed-in user has sufficient privileges to assign labels. The user must be either a Global Administrator, Group Administrator, or the group owner.
+1. The [sensitivity label scope](/microsoft-365/compliance/sensitivity-labels?preserve-view=true&view=o365-worldwide#label-scopes) must be configured for Groups & Sites.
+3. The current signed-in user has sufficient privileges to assign labels. The user must be either a Global Administrator, Group Administrator, or the group owner.
+4. The current signed-in user must be within the scope of the [sensitivity label publishing policy](/microsoft-365/compliance/sensitivity-labels?preserve-view=true&view=o365-worldwide#what-label-policies-can-do)
 
 Please make sure all the conditions are met in order to assign labels to a group.
 
@@ -137,7 +136,7 @@ Please make sure all the conditions are met in order to assign labels to a group
 
 If the label you are looking for is not in the list, this could be the case for one of the following reasons:
 
-- The label might not be published in the Microsoft 365 Compliance Center. This could also apply to labels that are no longer published. Please check with your administrator for more information.
+- The label might not be published in the Microsoft Purview compliance portal. This could also apply to labels that are no longer published. Please check with your administrator for more information.
 - The label may be published, however, it is not available to the user that is signed-in. Please check with your administrator for more information on how to get access to the label.
 
 ### How to change the label on a group
@@ -152,7 +151,7 @@ Labels can be swapped at any time using the same steps as assigning a label to a
 
 ### Group setting changes to published labels aren't updated on the groups
 
-When you make changes to group settings for a published label in [Microsoft 365 compliance center](https://sip.protection.office.com/homepage), those policy changes aren't automatically applied on the labeled groups. Once the sensitivity label is published and applied to groups, Microsoft recommend that you not change the group settings for the label in Microsoft 365 Compliance Center.
+When you make changes to group settings for a published label in the [Microsoft Purview compliance portal](https://compliance.microsoft.com), those policy changes aren't automatically applied on the labeled groups. Once the sensitivity label is published and applied to groups, Microsoft recommend that you not change the group settings for the label in the Microsoft Purview compliance portal.
 
 If you must make a change, use an [Azure AD PowerShell script](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1) to manually apply updates to the impacted groups. This method makes sure that all existing groups enforce the new setting.
 

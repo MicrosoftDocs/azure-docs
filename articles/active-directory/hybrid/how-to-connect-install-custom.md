@@ -5,12 +5,12 @@ services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -67,7 +67,10 @@ After installing the required components, select your users' single sign-on meth
 On the **Connect to Azure AD** page, enter a global admin account and password. If you selected **Federation with AD FS** on the previous page, don't sign in with an account that's in a domain you plan to enable for federation. 
 
 You might want to use an account in the default *onmicrosoft.com* domain, which comes with your Azure AD tenant. This account is used only to create a service account in Azure AD. It's not used after the installation finishes.
-  
+ 
+>[!NOTE]
+>A best practice is to avoid using on-premises synced accounts for Azure AD role assignments. If the on premises account is compromised, this can be used to compromise your Azure AD resources as well.  For a complete list of best practices refer to [Best practices for Azure AD roles](../roles/best-practices.md)
+ 
 ![Screenshot showing the "Connect to Azure AD" page.](./media/how-to-connect-install-custom/connectaad.png)
 
 If your global admin account has multifactor authentication enabled, you provide the password again in the sign-in window, and you must complete the multifactor authentication challenge. The challenge could be a verification code or a phone call.  
@@ -75,6 +78,8 @@ If your global admin account has multifactor authentication enabled, you provide
 ![Screenshot showing the "Connect to Azure AD" page. A multifactor authentication field prompts the user for a code.](./media/how-to-connect-install-custom/connectaadmfa.png)
 
 The global admin account can also have [privileged identity management](../privileged-identity-management/pim-getting-started.md) enabled.
+
+To use authentication support for non-password scenarios such as federated accounts, smartcards and MFA scenarios, you can provide the switch **/InteractiveAuth** when starting the wizard. Using this switch will bypass the Wizard's authentication user interface and use the MSAL library's UI to handle the authentication.
 
 If you see an error or have problems with connectivity, then see [Troubleshoot connectivity problems](tshoot-connect-connectivity.md).
 
@@ -203,7 +208,7 @@ On the next page, you can select optional features for your scenario.
 | Optional features | Description |
 | --- | --- |
 | Exchange hybrid deployment |The Exchange hybrid deployment feature allows for the coexistence of Exchange mailboxes both on-premises and in Microsoft 365. Azure AD Connect synchronizes a specific set of [attributes](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory. |
-| Exchange mail public folders | The Exchange mail public folders feature allows you to synchronize mail-enabled public-folder objects from your on-premises instance of Active Directory to Azure AD. |
+| Exchange mail public folders | The Exchange mail public folders feature allows you to synchronize mail-enabled public-folder objects from your on-premises instance of Active Directory to Azure AD. Note that it is not supported to sync groups that contain public folders as members, and attempting to do so will result in a synchronization error. |
 | Azure AD app and attribute filtering |By enabling Azure AD app and attribute filtering, you can tailor the set of synchronized attributes. This option adds two more configuration pages to the wizard. For more information, see [Azure AD app and attribute filtering](#azure-ad-app-and-attribute-filtering). |
 | Password hash synchronization |If you selected federation as the sign-in solution, you can enable password hash synchronization. Then you can use it as a backup option.  </br></br>If you selected pass-through authentication, you can enable this option to ensure support for legacy clients and to provide a backup.</br></br> For more information, see [Password hash synchronization](how-to-connect-password-hash-synchronization.md).|
 | Password writeback |Use this option to ensure that password changes that originate in Azure AD are written back to your on-premises directory. For more information, see [Getting started with password management](../authentication/tutorial-enable-sspr.md). |
@@ -347,7 +352,7 @@ When you select the domain that you want to federate, Azure AD Connect provides 
 
 ## Configuring federation with PingFederate
 You can configure PingFederate with Azure AD Connect in just a few clicks. The following prerequisites are required:
-- PingFederate 8.4 or later.  For more information, see [PingFederate integration with Azure Active Directory and Microsoft 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html).
+- PingFederate 8.4 or later.  For more information, see [PingFederate integration with Azure Active Directory and Microsoft 365](https://docs.pingidentity.com/bundle/pingfederate-azuread-office365-integration/).
 - A TLS/SSL certificate for the federation service name that you intend to use (for example, sts.contoso.com).
 
 ### Verify the domain

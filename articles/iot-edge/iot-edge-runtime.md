@@ -1,9 +1,9 @@
 ---
 title: Learn how the runtime manages devices - Azure IoT Edge | Microsoft Docs 
 description: Learn how the IoT Edge runtime manages modules, security, communication, and reporting on your devices
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge

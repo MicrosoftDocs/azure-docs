@@ -37,9 +37,12 @@
           href: quickstart-feature-flag-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
+    - name: Bicep
+      href: quickstart-bicep.md
+      displayName: ARM, Resource Manager, Template
     - name: ARM template
       href: quickstart-resource-manager.md
-      displayName: ARM, azure resource manager template
+      displayName: Resource Manager
     - name: .NET App in Visual Studio
       href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
 - name: Tutorials
@@ -122,8 +125,12 @@
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
+    - name: Configuration files
+      href: concept-config-file.md
     - name: Event handling
       href: concept-app-configuration-event.md
+    - name: Soft delete
+      href: concept-soft-delete.md
     - name: Security
       items:
         - name: Encrypt using customer-managed keys
@@ -162,6 +169,8 @@
       href: howto-convert-to-the-new-spring-boot.md
     - name: Move a resource between Azure regions 
       href: howto-move-resource-between-regions.md
+    - name: Recover App Configuration stores (Preview)
+      href: howto-recover-deleted-stores-in-azure-app-configuration.md
 - name: Reference
   items:
     - name: Client libraries
@@ -256,14 +265,14 @@
     - name: Videos
       items:
         - name: Getting started with App Configuration
-          href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
+          href: /Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
         - name: Feature management
-          href: https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
+          href: /Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
         - name: Making centralized configuration easy
-          href: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
+          href: /Events/dotnetConf/NET-Conf-2019/B210
         - name: Azure App Configuration on Cloud Native Show
           href: https://www.youtube.com/watch?v=DJqmA5PcfzE
         - name: Rolling out new features
-          href: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
+          href: /Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

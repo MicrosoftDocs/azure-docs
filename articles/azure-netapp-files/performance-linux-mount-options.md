@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.author: b-hchen
+ms.date: 05/05/2022
+ms.author: anfdocs
 ---
 # Linux NFS mount options best practices for Azure NetApp Files
 
@@ -71,6 +70,8 @@ For details, see [Linux concurrency best practices for Azure NetApp Files](perfo
 
 ## `Rsize` and `Wsize`
  
+Examples in this section provide information about how to approach performance tuning. You might need to make adjustments to suit your specific application needs.
+
 The `rsize` and `wsize` flags set the maximum transfer size of an NFS operation.  If `rsize` or `wsize` are not specified on mount, the client and server negotiate the largest size supported by the two.   Currently, both Azure NetApp Files and modern Linux distributions support read and write sizes as large as 1,048,576 Bytes (1 MiB).   However, for best overall throughput and latency, Azure NetApp Files recommends setting both `rsize` and `wsize` no larger than 262,144 Bytes (256 K). You might observe that both increased latency and decreased throughput when using `rsize` and `wsize` larger than 256 KiB. 
 
 For example, [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md#mount-the-azure-netapp-files-volumes) shows the 256-KiB `rsize` and `wsize` maximum as follows:
@@ -78,11 +79,11 @@ For example, [Deploy a SAP HANA scale-out system with standby node on Azure VMs 
 ```
 sudo vi /etc/fstab
 # Add the following entries
-10.23.1.5:/HN1-data-mnt00001 /hana/data/HN1/mnt00001  nfs rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-10.23.1.6:/HN1-data-mnt00002 /hana/data/HN1/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-10.23.1.4:/HN1-log-mnt00001 /hana/log/HN1/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-10.23.1.6:/HN1-log-mnt00002 /hana/log/HN1/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-10.23.1.4:/HN1-shared/shared /hana/shared  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+10.23.1.5:/HN1-data-mnt00001 /hana/data/HN1/mnt00001  nfs rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+10.23.1.6:/HN1-data-mnt00002 /hana/data/HN1/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+10.23.1.4:/HN1-log-mnt00001 /hana/log/HN1/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+10.23.1.6:/HN1-log-mnt00002 /hana/log/HN1/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+10.23.1.4:/HN1-shared/shared /hana/shared  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
 ```
  
 Also for example, SAS Viya recommends a 256-KiB read and write sizes, and [SAS GRID](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/606973/highlight/true#M17740) limits the `r/wsize` to 64 KiB while augmenting read performance with increased read-ahead for the NFS mounts. See [NFS read-ahead best practices for Azure NetApp Files](performance-linux-nfs-read-ahead.md) for details.

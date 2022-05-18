@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 10/04/2021
-ms.author: b-hchen
+ms.date: 03/02/2022
+ms.author: anfdocs
 ---
 # Create an SMB volume for Azure NetApp Files
 
@@ -97,25 +96,10 @@ Before creating an SMB volume, you need to create an Active Directory connection
         - The length must not exceed 80 characters.   
         
     * <a name="smb3-encryption"></a>If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
-        This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
+
+        This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.   
         See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information. 
 
-        The **SMB3 Protocol Encryption** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
-
-        ```azurepowershell-interactive
-        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
-        ```
-
-        Check the status of the feature registration: 
-
-        > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
-
-        ```azurepowershell-interactive
-        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
-        ```
-        
-        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status.  
     * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
 
         > [!IMPORTANT]   
@@ -138,7 +122,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare
         ```
         
-        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
     --> 
 
     ![Screenshot that describes the Protocol tab of creating an SMB volume.](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
@@ -163,7 +147,7 @@ You can set permissions for a file or folder by using the **Security** tab of th
 
 * [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
+* [Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) 
 * [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
 * [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)

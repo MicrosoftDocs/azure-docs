@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 01/05/2019
 author: manishmsfte
 ms.author: mansha
-ms.custom: mode-portal
+ms.custom: mode-api
 ---
 # Quickstart: Create a graph database in Azure Cosmos DB using PHP and the Azure portal
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]

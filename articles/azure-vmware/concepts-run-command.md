@@ -6,9 +6,9 @@ ms.date: 09/17/2021
 ---
 
 
-# Run command in Azure VMware Solution (Preview)
+# Run command in Azure VMware Solution 
 
-In Azure VMware Solution, vCenter has a built-in local user called *cloudadmin* assigned to the CloudAdmin role. The CloudAdmin role has vCenter [privileges](concepts-identity.md#view-the-vcenter-privileges) that differ from other VMware cloud solutions and on-premises deployments. The Run command (Preview) feature lets you perform operations that would normally require elevated privileges through a collection of PowerShell cmdlets. 
+In Azure VMware Solution, vCenter Server has a built-in local user called *cloudadmin* assigned to the CloudAdmin role. The CloudAdmin role has vCenter Server [privileges](concepts-identity.md#view-the-vcenter-privileges) that differ from other VMware cloud solutions and on-premises deployments. The Run command feature lets you perform operations that would normally require elevated privileges through a collection of PowerShell cmdlets. 
 
 Azure VMware Solution supports the following operations:
 
@@ -97,6 +97,6 @@ Now that you've learned about the Run command concepts, you can use the Run comm
 
 - [Configure storage policy](configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned a vSAN storage policy. You can assign a vSAN storage policy in an initial deployment of a VM or when you do other VM operations, such as cloning or migrating.
 
-- [Configure external identity source for vCenter (Run command)](configure-identity-source-vcenter.md) - Configure Active Directory over LDAP or LDAPS for vCenter, which enables the use of an external identity source as an Active Directory. Then, you can add groups from the external identity source to the CloudAdmin role.
+- [Configure external identity source for vCenter (Run command)](configure-identity-source-vcenter.md) - Configure Active Directory over LDAP or LDAPS for vCenter Server, which enables the use of an external identity source as an Active Directory. Then, you can add groups from the external identity source to the CloudAdmin role.
 
 - [Deploy disaster recovery using JetStream](deploy-disaster-recovery-using-jetstream.md) - Store data directly to a recovery cluster in vSAN. The data gets captured through I/O filters that run within vSphere. The underlying data store can be VMFS, VSAN, vVol, or any HCI platform. 

@@ -3,7 +3,7 @@ title: Create custom analytics rules to detect threats with Microsoft Sentinel |
 description: Learn how to create custom analytics rules to detect security threats with Microsoft Sentinel. Take advantage of event grouping, alert grouping, and alert enrichment, and understand AUTO DISABLED.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/30/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -37,7 +37,9 @@ Analytics rules search for specific events or sets of events across your environ
 
 - Provide a unique **Name** and a **Description**.
 
-- In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+- In the **Tactics and techniques** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics and techniques of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+
+    [Incidents](investigate-cases.md) created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's mapping.
 
 - Set the alert **Severity** as appropriate.
 
@@ -64,6 +66,12 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
     ```
 
+    > [!IMPORTANT]
+    >
+    > We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a native table. This will ensure that the query supports any current or future relevant data source rather than a single data source.
+    >
+
+
     > [!NOTE]
     > **Rule query best practices**:
     >
@@ -71,7 +79,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     >
     > - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
     >
-    > - When using the **`bag_unpack`** function in a query, if you project the columns as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must project the column as follows:
+    > - When using the **`bag_unpack`** function in a query, if you [project the columns](/azure/data-explorer/kusto/query/projectoperator) as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must [project the column](/azure/data-explorer/kusto/query/projectoperator) as follows:
     >   - `project field1 = column_ifexists("field1","")`
 
 ### Alert enrichment
@@ -83,7 +91,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     Learn more about [entities in Microsoft Sentinel](entities.md).
 
-    See [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md) for complete entity mapping instructions, along with important information about [backward compatibility](map-data-fields-to-entities.md#notes-on-the-new-version).
+    See [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md) for complete entity mapping instructions, along with important information about limitations and [backward compatibility](map-data-fields-to-entities.md#notes-on-the-new-version).
 
 - Use the **Custom details** configuration section to extract event data items from your query and surface them in the alerts produced by this rule, giving you immediate event content visibility in your alerts and incidents.
 
@@ -92,6 +100,14 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 - Use the **Alert details** configuration section to tailor the alert's presentation details to its actual content. Alert details allow you to display, for example, an attacker's IP address or account name in the title of the alert itself, so it will appear in your incidents queue, giving you a much richer and clearer picture of your threat landscape.
 
     See complete instructions on [customizing your alert details](customize-alert-details.md).
+
+> [!NOTE]
+> **The size limit for an entire alert is *64 KB***.
+> - Alerts that grow larger than 64 KB will be truncated. As entities are identified, they are added to the alert one by one until the alert size reaches 64 KB, and any remaining entities are dropped from the alert.
+>
+> - The other alert enrichments also contribute to the size of the alert.
+>
+> - To reduce the size of your alert, use the `project-away` operator in your query to [remove any unnecessary fields](/azure/data-explorer/kusto/query/projectawayoperator). (Consider also the `project` operator if there are only [a few fields you need to keep](/azure/data-explorer/kusto/query/projectoperator).)
 
 ### Query scheduling and alert threshold
 
@@ -137,7 +153,7 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 
   - **Trigger an alert for each event**. The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters - by user, hostname, or something else. You can define these parameters in the query.
 
-    Currently the number of alerts a rule can generate is capped at 20. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 20 events, each of the first 19 events will generate a unique alert, and the 20th alert will summarize the entire set of returned events. In other words, the 20th alert is what would have been generated under the **Group all events into a single alert** option.
+    Currently the number of alerts a rule can generate is capped at 150. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 150 events, each of the first 149 events will generate a unique alert, and the 150th alert will summarize the entire set of returned events. In other words, the 150th alert is what would have been generated under the **Group all events into a single alert** option.
 
     If you choose this option, Microsoft Sentinel will add a new field, **OriginalQuery**, to the results of the query. Here is a comparison of the existing **Query** field and the new field:
 
@@ -233,9 +249,10 @@ If you want to package your rule to be managed and deployed as code, you can eas
 
 ### Issue: No events appear in query results
 
-If **event grouping** is set to **trigger an alert for each event**, then in certain scenarios, when viewing the query results at a later time (such as when pivoting back to alerts from an incident), it's possible that no query results will appear. This is because the event's connection to the alert is accomplished by the hashing of the particular event's information, and the inclusion of the hash in the query. If the query results have changed since the alert was generated, the hash will no longer be valid and no results will be displayed.
+When **event grouping** is set to **trigger an alert for each event**, query results viewed at a later time may appear to be missing, or different than expected.  For example, you might view a query's results at a later time when you've pivoted back to the results from a related incident.
 
-To see the events, manually remove the line with the hash from the rule's query, and run the query.
+- Results are automatically saved with the alerts. However, if the results are too large, no results are saved, and then no data will appear when viewing the query results again.
+- In cases where there is [ingestion delay](ingestion-delay.md), or the query is not deterministic due to aggregation, the alert's result might be different than the result shown by running the query manually.
 
 > [!NOTE]
 > This issue has been solved by the addition of a new field, **OriginalQuery**, to the results when this event grouping option is selected. See the [description](#event-grouping-and-rule-suppression) above.

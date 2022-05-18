@@ -2,7 +2,7 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 02/20/2022
 ---
 
 # Outputs in Bicep
@@ -114,13 +114,9 @@ To get an output value from a module, use the following syntax:
 <module-name>.outputs.<property-name>
 ```
 
-The following example shows how to set the IP address on a load balancer by retrieving a value from a module. The name of the module is `publicIP`.
+The following example shows how to set the IP address on a load balancer by retrieving a value from a module.
 
-```bicep
-publicIPAddress: {
-  id: publicIP.outputs.resourceID
-}
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/module-output.bicep" highlight="14" :::
 
 ## Get output values
 

@@ -13,9 +13,8 @@ This article describes how to schedule an update deployment and review the proce
 
 Under each scenario, the deployment you create targets that selected machine or server, or in the case of creating a deployment from your Automation account, you can target one or more machines. When you schedule an update deployment from an Azure VM or Azure Arc-enabled server, the steps are the same as deploying from your Automation account, with the following exceptions:
 
-* The operating system is automatically pre-selected based on the OS of the machine
-* The target machine to update is set to target itself automatically
-* When configuring the schedule, you can specify **Update now**, occurs once, or uses a recurring schedule.
+* The operating system is automatically pre-selected based on the OS of the machine.
+* The target machine to update is set to target itself automatically.
 
 > [!IMPORTANT]
 > By creating an update deployment, you accept the terms of the Software License Terms (EULA) provided by the company offering updates for their operating system.
@@ -95,12 +94,9 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
    * If you want to install only security and critical updates, along with one or more optional updates, you should select **Security** and **Critical** under **Update classifications**. Then for the **Include** option, specify the KBIDs for the optional updates.
 
-   * If you want to install only security and critical updates, but skip one or more updates for python to avoid breaking your legacy application, you should select **Security** and **Critical** under **Update classifications**. Then for the **Exclude** option add the python packages to skip.
+   * If you want to install only security and critical updates, but skip one or more updates for Python to avoid breaking your legacy application, you should select **Security** and **Critical** under **Update classifications**. Then for the **Exclude** option add the Python packages to skip.
 
 9. Select **Schedule settings**. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
-
-    > [!NOTE]
-    > This option is different if you selected an Azure Arc-enabled server. You can select **Update now** or a start time 20 minutes into the future.
 
 10. Use the **Recurrence** to specify if the deployment occurs once or uses a recurring schedule, then select **OK**.
 
@@ -109,6 +105,9 @@ To schedule a new update deployment, perform the following steps. Depending on t
 12. Use the **Maintenance window (minutes)** field to specify the amount of time allowed for updates to install. Consider the following details when specifying a maintenance window:
 
     * Maintenance windows control how many updates are installed.
+    * If the next step in the update process is to install a Service Pack, there must be 20 minutes left in the maintenance window, or that update will be skipped.
+    * If the next step in the update process is to install any other kind of update besides Service Pack, there must be 15 minutes left in the maintenance window, or that update will be skipped.
+    * If the next step in the update process is a reboot, there must be 10 minutes left in the maintenance window, or the reboot will be skipped.
     * Update Management doesn't stop installing new updates if the end of a maintenance window is approaching.
     * Update Management doesn't terminate in-progress updates if the maintenance window is exceeded. Any remaining updates to be installed are not attempted. If this is consistently happening, you should reevaluate the duration of your maintenance window.
     * If the maintenance window is exceeded on Windows, it's often because a service pack update is taking a long time to install.

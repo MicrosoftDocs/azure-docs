@@ -4,10 +4,10 @@ description: In this quickstart, you learn how to create, provision, verify, upd
 services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 04/23/2021
+ms.date: 04/13/2022
 ms.topic: quickstart
 ms.service: expressroute
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create and modify an ExpressRoute circuit
@@ -20,7 +20,6 @@ This quickstart shows you how to create an ExpressRoute circuit using the Azure 
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
-* You can [view a video](https://channel9.msdn.com/Blogs/Azure/Azure-ExpressRoute-How-to-create-an-ExpressRoute-circuit) before beginning to better understand the steps.
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 
@@ -33,44 +32,40 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 > [!IMPORTANT]
 > Your ExpressRoute circuit is billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
 
-You can create an ExpressRoute circuit by selecting the option to create a new resource. 
+1. On the Azure portal menu, select **+ Create a resource**. Search for **ExpressRoute** and then select **Create**.
 
-1. On the Azure portal menu, select **Create a resource**. Select **Networking** > **ExpressRoute**, as shown in the following image:
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png" alt-text="Create an ExpressRoute circuit":::
 
-    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-expressroute-circuit-menu.png" alt-text="Create an ExpressRoute circuit":::
-
-2. After you select **ExpressRoute**, you'll see the **Create ExpressRoute** page. Provide the **Resource Group**, **Region**, and  **Name** for the circuit. Then select **Next: Configuration >**.
+1. On the **Create ExpressRoute** page. Provide the **Resource Group**, **Region**, and  **Name** for the circuit. Then select **Next: Configuration >**.
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Configure the resource group and region":::
 
-3. When you're filling in the values on this page, make sure that you specify the correct SKU tier (Local, Standard, or Premium) and data metering billing model (Unlimited or Metered).
+1. When you're filling in the values on this page, make sure that you specify the correct SKU tier (Local, Standard, or Premium) and data metering billing model (Unlimited or Metered).
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Configure the circuit":::
     
-    * **Port type** determines if you're connecting to a service provider or directly into Microsoft's global network at a peering location.
-    * **Create new or import from classic** determines if a new circuit is being created or if you're migrating a classic circuit to Azure Resource Manager.
-    * **Provider** is the internet service provider who you will be requesting your service from.
-    * **Peering Location** is the physical location where you're peering with Microsoft.
+    | Setting | Description |
+    | --- | --- |
+    | Port type | Select if you're connecting to a service provider or directly into Microsoft's global network at a peering location. |
+    | Create new or import from classic | Select if you're creating a new circuit or if you're migrating a classic circuit to Azure Resource Manager. |
+    | Provider | Select the internet service provider who you'll be requesting your service from. |
+    | Peering Location | Select the physical location where you're peering with Microsoft. |
+    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Standard and Premium but not to Local once created. |
+    | Billing model | Select the billing type for egress data charge. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. You can change the billing type from **Metered** to **Unlimited**. |
+    | Allow classic operations | Enable this option to allow classic virtual networks to link to the circuit. |
 
     > [!IMPORTANT]
-    > The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they are not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
+    > * The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they're not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
+    > * You can't change the SKU from **Standard/Premium** to **Local**.
+    > * You can't change the type from **Unlimited** to **Metered**.
 
-    * **SKU** determines whether an ExpressRoute local, ExpressRoute standard, or an ExpressRoute premium add-on is enabled. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change the SKU to enable the premium add-on.
-    > [!IMPORTANT]
-    > You cannot change the SKU from **Standard/Premium** to **Local**.
-    
-    * **Billing model** determines the billing type. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. You can change the billing type from **Metered** to **Unlimited**.
-
-    > [!IMPORTANT]
-    > You can not change the type from **Unlimited** to **Metered**.
-
-    * **Allow classic operation** will allow classic virtual networks to be link to the circuit.
+1. Select **Review + create** and then select **Create** to deploy the ExpressRoute circuit.
 
 ### View the circuits and properties
 
 **View all the circuits**
 
-You can view all the circuits that you created by selecting **All services > Networking > ExpressRoute circuits** on the left-side menu.
+You can view all the circuits that you created by searching for **ExpressRoute circuits** in the search box at the top of the portal.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Expressroute circuit menu":::
 
@@ -80,7 +75,7 @@ All Expressroute circuits created in the subscription will appear here.
 
 **View the properties**
 
-You can view the properties of the circuit by selecting it. On the **Overview** page for your circuit, the service key appears in the service key field. Refer to the service key for your circuit and provide it to the service provider to complete the provisioning process. The service key is specific to your circuit.
+You can view the properties of the circuit by selecting it. On the Overview page for your circuit, you'll find the **Service Key**. Provide the service key to the service provider to complete the provisioning process. The service key is unique to your circuit.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="View properties":::
 
@@ -134,7 +129,7 @@ You can do the following tasks with no downtime:
 
 * Enable or disable an ExpressRoute Premium add-on for your ExpressRoute circuit.
 
-> [!IMPORTANT]
+  > [!IMPORTANT]
   > Changing the SKU from **Standard/Premium** to **Local** is not supported.
 
 * Increase the bandwidth of your ExpressRoute circuit, provided there's capacity available on the port.

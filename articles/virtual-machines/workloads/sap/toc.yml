@@ -120,6 +120,10 @@
     href: cal-s4h.md
   - name: SAP IDES on Windows/SQL Server SAP CAL
     href: cal-ides-erp6-erp7-sp3-sql.md   
+  - name: SAP ILM
+    href: sap-information-lifecycle-management.md
+  - name: SAP RISE integration
+    href: sap-rise-integration.md
   - name: SAP BOBI Platform on Azure
     items:
     - name: SAPI BOBI planning and implementation guide on Azure 
@@ -264,7 +268,7 @@
     items:        
     - name: SAP with shared disk
       items:               
-      - name: SAP ASCS/SCS instance with WSFC
+      - name: Design SAP HA with WSFC
         href: sap-high-availability-guide-wsfc-shared-disk.md
       - name: Prepare Azure infrastructure for SAP HA with WSFC
         href: sap-high-availability-infrastructure-wsfc-shared-disk.md
@@ -280,17 +284,16 @@
         href: high-availability-guide-windows-azure-files-smb.md
       - name: Install HA SAP NetWeaver with Azure NetApp Files (SMB)
         href: high-availability-guide-windows-netapp-files-smb.md     
-      - name: SAP ASCS/SCS instance with WSFC and SOFS file share
+      - name: Design SAP HA with WSFC and SOFS file share
         href: sap-high-availability-guide-wsfc-file-share.md     
       - name: Prepare Azure infrastructure for SAP HA (SOFS)
-        href: sap-high-availability-infrastructure-wsfc-file-share.md   
+        href: sap-high-availability-infrastructure-wsfc-file-share.md
       - name: Install HA SAP NetWeaver with WSFC and SOFS file share
-        href: sap-high-availability-installation-wsfc-file-share.md              
+        href: sap-high-availability-installation-wsfc-file-share.md
       - name: Multi-SID with WSFC and file share
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
-      - name: Using Windows DFS-N to support flexible SAPMNT share creation for SMB based file share
+      - name: Windows DFS-N - flexible SAPMNT for SMB based file share
         href: high-availability-guide-windows-dfs.md
-
 - name: Automation framework (Azure VMs)
   items:
   - name: About deployment automation framework
@@ -313,10 +316,16 @@
       href: automation-configure-workload-zone.md
     - name: Configure the SAP system
       href: automation-configure-system.md
+    - name: Configure SAP parameters
+      href: automation-configure-sap-parameters.md
     - name: Configure custom disk sizing
       href: automation-configure-extra-disks.md
     - name: Using a custom naming convention
       href: automation-naming-module.md
+    - name: Configure Azure DevOps
+      href: automation-configure-devops.md  
+    - name: Configure external tools
+      href: automation-tools-configuration.md
   - name: Script reference
     items:               
     - name: Bash
@@ -375,8 +384,10 @@
       href: automation-deploy-system.md
     - name: Use Ansible for system configuration
       href: automation-run-ansible.md
-    - name: Automation framework tutorial
+    - name: Deployment hands-on lab
       href: automation-tutorial.md
+    - name: Deployment DevOps hands-on lab
+      href: automation-devops-tutorial.md
     - name: Manual infrastructure deployment
       href: automation-manual-deployment.md
     - name: Sample deployment configurations
@@ -407,6 +418,10 @@
     href: monitor-sap-on-azure-reference.md
   - name: AMS FAQ
     href: azure-monitor-faq.yml
+- name: Integration with Microsoft Services
+  items:
+  - name: Outbound E-Mail from SAP to Exchange Online
+    href: exchange-online-integration-sap-email-outbound.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -425,32 +440,36 @@
       href: ../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md
     - name: Provision users to SAP Cloud Platform Identity Authentication Service
       href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md
-    - name: Configure SSO with SAP Cloud Platform Identity Authentication Service
-      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md
-    - name: Configure SSO with SAP SuccessFactors
-      href: ../../../active-directory/saas-apps/successfactors-tutorial.md
-    - name: Configure SSO with SAP Analytics Cloud
-      href: ../../../active-directory/saas-apps/sapboc-tutorial.md
-    - name: Configure SSO with SAP Fiori
-      href: ../../../active-directory/saas-apps/sap-fiori-tutorial.md
-    - name: Configure SSO with SAP Qualtrics
-      href: ../../../active-directory/saas-apps/qualtrics-tutorial.md
-    - name: Configure SSO with SAP Ariba
-      href: ../../../active-directory/saas-apps/ariba-tutorial.md
-    - name: Configure SSO with SAP Concur Travel and Expense
-      href: ../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md
-    - name: Configure SSO with SAP Cloud Platform
-      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md
-    - name: Configure SSO with SAP NetWeaver
-      href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md
-    - name: Configure SSO with SAP Business ByDesign
-      href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md
-    - name: Configure SSO with SAP HANA
-      href: ../../../active-directory/saas-apps/saphana-tutorial.md
-    - name: Configure SSO with SAP Cloud for Customer
-      href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md
-    - name: Configure SSO with SAP Fiori Launchpad
-      href: https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad
+    - name: Secure access with SAP Cloud Identity Services and Azure AD
+      href: ../../../active-directory/fundamentals/scenario-azure-first-sap-identity-integration.md
+    - name: SSO
+      items:               
+      - name: Configure SSO with SAP Cloud Platform Identity Authentication Service
+        href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md
+      - name: Configure SSO with SAP SuccessFactors
+        href: ../../../active-directory/saas-apps/successfactors-tutorial.md
+      - name: Configure SSO with SAP Analytics Cloud
+        href: ../../../active-directory/saas-apps/sapboc-tutorial.md
+      - name: Configure SSO with SAP Fiori
+        href: ../../../active-directory/saas-apps/sap-fiori-tutorial.md
+      - name: Configure SSO with SAP Qualtrics
+        href: ../../../active-directory/saas-apps/qualtrics-tutorial.md
+      - name: Configure SSO with SAP Ariba
+        href: ../../../active-directory/saas-apps/ariba-tutorial.md
+      - name: Configure SSO with SAP Concur Travel and Expense
+        href: ../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md
+      - name: Configure SSO with SAP Cloud Platform
+        href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md
+      - name: Configure SSO with SAP NetWeaver
+        href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md
+      - name: Configure SSO with SAP Business ByDesign
+        href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md
+      - name: Configure SSO with SAP HANA
+        href: ../../../active-directory/saas-apps/saphana-tutorial.md
+      - name: Configure SSO with SAP Cloud for Customer
+        href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md
+      - name: Configure SSO with SAPGUI using Kerberos and Azure AD Domain Services
+        href: https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/
   - name: Azure Services integration
     items:
     - name: Use SAP HANA in Power BI Desktop
@@ -464,13 +483,13 @@
   - name: Microsoft Sentinel threat monitoring
     items:
       - name: Deploy the Microsoft Sentinel solution for SAP
-        href: ../../../sentinel/sap-deploy-solution.md#deploy-sap-security-content
+        href: ../../../sentinel/sap/deploy-sap-security-content.md#deploy-sap-security-content
       - name: Detailed requirements
-        href: ../../../sentinel/sap-solution-detailed-requirements.md
-      - name: Available SAP logs reference
-        href: ../../../sentinel/sap-solution-log-reference.md
+        href: ../../../sentinel/sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
+      - name: Microsoft Sentinel SAP solution data reference
+        href: ../../../sentinel/sap/sap-solution-log-reference.md
       - name: SAP security content reference
-        href: ../../../sentinel/sap-solution-security-content.md
+        href: ../../../sentinel/sap/sap-solution-security-content.md
 - name: Resources
   items:
   - name: Azure Roadmap

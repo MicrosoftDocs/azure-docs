@@ -2,8 +2,12 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 02/11/2022
 ms.custom: references_regions 
+ms.reviewer: caishwarya
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Move a Recovery Services vault across Azure Subscriptions and Resource Groups
@@ -12,7 +16,7 @@ This article explains how to move a Recovery Services vault configured for Azure
 
 ## Supported regions
 
-All public regions and sovereign regions are supported, except France Central, France South, Germany Northeast, Germany Central, China North, China North2, China East, and China East2.
+All public regions and sovereign regions are supported, except France South, France Central, Germany Northeast and Germany Central.
 
 ## Prerequisites for moving Recovery Services vault
 
@@ -106,7 +110,8 @@ Azure Resource Mover supports the movement of multiple resources across regions.
 To understand the detailed steps to achieve this, refer to the sections below.
 
 >[!Note]
->Azure Backup currently doesn’t support the movement of backup data from one Recovery Services vault to another. To protect your resource in the new region, the resource needs to be registered and backed up to a new/existing vault in the new region. When moving your resources from one region to another, backup data in your existing Recovery Services vaults in the older region can be retained/deleted based on your requirement. If you choose to retain data in the old vaults, you will incur backup charges accordingly.
+>- Azure Backup currently doesn’t support the movement of backup data from one Recovery Services vault to another. To protect your resource in the new region, the resource needs to be registered and backed up to a new/existing vault in the new region. When moving your resources from one region to another, backup data in your existing Recovery Services vaults in the older region can be retained/deleted based on your requirement. If you choose to retain data in the old vaults, you will incur backup charges accordingly.
+>- After resource move, to ensure continued security for backed-up resources in a vault that was configured with Multi-User Authorization (MUA), the destination vault should be configured with MUA using a Resource Guard in the destination region. This is because the Resource Guard and the vault must be located in the same region; therefore, the Resource Guard for the source vault can't be used to enable MUA on the destination vault.
 
 ### Back up Azure Virtual Machine after moving across regions
 
@@ -166,7 +171,7 @@ This ensures that you will always have your snapshots ready for restore from the
  
 ### Back up SQL Server/SAP HANA in Azure VM after moving across regions
 
-When you move a VM running SQL or SAP HANA servers to another region, the SQL and SAP HANA databases in those VMs can no longer be backed up in the vault of the earlier region. To protect the SQL and SAP HANA servers running in Azure VM in the new region, see the follow sections.
+When you move a VM running SQL or SAP HANA servers to another region, the SQL and SAP HANA databases in those VMs can no longer be backed up in the vault of the earlier region. To protect the SQL and SAP HANA servers running in Azure VM in the new region, see the following sections.
 
 #### Prepare to move SQL Server/SAP HANA in Azure VM
 
@@ -229,7 +234,7 @@ To move to a new subscription, provide the `--destination-subscription-id` param
 
 ## Move an Azure virtual machine to a different recovery service vault. 
 
-If you want to move an Azure virtual machine that has Azure backup enabled, then you have two choices. They depend on your business requirements:
+If you want to move an Azure virtual machine that has backup enabled, then you have two choices. They depend on your business requirements:
 
 - [Don’t need to preserve previous backed-up data](#dont-need-to-preserve-previous-backed-up-data)
 - [Must preserve previous backed-up data](#must-preserve-previous-backed-up-data)

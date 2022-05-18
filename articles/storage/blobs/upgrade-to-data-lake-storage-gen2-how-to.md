@@ -4,14 +4,14 @@ description: Shows you how to use Resource Manager templates to upgrade from Azu
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 01/25/2022
 ms.author: normesta
 
 ---
 
 #  Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities
 
-This article helps you unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2. 
+This article helps you to enable a hierarchical namespace and unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2. 
 
 To learn more about these capabilities and evaluate the impact of this upgrade on workloads, applications, costs, service integrations, tools, features, and documentation, see [Upgrading Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2.md).
 
@@ -167,6 +167,8 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
    > [!div class="mx-imgBorder"]
    > ![Successful completion output](./media/upgrade-to-data-lake-storage-gen2-how-to/success-message-powershell.png)
 
+   > [!IMPORTANT]
+   > A rough estimate of the upgrade time would be approximately 5-10 minutes per 2 million blobs. For example, if the account has 10 million blobs, then the upgrade will take approximately 25-50 minutes. Accounts that contain fewer than 2 million blobs typically upgrade in less than 10 minutes.
 
 ### [Azure CLI](#tab/azure-cli)
 

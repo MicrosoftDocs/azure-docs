@@ -6,7 +6,6 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: how-to
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 ms.tgt_pltfrm: na
@@ -90,7 +89,7 @@ Set the value of `--load-distribution` for the type of load balancing required.
 
 * Specify **Default** for the default behavior of five-tuple load balancing.
 
-For more information on the command used in this article, see [az network lb rule update](/cli/azure/network/lb/rule#az_network_lb_rule_update)
+For more information on the command used in this article, see [az network lb rule update](/cli/azure/network/lb/rule#az-network-lb-rule-update)
 
 ---
 

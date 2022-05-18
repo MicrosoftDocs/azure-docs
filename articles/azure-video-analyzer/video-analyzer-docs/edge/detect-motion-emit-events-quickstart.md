@@ -11,6 +11,8 @@ ms.custom: ignite-fall-2021, mode-other
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This quickstart walks you through the steps to get started with Azure Video Analyzer. It uses an Azure VM as an IoT Edge device and a simulated live video stream. After completing the setup steps, you'll be able to run a simulated live video stream through a video pipeline that detects and reports any motion in that stream. The following diagram shows a graphical representation of that pipeline.
 
 > [!div class="mx-imgBorder"]
@@ -121,7 +123,7 @@ If you intend to try the other quickstarts, then you should keep the resources y
 
 ## Next steps
 
-- Follow the [Analyze live video with your own model](analyze-live-video-use-your-model-http.md) quickstart to apply AI to live video feeds.
+- Follow [Quickstart: Analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md) to apply AI to live video feeds.
 - Review additional challenges for advanced users:
 
   - Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.

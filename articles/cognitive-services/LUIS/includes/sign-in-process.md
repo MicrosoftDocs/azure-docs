@@ -12,8 +12,6 @@ ms.topic: include
 ---
 ## Sign in to LUIS portal
 
-[!INCLUDE [Note about portal deprecation](luis-portal-note.md)]
-
 A new user to LUIS needs to follow this procedure:
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), select your country/region and agree to the terms of use. If you see **My Apps** instead, a LUIS resource already exists and you should skip ahead to create an app. If not, start by using an Azure resource, this allows you to link your LUIS account with a new or existing Azure Authoring resource. <!---This is equivalent to signing up already migrated. You won't need to go through the [migration process](../luis-migration-authoring.md#what-is-migration) later on.-->

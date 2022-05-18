@@ -1,7 +1,7 @@
 ---
 title: Reset the credentials for a cluster
 titleSuffix: Azure Kubernetes Service
-description: Learn how update or reset the service principal or AAD Application credentials for an Azure Kubernetes Service (AKS) cluster
+description: Learn how update or reset the service principal or Azure AD Application credentials for an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
@@ -12,7 +12,7 @@ ms.date: 03/11/2019
 
 AKS clusters created with a service principal have a one-year expiration time. As you near the expiration date, you can reset the credentials to extend the service principal for an additional period of time. You may also want to update, or rotate, the credentials as part of a defined security policy. This article details how to update these credentials for an AKS cluster.
 
-You may also have [integrated your AKS cluster with Azure Active Directory][aad-integration], and use it as an authentication provider for your cluster. In that case you will have 2 more identities created for your cluster, the AAD Server App and the AAD Client App, you may also reset those credentials.
+You may also have [integrated your AKS cluster with Azure Active Directory (Azure AD)][aad-integration], and use it as an authentication provider for your cluster. In that case you will have 2 more identities created for your cluster, the Azure AD Server App and the Azure AD Client App, you may also reset those credentials.
 
 Alternatively, you can use a managed identity for permissions instead of a service principal. Managed identities are easier to manage than service principals and do not require updates or rotations. For more information, see [Use managed identities](use-managed-identity.md).
 
@@ -67,7 +67,7 @@ If you chose to update the existing service principal credentials in the previou
 To create a service principal and then update the AKS cluster to use these new credentials, use the [az ad sp create-for-rbac][az-ad-sp-create] command.
 
 ```azurecli-interactive
-az ad sp create-for-rbac
+az ad sp create-for-rbac --role Contributor --scopes /subscriptions/mySubscriptionID
 ```
 
 The output is similar to the following example. Make a note of your own `appId` and `password`. These values are used in the next step.
@@ -103,14 +103,17 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal "$SP_ID" \
-    --client-secret "$SP_SECRET"
+    --client-secret "${SP_SECRET:Q}"
 ```
+
+> [!NOTE]
+> `${SP_SECRET:Q}` escapes any special characters in `SP_SECRET`, which can cause the command to fail. The above example works for Azure Cloud Shell and zsh terminals. For BASH terminals, use `${SP_SECRET@Q}`.
 
 For small and midsize clusters, it takes a few moments for the service principal credentials to be updated in the AKS.
 
-## Update AKS Cluster with new AAD Application credentials
+## Update AKS Cluster with new Azure AD Application credentials
 
-You may create new AAD Server and Client applications by following the [AAD integration steps][create-aad-app]. Or reset your existing AAD Applications following the [same method as for service principal reset](#reset-the-existing-service-principal-credential). After that you just need to update your cluster AAD Application credentials using the same [az aks update-credentials][az-aks-update-credentials] command but using the *--reset-aad* variables.
+You may create new Azure AD Server and Client applications by following the [Azure AD integration steps][create-aad-app]. Or reset your existing Azure AD Applications following the [same method as for service principal reset](#reset-the-existing-service-principal-credential). After that you just need to update your cluster Azure AD Application credentials using the same [az aks update-credentials][az-aks-update-credentials] command but using the *--reset-aad* variables.
 
 ```azurecli-interactive
 az aks update-credentials \
@@ -125,7 +128,7 @@ az aks update-credentials \
 
 ## Next steps
 
-In this article, the service principal for the AKS cluster itself and the AAD Integration Applications were updated. For more information on how to manage identity for workloads within a cluster, see [Best practices for authentication and authorization in AKS][best-practices-identity].
+In this article, the service principal for the AKS cluster itself and the Azure AD Integration Applications were updated. For more information on how to manage identity for workloads within a cluster, see [Best practices for authentication and authorization in AKS][best-practices-identity].
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

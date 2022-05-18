@@ -4,10 +4,10 @@ description: An article that teaches you to configure connectivity settings in A
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
-ms.date: 08/05/2021 
-author: ashinMSFT 
-ms.author: seshin 
-ms.reviewer: jrasnick, wiassaf
+ms.date: 03/29/2022 
+author: danzhang-msft 
+ms.author: danzhang 
+ms.reviewer: wiassaf
 ---
 
 # Azure Synapse Analytics connectivity settings
@@ -57,10 +57,13 @@ Selecting the **Disable** option will not apply any firewall rules that you may 
 5.    Select **Save** to save the change. A notification will confirm that the network setting was successfully saved.
 
 ## Connection policy
-The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Default*. You cannot change this in Azure Synapse Analytics. You can learn more about how that affects connections to Synapse SQL in Azure Synapse Analytics [here](../../azure-sql/database/connectivity-architecture.md#connection-policy). 
+The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Default*. You cannot change this in Azure Synapse Analytics. You can learn more about how that affects connections to Synapse SQL in Azure Synapse Analytics [here](/azure/azure-sql/database/connectivity-architecture#connection-policy). 
 
 ## Minimal TLS version
-Synapse SQL in Azure Synapse Analytics allows connections using all TLS versions. You cannot set the minimal TLS version for Synapse SQL in Azure Synapse Analytics.
+The serverless SQL endpoint and development endpoint only accept TLS 1.2 and above.
+
+Starting in December 2021, a requirement for TLS 1.2 has been implemented for workspace-managed dedicated SQL pools in new Synapse workspaces. Login attempts from connections using a TLS version lower than 1.2 will fail. Customers can raise or lower the minimal TLS version using the API, for both new Synapse workspaces or existing workspaces, so users who need to use a lower client version in the workspaces can connect. Customers can also raise the minimum TLS version to meet their security needs. Learn more by reading [minimal TLS REST API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update).
+
 
 ## Next steps
 

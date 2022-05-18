@@ -2,7 +2,7 @@
 title: Automatically scale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 12/13/2021
 ms.custom: "H1Hack27Feb2017, fasttrack-edit, devx-track-csharp"
 
 ---
@@ -10,7 +10,7 @@ ms.custom: "H1Hack27Feb2017, fasttrack-edit, devx-track-csharp"
 
 Azure Batch can automatically scale pools based on parameters that you define, saving you time and money. With automatic scaling, Batch dynamically adds nodes to a pool as task demands increase, and removes compute nodes as task demands decrease.
 
-To enable automatic scaling on a pool of compute nodes, you associate the pool with an *autoscale formula* that you define. The Batch service uses the autoscale formula to determine how many nodes are needed to execute your workload. These nodes may be dedicated nodes or [low-priority nodes](batch-low-pri-vms.md). Batch will then periodically review service metrics data and use it to adjust the number of nodes in the pool based on your formula and at an interval that you define.
+To enable automatic scaling on a pool of compute nodes, you associate the pool with an *autoscale formula* that you define. The Batch service uses the autoscale formula to determine how many nodes are needed to execute your workload. These nodes may be dedicated nodes or [Azure Spot nodes](batch-spot-vms.md). Batch will then periodically review service metrics data and use it to adjust the number of nodes in the pool based on your formula and at an interval that you define.
 
 You can enable automatic scaling when you create a pool, or apply it to an existing pool. Batch enables you to evaluate your formulas before assigning them to pools and to monitor the status of automatic scaling runs. Once you configure a pool with automatic scaling, you can make changes to the formula later.
 
@@ -36,7 +36,7 @@ $variable1 = function1($ServiceDefinedVariable);
 $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
-Include these statements in your autoscale formula to arrive at a target number of compute nodes. Dedicated nodes and low-priority nodes each have their own target settings. An autoscale formula can include a target value for dedicated nodes, a target value for low-priority nodes, or both.
+Include these statements in your autoscale formula to arrive at a target number of compute nodes. Dedicated nodes and Spot nodes each have their own target settings. An autoscale formula can include a target value for dedicated nodes, a target value for Spot nodes, or both.
 
 The target number of nodes may be higher, lower, or the same as the current number of nodes of that type in the pool. Batch evaluates a pool's autoscale formula at a specific [automatic scaling intervals](#automatic-scaling-interval). Batch adjusts the target number of each type of node in the pool to the number that your autoscale formula specifies at the time of evaluation.
 
@@ -48,7 +48,7 @@ Below are examples of two autoscale formulas, which can be adjusted to work for 
 
 With this autoscale formula, the pool is initially created with a single VM. The `$PendingTasks` metric defines the number of tasks that are running or queued. The formula finds the average number of pending tasks in the last 180 seconds and sets the `$TargetDedicatedNodes` variable accordingly. The formula ensures that the target number of dedicated nodes never exceeds 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free and the autoscaling formula shrinks the pool.
 
-This formula scales dedicated nodes, but can be modified to apply to scale low-priority nodes as well.
+This formula scales dedicated nodes, but can be modified to apply to scale Spot nodes as well.
 
 ```
 startingNumberOfVMs = 1;
@@ -61,7 +61,7 @@ $NodeDeallocationOption = taskcompletion;
 
 #### Preempted nodes
 
-This example creates a pool that starts with 25 low-priority nodes. Every time a low-priority node is preempted, it is replaced with a dedicated node. As with the first example, the `maxNumberofVMs` variable prevents the pool from exceeding 25 VMs. This example is useful for taking advantage of low-priority VMs while also ensuring that only a fixed number of preemptions will occur for the lifetime of the pool.
+This example creates a pool that starts with 25 Spot nodes. Every time a Spot node is preempted, it is replaced with a dedicated node. As with the first example, the `maxNumberofVMs` variable prevents the pool from exceeding 25 VMs. This example is useful for taking advantage of Spot VMs while also ensuring that only a fixed number of preemptions will occur for the lifetime of the pool.
 
 ```
 maxNumberofVMs = 25;
@@ -92,7 +92,7 @@ You can get and set the values of these service-defined variables to manage the 
 | Variable | Description |
 | --- | --- |
 | $TargetDedicatedNodes |The target number of dedicated compute nodes for the pool. This is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of dedicated nodes is modified by an autoscale evaluation before the pool has reached the initial target, the pool may not reach the target. <br /><br /> A pool in an account created in Batch service mode may not achieve its target if the target exceeds a Batch account node or core quota. A pool in an account created in user subscription mode may not achieve its target if the target exceeds the shared core quota for the subscription.|
-| $TargetLowPriorityNodes |The target number of low-priority compute nodes for the pool. This specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of low-priority nodes is modified by an autoscale evaluation before the pool has reached the initial target, the pool may not reach the target. A pool may also not achieve its target if the target exceeds a Batch account node or core quota. <br /><br /> For more information on low-priority compute nodes, see [Use low-priority VMs with Batch](batch-low-pri-vms.md). |
+| $TargetLowPriorityNodes |The target number of Spot compute nodes for the pool. This specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of Spot nodes is modified by an autoscale evaluation before the pool has reached the initial target, the pool may not reach the target. A pool may also not achieve its target if the target exceeds a Batch account node or core quota. <br /><br /> For more information on Spot compute nodes, see [Use Spot VMs with Batch](batch-spot-vms.md). |
 | $NodeDeallocationOption |The action that occurs when compute nodes are removed from a pool. Possible values are:<ul><li>**requeue**: The default value. Ends tasks immediately and puts them back on the job queue so that they are rescheduled. This action ensures the target number of nodes is reached as quickly as possible. However, it may be less efficient, as any running tasks will be interrupted and will then have to be completely restarted. <li>**terminate**: Ends tasks immediately and removes them from the job queue.<li>**taskcompletion**: Waits for currently running tasks to finish and then removes the node from the pool. Use this option to avoid tasks being interrupted and requeued, wasting any work the task has done.<li>**retaineddata**: Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</ul> |
 
 > [!NOTE]
@@ -128,7 +128,7 @@ You can get the value of these service-defined variables to make adjustments tha
 | $FailedTasks |The number of tasks that failed. |
 | $TaskSlotsPerNode |The number of task slots that can be used to run concurrent tasks on a single compute node in the pool. |
 | $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
-| $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been preempted. |
+| $CurrentLowPriorityNodes |The current number of Spot compute nodes, including any nodes that have been preempted. |
 | $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
 
 > [!WARNING]

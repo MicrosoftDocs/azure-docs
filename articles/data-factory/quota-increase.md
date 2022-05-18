@@ -4,7 +4,7 @@ description: How to create a support request in the Azure portal for Azure Data 
 ms.service: data-factory
 ms.topic: conceptual
 ms.subservice: troubleshooting
-ms.date: 03/10/2020
+ms.date: 01/27/2022
 author: jonburchel
 ms.author: jburchel
 ---
@@ -22,7 +22,7 @@ Use the following steps to create a new support request from the Azure portal fo
    ![The Help + support link](./media/quota-increase/help-plus-support.png)
 
 
-1. In **Help + support**, select **New support request**.
+1. In **Help + support**, select **Create a support request**.
 
     :::image type="content" source="./media/quota-increase/new-support-request.png" alt-text="Create a new support request":::
 

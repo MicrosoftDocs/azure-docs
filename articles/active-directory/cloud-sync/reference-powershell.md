@@ -1,9 +1,9 @@
 ---
-title: 'AADCloudSyncTools PowerShell Module for Azure AD Connect cloud sync'
+title: 'AADCloudSyncTools PowerShell module for Azure AD Connect cloud sync'
 description: This article describes how to install the Azure AD Connect cloud provisioning agent.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -13,111 +13,125 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# AADCloudSyncTools PowerShell Module for Azure AD Connect cloud sync
+# AADCloudSyncTools PowerShell module for Azure AD Connect cloud sync
 
-The AADCloudSyncTools module provides a set of useful tools that you can use to help manage your Azure AD Connect Cloud Sync deployments.
+The AADCloudSyncTools module provides a set of useful tools that can help you manage your deployments of Azure Active Directory Connect (Azure AD Connect) cloud sync.
 
 ## Prerequisites
-The following prerequisites are required:
 
-- All the prerequisites for this module can be automatically installed using `Install-AADCloudSyncToolsPrerequisites`
-- This module uses MSAL authentication, so it requires MSAL.PS module installed. To verify, in a PowerShell window, execute `Get-module MSAL.PS -ListAvailable`. If the module is installed correctly you will get a response. You can use `Install-AADCloudSyncToolsPrerequisites` to install the latest version of MSAL.PS
-- Although the AzureAD PowerShell module is not a prerequisite for any functionality of this module it is useful to be present, so it is also automatically installed when using `Install-AADCloudSyncToolsPrerequisites`. 
-- Installing modules from PowerShell Gallery requires TLS 1.2 enforcement. The cmdlet `Install-AADCloudSyncToolsPrerequisites` sets TLS 1.2 enforcement before installing all the prerequisites. To ensure that you can manually install modules, set the following in the PowerShell session before using `Install-Module`:
+You can automatically install all the prerequisites for the AADCloudSyncTools module by using `Install-AADCloudSyncToolsPrerequisites`. You'll do that in the next section of this article.
+
+Here are some details about what you need:
+
+- The AADCloudSyncTools module uses Microsoft Authentication Library (MSAL) authentication, so it requires installation of the MSAL.PS module. To verify the installation, in a PowerShell window, run `Get-module MSAL.PS -ListAvailable`. If the module is installed correctly, you'll get a response. If necessary, you can use `Install-AADCloudSyncToolsPrerequisites` to install the latest version of MSAL.PS.
+- Although the Azure AD PowerShell module is not required for any functionality of the AADCloudSyncTools module, it is useful. So it's automatically installed when you use `Install-AADCloudSyncToolsPrerequisites`. 
+- Installing modules from the PowerShell Gallery requires Transport Layer Security (TLS) 1.2 enforcement. The cmdlet `Install-AADCloudSyncToolsPrerequisites` sets TLS 1.2 enforcement before installing all the prerequisites. To ensure that you can manually install modules, set the following in the PowerShell session before using the cmdlet:
+
   ```
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   ```
 
 
 ## Install the AADCloudSyncTools PowerShell module
-To install and use AADCloudSyncTools module use the following steps:
 
-1. Open Windows PowerShell with administrative privileges
-2. Type or copy and paste the following: `Import-module -Name "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"`
-3. Hit enter.
-4. To verify the module was imported, enter or copy and paste the following: `Get-module AADCloudSyncTools`
-5. You should now see information about the module.
-6. Next, to install the AADCloudSyncTools module pre-requisites run: `Install-AADCloudSyncToolsPrerequisites`
-7. On the first run, the PoweShellGet module will be installed if not present. To load the new PowershellGet module close the PowerShell Window and open a new PowerShell session with administrative privileges. 
-8. Import the module again using step 2.
-9. Run `Install-AADCloudSyncToolsPrerequisites` to install the MSAL and AzureAD modules
-11. All prerequisites should be successfully installed
- ![Install module](media/reference-powershell/install-1.png)
-12. Every time you want to use AADCloudSyncTools module in new PowerShell session, enter or copy and paste the following:
-```
-Import-module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"
-```
+1. Open Windows PowerShell with administrative privileges.
+2. Run `Import-module -Name "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"`.
+3. To verify that the module was imported, run `Get-module AADCloudSyncTools`.
+
+   You should now see information about the module.
+4. To install the AADCloudSyncTools module prerequisites, run `Install-AADCloudSyncToolsPrerequisites`.
+5. On the first run, the PowerShellGet module will be installed if it's not present. To load the new PowerShellGet module, close the PowerShell window and open a new PowerShell session with administrative privileges. 
+6. Import the module again by running `Import-module -Name "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"`.
+7. Run `Install-AADCloudSyncToolsPrerequisites` again to install the MSAL and Azure AD modules.
+
+   All prerequisites should now be installed.
+
+   ![Screenshot of the notification in the PowerShell window that says the prerequisites were installed successfully.](media/reference-powershell/install-1.png)
+8. Every time you want to use the AADCloudSyncTools module in a new PowerShell session, run the following command:
+
+   ```
+   Import-module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"
+   ```
 
 
-## AADCloudSyncTools  Cmdlets
+## AADCloudSyncTools cmdlets
+
 ### Connect-AADCloudSyncTools
-Uses the MSAL.PS module to request a token for the Azure AD administrator to access Microsoft Graph 
 
+This cmdlet uses the MSAL.PS module to request a token for the Azure AD administrator to access Microsoft Graph.
 
 ### Export-AADCloudSyncToolsLogs
-Exports and packages all the troubleshooting data in a compressed file, as follows:
- 1. Sets verbose tracing and starts collecting data from the provisioning agent (same as `Start-AADCloudSyncToolsVerboseLogs`)
- <br>You can find these trace logs in the folder `C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace` </br>
- 2. Stops data collection after 3 minutes and disables verbose tracing (same as `Stop-AADCloudSyncToolsVerboseLogs`)
- <br>You can specify a different duration with `-TracingDurationMins` or completely skip verbose tracing with `-SkipVerboseTrace` </br>
- 3. Collects Event Viewer Logs for the last 24 hours
- 4. Compresses all the agent logs, verbose logs and event viewer logs into a compressed zip file under the User's Documents folder
- <br>You can specify a different output folder with `-OutputPath <folder path>` </br>
+
+This cmdlet exports and packages all the troubleshooting data in a compressed file, as follows: 
+
+1. Sets verbose tracing and starts collecting data from the provisioning agent (same as `Start-AADCloudSyncToolsVerboseLogs`). You can find these trace logs in the folder *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*.
+2. Stops data collection after three minutes and disables verbose tracing (same as `Stop-AADCloudSyncToolsVerboseLogs`). You can specify a different duration by using `-TracingDurationMins` or completely skip verbose tracing by using `-SkipVerboseTrace`.
+3. Collects Event Viewer logs for the last 24 hours. 
+4. Compresses all the agent logs, verbose logs, and Event Viewer logs into a .zip file in the user's *Documents* folder. You can specify a different output folder by using `-OutputPath <folder path>`.
 
 ### Get-AADCloudSyncToolsInfo
-Shows Azure AD Tenant details and internal variables state
+
+This cmdlet shows Azure AD tenant details and the state of internal variables.
 
 ### Get-AADCloudSyncToolsJob
-Uses Graph to get AD2AAD Service Principals and returns the Synchronization Job information.
-Can be also called using the specific Sync Job ID as a parameter.
+
+This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's information. You can also call it by using the specific sync job ID as a parameter.
 
 ### Get-AADCloudSyncToolsJobSchedule
-Uses Graph to get AD2AAD Service Principals and returns the Synchronization Job's Schedule.
-Can be also called using the specific Sync Job ID as a parameter.
+
+This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's schedule. You can also call it by using the specific sync job ID as a parameter.
 
 ### Get-AADCloudSyncToolsJobSchema
-Uses Graph to get AD2AAD Service Principals and returns the Synchronization Job's Schema.
+
+This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's schema.
 
 ### Get-AADCloudSyncToolsJobScope
-Uses Graph to get the Synchronization Job's Schema for the provided Sync Job ID and outputs all filter group's scopes.
+
+This cmdlet uses Microsoft Graph to get the sync job's schema for the provided sync job ID and outputs all filter groups' scopes.
 
 ### Get-AADCloudSyncToolsJobSettings
-Uses Graph to get AD2AAD Service Principals and returns the Synchronization Job's Settings.
-Can be also called using the specific Sync Job ID as a parameter.
+
+This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's settings. You can also call it by using the specific sync job ID as a parameter.
 
 ### Get-AADCloudSyncToolsJobStatus
-Uses Graph to get AD2AAD Service Principals and returns the Synchronization Job's Status.
-Can be also called using the specific Sync Job ID as a parameter.
+
+This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's status. You can also call it by using the specific sync job ID as a parameter.
 
 ### Get-AADCloudSyncToolsServicePrincipal
-Uses Graph to get the Service Principal(s) for AD2AAD and/or SyncFabric.
-Without parameters, will only return AD2AAD Service Principal(s).
+
+This cmdlet uses Microsoft Graph to get the service principals for Azure AD and/or Azure Service Fabric. Without parameters, it will return only Azure AD service principals.
 
 ### Install-AADCloudSyncToolsPrerequisites
-Checks for the presence of PowerShellGet v2.2.4.1 or later and Azure AD and MSAL.PS modules and installs these if missing.
+
+This cmdlet checks for the presence of PowerShellGet v2.2.4.1 or later, the Azure AD module, and the MSAL.PS module. It installs these items if they're missing.
 
 ### Invoke-AADCloudSyncToolsGraphQuery
-Invokes a Web request for the URI, Method and Body specified as parameters
+
+This cmdlet invokes a web request for the URI, method, and body specified as parameters.
 
 ### Repair-AADCloudSyncToolsAccount
-Uses Azure AD PowerShell to delete the current account (if present) and resets the Sync Account authentication with a new synchronization account in Azure AD.
+
+This cmdlet uses Azure AD PowerShell to delete the current account (if present). It then resets the sync account authentication with a new sync account in Azure AD.
 
 ### Restart-AADCloudSyncToolsJob
-Restarts a full synchronization.
+
+This cmdlet restarts a full synchronization.
 
 ### Resume-AADCloudSyncToolsJob
-Continues synchronization from the previous watermark.
+
+This cmdlet continues synchronization from the previous watermark.
 
 ### Start-AADCloudSyncToolsVerboseLogs
-Modifies the 'AADConnectProvisioningAgent.exe.config' to enable verbose tracing and restarts the AADConnectProvisioningAgent service
-You can use -SkipServiceRestart to prevent service restart but any config changes will not take effect.  You can find these trace logs in the folder C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace.
+
+This cmdlet modifies *AADConnectProvisioningAgent.exe.config* to enable verbose tracing and restarts the AADConnectProvisioningAgent service. You can use `-SkipServiceRestart` to prevent service restart, but any configuration changes will not take effect. You can find these trace logs in the folder *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*.
 
 ### Stop-AADCloudSyncToolsVerboseLogs
-Modifies the 'AADConnectProvisioningAgent.exe.config' to disable verbose tracing and restarts the AADConnectProvisioningAgent service. 
-You can use -SkipServiceRestart to prevent service restart but any config changes will not take effect.
+
+This cmdlet modifies *AADConnectProvisioningAgent.exe.config* to disable verbose tracing and restarts the AADConnectProvisioningAgent service. You can use `-SkipServiceRestart` to prevent service restart, but any configuration changes will not take effect.
 
 ### Suspend-AADCloudSyncToolsJob
-Pauses synchronization.
+
+This cmdlet pauses synchronization.
 
 ## Next steps 
 

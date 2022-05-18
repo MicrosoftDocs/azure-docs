@@ -2,9 +2,9 @@
 title: Application Insights for Azure cloud services | Microsoft Docs
 description: Monitor your web and worker roles effectively with Application Insights
 ms.topic: conceptual
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-
 ---
 
 # Application Insights for Azure cloud services
@@ -12,10 +12,15 @@ ms.date: 09/05/2018
 
 ![Overview dashboard](./media/cloudservices/overview-graphs.png)
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Prerequisites
 Before you begin, you need:
 
-* An [Azure](https://azure.com) subscription. Sign in with your Microsoft account for Windows, Xbox Live, or other Microsoft cloud services. 
+* An [Azure](https://azure.com) subscription.
+
+   [Sign in](https://azure.microsoft.com/auth/signin) with your Microsoft account for Windows, Xbox Live, or other Microsoft cloud services.
+
 * Microsoft Azure tools 2.9 or later.
 * Developer Analytics Tools 7.10 or later.
 
@@ -28,7 +33,7 @@ This option instruments your app at runtime, giving you all the telemetry that y
 
 If this option is all you need, you're done. 
 
-Your next steps are [viewing metrics from your app](../essentials/metrics-charts.md), [querying your data with Analytics](../logs/log-query-overview.md). 
+Your next steps are [viewing metrics from your app](../essentials/metrics-charts.md) and [querying your data with Analytics](../logs/log-query-overview.md). 
 
 To monitor performance in the browser, you might also want to set up [availability tests](./monitor-web-app-availability.md) and [add code to your webpages](./javascript.md).
 
@@ -172,7 +177,7 @@ If there is no data, do the following:
 1. In the app, open various pages so that it generates some telemetry.
 1. Wait a few seconds, and then click **Refresh**.  
 
-For more information, see [Troubleshooting][qna].
+For more information, see [Troubleshooting](https://docs.microsoft.com/azure/azure-monitor/faq#application-insights).
 
 ## View Azure Diagnostics events
 You can find the [Azure Diagnostics](../agents/diagnostics-extension-overview.md) information in Application Insights in the following locations:
@@ -262,11 +267,7 @@ If you have a client mobile app, use [App Center](../app/mobile-center-quickstar
 [The example](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.
 
 ## Exception "method not found" on running in Azure cloud services
-Did you build for .NET 4.6? .NET 4.6 is not automatically supported in Azure cloud services roles. [Install .NET 4.6 on each role](../../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
-
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+Did you build for .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)? Earlier versions aren't automatically supported in Azure cloud services roles. [Install .NET LTS on each role](../../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
 
 ## Next steps
 * [Configure sending Azure Diagnostics to Application Insights](../agents/diagnostics-extension-to-application-insights.md)

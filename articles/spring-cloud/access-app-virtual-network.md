@@ -6,12 +6,15 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/30/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Access your application in a private network
 
-This document explains how to access an endpoint for your application in a private network.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article explains how to access an endpoint for your application in a private network.
 
 When **Assign Endpoint** on applications in an Azure Spring Cloud service instance is deployed in your virtual network, the endpoint is a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Cloud app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
 
@@ -52,7 +55,7 @@ Find the IP Address for your Spring Cloud services. Customize the value of your 
 If you have your own DNS solution for your virtual network, like Active Directory Domain Controller, Infoblox, or another, you need to point the domain `*.private.azuremicroservices.io` to the [IP address](#find-the-ip-for-your-application). Otherwise, you can follow the following instructions to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
 
 > [!NOTE]
-> If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this documentation. Learn more about [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. Learn more about [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 ## Create a private DNS zone
 
@@ -171,7 +174,7 @@ Use the [IP address](#find-the-ip-for-your-application) to create the A record i
 
 ## Assign private FQDN for your application
 
-After following the procedure in [Build and deploy microservice applications](./how-to-deploy-in-azure-virtual-network.md), you can assign a private FQDN for your application.
+After following the procedure in [Deploy Azure Spring Cloud in a virtual network](./how-to-deploy-in-azure-virtual-network.md), you can assign a private FQDN for your application.
 
 #### [Portal](#tab/azure-portal)
 
@@ -192,8 +195,8 @@ Update your app to assign an endpoint to it. Customize the value of your app nam
 ```azurecli
 SPRING_CLOUD_APP='your spring cloud app'
 az spring-cloud app update \
-    --name $SPRING_CLOUD_APP \
     --resource-group $RESOURCE_GROUP \
+    --name $SPRING_CLOUD_APP \
     --service $SPRING_CLOUD_NAME \
     --assign-endpoint true
 ```
@@ -206,11 +209,16 @@ After the assignment, you can access the application's private FQDN in the priva
 
 ![Access private endpoint in vnet](media/spring-cloud-access-app-vnet/access-private-endpoint.png)
 
+## Clean up resources
+
+If you plan to continue working with subsequent articles, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following command:
+
+```azurecli
+az group delete --name $RESOURCE_GROUP
+```
+
 ## Next steps
 
-- [Expose applications to Internet - using Application Gateway](./expose-apps-gateway.md)
-
-## See also
-
+- [Expose applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md)
 - [Troubleshooting Azure Spring Cloud in VNET](./troubleshooting-vnet.md)
 - [Customer Responsibilities for Running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md)

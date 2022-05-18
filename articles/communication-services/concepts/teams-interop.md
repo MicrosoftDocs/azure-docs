@@ -13,9 +13,9 @@ ms.subservice: teams-interop
 # Teams interoperability
 
 > [!IMPORTANT]
-> Bring your own identity (BYOI) interoperability for Teams meeting is in the public preview and available to all Communication Services applications and Teams organizations.
+> Bring your own identity (BYOI) interoperability for Teams meetings is now generally available to all Communication Services applications and Teams organizations.
 >
-> Teams interoperability with Communication Services SDK for Teams calling and Teams meetings is in the public preview and available to Web-based applications.
+> Interoperability with Communication Services SDK with Teams identities is in public preview and available to Web-based applications.
 >
 > Preview APIs and SDKs are provided without a service-level agreement and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -27,12 +27,12 @@ Azure Communication Services can be used to build custom applications and experi
 
 ## User identity models
 
-Azure Communication Services supports two types of Teams interoperability depending on the identity of the end-user:
+Azure Communication Services supports two types of Teams interoperability depending on the identity of the user:
 
 - **[Bring your own identity (BYOI)](#bring-your-own-identity).** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses. This model allows you to build custom applications for non-Teams users to connect and communicate with Teams users.
 - **[Teams identity](#teams-identity).** User authentication is controlled by Azure Active Directory and users of your custom application must have Teams licenses. This model allows you to build custom applications for Teams users to enable specialized workflows or experiences that are not possible with the existing Teams clients.
 
-Applications can implement both authentication models and leave the choice of authentication up to the end-user. The following table compares two models:
+Applications can implement both authentication models and leave the choice of authentication up to the user. The following table compares two models:
 
 |Feature|Bring your own identity| Teams identity|
 |---|---|---|
@@ -85,7 +85,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 ## Pricing
 All usage of Azure Communication Service APIs and SDKs increments [Azure Communication Service billing meters](https://azure.microsoft.com/pricing/details/communication-services/). Interactions with Microsoft Teams, such as joining a meeting or initiating a phone call using a Teams allocated number, will increment these meters but there is no additional fee for the Teams interoperability capability itself, and there is no pricing distinction between the BYOI and Microsoft 365 authentication options.
 
-If your Azure application has an end-user spend 10 minutes in a meeting with a user of Microsoft Teams, those two users combined consumed 20 calling minutes. The 10 minutes exercised through the custom application and using Azure APIs and SDKs will be billed to your resource. However, the 10 minutes consumed by the end-user in the native Teams application is covered by the applicable Teams license and is not metered by Azure.
+If your Azure application has a user spend 10 minutes in a meeting with a user of Microsoft Teams, those two users combined consumed 20 calling minutes. The 10 minutes exercised through the custom application and using Azure APIs and SDKs will be billed to your resource. However, the 10 minutes consumed by the user in the native Teams application is covered by the applicable Teams license and is not metered by Azure.
 
 ## Teams in Government Clouds (GCC)
 Azure Communication Services interoperability isn't compatible with Teams deployments using [Microsoft 365 government clouds (GCC)](/MicrosoftTeams/plan-for-government-gcc) at this time.

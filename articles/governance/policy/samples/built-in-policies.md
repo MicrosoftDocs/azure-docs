@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 10/11/2021
+ms.date: 05/11/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -51,6 +51,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-azure-active-directory](../../../../includes/policy/reference/bycat/policies-azure-active-directory.md)]
 
+## Azure Arc
+
+[!INCLUDE [azure-policy-reference-policies-azure-arc](../../../../includes/policy/reference/bycat/policies-azure-arc.md)]
+
 ## Azure Data Explorer
 
 [!INCLUDE [azure-policy-reference-policies-azure-data-explorer](../../../../includes/policy/reference/bycat/policies-azure-data-explorer.md)]
@@ -58,6 +62,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Azure Edge Hardware Center
 
 [!INCLUDE [azure-policy-reference-policies-azure-edge-hardware-center](../../../../includes/policy/reference/bycat/policies-azure-edge-hardware-center.md)]
+
+## Azure Purview
+
+[!INCLUDE [azure-policy-reference-policies-azure-purview](../../../../includes/policy/reference/bycat/policies-azure-purview.md)]
 
 ## Azure Stack Edge
 
@@ -78,6 +86,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Cache
 
 [!INCLUDE [azure-policy-reference-policies-cache](../../../../includes/policy/reference/bycat/policies-cache.md)]
+
+## CDN
+
+[!INCLUDE [azure-policy-reference-policies-cdn](../../../../includes/policy/reference/bycat/policies-cdn.md)]
 
 ## Cognitive Services
 
@@ -151,6 +163,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-kubernetes](../../../../includes/policy/reference/bycat/policies-kubernetes.md)]
 
+## Lab Services
+
+[!INCLUDE [azure-policy-reference-policies-lab-services](../../../../includes/policy/reference/bycat/policies-lab-services.md)]
+
 ## Lighthouse
 
 [!INCLUDE [azure-policy-reference-policies-lighthouse](../../../../includes/policy/reference/bycat/policies-lighthouse.md)]
@@ -166,6 +182,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Managed Application
 
 [!INCLUDE [azure-policy-reference-policies-managed-application](../../../../includes/policy/reference/bycat/policies-managed-application.md)]
+
+## Managed Labs
+
+[!INCLUDE [azure-policy-reference-policies-managed-labs](../../../../includes/policy/reference/bycat/policies-managed-labs.md)]
 
 ## Media Services
 
@@ -230,6 +250,14 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Tags
 
 [!INCLUDE [azure-policy-reference-policies-tags](../../../../includes/policy/reference/bycat/policies-tags.md)]
+
+## Update Management Center
+
+[!INCLUDE [azure-policy-reference-policies-update-management-center](../../../../includes/policy/reference/bycat/policies-update-management-center.md)]
+
+## Video Analyzers
+
+[!INCLUDE [azure-policy-reference-policies-video-analyzers](../../../../includes/policy/reference/bycat/policies-video-analyzers.md)]
 
 ## VM Image Builder
 

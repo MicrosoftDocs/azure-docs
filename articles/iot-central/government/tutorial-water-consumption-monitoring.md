@@ -3,7 +3,7 @@ title: Tutorial - Azure IoT water consumption monitoring | Microsoft Docs
 description: This tutorial shows you how to deploy and use the water consumption monitoring application template for IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 08/02/2021
+ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -12,23 +12,25 @@ manager: abjork
 
 # Tutorial:  Deploy and walk through the water consumption monitoring application
 
-Use the IoT Central *water consumption monitoring* application template and the guidance in this article to develop an end-to-end water consumption monitoring solution.
+Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption and remotely controlling valves to control water flow. Water consumption monitoring coupled with digital feedback message to the citizen can increase awareness and reduce water consumption.
+
+The _water consumption monitoring_ application template helps you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption.
 
 ![Water consumption monitoring architecture](./media/tutorial-waterconsumptionmonitoring/concepts-waterconsumptionmonitoring-architecture1.png)
 
-### Devices and connectivity
+### Devices and connectivity (1,2)
 
 Water management solutions use smart water devices such as flow meters, water quality monitors, smart valves, leak detectors.
 
-Devices in smart water solutions may connect through low-power wide area networks (LPWAN) or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use device gateways that are IP capable and that can connect directly to IoT Central.
+Devices in smart water solutions may connect through low-power wide area networks (LPWAN) or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use an IP capable device gateway that connects directly to your IoT Central application.
 
 ### IoT Central
 
-Azure IoT Central is an IoT App platform that helps you quickly build and deploy an IoT solution. You can brand, customize, and integrate your solution with third-party services.
+When you build an IoT solution, Azure IoT Central simplifies the build process and helps to reduce the burden and costs of IoT management, operations, and development. You can brand, customize, and integrate your solution with third-party services.
 
 When you connect your smart water devices to IoT Central, the application provides device command and control, monitoring and alerting, a user interface with built-in RBAC, configurable dashboards, and extensibility options.
 
-### Extensibility and integrations
+### Extensibility and integrations (3)
 
 You can extend your IoT application in IoT Central and optionally:
 
@@ -36,14 +38,13 @@ You can extend your IoT application in IoT Central and optionally:
 * Automate workflows in other systems by triggering actions using Power Automate or webhooks from IoT Central application.
 * Programmatically access your IoT application in IoT Central through IoT Central APIs.
 
-### Business applications
+### Business applications (4)
 
 You can use IoT data to power various business applications within a water utility. In your [IoT Central water consumption monitoring application](tutorial-water-consumption-monitoring.md) you can configure rules and actions, and set them to create alerts in [Connected Field Service](/dynamics365/field-service/connected-field-service). Configure Power Automate in IoT Central rules to automate workflows across applications and services. Additionally, based on service activities in Connected Field Service, information can be sent back to Azure IoT Central.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
 > * Use the Azure IoT Central water consumption monitoring template to create your water consumption monitoring application.
 > * Explore and customize the dashboard.
 > * Explore device templates.
@@ -245,24 +246,23 @@ To learn more, see [How to run a job](../core/howto-manage-devices-in-bulk.md).
 
 ## Customize your application
 
-As a administrator, you can change several settings to customize the user experience in your application.
+As an administrator, you can change several settings to customize the user experience in your application.
 
-1. Select **Administration** > **Customize your application**.
+1. Select **Application** > **Management**.
 1. To choose an image to upload as the **Application logo**, select the **Change** button.
 1. To choose a **Browser icon** image that will appear on browser tabs, select the **Change** button.
 1. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes. For more information about **HEX Value** color notation, see [HTML Colors](https://www.w3schools.com/html/html_colors.asp).
 
    ![Selections for application logo, browser icon, and browser colors](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-customize-your-application.png)
 
-1. You can also change application images by selecting **Administration** > **Application settings**. To choose an image to upload as the application image, select the **Select image** button.
+1. You can also change application images by selecting  **Application** > **Management**. To choose an image to upload as the application image, select the **Select image** button.
 
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete it.
 
-1. Select **Administration** on the left pane of your Azure IoT Central application.
-1. Select **Application settings**, and then select **Delete** at the bottom of the page.
+1. Select **Application** > **Management** on the left pane of your Azure IoT Central application and then select **Delete** at the bottom of the page.
 
 ## Next steps
  

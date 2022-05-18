@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 03/22/2022
 ---
 
 # Copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics
@@ -34,9 +34,9 @@ For Copy activity, this Azure SQL Database connector supports these functions:
 
 ## Prerequisites
 
-To access the SQL Managed Instance [public endpoint](../azure-sql/managed-instance/public-endpoint-overview.md), you can use a managed Azure integration runtime. Make sure that you enable the public endpoint and also allow public endpoint traffic on the network security group so that the service can connect to your database. For more information, see [this guidance](../azure-sql/managed-instance/public-endpoint-configure.md).
+To access the SQL Managed Instance [public endpoint](/azure/azure-sql/managed-instance/public-endpoint-overview), you can use a managed Azure integration runtime. Make sure that you enable the public endpoint and also allow public endpoint traffic on the network security group so that the service can connect to your database. For more information, see [this guidance](/azure/azure-sql/managed-instance/public-endpoint-configure).
 
-To access the SQL Managed Instance private endpoint, set up a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) that can access the database. If you provision the self-hosted integration runtime in the same virtual network as your managed instance, make sure that your integration runtime machine is in a different subnet than your managed instance. If you provision your self-hosted integration runtime in a different virtual network than your managed instance, you can use either a virtual network peering or a virtual network to virtual network connection. For more information, see [Connect your application to SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
+To access the SQL Managed Instance private endpoint, set up a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) that can access the database. If you provision the self-hosted integration runtime in the same virtual network as your managed instance, make sure that your integration runtime machine is in a different subnet than your managed instance. If you provision your self-hosted integration runtime in a different virtual network than your managed instance, you can use either a virtual network peering or a virtual network to virtual network connection. For more information, see [Connect your application to SQL Managed Instance](/azure/azure-sql/managed-instance/connect-application-instance).
 
 ## Get started
 
@@ -81,16 +81,15 @@ The following properties are supported for the SQL Managed Instance linked servi
 | tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal |
 | azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the service's cloud environment is used. | No |
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes, when you use user-assigned managed identity authentication |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use a self-hosted integration runtime or an Azure integration runtime if your managed instance has a public endpoint and allows the service to access it. If not specified, the default Azure integration runtime is used. |Yes |
-
-> [!NOTE]
-> SQL Managed Instance [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is not supported in data flow. 
 
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
 
 - [SQL authentication](#sql-authentication)
-- [Azure AD application token authentication: Service principal](#service-principal-authentication)
-- [Azure AD application token authentication: Managed identities for Azure resources](#managed-identity)
+- [Service principal authentication](#service-principal-authentication)
+- [System-assigned managed identity authentication](#managed-identity)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 ### SQL authentication
 
@@ -168,7 +167,7 @@ For different authentication types, refer to the following sections on prerequis
 
 To use a service principal-based Azure AD application token authentication, follow these steps:
 
-1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
 2. [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) from the Azure portal. Make note of the application name and the following values that define the linked service:
 
@@ -176,19 +175,19 @@ To use a service principal-based Azure AD application token authentication, foll
     - Application key
     - Tenant ID
 
-3. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the managed identity. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
+3. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the service principal. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
     ```
 
-4. [Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) for the managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
+4. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the service principal. Connect to the database from or to which you want to copy data, run the following T-SQL: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-5. Grant the managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/t-sql/statements/alter-role-transact-sql).
+5. Grant the service principal needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/t-sql/statements/alter-role-transact-sql).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
@@ -220,27 +219,27 @@ To use a service principal-based Azure AD application token authentication, foll
 }
 ```
 
-### <a name="managed-identity"></a> Managed identities for Azure resources authentication
+### <a name="managed-identity"></a> System-assigned managed identity authentication
 
-A data factory or Synapse workspace can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the service for authentication to other Azure services. You can use this managed identity for SQL Managed Instance authentication. The designated service can access and copy data from or to your database by using this identity.
+A data factory or Synapse workspace can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity) that represents the service for authentication to other Azure services. You can use this managed identity for SQL Managed Instance authentication. The designated service can access and copy data from or to your database by using this identity.
 
-To use managed identity authentication, follow these steps.
+To use system-assigned managed identity authentication, follow these steps.
 
-1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
-2. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the managed identity. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
+2. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the system-assigned managed identity. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
 
     ```sql
     CREATE LOGIN [your_factory_or_workspace_ name] FROM EXTERNAL PROVIDER
     ```
 
-3. [Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) for the managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
+3. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the system-assigned managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
   
     ```sql
     CREATE USER [your_factory_or_workspace_name] FROM EXTERNAL PROVIDER
     ```
 
-4. Grant the managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/t-sql/statements/alter-role-transact-sql).
+4. Grant the system-assigned managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/t-sql/statements/alter-role-transact-sql).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your_factory_or_workspace_name]
@@ -248,7 +247,7 @@ To use managed identity authentication, follow these steps.
 
 5. Configure a SQL Managed Instance linked service.
 
-**Example: uses managed identity authentication**
+**Example: uses system-assigned managed identity authentication**
 
 ```json
 {
@@ -257,6 +256,56 @@ To use managed identity authentication, follow these steps.
         "type": "AzureSqlMI",
         "typeProperties": {
             "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+### User-assigned managed identity authentication
+
+A data factory or Synapse workspace can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity) that represents the service for authentication to other Azure services. You can use this managed identity for SQL Managed Instance authentication. The designated service can access and copy data from or to your database by using this identity.
+
+To use user-assigned managed identity authentication, follow these steps.
+
+1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
+
+2. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the user-assigned managed identity. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
+
+    ```sql
+    CREATE LOGIN [your_factory_or_workspace_ name] FROM EXTERNAL PROVIDER
+    ```
+
+3. [Create contained database users](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) for the user-assigned managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
+  
+    ```sql
+    CREATE USER [your_factory_or_workspace_name] FROM EXTERNAL PROVIDER
+    ```
+
+4. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant the user-assigned managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/t-sql/statements/alter-role-transact-sql).
+
+    ```sql
+    ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your_factory_or_workspace_name]
+    ```
+5. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity.
+
+6. Configure a SQL Managed Instance linked service.
+
+**Example: uses user-assigned managed identity authentication**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlMI",
+        "typeProperties": {
+            "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -436,6 +485,12 @@ To copy data to SQL Managed Instance, the following properties are supported in 
 | writeBatchSize |Number of rows to insert into the SQL table *per batch*.<br/>Allowed values are integers for the number of rows. By default, the service dynamically determines the appropriate batch size based on the row size.  |No |
 | writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the timespan. An example is "00:30:00," which is 30 minutes. |No |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
+| WriteBehavior | Specify the write behavior for copy activity to load data into Azure SQL MI. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
+| upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upert`. | No |
+| ***Under `upsertSettings`:*** | | |
+| useTempDB | Specify whether to use the a global temporary table or physical table as the interim table for upsert. <br>By default, the service uses global temporary table as the interim table. value is `true`. | No |
+| interimSchemaName | Specify the interim schema for creating interim table if physical table is used. Note: user need to have the permission for creating and deleting table. By default, interim table will share the same schema as sink table. <br/> Apply when the useTempDB option is `False`. | No |
+| keys | Specify the column names for unique row identification. Either a single key or a series of keys can be used. If not specified, the primary key is used. | No |
 
 **Example 1: Append data**
 
@@ -504,6 +559,45 @@ Learn more details from [Invoke a stored procedure from a SQL MI sink](#invoke-a
                     "identifier": { "value": "1", "type": "Int" },
                     "stringData": { "value": "str1" }
                 }
+            }
+        }
+    }
+]
+```
+
+**Example 3: Upsert data**
+
+```json
+"activities":[
+    {
+        "name": "CopyToAzureSqlMI",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<SQL Managed Instance output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "SqlMISink",
+                "tableOption": "autoCreate",
+                "writeBehavior": "upsert",
+                "upsertSettings": {
+                    "useTempDB": true,
+                    "keys": [
+                        "<column name>"
+                    ]
+                },            
             }
         }
     }
@@ -594,34 +688,7 @@ Appending data is the default behavior of the SQL Managed Instance sink connecto
 
 ### Upsert data
 
-**Option 1:** When you have a large amount of data to copy, you can bulk load all records into a staging table by using the copy activity, then run a stored procedure activity to apply a [MERGE](/sql/t-sql/statements/merge-transact-sql) or INSERT/UPDATE statement in one shot. 
-
-Copy activity currently doesn't natively support loading data into a database temporary table. There is an advanced way to set it up with a combination of multiple activities, refer to [Optimize SQL Database Bulk Upsert scenarios](https://github.com/scoriani/azuresqlbulkupsert). Below shows a sample of using a permanent table as staging.
-
-As an example, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into an Azure SQL Managed Instance staging table, for example, **UpsertStagingTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the staging table into the target table and clean up the staging table.
-
-:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
-
-In your database, define a stored procedure with MERGE logic, like the following example, which is pointed to from the previous stored procedure activity. Assume that the target is the **Marketing** table with three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column.
-
-```sql
-CREATE PROCEDURE [dbo].[spMergeData]
-AS
-BEGIN
-    MERGE TargetTable AS target
-    USING UpsertStagingTable AS source
-    ON (target.[ProfileID] = source.[ProfileID])
-    WHEN MATCHED THEN
-        UPDATE SET State = source.State
-    WHEN NOT matched THEN
-        INSERT ([ProfileID], [State], [Category])
-      VALUES (source.ProfileID, source.State, source.Category);
-    
-    TRUNCATE TABLE UpsertStagingTable
-END
-```
-
-**Option 2:** You can choose to [invoke a stored procedure within the copy activity](#invoke-a-stored-procedure-from-a-sql-sink). This approach runs each batch (as governed by the `writeBatchSize` property) in the source table instead of using bulk insert as the default approach in the copy activity.
+Copy activity now supports natively loading data into a database temporary table and then update the data in sink table if key exists and otherwise insert new data. To learn more about upsert settings in copy activities, see [SQL Managed Instance as a sink](#sql-managed-instance-as-a-sink).
 
 ### Overwrite the entire table
 
@@ -698,6 +765,18 @@ The below table lists the properties supported by Azure SQL Managed Instance sou
 | Batch size | Specify a batch size to chunk large data into reads. | No | Integer | batchSize |
 | Isolation Level | Choose one of the following isolation levels:<br>- Read Committed<br>- Read Uncommitted (default)<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE</small> |isolationLevel |
 
+> [!TIP]
+> The [common table expression (CTE)](/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15&preserve-view=true) in SQL is not supported in the mapping data flow **Query** mode, because the prerequisite of using this mode is that queries can be used in the SQL query FROM clause but CTEs cannot do this.
+>To use CTEs, you need to create a stored procedure using the following query:
+>```SQL
+> CREATE PROC CTESP @query nvarchar(max)
+> AS
+> BEGIN
+> EXECUTE sp_executesql @query;
+> END
+>```
+>Then use the **Stored procedure** mode in the source transformation of the mapping data flow and set the `@query` like example `with CTE as (select 'test' as a) select * from CTE`. Then you can use CTEs as expected.
+
 #### Azure SQL Managed Instance source script example
 
 When you use Azure SQL Managed Instance as source type, the associated data flow script is:
@@ -722,6 +801,10 @@ The below table lists the properties supported by Azure SQL Managed Instance sin
 | Table action |Determines whether to recreate or remove all rows from the destination table prior to writing.<br>- **None**: No action will be done to the table.<br>- **Recreate**: The table will get dropped and recreated. Required if creating a new table dynamically.<br>- **Truncate**: All rows from the target table will get removed. | No | `true` or `false` | recreate<br/>truncate |
 | Batch size | Specify how many rows are being written in each batch. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data. | No | Integer | batchSize |
 | Pre and Post SQL scripts | Specify multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database. | No | String | preSQLs<br>postSQLs |
+
+> [!TIP]
+> 1. It's recommended to break single batch scripts with multiple commands into multiple batches.
+> 2. Only Data Definition Language (DDL) and Data Manipulation Language (DML) statements that return a simple update count can be run as part of a batch. Learn more from [Performing batch operations](/sql/connect/jdbc/performing-batch-operations)
 
 #### Azure SQL Managed Instance sink script example
 
@@ -792,19 +875,22 @@ When data is copied to and from SQL Managed Instance using copy activity, the fo
 
 ## Using Always Encrypted
 
-When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), follow below steps: 
+When you copy data from/to SQL Managed Instance with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), follow below steps: 
 
-1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) in an [Azure Key Vault](../key-vault/general/overview.md). Learn more on [how to configure Always Encrypted by using Azure Key Vault](../azure-sql/database/always-encrypted-azure-key-vault-configure.md?tabs=azure-powershell)
+1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) in an [Azure Key Vault](../key-vault/general/overview.md). Learn more on [how to configure Always Encrypted by using Azure Key Vault](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell)
 
 2. Make sure to great access to the key vault where the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) is stored. Refer to this [article](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true#key-vaults) for required permissions.
 
 3. Create linked service to connect to your SQL database and enable 'Always Encrypted' function by using either managed identity or service principal. 
 
 >[!NOTE]
->SQL Server [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) supports below scenarios: 
+>SQL Managed Instance [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) supports below scenarios: 
 >1. Either source or sink data stores is using managed identity or service principal as key provider authentication type.
 >2. Both source and sink data stores are using managed identity as key provider authentication type.
 >3. Both source and sink data stores are using the same service principal as key provider authentication type.
+
+>[!NOTE]
+>Currently, SQL Managed Instance [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is only supported for source transformation in mapping data flows.
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

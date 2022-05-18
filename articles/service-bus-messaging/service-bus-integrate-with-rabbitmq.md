@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 11/17/2021
 ms.author: alvidela
 ROBOTS: NOINDEX
+ms.custom: contperf-fy22q2
 ---
 
 # How to integrate Service Bus with RabbitMQ

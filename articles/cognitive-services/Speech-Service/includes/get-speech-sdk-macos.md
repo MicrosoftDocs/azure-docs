@@ -6,9 +6,9 @@ ms.date: 03/27/2020
 ms.author: eur
 ---
 
-When developing for macOS, the following Speech SDKs are available.
+When you develop for macOS, the following Speech SDKs are available:
 
-- The Objective-C/Swift Speech SDK is available natively as a CocoaPod package for Mac x64 and ARM based silicons. For details about using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift </a>.
+- The Objective-C/Swift Speech SDK is available natively as a CocoaPod package for Mac x64 and ARM-based silicons. For details about using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift</a>.
 - The .NET Speech SDK is available via NuGet package and could be used with **Xamarin.Mac** and **Unity** application frameworks.
 - The Python Speech SDK is available as a PyPI module for Python versions 3.7 and higher.
 - The Java Speech SDK is available via the Maven repository as a JAR package.
@@ -21,12 +21,12 @@ When developing for macOS, the following Speech SDKs are available.
 
 :::row:::
     :::column span="3":::
-        The macOS CocoaPod package is available for download and use with the <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (or later) </a> integrated development environment (IDE). First, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">download the binary CocoaPod </a>. Extract the pod in the same directory for its intended use, create a *Podfile* and list the `pod` as a `target`.
+        The macOS CocoaPod package is available for download and use with the <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (or later) </a> integrated development environment (IDE). First, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">download the binary CocoaPod </a>. Extract the pod in the same directory for its intended use, create a *Podfile*, and list the `pod` as a `target`.
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_xcode.svg" width="60px">
+            <img alt="Xcode" src="/media/logos/logo_xcode.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -36,7 +36,7 @@ platform :osx, 10.14
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.15.0'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.21.0'
 end
 ```
 
@@ -44,12 +44,12 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.Mac exposes the complete macOS SDK for .NET developers to build native Mac applications using C#. For more information, see <a href="/xamarin/mac/" target="_blank">Xamarin.Mac </a>.
+        Xamarin.Mac exposes the complete macOS SDK for .NET developers to build native Mac applications by using C#. For more information, see <a href="/xamarin/mac/" target="_blank">Xamarin.Mac</a>.
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" width="60px">
+            <img alt="Xamarin" src="/media/logos/logo_xamarin.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

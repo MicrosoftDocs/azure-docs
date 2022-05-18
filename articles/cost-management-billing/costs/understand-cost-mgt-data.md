@@ -1,5 +1,6 @@
 ---
-title: Understand Azure Cost Management data
+title: Understand Cost Management data
+titleSuffix: Azure Cost Management + Billing
 description: This article helps you better understand data that's included in Cost Management and how frequently it's processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders

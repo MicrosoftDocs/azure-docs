@@ -4,16 +4,15 @@ description: Explains how to troubleshoot connectivity issues with Azure AD Conn
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/18/2021
+ms.date: 01/11/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -27,7 +26,7 @@ This article explains how connectivity between Azure AD Connect and Azure AD wor
 Azure AD Connect uses the MSAL library for authentication. The installation wizard and the sync engine proper require machine.config to be properly configured since these two are .NET applications.
 
 >[!NOTE]
->Azure AD Connect v1.6.xx.x uses the ADAL library.  The ADAL library is being depricated and support will end in June 2022.  Microsot recommendeds that you upgrade to the latest version of [Azure AD Connect v2](whatis-azure-ad-connect-v2.md).
+>Azure AD Connect v1.6.xx.x uses the ADAL library.  The ADAL library is being depricated and support will end in June 2022.  Microsoft recommends that you upgrade to the latest version of [Azure AD Connect v2](whatis-azure-ad-connect-v2.md).
 
 In this article, we show how Fabrikam connects to Azure AD through its proxy. The proxy server is named fabrikamproxy and is using port 8080.
 
@@ -48,7 +47,7 @@ Of these URLs, the following table is the absolute bare minimum to be able to co
 | mscrl.microsoft.com |HTTP/80 |Used to download CRL lists. |
 | \*.verisign.com |HTTP/80 |Used to download CRL lists. |
 | \*.entrust.net |HTTP/80 |Used to download CRL lists for MFA. |
-| \*.windows.net |HTTPS/443 |Used to sign in to Azure AD. |
+| \*.management.core.windows.net (Azure Storage)</br>\*.graph.windows.net (Azure AD Graph)|HTTPS/443|Used for the various Azure services|
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Used for MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
 | \*.crl3.digicert.com |HTTP/80 |Used to verify certificates. |

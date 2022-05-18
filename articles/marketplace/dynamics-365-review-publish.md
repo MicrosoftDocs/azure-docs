@@ -27,7 +27,6 @@ You can review your offer status on the **Overview** tab of the commercial marke
 | Live | Offer is live in the marketplace and can be seen and acquired by customers. |
 | Pending stop sell | Publisher selected "stop sell" on an offer or plan, but the action has not yet been completed. |
 | Not available in the marketplace | A previously published offer in the marketplace has been removed. |
-|||
 
 ## Validation and publishing steps
 
@@ -43,8 +42,6 @@ If any of the pages have a status other than **Complete**, you need to correct t
 
 After all pages are complete and you have entered applicable testing notes, select **Publish** to submit your offer. We will email you when a preview version of your offer is available to approve. At that time complete the following steps:
 
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Return to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 1. On the Home page, select the **Marketplace offers** tile.
 
@@ -53,16 +50,6 @@ After all pages are complete and you have entered applicable testing notes, sele
 1. On the Marketplace offers page, select the offer.
 1. Select **Review and publish**.
 1. Select **Go live** to make your offer publicly available.
-
-#### [Current view](#tab/current-view)
-
-1. Return to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
-1. Select the **Overview** tab in the left-nav menu bar.
-1. Select the offer.
-1. Select **Review and publish**.
-1. Select **Go live** to make your offer publicly available.
-
----
 
 After you select **Review and publish**, we will perform certification and other verification processes before your offer is published to AppSource. We will notify you when your offer is available in preview so you can go live. If there is an issue, we will notify you with the details and provide guidance on how to fix it.
 

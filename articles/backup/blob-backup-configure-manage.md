@@ -61,7 +61,7 @@ To assign the required role for storage accounts that you need to protect, follo
         ![Role assignment options](./media/blob-backup-configure-manage/role-assignment-options.png)
 
         >[!NOTE]
-        >The role assignment might take up to 10 minutes to take effect.
+        >The role assignment might take up to 30 minutes to take effect.
 
 ## Create a backup policy
 

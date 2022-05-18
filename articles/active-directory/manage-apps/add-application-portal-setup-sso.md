@@ -3,17 +3,17 @@ title: 'Quickstart: Enable single sign-on for an enterprise application'
 titleSuffix: Azure AD
 description: Enable single sign-on for an enterprise application in Azure Active Directory.
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/21/2021
-ms.author: davidmu
+ms.author: jomondi
 ms.reviewer: ergleenl
-# Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q2, mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.
 ---
 
 # Quickstart: Enable single sign-on for an enterprise application
@@ -28,7 +28,7 @@ It is recommended that you use a non-production environment to test the steps in
 
 To configure SSO, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - Completion of the steps in [Quickstart: Create and assign a user account](add-application-portal-assign-users.md).
 

@@ -1,31 +1,30 @@
 ---
-title: How to create a project - Custom Translator
+title: "Legacy: How to create a project - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: This article explains how to create and manage a project in the Azure Cognitive Services Custom Translator.  
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 12/06/2021
 ms.author: lajanuar
-ms.topic: conceptual
+ms.topic: how-to
 #Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
 
 # Create a project
 
-A project is a container for a models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
+A project contains translation models for one language pair. Each includes all documents that are uploaded into that workspace that have the correct language pair.
 
 Creating project is the first step toward building a model.
 
-## Create a project:
+## Create a project
 
-1.  In the [Custom Translator](https://portal.customtranslator.azure.ai) portal,
-    click Create project.
+1. In the [Custom Translator](https://legacy.portal.customtranslator.azure.ai/) legacy portal, select **Create project**.
 
     ![Create project](media/how-to/how-to-create-project.png)
 
-2.  Enter the following details about your project in the dialog:
+1. Enter the following details about your project in the dialog:
 
     a.  Project name (required): Give your project a unique, meaningful name. It's not necessary to mention the languages within the title.
 
@@ -52,23 +51,23 @@ Creating project is the first step toward building a model.
         use a label *only* if you're planning to build multiple projects for
         the same language pair and same category and want to access these
         projects with a different CategoryID. Don't use this field if you're
-        building systems for one category only. A project label is not required
+        building systems for one category only. A project label isn't required
         and not helpful to distinguish between language pairs. You can use the
         same label for multiple projects.
 
     ![Create project dialog](media/how-to/how-to-create-project-dialog.png)
 
-3.  Click Create
+1. Select **Create**
 
 ## View project details
 
 The Custom Translator landing page shows the first 10 projects in your workspace. It displays the project name, language pair, category, status, and BLEU score.
 
-After selecting a project, you'll see the following on the project page:
+After selecting a project, you'll see the following text on the project page:
 
 - CategoryID: A CategoryID is created by concatenating the WorkspaceID,
     project label, and category code. You use the CategoryID with the Text
-    Translator API to get custom translations. To copy, click the copy icon.
+    Translator API to get custom translations. To copy, choose the **copy icon**.
 
 - Train button: Use this button to start a [training a model](how-to-train-model.md).
 

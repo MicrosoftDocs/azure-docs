@@ -4,14 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create a virtual network peering between virtual networks created through Resource Manager that exist in different Azure subscriptions in the same or different Azure Active Directory tenant.
 services: virtual-network
 documentationcenter: ''
-author: KumudD
+author: mbender-ms
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
-ms.author: kumud
+ms.author: mbender
 ---
 
 # Create a virtual network peering - Resource Manager, different subscriptions and Azure Active Directory tenants
@@ -30,7 +29,7 @@ A virtual network peering cannot be created between two virtual networks deploye
 
 This tutorial peers virtual networks in the same region. You can also peer virtual networks in different [supported regions](virtual-network-manage-peering.md#cross-region). It's recommended that you familiarize yourself with the [peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints) before peering virtual networks.
 
-You can use the [Azure portal](#portal), the Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), or an [Azure Resource Manager template](#template) to create a virtual network peering. Select any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
+You can use the [Azure portal](#portal), the [Azure CLI](#cli), [Azure PowerShell](#powershell), or an [Azure Resource Manager template](#template) to create a virtual network peering. Select any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
 
 If the virtual networks are in different subscriptions, and the subscriptions are associated with different Azure Active Directory tenants, complete the following steps before continuing:
 1. Add the user from each Active Directory tenant as a [guest user](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite Azure Active Directory tenant.
@@ -53,9 +52,9 @@ The following steps use different accounts for each subscription. If you're usin
 4. In the **Search resources** box at the top of the portal, type *myVnetA*. Select **myVnetA** when it appears in the search results.
 5. Select **Access control (IAM)** from the vertical list of options on the left side.
 6. Assign the **Network contributor** role to *UserB* using the procedure decribed in [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
-10. Under **myVnetA - Access control (IAM)**, select **Properties** from the vertical list of options on the left side. Copy the **RESOURCE ID**, which is used in a later step. The resource ID is similar to the following example: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
-11. Log out of the portal as UserA, then log in as UserB.
-12. Complete steps 2-3, entering or selecting the following values in step 3:
+7. Under **myVnetA - Access control (IAM)**, select **Properties** from the vertical list of options on the left side. Copy the **RESOURCE ID**, which is used in a later step. The resource ID is similar to the following example: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
+8. Log out of the portal as UserA, then log in as UserB.
+9. Complete steps 2-3, entering or selecting the following values in step 3:
 
     - **Name**: *myVnetB*
     - **Address space**: *10.1.0.0/16*
@@ -65,29 +64,29 @@ The following steps use different accounts for each subscription. If you're usin
     - **Resource group**: Select **Create new** and enter *myResourceGroupB*
     - **Location**: *East US*
 
-13. In the **Search resources** box at the top of the portal, type *myVnetB*. Select **myVnetB** when it appears in the search results.
-14. Under **myVnetB**, select **Properties** from the vertical list of options on the left side. Copy the **RESOURCE ID**, which is used in a later step. The resource ID is similar to the following example: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
-15. Select **Access control (IAM)** under **myVnetB**, and then assign the **Network contributor** role to *UserA* using the procedure decribed in [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
-16. Log out of the portal as UserB and log in as UserA.
-17. In the **Search resources** box at the top of the portal, type *myVnetA*. Select **myVnetA** when it appears in the search results.
-18. Select **myVnetA**.
-19. Under **SETTINGS**, select **Peerings**.
-20. Under **myVnetA - Peerings**, select **+ Add**
-21. Under **Add peering**, enter, or select, the following options, then select **OK**:
+10. In the **Search resources** box at the top of the portal, type *myVnetB*. Select **myVnetB** when it appears in the search results.
+11. Under **myVnetB**, select **Properties** from the vertical list of options on the left side. Copy the **RESOURCE ID**, which is used in a later step. The resource ID is similar to the following example: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
+12. Select **Access control (IAM)** under **myVnetB**, and then assign the **Network contributor** role to *UserA* using the procedure decribed in [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+13. Log out of the portal as UserB and log in as UserA.
+14. In the **Search resources** box at the top of the portal, type *myVnetA*. Select **myVnetA** when it appears in the search results.
+15. Select **myVnetA**.
+16. Under **SETTINGS**, select **Peerings**.
+17. Under **myVnetA - Peerings**, select **+ Add**
+18. Under **Add peering**, enter, or select, the following options, then select **OK**:
      - **Name**: *myVnetAToMyVnetB*
      - **Virtual network deployment model**:  Select **Resource Manager**.
      - **I know my resource ID**: Check this box.
-     - **Resource ID**: Enter the resource ID from step 14.
+     - **Resource ID**: Enter the resource ID from step 11.
      - **Allow virtual network access:** Ensure that **Enabled** is selected.
     No other settings are used in this tutorial. To learn about all peering settings, read [Manage virtual network peerings](virtual-network-manage-peering.md#create-a-peering).
-22. The peering you created appears a short wait after selecting **OK** in the previous step. **Initiated** is listed in the **PEERING STATUS** column for the **myVnetAToMyVnetB** peering you created. You've peered myVnetA to myVnetB, but now you must peer myVnetB to myVnetA. The peering must be created in both directions to enable resources in the virtual networks to communicate with each other.
-23. Log out of the portal as UserA and log in as UserB.
-24. Complete steps 17-21 again for myVnetB. In step 21, name the peering *myVnetBToMyVnetA*, select *myVnetA* for **Virtual network**, and enter the ID from step 10 in the **Resource ID** box.
-25. A few seconds after selecting **OK** to create the peering for myVnetB, the **myVnetBToMyVnetA** peering you just created is listed with **Connected** in the **PEERING STATUS** column.
-26. Log out of the portal as UserB and log in as UserA.
-27. Complete steps 17-19 again. The **PEERING STATUS** for the **myVnetAToVNetB** peering is now also **Connected**. The peering is successfully established after you see **Connected** in the **PEERING STATUS** column for both virtual networks in the peering. Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server. Learn how to set up [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-28. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
-29. **Optional**: To delete the resources that you create in this tutorial, complete the steps in the [Delete resources](#delete-portal) section of this article.
+19. The peering you created appears a short wait after selecting **OK** in the previous step. **Initiated** is listed in the **PEERING STATUS** column for the **myVnetAToMyVnetB** peering you created. You've peered myVnetA to myVnetB, but now you must peer myVnetB to myVnetA. The peering must be created in both directions to enable resources in the virtual networks to communicate with each other.
+20. Log out of the portal as UserA and log in as UserB.
+21. Complete steps 14-18 again for myVnetB. In step 18, name the peering *myVnetBToMyVnetA*, select *myVnetA* for **Virtual network**, and enter the ID from step 7 in the **Resource ID** box.
+22. A few seconds after selecting **OK** to create the peering for myVnetB, the **myVnetBToMyVnetA** peering you just created is listed with **Connected** in the **PEERING STATUS** column.
+23. Log out of the portal as UserB and log in as UserA.
+24. Complete steps 14-16 again. The **PEERING STATUS** for the **myVnetAToVNetB** peering is now also **Connected**. The peering is successfully established after you see **Connected** in the **PEERING STATUS** column for both virtual networks in the peering. Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server. Learn how to set up [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+25. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
+26. **Optional**: To delete the resources that you create in this tutorial, complete the steps in the [Delete resources](#delete-portal) section of this article.
 
 ## <a name="cli"></a>Create peering - Azure CLI
 

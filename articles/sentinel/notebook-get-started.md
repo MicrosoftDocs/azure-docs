@@ -257,38 +257,24 @@ This warning doesn't impact notebook functionality.
 
 ### Authenticate to your Microsoft Sentinel workspace from your notebook
 
-Authenticate to your Microsoft Sentinel workspace using [device authorization](../active-directory/develop/v2-oauth2-device-code.md) with your Azure credentials.
+In Azure ML notebooks, the authentication defaults to using the credentials you used to authenticate to the Azure ML workspace.
 
-Device authorization adds another factor to the authentication by generating a one-time device code that you supply as part of the authentication process.
+**Authenticate by using managed identity**
 
-**To authenticate using device authorization**:
-
-1. Run the following code cell to generate and display a device code:
+Run the following code to authenticate to your Sentinel workspace.
 
    ```python
-   # Get the Microsoft Sentinel workspace details from msticpyconfig
-   # Loading WorkspaceConfig with no parameters uses the details
-   # of your Default workspace
-   # If you want to connect to a specific workspace use this syntax:
-   #    ws_config = WorkspaceConfig(workspace="WorkspaceName")
-   # ('WorkspaceName' should be one of the workspaces defined in msticpyconfig.yaml)
+   # Get the default Microsoft Sentinel workspace details from msticpyconfig.yaml
+
    ws_config = WorkspaceConfig()
 
-   # Connect to Microsoft Sentinel with your QueryProvider and config details
+   # Connect to Microsoft Sentinel with our QueryProvider and config details
    qry_prov.connect(ws_config)
    ```
 
-    For example:
+Output similar to the following is displayed in your notebook:
 
-    :::image type="content" source="media/notebook-get-started/device-authorization.png" alt-text="Screenshot showing a device authorization code.":::
-
-1. Select and copy the indicated code to your clipboard. Then, go to [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and paste the code in where prompted.
-
-1. When you see the confirmation message that you've signed in, close the browser tab return to your notebook in Microsoft Sentinel.
-
-   Output similar to the following is displayed in your notebook:
-
-   :::image type="content" source="media/notebook-get-started/authorization-complete.png" alt-text="Screenshot showing that the device authorization process is complete.":::
+   :::image type="content" source="media/notebook-get-started/authorization-connected-workspace.png" alt-text="Screenshot that shows authentication to Azure that ends with a connected message.":::
 
 **Cache your sign-in token using Azure CLI**
 
@@ -298,7 +284,7 @@ The Azure CLI component on the Compute instance caches a *refresh token* that it
 
 To authenticate using Azure CLI enter the following into an empty cell and run it:
 
-```python
+```azurecli
 !az login
 ```
 
@@ -575,7 +561,7 @@ For more information, see [MSTICPy GeoIP Providers](https://msticpy.readthedocs.
 
 This section is relevant only when storing secrets in Azure Key Vault.
 
-When you store secrets in Azure Key Vault, you'll need to create the Key Vault first, in the [Azure global KeyVault management portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.KeyVault%2Fvaults).
+When you store secrets in Azure Key Vault, you'll need to create the Key Vault first, in the [Azure global KeyVault management portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.KeyVault%2Fvaults).
 
 Required settings are all values that you get from the Vault properties, although some may have different names. For example:
 
@@ -693,4 +679,4 @@ The following table lists more references for learning about MSTICPy, Microsoft 
 |---------|---------|
 |**MSTICPy**     |      - [MSTICPy Package Configuration](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html)<br> - [MSTICPy Settings Editor](https://msticpy.readthedocs.io/en/latest/getting_started/SettingsEditor.html)<br>    - [Configuring Your Notebook Environment](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/ConfiguringNotebookEnvironment.ipynb).<br>    - [MPSettingsEditor notebook](https://github.com/microsoft/msticpy/blob/master/docs/notebooks/MPSettingsEditor.ipynb). <br><br>**Note**: The `Azure-Sentinel-Notebooks` GitHub repository also contains a template *msticpyconfig.yaml* file with commented-out sections, which might help you understand the settings.      |
 |**Microsoft Sentinel and Jupyter notebooks**     |   - [Create your first Microsoft Sentinel notebook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/creating-your-first-microsoft-sentinel-notebook/ba-p/2977745) (Blog series)<br>   - [Jupyter Notebooks: An Introduction](https://realpython.com/jupyter-notebook-introduction/)<br>    - [MSTICPy documentation](https://msticpy.readthedocs.io/)<br>    - [Microsoft Sentinel Notebooks documentation](notebooks.md)<br>    - [The Infosec Jupyterbook](https://infosecjupyterbook.com/introduction.html)<br>    - [Linux Host Explorer Notebook walkthrough](https://techcommunity.microsoft.com/t5/azure-sentinel/explorer-notebook-series-the-linux-host-explorer/ba-p/1138273)<br>    - [Why use Jupyter for Security Investigations](https://techcommunity.microsoft.com/t5/azure-sentinel/why-use-jupyter-for-security-investigations/ba-p/475729)<br>    - [Security Investigations with Microsoft Sentinel & Notebooks](https://techcommunity.microsoft.com/t5/azure-sentinel/security-investigation-with-azure-sentinel-and-jupyter-notebooks/ba-p/432921)<br>    - [Pandas Documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html)<br>    - [Bokeh Documentation](https://docs.bokeh.org/en/latest/)       |
-|     |         |
+

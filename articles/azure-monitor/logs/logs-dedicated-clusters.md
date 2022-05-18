@@ -4,7 +4,7 @@ description: Customers meeting the minimum commitment tier could use dedicated c
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 07/29/2021
+ms.date: 05/01/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 Azure Monitor Logs Dedicated Clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs customers. Customers can select which of their Log Analytics workspaces should be hosted on dedicated clusters.
 
-Dedicated clusters require customers to commit for at least 500 GB of data ingestion per day. You can migrate an existing workspace to a dedicated cluster with no data loss or service interruption. 
+Dedicated clusters require customers to commit for at least 500 GB of data ingestion per day. You can link existing workspace to a dedicated cluster and unlink it with no data loss or service interruption. 
 
 Capabilities that require dedicated clusters:
 
@@ -27,26 +27,13 @@ Capabilities that require dedicated clusters:
 
 Dedicated clusters are managed with an Azure resource that represents Azure Monitor Log clusters. Operations are performed programmatically using [CLI](/cli/azure/monitor/log-analytics/cluster), [PowerShell](/powershell/module/az.operationalinsights) or the [REST](/rest/api/loganalytics/clusters).
 
-Once a cluster is created, workspaces can be linked to it and new ingested data to them is stored on the cluster. Workspaces can be unlinked from a cluster at any time and new data is stored in shared Log Analytics clusters. The link and unlink operation doesn't affect your queries and the access to data before and after the operation with subjection to retention in workspaces. The Cluster and workspaces must be in the same region to allow linking.
+Once a cluster is created, workspaces can be linked to it, and new ingested data to them is stored on the cluster. Workspaces can be unlinked from a cluster at any time and new data then stored on shared Log Analytics clusters. The link and unlink operation doesn't affect your queries and access to data before, and after the operation. The Cluster and workspaces must be in the same region.
 
-All operations on the cluster level require the `Microsoft.OperationalInsights/clusters/write` action permission on the cluster. This permission could be granted via the Owner or Contributor that contains the `*/write` action or via the Log Analytics Contributor role that contains the `Microsoft.OperationalInsights/*` action. For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](./manage-access.md). 
+Operations on the cluster level require Microsoft.OperationalInsights/clusters/write action permission. Linking workspaces to a cluster requires both Microsoft.OperationalInsights/clusters/write and Microsoft.OperationalInsights/workspaces/write actions. Permission could be granted by the Owner or Contributor that have `*/write` action, or by  the Log Analytics Contributor role that have `Microsoft.OperationalInsights/*` action. For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](./manage-access.md). 
 
 
 ## Cluster pricing model
-
-Log Analytics Dedicated Clusters use a Commitment Tier (formerly called capacity reservations) pricing model of at least 500 GB/day. Any usage above the tier level will be billed at effective per-GB rate of that Commitment Tier. Commitment Tier pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).  
-
-The cluster Commitment Tier level is configured programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 500, 1000, 2000 or 5000 GB/day.
-
-There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when configuring your cluster. 
-
-1. **Cluster (default)**: Billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. 
-
-2. **Workspaces**: The Commitment Tier costs for your Cluster are attributed proportionately to the workspaces in the cluster, by each workspace's data ingestion volume (after accounting for per-node allocations from [Microsoft Defender for Cloud](../../security-center/index.yml) for each workspace.) This full details of this pricing model are explained [here](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
-
-If your workspace is using legacy Per Node pricing tier, when it is linked to a cluster it will be billed based on data ingested against the cluster's Commitment Tier, and no longer Per Node. Per-node data allocations from Microsoft Defender for Cloud will continue to be applied.
-
-Complete details are billing for Log Analytics dedicated clusters are available [here](./manage-cost-storage.md#log-analytics-dedicated-clusters).
+Log Analytics Dedicated Clusters use a commitment tier pricing model of at least 500 GB/day. Any usage above the tier level will be billed at effective per-GB rate of that commitment tier. See [Azure Monitor Logs pricing details](cost-logs.md#dedicated-clusters) for pricing details for dedicated clusters.
 
 ## Create a dedicated cluster
 
@@ -55,13 +42,13 @@ You must specify the following properties when you create a new dedicated cluste
 - **ClusterName**
 - **ResourceGroupName**: You should use a central IT resource group because clusters are usually shared by many teams in the organization. For more design considerations, review [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
 - **Location**
-- **SkuCapacity**: The Commitment Tier (formerly called capacity reservations) can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Manage Costs for Log Analytics clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
+- **SkuCapacity**: The Commitment Tier (formerly called capacity reservations) can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
 
 The user account that creates the clusters must have the standard Azure resource creation permission: `Microsoft.Resources/deployments/*` and cluster write permission `Microsoft.OperationalInsights/clusters/write` by having in their role assignments this specific action or `Microsoft.OperationalInsights/*` or `*/write`.
 
 After you create your cluster resource, you can edit additional properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
 
-You can have up to 2 active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to 4 reserved clusters per subscription per region (active or recently deleted).
+You can have up to five active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to four reserved clusters per subscription per region (active or recently deleted).
 
 > [!NOTE]
 > Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete.
@@ -329,20 +316,20 @@ Authorization: Bearer <token>
 
 ## Change cluster properties
 
-After you create your cluster resource and it is fully provisioned, you can edit additional properties using CLI, PowerShell or REST API. The additional properties that can be set after the cluster has been provisioned include the following:
+After you create your cluster resource and it's fully provisioned, you can edit additional properties using CLI, PowerShell or REST API. The additional properties that can be set after the cluster has been provisioned include the following:
 
 - **keyVaultProperties** - Contains the key in Azure Key Vault with the following parameters: *KeyVaultUri*, *KeyName*, *KeyVersion*. See [Update cluster with Key identifier details](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details).
 - **Identity** - The identity used to authenticate to your Key Vault. This can be System-assigned or User-assigned.
 - **billingType** - Billing attribution for the cluster resource and its data. Includes on the following values:
-  - **Cluster (default)** - The costs for your cluster are attributed to the cluster resource.
-  - **Workspaces** - The costs for your cluster are attributed proportionately to the workspaces in the Cluster, with the cluster resource being billed some of the usage if the total ingested data for the day is under the commitment tier. See [Log Analytics Dedicated Clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the cluster pricing model.
+  - **Cluster (default)**--The costs for your cluster are attributed to the cluster resource.
+  - **Workspaces**--The costs for your cluster are attributed proportionately to the workspaces in the Cluster, with the cluster resource being billed some of the usage if the total ingested data for the day is under the commitment tier. See [Log Analytics Dedicated Clusters](./cost-logs.md#dedicated-clusters) to learn more about the cluster pricing model.
 
 
 >[!IMPORTANT]
 >Cluster update should not include both identity and key identifier details in the same operation. If you need to update both, the update should be in two consecutive operations.
 
 > [!NOTE]
-> The *billingType* property is not supported in PowerShell.
+> The *billingType* property isn't supported in CLI.
 
 ## Get all clusters in resource group
 
@@ -487,6 +474,14 @@ Content-type: application/json
 
 ### Update billingType in cluster
 
+### PowerShell
+
+```powershell
+Select-AzSubscription "cluster-subscription-id"
+
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -BillingType "Workspaces"
+```
+
 The *billingType* property determines the billing attribution for the cluster and its data:
 - *Cluster* (default) -- The billing is attributed to the Cluster resource
 - *Workspaces* -- The billing is attributed to linked workspaces proportionally. When data volume from all workspaces is below the Commitment Tier level, the remaining volume is attributed to the cluster
@@ -502,14 +497,15 @@ Content-type: application/json
 
 {
   "properties": {
-    "billingType": "Workspaces",
-    }  
+    "billingType": "Workspaces"
+    },
+    "location": "region"
 }
 ```
 
 ### Unlink a workspace from cluster
 
-You can unlink a workspace from a cluster. After unlinking a workspace from the cluster, new data associated with this workspace is not sent to the dedicated cluster. Also, the workspace billing is no longer done via the cluster. 
+You can unlink a workspace from a cluster, and new data to workspace isn't ingested to cluster. Also, the workspace pricing tier is set to per-GB.
 Old data of the unlinked workspace might be left on the cluster. If this data is encrypted using customer-managed keys (CMK), the Key Vault secrets are kept. The system is abstracts this change from Log Analytics users. Users can just query the workspace as usual. The system performs cross-cluster queries on the backend as needed with no indication to users.  
 
 > [!WARNING] 
@@ -539,13 +535,13 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-nam
 
 ## Delete cluster
 
-It's recommended that you unlink all workspaces from a dedicated cluster before deleting it. You need to have *write* permissions on the cluster resource. When deleting a cluster, you are losing access to all data ingested to the cluster from linked workspaces and from workspaces that were linked previously. This operation is not reversible. If you delete your cluster when workspaces are linked, these get unlinked automatically and new data get ingested to Log Analytics storage instead.
+It's recommended that you unlink all workspaces from a dedicated cluster before deleting it. You need to have *write* permissions on the cluster resource. When deleting a cluster, you're losing access to all data ingested to the cluster from linked workspaces and from workspaces that were linked previously. This operation isn't reversible. If you delete your cluster when workspaces are linked, these get unlinked automatically and new data get ingested to Log Analytics storage instead.
 
-A cluster resource that was deleted in the last 14 days is kept in soft-delete state and its name remained reserved. After the soft-delete period, the cluster is permanently deleted and it's name can be used.
+A cluster resource that was deleted in the last 14 days is kept in soft-delete state and its name remained reserved. After the soft-delete period, the cluster is permanently deleted and its name can be reused to create a cluster.
 
 > [!WARNING] 
 > - The recovery of soft-deleted clusters isn't supported and it can't be recovered once deleted.
-> - There is a limit of 4 clusters per subscription. Both active and soft-deleted clusters are counted as part of this. Customers should not create recurrent procedures that create and delete clusters. It has a significant impact on Log Analytics backend systems.
+> - There is a limit of 4 clusters per subscription. Both active and soft-deleted clusters are counted as part of this. Customers shouldn't create recurrent procedures that create and delete clusters. It has a significant impact on Log Analytics backend systems.
 
 Use the following commands to delete a cluster:
 
@@ -583,7 +579,7 @@ Authorization: Bearer <token>
 
 ## Limits and constraints
 
-- A maximum of two active clusters can be created in each region and subscription.
+- A maximum of five active clusters can be created in each region and subscription.
 
 - A maximum number of four reserved clusters (active or recently deleted) can be created in each region and subscription.
 
@@ -599,11 +595,13 @@ Authorization: Bearer <token>
 
 - [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
   - If you create a cluster and get an error "region-name doesn't support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
-  - Double encryption setting can not be changed after the cluster has been created.
+  - Double encryption setting can't can not be changed after the cluster has been created.
+
+- Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, it returns to previous state and remains linked to cluster.
 
 ## Troubleshooting
 
-- If you get conflict error when creating a cluster, it may be that you have deleted your cluster in the last 14 days and it's in a soft-delete state. The cluster name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the cluster is permanently deleted.
+- If you get conflict error when creating a cluster, it may be that you've deleted your cluster in the last 14 days and it's in a soft-delete state. The cluster name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the cluster is permanently deleted.
 
 - If you update your cluster while the cluster is at provisioning or updating state, the update will fail.
 
@@ -615,45 +613,45 @@ Authorization: Bearer <token>
   
 ### Cluster Create
 
--  400 -- Cluster name is not valid. Cluster name can contain characters a-z, A-Z, 0-9 and length of 3-63.
--  400 -- The body of the request is null or in bad format.
--  400 -- SKU name is invalid. Set SKU name to capacityReservation.
--  400 -- Capacity was provided but SKU is not capacityReservation. Set SKU name to capacityReservation.
--  400 -- Missing Capacity in SKU. Set Capacity value to 500, 1000, 2000 or 5000 GB/day.
--  400 -- Capacity is locked for 30 days. Decreasing capacity is permitted 30 days after update.
--  400 -- No SKU was set. Set the SKU name to capacityReservation and Capacity value to 500, 1000, 2000 or 5000 GB/day.
--  400 -- Identity is null or empty. Set Identity with systemAssigned type.
--  400 -- KeyVaultProperties are set on creation. Update KeyVaultProperties after cluster creation.
--  400 -- Operation cannot be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.
+-  400--Cluster name is not valid. Cluster name can contain characters a-z, A-Z, 0-9 and length of 3-63.
+-  400--The body of the request is null or in bad format.
+-  400--SKU name is invalid. Set SKU name to capacityReservation.
+-  400--Capacity was provided but SKU is not capacityReservation. Set SKU name to capacityReservation.
+-  400--Missing Capacity in SKU. Set Capacity value to 500, 1000, 2000 or 5000 GB/day.
+-  400--Capacity is locked for 30 days. Decreasing capacity is permitted 30 days after update.
+-  400--No SKU was set. Set the SKU name to capacityReservation and Capacity value to 500, 1000, 2000 or 5000 GB/day.
+-  400--Identity is null or empty. Set Identity with systemAssigned type.
+-  400--KeyVaultProperties are set on creation. Update KeyVaultProperties after cluster creation.
+-  400--Operation cannot be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.
 
 ### Cluster Update
 
--  400 -- Cluster is in deleting state. Async operation is in progress . Cluster must complete its operation before any update operation is performed.
--  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details).
--  400 -- Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn't exist. Verify that you [set key and access policy](../logs/customer-managed-keys.md#grant-key-vault-permissions) in Key Vault.
--  400 -- Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/soft-delete-overview.md)
--  400 -- Operation cannot be executed now. Wait for the Async operation to complete and try again.
--  400 -- Cluster is in deleting state. Wait for the Async operation to complete and try again.
+-  400--Cluster is in deleting state. Async operation is in progress. Cluster must complete its operation before any update operation is performed.
+-  400--KeyVaultProperties is not empty but has a bad format. See [key identifier update](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details).
+-  400--Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn't exist. Verify that you [set key and access policy](../logs/customer-managed-keys.md#grant-key-vault-permissions) in Key Vault.
+-  400--Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/soft-delete-overview.md)
+-  400--Operation cannot be executed now. Wait for the Async operation to complete and try again.
+-  400--Cluster is in deleting state. Wait for the Async operation to complete and try again.
 
 ### Cluster Get
 
- -  404 -- Cluster not found, the cluster may have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it, or use another name to create a new cluster. 
+ -  404--Cluster not found, the cluster may have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it, or use another name to create a new cluster. 
 
 ### Cluster Delete
 
- -  409 -- Can't delete a cluster while in provisioning state. Wait for the Async operation to complete and try again.
+ -  409--Can't delete a cluster while in provisioning state. Wait for the Async operation to complete and try again.
 
 ### Workspace link
 
--  404 -- Workspace not found. The workspace you specified doesn't exist or was deleted.
--  409 -- Workspace link or unlink operation in process.
--  400 -- Cluster not found, the cluster you specified doesn't exist or was deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it.
+-  404--Workspace not found. The workspace you specified doesn't exist or was deleted.
+-  409--Workspace link or unlink operation in process.
+-  400--Cluster not found, the cluster you specified doesn't exist or was deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it.
 
 ### Workspace unlink
--  404 -- Workspace not found. The workspace you specified doesn't exist or was deleted.
--  409 -- Workspace link or unlink operation in process.
+-  404--Workspace not found. The workspace you specified doesn't exist or was deleted.
+-  409--Workspace link or unlink operation in process.
 
 ## Next steps
 
-- Learn about [Log Analytics dedicated cluster billing](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Learn about [Log Analytics dedicated cluster billing](cost-logs.md#dedicated-clusters)
 - Learn about [proper design of Log Analytics workspaces](../logs/design-logs-deployment.md)

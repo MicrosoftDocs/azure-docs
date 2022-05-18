@@ -1,25 +1,27 @@
 ---
-title: Speech Devices SDK documentation
+title: Speech Devices SDK release notes
 titleSuffix: Azure Cognitive Services
 description: The release notes provide a log of updates, enhancements, bug fixes, and changes to the Speech Devices SDK. This article is updated with each release of the Speech Devices SDK.
 services: cognitive-services
-author: wsturman
+author: eric-urban
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 02/12/2020
-ms.author: wellsi
+ms.topic: reference
+ms.date: 02/12/2022
+ms.author: eur
 ---
 
-# Release notes: Speech Devices SDK
+# Release notes: Speech Devices SDK (retired)
 
 The following sections list changes in the most recent releases.
 
+> [!NOTE]
+> The Speech Devices SDK is deprecated. Archived sample code is available on [GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK). All users of the Speech Devices SDK are advised to migrate to using Speech SDK version 1.19.0 or later.
+
 ## Speech Devices SDK 1.16.0:
 
-- Fixed [Github issue #22](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues/22).
+- Fixed [GitHub issue #22](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues/22).
 - Updated the [Speech SDK](./speech-sdk.md) component to version 1.16.0. For more information, see its [release notes](./releasenotes.md).
 
 ## Speech Devices SDK 1.15.0:
@@ -31,7 +33,7 @@ The following sections list changes in the most recent releases.
 
 ## Speech Devices SDK 1.11.0:
 
-- Support for [arbitrary microphone array geometries](how-to-devices-microphone-array-configuration.md) and setting the working angle through a [configuration file](https://aka.ms/sdsdk-micarray-json).
+- Support for arbitrary microphone array geometries and setting the working angle through a [configuration file](https://aka.ms/sdsdk-micarray-json).
 - Support for [Urbetter DDK](http://www.urbetter.com/products_56/278.html).
 - Released binaries for the [GGEC Speaker](https://aka.ms/sdsdk-download-speaker) used in our [Voice Assistant sample](https://aka.ms/sdsdk-speaker).
 - Released binaries for [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32) and [Linux ARM 64](https://aka.ms/sdsdk-download-linux-arm64) for Raspberry Pi and similar devices.
@@ -56,7 +58,7 @@ The following sections list changes in the most recent releases.
 
 ## Speech Devices SDK 1.6.0:
 
-- Support [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) on Windows and Linux with common [sample application](./speech-devices-sdk.md)
+- Support [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) on Windows and Linux with common sample application.
 - Updated the [Speech SDK](./speech-sdk.md) component to version 1.6.0. For more information, see its [release notes](./releasenotes.md).
 
 ## Speech Devices SDK 1.5.1:
@@ -113,8 +115,7 @@ The following sections list changes in the most recent releases.
 ## Speech Devices SDK 0.5.0: 2018-Aug release
 
 - Improved the accuracy of speech recognition by fixing a bug in the audio processing code.
-- Updated the [Speech SDK](./speech-sdk.md) component to version 0.5.0. For more information, see its
-  [release notes](releasenotes.md#cognitive-services-speech-sdk-050-2018-july-release).
+- Updated the [Speech SDK](./speech-sdk.md) component to version 0.5.0. 
 
 ## Speech Devices SDK 0.2.12733: 2018-May release
 

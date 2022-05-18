@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 
 # Use the Azure Video Analyzer player widget
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 In this tutorial, you learn how to use a player widget within your application. This code is an easy-to-embed widget that allows your users to play video and browse through the portions of a segmented video file. To do this, you'll be generating a static HTML page with the widget embedded, and all the pieces to make it work.
 
 In this tutorial, you will:
@@ -26,7 +28,7 @@ The following are required for this tutorial:
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 * [Visual Studio Code](https://code.visualstudio.com/) or another editor for the HTML file.
-* Run topologies from either [Continuous video recording and playback](edge/use-continuous-video-recording.md) or [Detect motion and record video on edge devices](./detect-motion-record-video-clips-cloud.md)
+* Run topologies from either [Continuous video recording and playback](edge/use-continuous-video-recording.md) or [Quickstart: Detect motion in a (simulated) live video, record the video on edge devices](./detect-motion-record-video-clips-cloud.md)
 * Create a [token](./access-policies.md#creating-a-token)
 * Create an [access policy](./access-policies.md#creating-an-access-policy)
 

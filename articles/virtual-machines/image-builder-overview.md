@@ -43,6 +43,7 @@ While it is possible to create custom VM images by hand or by other tools, the p
 - You do not have to make your customization artifacts publicly accessible for Image Builder to be able to fetch them. Image Builder can use your [Azure Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) to fetch these resources and you can restrict the privileges of this identity as tightly as required using Azure-RBAC. This not only means you can keep your artifacts secret, but they also cannot be tampered with by unauthorized actors.
 - Copies of customization artifacts, transient compute & storage resources, and resulting images are all stored securely within your subscription with access controlled by Azure-RBAC. This includes the build VM used to create the customized image and ensuring your customization scripts and files are not being copied to an unknown VM in an unknown subscription. Furthermore, you can achieve a high degree of isolation from other customers’ workloads using [Isolated VM offerings](./isolation.md) for the build VM.
 - You can connect Image Builder to your existing virtual networks so you can communicate with existing configuration servers (DSC, Chef, Puppet, etc.), file shares, or any other routable servers & services.
+- You can configure Image Builder to assign your User Assigned Identities to the Image Builder Build VM (*that is created by the Image Builder service in your subscription and is used to build and customize the image*). You can then use these identities at customization time to access Azure resources, including secrets, in your subscription. There is no need to assign Image Builder direct access to those resources.
 
 ## Regions
 
@@ -56,6 +57,7 @@ The Azure Image Builder Service is available in the following regions: regions.
 - West Central US
 - West US
 - West US 2
+- West US 3
 - South Central US
 - North Europe
 - West Europe
@@ -64,6 +66,22 @@ The Azure Image Builder Service is available in the following regions: regions.
 - Australia East
 - UK South
 - UK West
+- Brazil South
+- Canada Central
+- Central India
+- Central US
+- France Central
+- Germany West Central
+- Japan East
+- North Central US
+- Norway East
+- Switzerland North
+- Jio India West
+- UAE North
+- East Asia
+- Korea Central
+- South Africa North
+
 
 ## OS support
 Azure Image Builder will support Azure Marketplace base OS images:
@@ -102,7 +120,9 @@ When you register for the (AIB), this grants the AIB Service permission to creat
 
 To allow Azure VM Image Builder to distribute images to either the managed images or to an Azure Compute Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private and public containers.
 
-Permissions are explained in more detail for [PowerShell](./linux/image-builder-permissions-powershell.md), and [AZ CLI](./linux/image-builder-permissions-cli.md).
+In API version 2021-10-01 and beyond, Azure VM Image Builder supports adding Azure user-assigned identities to the build VM to enable scenarios where you will need to authenticate with services like Azure Key Vault in your subscription.
+
+For more information on permissions, please see the following links: [PowerShell](./linux/image-builder-permissions-powershell.md), [AZ CLI](./linux/image-builder-permissions-cli.md) and [Image Builder template reference: Identity](./linux/image-builder-json.md#identity). 
 
 ## Costs
 You will incur some compute, networking and storage costs when creating, building and storing images with Azure Image Builder. These costs are similar to the costs incurred in manually creating custom images. For the resources, you will be charged at your Azure rates. 
@@ -128,7 +148,7 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 ```
 
 For more information on which Azure VM images support Gen2, please visit: [Generation 2 VM images in Azure Marketplace
-](https://docs.microsoft.com/azure/virtual-machines/generation-2)
+](./generation-2.md)
 
 ## Next steps 
  

@@ -71,36 +71,44 @@ jti | (a Guid) | The "jti" (JWT ID) claim provides a unique identifier for the J
 nbf | 1601519114 | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing. [RFC 7519, Section 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  Using the current time is appropriate. 
 sub | {ClientID} | The "sub" (subject) claim identifies the subject of the JWT, in this case also your application. Use the same value as `iss`. 
 
-Here is an example of how to craft these claims:
+If you use a certificate as a client secret, the certificate must be deployed safely. We recommend that you store the certificate in a secure spot supported by the platform, such as in the certificate store on Windows or by using Azure Key Vault.
+
+Here's an example of how to craft these claims:
 
 ```csharp
-private static IDictionary<string, string> GetClaims()
+using System.Collections.Generic;
+private static IDictionary<string, object> GetClaims(string tenantId, string clientId)
 {
-      //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
-      string aud = $"https://login.microsoftonline.com/{tenantId}/v2.0";
+    //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
+    string aud = $"https://login.microsoftonline.com/{tenantId}/v2.0";
 
-      string ConfidentialClientID = "00000000-0000-0000-0000-000000000000" //client id
-      const uint JwtToAadLifetimeInSeconds = 60 * 10; // Ten minutes
-      DateTime validFrom = DateTime.UtcNow;
-      var nbf = ConvertToTimeT(validFrom);
-      var exp = ConvertToTimeT(validFrom + TimeSpan.FromSeconds(JwtToAadLifetimeInSeconds));
+    string ConfidentialClientID = clientId; //client id 00000000-0000-0000-0000-000000000000
+    const uint JwtToAadLifetimeInSeconds = 60 * 10; // Ten minutes
+    DateTimeOffset validFrom = DateTimeOffset.UtcNow;
+    DateTimeOffset validUntil = validFrom.AddSeconds(JwtToAadLifetimeInSeconds);
 
-      return new Dictionary<string, string>()
-           {
-                { "aud", aud },
-                { "exp", exp.ToString() },
-                { "iss", ConfidentialClientID },
-                { "jti", Guid.NewGuid().ToString() },
-                { "nbf", nbf.ToString() },
-                { "sub", ConfidentialClientID }
-            };
+    return new Dictionary<string, object>()
+    {
+        { "aud", aud },
+        { "exp", validUntil.ToUnixTimeSeconds() },
+        { "iss", ConfidentialClientID },
+        { "jti", Guid.NewGuid().ToString() },
+        { "nbf", validFrom.ToUnixTimeSeconds() },
+        { "sub", ConfidentialClientID }
+    };
 }
 ```
 
-Here is how to craft a signed client assertion:
+Here's how to craft a signed client assertion:
 
 ```csharp
-string Encode(byte[] arg)
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Json;
+...
+static string Base64UrlEncode(byte[] arg)
 {
     char Base64PadCharacter = '=';
     char Base64Character62 = '+';
@@ -116,30 +124,28 @@ string Encode(byte[] arg)
     return s;
 }
 
-string GetSignedClientAssertion()
+static string GetSignedClientAssertion(X509Certificate2 certificate, string tenantId, string clientId)
 {
-    //Signing with SHA-256
-    string rsaSha256Signature = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256";
-     X509Certificate2 certificate = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
-
-    //Create RSACryptoServiceProvider
-    var x509Key = new X509AsymmetricSecurityKey(certificate);
-    var privateKeyXmlParams = certificate.PrivateKey.ToXmlString(true);
-    var rsa = new RSACryptoServiceProvider();
-    rsa.FromXmlString(privateKeyXmlParams);
+    // Get the RSA with the private key, used for signing.
+    var rsa = certificate.GetRSAPrivateKey();
 
     //alg represents the desired signing algorithm, which is SHA-256 in this case
-    //kid represents the certificate thumbprint
+    //x5t represents the certificate thumbprint base64 url encoded
     var header = new Dictionary<string, string>()
-         {
-              { "alg", "RS256"},
-              { "kid", Encode(certificate.GetCertHash()) }
-         };
+    {
+        { "alg", "RS256"},
+        { "typ", "JWT" },
+        { "x5t", Base64UrlEncode(certificate.GetCertHash()) }
+    };
 
     //Please see the previous code snippet on how to craft claims for the GetClaims() method
-    string token = Encode(Encoding.UTF8.GetBytes(JObject.FromObject(header).ToString())) + "." + Encode(Encoding.UTF8.GetBytes(JObject.FromObject(GetClaims()).ToString()));
+    var claims = GetClaims(tenantId, clientId);
 
-    string signature = Encode(rsa.SignData(Encoding.UTF8.GetBytes(token), new SHA256Cng()));
+    var headerBytes = JsonSerializer.SerializeToUtf8Bytes(header);
+    var claimsBytes = JsonSerializer.SerializeToUtf8Bytes(claims);
+    string token = Base64UrlEncode(headerBytes) + "." + Base64UrlEncode(claimsBytes);
+
+    string signature = Base64UrlEncode(rsa.SignData(Encoding.UTF8.GetBytes(token), HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1));
     string signedClientAssertion = string.Concat(token, ".", signature);
     return signedClientAssertion;
 }
@@ -150,10 +156,8 @@ string GetSignedClientAssertion()
 You also have the option of using [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) to create the assertion for you. The code will be a more elegant as shown in the example below:
 
 ```csharp
-        string GetSignedClientAssertion()
+        string GetSignedClientAssertionAlt(X509Certificate2 certificate)
         {
-            var cert = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
-
             //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
             string aud = $"https://login.microsoftonline.com/{tenantID}/v2.0";
 
@@ -172,7 +176,7 @@ You also have the option of using [Microsoft.IdentityModel.JsonWebTokens](https:
             var securityTokenDescriptor = new SecurityTokenDescriptor
             {
                 Claims = claims,
-                SigningCredentials = new X509SigningCredentials(cert)
+                SigningCredentials = new X509SigningCredentials(certificate)
             };
 
             var handler = new JsonWebTokenHandler();
@@ -183,7 +187,10 @@ You also have the option of using [Microsoft.IdentityModel.JsonWebTokens](https:
 Once you have your signed client assertion, you can use it with the MSAL apis as shown below.
 
 ```csharp
-            string signedClientAssertion = GetSignedClientAssertion();
+            X509Certificate2 certificate = ReadCertificate(config.CertificateName);
+            string signedClientAssertion = GetSignedClientAssertion(certificate, tenantId, ConfidentialClientID)
+            // OR
+            //string signedClientAssertion = GetSignedClientAssertionAlt(certificate);
 
             var confidentialApp = ConfidentialClientApplicationBuilder
                 .Create(ConfidentialClientID)

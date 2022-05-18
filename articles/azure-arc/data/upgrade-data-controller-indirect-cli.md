@@ -1,6 +1,6 @@
 ---
-title: Upgrade indirect mode Azure Arc data controller using the CLI
-description: Upgrade indirect mode Azure Arc data controller using the CLI
+title: Upgrade indirectly connected Azure Arc data controller using the CLI
+description: Article describes how to upgrade an indirectly connected Azure Arc data controller using the CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,21 +11,20 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Upgrade indirect mode Azure Arc data controller using the CLI
+# Upgrade an indirectly connected Azure Arc data controller using the CLI
 
 This article describes how to upgrade an indirectly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
-> [!IMPORTANT]
-> This article does not apply to a directly connected Azure Arc-enabled data controller. For the latest information about how to upgrade a directly connected data controller, see the [release notes](./release-notes.md#data-controller-upgrade).
+During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL Hyperscale server).
 
 ## Prerequisites
 
-You will need an indirect mode data controller with the imageTag v1.0.0_2021-07-30 or later.
+You will need an indirectly connected data controller with the imageTag v1.0.0_2021-07-30 or later.
 
 To check the version, run:
 
 ```console
-kubectl get datacontrollers -n -o custom-columns=BUILD:.spec.docker.imageTag
+kubectl get datacontrollers -n <namespace> -o custom-columns=BUILD:.spec.docker.imageTag
 ```
 
 ## Install tools
@@ -42,7 +41,7 @@ Before you can proceed with the tasks in this article you need to install:
 Pull the list of available images for the data controller with the following command:
 
    ```azurecli
-   az arcdata dc list-upgrades --k8s-namespace <namespace> –-use-k8s
+   az arcdata dc list-upgrades --k8s-namespace <namespace>
    ```
 
 The command above returns output like the following example:
@@ -55,7 +54,7 @@ v1.0.0_2021-07-30
 
 ## Upgrade data controller
 
-This section shows how to upgrade a data controller in indirect mode.
+This section shows how to upgrade an indirectly connected data controller.
 
 > [!NOTE]
 > Some of the data services tiers and modes are generally available and some are in preview.
@@ -63,7 +62,7 @@ This section shows how to upgrade a data controller in indirect mode.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
 > and preview services in the [Release Notes](./release-notes.md).
 
-### Indirect mode
+### Upgrade
 
 You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
 
@@ -76,23 +75,23 @@ az arcdata dc upgrade --desired-version <version> --k8s-namespace <namespace> --
 The output for the preceding command is:
 
 ```output
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
+Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
+Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
 ****Dry Run****
-Arcdata Control Plane would be upgraded to: 20211024.1
+Arcdata Control Plane would be upgraded to: <version-tag>
 ```
 
-To upgrade the data controller, run the `az arcdata dc upgrade` command. If you don't specify a target image, the data controller will be upgraded to the latest version. The following example uses a local variable (`$version`) to use the version you selected previously ([View available images and chose a version](#view-available-images-and-chose-a-version)).
+To upgrade the data controller, run the `az arcdata dc upgrade` command. If you don't specify a target image, the data controller will be upgraded to the latest version.
 
 ```azurecli
-az arcdata dc upgrade --desired-version $version --k8s-namespace <namespace> --use-k8s
+az arcdata dc upgrade --k8s-namespace <namespace> --use-k8s
 ```
 
 The output for the preceding command shows the status of the steps:
 
 ```output
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
+Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
+Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
 Creating service account: arc:cr-upgrade-worker
 Creating cluster role: arc:cr-upgrade-worker
 Creating cluster role binding: arc:crb-upgrade-worker
@@ -101,6 +100,8 @@ Cluster role: arc:cr-upgrade-worker created successfully.
 Service account arc:cr-upgrade-worker has been created successfully.
 Creating privileged job arc-elevated-bootstrapper-job
 ```
+
+In example above, you can include `--desired-version <version>` to specify a version if you do not want the latest version. 
 
 ## Monitor the upgrade status
 

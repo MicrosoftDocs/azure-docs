@@ -136,7 +136,7 @@ With this information, and the knowledge that rule 942130 is the one that matche
 
 - Use an Exclusion List
 
-   See [WAF configuration](application-gateway-waf-configuration.md#waf-exclusion-lists) for more information about exclusion lists.
+   See [WAF configuration](application-gateway-waf-configuration.md) for more information about exclusion lists.
 - Disable the rule.
 
 ### Using an exclusion list
@@ -171,7 +171,7 @@ In this example, you can see that the field where the *1=1* string was entered i
 
 :::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. In the Raw tab, 1 = 1 is visible after the name text1." border="false":::
 
-This is a field you can exclude. To learn more about exclusion lists, See [Web application firewall request size limits and exclusion lists](application-gateway-waf-configuration.md#waf-exclusion-lists). You can exclude the evaluation in this case by configuring the following exclusion:
+This is a field you can exclude. To learn more about exclusion lists, See [Web application firewall exclusion lists](application-gateway-waf-configuration.md). You can exclude the evaluation in this case by configuring the following exclusion:
 
 ![WAF exclusion](../media/web-application-firewall-troubleshoot/waf-exclusion-02.png)
 

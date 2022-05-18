@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Form Recognizer Java SDK v3.0 | Preview"
+title: "Quickstart: Form Recognizer Java SDK (beta) | Preview"
 titleSuffix: Azure Applied AI Services
 description: Form and document processing, data extraction, and analysis using Form Recognizer Java client library SDKs v3.0 (preview)
 author: laujan
@@ -7,42 +7,54 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 03/31/2022
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021, mode-other
 ---
+<!-- markdownlint-disable MD025 -->
 
-# Quickstart: Java client library SDK v3.0 | Preview
+# Get started: Form Recognizer Java SDK (beta)
 
 >[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
 
-[Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.1/index.html) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.4/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.4/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
-Get started with Azure Form Recognizer using the Java programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract and analyze form fields, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Get started with Azure Form Recognizer using the Java programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs and named entities.
+* [🆕 **General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
-* [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
+* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained model.
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* A [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true
-), version 8 or later
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-> [!TIP] 
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+* The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. *See* [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
 
-* After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+  >[!TIP]
+  >
+  > * Visual Studio Code offers a **Coding Pack for Java** for Windows and macOS.The coding pack is a bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
+  > * If you are using VS Code and the Coding Pack For Java, install the [**Gradle for Java**](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension.
+
+* If you aren't using VS Code, make sure you have the following installed in your development environment:
+
+  * A [**Java Development Kit** (JDK)](https://www.oracle.com/java/technologies/downloads/) version 8 or later.
+
+  * [**Gradle**](https://gradle.org/), version 6.8 or later.
+
+* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+
+    > [!TIP]
+    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Later, you'll paste your key and endpoint into the code below:
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -50,17 +62,17 @@ In this quickstart you'll use following features to analyze and extract data and
 
 ### Create a new Gradle project
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **form-recognizer-app**, and navigate to it.
+1. In console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **form-recognizer-app**, and navigate to it.
 
-```console
-mkdir form-recognizer-app && form-recognizer-app
-```
+    ```console
+    mkdir form-recognizer-app && form-recognizer-app
+    ```
 
-Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+1. Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
 
-```console
-gradle init --type basic
-```
+    ```console
+    gradle init --type basic
+    ```
 
 1. When prompted to choose a **DSL**, select **Kotlin**.
 
@@ -70,69 +82,61 @@ gradle init --type basic
 
 This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
 
-In your project's *build.gradle.kts* file, include the client library as an `implementation` statement, along with the required plugins and settings.
+1. Open the project's *build.gradle.kts* file in your IDE. Copay and past the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
 
-```kotlin
-plugins {
-    java
-    application
-}
-application {
-    mainClass.set("FormRecognizer")
-}
-repositories {
-    mavenCentral()
-}
-dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0-beta.1")
-}
-```
+    ```kotlin
+    plugins {
+        java
+        application
+    }
+    application {
+        mainClass.set("FormRecognizer")
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0-beta.4")
+    }
+    ```
 
-### Create a Java file
+## Create a Java application
 
-From your working directory, run the following command:
+To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
-```console
-mkdir -p src/main/java
-```
+1. From the form-recognizer-app directory, run the following command:
 
-You will create the following directory structure:
+    ```console
+    mkdir -p src/main/java
+    ```
 
-:::image type="content" source="../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
+    You'll create the following directory structure:
 
-Navigate to the new folder and create a file called *FormRecognizer.java* (created during the `gradle init` command). Open it in your preferred editor or IDE and add the following package declaration and  `import` statements:
+    :::image type="content" source="../media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure":::
 
-```java
-package com.azure.ai.formrecognizer;
+1. Navigate to the `java` directory and create a file named **`FormRecognizer.java`**.
 
-import com.azure.ai.formrecognizer.models.AnalyzeDocumentOptions;
-import com.azure.ai.formrecognizer.models.AnalyzedDocument;
-import com.azure.core.credential.AzureKeyCredential;
-import com.azure.core.http.HttpPipeline;
-import com.azure.core.http.HttpPipelineBuilder;
-import com.azure.core.util.Context;
+    > [!TIP]
+    >
+    > * You can create a new file using PowerShell.
+    > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
+    > * Type the following command **New-Item FormRecognizer.java**.
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.util.Arrays;
-```
+1. Open the `FormRecognizer.java` file and select one of the following code samples to copy and paste into your application:
 
-### Select a code sample to copy and paste into your application's main method:
+    * [**General document**](#general-document-model)
 
-* [**General document**](#try-it-general-document-model)
+    * [**Layout**](#layout-model)
 
-* [**Layout**](#try-it-layout-model)
-
-* [**Prebuilt Invoice**](#try-it-prebuilt-model)
+    * [**Prebuilt Invoice**](#prebuilt-model)
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, see* the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
-## **Try it**: General document model
+## General document model
+
+Extract text, tables, structure, key-value pairs, and named entities from documents.
 
 > [!div class="checklist"]
 >
@@ -141,136 +145,144 @@ import java.util.Arrays;
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```java
-public class FormRecognizer {
 
-    static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
-    static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
+    import com.azure.ai.formrecognizer.*;
+    import com.azure.ai.formrecognizer.models.AnalyzeResult;
+    import com.azure.ai.formrecognizer.models.DocumentLine;
+    import com.azure.ai.formrecognizer.models.AnalyzedDocument;
+    import com.azure.ai.formrecognizer.models.DocumentOperationResult;
+    import com.azure.ai.formrecognizer.models.DocumentWord;
+    import com.azure.ai.formrecognizer.models.DocumentTable;
+    import com.azure.core.credential.AzureKeyCredential;
+    import com.azure.core.util.polling.SyncPoller;
 
-    public static void main(String[] args) {
+    import java.util.List;
+    import java.util.Arrays;
 
-        DocumentAnalysisClient documentAnalysisClient = new DocumentAnalysisClientBuilder()
-            .credential(new AzureKeyCredential("{key}"))
-            .endpoint("{endpoint}")
-            .buildClient();
+    public class FormRecognizer {
 
-        String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
-        String modelId = "prebuilt-document";
-        SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeDocumentPoller =
-            documentAnalysisClient.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
+      // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+      private static final String endpoint = "<your-endpoint>";
+      private static final String key = "<your-key>";
 
-        AnalyzeResult analyzeResult = analyzeDocumentPoller.getFinalResult();
+      public static void main(String[] args) {
 
-        for (int i = 0; i < analyzeResult.getDocuments().size(); i++) {
-            final AnalyzedDocument analyzedDocument = analyzeResult.getDocuments().get(i);
-            System.out.printf("----------- Analyzing document %d -----------%n", i);
-            System.out.printf("Analyzed document has doc type %s with confidence : %.2f%n",
-                analyzedDocument.getDocType(), analyzedDocument.getConfidence());
-        }
+          // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+          DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+              .credential(new AzureKeyCredential(key))
+              .endpoint(endpoint)
+              .buildClient();
 
-        analyzeResult.getPages().forEach(documentPage - > {
-            System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
-                documentPage.getWidth(),
-                documentPage.getHeight(),
-                documentPage.getUnit());
+          // sample document
+          String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
+          String modelId = "prebuilt-document";
+          SyncPoller < DocumentOperationResult, AnalyzeResult> analyzeDocumentPoller =
+              client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
 
-            // lines
-            documentPage.getLines().forEach(documentLine - >
-                System.out.printf("Line %s is within a bounding box %s.%n",
-                    documentLine.getContent(),
-                    documentLine.getBoundingBox().toString()));
+          AnalyzeResult analyzeResult = analyzeDocumentPoller.getFinalResult();
 
-            // words
-            documentPage.getWords().forEach(documentWord - >
-                System.out.printf("Word %s has a confidence score of %.2f%n.",
-                    documentWord.getContent(),
-                    documentWord.getConfidence()));
-        });
+             // pages
+             analyzeResult.getPages().forEach(documentPage -> {
+                 System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
+                     documentPage.getWidth(),
+                     documentPage.getHeight(),
+                     documentPage.getUnit());
 
-        // tables
-        List < DocumentTable > tables = analyzeResult.getTables();
-        for (int i = 0; i < tables.size(); i++) {
-            DocumentTable documentTable = tables.get(i);
-            System.out.printf("Table %d has %d rows and %d columns.%n", i, documentTable.getRowCount(),
-                documentTable.getColumnCount());
-            documentTable.getCells().forEach(documentTableCell - > {
-                System.out.printf("Cell '%s', has row index %d and column index %d.%n",
-                    documentTableCell.getContent(),
-                    documentTableCell.getRowIndex(), documentTableCell.getColumnIndex());
+              // lines
+              documentPage.getLines().forEach(documentLine ->
+                  System.out.printf("Line %s is within a bounding box %s.%n",
+                      documentLine.getContent(),
+                      documentLine.getBoundingBox().toString()));
+
+              // words
+              documentPage.getWords().forEach(documentWord ->
+                  System.out.printf("Word %s has a confidence score of %.2f%n.",
+                      documentWord.getContent(),
+                      documentWord.getConfidence()));
+          });
+
+          // tables
+          List <DocumentTable> tables = analyzeResult.getTables();
+          for (int i = 0; i < tables.size(); i++) {
+              DocumentTable documentTable = tables.get(i);
+              System.out.printf("Table %d has %d rows and %d columns.%n", i, documentTable.getRowCount(),
+                  documentTable.getColumnCount());
+              documentTable.getCells().forEach(documentTableCell -> {
+                  System.out.printf("Cell '%s', has row index %d and column index %d.%n",
+                      documentTableCell.getContent(),
+                      documentTableCell.getRowIndex(), documentTableCell.getColumnIndex());
+              });
+              System.out.println();
+          }
+
+          // Entities
+          analyzeResult.getEntities().forEach(documentEntity -> {
+              System.out.printf("Entity category : %s, sub-category %s%n: ",
+                  documentEntity.getCategory(), documentEntity.getSubCategory());
+              System.out.printf("Entity content: %s%n: ", documentEntity.getContent());
+              System.out.printf("Entity confidence: %.2f%n", documentEntity.getConfidence());
+          });
+
+          // Key-value pairs
+          analyzeResult.getKeyValuePairs().forEach(documentKeyValuePair -> {
+              System.out.printf("Key content: %s%n", documentKeyValuePair.getKey().getContent());
+              System.out.printf("Key content bounding region: %s%n",
+                  documentKeyValuePair.getKey().getBoundingRegions().toString());
+
+              if (documentKeyValuePair.getValue() != null) {
+                  System.out.printf("Value content: %s%n", documentKeyValuePair.getValue().getContent());
+                  System.out.printf("Value content bounding region: %s%n", documentKeyValuePair.getValue().getBoundingRegions().toString());
+                }
             });
-            System.out.println();
         }
-
-        // Entities
-        analyzeResult.getEntities().forEach(documentEntity - > {
-            System.out.printf("Entity category : %s, sub-category %s%n: ",
-                documentEntity.getCategory(), documentEntity.getSubCategory());
-            System.out.printf("Entity content: %s%n: ", documentEntity.getContent());
-            System.out.printf("Entity confidence: %.2f%n", documentEntity.getConfidence());
-        });
-
-        // Key-value
-        analyzeResult.getKeyValuePairs().forEach(documentKeyValuePair - > {
-            System.out.printf("Key content: %s%n", documentKeyValuePair.getKey().getContent());
-            System.out.printf("Key content bounding region: %s%n",
-                documentKeyValuePair.getKey().getBoundingRegions().toString());
-
-            System.out.printf("Value content: %s%n", documentKeyValuePair.getValue().getContent());
-            System.out.printf("Value content bounding region: %s%n", documentKeyValuePair.getValue().getBoundingRegions().toString());
-        });
-        Build a custom document analysis model
-        In 3. x.x, creating a custom model required specifying useTrainingLabels to indicate whether to use labeled data when creating the custom model with the beginTraining method.
-        In 4. x.x, we introduced the new general document model(prebuilt - document) to replace the train without labels functionality from 3. x.x which extracts entities, key - value pairs, and layout from a document with the beginBuildModel method.In 4. x.x the beginBuildModel always returns labeled data otherwise.
-        Train a custom model using 3. x.x beginTraining:
-
-            String trainingFilesUrl = "{SAS_URL_of_your_container_in_blob_storage}";
-        SyncPoller < FormRecognizerOperationResult, CustomFormModel > trainingPoller =
-            formTrainingClient.beginTraining(trainingFilesUrl,
-                false,
-                new TrainingOptions()
-                .setModelName("my model trained without labels"),
-                Context.NONE);
-
-        CustomFormModel customFormModel = trainingPoller.getFinalResult();
-
-        // Model Info
-        System.out.printf("Model Id: %s%n", customFormModel.getModelId());
-        System.out.printf("Model name given by user: %s%n", customFormModel.getModelName());
-        System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
-        System.out.printf("Training started on: %s%n", customFormModel.getTrainingStartedOn());
-        System.out.printf("Training completed on: %s%n%n", customFormModel.getTrainingCompletedOn());
-
-        System.out.println("Recognized Fields:");
-        // looping through the subModels, which contains the fields they were trained on
-        // Since the given training documents are unlabeled we still group them but, they do not have a label.
-        customFormModel.getSubmodels().forEach(customFormSubmodel - > {
-            System.out.printf("Submodel Id: %s%n: ", customFormSubmodel.getModelId());
-            // Since the training data is unlabeled, we are unable to return the accuracy of this model
-            customFormSubmodel.getFields().forEach((field, customFormModelField) - >
-                System.out.printf("Field: %s Field Label: %s%n",
-                    field, customFormModelField.getLabel()));
-        });
-
-        System.out.println();
-        customFormModel.getTrainingDocuments().forEach(trainingDocumentInfo - > {
-            System.out.printf("Document name: %s%n", trainingDocumentInfo.getName());
-            System.out.printf("Document status: %s%n", trainingDocumentInfo.getStatus());
-            System.out.printf("Document page count: %d%n", trainingDocumentInfo.getPageCount());
-            if (!trainingDocumentInfo.getErrors().isEmpty()) {
-                System.out.println("Document Errors:");
-                trainingDocumentInfo.getErrors().forEach(formRecognizerError - >
-                    System.out.printf("Error code %s, Error message: %s%n", formRecognizerError.getErrorCode(),
-                        formRecognizerError.getMessage()));
-            }
-        });
     }
 ```
+<!-- markdownlint-disable MD036 -->
 
-## **Try it**: Layout model
+**Build and run the application**
 
-Extract text, selection marks, text styles, and table structures, along with their bounding region coordinates from documents.
+Once you've added a code sample to your application, navigate back to your main project directory—**form-recognizer-app**.
+
+1. Build your application with the `build` command:
+
+    ```console
+    gradle build
+    ```
+
+1. Run your application with the `run` command:
+
+    ```console
+    gradle run
+    ```
+
+### General document model output
+
+Here's a snippet of the expected output:
+
+```console
+Key content: For the Transition Period From
+Key content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@14c053c6]
+Key content: to Commission File Number
+Key content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@6c2d4cc6]
+Value content: 001-37845
+Value content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@30865a90]
+Key content: (I.R.S. ID)
+Key content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@6134ac4a]
+Value content: 91-1144442
+Value content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@777c9dc9]
+Key content: Securities registered pursuant to Section 12(g) of the Act:
+Key content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@71b1a49c]
+Value content: NONE
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-general-document-output.md).
+
+## Layout model
+
+Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
 
 > [!div class="checklist"]
 >
@@ -278,257 +290,341 @@ Extract text, selection marks, text styles, and table structures, along with the
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-layout` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
-Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```java
-public class FormRecognizer {
 
-    static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
-    static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
+    import com.azure.ai.formrecognizer.*;
+    import com.azure.ai.formrecognizer.models.AnalyzeResult;
+    import com.azure.ai.formrecognizer.models.DocumentLine;
+    import com.azure.ai.formrecognizer.models.AnalyzedDocument;
+    import com.azure.ai.formrecognizer.models.DocumentOperationResult;
+    import com.azure.ai.formrecognizer.models.DocumentWord;
+    import com.azure.ai.formrecognizer.models.DocumentTable;
+    import com.azure.core.credential.AzureKeyCredential;
+    import com.azure.core.util.polling.SyncPoller;
 
-    public static void main(String[] args) {
+    import java.util.List;
+    import java.util.Arrays;
 
-        DocumentAnalysisClient documentAnalysisClient = new DocumentAnalysisClientBuilder()
-            .credential(new AzureKeyCredential("{key}"))
-            .endpoint("{endpoint}")
-            .buildClient();
+    public class FormRecognizer {
 
-        String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
-        String modelId = "prebuilt-layout";
+      // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+      private static final String endpoint = "<your-endpoint>";
+      private static final String key = "<your-key>";
 
-        SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeLayoutResultPoller =
-            documentAnalysisClient.beginAnalyzeDocument(modelId, documentUrl);
+           public static void main(String[] args) {
 
-        AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult();
+           // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+            DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+                .credential(new AzureKeyCredential(key))
+                .endpoint(endpoint)
+                .buildClient();
 
-        // pages
-        analyzeLayoutResult.getPages().forEach(documentPage - > {
-            System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
-                documentPage.getWidth(),
-                documentPage.getHeight(),
-                documentPage.getUnit());
+            // sample document
+            String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
 
-            // lines
-            documentPage.getLines().forEach(documentLine - >
-                System.out.printf("Line %s is within a bounding box %s.%n",
-                    documentLine.getContent(),
-                    documentLine.getBoundingBox().toString()));
+            String modelId = "prebuilt-layout";
 
-            // selection marks
-            documentPage.getSelectionMarks().forEach(documentSelectionMark - >
-                System.out.printf("Selection mark is %s and is within a bounding box %s with confidence %.2f.%n",
-                    documentSelectionMark.getState().toString(),
-                    documentSelectionMark.getBoundingBox().toString(),
-                    documentSelectionMark.getConfidence()));
-        });
+            SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeLayoutResultPoller =
+                client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
 
-        // tables
-        List < DocumentTable > tables = analyzeLayoutResult.getTables();
-        for (int i = 0; i < tables.size(); i++) {
-            DocumentTable documentTable = tables.get(i);
-            System.out.printf("Table %d has %d rows and %d columns.%n", i, documentTable.getRowCount(),
-                documentTable.getColumnCount());
-            documentTable.getCells().forEach(documentTableCell - > {
-                System.out.printf("Cell '%s', has row index %d and column index %d.%n", documentTableCell.getContent(),
-                    documentTableCell.getRowIndex(), documentTableCell.getColumnIndex());
+            AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult();
+
+                // pages
+                analyzeLayoutResult.getPages().forEach(documentPage -> {
+                    System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
+                        documentPage.getWidth(),
+                        documentPage.getHeight(),
+                        documentPage.getUnit());
+
+                // lines
+                documentPage.getLines().forEach(documentLine ->
+                    System.out.printf("Line %s is within a bounding box %s.%n",
+                        documentLine.getContent(),
+                        documentLine.getBoundingBox().toString()));
+
+                // words
+                documentPage.getWords().forEach(documentWord ->
+                    System.out.printf("Word '%s' has a confidence score of %.2f.%n",
+                        documentWord.getContent(),
+                        documentWord.getConfidence()));
+
+                // selection marks
+                documentPage.getSelectionMarks().forEach(documentSelectionMark ->
+                    System.out.printf("Selection mark is %s and is within a bounding box %s with confidence %.2f.%n",
+                        documentSelectionMark.getState().toString(),
+                        documentSelectionMark.getBoundingBox().toString(),
+                        documentSelectionMark.getConfidence()));
             });
-            System.out.println();
+
+            // tables
+            List < DocumentTable > tables = analyzeLayoutResult.getTables();
+            for (int i = 0; i < tables.size(); i++) {
+                DocumentTable documentTable = tables.get(i);
+                System.out.printf("Table %d has %d rows and %d columns.%n", i, documentTable.getRowCount(),
+                    documentTable.getColumnCount());
+                documentTable.getCells().forEach(documentTableCell -> {
+                    System.out.printf("Cell '%s', has row index %d and column index %d.%n", documentTableCell.getContent(),
+                        documentTableCell.getRowIndex(), documentTableCell.getColumnIndex());
+                });
+                System.out.println();
+            }
         }
     }
 ```
 
-## **Try it**: Prebuilt model
+**Build and run the application**
 
-This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example.
-
-> [!div class="checklist"]
->
-> * For this example, we wll analyze an invoice document using a prebuilt model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
-> * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-invoice` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
-> * We've added the file URI value to the `invoiceUrl` variable in the main method.
-> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
-
-### Choose the invoice prebuilt model ID
-
-You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
-
-* [**prebuilt-invoice**](../concept-invoice.md): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
-* [**prebuilt-receipt**](../concept-receipt.md): extracts text and key information from receipts.
-* [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
-* [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
-
-Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
-
-```java
-
-public class FormRecognizer {
-
-    static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
-    static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
-
-    public static void main(String[] args) {
-
-        DocumentAnalysisClient documentAnalysisClient = new DocumentAnalysisClientBuilder()
-            .credential(new AzureKeyCredential("{key}"))
-            .endpoint("{endpoint}")
-            .buildClient();
-
-        String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
-        String modelId = "prebuilt-invoice";
-
-        PollerFlux < DocumentOperationResult, AnalyzeResult > analyzeInvoicePoller = client.beginAnalyzeDocumentFromUrl("prebuilt-invoice", invoiceUrl);
-
-        Mono < AnalyzeResult > analyzeInvoiceResultMono = analyzeInvoicePoller
-            .last()
-            .flatMap(pollResponse - > {
-                if (pollResponse.getStatus().isComplete()) {
-                    System.out.println("Polling completed successfully");
-                    return pollResponse.getFinalResult();
-                } else {
-                    return Mono.error(new RuntimeException("Polling completed unsuccessfully with status:" +
-                        pollResponse.getStatus()));
-                }
-            });
-
-        analyzeInvoiceResultMono.subscribe(analyzeInvoiceResult - > {
-            for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
-                AnalyzedDocument analyzedInvoice = analyzeInvoiceResult.getDocuments().get(i);
-                Map < String, DocumentField > invoiceFields = analyzedInvoice.getFields();
-                System.out.printf("----------- Analyzing invoice  %d -----------%n", i);
-                DocumentField vendorNameField = invoiceFields.get("VendorName");
-                if (vendorNameField != null) {
-                    if (DocumentFieldType.STRING == vendorNameField.getType()) {
-                        String merchantName = vendorNameField.getValueString();
-                        System.out.printf("Vendor Name: %s, confidence: %.2f%n",
-                            merchantName, vendorNameField.getConfidence());
-                    }
-                }
-
-                DocumentField vendorAddressField = invoiceFields.get("VendorAddress");
-                if (vendorAddressField != null) {
-                    if (DocumentFieldType.STRING == vendorAddressField.getType()) {
-                        String merchantAddress = vendorAddressField.getValueString();
-                        System.out.printf("Vendor address: %s, confidence: %.2f%n",
-                            merchantAddress, vendorAddressField.getConfidence());
-                    }
-                }
-
-                DocumentField customerNameField = invoiceFields.get("CustomerName");
-                if (customerNameField != null) {
-                    if (DocumentFieldType.STRING == customerNameField.getType()) {
-                        String merchantAddress = customerNameField.getValueString();
-                        System.out.printf("Customer Name: %s, confidence: %.2f%n",
-                            merchantAddress, customerNameField.getConfidence());
-                    }
-                }
-
-                DocumentField customerAddressRecipientField = invoiceFields.get("CustomerAddressRecipient");
-                if (customerAddressRecipientField != null) {
-                    if (DocumentFieldType.STRING == customerAddressRecipientField.getType()) {
-                        String customerAddr = customerAddressRecipientField.getValueString();
-                        System.out.printf("Customer Address Recipient: %s, confidence: %.2f%n",
-                            customerAddr, customerAddressRecipientField.getConfidence());
-                    }
-                }
-
-                DocumentField invoiceIdField = invoiceFields.get("InvoiceId");
-                if (invoiceIdField != null) {
-                    if (DocumentFieldType.STRING == invoiceIdField.getType()) {
-                        String invoiceId = invoiceIdField.getValueString();
-                        System.out.printf("Invoice ID: %s, confidence: %.2f%n",
-                            invoiceId, invoiceIdField.getConfidence());
-                    }
-                }
-
-                DocumentField invoiceDateField = invoiceFields.get("InvoiceDate");
-                if (customerNameField != null) {
-                    if (DocumentFieldType.DATE == invoiceDateField.getType()) {
-                        LocalDate invoiceDate = invoiceDateField.getValueDate();
-                        System.out.printf("Invoice Date: %s, confidence: %.2f%n",
-                            invoiceDate, invoiceDateField.getConfidence());
-                    }
-                }
-
-                DocumentField invoiceTotalField = invoiceFields.get("InvoiceTotal");
-                if (customerAddressRecipientField != null) {
-                    if (DocumentFieldType.FLOAT == invoiceTotalField.getType()) {
-                        Float invoiceTotal = invoiceTotalField.getValueFloat();
-                        System.out.printf("Invoice Total: %.2f, confidence: %.2f%n",
-                            invoiceTotal, invoiceTotalField.getConfidence());
-                    }
-                }
-
-                DocumentField invoiceItemsField = invoiceFields.get("Items");
-                if (invoiceItemsField != null) {
-                    System.out.printf("Invoice Items: %n");
-                    if (DocumentFieldType.LIST == invoiceItemsField.getType()) {
-                        List < DocumentField > invoiceItems = invoiceItemsField.getValueList();
-                        invoiceItems.stream()
-                            .filter(invoiceItem - > DocumentFieldType.MAP == invoiceItem.getType())
-                            .map(formField - > formField.getValueMap())
-                            .forEach(formFieldMap - > formFieldMap.forEach((key, formField) - > {
-                                // See a full list of fields found on an invoice here:
-                                // https://aka.ms/formrecognizer/invoicefields
-                                if ("Description".equals(key)) {
-                                    if (DocumentFieldType.STRING == formField.getType()) {
-                                        String name = formField.getValueString();
-                                        System.out.printf("Description: %s, confidence: %.2fs%n",
-                                            name, formField.getConfidence());
-                                    }
-                                }
-                                if ("Quantity".equals(key)) {
-                                    if (DocumentFieldType.FLOAT == formField.getType()) {
-                                        Float quantity = formField.getValueFloat();
-                                        System.out.printf("Quantity: %f, confidence: %.2f%n",
-                                            quantity, formField.getConfidence());
-                                    }
-                                }
-                                if ("UnitPrice".equals(key)) {
-                                    if (DocumentFieldType.FLOAT == formField.getType()) {
-                                        Float unitPrice = formField.getValueFloat();
-                                        System.out.printf("Unit Price: %f, confidence: %.2f%n",
-                                            unitPrice, formField.getConfidence());
-                                    }
-                                }
-                                if ("ProductCode".equals(key)) {
-                                    if (DocumentFieldType.FLOAT == formField.getType()) {
-                                        Float productCode = formField.getValueFloat();
-                                        System.out.printf("Product Code: %f, confidence: %.2f%n",
-                                            productCode, formField.getConfidence());
-                                    }
-                                }
-                            }));
-                    }
-                }
-            }
-        });
-    }
-}
-
-```
-
-## Build and run your application
-
-Navigate back to your main project directory—**form-recognizer-app**.
+Once you've added a code sample to your application, navigate back to your main project directory—**form-recognizer-app**.
 
 1. Build your application with the `build` command:
 
-```console
-gradle build
-```
+    ```console
+    gradle build
+    ```
 
 1. Run your application with the `run` command:
 
+    ```console
+    gradle run
+    ```
+
+### Layout model output
+
+Here's a snippet of the expected output:
+
 ```console
-gradle run
+  Table 0 has 5 rows and 3 columns.
+  Cell 'Title of each class', has row index 0 and column index 0.
+  Cell 'Trading Symbol', has row index 0 and column index 1.
+  Cell 'Name of exchange on which registered', has row index 0 and column index 2.
+  Cell 'Common stock, $0.00000625 par value per share', has row index 1 and column index 0.
+  Cell 'MSFT', has row index 1 and column index 1.
+  Cell 'NASDAQ', has row index 1 and column index 2.
+  Cell '2.125% Notes due 2021', has row index 2 and column index 0.
+  Cell 'MSFT', has row index 2 and column index 1.
+  Cell 'NASDAQ', has row index 2 and column index 2.
+  Cell '3.125% Notes due 2028', has row index 3 and column index 0.
+  Cell 'MSFT', has row index 3 and column index 1.
+  Cell 'NASDAQ', has row index 3 and column index 2.
+  Cell '2.625% Notes due 2033', has row index 4 and column index 0.
+  Cell 'MSFT', has row index 4 and column index 1.
+  Cell 'NASDAQ', has row index 4 and column index 2.
 ```
 
-Congratulations! In this quickstart, you used the Form Recognizer Java SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
+To view the entire output,visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-layout-output.md).
 
-## Next steps
+## Prebuilt model
+
+Analyze and extract common fields from specific document types using a prebuilt model. In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
+
+> [!TIP]
+> You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. See [**model data extraction**](../concept-model-overview.md#model-data-extraction).
+
+> [!div class="checklist"]
+>
+> * Analyze an invoice using the prebuilt-invoice model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
+> * We've added the file URL value to the `invoiceUrl` variable at the top of the file.
+> * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
+> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
+
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+
+```java
+
+      import com.azure.ai.formrecognizer.*;
+      import com.azure.ai.formrecognizer.models.AnalyzeResult;
+      import com.azure.ai.formrecognizer.models.DocumentLine;
+      import com.azure.ai.formrecognizer.models.AnalyzedDocument;
+      import com.azure.ai.formrecognizer.models.DocumentOperationResult;
+      import com.azure.ai.formrecognizer.models.DocumentWord;
+      import com.azure.ai.formrecognizer.models.DocumentTable;
+      import com.azure.core.credential.AzureKeyCredential;
+      import com.azure.core.util.polling.SyncPoller;
+
+      import java.util.List;
+      import java.util.Arrays;
+
+      public class FormRecognizer {
+
+      // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+      private static final String endpoint = "<your-endpoint>";
+      private static final String key = "<your-key>";
+
+      public static void main(final String[] args) throws IOException {
+
+        // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+        DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+          .credential(new AzureKeyCredential(key))
+          .endpoint(endpoint)
+          .buildClient();
+
+        // sample document
+        String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
+        String modelId = "prebuilt-invoice";
+
+        SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeInvoicePoller = client.beginAnalyzeDocumentFromUrl(modelId, invoiceUrl);
+
+        AnalyzeResult analyzeInvoiceResult = analyzeInvoicePoller.getFinalResult();
+
+        for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
+          AnalyzedDocument analyzedInvoice = analyzeInvoiceResult.getDocuments().get(i);
+          Map < String, DocumentField > invoiceFields = analyzedInvoice.getFields();
+          System.out.printf("----------- Analyzing invoice  %d -----------%n", i);
+          System.out.printf("Analyzed document has doc type %s with confidence : %.2f%n",
+            analyzedInvoice.getDocType(), analyzedInvoice.getConfidence());
+
+          DocumentField vendorNameField = invoiceFields.get("VendorName");
+          if (vendorNameField != null) {
+            if (DocumentFieldType.STRING == vendorNameField.getType()) {
+              String merchantName = vendorNameField.getValueString();
+              Float confidence = vendorNameField.getConfidence();
+              System.out.printf("Vendor Name: %s, confidence: %.2f%n",
+                merchantName, vendorNameField.getConfidence());
+            }
+          }
+
+          DocumentField vendorAddressField = invoiceFields.get("VendorAddress");
+          if (vendorAddressField != null) {
+            if (DocumentFieldType.STRING == vendorAddressField.getType()) {
+              String merchantAddress = vendorAddressField.getValueString();
+              System.out.printf("Vendor address: %s, confidence: %.2f%n",
+                merchantAddress, vendorAddressField.getConfidence());
+            }
+          }
+
+          DocumentField customerNameField = invoiceFields.get("CustomerName");
+          if (customerNameField != null) {
+            if (DocumentFieldType.STRING == customerNameField.getType()) {
+              String merchantAddress = customerNameField.getValueString();
+              System.out.printf("Customer Name: %s, confidence: %.2f%n",
+                merchantAddress, customerNameField.getConfidence());
+            }
+          }
+
+          DocumentField customerAddressRecipientField = invoiceFields.get("CustomerAddressRecipient");
+          if (customerAddressRecipientField != null) {
+            if (DocumentFieldType.STRING == customerAddressRecipientField.getType()) {
+              String customerAddr = customerAddressRecipientField.getValueString();
+              System.out.printf("Customer Address Recipient: %s, confidence: %.2f%n",
+                customerAddr, customerAddressRecipientField.getConfidence());
+            }
+          }
+
+          DocumentField invoiceIdField = invoiceFields.get("InvoiceId");
+          if (invoiceIdField != null) {
+            if (DocumentFieldType.STRING == invoiceIdField.getType()) {
+              String invoiceId = invoiceIdField.getValueString();
+              System.out.printf("Invoice ID: %s, confidence: %.2f%n",
+                invoiceId, invoiceIdField.getConfidence());
+            }
+          }
+
+          DocumentField invoiceDateField = invoiceFields.get("InvoiceDate");
+          if (customerNameField != null) {
+            if (DocumentFieldType.DATE == invoiceDateField.getType()) {
+              LocalDate invoiceDate = invoiceDateField.getValueDate();
+              System.out.printf("Invoice Date: %s, confidence: %.2f%n",
+                invoiceDate, invoiceDateField.getConfidence());
+            }
+          }
+
+          DocumentField invoiceTotalField = invoiceFields.get("InvoiceTotal");
+          if (customerAddressRecipientField != null) {
+            if (DocumentFieldType.FLOAT == invoiceTotalField.getType()) {
+              Float invoiceTotal = invoiceTotalField.getValueFloat();
+              System.out.printf("Invoice Total: %.2f, confidence: %.2f%n",
+                invoiceTotal, invoiceTotalField.getConfidence());
+            }
+          }
+
+          DocumentField invoiceItemsField = invoiceFields.get("Items");
+          if (invoiceItemsField != null) {
+            System.out.printf("Invoice Items: %n");
+            if (DocumentFieldType.LIST == invoiceItemsField.getType()) {
+              List < DocumentField > invoiceItems = invoiceItemsField.getValueList();
+              invoiceItems.stream()
+                .filter(invoiceItem -> DocumentFieldType.MAP == invoiceItem.getType())
+                .map(formField -> formField.getValueMap())
+                .forEach(formFieldMap -> formFieldMap.forEach((key, formField) -> {
+                  // See a full list of fields found on an invoice here:
+                  // https://aka.ms/formrecognizer/invoicefields
+                  if ("Description".equals(key)) {
+                    if (DocumentFieldType.STRING == formField.getType()) {
+                      String name = formField.getValueString();
+                      System.out.printf("Description: %s, confidence: %.2fs%n",
+                        name, formField.getConfidence());
+                    }
+                  }
+                  if ("Quantity".equals(key)) {
+                    if (DocumentFieldType.FLOAT == formField.getType()) {
+                      Float quantity = formField.getValueFloat();
+                      System.out.printf("Quantity: %f, confidence: %.2f%n",
+                        quantity, formField.getConfidence());
+                    }
+                  }
+                  if ("UnitPrice".equals(key)) {
+                    if (DocumentFieldType.FLOAT == formField.getType()) {
+                      Float unitPrice = formField.getValueFloat();
+                      System.out.printf("Unit Price: %f, confidence: %.2f%n",
+                        unitPrice, formField.getConfidence());
+                    }
+                  }
+                  if ("ProductCode".equals(key)) {
+                    if (DocumentFieldType.FLOAT == formField.getType()) {
+                      Float productCode = formField.getValueFloat();
+                      System.out.printf("Product Code: %f, confidence: %.2f%n",
+                        productCode, formField.getConfidence());
+                    }
+                  }
+                }));
+             }
+          }
+        }
+      }
+    }
+
+```
+
+**Build and run the application**
+
+Once you've added a code sample to your application, navigate back to your main project directory—**form-recognizer-app**.
+
+1. Build your application with the `build` command:
+
+    ```console
+    gradle build
+    ```
+
+1. Run your application with the `run` command:
+
+    ```console
+    gradle run
+    ```
+
+### Prebuilt model output
+
+Here's a snippet of the expected output:
+
+```console
+  ----------- Analyzing invoice  0 -----------
+  Analyzed document has doc type invoice with confidence : 1.00
+  Vendor Name: CONTOSO LTD., confidence: 0.92
+  Vendor address: 123 456th St New York, NY, 10001, confidence: 0.91
+  Customer Name: MICROSOFT CORPORATION, confidence: 0.84
+  Customer Address Recipient: Microsoft Corp, confidence: 0.92
+  Invoice ID: INV-100, confidence: 0.97
+  Invoice Date: 2019-11-15, confidence: 0.97
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-prebuilt-invoice-output.md)
+
+That's it, congratulations!
+
+In this quickstart, you used the Form Recognizer Java SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
+
+## Next step
 
 > [!div class="nextstepaction"]
-> [REST API v3.0 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer Java library reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.1/index.html)
+> [Learn more about Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)

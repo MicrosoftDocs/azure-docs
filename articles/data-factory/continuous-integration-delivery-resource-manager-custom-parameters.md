@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/24/2021 
+ms.date: 04/20/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -24,7 +24,7 @@ If your development instance has an associated Git repository, you can override 
   
     * Use the custom parameter file and remove properties that don't need parameterization, i.e., properties that can keep a default value and hence decrease the parameter count.
     * Refactor logic in the dataflow to reduce parameters, for example, pipeline parameters all have the same value, you can just use global parameters instead.
-    * Split one data factory  into multiple data flows.
+    * Split one data factory into multiple data factories.
 
 To override the default Resource Manager parameter configuration, go to the **Manage** hub and select **ARM template** in the "Source control" section. Under **ARM parameter configuration** section, click **Edit** icon in "Edit parameter configuration" to open the Resource Manager parameter configuration code editor.
 
@@ -445,7 +445,7 @@ The following example shows how to add a single value to the default parameteriz
 }
 ```
 
-## Next Steps
+## Next steps
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

@@ -68,9 +68,9 @@
     - name: SQL Database
       items:
       - name: Availability zones with SQL Database general purpose tier
-        href: ../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview
+        href: /azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability
       - name: Availability zones with SQL Database premium & business critical tiers
-        href: ../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability
+        href: /azure/azure-sql/database/high-availability-sla#premium-and-business-critical-service-tier-zone-redundant-availability
     - name: Storage
       items:
       - name: Zone-redundant storage
@@ -118,7 +118,3 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Azure Regions
     href: https://azure.microsoft.com/global-infrastructure/geographies/
-- name: Azure Orbital Documentation
-  items:
-  - name: What is Azure Orbital?
-    href: ../networking/azure-orbital-overview.md

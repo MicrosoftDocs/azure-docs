@@ -1,9 +1,9 @@
 ---
 title: Develop without an Azure IoT SDK | Microsoft Docs
 description: Developer guide - information about and links to topics that you can use to build device apps and back-end apps without using an Azure IoT SDK.
-author: eross-msft
+author: kgremban
 
-ms.author: lizross
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual

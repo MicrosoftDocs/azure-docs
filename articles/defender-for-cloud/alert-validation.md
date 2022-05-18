@@ -2,12 +2,12 @@
 title: Alert validation in Microsoft Defender for Cloud | Microsoft Docs
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date:  11/09/2021
+ms.author: benmansheim
+author: bmansheim
+ms.date: 12/12/2021
 
 ---
 # Alert validation in Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This document helps you learn how to verify if your system is properly configured for Microsoft Defender for Cloud alerts.
 
@@ -78,7 +78,7 @@ If you've integrated Azure Kubernetes Service with Defender for Cloud, you can t
 
 `kubectl get pods --namespace=asc-alerttest-662jfi039n`
 
-For more information about defending your Kubernetes nodes and clusters, see [Introduction to Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+For more information about defending your Kubernetes nodes and clusters, see [Introduction to Microsoft Defender for Containers](defender-for-containers-introduction.md)
 
 ## Next steps
 This article introduced you to the alerts validation process. Now that you're familiar with this validation, try the following articles:

@@ -16,11 +16,13 @@
     href: upcoming-changes.md
   - name: Availability
     items:
-    - name: Supported platforms
+    - name: Supported platforms for servers
       displayName: coverage
       href: os-coverage.md
-    - name: Coverage by OS, machine type, and cloud
-      href: supported-machines-endpoint-solutions-clouds.md
+    - name: Servers coverage by OS, machine type, and cloud
+      href: supported-machines-endpoint-solutions-clouds-servers.md
+    - name: Defender for Containers feature availability
+      href: supported-machines-endpoint-solutions-clouds-containers.md
     - name: Feature coverage for Azure PaaS resources
       href: features-paas.md
     - name: User roles and permissions
@@ -41,7 +43,7 @@
     - name: Connect AWS accounts
       displayName: hybrid, multicloud, multi-cloud, amazon, arc
       href: quickstart-onboard-aws.md
-    - name: Connect GCP accounts
+    - name: Connect GCP projects
       displayName: hybrid, multicloud, multi-cloud, google
       href: quickstart-onboard-gcp.md
   - name: 4. Configure auto provisioning
@@ -81,10 +83,13 @@
     items:
     - name: Policies, initiatives, and recommendations
       href: security-policy-concept.md
-    - name: Secure score and security controls
+    - name: Security posture
       href: secure-score-security-controls.md
     - name: Reference list of recommendations
       href: recommendations-reference.md
+    - name: Reference list of AWS recommendations
+      href: recommendations-reference-aws.md
+
   - name: Cloud Workload Protection concepts
     items:
     - name: Security alerts and incidents
@@ -131,7 +136,7 @@
   - name: Protect your machines
     displayName: hybrid, arc, Azure Defender for machines
     items:
-    - name: Overview of Defender for servers
+    - name: Overview of Defender for Servers
       displayName: VM
       href: defender-for-servers-introduction.md
     - name: Apply Azure security baselines
@@ -156,7 +161,7 @@
         href: remediate-vulnerability-findings-vm.md
       - name: Disable specific vulnerability findings
         displayName: qualys, rapid7, va
-        href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
+        href: remediate-vulnerability-findings-vm.md#disable-specific-findings
     - name: Secure management ports with just-in-time VM access
       items:
       - name: Overview of just-in-time VM access
@@ -190,54 +195,72 @@
       href: harden-docker-hosts.md
   - name: Protect your databases
     items:
-    - name: Overview of Defender for SQL
-      displayName: database
-      href: defender-for-sql-introduction.md
-    - name: Enable Defender for SQL servers on machines
-      href: defender-for-sql-usage.md
-      displayName: hybrid, arc, Azure Defender
-    - name: Overview of Defender for open-source relational databases
-      displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
-      href: defender-for-databases-introduction.md
-    - name: Enable Defender for OSS RDBs and respond to alerts
-      displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
-      href: defender-for-databases-usage.md
-    - name: Scan your SQL resources for vulnerabilities
-      href: defender-for-sql-on-machines-vulnerability-assessment.md
-      displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
-    - name: Customize SQL information protection policy
-      displayName: sql, database, data discovery
-      href: sql-information-protection-policy.md
+    - name: Enable protection on all of your databases
+      href: quickstart-enable-database-protections.md
+    - name: Microsoft Defender for Azure SQL databases
+      items: 
+      - name: Overview of Defender for SQL
+        displayName: database
+        href: defender-for-sql-introduction.md
+      - name: Scan your SQL resources for vulnerabilities
+        href: defender-for-sql-on-machines-vulnerability-assessment.md
+        displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
+      - name: Customize SQL information protection policy
+        displayName: sql, database, data discovery
+        href: sql-information-protection-policy.md
+    - name: Microsoft Defender for SQL servers on machines
+      items:
+      - name: Enable Defender for SQL servers on machines
+        href: defender-for-sql-usage.md
+        displayName: hybrid, arc, Azure Defender
+    - name: Microsoft Defender for open-source relational databases
+      items: 
+      - name: Overview of Defender for open-source relational databases
+        displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
+        href: defender-for-databases-introduction.md
+      - name: Enable Defender for OSS RDBs and respond to alerts
+        displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
+        href: defender-for-databases-usage.md
+    - name: Microsoft Defender for Azure Cosmos DB (Preview)
+      items: 
+      - name: Overview of Microsoft Defender for Azure Cosmos DB
+        href: concept-defender-for-cosmos.md
+      - name: Enable Microsoft Defender for Azure Cosmos DB
+        href: quickstart-enable-defender-for-cosmos.md
   - name: Protect your containerized environments
-    displayName: Azure Defender
     items:
-    - name: Container security features of Defender for Cloud
-      displayName: kubernetes, aks, acr, registries, k8s
-      href: container-security.md
-    - name: Overview of Defender for Kubernetes
-      displayName: clusters, k8s, aks
-      href: defender-for-kubernetes-introduction.md
-    - name: Overview of Defender for container registries
-      displayName: ACR, registry, images
-      href: defender-for-container-registries-introduction.md
-    - name: Scan your registry images for vulnerabilities
+    - name: Overview of Defender for Containers
+      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
+      href: defender-for-containers-introduction.md
+    - name: Enable Defender for Containers
+      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
+      href: defender-for-containers-enable.md
+    - name: Vulnerability assessment
       displayName: ACR, registry, images, qualys
-      href: defender-for-container-registries-usage.md
+      href: defender-for-containers-usage.md
     - name: Scan images in your CI/CD workflows
       displayName: ACR, registry, images, trevi, vulnerabilities, scanner
-      href: defender-for-container-registries-cicd.md
-    - name: Protect Azure Arc-enabled Kubernetes clusters
-      displayName: k8s, containers, aks, hybrid, arc, azure arc, multicloud
-      href: defender-for-kubernetes-azure-arc.md
-    - name: Protect your Kubernetes workloads
+      href: defender-for-containers-cicd.md
+    - name: Kubernetes data plane hardening
       displayName: k8s, containers, aks
       href: kubernetes-workload-protections.md
+    - name: Defender for Kubernetes (deprecated)
+      displayName: clusters, k8s, aks
+      href: defender-for-kubernetes-introduction.md
+    - name: Defender for container registries (deprecated)
+      displayName: ACR, registry, images
+      href: defender-for-container-registries-introduction.md
   - name: Protect your Azure App Service web apps and APIs
     displayName: Azure Defender for App Service, defender for app
     href: defender-for-app-service-introduction.md
   - name: Protect your Azure Storage accounts
-    displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
-    href: defender-for-storage-introduction.md
+    items:
+    - name: Overview of Defender for Storage
+      displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
+      href: defender-for-storage-introduction.md
+    - name: Exclude a storage account
+      displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
+      href: defender-for-storage-exclude.md
   - name: Protect your Key Vault keys and secrets
     items:
     - name: Overview of Defender for Key Vault
@@ -297,7 +320,9 @@
       - name: Export to a SIEM, SOAR, or ITSM
         displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,
         href: export-to-siem.md
-      - name: Export to a Log Analytics workspace or Azure Event Hub
+      - name: Prepare Azure resources for exporting to Splunk and QRadar
+        href: export-to-splunk-or-qradar.md
+      - name: Export to a Log Analytics workspace or Azure Event Hubs
         displayName: continuous
         href: continuous-export.md
       - name: Download a CSV report of all alerts
@@ -352,11 +377,11 @@
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?term=securityS
+    href: /learn/browse/?term=defender%20for%20cloud
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
-    href: /azure/defender-for-iot/
+    href: ../defender-for-iot/index.yml
   - name: Azure security documentation
     href: ../security/index.yml
   - name: Readiness Roadmap

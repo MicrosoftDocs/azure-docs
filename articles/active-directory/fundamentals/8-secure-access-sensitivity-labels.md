@@ -3,7 +3,7 @@ title: Control external access to resources in Azure Active Directory with sensi
 description: Use sensitivity labels as a part of your overall security plan for external access.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

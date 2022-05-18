@@ -17,7 +17,7 @@ Once the Bastion service is provisioned and deployed in your virtual network, yo
 
 ## <a name="monitor"></a>Monitor remote sessions
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Bastion resource and select **Sessions** from the Azure Bastion page.
+1. In the [Azure portal](https://portal.azure.com), go to your Azure Bastion resource and select **Sessions** from the Azure Bastion page.
 
    ![Screenshot shows the Azure portal menu Settings with Sessions selected.](./media/session-monitoring/sessions.png)
 2. On the **Sessions** page, you can see the ongoing remote sessions on the right side.

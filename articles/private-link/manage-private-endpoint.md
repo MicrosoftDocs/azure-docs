@@ -26,7 +26,7 @@ There are two connection approval methods that a Private Link service consumer c
 - **Automatic**: If the service consumer has Azure Role Based Access Control permissions on the service provider resource, the consumer can choose the automatic approval method. When the request reaches the service provider resource, no action is required from the service provider and the connection is automatically approved. 
 
 - **Manual**: If the service consumer doesn’t have Azure Role Based Access Control permissions on the service provider resource, the consumer can choose the manual approval method. The connection request appears on the service resources as **Pending**. The service provider has to manually approve the request before connections can be established. 
-In manual cases, service consumer can also specify a message with the request to provide more context to the service provider. The service provider has following options to choose from for all Private Endpoint connections: **Approved**, **Reject**, **Remove**.
+In manual cases, service consumer can also specify a message with the request to provide more context to the service provider. The service provider has following options to choose from for all Private Endpoint connections: **Approve**, **Reject**, **Remove**.
 
 The below table shows the various service provider actions and the resulting connection states for Private Endpoints. The service provider can change the connection state at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side. 
 
@@ -98,7 +98,7 @@ Remove-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGr
  
 #### Get Private Link connection states 
 
-Use [az network private-endpoint-connection show](/cli/azure/network/private-endpoint-connection#az_network_private_endpoint_connection_show)  to get the Private Endpoint connections and their states.  
+Use [az network private-endpoint-connection show](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-show)  to get the Private Endpoint connections and their states.  
 
 ```azurecli
   az network private-endpoint-connection show \
@@ -108,7 +108,7 @@ Use [az network private-endpoint-connection show](/cli/azure/network/private-end
  
 #### Approve a Private Endpoint connection 
  
-Use [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az_network_private_endpoint_connection_approve) cmdlet to approve a Private Endpoint connection. 
+Use [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) cmdlet to approve a Private Endpoint connection. 
  
 ```azurecli
   az network private-endpoint-connection approve \
@@ -118,7 +118,7 @@ Use [az network private-endpoint-connection approve](/cli/azure/network/private-
  
 #### Deny Private Endpoint connection 
  
-Use [az network private-endpoint-connection reject](/cli/azure/network/private-endpoint-connection#az_network_private_endpoint_connection_reject) cmdlet to reject a Private Endpoint connection. 
+Use [az network private-endpoint-connection reject](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-reject) cmdlet to reject a Private Endpoint connection. 
 
 ```azurecli
   az network private-endpoint-connection reject \
@@ -128,7 +128,7 @@ Use [az network private-endpoint-connection reject](/cli/azure/network/private-e
 
 #### Remove Private Endpoint connection 
  
-Use [az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az_network_private_endpoint_connection_delete) cmdlet to remove a Private Endpoint connection. 
+Use [az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-delete) cmdlet to remove a Private Endpoint connection. 
 
 ```azurecli
   az network private-endpoint-connection delete \

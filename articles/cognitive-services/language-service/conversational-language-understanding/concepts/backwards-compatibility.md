@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 03/03/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
 
 # Backwards compatibility with LUIS applications
 
-You can reuse some of the content of your existing LUIS applications in Conversational Language Understanding. When working with Conversational Language Understanding projects, you can:
+You can reuse some of the content of your existing LUIS applications in [Conversational Language Understanding](../overview.md). When working with Conversational Language Understanding projects, you can:
 * Create CLU conversation projects from LUIS application JSON files.
-* Create LUIS applications that can be connected to orchestration workflow projects.  
+* Create LUIS applications that can be connected to [orchestration workflow](../../orchestration-workflow/overview.md) projects.  
   
 > [!NOTE]
 > This guide assumes you have created a Language resource. If you're getting started with the service, see the [quickstart article](../quickstart.md). 
@@ -34,9 +34,14 @@ When importing the LUIS JSON application into CLU, it will create a **Conversati
 |**Feature**|**Notes**|
 | :- | :- |
 |Intents|All of your intents will be transferred as CLU intents with the same names.|
-|ML entities|All of your ML entities will be transferred as CLU entities with the same names. The ML labels will be persisted and used to train the Learned component of the entity. Structured ML entities will only be transferred as the top-level entity. The individual sub-entities will be ignored.|
+|ML entities|All of your ML entities will be transferred as CLU entities with the same names. The labels will be persisted and used to train the Learned component of the entity. Structured ML entities will transfer over the leaf nodes of the structure as different entities and apply their labels accordingly.|
 |Utterances|All of your LUIS utterances will be transferred as CLU utterances with their intent and entity labels. Structured ML entity labels will only consider the top-level entity labels, and the individual sub-entity labels will be ignored.|
 |Culture|The primary language of the Conversation project will be the LUIS app culture. If the culture is not supported, the importing will fail. |
+|List entities|All of your list entities will be transferred as CLU entities with the same names. The normalized values and synonyms of each list will be transferred as keys and synonyms in the list component for the CLU entity.|
+|Prebuilt entities|All of your prebuilt entities will be transferred as CLU entities with the same names. The CLU entity will have the relevant [prebuilt entities](entity-components.md#prebuilt-component) enabled if they are supported. |
+|Required entity features in ML entities|If you had a prebuilt entity or a list entity as a required feature to another ML entity, then the ML entity will be transferred as a CLU entity with the same name and its labels will apply. The CLU entity will include the required feature entity as a component. The [overlap method](entity-components.md#overlap-methods) will be set as “Exact Overlap” for the CLU entity.|
+|Non-required entity features in ML entities|If you had a prebuilt entity or a list entity as a non-required feature to another ML entity, then the ML entity will be transferred as a CLU entity with the same name and its ML labels will apply. If an ML entity was used as a feature to another ML entity, it will not be transferred over.|
+|Roles|All of your roles will be transferred as CLU entities with the same names. Each role will be its own CLU entity. The role’s entity type will determine which component is populated for the role. Roles on prebuilt entities will transfer as CLU entities with the prebuilt entity component enabled and the role labels transferred over to train the Learned component. Roles on list entities will transfer as CLU entities with the list entity component populated and the role labels transferred over to train the Learned component. Roles on ML entities will be transferred as CLU entities with their labels applied to train the Learned component of the entity.  |
 
 ### Unsupported features
 
@@ -50,11 +55,6 @@ When importing the LUIS JSON application into CLU, certain features will be igno
 |Pattern.Any Entities|Pattern.Any entities were used to cover for lack of quality in ML entity extraction. The new models in CLU are expected to perform better without needing pattern.any entities.|
 |Regex Entities| Not currently supported |
 |Structured ML Entities| Not currently supported |
-|List entities | Not currently supported |
-|Prebuilt entities | Not currently supported |
-|Required entity features in ML entities | Not currently supported |
-|Non-required entity features in ML entities | Not currently supported |
-|Roles | Not currently supported |
 
 ## Use a published LUIS application in Conversational Language Understanding orchestration projects
 

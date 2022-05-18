@@ -1,8 +1,8 @@
 ---
 title: How to use live trace tool for Azure SignalR service
 description: Learn how to use live trace tool for Azure SignalR service
-author: wanlwanl
-ms.author: wanl
+author: vicancy
+ms.author: lianwei
 ms.service: signalr
 ms.topic: conceptual 
 ms.date: 06/30/2021
@@ -15,6 +15,7 @@ You can enable and disable the live trace feature with a single click. You can a
 
 > [!NOTE]
 > Please note that the live traces will be counted as outbound messages.
+> Azure Active Directory access to live trace tool is not supported, please enable `Access Key` in `Keys` menu.
 
 ## Launch the live trace tool
 

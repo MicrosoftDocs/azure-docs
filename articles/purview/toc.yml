@@ -1,68 +1,86 @@
 items:
-- name: Azure Purview documentation
+- name: Microsoft Purview documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Purview?
+  - name: What is Microsoft Purview?
     href: overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an Azure Purview account
+  - name: Create a Microsoft Purview account
     items:
     - name: Create an account - Azure portal
       href: create-catalog-portal.md
     - name: Create an account - PowerShell/CLI
       href: create-catalog-powershell.md
     - name: Create an account - .NET SDK
-      href: create-purview-dotnet.md
+      href: create-azure-purview-dotnet.md
     - name: Create an account - Python
-      href: create-purview-python.md
+      href: create-azure-purview-python.md
+    - name: Create an account - ARM
+      href: quickstart-ARM-create-azure-purview.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
 - name: Tutorials
   items:
+  - name: Microsoft Purview deployment checklist
+    href: tutorial-azure-purview-checklist.md
+  - name: Data owner policies for Azure Storage
+    href: tutorial-data-owner-policies-storage.md
+  - name: Integrate with Microsoft Sentinel
+    href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
   - name: Onboard Azure sources at scale
     items:
     - name: Azure source readiness at scale
       href: tutorial-data-sources-readiness.md
-    - name: Azure Purview MSI configuration at scale
+    - name: Microsoft Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
   - name: Onboard an on-premises SQL Server instance
     href: tutorial-register-scan-on-premises-sql-server.md
+  - name: Use Atlas 2.2 APIs
+    href: tutorial-atlas-2-2-apis.md
   - name: Use REST APIs for data planes
     href: tutorial-using-rest-apis.md
   - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
 - name: Concepts
   items:
-  - name: Use Azure Purview Studio
-    href: use-purview-studio.md
+  - name: Use the Microsoft Purview governance portal
+    href: use-azure-purview-studio.md
   - name: Best practices and guidelines
     items:
-      - name: Accounts architecture
+      - name: Accounts architecture best practices
         href: concept-best-practices-accounts.md
-      - name: Accounts - Default Purview account 
+      - name: Accounts - Default Microsoft Purview account 
         href: concept-default-purview-account.md
+      - name: Asset lifecycle best practices
+        href: concept-best-practices-asset-lifecycle.md
       - name: Automation best practices 
         href: concept-best-practices-automation.md
+      - name: Backup, recovery and migration best practices
+        href: concept-best-practices-migration.md
       - name: Classification best practices 
         href: concept-best-practices-classification.md 
-      - name: Collections architecture
+      - name: Collections architecture best practices
         href: concept-best-practices-collections.md
       - name: Deployment best practices
         href: deployment-best-practices.md
+      - name: Glossary best practices
+        href: concept-best-practices-glossary.md        
+      - name: Labeling best practices
+        href: concept-best-practices-sensitivity-labels.md
       - name: Lineage best practices
         href: concept-best-practices-lineage-azure-data-factory.md
-      - name: Network architecture
+      - name: Network architecture best practices
         href: concept-best-practices-network.md
       - name: Pricing guidelines 
         href: concept-guidelines-pricing.md
       - name: Scanning best practices 
         href: concept-best-practices-scanning.md
       - name: Security best practices
-        href: concept-best-practices-security.md        
-  - name: Azure Purview permissions
+        href: concept-best-practices-security.md  
+  - name: Permissions and access
     href: catalog-permissions.md
   - name: Data map
     items:
@@ -74,15 +92,23 @@ items:
       href: concept-scans-and-ingestion.md
     - name: Data lineage
       href: concept-data-lineage.md
+    - name: Classification
+      href: concept-classification.md
   - name: Data catalog
     items:
-    - name: Catalog search
-      href: concept-search.md
     - name: Business glossary
       href: concept-business-glossary.md 
     - name: Asset normalization
       href: concept-asset-normalization.md
-  - name: Data insights
+    - name: Workflows
+      href: concept-workflow.md
+  - name: Data policies
+    items:
+    - name: Data owner policies
+      href: concept-data-owner-policies.md
+    - name: Self-service data access policy
+      href: concept-self-service-data-access-policy.md
+  - name: Data Estate Insights
     href: concept-insights.md
 - name: How-to guides
   items:
@@ -91,14 +117,18 @@ items:
   - name: Manage sources
     items: 
     - name: Supported sources
-      href: purview-connector-overview.md
+      href: azure-purview-connector-overview.md
     - name: Manage data sources
       href: manage-data-sources.md
     - name: Manage credentials
       href: manage-credentials.md
       displayName: Create and manage credentials
+    - name: Manage integration runtimes
+      href: manage-integration-runtimes.md
     - name: Create Service Principal
       href: create-service-principal-azure.md
+    - name: Request access to data asset
+      href: how-to-request-access.md
   - name: Sources
     items: 
     - name: Azure Multiple Source
@@ -139,7 +169,7 @@ items:
       href: register-scan-azure-synapse-analytics.md
     - name: Cassandra
       href: register-scan-cassandra-source.md
-    - name: DB2
+    - name: Db2
       href: register-scan-db2.md
     - name: Erwin
       href: register-scan-erwin-source.md
@@ -149,6 +179,8 @@ items:
       href: register-scan-hive-metastore-source.md
     - name: Looker
       href: register-scan-looker-source.md
+    - name: MongoDB
+      href: register-scan-mongodb.md
     - name: MySQL
       href: register-scan-mysql.md
     - name: On-premises SQL Server
@@ -157,12 +189,22 @@ items:
       href: register-scan-oracle-source.md
     - name: PostgreSQL
       href: register-scan-postgresql.md
-    - name: Power BI tenant - Portal
-      href: register-scan-power-bi-tenant.md
+    - name: Power BI tenant
+      items:
+      - name: Power BI same-tenant
+        href: register-scan-power-bi-tenant.md
+      - name: Power BI cross-tenant
+        href: register-scan-power-bi-tenant-cross-tenant.md
+      - name: Troubleshoot Power BI scans
+        href: register-scan-power-bi-tenant-troubleshoot.md
     - name: Salesforce
       href: register-scan-salesforce.md
+    - name: SAP Business Warehouse
+      href: register-scan-sap-bw.md
     - name: SAP ECC
       href: register-scan-sapecc-source.md
+    - name: SAP HANA 
+      href: register-scan-sap-hana.md
     - name: SAP S/4HANA 
       href: register-scan-saps4hana-source.md
     - name: Snowflake
@@ -179,11 +221,11 @@ items:
       href: create-a-scan-rule-set.md
     - name: Resource set pattern rules
       href: how-to-resource-set-pattern-rules.md
-    - name: Manage integration runtimes
-      href: manage-integration-runtimes.md
+    - name: Monitor scan runs
+      href: how-to-monitor-scan-runs.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
-  - name: Data discovery
+  - name: Search and manage data catalog
     items:
     - name: Browse Data Catalog
       href: how-to-browse-catalog.md
@@ -191,6 +233,10 @@ items:
       href: how-to-search-catalog.md
     - name: Manage catalog assets
       href: catalog-asset-details.md
+    - name: Bulk edit assets
+      href: how-to-bulk-edit-assets.md
+    - name: Asset certification
+      href: how-to-certify-assets.md
   - name: Lineage 
     items:
     - name: Lineage user guide
@@ -201,36 +247,18 @@ items:
       href: how-to-link-azure-data-share.md
     - name: Azure Synapse Analytics lineage
       href: how-to-lineage-azure-synapse-analytics.md
-    - name: Cassandra lineage
-      href: how-to-lineage-cassandra.md
-    - name: Erwin lineage
-      href: how-to-lineage-erwin.md
-    - name: Looker lineage
-      href: how-to-lineage-looker.md
-    - name: Google BigQuery lineage
-      href: how-to-lineage-google-bigquery.md
-    - name: Oracle lineage
-      href: how-to-lineage-oracle.md
     - name: Power BI lineage
       href: how-to-lineage-powerbi.md
-    - name: SAP S/4HANA lineage
-      href: how-to-lineage-saps4hana.md
-    - name: SAP ECC lineage
-      href: how-to-lineage-sapecc.md
     - name: Spark lineage
       href: how-to-lineage-spark-atlas-connector.md
     - name: SQL Server Integration Services lineage
       href: how-to-lineage-sql-server-integration-services.md
-    - name: Teradata lineage
-      href: how-to-lineage-teradata.md
   - name: Business glossary
     items:
-    - name: Create, import, & export glossary terms
+    - name: Create & manage terms
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
-      href: how-to-manage-term-templates.md  
-  - name: Bulk edit assets
-    href: how-to-bulk-edit-assets.md
+      href: how-to-manage-term-templates.md   
   - name: Classify
     items: 
     - name: Create custom classifications
@@ -239,20 +267,18 @@ items:
       href: apply-classifications.md
   - name: Label
     items:
-    - name: Labeling in Azure Purview
+    - name: Labeling in Microsoft Purview
       href: create-sensitivity-label.md
     - name: How to label your data
       href: how-to-automatically-label-your-content.md
     - name: Sensitivity labels FAQ
       href: sensitivity-labels-frequently-asked-questions.yml
-  - name: Insights
+  - name: Data Estate Insights
     items:
     - name: View asset insights
       href: asset-insights.md
     - name: View glossary insights
       href: glossary-insights.md
-    - name: View scan insights
-      href: scan-insights.md
     - name: View classification insights
       href: classification-insights.md
     - name: View sensitivity label insights
@@ -265,16 +291,44 @@ items:
         href: catalog-private-link.md
       - name: End-to-end network isolation
         href: catalog-private-link-end-to-end.md
-      - name: Isolate network for Purview account and portal
+      - name: Isolate network for account and portal
         href: catalog-private-link-account-portal.md
+      - name: Managed virtual network
+        href: catalog-managed-vnet.md        
       - name: Configure DNS for private endpoint
         href: catalog-private-link-name-resolution.md
       - name: Troubleshoot private endpoints
         href: catalog-private-link-troubleshoot.md                     
-      - name: Private endpoint FAQ
+      - name: Private endpoint and Managed VNets FAQ
         href: catalog-private-link-faqs.md
-    - name: Azure policy exceptions
-      href: create-purview-portal-faq.md
+    - name: Microsoft Purview deployment exceptions
+      href: create-azure-purview-portal-faq.md
+    - name: Conditional access
+      href: catalog-conditional-access.md
+  - name: Data policies
+    items:
+    - name: Register data sources for Data Use Management
+      href: how-to-enable-data-use-management.md
+    - name: Author and publish data owner access policies
+      href: how-to-data-owner-policy-authoring-generic.md
+    - name: Data owner policies for Azure Storage
+      href: how-to-data-owner-policies-storage.md
+    - name: Data owner policies on resource groups or subscriptions
+      href: how-to-data-owner-policies-resource-group.md
+    - name: View self-service data access policy
+      href: how-to-view-self-service-data-access-policy.md
+    - name: Delete self-service data access policy
+      href: how-to-delete-self-service-data-access-policy.md
+  - name: Workflows
+    items:
+    - name: Self-service hybrid data access
+      href: how-to-workflow-self-service-data-access-hybrid.md
+    - name: Approval for business terms
+      href: how-to-workflow-business-terms-approval.md
+    - name: Manage requests and approvals
+      href: how-to-workflow-manage-requests-approvals.md
+    - name: Manage workflow runs
+      href: how-to-workflow-manage-runs.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery
@@ -283,21 +337,15 @@ items:
     href: how-to-monitor-with-azure-monitor.md
   - name: Integrate with Azure security products
     href: how-to-integrate-with-azure-security-products.md
-  - name: Data owner access policies
-    items:
-    - name: Data access policy Azure Storage
-      href: how-to-access-policies-storage.md
 - name: Reference
   items:
-    - name: Azure Purview product glossary
-      href: reference-purview-glossary.md
+    - name: Microsoft Purview product glossary
+      href: reference-azure-purview-glossary.md
     - name: Supported browsers
       href: supported-browsers.md
-    - name: Supported data sources and file types
-      href: sources-and-scans.md
     - name: Supported classifications
       href: supported-classifications.md
-    - name: Azure Purview limits
+    - name: Microsoft Purview limits
       href: how-to-manage-quotas.md
     - name: Java
       href: /samples/browse/?products=azure&languages=java&terms=purview
@@ -309,8 +357,10 @@ items:
       href: /python/api/azure-mgmt-purview/
     - name: REST
       href: /rest/api/purview/
-    - name: Azure Purview open-source tools utilities
-      href: tutorial-purview-tools.md
+    - name: Microsoft Purview open-source tools utilities
+      href: tutorial-azure-purview-tools.md
+    - name: Microsoft Purview Audit Events and Diagnostics Logs
+      href: tutorial-purview-audit-logs-diagnostics.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
     - name: Frequently asked questions (FAQ)

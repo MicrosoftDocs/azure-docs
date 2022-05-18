@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB SQL API: Spring Data v3 examples'
 description: Find Spring Data v3 examples on GitHub for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 08/26/2021
 ms.custom: devx-track-java
-ms.author: anfeldma
+ms.author: jroth
 
 ---
 # Azure Cosmos DB SQL API: Spring Data Azure Cosmos DB v3 examples

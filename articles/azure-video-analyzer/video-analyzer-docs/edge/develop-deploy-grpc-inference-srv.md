@@ -1,5 +1,5 @@
 ---
-title: Develop and deploy a gRPC inference server - Azure Video Analyzer
+title: Develop and deploy a gRPC inference server
 description: This article provides guidance on how to develop and deploy a gRPC inference server to be used with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
@@ -10,6 +10,8 @@ ms.custom: ignite-fall-2021
 # Develop and deploy gRPC inference server
 
 [!INCLUDE [header](includes/edge-env.md)]
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 This article shows you how you can wrap AI model(s) of your choice within a gRPC inference server, so that it can be integrated with Azure Video Analyzer (AVA) via pipeline extension.
 

@@ -47,7 +47,7 @@ While applying reservation discounts on your usage, Azure processes the reservat
 3. Reservations scoped to a management group
 4. Reservations with a shared scope (multiple subscriptions), described previously
 
-You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
+You can always update the scope after you buy a reservation. To do so, go to the reservation, select **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 :::image type="content" source="./media/prepare-buy-reservation/rescope-reservation-management-group.png" alt-text="Example showing a reservation scope change" lightbox="./media/prepare-buy-reservation/rescope-reservation-management-group.png" :::
 
@@ -67,21 +67,27 @@ Resources that run in a subscription with other offer types don't receive the re
 You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the following articles that apply to you when you're ready to make a reservation purchase:
 
 - [App Service](prepay-app-service.md)
+- [App Service - JBoss EA Integrated Support](prepay-jboss-eap-integrated-support-app-service.md)
 - [Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md)
-- [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
-- [Databricks](prepay-databricks-reserved-capacity.md)
-- [Data Explorer](/azure/data-explorer/pricing-reserved-capacity)
-- [Disk Storage](../../virtual-machines/disks-reserved-capacity.md)
-- [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
-- [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Storage](../../storage/blobs/storage-blob-reserved-capacity.md)
-- [SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
-- [Azure Database for PostgreSQL](../../postgresql/concept-reserved-pricing.md)
-- [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
+- [Azure Data Factory](../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
-- [Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md)
-- [Azure VMware Solution](../../azure-vmware/reserved-instance.md)
-- [Virtual machines](../../virtual-machines/prepay-reserved-vm-instances.md)
+- [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
+- [Azure Database for PostgreSQL](../../postgresql/concept-reserved-pricing.md)
+- [Azure Blob storage](../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Azure Files](../../storage/files/files-reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Azure VMware Solution](../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Databricks](prepay-databricks-reserved-capacity.md)
+- [Data Explorer](/azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
+- [Disk Storage](../../virtual-machines/disks-reserved-capacity.md)
+- [SAP HANA Large Instances](prepay-hana-large-instances-reserved-capacity.md)
+- [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Synapse Analytics - data warehouse](prepay-sql-data-warehouse-charges.md)
+- [Synapse Analytics - Pre-purchase](synapse-analytics-pre-purchase-plan.md)
+- [Virtual machines](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Virtual machine software](buy-vm-software-reservation.md)
 
 ## Buy reservations with monthly payments
 

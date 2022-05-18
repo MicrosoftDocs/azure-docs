@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/07/2021
+ms.date: 03/25/2022
 ms.author: radeltch
 
 ---
@@ -81,43 +81,12 @@ To achieve high availability, SAP NetWeaver requires an NFS server. The NFS serv
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse.png)
 
-The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The following list shows the configuration of the (A)SCS and ERS load balancer.
+The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The presented configuration shows a load balancer with:
 
-### (A)SCS
-
-* Frontend configuration
-  * IP address 10.0.0.7
-* Probe Port
-  * Port 620<strong>&lt;nr&gt;</strong>
-* Load balancing rules
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 36<strong>&lt;nr&gt;</strong> TCP
-    * 39<strong>&lt;nr&gt;</strong> TCP
-    * 81<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-### ERS
-
-* Frontend configuration
-  * IP address 10.0.0.8
-* Probe Port
-  * Port 621<strong>&lt;nr&gt;</strong>
-* Load-balancing rules
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 33<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
-
+* Frontend IP address 10.0.0.7 for ASCS
+* Frontend IP address 10.0.0.8 for ERS
+* Probe port 62000 for ASCS
+* Probe port 62101 for ERS
 
 ## Setting up a highly available NFS server
 
@@ -209,7 +178,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **nw1-lb-ers**)
-1. Alternatively, if your scenario requires basic load balancer (internal), follow these steps:  
+1. Alternatively, ***only if***  your scenario requires basic load balancer (internal), follow these configuration steps instead to create basic load balancer:  
    1. Create the frontend IP addresses
       1. IP address 10.0.0.7 for the ASCS
          1. Open the load balancer, select frontend IP pool, and click Add
@@ -262,7 +231,7 @@ Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azu
 
 ### Installation
 
-The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
+The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1, or **[2]** - only applicable to node 2.
 
 1. **[A]** Install SUSE Connector
 
@@ -418,7 +387,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval=20s timeout=40s
    
    sudo crm configure primitive vip_<b>NW1</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.0.0.7</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b>
@@ -469,7 +438,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval=20s timeout=40s
    
    sudo crm configure primitive vip_<b>NW1</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.0.0.8</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ERS azure-lb port=621<b>02</b>
@@ -576,22 +545,22 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create the SAP cluster resources
 
-If using enqueue server 1 architecture (ENSA1), define the resources as follows:
+   If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
-    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
-    op monitor interval=11 timeout=60 on-fail=restart \
-    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
-    AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
+     operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
+     op monitor interval=11 timeout=60 on-fail=restart \
+     params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
+     AUTOMATIC_RECOVER=false \
+     meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
-    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
-    op monitor interval=11 timeout=60 on-fail=restart \
-    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
-    meta priority=1000
+     operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
+     op monitor interval=11 timeout=60 on-fail=restart \
+     params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
+     meta priority=1000
    
    sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
    sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
@@ -604,22 +573,22 @@ If using enqueue server 1 architecture (ENSA1), define the resources as follows:
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
-  If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), define the resources as follows:
+   SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
+   If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), define the resources as follows:
 
-<pre><code>sudo crm configure property maintenance-mode="true"
+   <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
-    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
-    op monitor interval=11 timeout=60 on-fail=restart \
-    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
-    AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000
+     operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
+     op monitor interval=11 timeout=60 on-fail=restart \
+     params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
+     AUTOMATIC_RECOVER=false \
+     meta resource-stickiness=5000
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
-    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
-    op monitor interval=11 timeout=60 on-fail=restart \
-    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true 
+     operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
+     op monitor interval=11 timeout=60 on-fail=restart \
+     params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true 
    
    sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
    sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
@@ -631,10 +600,9 @@ If using enqueue server 1 architecture (ENSA1), define the resources as follows:
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+   If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
-
 
    <pre><code>sudo crm_mon -r
    

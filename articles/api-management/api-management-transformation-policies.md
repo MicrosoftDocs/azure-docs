@@ -1,21 +1,19 @@
 ---
 title: Azure API Management transformation policies | Microsoft Docs
-description: Learn about the transformation policies available for use in Azure API Management.
+description: Reference for the transformation policies available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-documentationcenter: ''
 author: dlepow
-manager: erikre
-editor: ''
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 03/11/2019
+ms.topic: reference
+ms.date: 03/07/2022
 ms.author: danlep
 ---
+
 # API Management transformation policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+This article provides a reference for API Management policies used to transform API requests or responses. 
+
+[!INCLUDE [api-management-policy-intro-links](../../includes/api-management-policy-intro-links.md)]
 
 ##  <a name="TransformationPolicies"></a> Transformation policies
 
@@ -41,6 +39,8 @@ This topic provides a reference for the following API Management policies. For i
 
 ##  <a name="ConvertJSONtoXML"></a> Convert JSON to XML
  The `json-to-xml` policy converts a request or response body from JSON to XML.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -86,6 +86,8 @@ This topic provides a reference for the following API Management policies. For i
 ##  <a name="ConvertXMLtoJSON"></a> Convert XML to JSON
  The `xml-to-json` policy converts a request or response body from XML to JSON. This policy can be used to modernize APIs based on XML-only backend web services.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -130,6 +132,9 @@ This topic provides a reference for the following API Management policies. For i
 ##  <a name="Findandreplacestringinbody"></a> Find and replace string in body
  The `find-and-replace` policy finds a request or response substring and replaces it with a different substring.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
 ### Policy statement
 
 ```xml
@@ -168,6 +173,8 @@ This topic provides a reference for the following API Management policies. For i
 > [!NOTE]
 >  This policy does not change any header values such as `Location` headers. To change header values, use the [set-header](api-management-transformation-policies.md#SetHTTPheader) policy.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -195,6 +202,8 @@ This topic provides a reference for the following API Management policies. For i
 
 ##  <a name="SetBackendService"></a> Set backend service
  Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to the one specified in the policy.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -268,7 +277,7 @@ In this example the policy routes the request to a service fabric backend, using
 |sf-partition-key|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Used to resolve a specific partition from the name resolution service.|No|N/A|
 |sf-replica-type|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Controls if the request should go to the primary or secondary replica of a partition. |No|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution.|No|N/A|
-|sf-service-instance-name|Only applicable when the backend is a Service Fabric service. Allows to change service instances at runtime. |No|N/A|
+|sf-service-instance-name|Only applicable when the backend is a Service Fabric service. Allows changing service instances at runtime. |No|N/A|
 |sf-listener-name|Only applicable when the backend is a Service Fabric service and is specified using ‘backend-id’. Service Fabric Reliable Services allows you to create multiple listeners in a service. This attribute is used to select a specific listener when a backend Reliable Service has more than one listener. If this attribute is not specified, API Management will attempt to use a listener without a name. A listener without a name is typical for Reliable Services that have only one listener. |No|N/A|
 
 ### Usage
@@ -292,6 +301,8 @@ In this example the policy routes the request to a service fabric backend, using
 >   -   If this policy is used when there is no message body, for example in an inbound GET, an exception is thrown.
 
  For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessage` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -337,15 +348,15 @@ In this example the policy routes the request to a service fabric backend, using
 ```
 
 #### Filter response based on product
- This example shows how to perform content filtering by removing data elements from the response received from the backend service when using the `Starter` product. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 34:30. Start  at 31:50 to see an overview of [The Dark Sky Forecast API](https://developer.forecast.io/) used for this demo.
+ This example shows how to perform content filtering by removing data elements from the response received from a backend service when using the `Starter` product. The example backend response includes root-level properties similar to the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api). 
 
 ```xml
-<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
+<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the product -->
 <choose>
   <when condition="@(context.Response.StatusCode == 200 && context.Product.Name.Equals("Starter"))">
     <set-body>@{
         var response = context.Response.Body.As<JObject>();
-        foreach (var key in new [] {"minutely", "hourly", "daily", "flags"}) {
+        foreach (var key in new [] {"current", "minutely", "hourly", "daily", "alerts"}) {
           response.Property (key).Remove ();
         }
         return response.ToString();
@@ -393,7 +404,7 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-|set-body|Root element. Contains the body text or an expressions that returns a body.|Yes|
+|set-body|Root element. Contains the body text or an expression that returns a body.|Yes|
 
 ### Properties
 
@@ -451,7 +462,9 @@ OriginalUrl.
 ##  <a name="SetHTTPheader"></a> Set HTTP header
  The `set-header` policy assigns a value to an existing response and/or request header or adds a new response and/or request header.
 
- Inserts a list of HTTP headers into an HTTP message. When placed in an inbound pipeline, this policy sets the HTTP headers for the request being passed to the target service. When placed in an outbound pipeline, this policy sets the HTTP headers for the response being sent to the gateway’s client.
+ Use the policy to insert a list of HTTP headers into an HTTP message. When placed in an inbound pipeline, this policy sets the HTTP headers for the request being passed to the target service. When placed in an outbound pipeline, this policy sets the HTTP headers for the response being sent to the gateway’s client.
+
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 ### Policy statement
 
@@ -479,7 +492,7 @@ OriginalUrl.
 
 
 #### Forward context information to the backend service
- This example shows how to apply policy at the API level to supply context information to the backend service. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 10:30. At 12:10 there is a demo of calling an operation in the developer portal where you can see the policy at work.
+ This example shows how to apply policy at the API level to supply context information to the backend service.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -495,7 +508,7 @@ OriginalUrl.
 > Multiple values of a header are concatenated to a CSV string, for example:
 > `headerName: value1,value2,value3`
 >
-> Exceptions include standardized headers, which values:
+> Exceptions include standardized headers whose values:
 > - may contain commas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
 > - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
 > - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
@@ -529,6 +542,8 @@ OriginalUrl.
 ##  <a name="SetQueryStringParameter"></a> Set query string parameter
  The `set-query-parameter` policy adds, replaces value of, or deletes request query string parameter. Can be used to pass query parameters expected by the backend service which are optional or never present in the request.
 
+[!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -548,7 +563,7 @@ OriginalUrl.
 ```
 
 #### Forward context information to the backend service
- This example shows how to apply policy at the API level to supply context information to the backend service. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 10:30. At 12:10 there is a demo of calling an operation in the developer portal where you can see the policy at work.
+ This example shows how to apply policy at the API level to supply context information to the backend service.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->
@@ -592,6 +607,8 @@ OriginalUrl.
 
 > [!NOTE]
 >  You can only add query string parameters using the policy. You cannot add extra template path parameters in the rewrite URL.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ### Policy statement
 
@@ -662,6 +679,8 @@ OriginalUrl.
 ##  <a name="XSLTransform"></a> Transform XML using an XSLT
  The `Transform XML using an XSLT` policy applies an XSL transformation to XML in the request or response body.
 
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
 ### Policy statement
 
 ```xml
@@ -723,10 +742,4 @@ OriginalUrl.
 
 -   **Policy scopes:** all scopes
 
-## Next steps
-
-For more information, see the following topics:
-
-+ [Policies in API Management](api-management-howto-policies.md)
-+ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

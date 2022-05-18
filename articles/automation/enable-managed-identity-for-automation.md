@@ -27,6 +27,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
   - Windows Hybrid Runbook Worker: version 7.3.1125.0
   - Linux Hybrid Runbook Worker: version 1.7.4.0
 
+- To assign an Azure role, you must have ```Microsoft.Authorization/roleAssignments/write``` permissions, such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+
+ 
 ## Enable a system-assigned managed identity for an Azure Automation account
 
 Once enabled, the following properties will be assigned to the system-assigned managed identity.
@@ -246,7 +249,7 @@ Perform the following steps.
 
    The output will look similar to the output shown for the REST API example, above.
 
-## Give access to Azure resources by obtaining a token
+## Assign role to a system-assigned managed identity
 
 An Automation account can use its system-assigned managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens don't represent any specific user of the application. Instead, they represent the application that's accessing the resource. In this case, for example, the token represents an Automation account.
 
@@ -262,6 +265,33 @@ New-AzRoleAssignment `
     -Scope "/subscriptions/<subscription-id>" `
     -RoleDefinitionName "Contributor"
 ```
+
+## Verify role assignment to a system-managed identity
+
+To verify a role to a system-assigned managed identity of the Automation account, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Go to your Automation account.
+1. Under **Account Settings**, select **Identity**.
+
+    :::image type="content" source="media/managed-identity/system-assigned-main-screen-inline.png" alt-text="Assigning role in system-assigned identity in Azure portal." lightbox="media/managed-identity/system-assigned-main-screen-expanded.png":::
+
+1. Under **Permissions**, click **Azure role assignments**.
+
+   If the roles are already assigned to the selected system-assigned managed identity, you can see a list of role assignments. This list includes all the role-assignments you have permission to read.
+
+    :::image type="content" source="media/managed-identity/role-assignments-view-inline.png" alt-text="View role-assignments that you have permission in Azure portal." lightbox="media/managed-identity/role-assignments-view-expanded.png":::
+
+1. To change the subscription, click the **Subscription** drop-down list and select the appropriate subscription.
+1. Click **Add role assignment (Preview)**
+1. In the drop-down list, select the set of resources that the role assignment applies - **Subscription**, **Resource group**, **Role**, and **Scope**. </br> If you don't have the role assignment, you can view the write permissions for the selected scope as an inline message.
+1. In the **Role** drop-down list, select a role as *Virtual Machine Contributor*.
+1. Click **Save**.
+
+    :::image type="content" source="media/managed-identity/add-role-assignment-inline.png" alt-text="Add a role assignment in Azure portal." lightbox="media/managed-identity/add-role-assignment-expanded.png":::
+
+After a few minutes, the managed identity is assigned the role at the selected scope.
+
 
 ## Authenticate access with system-assigned managed identity
 
@@ -287,7 +317,7 @@ For HTTP Endpoints make sure of the following.
 
 - The metadata header must be present and should be set to "true".
 - A resource must be passed along with the request, as a query parameter for a GET request and as form data for a POST request.
-- The X-IDENTITY-HEADER should be set to the value of the environment variable IDENTITY_HEADER for Hybrid Runbook Workers.
+- Set the value of the environment variable IDENTITY_HEADER to X-IDENTITY-HEADER.
 - Content Type for the Post request must be 'application/x-www-form-urlencoded'.
 
 ### Get Access token for system-assigned managed identity using HTTP Get
@@ -354,7 +384,7 @@ print(response.text)
 
 ### Using system-assigned managed identity to Access SQL Database
 
-For details on provisioning access to an Azure SQL database, see [Provision Azure AD admin (SQL Database)](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database).
+For details on provisioning access to an Azure SQL database, see [Provision Azure AD admin (SQL Database)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database).
 
 ```powershell
 $queryParameter = "?resource=https://database.windows.net/" 

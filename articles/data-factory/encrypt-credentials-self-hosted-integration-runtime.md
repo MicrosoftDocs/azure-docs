@@ -5,7 +5,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 01/27/2022
 ms.author: lle 
 ms.custom: devx-track-azurepowershell
 ---
@@ -47,7 +47,7 @@ Replace `<servername>`, `<databasename>`, `<username>`, and `<password>` with va
 ```
 
 ### Encrypt credentials
-To encrypt the sensitive data from the JSON payload on an on-premises self-hosted integration runtime, run **New-AzDataFactoryV2LinkedServiceEncryptedCredential**, and pass on the JSON payload. This cmdlet ensures the credentials are encrypted using DPAPI and stored on the self-hosted integration runtime node locally. It can be run from any machine provided the **Remote access** option is enabled on the targeted self-hosted integration runtime, and Powershell 7.0 or higher is used to execute it. The output payload containing the encrypted reference to the credential can be redirected to another JSON file (in this case 'encryptedLinkedService.json').
+To encrypt the sensitive data from the JSON payload on an on-premises self-hosted integration runtime, run **New-AzDataFactoryV2LinkedServiceEncryptedCredential**, and pass on the JSON payload. This cmdlet ensures the credentials are encrypted using DPAPI and stored on the self-hosted integration runtime node locally. It can be run from any machine provided the **Remote access** option is enabled on the targeted self-hosted integration runtime, and PowerShell 7.0 or higher is used to execute it. The output payload containing the encrypted reference to the credential can be redirected to another JSON file (in this case 'encryptedLinkedService.json').
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json

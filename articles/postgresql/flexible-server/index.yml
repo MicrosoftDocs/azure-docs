@@ -8,6 +8,7 @@ metadata:
   ms.author: sunila
   ms.date: 11/30/2021
   ms.service: postgresql
+  ms.subservice: flexible-server
   ms.topic: landing-page
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

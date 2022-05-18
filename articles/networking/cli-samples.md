@@ -9,7 +9,6 @@ manager: timlt
 tags:
 ms.assetid:
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure

@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 04/27/2021
+ms.date: 12/21/2021
 ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
@@ -156,7 +156,7 @@ Here's a description of how the control script works:
 
 1. In the page that opens, you'll see the run status.
 1. When the status of the run is **Completed**, select **Output + logs** at the top of the page.
-1. Select **70_driver_log.txt** to view the output of your run.
+1. Select **std_log.txt** to view the output of your run.
 
 ## <a name="monitor"></a>Monitor your code in the cloud in the studio
 
@@ -171,7 +171,7 @@ Follow the link.  At first, you'll see a status of **Queued** or **Preparing**. 
 
 Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first run has completed.
 
-Wait about 10 minutes.  You'll see a message that the run has completed. Then use **Refresh** to see the status change to *Completed*.  Once the job completes, go to the **Outputs + logs** tab. There you can see a `70_driver_log.txt` file that looks like this:
+Wait about 10 minutes.  You'll see a message that the run has completed. Then use **Refresh** to see the status change to *Completed*.  Once the job completes, go to the **Outputs + logs** tab. There you can see a `std_log.txt` file that looks like this:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.

@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2021
-ms.author: b-hchen
+ms.date: 01/05/2022
+ms.author: anfdocs
 ---
 
 # Manage snapshot policies in Azure NetApp Files
@@ -33,6 +32,9 @@ A snapshot policy enables you to specify the snapshot creation frequency in hour
 
 3.	Click the **Hourly**, **Daily**, **Weekly**, or **Monthly** tab to create hourly, daily, weekly, or monthly snapshot policies. Specify the **Number of snapshots to keep**.  
 
+    > [!IMPORTANT] 
+    > For *monthly* snapshot policy definition, be sure to specify a day that will work for all intended months.  If you intend for the monthly snapshot configuration to work for all months in the year, pick a day of the month between 1 and 28.  For example, if you specify `31` (day of the month), the monthly snapshot configuration is skipped for the months that have less than 31 days. 
+    > 
     See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) about the maximum number of snapshots allowed for a volume. 
 
     The following example shows hourly snapshot policy configuration. 

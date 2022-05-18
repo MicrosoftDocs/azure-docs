@@ -6,6 +6,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/security-center/upcoming-changes.md",
+            "redirect_url": "/azure/defender-for-cloud/upcoming-changes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/policy-reference.md",
+            "redirect_url": "/azure/defender-for-cloud/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/security-center-policy-definitions.md",
+            "redirect_url": "/azure/defender-for-cloud/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-storage-introduction.md#what-is-hash-reputation-analysis-for-malware",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-storage-introduction#what-kind-of-alerts-does-microsoft-defender-for-storage-provide",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security-center/release-notes-archive.md",
             "redirect_url": "/azure/defender-for-cloud/release-notes-archive",
             "redirect_document_id": false
@@ -14,6 +34,11 @@
             "source_path_from_root": "/articles/security-center/azure-defender.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-introduction",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security-center/deploy-vulnerability-assessment-byol-vm.md",
+            "redirect_url": "/azure/defender-for-cloud/deploy-vulnerability-assessment-byol-vm",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/azure-defender.md",
@@ -33,6 +58,11 @@
         {
             "source_path_from_root": "/articles/defender-for-cloud/security-center-os-coverage.md",
             "redirect_url": "/azure/defender-for-cloud/os-coverage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/supported-machines-endpoint-solutions-clouds.md",
+            "redirect_url": "/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers",
             "redirect_document_id": false
         },
         {
@@ -607,7 +637,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/supported-machines-endpoint-solutions-clouds.md",
-            "redirect_url": "/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds",
+            "redirect_url": "/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers",
             "redirect_document_id": true
         },
         {
@@ -643,6 +673,26 @@
         {
             "source_path_from_root": "/articles/security-center/workload-protections-dashboard.md",
             "redirect_url": "/azure/defender-for-cloud/workload-protections-dashboard",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/container-security.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-kubernetes-azure-arc.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc#protect-arc-enabled-kubernetes-clusters",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-cicd.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-cicd",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-usage.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-usage",
             "redirect_document_id": true
         }
       ]

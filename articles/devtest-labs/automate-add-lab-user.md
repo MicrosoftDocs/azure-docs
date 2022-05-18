@@ -2,8 +2,10 @@
 title: Automate adding a lab user
 description: This article shows you how to automate adding a user to a lab in Azure DevTest Labs using Azure Resource Manager templates, PowerShell, and CLI. 
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Automate adding a lab user to a lab in Azure DevTest Labs
@@ -175,15 +177,15 @@ New-AzureRmRoleAssignment -UserPrincipalName <email@company.com> -RoleDefinition
 
 To specify the resource to which permissions are being granted can be specified by a combination of `ResourceName`, `ResourceType`, `ResourceGroup` or by the `scope` parameter. Whatever combination of parameters is used, provide enough information to the cmdlet to uniquely identify the Active Directory object (user, group, or service principal), scope (resource group or resource), and role definition.
 
-## Use Azure Command Line Interface (CLI)
-In Azure CLI, adding a labs user to a lab is done by using the `az role assignment create` command. For more information on Azure CLI cmdlets, see [Add or remove Azure role assignments using Azure CLI](../role-based-access-control/role-assignments-cli.md).
+## Use Azure CLI
+In the Azure CLI, adding a lab user to a lab is done by using the `az role assignment create` command. For more information on Azure CLI cmdlets, see [Add or remove Azure role assignments using Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
 The object that is being granted access can be specified by the `objectId`, `signInName`, `spn` parameters. The lab to which the object is being granted access can be identified by the `scope` url or a combination of the `resource-name`, `resource-type`, and `resource-group` parameters.
 
 The following Azure CLI example shows you how to add a person to the DevTest Labs User role for the specified Lab.  
 
 ```azurecli
-az role assignment create --roleName "DevTest Labs User" --signInName <email@company.com> -–resource-name "<Lab Name>" --resource-type "Microsoft.DevTestLab/labs" --resource-group "<Resource Group Name>"
+az role assignment create --roleName "DevTest Labs User" --signInName <email@company.com> -–resource-name "<Lab Name>" --resource-type "Microsoft.DevTestLab/labs" --resource-group "<Resource Group Name>" --role Contributor --scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>
 ```
 
 ## Next steps

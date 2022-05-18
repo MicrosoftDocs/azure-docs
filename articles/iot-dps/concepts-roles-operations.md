@@ -1,8 +1,8 @@
 ---
 title: IoT Hub Device Provisioning Service - Roles and operations
 description: This article provides a conceptual overview of the roles and operations involved when developing and IoT solution using the IoT Device Provisioning Service (DPS).
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps

@@ -4,7 +4,6 @@ description: This article lists Azure Application Insights metrics with supporte
 services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
-
 ---
 
 # Application Insights standard metrics
@@ -169,6 +168,8 @@ The metric shows how much of the total processor capacity is consumed by the pro
 |---|---|---|
 |Percentage|Average, Max, Min| `Cloud role instance` |
 
+> [!NOTE]
+> The range of the metric is between 0 and 100 * n, where n is the number of available CPU cores. For example, the metric value of 200% could represent full utilization of two CPU core or half utilization of 4 CPU cores and so on. The *Process CPU Normalized* is an alternative metric collected by many SDKs which represents the same value but divides it by the number of available CPU cores. Thus, the range of *Process CPU Normalized* metric is 0 through 100.
 
 ### Process IO rate (performanceCounters/processIOBytesPerSecond)
 
@@ -213,16 +214,16 @@ This metric refers to duration of dependency calls.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Time | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Dependency performance`, `Dependency type`, `Is traffic synthetic`, `Result code`, `Successful call`, `Target of a dependency call` |
+| Milliseconds | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Dependency performance`, `Dependency type`, `Is traffic synthetic`, `Result code`, `Successful call`, `Target of a dependency call` |
 
 
-### Server request rate (requests/count)
+### Server request rate (requests/rate)
 
 This metric reflects the number of incoming server requests that were received by your web application.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Count | Average | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
+| Count Per Second | Average | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
 
 ### Server requests (requests/count)
 
@@ -236,7 +237,7 @@ This metric reflects the time it took for the servers to process incoming reques
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Time | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
+| MilliSeconds | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
 
 ## Usage metrics
 
@@ -246,7 +247,7 @@ This metric refers to the amount of time it took for PageView events to load.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Time | Average, Min, Max | `Cloud role name`, `Is traffic synthetic` |
+| MilliSeconds | Average, Min, Max | `Cloud role name`, `Is traffic synthetic` |
 
 ### Page views (pageViews/count)
 

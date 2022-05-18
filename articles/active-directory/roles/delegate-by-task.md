@@ -4,12 +4,12 @@ description: Least privileged roles to delegate for tasks in Azure Active Direct
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 12/01/2021
+ms.date: 04/26/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -124,7 +124,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Create Azure AD Domain Services instance | [Global Administrator](../roles/permissions-reference.md#global-administrator) |  |
+> | Create Azure AD Domain Services instance | [Application Administrator](../roles/permissions-reference.md#application-administrator)<br>[Groups Administrator](../roles/permissions-reference.md#groups-administrator)<br> [Domain Services Contributor](../../role-based-access-control/built-in-roles.md#domain-services-contributor)|   |
 > | Perform all Azure AD Domain Services tasks | [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain) |  |
 > | Read all configuration | Reader on Azure subscription containing AD DS service |  |
 
@@ -136,7 +136,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Disable device | [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) |  |
 > | Enable device | [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) |  |
 > | Read basic configuration | [Default user role](../fundamentals/users-default-permissions.md) |  |
-> | Read BitLocker keys | [Security Reader](../roles/permissions-reference.md#security-reader) | [Password Administrator](/roles/permissions-reference.md#password-administrator)<br/>[Security Administrator](../roles/permissions-reference.md#security-administrator) |
+> | Read BitLocker keys | [Security Reader](../roles/permissions-reference.md#security-reader) | [Password Administrator](../roles/permissions-reference.md#password-administrator)<br/>[Security Administrator](../roles/permissions-reference.md#security-administrator) |
 
 ## Enterprise applications
 
@@ -152,7 +152,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Manage user settings | [Global Administrator](../roles/permissions-reference.md#global-administrator) |  |
 > | Read access review of a group or of an app | [Security Reader](../roles/permissions-reference.md#security-reader) | [Security Administrator](../roles/permissions-reference.md#security-administrator)<br/>[User Administrator](../roles/permissions-reference.md#user-administrator) |
 > | Read all configuration | [Default user role](../fundamentals/users-default-permissions.md) |  |
-> | Update enterprise application assignments | [Enterprise application owner](../fundamentals/users-default-permissions.md#object-ownership) | [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)<br/>[Application Administrator](../roles/permissions-reference.md#application-administrator) |
+> | Update enterprise application assignments | [Enterprise application owner](../fundamentals/users-default-permissions.md#object-ownership) | [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)<br/>[Application Administrator](../roles/permissions-reference.md#application-administrator)<br/>[User Administrator](../roles/permissions-reference.md#user-administrator) |
 > | Update enterprise application owners | [Enterprise application owner](../fundamentals/users-default-permissions.md#object-ownership) | [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)<br/>[Application Administrator](../roles/permissions-reference.md#application-administrator) |
 > | Update enterprise application properties | [Enterprise application owner](../fundamentals/users-default-permissions.md#object-ownership) | [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)<br/>[Application Administrator](../roles/permissions-reference.md#application-administrator) |
 > | Update enterprise application provisioning | [Enterprise application owner](../fundamentals/users-default-permissions.md#object-ownership) | [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)<br/>[Application Administrator](../roles/permissions-reference.md#application-administrator) |
@@ -178,7 +178,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Manage group expiration | [User Administrator](../roles/permissions-reference.md#user-administrator) |  |
 > | Manage group settings | [Groups Administrator](../roles/permissions-reference.md#groups-administrator) | [User Administrator](../roles/permissions-reference.md#user-administrator) |
 > | Read all configuration (except hidden membership) | [Directory Readers](../roles/permissions-reference.md#directory-readers) | [Default user role](../fundamentals/users-default-permissions.md) |
-> | Read hidden membership | Group member | [Group owner](../fundamentals/users-default-permissions.md#object-ownership)<br/>[Password Administrator](/roles/permissions-reference.md#password-administrator)<br/>[Exchange Administrator](../roles/permissions-reference.md#exchange-administrator)<br/>[SharePoint Administrator](../roles/permissions-reference.md#sharepoint-administrator)<br/>[Teams Administrator](../roles/permissions-reference.md#teams-administrator)<br/>[User Administrator](../roles/permissions-reference.md#user-administrator) |
+> | Read hidden membership | Group member | [Group owner](../fundamentals/users-default-permissions.md#object-ownership)<br/>[Password Administrator](../roles/permissions-reference.md#password-administrator)<br/>[Exchange Administrator](../roles/permissions-reference.md#exchange-administrator)<br/>[SharePoint Administrator](../roles/permissions-reference.md#sharepoint-administrator)<br/>[Teams Administrator](../roles/permissions-reference.md#teams-administrator)<br/>[User Administrator](../roles/permissions-reference.md#user-administrator) |
 > | Read membership of groups with hidden membership | [Helpdesk Administrator](../roles/permissions-reference.md#helpdesk-administrator) | [User Administrator](../roles/permissions-reference.md#user-administrator)<br/>[Teams Administrator](../roles/permissions-reference.md#teams-administrator) |
 > | Revoke license | [License Administrator](../roles/permissions-reference.md#license-administrator) | [User Administrator](../roles/permissions-reference.md#user-administrator) |
 > | Update group membership | [Group owner](../fundamentals/users-default-permissions.md#object-ownership) | [User Administrator](../roles/permissions-reference.md#user-administrator) |
@@ -318,7 +318,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Create named locations | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
 > | Create policies | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
 > | Create terms of use | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
-> | Create VPN connectivity certificate | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
+> | Create VPN connectivity certificate | [Global Administrator](../roles/permissions-reference.md#global-administrator) | &nbsp; |
 > | Delete classic policy | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
 > | Delete terms of use | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
 > | Delete VPN connectivity certificate | [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) | [Security Administrator](../roles/permissions-reference.md#security-administrator) |
@@ -368,11 +368,11 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Create user | [User Administrator](../roles/permissions-reference.md#user-administrator) |  |
 > | Delete users | [User Administrator](../roles/permissions-reference.md#user-administrator) |  |
 > | Invalidate refresh tokens of limited admins | [User Administrator](../roles/permissions-reference.md#user-administrator) |  |
-> | Invalidate refresh tokens of non-admins | [Password Administrator](/roles/permissions-reference.md#password-administrator) | [User Administrator](../roles/permissions-reference.md#user-administrator) |
+> | Invalidate refresh tokens of non-admins | [Password Administrator](../roles/permissions-reference.md#password-administrator) | [User Administrator](../roles/permissions-reference.md#user-administrator) |
 > | Invalidate refresh tokens of privileged admins | [Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator) |  |
 > | Read basic configuration | [Default user role](../fundamentals/users-default-permissions.md) |  |
 > | Reset password for limited admins | [User Administrator](../roles/permissions-reference.md#user-administrator) |  |
-> | Reset password of non-admins | [Password Administrator](/roles/permissions-reference.md#password-administrator) | [User Administrator](../roles/permissions-reference.md#user-administrator) |
+> | Reset password of non-admins | [Password Administrator](../roles/permissions-reference.md#password-administrator) | [User Administrator](../roles/permissions-reference.md#user-administrator) |
 > | Reset password of privileged admins | [Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator) |  |
 > | Revoke license | [License Administrator](../roles/permissions-reference.md#license-administrator) | [User Administrator](../roles/permissions-reference.md#user-administrator) |
 > | Update all properties except User Principal Name | [User Administrator](../roles/permissions-reference.md#user-administrator) |  |
@@ -386,7 +386,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Submit support ticket | [Service Support Administrator](../roles/permissions-reference.md#service-support-administrator) | [Application Administrator](../roles/permissions-reference.md#application-administrator)<br/>[Azure Information Protection Administrator](../roles/permissions-reference.md#azure-information-protection-administrator)<br/>[Billing Administrator](../roles/permissions-reference.md#billing-administrator)<br/>[Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)<br/>[Compliance Administrator](../roles/permissions-reference.md#compliance-administrator)<br/>[Dynamics 365 Administrator](../roles/permissions-reference.md#dynamics-365-administrator)<br/>[Desktop Analytics Administrator](../roles/permissions-reference.md#desktop-analytics-administrator)<br/>[Exchange Administrator](../roles/permissions-reference.md#exchange-administrator)<br/>[Intune Administrator](../roles/permissions-reference.md#intune-administrator)<br/>[Password Administrator](/roles/permissions-reference.md#password-administrator)<br/>[Power BI Administrator](../roles/permissions-reference.md#power-bi-administrator)<br/>[Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator)<br/>[SharePoint Administrator](../roles/permissions-reference.md#sharepoint-administrator)<br/>[Skype for Business Administrator](../roles/permissions-reference.md#skype-for-business-administrator)<br/>[Teams Administrator](../roles/permissions-reference.md#teams-administrator)<br/>[Teams Communications Administrator](../roles/permissions-reference.md#teams-communications-administrator)<br/>[User Administrator](../roles/permissions-reference.md#user-administrator) |
+> | Submit support ticket | [Service Support Administrator](../roles/permissions-reference.md#service-support-administrator) | [Application Administrator](../roles/permissions-reference.md#application-administrator)<br/>[Azure Information Protection Administrator](../roles/permissions-reference.md#azure-information-protection-administrator)<br/>[Billing Administrator](../roles/permissions-reference.md#billing-administrator)<br/>[Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)<br/>[Compliance Administrator](../roles/permissions-reference.md#compliance-administrator)<br/>[Dynamics 365 Administrator](../roles/permissions-reference.md#dynamics-365-administrator)<br/>[Desktop Analytics Administrator](../roles/permissions-reference.md#desktop-analytics-administrator)<br/>[Exchange Administrator](../roles/permissions-reference.md#exchange-administrator)<br/>[Intune Administrator](../roles/permissions-reference.md#intune-administrator)<br/>[Password Administrator](../roles/permissions-reference.md#password-administrator)<br/>[Power BI Administrator](../roles/permissions-reference.md#power-bi-administrator)<br/>[Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator)<br/>[SharePoint Administrator](../roles/permissions-reference.md#sharepoint-administrator)<br/>[Skype for Business Administrator](../roles/permissions-reference.md#skype-for-business-administrator)<br/>[Teams Administrator](../roles/permissions-reference.md#teams-administrator)<br/>[Teams Communications Administrator](../roles/permissions-reference.md#teams-communications-administrator)<br/>[User Administrator](../roles/permissions-reference.md#user-administrator) |
 
 ## Next steps
 

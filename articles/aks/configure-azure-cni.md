@@ -3,7 +3,7 @@ title: Configure Azure CNI networking in Azure Kubernetes Service (AKS)
 description: Learn how to configure Azure CNI (advanced) networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
 services: container-service
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 05/16/2022
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -23,7 +23,7 @@ This article shows you how to use *Azure CNI* networking to create and use a vir
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 * The subnet assigned to the AKS node pool cannot be a [delegated subnet](../virtual-network/subnet-delegation-overview.md).
-* AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, you must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. For more details, see [Network security groups][aks-network-nsg].
+* AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, you must ensure the security rules in the NSGs allow traffic within the node CIDR range. For more details, see [Network security groups][aks-network-nsg].
 
 ## Plan IP addressing for your cluster
 
@@ -63,7 +63,7 @@ The maximum number of pods per node in an AKS cluster is 250. The *default* maxi
 
 ### Configure maximum - new clusters
 
-You're able to configure the maximum number of pods per node at cluster deployment time or as you add new node pools. If you deploy with the Azure CLI or with a Resource Manager template, you can set the maximum pods per node value as high as 250.
+You're able to configure the maximum number of pods per node at cluster deployment time or as you add new node pools. You can set the maximum pods per node value as high as 250.
 
 If you don't specify maxPods when creating new node pools, you receive a default value of 30 for Azure CNI.
 
@@ -79,7 +79,7 @@ A minimum value for maximum pods per node is enforced to guarantee space for sys
 
 * **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command. The maximum value is 250.
 * **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template. The maximum value is 250.
-* **Azure portal**: You can't change the maximum number of pods per node when you deploy a cluster with the Azure portal. Azure CNI networking clusters are limited to 110 pods per node when you deploy using the Azure portal.
+* **Azure portal**: Change the `Max pods per node` field in the node pool settings when creating a cluster or adding a new node pool.
 
 ### Configure maximum - existing clusters
 
@@ -143,9 +143,7 @@ The following screenshot from the Azure portal shows an example of configuring t
 
 ![Advanced networking configuration in the Azure portal][portal-01-networking-advanced]
 
-## Dynamic allocation of IPs and enhanced subnet support (preview)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Dynamic allocation of IPs and enhanced subnet support
 
 A drawback with the traditional CNI is the exhaustion of pod IP addresses as the AKS cluster grows, resulting in the need to rebuild the entire cluster in a bigger subnet. The new dynamic IP allocation capability in Azure CNI solves this problem by allotting pod IPs from a subnet separate from the subnet hosting the AKS cluster. It offers the following benefits:
 
@@ -165,40 +163,7 @@ The [prerequisites][prerequisites] already listed for Azure CNI still apply, but
 
 * Only linux node clusters and node pools are supported.
 * AKS Engine and DIY clusters are not supported.
-
-### Install the `aks-preview` Azure CLI
-
-You will need the *aks-preview* Azure CLI extension. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register the `PodSubnetPreview` preview feature
-
-To use the feature, you must also enable the `PodSubnetPreview` feature flag on your subscription.
-
-Register the `PodSubnetPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "PodSubnetPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSubnetPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+* Azure CLI version `2.37.0` or later.
 
 ### Planning IP addressing
 

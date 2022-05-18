@@ -17,7 +17,21 @@ The Azure Databricks Python Activity in a [pipeline](concepts-pipelines-activiti
 
 For an eleven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
+
+## Add a Python activity for Azure Databricks to a pipeline with UI
+
+To use a Python activity for Azure Databricks in a pipeline, complete the following steps:
+
+1. Search for _Python_ in the pipeline Activities pane, and drag a Python activity to the pipeline canvas.
+1. Select the new Python activity on the canvas if it is not already selected.
+1. Select the  **Azure Databricks** tab to select or create a new Azure Databricks linked service that will execute the Python activity.
+
+   :::image type="content" source="media/transform-data-databricks-python/python-activity.png" alt-text="Shows the UI for a Python activity.":::
+
+1. Select the **Settings** tab and specify the path within Azure Databricks to a Python file to be executed, optional parameters to be passed, and any additional libraries to be installed on the cluster to execute the job.
+
+   :::image type="content" source="media/transform-data-databricks-python/python-settings.png" alt-text="Shows the UI for the Settings tab for a Python activity.":::
 
 ## Databricks Python activity definition
 

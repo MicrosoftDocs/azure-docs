@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Video Analyzer to an IoT Edge device - Azure
+title: Deploy Video Analyzer to an IoT Edge device
 description: This article lists the steps that will help you deploy Azure Video Analyzer to your IoT Edge device. You would do this, for example, if you have access to a local Linux machine.
 ms.topic: how-to
 ms.date: 11/04/2021
@@ -8,6 +8,8 @@ ms.custom: ignite-fall-2021
 # Deploy Azure Video Analyzer to an IoT Edge device
 
 [!INCLUDE [header](includes/edge-env.md)]
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 This article describes how you can deploy the Azure Video Analyzer edge module on an IoT Edge device which has no other modules previously installed. When you finish the steps in this article you will have a Video Analyzer account created and the Video Analyzer module deployed to your IoT Edge device, along with a module that simulates an RTSP-capable IP camera. The process is intended for use with the quickstarts and tutorials for Video Analyzer. You should review the [production readiness and best practices](production-readiness.md) article if you intend to deploy the Video Analyzer module for use in production.
 

@@ -3,7 +3,7 @@ title: Manage external access with Azure Active Directory Entitlement Management
 description: How to use Azure Active Directory Entitlement Management as a part of your overall external access security plan.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -93,7 +93,7 @@ You can perform [Entitlement Management functions by using Microsoft Graph](/gra
 
 * [Manage access packages](/graph/api/resources/accesspackage)
 
-* [Manage access reviews](/graph/api/resources/accessreviewsv2-root)
+* [Manage access reviews](/graph/api/resources/accessreviewsv2-overview)
 
 * [Manage connected organizations](/graph/api/resources/connectedorganization)
 

@@ -1,7 +1,6 @@
 ---
 title: Performance tuning with materialized views
 description: Recommendations and considerations for materialized views to improve your query performance. 
-services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg 
 ms.service: synapse-analytics

@@ -1,11 +1,12 @@
 ---
 title: Guide for authenticating Azure SignalR Service clients
 description: Learn how to implement your own authentication and integrate it with Azure SignalR Service by following the e2e example.
-author: sffamily
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.author: zhshang
+ms.author: lianwei
+ms.devlang: csharp
 ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
 ---
 # Azure SignalR Service authentication
@@ -56,7 +57,7 @@ To complete this tutorial, you must have the following prerequisites:
     | Setting Name | Suggested Value | Description |
     | ------------ | --------------- | ----------- |
     | Application name | *Azure SignalR Chat* | The GitHub user should be able to recognize and trust the app they are authenticating with.   |
-    | Homepage URL | `http://localhost:5000/home` | |
+    | Homepage URL | `http://localhost:5000` | |
     | Application description | *A chat room sample using the Azure SignalR Service with GitHub authentication* | A useful description of the application that will help your application users understand the context of the authentication being used. |
     | Authorization callback URL | `http://localhost:5000/signin-github` | This setting is the most important setting for your OAuth application. It's the callback URL that GitHub returns the user to after successful authentication. In this tutorial, you must use the default callback URL for the *AspNet.Security.OAuth.GitHub* package, */signin-github*.  |
 
@@ -384,7 +385,7 @@ Prepare your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-In this section, you will use the Azure command-line interface (CLI) to create a new web app in [Azure App Service](../app-service/index.yml) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
+In this section, you will use the Azure CLI to create a new web app in [Azure App Service](../app-service/index.yml) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 
 When creating the following resources, make sure to use the same resource group that your SignalR Service resource resides in. This approach will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the group name recommended in previous tutorials, *SignalRTestResources*.
 
@@ -546,7 +547,7 @@ The last thing you need to do is update the **Homepage URL** and **Authorization
 
     | Setting | Example |
     | ------- | ------- |
-    | Homepage URL | `https://signalrtestwebapp22665120.azurewebsites.net/home` |
+    | Homepage URL | `https://signalrtestwebapp22665120.azurewebsites.net` |
     | Authorization callback URL | `https://signalrtestwebapp22665120.azurewebsites.net/signin-github` |
 
 3. Navigate to your web app URL and test the application.

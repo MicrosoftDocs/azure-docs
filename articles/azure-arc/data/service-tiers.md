@@ -7,13 +7,13 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 03/01/2022
 ms.topic: overview
 ---
 
 # Azure Arc-enabled SQL Managed Instance service tiers
 
-As part of of the family of Azure SQL products, Azure Arc-enabled SQL Managed Instance is available in two [vCore](../../azure-sql/database/service-tiers-vcore.md) service tiers.
+As part of of the family of Azure SQL products, Azure Arc-enabled SQL Managed Instance is available in two [vCore](/azure/azure-sql/database/service-tiers-vcore) service tiers.
 
 - **General purpose** is a budget-friendly tier designed for most workloads with common performance and availability features.
 - **Business critical** tier is designed for performance-sensitive workloads with higher availability features.
@@ -29,11 +29,16 @@ Following is a description of the various capabilities available from Azure Arc-
 
 Area | Business critical (preview)* | General purpose
 ----------|-----------------|------------------
-Feature set | Same as SQL Server Enterprise Edition | Same as SQL Server Standard Edition
+SQL Feature set | Same as SQL Server Enterprise Edition | Same as SQL Server Standard Edition
 CPU limit/instance | Unlimited  | 24 cores
 Memory limit/instance | Unlimited | 128 GB
-High availability | Availability group | Single instance w/ Kubernetes redeploy + shared storage.
+Scale up/down | Available | Available
+Monitoring | Built-in available locally, and optionally export to Azure Monitor | Built-in available locally, and optionally export to Azure Log Analytics
+Logging | Built-in available locally, and optionally export to Azure Log Analytics | Built-in available locally, and optionally export to Azure Monitor
+Point in time Restore | Built-in | Built-in
+High availability | Contained Availability groups over kubernetes redeployment | Single instance w/ Kubernetes redeploy + shared storage.
 Read scale out | Availability group | None
+Disaster Recovery | Available via Failover Groups | Available via Failover Groups
 AHB exchange rates for IP component of price | 1:1 Enterprise Edition <br> 4:1 Standard Edition | 1:4 Enterprise Edition​ <br> 1:1 Standard Edition 
 Dev/Test pricing | No cost | No cost
 

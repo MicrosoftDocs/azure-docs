@@ -34,7 +34,7 @@ Located in the virtual machine blade, the boot diagnostics option is under the *
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Screenshot of Windows boot diagnostics":::
 
 ## Enable managed boot diagnostics 
-Managed boot diagnostics can be enabled through the Azure portal, CLI and ARM Templates. Enabling through PowerShell is not yet supported. 
+Managed boot diagnostics can be enabled through the Azure portal, CLI and ARM Templates.
 
 ### Enable managed boot diagnostics using the Azure portal
 When creating a VM in the Azure portal, the default setting is to have boot diagnostics enabled using a managed storage account. To view this, navigate to the *Management* tab during the VM creation. 
@@ -108,6 +108,7 @@ Everything after API version 2020-06-01 supports managed boot diagnostics. For m
 - Managed storage accounts are supported in Resource Manager API version "2020-06-01" and later.
 - Azure Serial Console is currently incompatible with a managed storage account for boot diagnostics. Learn more about [Azure Serial Console](/troubleshoot/azure/virtual-machines/serial-console-overview).
 - Portal only supports the use of boot diagnostics with a managed storage account for single instance VMs.
+- Users canont configure a retention period for Managed Boot Diagnostics. The logs will be overwritten when the total size crosses 1 GB.
 
 ## Next steps
 

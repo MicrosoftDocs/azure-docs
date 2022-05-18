@@ -6,8 +6,9 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 10/16/2020
 author: manishmsfte
-ms.author: mansha 
-ms.custom: devx-track-csharp
+ms.author: mansha
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Create a container in Azure Cosmos DB Gremlin API

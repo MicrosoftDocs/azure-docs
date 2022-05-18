@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 01/11/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -84,7 +84,7 @@ The behavior of the client apps condition was updated in August 2020. If you hav
 
 This control is used to exclude devices that are hybrid Azure AD joined, or marked a compliant in Intune. This exclusion can be done to block unmanaged devices. 
 
-#### Filters for devices (preview)
+#### Filter for devices
 
 This control allows targeting specific devices based on their attributes in a policy.
 

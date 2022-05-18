@@ -102,7 +102,7 @@ sections:
           What does the error "'netAppAccounts' has been restricted in this region" mean? 
         answer: |
           You might see the error `'netAppAccounts' has been restricted in this region`.
-          This error means the subscription isn't registered for the `netAppAccounts` resource provider. [Register the provider](/azure/azure-netapp-files/azure-netapp-files-register) to fix the issue. 
+          This error means the subscription isn't registered for the `netAppAccounts` resource provider. [Register the provider](../../../azure-netapp-files/azure-netapp-files-register.md) to fix the issue. 
   - name: Ansible configuration
     questions:
       - question: |

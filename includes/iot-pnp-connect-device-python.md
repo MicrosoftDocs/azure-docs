@@ -20,7 +20,7 @@ To complete this quickstart, you need Python 3.7 on your development machine. Yo
 python --version
 ```
 
-In your local python environment install the package as follows:
+In your local Python environment install the package as follows:
 
 ```cmd/sh
 pip install azure-iot-device

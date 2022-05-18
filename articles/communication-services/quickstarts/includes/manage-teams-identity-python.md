@@ -63,7 +63,7 @@ authority = "https://login.microsoftonline.com/%s" % tenant_id
 
 app = PublicClientApplication(client_id, authority=authority)
 
-scope = [ "https://auth.msft.communication.azure.com/VoIP" ]
+scope = [ "https://auth.msft.communication.azure.com/Teams.ManageCalls" ]
 teams_token_result = app.acquire_token_interactive(scope)
 ```
 
@@ -82,7 +82,7 @@ connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-### Step 3: Exchange the Azure AD user token for the Teams access token
+### Step 3: Exchange the Azure AD access token of the Teams User for a Communication Identity access token
 
 Use the `get_token_for_teams_user` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 

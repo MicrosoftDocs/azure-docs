@@ -3,7 +3,7 @@ title: Install language packs on Windows 10 VMs in Azure Virtual Desktop - Azure
 description: How to install language packs for Windows 10 multi-session VMs in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 04/01/2022
 ms.author: helohr
 manager: femila
 ---
@@ -28,32 +28,34 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
      
      - Language ISO:
         - [Windows 10, version 1903 or 1909 Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
-        - [Windows 10, version 2004, 20H2 or 21H1 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
+        - [Windows 10, version 2004 or later Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
      - FOD Disk 1 ISO:
         - [Windows 10, version 1903 or 1909 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
-        - [Windows 10, version 2004, 20H2 or 21H1 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        - [Windows 10, version 2004 or later FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         
      - Inbox Apps ISO:
         - [Windows 10, version 1903 or 1909 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Windows 10, version 2004 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
         - [Windows 10, version 20H2 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
-        - [Windows 10, version 21H1 Inbox Apps ISO](https://software-download.microsoft.com/download/sg/19041.928.210407-2138.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+        - [Windows 10, version 21H1 or 21H2 Inbox Apps ISO](https://software-download.microsoft.com/download/sg/19041.928.210407-2138.vb_release_svc_prod1_amd64fre_InboxApps.iso)
      
      - If you use Local Experience Pack (LXP) ISO files to localize your images, you will also need to download the appropriate LXP ISO for the best language experience
         - If you're using Windows 10, version 1903 or 1909:
           - [Windows 10, version 1903 or 1909 LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
         - If you're using Windows 10, version 2004, 20H2, or 21H1, use the information in [Adding languages in Windows 10: Known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue) to figure out which of the following LXP ISOs is right for you:
-          - [Windows 10, version 2004, 20H2, or 21H1 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
-          - [Windows 10, version 2004, 20H2, or 21H1 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
-          - [Windows 10, version 2004, 20H2, or 21H1 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
-          - [Windows 10, version 2004, 20H2, or 21H1 **2C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
-          - [Windows 10, version 2004, 20H2, or 21H1 **4B** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2104B.iso)
-          - [Windows 10, version 2004, 20H2, or 21H1 **5C** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2105C.iso)
-          - [Windows 10, version 2004, 20H2, or 21H1 **7C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2107C.iso)
-          - [Windows 10, version 2004, 20H2, or 21H1 **9C** LXP ISO](https://software-download.microsoft.com/download/db/LanguageExperiencePack.2109C.iso)
-          - [Windows 10, version 2004, 20H2, or 21H1 **10C** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2110C.iso)
-
+          - [Windows 10, version 2004 or later 01C 2021 LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
+          - [Windows 10, version 2004 or later 02C 2021 LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
+          - [Windows 10, version 2004 or later 04B 2021 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2104B.iso)
+          - [Windows 10, version 2004 or later 05C 2021 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2105C.iso)
+          - [Windows 10, version 2004 or later 07C 2021 LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2107C.iso)
+          - [Windows 10, version 2004 or later 09C 2021 LXP ISO](https://software-download.microsoft.com/download/db/LanguageExperiencePack.2109C.iso)
+          - [Windows 10, version 2004 or later 10C 2021 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2110C.iso)
+          - [Windows 10, version 2004 or later 11C 2021 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2111C.iso)
+          - [Windows 10, version 2004 or later 01C 2022 LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2201C.iso)
+          - [Windows 10, version 2004 or later 02C 2022 LXP ISO](https://software-static.download.prss.microsoft.com/sg/download/888969d5-f34g-4e03-ac9d-1f9786c66749/LanguageExperiencePack.2202C.iso)
+          - [Windows 10, version 2004 or later 04C 2022 LXP ISO](https://software-static.download.prss.microsoft.com/dbazure/888969d5-f34g-4e03-ac9d-1f9786c66750/LanguageExperiencePack.2204C.iso)
+          
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
 >[!NOTE]

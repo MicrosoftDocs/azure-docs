@@ -5,8 +5,8 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
-ms.author: b-hchen
-ms.date: 10/11/2021
+ms.author: anfdocs
+ms.date: 02/07/2022
 ---
 # Performance FAQs for Azure NetApp Files
 
@@ -20,6 +20,8 @@ You can take the following actions per the performance requirements:
 - Select the desired service level and size for the capacity pool.
 - Create a volume with the desired quota size for the capacity and performance.
 
+There is no need to set accelerated networking for the NICs in the dedicated subnet of Azure NetApp Files. [Accelerated networking](../virtual-network/virtual-machine-network-throughput.md) is a capability that only applies to Azure virtual machines. Azure NetApp Files NICs are optimized by design.
+
 ## How do I convert throughput-based service levels of Azure NetApp Files to IOPS?
 
 You can convert MB/s to IOPS by using the following formula:  
@@ -32,7 +34,7 @@ You can change the service level of an existing volume by moving the volume to a
 
 ## How do I monitor Azure NetApp Files performance?
 
-Azure NetApp Files provides volume performance metrics. You can also use Azure Monitor for monitoring usage metrics for Azure NetApp Files.  See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md) for the list of performance metrics for Azure NetApp Files.
+Azure NetApp Files provides volume performance metrics. You can also use Azure Monitor for monitoring usage metrics for Azure NetApp Files. See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md) for the list of performance metrics for Azure NetApp Files.
 
 ## What’s the performance impact of Kerberos on NFSv4.1?
 

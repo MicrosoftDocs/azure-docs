@@ -1,241 +1,555 @@
 ---
-title: Import and Export data between serverless Apache Spark pools and SQL pools
-description: This article provides information on how to use the custom connector for moving data between dedicated SQL pools and serverless Apache Spark pools.
-services: synapse-analytics 
-author: rothja 
+title: Azure Synapse Dedicated SQL Pool Connector for Apache Spark
+description: Azure Synapse Dedicated SQL Pool Connector for Apache Spark to move data between the Synapse Serverless Spark Pool and the Synapse Dedicated SQL Pool.
+author: kalyankadiyala-Microsoft
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 11/19/2020 
-ms.author: jroth
-ms.reviewer: euang
----
-# Introduction
+ms.date: 03/18/2022
+ms.author: kakadiya
+ms.reviewer: ktuckerdavis, aniket.adnaik
+--- 
+# Azure Synapse Dedicated SQL Pool Connector for Apache Spark
 
-The Azure Synapse Apache Spark to Synapse SQL connector is designed to efficiently transfer data between serverless Apache Spark pools and dedicated SQL pools in Azure Synapse. The Azure Synapse Apache Spark to Synapse SQL connector works on dedicated SQL pools only, it doesn't work with serverless SQL pool.
+## Introduction
 
-> [!WARNING]
-> The **sqlanalytics()** function name has been changed to **synapsesql()**. The sqlanalytics function will continue to work but will be deprecated.  Please change any reference from **sqlanalytics()** to **synapsesql()** to prevent any disruption in the future.
+The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse Analytics enables efficient transfer of large data sets between the [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and the [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The connector is implemented using `Scala` language. The connector is shipped as a default library with Azure Synapse Workspace. To use the Connector with other notebook language choices, use the Spark magic command - `%%spark`.
 
-## Design
+At a high-level, the connector provides the following capabilities:
 
-Transferring data between Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools, JDBC tends to be a bottleneck with serial data transfer.
+* Read from Azure Synapse Dedicated SQL Pool:
+  * Read large data sets from Synapse Dedicated SQL Pool Tables (Internal and External) and Views.
+  * Comprehensive predicate push down support, where filters on DataFrame get mapped to corresponding SQL predicate push down.
+  * Support for column pruning.
+* Write to Azure Synapse Dedicated SQL Pool:
+  * Ingest large volume data to Internal and External table types.
+  * Supports following DataFrame save mode preferences:
+    * `Append`
+    * `ErrorIfExists`
+    * `Ignore`
+    * `Overwrite`
+  * Write to External Table type supports Parquet and Delimited Text file format (example - CSV).
+  * To write data to internal tables, the connector now uses [COPY statement](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md) instead of CETAS/CTAS approach.
+  * Enhancements to optimize end-to-end write throughput performance.
+  * Introduces an optional call-back handle (a Scala function argument) that clients can use to receive post-write metrics.
+    * Few examples include - number of records, duration to complete certain action, and failure reason.
 
-The Azure Synapse Apache Spark pool to Synapse SQL connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen2 and Polybase in dedicated SQL pools to efficiently transfer data between the Spark cluster and the Synapse dedicated SQL instance.
+## Orchestration approach
 
-![Connector Architecture](./media/synapse-spark-sqlpool-import-export/arch1.png)
+### Read
 
-## Authentication in Azure Synapse Analytics
+![A high-level data flow diagram to describe the connector's orchestration of a read request.](./media/synapse-spark-sql-pool-import-export/synapse-dedicated-sql-pool-spark-connector-read-orchestration.png)
 
-Authentication between systems is made seamless in Azure Synapse Analytics. The Token Service connects with Azure Active Directory to obtain security tokens for use when accessing the storage account or the data warehouse server.
+### Write
 
-For this reason, there's no need to create credentials or specify them in the connector API as long as Azure AD-Auth is configured at the storage account and the data warehouse server. If not, SQL Auth can be specified. Find more details in the [Usage](#usage) section.
+![A high-level data flow diagram to describe the connector's orchestration of a write request.](./media/synapse-spark-sql-pool-import-export/synapse-dedicated-sql-pool-spark-connector-write-orchestration.png)
 
-## Constraints
+## Pre-requisites
 
-- This connector works only in Scala.
-- For pySpark, see details in the [Use Python](#use-pyspark-with-the-connector) section.
-- This Connector does not support querying SQL Views.
+Pre-requisites such as setting up required Azure resources and steps to configure them are discussed in this section.
 
-## Prerequisites
+### Azure resources
 
-- Must be a member of **db_exporter** role in the database/SQL pool you want to transfer data to/from.
-- Must be a member of Storage Blob Data Contributor role on the default storage account.
+Review and setup following dependent Azure Resources:
 
-To create users, connect to the SQL pool database, and follow these examples:
+* [Azure Data Lake Storage](../../storage/blobs/data-lake-storage-introduction.md) - used as the primary storage account for the Azure Synapse Workspace.
+* [Azure Synapse Workspace](../../synapse-analytics/get-started-create-workspace.md) - create notebooks, build and deploy DataFrame based ingress-egress workflows.
+* [Dedicated SQL Pool (formerly SQL DW)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) - provides enterprise Data Warehousing features.
+* [Azure Synapse Serverless Spark Pool](../../synapse-analytics/get-started-analyze-spark.md) - Spark runtime where the jobs are executed as Spark Applications.
 
-```sql
---SQL User
-CREATE USER Mary FROM LOGIN Mary;
+#### Prepare the database
 
---Azure Active Directory User
-CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
+Connect to the Synapse Dedicated SQL Pool database and run following setup statements:
+
+* Create a database user that is mapped to the Azure Active Directory User Identity used to sign in to the Azure Synapse Workspace.
+  
+    ```sql
+    CREATE USER [username@domain.com] FROM EXTERNAL PROVIDER;      
+    ```
+
+* Create schema in which tables will be defined, such that the Connector can successfully write-to and read-from respective tables.
+
+    ```sql
+    CREATE SCHEMA [<schema_name>];
+    ```
+
+### Authentication
+
+#### Azure Active Directory based authentication
+
+Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace.
+
+#### Basic authentication
+
+A basic authentication approach requires user to configure `username` and `password` options. Refer to the section - [Configuration options](#configuration-options) to learn about relevant configuration parameters for reading from and writing to tables in Azure Synapse Dedicated SQL Pool.
+  
+### Authorization
+
+#### [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)
+
+There are two ways to grant access permissions to Azure Data Lake Storage Gen2 - Storage Account:
+
+* Role based Access Control role - [Storage Blob Data Contributor role](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+  * Assigning the `Storage Blob Data Contributor Role` grants the User permissions to read, write and delete from the Azure Storage Blob Containers.
+  * RBAC offers a coarse control approach at the container level.
+* [Access Control Lists (ACL)](../../storage/blobs/data-lake-storage-access-control.md)
+  * ACL approach allows for fine-grained controls over specific paths and/or files under a given folder.
+  * ACL checks aren't enforced if the User is already granted permissions using RBAC approach.
+  * There are two broad types of ACL permissions:
+    * Access Permissions (applied at a specific level or object).
+    * Default Permissions (automatically applied for all child objects at the time of their creation).
+  * Type of permissions include:
+    * `Execute` enables ability to traverse or navigate the folder hierarchies.
+    * `Read` enables ability to read.
+    * `Write` enables ability to write.
+  * It's important to configure ACLs such that the Connector can successfully write and read from the storage locations.
+
+>[!Note]
+> * If you'd like to run notebooks using Synapse Workspace pipelines you must also grant above listed access permissions to the Synapse Workspace default managed identity. The workspace's default managed identity name is same as the name of the workspace.
+>
+> * To use the Synapse workspace with secured storage accounts, a managed private end point must be [configured](../../storage/common/storage-network-security.md?tabs=azure-portal) from the notebook. The managed private end point must be approved from the ADLS Gen2 storage account's `Private endpoint connections` section in the `Networking` pane.
+
+#### [Azure Synapse Dedicated SQL Pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+
+To enable successful interaction with Azure Synapse Dedicated SQL Pool, following authorization is necessary unless you're a user also configured as an `Active Directory Admin` on the Dedicated SQL End Point:
+
+* Read scenario
+  * Grant the user `db_exporter` using the system stored procedure `sp_addrolemember`.
+
+    ```sql
+    EXEC sp_addrolemember 'db_exporter', [<your_domain_user>@<your_domain_name>.com];
+    ```
+
+* Write scenario
+  * Connector uses the COPY command to write data from staging to the internal table's managed location.
+    * Configure required permissions described [here](../../synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql.md#set-up-the-required-permissions).
+    * Following is a quick access snippet of the same:
+
+      ```sql
+      --Make sure your user has the permissions to CREATE tables in the [dbo] schema
+      GRANT CREATE TABLE TO [<your_domain_user>@<your_domain_name>.com];
+      GRANT ALTER ON SCHEMA::<target_database_schema_name> TO [<your_domain_user>@<your_domain_name>.com];
+
+      --Make sure your user has ADMINISTER DATABASE BULK OPERATIONS permissions
+      GRANT ADMINISTER DATABASE BULK OPERATIONS TO [<your_domain_user>@<your_domain_name>.com];
+
+      --Make sure your user has INSERT permissions on the target table
+      GRANT INSERT ON <your_table> TO [<your_domain_user>@<your_domain_name>.com]
+      ```
+
+## API documentation
+
+Azure Synapse Dedicated SQL Pool Connector for Apache Spark - [API Documentation](https://synapsesql.blob.core.windows.net/docs/latest/scala/index.html).
+
+### Configuration options
+
+To successfully bootstrap and orchestrate the read or write operation, the Connector expects certain configuration parameters. The object definition - `com.microsoft.spark.sqlanalytics.utils.Constants` provides a list of standardized constants for each parameter key.
+
+Following is the list of configuration options based on usage scenario:
+
+* **Read using Azure AD based authentication**
+  * Credentials are auto-mapped, and user isn't required to provide specific configuration options.
+  * Three-part table name argument on `synapsesql` method is required to read from respective table in Azure Synapse Dedicated SQL Pool.
+* **Read using basic authentication**
+  * Azure Synapse Dedicated SQL End Point
+    * `Constants.SERVER` - Synapse Dedicated SQL Pool End Point (Server FQDN)
+    * `Constants.USER` - SQL User Name.
+    * `Constants.PASSWORD` - SQL User Password.
+  * Azure Data Lake Storage (Gen 2) End Point  - Staging Folders
+    * `Constants.DATA_SOURCE` - Storage path set on the data source location parameter is used for data staging.
+* **Write using Azure AD based authentication**
+  * Azure Synapse Dedicated SQL End Point
+    * By default, the Connector infers the Synapse Dedicated SQL end point by using the database name set on the `synapsesql` method's three-part table name parameter.
+    * Alternatively, users can use the `Constants.SERVER` option to specify the sql end point. Ensure the end point hosts the corresponding database with respective schema.
+  * Azure Data Lake Storage (Gen 2) End Point  - Staging Folders
+    * For Internal Table Type:
+      * Configure either `Constants.TEMP_FOLDER` or `Constants.DATA_SOURCE` option.
+      * If user chose to provide `Constants.DATA_SOURCE` option, staging folder will be derived by using the `location` value from the DataSource.
+      * If both are provided, then the `Constants.TEMP_FOLDER` option value will be used.
+      * In the absence of a staging folder option, the Connector will derive one based on the runtime configuration - `spark.sqlanalyticsconnector.stagingdir.prefix`.
+    * For External Table Type:
+      * `Constants.DATA_SOURCE` is a required configuration option.
+      * The connector uses the storage path set on the data source's location parameter in combination with the `location` argument to the `synapsesql` method and derives the absolute path to persist external table data.
+      * If the `location` argument to `synapsesql` method isn't specified, then the connector will derive the location value as `<base_path>/dbName/schemaName/tableName`.
+* **Write using basic authentication**
+  * Azure Synapse Dedicated SQL End Point
+    * `Constants.SERVER` - - Synapse Dedicated SQL Pool End Point (Server FQDN).
+    * `Constants.USER` - SQL User Name.
+    * `Constants.PASSWORD` - SQL User Password.
+    * `Constants.STAGING_STORAGE_ACCOUNT_KEY` associated with Storage Account that hosts `Constants.TEMP_FOLDERS` (internal table types only) or `Constants.DATA_SOURCE`.
+  * Azure Data Lake Storage (Gen 2) End Point  - Staging Folders
+    * SQL basic authentication credentials don't apply to access storage end points.
+    * Hence, ensure to assign relevant storage access permissions as described in the section [Azure Data Lake Storage Gen2](#azure-data-lake-storage-gen2).
+  
+## Code templates
+
+This section presents reference code templates to describe how to use and invoke the Azure Synapse Dedicated SQL Pool Connector for Apache Spark.
+
+### Read from Azure Synapse Dedicated SQL Pool
+
+#### Read Request - `synapsesql` method signature
+
+```Scala
+synapsesql(tableName:String) => org.apache.spark.sql.DataFrame
 ```
 
-To assign a role:
+#### Read using Azure AD based authentication
 
-```sql
---SQL User
-EXEC sp_addrolemember 'db_exporter', 'Mary';
+```Scala
+//Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
+//Azure Active Directory based authentication approach is preferred here.
+import org.apache.spark.sql.DataFrame
+import com.microsoft.spark.sqlanalytics.utils.Constants
+import org.apache.spark.sql.SqlAnalyticsConnector._
 
---Azure Active Directory User
-EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
+//Read from existing internal table
+val dfToReadFromTable:DataFrame = spark.read.
+    //If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument 
+    //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
+    option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
+    //Defaults to storage path defined in the runtime configurations
+    option(Constants.TEMP_FOLDER, "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<some_base_path_for_temporary_staging_folders>").
+    //Three-part table name from where data will be read.
+    synapsesql("<database_name>.<schema_name>.<table_name>").
+    //Column-pruning i.e., query select column values.
+    select("<some_column_1>", "<some_column_5>", "<some_column_n>"). 
+    //Push-down filter criteria that gets translated to SQL Push-down Predicates.    
+    filter(col("Title").startsWith("E")).
+    //Fetch a sample of 10 records 
+    limit(10)
+
+//Show contents of the dataframe
+dfToReadFromTable.show()
 ```
 
-## Usage
+#### Read using basic authentication
 
-The import statements aren't required, they're pre-imported for the notebook experience.
+```Scala
+//Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
+//Azure Active Directory based authentication approach is preferred here.
+import org.apache.spark.sql.DataFrame
+import com.microsoft.spark.sqlanalytics.utils.Constants
+import org.apache.spark.sql.SqlAnalyticsConnector._
 
-### Transfer data to or from a dedicated SQL pool attached within the workspace
+//Read from existing internal table
+val dfToReadFromTable:DataFrame = spark.read.
+    //If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument 
+    //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
+    option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
+    //Set database user name
+    option(Constants.USER, "<user_name>").
+    //Set user's password to the database
+    option(Constants.PASSWORD, "<user_password>").
+    //Set name of the data source definition that is defined with database scoped credentials.
+    //Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
+    option(Constants.DATA_SOURCE, "<data_source_name>").
+    //Three-part table name from where data will be read.
+    synapsesql("<database_name>.<schema_name>.<table_name>").
+    //Column-pruning i.e., query select column values.
+    select("<some_column_1>", "<some_column_5>", "<some_column_n>").
+    //Push-down filter criteria that gets translated to SQL Push-down Predicates.    
+    filter(col("Title").startsWith("E")).
+    //Fetch a sample of 10 records 
+    limit(10)
 
-> [!NOTE]
-> **Imports not needed in notebook experience**
-
-```scala
- import com.microsoft.spark.sqlanalytics.utils.Constants
- import org.apache.spark.sql.SqlAnalyticsConnector._
+//Show contents of the dataframe
+dfToReadFromTable.show()
 ```
 
-#### Read API
+### Write to Azure Synapse Dedicated SQL Pool
 
-```scala
-val df = spark.read.synapsesql("<DBName>.<Schema>.<TableName>")
+#### Write Request - `synapsesql` method signature
+
+The method signature for the Connector version built for Spark 2.4.8 has one less argument, than that applied to the Spark 3.1.2 version. Following are the two method signatures:
+
+* Spark Pool Version 2.4.8
+
+```Scala
+synapsesql(tableName:String, 
+           tableType:String = Constants.INTERNAL, 
+           location:Option[String] = None):Unit
 ```
 
-The above API will work for both Internal (Managed) as well as External Tables in the SQL pool.
+* Spark Pool Version 3.1.2
 
-#### Write API
-
-```scala
-df.write.synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
+```Scala
+synapsesql(tableName:String, 
+           tableType:String = Constants.INTERNAL, 
+           location:Option[String] = None,
+           callBackHandle=Option[(Map[String, Any], Option[Throwable])=>Unit]):Unit
 ```
 
-The write API creates the table in the dedicated SQL pool and then invokes Polybase to load the data.  The table must not exist in the dedicated SQL pool or an error will be returned stating that "There is already an object named..."
+#### Write using Azure AD based authentication
 
-TableType values
+Following is a comprehensive code template that describes how to use the Connector for write scenarios:
 
-- Constants.INTERNAL - Managed table in dedicated SQL pool
-- Constants.EXTERNAL - External table in dedicated SQL pool
+```Scala
+//Add required imports
+import org.apache.spark.sql.DataFrame
+import org.apache.spark.sql.SaveMode
+import com.microsoft.spark.sqlanalytics.utils.Constants
+import org.apache.spark.sql.SqlAnalyticsConnector._
 
-SQL pool-managed table
+//Define read options for example, if reading from CSV source, configure header and delimiter options.
+val pathToInputSource="abfss://<storage_container_name>@<storage_account_name>.dfs.core.windows.net/<some_folder>/<some_dataset>.csv"
 
-```scala
-df.write.synapsesql("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
+//Define read configuration for the input CSV
+val dfReadOptions:Map[String, String] = Map("header" -> "true", "delimiter" -> ",")
+
+//Initialize DataFrame that reads CSV data from a given source 
+val readDF:DataFrame=spark.
+            read.
+            options(dfReadOptions).
+            csv(pathToInputSource).
+            limit(1000) //Reads first 1000 rows from the source CSV input.
+
+//Setup and trigger the read DataFrame for write to Synapse Dedicated SQL Pool.
+//Fully qualified SQL Server DNS name can be obtained using one of the following methods:
+//    1. Synapse Workspace - Manage Pane - SQL Pools - <Properties view of the corresponding Dedicated SQL Pool>
+//    2. From Azure Portal, follow the bread-crumbs for <Portal_Home> -> <Resource_Group> -> <Dedicated SQL Pool> and then go to Connection Strings/JDBC tab. 
+//If `Constants.SERVER` is not provided, the value will be inferred by using the `database_name` in the three-part table name argument to the `synapsesql` method.
+//Like-wise, if `Constants.TEMP_FOLDER` is not provided, the connector will use the runtime staging directory config (see section on Configuration Options for details).
+val writeOptionsWithAADAuth:Map[String, String] = Map(Constants.SERVER -> "<dedicated-pool-sql-server-name>.sql.azuresynapse.net",
+                                            Constants.TEMP_FOLDER -> "abfss://<storage_container_name>@<storage_account_name>.dfs.core.windows.net/<some_temp_folder>")
+
+//Setup optional callback/feedback function that can receive post write metrics of the job performed.
+var errorDuringWrite:Option[Throwable] = None
+val callBackFunctionToReceivePostWriteMetrics: (Map[String, Any], Option[Throwable]) => Unit =
+    (feedback: Map[String, Any], errorState: Option[Throwable]) => {
+    println(s"Feedback map - ${feedback.map{case(key, value) => s"$key -> $value"}.mkString("{",",\n","}")}")
+    errorDuringWrite = errorState
+}
+
+//Configure and submit the request to write to Synapse Dedicated SQL Pool (note - default SaveMode is set to ErrorIfExists)
+//Sample below is using AAD-based authentication approach; See further examples to leverage SQL Basic auth.
+readDF.
+    write.
+    //Configure required configurations.
+    options(writeOptionsWithAADAuth).
+    //Choose a save mode that is apt for your use case.
+    mode(SaveMode.Overwrite).
+    synapsesql(tableName = "<database_name>.<schema_name>.<table_name>", 
+                //For external table type value is Constants.EXTERNAL
+                tableType = Constants.INTERNAL, 
+                //Optional parameter that is used to specify external table's base folder; defaults to `database_name/schema_name/table_name`
+                location = None, 
+                //Optional parameter to receive a callback.
+                callBackHandle = Some(callBackFunctionToReceivePostWriteMetrics))
+
+//If write request has failed, raise an error and fail the Cell's execution.
+if(errorDuringWrite.isDefined) throw errorDuringWrite.get
 ```
 
-SQL pool external table
+#### Write using basic authentication
 
-To write to a dedicated SQL pool external table, an EXTERNAL DATA SOURCE and an EXTERNAL FILE FORMAT must exist on the dedicated SQL pool.  For more information, read [creating an external data source](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) and [external file formats](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) in dedicated SQL pool.  Below are examples for creating an external data source and external file formats in dedicated SQL pool.
+Following code snippet replaces the write definition described in the [Write using Azure AD based authentication](#write-using-azure-ad-based-authentication) section, to submit write request using SQL basic authentication approach:
 
-```sql
---For an external table, you need to pre-create the data source and file format in dedicated SQL pool using SQL queries:
-CREATE EXTERNAL DATA SOURCE <DataSourceName>
-WITH
-  ( LOCATION = 'abfss://...' ,
-    TYPE = HADOOP
-  ) ;
+```Scala
+//Define write options to use SQL basic authentication
+val writeOptionsWithBasicAuth:Map[String, String] = Map(Constants.SERVER -> "<dedicated-pool-sql-server-name>.sql.azuresynapse.net",
+                                           //Set database user name
+                                           Constants.USER -> "<user_name>",
+                                           //Set database user's password
+                                           Constants.PASSWORD -> "<user_password>",
+                                           //Required only when writing to an external table. For write to internal table, this can be used instead of TEMP_FOLDER option.
+                                           Constants.DATA_SOURCE -> "<Name of the datasource as defined in the target database>"
+                                           //To be used only when writing to internal tables. Storage path will be used for data staging.
+                                           Constants.TEMP_FOLDER -> "abfss://<storage_container_name>@<storage_account_name>.dfs.core.windows.net/<some_temp_folder>")
 
-CREATE EXTERNAL FILE FORMAT <FileFormatName>
-WITH (  
-    FORMAT_TYPE = PARQUET,  
-    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'  
-);
+//Configure and submit the request to write to Synapse Dedicated SQL Pool. 
+readDF.
+    write.
+    options(writeOptionsWithBasicAuth).
+    //Choose a save mode that is apt for your use case.
+    mode(SaveMode.Overwrite). 
+    synapsesql(tableName = "<database_name>.<schema_name>.<table_name>", 
+                //For external table type value is Constants.EXTERNAL
+                tableType = Constants.INTERNAL,
+                //Not required for writing to an internal table 
+                location = None,
+                //Optional parameter.
+                callBackHandle = Some(callBackFunctionToReceivePostWriteMetrics))
 ```
 
-An EXTERNAL CREDENTIAL object is not necessary when using Azure Active Directory pass-through authentication to the storage account.  Ensure you are a member of the "Storage Blob Data Contributor" role on the storage account.
+In a basic authentication approach, in order to read data from a source storage path other configuration options are required. Following code snippet provides an example to read from an Azure Data Lake Storage Gen2 data source using Service Principal credentials:
 
-```scala
-
-df.write.
-    option(Constants.DATA_SOURCE, <DataSourceName>).
-    option(Constants.FILE_FORMAT, <FileFormatName>).
-    synapsesql("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
-
+ ```Scala
+//Specify options that Spark runtime must support when interfacing and consuming source data
+val storageAccountName="<storageAccountName>"
+val storageContainerName="<storageContainerName>"
+val subscriptionId="<AzureSubscriptionID>"
+val spnClientId="<ServicePrincipalClientID>"
+val spnSecretKeyUsedAsAuthCred="<spn_secret_key_value>"
+val dfReadOptions:Map[String, String]=Map("header"->"true",
+                                "delimiter"->",", 
+                                "fs.defaultFS" -> s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net",
+                                s"fs.azure.account.auth.type.$storageAccountName.dfs.core.windows.net" -> "OAuth",
+                                s"fs.azure.account.oauth.provider.type.$storageAccountName.dfs.core.windows.net" -> 
+                                    "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+                                "fs.azure.account.oauth2.client.id" -> s"$spnClientId",
+                                "fs.azure.account.oauth2.client.secret" -> s"$spnSecretKeyUsedAsAuthCred",
+                                "fs.azure.account.oauth2.client.endpoint" -> s"https://login.microsoftonline.com/$subscriptionId/oauth2/token",
+                                "fs.AbstractFileSystem.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.Abfs",
+                                "fs.abfss.impl" -> "org.apache.hadoop.fs.azurebfs.SecureAzureBlobFileSystem")
+//Initialize the Storage Path string, where source data is maintained/kept.
+val pathToInputSource=s"abfss://$storageContainerName@$storageAccountName.dfs.core.windows.net/<base_path_for_source_data>/<specific_file (or) collection_of_files>"
+//Define data frame to interface with the data source
+val df:DataFrame = spark.
+            read.
+            options(dfReadOptions).
+            csv(pathToInputSource).
+            limit(100)
 ```
 
-### Transfer data to or from a dedicated SQL pool or database outside the workspace
+#### Supported DataFrame save modes
 
-> [!NOTE]
-> Imports not needed in notebook experience
+Following save modes are supported when writing source data to a destination table in Azure Synapse Dedicated SQL Pool:
 
-```scala
- import com.microsoft.spark.sqlanalytics.utils.Constants
- import org.apache.spark.sql.SqlAnalyticsConnector._
+* ErrorIfExists (default save mode)
+  * If destination table exists, then the write is aborted with an exception returned to the callee. Else, a new table is created with data from the staging folders.
+* Ignore
+  * If the destination table exists, then the write will ignore the write request without returning an error. Else, a new table is created with data from the staging folders.
+* Overwrite
+  * If the destination table exists, then existing data in the destination is replaced with data from the staging folders. Else, a new table is created with data from the staging folders.
+* Append
+  * If the destination table exists, then the new data is appended to it. Else, a new table is created with data from the staging folders.
+  
+#### Write request callback handle
+
+The new write path API changes introduced an experimental feature to provide the client with a key->value map of post-write metrics. Keys for the metrics are defined in the new Object definition - `Constants.FeedbackConstants`. Metrics can be retrieved as a JSON string by passing in the callback handle (a `Scala Function`). Following is the function signature:
+
+```Scala
+//Function signature is expected to have two arguments - a `scala.collection.immutable.Map[String, Any]` and an Option[Throwable]
+//Post-write if there's a reference of this handle passed to the `synapsesql` signature, it will be invoked by the closing process.
+//These arguments will have valid objects in either Success or Failure case. In case of Failure the second argument will be a `Some(Throwable)`.
+(Map[String, Any], Option[Throwable]) => Unit
 ```
 
-#### Read API
+Following are some notable metrics (presented in camel case):
 
-```scala
-val df = spark.read.
-option(Constants.SERVER, "samplews.database.windows.net").
-synapsesql("<DBName>.<Schema>.<TableName>")
-```
+* `WriteFailureCause`
+* `DataStagingSparkJobDurationInMilliseconds`
+* `NumberOfRecordsStagedForSQLCommit`
+* `SQLStatementExecutionDurationInMilliseconds`
+* `rows_processed`
 
-#### Write API
+Following is a sample JSON string with post-write metrics:
 
-```scala
-df.write.
-option(Constants.SERVER, "samplews.database.windows.net").
-synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
-```
+   ```doc
+   {
+    SparkApplicationId -> <spark_yarn_application_id>,
+    SQLStatementExecutionDurationInMilliseconds -> 10113,
+    WriteRequestReceivedAtEPOCH -> 1647523790633,
+    WriteRequestProcessedAtEPOCH -> 1647523808379,
+    StagingDataFileSystemCheckDurationInMilliseconds -> 60,
+    command -> "COPY INTO [schema_name].[table_name] ...",
+    NumberOfRecordsStagedForSQLCommit -> 100,
+    DataStagingSparkJobEndedAtEPOCH -> 1647523797245,
+    SchemaInferenceAssertionCompletedAtEPOCH -> 1647523790920,
+    DataStagingSparkJobDurationInMilliseconds -> 5252,
+    rows_processed -> 100,
+    SaveModeApplied -> TRUNCATE_COPY,
+    DurationInMillisecondsToValidateFileFormat -> 75,
+    status -> Completed,
+    SparkApplicationName -> <spark_application_name>,
+    ThreePartFullyQualifiedTargetTableName -> <database_name>.<schema_name>.<table_name>,
+    request_id -> <query_id_as_retrieved_from_synapse_dedicated_sql_db_query_reference>,
+    StagingFolderConfigurationCheckDurationInMilliseconds -> 2,
+    JDBCConfigurationsSetupAtEPOCH -> 193,
+    StagingFolderConfigurationCheckCompletedAtEPOCH -> 1647523791012,
+    FileFormatValidationsCompletedAtEPOCHTime -> 1647523790995,
+    SchemaInferenceCheckDurationInMilliseconds -> 91,
+    SaveModeRequested -> Overwrite,
+    DataStagingSparkJobStartedAtEPOCH -> 1647523791993,
+    DurationInMillisecondsTakenToGenerateWriteSQLStatements -> 4
+   }
+   ```
 
-### Use SQL Auth instead of Azure AD
+### More code samples
 
-#### Read API
+#### Using the Connector with other language preferences
 
-Currently the connector doesn't support token-based auth to a dedicated SQL pool that is outside of the workspace. You'll need to use SQL Auth.
+Example that demonstrates how to use the Connector with `PySpark (Python)` language preference:
 
-```scala
-val df = spark.read.
-option(Constants.SERVER, "samplews.database.windows.net").
-option(Constants.USER, <SQLServer Login UserName>).
-option(Constants.PASSWORD, <SQLServer Login Password>).
-synapsesql("<DBName>.<Schema>.<TableName>")
-```
-
-#### Write API
-
-```scala
-df.write.
-option(Constants.SERVER, "samplews.database.windows.net").
-option(Constants.USER, <SQLServer Login UserName>).
-option(Constants.PASSWORD, <SQLServer Login Password>).
-synapsesql("<DBName>.<Schema>.<TableName>", <TableType>)
-```
-
-### Use PySpark with the connector
-
-> [!NOTE]
-> This example is given with only the notebook experience kept in mind.
-
-Assume you have a dataframe "pyspark_df" that you want to write into the DW.
-
-Create a temp table using the dataframe in PySpark:
-
-```py
-pyspark_df.createOrReplaceTempView("pysparkdftemptable")
-```
-
-Run a Scala cell in the PySpark notebook using magics:
-
-```scala
+```Python
 %%spark
-val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
-scala_df.write.synapsesql("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
+import org.apache.spark.sql.DataFrame
+import com.microsoft.spark.sqlanalytics.utils.Constants
+import org.apache.spark.sql.SqlAnalyticsConnector._
+
+//Code to write or read goes here (refer to the aforementioned code templates)
+
 ```
 
-Similarly, in the read scenario, read the data using Scala and write it into a temp table, and use Spark SQL in PySpark to query the temp table into a dataframe.
+#### Using materialized data across cells
 
-## Allow other users to use the Azure Synapse Apache Spark to Synapse SQL connector in your workspace
+Spark DataFrame's `createOrReplaceTempView` can be used to access data fetched in another cell, by registering a temporary view.
 
-You need to be Storage Blob Data Owner on the ADLS Gen2 storage account connected to the workspace to alter missing permissions for others. Ensure the user has access to the workspace and permissions to run notebooks.
+* Cell where data is fetched (say with Notebook language preference as `Scala`)
 
-### Option 1
+```Scala
+    //Necessary imports
+    import org.apache.spark.sql.DataFrame
+    import org.apache.spark.sql.SaveMode
+    import com.microsoft.spark.sqlanalytics.utils.Constants
+    import org.apache.spark.sql.SqlAnalyticsConnector._
+    
+    //Configure options and read from Synapse Dedicated SQL Pool.
+    val readDF = spark.read.
+        //Set Synapse Dedicated SQL End Point name.
+        option(Constants.SERVER, "<synapse-dedicated-sql-end-point>.sql.azuresynapse.net").
+        //Set database user name.
+        option(Constants.USER, "<user_name>").
+        //Set database user's password. 
+        option(Constants.PASSWORD, "<user_password>").
+        //Set name of the data source definition that is defined with database scoped credentials.
+        option(Constants.DATA_SOURCE,"<data_source_name>").
+        //Set the three-part table name from which the read must be performed.
+        synapsesql("<database_name>.<schema_name>.<table_name>").
+        //Optional - specify number of records the DataFrame would read.
+        limit(10)
+    //Register the temporary view (scope - current active Spark Session)
+    readDF.createOrReplaceTempView("<temporary_view_name>")
+```
 
-- Make the user a Storage Blob Data Contributor/Owner
+* Now, change the language preference on the Notebook to `PySpark (Python)` and fetch data from the registered view `<temporary_view_name>`
 
-### Option 2
+    ```Python
+        spark.sql("select * from <temporary_view_name>").show()
+    ```
 
-- Specify the following ACLs on the folder structure:
+## Response handling
 
-| Folder | / | synapse | workspaces  | \<workspacename> | sparkpools | \<sparkpoolname>  | sparkpoolinstances  |
-|--|--|--|--|--|--|--|--|
-| Access Permissions | --X | --X | --X | --X | --X | --X | -WX |
-| Default Permissions | ---| ---| ---| ---| ---| ---| ---|
+Invoking `synapsesql` has two possible end states - Success or a Failed State. This section describes how to handle the request response for each scenario.
 
-- You should be able to ACL all folders from "synapse" and downward from Azure portal. To ACL the root "/" folder, please follow the instructions below.
+### Read request response
 
-- Connect to the storage account connected with the workspace from Storage Explorer using Azure AD
-- Select your Account and give the ADLS Gen2 URL and default file system for the workspace
-- Once you can see the storage account listed, right-click on the listing workspace and select "Manage Access"
-- Add the User to the / folder with "Execute" Access Permission. Select "Ok"
+Upon completion, the read response snippet is displayed in the cell's output. Failure in the current cell will also cancel subsequent cell executions. Detailed error information is available in the Spark Application Logs.
 
-> [!IMPORTANT]
-> Make sure you don't select "Default" if you don't intend to.
+### Write request response
 
+By default, a write response is printed to the cell output. On failure, the current cell is marked as failed, and subsequent cell executions will be aborted. The other approach is to pass the [callback handle](#write-request-callback-handle) option to the `synapsesql` method. The callback handle will provide programmatic access to the write response.
 
-## Next steps
+## Other considerations
 
-- [Create a dedicated SQL pool using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
-- [Create a new Apache Spark pool using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 
+* When reading from the Azure Synapse Dedicated SQL Pool tables:
+  * Consider applying necessary filters on the DataFrame to take advantage of the Connector's column-pruning feature.
+  * Read scenario doesn't support the `TOP(n-rows)` clause, when framing the `SELECT` query statements. The choice to limit data is to use the DataFrame's limit(.) clause.
+    * Refer the example - [Using materialized data across cells](#using-materialized-data-across-cells) section.
+* When writing to the Azure Synapse Dedicated SQL Pool tables:
+  * For internal table types:
+    * Tables are created with ROUND_ROBIN data distribution.
+    * Column types are inferred from the DataFrame that would read data from source. String columns are mapped to `NVARCHAR(4000)`.
+  * For external table types:
+    * DataFrame's initial parallelism drives the data organization for the external table.
+    * Column types are inferred from the DataFrame that would read data from source.
+  * Better data distribution across executors can be achieved by tuning the `spark.sql.files.maxPartitionBytes` and the DataFrame's `repartition` parameter.
+  * When writing large data sets, it's important to factor in the impact of [DWU Performance Level](../../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) setting that limits [transaction size](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions.md#transaction-size).
+* Monitor [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-best-practices.md) utilization trends to spot throttling behaviors that can [impact](../../storage/common/scalability-targets-standard-account.md) read and write performance.
+
+## References
+
+* [Runtime library versions](../../synapse-analytics/spark/apache-spark-3-runtime.md)
+* [Azure Storage](../../storage/blobs/data-lake-storage-introduction.md)
+* [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

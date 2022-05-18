@@ -6,7 +6,7 @@ ms.service: cognitive-services
 ms.topic: include
 ---
 
-The host is a x64-based computer that runs the Docker container. It can be a computer on your premises or a Docker hosting service in Azure, such as:
+The host is an x64-based computer that runs the Docker container. It can be a computer on your premises or a Docker hosting service in Azure, such as:
 
 * [Azure Kubernetes Service](../articles/aks/index.yml).
 * [Azure Container Instances](../articles/container-instances/index.yml).

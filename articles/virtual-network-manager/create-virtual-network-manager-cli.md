@@ -1,14 +1,16 @@
 ---
-title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager using the Azure CLI'
+title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager via the Azure CLI'
 description: Use this quickstart to learn how to create a mesh network topology with Virtual Network Manager using the Azure CLI.
 author: duongau
 ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/16/2021
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
-# Quickstart: Create a mesh network topology with Azure Virtual Network Manager using the Azure CLI
+# Quickstart: Create a mesh network topology with Azure Virtual Network Manager via the Azure CLI
 
 Get started with Azure Virtual Network Manager by using the Azure CLI to manage connectivity for all your virtual networks.
 
@@ -42,7 +44,7 @@ az account set \
 
 ## Create a resource group 
 
-Before you can create an Azure Route Server, you have to create a resource group to host the Route Server. Create a resource group with [az group create](/cli/azure/group#az_group_create). This example creates a resource group named **myAVNMResourceGroup** in the **westus** location:
+Before you can create an Azure Route Server, you have to create a resource group to host the Route Server. Create a resource group with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named **myAVNMResourceGroup** in the **westus** location:
 
 ```azurecli-interactive
 az group create \
@@ -52,7 +54,7 @@ az group create \
 
 ## Create a Virtual Network Manager
 
-Define the scope and access type this Network Manager instance will have. Create the scope by using [az network manager create](/cli/azure/network/manager#az_network_manager_create). Replace the value *{mgName}* with management group name or *{subscriptionId}* with subscriptions you want Virtual Network Manager to manage virtual networks for.
+Define the scope and access type this Network Manager instance will have. Create the scope by using [az network manager create](/cli/azure/network/manager#az-network-manager-create). Replace the value *{mgName}* with management group name or *{subscriptionId}* with subscriptions you want Virtual Network Manager to manage virtual networks for.
 
 ```azurecli-interactive
 az network manager create \
@@ -65,7 +67,7 @@ az network manager create \
 
 ## Create three virtual networks
 
-Create three virtual networks with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). This example creates virtual networks named **VNetA**, **VNetB** and **VNetC** in the **westus** location. If you already have virtual networks you want create a mesh network with, you can skip to the next section.
+Create three virtual networks with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates virtual networks named **VNetA**, **VNetB** and **VNetC** in the **westus** location. If you already have virtual networks you want create a mesh network with, you can skip to the next section.
 
 ```azurecli-interactive
 az network vnet create \
@@ -86,7 +88,7 @@ az network vnet create \
 
 ### Add a subnet to each virtual network
 
-To complete the configuration of the virtual networks add a /24 subnet to each one. Create a subnet configuration named **default** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create):
+To complete the configuration of the virtual networks add a /24 subnet to each one. Create a subnet configuration named **default** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -110,7 +112,7 @@ az network vnet subnet create \
 
 ## Create a network group
 
-Create a network group using static membership with [az network manager group create](/cli/azure/network/manager/group#az_network_manager_group_create). Replace the value *{subscriptionId}* with the subscription the virtual network is in.
+Create a network group using static membership with [az network manager group create](/cli/azure/network/manager/group#az-network-manager-group-create). Replace the value *{subscriptionId}* with the subscription the virtual network is in.
 
 ```azurecli-interactive
 az network manager group create \
@@ -124,7 +126,7 @@ az network manager group create \
 
 ## Create a configuration
 
-Create a mesh network topology configuration with [az network manager connect-config create](/cli/azure/network/manager/connect-config#az_network_manager_connect_config_create):
+Create a mesh network topology configuration with [az network manager connect-config create](/cli/azure/network/manager/connect-config#az-network-manager-connect-config-create):
 
 ```azurecli-interactive
 az network manager connect-config create \
@@ -139,7 +141,7 @@ az network manager connect-config create \
 
 ## Commit deployment
 
-Commit a connectivity configuration with [az network manager post-commit](/cli/azure/network/manager#az_network_manager_post_commit):
+Commit a connectivity configuration with [az network manager post-commit](/cli/azure/network/manager#az-network-manager-post-commit):
 
 ```azurecli-interactive
 az network manager post-commit \
@@ -158,7 +160,7 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
 * All configurations have been deleted.
 * All network groups have been deleted.
 
-1. Remove the connectivity deployment by committing no configurations with [az network manager post-commit](/cli/azure/network/manager#az_network_manager_post_commit):
+1. Remove the connectivity deployment by committing no configurations with [az network manager post-commit](/cli/azure/network/manager#az-network-manager-post-commit):
 
     ```azurecli-interactive
     az network manager post-commit \
@@ -168,7 +170,7 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
         --resource-group "myAVNMResourceGroup"
     ```
 
-1. Remove the connectivity configuration with [az network manager connect-config delete](/cli/azure/network/manager/connect-config#az_network_manager_connect_config_delete):
+1. Remove the connectivity configuration with [az network manager connect-config delete](/cli/azure/network/manager/connect-config#az-network-manager-connect-config-delete):
 
     ```azurecli-interactive
     az network manager connect-config delete \
@@ -177,7 +179,7 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
         --resource-group "myAVNMResourceGroup"
     ```
 
-1. Remove the network group with [az network manager group delete](/cli/azure/network/manager/group#az_network_manager_group_delete):
+1. Remove the network group with [az network manager group delete](/cli/azure/network/manager/group#az-network-manager-group-delete):
 
     ```azurecli-interactive
     az network manager group delete \
@@ -186,7 +188,7 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
         --resource-group "myAVNMResourceGroup"
     ```
 
-1. Delete the network manager instance with [az network manager delete](/cli/azure/network/manager#az_network_manager_delete):
+1. Delete the network manager instance with [az network manager delete](/cli/azure/network/manager#az-network-manager-delete):
 
     ```azurecli-interactive
     az network manager delete \
@@ -194,7 +196,7 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
         --resource-group "myAVNMResourceGroup"
     ```
 
-1. If you no longer need the resource created, delete the resource group with [az group delete](/cli/azure/group#az_group_delete):
+1. If you no longer need the resource created, delete the resource group with [az group delete](/cli/azure/group#az-group-delete):
 
     ```azurecli-interactive
     az group delete \

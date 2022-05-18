@@ -10,10 +10,10 @@ ms.date: 07/13/2020
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
+ms.collection: M365-identity-device-management
 
 # Customer intent: As an Azure AD Administrator, I want to learn how to use Azure Identity Protection to protect users by automatically detecting risk sign-in behavior and prompting for additional forms of authentication or request a password change.
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Use risk detections for user sign-ins to trigger Azure AD Multi-Factor Authentication or password changes
 

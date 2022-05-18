@@ -1,5 +1,5 @@
 ---
-title: "Call the detect API - Face"
+title: "Call the Detect API - Face"
 titleSuffix: Azure Cognitive Services
 description: This guide demonstrates how to use face detection to extract attributes like age, emotion, or head pose from a given image.
 services: cognitive-services
@@ -8,13 +8,14 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/04/2021
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# Call the detect API
+# Call the Detect API
 
 This guide demonstrates how to use the face detection API to extract attributes like age, emotion, or head pose from a given image. You'll learn the different ways to configure the behavior of this API to meet your needs.
 

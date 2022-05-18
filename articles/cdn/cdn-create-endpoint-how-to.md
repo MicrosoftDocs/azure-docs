@@ -10,7 +10,6 @@ editor: ''
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/09/2021
 ms.author: duau

@@ -8,7 +8,8 @@ ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom: devx-track-csharp, mode-other
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue

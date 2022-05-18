@@ -70,7 +70,7 @@ Configure the SAP parameters file:
     ```bash
     cat <<EOF > sap-parameters.yaml
     ---
-    bom_base_name:               S41909SPS03_v0006ms
+    bom_base_name:               S41909SPS03_v0010ms
     kv_name: Name of your Management/Control Plane keyvault
     ..
     EOF
@@ -84,7 +84,7 @@ Configure the SAP parameters file:
 
 1. Update the following parameters:
 
-    1. Change the value of `bom_base_name` to `S41909SPS03_v0006ms`.
+    1. Change the value of `bom_base_name` to `S41909SPS03_v0010ms`.
 
     1. Change the value of `kv_name` to the name of the deployer key vault.
    

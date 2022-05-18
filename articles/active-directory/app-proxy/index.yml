@@ -13,7 +13,7 @@ metadata:
    ms.date: 04/27/2021
    author: kenwith
    ms.author: kenwith
-   manager: karenh444
+   manager: karenhoran
 
 landingContent:
   - title: About Application Proxy
@@ -43,7 +43,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Guidance for developers
-            url: ../develop/v2-howto-app-gallery-listing.md
+            url: ../manage-apps/v2-howto-app-gallery-listing.md
           - text: Understand the platform
             url: ../develop/v2-overview.md
   - title: New in docs

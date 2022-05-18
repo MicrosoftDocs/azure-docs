@@ -3,9 +3,8 @@ title: Sampling overrides (preview) - Azure Monitor Application Insights for Jav
 description: Learn to configure sampling overrides in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
 ms.date: 03/22/2021
-author: trask
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: trstalna
 ---
 
 # Sampling overrides (preview) - Azure Monitor Application Insights for Java
@@ -69,6 +68,9 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 
 When a span is started, the attributes present on the span at that time are used to check if any of the sampling
 overrides match.
+
+Matches can be either `strict` or `regexp`. Regular expression matches are performed against the entire attribute value,
+so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
 
 If one of the sampling overrides match, then its sampling percentage is used to decide whether to sample the span or
 not.
@@ -206,7 +208,7 @@ at the start of the span.
 
 | Attribute  | Type | Description  |
 |---|---|---|
-| `db.system` | string | Identifier for the database management system (DBMS) product being used. |
+| `db.system` | string | Identifier for the database management system (DBMS) product being used. See [list of identifiers](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/database.md#connection-level-attributes). |
 | `db.connection_string` | string | Connection string used to connect to the database. It's recommended to remove embedded credentials.|
 | `db.user` | string | Username for accessing the database. |
 | `db.name` | string | String used to report the name of the database being accessed. For commands that switch the database, this string should be set to the target database, even if the command fails.|

@@ -53,7 +53,7 @@ The following table shows the primary settings that are available in the **Heat 
 |----------------------|------------------|
 | Radius | The radius of each data point in the heat map.<br /><br />Valid values when Unit = ‘pixels’: 1 - 200. Default: **20**<br />Valid values when Unit = ‘meters’: 1 - 4,000,000|
 | Units  | The distance units of the radius. Possible values are:<br /><br />**pixels**. When set to pixels the size of each data point will always be the same, regardless of zoom level.<br />**meters**. When set to meters, the size of the data points will scale based on zoom level, ensuring the radius is spatially accurate.<br /><br /> Default: **pixels**  |
-| Opacity | Sets the opacity of the heat map layer. Default: **1**<br/>Value should be a decimal between 0 and 1. |
+| Transparency | Sets the Transparency of the heat map layer. Default: **1**<br/>Value should be from 0% to 100%. |
 | Intensity | The intensity of each heat point. Intensity is a decimal value between 0 and 1, used to specify how "hot" a single data point should be. Default: **0.5** |
 | Use size as weight | A boolean value that determines if the size field value should be used as the weight of each data point. If on, this causes the layer to render as a weighted heat map. Default: **Off** |
 | Gradient |Color pick for users to pick 3 colors for low (0%), center (50%) and high (100%) gradient colors. |

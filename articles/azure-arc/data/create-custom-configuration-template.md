@@ -19,7 +19,8 @@ One of required parameters during deployment of a data controller in indirectly 
 ```azurecli
 az arcdata dc config list
 ```
-These profiles are template JSON files that have various settings for the Azure Arc-enabled data controller such as docker registry and repository settings, storage classes for data and logs, storage size for data and logs, security, service type etc. and can be customized to your environment. 
+
+These profiles are template JSON files that have various settings for the Azure Arc-enabled data controller such as container registry and repository settings, storage classes for data and logs, storage size for data and logs, security, service type etc. and can be customized to your environment. 
 
 However, in some cases, you may want to customize those configuration templates to meet your requirements and pass the customized configuration template using the `--path` parameter to the `az arcdata dc create` command rather than pass a preconfigured configuration template using the `--profile-name` parameter.
 

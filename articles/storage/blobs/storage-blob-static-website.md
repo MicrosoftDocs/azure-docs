@@ -42,7 +42,7 @@ You can use any of these tools to upload content to the **$web** container:
 > - [AzCopy](../common/storage-use-azcopy-v10.md)
 > - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> - [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Channel 9 video demonstration](https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
+> - [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Channel 9 video demonstration](/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
 
 ## Viewing content
 

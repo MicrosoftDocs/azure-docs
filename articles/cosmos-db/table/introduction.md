@@ -1,12 +1,12 @@
 ---
 title: Introduction to the Azure Cosmos DB Table API
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of key-value data with low latency by using the Azure Tables API.
-author: SnehaGunda
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 11/03/2021
-ms.author: sngun
 
 ---
 # Introduction to Azure Cosmos DB: Table API
@@ -36,7 +36,7 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 | --- | --- | --- |
 | Latency | Fast, but no upper bounds on latency. | Single-digit millisecond latency for reads and writes, backed with <10 ms latency for reads and writes at the 99th percentile, at any scale, anywhere in the world. |
 | Throughput | Variable throughput model. Tables have a scalability limit of 20,000 operations/s. | Highly scalable with [dedicated reserved throughput per table](../request-units.md) that's backed by SLAs. Accounts have no upper limit on throughput and support >10 million operations/s per table. |
-| Global distribution | Single region with one optional readable secondary read region for high availability. | [Turnkey global distribution](../distribute-data-globally.md) from one to any number of regions. Support for [automatic and manual failovers](../high-availability.md) at any time, anywhere in the world. Multiple write regions to let any region accept write operations. |
+| Global distribution | Single region with one optional readable secondary read region for high availability. | [Turnkey global distribution](../distribute-data-globally.md) from one to any number of regions. Support for [service-managed and manual failovers](../high-availability.md) at any time, anywhere in the world. Multiple write regions to let any region accept write operations. |
 | Indexing | Only primary index on PartitionKey and RowKey. No secondary indexes. | Automatic and complete indexing on all properties by default, with no index management. |
 | Query | Query execution uses index for primary key, and scans otherwise. | Queries can take advantage of automatic indexing on properties for fast query times. |
 | Consistency | Strong within primary region. Eventual within secondary region. | [Five well-defined consistency levels](../consistency-levels.md) to trade off availability, latency, throughput, and consistency based on your application needs. |

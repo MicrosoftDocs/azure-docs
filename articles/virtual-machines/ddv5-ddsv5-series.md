@@ -1,9 +1,8 @@
 ---
 title: Ddv5 and Ddsv5-series - Azure Virtual Machines
 description: Specifications for the Ddv5 and Ddsv5-series VMs.
-author: joelpelley
-ms.author: joelpell
-ms.reviewer: joelpell
+author: andysports8
+ms.author: shuji
 ms.custom: mimckitt
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general
@@ -34,7 +33,7 @@ Ddv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br> 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps<sup>*</sup> | Max NICs|Max network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup> | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D2d_v5<sup>1,2</sup> | 2  | 8   | 75   | 4  | 9000/125    | 2 | 12500 |
 | Standard_D4d_v5               | 4  | 16  | 150  | 8  | 19000/250   | 2 | 12500 |
@@ -66,7 +65,7 @@ Ddsv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 <br> 
 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps<sup>*</sup> | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>3</sup> | Max NICs | Max network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup> | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>3</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_D2ds_v5<sup>1,2</sup> | 2  | 8   | 75   | 4  | 9000/125    | 3750/85     | 10000/1200 | 2 | 12500 |
 | Standard_D4ds_v5               | 4  | 16  | 150  | 8  | 19000/250   | 6400/145    | 20000/1200 | 2 | 12500 |
@@ -75,7 +74,7 @@ Ddsv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 | Standard_D32ds_v5              | 32 | 128 | 1200 | 32 | 150000/2000 | 51200/865   | 80000/2000 | 8 | 16000 |
 | Standard_D48ds_v5              | 48 | 192 | 1800 | 32 | 225000/3000 | 76800/1315  | 80000/3000 | 8 | 24000 |
 | Standard_D64ds_v5              | 64 | 256 | 2400 | 32 | 375000/4000 | 80000/1735  | 80000/3000 | 8 | 30000 |
-| Standard_D96ds_v5              | 96 | 256 | 3600 | 32 | 450000/4000 | 80000/2600  | 80000/4000 | 8 | 35000 |
+| Standard_D96ds_v5              | 96 | 384 | 3600 | 32 | 450000/4000 | 80000/2600  | 80000/4000 | 8 | 35000 |
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
 <sup>1</sup> Accelerated networking is required and turned on by default on all Ddsv5 virtual machines.<br>

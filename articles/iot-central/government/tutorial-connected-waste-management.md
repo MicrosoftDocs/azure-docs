@@ -3,20 +3,20 @@ title: Tutorial - Azure IoT connected waste management | Microsoft Docs
 description: This tutorial shows you how to deploy and use the connected waste management application template for IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 08/02/2021
+ms.date: 12/22/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ---
 # Tutorial: Deploy and walk through the connected waste management application template
 
-Use the IoT Central *connected waste management* application template and the guidance in this article to develop an end-to-end connected waste management solution.
+The _connected waste management_ application template helps you kickstart your IoT solution development to enable smart cities to remotely monitor to maximize efficient waste collection.
 
 :::image type="content" source="media/tutorial-connectedwastemanagement/concepts-connected-waste-management-architecture-1.png" alt-text="Connected waste management architecture.":::
 
-### Devices and connectivity
+### Devices and connectivity (1,2)
 
-Devices such as waste bins that are used in open environments may connect through low-power wide area networks (LPWAN) or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use device gateways that are IP capable and that can connect directly to IoT Central.
+Devices such as waste bins that are used in open environments may connect through low-power wide area networks (LPWAN) or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT Central application. You can also use an IP capable device gateway that connects directly to your IoT Central application.
 
 ### IoT Central
 
@@ -24,7 +24,7 @@ Azure IoT Central is an IoT App platform that helps you quickly build and deploy
 
 When you connect your smart waste devices to IoT Central, the application provides device command and control, monitoring and alerting, a user interface with built-in RBAC, configurable dashboards, and extensibility options.
 
-### Extensibility and integrations
+### Extensibility and integrations (3)
 
 You can extend your IoT application in IoT Central and optionally:
 
@@ -32,7 +32,7 @@ You can extend your IoT application in IoT Central and optionally:
 * Automate workflows in other systems by triggering actions using Power Automate or webhooks from IoT Central application.
 * Programatically access your IoT application in IoT Central through IoT Central APIs.
 
-### Business applications
+### Business applications (4)
 
 You can use IoT data to power various business applications within a waste utility. For example, in a connected waste management solution you can optimize the dispatch of trash collections trucks. The optimization can be done based on IoT sensors data from connected waste bins. In your [IoT Central connected waste management application](./tutorial-connected-waste-management.md) you can configure rules and actions, and set them to create alerts in [Connected Field Service](/dynamics365/field-service/connected-field-service). Configure Power Automate in IoT Central rules to automate workflows across applications and services. Additionally, based on service activities in Connected Field Service, information can be sent back to Azure IoT Central.
 
@@ -46,9 +46,8 @@ You can easily configure the following integration processes with IoT Central an
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
-> * Use the Azure IoT Central *Connected waste management* template to create your app.
-> * Explore and customize the dashboard. 
+> * Use the Azure IoT Central *connected waste management* application template to create your app.
+> * Explore and customize the dashboard.
 > * Explore the connected waste bin device template.
 > * Explore simulated devices.
 > * Explore and configure rules.
@@ -137,7 +136,7 @@ To view the device template:
 
 ### Customize the device template
 
-Try to customize the following:
+Try to customize the following features:
 
 1. From the device template menu, select **Customize**.
 1. Find the **Odor meter** telemetry type.
@@ -157,7 +156,7 @@ Here's how:
 
 The connected waste bin device template comes with predefined views. Explore the views, and update them if you want to. The views define how operators see the device data and input cloud properties. 
 
-:::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-device-template-views.png" alt-text="Screenshot of Connected Waste Management Template Device templates views..":::
+:::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-device-template-views.png" alt-text="Screenshot of Connected Waste Management Template Device templates views.":::
 
 
 ### Publish 
@@ -185,8 +184,6 @@ The Connected waste management application has two simulated devices associated 
 
     :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-devices-bin-1.png" alt-text="Screenshot of Connected Waste Management Template Device Properties.":::
 
-
-1. Go to the **Cloud Properties** tab. Update the value of **Bin full alert threshold** from **95** to **100**. 
 
 Explore the **Device Properties** and **Device Dashboard** tabs. 
 
@@ -251,23 +248,23 @@ As a builder, you can change several settings to customize the user experience i
 ### Change the application theme
 
 Here's how:
-1. Go to **Administration** > **Customize your application**.
+1. Go to **Application** > **Management**.
 1. Select **Change** to choose an image to upload for the **Application logo**.
 1. Select **Change** to choose an image to upload for the **Browser icon** (an image that will appear on browser tabs).
 1. You can also replace the default browser colors by adding HTML hexadecimal color codes. Use the **Header** and **Accent** fields for this purpose.
 
-    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-customize-your-application.png" alt-text="Screenshot of Connected Wast Management Template Customize your application.":::
+    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-customize-your-application.png" alt-text="Screenshot of Connected Waste Management Template Customize your application.":::
 
 
-1. You can also change application images. Select **Administration** > **Application settings** > **Select image** to choose an image to upload as the application image.
+1. You can also change application images. Select  **Application** > **Management** > **Select image** to choose an image to upload as the application image.
 1. Finally, you can also change the theme by selecting **Settings** on the masthead of the application.
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete your application with the following steps:
 
-1. From the left pane of your Azure IoT Central app, select **Administration**.
-1. Select **Application settings** > **Delete**.
+1. From the left pane of your Azure IoT Central app, select **Application**.
+1. Select  **Management > Delete**.
 
 ## Next steps
 

@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Transform data using Apache Spark job definition"
 description:  This tutorial provides step-by-step instructions for using Azure Synapse Analytics to transform data with Apache Spark job definition.
-author: djpmsft
-ms.author: daperlov
+author: juluczni
+ms.author: juluczni
 ms.reviewer: makromer
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/13/2021
+ms.date: 02/15/2022
 ---
 
 # Quickstart: Transform data using Apache Spark job definition.
@@ -26,7 +26,7 @@ In this quickstart, you'll use Azure Synapse Analytics to create a pipeline usin
 
 After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
 
-* Open your Synapse workspace in the [Azure portal](https://ms.portal.azure.com/#home). Select **Open** on the Open Synapse Studio card under Getting started.
+* Open your Synapse workspace in the [Azure portal](https://portal.azure.com/#home). Select **Open** on the Open Synapse Studio card under Getting started.
 * Open [Azure Synapse Analytics](https://web.azuresynapse.net/) and sign in to your workspace.
 
 In this quickstart, we use the workspace named "sampletest" as an example. It will automatically navigate you to the Synapse Studio home page.
@@ -78,8 +78,20 @@ On this panel, you can reference to the Spark job definition to run.
 
 * Expand the Spark job definition list, you can choose an existing Apache Spark job definition. You can also create a new Apache Spark job definition by selecting the **New** button to reference the Spark job definition to be run.
 
-* You can add command-line arguments by clicking the **New** button. It should be noted that adding command-line arguments will override the command-line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
+* (Optional) You can fill in information for Apache Spark job definition. If the following settings are empty, the settings of the spark job definition itself will be used to run; if the following settings are not empty, these settings will replace the settings of the spark job definition itself. 
+     
+     |  Property   | Description   |  
+     | ----- | ----- |  
+     |Main definition file| The main file used for the job. Select a PY/JAR/ZIP file from your storage. You can select **Upload file** to upload the file to a storage account. <br> Sample: `abfss://…/path/to/wordcount.jar`|
+     |Main class name| The fully qualified identifier or the main class that is in the main definition file. <br> Sample: `WordCount`|
+     |Command-line arguments| You can add command-line arguments by clicking the **New** button. It should be noted that adding command-line arguments will override the command-line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br> |
+     |Apache Spark pool| You can select Apache Spark pool from the list.|
+     |Dynamically allocate executors| This setting maps to the dynamic allocation property in Spark configuration for Spark Application executors allocation.|
+     |Min executors| Min number of executors to be allocated in the specified Spark pool for the job.|
+     |Max executors| Max number of executors to be allocated in the specified Spark pool for the job.|
+     |Driver size| Number of cores and memory to be used for driver given in the specified Apache Spark pool for the job.|
 
+     
      ![spark job definition pipline settings](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-pipline-settings.png)
 
 * You can add dynamic content by clicking the **Add Dynamic Content** button or by pressing the shortcut key <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>. In the **Add Dynamic Content** page, you can use any combination of expressions, functions, and system variables to add to dynamic content.
@@ -97,6 +109,6 @@ You can add properties for Apache Spark job definition activity in this panel.
 Advance to the following articles to learn about Azure Synapse Analytics support:
 
 > [!div class="nextstepaction"]
-> [Pipeline and activities](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
-> [Mapping data flow overview](../data-factory/concepts-data-flow-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
-> [Data flow expression language](../data-factory/data-flow-expression-functions.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Pipeline and activities](../data-factory/concepts-pipelines-activities.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Mapping data flow overview](../data-factory/concepts-data-flow-overview.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Data flow expression language](../data-factory/data-flow-expression-functions.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)

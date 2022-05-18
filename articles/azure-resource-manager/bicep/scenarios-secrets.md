@@ -93,7 +93,7 @@ When you deploy your Azure resources by using a pipeline, you need to take care 
   - [Azure Key Vault](../../key-vault/general/overview.md)
 - Bicep features
   - [Secure parameters](parameters.md#secure-parameters)
-  - [Referencing existing resources](resource-declaration.md#existing-resources)
+  - [Referencing existing resources](existing-resource.md)
   - [`getSecret` function](bicep-functions-resource.md#getsecret)
 - Quickstart templates
   - [Create a user-assigned managed identity and role assignments](https://github.com/Azure/azure-quickstart-templates/tree/master/modules/Microsoft.ManagedIdentity/user-assigned-identity-role-assignment/1.0)

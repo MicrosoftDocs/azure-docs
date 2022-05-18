@@ -4,7 +4,7 @@ description: This article describes the different management tasks that you will
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/14/2019
+ms.date: 04/06/2022
 
 ---
 
@@ -160,7 +160,7 @@ The following steps demonstrate how to reconfigure the Linux agent if you decide
 The agent service does not need to be restarted in order for the changes to take effect.
 
 ## Update proxy settings
-To configure the agent to communicate to the service through a proxy server or [Log Analytics gateway](./gateway.md) after deployment, use one of the following methods to complete this task.
+Log Analytics Agent (MMA) does not use the system proxy settings. Hence, user has to pass proxy setting while installing MMA and these settings will be stored under MMA configuration(registry) on VM. To configure the agent to communicate to the service through a proxy server or [Log Analytics gateway](./gateway.md) after deployment, use one of the following methods to complete this task.
 
 ### Windows agent
 
@@ -173,6 +173,7 @@ To configure the agent to communicate to the service through a proxy server or [
 3. Select **Microsoft Monitoring Agent** and then click the **Proxy Settings** tab.
 
 4. Click **Use a proxy server** and provide the URL and port number of the proxy server or gateway. If your proxy server or Log Analytics gateway requires authentication, type the username and password to authenticate and then click **OK**.
+
 
 #### Update settings using PowerShell
 

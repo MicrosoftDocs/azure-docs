@@ -52,7 +52,7 @@ vmname="myVM"
 rg="my-resource-group"
 
 az group create -n "$rg" -l $location
-az vmss create -n "$vmoname" -g "$rg" -l $location --orchestration-mode vm --platform-fault-domain-count 1
+az vmss create -n "$vmoname" -g "$rg" -l $location --orchestration-mode flexible --platform-fault-domain-count 1
 az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmoname --image UbuntuLTS
 ``` 
 

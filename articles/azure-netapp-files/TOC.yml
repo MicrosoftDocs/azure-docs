@@ -27,6 +27,8 @@
       href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
+    - name: Ways to monitor Azure NetApp Files
+      href: monitor-azure-netapp-files.md
     - name: Metrics for Azure NetApp Files
       href: azure-netapp-files-metrics.md
     - name: Storage service add-ons
@@ -149,7 +151,9 @@
     items:
     - name: Create and manage Active Directory connections
       href: create-active-directory-connections.md
-    - name: Configure ADDS LDAP over TLS
+    - name: Modify Active Directory connections
+      href: modify-active-directory-connections.md
+    - name: Enable ADDS LDAP authentication for NFS volumes
       href: configure-ldap-over-tls.md
   - name: Manage capacity pools
     items:
@@ -173,6 +177,8 @@
         href: configure-ldap-extended-groups.md
       - name: Configure an NFS client for Azure NetApp Files
         href: configure-nfs-clients.md
+      - name: Convert an NFS volume between NFSv3 and NFSv4.1
+        href: convert-nfsv3-nfsv41.md
     - name: Manage SMB volumes
       items:
       - name: Create an SMB volume
@@ -231,6 +237,8 @@
         href: snapshots-edit-hide-path.md
       - name: Restore a snapshot to a new volume
         href: snapshots-restore-new-volume.md
+      - name: Restore individual files using single-file snapshot restore
+        href: snapshots-restore-file-single.md
       - name: Restore a file from a snapshot using a client
         href: snapshots-restore-file-client.md
       - name: Restore a volume using snapshot revert
@@ -259,7 +267,7 @@
       items:
       - name: Create volume replication
         href: cross-region-replication-create-peering.md
-      - name: Display health status of replication relationship
+      - name: Display health and monitor status of replication relationship
         href: cross-region-replication-display-health-status.md
       - name: Manage disaster recovery
         href: cross-region-replication-manage-disaster-recovery.md
@@ -309,6 +317,8 @@
       href: azacsnap-tips.md
     - name: Troubleshoot AzAcSnap
       href: azacsnap-troubleshoot.md
+    - name: Preview release features of AzAcSnap
+      href: azacsnap-preview.md
     - name: AzAcSnap command reference 
       items: 
       - name: Configure AzAcSnap

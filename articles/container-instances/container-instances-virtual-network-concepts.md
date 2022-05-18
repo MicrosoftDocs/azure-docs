@@ -31,7 +31,6 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * **Azure Load Balancer** - Placing an Azure Load Balancer in front of container instances in a networked container group is not supported
 * **Global virtual network peering** - Global peering (connecting virtual networks across Azure regions) is not supported
 * **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name
-* **Virtual Network NAT** - Container groups deployed to a virtual network don't currently support using a NAT gateway resource for outbound internet connectivity.
 
 ## Other limitations
 
@@ -59,6 +58,8 @@ Subnets segment the virtual network into separate address spaces usable by the A
 The subnet that you use for container groups may contain only container groups. When you first deploy a container group to a subnet, Azure delegates that subnet to Azure Container Instances. Once delegated, the subnet can be used only for container groups. If you attempt to deploy resources other than container groups to a delegated subnet, the operation fails.
 
 ### Network profile
+
+[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
 A network profile is a network configuration template for Azure resources. It specifies certain network properties for the resource, for example, the subnet into which it should be deployed. When you first use the [az container create][az-container-create] command to deploy a container group to a subnet (and thus a virtual network), Azure creates a network profile for you. You can then use that network profile for future deployments to the subnet. 
 

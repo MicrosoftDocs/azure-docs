@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Plan your deployment of SAP automation framework
 
-There are multiple considerations for running the [SAP deployment automation framework on Azure](automation-deployment-framework.md), this include topics like deployment credentials management, virtual network design.
+There are multiple considerations for planning an SAP deployment and running the [SAP deployment automation framework on Azure](automation-deployment-framework.md), this include topics like deployment credentials management, virtual network design.
 
 For generic SAP on Azure design considerations please visit [Introduction to an SAP adoption scenario](/azure/cloud-adoption-framework/scenarios/sap)
 
@@ -20,21 +20,21 @@ For generic SAP on Azure design considerations please visit [Introduction to an 
 
 ## Credentials management
 
-The automation framework uses Azure Active Directory (Azure AD) [Service Principals](#service-principal-creation) for deployment. You can use different deployment credentials for each [workload zone](#workload-zone-structure). The framework keeps these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault in Azure Key Vault. Then, the framework retrieves these credentials dynamically during the deployment process.
+The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. You can use different deployment credentials (service principals) for each [workload zone](#workload-zone-structure). The framework stores these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault in Azure Key Vault. Then, the framework retrieves these credentials dynamically during the deployment process.
 
-The automation framework also uses credentials for the default virtual machine (VM) accounts, as provided at the time of the VM creation. These credentials include:
+The automation framework also defines the credentials for the default virtual machine (VM) accounts, as provided at the time of the VM creation. These credentials include:
 
-| Credential | Scope | Storage | Identifier | Description |
-| ---------- | ----- | ------- | ---------- | ----------- |
-| Local user | Deployer | - | Current user | Bootstraps the deployer. |
-| [Service principal](#service-principal-creation) | Environment | Deployer's key vault | Environment identifier | Does deployment activities. |
+| Credential | Scope        | Storage | Identifier   | Description |
+| ---------- | -----        | ------- | ----------   | ----------- |
+| Local user | Deployer     | -       | Current user | Bootstraps the deployer. |
+| [Service principal](#service-principal-creation) | Environment | Deployer's key vault | Environment identifier | Deployment credentials. |
 | VM credentials | Environment | Workload's key vault | Environment identifier | Sets the default VM user information. |
 
 ### Service principal creation
 
-Create your service principals:
+Create your service principal:
 
-1. Sign in to the [Azure Command Line Interface (Azure CLI)](/cli/azure/) with an account that has adequate privileges to create a Service Principal.
+1. Sign in to the [Azure CLI](/cli/azure/) with an account that has adequate privileges to create a Service Principal.
 1. Create a new Service Principal by running the command `az ad sp create-for-rbac`. Make sure to use a description name for `--name`. For example:
     ```azurecli
     az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --name="DEV-Deployment-Account"
@@ -49,18 +49,18 @@ Create your service principals:
         "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
     ```
-1. Assign the User Access Administrator role to your service principal. For example: 
+1. Optionally assign the User Access Administrator role to your service principal. For example: 
     ```azurecli
-    az role assignment create --assignee <your-application-ID> --role "User Access Administrator"
+    az role assignment create --assignee <your-application-ID> --role "User Access Administrator" --scope /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group-name>
     ```
 
 For more information, see [the Azure CLI documentation for creating a service principal](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 ## DevOps structure
 
-The Terraform automation templates are in the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/). For most use cases, consider this repository as read-only and don't modify its Terraform templates.
+The Terraform automation templates are in the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/). For most use cases, consider this repository as read-only and don't modify it.
 
-For your own parameter files, it's a best practice to keep these files in a source control repository that you manage. Clone the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/) and your repository into the same root folder. Then, [create an appropriate folder structure](#folder-structure).
+For your own parameter files, it's a best practice to keep these files in a source control repository that you manage. You can clone the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/) into your source control repository and then [create an appropriate folder structure](#folder-structure) in the repository.
 
 > [!IMPORTANT]
 > Your parameter file's name becomes the name of the Terraform state file. Make sure to use a unique parameter file name for this reason.
@@ -180,7 +180,7 @@ For more information, see [how to configure the SAP system for automation](autom
 
 When planning a deployment, it's important to consider the overall flow. There are three main steps of an SAP deployment on Azure with the automation framework.
 
-1. Preparing the region. This step deploys components to support the SAP automation framework in a specified Azure region. Some parts of this step are:
+1. Deploy the control plane. This step deploys components to support the SAP automation framework in a specified Azure region. Some parts of this step are:
     1. Creating the deployment environment
     1. Creating shared storage for Terraform state files
     1. Creating shared storage for SAP installation media

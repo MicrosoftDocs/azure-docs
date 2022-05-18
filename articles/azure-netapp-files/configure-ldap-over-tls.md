@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/05/2021
-ms.author: b-hchen
+ms.date: 03/15/2022
+ms.author: anfdocs
 ---
 # Configure ADDS LDAP over TLS for Azure NetApp Files
 
@@ -23,26 +22,6 @@ You can use LDAP over TLS to secure communication between an Azure NetApp Files 
 ## Considerations
 
 * LDAP over TLS must not be enabled if you are using Azure Active Directory Domain Services (AADDS). AADDS uses LDAPS (port 636) to secure LDAP traffic instead of LDAP over TLS (port 389).  
-
-## Register the LDAP over TLS feature 
-
-The LDAP over TLS feature is currently in preview. If you are using this feature for the first time, register the feature before using it.
-
-1.  Register the feature:
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapOverTls
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapOverTls
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Generate and export root CA certificate 
 
@@ -82,9 +61,19 @@ If you uploaded an invalid certificate, and you have existing AD configurations,
 
 To resolve the error condition, upload a valid root CA certificate to your NetApp account as required by the Windows Active Directory LDAP server for LDAP authentication.
 
+## Disable LDAP over TLS
+
+Disabling LDAP over TLS stops encrypting LDAP queries to Active Directory (LDAP server). There are no other precautions or impact on existing ANF volumes. 
+
+1. Go to the NetApp account that is used for the volume and click **Active Directory connections**. Then click **Edit** to edit the existing AD connection.
+
+2. In the **Edit Active Directory** window that appears, deselect the **LDAP over TLS** checkbox and click **Save** to disable LDAP over TLS for the volume.
+
+
 ## Next steps  
 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) 
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)
+* [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)
 

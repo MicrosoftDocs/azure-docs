@@ -58,8 +58,8 @@ You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams
 ```js
 const cameras = await deviceManager.getCameras();
 const camera = cameras[0];
-const localCameraStream = new LocalVideoStream(camera);
-const videoStreamRenderer = new VideoStreamRenderer(localCameraStream);
+const localVideoStream = new LocalVideoStream(camera);
+const videoStreamRenderer = new VideoStreamRenderer(localVideoStream);
 const view = await videoStreamRenderer.createView();
 htmlElement.appendChild(view.target);
 ```
@@ -84,9 +84,30 @@ console.log(result.video);
 - When the DeviceManager is created, at first it does not know about any devices if permissions have not been granted yet and so initially it's device lists are empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access and if the user clicks on 'allow' to grant the access, then the device manager will learn about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. Lets say we then refresh the page and create device manager, the device manager will be able to learn about devices because user has already previously granted access, and so it will initially it will have it's device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
 - Speaker enumeration/selection is not supported on Android Chrome, iOS Safari, nor macOS Safari.
 
-## Start and stop sending local video
+## Place a call with video camera
 
-To start a video, you have to enumerate cameras using the `getCameras` method on the `deviceManager` object. Then create a new instance of `LocalVideoStream` with the desired camera and then pass the `LocalVideoStream` object into the `startVideo` method of an existing call object:
+> [!IMPORTANT]
+> Currently only one outgoing local video stream is supported.
+
+To place a video call, you have to  enumerate local cameras by using the `getCameras()` method in `deviceManager`.
+
+After you select a camera, use it to construct a `LocalVideoStream` instance. Pass it within `videoOptions` as an item within the `localVideoStream` array to the `startCall` method.
+
+```js
+const deviceManager = await callClient.getDeviceManager();
+const cameras = await deviceManager.getCameras();
+const camera = cameras[0]
+const localVideoStream = new LocalVideoStream(camera);
+const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
+const userCallee = { communicationUserId: '<ACS_USER_ID>' }
+const call = callAgent.startCall([userCallee], placeCallOptions);
+```
+- You can also join a call with video with `CallAgent.join()` API, and accept and call with video with `Call.Accept()` API.
+- When your call connects, it automatically starts sending a video stream from the selected camera to the other participant.
+
+## Start and stop sending local video while on a call
+
+To start a video while on a call, you have to enumerate cameras using the `getCameras` method on the `deviceManager` object. Then create a new instance of `LocalVideoStream` with the desired camera and then pass the `LocalVideoStream` object into the `startVideo` method of an existing call object:
 
 ```js
 const deviceManager = await callClient.getDeviceManager();
@@ -102,15 +123,13 @@ After you successfully start sending video, a `LocalVideoStream` instance is add
 call.localVideoStreams[0] === localVideoStream;
 ```
 
-To stop local video, pass the `localVideoStream` instance that's available in the `localVideoStreams` collection:
+To stop local video while on a call, pass the `localVideoStream` instance that's available in the `localVideoStreams` collection:
 
 ```js
 await call.stopVideo(localVideoStream);
 // or
 await call.stopVideo(call.localVideoStreams[0]);
 ```
-
-There are 4 methods in which you can pass a `localVideoStream` instance to start video in a call, `callAgent.startCall()`, `callAgent.join()`, `call.accept()`, and `call.startVideo()`. To use `call.stopVideo()`, you must pass that same `localVideoStream` instance that you passed to the original method used to start video.
 
 You can switch to a different camera device while a video is sending by invoking `switchSource` on a `localVideoStream` instance:
 
@@ -124,27 +143,6 @@ If the specified video device is being used by another process, or if it is disa
 - While in a call, if your video is off and you start video using `call.startVideo()`, this method will throw with a `SourceUnavailableError` and `cameraStartFiled` will be set to true.
 - A call to the `localVideoStream.switchSource()` method will cause `cameraStartFailed` to be set to true.
 Our Call Diagnostics guide provides additional information on how to diagnose call related issues.
-
-## Place a 1:1 call with video camera
-
-> [!IMPORTANT]
-> Currently only one outgoing local video stream is supported.
-
-To place a video call, you have to  enumerate local cameras by using the `getCameras()` method in `deviceManager`.
-
-After you select a camera, use it to construct a `LocalVideoStream` instance. Pass it within `videoOptions` as an item within the `localVideoStream` array to the `startCall` method.
-
-```js
-const deviceManager = await callClient.getDeviceManager();
-const cameras = await deviceManager.getCameras();
-const camera = cameras[0]
-localVideoStream = new LocalVideoStream(camera);
-const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
-const userCallee = { communicationUserId: '<ACS_USER_ID>' }
-const call = callAgent.startCall([userCallee], placeCallOptions);
-```
-
-- When your call connects, it automatically starts sending a video stream from the selected camera to the other participant. This also applies to the `Call.Accept()` video options and `CallAgent.join()` video options.
 
 ## Render remote participant video streams
 
@@ -161,39 +159,105 @@ Whenever availability of a remote stream changes you can choose to destroy the w
 or keep them, but this will result in displaying blank video frame.
 
 ```js
-subscribeToRemoteVideoStream = async (remoteVideoStream) => {
-    // Create a video stream renderer for the remote video stream.
-    let videoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
-    let view;
-    const remoteVideoContainer = document.getElementById('remoteVideoContainer');
-    const renderVideo = async () => {
-        try {
-            // Create a renderer view for the remote video stream.
-            view = await videoStreamRenderer.createView();
-            // Attach the renderer view to the UI.
-            remoteVideoContainer.appendChild(view.target);
-        } catch (e) {
-            console.warn(`Failed to createView, reason=${e.message}, code=${e.code}`);
-        }
-    }
-    remoteVideoStream.on('isAvailableChanged', async () => {
-        // Participant has switched video on.
-        if (remoteVideoStream.isAvailable) {
-            await renderVideo();
+// Reference to the html's div where we would display a grid of all remote video stream from all participants.
+let remoteVideosGallery = document.getElementById('remoteVideosGallery');
 
-        // Participant has switched video off.
-        } else {
-            if (view) {
-                view.dispose();
-                view = undefined;
+subscribeToRemoteVideoStream = async (remoteVideoStream) => {
+   let renderer = new VideoStreamRenderer(remoteVideoStream);
+    let view;
+    let remoteVideoContainer = document.createElement('div');
+    remoteVideoContainer.className = 'remote-video-container';
+
+    /**
+     * isReceiving API is currently an @alpha feature. Do not use in production.
+     * To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK.
+     */
+    let loadingSpinner = document.createElement('div');
+    // See the css example below for styling the loading spinner.
+    loadingSpinner.className = 'loading-spinner';
+    remoteVideoStream.on('isReceivingChanged', () => {
+        try {
+            if (remoteVideoStream.isAvailable) {
+                const isReceiving = remoteVideoStream.isReceiving;
+                const isLoadingSpinnerActive = remoteVideoContainer.contains(loadingSpinner);
+                if (!isReceiving && !isLoadingSpinnerActive) {
+                    remoteVideoContainer.appendChild(loadingSpinner);
+                } else if (isReceiving && isLoadingSpinnerActive) {
+                    remoteVideoContainer.removeChild(loadingSpinner);
+                }
             }
+        } catch (e) {
+            console.error(e);
         }
     });
 
-    // Participant has video on initially.
-    if (remoteVideoStream.isAvailable) {
-        await renderVideo();
+    const createView = async () => {
+        // Create a renderer view for the remote video stream.
+        view = await renderer.createView();
+        // Attach the renderer view to the UI.
+        remoteVideoContainer.appendChild(view.target);
+        remoteVideosGallery.appendChild(remoteVideoContainer);
     }
+
+    // Remote participant has switched video on/off
+    remoteVideoStream.on('isAvailableChanged', async () => {
+        try {
+            if (remoteVideoStream.isAvailable) {
+                await createView();
+            } else {
+                view.dispose();
+                remoteVideosGallery.removeChild(remoteVideoContainer);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    });
+
+    // Remote participant has video on initially.
+    if (remoteVideoStream.isAvailable) {
+        try {
+            await createView();
+        } catch (e) {
+            console.error(e);
+        }
+    }
+    
+    console.log(`Initial stream size: height: ${remoteVideoStream.size.height}, width: ${remoteVideoStream.size.width}`);
+    remoteVideoStream.on('sizeChanged', () => {
+        console.log(`Remote video stream size changed: new height: ${remoteVideoStream.size.height}, new width: ${remoteVideoStream.size.width}`);
+    });
+}
+```
+
+CSS for styling the loading spinner over the remote video stream.
+ ```css
+.remote-video-container {
+    position: relative;
+}
+.loading-spinner {
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 12px solid #ca5010;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translate(-50%, -50%);
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
 }
 ```
 
@@ -216,7 +280,24 @@ const type: MediaStreamType = remoteVideoStream.mediaStreamType;
 - `isAvailable`: Whether a remote participant endpoint is actively sending a stream.
 
 ```js
-const type: boolean = remoteVideoStream.isAvailable;
+const isAvailable: boolean = remoteVideoStream.isAvailable;
+```
+
+- `isReceiving`:
+    - ***This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK.***
+    - Will inform the application if remote video stream data is being received. Such cases are:
+	    - When the remote mobile participant has their video on and they put the browser app in the background, they will stop sending video stream data until the app is brought back to the foreground.
+		- When the remote participant has their video on and they have bad network connectivity and video is cutting off / lagging
+	- This feature improves the user experience for rendering remote video streams.
+	- You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage
+```js
+const isReceiving: boolean = remoteVideoStream.isReceiving;
+```
+
+- `size`: The stream size. The higher the stream size, the better the video quality.
+
+```js
+const size: StreamSize = remoteVideoStream.size;
 ```
 
 ## VideoStreamRenderer methods and properties

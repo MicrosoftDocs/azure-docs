@@ -2,15 +2,15 @@
 title: OAuth 2.0 client credentials flow on the Microsoft identity platform | Azure
 description: Build web applications by using the Microsoft identity platform implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/20/2021
-ms.author: hirsin
+ms.date: 02/09/2022
+ms.author: ludwignick
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
 ---
@@ -21,7 +21,7 @@ You can use the OAuth 2.0 client credentials grant specified in [RFC 6749](https
 
 This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
-The OAuth 2.0 client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. For a higher level of assurance, the Microsoft identity platform also allows the calling service to authenticate using a [certificate](#second-case-access-token-request-with-a-certificate) or federated credential instead of a shared secret.  Because the applications own credentials are being used, these credentials must be kept safe - _never_ publish that credential in your source code, embed it in web pages, or use it in a widely distributed native application. 
+The OAuth 2.0 client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. For a higher level of assurance, the Microsoft identity platform also allows the calling service to authenticate using a [certificate](#second-case-access-token-request-with-a-certificate) or federated credential instead of a shared secret.  Because the application's own credentials are being used, these credentials must be kept safe - _never_ publish that credential in your source code, embed it in web pages, or use it in a widely distributed native application. 
 
 In the client credentials flow, permissions are granted directly to the application itself by an administrator. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action since there is no user involved in the authentication.  This article covers both the steps needed to [authorize an application to call an API](#application-permissions), as well as [how to get the tokens needed to call that API](#get-a-token).
 
@@ -54,7 +54,7 @@ This type of authorization is common for daemons and service accounts that need 
 
 In order to enable this ACL-based authorization pattern, Azure AD doesn't require that applications be authorized to get tokens for another application. Thus, app-only tokens can be issued without a `roles` claim. Applications that expose APIs must implement permission checks in order to accept tokens.
 
-If you'd like to prevent applications from getting role-less app-only access tokens for your application, [ensure that user assignment requirements are enabled for your app](../manage-apps/assign-user-or-group-access-portal.md). This will block users and applications without assigned roles from being able to get a token for this application. 
+If you'd like to prevent applications from getting role-less app-only access tokens for your application, [ensure that assignment requirements are enabled for your app](../manage-apps/what-is-access-management.md#requiring-user-assignment-for-an-app). This will block users and applications without assigned roles from being able to get a token for this application. 
 
 ### Application permissions
 
@@ -65,9 +65,9 @@ Instead of using ACLs, you can use APIs to expose a set of **application permiss
 * Send mail as any user
 * Read directory data
 
-To use application permissions with your own API (as opposed to Microsoft Graph), you must first [expose the API](howto-add-app-roles-in-azure-ad-apps.md) by defining scopes in the API's app registration in the Azure portal. Then, [configure access to the API](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications) by selecting those permissions in your client application's app registration. If you haven't exposed any scopes in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Azure portal.
+To use app roles (application permissions) with your own API (as opposed to Microsoft Graph), you must first [expose the app roles](howto-add-app-roles-in-azure-ad-apps.md) in the API's app registration in the Azure portal. Then, [configure the required app roles](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications) by selecting those permissions in your client application's app registration. If you haven't exposed any app roles in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Azure portal.
 
-When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* - scopes that are granted by a user - because there is no user for you app to act on behalf of. You must use application permissions, also known as roles, that are granted by an admin for the application or via pre-authorization by the web API.
+When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* because there is no user for your app to act on behalf of. You must use application permissions, also known as app roles, that are granted by an admin or by the API's owner.
 
 For more information about application permissions, see [Permissions and consent](v2-permissions-and-consent.md#permission-types).
 
@@ -207,7 +207,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | --- | --- | --- |
 | `client_assertion` | Required | An assertion (a JWT, or JSON web token) that your application gets from another identity provider outside of Microsoft identity platform, like  Kubernetes. The specifics of this JWT must be registered on your application as a [federated identity credential](workload-identity-federation-create-trust.md). Read about [workload identity federation](workload-identity-federation.md) to learn how to setup and use assertions generated from other identity providers.|
 
-Everything in the request is the same as the certificate-based flow above, with one crucial exception - the source of the `client_assertion`. In this flow, your application does not create the JWT assertion itself.  Instead, your app uses a JWT created by another identity provider.  This is called "[workload identity federation](workload-identity-federation.md)", where your apps identity in another identity platform is used to acquire tokens inside the Microsoft identity platform.  This is best suited for cross-cloud scenarios, such as hosting your compute outside Azure but accessing APIs protected by Microsoft identity platform. 
+Everything in the request is the same as the certificate-based flow above, with one crucial exception - the source of the `client_assertion`. In this flow, your application does not create the JWT assertion itself.  Instead, your app uses a JWT created by another identity provider.  This is called "[workload identity federation](workload-identity-federation.md)", where your apps identity in another identity platform is used to acquire tokens inside the Microsoft identity platform.  This is best suited for cross-cloud scenarios, such as hosting your compute outside Azure but accessing APIs protected by Microsoft identity platform.  For information about the required format of JWTs created by other identity providers, read about the [assertion format](active-directory-certificate-credentials.md#assertion-format).
 
 ### Successful response
 
@@ -231,7 +231,7 @@ A successful response from any method looks like this:
 
 ### Error response
 
-An error response looks like this:
+An error response (400 Bad Request) looks like this:
 
 ```json
 {

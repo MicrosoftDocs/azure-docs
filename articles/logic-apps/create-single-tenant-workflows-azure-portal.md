@@ -5,8 +5,10 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 04/15/2022
 ms.custom: ignite-fall-2021
+
+#Customer intent: As a developer, I want to create an automated integration workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal
@@ -60,7 +62,7 @@ As you progress, you'll complete these high-level tasks:
 
 <a name="create-logic-app-resource"></a>
 
-## Create the logic app resource
+## Create a Standard logic app resource
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
@@ -70,19 +72,32 @@ As you progress, you'll complete these high-level tasks:
 
 1. On the **Logic apps** page, select **Add**.
 
-1. On the **Create Logic App** page, on the **Basics** tab, provide the following information about your logic app resource:
+1. On the **Create Logic App** page, on the **Basics** tab, provide the following basic information about your logic app:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your logic app. |
-   | **Resource Group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you create your logic app and related resources. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a resource group named `Fabrikam-Workflows-RG`. |
-   | **Type** | Yes | **Standard** | This logic app resource type runs in the single-tenant Azure Logic Apps environment and uses the [Standard usage, billing, and pricing model](logic-apps-pricing.md#standard-pricing). |
-   | **Logic App name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Standard)** resource is powered by the single-tenant Azure Logic Apps runtime, which uses the Azure Functions extensibility model and is hosted as an extension on the Azure Functions runtime. Azure Functions uses the same app naming convention. |
-   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. By default, **Workflow** is selected for deployment to single-tenant Azure Logic Apps. Azure creates an empty logic app resource where you have to add your first workflow. <p><p>**Note**: Currently, the **Docker Container** option requires a [*custom location*](../azure-arc/kubernetes/conceptual-custom-locations.md) on an Azure Arc enabled Kubernetes cluster, which you can use with [Azure Arc enabled Logic Apps (Preview)](azure-arc-enabled-logic-apps-overview.md). The resource locations for your logic app, custom location, and cluster must all be the same. |
-   | **Region** | Yes | <*Azure-region*> | The location to use for creating your resource group and resources. This example deploys the sample logic app to Azure and uses **West US**. <p>- If you selected **Docker Container**, select your custom location. <p>- To deploy to an [ASEv3](../app-service/environment/overview.md) resource, which must first exist, select that environment resource from the **Region** list. |
+   | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. |
+   | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Fabrikam-Workflows-RG**. |
+   | **Logic App name** | Yes | <*logic-app-name*> | Your logic app name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Standard)** resource is powered by the single-tenant Azure Logic Apps runtime, which uses the Azure Functions extensibility model and is hosted as an extension on the Azure Functions runtime. Azure Functions uses the same app naming convention. <br><br>This example creates a logic app named **Fabrikam-Workflows**. |
    |||||
 
-   The following example shows the **Create Logic App (Standard)** page:
+1. Before you continue making selections, under **Plan type**, select **Standard** so that you view only the settings that apply to the Standard plan-based logic app type. The **Plan type** property specifies the logic app type and billing model to use.
+
+   | Plan type | Description |
+   |-----------|-------------|
+   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
+   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
+   |||
+
+1. Now continue making the following selections:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Publish** | Yes | **Workflow** | This option appears and applies only when **Plan type** is set to the **Standard** logic app type. By default, this option is set to **Workflow** and creates an empty logic app resource where you add your first workflow. <p><p>**Note**: Currently, the **Docker Container** option requires a [*custom location*](../azure-arc/kubernetes/conceptual-custom-locations.md) on an Azure Arc enabled Kubernetes cluster, which you can use with [Azure Arc enabled Logic Apps (Standard)](azure-arc-enabled-logic-apps-overview.md). The resource locations for your logic app, custom location, and cluster must all be the same. |
+   | **Region** | Yes | <*Azure-region*> | The Azure datacenter region to use for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure. <br><br>- If you previously chose **Docker Container**, select your custom location from the **Region** list. <br><br>- If you want to deploy your app to an existing [App Service Environment v3 resource](../app-service/environment/overview.md), you can select that environment from the **Region** list. |
+   |||||
+
+   When you're done, your settings look similar to this version:
 
    ![Screenshot that shows the Azure portal and "Create Logic App" page.](./media/create-single-tenant-workflows-azure-portal/create-logic-app-resource-portal.png)
 
@@ -175,7 +190,7 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 
 1. To save your work, on the designer toolbar, select **Save**.
 
-   When you save a workflow for the first time, and that workflow starts with a Request trigger, the Logic Apps service automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
+   When you save a workflow for the first time, and that workflow starts with a Request trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
 
 ### Add the Office 365 Outlook action
 
@@ -267,19 +282,19 @@ To find the fully qualified domain names (FQDNs) for connections, follow these s
 
 ## Trigger the workflow
 
-In this example, the workflow runs when the Request trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, the Logic Apps service automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
+In this example, the workflow runs when the Request trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, Azure Logic Apps automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
 
 1. On the workflow designer, select the Request trigger that's named **When an HTTP request is received**.
 
 1. After the details pane opens, on the **Parameters** tab, find the **HTTP POST URL** property. To copy the generated URL, select the **Copy Url** (copy file icon), and save the URL somewhere else for now. The URL follows this format:
 
-   `http://<logic-app-name>.azurewebsites.net:443/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
+   `http://<logic-app-name>.azurewebsites.net:443/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
 
    ![Screenshot that shows the designer with the Request trigger and endpoint URL in the "HTTP POST URL" property.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger-url.png)
 
    For this example, the URL looks like this:
 
-   `https://fabrikam-workflows.azurewebsites.net:443/api/Fabrikam-Stateful-Workflow/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxxxxXXXXxxxxxXXXXxxxXXXXxxxxXXXX`
+   `https://fabrikam-workflows.azurewebsites.net:443/api/Fabrikam-Stateful-Workflow/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxxxxXXXXxxxxxXXXXxxxXXXXxxxxXXXX`
 
    > [!TIP]
    > You can also find the endpoint URL on your logic app's **Overview** pane in the **Workflow URL** property.
@@ -317,11 +332,11 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
       ![Screenshot that shows Outlook email as described in the example](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
 
-<a name="view-run-history"></a>
+<a name="review-run-history"></a>
 
 ## Review run history
 
-For a stateful workflow, after each workflow run, you can view the run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, run history and trigger histories appear at the workflow level, not the logic app level. To review the trigger histories outside the run history context, see [Review trigger histories](#view-trigger-histories).
+For a stateful workflow, after each workflow run, you can view the run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, run history and trigger histories appear at the workflow level, not the logic app level. To review the trigger histories outside the run history context, see [Review trigger histories](#review-trigger-history).
 
 1. In the Azure portal, on the workflow menu, select **Overview**.
 
@@ -333,6 +348,8 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    > If the most recent run status doesn't appear, on the **Overview** pane toolbar, select **Refresh**. 
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
+   The following table shows the possible final statuses that each workflow run can have and show in the portal:
+  
    | Run status | Description |
    |------------|-------------|
    | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
@@ -350,7 +367,7 @@ For a stateful workflow, after each workflow run, you can view the run history, 
 
    ![Screenshot that shows the run details view with the status for each step in the workflow.](./media/create-single-tenant-workflows-azure-portal/review-run-details.png)
 
-   Here are the possible statuses that each step in the workflow can have:
+   The following table shows the possible statuses that each workflow action can have and show in the portal:
 
    | Action status | Description |
    |---------------|-------------|
@@ -366,7 +383,7 @@ For a stateful workflow, after each workflow run, you can view the run history, 
    |||
 
    [aborted-icon]: ./media/create-single-tenant-workflows-azure-portal/aborted.png
-   [cancelled-icon]: ./media/create-single-tenant-workflows-azure-portal/cancelled.png
+   [canceled-icon]: ./media/create-single-tenant-workflows-azure-portal/cancelled.png
    [failed-icon]: ./media/create-single-tenant-workflows-azure-portal/failed.png
    [running-icon]: ./media/create-single-tenant-workflows-azure-portal/running.png
    [skipped-icon]: ./media/create-single-tenant-workflows-azure-portal/skipped.png
@@ -381,11 +398,11 @@ For a stateful workflow, after each workflow run, you can view the run history, 
 
 1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
 
-<a name="view-trigger-histories"></a>
+<a name="review-trigger-history"></a>
 
-## Review trigger histories
+## Review trigger history
 
-For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [run history context](#view-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. To find this historical data, follow these steps:
+For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [run history context](#review-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. To find this historical data, follow these steps:
 
 1. In the Azure portal, on the workflow menu, select **Overview**.
 
@@ -443,6 +460,23 @@ To debug a stateless workflow more easily, you can enable the run history for th
 1. To finish this task, select **OK**. On the **Configuration** pane toolbar, select **Save**.
 
 1. To disable the run history when you're done, either set the `Workflows.{yourWorkflowName}.OperationOptions`property to `None`, or delete the property and its value.
+
+<a name="view-connections"></a>
+
+## View connections
+
+When you create connections within a workflow using [managed connectors](../connectors/managed.md) or [service provider based, built-in connectors](../connectors/built-in.md), these connections are actually separate Azure resources with their own resource definitions.
+
+1. From your logic app's menu, under **Workflows**, select **Connections**.
+
+1. Based on the connection type, you want to view, select one of the following options:
+
+   | Option | Description |
+   |--------|-------------|
+   | **API Connections** | Connections created by managed connectors |
+   | **Service Provider Connections** | Connections created by built-in connectors based on the service provider interface implementation. a specific connection instance, which shows more information about that connection. To view the selected connection's underlying resource definition, select **JSON View**. |
+   | **JSON View** | The underlying resource definitions for all connections in the logic app |
+   |||
 
 <a name="delete-from-designer"></a>
 
@@ -546,6 +580,8 @@ To stop the trigger from firing the next time when the trigger condition is met,
   1. In the workflow, edit any part of the workflow's trigger.
   1. Save your changes. This step resets your trigger's current state.
   1. [Reactivate your workflow](#disable-enable-workflows).
+
+* When a workflow is disabled, you can still resubmit runs.
 
 > [!NOTE]
 > The disable workflow and stop logic app operations have different effects. For more information, review 

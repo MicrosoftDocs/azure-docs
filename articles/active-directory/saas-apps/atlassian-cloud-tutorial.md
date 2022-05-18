@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Atlassian Cloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Atlassian Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and Atlassian Cloud.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/29/2021
+ms.date: 02/07/2022
 ms.author: jeedes
 ---
 # Tutorial: Integrate Atlassian Cloud with Azure Active Directory
@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Before you start go to your Atlassian product instance and copy/save the Instance URL.
    > [!NOTE]
-   > URL should fit `https://<INSTANCE>.atlassian.com` pattern.
+   > URL should fit `https://<INSTANCE>.atlassian.net` pattern.
 
    ![Instance Name](./media/atlassian-cloud-tutorial/instance.png)
 

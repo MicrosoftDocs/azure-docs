@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB: Bulk executor Java API, SDK & resources'
 description: Learn all about the bulk executor Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB bulk executor Java SDK.
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 04/06/2021
-ms.author: anfeldma
+ms.author: jroth
 ms.custom: devx-track-java
 ---
 
@@ -33,6 +33,19 @@ ms.custom: devx-track-java
 > * [SQL](sql-query-getting-started.md)
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
+
+> [!IMPORTANT] 
+> This is *not* the latest Java Bulk Executor for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](bulk-executor-java.md) for performing bulk operations. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide. 
+>
+
+> [!IMPORTANT] 
+> On February 29, 2024 the Azure Cosmos DB Sync Java SDK v2.x
+> will be retired; the SDK and all applications using the SDK including Bulk Executor
+> **will continue to function**; Azure Cosmos DB will simply cease
+> to provide further maintenance and support for this SDK.
+> We recommend following the instructions above to migrate to
+> Azure Cosmos DB Java SDK v4.
+>
 
 | | Link/notes |
 |---|---|

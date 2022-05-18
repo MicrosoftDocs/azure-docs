@@ -2,14 +2,17 @@
 title: Managed identities for Azure resources with Service Bus
 description: This article describes how to use managed identities to access with Azure Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
-ms.date: 06/14/2021
-ms.custom: subject-rbac-steps
+ms.date: 01/06/2022
+ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
 # Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources
 [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) is a cross-Azure feature that enables you to create a secure identity associated with the deployment under which your application code runs. You can then associate that identity with access-control roles that grant custom permissions for accessing specific Azure resources that your application needs.
 
 With managed identities, the Azure platform manages this runtime identity. You do not need to store and protect access keys in your application code or configuration, either for the identity itself, or for the resources you need to access. A Service Bus client app running inside an Azure App Service application or in a virtual machine with enabled managed entities for Azure resources support does not need to handle SAS rules and keys, or any other access tokens. The client app only needs the endpoint address of the Service Bus Messaging namespace. When the app connects, Service Bus binds the managed entity's context to the client in an operation that is shown in an example later in this article. Once it is associated with a managed identity, your Service Bus client can do all authorized operations. Authorization is granted by associating a managed entity with Service Bus roles. 
+
+> [!IMPORTANT]
+> You can disable local or SAS key authentication for a Service Bus namespace and allow only Azure Active Directory authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
 
 ## Overview
 When a security principal (a user, group, or application) attempts to access a Service Bus entity, the request must be authorized. With Azure AD, access to a resource is a two-step process. 
@@ -41,7 +44,7 @@ Before you assign an Azure role to a security principal, determine the scope of 
 
 The following list describes the levels at which you can scope access to Service Bus resources, starting with the narrowest scope:
 
-- **Queue**, **topic**, or **subscription**: Role assignment applies to the specific Service Bus entity. Currently, the Azure portal doesn't support assigning users/groups/managed identities to Service Bus Azure roles at the subscription level. Here's an example of using the Azure CLI command: [az-role-assignment-create](/cli/azure/role/assignment?#az_role_assignment_create) to assign an identity to a Service Bus Azure role: 
+- **Queue**, **topic**, or **subscription**: Role assignment applies to the specific Service Bus entity. Currently, the Azure portal doesn't support assigning users/groups/managed identities to Service Bus Azure roles at the subscription level. Here's an example of using the Azure CLI command: [az-role-assignment-create](/cli/azure/role/assignment?#az-role-assignment-create) to assign an identity to a Service Bus Azure role: 
 
     ```azurecli
     az role assignment create \

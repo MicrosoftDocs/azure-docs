@@ -3,14 +3,14 @@ title: Overview of the Azure Active Directory application gallery
 description: An overview of using the Azure Active Directory application gallery.
 titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: eringreenlee
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 01/22/2021
-ms.author: davidmu
+ms.date: 01/22/2022
+ms.author: ergreenl
 ---
 
 # Overview of the Azure Active Directory application gallery
@@ -82,7 +82,7 @@ When you select the **Create your own application** link near the top of the bla
 
 ## Request new gallery application
 
-After you successfully integrate an application with Azure AD and thoroughly tested it, you can request to have it added to the gallery. Publishing an application to the gallery from the portal isn't supported but there is a process that you can follow to have it done for you. For more information about publishing to the gallery, select [Request new gallery application](../develop/v2-howto-app-gallery-listing.md).
+After you successfully integrate an application with Azure AD and thoroughly tested it, you can request to have it added to the gallery. Publishing an application to the gallery from the portal isn't supported but there is a process that you can follow to have it done for you. For more information about publishing to the gallery, select [Request new gallery application](../manage-apps/v2-howto-app-gallery-listing.md).
 
 ## Next steps
 

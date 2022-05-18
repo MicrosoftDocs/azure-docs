@@ -4,8 +4,8 @@
   items:
   - name: About Azure Video Analyzer
     href: overview.md
-  - name: About Video Analyzer for Media
-    href: ../video-analyzer-for-media-docs/video-indexer-overview.md
+  - name: About Video Indexer
+    href: ../../azure-video-indexer/video-indexer-overview.md
   - name: Terminology
     href: terminology.md
   - name: What's new
@@ -91,6 +91,8 @@
   items:
   - name: Pipeline
     href: pipeline.md
+  - name: List of pipeline topologies
+    href: pipeline-topologies-list.md    
   - name: Pipeline extension
     href: pipeline-extension.md
   - name: Video recording
@@ -109,6 +111,8 @@
       href: continuous-video-recording.md
 - name: How-to guides
   items:
+  - name: Transition from Video Analyzer
+    href: transition-from-video-analyzer.md
   - name: Setup
     items:
     - name: Create a new account
@@ -122,13 +126,14 @@
     - name: Deploy to an IoT Edge device
       href: edge/deploy-iot-edge-device.md
     - name: Deploy to a Windows device
+      displayName: eflow    
       href: edge/deploy-iot-edge-linux-on-windows.md  
     - name: Deploy on Azure Stack Edge
       href: edge/deploy-on-stack-edge.md
-  - name: Playback
+  - name: Viewing
     items:     
-    - name: Recorded video
-      href: playback-recordings-how-to.md
+    - name: Recorded and live videos
+      href: viewing-videos-how-to.md
     - name: Create access policies for playback
       href: access-policies.md      
     - name: Enable video preview images
@@ -171,6 +176,10 @@
     items:
     - name: Public endpoints    
       href: access-public-endpoints-networking.md
+  - name: Security 
+    items:
+    - name: Assign built-in policy    
+      href: policy-definitions-security.md
   - name: Visualize
     items:
     - name: Embed player widget in a web app

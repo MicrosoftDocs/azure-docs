@@ -1,7 +1,6 @@
 ---
 title: Workload isolation 
 description: Guidance for setting workload isolation with workload groups in Azure Synapse Analytics.
-services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/16/2021
 ms.author: rortloff
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: azure-synapse
 ---
 

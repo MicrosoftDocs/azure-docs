@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 04/28/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -41,7 +41,6 @@ The following table lists the various alternatives you can use for establishing 
 | NSG service tags                  | Easier to manage as range changes are automatically merged   <br><br>   No additional costs | Can be used with NSGs only  <br><br>    Provides access to the entire service |
 | Azure Firewall FQDN tags          | Easier to manage since the required FQDNs are automatically managed | Can be used with Azure Firewall only                         |
 | Allow access to service FQDNs/IPs | No additional costs   <br><br>  Works with all network security appliances and firewalls | A broad set of IPs or FQDNs may be required to be accessed   |
-| Use an HTTP proxy                 | Single point of internet access to VMs                       | Additional costs to run a VM with the proxy software         |
 | [Virtual Network Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Can be used for Azure Storage (= Recovery Services vault).     <br><br>     Provides large benefit to optimize performance of data plane traffic.          |         Can’t be used for Azure AD, Azure Backup service.    |
 | Network Virtual Appliance      |      Can be used for Azure Storage, Azure AD, Azure Backup service. <br><br> **Data plane**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`  </li></ul>   <br><br>     **Management plane**  <ul><li>  Azure AD: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Azure Backup service: `.backup.windowsazure.com` </li></ul> <br>Learn more about [Azure Firewall service tags](../firewall/fqdn-tags.md).       |  Adds overhead to data plane traffic and decrease throughput/performance.  |
 
@@ -50,6 +49,9 @@ More details around using these options are shared below:
 #### Private endpoints
 
 Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
+
+> [!NOTE]
+> Private endpoints are supported for Azure Backup and Azure storage. Azure AD has support private end-points in private preview. Until they are generally available, Azure backup supports setting up proxy for AAD so that no outbound connectivity is required for HANA VMs. Refer to the [proxy support section](#use-an-http-proxy-server-to-route-traffic) for more details.
 
 #### NSG tags
 
@@ -77,16 +79,40 @@ If you choose to allow access service IPs, refer to the IP ranges in the JSON fi
 
 You can also use the following FQDNs to allow access to the required services from your servers:
 
-| Service    | Domain  names to be accessed                             |
-| -------------- | ------------------------------------------------------------ |
-| Azure  Backup  | `*.backup.windowsazure.com`                             |
-| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |
-| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Service    | Domain  names to be accessed                             |   Ports        |
+| -------------- | ------------------------------------------------------------ | ---------------------- |
+| Azure  Backup  | `*.backup.windowsazure.com`                             |  443       |
+| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |   443    |
+| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |    As applicable      |
 
 #### Use an HTTP proxy server to route traffic
 
 > [!NOTE]
-> Currently, there is no proxy support for SAP HANA. Please consider other options such as private end points if you wish to remove outbound connectivity requirements for database backups via Azure backup in HANA VMs.
+> Currently, we only support HTTP Proxy for Azure Active Directory (Azure AD) traffic for SAP HANA. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in HANA VMs, use other options, such as private endpoints.
+
+##### Using an HTTP proxy server for AAD traffic
+
+1. Go to the "opt/msawb/bin" folder
+2. Create a new JSON file named "ExtensionSettingsOverrides.json"
+3. Add a key-value pairs to the JSON file as follows:
+
+    ```json
+    {
+        "UseProxyForAAD":true,
+        "UseProxyForAzureBackup":false,
+        "UseProxyForAzureStorage":false,
+        "ProxyServerAddress":"http://xx.yy.zz.mm:port"
+    }
+    ```
+
+4. Change the permissions and ownership of the file as follows:
+    
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. No restart of any service is required. The Azure Backup service will attempt to route the AAD traffic via the proxy server mentioned in the JSON file.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

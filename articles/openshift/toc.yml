@@ -1,4 +1,4 @@
-- name: Azure Red Hat OpenShift
+- name: Azure Red Hat OpenShift 
   href: index.yml
 - name: Overview
   expanded: true
@@ -18,6 +18,8 @@
   items:
     - name: Deploy an ARO cluster with Azure portal 
       href: quickstart-portal.md
+    - name: Deploy an Azure Red Hat OpenShift cluster with an ARM template or Bicep
+      href: quickstart-openshift-arm-bicep-template.md
 - name: How-to guides
   items:
     - name: Cluster operations
@@ -26,7 +28,7 @@
           href: howto-upgrade.md
         - name: Use spot nodes
           href: howto-spot-nodes.md
-    - name: Networking
+    - name: Networking 
       items:
         - name: Create a private ARO cluster
           href: howto-create-private-cluster-4x.md
@@ -44,12 +46,14 @@
           href: howto-create-a-storageclass.md
         - name: Use the built-in container registry
           href: built-in-container-registry.md
-        - name: Use Azure Container registry
+        - name: Use Azure Container registry 
           href: howto-use-acr-with-aro.md
-    - name: Security and authentication
+    - name: Security and authentication 
       items:
-        - name: Configure Azure Active Directory authentication (CLI)
-          href: configure-azure-ad-cli.md
+        - name: Secure OpenShift with Azure Front Door
+          href: howto-secure-openshift-with-front-door.md
+        - name: Create and use a service principal
+          href: howto-create-service-principal.md
         - name: Configure Azure Active Directory authentication (Portal)
           href: configure-azure-ad-ui.md
         - name: Update pull secret for an ARO cluster
@@ -76,8 +80,10 @@
           href: howto-deploy-with-s2i.md
         - name: Deploy an application using OpenShift Serverless
           href: howto-deploy-with-serverless.md
-        - name: Deploy an Open Liberty/WebSphere Liberty app
+        - name: Deploy an Open Liberty/WebSphere Liberty Java app
           href: howto-deploy-java-liberty-app.md
+        - name: Deploy a JBoss EAP Java app
+          href: howto-deploy-java-jboss-enterprise-application-platform-app.md
     - name: Azure Red Hat OpenShift 3.11
       items:
         - name: Set up your Azure Red Hat OpenShift dev environment for Azure Red Hat OpenShift 3.11
@@ -115,6 +121,9 @@
   items:
     - name: Networking
       href: concepts-networking.md
+      items:
+      - name: Overview of egress lockdown
+        href: concepts-egress-lockdown.md
     - name: Migrate from ARO 3.11 to ARO 4
       href: migration.md
 - name: Reference
@@ -129,6 +138,8 @@
   items:
     - name: Frequently asked questions
       href: openshift-faq.yml
+    - name: Azure Red Hat OpenShift service definition
+      href: openshift-service-definitions.md
     - name: Troubleshooting
       href: troubleshoot.md
     - name: Support policies for ARO 4

@@ -8,9 +8,9 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/18/2020
 
-ms.author: daveba
-author: daveba
-manager: daveba
+ms.author: ajburnle
+author: ajburnle
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management

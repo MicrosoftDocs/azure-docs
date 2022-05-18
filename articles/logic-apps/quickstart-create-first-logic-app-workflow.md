@@ -1,20 +1,27 @@
 ---
-title: Quickstart - Create automated workflows with Azure Logic Apps in the Azure portal
-description: Create your first automated integration workflow with multi-tenant Azure Logic Apps in the Azure portal.
+title: Quickstart - Create automated integration workflows in the Azure portal
+description: Create your first automated integration workflow using multi-tenant Azure Logic Apps in the Azure portal.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: estfan, azla
 ms.topic: quickstart
-ms.custom: contperf-fy21q4, mode-portal
-ms.date: 08/24/2021
-# Customer intent: As a developer, I want to create my first automated integration workflow by using Azure Logic Apps in the Azure portal
+ms.custom: contperf-fy21q4, mode-ui
+ms.date: 05/02/2022
+
+#Customer intent: As a developer, I want to create my first automated integration workflow that runs in Azure Logic Apps using the Azure portal.
 ---
 
 # Quickstart: Create an integration workflow with multi-tenant Azure Logic Apps and the Azure portal
 
-This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account, when you use [*multi-tenant* Azure Logic Apps](logic-apps-overview.md). While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on premises, and hybrid environments. For more information about multi-tenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account. More specifically, you create a [Consumption plan-based](logic-apps-pricing.md#consumption-pricing) logic app resource and workflow that uses the RSS connector and the Office 365 Outlook connector. This resource runs in [*multi-tenant* Azure Logic Apps](logic-apps-overview.md).
 
-In this example, you create a logic app resource and workflow that uses the RSS connector and the Office 365 Outlook connector. The resource runs in multi-tenant Azure Logic Apps and is based on the [Consumption pricing model](logic-apps-pricing.md#consumption-pricing). The RSS connector has a trigger that checks an RSS feed, based on a schedule. The Office 365 Outlook connector has an action that sends an email for each new item. The connectors in this example are only two among the [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow.
+> [!NOTE]
+> To create a workflow in a Standard logic app resource that runs in *single-tenant* Azure Logic Apps, review 
+> [Create an integration workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md). 
+> For more information about multi-tenant versus single-tenant Azure Logic Apps, review 
+> [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
+
+The RSS connector has a trigger that checks an RSS feed, based on a schedule. The Office 365 Outlook connector has an action that sends an email for each new item. The connectors in this example are only two among the [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on premises, and hybrid environments.
 
 The following screenshot shows the high-level example workflow:
 
@@ -22,7 +29,7 @@ The following screenshot shows the high-level example workflow:
 
 As you progress through this quickstart, you'll learn these basic steps:
 
-* Create a logic app resource that runs in the multi-tenant Azure Logic Apps environment.
+* Create a Consumption logic app resource that runs in multi-tenant Azure Logic Apps.
 * Select the blank logic app template.
 * Add a trigger that specifies when to run the workflow.
 * Add an action that performs a task after the trigger fires.
@@ -32,13 +39,13 @@ To create and manage a logic app resource using other tools, review these other 
 
 * [Create and manage logic apps in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 * [Create and manage logic apps in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
-* [Create and manage logic apps using the Azure Command-Line Interface (Azure CLI)](quickstart-logic-apps-azure-cli.md)
+* [Create and manage logic apps via the Azure CLI](quickstart-logic-apps-azure-cli.md)
 
 <a name="prerequisites"></a>
 
 ## Prerequisites
 
-* Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An email account from a service that works with Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, review [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
@@ -54,7 +61,7 @@ To create and manage a logic app resource using other tools, review these other 
 
 <a name="create-logic-app-resource"></a>
 
-## Create a logic app resource
+## Create a Consumption logic app resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
@@ -66,22 +73,38 @@ To create and manage a logic app resource using other tools, review these other 
 
    ![Screenshot showing the Azure portal and Logic Apps service page and "Add" option selected.](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. On the **Create Logic App** pane, select the Azure subscription to use, create a new [resource group](../azure-resource-manager/management/overview.md#terminology) for your logic app resource, and provide basic details about your logic app resource.
+1. On the **Create Logic App** pane, on the **Basics** tab, provide the following basic information about your logic app:
 
-   | Property | Value | Description |
-   |----------|-------|-------------|
-   | **Subscription** | <*Azure-subscription-name*> | The name of your Azure subscription. |
-   | **Resource Group** | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) name, which must be unique across regions. This example uses "My-First-LA-RG". |
-   | **Type** | **Consumption** | The logic app resource type and billing model to use for your resource: <p><p>- **Consumption**: This logic app resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). This example uses this **Consumption** model. <p>- **Standard**: This logic app resource type runs in single-tenant Azure Logic Apps and uses the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
-   | **Logic App name** | <*logic-app-name*> | Your logic app resource name, which must be unique across regions. This example uses "My-First-Logic-App". <p><p>**Important**: This name can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`).  |
-   | **Publish** | **Workflow** | Available only when you select the [**Standard** logic app resource type](create-single-tenant-workflows-azure-portal.md). By default, **Workflow** is selected for deployment to [single-tenant Azure Logic Apps](single-tenant-overview-compare.md) and creates an empty logic app resource where you add your first workflow. <p><p>**Note**: Currently, the **Docker Container** option requires a [*custom location*](../azure-arc/kubernetes/conceptual-custom-locations.md) on an Azure Arc enabled Kubernetes cluster, which you can use with [Azure Arc enabled Logic Apps (Standard)](azure-arc-enabled-logic-apps-overview.md). The resource locations for your logic app, custom location, and cluster must all be the same. |
-   | **Region** | <*Azure-region*> | The Azure datacenter region where to store your app's information. This example uses "West US". <p>**Note**: If your subscription is associated with an [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md), this list includes those environments. |
-   | **Enable log analytics** | **No** | Available only when you select the **Consumption** logic app resource type. <p><p>Change this option only when you want to enable diagnostic logging. For this example, leave this option unselected. |
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. |
+   | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **My-First-LA-RG**. |
+   | **Logic App name** | Yes | <*logic-app-name*> | Your logic app name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). <br><br>This example creates a logic app named **My-First-Logic-App**. |
+   |||||
+
+1. Before you continue making selections, under **Plan type**, select **Consumption** so that you view only the settings that apply to the Consumption plan-based logic app type. The **Plan type** property specifies the logic app type and billing model to use.
+
+   | Plan type | Description |
+   |-----------|-------------|
+   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). After you select **Consumption**, the **Zone redundancy** section appears. This section offers the choice to enable availability zones for your Consumption logic app. In this example, keep **Enabled** as the setting value. For more information, see [Protect Consumption logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md). |
+   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
+   |||
+
+1. Now continue making the following selections:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Region** | Yes | <*Azure-region*> | The Azure datacenter region for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure. <p>**Note**: If your subscription is associated with an [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md), this list includes those environments. |
+   | **Enable log analytics** | Yes | **No** | This option appears and applies only when you select the **Consumption** logic app type. <p><p>Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. |
    ||||
+
+   When you're done, your settings look similar to this version:
 
    ![Screenshot showing the Azure portal and logic app resource creation page with details for new logic app.](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-1. When you're ready, select **Review + Create**. On the validation page, confirm the details that you provided, and select **Create**.
+1. When you're ready, select **Review + Create**.
+
+1. On the validation page that appears, confirm all the information that you provided, and select **Create**.
 
 ## Select the blank template
 
@@ -89,25 +112,27 @@ To create and manage a logic app resource using other tools, review these other 
 
    ![Screenshot showing the resource deployment page and selected button, "Go to resource".](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
-   The workflow designer opens and shows a page with an introduction video and commonly used triggers.
+   The designer's template page opens to show an introduction video and commonly used triggers.
+
+1. Scroll down past the video and the section named **Start with a common trigger**.
 
 1. Under **Templates**, select **Blank Logic App**.
 
-   ![Screenshot showing the workflow designer, template gallery, and selected template, "Blank Logic App".](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
+   ![Screenshot showing the template gallery and selected template, "Blank Logic App".](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
-   After you select the template, the designer now shows an empty workflow surface.
+   After you select the template, the designer shows an empty workflow.
 
 <a name="add-rss-trigger"></a>
 
 ## Add the trigger
 
-A workflow always starts with a single [trigger](../logic-apps/logic-apps-overview.md#how-do-logic-apps-work), which specifies the condition to meet before running any actions in the workflow. Each time the trigger fires, Azure Logic Apps creates and runs a workflow instance. If the trigger doesn't fire, no instance is created nor run. You can start a workflow by choosing from many different triggers.
+A workflow always starts with a single [trigger](logic-apps-overview.md#how-do-logic-apps-work), which specifies the condition to meet before running any actions in the workflow. Each time the trigger fires, Azure Logic Apps creates and runs a workflow instance. If the trigger doesn't fire, no instance is created nor run. You can start a workflow by choosing from many different triggers.
 
 This example uses an RSS trigger that checks an RSS feed, based on a schedule. If a new item exists in the feed, the trigger fires, and a new workflow instance starts to run. If multiple new items exist between checks, the trigger fires for each item, and a separate new workflow instance runs for each item.
 
-1. In the workflow designer, under the search box, select **All**.
+1. Under the designer search box, select **All**.
 
-1. To find the RSS trigger, in the search box, enter `rss`. From the **Triggers** list, select the RSS trigger, **When a feed item is published**.
+1. In the designer search box, enter **rss**. From the **Triggers** list, select the RSS trigger, **When a feed item is published**.
 
    ![Screenshot showing the workflow designer with "rss" in the search box and the selected RSS trigger, "When a feed item is published".](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -127,15 +152,15 @@ This example uses an RSS trigger that checks an RSS feed, based on a schedule. I
 
    ![Screenshot that shows the collapsed trigger shape.](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
-1. When you're done, save your logic app, which instantly goes live in the Azure portal. On the designer toolbar, select **Save**.
+1. On the designer toolbar, select **Save** to save your logic app, which instantly goes live in the Azure portal.
 
-   The trigger won't do anything other than check the RSS feed. So, you need to add an action that defines what happens when the trigger fires.
+   The trigger doesn't do anything other than check the RSS feed. So, you need to add an action that defines what happens when the trigger fires.
 
 <a name="add-email-action"></a>
 
 ## Add an action
 
-Following a trigger, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is a subsequent step that runs some operation in the workflow. Any action can use the outputs from the previous step, which can be the trigger or another action. You can choose from many different actions, add multiple actions up to the [limit per workflow](logic-apps-limits-and-config.md#definition-limits), and even create different action paths.
+Following a trigger, an [action](logic-apps-overview.md#logic-app-concepts) is a subsequent step that runs some operation in the workflow. Any action can use the outputs from the previous step, which can be the trigger or another action. You can choose from many different actions, add multiple actions up to the [limit per workflow](logic-apps-limits-and-config.md#definition-limits), and even create different action paths.
 
 This example uses an Office 365 Outlook action that sends an email each time that the trigger fires for a new RSS feed item. If multiple new items exist between checks, you receive multiple emails.
 
@@ -143,9 +168,9 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
    ![Screenshot showing the workflow trigger and the selected button, "New step".](./media/quickstart-create-first-logic-app-workflow/add-new-step-under-trigger.png)
 
-1. Under **Choose an operation** and the search box, select **All**.
+1. Under the **Choose an operation** search box, select **All**.
 
-1. In the search box, enter `send an email` so that you can find connectors that offer this action. To filter the **Actions** list to a specific app or service, select that app or service first.
+1. In the search box, enter **send an email**. To filter the **Actions** list to a specific app or service, select the icon for that app or service first.
 
    For example, if you have a Microsoft work or school account and want to use Office 365 Outlook, select **Office 365 Outlook**. Or, if you have a personal Microsoft account, select **Outlook.com**. This example continues with Office 365 Outlook.
 
@@ -173,10 +198,10 @@ This example uses an Office 365 Outlook action that sends an email each time tha
    > For example, if you use use Azure Resource Manager templates for deployment, you can increase security on inputs 
    > that change often by parameterizing values such as connection details. For more information, review these topics:
    >
-   > * [Template parameters for deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
-   > * [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)
-   > * [Authenticate access with managed identities](../logic-apps/create-managed-service-identity.md)
-   > * [Authenticate connections for logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections)
+   > * [Template parameters for deployment](logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
+   > * [Authorize OAuth connections](logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)
+   > * [Authenticate access with managed identities](create-managed-service-identity.md)
+   > * [Authenticate connections for logic app deployment](logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections)
 
 1. In the **Send an email** action, specify the information to include in the email.
 
@@ -234,7 +259,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
 ## Run your workflow
 
-To check that the workflow runs correctly, you can wait for the trigger to check the RSS feed based on the set schedule. Or, you can manually run the workflow by selecting **Run** on the workflow designer toolbar, as shown in the following screenshot.
+To check that the workflow runs correctly, you can wait for the trigger to check the RSS feed based on the set schedule. Or, you can manually run the workflow by selecting **Run Trigger** on the designer toolbar, as shown in the following screenshot.
 
 ![Screenshot showing the workflow designer and the "Run" button selected on the designer toolbar.](./media/quickstart-create-first-logic-app-workflow/run-logic-app-test.png)
 
@@ -273,4 +298,4 @@ When you're done with this quickstart, delete the sample logic app resource and 
 In this quickstart, you created your first logic app workflow in the Azure portal to check an RSS feed, and send an email for each new item. To learn more about advanced scheduled workflows, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Check traffic with a scheduled-based logic app](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+> [Check traffic with a schedule-based logic app workflow](tutorial-build-schedule-recurring-logic-app-workflow.md)

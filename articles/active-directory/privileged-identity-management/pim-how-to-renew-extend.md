@@ -4,12 +4,11 @@ description: Learn how to extend or renew Azure Active Directory role assignment
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
 ms.date: 10/19/2021
@@ -91,72 +90,72 @@ To extend a role assignment, browse to the role or assignment view in Privileged
 
 ![Azure AD Roles - Assignments page listing eligible roles with links to extend](./media/pim-how-to-renew-extend/extend-admin-extend.png)
 
-## Extend role assignments using Graph API
+## Extend role assignments using Microsoft Graph API
 
-Extend an active assignment using Graph API.
+In the following request, an administrator extends an active assignment using Microsoft Graph API.
 
 #### HTTP request
 
 ````HTTP
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentScheduleRequests 
  
-{ 
-    "action": "AdminExtend", 
-    "justification": "abcde", 
-    "roleDefinitionId": "<definition-ID-GUID>", 
-    "directoryScopeId": "/", 
-    `"principalId": "<principal-ID-GUID>", 
-    "scheduleInfo": { 
-        "startDateTime": "2021-07-15T19:15:08.941Z", 
-        "expiration": { 
-            "type": "AfterDuration", 
-            "duration": "PT3H" 
-        } 
-    } 
+{
+    "action": "adminExtend",
+    "justification": "TEST",
+    "roleDefinitionId": "31392ffb-586c-42d1-9346-e59415a2cc4e",
+    "directoryScopeId": "/",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "scheduleInfo": {
+        "startDateTime": "2022-04-10T00:00:00Z",
+        "expiration": {
+            "type": "afterDuration",
+            "duration": "PT3H"
+        }
+    }
 }
 ````
 
 #### HTTP response
 
 ````HTTP
-{ 
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
-    "id": "<assignment-ID-GUID>", 
-    "status": "Provisioned", 
-    "createdDateTime": "2021-07-15T20:26:44.865248Z", 
-    "completedDateTime": "2021-07-15T20:26:47.9434068Z", 
-    "approvalId": null, 
-    "customData": null, 
-    "action": "AdminExtend", 
-    "principalId": "<principal-ID-GUID>", 
-    "roleDefinitionId": "<definition-ID-GUID>", 
-    "directoryScopeId": "/", 
-    "appScopeId": null, 
-    "isValidationOnly": false, 
-    "targetScheduleId": "<schedule-ID-GUID>", 
-    "justification": "test", 
-    "createdBy": { 
-        "application": null, 
-        "device": null, 
-        "user": { 
-            "displayName": null, 
-            "id": "<user-ID-GUID>" 
-        } 
-    }, 
-    "scheduleInfo": { 
-        "startDateTime": "2021-07-15T20:26:47.9434068Z", 
-        "recurrence": null, 
-        "expiration": { 
-            "type": "afterDuration", 
-            "endDateTime": null, 
-            "duration": "PT3H" 
-        } 
-    }, 
-    "ticketInfo": { 
-        "ticketNumber": null, 
-        "ticketSystem": null 
-    } 
-} 
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity",
+    "id": "c3a3aa36-22e2-4240-8e4c-ea2a3af7c30f",
+    "status": "Provisioned",
+    "createdDateTime": "2022-05-13T16:18:36.3647674Z",
+    "completedDateTime": "2022-05-13T16:18:40.0835993Z",
+    "approvalId": null,
+    "customData": null,
+    "action": "adminExtend",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "roleDefinitionId": "31392ffb-586c-42d1-9346-e59415a2cc4e",
+    "directoryScopeId": "/",
+    "appScopeId": null,
+    "isValidationOnly": false,
+    "targetScheduleId": "c3a3aa36-22e2-4240-8e4c-ea2a3af7c30f",
+    "justification": "TEST",
+    "createdBy": {
+        "application": null,
+        "device": null,
+        "user": {
+            "displayName": null,
+            "id": "3fbd929d-8c56-4462-851e-0eb9a7b3a2a5"
+        }
+    },
+    "scheduleInfo": {
+        "startDateTime": "2022-05-13T16:18:40.0835993Z",
+        "recurrence": null,
+        "expiration": {
+            "type": "afterDuration",
+            "endDateTime": null,
+            "duration": "PT3H"
+        }
+    },
+    "ticketInfo": {
+        "ticketNumber": null,
+        "ticketSystem": null
+    }
+}
 ````
 
 ## Renew role assignments

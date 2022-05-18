@@ -5,8 +5,8 @@ description: The AutoMLStep allows you to use automated machine learning in your
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.author: laobri
-author: lobrien
+ms.author: larryfr
+author: blackmist
 manager: cgronlun
 ms.date: 10/21/2021
 ms.topic: how-to
@@ -104,14 +104,20 @@ The code blocks until the target is provisioned and then prints some details of 
 
 ### Configure the training run
 
-The AutoMLStep configures its dependencies automatically during job submission. The runtime context is set by creating and configuring a `RunConfiguration` object. Here we set the compute target.
+The runtime context is set by creating and configuring a `RunConfiguration` object. Here we set the compute target.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
+
+# Specify CondaDependencies obj, add necessary packages
+aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+    conda_packages=['pandas','scikit-learn'], 
+    pip_packages=['azureml-sdk[automl]', 'pyarrow'])
 ```
 
 ## Prepare data for automated machine learning
@@ -484,4 +490,4 @@ Finally, the actual metrics and model are downloaded to your local machine, as w
 - Run this Jupyter notebook showing a [complete example of automated ML in a pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) that uses regression to predict taxi fares
 - [Create automated ML experiments without writing code](how-to-use-automated-ml-for-ml-models.md)
 - Explore a variety of [Jupyter notebooks demonstrating automated ML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
-- Read about integrating your pipeline in to [End-to-end MLOps](./concept-model-management-and-deployment.md#automate-the-ml-lifecycle) or investigate the [MLOps GitHub repository](https://github.com/Microsoft/MLOpspython)
+- Read about integrating your pipeline in to [End-to-end MLOps](./concept-model-management-and-deployment.md#automate-the-machine-learning-lifecycle) or investigate the [MLOps GitHub repository](https://github.com/Microsoft/MLOpspython)

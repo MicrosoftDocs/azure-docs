@@ -17,7 +17,7 @@ ms.custom: mode-other
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
-In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT.
+In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (from now on, MXCHIP DevKit) to Azure IoT.
 
 You'll complete the following tasks:
 
@@ -229,6 +229,9 @@ You can view the device information from IoT Central.
 Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
+
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
 
 ## Troubleshoot and debug
 

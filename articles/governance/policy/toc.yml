@@ -6,7 +6,7 @@
     displayName: rbac, assign, initiative, parameters, count
     href: overview.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: Assign a policy - Portal
     displayName: assign, compliance
@@ -19,7 +19,7 @@
     href: ./assign-policy-powershell.md
   - name: Assign a policy - .NET
     displayName: assign, compliance
-    href: ./assign-policy-dotnet.md  
+    href: ./assign-policy-dotnet.md
   - name: Assign a policy - JavaScript
     displayName: assign, compliance
     href: ./assign-policy-javascript.md
@@ -54,6 +54,9 @@
   - name: Implement Azure Policy as Code with GitHub
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./tutorials/policy-as-code-github.md
+  - name: Implement Azure Policy with Azure DevOps
+    displayName: devops, pipelines, releases
+    href: ./tutorials/policy-devops-pipelines.md
   - name: "Learn: Control and audit your resources by using Azure Policy"
     displayName: governance, module
     href: /learn/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
@@ -116,6 +119,10 @@
         href: ./samples/irs-1075-sept2016.md
       - name: ISO 27001:2013
         href: ./samples/iso-27001.md
+      - name: PCI DSS 3.2.1
+        href: ./samples/pci-dss-3-2-1.md
+      - name: RMIT Malaysia
+        href: ./samples/rmit-malaysia.md
       - name: New Zealand ISM Restricted
         href: ./samples/new-zealand-ism.md
       - name: NIST SP 800-53 Rev. 5
@@ -124,6 +131,8 @@
         href: ./samples/nist-sp-800-53-r4.md
       - name: NIST SP 800-171 R2
         href: ./samples/nist-sp-800-171-r2.md
+      - name: SWIFT CSCF 2021
+        href: ./samples/swift-cscf-v2021.md
       - name: UK OFFICIAL and UK NHS
         href: ./samples/ukofficial-uknhs.md
     - name: Azure Government built-ins
@@ -258,12 +267,12 @@
     - name: Create custom guest configuration definitions
       displayName: powershell, dsc
       href: ./how-to/guest-configuration-create-definition.md
-    - name: Create a guest configuration definition from Group Policy
-      displayName: powershell, dsc, grouppolicy, windows
-      href: ./how-to/guest-configuration-create-group-policy.md
     - name: Azure Automation state configuration to guest configuration migration planning
       displayName: powershell, dsc, automation
       href: ./how-to/guest-configuration-azure-automation-migration.md
+    - name: Planning a change from Desired State Configuration extension for Linux to guest configuration
+      displayname: powershell, dsc, extension
+      href: ./how-to/guest-configuration-desired-state-configuration-extension-migration.md
   - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
@@ -363,13 +372,13 @@
   - name: Terraform resources
     items:
     - name: Assignment
-      href: https://www.terraform.io/docs/providers/azurerm/r/policy_assignment.html
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_policy_assignment
     - name: Definition
-      href: https://www.terraform.io/docs/providers/azurerm/r/policy_definition.html
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_definition
     - name: Initiative (Set Definition)
-      href: https://www.terraform.io/docs/providers/azurerm/r/policy_set_definition.html
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_set_definition
     - name: Remediation
-      href: https://www.terraform.io/docs/providers/azurerm/r/policy_remediation.html
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_remediation
 - name: Resources
   items:
   - name: GitHub - Azure Policy samples

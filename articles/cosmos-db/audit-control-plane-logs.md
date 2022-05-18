@@ -1,11 +1,11 @@
 ---
 title: How to audit Azure Cosmos DB control plane operations
 description: Learn how to audit the control plane operations such as add a region, update throughput, region failover, add a VNet etc. in Azure Cosmos DB
-author: SnehaGunda
+ms.author: esarroyo
+author: StefArroyo 
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/13/2021
-ms.author: sngun
 
 ---
 

@@ -8,12 +8,12 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 08/12/2021
+ms.date: 12/09/2021
 ---
 
 # Sentiment cognitive skill (V3)
 
-The V3 **Sentiment** skill evaluates unstructured text and for each record, provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This skill uses the machine learning models provided by version 3 of [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services. It also exposes [the opinion mining capabilities of the Text Analytics API](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining), which provides more granular information about the opinions related to attributes of products or services in text.
+The V3 **Sentiment** skill evaluates unstructured text and for each record, provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This skill uses the machine learning models provided by version 3 of [Language Service](../cognitive-services/language-service/overview.md) in Cognitive Services. It also exposes [opinion mining capabilities](../cognitive-services/language-service/sentiment-opinion-mining/overview.md), which provides more granular information about the opinions related to attributes of products or services in text.
 
 > [!NOTE]
 > This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -31,16 +31,16 @@ Parameters are case-sensitive.
 
 | Parameter Name | Description |
 |----------------|----------------------|
-| `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md) |
-| `modelVersion`   | (optional) The version of the model to use when calling the Text Analytics service. It will default to the most recent version when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details. |
-| `includeOpinionMining` | If set to `true`, enables [the opinion mining feature of TextAnalytics](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining), which allows aspect-based sentiment analysis to be included in your output results. Defaults to `false`. |
+| `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See the [full list of supported languages](../cognitive-services/language-service/sentiment-opinion-mining/language-support.md). |
+| `modelVersion`   | (optional) Specifies the [version of the model](../cognitive-services/language-service/sentiment-opinion-mining/how-to/call-api.md#specify-the-sentiment-analysis-model) to use when calling sentiment analysis. It will default to the most recent version when not specified. We recommend you do not specify this value unless it's necessary. |
+| `includeOpinionMining` | If set to `true`, enables [the opinion mining feature](../cognitive-services/language-service/sentiment-opinion-mining/overview.md#opinion-mining), which allows aspect-based sentiment analysis to be included in your output results. Defaults to `false`. |
 
 ## Skill inputs 
 
 | Input	Name | Description |
 |--------------------|-------------|
 | `text` | The text to be analyzed.|
-| `languageCode`	|  (optional) A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/>See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md).|
+| `languageCode`	|  (optional) A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/>See the [full list of supported languages](../cognitive-services/language-service/sentiment-opinion-mining/language-support.md).|
 
 ## Skill outputs
 
@@ -50,8 +50,7 @@ Parameters are case-sensitive.
 | `confidenceScores` | A complex type with three double values, one for the positive rating, one for the neutral rating, and one for the negative rating. Values range from 0 to 1.00, where 1.00 represents the highest possible confidence in a given label assignment. |
 | `sentences` | A collection of complex types that breaks down the sentiment of the text sentence by sentence. This is also where opinion mining results are returned in the form of targets and assessments if `includeOpinionMining` is set to `true`.|
 
-
-##	Sample definition
+## Sample definition
 
 ```json
 {
@@ -85,7 +84,7 @@ Parameters are case-sensitive.
 }
 ```
 
-##	Sample input
+## Sample input
 
 ```json
 {
@@ -101,7 +100,7 @@ Parameters are case-sensitive.
 }
 ```
 
-##	Sample output
+## Sample output
 
 ```json
 {
@@ -210,6 +209,7 @@ Parameters are case-sensitive.
 ```
 
 ## Warning cases
+
 If your text is empty, a warning is generated and no sentiment results are returned.
 If a language is not supported, a warning is generated and no sentiment results are returned.
 

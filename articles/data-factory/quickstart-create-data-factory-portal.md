@@ -10,7 +10,7 @@ ms.author: jianleishen
 ms.custom: mode-other
 ---
 
-# Quickstart: Create a data factory by using the Azure Data Factory UI 
+# Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -27,7 +27,7 @@ This quickstart describes how to use the Azure Data Factory UI to create and mon
 
 ### Video 
 Watching this video helps you understand the Data Factory UI: 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
+>[!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
 
 ## Create a data factory
 

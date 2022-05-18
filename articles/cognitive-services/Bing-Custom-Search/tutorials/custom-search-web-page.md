@@ -15,10 +15,7 @@ ms.author: aahi
 
 # Tutorial: Build a Custom Search web page
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
 
 Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a martial arts website that provides a search experience, you can specify the domains, sub-sites, and webpages that Bing searches. Your users see search results tailored to the content they care about instead of paging through general search results that may contain irrelevant content. 
 
@@ -35,7 +32,7 @@ The tasks covered are:
 
 ## Prerequisites
 
-- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, [Create a Bing Custom Search resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) in the Azure portal.
+- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, [Create a Bing Custom Search resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) in the Azure portal.
 - If you don't already have Visual Studio 2017 or later installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## Create a custom search instance

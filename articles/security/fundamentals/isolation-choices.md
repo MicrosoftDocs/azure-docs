@@ -9,7 +9,6 @@ manager: rkarlin
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -257,7 +256,7 @@ SQL Database is a relational database service in the Microsoft cloud based on th
 
 ### SQL Database Application Model
 
-[Microsoft SQL Database](../../azure-sql/database/single-database-create-quickstart.md) is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
+[Microsoft SQL Database](/azure/azure-sql/database/single-database-create-quickstart) is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
 
 From an application perspective, SQL Database provides the following hierarchy:
 Each level has one-to-many containment of levels below.

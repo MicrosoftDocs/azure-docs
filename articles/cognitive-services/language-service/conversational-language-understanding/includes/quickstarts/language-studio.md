@@ -3,9 +3,9 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 03/15/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -27,13 +27,13 @@ ms.custom: ignite-fall-2021
 
 ## Create a conversation project
 
-Once you have a Language resource associated with your account, create a Conversational Language Understanding project. In this quickstart you'll create a project that can identify commands for email, such as reading emails by certain people, deleting emails, and attaching a document to an email.
+Once you have a Language resource associated with your account, create a Conversational Language Understanding project. In this quickstart, you'll create a project that can identify commands for email, such as: reading emails by certain people, deleting emails, and attaching a document to an email.
 
-1. In [Language Studio](https://aka.ms/languageStudio), find the section labelled **Understand conversational language** and click on **Conversational language understanding**.  
+1. In [Language Studio](https://aka.ms/languageStudio), find the section named **Understand conversational language** and select **Conversational language understanding**.  
     :::image type="content" source="../../media/select-custom-clu.png" alt-text="A screenshot showing the location of Custom Language Understanding in the Language Studio landing page." lightbox="../../media/select-custom-clu.png"::: 
     
 
-2. This will bring you to the **Conversations project** page. Click on **Create new project**. Select **Conversation project**, then click **Next**.
+2. This will bring you to the **Conversations project** page. Select **Create new project**. Select **Conversation project**, then select **Next**.
 
     :::image type="content" source="../../media/projects-page.png" alt-text="A screenshot showing the conversation project page in Language Studio." lightbox="../../media/projects-page.png":::
 
@@ -47,24 +47,24 @@ You then need to provide the following details:
 |Text primary language     | The primary language of your project. Your training data should primarily be in this language. For this quickstart, choose **English**.        |
 |Enable multiple languages     |  Whether you would like to enable your project to support multiple languages at once. For this quickstart, enable this option.       |
 
-Once you're done, click **Next**, review the details, and click **create project** to complete the process. You should now see the **Build Schema** screen in your project.
+Once you're done, select **Next** and review the details. Select **create project** to complete the process. You should now see the **Build Schema** screen in your project.
 
 ## Build schema
 
-1. Select the Intents or Entities tab in the **Build Schema** page, and click on **Add**. You will be prompted for a name before completing the creation of the intent or entity.
+1. Select the **Intents** or **Entities** tab in the **Build Schema** page, and select **Add**. You will be prompted for a name before completing the creation of the intent or entity.
 
 2. Create three intents with the following names:
     - **Read**
     - **Delete**
     - **Attach**
 
-3. Create three entities with the following names:
+3. Create three entities with the following names. Once you create the entity, go back to the **Build Schema** page without adding details to the entity:
     - **Sender**
     - **FileName**
     - **FileType**
 
 
-Clicking on the intent will take you to the [tag utterances](../../how-to/tag-utterances.md) page, where you can add examples for intents and label them with entities.
+When you select the intent, you will see the [tag utterances](../../how-to/tag-utterances.md) page, where you can add examples for intents and label them with entities.
 
 
 :::image type="content" source="../../media/quickstart-intents.png" alt-text="A screenshot showing the schema page in Language studio." lightbox="../../media/quickstart-intents.png":::
@@ -83,6 +83,7 @@ Add the rest of these utterances with the following intents and entities.
 |--|--|--|
 |*Read John's email for me*|**Read**|"John": **Sender**|
 |*What did the email from Matt say*|**Read**|"Matt": **Sender**|
+|*Open Blake's email*|**Read**|"Blake": **Sender**|
 |*Delete my last email from Martha*|**Delete**|"Martha": **Sender**|
 |*Delete this*|**Delete**|_No entities_|
 |*Remove this one*|**Delete**|_No entities_|
@@ -92,25 +93,28 @@ Add the rest of these utterances with the following intents and entities.
 |*Add the PDF file with the name signed contract* |**Attach**|"PDF": **FileType**, <br> "signed contract": **FileName**|
 
 
-When you're done, click on **Save Changes** to save the utterances and labels to the project. The icon next to the button will turn green when the changes are saved. Next, go to the **Train Model** page.
+When you're done, select **Save Changes** to save the utterances and labels to the project. The icon next to the button will turn green when the changes are saved. Next, go to the **Train Model** page.
 
 :::image type="content" source="../../media/quickstart-utterances.png" alt-text="A screenshot showing the intents tagging screen in Language Studio." lightbox="../../media/quickstart-utterances.png":::
 
 ## Train your model and view its details
 
-Click on **train model** on the left of the screen. To train your model, you need to provide a name for the model. Write a name like "*v0.1*" and press the enter key. 
+Select **train model** on the left of the screen. Select **Start a training job**. To train your model, you need to provide a name for the model. Write a name like "*v1*" and press the enter key.
 
-Turn off **Run evaluation with training** before clicking on **Train**. 
+> [!NOTE]
+> If you did not [tag utterances](#tag-utterances) you will only be allowed to train using the **Automatically split the testing set from all data** option. See [Add utterances to testing set](../../how-to/tag-utterances.md#tag-utterances) for more information.
 
-You should see the **View model details** page. Wait until training completes, which may take about 5 minutes. When training succeeds, Select **Deploy Model** on the left of the screen.
+When the training job is complete, which may take some time, you should see the output model performance in the **View model details** page.
 
 ## Deploy your model
 
-From the **Deploy model** page on the left of the screen, select the trained model and click on the **Deploy model** button. In the screen that appears, click on **Deploy**.
+From the **Deploy model** page on the left of the screen, select **Add deployment**.
+
+In the window that appears, give your deployment a **deployment name** and then assign your trained model to this deployment name and then select **Submit**.
 
 ## Test your model
 
-Click on **Test model** on the left of the screen, and select the model link. Write the utterance "*trash this one*", and click **Run the test**. 
+Select **Test model** on the left of the screen, and select the model link. Write the utterance "*trash this one*", and select **Run the test**. 
 
 You now see the top intent as **Delete** with no entities.
 

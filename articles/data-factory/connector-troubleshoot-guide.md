@@ -24,7 +24,7 @@ You can refer to the troubleshooting pages for each connector to see problems sp
 - [Azure Blob Storage](connector-troubleshoot-azure-blob-storage.md)
 - [Azure Cosmos DB (including SQL API connector)](connector-troubleshoot-azure-cosmos-db.md)
 - [Azure Data Lake (Gen1 and Gen2)](connector-troubleshoot-azure-data-lake.md)
-- [Azure database for PostgreSQL](connector-troubleshoot-postgresql.md)
+- [Azure Database for PostgreSQL](connector-troubleshoot-postgresql.md)
 - [Azure Files storage](connector-troubleshoot-azure-files.md)
 - [Azure Synapse Analytics, Azure SQL Database, and SQL Server](connector-troubleshoot-synapse-sql.md)
 - [DB2](connector-troubleshoot-db2.md)

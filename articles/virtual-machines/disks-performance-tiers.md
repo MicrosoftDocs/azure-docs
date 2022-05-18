@@ -4,7 +4,7 @@ description: Learn how to change performance tiers for existing managed disks us
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 03/24/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -12,7 +12,7 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 
 # Change your performance tier without downtime using the Azure PowerShell module or the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 

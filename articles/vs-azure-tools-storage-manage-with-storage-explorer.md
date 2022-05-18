@@ -5,7 +5,6 @@ services: storage
 author: cawaMS
 
 ms.service: storage
-ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
@@ -27,7 +26,8 @@ In this article, you'll learn several ways of connecting to and managing your Az
 
 The following versions of Windows support Storage Explorer:
 
-* Windows 10 (recommended)
+* Windows 11
+* Windows 10
 * Windows 8
 * Windows 7
 
@@ -267,7 +267,6 @@ As you enter text in the search box, Storage Explorer displays all resources tha
 ## Next steps
 
 * [Manage Azure Blob storage resources with Storage Explorer](vs-azure-tools-storage-explorer-blobs.md)
-* [Work with data using Azure Storage Explorer](./cosmos-db/storage-explorer.md)
 * [Manage Azure Data Lake Store resources with Storage Explorer](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-shared-access-signature-for-storage-explorer.png

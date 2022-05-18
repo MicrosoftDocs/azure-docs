@@ -37,7 +37,7 @@ In this tutorial, you will learn how to:
 To complete this tutorial, you need to:
 
 - [Complete the pre-migration](pre-migration-steps.md) steps such as estimating throughput and choosing a shard key.
-- [Create an Azure Cosmos DB API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+- [Create an Azure Cosmos DB API for MongoDB account](https://portal.azure.com/#create/Microsoft.DocumentDB).
 
 ## Provision an Azure Databricks cluster
 

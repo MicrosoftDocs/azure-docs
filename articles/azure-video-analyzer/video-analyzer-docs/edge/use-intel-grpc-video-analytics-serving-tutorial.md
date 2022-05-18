@@ -1,5 +1,5 @@
 ---
-title: Analyze live videos by using Intel OpenVINO™ DL Streamer – Edge AI Extension via gRPC with Azure Video Analyzer
+title: Analyze live video with Intel OpenVINO™ DL Streamer – Edge AI Extension 
 description: This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feeds from a (simulated) IP camera.
 ms.topic: tutorial
 ms.service: azure-video-analyzer
@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 # Tutorial: Analyze live video with Intel OpenVINO™ DL Streamer – Edge AI Extension 
 
 [!INCLUDE [header](includes/edge-env.md)]
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server gives you access to different models for detecting objects (a person, a vehicle, or a bike), object classification (vehicle attributions) and a model for object tracking (person, vehicle and bike). The integration with the gRPC module lets you send video frames to the AI inference server. The results are then sent to the IoT Edge Hub. When you run this inference service on the same compute node as Azure Video Analyzer, you can take advantage of sending video data via shared memory. This enables you to run inferencing at the frame rate of the live video feed (i.e. 30 frames/sec). 
 
@@ -52,7 +54,7 @@ The OpenVINO™ DL Streamer - Edge AI Extension module is a microservice based o
 
 In order to build complex, high-performance video analytics solutions, the Azure Video Analyzer module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the Intel OpenVINO™ DL Streamer – Edge AI Extension, an Edge module that has been designed to work with Azure Video Analyzer.
 
-In the initial release of this inference server, you have access to the following [models](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options):
+In the initial release of this inference server, you have access to the following models:
 
 - object_detection for person_vehicle_bike_detection
 ![object detection for vehicle](./media/use-intel-openvino-tutorial/object-detection.png)

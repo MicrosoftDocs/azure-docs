@@ -9,8 +9,7 @@ ms.author: cynthn
 ms.date: 10/27/2021
 ms.topic: how-to  
 ms.reviewer: jushiman
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Preview: Run scripts in your Linux VM by using managed Run Commands
 
@@ -52,7 +51,7 @@ az vm run-command create --name "myRunCommand" --vm-name "myVM" --resource-group
 This command will return a full list of previously deployed Run Commands along with their properties. 
 
 ```azurecli-interactive
-az vm run-command list --name "myVM" --resource-group "myRG"
+az vm run-command list --vm-name "myVM" --resource-group "myRG"
 ```
 
 ### Get execution status and results 

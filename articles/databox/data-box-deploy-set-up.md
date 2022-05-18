@@ -7,9 +7,8 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 08/23/2021
+ms.date: 04/06/2021
 ms.author: alkohli
-ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.
 ---

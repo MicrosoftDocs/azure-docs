@@ -44,12 +44,16 @@
     href: concepts-api-management.md
   - name: Hub and spoke
     href: concepts-hub-and-spoke.md
+  - name: Network design considerations
+    href: concepts-network-design-considerations.md
   - name: Networking and interconnectivity
     href: concepts-networking.md
   - name: Private clouds and clusters
     href: concepts-private-clouds-clusters.md
   - name: Run command
     href: concepts-run-command.md
+  - name: Security recommendations
+    href: concepts-security-recommendations.md
   - name: Storage 
     href: concepts-storage.md
 - name: How-to guides
@@ -60,8 +64,6 @@
       href: integrate-azure-native-services.md
     - name: Integrate Microsoft Defender for Cloud
       href: azure-security-integration.md
-    - name: Integrate Azure NetApp Files
-      href: netapp-files-with-azure-vmware-solution.md
     - name: Protect web apps with Azure Application Gateway
       href: protect-azure-vmware-solution-with-application-gateway.md
     - name: Deploy Traffic Manager to balance workloads
@@ -70,6 +72,8 @@
       href: configure-alerts-for-azure-vmware-solution.md
     - name: Attach disk pools to Azure VMware Solution hosts
       href: attach-disk-pools-to-azure-vmware-solution-hosts.md
+    - name: Attach Azure NetApp Files to Azure VMware Solution VMs
+      href: netapp-files-with-azure-vmware-solution.md
     - name: Backup with Azure Backup Server
       items:
       - name: Set up Backup Server
@@ -128,6 +132,8 @@
     href: configure-windows-server-failover-cluster.md
   - name: Connect multiple private clouds in same region
     href: connect-multiple-private-clouds-same-region.md
+  - name: Deploy Arc
+    href: deploy-arc-for-azure-vmware-solution.md
   - name: Deploy disaster recovery
     items:
     - name: Deploy JetStream DR
@@ -158,18 +164,26 @@
     href: reserved-instance.md
   - name: Partner solution ecosystem
     items:
+    - name: Operating system support for VMs
+      href: ecosystem-os-vms.md
     - name: Backup solutions for VMs
       href: ecosystem-back-up-vms.md
+    - name: Disaster recovery solutions for VMs
+      href: ecosystem-disaster-recovery-vms.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
     - name: Security solutions for Azure VMware Solution
       href: ecosystem-security-solutions.md
+    - name: Application performance monitoring solutions for Azure VMware Solution
+      href: ecosystem-app-monitoring-solutions.md
     - name: Bitnami appliance deployment
       href: bitnami-appliances-deployment.md
   - name: VMware solutions
     items:
     - name: Configure HCX network extension
       href: configure-hcx-network-extension.md
+    - name: Configure HCX network extension high availability
+      href: configure-hcx-network-extension-high-availability.md
     - name: Configure vRealize Operations
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon

@@ -3,7 +3,7 @@ title: 'Send custom events to web endpoint - Event Grid, Azure portal'
 description: 'Quickstart: Use Azure Event Grid and Azure portal to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
 ms.date: 07/01/2021
 ms.topic: quickstart
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Route custom events to web endpoint with the Azure portal and Event Grid
@@ -50,7 +50,7 @@ Before you create a subscription for the custom topic, create an endpoint for th
 
 1. In the article page, select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to deploy to Azure."></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="../media/template-deployments/deploy-to-azure.svg"  alt="Button to deploy to Azure."></a>
 2. On the **Custom deployment** page, do the following steps: 
     1. For **Resource group**, select the resource group that you created when creating the storage account. It will be easier for you to clean up after you are done with the tutorial by deleting the resource group.  
     2. For **Site Name**, enter a name for the web app.

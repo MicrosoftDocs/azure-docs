@@ -6,12 +6,11 @@ services: virtual-network
 documentationcenter: na
 author: altambaw
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
-ms.author: kumud
+ms.author: mbender
 
 ---
 # Virtual network peering

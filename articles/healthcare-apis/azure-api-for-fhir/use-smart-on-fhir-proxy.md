@@ -5,17 +5,16 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: dseven
-ms.author: matjazl
-author: zxue
-ms.date: 09/10/2019
+ms.author: dseven
+author: dougseven
+ms.date: 02/15/2022
 ---
 
 # Tutorial: Azure Active Directory SMART on FHIR proxy
 
 [SMART on FHIR](https://docs.smarthealthit.org/) is a set of open specifications to integrate partner applications with FHIR servers and electronic medical records systems that have FHIR interfaces. One of the main purposes of the specifications is to describe how an application should discover authentication endpoints for an FHIR server and start an authentication sequence. 
 
-Authentication is based on OAuth2. But because SMART on FHIR uses parameter naming conventions that are not immediately compatible with Azure Active Directory (Azure AD), the Azure API for FHIR has a built-in Azure AD SMART on FHIR proxy that enables a subset of the SMART on FHIR launch sequences. Specifically, the proxy enables the [EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence).
+Authentication is based on OAuth2. But because SMART on FHIR uses parameter naming conventions that aren’t immediately compatible with Azure Active Directory (Azure AD), the Azure API for FHIR has a built-in Azure AD SMART on FHIR proxy that enables a subset of the SMART on FHIR launch sequences. Specifically, the proxy enables the [EHR launch sequence](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence).
 
 This tutorial describes how to use the proxy to enable SMART on FHIR applications with the Azure API for FHIR.
 
@@ -28,7 +27,7 @@ This tutorial describes how to use the proxy to enable SMART on FHIR application
 
 SMART on FHIR requires that `Audience` has an identifier URI equal to the URI of the FHIR service. The standard configuration of the Azure API for FHIR uses an `Audience` value of `https://azurehealthcareapis.com`. However, you can also set a value matching the specific URL of your FHIR service (for example `https://MYFHIRAPI.azurehealthcareapis.com`). This is required when working with the SMART on FHIR proxy.
 
-You will also need a client application registration. Most SMART on FHIR applications are single-page JavaScript applications. So you should follow the instructions for configuring a [public client application in Azure AD](register-public-azure-ad-client-app.md).
+You'll also need a client application registration. Most SMART on FHIR applications are single-page JavaScript applications. So you should follow the instructions for configuring a [public client application in Azure AD](register-public-azure-ad-client-app.md).
 
 After you complete these steps, you should have:
 
@@ -41,7 +40,7 @@ To use SMART on FHIR, you must first authenticate and authorize the app. The fir
 
 If you don't have an ownership role in the app, contact the app owner and ask them to grant admin consent for you in the app. 
 
-If you do have administrative privileges, complete the following steps to grant admin consent to yourself directly. (You also can grant admin consent to yourself later when you are prompted in the app.) You can complete the same steps to add other users as owners, so they can view and edit this app registration.
+If you do have administrative privileges, complete the following steps to grant admin consent to yourself directly. (You also can grant admin consent to yourself later when you're prompted in the app.) You can complete the same steps to add other users as owners, so they can view and edit this app registration.
 
 To add yourself or another user as owner of an app:
 
@@ -96,7 +95,7 @@ Add the reply URL to the public client application that you created earlier for 
 
 ## Get a test patient
 
-To test the Azure API for FHIR and the SMART on FHIR proxy, you'll need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../use-postman.md) to load a patient. Make a note of the ID of a specific patient.
+To test the Azure API for FHIR and the SMART on FHIR proxy, you'll need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../fhir/use-postman.md) to load a patient. Make a note of the ID of a specific patient.
 
 ## Download the SMART on FHIR app launcher
 

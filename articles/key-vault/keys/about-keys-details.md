@@ -67,7 +67,7 @@ Following table shows a summary of key types and supported algorithms.
 - **AES-CBC** - AES encryption in Cipher Block Chaining Mode ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800))
 
 > [!NOTE] 
-> Current AES-GCM implementation and the corresponding APIs are experimental. The implementation and the APIs may change substantially in the future iterations. 
+> Sign and verify operations algorithms must match the key type, otherwise service will return key size is incorrect error.
 
 ##  Key operations
 
@@ -82,6 +82,7 @@ Key Vault, including Managed HSM, supports the following operations on key objec
 -   **Get**: Allows a client to retrieve the public parts of a given key in a Key Vault.  
 -   **Backup**: Exports a key in a protected form.  
 -   **Restore**: Imports a previously backed up key.  
+-   **Rotate (preview)**: Rotate an existing key by generating new version of the key (Key Vault only).
 
 For more information, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault).  
 
@@ -99,6 +100,13 @@ Key Vault doesn't support EXPORT operations. Once a key is provisioned in the sy
 Users may restrict any of the cryptographic operations that Key Vault supports on a per-key basis using the key_ops property of the JWK object.  
 
 For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
+
+##  Key rotation policy operations
+
+Key vault key auto-rotation can be set by configuring key auto-rotation policy. It is only available on Key Vault resource.
+
+-   **Get Rotation Policy**: Allows a client to retrieve rotation policy configuration
+-   **Set Rotation Policy**: Allows a client to set rotation policy configuration 
 
 ## Key attributes
 
@@ -158,7 +166,7 @@ The following permissions can be granted, on a per user / service principal basi
 - Permissions for privileged operations
   - *purge*: Purge (permanently delete) a deleted key
 
-For more information on working with keys, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy). 
+For more information on working with keys, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update) and [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy). 
 
 ## Next steps
 - [About Key Vault](../general/overview.md)

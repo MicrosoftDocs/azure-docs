@@ -4,14 +4,14 @@ description: Description goes here.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 01/25/2022
 ms.author: normesta
 
 ---
 
 # Upgrading Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities
 
-This article helps you unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2. The most popular capabilities include:
+This article helps you to enable a hierarchical namespace and unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2. The most popular capabilities include:
 
 - Higher throughput, input/output operations per second (IOPS), and storage capacity limits.
 

@@ -6,6 +6,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 
 ---

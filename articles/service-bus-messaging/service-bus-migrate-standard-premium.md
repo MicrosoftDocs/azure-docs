@@ -2,7 +2,7 @@
 title: Migrate Azure Service Bus namespaces - standard to premium
 description: Guide to allow migration of existing Azure Service Bus standard namespaces to premium
 ms.topic: article
-ms.date: 09/20/2021
+ms.date: 03/09/2022
 ---
 
 # Migrate existing Azure Service Bus standard namespaces to the premium tier
@@ -169,7 +169,7 @@ The downtime that is experienced by the application is limited to the time it ta
 
 No, there are no code or configuration changes needed to do the migration. The connection string that sender and receiver applications use to access the standard Namespace is automatically mapped to act as an alias for the premium namespace.
 
-### What happens when I abort the migration?
+### How do I abort the migration? 
 
 The migration can be aborted either by using the `Abort` command or by using the Azure portal.
 
@@ -189,6 +189,7 @@ When it's complete, you see the following page:
 
 :::image type="content" source="./media/service-bus-standard-premium-migration/abort3.png" alt-text="Image showing the Abort complete page.":::
 
+### What happens when I abort the migration?
 When the migration process is aborted, it aborts the process of copying the entities (topics, subscriptions, and filters) from the standard to the premium namespace and breaks the pairing.
 
 The connection string isn't updated to point to the premium namespace. Your existing applications continue to work as they did before you started the migration.

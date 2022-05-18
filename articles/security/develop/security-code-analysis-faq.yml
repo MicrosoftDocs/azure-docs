@@ -5,20 +5,18 @@ metadata:
   author: sukhans
   manager: sukhans
   ms.author: terrylan
-  ms.date: 03/22/2021
-  ms.topic: article
+  ms.date: 04/18/2022
+  ms.topic: faq
   ms.service: security
   services: azure
   
   ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-  ms.devlang: na
   ms.tgt_pltfrm: na
   ms.workload: na
-    
 title: Frequently asked questions | Azure
 summary: |
   > [!Note]
-  > Effective March 1, 2022, the Microsoft Security Code Analysis (MSCA) extension will be retired. Existing MSCA customers will retain their access to MSCA through March 1, 2022. Please refer to the [OWASP Source Code Analysis Tools](https://owasp.org/www-community/Source_Code_Analysis_Tools) for alternative options in Azure DevOps. For customers planning to migrate to GitHub, you can check out [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
+  > Effective December 31, 2022, the Microsoft Security Code Analysis (MSCA) extension will be retired. Existing MSCA customers will retain their access to MSCA through December 31, 2022. Refer to the [OWASP Source Code Analysis Tools](https://owasp.org/www-community/Source_Code_Analysis_Tools) for alternative options in Azure DevOps. For customers planning to migrate to GitHub, you can check out [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
   
   Got questions? Check out the following FAQ for more information.
   
@@ -43,21 +41,21 @@ sections:
       - question: |
           Can I break my build when results are found?
         answer: |
-          Yes. You can introduce a build break when any tool reports an issue or problem in its log file. Just add the Post-Analysis build task, and select the checkbox for any tool for which you want to break the build.
+          Yes. You can introduce a build break when any tool reports an issue or problem in its log file. Add the Post-Analysis build task, and select the checkbox for any tool for which you want to break the build.
           
           In the UI of the Post-Analysis task, you can choose to break the build when any tool reports either errors only or both errors and warnings.
           
       - question: |
           How do the command-line arguments in Azure DevOps differ from those arguments in the standalone desktop tools? 
         answer: |
-          For the most part, the Azure DevOps build tasks are direct wrappers around the command-line arguments of the security tools. You can pass as arguments to a build task anything you normally pass to a command-line tool.
+          Usually, the Azure DevOps build tasks are direct wrappers around the command-line arguments of the security tools. You can pass as arguments to a build task anything you normally pass to a command-line tool.
           
           Noticeable differences:
           
           - Tools run from the source folder of the agent $(Build.SourcesDirectory) or from %BUILD_SOURCESDIRECTORY%. An example is C:\agent\_work\1\s.
           - Paths in the arguments can be relative to the root of the source directory previously listed. Paths can also be absolute. You get absolute paths either by using Azure DevOps Build Variables or by running an on-premises agent with known deployment locations of local resources.
           - Tools automatically provide an output file path or folder. If you provide an output location for a build task, that location is replaced with a path to our well-known location of logs on the build agent
-          - Some additional command-line arguments are changed for some tools. One example is the addition or removal of options that ensure no GUI is launched.
+          - Some other command-line arguments are changed for some tools. One example is the addition or removal of options that ensure no GUI is launched.
           
       - question: |
           Can I run a build task like Credential Scanner across multiple repositories in an Azure DevOps Build?
@@ -175,7 +173,7 @@ sections:
           The following resources help you securely manage secrets and access sensitive information from within your applications:
           
            - [Azure Key Vault](../../key-vault/index.yml)
-           - [Azure Active Directory (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
+           - [Azure Active Directory (Azure AD)](/azure/azure-sql/database/authentication-aad-overview)
            - [Azure AD Managed Service Identity (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
            - [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
            - [Managed identities in Azure App Service and Azure Functions](../../app-service/overview-managed-identity.md)
@@ -216,7 +214,7 @@ sections:
           
           "Error: The project was restored using Microsoft.NETCore.App version *x.x.x*, but with current settings, version *y.y.y* would be used instead. To resolve this issue, make sure the same settings are used for restore and for subsequent operations such as build or publish. Typically this issue can occur if the RuntimeIdentifier property is set during build or publish but not during restore."
           
-          Because Roslyn Analyzers tasks run as part of compilation, the source tree on the build machine needs to be in a buildable state.
+          Because Roslyn Analyzers tasks run as part of compilation, the source tree on the build machine must be in a buildable state.
           
           A step between your main build and Roslyn Analyzers steps might have put the source tree into a state that prevents building. This extra step is probably **dotnet.exe publish**. Try duplicating the step that does a NuGet restoration just before the Roslyn Analyzers step. This duplicated step might put the source tree back in a buildable state.
           
@@ -228,7 +226,7 @@ sections:
           
           Ensure your compiler supports Roslyn Analyzers. Running the command **csc.exe /version** should report a version value of 2.6 or later.
           
-          Sometimes a .csproj file can override the build machine's Visual Studio installation by referencing a package from Microsoft.Net.Compilers. If you don't intend to use a specific version of the compiler, remove references to Microsoft.Net.Compilers. Otherwise, make sure the version of the referenced package is also 2.6 or later.
+          Sometimes a .csproj file can override the build machine's Visual Studio installation by referencing a package from Microsoft.Net.Compilers. If you don't intend to use a specific version of the compiler, remove references to Microsoft.Net.Compilers. Otherwise, make sure that the version of the referenced package is also 2.6 or later.
           
           Try to get the error-log path, which is specified in the **csc.exe /errorlog** option. The option and path appear in the log for the Roslyn Analyzers build task. They might look something like **/errorlog:F:\ts-services-123\_work\456\s\Some\Project\Code\Code.csproj.sarif**
           
@@ -238,7 +236,7 @@ sections:
           
           #### MSBuild and VSBuild logs aren't found
           
-          The Roslyn Analyzers build task needs to query Azure DevOps for the MSBuild log from the MSBuild build task. If the analyzer task runs immediately after the MSBuild task, the log won't yet be available. Place other tasks between the MSBuild task and the Roslyn Analyzers task. Examples of other tasks include BinSkim and Anti-Malware Scanner.
+          The Roslyn Analyzers build task must query Azure DevOps for the MSBuild log from the MSBuild build task. If the analyzer task runs immediately after the MSBuild task, the log won't yet be available. Place other tasks between the MSBuild task and the Roslyn Analyzers task. Examples of other tasks include BinSkim and Anti-Malware Scanner.
 
 additionalContent: |
 

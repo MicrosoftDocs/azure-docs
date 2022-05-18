@@ -5,7 +5,6 @@ summary: Azure Synapse is a limitless analytics service that brings together ent
 metadata:
   title: Azure Synapse Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # Required; article description that is displayed in search results. < 160 chars.
-  services: synapse-analytics
   ms.service: synapse-analytics #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: overview 
   ms.topic: landing-page # Required
@@ -163,7 +162,7 @@ landingContent:
   #         - text: Dedicated SQL pool (formerly SQL DW) architecture
   #           url: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
   #         - text: Reference Architecture
-  #           url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+  #           url: https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 
 
 

@@ -3,8 +3,11 @@ title: Active Learning suggested questions - QnA Maker
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
-ms.date: 04/06/2020
+ms.topic: how-to
+ms.date: 01/11/2022
+ms.author: jboback
+author: jboback
+ms.devlang: csharp, javascript
 ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 ---
 
@@ -15,11 +18,11 @@ ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 
 <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>
 
-Active Learning alters the Knowledge Base or Search Service after you approve the suggestion, then save and train. If you approve the suggestion it will be added as an alternate question.
+Active Learning alters the Knowledge Base or Search Service after you approve the suggestion, then save and train. If you approve the suggestion, it will be added as an alternate question.
 
 ## Turn on active learning
 
-In order to see suggested questions, you must [turn on active learning](../index.yml) for your QnA Maker resource.
+In order to see suggested questions, you must [turn on active learning](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) for your QnA Maker resource.
 
 ## View suggested questions
 

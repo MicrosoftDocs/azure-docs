@@ -2,7 +2,7 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 02/28/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -18,6 +18,7 @@ The resources providers that are marked with **- registered** are registered by 
 | --------------------------- | ------------- |
 | Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | core |
+| Microsoft.App | [Azure Container Apps](../../container-apps/index.yml) |
 | Microsoft.ADHybridHealthService - [registered](#registration) | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft.Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
@@ -76,7 +77,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.DBforMariaDB | [Azure Database for MariaDB](../../mariadb/index.yml) |
 | Microsoft.DBforMySQL | [Azure Database for MySQL](../../mysql/index.yml) |
 | Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](../../postgresql/index.yml) |
-| Microsoft.DesktopVirtualization | [Windows Virtual Desktop](../../virtual-desktop/index.yml) |
+| Microsoft.DesktopVirtualization | [Azure Virtual Desktop](../../virtual-desktop/index.yml) |
 | Microsoft.Devices | [Azure IoT Hub](../../iot-hub/index.yml)<br />[Azure IoT Hub Device Provisioning Service](../../iot-dps/index.yml) |
 | Microsoft.DeviceUpdate | [Device Update for IoT Hub](../../iot-hub-device-update/index.yml)
 | Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
@@ -112,7 +113,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.Logic | [Logic Apps](../../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/classic/index.yml) |
 | Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
-| Microsoft.Maintenance | [Azure Maintenance](../../virtual-machines/maintenance-control-cli.md) |
+| Microsoft.Maintenance | [Azure Maintenance](../../virtual-machines/maintenance-configurations.md) |
 | Microsoft.ManagedIdentity | [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft.ManagedNetwork | Virtual networks managed by PaaS services |
 | Microsoft.ManagedServices | [Azure Lighthouse](../../lighthouse/index.yml) |
@@ -121,12 +122,12 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.Marketplace | core |
 | Microsoft.MarketplaceApps | core |
 | Microsoft.MarketplaceOrdering - [registered](#registration) | core |
-| Microsoft.Media | [Media Services](../../media-services/index.yml) |
+| Microsoft.Media | [Media Services](/azure/media-services/) |
 | Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Azure Private Link](../../private-link/index.yml)<br />[Azure Route Server](../../route-server/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual Network NAT](../../virtual-network/nat-gateway/nat-overview.md)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
 | Microsoft.Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 | Microsoft.NotificationHubs | [Notification Hubs](../../notification-hubs/index.yml) |
 | Microsoft.ObjectStore | Object Store |
@@ -159,8 +160,8 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.SignalRService | [Azure SignalR Service](../../azure-signalr/index.yml) |
 | Microsoft.SoftwarePlan | License |
 | Microsoft.Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
-| Microsoft.Sql | [Azure SQL Database](../../azure-sql/database/index.yml)<br /> [Azure SQL Managed Instance](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft.SqlVirtualMachine | [SQL Server on Azure Virtual Machines](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
+| Microsoft.Sql | [Azure SQL Database](/azure/azure-sql/database/index)<br /> [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/index) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
+| Microsoft.SqlVirtualMachine | [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) |
 | Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft.StorageCache | [Azure HPC Cache](../../hpc-cache/index.yml) |
 | Microsoft.StorageSync | [Storage](../../storage/index.yml) |

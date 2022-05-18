@@ -83,6 +83,4 @@ YYYY-MM-DD HH:MM:SS.mmmm | ERROR | [AzureUpload] Upload task exception: A config
 
 ## Next steps
 
-[Retrieve the user name and password to connect to the Arc Data Controller](retrieve-the-username-password-for-data-controller.md)
-
 [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal)

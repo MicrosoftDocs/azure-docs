@@ -1,22 +1,20 @@
 ---
 title: Managed identities
 description: Learn how managed identities work in Azure App Service and Azure Functions, how to configure a managed identity and generate a token for a back-end resource.
-author: mattchenderson
 
 ms.topic: article
-ms.date: 05/27/2020
-ms.author: mahender
-ms.reviewer: yevbronsh
+ms.date: 01/27/2022
+ms.reviewer: yevbronsh,mahender
 ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
 
 ---
 
 # How to use managed identities for App Service and Azure Functions
 
-This topic shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. 
+This article shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. 
 
-> [!Important] 
-> Managed identities for App Service and Azure Functions won't behave as expected if your app is migrated across subscriptions/tenants. The app needs to obtain a new identity, which is done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources also need to have access policies updated to use the new identity.
+> [!IMPORTANT] 
+> Managed identities for App Service and Azure Functions won't behave as expected if your app is migrated across subscriptions/tenants. The app needs to obtain a new identity, which is done by [disabling](#remove) and re-enabling the feature. Downstream resources also need to have access policies updated to use the new identity.
 
 > [!NOTE]
 > Managed identities are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
@@ -25,19 +23,13 @@ This topic shows you how to create a managed identity for App Service and Azure 
 
 ## Add a system-assigned identity
 
-Creating an app with a system-assigned identity requires an additional property to be set on the application.
+# [Azure portal](#tab/portal)
 
-### Using the Azure portal
+1. In the left navigation of your app's page, scroll down to the **Settings** group.
 
-To set up a managed identity in the portal, you will first create an application as normal and then enable the feature.
+1. Select **Identity**.
 
-1. Create an app in the portal as you normally would. Navigate to it in the portal.
-
-2. If using a function app, navigate to **Platform features**. For other app types, scroll down to the **Settings** group in the left navigation.
-
-3. Select **Identity**.
-
-4. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
+1. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
     ![Screenshot that shows where to switch Status to On and then select Save.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -46,85 +38,33 @@ To set up a managed identity in the portal, you will first create an application
 > To find the managed identity for your web app or slot app in the Azure portal, under **Enterprise applications**, look in the **User settings** section. Usually, the slot name is similar to `<app name>/slots/<slot name>`.
 
 
-### Using the Azure CLI
+# [Azure CLI](#tab/cli)
 
-To set up a managed identity using the Azure CLI, you will need to use the `az webapp identity assign` command against an existing application. You have three options for running the examples in this section:
+Run the `az webapp identity assign` command to create a system-assigned identity:
 
-- Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
-- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
-- [Install the latest version of Azure CLI](/cli/azure/install-azure-cli) (2.0.31 or later) if you prefer to use a local CLI console. 
+```azurecli-interactive
+az webapp identity assign --name myApp --resource-group myResourceGroup
+```
 
-The following steps will walk you through creating a web app and assigning it an identity using the CLI:
+# [Azure PowerShell](#tab/ps)
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that's associated with the Azure subscription under which you would like to deploy the application:
+#### For App Service
 
-    ```azurecli-interactive
-    az login
-    ```
+Run the `Set-AzWebApp -AssignIdentity` command to create a system-assigned identity for App Service:
 
-2. Create a web application using the CLI. For more examples of how to use the CLI with App Service, see [App Service CLI samples](../app-service/samples-cli.md):
+```azurepowershell-interactive
+Set-AzWebApp -AssignIdentity $true -Name <app-name> -ResourceGroupName <group-name> 
+```
 
-    ```azurecli-interactive
-    az group create --name myResourceGroup --location westus
-    az appservice plan create --name myPlan --resource-group myResourceGroup --sku S1
-    az webapp create --name myApp --resource-group myResourceGroup --plan myPlan
-    ```
+#### For Functions
 
-3. Run the `identity assign` command to create the identity for this application:
+Run the `Update-AzFunctionApp -IdentityType` command to create a system-assigned identity for a function app:
 
-    ```azurecli-interactive
-    az webapp identity assign --name myApp --resource-group myResourceGroup
-    ```
+```azurepowershell-interactive
+Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -IdentityType SystemAssigned
+```
 
-### Using Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-The following steps will walk you through creating an app and assigning it an identity using Azure PowerShell. The instructions for creating a web app and a function app are different.
-
-#### Using Azure PowerShell for a web app
-
-1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/), and then run `Login-AzAccount` to create a connection with Azure.
-
-2. Create a web application using Azure PowerShell. For more examples of how to use Azure PowerShell with App Service, see [App Service PowerShell samples](../app-service/samples-powershell.md):
-
-    ```azurepowershell-interactive
-    # Create a resource group.
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-
-    # Create an App Service plan in Free tier.
-    New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName $resourceGroupName -Tier Free
-
-    # Create a web app.
-    New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName $resourceGroupName
-    ```
-
-3. Run the `Set-AzWebApp -AssignIdentity` command to create the identity for this application:
-
-    ```azurepowershell-interactive
-    Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName $resourceGroupName 
-    ```
-
-#### Using Azure PowerShell for a function app
-
-1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/), and then run `Login-AzAccount` to create a connection with Azure.
-
-2. Create a function app using Azure PowerShell. For more examples of how to use Azure PowerShell with Azure Functions, see the [Az.Functions reference](/powershell/module/az.functions/#functions):
-
-    ```azurepowershell-interactive
-    # Create a resource group.
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-
-    # Create a storage account.
-    New-AzStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -SkuName $sku
-
-    # Create a function app with a system-assigned identity.
-    New-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -Location $location -StorageAccountName $storageAccountName -Runtime $runtime -IdentityType SystemAssigned
-    ```
-
-You can also update an existing function app using `Update-AzFunctionApp` instead.
-
-### Using an Azure Resource Manager template
+# [ARM template](#tab/arm)
 
 An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](../app-service/deploy-complex-application-predictably.md) and [Automating resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
@@ -136,12 +76,9 @@ Any resource of type `Microsoft.Web/sites` can be created with an identity by in
 }
 ```
 
-> [!NOTE]
-> An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`
-
 Adding the system-assigned type tells Azure to create and manage the identity for your application.
 
-For example, a web app might look like the following:
+For example, a web app's template might look like the following JSON:
 
 ```json
 {
@@ -186,58 +123,67 @@ If you need to reference these properties in a later stage in the template, you 
 }
 ```
 
+-----
+
 ## Add a user-assigned identity
 
 Creating an app with a user-assigned identity requires that you create the identity and then add its resource identifier to your app config.
 
-### Using the Azure portal
+# [Azure portal](#tab/portal)
 
 First, you'll need to create a user-assigned identity resource.
 
 1. Create a user-assigned managed identity resource according to [these instructions](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-2. Create an app in the portal as you normally would. Navigate to it in the portal.
+1. In the left navigation for your app's page, scroll down to the **Settings** group.
 
-3. If using a function app, navigate to **Platform features**. For other app types, scroll down to the **Settings** group in the left navigation.
+1. Select **Identity**.
 
-4. Select **Identity**.
+1. Within the **User assigned** tab, click **Add**.
 
-5. Within the **User assigned** tab, click **Add**.
-
-6. Search for the identity you created earlier and select it. Click **Add**.
+1. Search for the identity you created earlier and select it. Click **Add**.
 
     ![Managed identity in App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
+    
+> [!IMPORTANT]
+> If you select **Add** after you select a user-assigned identity to add, your application will restart.
 
-### Using Azure PowerShell
+# [Azure CLI](#tab/cli)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-The following steps will walk you through creating an app and assigning it an identity using Azure PowerShell.
-
-> [!NOTE]
-> The current version of the Azure PowerShell commandlets for Azure App Service do not support user-assigned identities. The below instructions are for Azure Functions.
-
-1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/), and then run `Login-AzAccount` to create a connection with Azure.
-
-2. Create a function app using Azure PowerShell. For more examples of how to use Azure PowerShell with Azure Functions, see the [Az.Functions reference](/powershell/module/az.functions/#functions). The below script also makes use of `New-AzUserAssignedIdentity` which must be installed separately as per [Create, list or delete a user-assigned managed identity using Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+1. Create a user-assigned identity.
 
     ```azurepowershell-interactive
-    # Create a resource group.
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-
-    # Create a storage account.
-    New-AzStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -SkuName $sku
-
-    # Create a user-assigned identity. This requires installation of the "Az.ManagedServiceIdentity" module.
-    $userAssignedIdentity = New-AzUserAssignedIdentity -Name $userAssignedIdentityName -ResourceGroupName $resourceGroupName
-
-    # Create a function app with a user-assigned identity.
-    New-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -Location $location -StorageAccountName $storageAccountName -Runtime $runtime -IdentityType UserAssigned -IdentityId $userAssignedIdentity.Id
+    az identity create --resource-group <group-name> --name <identity-name>
     ```
 
-You can also update an existing function app using `Update-AzFunctionApp` instead.
+1. Run the `az webapp identity assign` command to assign the identity to the app.
 
-### Using an Azure Resource Manager template
+    ```azurepowershell-interactive
+    az webapp identity assign --resource-group <group-name> --name <app-name> --identities <identity-name>
+    ```
+
+# [Azure PowerShell](#tab/ps)
+
+#### For App Service 
+
+Adding a user-assigned identity in App Service is currently not supported.
+
+#### For Functions
+
+1. Create a user-assigned identity.
+
+    ```azurepowershell-interactive
+    Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
+    $userAssignedIdentity = New-AzUserAssignedIdentity -Name $userAssignedIdentityName -ResourceGroupName <group-name>
+    ```
+
+1. Run the `Update-AzFunctionApp -IdentityType UserAssigned -IdentityId` command to assign the identity in Functions:
+
+    ```azurepowershell-interactive
+    Update-AzFunctionApp -Name <app-name> -ResourceGroupName <group-name> -IdentityType UserAssigned -IdentityId $userAssignedIdentity.Id
+    ```
+
+# [ARM template](#tab/arm)
 
 An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](../app-service/deploy-complex-application-predictably.md) and [Automating resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
@@ -257,7 +203,7 @@ Any resource of type `Microsoft.Web/sites` can be created with an identity by in
 
 Adding the user-assigned type tells Azure to use the user-assigned identity specified for your application.
 
-For example, a web app might look like the following:
+For example, a web app's template might look like the following JSON:
 
 ```json
 {
@@ -301,57 +247,24 @@ When the site is created, it has the following additional properties:
 
 The principalId is a unique identifier for the identity that's used for Azure AD administration. The clientId is a unique identifier for the application's new identity that's used for specifying which identity to use during runtime calls.
 
-## Obtain tokens for Azure resources
+-----
 
-An app can use its managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens represent the application accessing the resource, and not any specific user of the application. 
+## Configure target resource
 
-You may need to configure the target resource to allow access from your application. For example, if you request a token to access Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+You may need to configure the target resource to allow access from your app or function. For example, if you [request a token](#connect-to-azure-services-in-app-code) to access Key Vault, you must also add an access policy that includes the managed identity of your app or function. Otherwise, your calls to Key Vault will be rejected, even if you use a valid token. The same is true for Azure SQL Database. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 > [!IMPORTANT]
 > The back-end services for managed identities maintain a cache per resource URI for around 24 hours. If you update the access policy of a particular target resource and immediately retrieve a token for that resource, you may continue to get a cached token with outdated permissions until that token expires. There's currently no way to force a token refresh.
 
-There is a simple REST protocol for obtaining a token in App Service and Azure Functions. This can be used for all applications and languages. For .NET and Java, the Azure SDK provides an abstraction over this protocol and facilitates a local development experience.
+## Connect to Azure services in app code
 
-### Using the REST protocol
+With its managed identity, an app can obtain tokens for Azure resources that are protected by Azure Active Directory, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application accessing the resource, and not any specific user of the application. 
 
-> [!NOTE]
-> An older version of this protocol, using the "2017-09-01" API version, used the `secret` header instead of `X-IDENTITY-HEADER` and only accepted the `clientid` property for user-assigned. It also returned the `expires_on` in a timestamp format. MSI_ENDPOINT can be used as an alias for IDENTITY_ENDPOINT, and MSI_SECRET can be used as an alias for IDENTITY_HEADER. This version of the protocol is currently required for Linux Consumption hosting plans.
+App Service and Azure Functions provide an internally accessible [REST endpoint](#rest-endpoint-reference) for token retrieval. The REST endpoint can be accessed from within the app with a standard HTTP GET, which can be implemented with a generic HTTP client in every language. For .NET, JavaScript, Java, and Python, the Azure Identity client library provides an abstraction over this REST endpoint and simplifies the development experience. Connecting to other Azure services is as simple as adding a credential object to the service-specific client.
 
-An app with a managed identity has two environment variables defined:
+# [HTTP GET](#tab/http)
 
-- IDENTITY_ENDPOINT - the URL to the local token service.
-- IDENTITY_HEADER - a header used to help mitigate server-side request forgery (SSRF) attacks. The value is rotated by the platform.
-
-The **IDENTITY_ENDPOINT** is a local URL from which your app can request tokens. To get a token for a resource, make an HTTP GET request to this endpoint, including the following parameters:
-
-> | Parameter name    | In     | Description                                                                                                                                                                                                                                                                                                                                |
-> |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | resource          | Query  | The Azure AD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
-> | api-version       | Query  | The version of the token API to be used. Please use "2019-08-01" or later (unless using Linux Consumption, which currently only offers "2017-09-01" - see note above).                                                                                                                                                                                                                                                                 |
-> | X-IDENTITY-HEADER | Header | The value of the IDENTITY_HEADER environment variable. This header is used to help mitigate server-side request forgery (SSRF) attacks.                                                                                                                                                                                                    |
-> | client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                             |
-> | principal_id      | Query  | (Optional) The principal ID of the user-assigned identity to be used. `object_id` is an alias that may be used instead. Cannot be used on a request that includes client_id, mi_res_id, or object_id. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
-> | mi_res_id         | Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                      |
-
-> [!IMPORTANT]
-> If you are attempting to obtain tokens for user-assigned identities, you must include one of the optional properties. Otherwise the token service will attempt to obtain a token for a system-assigned identity, which may or may not exist.
-
-A successful 200 OK response includes a JSON body with the following properties:
-
-> | Property name | Description                                                                                                                                                                                                                                        |
-> |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | access_token  | The requested access token. The calling web service can use this token to authenticate to the receiving web service.                                                                                                                               |
-> | client_id     | The client ID of the identity that was used.                                                                                                                                                                                                       |
-> | expires_on    | The timespan when the access token expires. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC" (corresponds to the token's `exp` claim).                                                                                |
-> | not_before    | The timespan when the access token takes effect, and can be accepted. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC" (corresponds to the token's `nbf` claim).                                                      |
-> | resource      | The resource the access token was requested for, which matches the `resource` query string parameter of the request.                                                                                                                               |
-> | token_type    | Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about bearer tokens, see [The OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-
-This response is the same as the [response for the Azure AD service-to-service access token request](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
-
-### REST protocol examples
-
-An example request might look like the following:
+A raw HTTP GET request looks like the following example:
 
 ```http
 GET /MSI/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
@@ -374,60 +287,66 @@ Content-Type: application/json
 }
 ```
 
-### Code examples
+This response is the same as the [response for the Azure AD service-to-service access token request](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response). To access Key Vault, you will then add the value of `access_token` to a client connection with the vault.
 
 # [.NET](#tab/dotnet)
 
-> [!TIP]
-> For .NET languages, you can also use [Microsoft.Azure.Services.AppAuthentication](#asal) instead of crafting this request yourself.
+> [!NOTE]
+> When connecting to Azure SQL data sources with [Entity Framework Core](/ef/core/), consider [using Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication), which provides special connection strings for managed identity connectivity. For an example, see [Tutorial: Secure Azure SQL Database connection from App Service using a managed identity](tutorial-connect-msi-sql-database.md).
 
-```csharp
-private readonly HttpClient _client;
-// ...
-public async Task<HttpResponseMessage> GetToken(string resource)  {
-    var request = new HttpRequestMessage(HttpMethod.Get, 
-        String.Format("{0}/?resource={1}&api-version=2019-08-01", Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT"), resource));
-    request.Headers.Add("X-IDENTITY-HEADER", Environment.GetEnvironmentVariable("IDENTITY_HEADER"));
-    return await _client.SendAsync(request);
-}
-```
+For .NET apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme?). For detailed guidance, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
+
+See the respective documentation headings of the client library for information:
+
+- [Add Azure Identity client library to your project](/dotnet/api/overview/azure/identity-readme#getting-started)
+- [Access Azure service with a system-assigned identity](/dotnet/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential)
+
+The linked examples use [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
 # [JavaScript](#tab/javascript)
 
-```javascript
-const rp = require('request-promise');
-const getToken = function(resource, cb) {
-    let options = {
-        uri: `${process.env["IDENTITY_ENDPOINT"]}/?resource=${resource}&api-version=2019-08-01`,
-        headers: {
-            'X-IDENTITY-HEADER': process.env["IDENTITY_HEADER"]
-        }
-    };
-    rp(options)
-        .then(cb);
-}
-```
+For Node.js apps and JavaScript functions, the simplest way to work with a managed identity is through the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?). For detailed guidance, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
+
+See the respective documentation headings of the client library for information:
+
+- [Add Azure Identity client library to your project](/javascript/api/overview/azure/identity-readme#install-the-package)
+- [Access Azure service with a system-assigned identity](/javascript/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/javascript/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
+
+The linked examples use [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+
+For more code examples of the Azure Identity client library for JavaScript, see [Azure Identity examples](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/identity_2.0.1/sdk/identity/identity/samples/AzureIdentityExamples.md).
 
 # [Python](#tab/python)
 
-```python
-import os
-import requests
+For Python apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme). For detailed guidance, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
 
-identity_endpoint = os.environ["IDENTITY_ENDPOINT"]
-identity_header = os.environ["IDENTITY_HEADER"]
+See the respective documentation headings of the client library for information:
 
-def get_bearer_token(resource_uri):
-    token_auth_uri = f"{identity_endpoint}?resource={resource_uri}&api-version=2019-08-01"
-    head_msi = {'X-IDENTITY-HEADER':identity_header}
+- [Add Azure Identity client library to your project](/python/api/overview/azure/identity-readme#getting-started)
+- [Access Azure service with a system-assigned identity](/python/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/python/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
 
-    resp = requests.get(token_auth_uri, headers=head_msi)
-    access_token = resp.json()['access_token']
+The linked examples use [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
-    return access_token
-```
+# [Java](#tab/java)
+
+For Java apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Java](/java/api/overview/azure/identity-readme). For detailed guidance, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
+
+See the respective documentation headings of the client library for information:
+
+- [Add Azure Identity client library to your project](/java/api/overview/azure/identity-readme#include-the-package)
+- [Access Azure service with a system-assigned identity](/java/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/java/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
+
+The linked examples use [`DefaultAzureCredential`](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+
+For more code examples of the Azure Identity client library for Java, see [Azure Identity Examples](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples).
 
 # [PowerShell](#tab/powershell)
+
+Use the following script to retrieve a token from the local endpoint by specifying a resource URI of an Azure service:
 
 ```powershell
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -436,79 +355,49 @@ $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"X-IDENTITY-HEADER"="$
 $accessToken = $tokenResponse.access_token
 ```
 
----
+-----
 
-### <a name="asal"></a>Using the Microsoft.Azure.Services.AppAuthentication library for .NET
-
-For .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI](/cli/azure), or Active Directory Integrated Authentication. When hosted in the cloud, it will default to using a system-assigned identity, but you can customize this behavior using a connection string environment variable which references the client ID of a user-assigned identity. For more on development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference]. This section shows you how to get started with the library in your code.
-
-1. Add references to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and any other necessary NuGet packages to your application. The below example also uses [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
-
-2. Add the following code to your application, modifying to target the correct resource. This example shows two ways to work with Azure Key Vault:
-
-    ```csharp
-    using Microsoft.Azure.Services.AppAuthentication;
-    using Microsoft.Azure.KeyVault;
-    // ...
-    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
-    // OR
-    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-    ```
-
-If you want to use a user-assigned managed identity, you can set the `AzureServicesAuthConnectionString` application setting to `RunAs=App;AppId=<clientId-guid>`. Replace `<clientId-guid>` with the client ID of the identity you want to use. You can define multiple such connection strings by using custom application settings and passing their values into the AzureServiceTokenProvider constructor.
-
-```csharp
-    var identityConnectionString1 = Environment.GetEnvironmentVariable("UA1_ConnectionString");
-    var azureServiceTokenProvider1 = new AzureServiceTokenProvider(identityConnectionString1);
-    
-    var identityConnectionString2 = Environment.GetEnvironmentVariable("UA2_ConnectionString");
-    var azureServiceTokenProvider2 = new AzureServiceTokenProvider(identityConnectionString2);
-```
-
-To learn more about configuring AzureServiceTokenProvider and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference] and the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
-
-### Using the Azure SDK for Java
-
-For Java applications and functions, the simplest way to work with a managed identity is through the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java). This section shows you how to get started with the library in your code.
-
-1. Add a reference to the [Azure SDK library](https://mvnrepository.com/artifact/com.microsoft.azure/azure). For Maven projects, you might add this snippet to the `dependencies` section of the project's POM file:
-
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure</artifactId>
-        <version>1.23.0</version>
-    </dependency>
-    ```
-
-2. Use the `AppServiceMSICredentials` object for authentication. This example shows how this mechanism may be used for working with Azure Key Vault:
-
-    ```java
-    import com.microsoft.azure.AzureEnvironment;
-    import com.microsoft.azure.management.Azure;
-    import com.microsoft.azure.management.keyvault.Vault
-    //...
-    Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
-            .withSubscription(subscriptionId);
-    Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
-
-    ```
-
-
+For more information on the REST endpoint, see [REST endpoint reference](#rest-endpoint-reference).
 ## <a name="remove"></a>Remove an identity
 
-A system-assigned identity can be removed by disabling the feature using the portal, PowerShell, or CLI in the same way that it was created. User-assigned identities can be removed individually. To remove all identities, set the identity type to "None".
+When you remove a system-assigned identity, it's deleted from Azure Active Directory. System-assigned identities are also automatically removed from Azure Active Directory when you delete the app resource itself.
 
-Removing a system-assigned identity in this way will also delete it from Azure AD. System-assigned identities are also automatically removed from Azure AD when the app resource is deleted.
+# [Azure portal](#tab/portal)
 
-To remove all identities in an [ARM template](#using-an-azure-resource-manager-template):
+1. In the left navigation of your app's page, scroll down to the **Settings** group.
 
-```json
-"identity": {
-    "type": "None"
-}
+1. Select **Identity**. Then follow the steps based on the identity type:
+
+    - **System-assigned identity**: Within the **System assigned** tab, switch **Status** to **Off**. Click **Save**.
+    - **User-assigned identity**: Click the **User assigned** tab, select the checkbox for the identity, and click **Remove**. Click **Yes** to confirm.
+
+# [Azure CLI](#tab/cli)
+
+To remove the system-assigned identity:
+
+```azurecli-interactive
+az webapp identity remove --name <app-name> --resource-group <group-name>
 ```
+
+To remove one or more user-assigned identities:
+
+```azurecli-interactive
+az webapp identity remove --name <app-name> --resource-group <group-name> --identities <identity-name1>,<identity-name2>,...
+```
+
+You can also remove the system assigned identity by specifying `[system]` in `--identities`.
+
+# [Azure PowerShell](#tab/ps)
+
+#### For App Service
+
+Run the `Set-AzWebApp -AssignIdentity` command to remove a system-assigned identity for App Service:
+
+```azurepowershell-interactive
+Set-AzWebApp -AssignIdentity $false -Name <app-name> -ResourceGroupName <group-name> 
+```
+
+#### For Functions
 
 To remove all identities in Azure PowerShell (Azure Functions only):
 
@@ -517,14 +406,45 @@ To remove all identities in Azure PowerShell (Azure Functions only):
 Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -IdentityType None
 ```
 
+# [ARM template](#tab/arm)
+
+To remove all identities in an ARM template:
+
+```json
+"identity": {
+    "type": "None"
+}
+```
+
+-----
+
 > [!NOTE]
 > There is also an application setting that can be set, WEBSITE_DISABLE_MSI, which just disables the local token service. However, it leaves the identity in place, and tooling will still show the managed identity as "on" or "enabled." As a result, use of this setting is not recommended.
 
+## REST endpoint reference
+
+An app with a managed identity makes this endpoint available by defining two environment variables:
+
+- IDENTITY_ENDPOINT - the URL to the local token service.
+- IDENTITY_HEADER - a header used to help mitigate server-side request forgery (SSRF) attacks. The value is rotated by the platform.
+
+The **IDENTITY_ENDPOINT** is a local URL from which your app can request tokens. To get a token for a resource, make an HTTP GET request to this endpoint, including the following parameters:
+
+> | Parameter name    | In     | Description                                                                                                                                                                                                                                                                                                                                |
+> |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | resource          | Query  | The Azure AD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
+> | api-version       | Query  | The version of the token API to be used. Use "2019-08-01" or later.                                                                                                                                                                                                                                                                 |
+> | X-IDENTITY-HEADER | Header | The value of the IDENTITY_HEADER environment variable. This header is used to help mitigate server-side request forgery (SSRF) attacks.                                                                                                                                                                                                    |
+> | client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                             |
+> | principal_id      | Query  | (Optional) The principal ID of the user-assigned identity to be used. `object_id` is an alias that may be used instead. Cannot be used on a request that includes client_id, mi_res_id, or object_id. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
+> | mi_res_id         | Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                      |
+
+> [!IMPORTANT]
+> If you are attempting to obtain tokens for user-assigned identities, you must include one of the optional properties. Otherwise the token service will attempt to obtain a token for a system-assigned identity, which may or may not exist.
+
 ## Next steps
 
-- [Access SQL Database securely using a managed identity](tutorial-connect-msi-sql-database.md)
+- [Tutorial: Connect to SQL Database from App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md)
 - [Access Azure Storage securely using a managed identity](scenario-secure-app-access-storage.md)
 - [Call Microsoft Graph securely using a managed identity](scenario-secure-app-access-microsoft-graph-as-app.md)
 - [Connect securely to services with Key Vault secrets](tutorial-connect-msi-key-vault.md)
-
-[Microsoft.Azure.Services.AppAuthentication reference]: /dotnet/api/overview/azure/service-to-service-authentication

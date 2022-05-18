@@ -48,9 +48,13 @@ For Windows Server nodes, Windows Update does not automatically run and apply th
 
 ### Are there additional security threats relevant to AKS that customers should be aware of?
 
-Microsoft provides guidance on additional actions you can take to secure your workloads through services like [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/). The following is a list of additional security threats related to AKS and Kubernetes that customers should be aware of:
+Microsoft provides guidance on additional actions you can take to secure your workloads through services like [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks). The following is a list of additional security threats related to AKS and Kubernetes that customers should be aware of:
 
 * [New large-scale campaign targets Kubeflow](https://techcommunity.microsoft.com/t5/azure-security-center/new-large-scale-campaign-targets-kubeflow/ba-p/2425750) - June 8, 2021
+
+## How does the managed Control Plane communicate with my Nodes?
+
+AKS uses a secure tunnel communication to allow the api-server and individual node kubelets to communicate even on separate virtual networks. The tunnel is secured through TLS encryption. The current main tunnel that is used by AKS is [Konnectivity, previously known as apiserver-network-proxy](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity/). Please ensure that all network rules follow the [Azure required network rules and FQDNs](limit-egress-traffic.md).
 
 ## Why are two resource groups created with AKS?
 
@@ -125,17 +129,17 @@ Label: ```"admissions.enforcer/disabled": "true"``` or Annotation: ```"admission
 
 ## Is Azure Key Vault integrated with AKS?
 
-AKS isn't currently natively integrated with Azure Key Vault. However, the [Azure Key Vault provider for CSI Secrets Store][csi-driver] enables direct integration from Kubernetes pods to Key Vault secrets.
+[Azure Key Vault Provider for Secrets Store CSI Driver][aks-keyvault-provider] provides native integration of Azure Key Vault into AKS.
 
 ## Can I run Windows Server containers on AKS?
 
-Yes, Windows Server containers are available on AKS. To run Windows Server containers in AKS, you create a node pool that runs Windows Server as the guest OS. Windows Server containers can use only Windows Server 2019. To get started, see [Create an AKS cluster with a Windows Server node pool][aks-windows-cli].
+Yes, Windows Server containers are available on AKS. To run Windows Server containers in AKS, you create a node pool that runs Windows Server as the guest OS. Windows Server containers can use only Windows Server 2019. To get started, see [Create an AKS cluster with a Windows Server node pool](./learn/quick-windows-container-deploy-cli.md).
 
 Windows Server support for node pool includes some limitations that are part of the upstream Windows Server in Kubernetes project. For more information on these limitations, see [Windows Server containers in AKS limitations][aks-windows-limitations].
 
 ## Does AKS offer a service-level agreement?
 
-AKS provides SLA guarantees as an optional add-on feature with [Uptime SLA][uptime-sla]. 
+AKS provides SLA guarantees as an optional feature with [Uptime SLA][uptime-sla]. 
 
 The Free SKU offered by default doesn't have a associated Service Level *Agreement*, but has a Service Level *Objective* of 99.5%. It could happen that transient connectivity issues are observed in case of upgrades, unhealthy underlay nodes, platform maintenance, application overwhelming the API Server with requests, etc. If your workload doesn't tolerate API Server restarts, then we suggest using Uptime SLA.
 
@@ -209,10 +213,12 @@ The feature to enable storing customer data in a single region is currently only
 
 ## Are AKS images required to run as root?
 
-Except for the following two images, AKS images aren't required to run as root:
+The following images have functional requirements to "Run as Root" and exceptions must be filed for any policies:
 
 - *mcr.microsoft.com/oss/kubernetes/coredns*
 - *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
+- *mcr.microsoft.com/oss/calico/node*
+- *mcr.microsoft.com/oss/kubernetes-csi/azuredisk-csi*
 
 ## What is Azure CNI Transparent Mode vs. Bridge Mode?
 
@@ -281,7 +287,7 @@ The issue has been resolved by Kubernetes v1.20, refer [Kubernetes 1.20: Granula
 
 ## Can I use FIPS cryptographic libraries with deployments on AKS?
 
-FIPS-enabled nodes are currently available in preview on Linux-based node pools. For more details, see [Add a FIPS-enabled node pool (preview)](use-multiple-node-pools.md#add-a-fips-enabled-node-pool-preview).
+FIPS-enabled nodes are currently are now Generally Available on Linux-based node pools. For more details, see [Add a FIPS-enabled node pool](use-multiple-node-pools.md#add-a-fips-enabled-node-pool).
 
 ## Can I configure NSGs with AKS?
 
@@ -295,7 +301,7 @@ AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modi
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/aks
-[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
@@ -310,6 +316,7 @@ AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modi
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
 [uptime-sla]: ./uptime-sla.md
+[aks-keyvault-provider]: ./csi-secrets-store-driver.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

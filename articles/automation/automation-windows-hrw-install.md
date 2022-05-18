@@ -16,6 +16,10 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
+> [!NOTE]
+> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install Extension based (V2)on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [**Learn more**](./extension-based-hybrid-runbook-worker-install.md#install-extension-based-v2-on-existing-agent-based-v1-hybrid-worker).
+
+
 ## Prerequisites
 
 Before you start, make sure that you have the following.
@@ -34,6 +38,7 @@ The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monit
 
 The Hybrid Runbook Worker feature supports the following operating systems:
 
+* Windows Server 2022 (including Server Core)
 * Windows Server 2019 (including Server Core)
 * Windows Server 2016, version 1709 and 1803 (excluding Server Core)
 * Windows Server 2012, 2012 R2
@@ -76,6 +81,7 @@ To install and configure a Windows user Hybrid Runbook Worker, you can use one o
 
 * Use a provided PowerShell script to completely [automate](#automated-deployment) the process of configuring one or more Windows machines. This is the recommended method for machines in your datacenter or another cloud environment.
 * Manually import the Automation solution, install the Log Analytics agent for Windows, and configure the worker role on the machine.
+* Agent-based hybrid worker uses MMA proxy setting. You have to pass the proxy setting while installing the log analytics extension(MMA) and this setting will be stored under MMA configuration(registry) on VM.
 
 ## Automated deployment
 
@@ -248,7 +254,8 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
 ```
 > [!NOTE]
-> After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+> - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+> - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
 ## Remove a Hybrid Worker group
 
@@ -265,7 +272,19 @@ To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Run
 
 This process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
 
- 
+## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
+
+You can create custom Azure Automation roles and grant following permissions to Hybrid Worker Groups and Hybrid Workers. To learn more about how to create Azure Automation custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md)
+
+**Actions** | **Description**
+--- | ---
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/write | Creates a Hybrid Runbook Worker Group. 
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Deletes a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/read | Reads a Hybrid Runbook Worker.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/delete | Deletes a Hybrid Runbook Worker.
+
+  
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).

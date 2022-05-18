@@ -1,19 +1,19 @@
 ---
 title: Tenants, users, and roles in Azure Lighthouse scenarios
 description: Understand how Azure Active Directory tenants, users, and roles can be used in Azure Lighthouse scenarios.
-ms.date: 06/23/2021
+ms.date: 12/16/2021
 ms.topic: conceptual
 ---
 
 # Tenants, users, and roles in Azure Lighthouse scenarios
 
-Before onboarding customers for [Azure Lighthouse](../overview.md), it's important to understand how Azure Active Directory (Azure AD) tenants, users, and roles work, as well as how they can be used in Azure Lighthouse scenarios.
+Before onboarding customers for [Azure Lighthouse](../overview.md), it's important to understand how Azure Active Directory (Azure AD) tenants, users, and roles work, and how they can be used in Azure Lighthouse scenarios.
 
 A *tenant* is a dedicated and trusted instance of Azure AD. Typically, each tenant represents a single organization. Azure Lighthouse enables [logical projection](architecture.md#logical-projection) of resources from one tenant to another tenant. This allows users in the managing tenant (such as one belonging to a service provider) to access delegated resources in a customer's tenant, or lets [enterprises with multiple tenants centralize their management operations](enterprise.md).
 
 In order to achieve this logical projection, a subscription (or one or more resource groups within a subscription) in the customer tenant must be *onboarded* to Azure Lighthouse. This onboarding process can be done either [through Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a public or private offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
-Whichever onboarding method you choose, you will need to define *authorizations*. Each authorization specifies a **principalId** which will have access to the delegated resources, and a built-in role that sets the permissions that each of these users will have for these resources. This **principalId** defines an Azure AD user, group, or service principal in the managing tenant.
+With either onboarding method, you'll need to define *authorizations*. Each authorization includes a **principalId** (an Azure AD user, group, or service principal in the managing tenant) combined with a built-in role that defines the specific permissions that will be granted for the delegated resources.
 
 > [!NOTE]
 > Unless explicitly specified, references to a "user" in the Azure Lighthouse documentation can apply to an Azure AD user, group, or service principal in an authorization.
@@ -22,9 +22,9 @@ Whichever onboarding method you choose, you will need to define *authorizations*
 
 When creating your authorizations, we recommend the following best practices:
 
-- In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change.
-- Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors. For more information, see [Recommended security practices](../concepts/recommended-security-practices.md).
-- Include a user with the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) so that you can [remove access to the delegation](../how-to/remove-delegation.md) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
+- In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users through your tenant's Azure AD, rather than having to [update the delegation](../how-to/update-delegation.md) every time your individual access requirements change.
+- Follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors. For more information, see [Recommended security practices](../concepts/recommended-security-practices.md).
+- Include an authorization with the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) so that you can [remove access to the delegation](../how-to/remove-delegation.md) later if needed. If this role is not assigned, access to delegated resources can only be removed by a user in the customer's tenant.
 - Be sure that any user who needs to [view the My customers page in the Azure portal](../how-to/view-manage-customers.md) has the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access).
 
 > [!IMPORTANT]

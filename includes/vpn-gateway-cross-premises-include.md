@@ -1,13 +1,9 @@
 ---
- title: include file
- description: include file
  services: vpn-gateway
  author: cherylmc
- ms.service: vpn-gateway
  ms.topic: include
- ms.date: 12/17/2020
+ ms.date: 04/22/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
 |  | **Point-to-Site** | **Site-to-Site** | **ExpressRoute** |
 | --- | --- | --- | --- |
@@ -19,5 +15,5 @@
 | **Typical use case** |Secure access to Azure virtual networks for remote users |Dev / test / lab scenarios and small to medium scale production workloads for cloud services and virtual machines |Access to all Azure services (validated list), Enterprise-class and mission critical workloads, Backup, Big Data, Azure as a DR site |
 | **SLA** |[SLA](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |
 | **Pricing** |[Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Pricing](https://azure.microsoft.com/pricing/details/expressroute/) |
-| **Technical Documentation** |[VPN Gateway Documentation](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[VPN Gateway Documentation](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[ExpressRoute Documentation](https://azure.microsoft.com/documentation/services/expressroute/) |
+| **Technical Documentation** |[VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
 | **FAQ** |[VPN Gateway FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[VPN Gateway FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[ExpressRoute FAQ](../articles/expressroute/expressroute-faqs.md) |

@@ -4,7 +4,8 @@ description: This article walks you through using the Azure portal to create an 
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc, mode-other
+ms.subservice: flexible-server
+ms.custom: mvc, mode-ui
 ms.topic: quickstart
 ms.date: 10/22/2020
 ---

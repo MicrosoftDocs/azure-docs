@@ -8,8 +8,8 @@ metadata:
   services: azure-percept
   ms.service: azure-percept
   ms.topic: landing-page 
-  author: mimcco
-  ms.author: amiyouss 
+  author: nkhuyent
+  ms.author: ngt
   ms.date: 03/25/2021 
 
 landingContent:

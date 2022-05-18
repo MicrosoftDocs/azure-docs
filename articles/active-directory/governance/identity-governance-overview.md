@@ -4,15 +4,14 @@ description: Azure Active Directory Identity Governance allows you to balance yo
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/22/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management

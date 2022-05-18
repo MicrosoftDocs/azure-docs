@@ -3,13 +3,13 @@ title: 'Tutorial: Create an Apache Kafka REST proxy enabled cluster in HDInsight
 description: Learn how to perform Apache Kafka operations using a Kafka REST proxy on Azure HDInsight.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 02/27/2020 
+ms.date: 05/13/2022
 ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Create an Apache Kafka REST proxy enabled cluster in HDInsight using Azure CLI
 
-In this tutorial, you learn how to create an Apache Kafka [REST proxy enabled](./rest-proxy.md) cluster in Azure HDInsight using Azure command-line interface (CLI). Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. Apache Kafka is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. Kafka REST Proxy enables you to interact with your Kafka cluster via a [REST API](/rest/api/hdinsight-kafka-rest-proxy/) over HTTP. The Azure CLI is Microsoft's cross-platform command-line experience for managing Azure resources.
+In this tutorial, you learn how to create an Apache Kafka [REST proxy enabled](./rest-proxy.md) cluster in Azure HDInsight using the Azure CLI. Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. Apache Kafka is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. Kafka REST Proxy enables you to interact with your Kafka cluster via a [REST API](/rest/api/hdinsight-kafka-rest-proxy/) over HTTP. The Azure CLI is Microsoft's cross-platform command-line experience for managing Azure resources.
 
 The Apache Kafka API can only be accessed by resources inside the same virtual network. You can access the cluster directly using SSH. To connect other services, networks, or virtual machines to Apache Kafka, you must first create a virtual network and then create the resources within the network. For more information, see [Connect to Apache Kafka using a virtual network](./apache-kafka-connect-vpn-gateway.md).
 
@@ -77,7 +77,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     export componentVersion=kafka=2.1
     ```
 
-1. [Create the resource group](/cli/azure/group#az_group_create) by entering the command below:
+1. [Create the resource group](/cli/azure/group#az-group-create) by entering the command below:
 
     ```azurecli
      az group create \
@@ -85,7 +85,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         --name $resourceGroupName
     ```
 
-1. [Create an Azure Storage account](/cli/azure/storage/account#az_storage_account_create) by entering the command below:
+1. [Create an Azure Storage account](/cli/azure/storage/account#az-storage-account-create) by entering the command below:
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -98,7 +98,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         --sku Standard_LRS
     ```
 
-1. [Extract the primary key](/cli/azure/storage/account/keys#az_storage_account_keys_list) from the Azure Storage account and store it in a variable by entering the command below:
+1. [Extract the primary key](/cli/azure/storage/account/keys#az-storage-account-keys-list) from the Azure Storage account and store it in a variable by entering the command below:
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -107,7 +107,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         --query [0].value -o tsv)
     ```
 
-1. [Create an Azure Storage container](/cli/azure/storage/container#az_storage_container_create) by entering the command below:
+1. [Create an Azure Storage container](/cli/azure/storage/container#az-storage-container-create) by entering the command below:
 
     ```azurecli
     az storage container create \
@@ -116,7 +116,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         --account-name $storageAccount
     ```
 
-1. [Create the HDInsight cluster](/cli/azure/hdinsight#az_hdinsight_create). Before entering the command, note the following parameters:
+1. [Create the HDInsight cluster](/cli/azure/hdinsight#az-hdinsight-create). Before entering the command, note the following parameters:
 
     1. Required parameters for Kafka clusters:
 

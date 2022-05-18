@@ -1,14 +1,14 @@
 ---
 title: Certificate-based authentication with Azure Cosmos DB and Active Directory
 description: Learn how to configure an Azure AD identity for certificate-based authentication to access keys from Azure Cosmos DB.
-author: voellm
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.author: tvoellm
+ms.author: jroth
 ms.reviewer: sngun 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, subject-rbac-steps
 
 ---
 
@@ -106,13 +106,11 @@ The above command results in the output similar to the screenshot below:
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to your Azure Cosmos account, open the **Access control (IAM)** blade.
+1. Navigate to your Azure Cosmos account.
 
-1. Select **Add** and **Add role assignment**. Add the sampleApp you created in the previous step with **Contributor** role as shown in the following screenshot:
+1. Assign the Contributor role to the sample app you created in the previous section.
 
-   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Configure Azure Cosmos account to use the new identity":::
-
-1. Select **Save** after you fill out the form
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Register your certificate with Azure AD
 

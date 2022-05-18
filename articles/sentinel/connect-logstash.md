@@ -32,11 +32,11 @@ The Logstash engine is comprised of three components:
 - Output plugins: Customized sending of collected and processed data to various destinations.
 
 > [!NOTE]
-> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current version of this plugin is v1.0.0, released 2020-08-25. You can [open a support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
+> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current version of this plugin is v1.0.0, released 2020-08-25. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
 >
 > - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
 >
-> - Microsoft Sentinel's Logstash output plugin supports only **Logstash versions from 7.0 to 7.15**.
+> - Microsoft Sentinel's Logstash output plugin supports only **Logstash versions from 7.0 to 7.16**.
 
 The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics HTTP Data Collector REST API. The data is ingested into custom logs.
 
@@ -69,7 +69,7 @@ Use the information in the Logstash [Structure of a config file](https://www.ela
 | `amount_resizing` | boolean | True or false. Enable or disable the automatic scaling mechanism, which adjusts the message buffer size according to the volume of log data received. |
 | `max_items` | number | Optional field. Applies only if `amount_resizing` set to "false." Use to set a cap on the message buffer size (in records). The default is 2000.  |
 | `azure_resource_id` | string | Optional field. Defines the ID of the Azure resource where the data resides. <br>The resource ID value is especially useful if you are using [resource-context RBAC](resource-context-rbac.md) to provide access to specific data only. |
-| | | |
+
 
 > [!TIP]
 > - You can find the workspace ID and primary key in the workspace resource, under **Agents management**.

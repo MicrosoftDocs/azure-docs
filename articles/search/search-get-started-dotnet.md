@@ -6,10 +6,10 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 06/11/2021
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-api
 ---
 # Quickstart: Create a search index using the Azure.Search.Documents client library
 
@@ -18,7 +18,7 @@ Use the new [Azure.Search.Documents (version 11) client library](/dotnet/api/ove
 You can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) to start with a finished project or follow the steps in this article to create your own.
 
 > [!NOTE]
-> Looking for an earlier version? See [Create a search index using Microsoft.Azure.Search v10](search-get-started-dotnet-v10.md) instead.
+> Looking for an earlier version? See [Create a search index using Microsoft.Azure.Search v10](/previous-versions/azure/search/search-get-started-dotnet-v10) instead.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Before you begin, have the following tools and services:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code was tested on the free Community edition of Visual Studio 2019.
 

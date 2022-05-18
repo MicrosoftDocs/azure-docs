@@ -31,7 +31,7 @@ When you redeploy the same Bicep file, the same deployment sequence occurs. Howe
 
 ### Access subnet resource IDs
 
-You often need to refer to a subnet's resource ID. When you use the `subnets` property to define your subnet, [you can use the `existing` keyword](resource-declaration.md#existing-resources) to also obtain a strongly typed reference to the subnet, and then access the subnet's `id` property:
+You often need to refer to a subnet's resource ID. When you use the `subnets` property to define your subnet, [you can use the `existing` keyword](existing-resource.md) to also obtain a strongly typed reference to the subnet, and then access the subnet's `id` property:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-virtual-networks/vnet.bicep" range="7-42" highlight="26-28, 30-32, 35-36" :::
 

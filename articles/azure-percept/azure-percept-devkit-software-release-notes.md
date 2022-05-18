@@ -1,7 +1,8 @@
 ---
 title: Azure Percept DK software release notes
 description: Information about changes made to the Azure Percept DK software.
-author: EthanChangAED
+author: nkhuyent
+ms.author: hschang
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
@@ -13,6 +14,23 @@ ms.custom: template-concept
 This page provides information of changes and fixes for each Azure Percept DK OS and firmware release.
 
 To download the update images, refer to [Azure Percept DK software releases for USB cable update](./software-releases-usb-cable-updates.md) or [Azure Percept DK software releases for OTA update](./software-releases-over-the-air-updates.md).
+
+## March (2203) Release
+
+- Operating System
+  - Latest security fixes.
+  
+## February (2202) Release
+
+- Operating System
+  - Latest security updates on vim and expat packages.
+
+## January (2201) Release
+
+- Setup Experience
+  - Fixed the compatibility issue with Windows 11 PC during OOBE setup.
+- Operating System
+  - Latest security updates on vim package.
 
 ## November (2111) Release
 

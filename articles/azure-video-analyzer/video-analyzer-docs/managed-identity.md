@@ -1,5 +1,5 @@
 ---
-title: Managed identities with Azure Video Analyzer
+title: Managed identities
 description: This topic explains how to use managed identities with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
@@ -8,6 +8,8 @@ ms.custom: ignite-fall-2021
 ---
 
 # Managed identity
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 A common challenge for developers is the management of secrets and credentials to secure communication between different services. On Azure, managed identities eliminate the need for developers having to manage credentials by providing an identity for the Azure resource in Azure Active Directory (Azure AD) and using it to obtain Azure AD tokens.
 

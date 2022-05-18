@@ -4,7 +4,8 @@ description: This quickstart provides several Python code samples you can use to
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc, mode-other
+ms.subservice: flexible-server
+ms.custom: mvc, mode-api
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 9/21/2020

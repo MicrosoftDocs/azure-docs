@@ -46,7 +46,10 @@ In mapping data flows, expressions can be composed of column values, parameters,
 
 ### Functions
 
-Mapping data flows has built-in functions and operators that can be used in expressions. For a list of available functions, see the [mapping data flow language reference](data-flow-expression-functions.md).
+Mapping data flows has built-in functions and operators that can be used in expressions. For a list of available functions, see the [mapping data flow language reference](data-transformation-functions.md).
+
+### User Defined Functions (Preview)
+Mapping data flows supports the creation and use of user defined functions. To see how to create and use user defined functions see [user defined functions](concepts-data-flow-udf.md).
 
 #### Address array indexes
 
@@ -83,7 +86,17 @@ A cached lookup allows you to do an inline lookup of the output of a cached sink
 
 ### Locals
 
-If you are sharing logic across multiple columns or want to compartmentalize your logic, you can create a local within a derived column\. To reference a local, either click on the local from the **Expression elements** view or reference it with a colon in front of its name. For example, a local called local1 would be referenced by `:local1`. Learn more about locals in the [derived column documentation](data-flow-derived-column.md#locals).
+If you are sharing logic across multiple columns or want to compartmentalize your logic, you can create a local variable. A local is a set of logic that doesn't get propagated downstream to the following transformation. Locals can be created within the expression builder by going to **Expression elements** and selecting **Locals**. Create a new one by selecting **Create new**.
+
+:::image type="content" source="media/data-flow/create-local.png" alt-text="Create local":::
+
+Locals can reference any expression element including functions, input schema, parameters, and other locals. When referencing other locals, order does matter as the referenced local needs to be "above" the current one.
+
+:::image type="content" source="media/data-flow/create-local-2.png" alt-text="Create local 2":::
+
+To reference a local in a transformation, either click on the local from the **Expression elements** view or reference it with a colon in front of its name. For example, a local called local1 would be referenced by `:local1`. To edit a local definition, hover over it in the expression elements view and click on the pencil icon.
+
+:::image type="content" source="media/data-flow/using-locals.png" alt-text="Using locals":::
 
 ## Preview expression results
 
@@ -179,4 +192,4 @@ In the portal for the service, timestamp is being shown in the **current browser
 
 ## Next steps
 
-[Begin building data transformation expressions](data-flow-expression-functions.md)
+[Begin building data transformation expressions](data-transformation-functions.md)

@@ -88,7 +88,7 @@ The following sample code is an example configuration for the database tier. It 
           "size_gb"               : 256,
           "caching"               : "ReadWrite",
           "write_accelerator"     : false,
-          "start_lun"             : 0
+          "lun_start"             : 0
         },
         {
           "name"                  : "log",
@@ -99,7 +99,7 @@ The following sample code is an example configuration for the database tier. It 
           "disk-mbps-read-write"  : 8,
           "caching"               : "None",
           "write_accelerator"     : false,
-          "start_lun"             : 9
+          "lun_start"             : 9
         },
         {
           "name"                  : "backup",
@@ -108,7 +108,7 @@ The following sample code is an example configuration for the database tier. It 
           "size_gb"               : 256,
           "caching"               : "ReadWrite",
           "write_accelerator"     : false,
-          "start_lun"             : 13
+          "lun_start"             : 13
         }
 
       ]

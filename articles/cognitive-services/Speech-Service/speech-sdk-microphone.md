@@ -1,5 +1,5 @@
 ---
-title: Speech SDK microphone array recommendations
+title: Microphone array recommendations - Speech service
 titleSuffix: Azure Cognitive Services
 description: Speech SDK microphone array recommendations. These array geometries are recommended for use with the Microsoft Audio Stack.
 services: cognitive-services
@@ -8,28 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 12/27/2021
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
-# Speech SDK Microphone array recommendations
+# Microphone array recommendations
 
-In this article, you learn how to design a microphone array for the Speech SDK.
+In this article, you learn how to design a microphone array customized for use with the Speech SDK. This is most pertinent if you are selecting, specifying, or building hardware for speech solutions. 
 
-The Speech SDK works best with a microphone array that has been designed according to the following guidelines, including the microphone geometry and component selection. Guidance is also given on integration and electrical considerations.
+The Speech SDK works best with a microphone array that has been designed according to these guidelines, including the microphone geometry, component selection, and architecture. 
 
 ## Microphone geometry
 
 The following array geometries are recommended for use with the Microsoft Audio Stack. Location of sound sources and rejection of ambient noise is improved with greater number of microphones with dependencies on specific applications, user scenarios, and the device form factor.
 
-| Mics & Geometry | Circular Array | Circular Array | Linear Array | Linear Array |
-| --- | -------------- | --- | ------------ | --- |
-|     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
-| \# Mics | 7 | 4 | 4 | 2 |
-| Geometry | 6 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced | 3 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced | Length = 120 mm, Spacing = 40 mm | Spacing = 40 mm |
+| Array |Microphones| Geometry | 
+| ----- | ----- | ----- |
+|Circular - 7 Microphones|<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|6 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced|
+|Circular - 4 Microphones|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|3 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced|
+|Linear - 4 Microphones|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|Length = 120 mm, Spacing = 40 mm|
+|Linear - 2 Microphones|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|Spacing = 40 mm|
 
-Microphone channels should be ordered according to the numbering depicted for each above array, increasing from 0. The Microsoft Audio Stack will require an additional reference stream of audio playback to perform echo cancellation.
+Microphone channels should be ordered ascending from 0, according to the numbering depicted above for each array. The Microsoft Audio Stack will require an additional reference stream of audio playback to perform echo cancellation.
 
 ## Component selection
 
@@ -99,7 +100,7 @@ The following guidelines for architecture are necessary when integrating microph
 
 ## Electrical architecture considerations
 
-Where applicable, arrays may be connected to a USB host (such as a SoC that runs the Microsoft Audio Stack) and interfaces to Speech services or other applications.
+Where applicable, arrays may be connected to a USB host (such as a SoC that runs the [Microsoft Audio Stack (MAS)](audio-processing-overview.md)) and interfaces to Speech services or other applications.
 
 Hardware components such as PDM-to-TDM conversion should ensure that the dynamic range and SNR of the microphones is preserved within re-samplers.
 

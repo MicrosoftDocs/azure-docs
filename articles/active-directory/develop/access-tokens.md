@@ -3,15 +3,15 @@ title: Microsoft identity platform access tokens | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about access tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/22/2021
-ms.author: hirsin
+ms.date: 12/28/2021
+ms.author: ludwignick
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ---
@@ -113,7 +113,7 @@ Some claims are used to help Azure AD secure tokens in case of reuse. These are 
 | `oid` | String, a GUID | The immutable identifier for the "principal" of the request - the user or service principal whose identity has been verified.  In ID tokens and app+user tokens, this is the object ID of the user.  In app-only tokens, this is the object ID of the calling service principal. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the principal across applications - two different applications signing in the same user will receive the same value in the `oid` claim. Thus, `oid` can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph will return this ID as the `id` property for a given [user account](/graph/api/resources/user). Because the `oid` allows multiple apps to correlate principals, the `profile` scope is required in order to receive this claim for users. If a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials. |
 |`tid` | String, a GUID | Represents the tenant that the user is signing in to. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user is signing in to. For sign-ins to the personal Microsoft account tenant (services like Xbox, Teams for Life, or Outlook), the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. To receive this claim, your app must request the `profile` scope. |
 | `unique_name` | String | Only present in v1.0 tokens. Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and should be used only for display purposes. |
-| `uti` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources shouldn't use this claim. |
+| `uti` | String | Token identifier claim, equivalent to `jti` in the JWT specification. Unique, per-token identifier that is case-sensitive.|
 | `rh` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources should not use this claim. |
 | `ver` | String, either `1.0` or `2.0` | Indicates the version of the access token. |
 
@@ -123,18 +123,16 @@ To ensure that the token size doesn't exceed HTTP header size limits, Azure AD l
 
 ```JSON
 {
-  ...
-  "_claim_names": {
-   "groups": "src1"
+    ...
+    "_claim_names": {
+        "groups": "src1"
     },
-    {
-  "_claim_sources": {
-    "src1": {
-        "endpoint":"[Url to get this user's group membership from]"
-        }
-       }
-     }
-  ...
+    "_claim_sources": {
+        "src1": {
+            "endpoint": "[Url to get this user's group membership from]"
+        }   
+    }
+    ...
 }
 ```
 
@@ -182,7 +180,7 @@ You can adjust the lifetime of an access token to control how often the client a
 
 Default token lifetime variation is applied to organizations that have Continuous Access Evaluation (CAE) enabled, even if CTL policies are configured. The default token lifetime for long lived token lifetime ranges from 20 to 28 hours. When the access token expires, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
 
-Organizations that use [Conditional Access sign-in frequency (SIF)](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime#user-sign-in-frequency) to enforce how frequently sign-ins occur cannot override default access token lifetime variation. When using SIF, the time between credential prompts for a client is the token lifetime (ranging from 60 - 90 minutes) plus the sign-in frequency interval.  
+Organizations that use [Conditional Access sign-in frequency (SIF)](../conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency) to enforce how frequently sign-ins occur cannot override default access token lifetime variation. When using SIF, the time between credential prompts for a client is the token lifetime (ranging from 60 - 90 minutes) plus the sign-in frequency interval.  
 
 Here's an example of how default token lifetime variation works with sign-in frequency.  Let's say an organization sets sign-in frequency to occur every hour. The actual sign-in interval will occur anywhere between 1 hour to 2.5 hours since the token is issued with lifetime ranging from 60-90 minutes (due to token lifetime variation).
 

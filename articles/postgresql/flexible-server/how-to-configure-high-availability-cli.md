@@ -1,9 +1,11 @@
 ---
 title: Manage zone redundant high availability - Azure CLI - Azure Database for PostgreSQL Flexible Server
 description: This article describes how to configure zone redundant high availability in Azure Database for PostgreSQL flexible Server with the Azure CLI.
-author: mksuni
-ms.author: sumuth
 ms.service: postgresql
+ms.subservice: flexible-server
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.topic: how-to
 ms.date: 11/30/2021
 ms.custom: references_regions, devx-track-azurecli
@@ -23,7 +25,7 @@ High availability feature provisions physically separate primary and standby rep
 ## Prerequisites
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
--  Login to Azure account using [az login](/cli/azure/reference-index#az_login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+-  Login to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
     ```azurecli-interactive
     az login
@@ -53,7 +55,7 @@ az postgres flexible-server create --name myservername --sku-name Standard-D2ds_
 
 ## Disable high availability
 
-You can disable high availability by using the [az postgres flexible-server update](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_update) command. Note that disabling high availability is only supported if the server is configured with high availability. 
+You can disable high availability by using the [az postgres flexible-server update](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-update) command. Note that disabling high availability is only supported if the server is configured with high availability. 
 
 ```azurecli
 az postgres flexible-server update [--high-availability {Disabled, Enabled}]

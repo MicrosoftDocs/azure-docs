@@ -1,5 +1,5 @@
 ---
-title: Azure Video Analyzer access policies
+title: Access policies
 description: This article explains how Azure Video Analyzer uses JWT tokens in access policies to secure videos. 
 ms.topic: reference
 ms.date: 11/04/2021
@@ -7,6 +7,8 @@ ms.date: 11/04/2021
 ---
  
 # Access policies
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 Access policies define the permissions and duration of access to a given Video Analyzer video resource. These access policies allow for greater control and flexibility by allowing 3rd party (Non AAD Clients) JWT tokens to provide authorization to client API’s that enable: 
 

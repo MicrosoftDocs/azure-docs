@@ -8,7 +8,6 @@ ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.author: keithp

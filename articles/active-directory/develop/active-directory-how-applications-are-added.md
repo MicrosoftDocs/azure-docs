@@ -133,19 +133,14 @@ Allowing users to register and consent to applications might initially sound con
 
 If you still want to prevent users in your directory from registering applications and from signing in to applications without administrator approval, there are two settings that you can change to turn off those capabilities:
 
-* To prevent users from consenting to applications on their own behalf:
-  1. In the Azure portal, go to the [User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) section under Enterprise applications.
-  2. Change **Users can consent to apps accessing company data on their behalf** to **No**.
-     
-     > [!NOTE]
-     > If you decide to turn off user consent, an admin will be required to consent to any new application a user needs to use.
+* To change the user consent settings in your organization, see [Configure how users consent to applications](../manage-apps/configure-user-consent.md).
 
 * To prevent users from registering their own applications:
   1. In the Azure portal, go to the [User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) section under Azure Active Directory
   2. Change **Users can register applications** to **No**.
 
 > [!NOTE]
-> Microsoft itself uses the default configuration with users able to register applications and consent to applications on their own behalf.
+> Microsoft itself uses the default configuration allowing users to register applications and only allows user consent for a very limited set of permissions.
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg

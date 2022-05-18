@@ -1,14 +1,15 @@
 ---
 title: 'Tutorial - Set up device for the Azure IoT Hub Device Provisioning Service'
 description: 'This tutorial shows how you can set up device to provision via the IoT Hub Device Provisioning Service (DPS) during the device manufacturing process'
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Set up a device to provision using the Azure IoT Hub Device Provisioning Service

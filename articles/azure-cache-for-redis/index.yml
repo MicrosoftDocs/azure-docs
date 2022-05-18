@@ -6,9 +6,9 @@ metadata:
   description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: cache
   ms.topic: landing-page
-  author: curib
-  ms.author: cauribeg
-  ms.date: 12/16/2019
+  author: flang-msft
+  ms.author: franlanglois
+  ms.date: 01/14/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -22,20 +22,16 @@ landingContent:
             url: cache-overview.md
       - linkListType: video
         links:
-         # - text: Best practices
-         #   url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
-          - text: Improve performance
-            url: https://azure.microsoft.com/resources/videos/increase-performance-through-redis-cluster-in-azure-redis-cache/
-          - text: Security caching
-            url: https://azure.microsoft.com/resources/videos/azure-redis-security-cacheing/
-          - text: Administration options 
-            url: https://azure.microsoft.com/resources/videos/azure-redis-cache-administration-options/
+          - text: Azure Friday - Scale your cloud app 
+            url: /shows/azure-friday/scale-your-cloud-app-with-azure-cache-for-redis
+          - text: Ask the Expert - The latest news
+            url: /shows/ask-the-expert/ask-the-expert-the-latest-in-nosql-data-and-redis-on-azure
       - linkListType: whats-new
         links:
+          - text: Managed identity with Azure Cache for Redis
+            url: cache-managed-identity.md
           - text: Create an Enterprise tier cache
             url: quickstart-create-redis-enterprise.md
-          - text: Frequently asked questions
-            url: cache-faq.yml
   - title: 'Quickstarts: Azure Cache for Redis'
     linkLists:
       - linkListType: quickstart
@@ -46,6 +42,8 @@ landingContent:
             url: cache-dotnet-core-quickstart.md
           - text: Code an ASP.NET web app
             url: cache-web-app-howto.md
+          - text: Code an ASP.NET Core web app
+            url: cache-web-app-aspnet-core-howto.md
           - text: Code a Java app
             url: cache-java-get-started.md
           - text: Code a Node.js app
@@ -106,11 +104,15 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Troubleshoot client-side issues
-            url: cache-troubleshoot-client.md
-          - text: Troubleshoot server-side issues
-            url: cache-troubleshoot-server.md
-          - text: Troubleshoot timeouts
+          - text: Troubleshoot connectivity issues
+            url: cache-troubleshoot-connectivity.md
+          - text: Troubleshoot latency and timeouts
             url: cache-troubleshoot-timeouts.md
+          - text: Troubleshoot client issues
+            url: cache-troubleshoot-client.md
+          - text: Troubleshoot Redis server issues
+            url: cache-troubleshoot-server.md
           - text: Troubleshoot data loss issues
             url: cache-troubleshoot-data-loss.md
+          - text: Troubleshooting FAQs
+            url: cache-monitor-troubleshoot-faq.yml

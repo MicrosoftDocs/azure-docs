@@ -57,6 +57,8 @@ items:
         maintainContext: true
         href: ../containers/azure-container-instance-recipe.md
         displayName: container instances, container, containers, images
+      - name: Use containers in disconnected environments
+        href: ../containers/disconnected-containers.md
       - name: All Cognitive Services containers
         href: ../containers/index.yml
         maintainContext: true
@@ -73,7 +75,7 @@ items:
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-computervision/
     - name: Python
-      href: /python/api/overview/azure/cognitiveservices/computervision
+      href: /python/api/overview/azure/cognitiveservices-vision-computervision-readme
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
     - name: Java
@@ -89,11 +91,7 @@ items:
   - name: Image Analysis quickstart
     href: quickstarts-sdk/image-analysis-client-library.md
   - name: Samples  
-    items:  
-    - name: Explore an image processing app
-      href: Tutorials/CSharpTutorial.md
-    - name: Other samples
-      href: /samples/browse/?products=azure&terms=analyze-image
+    href: /samples/browse/?products=azure&terms=analyze-image
   - name: How-to guides
     items:
     - name: Call the Image Analysis API
@@ -143,7 +141,7 @@ items:
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-computervision
     - name: Python
-      href: /python/api/overview/azure/cognitiveservices/computervision
+      href: /python/api/overview/azure/cognitiveservices-vision-computervision-readme
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
     - name: Java

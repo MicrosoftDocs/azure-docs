@@ -44,7 +44,8 @@ The steps to configure VM insights are as follows. Follow each link for detailed
 - [Add VMInsights solution to workspace.](./vminsights-configure-workspace.md#add-vminsights-solution-to-workspace)
 - [Install agents on virtual machine and virtual machine scale set to be monitored.](./vminsights-enable-overview.md)
 
-
+> [!NOTE]
+> VM Insights does not support sending data to more than one Log Analytics workspace (multi-homing).
 
 ## Next steps
 

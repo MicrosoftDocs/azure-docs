@@ -1,168 +1,208 @@
 ---
-title: Form Recognizer Custom and composed models
+title: Form Recognizer custom and composed models
 titleSuffix: Azure Applied AI Services
-description: Learn how to create, use, and manage Form Recognizer custom and composed models.
+description: Learn to create, use, and manage Form Recognizer custom and composed models.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 03/10/2022
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021
 ---
+# Form Recognizer custom models
 
-# Form Recognizer custom and composed models
+Form Recognizer uses advanced machine learning technology to detect and extract information from forms and documents and returns the extracted data in a structured JSON output. With Form Recognizer, you can use pre-built or pre-trained models or you can train standalone custom models. Custom models extract and analyze distinct data and use cases from forms and documents specific to your business. Standalone custom models can be combined to create [composed models](concept-composed-models.md).
 
-Form Recognizer uses advanced machine learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models.
+To create a custom model, you label a dataset of documents with the values you want extracted and train the model on the labeled dataset. You only need five examples of the same form or document type to get started.
 
-* **Custom models**. Form Recognizer custom models enable you to analyze and extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases.
+## Custom model types
 
-* **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
+Custom models can be one of two types, [**custom template**](concept-custom-template.md ) or custom form and [**custom neural**](concept-custom-neural.md)  or custom document models. The labeling and training process for both models is identical, but the models differ as follows:
 
-:::image type="content" source="media/studio/analyze-custom.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
+### Custom template model
 
-## What is a custom model?
+The custom template or custom form model relies on a consistent visual template to extract the labeled data. The accuracy of your model is affected by variances in the visual structure of your documents. Structured  forms such as questionnaires or applications are examples of consistent visual templates.
 
-A custom model is a machine learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
+Your training set will consist of structured documents where the formatting and layout are static and constant from one document instance to the next. Custom template models support key-value pairs, selection marks, tables, signature fields, and regions. Template models and can be trained on documents in any of the [supported languages](language-support.md). For more information, *see* [custom template models](concept-custom-template.md ).
 
-## What is a composed model?
+> [!TIP]
+>
+>To confirm that your training documents present a consistent visual template, remove all the user-entered data from each form in the set. If the blank forms are identical in appearance, they represent a consistent visual template.
+>
+> For more information, *see* [Interpret and improve accuracy and confidence for custom models](concept-accuracy-confidence.md).
 
-With composed models, you can assign multiple custom models to a composed model called with a single model ID. It is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
+### Custom neural model
 
-## Development options
+The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
 
-The following resources are supported by Form Recognizer v2.1:
+## Build mode
 
-| Feature | Resources |
-|----------|-------------------------|
-|**Custom model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
 
-The following resources are supported by Form Recognizer v3.0:
+* Template models only accept documents that have the same basic page structure—a uniform visual appearance—or the same relative positioning of elements within the document.
 
-| Feature | Resources |
-|----------|-------------|
-|**Custom model**| <ul><li>[**Form Recognizer Studio**](https://fott-2-1.azurewebsites.net)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>| 
+* Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but may vary in appearance across companies. Neural models currently only support English text.
+
+This table provides links to the build mode programming language SDK references and code samples on GitHub:
+
+|Programming language | SDK reference | Code sample |
+|---|---|---|
+| C#/.NET | [DocumentBuildMode Struct](/dotnet/api/azure.ai.formrecognizer.documentanalysis.documentbuildmode?view=azure-dotnet-preview&preserve-view=true#properties) | [Sample_BuildCustomModelAsync.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/tests/samples/Sample_BuildCustomModelAsync.cs)
+|Java| [DocumentBuildMode Class](/java/api/com.azure.ai.formrecognizer.administration.models.documentbuildmode?view=azure-java-preview&preserve-view=true#fields) | [BuildModel.java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/administration/BuildModel.java)|
+|JavaScript | [DocumentBuildMode type](/javascript/api/@azure/ai-form-recognizer/documentbuildmode?view=azure-node-preview&preserve-view=true)| [buildModel.js](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/buildModel.js)|
+|Python | [DocumentBuildMode Enum](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.documentbuildmode?view=azure-python-preview&preserve-view=true#fields)| [sample_build_model.py](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_build_model.py)|
+
+## Compare model features
+
+The table below compares custom template and custom neural features:
+
+|Feature|Custom template (form) | Custom neural (document) |
+|---|---|---|
+|Document structure|Template, form, and structured | Structured, semi-structured, and unstructured|
+|Training time | 1 to 5 minutes | 20 minutes to 1 hour |
+|Data extraction | Key-value pairs, tables, selection marks, coordinates, and signatures | Key-value pairs and selection marks |
+|Document variations | Requires a model per each variation | Uses a single model for all variations |
+|Language support | Multiple [language support](language-support.md#read-layout-and-custom-form-template-model)  | United States English (en-US) [language support](language-support.md#custom-neural-model) |
+
+## Custom model tools
+
+The following tools are supported by Form Recognizer v2.1:
+
+| Feature | Resources | Model ID|
+|---|---|:---|
+|Custom model| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](quickstarts/try-sdk-rest-api.md)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|***custom-model-id***|
+
+The following tools are supported by Form Recognizer v3.0:
+
+| Feature | Resources | Model ID|
+|---|---|:---|
+|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/try-v3-csharp-sdk.md)</li><li>[Python SDK](quickstarts/try-v3-python-sdk.md)</li></ul>|***custom-model-id***|
 
 ### Try Form Recognizer
 
-See how data is extracted from  your specific or unique documents using custom models. You'll need the following:
+See how data is extracted from your specific or unique documents by using custom models. You need the following resources:
 
-* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
+* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
-* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
-
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot that shows the keys and endpoint location in the Azure portal.":::
 
 #### Form Recognizer Studio (preview)
 
 > [!NOTE]
-> Form Recognizer studio is available with the preview (v3.0) API.
+> Form Recognizer Studio is available with the preview (v3.0) API.
 
-1. On the Form Recognizer Studio home page, select **Custom form**.
+1. On the **Form Recognizer Studio** home page, select **Custom form**.
 
-1. Under **My Projects**, select **+ Create a project**.
+1. Under **My Projects**, select **Create a project**.
 
-1. Complete the **project details** fields.
+1. Complete the project details fields.
 
-1. **Configure the service resource**.
+1. Configure the service resource by adding your **Storage account** and **Blob container** to **Connect your training data source**.
 
-1. Add your **Storage account** and **Blob container** to **Connect your training data source**.
+1. Review and create your project.
 
-1. **Review and create** your project.
-
-1. A set of sample documents has been provided for you to build and test your custom model.
+1. Use the sample documents to build and test your custom model.
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
 
-#### Sample Labeling tool
+#### Sample Labeling tool (API v2.1)
 
-You'll need a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use our [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download  and extract the *sample_data.zip*, then upload the contents to your Azure Blob Storage container.
 
-In the Form Recognizer UI:
+|Feature    |Custom Template | Custom Neural |
+|-----------|-----------------|-----------------------|
+|Document structure |Template, fixed form, and structured documents.| Structured, semi-structured, and unstructured documents.|
+|Training time | 1 - 5 minutes | 20 - 60 minutes |
+|Data extraction| Key-value pairs, tables, selection marks, signatures, and regions| Key-value pairs and selections marks.|
+|Models per Document type | Requires one model per each document-type variation| Supports a single model for all document-type variations.|
+|Language support| See [custom template model language support](language-support.md)| The custom neural model currently supports English-language documents only.|
 
-1. On the Sample Labeling tool home page, select **Use Custom to train a model with labels and get key value pairs**.
+## Model capabilities
 
-      :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: FOTTtool selection of custom option.":::
+This table compares the supported data extraction areas:
 
-1. In the next window, select **New project**:
+|Model| Form fields | Selection marks | Structured fields (Tables) | Signature | Region labeling |
+|--|:--:|:--:|:--:|:--:|:--:|
+|Custom template| ✔ | ✔ | ✔ |&#10033; | ✔ |
+|Custom neural| ✔| ✔ |**n/a**| **n/a** | **n/a** |
 
-    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: FOTTtools select new project.":::
+**Table symbols**: ✔—supported; ✱—preview; **n/a—currently unavailable
 
-    For more detailed instructions, *see* our [Sample Labeling tool](quickstarts/try-sample-label-tool.md) quickstart.
+> [!TIP]
+> When choosing between the two model types, start with a custom neural model if it meets your functional needs. See [custom neural](concept-custom-neural.md ) to learn more about custom neural models.
 
-    > [!div class="nextstepaction"]
-    > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/projects/create)
+## Custom model development options
 
-## Input requirements
+The following table describes the features available with the associated tools and SDKs. As a best practice, ensure that you use the compatible tools listed here.
+
+| Document type | REST API | SDK | Label and Test Models|
+|--|--|--|--|
+| Custom form 2.1 | [Form Recognizer 2.1 GA API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Form Recognizer SDK](quickstarts/get-started-sdk-rest-api.md?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
+| Custom template 3.0 | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
+| Custom neural | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+
+
+> [!NOTE]
+> Custom template models trained with the 3.0 API will have a few improvements over the 2.1 API stemming from improvements to the OCR engine. Datasets used to train a custom template model using the 2.1 API can still be used to train a new model using the 3.0 API.
 
 * For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
-* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 50 MB.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+* Supported file formats are JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
+* For PDF and TIFF files, up to 2,000 pages can be processed. With a free tier subscription, only the first two pages are processed.
+* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
+* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 * PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
-* For unsupervised learning (without labeled data):
-  * Data must contain keys and values.
-  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
   > [!TIP]
-  > **Training data**
+  > Training data:
   >
   >* If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
-  > * For filled-in forms, use examples that have all of their fields filled in.
+  > * For filled-in forms, use examples that have all their fields filled in.
   > * Use forms with different values in each field.
-  >* If your form images are of lower quality, use a larger data set (10-15 images, for example).
+  >* If your form images are of lower quality, use a larger dataset. For example, use 10 to 15 images.
 
-> [!NOTE]
-> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) doesn't support the BMP file format. This limitation relates to the tool, not the Form Recognizer service.
 
 ## Supported languages and locales
 
- Form Recognizer preview version introduces additional language support for custom models. *See* our [Language Support](language-support.md#layout-and-custom-model) for a complete list of supported handwritten and printed text.
+ The Form Recognizer preview version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md).
 
-## Form Recognizer preview v3.0
+## Form Recognizer v3.0 (preview)
 
  Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 
-* **Custom model API (v3.0)** supports signature detection for custom forms. When training custom models, you can specify certain fields as signatures.  When a document is analyzed with your custom model, it will indicate whether a signature has been detected or not.
-
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
-
-* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+* **Custom model API (v3.0)**: This version supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
+* [Form Recognizer v3.0 migration guide](v3-migration-guide.md): This guide shows you how to use the preview version in your applications and workflows.
+* [REST API (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument): This API shows you more about the preview version and new capabilities.
 
 ### Try signature detection
 
-1. Build your training data set.
+1. Build your training dataset.
 
-1. Navigate to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) and select **Custom form** under Custom models:
+1. Go to [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). Under **Custom models**, select **Custom form**.
 
-    :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot: Form Recognizer Studio select a custom form page.":::
+    :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot that shows selecting the Form Recognizer Studio Custom form page.":::
 
 1. Follow the workflow to create a new project:
 
-1. Follow the Custom model input requirements.
+   1. Follow the **Custom model** input requirements.
 
-1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
+   1. Label your documents. For signature fields, use **Region** labeling for better accuracy.
 
-1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
+      :::image type="content" source="media/label-tool/signature-label-region-too.png" alt-text="Screenshot that shows the Label signature field.":::
 
-    :::image type="content" source="media/label-tool/signature-label-region-too.png" alt-text="Screenshot: Label signature field.":::
+After your training set is labeled, you can train your custom model and use it to analyze documents. The signature fields specify whether a signature was detected or not.
 
-Once your training set has been labeled, you can train your custom model and use it to analyze documents. The signature fields will specify whether a signature was detected or not.
 
 ## Next steps
 
-* Complete a Form Recognizer quickstart:
+Explore Form Recognizer quickstarts and REST APIs:
 
-  > [!div class="nextstepaction"]
-  > [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md)
-
-* Explore our REST API:
-
-    > [!div class="nextstepaction"]
-    > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
+| Quickstart | REST API|
+|--|--|
+|[v3.0 Studio quickstart](quickstarts/try-v3-form-recognizer-studio.md) |[Form Recognizer v3.0 API 2022-01-30-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)|
+| [v2.1 quickstart](quickstarts/get-started-sdk-rest-api.md) | [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/BuildDocumentModel) |

@@ -31,16 +31,17 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 1. Check the `/etc/apt/sources.list.d/dotnetdev.list` file for one of the appropriate Linux version strings listed below:
 
-    | Linux distribution | Version |
-    | --------------- | ----------- |
-    | Debian 10 | `buster`  |
-    | Debian 9  | `stretch` |
-    | Ubuntu 20.04    | `focal`     |
-    | Ubuntu 19.04    | `disco`     |
-    | Ubuntu 18.10    | `cosmic`    |
-    | Ubuntu 18.04    | `bionic`    |
-    | Ubuntu 17.04    | `zesty`     |
-    | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+    | Linux distribution         | Version    |
+    | -------------------------- | ---------- |
+    | Debian 11                  | `bullseye` |
+    | Debian 10                  | `buster`   |
+    | Debian 9                   | `stretch`  |
+    | Ubuntu 20.04               | `focal`    |
+    | Ubuntu 19.04               | `disco`    |
+    | Ubuntu 18.10               | `cosmic`   |
+    | Ubuntu 18.04               | `bionic`   |
+    | Ubuntu 17.04               | `zesty`    |
+    | Ubuntu 16.04/Linux Mint 18 | `xenial`   |
 
 1. Start the APT source update:
 

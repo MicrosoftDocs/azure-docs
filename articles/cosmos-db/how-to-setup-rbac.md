@@ -4,8 +4,9 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 02/16/2022
 ms.author: thweiss
+ms.reviewer: wiassaf
 ---
 
 # Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
@@ -30,7 +31,7 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
     - An Azure Cosmos DB database,
     - An Azure Cosmos DB container.
 
-  :::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="RBAC concepts":::
+  :::image type="content" source="./media/how-to-setup-rbac/concepts.svg" alt-text="RBAC concepts":::
 
 ## <a id="permission-model"></a> Permission model
 
@@ -62,7 +63,7 @@ The table below lists all the actions exposed by the permission model.
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create` | Create a new item. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read` | Read an individual item by its ID and partition key (point-read). |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/replace` | Replace an existing item. |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert` | "Upsert" an item, which means create it if it doesn't exist, or replace it if it exists. |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert` | "Upsert" an item, which means to create or insert an item if it doesn't already exist, or to update or replace an item if it exists. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/delete` | Delete an item. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` | Execute a [SQL query](sql-query-getting-started.md). |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` | Read from the container's [change feed](read-change-feed.md). |
@@ -96,7 +97,7 @@ The actual metadata requests allowed by the `Microsoft.DocumentDB/databaseAccoun
 
 ## Built-in role definitions
 
-Azure Cosmos DB exposes 2 built-in role definitions:
+Azure Cosmos DB exposes two built-in role definitions:
 
 | ID | Name | Included actions |
 |---|---|---|
@@ -342,13 +343,14 @@ See [this page](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/sql-res
 
 ## Initialize the SDK with Azure AD
 
-To use the Azure Cosmos DB RBAC in your application, you have to update the way you initialize the Azure Cosmos DB SDK. Instead of passing your account's primary key, you have to pass an instance of a `TokenCredential` class. This instance provides the Azure Cosmos DB SDK with the context required to fetch an AAD token on behalf of the identity you wish to use.
+To use the Azure Cosmos DB RBAC in your application, you have to update the way you initialize the Azure Cosmos DB SDK. Instead of passing your account's primary key, you have to pass an instance of a `TokenCredential` class. This instance provides the Azure Cosmos DB SDK with the context required to fetch an Azure AD (AAD) token on behalf of the identity you wish to use.
 
-The way you create a `TokenCredential` instance is beyond the scope of this article. There are many ways to create such an instance depending on the type of AAD identity you want to use (user principal, service principal, group etc.). Most importantly, your `TokenCredential` instance must resolve to the identity (principal ID) that you've assigned your roles to. You can find examples of creating a `TokenCredential` class:
+The way you create a `TokenCredential` instance is beyond the scope of this article. There are many ways to create such an instance depending on the type of Azure AD identity you want to use (user principal, service principal, group etc.). Most importantly, your `TokenCredential` instance must resolve to the identity (principal ID) that you've assigned your roles to. You can find examples of creating a `TokenCredential` class:
 
 - [In .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [In Java](/java/api/overview/azure/identity-readme#credential-classes)
 - [In JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- [In Python](/python/api/overview/azure/identity-readme#credential-classes)
 
 The examples below use a service principal with a `ClientSecretCredential` instance.
 
@@ -391,9 +393,21 @@ const servicePrincipal = new ClientSecretCredential(
     "<client-application-id>",
     "<client-application-secret>");
 const client = new CosmosClient({
-    "<account-endpoint>",
+    endpoint: "<account-endpoint>",
     aadCredentials: servicePrincipal
 });
+```
+
+### In Python
+
+The Azure Cosmos DB RBAC is supported in the [Python SDK versions 4.3.0b4](sql-api-sdk-python.md) and higher.
+
+```python
+aad_credentials = ClientSecretCredential(
+    tenant_id="<azure-ad-tenant-id>",
+    client_id="<client-application-id>",
+    client_secret="<client-application-secret>")
+client = CosmosClient("<account-endpoint>", aad_credentials)
 ```
 
 ## Authenticate requests on the REST API
@@ -414,18 +428,18 @@ When you access the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature
 
 ## Audit data requests
 
-When using the Azure Cosmos DB RBAC, [diagnostic logs](cosmosdb-monitor-resource-logs.md) get augmented with identity and authorization information for each data operation. This lets you perform detailed auditing and retrieve the AAD identity used for every data request sent to your Azure Cosmos DB account.
+When using the Azure Cosmos DB RBAC, [diagnostic logs](cosmosdb-monitor-resource-logs.md) get augmented with identity and authorization information for each data operation. This lets you perform detailed auditing and retrieve the Azure AD identity used for every data request sent to your Azure Cosmos DB account.
 
 This additional information flows in the **DataPlaneRequests** log category and consists of two extra columns:
 
-- `aadPrincipalId_g` shows the principal ID of the AAD identity that was used to authenticate the request.
+- `aadPrincipalId_g` shows the principal ID of the Azure AD identity that was used to authenticate the request.
 - `aadAppliedRoleAssignmentId_g` shows the [role assignment](#role-assignments) that was honored when authorizing the request.
 
 ## <a id="disable-local-auth"></a> Enforcing RBAC as the only authentication method
 
 In situations where you want to force clients to connect to Azure Cosmos DB through RBAC exclusively, you have the option to disable the account's primary/secondary keys. When doing so, any incoming request using either a primary/secondary key or a resource token will be actively rejected.
 
-### Using Azure Resource Manager templates
+### Use Azure Resource Manager templates
 
 When creating or updating your Azure Cosmos DB account using Azure Resource Manager templates, set the `disableLocalAuth` property to `true`:
 

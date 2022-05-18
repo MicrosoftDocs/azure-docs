@@ -5,8 +5,8 @@ description: Link your Azure Synapse Analytics workspace to your Azure machine l
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
-ms.author: laobri
-author: lobrien
+ms.author: larryfr
+author: blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: synapse-azureml
@@ -38,6 +38,7 @@ Once your Azure Machine Learning workspace and your Azure Synapse Analytics work
 * Python SDK ([as elaborated below](#attach-your-apache-spark-pool-as-a-compute-target-for-azure-machine-learning))
 * Azure Resource Manager (ARM) template (see this [Example ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-linkedservice-create/azuredeploy.json)). 
     * You can use the command line to follow the ARM template, add the linked service, and attach the Apache Spark pool with the following code:
+
     ```azurecli
     az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
     ```

@@ -4,14 +4,13 @@ description: Learn how to assign Azure resource roles in Azure AD Privileged Ide
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/28/2021
+ms.date: 04/18/2022
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -35,6 +34,11 @@ Privileged Identity Management support both built-in and custom Azure roles. For
 ## Role assignment conditions
 
 You can use the Azure attribute-based access control (Azure ABAC) preview to place resource conditions on eligible role assignments using Privileged Identity Management (PIM). With PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using Azure attribute-based access control conditions in PIM enables you not only to limit a user’s role permissions to a resource using fine-grained conditions, but also to use PIM to secure the role assignment with a time-bound setting, approval workflow, audit trail, and so on. For more information, see [Azure attribute-based access control public preview](../../role-based-access-control/conditions-overview.md).
+
+>[!Note]
+>When a role is assigned, the assignment:
+>- Can't be assign for a duration of less than five minutes
+>- Can't be removed within five minutes of it being assigned
 
 ## Assign a role
 
@@ -81,6 +85,14 @@ Follow these steps to make a user eligible for an Azure resource role.
     - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
 
 1. To specify a specific assignment duration, change the start and end dates and times.
+
+1. If the role has been defined with actions that permit assignments to that role with conditions, then you can select **Add condition** to add a condition based on the principal user and resource attributes that are part of the assignment.
+
+    ![New assignment - Conditions](./media/pim-resource-roles-assign-roles/new-assignment-conditions.png)
+    
+    Conditions can be entered in the expression builder. 
+
+    ![New assignment - Condition built from an expression](./media/pim-resource-roles-assign-roles/new-assignment-condition-expression.png)
 
 1. When finished, select **Assign**.
 

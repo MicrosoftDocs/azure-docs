@@ -8,9 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 04/12/2022
 ms.author: aahi
-ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021, mode-other
+ms.devlang: csharp, java, javascript, python
+ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021, mode-api
 keywords: text mining, key phrase
 zone_pivot_groups: programming-languages-text-analytics
 ---

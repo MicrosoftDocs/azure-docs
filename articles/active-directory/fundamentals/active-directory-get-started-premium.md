@@ -3,7 +3,7 @@ title: Sign up for premium editions - Azure Active Directory| Microsoft Docs
 description: Instructions about how to sign up for Azure Active Directory Premium editions.
 services: active-directory
 author: ajburnle
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -30,7 +30,7 @@ Before you sign up for Active Directory Premium 1 or Premium 2, you must first d
 Signing up using your Azure subscription with previously purchased and activated Azure AD licenses, automatically activates the licenses in the same directory. If that's not the case, you must still activate your license plan and your Azure AD access. For more information about activating your license plan, see [Activate your new license plan](#activate-your-new-license-plan). For more information about activating your Azure AD access, see [Activate your Azure AD access](#activate-your-azure-ad-access). 
 
 ## Sign up using your existing Azure or Microsoft 365 subscription
-As an Azure or Microsoft 365 subscriber, you can purchase the Azure Active Directory Premium editions online. For detailed steps, see [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).
+As an Azure or Microsoft 365 subscriber, you can purchase the Azure Active Directory Premium editions online. For detailed steps, see [Buy or remove licenses](/microsoft-365/commerce/licenses/buy-licenses?view=o365-worldwide).
 
 ## Sign up using your Enterprise Mobility + Security licensing plan
 Enterprise Mobility + Security is a suite, comprised of Azure AD Premium, Azure Information Protection, and Microsoft Intune. If you already have an EMS license, you can get started with Azure AD, using one of these licensing options:

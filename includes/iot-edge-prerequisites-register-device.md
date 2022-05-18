@@ -9,7 +9,7 @@ services: iot-edge
 
 ### Device management tools
 
-You can use the **Azure portal**, **Visual Studio Code**, or **Azure CLI** for the steps to register you device. Each utility has its own prerequisites:
+You can use the **Azure portal**, **Visual Studio Code**, or **Azure CLI** for the steps to register your device. Each utility has its own prerequisites:
 
 # [Portal](#tab/azure-portal)
 

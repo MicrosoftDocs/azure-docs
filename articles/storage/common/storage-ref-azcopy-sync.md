@@ -20,9 +20,11 @@ The last modified times are used for comparison. The file is skipped if the last
 
 The supported pairs are:
 
-- local <-> Azure Blob (either SAS or OAuth authentication can be used)
+- Local <-> Azure Blob (either SAS or OAuth authentication can be used)
 - Azure Blob <-> Azure Blob (Source must include a SAS or is publicly accessible; either SAS or OAuth authentication can be used for destination)
 - Azure File <-> Azure File (Source must include a SAS or is publicly accessible; SAS authentication should be used for destination)
+- Local <-> Azure File 
+- Azure Blob <-> Azure File
 
 The sync command differs from the copy command in several ways:
 
@@ -151,6 +153,8 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 **--include-attributes** string   (Windows only) Includes only files whose attributes match the attribute list. For example: `A;S;R`
 
 **--include-pattern** string   Include only files where the name matches the pattern list. For example: `*.jpg;*.pdf;exactName`
+
+**--include-regex** string Include only the relative path of the files that align with regular expressions. Separate regular expressions with ';'.
 
 **--log-level** string     Define the log verbosity for the log file, available levels: `INFO`(all requests and responses), `WARNING`(slow responses), `ERROR`(only failed requests), and `NONE`(no output logs). (default `INFO`).
 

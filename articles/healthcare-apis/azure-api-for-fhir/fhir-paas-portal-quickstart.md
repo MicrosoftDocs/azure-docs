@@ -2,13 +2,13 @@
 title: 'Quickstart: Deploy Azure API for FHIR using Azure portal'
 description: In this quickstart, you'll learn how to deploy Azure API for FHIR and configure settings using the Azure portal.
 services: healthcare-apis
-author: matjazl
+author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: quickstart
-ms.date: 08/05/2021
-ms.author: zxue
-ms.custom: mode-portal
+ms.topic: quickstart 
+ms.date: 03/21/2022
+ms.author: dseven
+ms.custom: mode-api
 ---
 
 # Quickstart: Deploy Azure API for FHIR using Azure portal
@@ -19,7 +19,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create new resource
 
-Open the [Azure portal](https://portal.azure.com) and click **Create a resource**
+Open the [Azure portal](https://portal.azure.com) and select **Create a resource**
 
 ![Create a resource](media/quickstart-paas-portal/portal-create-resource.png)
 
@@ -27,7 +27,7 @@ Open the [Azure portal](https://portal.azure.com) and click **Create a resource*
 
 You can find Azure API for FHIR by typing "FHIR" into the search box:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-search-healthcare-apis.png" alt-text="Search for Healthcare APIs":::
+:::image type="content" source="media/quickstart-paas-portal/portal-search-healthcare-apis.png" alt-text="Search for Azure Health Data Services":::
 
 ## Create Azure API for FHIR account
 
@@ -37,7 +37,7 @@ Select **Create** to create a new Azure API for FHIR account:
 
 ## Enter account details
 
-Select an existing resource group or create a new one, choose a name for the account, and finally click **Review + create**:
+Select an existing resource group or create a new one, choose a name for the account, and finally select **Review + create**:
 
 :::image type="content" source="media/quickstart-paas-portal/portal-new-healthcare-apis-details.png" alt-text="New healthcare api details":::
 
@@ -45,7 +45,7 @@ Confirm creation and await FHIR API deployment.
 
 ## Additional settings (optional)
 
-You can also click **Next: Additional settings** to view the authentication settings. The default configuration for the Azure API for FHIR is to [use Azure RBAC for assigning data plane roles](configure-azure-rbac.md). When configured in this mode, the "Authority" for the FHIR service will be set to the Azure Active Directory tenant of the subscription:
+You can also select **Next: Additional settings** to view the authentication settings. The default configuration for the Azure API for FHIR is to [use Azure RBAC for assigning data plane roles](configure-azure-rbac.md). When configured in this mode, the "Authority" for the FHIR service will be set to the Azure Active Directory tenant of the subscription:
 
 :::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Default Authentication settings":::
 
@@ -63,10 +63,26 @@ When no longer needed, you can delete the resource group, Azure API for FHIR, an
 
 ## Next steps
 
-In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide. If you are ready to start using the Azure API for FHIR, read more on how to register applications.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. For information about how to register applications and the Azure API for FHIR configuration settings, see
 
->[!div class="nextstepaction"]
->[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
 
 >[!div class="nextstepaction"]
 >[Register Applications Overview](fhir-app-registration.md)
+
+>[!div class="nextstepaction"]
+>[Configure Azure RBAC](configure-azure-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure local RBAC](configure-local-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure database settings](configure-database.md)
+
+>[!div class="nextstepaction"]
+>[Configure customer-managed keys](customer-managed-key.md)
+
+>[!div class="nextstepaction"]
+>[Configure CORS](configure-cross-origin-resource-sharing.md)
+
+>[!div class="nextstepaction"]
+>[Configure Private Link](configure-private-link.md)

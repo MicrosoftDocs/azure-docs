@@ -5,17 +5,16 @@ services: api-management
 documentationcenter: ''
 author: dlepow
 editor: ''
-
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 12/10/2021
 ms.author: danlep
-
+ms.custom: devdivchpfy22
 ---
 
 # Tutorial: Debug your APIs using request tracing
 
-This tutorial describes how to inspect (trace) request processing in Azure API Management to help you debug and troubleshoot your API. 
+This tutorial describes how to inspect (trace) request processing in Azure API Management. Tracing helps you debug and troubleshoot your API.
 
 In this tutorial, you learn how to:
 
@@ -23,7 +22,7 @@ In this tutorial, you learn how to:
 > * Trace an example call
 > * Review request processing steps
 
-:::image type="content" source="media/api-management-howto-api-inspector/api-inspector-001.png" alt-text="API inspector":::
+:::image type="content" source="media/api-management-howto-api-inspector/api-inspector-002.png" alt-text="API inspector":::
 
 ## Prerequisites
 
@@ -31,11 +30,11 @@ In this tutorial, you learn how to:
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
-## Verify allow tracing setting 
+## Verify allow tracing setting
 
 The **Allow tracing** setting for the subscription used for your API must be enabled. If you're using the built-in all-access subscription, it's enabled by default. To verify in the portal, navigate to your API Management instance and select **Subscriptions**.
 
-   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing.png" alt-text="Allow tracing for subscription":::
+   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing-1.png" alt-text="Allow tracing for subscription":::
 
 ## Trace a call
 
@@ -44,22 +43,22 @@ The **Allow tracing** setting for the subscription used for your API must be ena
 1. Select  **Demo Conference API** from your API list.
 1. Select the **Test** tab.
 1. Select the **GetSpeakers** operation.
-1. Confirm that the HTTP request header includes **Ocp-Apim-Trace: True** and a valid value for **Ocp-Apim-Subscription-Key**. If it isn't, select **+ Add Header** to add the header.
+1. Confirm that the HTTP request header includes **Ocp-Apim-Trace: True** and a valid value for **Ocp-Apim-Subscription-Key**. If it doesn't, select **+ Add header** to add the header.
 1. Select **Send** to make an API call.
 
-  :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Configure API tracing":::
+  :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call-1.png" alt-text="Configure API tracing":::
 
 > [!TIP]
 > If **Ocp-Apim-Subscription-Key** isn't automatically populated in the HTTP request, you can retrieve it in the portal. Select **Subscriptions**, and open the context menu (**...**) for your suscription. Select **Show/hide keys**. You can also regenerate keys if needed. Then, add a key to the header.
 
 ## Review trace information
 
-1. After the call completes, go to the **Trace** tab in the **HTTP Response**.
+1. After the call completes, go to the **Trace** tab in the **HTTP response**.
 1. Select any of the following links to jump to detailed trace info: **Inbound**, **Backend**, **Outbound**.
 
-     :::image type="content" source="media/api-management-howto-api-inspector/response-trace.png" alt-text="Review response trace":::
+     :::image type="content" source="media/api-management-howto-api-inspector/response-trace-1.png" alt-text="Review response trace":::
 
-    * **Inbound** - Shows the original request API Management received from the caller and the policies applied to the request. For example, if you added policies in [Tutorial: Transform and protect your API](transform-api.md), they will appear here.
+    * **Inbound** - Shows the original request API Management received from the caller and the policies applied to the request. For example, if you added policies in [Tutorial: Transform and protect your API](transform-api.md), they'll appear here.
 
     * **Backend** - Shows the requests API Management sent to the API backend and the response it received.
 
@@ -70,7 +69,7 @@ The **Allow tracing** setting for the subscription used for your API must be ena
 
 1. On the **Message** tab, the **ocp-apim-trace-location** header shows the location of the trace data stored in Azure blob storage. If needed, go to this location to retrieve the trace.
 
-     :::image type="content" source="media/api-management-howto-api-inspector/response-message.png" alt-text="Trace location in Azure Storage":::
+     :::image type="content" source="media/api-management-howto-api-inspector/response-message-1.png" alt-text="Trace location in Azure Storage":::
 ## Next steps
 
 In this tutorial, you learned how to:

@@ -2,7 +2,8 @@
 title: Authenticate access to Azure Event Hubs with shared access signatures
 description: This article shows you how to authenticate access to Event Hubs resources using shared access signatures.
 ms.topic: conceptual
-ms.date: 07/26/2021
+ms.date: 01/05/2022
+ms.devlang: csharp, java, javascript, php
 ms.custom: devx-track-js, devx-track-csharp
 ---
 # Authenticate access to Event Hubs resources using shared access signatures (SAS)
@@ -170,6 +171,44 @@ private static string createToken(string resourceUri, string keyName, string key
 }
 ```
 
+#### PowerShell
+
+```azurepowershell-interactive
+[Reflection.Assembly]::LoadWithPartialName("System.Web")| out-null
+$URI="myNamespace.servicebus.windows.net/myEventHub"
+$Access_Policy_Name="RootManageSharedAccessKey"
+$Access_Policy_Key="myPrimaryKey"
+#Token expires now+300
+$Expires=([DateTimeOffset]::Now.ToUnixTimeSeconds())+300
+$SignatureString=[System.Web.HttpUtility]::UrlEncode($URI)+ "`n" + [string]$Expires
+$HMAC = New-Object System.Security.Cryptography.HMACSHA256
+$HMAC.key = [Text.Encoding]::ASCII.GetBytes($Access_Policy_Key)
+$Signature = $HMAC.ComputeHash([Text.Encoding]::ASCII.GetBytes($SignatureString))
+$Signature = [Convert]::ToBase64String($Signature)
+$SASToken = "SharedAccessSignature sr=" + [System.Web.HttpUtility]::UrlEncode($URI) + "&sig=" + [System.Web.HttpUtility]::UrlEncode($Signature) + "&se=" + $Expires + "&skn=" + $Access_Policy_Name
+$SASToken
+```
+
+#### BASH
+
+```bash
+get_sas_token() {
+    local EVENTHUB_URI=$1
+    local SHARED_ACCESS_KEY_NAME=$2
+    local SHARED_ACCESS_KEY=$3
+    local EXPIRY=${EXPIRY:=$((60 * 60 * 24))} # Default token expiry is 1 day
+
+    local ENCODED_URI=$(echo -n $EVENTHUB_URI | jq -s -R -r @uri)
+    local TTL=$(($(date +%s) + $EXPIRY))
+    local UTF8_SIGNATURE=$(printf "%s\n%s" $ENCODED_URI $TTL | iconv -t utf8)
+
+    local HASH=$(echo -n "$UTF8_SIGNATURE" | openssl sha256 -hmac $SHARED_ACCESS_KEY -binary | base64)
+    local ENCODED_HASH=$(echo -n $HASH | jq -s -R -r @uri)
+
+    echo -n "SharedAccessSignature sr=$ENCODED_URI&sig=$ENCODED_HASH&se=$TTL&skn=$SHARED_ACCESS_KEY_NAME"
+}
+```
+
 ## Authenticating Event Hubs publishers with SAS 
 An event publisher defines a virtual endpoint for an event hub. The publisher can only be used to send messages to an event hub and not receive messages.
 
@@ -182,17 +221,7 @@ All tokens are assigned with SAS keys. Typically, all tokens are signed with the
 For example, to define authorization rules scoped down to only sending/publishing to Event Hubs, you need to define a send authorization rule. This can be done at a namespace level or give more granular scope to a particular entity (event hubs instance or a topic). A client or an application that is scoped with such granular access is called, Event Hubs publisher. To do so, follow these steps:
 
 1. Create a SAS key on the entity you want to publish to assign the **send** scope on it. For more information, see [Shared access authorization policies](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
-2. Generate a SAS token with an expiry time for a specific publisher by using the key generated in step1.
-
-    ```csharp
-    var sasToken = SharedAccessSignatureTokenProvider.GetPublisherSharedAccessSignature(
-                new Uri("Service-Bus-URI"),
-                "eventub-name",
-                "publisher-name",
-                "sas-key-name",
-                "sas-key",
-                TimeSpan.FromMinutes(30));
-    ```
+2. Generate a SAS token with an expiry time for a specific publisher by using the key generated in step1. For the sample code, see [Generating a signature(token) from a policy](#generating-a-signaturetoken-from-a-policy).
 3. Provide the token to the publisher client, which can only send to the entity and the publisher that token grants access to.
 
     Once the token expires, the client loses its access to send/publish to the entity. 

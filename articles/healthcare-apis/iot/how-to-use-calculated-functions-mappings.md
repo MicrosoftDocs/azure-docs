@@ -1,27 +1,24 @@
 ---
-title: CalculatedContentTemplate mappings in IoT Connector Device mappings - Azure Healthcare APIs
-description: This article describes how to use CalculatedContentTemplate mappings with IoT connector Device mappings templates. 
+title: CalculatedContentTemplate mappings in MedTech service Device mappings - Azure Health Data Services
+description: This article describes how to use CalculatedContentTemplate mappings with MedTech service Device mappings templates. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/22/2021
+ms.date: 02/16/2022
 ms.author: jasteppe
 ---
 
 # How to use CalculatedContentTemplate mappings
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 > [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings. Export mappings for uploading to MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of MedTech service.
 
-This article describes how to use CalculatedContentTemplate mappings with IoT connector Device mappings templates.
+This article describes how to use CalculatedContentTemplate mappings with MedTech service Device mappings templates.
 
 ## CalculatedContentTemplate
 
-IoT connector provides an expression-based content template to both match the wanted template and extract values. **Expressions** may be used by either JSONPath or JmesPath. Each expression within the template may choose its own expression language. 
+MedTech service provides an expression-based content template to both match the wanted template and extract values. **Expressions** may be used by either JSONPath or JmesPath. Each expression within the template may choose its own expression language. 
 
 > [!NOTE]
 > If an expression language isn't defined, the default expression language configured for the template will be used. The default is JSONPath but can be overwritten if needed.
@@ -103,7 +100,7 @@ When specifying the language to use for the expression, the below values are val
 
 ### Custom Functions
 
-A set of IoT connector Custom Functions is also available. These Custom Functions are outside of the functions provided as part of the JmesPath specification. For more information on Custom Functions, see [IoT connector Custom Functions](./how-to-use-custom-functions.md).
+A set of MedTech service Custom Functions is also available. These Custom Functions are outside of the functions provided as part of the JmesPath specification. For more information on Custom Functions, see [MedTech service Custom Functions](./how-to-use-custom-functions.md).
 
 ### Matched Token
 
@@ -544,7 +541,7 @@ In the below example, height data arrives in either inches or meters. We want al
 ```
 
 > [!TIP]
-> See IoT connector [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+> See MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
 
 ## Next steps
 

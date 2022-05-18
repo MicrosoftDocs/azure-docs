@@ -6,8 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
+author: blackmist
+ms.author: larryfr
 ms.topic: troubleshooting
-ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
+ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2, cliv1
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
 ---
 
@@ -47,9 +49,11 @@ Understanding these high-level steps should help you understand where errors are
 
 ## Get deployment logs
 
-The first step in debugging errors is to get your deployment logs. First, follow the [instructions here](how-to-deploy-and-where.md#connect-to-your-workspace) to connect to your workspace.
+The first step in debugging errors is to get your deployment logs. First, follow the [instructions here to connect to your workspace](how-to-deploy-and-where.md#connect-to-your-workspace).
 
 # [Azure CLI](#tab/azcli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 To get the logs from a deployed webservice, do:
 
@@ -112,6 +116,12 @@ The error message will typically indicate which resource you need more of - for 
 After the image is successfully built, the system attempts to start a container using your deployment configuration. As part of container starting-up process, the `init()` function in your scoring script is invoked by the system. If there are uncaught exceptions in the `init()` function, you might see **CrashLoopBackOff** error in the error message.
 
 Use the info in the [Inspect the Docker log](how-to-troubleshoot-deployment-local.md#dockerlog) article.
+
+## Container azureml-fe-aci launch fails
+
+When deploying a service to an Azure Container Instance compute target, Azure Machine Learning attempts to create a front-end container that has the name `azureml-fe-aci` for the inference request. If `azureml-fe-aci` crashes, you can see logs by running `az container logs --name MyContainerGroup --resource-group MyResourceGroup --subscription MySubscription --container-name azureml-fe-aci`. You can follow the error message in the logs to make the fix. 
+
+The most common failure for `azureml-fe-aci` is that the provided SSL certificate or key is invalid.
 
 ## Function fails: get_model_path()
 
@@ -226,5 +236,5 @@ For more information, visit the [interactive debugging in VS Code guide](how-to-
 Learn more about deployment:
 
 * [How to deploy and where](how-to-deploy-and-where.md)
-* [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)
+* [Tutorial: Train & deploy models](tutorial-train-deploy-notebook.md)
 * [How to run and debug experiments locally](./how-to-debug-visual-studio-code.md)

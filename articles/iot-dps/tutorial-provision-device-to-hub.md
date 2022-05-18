@@ -1,13 +1,14 @@
 ---
 title: Tutorial - Provision device using Azure IoT Hub Device Provisioning Service
 description: This tutorial shows how you can provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (DPS)
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service

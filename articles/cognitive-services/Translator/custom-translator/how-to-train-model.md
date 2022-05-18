@@ -1,20 +1,20 @@
 ---
-title: Train a model - Custom Translator
+title: "Legacy: Train a model - Custom Translator"
 titleSuffix: Azure Cognitive Services
-description: Training a model is an important step when building a translation model. Training happens based on documents you select for that trainings.
+description: How to train and build a custom translation model.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 12/06/2021
 ms.author: lajanuar
-ms.topic: conceptual
+ms.topic: how-to
 #Customer intent: As a Custom Translator user, I want to understand how to train, so that I can start start building my custom translation model.
 ---
 
 # Train a model
 
-Training a model is the first and most important step to building a translation model, otherwise, model can't be built. Training happens based on documents you select for the trainings. When you select documents of "Training" document type, be mindful of the 10,000 parallel sentences minimum requirement. As you select documents, we display the total number of training sentences to guide you. This requirement does not apply when you only select documents of dictionary document type to train a model.
+Training a model is the first and most important step to building a translation model, otherwise, model can't be built. Training happens based on documents you select for the trainings. When you select documents of "Training" document type, be mindful of the 10,000 parallel sentences minimum requirement. As you select documents, we display the total number of training sentences to guide you. This requirement doesn't apply when you only select documents of dictionary document type to train a model.
 
 To train a model:
 
@@ -24,7 +24,7 @@ To train a model:
 
     - Document name: Name of the document.
 
-    - Pairing: If this document is a parallel or monolingual document. Monolingual documents are currently not supported for training.
+    - Pairing: Is this document a parallel or monolingual document? Monolingual documents are currently not supported for training.
 
     - Document type: Can be training, tuning, testing, or dictionary.
 
@@ -36,11 +36,11 @@ To train a model:
 
     ![Train model](media/how-to/how-to-train-model.png)
 
-3. Click "Create model" button.
+3. Select **Create model** button.
 
-4. On the dialog, specify the name for your model. By default, "Train immediately" is selected to start the training pipeline when you click "Create model" button. You can select "Save as draft" to create the model metadata and put the model in a draft state but model training would not start. At a later time, you have to manually select models in draft state to train.
+4. On the dialog, specify the name for your model. By default, "Train immediately" is selected to start the training pipeline when you select the **Create model** button. You can select **Save as draft** to create the model metadata and put the model in a draft state but model training wouldn't start. At a later time, you've to manually select models in draft state to train.
 
-5. Click "Create model" button.
+5. Select the **Create model** button.
 
     ![Train model dialog](media/how-to/how-to-train-model-2.png)
 
@@ -56,10 +56,10 @@ To train a model:
 
 You can modify a model name from the Model Details page.
 
-1. From the projects page, click on the project name where the model exists.
-2. Click on the model tab.
-3. Click on the model name to view the model details.
-4. Click on the Pencil icon.
+1. From the projects page, select the project name where the model exists.
+2. Select the model tab.
+3. Select the model name to view the model details.
+4. Select the **pencil icon**.
 
     ![Edit model](media/how-to/how-to-edit-model.png)
 
@@ -67,8 +67,8 @@ You can modify a model name from the Model Details page.
 
     ![Edit more dialog](media/how-to/how-to-edit-model-dialog.png)
 
-6. Click Save.
+6. Select **Save**.
 
 ## Next steps
 
-- Learn [how to view model details](how-to-view-model-details.md).
+- Learn [how to view a model's details](how-to-view-model-details.md).

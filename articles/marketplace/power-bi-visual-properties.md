@@ -1,23 +1,60 @@
 ---
 title: Configure Power BI visual offer properties in Partner Center for Microsoft AppSource
 description: Learn how to configure Power BI visual offer properties in Partner Center for Microsoft AppSource.
-author: KesemSharabi
-ms.author: kesharab
-ms.reviewer: ""
+author: posurnis
+ms.author: posurnis
+ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 02/10/2022
 ---
 
 # Configure Power BI visual offer properties
 
 This page lets you define the [categories](./categories.md) used to group your offer on Microsoft AppSource, the legal contracts that support your offer, and support documentation.
 
-## General info
+## Categories
 
-- Select up to three **[Categories](./categories.md)** for grouping your offer into the appropriate marketplace search areas.
-- Select up to two **Industries** industries which will be used to display your offer when customers filter their search on industries in the online store.
+Select up to three **[Categories](./categories.md)** for grouping your offer into the appropriate marketplace search areas. This table shows the categories that are available for Power BI visuals.
+
+| Category | Description |
+| ------------ | ------------- |
+| All | All the different types of visuals that are certified for use within your organization. |
+| Change over time | These visuals are used to display the changing trend of measures over time. |
+| Comparison | These visuals are used to compare categories by their measures. |
+| Correlation | These visuals show the degree to which two or more variables are correlated. |
+| Distribution | These visuals show how the values of a variable are distributed. |
+| Flow | These visuals show the dynamic relationships, or flow between variables. |
+| Infographics | These visuals present information graphically, so it's easier to understand. |
+| Maps | Visualize your data in map form. |
+| Part-to-Whole | These visuals are used to display the parts of a variable in relation to the whole. |
+| R visuals | These visuals require R script to run. |
+| KPI | These visuals are used to display key performance indicators. |
+| Filters | Narrow down the data within a report by using filters. |
+| Narratives | Use narratives to tell a story with text and data. |
+| Other | More specialized visuals to discover. |
+
+## Industries
+
+Select up to two **Industries** which will be used to display your offer when customers filter their search on industries in the online store. This table shows the industries available for Power BI visuals.
+
+| Industry |
+| ------------ |
+| Automotive |
+| Defense & Intelligence |
+| Distribution |
+| Education |
+| Energy |
+| Financial Services |
+| Government |
+| Healthcare |
+| Hospitality & Travel |
+| Manufacturing |
+| Media & Communications |
+| Nonprofit & IGO |
+| Professional services |
+| Retail |
 
 ## Legal and support info
 

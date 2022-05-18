@@ -1,19 +1,18 @@
 ---
 title: PowerShell functions for Azure IoT Edge for Linux on Windows | Microsoft Docs 
 description: Reference information for Azure IoT Edge for Linux on Windows PowerShell functions to deploy, provision, and status IoT Edge for Linux on Windows virtual machines.
-author: kgremban
+author: PatAltimore
 
 ms.author: fcabrera
 ms.date: 10/15/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-monikerRange: "=iotedge-2018-06"
 ---
 
 # PowerShell functions for IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Understand the PowerShell functions that deploy, provision, and get the status of your IoT Edge for Linux on Windows (EFLOW) virtual machine.
 
@@ -110,13 +109,15 @@ For more information, use the command `Get-Help Copy-EflowVMFile -full`.
 
 The **Deploy-Eflow** command is the main deployment method. The deployment command creates the virtual machine, provisions files, and deploys the IoT Edge agent module. While none of the parameters are required, they can be used to modify settings for the virtual machine during creation.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
 | acceptEula | **Yes** or **No** | A shortcut to accept/deny EULA and bypass the EULA prompt. |
 | acceptOptionalTelemetry | **Yes** or **No** |  A shortcut to accept/deny optional telemetry and bypass the telemetry prompt. |
 | cpuCount | Integer value between 1 and the device's CPU cores |  Number of CPU cores for the VM.<br><br>**Default value**: 1 vCore. |
-| memoryInMB | Integer value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
-| vmDiskSize | Between 8 GB and 256 GB | Maximum disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 10 GB. |
+| memoryInMB | Integer **even** value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
+| vmDiskSize | Between 8 GB and 2 TB | Maximum logical disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 16 GB. |
 | vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
 | vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
 | ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
@@ -125,6 +126,31 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
 | gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| acceptEula | **Yes** or **No** | A shortcut to accept/deny EULA and bypass the EULA prompt. |
+| acceptOptionalTelemetry | **Yes** or **No** |  A shortcut to accept/deny optional telemetry and bypass the telemetry prompt. |
+| cpuCount | Integer value between 1 and the device's CPU cores |  Number of CPU cores for the VM.<br><br>**Default value**: 1 vCore. |
+| memoryInMB | Integer **even** value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
+| vmDiskSize | Between 21 GB and 2 TB | Maximum logical disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 29 GB. <br><br>**Note**: Either _vmDiskSize_ or _vmDataSize_ can be used, but not both together. |
+| vmDataSize | Between 2 GB and 2 TB | Maximum data partition size of the resulting hard disk, in GB.<br><br>**Default value**: 10 GB. <br><br>**Note**: Either _vmDiskSize_ or _vmDataSize_ can be used, but not both together. |
+| vmLogSize | **Small** or **Large** | Specificy the log partition size. Small = 1GB, Large = 6GB.<br><br>**Default value**: Small.  |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+| vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
+| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
+| ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified. |
+| ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified. |
+| gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |
+| gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
+| gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
+:::moniker-end
+<!-- end 1.2 -->
+
 
 For more information, use the command `Get-Help Deploy-Eflow -full`.  
 
@@ -232,7 +258,7 @@ For more information, use the command `Get-Help Get-EflowVmTelemetryOption -full
 The **Get-EflowVmTpmProvisioningInfo** command returns the TPM provisioning information. This command takes no parameters. It returns an object that contains two properties:
 
 * Endorsement Key
-* Registration Id
+* Registration ID
 
 For more information, use the command `Get-Help Get-EflowVmTpmProvisioningInfo -full`.
 
@@ -261,9 +287,10 @@ The **Provision-EflowVm** command adds the provisioning information for your IoT
 | deviceId | The device ID of an existing IoT Edge device | Device ID for provisioning an IoT Edge device (**ManualX509**). |
 | scopeId | The scope ID for an existing DPS instance. | Scope ID for provisioning an IoT Edge device (**DpsTPM**, **DpsX509**, or **DpsSymmetricKey**). |
 | symmKey | The primary key for an existing DPS enrollment or the primary key of an existing IoT Edge device registered using symmetric keys | Symmetric key for provisioning an IoT Edge device (**DpsSymmetricKey**). |
-| registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DpsSymmetricKey**). |
+| registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DpsSymmetricKey**, **DpsTPM**). |
 | identityCertPath | Directory path | Absolute destination path of the identity certificate on your Windows host machine (**ManualX509**, **DpsX509**). |
 | identityPrivKeyPath | Directory path | Absolute source path of the identity private key on your Windows host machine (**ManualX509**, **DpsX509**). |
+| globalEndpoint | Device Endpoint URL | URL for Global Endpoint to be used for DPS provisioning. |
 
 For more information, use the command `Get-Help Provision-EflowVm -full`.
 
@@ -303,14 +330,40 @@ The **Set-EflowVM** command updates the virtual machine configuration with the r
 
 For more information, use the command `Get-Help Set-EflowVM -full`.
 
+
+## Set-EflowVmDNSServers
+
+The **Set-EflowVmDNSServers** command configures the DNS servers for EFLOW virtual machine.
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vendpointName | String value of the virtual endpoint name | Use the _Get-EflowVmEndpoint_ to obtain the virtual interfaces assigned to the EFLOW VM. E.g. **DESKTOP-CONTOSO-EflowInterface** |
+| dnsServers | List of DNS server IPAddress to use for name resolution | E.g. **@("10.0.10.1")** |
+
+For more information, use the command `Get-Help Set-EflowVmDNSServers -full`.
+
+
 ## Set-EflowVmFeature
 
 The **Set-EflowVmFeature** command enables or disables the status of IoT Edge for Linux on Windows features.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
 | feature | **DpsTpm** | Feature name to toggle. |
 | enable | None | If this flag is present, the command enables the feature. |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| feature | **DpsTpm**, **Defender** | Feature name to toggle. |
+| enable | None | If this flag is present, the command enables the feature. |
+:::moniker-end
+<!-- end 1.2 -->
 
 For more information, use the command `Get-Help Set-EflowVmFeature -full`.
 

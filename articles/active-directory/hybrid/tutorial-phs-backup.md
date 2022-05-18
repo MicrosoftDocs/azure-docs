@@ -4,7 +4,7 @@ description: Demonstrates how to turn on password hash sync as a backup and for 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
@@ -39,7 +39,7 @@ Do the following:
 1.  Double-click the Azure AD Connect icon that was created on the desktop
 2.  Click **Configure**.
 3.  On the Additional tasks page, select **Customize synchronization options** and click **Next**.
-4.  Enter the username and password for your global administrator.  This account was created [here](tutorial-federation.md#create-a-global-administrator-in-azure-ad) in the previous tutorial.
+4.  Enter the username and password for your global administrator or your hybrid identity administrator.  This account was created [here](tutorial-federation.md#create-a-global-administrator-in-azure-ad) in the previous tutorial.
 5.  On the **Connect your directories** screen, click **Next**.
 6.  On the **Domain and OU filtering** screen, click **Next**.
 7.  On the **Optional features** screen, check **Password hash synchronization** and click **Next**.
@@ -58,7 +58,7 @@ Now, we will show you how to switch over to password hash synchronization. Befor
 2.  Click **Configure**.
 3.  Select **Change user sign-in** and click **Next**.
 ![Change](media/tutorial-phs-backup/backup2.png)</br>
-4.  Enter the username and password for your global administrator.  This account was created [here](tutorial-federation.md#create-a-global-administrator-in-azure-ad) in the previous tutorial.
+4.  Enter the username and password for your global administrator or your hybrid identity administrator.  This account was created [here](tutorial-federation.md#create-a-global-administrator-in-azure-ad) in the previous tutorial.
 5.  On the **User sign-in** screen, select **Password Hash Synchronization** and place a check in the **Do not convert user accounts** box.  
 6.  Leave the default **Enable single sign-on** selected and click **Next**.
 7.  On the **Enable single sign-on** screen click **Next**.
@@ -78,7 +78,7 @@ Now, we will show you how to switch back to federation.  To do this, do the foll
 1.  Double-click the Azure AD Connect icon that was created on the desktop
 2.  Click **Configure**.
 3.  Select **Change user sign-in** and click **Next**.
-4.  Enter the username and password for your global administrator.  This is the account that was created [here](tutorial-federation.md#create-a-global-administrator-in-azure-ad) in the previous tutorial.
+4.  Enter the username and password for your global administrator or your hybrid identity administrator.  This is the account that was created [here](tutorial-federation.md#create-a-global-administrator-in-azure-ad) in the previous tutorial.
 5.  On the **User sign-in** screen, select **Federation with AD FS** and click **Next**.  
 6. On the Domain Administrator credentials page, enter the contoso\Administrator username and password and click **Next.**
 7. On the AD FS farm screen, click **Next**.
@@ -98,7 +98,7 @@ Now we need to reset the trust between AD FS and Azure.
 3.  Select **Manage Federation** and click **Next**.
 4.  Select **Reset Azure AD trust** and click **Next**.
 ![Reset](media/tutorial-phs-backup/backup6.png)</br>
-5.  On the **Connect to Azure AD** screen enter the username and password for your global administrator.
+5.  On the **Connect to Azure AD** screen enter the username and password for your global administrator or your hybrid identity administrator.
 6.  On the **Connect to AD FS** screen, enter the contoso\Administrator username and password and click **Next.**
 7.  On the **Certificates** screen, click **Next**.
 

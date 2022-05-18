@@ -5,13 +5,13 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 03/19/2021
+ms.date: 01/26/2022
 ms.author: victorh
 ---
 
 # Tutorial: Secure your virtual hub using Azure Firewall Manager
 
-Using Azure Firewall Manager, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
+Using Azure Firewall Manager, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user-defined routes (UDRs).
 
 ![secure the cloud network](media/secure-cloud-network/secure-cloud-network.png)
 
@@ -48,12 +48,12 @@ The two virtual networks will each have a workload server in them and will be pr
 3. For **Region**, select **(US) East US**.
 4. Select **Next: IP Addresses**.
 1. For **Address space**, type **10.0.0.0/16**.
-3. Under **Subnet name**, select **default**.
-4. For **Subnet name**, type  **Workload-01-SN**.
-5. For **Subnet address range**, type **10.0.1.0/24**.
-6. Select **Save**.
+1. Select **Add subnet**.
+1. For **Subnet name**, type  **Workload-01-SN**.
+1. For **Subnet address range**, type **10.0.1.0/24**.
+1. Select **Add**.
 1. Select **Review + create**.
-2. Select **Create**.
+1. Select **Create**.
 
 Repeat this procedure to create another similar virtual network:
 
@@ -68,18 +68,20 @@ Create your secured virtual hub using Firewall Manager.
 
 1. From the Azure portal home page, select **All services**.
 2. In the search box, type **Firewall Manager** and select **Firewall Manager**.
-3. On the **Firewall Manager** page, select **View secured virtual hubs**.
-4. On the **Firewall Manager | Secured virtual hubs** page, select **Create new secured virtual hub**.
+3. On the **Firewall Manager** page under **Deployments**, select **Virtual hubs**.
+4. On the **Firewall Manager | Virtual hubs** page, select **Create new secured virtual hub**.
 5. For **Resource group**, select **fw-manager-rg**.
 7. For **Region**, select **East US**.
 1. For the **Secured virtual hub name**, type **Hub-01**.
 2. For **Hub address space**, type **10.2.0.0/16**.
-3. For the new vWAN name, type **Vwan-01**.
+3. For the new virtual WAN name, type **Vwan-01**.
 4. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
 5. Select **Next: Azure Firewall**.
-6. Accept the default **Azure Firewall** **Enabled** setting and then select **Next: Trusted Security Partner**.
-7. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
-8. Select **Create**. 
+6. Accept the default **Azure Firewall** **Enabled** setting.
+1. For **Azure Firewall tier**, select **Standard**.
+1. Select **Next: Trusted Security Partner**.
+1. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
+1. Select **Create**. 
 
    It takes about 30 minutes to deploy.
 
@@ -109,7 +111,7 @@ Repeat to connect the **Spoke-02** virtual network: connection name - **hub-spok
 ## Deploy the servers
 
 1. On the Azure portal, select **Create a resource**.
-2. Select **Windows Server 2016 Datacenter** in the **Popular** list.
+2. Select **Windows Server 2019 Datacenter** in the **Popular** list.
 3. Enter these values for the virtual machine:
 
    |Setting  |Value  |
@@ -142,12 +144,13 @@ After the servers are deployed, select a server resource, and in **Networking** 
 
 A firewall policy defines collections of rules to direct traffic on one or more Secured virtual hubs. You'll create your firewall policy and then secure your hub.
 
-1. From Firewall Manager, select **View Azure Firewall policies**.
+1. From Firewall Manager, select **Azure Firewall policies**.
 2. Select **Create Azure Firewall Policy**.
 1. For **Resource group**, select **fw-manager-rg**.
 1. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **East US**.
+1. For **Policy tier**, select **Standard**.
 1. Select **Next: DNS Settings**.
-1. Select **Next: TLS Inspection (preview)**.
+1. Select **Next: TLS Inspection**.
 1. Select **Next : Rules**.
 1. On the **Rules** tab, select **Add a rule collection**.
 1. On the **Add a rule collection** page, type **App-RC-01** for the **Name**.
@@ -203,7 +206,7 @@ Associate the firewall policy with the hub.
 
 1. From Firewall Manager, select **Azure Firewall Policies**.
 1. Select the check box for **Policy-01**.
-1. Select **Manage associations/Associate hubs**.
+1. Select **Manage associations**, **Associate hubs**.
 1. Select **hub-01**.
 1. Select **Add**.
 
@@ -217,6 +220,8 @@ Now you must ensure that network traffic gets routed through your firewall.
 4. Under **Internet traffic**, select **Azure Firewall**.
 5. Under **Private traffic**, select **Send via Azure Firewall**.
 1. Select **Save**.
+1. Select **OK** on the **Warning** dialog.
+
 
    It takes a few minutes to update the route tables.
 1. Verify that the two connections show Azure Firewall secures both Internet and private traffic.
@@ -257,7 +262,7 @@ So now you've verified that the firewall network rule is working:
 
 ## Clean up resources
 
-When you are done testing your firewall resources, delete the **fw-manager-rg** resource group to delete all firewall-related resources.
+When you’re done testing your firewall resources, delete the **fw-manager-rg** resource group to delete all firewall-related resources.
 
 ## Next steps
 

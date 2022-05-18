@@ -4,12 +4,11 @@ description: Planning guide for a successful access reviews deployment.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 04/16/2021
@@ -157,14 +156,14 @@ Typical targets for review include:
 
 ### Who will create and manage access reviews?
 
-The administrative role required to create, manage, or read an access review depends on the type of resource being reviewed. The following table denotes the roles required for each resource type.
+The administrative role required to create, manage, or read an access review depends on the type of resource being reviewed. The following table denotes the roles required for each resource type. Custom roles with permission Microsoft.Authorization/* can create and manage reviews of any resource type, and custom roles with at least permissions Microsoft.Authorization/*/read can read reviews of any resource type.
 
 | Resource type| Create and manage access reviews (creators)| Read access review results |
 | - | - | -|
 | Group or application| Global administrator <p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator (only does reviews for Azure AD role-assignable groups)<p>Group owner ([if enabled by an admin]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview))| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator<p>Security reader<p>Group owner ([if enabled by an admin]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview)) |
 |Azure AD roles| Global administrator <p>Privileged Role administrator|  Global administrator<p>Global reader<p>User administrator<p>Privileged Role administrator<p> <p>Security reader |
-| Azure resource roles| Global administrator<p>Resource owner| Global administrator<p>Global reader<p>User administrator<p>Privileged Role administrator<p> <p>Security reader  |
-| Access package| Global administrator<p>User administrator<p>Identity Governance administrator| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p> <p>Security reader  |
+| Azure resource roles| User Access Administrator (for the resource)<p>Resource owner| User Access Administrator (for the resource)<p>Resource owner<p>Reader (for the resource) |
+| Access package| Global administrator<p>User administrator<p>Identity Governance administrator<p>Catalog owner (for the access package)<p>Access package manager (for the access package)| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p>Catalog owner (for the access package)<p>Access package manager (for the access package)<p>Security reader  |
 
 For more information, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
 
@@ -320,7 +319,9 @@ To create access reviews for an application, set the **User assignment required?
 
  ![Screenshot that shows planning app assignments.](./media/deploy-access-review/6-plan-applications-assignment-required.png)
 
-Then [assign the users and groups](../manage-apps/assign-user-or-group-access-portal.md) that you want to have access.
+Then [assign the users and groups](../manage-apps/assign-user-or-group-access-portal.md) whose access you want to have reviewed.
+
+Read more about how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md).
 
 ### Reviewers for an application
 
@@ -406,7 +407,7 @@ Follow the instructions in the articles listed in the table.
 
 ## Use the Access Reviews API
 
-To interact with and manage reviewable resources, see [Microsoft Graph API methods](/graph/api/resources/accessreviewsv2-root) and [role and application permission authorization checks](/graph/api/resources/accessreviewsv2-root). The access reviews methods in the Microsoft Graph API are available for both application and user contexts. When you run scripts in the application context, the account used to run the API (the service principle) must be granted the AccessReview.Read.All permission to query access reviews information.
+To interact with and manage reviewable resources, see [Microsoft Graph API methods](/graph/api/resources/accessreviewsv2-overview) and [role and application permission authorization checks](/graph/api/resources/accessreviewsv2-overview). The access reviews methods in the Microsoft Graph API are available for both application and user contexts. When you run scripts in the application context, the account used to run the API (the service principle) must be granted the AccessReview.Read.All permission to query access reviews information.
 
 Popular access reviews tasks to automate by using the Microsoft Graph API for access reviews are:
 
@@ -417,7 +418,7 @@ Popular access reviews tasks to automate by using the Microsoft Graph API for ac
 * Collect decisions from an access review.
 * Collect decisions from completed reviews where the reviewer made a different decision than what the system recommended.
 
-When you create new Microsoft Graph API queries for automation, use the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). You can build and explore your Microsoft Graph queries before you put them into scripts and code. This step can help you to quickly iterate your query so that you get exactly the results you're looking for, without changing the code of your script.
+When you create new Microsoft Graph API queries for automation, use [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to build and explore your Microsoft Graph queries before you put them into scripts and code. This step can help you to quickly iterate your query so that you get exactly the results you're looking for, without changing the code of your script.
 
 ## Monitor access reviews
 

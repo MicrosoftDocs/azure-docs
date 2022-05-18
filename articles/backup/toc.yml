@@ -22,6 +22,8 @@
     href: quick-backup-vm-template.md
   - name: Back up a VM - Bicep template
     href: quick-backup-vm-bicep-template.md
+  - name: Back up Azure Database for PostgreSQL server - Azure portal
+    href: quick-backup-postgresql-database-portal.md
 - name: Tutorials
   items:
   - name: Back up multiple Azure VMs
@@ -36,6 +38,8 @@
     href: tutorial-sql-backup.md
   - name: Back up SAP HANA databases in Azure VMs
     href: tutorial-backup-sap-hana-db.md
+  - name: Back up PostgreSQL databases
+    href: tutorial-postgresql-backup.md
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server
@@ -54,7 +58,7 @@
     items:
     - name: Azure Backup support matrix
       href: backup-support-matrix.md
-    - name: Backup Center support matrix
+    - name: Backup center support matrix
       href: backup-center-support-matrix.md
     - name: Azure VM backup support matrix
       href: backup-support-matrix-iaas.md
@@ -76,11 +80,15 @@
       href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy
       href: backup-azure-policy-supported-skus.md
+    - name: Azure Database for PostgreSQL backup support matrix
+      href: backup-azure-database-postgresql-support-matrix.md
+    - name: Automation in Azure Backup
+      href: backup-support-automation.md
   - name: Frequently asked questions (FAQ)
     items:
     - name: FAQ-Recovery Services vaults
       href: backup-azure-backup-faq.yml
-    - name: FAQ-Backup Center
+    - name: FAQ-Backup center
       href: backup-center-faq.yml
     - name: FAQ-Azure VM backup
       href: backup-azure-vm-backup-faq.yml
@@ -94,10 +102,14 @@
       href: faq-backup-sql-server.yml
     - name: FAQ-Back up SAP HANA databases on Azure VMs
       href: sap-hana-faq-backup-azure-vm.yml
+    - name: FAQ-Back up Azure Database for PostgreSQL server
+      href: backup-azure-database-postgresql-server-faq.yml
     - name: FAQ-Azure Backup Server and DPM
       href: backup-azure-dpm-azure-server-faq.yml
     - name: FAQ-Azure Backup monitor alert
       href: backup-azure-monitor-alert-faq.yml
+    - name: FAQ-Protection against Ransomware
+      href: protect-backups-from-ransomware-faq.yml
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices
@@ -124,7 +136,7 @@
       items:
       - name: Overview
         href: backup-vault-overview.md
-  - name: Backup Center
+  - name: Backup center
     items:
     - name: Overview
       href: backup-center-overview.md
@@ -148,7 +160,7 @@
         href: backup-instant-restore-capability.md
       - name: Enable backup when you create an Azure VM
         href: backup-during-vm-creation.md
-      - name: Back up an Azure VM using enhanced policy
+      - name: Back up an Azure VM using Enhanced policy
         href: backup-azure-vms-enhanced-policy.md
       - name: Back up an Azure VM from VM settings
         href: backup-azure-vms-first-look-arm.md
@@ -538,7 +550,7 @@
       href: query-backups-using-azure-resource-graph.md
     - name: Resource Manager templates
       href: backup-rm-template-samples.md
-  - name: Security
+  - name: Security and Ransomware protection
     items:
     - name: Overview
       href: security-overview.md
@@ -556,6 +568,12 @@
         href: soft-delete-sql-saphana-in-azure-vm.md
     - name: Delete protection for Azure file shares
       href: soft-delete-azure-file-share.md
+    - name: Ransomware protection
+      items:
+      - name: Overview
+        href: ../security/fundamentals/backup-plan-to-protect-against-ransomware.md
+      - name: FAQ-Protection against Ransomware
+        href: protect-backups-from-ransomware-faq.yml
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
     - name: Private Endpoints
@@ -589,6 +607,8 @@
       href: backup-azure-vm-file-recovery-troubleshoot.md
     - name: Azure Backup agent or VM extension timed out
       href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+    - name: Encrypted Azure VM backup
+      href: backup-azure-encrypted-vm-troubleshoot.md
     - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
     - name: Files and folders backup is slow
@@ -613,12 +633,14 @@
       href: troubleshoot-archive-tier.md
 - name: Reference
   items:
+  - name: Archived release notes
+    href: backup-release-notes-archived.md
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
   - name: Azure CLI
     href: /cli/azure/backup
   - name: Azure Data Protection - CLI
-    href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
+    href: /cli/azure/dataprotection
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices/
   - name: Azure Data Protection - PowerShell

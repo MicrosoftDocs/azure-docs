@@ -9,7 +9,7 @@ ms.author: mijacobs
 ms.workload: web
 ms.topic: quickstart
 ms.date: 03/24/2020
-ms.custom: mvc, devx-track-js, mode-other
+ms.custom: mvc, devx-track-js, mode-api
 ---
 
 # Create a CI/CD pipeline in Azure Pipelines for Node.js with Azure DevOps Starter

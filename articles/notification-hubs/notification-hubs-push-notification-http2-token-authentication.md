@@ -10,7 +10,7 @@ editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: sethm

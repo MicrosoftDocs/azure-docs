@@ -27,7 +27,7 @@ The AKS Dapr extension uses the Azure CLI to provision the Dapr control plane on
 - **dapr-placement**: Used for actors only. Creates mapping tables that map actor instances to pods
 - **dapr-sentry**: Manages mTLS between services and acts as a certificate authority. For more information read the [security overview][dapr-security].
 
-Once Dapr is installed on your AKS cluster, your application services now have the Dapr sidecar running alongside them. This enables you to immediately start using the Dapr building block APIs. For a more in-depth overview of the building block APIs and how to best use them, please see the [Dapr building blocks overview][building-blocks-concepts].
+Once Dapr is installed on your AKS cluster, you can begin to develop using the Dapr building block APIs by [adding a few annotations][dapr-deployment-annotations] to your deployments. For a more in-depth overview of the building block APIs and how to best use them, please see the [Dapr building blocks overview][building-blocks-concepts].
 
 > [!WARNING]
 > If you install Dapr through the AKS extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
@@ -259,9 +259,9 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 
 <!-- LINKS INTERNAL -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [sample-application]: ./quickstart-dapr.md
 [k8s-version-support-policy]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
 
@@ -271,3 +271,4 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [dapr-configuration-options]: https://github.com/dapr/dapr/blob/master/charts/dapr/README.md#configuration
 [sample-application]: https://github.com/dapr/quickstarts/tree/master/hello-kubernetes#step-2---create-and-configure-a-state-store
 [dapr-security]: https://docs.dapr.io/concepts/security-concept/
+[dapr-deployment-annotations]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-overview/#adding-dapr-to-a-kubernetes-deployment

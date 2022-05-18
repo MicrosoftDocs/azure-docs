@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 
 title: FHIR service documentation
-summary: FHIR service documentation page for Azure Healthcare APIs (preview). FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+summary: FHIR service documentation for Azure Health Data Services. FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
 
 metadata:
-  title: FHIR service documentation 
+  title: Azure Health Data Services FHIR service
   description: FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
-  author: matjazl
-  ms.author: matjazl
-  ms.date: 08/13/2020
+  author: mikaelweave
+  ms.author: mikaelw
+  ms.date: 04/01/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -31,7 +31,6 @@ landingContent:
             url: fhir-portal-quickstart.md
           - text: Deploy FHIR service using ARM template
             url: fhir-service-resource-manager-template.md
-
   - title: Accessing FHIR service
     linkLists:
       - linkListType: concept
@@ -43,9 +42,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Access using Postman
-            url: ./../use-postman.md
-      
-
+            url: ./../fhir/use-postman.md
   - title: FHIR Search Capabilities
     linkLists:
       - linkListType: overview
@@ -60,7 +57,6 @@ landingContent:
             url: how-to-run-a-reindex.md
           - text: Search examples
             url: search-samples.md
-
   - title: Interoperability and Patient Access
     linkLists:
       - linkListType: how-to-guide
@@ -71,15 +67,23 @@ landingContent:
             url: carin-implementation-guide-blue-button-tutorial.md
           - text: Da Vinci Drug Formulary
             url: davinci-drug-formulary-tutorial.md
-  
   - title: FHIR Operations
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Profile validation
             url: validation-against-profiles.md
-          - text: Patient-everything
+          - text: Patient/$everything
             url: patient-everything.md
           - text: $member-match operation
             url: tutorial-member-match.md
-  
+  - title: Export and Convert Data
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Export data
+            url: export-data.md
+          - text: Copy data to Synapse
+            url: copy-to-synapse.md
+          - text: Convert data
+            url: convert-data.md

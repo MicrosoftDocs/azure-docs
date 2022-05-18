@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 03/10/2022
 ---
 # Azure HDInsight release notes
 
@@ -13,101 +13,76 @@ This article provides information about the **most recent** Azure HDInsight rele
 ## Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
-
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-## Release date: 07/27/2021
+## Release date: 03/10/2022
 
-This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
 
-The OS versions for this release are:
-- HDInsight 3.6: Ubuntu 16.04.7 LTS
-- HDInsight 4.0: Ubuntu 18.04.5 LTS
+The OS versions for this release are: 
+- 	HDInsight 4.0: Ubuntu 18.04.5 
 
-## New features
-### Azure HDInsight support for Restricted Public Connectivity is generally available on Oct 15 2021
-Azure HDInsight now supports restricted public connectivity in all regions. Below are some of the key highlights of this capability: 
+## Spark 3.1 is now generally available
 
-- Ability to reverse resource provider to cluster communication such that it's outbound from the cluster to the resource provider 
-- Support for bringing your own Private Link enabled resources (e.g. storage, SQL, key vault) for HDinsight cluster to access the resources over private network only 
-- No public IP addresses are resource provisioned 
+Spark 3.1 is now Generally Available on HDInsight 4.0 release.  This release includes 
 
-By using this new capability, you can also skip the inbound network security group (NSG) service tag rules for HDInsight management IPs. Learn more about [restricting public connectivity](./hdinsight-restrict-public-connectivity.md)
+* Adaptive Query Execution, 
+* Convert Sort Merge Join to Broadcast Hash Join, 
+* Spark Catalyst Optimizer,
+* Dynamic Partition Pruning, 
+* Customers will be able to create new Spark 3.1 clusters and not Spark 3.0 (preview) clusters.
 
-### Azure HDInsight support for Azure Private Link is generally available on Oct 15 2021
-You can now use private endpoints to connect to your HDInsight clusters over private link. Private link can be leveraged in cross VNET scenarios where VNET peering is not available or enabled. 
+For more details, see the [Apache Spark 3.1](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/spark-3-1-is-now-generally-available-on-hdinsight/ba-p/3253679) is now Generally Available on HDInsight - Microsoft Tech Community.
 
-Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. 
+For a complete list of improvements, see the [Apache Spark 3.1 release notes.](https://spark.apache.org/releases/spark-release-3-1-2.html)
 
-Traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. 
+For more details on migration, see the [migration guide.](https://spark.apache.org/docs/latest/migration-guide.html)
 
-Let more at [enable private link](./hdinsight-private-link.md).  
+## Kafka 2.4 is now generally available
 
-### New Azure Monitor integration experience (Preview)
-The new Azure monitor integration experience will be Preview in East US and West Europe with this release. Learn more details about the new Azure monitor experience [here](./log-analytics-migration.md#migrate-to-the-new-azure-monitor-integration).
+Kafka 2.4.1 is now Generally Available.  For more information, please see [Kafka 2.4.1 Release Notes.](http://kafka.apache.org/24/documentation.html) 
+Other features include MirrorMaker 2 availability, new metric category AtMinIsr topic partition, Improved broker start-up time by lazy on demand mmap of index files, More consumer metrics to observe user poll behavior.
 
-## Deprecation
-### Basic support for HDInsight 3.6 starting July 1, 2021
-Starting July 1, 2021, Microsoft offers [Basic support](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) for certain HDInsight 3.6 cluster types. The Basic support plan will be available until 3 April 2022. You are automatically enrolled in Basic support starting July 1, 2021. No action is required by you to opt in. See [our documentation](hdinsight-36-component-versioning.md) for which cluster types are included under Basic support. 
+## Map Datatype in HWC is now supported in HDInsight 4.0 
 
-We don't recommend building any new solutions on HDInsight 3.6, freeze changes on existing 3.6 environments. We recommend that you [migrate your clusters to HDInsight 4.0](hdinsight-version-release.md#how-to-upgrade-to-hdinsight-40). Learn more about [what's new in HDInsight 4.0](hdinsight-version-release.md#whats-new-in-hdinsight-40).
+This release includes Map Datatype Support for HWC 1.0 (Spark 2.4) Via the spark-shell  application, and all other all spark clients that HWC supports. Following improvements are included like any other data types:
 
-## Behavior changes
-### HDInsight Interactive Query only supports schedule-based Autoscale
-As customer scenarios grow more mature and diverse, we have identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users may see their queries run slower on LLAP clusters when Autoscale is enabled. The effect on performance can outweigh the cost benefits of Autoscale.
+A user can 
+*	Create a Hive table with any column(s) containing Map datatype, insert data into it and read the results from it.
+*	Create an Apache Spark dataframe with Map Type and do batch/stream reads and writes.
 
-Starting from July 2021, the Interactive Query workload in HDInsight only supports schedule-based Autoscale. You can no longer enable load-based autoscale on new Interactive Query clusters. Existing running clusters can continue to run with the known limitations described above. 
+### New regions
 
-Microsoft recommends that you move to a schedule-based Autoscale for LLAP.  You can analyze your cluster's current usage pattern through the Grafana Hive dashboard. For more information, see [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md). 
+HDInsight has now expanded its geographical presence to two new regions: China East 3 and China North 3.
 
-## Upcoming changes
-The following changes will happen in upcoming releases.
+### OSS backport changes
 
-### Built-in LLAP component in ESP Spark cluster will be removed
-HDInsight 4.0 ESP Spark cluster has built-in LLAP components running on both head nodes. The LLAP components in ESP Spark cluster were originally added for HDInsight 3.6 ESP Spark, but has no real user case for HDInsight 4.0 ESP Spark. In the next release scheduled in Sep 2021, HDInsight will remove the built-in LLAP component from HDInsight 4.0 ESP Spark cluster. This change will help to offload head node workload and avoid confusion between ESP Spark and ESP Interactive Hive cluster type.
+OSS backports that are included in Hive including HWC 1.0 (Spark 2.4) which supports Map data type.
 
-## New region
-- West US 3
-- Jio India West
-- Australia Central
-
-## Component version change
-The following component version has been changed with this release:
-- ORC version from 1.5.1 to 1.5.9
-
-You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
-
-## Back ported JIRAs
-Here are the back ported Apache JIRAs for this release:
+### Here are the OSS backported Apache JIRAs for this release:
 
 | Impacted Feature    |   Apache JIRA                                                      |
 |---------------------|--------------------------------------------------------------------|
-| Date / Timestamp    | [HIVE-25104](https://issues.apache.org/jira/browse/HIVE-25104)     |
-|                     | [HIVE-24074](https://issues.apache.org/jira/browse/HIVE-24074)     |
-|                     | [HIVE-22840](https://issues.apache.org/jira/browse/HIVE-22840)     |
-|                     | [HIVE-22589](https://issues.apache.org/jira/browse/HIVE-22589)     |
-|                     | [HIVE-22405](https://issues.apache.org/jira/browse/HIVE-22405)     |
-|                     | [HIVE-21729](https://issues.apache.org/jira/browse/HIVE-21729)     |
-|                     | [HIVE-21291](https://issues.apache.org/jira/browse/HIVE-21291)     |
-|                     | [HIVE-21290](https://issues.apache.org/jira/browse/HIVE-21290)     |
-| UDF                 | [HIVE-25268](https://issues.apache.org/jira/browse/HIVE-25268)     |
-|                     | [HIVE-25093](https://issues.apache.org/jira/browse/HIVE-25093)     |
-|                     | [HIVE-22099](https://issues.apache.org/jira/browse/HIVE-22099)     |
-|                     | [HIVE-24113](https://issues.apache.org/jira/browse/HIVE-24113)     |
-|                     | [HIVE-22170](https://issues.apache.org/jira/browse/HIVE-22170)     |
-|                     | [HIVE-22331](https://issues.apache.org/jira/browse/HIVE-22331)     |
-| ORC                 | [HIVE-21991](https://issues.apache.org/jira/browse/HIVE-21991)     |
-|                     | [HIVE-21815](https://issues.apache.org/jira/browse/HIVE-21815)     |
-|                     | [HIVE-21862](https://issues.apache.org/jira/browse/HIVE-21862)     |
-| Table Schema        | [HIVE-20437](https://issues.apache.org/jira/browse/HIVE-20437)     |
-|                     | [HIVE-22941](https://issues.apache.org/jira/browse/HIVE-22941)     |
-|                     | [HIVE-21784](https://issues.apache.org/jira/browse/HIVE-21784)     |
-|                     | [HIVE-21714](https://issues.apache.org/jira/browse/HIVE-21714)     |
-|                     | [HIVE-18702](https://issues.apache.org/jira/browse/HIVE-18702)     |
-|                     | [HIVE-21799](https://issues.apache.org/jira/browse/HIVE-21799)     |
-|                     | [HIVE-21296](https://issues.apache.org/jira/browse/HIVE-21296)     |
-| Workload Management | [HIVE-24201](https://issues.apache.org/jira/browse/HIVE-24201)     |
-| Compaction          | [HIVE-24882](https://issues.apache.org/jira/browse/HIVE-24882)     |
-|                     | [HIVE-23058](https://issues.apache.org/jira/browse/HIVE-23058)     |
-|                     | [HIVE-23046](https://issues.apache.org/jira/browse/HIVE-23046)     |
-| Materialized view   | [HIVE-22566](https://issues.apache.org/jira/browse/HIVE-22566)     |
+| Metastore direct sql queries with IN/(NOT IN) should be split based on max parameters allowed by SQL DB   | [HIVE-25659](https://issues.apache.org/jira/browse/HIVE-25659)     |
+| Upgrade log4j 2.16.0 to 2.17.0                    | [HIVE-25825](https://issues.apache.org/jira/browse/HIVE-25825)     |
+| Update Flatbuffer version                    | [HIVE-22827](https://issues.apache.org/jira/browse/HIVE-22827)     |
+| Support Map data-type natively in Arrow format                    | [HIVE-25553](https://issues.apache.org/jira/browse/HIVE-25553)     |
+| LLAP external client - Handle nested values when the parent struct is null                    | [HIVE-25243](https://issues.apache.org/jira/browse/HIVE-25243)     |
+| Upgrade arrow version to 0.11.0                    | [HIVE-23987](https://issues.apache.org/jira/browse/HIVE-23987)     |
+
+## Deprecation notices
+### Azure Virtual Machine Scale Sets on HDInsight  
+
+HDInsight will no longer use Azure Virtual Machine Scale Sets to provision the clusters, no breaking change is expected. Existing HDInsight clusters on virtual machine scale sets will have no impact, any new clusters on latest images will no longer use Virtual Machine Scale Sets.  
+
+### Scaling of Azure HDInsight HBase workloads will now be supported only using manual scale
+
+Starting from March 01, 2022, HDInsight will only support manual scale for HBase, there's no impact on running clusters.  New HBase clusters won't be able to enable schedule based Autoscaling.  For more information on how to  manually scale your HBase cluster, refer our documentation on [Manually scaling Azure HDInsight clusters](./hdinsight-scaling-best-practices.md)
+
+## HDInsight 3.6 end of support extension 
+
+HDInsight 3.6 end of support is extended until September 30, 2022.
+
+Starting from September 30, 2022, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+
+Customers who are on Azure HDInsight 3.6 clusters will continue to get [Basic support](./hdinsight-component-versioning.md#support-options-for-hdinsight-versions) until September 30, 2022. After September 30, 2022 customers won't be able to create new HDInsight 3.6 clusters.

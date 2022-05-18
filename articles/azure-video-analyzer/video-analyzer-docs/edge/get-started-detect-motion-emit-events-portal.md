@@ -1,9 +1,9 @@
 ---
-title: Get started with Azure Video Analyzer using the Azure portal
+title: Get started with Video Analyzer using the portal
 description: This quickstart walks you through the steps to get started with Azure Video Analyzer by using the Azure portal.
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-ui
 ---
 
 # Quickstart: Get started with Video Analyzer in the portal
@@ -12,6 +12,8 @@ ms.custom: ignite-fall-2021, mode-other
 Alternatively, check out [get started with Video Analyzer live pipelines using portal](../cloud/get-started-livepipelines-portal.md).
 
 ---
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 This quickstart walks you through the steps to get started with Azure Video Analyzer. You'll create an Azure Video Analyzer account and its accompanying resources by using the Azure portal. You'll then deploy the Video Analyzer edge module and a Real Time Streaming Protocol (RTSP) camera simulator module to your Azure IoT Edge device.
 
@@ -805,6 +807,6 @@ You can try to invoke `pipelineTopologyList` and observe that the module contain
 
 ## Next steps
 
-- Try the [quickstart for recording videos to the cloud when motion is detected](detect-motion-record-video-clips-cloud.md).
-- Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md).
+- Try [Quickstart: Detect motion in a (simulated) live video, record the video to the Video Analyzer account](detect-motion-record-video-clips-cloud.md).
+- Try [Quickstart: analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md).
 - Learn more about [diagnostic messages](monitor-log-edge.md).

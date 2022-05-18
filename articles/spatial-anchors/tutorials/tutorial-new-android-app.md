@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Create a new Android app'
 description: In this tutorial, you learn how to create a new Android app using Azure Spatial Anchors.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
@@ -222,6 +222,8 @@ Finally, add the following code into your `handleTap()` method. It will attach a
 [Redeploy](#trying-it-out) your app once more. Move around your device, tap the screen, and place a black sphere. This time, though, your code will be creating and attaching a local Azure Spatial Anchor to your sphere.
 
 Before proceeding any further, you'll need to create an Azure Spatial Anchors account to get the account Identifier, Key, and Domain, if you don't already have them. Follow the following section to obtain them.
+
+## Create a Spatial Anchors resource
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

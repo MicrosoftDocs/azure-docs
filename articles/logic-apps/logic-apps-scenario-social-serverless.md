@@ -1,12 +1,12 @@
 ---
 title: Create customer insights dashboard
-description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions
+description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions.
 services: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 03/15/2018
 ---
 
@@ -37,7 +37,7 @@ The workflow that you create monitors a hashtag on Twitter.
 You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
 and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). 
 For a video walkthrough that shows how to create this solution, 
-[watch this Channel 9 video](https://aka.ms/logicappsdemo). 
+[watch this Channel 9 video](/shows/). 
 
 ## Trigger on customer data
 

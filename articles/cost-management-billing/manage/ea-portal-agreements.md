@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 04/28/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -30,14 +30,14 @@ An enrollment has one of the following status values. Each value determines how 
 
 **Active** - The enrollment is accessible and usable. You can create accounts and subscriptions in the Azure EA portal. Direct customers can create departments, accounts and subscriptions in the [Azure portal](https://portal.azure.com). The enrollment remains active until the enterprise agreement end date. 
 
-**Indefinite Extended Term** - Indefinite extended term status occurs after the enterprise agreement end date is reached. Before the EA enrollment reaches the enterprise agreement end date, the Enrollment Administrator should decide to:
+**Indefinite Extended Term** - Indefinite extended term status occurs after the enterprise agreement end date is reached and is expired. When an agreement enters into an extended term, it doesn't receive discounted pricing. Instead, pricing is at retail rates. Before the EA enrollment reaches the enterprise agreement end date, the Enrollment Administrator should decide to:
 
 - Renew the enrollment by adding additional Azure Prepayment
 - Transfer the existing enrollment to a new enrollment
 - Migrate to the Microsoft Online Subscription Program (MOSP)
 - Confirm disablement of all services associated with the enrollment
 
-**Expired** - The EA enrollment expires when it reaches the enterprise agreement end date. The EA customer is opted out of the extended term and all their services are disabled.
+**Expired** - The EA enrollment expires when it reaches the enterprise agreement end date and is opted out of the extended term. Sign a new enrollment contract as soon as possible. Although your service won't be disabled immediately, there's a risk of it getting disabled.
 
 As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial customers. Instead, all enrollments go into indefinite extended term. If you want to stop using Azure services, close your subscription in the [Azure portal](https://portal.azure.com). Or, your partner can submit a termination request. There's no change for customers with government agreement types.
 
@@ -86,9 +86,9 @@ Please make sure to review the commercial information - monetary balance informa
 
 **Step One: Add price markup**
 
-1. From the Enterprise Portal, click **Reports** on the left navigation.
-1. Under _Usage Summary_, click the blue **Markup** wording.
-1. Enter the markup percentage (between -100 to 100) and click **Preview**.
+1. From the Enterprise Portal, select **Reports** on the left navigation.
+1. Under _Usage Summary_, select the blue **Markup** wording.
+1. Enter the markup percentage (between 0 to 100) and select **Preview**.
 
 
 **Step Two: Review and validate**
@@ -102,13 +102,13 @@ Both the service prices and the Prepayment balances will be marked up by the sam
 
 **Step Three: Publish**
 
-After pricing is reviewed and validated, click **Publish**.
+After pricing is reviewed and validated, select **Publish**.
   
 Pricing with markup will be available to enterprise administrators immediately after selecting publish. Edits can't be made to markup. You must disable markup and begin from Step One.
 
 ### Which enrollments have a markup enabled?
 
-To check if an enrollment has a markup published, click **Manage** on the left navigation, and click on the **Enrollment** tab. Select the enrollment box to check, and view the markup status under _Enrollment Detail_. It will display the current status of the markup feature for that EA as Disabled, Preview, or Published.
+To check if an enrollment has a markup published, select **Manage** on the left navigation, and select the **Enrollment** tab. Select the enrollment box to check, and view the markup status under _Enrollment Detail_. It will display the current status of the markup feature for that EA as Disabled, Preview, or Published.
 
 ### How can the customer download usage estimates?
 
@@ -140,12 +140,12 @@ Any quota described above is not a Service Prepayment. For purposes of determini
 
 ## Requesting a quota increase
 
-You can request a quota increase at any time by submitting an [online request](https://ms.portal.azure.com/). To process your request, provide the following information:
+You can request a quota increase at any time by submitting an [online request](https://portal.azure.com/). To process your request, provide the following information:
 
 - The Microsoft account or work or school account associated with the account owner of your subscription. This is the email address utilized to sign in to the Microsoft Azure portal to manage your subscription(s). Please also identify that this account is associated with an EA enrollment.
 - The resource(s) and amount for which you desire a quota increase.
 - The Azure Developer Portal Subscription ID associated with your service.
-  - For information on how to obtain your subscription ID, please [contact support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+  - For information on how to obtain your subscription ID, please [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## Plan SKUs
 
@@ -158,9 +158,9 @@ Enterprise Administrators can assign Account Owners to provision previously purc
 ### View the price sheet to check included quantity
 
 1. Sign in as an Enterprise Administrator.
-1. Click **Reports** on the left navigation.
-1. Click the **Price Sheet** tab.
-1. Click the 'Download' icon in the top-right corner.
+1. Select **Reports** on the left navigation.
+1. Select the **Price Sheet** tab.
+1. Select the 'Download' icon in the top-right corner.
 1. Find the corresponding Plan SKU part numbers with filter on column "Included Quantity" and select values greater than "0".
 
 Direct customer can view price sheet in Azure portal. See [view price sheet in Azure portal](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
@@ -170,8 +170,8 @@ Direct customer can view price sheet in Azure portal. See [view price sheet in A
 **Step One: Sign in to account**
 1. From the Azure EA Portal, select the **Manage** tab and navigate to **Subscription** on the top menu.
 1. Verify that you're logged in as the account owner of this account.
-1. Click **+Add Subscription**.
-1. Click **Purchase**.
+1. Select **+Add Subscription**.
+1. Select **Purchase**.
 
 The first time you add a subscription to an account, you'll need to provide your contact information. When adding later subscriptions, your contact information will be populated for you.
 
@@ -181,9 +181,9 @@ The first time you add a subscription to your account, you'll be asked to accept
 
 All new subscriptions will be added with the default "Microsoft Azure Enterprise" subscription name. It's important to update the subscription name to differentiate it from the other subscriptions within your Enterprise Enrollment and ensure that it's recognizable on reports at the enterprise level.
 
-Click **Subscriptions**, click on the subscription you created, and then click **Edit Subscription Details.**
+Select **Subscriptions**, select the subscription you created, and then select **Edit Subscription Details.**
 
-Update the subscription name and service administrator and click on the checkmark. The subscription name will appear on reports and it will also be the name of the project associated with the subscription on the development portal.
+Update the subscription name and service administrator and select the checkmark. The subscription name will appear on reports and it will also be the name of the project associated with the subscription on the development portal.
 New subscriptions may take up to 24 hours to propagate in the subscriptions list.
 
 Only account owners can view and manage subscriptions.
@@ -200,7 +200,7 @@ When new Account Owners (AO) are added to the enrollment for the first time, the
 
 This scenario occurs when the customer has deployed services under the wrong enrollment number or selected the wrong services.
 
-To validate if you're deploying under the right enrollment, you can check your included units information via the price sheet. Please sign in as an Enterprise Administrator and click on **Reports** on the left navigation and select **Price Sheet** tab. Click the Download icon in the top-right corner and find the corresponding Plan SKU part numbers with filter on column "Included Quantity" and select values greater than "0".
+To validate if you're deploying under the right enrollment, you can check your included units information via the price sheet. Please sign in as an Enterprise Administrator and select **Reports** on the left navigation and select **Price Sheet** tab. Select the Download symbol in the top-right corner and find the corresponding Plan SKU part numbers with filter on column "Included Quantity" and select values greater than "0".
 
 Ensure that your OMS plan is showing on the price sheet under included units. If there are no included units for OMS plan on your enrollment, your OMS plan may be under another enrollment. Please contact Azure Enterprise Portal Support at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 

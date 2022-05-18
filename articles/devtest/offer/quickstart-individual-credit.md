@@ -9,7 +9,7 @@ ms.prod: visual-studio-windows
 ms.custom: devtestoffer
 ---
 
-# How to get started with your individual Azure Credit Subscription  
+# Get started with your individual Azure Credit Subscription  
 
 When accessing your Azure Credit Subscription, you have two ways to sign in and use your credits.  
 
@@ -18,7 +18,7 @@ You have the opportunity to use a personal or corporate email address when signi
 > [!NOTE]
 > The email address you use for sign in dictates what Azure Active Directory (Azure AD) Tenant your subscription is associated with.  
 
-## Using a personal email address versus a work account  
+## Choose the email address  
 
 The email you use should follow your organization’s requirements – either you use a personal email OR your organization’s provided email.
 
@@ -28,7 +28,7 @@ If you sign in using a personal account like Gmail, Yahoo, or Hotmail, your orga
 **Using a Corporate Email Account or Work School Account (WSA)**  
 If you sign in with your organization’s account, you'll be added as a user within your organization's Active Directory, giving your organization access to manage your account and work.  
 
-## How to activate your Azure Credit Subscription  
+## Activate your Azure Credit Subscription  
 
 Once you receive a my.visualstudio.com license, you can sign in via my.visualstudio.com or portal.azure.com.
 Remember, the account you sign in with will dictate what tenant your directory will be under.  
@@ -70,3 +70,8 @@ For more details go to my.visualstudio.com, or follow this link: [Use Microsoft 
 
 > [!NOTE]
 > This method uses the login credentials you used when signing in through your Azure Portal. This way of signing in has a higher probability of associating your subscription with your organization’s directory through your corporate Microsoft Account.
+
+<a name="maintain-a-subscription-to-use-monthly-credits"></a>
+## Troubleshoot removed/expired subscriptions
+
+If your Visual Studio subscription expires or is removed, all the subscription benefits, including the monthly Azure dev/test individual credit are no longer available. To learn how to continue using Azure with a monthly credit, read "[Renew an expired subscription, purchase a new on, or transfer your Azure resources](troubleshoot-expired-removed-subscription.md)".

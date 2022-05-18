@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-
+ms.devlang: scala
 ---
 
 # Table copy operations on Azure Cosmos DB Cassandra API from Spark

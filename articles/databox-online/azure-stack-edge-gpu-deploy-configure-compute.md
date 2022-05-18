@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/08/2021
+ms.date: 04/05/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -16,7 +16,7 @@ ms.author: alkohli
 
 <!--ALPA WILL VERIFY - [!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This tutorial describes how to configure a compute role and create a Kubernetes cluster on your Azure Stack Edge Pro device. 
+This tutorial describes how to configure a compute role and create a Kubernetes cluster on your Azure Stack Edge Pro GPU device. 
 
 This procedure can take around 20 to 30 minutes to complete.
 
@@ -30,12 +30,15 @@ In this tutorial, you learn how to:
  
 ## Prerequisites
 
-Before you set up a compute role on your Azure Stack Edge Pro device, make sure that:
+Before you set up a compute role on your Azure Stack Edge Pro device:
 
-- You've activated your Azure Stack Edge Pro device as described in [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
-- Make sure that you've followed the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network) and:
+- Make sure that you've activated your Azure Stack Edge Pro device as described in [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
+- Make sure that you've followed the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches-and-compute-ips) and:
     - Enabled a network interface for compute.
     - Assigned Kubernetes node IPs and Kubernetes external service IPs.
+
+  > [!NOTE]
+  > If your datacenter firewall is restricting or filtering traffic based on source IPs or MAC addresses, make sure that the compute IPs (Kubernetes node IPs) and MAC addresses are on the allowed list. The MAC addresses can be specified by running the `Set-HcsMacAddressPool` cmdlet on the PowerShell interface of the device.
 
 ## Configure compute
 
@@ -45,8 +48,8 @@ Before you set up a compute role on your Azure Stack Edge Pro device, make sure 
 
 To configure a client to access Kubernetes cluster, you will need the Kubernetes endpoint. Follow these steps to get Kubernetes API endpoint from the local UI of your Azure Stack Edge Pro device.
 
-1. In the local web UI of your device, go to **Devices** page.
-2. Under the **Device endpoints**, copy the **Kubernetes API service** endpoint. This endpoint is a string in the following format: `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]`. 
+1. In the local web UI of your device, go to **Device** page.
+2. Under the **Device endpoints**, copy the **Kubernetes API** endpoint. This endpoint is a string in the following format: `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]`. 
 
     ![Device page in local UI](./media/azure-stack-edge-gpu-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
 
@@ -54,12 +57,10 @@ To configure a client to access Kubernetes cluster, you will need the Kubernetes
 
 4. While you are in the local web UI, you can:
 
-    - Go to Kubernetes API, select **advanced settings**, and download an advanced configuration file for Kubernetes. 
+    - If you have been provided a key from Microsoft (select users may have a key), go to Kubernetes API, select **Advanced config**, and download an advanced configuration file for Kubernetes. 
 
         ![Device page in local UI 1](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
-
-        If you have been provided a key from Microsoft (select users may have a key), then you can use this config file.
-
+     
         ![Device page in local UI 2](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
 
     - You can also go to **Kubernetes dashboard** endpoint and download an `aseuser` config file. 

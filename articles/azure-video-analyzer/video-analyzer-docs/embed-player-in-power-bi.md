@@ -9,6 +9,7 @@ ms.custom: ignite-fall-2021
 
 # Embed player widget in Power BI
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 Azure Video Analyzer enables you to [record](detect-motion-record-video-clips-cloud.md) video and associated inference metadata to your Video Analyzer cloud resource. Video Analyzer has a [Player Widget](player-widget.md) - an easy-to-embed widget allowing client apps to playback video and inference metadata.
 
@@ -25,7 +26,7 @@ Dashboards are an insightful way to monitor your business and view all your most
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
-- Complete either [Detect motion and record video](detect-motion-record-video-clips-cloud.md) or [Continuous video recording](continuous-video-recording.md) - a pipeline with video sink is required.
+- Complete either [Detect motion in a (simulated) live video, record the video to the Video Analyzer account](detect-motion-record-video-clips-cloud.md) or [Continuous video recording](continuous-video-recording.md) - a pipeline with video sink is required.
 
   > [!NOTE]
   > Your video analyzer account should have a minimum of one video recorded to proceed. Check for list of videos by logging into your Azure Video Analyzer account > Videos > Video Analyzer section.

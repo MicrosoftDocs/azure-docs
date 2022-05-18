@@ -1,11 +1,11 @@
 ---
 title: Scale an instance of Azure SignalR Service
 description: Learn how to scale an Azure SignalR Service instance to add or reduce capacity, through Azure portal or Azure CLI.
-author: sffamily
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 9/9/2020
-ms.author: zhshang 
+ms.author: lianwei 
 ms.custom: devx-track-azurecli
 ---
 # How to scale an Azure SignalR Service instance?
@@ -82,6 +82,11 @@ For a table of service limits, quotas, and constraints in each tier, see [Signal
 ## Next steps
 
 In this guide, you learned about how to scale single SignalR Service instance.
+
+Autoscale is supported in Azure SignalR Service Premium Tier.
+
+> [!div class="nextstepaction"]
+> [Automatically scale units of an Azure SignalR Service](./signalr-howto-scale-autoscale.md)
 
 Multiple endpoints are also supported for scaling, sharding, and cross-region scenarios.
 

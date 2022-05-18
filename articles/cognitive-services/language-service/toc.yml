@@ -14,6 +14,16 @@ items:
     href: https://aka.ms/unifiedLanguagePricing
   - name: Language Studio quickstart
     href: language-studio.md
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
+    - name: Java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
+    - name: JavaScript
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
 - name: Responsible use of AI
   items: 
   - name: Transparency note for Azure Cognitive Service for Language
@@ -35,6 +45,20 @@ items:
     href: custom-classification/language-support.md
   - name: FAQ
     href: custom-classification/faq.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for custom text classification
+      href: /legal/cognitive-services/language-service/ctc-transparency-note?context=/azure/cognitive-services/language-service/context/context
+      displayName: Transparency note for Custom classification, Custom classification transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language-service/ctc-guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/language-service/ctc-characteristics-and-limitations?context=/azure/cognitive-services/language-service/context/context
+      displayName: Custom classification characteristics, Custom classification limitations
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language-service/ctc-data-privacy-security?context=/azure/cognitive-services/language-service/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Create projects
@@ -50,8 +74,10 @@ items:
       href: custom-classification/how-to/view-model-evaluation.md
     - name: Improve a model
       href: custom-classification/how-to/improve-model.md
-    - name: Deploy a model and call the runtime API to classify text
+    - name: Deploy a model and classify text
       href: custom-classification/how-to/call-api.md
+    - name: Back up and recover your models
+      href: custom-classification/fail-over.md
   - name: Concepts
     items:
     - name: Evaluation metrics
@@ -59,6 +85,10 @@ items:
     - name: Accepted data tag formats
       href: custom-classification/concepts/data-formats.md
       displayName: Data representation
+  - name: Tutorials
+    items:
+    - name: Enrich a Cognitive Search index 
+      href: custom-classification/tutorials/cognitive-search.md
   - name: Reference
     items:
     - name: Glossary
@@ -66,10 +96,10 @@ items:
       displayName: Model, Project, Class
     - name: Service limits
       href: custom-classification/service-limits.md
-    - name: REST API (v3.2-preview.2)
+    - name: REST API
       items:
       - name: Authoring API
-        href: https://aka.ms/ct-authoring-swagger
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-custom-text-authoring-apis-2022-03-01-preview/operations/Projects_TriggerExportProjectJob
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-swagger
     - name: SDKs (v3.2-preview.2)
@@ -92,6 +122,20 @@ items:
     href: custom-named-entity-recognition/language-support.md
   - name: FAQ
     href: custom-named-entity-recognition/faq.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for custom NER
+      href: /legal/cognitive-services/language-service/cner-transparency-note?context=/azure/cognitive-services/language-service/context/context
+      displayName: Transparency note for Custom NER, Custom NER Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language-service/cner-guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/language-service/cner-characteristics-and-limitations?context=/azure/cognitive-services/language-service/context/context
+      displayName: Custom NER characteristics, Custom NER limitations
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language-service/cner-data-privacy-security?context=/azure/cognitive-services/language-service/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Create projects
@@ -106,8 +150,10 @@ items:
       href: custom-named-entity-recognition/how-to/view-model-evaluation.md 
     - name: Improve a model
       href: custom-named-entity-recognition/how-to/improve-model.md
-    - name: Deploy a model and call the runtime API to extract entities
+    - name: Deploy a model and extract entities from text
       href: custom-named-entity-recognition/how-to/call-api.md
+    - name: Back up and recover your models
+      href: custom-named-entity-recognition/fail-over.md
   - name: Tutorials
     items:
       - name: Enrich a Cognitive Search index with custom entities
@@ -124,10 +170,10 @@ items:
       href: custom-named-entity-recognition/glossary.md
     - name: Service limits
       href: custom-named-entity-recognition/service-limits.md
-    - name: REST API (v3.2-preview.2)
+    - name: REST API
       items:
       - name: Authoring API
-        href: https://aka.ms/ct-authoring-swagger
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-custom-text-authoring-apis-2022-03-01-preview/operations/Projects_TriggerExportProjectJob
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-swagger
     - name: SDKs (v3.2-preview.2)
@@ -150,6 +196,20 @@ items:
     href: conversational-language-understanding/language-support.md
   - name: FAQ
     href: conversational-language-understanding/faq.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for CLU
+      href: /legal/cognitive-services/clu/clu-transparency-note?context=/azure/cognitive-services/language-service/context/context
+      displayName: Transparency note for CLU, CLU Transparency, Language understanding transparency note, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/clu/clu-guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/clu/clu-characteristics-and-limitations?context=/azure/cognitive-services/language-service/context/context
+      displayName: CLU characteristics, CLU limitations, Language understanding characteristics
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/clu/clu-data-privacy-security?context=/azure/cognitive-services/language-service/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
       - name: Create projects
@@ -160,8 +220,10 @@ items:
         href: conversational-language-understanding/how-to/tag-utterances.md
       - name: Train a model
         href: conversational-language-understanding/how-to/train-model.md
-      - name: Deploy a model and query the runtime API
+      - name: Deploy a model and get predictions
         href: conversational-language-understanding/how-to/deploy-query-model.md
+      - name: Back up and recover your models
+        href: conversational-language-understanding/fail-over.md
   - name: Concepts
     items:
       - name: Backwards compatibility
@@ -170,6 +232,8 @@ items:
         href: conversational-language-understanding/concepts/entity-components.md
       - name: Evaluation metrics
         href: conversational-language-understanding/concepts/evaluation-metrics.md
+      - name: None intent
+        href: conversational-language-understanding/concepts/none-intent.md
       - name: Using multiple languages
         href: conversational-language-understanding/concepts/multiple-languages.md
   - name: Reference
@@ -181,7 +245,7 @@ items:
     - name: REST API
       items:
       - name: Authoring
-        href: https://aka.ms/clu-authoring-apis
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob
       - name: Runtime API
         href: https://aka.ms/clu-apis
     - name: SDKs
@@ -271,6 +335,8 @@ items:
         href: concepts/configure-containers.md
       - name: Use container instances
         href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Use containers in disconnected environments
+        href: ../containers/disconnected-containers.md
       - name: Cognitive Services containers documentation
         href: ../containers/index.yml
   - name: Reference
@@ -335,6 +401,8 @@ items:
         href: concepts/configure-containers.md
       - name: Use container instances
         href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Use containers in disconnected environments
+        href: ../containers/disconnected-containers.md
       - name: Cognitive Services containers documentation
         href: ../containers/index.yml
   - name: Tutorials
@@ -433,7 +501,44 @@ items:
             href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
           - name: Node.js
             href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
-
+- name: Orchestration workflow (preview)
+  items:
+  - name: Overview
+    href: orchestration-workflow/overview.md
+  - name: FAQ
+    href: orchestration-workflow/faq.md
+  - name: Quickstart
+    href: orchestration-workflow/quickstart.md
+  - name: How-to guides
+    items:
+      - name: Create project and build schema
+        href: orchestration-workflow/how-to/create-project.md
+      - name: Tag utterances
+        href: orchestration-workflow/how-to/tag-utterances.md
+      - name: Train a model
+        href: orchestration-workflow/how-to/train-model.md
+      - name: Deploy a model and get predictions
+        href: orchestration-workflow/how-to/deploy-query-model.md
+      - name: Back up and recover your models
+        href: conversational-language-understanding/fail-over.md
+  - name: Concepts
+    items: 
+      - name: Evaluation metrics
+        href: orchestration-workflow/concepts/evaluation-metrics.md
+  - name: Reference
+    items:
+    - name: REST API
+      items:
+      - name: Authoring
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob
+      - name: Runtime API
+        href: https://aka.ms/clu-apis
+    - name: SDKs
+      items:
+      - name: .NET
+        href: /dotnet/api/azure.ai.language.conversations?view=azure-dotnet-preview&preserve-view=true
+      - name: Python
+        href: /python/api/azure-ai-language-conversations/azure.ai.language.conversations?view=azure-python-preview&preserve-view=true
 - name: Personally Identifying Information (PII) detection
   items:
   - name: Overview
@@ -517,6 +622,10 @@ items:
       href: question-answering/how-to/migrate-qnamaker.md
     - name: Getting started with question answering
       href: question-answering/how-to/create-test-deploy.md
+    - name: Export/import/refresh
+      href: question-answering/how-to/export-import-refresh.md
+    - name: Refresh URL source content
+      href: question-answering/how-to/smart-url-refresh.md
     - name: Encrypt data at rest
       href: question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
@@ -571,14 +680,24 @@ items:
       href: question-answering/tutorials/multiple-domains.md
   - name: Reference
     items: 
+    - name: General
+      items:
+      - name: Markdown format
+        href: question-answering/reference/markdown-format.md
+      - name: Format guidelines
+        href: question-answering/reference/document-format-guidelines.md
     - name: REST API
       items:
-      - name: Answers API 
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers
-      - name: Prebuilt API
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
-      - name: Authoring API
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
+      - name: Prebuilt
+        items:
+        - name: Runtime API
+          href: /rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
+      - name: Custom
+        items:
+          - name: Authoring API
+            href: /rest/api/cognitiveservices/questionanswering/question-answering-projects
+          - name: Runtime API 
+            href: /rest/api/cognitiveservices/questionanswering/question-answering/get-answers
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview
@@ -610,6 +729,8 @@ items:
         href: concepts/configure-containers.md
       - name: Use container instances
         href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/language-service/context/context
+      - name: Use containers in disconnected environments
+        href: ../containers/disconnected-containers.md
       - name: Cognitive Services containers documentation
         href: ../containers/index.yml
   - name: Tutorials
@@ -617,7 +738,7 @@ items:
     - name: Sentiment Analysis on streaming data using Azure Databricks
       href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      href: /azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
+      href: /learn/modules/python-flask-build-ai-web-app/
   - name: Reference
     items:
     - name: REST API
@@ -765,8 +886,15 @@ items:
   items:
   - name: Multilingual and emoji support
     href: concepts/multilingual-emoji-support.md
+  - name: Migrate from LUIS, QnA Maker, and Text Analytics
+    href: concepts/migrate.md
+  - name: Model lifecycle
+    href: concepts/model-lifecycle.md
   - name: Send requests asynchronously
     href: concepts/use-asynchronously.md 
+  - name: Service limits
+    href: concepts/data-limits.md
+    displayName: Data limits, maximum, Service limits
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps

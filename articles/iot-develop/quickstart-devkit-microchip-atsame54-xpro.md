@@ -14,8 +14,8 @@ zone_pivot_groups: iot-develop-toolset
 #  prompt: Choose a build environment
 #  - id: iot-toolset-mplab
 #    title: MPLAB
+ms.custom: mode-other, contperf-fy22q3
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
-ms.custom: mode-other
 ---
 
 # Quickstart: Connect a Microchip ATSAME54-XPro Evaluation kit to IoT Central
@@ -30,9 +30,9 @@ ms.custom: mode-other
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/samples/)
 :::zone-end
 
-In this quickstart, you use Azure RTOS to connect the Microchip ATSAME54-XPro (hereafter, the Microchip E54) to Azure IoT.
+In this quickstart, you use Azure RTOS to connect the Microchip ATSAME54-XPro (from now on, the Microchip E54) to Azure IoT.
 
-You will complete the following tasks:
+You'll complete the following tasks:
 
 * Install a set of embedded development tools for programming a Microchip E54 in C
 * Build an image and flash it onto the Microchip E54
@@ -130,7 +130,7 @@ To connect the Microchip E54 to Azure, you'll modify a configuration file for Az
 
 ### Optional: Install a weather sensor
 
-If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, follow the steps in this section; otherwise, skip to [Build the image](#build-the-image). You can complete this quickstart even if you don't have a sensor. The sample code for the device returns simulated data if a real sensor is not present.
+If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, follow the steps in this section; otherwise, skip to [Build the image](#build-the-image). You can complete this quickstart even if you don't have a sensor. The sample code for the device returns simulated data if a real sensor isn't present.
 
 1. If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, install them on the Microchip E54 as shown in the following photo:
 
@@ -255,7 +255,7 @@ Keep Termite open to monitor device output in the following steps.
 
 * IAR Embedded Workbench for ARM (EW for ARM). You can download and install a  [14-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
 
-* Download the [Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/rel_6.1_pnp_beta/Azure_RTOS_6.1_PnP_ATSAME54-XPRO_IAR_Sample_2021_03_18.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the Microchip ATSAME54-XPRO IAR sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -327,7 +327,7 @@ Termite is now ready to receive output from the Microchip E54.
 
 1. Save the file.
 
-1. Select **Project > Batch Build**. Then select **build_all** and **Make** to build all projects. You will see build output in the **Build** pane. Confirm the successful compilation and linking of all sample projects.
+1. Select **Project > Batch Build**. Then select **build_all** and **Make** to build all projects. You'll see build output in the **Build** pane. Confirm the successful compilation and linking of all sample projects.
 
 1. Select the green **Download and Debug** button in the toolbar to download the program.
 
@@ -380,7 +380,7 @@ Keep Termite open to monitor device output in the following steps.
 
 * [MPLAB XC32/32++ Compiler 2.4.0 or later](https://www.microchip.com/mplab/compilers).
 
-* Download the [Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/rel_6.1_pnp_beta/Azure_RTOS_6.1_PnP_ATSAME54-XPRO_MPLab_Sample_2021_03_18.zip) file and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the Microchip ATSAME54-XPRO MPLab sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -452,7 +452,7 @@ Termite is now ready to receive output from the Microchip E54.
 
 1. Save the file.
 
-1. Before you can build the sample, you must build the **sample_azure_iot_embedded_pnp** project's dependent libraries: **threadx**, **netxduo**, and **same54_lib**. To build each library right-click its project in the **Projects** pane and select **Build**. Wait for each build to complete before moving to the next library.
+1. Before you can build the sample, you must build the **sample_azure_iot_embedded_pnp** project's dependent libraries: **threadx**, **netxduo**, and **same54_lib**. To build each library, right-click its project in the **Projects** pane and select **Build**. Wait for each build to complete before moving to the next library.
 
 1. After all prerequisite libraries have been successfully built, right-click the **sample_azure_iot_embedded_pnp** project and select **Build**.
 
@@ -538,7 +538,7 @@ To view telemetry in IoT Central portal:
 
 ## Call a direct method on the device
 
-You can also use IoT Central to call a direct method that you have implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
+You can also use IoT Central to call a direct method that you've implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
 
 To call a method in IoT Central portal:
 :::zone pivot="iot-toolset-cmake"
@@ -582,6 +582,9 @@ Select **About** tab from the device page.
 :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-about-iar.png" alt-text="Screenshot of device information in IoT Central":::
 :::zone-end
 
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
+
 ## Troubleshoot and debug
 
 If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
@@ -590,10 +593,10 @@ If you experience issues building the device code, flashing the device, or conne
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
-For help debugging the application, see the selections under **Help** in **IAR EW for ARM**.  
+For help with debugging the application, see the selections under **Help** in **IAR EW for ARM**.  
 :::zone-end
 :::zone pivot="iot-toolset-mplab"
-For help debugging the application, see the selections under **Help** in **MPLAB X IDE**.  
+For help with debugging the application, see the selections under **Help** in **MPLAB X IDE**.  
 :::zone-end
 
 ## Clean up resources
@@ -607,7 +610,7 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 ## Next steps
 
-In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the Microchip E54 device device. You also used the IoT Central portal to create Azure resources, connect the Microchip E54 securely to Azure, view telemetry, and send messages.
+In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the Microchip E54 device. You also used the IoT Central portal to create Azure resources, connect the Microchip E54 securely to Azure, view telemetry, and send messages.
 
 As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 

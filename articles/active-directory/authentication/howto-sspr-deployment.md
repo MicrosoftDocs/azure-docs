@@ -6,14 +6,15 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 05/05/2022
 
-ms.author: baselden
-author: barbaraselden
-manager: daveba
-ms.reviewer: rhicock
+ms.author: justinha
+author: gargi-sinha
+manager: martinco
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
+adobe-target: true
 ---
 # Plan an Azure Active Directory self-service password reset deployment
 
@@ -27,7 +28,7 @@ ms.collection: M365-identity-device-management
 SSPR has the following key capabilities:
 
 * Self-service allows end users to reset their expired or non-expired passwords without contacting an administrator or helpdesk for support.
-* [Password Writeback](./concept-sspr-writeback.md) allows management of on-premises passwords and resolution of account lockout though the cloud.
+* [Password Writeback](./concept-sspr-writeback.md) allows management of on-premises passwords and resolution of account lockout through the cloud.
 * Password management activity reports give administrators insight into password reset and registration activity occurring in their organization.
 
 This deployment guide shows you how to plan and then test an SSPR roll-out.
@@ -86,7 +87,6 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 | |[Azure AD password reset from the login screen for Windows 10](./howto-sspr-windows.md) |
 | FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.yml) |
 
-
 ### Solution architecture
 
 The following example describes the password reset solution architecture for common hybrid environments.
@@ -109,11 +109,15 @@ You can help users register quickly by deploying SSPR alongside another popular 
 
 Before deploying SSPR, you may opt to determine the number and the average cost of each password reset call. You can use this data post deployment to show the value SSPR is bringing to the organization.
 
-#### Enable combined registration for SSPR and MFA
+### Combined registration for SSPR and Azure AD Multi-Factor Authentication
 
-Microsoft recommends that organizations enable the combined registration experience for SSPR and multi-factor authentication. When you enable this combined registration experience, users need only select their registration information once to enable both features.
+> [!NOTE]
+> Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
+> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration.
 
-The combined registration experience does not require organizations to enable both SSPR and Azure AD Multi-Factor Authentication. Combined registration provides organizations a better user experience. For more information, see [Combined security information registration](concept-registration-mfa-sspr-combined.md)
+We recommend that organizations use the [combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md). SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD Multi-Factor Authentication. Combined registration is a single step for end users. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
+
+It's critical to inform users about upcoming changes, registration requirements, and any necessary user actions. We provide [communication templates](https://aka.ms/mfatemplates) and [user documentation](https://support.microsoft.com/account-billing/set-up-security-info-from-a-sign-in-page-28180870-c256-4ebf-8bd7-5335571bf9a8) to prepare your users for the new experience and help to ensure a successful rollout. Send users to https://myprofile.microsoft.com to register by selecting the **Security Info** link on that page.
 
 ## Plan the deployment project
 
@@ -131,11 +135,6 @@ When technology projects fail, they typically do so due to mismatched expectatio
 | Level 1 helpdesk| Password administrator |
 | Level 2 helpdesk| User administrator |
 | SSPR administrator| Global administrator |
-
-
-### Plan communications
-
-Communication is critical to the success of any new service. You should proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues. Review the [Self-service password reset rollout materials on the Microsoft download center](https://www.microsoft.com/download/details.aspx?id=56768) for ideas on how to plan your end-user communication strategy.
 
 ### Plan a pilot
 
@@ -258,7 +257,7 @@ To enable your support team's success, you can create a FAQ based on questions y
 | User isn't receiving a text or call on their office or cell phone| A user is trying to verify their identity via text or call but isn't receiving a text/call. |
 | User can't access the password reset portal| A user wants to reset their password but isn't enabled for password reset and can't access the page to update passwords. |
 | User can't set a new password| A user completes verification during the password reset flow but can't set a new password. |
-| User doesn't see a Reset Password link on a Windows 10 device| A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Intune device policy isn't enabled |
+| User doesn't see a Reset Password link on a Windows 10 device| A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Microsoft Endpoint Manager device policy isn't enabled |
 
 ### Plan rollback
 
@@ -274,15 +273,13 @@ To roll back the deployment:
 
 Before deploying, ensure that you have done the following:
 
-1. Created and begun executing your [communication plan](#plan-communications).
-
 1. Determined the appropriate [configuration settings](#plan-configuration).
 
-1. Identified the users and groups for the [pilot](#plan-a-pilot) and production environments.
+2. Identified the users and groups for the [pilot](#plan-a-pilot) and production environments.
 
-1. [Determined configuration settings](#plan-configuration) for registration and self-service.
+3. [Determined configuration settings](#plan-configuration) for registration and self-service.
 
-1. [Configured password writeback](#password-writeback) if you have a hybrid environment.
+4. [Configured password writeback](#password-writeback) if you have a hybrid environment.
 
 
 **You're now ready to deploy SSPR!**

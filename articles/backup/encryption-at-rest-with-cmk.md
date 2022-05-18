@@ -3,7 +3,7 @@ title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
 ms.date: 12/02/2021 
-ms.custom: devx-track-azurepowershell-azurecli
+ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -97,7 +97,7 @@ Example:
 ```AzurePowerShell
 $vault=Get-AzRecoveryServicesVault -ResourceGroupName "testrg" -Name "testvault"
 
-Update-AzRecoveryServicesVault -IdentityType SystemAssigned -VaultId $vault.ID
+Update-AzRecoveryServicesVault -IdentityType SystemAssigned -ResourceGroupName TestRG -Name TestVault
 
 $vault.Identity | fl
 ```
@@ -243,7 +243,7 @@ $Set-AzKeyVaultAccessPolicy -VaultName myKeyVault -ObjectId $sp.Id -PermissionsT
 
 # [CLI](#tab/cli)
 
-Use the [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) command to get the principal ID of the Recovery Services vault, and then use this ID in the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command to set an access policy for the Key vault.
+Use the [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) command to get the principal ID of the Recovery Services vault, and then use this ID in the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command to set an access policy for the Key vault.
 
 Example:
 
@@ -406,7 +406,7 @@ InfrastructureEncryptionState : Disabled
 
 # [CLI](#tab/cli)
 
-Use the [az backup vault encryption update](/cli/azure/backup/vault/encryption#az_backup_vault_encryption_update) command to enable encryption using customer-managed keys, and to assign or update the encryption key to be used.
+Use the [az backup vault encryption update](/cli/azure/backup/vault/encryption#az-backup-vault-encryption-update) command to enable encryption using customer-managed keys, and to assign or update the encryption key to be used.
 
 Example:
 
@@ -462,7 +462,9 @@ Data stored in the Recovery Services vault can be restored according to the step
 
 1. When recovering disk / VM from a "Snapshot" recovery point, the restored data will be encrypted with the DES used for encrypting the source VM's disks.
 
-2. When restoring disk / VM from a recovery point with Recovery Type as "Vault", you can choose to have the restored data encrypted using a DES, specified at the time of restore. Alternatively, you can choose to continue with the restore the data without specifying a DES, in which case it will be encrypted using Microsoft-managed keys.
+1. When restoring disk / VM from a recovery point with Recovery Type as "Vault", you can choose to have the restored data encrypted using a DES, specified at the time of restore. Alternatively, you can choose to continue with the restore the data without specifying a DES, in which case it will be encrypted using Microsoft-managed keys.
+
+1. During Cross Region Restore, CMK (customer-managed keys) enabled Azure VMs, which aren't backed-up in a CMK enabled Recovery Services vault, is restored as non-CMK enabled VMs in the secondary region.
 
 You can encrypt the restored disk / VM after the restore is complete, regardless of the selection made while initiating the restore.
 
@@ -502,7 +504,7 @@ $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -Storag
 
 # [CLI](#tab/cli)
 
-Use the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command with the parameter [`-DiskEncryptionSetId <string>`] to [specify the DES](/cli/azure/disk-encryption-set) to be used for encrypting the restored disk.
+Use the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command with the parameter [`-DiskEncryptionSetId <string>`] to [specify the DES](/cli/azure/disk-encryption-set) to be used for encrypting the restored disk.
 
 Example:
 

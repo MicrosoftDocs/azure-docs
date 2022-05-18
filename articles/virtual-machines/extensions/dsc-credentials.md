@@ -7,7 +7,7 @@ ms.subservice: extensions
 author: bobbytreed
 ms.author: robreed
 ms.collection: windows
-ms.date: 05/02/2018 
+ms.date: 05/02/2018
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 This article covers the Desired State Configuration (DSC) extension for Azure. For an overview of the DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](dsc-overview.md).
 
- 
+
 
 ## Pass in credentials
 
@@ -72,11 +72,11 @@ $vm | Update-AzVM
 
 Running this code prompts for a credential. After the credential is provided, it's briefly stored in memory. When the credential is published by using the **Set-AzVMDscExtension** cmdlet, the credential is transmitted over HTTPS to the VM. In the VM, Azure stores the credential encrypted on disk by using the local VM certificate. The credential is briefly decrypted in memory, and then it's re-encrypted to pass it to DSC.
 
-This process is different than [using secure configurations without the extension handler](/powershell/scripting/dsc/pull-server/securemof). The Azure environment gives you a way to transmit configuration data securely via certificates. When you use the DSC extension handler, you don't need to provide **$CertificatePath** or a **$CertificateID**/ **$Thumbprint** entry in **ConfigurationData**.
+This process is different than [using secure configurations without the extension handler](/powershell/dsc/pull-server/securemof). The Azure environment gives you a way to transmit configuration data securely via certificates. When you use the DSC extension handler, you don't need to provide **$CertificatePath** or a **$CertificateID**/ **$Thumbprint** entry in **ConfigurationData**.
 
 ## Next steps
 
 - Get an [introduction to Azure DSC extension handler](dsc-overview.md).
 - Examine the [Azure Resource Manager template for the DSC extension](dsc-template.md).
-- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/scripting/dsc/overview/overview).
+- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview/).
 - For more functionality that you can manage by using PowerShell DSC, and for more DSC resources, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

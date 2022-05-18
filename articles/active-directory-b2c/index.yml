@@ -29,7 +29,7 @@ landingContent:
           - text: What is Azure AD B2C?
             url: overview.md
           - text: Compare solutions for External Identities
-            url: ../active-directory/external-identities/compare-with-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/external-identities/external-identities-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
           - text: Get started with Azure AD B2C
             url: tutorial-create-tenant.md
           - text: Technical and feature overview

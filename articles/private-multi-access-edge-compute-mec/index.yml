@@ -32,16 +32,16 @@ landingContent:
             url: partner-programs.md
 
   # Card
-  - title: Edge connectivity using Metaswitch solution
+  - title: About Azure Private 5G Core
     linkLists:
       - linkListType: concept
         links:
-          - text: What is Fusion Core?
-            url: metaswitch-fusion-core-overview.md
+          - text: What is Azure Private 5G Core?
+            url: ../private-5g-core/private-5g-core-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy Fusion Core on an Azure Stack Edge device
-            url: deploy-metaswitch-fusion-core-solution.md
+          - text: Deploy a private mobile network
+            url: ../private-5g-core/how-to-guide-deploy-a-private-mobile-network-azure-portal.md
 
   # Card
   - title: About Affirmed Private Network Service on Azure

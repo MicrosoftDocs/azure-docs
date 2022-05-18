@@ -79,7 +79,7 @@ Here's an example showing how to add phone sign-up to a new user flow.
 1. Under **Social identity providers**, select any other identity providers you want to allow for this user flow.
 
    > [!NOTE]
-   > Multi-factor authentication (MFA) is disabled by default for sign-up user flows. You can enable MFA for a phone sign-up user flow, but because a phone number is used as the primary identifier, email one-time passcode is the only option available for the second authentication factor.
+   > [Multi-factor authentication (MFA)](multi-factor-authentication.md) is disabled by default for sign-up user flows. You can enable MFA for a phone sign-up user flow, but because a phone number is used as the primary identifier, email one-time passcode and Authenticator app - TOTP (preview) are the only options available for the second authentication factor.
 
 1. In the **User attributes and token claims** section, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 

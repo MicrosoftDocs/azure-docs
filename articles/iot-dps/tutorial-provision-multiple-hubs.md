@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Provision devices across load balanced hubs using Azure IoT Hub Device Provisioning Service
 description: This tutorial demonstrates how Device Provisioning Service (DPS) enables automatic device provisioning across load balanced IoT hubs in the Azure portal.
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 10/18/2021
 ms.topic: tutorial
 ms.service: iot-dps
@@ -22,13 +22,12 @@ This tutorial shows how to provision devices for multiple, load-balanced IoT hub
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Prerequisites
-
-This tutorial builds on the previous [Provision device to a hub](tutorial-provision-device-to-hub.md) tutorial.
-
 ## Use the Azure portal to provision a second device to a second IoT hub
 
-Follow the steps in the [Provision device to a hub](tutorial-provision-device-to-hub.md) tutorial to provision a second device to another IoT hub.
+Follow the steps in the quickstarts to link a second IoT hub to your DPS instance and provision a device to that hub:
+
+* [Set up the Device Provisioning Service](quick-setup-auto-provision.md)
+* [Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md)
 
 ## Add an enrollment list entry to the second device
 

@@ -1,27 +1,31 @@
 ---
-title: Access Azure resources from managed endpoint
+title: Access Azure resources from an online endpoint
 titleSuffix: Azure Machine Learning
-description: Securely access Azure resources for your machine learning model deployment from a managed online endpoint with a system-assigned or user-assigned managed identity.
+description: Securely access Azure resources for your machine learning model deployment from an online endpoint with a system-assigned or user-assigned managed identity.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: seramasu
-ms.reviewer: laobri
+ms.reviewer: larryfr
 author: rsethur
-ms.date: 10/21/2021
+ms.date: 03/31/2022
 ms.topic: how-to
-ms.custom: devplatv2
+ms.custom: devplatv2, cliv2
 
-# Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with a managed online endpoint and managed identity. 
+
+# Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with an online endpoint and managed identity. 
 ---
 
-# Access Azure resources from a managed online endpoint (preview) with a managed identity 
+# Access Azure resources from an online endpoint (preview) with a managed identity 
 
-Learn how to access Azure resources from your scoring script with a managed online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
+Learn how to access Azure resources from your scoring script with an online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
 
 Managed endpoints (preview) allow Azure Machine Learning to manage the burden of provisioning your compute resource and deploying your machine learning model. Typically your model needs to access Azure resources such as the Azure Container Registry or your blob storage for inferencing; with a managed identity you can access these resources without needing to manage credentials in your code. [Learn more about managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-This guide assumes you don't have a managed identity, a storage account or a managed online endpoint. If you already have these components, skip to the [give access permission to the managed identity](#give-access-permission-to-the-managed-identity) section. 
+This guide assumes you don't have a managed identity, a storage account or an online endpoint. If you already have these components, skip to the [give access permission to the managed identity](#give-access-permission-to-the-managed-identity) section. 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -29,7 +33,7 @@ This guide assumes you don't have a managed identity, a storage account or a man
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
+* Install and configure the Azure CLI and ML (v2) extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
 
 * An Azure Resource group, in which you (or the service principal you use) need to have `User Access Administrator` and  `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article.
 
@@ -51,9 +55,13 @@ This guide assumes you don't have a managed identity, a storage account or a man
     cd azureml-examples/cli
     ```
 
+## Limitations
+
+* The identity for an endpoint is immutable. During endpoint creation, you can associate it with a system-assigned identity (default) or a user-assigned identity. You can't change the identity after the endpoint has been created.
+
 ## Define configuration YAML file for deployment
 
-To deploy a managed endpoint with the CLI, you need to define the configuration in a YAML file. For more information on the YAML schema, see [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md) document.
+To deploy an online endpoint with the CLI, you need to define the configuration in a YAML file. For more information on the YAML schema, see [online endpoint YAML reference](reference-yaml-endpoint-online.md) document.
 
 The YAML files in the following examples are used to create online endpoints. 
 
@@ -131,11 +139,11 @@ Decide on the name of your user identity name, and export that value as an envir
 ---
 
 ## Create the managed identity 
-To access Azure resources, create a system-assigned or user-assigned managed identity for your endpoint. 
+To access Azure resources, create a system-assigned or user-assigned managed identity for your online endpoint. 
 
 # [System-assigned managed identity](#tab/system-identity)
 
-When you [create an online endpoint](#create-a-managed-online-endpoint), a system-assigned managed identity is automatically generated for you, so no need to create a separate one. 
+When you [create an online endpoint](#create-an-online-endpoint), a system-assigned managed identity is automatically generated for you, so no need to create a separate one. 
 
 # [User-assigned managed identity](#tab/user-identity)
 
@@ -148,7 +156,7 @@ To create a user-assigned managed identity, use the following:
 ## Create storage account and container
 
 For this example, create a blob storage account and blob container, and then upload the previously created text file to the blob container. 
-This is the storage account and blob container that you'll give the endpoint and managed identity access to. 
+This is the storage account and blob container that you'll give the online endpoint and managed identity access to. 
 
 # [System-assigned managed identity](#tab/system-identity)
 
@@ -184,15 +192,15 @@ Then, upload file in container.
 
 ---
 
-## Create a managed online endpoint
+## Create an online endpoint
 
-The following code creates a managed online endpoint without specifying a deployment. 
+The following code creates an online endpoint without specifying a deployment. 
+
+> [!WARNING]
+> The identity for an endpoint is immutable. During endpoint creation, you can associate it with a system-assigned identity (default) or a user-assigned identity. You can't change the identity after the endpoint has been created.
 
 # [System-assigned managed identity](#tab/system-identity)
-When you create a managed endpoint, a system-assigned managed identity is created for the endpoint by default.
-
->[!IMPORTANT]
-> System assigned managed identities are immutable and can't be changed once created.
+When you create an online endpoint, a system-assigned managed identity is created for the endpoint by default.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_endpoint" :::
 
@@ -200,7 +208,7 @@ Check the status of the endpoint with the following.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
-If you encounter any issues, see [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
+If you encounter any issues, see [Troubleshooting online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
 
 # [User-assigned managed identity](#tab/user-identity)
 
@@ -210,7 +218,7 @@ Check the status of the endpoint with the following.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="check_endpoint_Status" :::
 
-If you encounter any issues, see [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
+If you encounter any issues, see [Troubleshooting online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
 
 ---
 
@@ -219,7 +227,7 @@ If you encounter any issues, see [Troubleshooting managed online endpoints deplo
 >[!IMPORTANT] 
 > Online endpoints require Azure Container Registry pull permission, AcrPull permission, to the container registry and Storage Blob Data Reader permission to the default datastore of the workspace.
 
-You can allow the managed endpoint permission to access your storage via its system-assigned managed identity or give permission to the user-assigned managed identity to access the storage account created in the previous section.
+You can allow the online endpoint permission to access your storage via its system-assigned managed identity or give permission to the user-assigned managed identity to access the storage account created in the previous section.
 
 # [System-assigned managed identity](#tab/system-identity)
 
@@ -271,7 +279,7 @@ Refer to the following script to understand how to use your identity token to ac
 
 ## Create a deployment with your configuration
 
-Create a deployment that's associated with the managed endpoint. [Learn more about deploying to managed online endpoints](how-to-deploy-managed-online-endpoints.md).
+Create a deployment that's associated with the online endpoint. [Learn more about deploying to online endpoints](how-to-deploy-managed-online-endpoints.md).
 
 >[!WARNING]
 > This deployment can take approximately 8-14 minutes depending on whether the underlying environment/image is being built for the first time. Subsequent deployments using the same environment will go quicker.
@@ -325,7 +333,7 @@ When your deployment completes,  the model, the environment, and the endpoint ar
 
 ## Confirm your endpoint deployed successfully
 
-Once your endpoint is deployed, confirm its operation. Details of inferencing vary from model to model. For this guide, the JSON query parameters look like: 
+Once your online endpoint is deployed, confirm its operation. Details of inferencing vary from model to model. For this guide, the JSON query parameters look like: 
 
 :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/model-1/sample-request.json" :::
 
@@ -343,7 +351,7 @@ To call your endpoint, run:
 
 ## Delete the endpoint and storage account
 
-If you don't plan to continue using the deployed endpoint and storage, delete them to reduce costs. When you delete the endpoint, all of its associated deployments are deleted as well.
+If you don't plan to continue using the deployed online endpoint and storage, delete them to reduce costs. When you delete the endpoint, all of its associated deployments are deleted as well.
 
 # [System-assigned managed identity](#tab/system-identity)
  
@@ -360,7 +368,7 @@ If you don't plan to continue using the deployed endpoint and storage, delete th
 
 ## Next steps
 
-* [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
+* [Deploy and score a machine learning model by using a online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
 * For more on deployment, see [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md).
 * For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To see which compute resources you can use, see [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md).

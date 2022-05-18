@@ -14,8 +14,6 @@ ms.subservice: calling
 ---
 # Calling SDK overview
 
-[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
-
 The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, please check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md). 
 
 Once you've started development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
@@ -25,7 +23,7 @@ Key features of the Calling SDK:
 - **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provides clients visibility into who is connected to a call (the roster).
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire. 
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
-- **PSTN** - The Calling SDK can receive and initiate voice calls with the traditional publically switched telephony system, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically.
+- **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically.
 - **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane. 
 - **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call. 
 
@@ -55,6 +53,7 @@ The following list presents the set of features which are currently available in
 | Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Share a specific application (from the list of running applications)                                                | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌       | ❌              | ❌                 |
+|                   | Share system audio during screen sharing                                                                            | ❌   | ❌       | ❌              | ❌                 |
 |                   | Participant can view remote screen share                                                                            | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Roster            | List participants                                                                                                   | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Remove a participant                                                                                                | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -101,6 +100,10 @@ The following timeouts apply to the Communication Services Calling SDKs:
 | Group call establishment timeout                                            | 85                 |
 | PSTN call establishment timeout                                             | 115                |
 | Promote 1:1 call to a group call timeout                                    | 115                |
+
+## Maximum call duration:
+The maximum call duration is 30 hours, participants that reach the maximum call duration lifetime of 30 hours will be disconnected from the call.
+
 
 ## JavaScript Calling SDK support by OS and browser
 

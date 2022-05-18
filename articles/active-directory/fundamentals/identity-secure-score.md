@@ -10,7 +10,7 @@ ms.date: 06/02/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: guptashi
 
 #Customer intent: As an IT admin, I want understand the identity secure score, so that I can maximize the security posture of my tenant.

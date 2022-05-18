@@ -55,7 +55,7 @@ For problems when deploying a model from Azure Machine Learning to Azure Contain
 HTTP server in our Prebuilt Docker Images run as *non-root user*, it may not have access right to all directories. 
 Only write to directories you have access rights to. For example, the `/tmp` directory in the container.
 
-## Extra python packages not installed
+## Extra Python packages not installed
 
 * Check if there's a typo in the environment variable or file name.
 * Check the container log to see if `pip install -r <your_requirements.txt>` is installed or not.
@@ -74,6 +74,10 @@ Only write to directories you have access rights to. For example, the `/tmp` dir
 ## Building an image based on the prebuilt Docker image failed
 
 * If failed during apt package installation, check if the user has been set to root before running the apt command? (Make sure switch back to non-root user) 
+
+## Run doesn't complete on GPU local deployment
+
+GPU base images can't be used for local deployment, unless the local deployment is on an Azure Machine Learning compute instance.  GPU base images are supported only on Microsoft Azure Services such as Azure Machine Learning compute clusters and instances, Azure Container Instance (ACI), Azure VMs, or Azure Kubernetes Service (AKS).
 
 ## Image built based on the prebuilt Docker image can't boot up
 

@@ -7,12 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 07/02/2021
+ms.date: 02/15/2022
 ms.author: lajanuar
-ms.custom: ignite-fall-2021
 ---
 
 # Deploy the Sample Labeling tool
+
+> [!NOTE]
+> The [cloud hosted](https://fott-2-1.azurewebsites.net/) labeling tool is available at [https://fott-2-1.azurewebsites.net/](https://fott-2-1.azurewebsites.net/). Follow the steps in this document only if you want to deploy the sample labeling tool for yourself. 
 
 The Form Recognizer Sample Labeling tool is an application that provides a simple user interface (UI), which you can use to manually label forms (documents) for supervised learning. In this article, we'll provide links and instructions that teach you how to:
 

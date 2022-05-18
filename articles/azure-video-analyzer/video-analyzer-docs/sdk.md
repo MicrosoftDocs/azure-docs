@@ -1,5 +1,5 @@
 ---
-title: Azure Video Analyzer SDKs and resources
+title: SDKs and resources
 description: Learn about the Azure Video Analyzer SDKs
 author: bennage
 ms.author: christb
@@ -9,6 +9,8 @@ ms.date: 11/04/2021
 ---
 
 # Azure Video Analyzer SDKs
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 Azure Video Analyzer includes two groups of SDKs. The management SDKs are used for managing the Azure resource and the client SDKs are used for interacting with edge modules.
 

@@ -147,7 +147,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/concepts-app-templates.md",
-      "redirect_url": "/azure/iot-central/core/concepts-app-templates/",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-admin#create-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-export-data.md",
+      "redirect_url": "/articles/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
@@ -182,12 +187,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/concepts-connectivity-pnp.md",
-      "redirect_url": "/azure/iot-central/core/concepts-get-connected",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-developer/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/overview-iot-central-get-connected.md",
-      "redirect_url": "/azure/iot-central/core/concepts-get-connected/",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-developer/",
       "redirect_document_id": false
     },
     {
@@ -472,7 +477,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-export-data.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-event-hubs-service-bus",
+      "redirect_url": "/azure/iot-central/core/howto-export-data/",
       "redirect_document_id": false
     },
     {
@@ -632,12 +637,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-show-hide-chat.md",
-      "redirect_url": "/azure/iot-central/core/howto-show-hide-chat",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-show-hide-chat.md",
-      "redirect_url": "/azure/iot-central/core/howto-show-hide-chat/",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
       "redirect_document_id": false
     },
     {
@@ -1037,28 +1042,33 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/architecture-connected-logistics-pnp.md",
-      "redirect_url": "/azure/iot-central/retail/architecture-connected-logistics",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/architecture-connected-logistics.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/architecture-digital-distribution-center-pnp.md",
-      "redirect_url": "/azure/iot-central/retail/architecture-digital-distribution-center",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-digital-distribution-center",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/architecture-micro-fulfillment-center-pnp.md",
-      "redirect_url": "/azure/iot-central/retail/architecture-micro-fulfillment-center",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/retail/tutorial-micro-fulfillment-center",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/architecture-smart-inventory-management-pnp.md",
-      "redirect_url": "/azure/iot-central/retail/architecture-smart-inventory-management",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-smart-inventory-management",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/overview-iot-central-retail-pnp.md",
-      "redirect_url": "/azure/iot-central/retail/overview-iot-central-retail",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/core/overview-iot-central",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/tutorial-in-store-analytics-create-app-pnp.md",
@@ -1078,7 +1088,7 @@
     {
       "source_path_from_root": "/articles/iot-central/retail/tutorial-iot-central-connected-logistics-pnp.md",
       "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/tutorial-iot-central-digital-distribution-center-pnp.md",
@@ -1217,22 +1227,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/overview-iot-central-retail.md",
-      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/energy/overview-iot-central-energy.md",
-      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/government/overview-iot-central-government.md",
-      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/healthcare/overview-iot-central-healthcare.md",
-      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central",
       "redirect_document_id": false
     },
     {
@@ -1307,12 +1317,32 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-show-hide-chat.md",
-      "redirect_url": "/azure/iot-central",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/iot-central/core/howto-map-data.md",
-      "redirect_url": "/azure/iot-central",
+      "source_path_from_root": "/articles/iot-central/core/concepts-app-templates.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-admin#create-applications/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-best-practices.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-developer#best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-scalability-availability.md",
+      "redirect_url": "/azure/iot-central/core/concepts-faq-scalability-availability",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/preview/concepts-get-connected.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-developer/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-migrate.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
       "redirect_document_id": false
     }
   ]

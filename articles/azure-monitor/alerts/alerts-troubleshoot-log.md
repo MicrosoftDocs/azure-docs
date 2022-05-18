@@ -4,7 +4,7 @@ description: Common issues, errors, and resolutions for log alert rules in Azure
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 12/08/2021 
+ms.date: 2/23/2022
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -27,19 +27,11 @@ Logs are semi-structured data and are inherently more latent than metrics. If yo
 
 To mitigate latency, the system retries the alert evaluation multiple times. After the data arrives, the alert fires, which in most cases don't equal the log record time.
 
-### Incorrect query time range configured
+### Actions are muted or alert rule is defined to resolve automatically
 
-Query time range is set in the rule condition definition. For workspaces and Application Insights, this field is called **Period**. For all other resource types, it's called **Override query time range**. Like in log analytics, the time range limits query data to the specified period. Even if the **ago** command is used in the query, the time range will apply. 
+Log alerts provide an option to mute fired alert actions for a set amount of time using **Mute actions** and to only fire once per condition being met using **Automatically resolve alerts**. 
 
-For example, a query scans 60 minutes when the time range is 60 minutes, even if the text contains **ago(1d)**. The time range and query time filtering need to match. In the example case, changing the **Period** / **Override query time range** to one day, works as expected.
-
-![Time period](media/alerts-troubleshoot-log/LogAlertTimePeriod.png)
-
-### Actions are muted in the alert rule
-
-Log alerts provide an option to mute fired alert actions for a set amount of time. In workspaces and Application Insights, this field is called **Suppress alerts**. In all other resource types, it's called **Mute actions**. 
-
-A common issue is that you think that the alert didn't fire the actions because of a service issue, even though it was muted by the rule configuration.
+A common issue is that you think that the alert didn't fire, but it was actually the rule configuration.
 
 ![Suppress alerts](media/alerts-troubleshoot-log/LogAlertSuppress.png)
 
@@ -49,9 +41,9 @@ When you author an alert rule, Log Analytics creates a permission snapshot for y
 
 ### Metric measurement alert rule with splitting using the legacy Log Analytics API
 
-[Metric measurement](alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) is a type of log alert that's based on summarized time series results. You can use these rules to group by columns to [split alerts](alerts-unified-log.md#split-by-alert-dimensions). If you're using the legacy Log Analytics API, splitting doesn't work as expected because it doesn't support grouping.
+[Metric measurement](alerts-unified-log.md#calculation-of-a-value) is a type of log alert that's based on summarized time series results. You can use these rules to group by columns to [split alerts](alerts-unified-log.md#split-by-alert-dimensions). If you're using the legacy Log Analytics API, splitting doesn't work as expected because it doesn't support grouping.
 
-You can use the current ScheduledQueryRules API to set **Aggregate On** in [Metric measurement](alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) rules, which work as expected. To learn more about switching to the current ScheduledQueryRules API, see [Upgrade to the current Log Alerts API from legacy Log Analytics Alert API]](../alerts/alerts-log-api-switch.md).
+You can use the current ScheduledQueryRules API to set **Aggregate On** in [Metric measurement](alerts-unified-log.md#calculation-of-a-value) rules, which work as expected. To learn more about switching to the current ScheduledQueryRules API, see [Upgrade to the current Log Alerts API from legacy Log Analytics Alert API]](../alerts/alerts-log-api-switch.md).
 
 ## Log alert fired unnecessarily
 
@@ -66,31 +58,6 @@ Logs are semi-structured data and are inherently more latent than metrics. If yo
 Log alerts work best when you try to detect data in the logs. It works less well when you try to detect lack of data in the logs, like alerting on virtual machine heartbeat. 
 
 There are built-in capabilities to prevent false alerts, but they can still occur on very latent data (over ~30 minutes) and data with latency spikes.
-
-### Query optimization issues
-
-The alerting service changes your query to optimize for lower load and alert latency. The alert flow was built to transform the results that indicate the issue to an alert. For example, in a case of a query like:
-
-``` Kusto
-SecurityEvent
-| where EventID == 4624
-```
-
-If the intent of the user is to alert, when this event type happens, the alerting logic appends `count` to the query. The query that will run is:
-
-``` Kusto
-SecurityEvent
-| where EventID == 4624
-| count
-```
-
-There's no need to add alerting logic to the query, and doing that may even cause issues. In the preceding example, if you include `count` in your query, it always results in the value **1**, because the alert service performs a `count` of `count`.
-
-The log alert service runs the optimized query. You can run the modified query in the Log Analytics [portal](../logs/log-query-overview.md) or [API](/rest/api/loganalytics/).
-
-For workspaces and Application Insights, it's called **Query to be executed** in the Condition pane. In all other resource types, select **See final alert Query** on the **Condition** tab.
-
-![Query to be executed](media/alerts-troubleshoot-log/LogAlertPreview.png)
 
 ## Log alert was disabled
 
@@ -137,7 +104,7 @@ If you've reached the quota limit, the following steps might help resolve the is
 	
 #### From the Azure portal
 
-1. On the Alerts screen, select **Manage alert rules**.
+1. On the Alerts screen in Azure Monitor, select **Alert rules**.
 1. In the **Subscription** dropdown control, filter to the subscription you want. (Make sure you don't filter to a specific resource group, resource type, or resource.)
 1. In the **Signal type** dropdown control, select **Log Search**.
 1. Verify that the **Status** dropdown control is set to **Enabled**.
@@ -147,7 +114,8 @@ The total number of log search alert rules is displayed above the rules list.
 #### From API
 
 - PowerShell - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule)
-- REST API - [List by subscription](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules/list-by-subscription)
+- CLI: [az monitor scheduled-query list](/cli/azure/monitor/scheduled-query#az-monitor-scheduled-query-list)
+- REST API - [List by subscription](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/list-by-subscription)
 
 ## Activity log example when rule is disabled
 
@@ -225,7 +193,7 @@ Try the following steps to resolve the problem:
 1. Try running the query in Azure Monitor Logs, and fix any syntax issues.
 2. If your query syntax is valid, check the connection to the service.
   - Flush the DNS cache on your local machine, by opening a command prompt and running the following command: `ipconfig /flushdns`, and then check again. If you still get the same error message, try the next step.
-  - Copy and paste this URL into the browser: [https://api.loganalytics.io/v1/version](https://api.loganalytics.io/v1/version). If you get an error, contact your IT administrator to allow  the IP addresses associated with **api.loganalytics.io** listed [here](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#application-insights--log-analytics-apis).
+  - Copy and paste this URL into the browser: [https://api.loganalytics.io/v1/version](https://api.loganalytics.io/v1/version). If you get an error, contact your IT administrator to allow  the IP addresses associated with **api.loganalytics.io** listed [here](../app/ip-addresses.md#application-insights--log-analytics-apis).
 
 
 ## Next steps

@@ -3,13 +3,11 @@ title: How to back up and recover speech customer resources
 titleSuffix: Azure Cognitive Services
 description: Learn how to prepare for service outages with Custom Speech and Custom Voice.
 services: cognitive-services
-author: masaki-itagaki
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/28/2021
-ms.author: mitagaki
 ms.custom: ignite-fall-2021
 ---
 
@@ -72,7 +70,7 @@ Custom Speech Service does not support automatic failover. We suggest the follow
 
 1.  Create your custom model in one main region (Primary).
 2.  Run the [Model Copy API](https://eastus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to replicate the custom model to all prepared regions (Secondary).
-3.  Go to Speech Studio to load the copied model and create a new endpoint in the secondary region. See how to deploy a new model in [Train and deploy a Custom Speech model](./how-to-custom-speech-train-model.md).
+3.  Go to Speech Studio to load the copied model and create a new endpoint in the secondary region. See how to deploy a new model in [Deploy a Custom Speech model](./how-to-custom-speech-deploy-model.md).
     -  If you have set a specific quota, also consider setting the same quota in the backup regions. See details in [Speech service Quotas and Limits](./speech-services-quotas-and-limits.md).
 4.  Configure your client to fail over on persistent errors as with the default endpoints usage.
 

@@ -6,7 +6,7 @@ ms.subservice: authoring
 ms.topic: conceptual
 author: joshuha-msft
 ms.author: joowen
-ms.date: 05/12/2021 
+ms.date: 01/31/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -30,6 +30,7 @@ After a global parameter is created, you can edit it by clicking the parameter's
 
 :::image type="content" source="media/author-global-parameters/create-global-parameter-3.png" alt-text="Create global parameters":::
 
+
 ## Using global parameters in a pipeline
 
 Global parameters can be used in any [pipeline expression](control-flow-expression-language-functions.md). If a pipeline is referencing another resource such as a dataset or data flow, you can pass down the global parameter value via that resource's parameters. Global parameters are referenced as `pipeline().globalParameters.<parameterName>`.
@@ -43,12 +44,12 @@ There are two ways to integrate global parameters in your continuous integration
 * Include global parameters in the ARM template
 * Deploy global parameters via a PowerShell script
 
-For general use cases, it is recommended to include global parameters in the ARM template. This integrates natively with the solution outlined in [the CI/CD doc](continuous-integration-delivery.md). In case of automatic publishing and  Purview connection, **PowerShell script** method is required. You can find more about PowerShell script method later. Global parameters will be added as an ARM template parameter by default as they often change from environment to environment. You can enable the inclusion of global parameters in the ARM template from the **Manage** hub.
+For general use cases, it is recommended to include global parameters in the ARM template. This integrates natively with the solution outlined in [the CI/CD doc](continuous-integration-delivery.md). In case of automatic publishing and  Microsoft Purview connection, **PowerShell script** method is required. You can find more about PowerShell script method later. Global parameters will be added as an ARM template parameter by default as they often change from environment to environment. You can enable the inclusion of global parameters in the ARM template from the **Manage** hub.
 
 :::image type="content" source="media/author-global-parameters/include-arm-template.png" alt-text="Include in ARM template":::
 
 > [!NOTE]
-> The **Include in ARM template** configuration is only available in "Git mode". Currently it is disabled in "live mode" or "Data Factory" mode. In case of automatic publishing or Purview connection, do not use Include global parameters method; use PowerShell script method. 
+> The **Include in ARM template** configuration is only available in "Git mode". Currently it is disabled in "live mode" or "Data Factory" mode. In case of automatic publishing or Microsoft Purview connection, do not use Include global parameters method; use PowerShell script method. 
 
 > [!WARNING]
 >You cannot use  ‘-‘ in the parameter name. You will receive an errorcode "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' is not valid: .....}". But, you can use the ‘_’ in the parameter name. 
@@ -93,6 +94,8 @@ $globalParametersJson = Get-Content $globalParametersFilePath
 Write-Host "Parsing JSON..."
 $globalParametersObject = [Newtonsoft.Json.Linq.JObject]::Parse($globalParametersJson)
 
+# $gp in $factoryFileObject.properties.globalParameters.GetEnumerator()) 
+# may  be used in case you use non-standard location for global parameters. It is not recommended. 
 foreach ($gp in $globalParametersObject.GetEnumerator()) {
     Write-Host "Adding global parameter:" $gp.Key
     $globalParameterValue = $gp.Value.ToObject([Microsoft.Azure.Management.DataFactory.Models.GlobalParameterSpecification])

@@ -2,12 +2,12 @@
 title: Workbooks gallery in Microsoft Defender for Cloud
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.author: benmansheim
+author: bmansheim
+ms.date: 01/23/2022
 ---
 
 # Create rich, interactive reports of Defender for Cloud data
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences.
 
@@ -25,7 +25,7 @@ Within Microsoft Defender for Cloud, you can access the built-in workbooks to tr
 | Pricing:                        | Free                                                                                                                                         |
 | Required roles and permissions: | To save workbooks, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the target resource group |
 | Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
-|                                 |                                                                                                                                              |
+
 
 ## Workbooks gallery in Microsoft Defender for Cloud
 
@@ -35,8 +35,9 @@ With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud 
 - ['System Updates' workbook](#use-the-system-updates-workbook) - View missing system updates by resources, OS, severity, and more
 - ['Vulnerability Assessment Findings' workbook](#use-the-vulnerability-assessment-findings-workbook) - View the findings of vulnerability scans of your Azure resources
 - ['Compliance Over Time' workbook](#use-the-compliance-over-time-workbook) - View the status of a subscription's compliance with the regulatory or industry standards you've selected 
+- ['Active Alerts' workbook](#use-the-active-alerts-workbook) - view active alerts by severity, type, tag, MITRE ATT&CK tactics, and location.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Gallery of built-in workbooks in Microsoft Defender for Cloud.":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png" alt-text="Gallery of built-in workbooks in Microsoft Defender for Cloud.":::
 
 Choose one of the supplied workbooks or create your own.
 
@@ -68,7 +69,7 @@ The secure score over time workbook has five graphs for the subscriptions report
 |**Recommendations with the most unhealthy resources**<br>This table helps you triage the recommendations that have had the most resources changed to unhealthy over the selected period.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-3.png" alt-text="Recommendations with the most unhealthy resources.":::|
 |**Scores for specific security controls**<br>Defender for Cloud's security controls are logical groupings of recommendations. This chart shows you, at a glance, the weekly scores for all of your controls.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-4.png" alt-text="Scores for your security controls over the selected time period.":::|
 |**Resources changes**<br>Recommendations with the most resources that have changed state (healthy, unhealthy, or not applicable) during the selected period are listed here. Select any recommendation from the list to open a new table listing the specific resources.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-5.png" alt-text="Recommendations with the most resources that have changed health state.":::|
-|||
+
 
 ### Use the 'System Updates' workbook
 
@@ -91,13 +92,13 @@ Learn more about using these scanners:
 
 - [Find vulnerabilities with Microsoft threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
 - [Find vulnerabilities with the integrated Qualys scanner](deploy-vulnerability-assessment-vm.md)
-- [Scan your registry images for vulnerabilities](defender-for-container-registries-usage.md)
+- [Scan your registry images for vulnerabilities](defender-for-containers-usage.md)
 - [Scan your SQL resources for vulnerabilities](defender-for-sql-on-machines-vulnerability-assessment.md)
 
 Findings for each resource type are reported in separate recommendations:
 
 - [Vulnerabilities in your virtual machines should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1195afff-c881-495e-9bc5-1486211ae03f) (includes findings from Microsoft threat and vulnerability management, the integrated Qualys scanner, and any configured [BYOL VA solutions](deploy-vulnerability-assessment-byol-vm.md))
-- [Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648)
+- [Container registry images should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648)
 - [SQL databases should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/82e20e14-edc5-4373-bfc4-f13121257c37)
 - [SQL servers on machines should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f97aa83c-9b63-4f9a-99f6-b22c4398f936)
 
@@ -125,6 +126,48 @@ You can keep drilling down - right down to the recommendation level - to view th
 >
 > :::image type="content" source="media/custom-dashboards-azure-workbooks/export-workbook-data.png" alt-text="Exporting compliance workbook data to Excel.":::
 
+### Use the 'Active Alerts' workbook
+
+This workbook displays the active security alerts for your subscriptions on one dashboard. Security alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. Defender for Cloud prioritizes, and lists the alerts, along with information needed for quick investigation and remediation.
+
+This workbook benefits you by letting you understand the active threats on your environment, and allows you to prioritize between the active alerts.
+
+> [!NOTE]
+> Most workbooks use Azure Resource Graph (ARG) to query their data. For example, to display the Map View, Log Analytics workspace is used to query the data. [Continuous export](continuous-export.md) should be enabled, and export the security alerts to the Log Analytics workspace.
+
+You can view the active alerts by severity, resource group, or tag.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/active-alerts-pie-charts.png" alt-text="Screenshot showing a sample view of the alerts viewed by Severity, Resource Group, or Tag.":::
+
+You can also view your subscription's top alerts by attacked resources, alert types, and new alerts.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/top-alerts.png" alt-text="Screenshot highlighting the top alerts for your subscriptions.":::
+
+You can get more details on any of these alerts by selecting it.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/active-alerts-high.png" alt-text="Screenshot that shows all the active alerts with high severity from a specific resource.":::
+
+The MITRE ATT&CK tactics displays by the order of the kill-chain, and the number of alerts the subscription has at each stage. 
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/mitre-attack-tactics.png" alt-text="Screenshot showing the order of the kill-chain, and the number of alerts":::
+
+You can see all of the active alerts in a table with the ability to filter by columns. By selecting an alert, the alert view button appears.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/active-alerts-table.png" alt-text="Screenshot showing the table of active alerts.":::
+
+By selecting the Open Alert View button, you can see all the details of that specific alert.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/alert-details-screen.png" alt-text="Screenshot of an alert's details.":::
+
+By selecting Map View, you can also see all alerts based on their location. 
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/alerts-map-view.png" alt-text="Screenshot of the alerts when viewed in a map.":::
+
+By selecting a location on the map you will be able to view all of the alerts for that location. 
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/map-alert-details.png" alt-text="Screenshot showing the alerts in a specific location.":::
+
+You can see the details for that alert with the Open Alert View button.
 
 ## Import workbooks from other workbook galleries
 

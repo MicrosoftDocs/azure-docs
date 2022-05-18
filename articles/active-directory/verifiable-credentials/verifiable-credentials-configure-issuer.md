@@ -4,10 +4,10 @@ description: In this tutorial, you learn how to issue verifiable credentials by 
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 05/03/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -206,7 +206,7 @@ Now that you have a new credential, you're going to gather some information abou
 The sample application is available in .NET, and the code is maintained in a GitHub repository. Download the sample code from [GitHub](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet), or clone the repository to your local machine:
 
 
-```bash
+```
 git clone https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet.git
 ```
 
@@ -277,15 +277,15 @@ The following JSON demonstrates a complete *appsettings.json* file:
 
 Now you're ready to issue your first verified credential expert card by running the sample application.
 
-1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or, from the command shell, run the following commands:
+1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or, from your operating system's command line, run:
 
-    ```bash
+    ```
     cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint  dotnet build "AspNetCoreVerifiableCredentials.csproj" -c Debug -o .\\bin\\Debug\\netcoreapp3.  dotnet run
     ```
 
-1. In another terminal, run the following command. This command runs [ngrok](https://ngrok.com/) to set up a URL on 3000, and make it publicly available on the internet.
+1. In another command prompt window, run the following command. This command runs [ngrok](https://ngrok.com/) to set up a URL on 5000, and make it publicly available on the internet.
 
-    ```bash
+    ```
     ngrok http 5000
     ```
 
@@ -308,7 +308,7 @@ Now you're ready to issue your first verified credential expert card by running 
 
      ![Screenshot that shows how to respond to the warning message.](media/verifiable-credentials-configure-issuer/at-risk.png)
 
-1. At the risky website warning, select **Proceed anyways (unsafe)**. You're seeing this warning because your domain isn't linked to your decentralized identifier (DID). To verify your domain, follow the guidance in [Link your domain to your decentralized identifier (DID)](how-to-dnsbind.md). For this tutorial, you can skip the domain registration, and select **Proceed anyways (unsafe).**
+1. At the risky website warning, select **Proceed anyways (unsafe)**. You're seeing this warning because your domain isn't linked to your decentralized identifier (DID). To verify your domain, follow [Link your domain to your decentralized identifier (DID)](how-to-dnsbind.md). For this tutorial, you can skip the domain registration, and select **Proceed anyways (unsafe).**
 
      ![Screenshot that shows how to proceed with the risky warning.](media/verifiable-credentials-configure-issuer/proceed-anyway.png)
 

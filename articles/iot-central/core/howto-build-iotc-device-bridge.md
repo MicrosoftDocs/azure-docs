@@ -1,20 +1,21 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Deploy the Azure IoT Central device bridge | Microsoft Docs
-description: Deploy the IoT Central device bridge to connect other IoT clouds to your IoT Central app. Other IoT clouds include Sigfox, Particle Device Cloud, and The Things Network.
+description: Deploy the IoT Central device bridge to connect other IoT clouds to your IoT Central app. Examples of other IoT clouds include Sigfox, Particle Device Cloud, and The Things Network.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/19/2021
+ms.date: 12/21/2021
 ms.topic: how-to
+custom: contperf-fy22q3
 
 # Administrator
 ---
 
 # Use the IoT Central device bridge to connect other IoT clouds to IoT Central
 
-The IoT Central device bridge is an open-source solution that connects other IoT clouds to your IoT Central application. Examples of other IoT clouds include [Sigfox](https://www.sigfox.com/), [Particle Device Cloud](https://www.particle.io/), and [The Things Network](https://www.thethingsnetwork.org/). The device bridge works by forwarding data from devices connected to other IoT clouds through to your IoT Central application. The device bridge only forwards data to IoT Central, it doesn't send commands or property updates from IoT Central back to the devices.
+The IoT Central device bridge is an open-source solution that connects other IoT clouds such as [Sigfox](https://www.sigfox.com/), [Particle Device Cloud](https://www.particle.io/), and [The Things Network](https://www.thethingsnetwork.org/) to your IoT Central application. The device bridge works by forwarding data from devices connected to other IoT clouds through to your IoT Central application. The device bridge only forwards data to IoT Central, it doesn't send commands or property updates from IoT Central back to the devices.
 
 The device bridge lets you combine the power of IoT Central with devices such as asset tracking devices connected to Sigfox's low-power wide area network, air quality monitoring devices on the Particle Device Cloud, or soil moisture monitoring devices on The Things Network. You can use IoT Central application features such as rules and analytics on the data, create workflows in Power Automate and Azure Logic apps, or export the data.
 
@@ -36,13 +37,13 @@ The function app transforms the data into a format accepted by IoT Central and f
 
 :::image type="content" source="media/howto-build-iotc-device-bridge/azure-function.png" alt-text="Screenshot of Azure Functions.":::
 
-If your IoT Central application recognizes the device ID in the forwarded message, the telemetry from the device appears in IoT Central. If the device ID isn't recognized by your IoT Central application, the function app attempts to register a new device with the device ID. The new device appears as an **Unassociated device** on the **Devices** page in your IoT Central application. From the **Devices** page, you can associate the new device with a device template and then view the telemetry.
+If your IoT Central application recognizes the device ID in the forwarded message, the telemetry from the device appears in IoT Central. If the device ID isn't recognized by your IoT Central application, the function app attempts to register a new device with the device ID. The new device appears as an **Unassigned** device on the **Devices** page in your IoT Central application. From the **Devices** page, you can assign the new device to a device template and then view the telemetry.
 
 ## Deploy the device bridge
 
 To deploy the device bridge to your subscription:
 
-1. In your IoT Central application, navigate to the **Administration > Device Connection** page.
+1. In your IoT Central application, navigate to the **Permissions > Device connection groups** page.
 
     1. Make a note of the **ID Scope**. You use this value when you deploy the device bridge.
 
@@ -50,7 +51,7 @@ To deploy the device bridge to your subscription:
 
 1. Use the **Deploy to Azure** button below to open the custom Resource Manager template that deploys the function app to your subscription. Use the **ID Scope** and **Primary key** from the previous step:
 
-    [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json)
+    [![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json)
 
 After the deployment is completed, you need to install the NPM packages the function requires:
 
@@ -89,16 +90,14 @@ Each key in the `measurements` object must match the name of a telemetry type in
 
 You can include a `timestamp` field in the body to specify the UTC date and time of the message. This field must be in ISO 8601 format. For example, `2020-06-08T20:16:54.602Z`. If you don't include a timestamp, the current date and time is used.
 
-You can include a `modelId` field in the body. Use this field to associate the device with a device template during provisioning. This functionality is only supported by [V3 applications](howto-faq.yml#how-do-i-get-information-about-my-application-).
+You can include a `modelId` field in the body. Use this field to assign the device to a device template during provisioning.
 
 The `deviceId` must be alphanumeric, lowercase, and may contain hyphens.
 
-If you don't include the `modelId` field, or if IoT Central doesn't recognize the model ID, then a message with an unrecognized `deviceId` creates a new _unassociated device_ in IoT Central. An operator can manually migrate the device to the correct device template. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
-
-In [V2 applications](howto-faq.yml#how-do-i-get-information-about-my-application-), the new device appears on the **Device Explorer > Unassociated devices** page. Select **Associate** and choose a device template to start receiving incoming telemetry from the device.
+If you don't include the `modelId` field, or if IoT Central doesn't recognize the model ID, then a message with an unrecognized `deviceId` creates a new _unassigned device_ in IoT Central. An operator can manually migrate the device to the correct device template. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
 
 > [!NOTE]
-> Until the device is associated to a template, all HTTP calls to the function return a 403 error status.
+> Until the device is assigned to a template, all HTTP calls to the function return a 403 error status.
 
 To switch on logging for the function app with Application Insights, navigate to **Monitoring > Logs** in your function app in the Azure portal. Select **Turn on Application Insights**.
 
@@ -113,7 +112,7 @@ The Resource Manager template provisions the following resources in your Azure s
 
 The key vault stores the SAS group key for your IoT Central application.
 
-The function app runs on a [consumption plan](https://azure.microsoft.com/pricing/details/functions/). While this option doesn't offer dedicated compute resources, it enables the device bridge to handle hundreds of device messages per minute, suitable for smaller fleets of devices or devices that send messages less frequently. If your application depends on streaming a large number of device messages, replace the consumption plan with a dedicated a [App service plan](https://azure.microsoft.com/pricing/details/app-service/windows/). This plan offers dedicated compute resources, which give faster server response times. Using a standard App Service Plan, the maximum observed performance of the function from Azure in this repository was around 1,500 device messages per minute. To learn more, see [Azure Functions hosting options](../../azure-functions/functions-scale.md).
+The function app runs on a [consumption plan](https://azure.microsoft.com/pricing/details/functions/). While this option doesn't offer dedicated compute resources, it enables the device bridge to handle hundreds of device messages per minute, suitable for smaller fleets of devices or devices that send messages less frequently. If your application depends on streaming a large number of device messages, replace the consumption plan with a dedicated [App service plan](https://azure.microsoft.com/pricing/details/app-service/windows/). This plan offers dedicated compute resources, which give faster server response times. Using a standard App Service Plan, the maximum observed performance of the function from Azure in this repository was around 1,500 device messages per minute. To learn more, see [Azure Functions hosting options](../../azure-functions/functions-scale.md).
 
 To use a dedicated App Service plan instead of a consumption plan, edit the custom template before deploying. Select  **Edit template**.
 
@@ -182,7 +181,7 @@ To connect a Particle device through the device bridge to IoT Central, go to the
 }
 ```
 
-Paste in the **function URL** from your function app, and you see Particle devices appear as unassociated devices in IoT Central. To learn more, see the [Here's how to integrate your Particle-powered projects with Azure IoT Central](https://blog.particle.io/2019/09/26/integrate-particle-with-azure-iot-central/) blog post.
+Paste in the **function URL** from your function app, and you see Particle devices appear as unassigned devices in IoT Central. To learn more, see the [Here's how to integrate your Particle-powered projects with Azure IoT Central](https://blog.particle.io/2019/09/26/integrate-particle-with-azure-iot-central/) blog post.
 
 ### Example 2: Connecting Sigfox devices through the device bridge
 

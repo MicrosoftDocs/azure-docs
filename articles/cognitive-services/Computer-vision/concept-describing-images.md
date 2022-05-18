@@ -9,14 +9,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 01/05/2022
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
 # Describe images with human-readable language
 
-Computer Vision can analyze an image and generate a human-readable sentence that describes its contents. The algorithm actually returns several descriptions based on different visual features, and each description is given a confidence score. The final output is a list of descriptions ordered from highest to lowest confidence.
+Computer Vision can analyze an image and generate a human-readable phrase that describes its contents. The algorithm returns several descriptions based on different visual features, and each description is given a confidence score. The final output is a list of descriptions ordered from highest to lowest confidence.
+
+At this time, English is the only supported language for image description.
 
 ## Image description example
 

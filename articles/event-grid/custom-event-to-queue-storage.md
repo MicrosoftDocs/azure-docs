@@ -3,7 +3,7 @@ title: 'Quickstart: Send custom events to storage queue - Event Grid, Azure CLI'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A storage queue is used for the endpoint.'
 ms.date: 02/02/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurecli, mode-other
+ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Route custom events to Azure Queue storage with Azure CLI and Event Grid
@@ -24,7 +24,7 @@ This article gives you commands for using Azure CLI.
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. 
 
 The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
 

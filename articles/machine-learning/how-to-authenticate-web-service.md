@@ -3,9 +3,8 @@ title: Configure authentication for models deployed as web services
 titleSuffix: Azure Machine Learning
 description: Learn how to configure authentication for machine learning models deployed to web services in Azure Machine Learning.
 services: machine-learning
-author: cjgronlund
-ms.author: cgronlun
-ms.reviewer: larryfr
+author: blackmist
+ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021

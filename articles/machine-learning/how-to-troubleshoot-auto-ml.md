@@ -2,8 +2,8 @@
 title: Troubleshoot automated ML experiments
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot and resolve issues in your automated machine learning experiments.
-author: nibaccam
-ms.author: nibaccam
+author: blackmist
+ms.author: larryfr
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
@@ -151,6 +151,14 @@ For automated ML runs, you need to ensure the file datastore that connects to yo
 Error message: 
 `Could not create a connection to the AzureFileService due to missing credentials. Either an Account Key or SAS token needs to be linked the default workspace blob store.`
 
+## Data schema
+
+When you try to create a new automated ML experiment via the **Edit and submit** button in the Azure Machine Learning studio, the data schema for the new experiment must match the schema of the data that was used in the original experiment. Otherwise, an error message similar to the following results. Learn more about how to [edit and submit experiments from the studio UI](how-to-use-automated-ml-for-ml-models.md#edit-and-submit-runs-preview).
+
+Error message non-vision experiments: ` Schema mismatch error: (an) additional column(s): "Column1: String, Column2: String, Column3: String", (a) missing column(s)`
+
+Error message for vision datasets: `Schema mismatch error: (an) additional column(s): "dataType: String, dataSubtype: String, dateTime: Date, category: String, subcategory: String, status: String, address: String, latitude: Decimal, longitude: Decimal, source: String, extendedProperties: String", (a) missing column(s): "image_url: Stream, image_details: DataRow, label: List" Vision dataset error(s): Vision dataset should have a target column with name 'label'. Vision dataset should have labelingProjectType tag with value as 'Object Identification (Bounding Box)'.`
+
 ## Databricks
 See [How to configure an automated ML experiment with Databricks](how-to-configure-databricks-automl-environment.md#troubleshooting).
 
@@ -190,6 +198,10 @@ If this pattern is expected in your time series, you can switch your primary met
     1. Select the `Branch` button
     1. Navigate to the `Tags` tab
     1. Select the version
+    
+## Experiment throttling
+
+If you have over 100 automated ML experiments, this may cause new automated ML experiments to have long run times. 
 
 ## Next steps
 

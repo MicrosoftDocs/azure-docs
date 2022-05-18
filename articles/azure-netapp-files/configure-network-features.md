@@ -11,11 +11,10 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 12/09/2021
 ms.custom: references_regions
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Configure network features for an Azure NetApp Files volume
 
@@ -37,19 +36,13 @@ Two settings are available for network features:
 
     You should set **Network Features** to *Basic* if you do not require VNet features.  
 
-## Supported regions 
-
-Currently the network features capability is supported in the following regions: 
-
-* North Central US 
-
 ## Considerations
 
 * Regardless of the Network Features option you set (*Standard* or *Basic*), an Azure VNet can only have one subnet delegated to Azure NetApp files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations). 
  
 * Currently, you can specify the network features setting only during the creation process of a new volume. You cannot modify the setting on existing volumes. 
 
-* You can create volumes with the Standard network features only if the corresponding [Azure region supports the Standard volume capability](#supported-regions). 
+* You can create volumes with the Standard network features only if the corresponding [Azure region supports the Standard volume capability](azure-netapp-files-network-topologies.md#supported-regions). 
     * If the Standard volume capability is supported for the region, the Network Features field of the Create a Volume page defaults to *Standard*. You can change this setting to *Basic*. 
     * If the Standard volume capability is not available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you cannot modify the setting.
 
@@ -78,7 +71,7 @@ The network features capability is currently in public preview. If you are using
     Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowPoliciesOnBareMetal
     ```
 
-You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Set the Network Features option
 

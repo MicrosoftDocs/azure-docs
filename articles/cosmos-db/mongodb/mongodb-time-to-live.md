@@ -5,9 +5,9 @@ author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: javascript
+ms.devlang: csharp, java, javascript
 ms.topic: how-to
-ms.date: 12/26/2018
+ms.date: 02/16/2022
 ms.custom: devx-track-js, devx-track-csharp
 ---
 # Expire data with Azure Cosmos DB's API for MongoDB
@@ -18,9 +18,9 @@ Time-to-live (TTL) functionality allows the database to automatically expire dat
 ## TTL indexes
 To enable TTL universally on a collection, a ["TTL index" (time-to-live index)](mongodb-indexing.md) needs to be created. The TTL index is an index on the `_ts` field with an "expireAfterSeconds" value.
 
-JavaScript example:
+MongoShell example:
 
-```js
+```
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 {
         "_t" : "CreateIndexesResponse",

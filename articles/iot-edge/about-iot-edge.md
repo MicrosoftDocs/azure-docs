@@ -1,7 +1,7 @@
 ---
 title: What is Azure IoT Edge | Microsoft Docs
 description: Overview of the Azure IoT Edge service
-author: kgremban
+author: PatAltimore
 
 # this is the PM responsible
 ms.reviewer: chipalost
@@ -9,7 +9,7 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: overview
 ms.date: 10/28/2019
-ms.author: kgremban
+ms.author: patricka
 ms.custom: mvc
 ---
 
@@ -36,7 +36,7 @@ IoT Edge modules are units of execution, implemented as Docker compatible contai
 
 ### Artificial intelligence at the edge
 
-Azure IoT Edge allows you to deploy complex event processing, machine learning, image recognition, and other high value AI without writing it in-house. Azure services like Azure Functions, Azure Stream Analytics, and Azure Machine Learning can all be run on-premises via Azure IoT Edge. You’re not limited to Azure services, though. Anyone is able to create AI modules and make them available to the community for use through the Azure Marketplace.
+Azure IoT Edge allows you to deploy complex event processing, machine learning, image recognition, and other high value AI without writing it in-house. Azure services like Azure Functions, Azure Stream Analytics, and Azure Machine Learning can all be run on-premises via Azure IoT Edge. You're not limited to Azure services, though. Anyone is able to create AI modules and make them available to the community for use through the Azure Marketplace.
 
 ### Bring your own code
 
@@ -56,13 +56,13 @@ The Azure IoT Edge runtime enables custom and cloud logic on IoT Edge devices. T
 
 How you use an Azure IoT Edge device is up to you. The runtime is often used to deploy AI to gateway devices which aggregate and process data from other on-premises devices, but this deployment model is just one option.
 
-The Azure IoT Edge runtime runs on a large set of IoT devices that enables using it in a wide variety of ways. It supports both Linux and Windows operating systems and abstracts hardware details. Use a device smaller than a Raspberry Pi 3 if you’re not processing much data, or use an industrial server to run resource-intensive workloads.
+The Azure IoT Edge runtime runs on a large set of IoT devices that enables using it in a wide variety of ways. It supports both Linux and Windows operating systems and abstracts hardware details. Use a device smaller than a Raspberry Pi 3 if you're not processing much data, or use an industrial server to run resource-intensive workloads.
 
 ## IoT Edge cloud interface
 
-It's difficult to manage the software life cycle for millions of IoT devices that are often different makes and models or geographically scattered. Workloads are created and configured for a particular type of device, deployed to all of your devices, and monitored to catch any misbehaving devices. These activities can’t be done on a per device basis and must be done at scale.
+It's difficult to manage the software life cycle for millions of IoT devices that are often different makes and models or geographically scattered. Workloads are created and configured for a particular type of device, deployed to all of your devices, and monitored to catch any misbehaving devices. These activities can't be done on a per device basis and must be done at scale.
 
-Azure IoT Edge integrates seamlessly with Azure IoT Central to provide one control plane for your solution’s needs. Cloud services allow you to:
+Azure IoT Edge integrates seamlessly with Azure IoT Central to provide one control plane for your solution's needs. Cloud services allow you to:
 
 * Create and configure a workload to be run on a specific type of device.
 * Send a workload to a set of devices.
@@ -74,17 +74,5 @@ Azure IoT Edge integrates seamlessly with Azure IoT Central to provide one contr
 
 Try out these concepts by deploying your first IoT Edge module to a device:
 
-<!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-
 * [Deploy modules to a Linux IoT Edge device](quickstart-linux.md)
 * [Deploy modules to a Windows IoT Edge device](quickstart.md)
-
-:::moniker-end
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
-[Deploy modules to an IoT Edge device](quickstart-linux.md)
-
-:::moniker-end

@@ -3,9 +3,10 @@ title: Connect Azure Functions to Azure Storage using Visual Studio Code
 description: Learn how to connect Azure Functions to a Azure Queue Storage by adding an output binding to your Visual Studio Code project.
 ms.date: 02/07/2020
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-js, mode-other
-#Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
+ms.devlang: csharp, java, javascript, powershell, python, typescript
+ms.custom: devx-track-python, devx-track-js, mode-ui
 zone_pivot_groups: programming-languages-set-functions
+#Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---
 
 # Connect Azure Functions to Azure Storage using Visual Studio Code
@@ -74,6 +75,8 @@ Extension bundles usage is enabled in the host.json file at the root of the proj
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
+Now, you can add the storage output binding to your project.
+
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -81,8 +84,6 @@ Extension bundles usage is enabled in the host.json file at the root of the proj
 [!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
 ::: zone-end
-
-Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 

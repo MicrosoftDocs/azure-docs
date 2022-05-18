@@ -2,11 +2,11 @@
 title: Service limits for Azure Communication Services
 titleSuffix: An Azure Communication Services how-to document
 description: Learn how to
-author: manoskow
+author: GrantMeStrength
 manager: shahen
 services: azure-communication-services
 
-ms.author: manoskow
+ms.author: jken
 ms.date: 11/01/2021
 ms.topic: how-to
 ms.service: azure-communication-services
@@ -23,7 +23,7 @@ When you hit service limitations you will generally receive an HTTP status code 
 - Reduce the frequency of calls.
 - Avoid immediate retries, because all requests accrue against your usage limits.
 
-You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture.md) documentation for [throttling patterns](/azure/architecture/patterns/throttling.md).
+You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling).
 
 ## Acquiring phone numbers
 Before trying to acquire a phone number, make sure your subscription meets the [geographic and subscription](./telephony/plan-solution.md) requirements, otherwise you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
@@ -70,38 +70,35 @@ If you require sending an amount of messages that exceeds the rate-limits, pleas
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
 ## Chat
-When using the chat APIs, you might receive a ```429``` error. This indicates you are hitting the service limitations and your requests will be queued to be sent once the number of requests is below the threshold.
 
-| **Operation**         | **Scope**                 | Timeframe (s) | Limit (request #) |
-|--|--|--|--|
-|Send Message 	        | Per Thread 	        |60 	        |2000 |
-|Send Message            | Per User per Thread 	|60 	        |50 |
-|Get Message 	        | Per User Per Thread   |-              |- |
-|Get Messages 	        |Per User Per Thread    |5              |15 |
-|Get Messages           |Per Thread	        |5	        |250 |
-|Update Message 	|Per User per Thread 	|5 	        |3 |
-|Update Message         | 	 	        |60             |30 |
-|Update Message         | 	                |180            |60 | 
-|Get Thread             |Per User Per Thread    |5              |10 |
-|Get Thread             |Per User 	        |5 	        |20 |
-|Get Threads 	        |Per User 	        |5              |40 |
-|UpdateThreadRoster 	|Per Thread 	        |300 	        |25 |
-|UpdateThreadRoster   |Per User               |60 	        |25 |
-|UpdateThreadRoster   |Per User Per Thread 	|1 	        |- |
-
-### Other maximum limitations
+### Size Limits
 
 | **Name**         | Limit  |
 |--|--|
 |Number of participants in thread|250 |
 |Batch of participants - CreateThread|200 |
 |Batch of participants - AddParticipant|200 |
+|Page size - ListMessages|200 |
 
-### Action to take
+### Operation Limits
 
-All chat SDKs have retry policies in place, with exponential back-off set by default (you can override this if you'd like). The API returns a retry-after header that indicates the number of seconds suggested to wait before retrying to send the message.
-
-For more information about the chat SDK and service, see the [chat SDK overview](./chat/sdk-features.md) page.
+| **Operation** | **Bucketed by** | **Limit per 10 seconds** | **Limit per minute** |
+|--|--|--|--|
+|Create chat thread|User|10|-|
+|Delete chat thread|User|10|-|
+|Update chat thread|Chat thread|5|-|
+|Add participants / remove participants|Chat thread|10|30|
+|Get chat thread / List chat threads|User|50|-|
+|Get chat message / List chat messages|User and chat thread|50|-|
+|Get chat message / List chat messages|Chat thread|250|-|
+|Get read receipts|User and chat thread|5|-|
+|Get read receipts|Chat thread|250|-|
+|List chat thread participants|User and chat thread|10|-|
+|List chat thread participants|Chat thread|250|-|
+|Send message / update message / delete message|Chat thread|10|30|
+|Send read receipt|User and chat thread|10|30|
+|Send typing indicator|User and chat thread|5|15|
+|Send typing indicator|Chat thread|10|30|
 
 ## Voice and video calling
 
@@ -141,14 +138,14 @@ The following timeouts apply to the Communication Services Calling SDKs:
 For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md).
 
 ## Teams Interoperability and Microsoft Graph
-If you are using a Teams interoperability scenario, you will likely end up using some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings.md).  
+If you are using a Teams interoperability scenario, you will likely end up using some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings).  
 
-Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](/graph/throttling.md) in more detail.
+Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](/graph/throttling) in more detail.
 
 ### Action to take
 When you implement error handling, use the HTTP error code 429 to detect throttling. The failed response includes the ```Retry-After``` response header. Backing off requests using the ```Retry-After``` delay is the fastest way to recover from throttling because Microsoft Graph continues to log resource usage while a client is being throttled.
 
-You can find more information on Microsoft Graph [throttling](/graph/throttling.md) limits in the [Microsoft Graph](/graph/overview.md) documentation.
+You can find more information on Microsoft Graph [throttling](/graph/throttling) limits in the [Microsoft Graph](/graph/overview) documentation.
 
 ## Network Traversal
 

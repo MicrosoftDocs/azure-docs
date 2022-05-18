@@ -5,9 +5,9 @@ keywords: SQL Edge, container, kubernetes
 services: sql-edge
 ms.service: sql-edge
 ms.topic: tutorial
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
 ms.date: 09/22/2020
 ---
 

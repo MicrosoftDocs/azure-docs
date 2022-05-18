@@ -2,8 +2,8 @@
 title: Differential privacy in machine learning (preview)
 titleSuffix: Azure Machine Learning
 description: Learn what differential privacy is and how differentially private systems preserve data privacy. 
-author: luisquintanilla
-ms.author: luquinta 
+author: lgayhardt
+ms.author: lagayhar 
 ms.date: 10/21/2021
 services: machine-learning
 ms.service: machine-learning
@@ -23,8 +23,7 @@ As the amount of data that an organization collects and uses for analyses increa
 
 Differential privacy is a set of systems and practices that help keep the data of individuals safe and private. In machine learning solutions, differential privacy may be required for regulatory compliance.
 
-> [!div class="mx-imgBorder"]
-> ![Differential privacy machine learning process](./media/concept-differential-privacy/differential-privacy-machine-learning.jpg)
+:::image type="content" source="./media/concept-differential-privacy/differential-privacy-machine-learning.jpg" alt-text="Differential privacy machine learning process." lightbox ="./media/concept-differential-privacy/differential-privacy-machine-learning.jpg":::
 
 In traditional scenarios, raw data is stored in files and databases. When users analyze data, they typically use the raw data. This is a concern because it might infringe on an individual's privacy. Differential privacy tries to deal with this problem by adding "noise" or randomness to the data so that users can't identify any individual data points. At the least, such a system provides plausible deniability. Therefore, the privacy of individuals is preserved with limited impact on the accuracy of the data.
 
@@ -36,7 +35,7 @@ Differential privacy tries to protect against the possibility that a user can pr
 
 Epsilon values are non-negative. Values below 1 provide full plausible deniability. Anything above 1 comes with a higher risk of exposure of the actual data. As you implement machine learning solutions with differential privacy, you want to data with epsilon values between 0 and 1.
 
-Another value directly correlated to epsilon is **delta**. Delta is a measure of the probability that a report is not fully private. The higher the delta, the higher the epsilon. Because these values are correlated, epsilon is used more often.
+Another value directly correlated to epsilon is **delta**. Delta is a measure of the probability that a report isn’t fully private. The higher the delta, the higher the epsilon. Because these values are correlated, epsilon is used more often.
 
 ## Limit queries with a privacy budget
 
@@ -44,7 +43,7 @@ To ensure privacy in systems where multiple queries are allowed, differential pr
 
 ## Reliability of data
 
-Although the preservation of privacy should be the goal, there is a tradeoff when it comes to usability and reliability of the data. In data analytics, accuracy can be thought of as a measure of uncertainty introduced by sampling errors. This uncertainty tends to fall within certain bounds. **Accuracy** from a differential privacy perspective instead measures the reliability of the data, which is affected by the uncertainty introduced by the privacy mechanisms. In short, a higher level of noise or privacy translates to data that has a lower epsilon, accuracy, and reliability. 
+Although the preservation of privacy should be the goal, there’s a tradeoff when it comes to usability and reliability of the data. In data analytics, accuracy can be thought of as a measure of uncertainty introduced by sampling errors. This uncertainty tends to fall within certain bounds. **Accuracy** from a differential privacy perspective instead measures the reliability of the data, which is affected by the uncertainty introduced by the privacy mechanisms. In short, a higher level of noise or privacy translates to data that has a lower epsilon, accuracy, and reliability. 
 
 ## Open-source differential privacy libraries
 
@@ -72,7 +71,7 @@ The system library provides the following tools and services for working with ta
 |---------|---------|
 |Data Access     | Library that intercepts and processes SQL queries and produces reports. This library is implemented in Python and supports the following ODBC and DBAPI data sources:<ul><li>PostgreSQL</li><li>SQL Server</li><li>Spark</li><li>Preston</li><li>Pandas</li></ul>|
 |Service     | Execution service that provides a REST endpoint to serve requests or queries against shared data sources. The service is designed to allow composition of differential privacy modules that operate on requests containing different delta and epsilon values, also known as heterogeneous requests. This reference implementation accounts for additional impact from queries on correlated data. |
-|Evaluator     | Stochastic evaluator that checks for privacy violations, accuracy, and bias. The evaluator supports the following tests: <ul><li>Privacy Test -  Determines whether a report adheres to the conditions of differential privacy.</li><li>Accuracy Test - Measures whether the reliability of reports falls within the upper and lower bounds given a 95% confidence level.</li><li>Utility Test - Determines whether the confidence bounds of a report are close enough to the data while still maximizing privacy.</li><li>Bias Test - Measures the distribution of reports for repeated queries to ensure they are not unbalanced</li></ul> |
+|Evaluator     | Stochastic evaluator that checks for privacy violations, accuracy, and bias. The evaluator supports the following tests: <ul><li>Privacy Test -  Determines whether a report adheres to the conditions of differential privacy.</li><li>Accuracy Test - Measures whether the reliability of reports falls within the upper and lower bounds given a 95% confidence level.</li><li>Utility Test - Determines whether the confidence bounds of a report are close enough to the data while still maximizing privacy.</li><li>Bias Test - Measures the distribution of reports for repeated queries to ensure they aren’t unbalanced</li></ul> |
 
 ## Next steps
 

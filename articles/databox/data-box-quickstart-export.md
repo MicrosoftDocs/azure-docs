@@ -8,9 +8,8 @@ ms.subservice: pod
 ms.topic: quickstart
 ms.date: 07/17/2020
 ms.author: alkohli
-ms.localizationpriority: high
-#Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ms.custom: mode-other
+#Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 
 # Quickstart: Get started with Azure Data Box to export data from Azure

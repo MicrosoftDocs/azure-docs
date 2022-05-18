@@ -1,4 +1,4 @@
-- name: Private Link Documentation
+- name: Azure Private Link documentation
   href: index.yml
 - name: Overview
   items:
@@ -6,23 +6,29 @@
     href: private-link-overview.md
 - name: Quickstarts
   items:
-  - name: Create a Private Endpoint - Portal
+  - name: Create a private endpoint - Azure portal
     href: create-private-endpoint-portal.md
-  - name: Create a Private Endpoint - PowerShell
+  - name: Create a private endpoint - PowerShell
     href: create-private-endpoint-powershell.md
-  - name: Create a Private Endpoint - Azure CLI
+  - name: Create a private endpoint - Azure CLI
     href: create-private-endpoint-cli.md
-  - name: Create a Private Endpoint - ARM template
-    displayName: Resource Manager
+  - name: Create a private endpoint - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: create-private-endpoint-bicep.md
+  - name: Create a private endpoint - ARM template
+    displayName: Azure Resource Manager
     href: create-private-endpoint-template.md
-  - name: Create a Private Link service - Portal
+  - name: Create a Private Link service - Azure portal
     href: create-private-link-service-portal.md
   - name: Create a Private Link service - PowerShell
     href: create-private-link-service-powershell.md
   - name: Create a Private Link service - Azure CLI
     href: create-private-link-service-cli.md
+  - name: Create a Private Link service - Bicep
+    displayName: ARM, Template, Resource Manager
+    href: create-private-link-service-bicep.md
   - name: Create a Private Link service - ARM template
-    displayName: Resource Manager
+    displayName: Azure Resource Manager
     href: create-private-link-service-template.md
   expanded: true
 - name: Tutorials
@@ -35,7 +41,7 @@
     href: tutorial-private-endpoint-webapp-portal.md
   - name: SQL
     items:
-    - name: Connect to a SQL server - Portal
+    - name: Connect to a SQL server - Azure portal
       href: tutorial-private-endpoint-sql-portal.md
     - name: Connect to a SQL server - PowerShell
       href: tutorial-private-endpoint-sql-powershell.md
@@ -45,11 +51,11 @@
   items:
   - name: Availability
     href: availability.md
-  - name: Private Endpoint
+  - name: What is a private endpoint?
     href: private-endpoint-overview.md
-  - name: Private Link Service
+  - name: Private Link service
     href: private-link-service-overview.md    
-  - name: Private Endpoint DNS integration
+  - name: Private endpoint DNS integration
     href: private-endpoint-dns.md   
   - name: RBAC permissions
     href: rbac-permissions.md 
@@ -59,11 +65,15 @@
       href: /security/benchmark/azure/baselines/private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: How-to
   items:
+  - name: Private endpoint with static IP address
+    items:
+    - name: PowerShell
+      href: private-endpoint-static-ip-powershell.md
   - name: Export private endpoint DNS records
     href: private-endpoint-export-dns.md
   - name: Manage network policies for private endpoints
     href: disable-private-endpoint-network-policy.md
-  - name: Disable network policies for a Private Link Service
+  - name: Disable network policies for a Private Link service
     href: disable-private-link-service-network-policy.md
   - name: Manage private endpoints
     href: manage-private-endpoint.md
@@ -71,13 +81,13 @@
     href: inspect-traffic-with-azure-firewall.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot Private Endpoint connectivity problems
+    - name: Troubleshoot private endpoint connectivity problems
       href: troubleshoot-private-endpoint-connectivity.md
-    - name: Troubleshoot Private Link Service connectivity problems
+    - name: Troubleshoot Private Link service connectivity problems
       href: troubleshoot-private-link-connectivity.md 
 - name: Reference
   items:
-  - name: Azure CLI
+  - name: The Azure CLI
     href: /cli/azure/network
   - name: Azure PowerShell
     href: /powershell/module/az.network

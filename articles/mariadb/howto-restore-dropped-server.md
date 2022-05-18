@@ -19,7 +19,7 @@ To restore a deleted Azure Database for MariaDB server, you need following:
 
 ## Steps to restore
 
-1. Go to the [Activity Log](https://ms.portal.azure.com/#blade/Microsoft_Azure_ActivityLog/ActivityLogBlade) from Monitor blade in Azure portal. 
+1. Go to the [Activity Log](https://portal.azure.com/#blade/Microsoft_Azure_ActivityLog/ActivityLogBlade) from Monitor blade in Azure portal. 
 
 2. In Activity Log, click on **Add filter** as shown and set following filters for the 
 

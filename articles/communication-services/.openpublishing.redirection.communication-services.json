@@ -16,8 +16,28 @@
         "redirect_document_id": false
       },
       {
-        "source_path_from_root": "/articles/communication-services/quickstarts/meeting/samples-for-teams-embed.md ",
+        "source_path_from_root": "/articles/communication-services/quickstarts/meeting/samples-for-teams-embed.md",
         "redirect_url": "/azure/communication-services/quickstarts/ui-library/get-started-call",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/concepts/ui-library/mobile-ui-library.md",
+        "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-overview",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/concepts/ui-library/mobile-ui-use-cases.md",
+        "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-use-cases",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/ui-library/get-started-call.md",
+        "redirect_url": "/azure/communication-services/quickstarts/ui-library/get-started-composites",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/concepts/router/azure-function-rule-engine.md",
+        "redirect_url": "/azure/communication-services/how-tos/router-sdk/customize-worker-scoring",
         "redirect_document_id": false
       }
     ]

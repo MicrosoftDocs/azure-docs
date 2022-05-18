@@ -11,7 +11,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Add custom metrics (Preview)
+# Add custom metrics
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 

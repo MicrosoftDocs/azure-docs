@@ -117,10 +117,9 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 | Table.CombineColumns | This is a common scenario that isn't directly supported but can be achieved by adding a new column that concatenates two given columns.  For example, Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |
 | Table.TransformColumnTypes | This is supported in most cases. The following scenarios are unsupported: transforming string to currency type, transforming string to time type, transforming string to Percentage type. |
 | Table.NestedJoin | Just doing a join will result in a validation error. The columns must be expanded for it to work. |
-| Table.Distinct | Remove duplicate rows isn't supported. |
 | Table.RemoveLastN | Remove bottom rows isn't supported. |
 | Table.RowCount | Not supported, but can be achieved by adding a custom column containing the value 1, then aggregating that column with List.Sum. Table.Group is supported. | 
-| Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in scaled-out M. |
+| Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell, which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in scaled-out M. |
 | Table.Transpose | Not supported |
 
 ## M script workarounds
@@ -150,8 +149,8 @@ This option is accessible from the Extract option in the ribbon
 
 ![Power Query Pivot Selector](media/wrangling-data-flow/power-query-pivot-2.png)
 
-* When you click OK, you will see the data in the editor updated with the pivoted values
-* You will also see a warning message that the transformation may be unsupported
+* When you click OK, you'll see the data in the editor updated with the pivoted values
+* You'll also see a warning message that the transformation may be unsupported
 * To fix this warning, expand the pivoted list manually using the PQ editor
 * Select Advanced Editor option from the ribbon
 * Expand the list of pivoted values manually
@@ -171,7 +170,7 @@ To set the date/time format when using Power Query ADF, please follow these sets
 ![Power Query Change Type](media/data-flow/power-query-date-2.png)
 
 1. Select the column in the Power Query UI and choose Change Type > Date/Time
-2. You will see a warning message
+2. You'll see a warning message
 3. Open Advanced Editor and change ```TransformColumnTypes``` to ```TransformColumns```. Specify the format and culture based on the input data.
 
 ![Power Query Editor](media/data-flow/power-query-date-3.png)

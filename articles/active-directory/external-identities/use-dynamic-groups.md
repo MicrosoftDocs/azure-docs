@@ -73,4 +73,4 @@ The following image shows the rule syntax for a dynamic group modified to includ
 
 - [B2B collaboration user properties](user-properties.md)
 - [Adding a B2B collaboration user to a role](./add-users-administrator.md)
-- [Conditional Access for B2B collaboration users](conditional-access.md)
+- [Conditional Access for B2B collaboration users](authentication-conditional-access.md)

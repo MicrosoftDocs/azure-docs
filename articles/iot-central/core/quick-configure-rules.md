@@ -3,7 +3,7 @@ title: Quickstart - Configure rules and actions in Azure IoT Central
 description: This quickstart shows you how to configure telemetry-based rules and actions in your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/27/2021
+ms.date: 12/22/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -16,7 +16,7 @@ In this quickstart, you create an IoT Central rule that sends an email when some
 
 ## Prerequisites
 
-Before you begin, you should complete the previous quickstart [Create and use an Azure IoT Central application](./quick-deploy-iot-central.md) to connect the **IoT Plug and Play** smartphone app to your IoT Central application.
+Before you begin, you should complete the previous quickstart [Connect your first device](./quick-deploy-iot-central.md). It shows you how to create an Azure IoT Central application and connect the **IoT Plug and Play** smartphone app to it.
 
 ## Create a telemetry-based rule
 
@@ -34,7 +34,7 @@ When the phone is lying on its back, the **z** value is greater than `9`, when t
 
 1. In the **Target devices** section, select **IoT Plug and Play mobile** as the **Device template**. This option filters the devices the rule applies to by device template type. You can add more filter criteria by selecting **+ Filter**.
 
-1. In the **Conditions** section, you define what triggers your rule. Use the following information to define a single condition based on accelerometer z-axis telemetry. This rule uses aggregation so you receive a maximum of one email for each device every five minutes:
+1. In the **Conditions** section, you define what triggers your rule. Use the following information to define a single condition based on accelerometer z-axis telemetry. This rule uses aggregation, so you receive a maximum of one email for each device every five minutes:
 
     | Field            | Value            |
     |------------------|------------------|

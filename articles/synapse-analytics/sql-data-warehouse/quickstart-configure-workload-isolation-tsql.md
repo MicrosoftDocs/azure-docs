@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Configure workload isolation - T-SQL'
 description: Use T-SQL to configure workload isolation.
-services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 04/27/2020
 ms.author: rortloff
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: azure-synapse, mode-other
 ---
 

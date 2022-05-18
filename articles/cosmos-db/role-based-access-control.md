@@ -3,7 +3,7 @@ title: Azure role-based access control in Azure Cosmos DB
 description: Learn how Azure Cosmos DB provides database protection with Active directory integration (Azure RBAC).
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 05/11/2022
 author: ThomasWeiss
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell
@@ -13,9 +13,12 @@ ms.custom: devx-track-azurepowershell
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!NOTE]
-> Azure RBAC support in Azure Cosmos DB applies to management plane operations only. This article is about role-based access control for management plane operations in Azure Cosmos DB. If you are using data plane operations, data is secured using primary keys, resource tokens, or the Azure Cosmos DB RBAC. To learn more about role-based access control applied to data plane operations, see [Secure access to data](secure-access-to-data.md) and [Azure Cosmos DB RBAC](how-to-setup-rbac.md) articles.
+> This article is about role-based access control for management plane operations in Azure Cosmos DB. If you are using data plane operations, data is secured using primary keys, resource tokens, or the Azure Cosmos DB RBAC. 
+
+To learn more about role-based access control applied to data plane operations in the SQL API, see [Secure access to data](secure-access-to-data.md) and [Azure Cosmos DB RBAC](how-to-setup-rbac.md) articles. For the Cosmos DB API for MongoDB, see [Data Plane RBAC in the API for MongoDB](mongodb/how-to-setup-rbac.md).
 
 Azure Cosmos DB provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources. Role assignments are scoped to control-plane access only, which includes access to Azure Cosmos accounts, databases, containers, and offers (throughput).
+
 
 ## Built-in roles
 
@@ -53,9 +56,7 @@ When this feature is enabled, changes to any resource can only be made from a us
 
 ### Check list before enabling
 
-This setting will prevent any changes to any Cosmos resource from any client connecting using account keys including any Cosmos DB SDK, any tools that connect via account keys, or from the Azure portal. To prevent issues or errors from applications after enabling this feature, check if  applications or Azure portal users perform any of the following actions before enabling this feature, including:
-
-- Any change to the Cosmos account including any properties or adding or removing regions.
+This setting will prevent any changes to any Cosmos resource from any client connecting using account keys including any Cosmos DB SDK, any tools that connect via account keys. To prevent issues or errors from applications after enabling this feature, check if  applications perform any of the following actions before enabling this feature, including:
 
 - Creating, deleting child resources such as databases and containers. This includes resources for other APIs such as Cassandra, MongoDB, Gremlin, and table resources.
 
@@ -90,7 +91,7 @@ To set this property using an ARM template, update your existing template or exp
 ```
 
 > [!IMPORTANT]
-> Make sure you include the other properties for your account and child resources when redploying with this property. Do not deploy this template as is or it will reset all of your account properties.
+> Make sure you include the other properties for your account and child resources when redeploying with this property. Do not deploy this template as is or it will reset all of your account properties.
 
 ### Set via Azure CLI
 
@@ -114,3 +115,4 @@ Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBA
 - [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)
 - [Azure custom roles](../role-based-access-control/custom-roles.md)
 - [Azure Cosmos DB resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
+- [Configure role-based access control for your Azure Cosmos DB API for MongoDB](mongodb/how-to-setup-rbac.md)

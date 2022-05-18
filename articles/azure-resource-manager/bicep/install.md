@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 04/05/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -31,7 +31,7 @@ If you get an error during installation, see [Troubleshoot Bicep installation](i
 
 ## Deployment environment
 
-After setting up your development environment, you need to install Bicep CLI for your deployment environment. Depends on whether you want to use [Azure CLI](#azure-cli) or [Azure PowerShell](#azure-powershell), the steps to set up a local deployment environment are different. Those steps are shown in the next sections.
+After setting up your development environment, you need to install Bicep CLI for your deployment environment. Depending on whether you want to use [Azure CLI](#azure-cli) or [Azure PowerShell](#azure-powershell), the steps to set up a local deployment environment are different. Those steps are shown in the next sections.
 
 To deploy Bicep files from an Azure Pipeline, see [Integrate Bicep with Azure Pipelines](add-template-to-azure-pipelines.md). To deploy Bicep files through GitHub Actions, see [Deploy Bicep files by using GitHub Actions](deploy-github-actions.md).
 
@@ -49,7 +49,7 @@ To verify your current version, run:
 az --version
 ```
 
-You now have everything you need to [deploy](deploy-cli.md) and [decompile](decompile.md) Bicep files. You have everything because Azure CLI automatically installs the Bicep CLI when a command is executed that needs it.
+You now have everything you need to [deploy](deploy-cli.md) and [decompile](decompile.md) Bicep files. Azure CLI will automatically install the Bicep CLI when a command is executed that needs it.
 
 To manually start the Bicep CLI installation, use:
 
@@ -192,17 +192,17 @@ The `bicep install` and `bicep upgrade` commands don't work in an air-gapped env
 - **Linux**
 
     1. Download **bicep-linux-x64** from the [Bicep release page](https://github.com/Azure/bicep/releases/latest/) in a non-air-gapped environment.
-    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine.
+    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine. Rename file to **bicep**.
 
 - **macOS**
 
     1. Download **bicep-osx-x64** from the [Bicep release page](https://github.com/Azure/bicep/releases/latest/) in a non-air-gapped environment.
-    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine.
+    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine. Rename file to **bicep**.
 
 - **Windows**
 
     1. Download **bicep-win-x64.exe** from the [Bicep release page](https://github.com/Azure/bicep/releases/latest/) in a non-air-gapped environment.
-    1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine.
+    1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine. Rename file to **bicep.exe**.
 
 ## Install the nightly builds
 

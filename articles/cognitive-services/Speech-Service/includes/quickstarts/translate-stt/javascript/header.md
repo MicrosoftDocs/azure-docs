@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Translate speech-to-text, Javascript - Speech service"
+title: "Quickstart: Translate speech-to-text, JavaScript - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

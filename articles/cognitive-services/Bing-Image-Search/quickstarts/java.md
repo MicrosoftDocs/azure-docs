@@ -9,28 +9,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 05/08/2020
+ms.date: 01/05/2022
 ms.author: aahi
-ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
+ms.devlang: java
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 # Quickstart: Search for images with the Bing Image Search API and Java 
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
 
 Use this quickstart to learn how to send search requests to the Bing Image Search API in Azure Cognitive Services. This Java application sends a search query to the API, and displays the URL of the first image in the results. Although this application is written in Java, the API is a RESTful web service compatible with most programming languages.
-
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) with additional error handling and annotations.
 
 ## Prerequisites
 
 * The [Java Development Kit(JDK)](/azure/developer/java/fundamentals/java-support-on-azure)
 
 * The [Gson library](https://github.com/google/gson)
-
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create and initialize a project
 

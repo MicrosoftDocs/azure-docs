@@ -3,7 +3,6 @@ title: IP addresses used by Azure Monitor
 description: Server firewall exceptions required by Application Insights
 ms.topic: conceptual
 ms.date: 01/27/2020
-
 ---
 
 # IP addresses used by Azure Monitor
@@ -16,7 +15,7 @@ ms.date: 01/27/2020
 > [!TIP]
 > You can use Azure [network service tags](../../virtual-network/service-tags-overview.md) to manage access if you are using Azure Network Security Groups. If you are managing access for hybrid/on premises resources you can download the equivalent IP address lists as [JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) which are updated each week. To cover all the exceptions in this article you would need to use the service tags: `ActionGroup`, `ApplicationInsightsAvailability`, and `AzureMonitor`.
 
-Alternatively, you can subscribe to this page as a RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom to your favorite RSS/ATOM reader to get notified of the latest changes.
+Alternatively, you can subscribe to this page as a RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/ip-addresses.md to your favorite RSS/ATOM reader to get notified of the latest changes.
 
 
 ## Outgoing ports
@@ -86,108 +85,66 @@ Download [China Cloud IP addresses](https://www.microsoft.com/download/details.a
 ```
 Australia East
 20.40.124.176/28
-20.40.124.240/28
-20.40.125.80/28
+
 
 Brazil South
 191.233.26.176/28
-191.233.26.128/28
-191.233.26.64/28
+
 
 France Central (Formerly France South)
 20.40.129.96/28
-20.40.129.112/28
-20.40.129.128/28
-20.40.129.144/28
+
 
 France Central
 20.40.129.32/28
-20.40.129.48/28
-20.40.129.64/28
-20.40.129.80/28
+
 
 East Asia
 52.229.216.48/28
-52.229.216.64/28
-52.229.216.80/28
+
 
 North Europe
 52.158.28.64/28
-52.158.28.80/28
-52.158.28.96/28
-52.158.28.112/28
+
 
 Japan East
 52.140.232.160/28
-52.140.232.176/28
-52.140.232.192/28
+
 
 West Europe
 51.144.56.96/28
-51.144.56.112/28
-51.144.56.128/28
-51.144.56.144/28
-51.144.56.160/28
-51.144.56.176/28
+
 
 UK South
 51.105.9.128/28
-51.105.9.144/28
-51.105.9.160/28
+
 
 UK West
 20.40.104.96/28
-20.40.104.112/28
-20.40.104.128/28
-20.40.104.144/28
+
 
 Southeast Asia
 52.139.250.96/28
-52.139.250.112/28
-52.139.250.128/28
-52.139.250.144/28
+
 
 West US
 40.91.82.48/28
-40.91.82.64/28
-40.91.82.80/28
-40.91.82.96/28
-40.91.82.112/28
-40.91.82.128/28
+
 
 Central US
 13.86.97.224/28
-13.86.97.240/28
-13.86.98.48/28
-13.86.98.0/28
-13.86.98.16/28
-13.86.98.64/28
+
 
 North Central US
 23.100.224.16/28
-23.100.224.32/28
-23.100.224.48/28
-23.100.224.64/28
-23.100.224.80/28
-23.100.224.96/28
-23.100.224.112/28
-23.100.225.0/28
+
 
 South Central US
 20.45.5.160/28
-20.45.5.176/28
-20.45.5.192/28
-20.45.5.208/28
-20.45.5.224/28
-20.45.5.240/28
 
 East US
 20.42.35.32/28
-20.42.35.64/28
-20.42.35.80/28
-20.42.35.96/28
-20.42.35.112/28
-20.42.35.128/28
+
 
 ```
 

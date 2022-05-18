@@ -117,7 +117,7 @@ Use the steps in this section to create the following configuration:
     $vpnClientAddressPool = "172.16.201.0/24"
 
     # HDInsight settings
-    $HdiWorkerNodes = 4
+    $hdiWorkerNodes = 4
     $hdiVersion = "3.6"
     $hdiType = "Kafka"
     ```

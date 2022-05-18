@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/06/2021
+ms.date: 12/27/2021
 ms.topic: how-to
 ---
 
@@ -17,7 +17,7 @@ You can use the [Azure portal](https://portal.azure.com) to create, manage, and 
 
 [!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
-To create an application, navigate to the [IoT Central Application](https://ms.portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal:
+To create an application, navigate to the [IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal:
 
 ![Create IoT Central form](media/howto-manage-iot-central-from-portal/create-form.png)
 
@@ -28,17 +28,19 @@ To create an application, navigate to the [IoT Central Application](https://ms.p
 * **Template** is the type of IoT Central application you want to create. You can create a new application either from the list of industry-relevant templates to help you get started quickly, or start from scratch using the **Custom application** template.
 
 * **Location** is the [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the following locations:
-    
-    * Australia
-    * East Central US
-    * East US
-    * East US 2
-    * Japan East
-    * North Europe
-    * Southeast Asia
-    * UK South
-    * West Europe
-    * West US
+
+  * Australia East
+  * Canada Central
+  * Central US
+  * East US
+  * East US 2
+  * Japan East
+  * North Europe
+  * South Central US
+  * Southeast Asia
+  * UK South
+  * West Europe
+  * West US
 
   Once you choose a location, you can't later move your application to a different location.
 
@@ -92,13 +94,10 @@ When you configure a managed identity, the configuration includes a *scope* and 
 
 You can configure role assignments in the Azure portal or use the Azure CLI:
 
-* To learn more about to configure role assignments in the Azure portal for specific destinations, see [Export IoT data to cloud destinations using data export](howto-export-data.md).
+* To learn more about to configure role assignments in the Azure portal for specific destinations, see [Export IoT data to cloud destinations using blob storage](howto-export-to-blob-storage.md).
 * To learn more about how to configure role assignments using the Azure CLI, see [Manage IoT Central from Azure CLI or PowerShell](howto-manage-iot-central-from-cli.md).
 
 ## Monitor application health
-
-> [!NOTE]
-> Metrics are only available for version 3 IoT Central applications. To learn how to check your application version, see [How do I get information about my application?](howto-faq.yml#how-do-i-get-information-about-my-application-).
 
 You can use the set of metrics provided by IoT Central to assess the health of devices connected to your IoT Central application and the health of your running data exports.
 
@@ -109,7 +108,8 @@ Metrics are enabled by default for your IoT Central application and you access t
 
 ### View metrics in the Azure portal
 
-The following steps assume you have an [IoT Central application](./howto-create-iot-central-application.md) with some [connected devices](./tutorial-connect-device.md) or a running [data export](howto-export-data.md).
+The following steps assume you have an [IoT Central application](./howto-create-iot-central-application.md) with some [connected devices](./tutorial-connect-device.md) or a running [data export](howto-export-to-blob-storage.md).
+
 
 To view IoT Central metrics in the portal:
 
@@ -124,7 +124,7 @@ Access to metrics in the Azure portal is managed by [Azure role based access con
 
 ### IoT Central metrics
 
-For a list of of the metrics that are currently available for IoT Central, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsoftiotcentraliotapps).
+For a list of the metrics that are currently available for IoT Central, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsoftiotcentraliotapps).
 
 ### Metrics and invoices
 

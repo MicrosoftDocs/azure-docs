@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: gahllevy
-
+ms.devlang: javascript
 ---
 
 # Use Multi-document transactions in Azure Cosmos DB API for MongoDB

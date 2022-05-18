@@ -10,8 +10,8 @@ ms.date: 10/05/2020
 
 ms.author: justinha
 author: justinha
-manager: daveba
-ms.reviewer: rhicock
+manager: karenhoran
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell

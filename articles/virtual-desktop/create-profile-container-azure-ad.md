@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 12/01/2021
+ms.date: 04/05/2022
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory (preview)
@@ -33,7 +33,7 @@ The Azure AD Kerberos functionality is only available on the following operating
   - Windows 10 Enterprise single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
   - Windows Server, version 2022 with the latest cumulative updates installed, especially the [KB5007254 - 2021-11 Cumulative Update Preview for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/november-22-2021-kb5007254-os-build-20348-380-preview-9a960291-d62e-486a-adcc-6babe5ae6fc1).
 
-The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need Active Directory Domain Services (AD DS) and Azure AD Connect. You must create these accounts in Active Directory and sync them to Azure AD.
+The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need Active Directory Domain Services (AD DS) and Azure AD Connect. You must create these accounts in Active Directory and sync them to Azure AD. The service doesn't currently support environments where users are managed with Azure AD and optionally synced to Azure AD Directory Services.
 
 To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
 
@@ -65,9 +65,11 @@ Follow the instructions in the following sections to configure Azure AD authenti
 
     For more information, see [Install the Azure AD PowerShell module](/powershell/azure/active-directory/install-adv2).
 
-- Set variables for both storage account name and resource group name by running the following PowerShell cmdlets, replacing the values with the ones relevant to your environment.
+- Set the required variables for your tenant, subscription, storage account name and resource group name by running the following PowerShell cmdlets, replacing the values with the ones relevant to your environment.
 
     ```powershell
+    $tenantId = "<MyTenantId>"
+    $subscriptionId = "<MySubscriptionId>"
     $resourceGroupName = "<MyResourceGroup>"
     $storageAccountName = "<MyStorageAccount>"
     ```
@@ -75,14 +77,11 @@ Follow the instructions in the following sections to configure Azure AD authenti
 - Enable Azure AD authentication on your storage account by running the following PowerShell cmdlets:
 
     ```powershell
-    Connect-AzAccount
-    $Subscription =  $(Get-AzContext).Subscription.Id;
-    $ApiVersion = '2021-04-01'
+    Connect-AzAccount -Tenant $tenantId -SubscriptionId $subscriptionId
 
-    $Uri = ('https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Storage/storageAccounts/{2}?api-version={3}' -f $Subscription, $ResourceGroupName, $StorageAccountName, $ApiVersion);
+    $Uri = ('https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Storage/storageAccounts/{2}?api-version=2021-04-01' -f $subscriptionId, $resourceGroupName, $storageAccountName);
     
-    $json = 
-       @{properties=@{azureFilesIdentityBasedAuthentication=@{directoryServiceOptions="AADKERB"}}};
+    $json = @{properties=@{azureFilesIdentityBasedAuthentication=@{directoryServiceOptions="AADKERB"}}};
     $json = $json | ConvertTo-Json -Depth 99
 
     $token = $(Get-AzAccessToken).Token
@@ -148,8 +147,7 @@ To enable Azure AD authentication on a storage account, you need to create an Az
 
     ```powershell
     $Token = ([Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens['AccessToken']).AccessToken
-    $apiVersion = '1.6'
-    $Uri = ('https://graph.windows.net/{0}/{1}/{2}?api-version={3}' -f $azureAdPrimaryDomain, 'servicePrincipals', $servicePrincipal.ObjectId, $apiVersion)
+    $Uri = ('https://graph.windows.net/{0}/{1}/{2}?api-version=1.6' -f $azureAdPrimaryDomain, 'servicePrincipals', $servicePrincipal.ObjectId)
     $json = @'
     {
       "passwordCredentials": [
@@ -163,7 +161,7 @@ To enable Azure AD authentication on a storage account, you need to create an Az
     '@
     $now = [DateTime]::UtcNow
     $json = $json -replace "<STORAGEACCOUNTSTARTDATE>", $now.AddDays(-1).ToString("s")
-	$json = $json -replace "<STORAGEACCOUNTENDDATE>", $now.AddMonths(12).ToString("s")
+	$json = $json -replace "<STORAGEACCOUNTENDDATE>", $now.AddMonths(6).ToString("s")
     $json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password
     $Headers = @{'authorization' = "Bearer $($Token)"}
     try {
@@ -175,6 +173,9 @@ To enable Azure AD authentication on a storage account, you need to create an Az
       Write-Host "StatusDescription: " $_.Exception.Response.StatusDescription
     }
     ```
+
+    > [!IMPORTANT]
+    > This password expires every six months, so you must update it by following the steps in [Update the service principal's password](#update-the-service-principals-password).
 
 ### Set the API permissions on the newly created application
 
@@ -210,7 +211,7 @@ All users that need to have FSLogix profiles stored on the storage account you'r
 
 ### Assign directory level access permissions
 
-To prevent users from accessing the user profile of other users, you must also assign directory-level permissions. This section provides the steps to configure the permissions. Learn more about the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht)
+To prevent users from accessing the user profile of other users, you must also assign directory-level permissions. This section will give you a step-by-step guide for how to configure the permissions.
 
 > [!IMPORTANT]
 > Without proper directory level permissions in place, a user can delete the user profile or access the personal information of a different user. It's important to make sure users have proper permissions to prevent accidental deletion from happening.
@@ -228,93 +229,69 @@ To configure your storage account:
 
 1. On a device that's domain-joined to the Active Directory, install the [ActiveDirectory PowerShell module](/powershell/module/activedirectory/?view=windowsserver2019-ps&preserve-view=true) if you haven't already.
 
-2. Set the storage account's ActiveDirectoryProperties to support the Shell experience. Because Azure AD doesn't currently support configuring ACLs in Shell, it must instead rely on Active Directory. To configure Shell, run the following command in PowerShell:
+2. Set the required variables for your tenant, subscription, storage account name and resource group name by running the following PowerShell cmdlets, replacing the values with the ones relevant to your environment. You can skip this step if you've already set these values.
+
     ```powershell
-    function Set-StorageAccountAadKerberosADProperties {
-        [CmdletBinding()]
-        param(
-            [Parameter(Mandatory=$true, Position=0)]
-            [string]$ResourceGroupName,
+    $tenantId = "<MyTenantId>"
+    $subscriptionId = "<MySubscriptionId>"
+    $resourceGroupName = "<MyResourceGroup>"
+    $storageAccountName = "<MyStorageAccount>"
+    ```
 
-            [Parameter(Mandatory=$true, Position=1)]
-            [string]$StorageAccountName,
+3. Set the storage account's ActiveDirectoryProperties to support the Shell experience. Because Azure AD doesn't currently support configuring ACLs in Shell, it must instead rely on Active Directory. To configure Shell, run the following cmdlets in PowerShell:
 
-            [Parameter(Mandatory=$false, Position=2)]
-            [string]$Domain
-        )  
+    ```powershell
+    Connect-AzAccount -Tenant $tenantId -SubscriptionId $subscriptionId
 
-        $AzContext = Get-AzContext;
-        if ($null -eq $AzContext) {
-            Write-Error "No Azure context found.  Please run Connect-AzAccount and then retry." -ErrorAction Stop;
-        }
-	
-        $AdModule = Get-Module ActiveDirectory;
-	    if ($null -eq $AdModule) {
-            Write-Error "Please install and/or import the ActiveDirectory PowerShell module." -ErrorAction Stop;
-        }	
-	
-        if ([System.String]::IsNullOrEmpty($Domain)) {
-            $domainInformation = Get-ADDomain
-            $Domain = $domainInformation.DnsRoot
-        } else {
-            $domainInformation = Get-ADDomain -Server $Domain
-        }
+    $AdModule = Get-Module ActiveDirectory;
+	if ($null -eq $AdModule) {
+        Write-Error "Please install and/or import the ActiveDirectory PowerShell module." -ErrorAction Stop;
+    }
+    $domainInformation = Get-ADDomain
+    $Domain = $domainInformation.DnsRoot
+    $domainGuid = $domainInformation.ObjectGUID.ToString()
+    $domainName = $domainInformation.DnsRoot
+    $domainSid = $domainInformation.DomainSID.Value
+    $forestName = $domainInformation.Forest
+    $netBiosDomainName = $domainInformation.DnsRoot
+    $azureStorageSid = $domainSid + "-123454321";
 
-        $domainGuid = $domainInformation.ObjectGUID.ToString()
-        $domainName = $domainInformation.DnsRoot
-        $domainSid = $domainInformation.DomainSID.Value
-        $forestName = $domainInformation.Forest
-        $netBiosDomainName = $domainInformation.DnsRoot
-        $azureStorageSid = $domainSid + "-123454321";
-
-        Write-Verbose "Setting AD properties on $StorageAccountName in $ResourceGroupName : `
+    Write-Verbose "Setting AD properties on $storageAccountName in $resourceGroupName : `
             EnableActiveDirectoryDomainServicesForFile=$true, ActiveDirectoryDomainName=$domainName, `
             ActiveDirectoryNetBiosDomainName=$netBiosDomainName, ActiveDirectoryForestName=$($domainInformation.Forest) `
             ActiveDirectoryDomainGuid=$domainGuid, ActiveDirectoryDomainSid=$domainSid, `
             ActiveDirectoryAzureStorageSid=$azureStorageSid"
 
-        $Subscription =  $AzContext.Subscription.Id;
-        $ApiVersion = '2021-04-01'
-
-        $Uri = ('https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Storage/storageAccounts/{2}?api-version={3}' `
-            -f $Subscription, $ResourceGroupName, $StorageAccountName, $ApiVersion);
+    $Uri = ('https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Storage/storageAccounts/{2}?api-version=2021-04-01' -f $subscriptionId, $resourceGroupName, $storageAccountName);
     
-        $json=
-            @{
-                properties=
-                    @{azureFilesIdentityBasedAuthentication=
-                        @{directoryServiceOptions="AADKERB";
-                            activeDirectoryProperties=@{domainName="$($domainName)";
-                                                        netBiosDomainName="$($netBiosDomainName)";
-                                                        forestName="$($forestName)";
-                                                        domainGuid="$($domainGuid)";
-                                                        domainSid="$($domainSid)";
-                                                        azureStorageSid="$($azureStorageSid)"}
-                                                        }
-                        }
-            };  
+    $json=
+        @{
+            properties=
+                @{azureFilesIdentityBasedAuthentication=
+                    @{directoryServiceOptions="AADKERB";
+                        activeDirectoryProperties=@{domainName="$($domainName)";
+                                                    netBiosDomainName="$($netBiosDomainName)";
+                                                    forestName="$($forestName)";
+                                                    domainGuid="$($domainGuid)";
+                                                    domainSid="$($domainSid)";
+                                                    azureStorageSid="$($azureStorageSid)"}
+                    }
+                }
+        };  
 
-        $json = $json | ConvertTo-Json -Depth 99
+    $json = $json | ConvertTo-Json -Depth 99
 
-        $token = $(Get-AzAccessToken).Token
-        $headers = @{ Authorization="Bearer $token" }
+    $token = $(Get-AzAccessToken).Token
+    $headers = @{ Authorization="Bearer $token" }
 
-        try {
-            Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method PATCH -Headers $Headers -Body $json
-        } catch {
-            Write-Host $_.Exception.ToString()
-            Write-Host "Error setting Storage Account AD properties.  StatusCode:" $_.Exception.Response.StatusCode.value__ 
-            Write-Host "Error setting Storage Account AD properties.  StatusDescription:" $_.Exception.Response.StatusDescription
-            Write-Error -Message "Caught exception setting Storage Account AD properties: $_" -ErrorAction Stop
-        }
+    try {
+        Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method PATCH -Headers $Headers -Body $json
+    } catch {
+        Write-Host $_.Exception.ToString()
+        Write-Host "Error setting Storage Account AD properties.  StatusCode:" $_.Exception.Response.StatusCode.value__ 
+        Write-Host "Error setting Storage Account AD properties.  StatusDescription:" $_.Exception.Response.StatusDescription
+        Write-Error -Message "Caught exception setting Storage Account AD properties: $_" -ErrorAction Stop
     }
-    ```
-
-3. Call the function by running the following PowerShell cmdlets:
-
-    ```powershell
-    Connect-AzAccount
-    Set-StorageAccountAadKerberosADProperties -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
     ```
 
 Enable Azure AD Kerberos functionality by configuring the group policy or registry value in the following list:
@@ -337,6 +314,7 @@ Next, make sure you can retrieve a Kerberos Ticket Granting Ticket (TGT) by foll
     ```
     klist purge
     klist get krbtgt
+    klist
     ```
 
 5. Confirm you have a Kerberos TGT by looking for an item with a server property of `krbtgt/KERBEROS.MICROSOFTONLINE.COM @ KERBEROS.MICROSOFTONLINE.COM`.
@@ -346,7 +324,7 @@ Next, make sure you can retrieve a Kerberos Ticket Granting Ticket (TGT) by foll
     net use <DriveLetter>: \\<storage-account-name>.file.core.windows.net\<fIle-share-name>
     ```
 
-Finally, follow the instructions in [Configure directory and file level permissions](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) to finish configuring your permissions with icacls or Windows Explorer.
+Finally, follow the instructions in [Configure directory and file level permissions](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) to finish configuring your permissions with icacls or Windows Explorer. Learn more about the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht).
 
 ## Configure the session hosts
 
@@ -395,6 +373,120 @@ Finally, test the profile to make sure that it works:
 5. Select the file share you configured to store the profiles.
 
 6. If everything's set up correctly, you should see a directory with a name that's formatted like this: `<user SID>_<username>`.
+
+## Update the service principal's password
+
+The service principal's password will expire every six months. To update the password:
+
+1. Install the Azure Storage and Azure AD PowerShell module. To install the modules, open PowerShell and run the following commands:
+
+    ```powershell
+    Install-Module -Name Az.Storage
+    Install-Module -Name AzureAD
+    ```
+
+2. Set the required variables for your tenant, subscription, storage account name, and resource group name by running the following PowerShell cmdlets, replacing the values with the ones relevant to your environment.
+
+    ```powershell
+    $tenantId = "<MyTenantId>"
+    $subscriptionId = "<MySubscriptionId>"
+    $resourceGroupName = "<MyResourceGroup>"
+    $storageAccountName = "<MyStorageAccount>"
+    ```
+
+3. Generate a new kerb1 key and password for the service principal by running this command:
+
+    ```powershell
+    Connect-AzAccount -Tenant $tenantId -SubscriptionId $subscriptionId
+    $kerbKeys = New-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName -KeyName "kerb1" -ErrorAction Stop | Select-Object -ExpandProperty Keys
+    $kerbKey = $kerbKeys | Where-Object { $_.KeyName -eq "kerb1" } | Select-Object -ExpandProperty Value
+    $azureAdPasswordBuffer = [System.Linq.Enumerable]::Take([System.Convert]::FromBase64String($kerbKey), 32);
+    $password = "kk:" + [System.Convert]::ToBase64String($azureAdPasswordBuffer);
+    ```
+
+4. Connect to Azure AD and retrieve the tenant information, application, and service principal by running the following cmdlets:
+
+    ```powershell
+    Connect-AzureAD
+    $azureAdTenantDetail = Get-AzureADTenantDetail;
+    $azureAdTenantId = $azureAdTenantDetail.ObjectId
+    $azureAdPrimaryDomain = ($azureAdTenantDetail.VerifiedDomains | Where-Object {$_._Default -eq $true}).Name
+    $application = Get-AzureADApplication -Filter "DisplayName eq '$($storageAccountName)'" -ErrorAction Stop;
+    $servicePrincipal = Get-AzureADServicePrincipal -Filter "AppId eq '$($application.AppId)'"
+    if ($servicePrincipal -eq $null) {
+      Write-Host "Could not find service principal corresponding to application with app id $($application.AppId)"
+      Write-Error -Message "Make sure that both service principal and application exist and are correctly configured" -ErrorAction Stop
+    }
+    ```
+
+5. Set the password for the storage account's service principal by running the following cmdlets.
+
+    ```powershell
+    $Token = ([Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens['AccessToken']).AccessToken;
+    $Uri = ('https://graph.windows.net/{0}/{1}/{2}?api-version=1.6' -f $azureAdPrimaryDomain, 'servicePrincipals', $servicePrincipal.ObjectId)
+    $json = @'
+    {
+      "passwordCredentials": [
+      {
+        "customKeyIdentifier": null,
+        "endDate": "<STORAGEACCOUNTENDDATE>",
+        "value": "<STORAGEACCOUNTPASSWORD>",
+        "startDate": "<STORAGEACCOUNTSTARTDATE>"
+      }]
+    }
+    '@
+
+    $now = [DateTime]::UtcNow
+    $json = $json -replace "<STORAGEACCOUNTSTARTDATE>", $now.AddDays(-1).ToString("s")
+	$json = $json -replace "<STORAGEACCOUNTENDDATE>", $now.AddMonths(6).ToString("s")
+    $json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password
+
+    $Headers = @{'authorization' = "Bearer $($Token)"}
+
+    try {
+      Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method Patch -Headers $Headers -Body $json 
+      Write-Host "Success: Password is set for $storageAccountName"
+    } catch {
+      Write-Host $_.Exception.ToString()
+      Write-Host "StatusCode: " $_.Exception.Response.StatusCode.value
+      Write-Host "StatusDescription: " $_.Exception.Response.StatusDescription
+    }
+    ```
+
+## Disable Azure AD authentication on your Azure Storage account
+
+If you need to disable Azure AD authentication on your storage account:
+
+- Set the required variables for your tenant, subscription, storage account name and resource group name by running the following PowerShell cmdlets, replacing the values with the ones relevant to your environment.
+
+    ```powershell
+    $tenantId = "<MyTenantId>"
+    $subscriptionId = "<MySubscriptionId>"
+    $resourceGroupName = "<MyResourceGroup>"
+    $storageAccountName = "<MyStorageAccount>"
+    ```
+
+- Run the following cmdlets in PowerShell to disable Azure AD authentication on your storage account:
+
+    ```powershell
+    Connect-AzAccount -Tenant $tenantId -SubscriptionId $subscriptionId
+    $Uri = ('https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Storage/storageAccounts/{2}?api-version=2021-04-01' -f $subscriptionId, $resourceGroupName, $storageAccountName);
+
+    $json = @{properties=@{azureFilesIdentityBasedAuthentication=@{directoryServiceOptions="None"}}};
+    $json = $json | ConvertTo-Json -Depth 99
+
+    $token = $(Get-AzAccessToken).Token
+    $headers = @{ Authorization="Bearer $token" }
+
+    try {
+        Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method PATCH -Headers $Headers -Body $json;
+    } catch {
+        Write-Host $_.Exception.ToString()
+        Write-Host "Error setting Storage Account directoryServiceOptions=None.  StatusCode:" $_.Exception.Response.StatusCode.value__
+        Write-Host "Error setting Storage Account directoryServiceOptions=None.  StatusDescription:" $_.Exception.Response.StatusDescription
+        Write-Error -Message "Caught exception setting Storage Account directoryServiceOptions=None: $_" -ErrorAction Stop
+    } 
+    ```
 
 ## Next steps
 

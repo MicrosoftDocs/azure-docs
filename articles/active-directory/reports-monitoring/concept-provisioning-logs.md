@@ -9,12 +9,11 @@ editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/02/2021
+ms.date: 12/20/2021
 ms.author: markvi
 ms.reviewer: arvinh
 
@@ -279,10 +278,10 @@ Use the following table to better understand how to resolve errors that you find
 |---|---|
 |Conflict, EntryConflict|Correct the conflicting attribute values in either Azure AD or the application. Or, review your matching attribute configuration if the conflicting user account was supposed to be matched and taken over. Review the [documentation](../app-provisioning/customize-application-attributes.md) for more information on configuring matching attributes.|
 |TooManyRequests|The target app rejected this attempt to update the user because it's overloaded and receiving too many requests. There's nothing to do. This attempt will automatically be retired. Microsoft has also been notified of this issue.|
-|InternalServerError |The target app returned an unexpected error. A service issue with the target application might be preventing this from working. This attempt will automatically be retired in 40 minutes.|
+|InternalServerError |The target app returned an unexpected error. A service issue with the target application might be preventing this from working. This attempt will automatically be retried in 40 minutes.|
 |InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Azure AD authenticated with the target application but was not authorized to perform the update. Review any instructions that the target application has provided, along with the respective application [tutorial](../saas-apps/tutorial-list.md).|
 |UnprocessableEntity|The target application returned an unexpected response. The configuration of the target application might not be correct, or a service issue with the target application might be preventing this from working.|
-|WebExceptionProtocolError |An HTTP protocol error occurred in connecting to the target application. There is nothing to do. This attempt will automatically be retired in 40 minutes.|
+|WebExceptionProtocolError |An HTTP protocol error occurred in connecting to the target application. There is nothing to do. This attempt will automatically be retried in 40 minutes.|
 |InvalidAnchor|A user that was previously created or matched by the provisioning service no longer exists. Ensure that the user exists. To force a new matching of all users, use the Microsoft Graph API to [restart the job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). <br><br>Restarting provisioning will trigger an initial cycle, which can take time to complete. Restarting provisioning also deletes the cache that the provisioning service uses to operate. That means all users and groups in the tenant will have to be evaluated again, and certain provisioning events might be dropped.|
 |NotImplemented | The target app returned an unexpected response. The configuration of the app might not be correct, or a service issue with the target app might be preventing this from working. Review any instructions that the target application has provided, along with the respective application [tutorial](../saas-apps/tutorial-list.md). |
 |MandatoryFieldsMissing, MissingValues |The user could not be created because required values are missing. Correct the missing attribute values in the source record, or review your matching attribute configuration to ensure that the required fields are not omitted. [Learn more](../app-provisioning/customize-application-attributes.md) about configuring matching attributes.|
@@ -296,6 +295,8 @@ Use the following table to better understand how to resolve errors that you find
 |ImportSkipped | When each user is evaluated, the system tries to import the user from the source system. This error commonly occurs when the user who's being imported is missing the matching property defined in your attribute mappings. Without a value present on the user object for the matching attribute, the system can't evaluate scoping, matching, or export changes. Note that the presence of this error does not indicate that the user is in scope, because you haven't yet evaluated scoping for the user.|
 |EntrySynchronizationSkipped | The provisioning service has successfully queried the source system and identified the user. No further action was taken on the user and they were skipped. The user might have been out of scope, or the user might have already existed in the target system with no further changes required.|
 |SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| A GET request to retrieve a user or group received multiple users or groups in the response. The system expects to receive only one user or group in the response. [For example](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group), if you do a GET request to retrieve a group and provide a filter to exclude members, and your System for Cross-Domain Identity Management (SCIM) endpoint returns the members, you'll get this error.|
+|SystemForCrossDomainIdentityManagementServiceIncompatible|The Azure AD provisioning service is unable to parse the response from the third party application. Please work with the application developer to ensure that the SCIM server is compatible with the [Azure AD SCIM client](../app-provisioning/use-scim-to-provision-users-and-groups.md#understand-the-azure-ad-scim-implementation).|
+|SchemaPropertyCanOnlyAcceptValue|The property in the target system can only accept one value, but the property in the source system has multiple. Please ensure that you map a single valued attribute to the propoerty that is throwing an error, update the value in the source to be single valued, or remove the attribute from the mappings.|
 
 ## Next steps
 

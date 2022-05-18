@@ -2,8 +2,11 @@
 title: Overview of Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 02/14/2022
 ms.custom: references_regions
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 # Backup vaults overview
 
@@ -15,11 +18,11 @@ This article describes the features of a Backup vault. A Backup vault is a stora
 
 ## Storage settings in the Backup vault
 
-A Backup vault is an entity that stores the backups and recovery points created over time. The Backup vault also contains the backup policies that are associated with the protected virtual machines.
+A Backup vault is an entity that stores the backups and recovery points created over time. The Backup vault also contains the backup policies that are associated with the protected resources.
 
 - Azure Backup automatically handles storage for the vault. Choose the storage redundancy that matches your business needs when creating the Backup vault.
 
-- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
+- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-redundant-storage), [zonal (preview)](../storage/common/storage-redundancy.md#zone-redundant-storage), and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
 
 ## Encryption settings in the Backup vault
 
@@ -122,7 +125,7 @@ In the **Backup Instances** tile, you get a summarized view of all backup instan
 This section explains how to move a Backup vault (configured for Azure Backup) across Azure subscriptions and resource groups using the Azure portal.
 
 >[!Note]
->You can also move Backup vaults to a different resource group or subscription using [PowerShell](/powershell/module/az.resources/move-azresource?view=azps-6.3.0&preserve-view=true) and [CLI](/cli/azure/resource?view=azure-cli-latest&preserve-view=true#az_resource_move).
+>You can also move Backup vaults to a different resource group or subscription using [PowerShell](/powershell/module/az.resources/move-azresource?view=azps-6.3.0&preserve-view=true) and [CLI](/cli/azure/resource#az-resource-move).
 
 ### Supported regions
 

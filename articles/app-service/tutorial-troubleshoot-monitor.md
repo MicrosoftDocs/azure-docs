@@ -29,14 +29,16 @@ You can follow the steps in this tutorial on macOS, Linux, Windows.
 To complete this tutorial, you'll need:
 
 - [Azure subscription](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Azure CLI](/cli/azure/install-azure-cli)
+
 - [Git](https://git-scm.com/)
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create Azure resources
 
 First, you run several commands locally to setup a sample app to use with this tutorial. The commands create Azure resources, create a deployment user, and deploy the sample app to Azure. You'll be prompted for the password supplied as a part of the creation of the deployment user. 
 
-```bash
+```azurecli
 az group create --name myResourceGroup --location "South Central US"
 az webapp deployment user set --user-name <username> --password <password>
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
@@ -57,7 +59,7 @@ Now that you've deployed the sample app to Azure App Service, you'll configure m
 
 In this step, you create a Log Analytics workspace to configure Azure Monitor with your app.
 
-```bash
+```azurecli
 az monitor log-analytics workspace create --resource-group myResourceGroup --workspace-name myMonitorWorkspace
 ```
 
@@ -72,10 +74,10 @@ Diagnostic settings can be used to collect metrics for certain Azure services in
 You run the following commands to create diagnostic settings for AppServiceConsoleLogs (standard output/error) and AppServiceHTTPLogs (web server logs). Replace _\<app-name>_ and _\<workspace-name>_ with your values. 
 
 > [!NOTE]
-> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the `az monitor diagnostic-settings create` command. See [Create diagnostic settings using Azure CLI](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli) for more information on this command.
+> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command. See [Create diagnostic settings using Azure CLI](../azure-monitor/essentials/diagnostic-settings.md?tabs=cli#create-diagnostic-settings) for more information on this command.
 >
 
-```bash
+```azurecli
 resourceID=$(az webapp show -g myResourceGroup -n <app-name> --query id --output tsv)
 
 workspaceID=$(az monitor log-analytics workspace show -g myResourceGroup --workspace-name <workspace-name> --query id --output tsv)
@@ -93,7 +95,7 @@ Browse to `http://<app-name>.azurewebsites.net`.
 
 The sample app, ImageConverter, converts included images from `JPG` to `PNG`. A bug has been deliberately placed in the code for this tutorial. If you select enough images, the the app produces a HTTP 500 error during image conversion. Imagine this scenario wasn't considered during the development phase. You'll use Azure Monitor to troubleshoot the error.
 
-### Verify the app is works
+### Verify the app works
 
 To convert images, click `Tools` and select `Convert to PNG`.
 
@@ -252,7 +254,7 @@ Converting images should not longer produce the HTTP 500 errors.
 
 Delete the diagnostic setting with the following command:
 
-```bash
+```azurecli
 az monitor diagnostic-settings delete --resource $resourceID -n myMonitorLogs
 ```
 What you learned:
@@ -266,3 +268,4 @@ What you learned:
 * [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

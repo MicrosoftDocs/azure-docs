@@ -1,7 +1,7 @@
 ---
 title: Azure Percept DK Container release notes
 description: Information of changes and fixes for Azure Percept DK Container releases.
-author: amiyouss
+author: nkhuyent
 ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
@@ -12,7 +12,28 @@ ms.date: 09/17/2021
 
 This page provides information of changes and fixes for Azure Percept DK Container releases.
 
-To download the container updates, go to [Azure Percept Studio](https://ms.portal.azure.com/#blade/AzureEdgeDevices/main/overview), select Devices from the left navigation pane, choose the specific device, and then select Vision and Speech tabs to initiate container downloads. 
+To download the container updates, go to [Azure Percept Studio](https://portal.azure.com/#blade/AzureEdgeDevices/main/overview), select Devices from the left navigation pane, choose the specific device, and then select Vision and Speech tabs to initiate container downloads. 
+
+## January (2201) Release
+
+- Security update for HostIPModule and ImageCapturingModule.
+
+    > [!NOTE]
+    > HostIPModule and ImageCapturingModule are for vision AI-related experiences and will be deployed after the devkit connects to your instance of Azure Percept Studio. If these modules have been deployed to your devkit, complete the following steps to update them. If these two modules have not been deployed to your devkit, you can ignore the following steps and the latest modules will be deployed through Azure Percept Studio when needed.
+    > 1. Find your devkit in your instance of Azure Percept Studio. In the summary of the device, select **Open device in IoT Hub**.
+    >    1. In the IoT Hub UI of your devkit:
+    >       1. Check the **modules** list to make sure HostIPModule and ImageCapturingModule have already been deployed.
+    >       1. Select **Set modules**.
+    >          1. In the deployment list, select the trashcan icon to remove HostIPModule and ImageCapturingModule.
+    >          1. Select **review + create**, and then select **create** to finish the deployment.
+    >    1. In the IoT Hub UI of your devkit, wait a while, and then refresh until the two modules are no longer displayed on the **modules** list.
+    > 1. In your instance of Azure Percept Studio, start and view your device stream. Starting the device stream triggers a new download of HostIPModule and ImageCapturingModule that includes the latest versions.
+    > 
+
+## December (2112) Release
+
+- Removed lines in the image frames using automatic image capture in Azure Percept Studio. This issue was introduced in the 2108 module release.  
+- Security fixes for docker services running as root in azureeyemodule (mcr.microsoft.com/azureedgedevices/azureeyemodule:2112-1), azureearspeechclientmodule, and webstreammodule. 
 
 ## August (2108) Release
 

@@ -7,8 +7,8 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/28/2021
-ms.custom: mode-portal
+ms.date: 05/11/2022
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a knowledge store in the Azure portal
@@ -26,9 +26,9 @@ This quickstart uses the following services:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your account. You can use a free service for this quickstart. 
++ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your account. You can use a free service for this quickstart. 
 
-+ Azure Storage. [Create an account](../storage/common/storage-account-create.md) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). The account type must be **StorageV2 (general purpose V2)**.
++ Azure Storage. [Create an account](../storage/common/storage-account-create.md) or [find an existing account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). The account type must be **StorageV2 (general purpose V2)**.
 
 + Sample data. This quickstart uses hotel review data saved in a CSV file (originates from Kaggle.com) and contains 19 pieces of customer feedback about a single hotel.
 
@@ -40,7 +40,7 @@ This quickstart also uses [Cognitive Services](https://azure.microsoft.com/servi
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create a knowledge store in four steps.
+1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create a knowledge store in four steps.
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
@@ -48,15 +48,19 @@ This quickstart also uses [Cognitive Services](https://azure.microsoft.com/servi
 
 Because the data is multiple rows in one CSV file, set the *parsing mode* to get one search document for each row.
 
-1. In **Connect to your data**, choose **Azure Blob Storage**, selecting the account and container you created. 
+1. In **Connect to your data**, choose **Azure Blob Storage**. 
 
 1. For the **Name**, enter "hotel-reviews-ds".
 
+1. For **Data to extract**, choose **Content and Metadata**.
+
 1. For **Parsing mode**, select **Delimited text**, and then select the **First Line Contains Header** checkbox. Make sure the **Delimiter character** is a comma (,).
 
-1. In **Connection String**, paste in a connection string to your Azure Storage account. 
+1. In **Connection String**, choose an existing connection if the storage account is in the same subscription. Otherwise, paste in a connection string to your Azure Storage account. 
 
-   A connection string has the following format: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+   A connection string can be full access, having the following format: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+
+   Or, a connection string can reference a managed identity, assuming it's [configured and assigned a role](search-howto-managed-identities-data-sources.md) in Azure Storage: `ResourceId=/subscriptions/{YOUR-SUBSCRIPTION-ID}/resourceGroups/{YOUR-RESOURCE-GROUP-NAME}/providers/Microsoft.Storage/storageAccounts/{YOUR-ACCOUNT-NAME};`
 
 1. In **Containers**, enter the name of the blob container holding the data ("hotel-reviews").
 

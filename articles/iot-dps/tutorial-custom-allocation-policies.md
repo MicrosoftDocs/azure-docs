@@ -1,8 +1,8 @@
 ---
 title: Tutorial for using custom allocation policies with Azure IoT Hub Device Provisioning Service (DPS)
 description: Tutorial for using custom allocation policies with the Azure IoT Hub Device Provisioning Service (DPS)
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 04/23/2021
 ms.topic: tutorial
 ms.service: iot-dps
@@ -181,7 +181,7 @@ In this section, you'll create a new enrollment group that uses the custom alloc
 
     | Field | Description and/or suggested value |
     | :---- | :----------------------------- |
-    | **Group name** | Enter **contoso-custom-allocated-devices** |
+    | **Group name** | Enter **contoso-custom-allocated-devices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). |
     | **Attestation Type** | Select **Symmetric Key** |
     | **Auto Generate Keys** | This checkbox should already be checked. |
     | **Select how you want to assign devices to hubs** | Select **Custom (Use Azure Function)** |
@@ -206,7 +206,7 @@ For the example in this article, use the following two device registration IDs w
 
 # [Azure CLI](#tab/azure-cli)
 
-The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
+The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps#az-iot-dps-compute-device-key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
 
 Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
 

@@ -1,9 +1,9 @@
 ---
 title: Create an Azure IoT Hub using a template (.NET) | Microsoft Docs
 description: How to use an Azure Resource Manager template to create an IoT Hub with a C# program.
-author: eross-msft
+author: kgremban
 
-ms.author: lizross
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
@@ -41,6 +41,8 @@ To complete this tutorial, you need the following:
 3. In NuGet Package Manager, check **Include prerelease**, and on the **Browse** page search for **Microsoft.Azure.Management.ResourceManager**. Select the package, click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
 
 4. In NuGet Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
+    > [!IMPORTANT]
+    > The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](/azure/active-directory/develop/msal-migration) for more details.
 
 5. In Program.cs, replace the existing **using** statements with the following code:
 

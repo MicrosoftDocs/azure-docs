@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/22/2021
+ms.date: 12/09/2021
 
 ---
 
@@ -17,9 +17,9 @@ When configuring an optional [AI enrichment pipeline](cognitive-search-concept-i
 
 A multi-service resource references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/create-skillset) and allows Microsoft to charge you for using these APIs:
 
-+ [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for image analysis and optical character recognition (OCR)
-+ [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for language detection, entity recognition, sentiment analysis, and key phrase extraction
-+ [Text Translation](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
++ [Computer Vision](../cognitive-services/computer-vision/overview.md) for image analysis and optical character recognition (OCR)
++ [Language service](../cognitive-services/language-service/overview.md) for language detection, entity recognition, sentiment analysis, and key phrase extraction
++ [Translator](../cognitive-services/translator/translator-overview.md) for machine text translation
 
 > [!TIP]
 > Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Cognitive Services, see [Plan and manage costs for Azure Cognitive Services](../cognitive-services/plan-manage-costs.md).
@@ -30,7 +30,9 @@ You can use the Azure portal, REST API, or an Azure SDK to attach a billable res
 
 If you leave the property unspecified, execution of billable skills will stop at 20 transactions per indexer invocation and a "Time Out" message will appear in indexer execution history.
 
-### [**Azure portal**](#tab/cogkey-portal)
+### [**Azure portal**](#tab/portal)
+
+1. [Sign in to Azure portal](https://portal.azure.com).
 
 1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
@@ -116,7 +118,7 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 Key-based billing applies when API calls to Cognitive Services resources exceed 20 API calls per indexer, per day. 
 
-The key is used for billing, but not connections. For connections, a search service connects over the internal network to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Cognitive Search also offer Cognitive Services.
+The key is used for billing, but not connections. For connections, a search service [connects over the internal network](search-security-overview.md#internal-traffic) to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Cognitive Search also offer Cognitive Services.
 
 If you attempt AI enrichment in a region that doesn't have both services, you'll see this message: "Provided key is not a valid CognitiveServices type key for the region of your search service."
 
@@ -139,7 +141,7 @@ Some enrichments are always free:
 
 ## Billable enrichments
 
- During AI enrichment, Cognitive Search calls the Cognitive Services APIs for [built-in skills](cognitive-search-predefined-skills.md) that are based on Computer Vision, Text Translation, and Text Analytics. 
+ During AI enrichment, Cognitive Search calls the Cognitive Services APIs for [built-in skills](cognitive-search-predefined-skills.md) that are based on Computer Vision, Translator, and Azure Cognitive Services for Language. 
 
 Billable built-in skills that make backend calls to Cognitive Services include [Entity Linking](cognitive-search-skill-entity-linking-v3.md), [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md), [Image Analysis](cognitive-search-skill-image-analysis.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), [Language Detection](cognitive-search-skill-language-detection.md), [OCR](cognitive-search-skill-ocr.md), [PII Detection](cognitive-search-skill-pii-detection.md), [Sentiment](cognitive-search-skill-sentiment-v3.md), and [Text Translation](cognitive-search-skill-text-translation.md).
 

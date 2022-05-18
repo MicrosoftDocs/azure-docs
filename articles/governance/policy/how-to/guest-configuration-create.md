@@ -10,25 +10,25 @@ Before you begin, it's a good idea to read the overview page for
 [guest configuration](../concepts/guest-configuration.md).
 
 When auditing / configuring both Windows and Linux, guest configuration uses a
-[Desired State Configuration](/powershell/scripting/dsc/overview/overview)
+[Desired State Configuration](/powershell/dsc/overview)
 (DSC). The DSC configuration defines the condition that the machine should
 be in.
 
 > [!IMPORTANT]
 > Custom packages that audit the state of an environment are Generally Available,
 > but packages that apply configurations are **in preview**. **The following limitations apply:**
-> 
+>
 > To use guest configuration packages that apply configurations, Azure VM guest
 > configuration extension version **1.29.24** or later,
 > or Arc agent **1.10.0** or later, is required.
-> 
-> To test creating and applying configurations on Linux, the 
+>
+> To test creating and applying configurations on Linux, the
 > `GuestConfiguration` module is only available on Ubuntu 18 but the package
 > and policies produced by the module can be used on any Linux distro/version
 > supported in Azure or Arc.
 >
 > Testing packages on MacOS is not available.
-> 
+>
 > Don't use secrets or confidential information in custom content packages.
 
 Use the following steps to create your own configuration for managing the
@@ -53,14 +53,14 @@ If needed, example configurations are available for Windows and Linux.
 > install the prerelease version `3.0.0`.
 
 An example is provided in the DSC
-[Getting started document](/powershell/scripting/dsc/getting-started/wingettingstarted#define-a-configuration-and-generate-the-configuration-document)
+[Getting started document](/powershell/dsc/getting-started/wingettingstarted#define-a-configuration-and-generate-the-configuration-document)
 for Windows.
 
 For Linux, you'll need to create a custom DSC resource module using
-[PowerShell classes](/powershell/scripting/dsc/resources/authoringResourceClass).
+[PowerShell classes](/powershell/dsc/resources/authoringResourceClass).
 A full example of a custom resource and configuration is available
 (and has been tested with guest configuration) in the PowerShell docs page
-[Writing a custom DSC resource with PowerShell classes](/powershell/scripting/dsc/resources/authoringResourceClass).
+[Writing a custom DSC resource with PowerShell classes](/powershell/dsc/resources/authoringResourceClass).
 
 ## Create a configuration package artifact
 
@@ -110,8 +110,8 @@ New-GuestConfigurationPackage `
 An object is returned with the Name and Path of the created package.
 
 ```
-Name      Path                                                    
-----      ----                                                    
+Name      Path
+----      ----
 MyConfig  /Users/.../MyConfig/MyConfig.zip
 ```
 

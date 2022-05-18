@@ -1,5 +1,5 @@
 ---
-title: Open application port in load balancer in Powershell
+title: Open application port in load balancer in PowerShell
 description: Azure PowerShell Script Sample - Open a port in the Azure load balancer for a Service Fabric application.
 services: service-fabric
 documentationcenter: 
@@ -46,4 +46,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).
+Additional PowerShell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).

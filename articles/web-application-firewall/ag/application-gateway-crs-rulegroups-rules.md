@@ -5,7 +5,7 @@ description: This page provides information on web application firewall CRS rule
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/02/2021
+ms.date: 04/28/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -16,36 +16,34 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 ## Core rule sets
 
-The Application Gateway WAF comes pre-configured with CRS 3.0 by default. But you can choose to use CRS 3.2, 3.1, or 2.2.9 instead.
+The Application Gateway WAF comes pre-configured with CRS 3.1 by default, but you can choose to use any other supported CRS version.
  
-
-CRS 3.2 (public preview) offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, fixed false positives, and more. 
-
-CRS 3.1 offers reduced false positives compared with CRS 3.0 and 2.2.9. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md).
+CRS 3.2 offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
 
 > [!div class="mx-imgBorder"]
 > ![Manages rules](../media/application-gateway-crs-rulegroups-rules/managed-rules-01.png)
 
 The WAF protects against the following web vulnerabilities:
 
-- SQL-injection attacks
-- Cross-site scripting attacks
-- Other common attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion
-- HTTP protocol violations
-- HTTP protocol anomalies, such as missing host user-agent and accept headers
-- Bots, crawlers, and scanners
-- Common application misconfigurations (for example, Apache and IIS)
+- SQL-injection attacks
+- Cross-site scripting attacks
+- Other common attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion
+- HTTP protocol violations
+- HTTP protocol anomalies, such as missing host user-agent and accept headers
+- Bots, crawlers, and scanners
+- Common application misconfigurations (for example, Apache and IIS)
 
-### OWASP CRS 3.2 (public preview)
+### OWASP CRS 3.2
 
-CRS 3.2 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.2 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 > [!NOTE]
-> CRS 3.2 is only available on the WAF_v2 SKU.
+> CRS 3.2 is only available on the WAF_v2 SKU. Because CRS 3.2 runs on the new Azure WAF engine, you can't downgrade to CRS 3.1 or earlier. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
 
 |Rule group|Description|
 |---|---|
 |**[General](#general-32)**|General group|
+|**[KNOWN-CVES](#crs800-32)**|Help detect new and known CVEs|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-32)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-32)**|Protect against port and environment scanners|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-32)**|Protect against protocol and encoding issues|
@@ -62,7 +60,7 @@ CRS 3.2 includes 13 rule groups, as shown in the following table. Each group con
 
 ### OWASP CRS 3.1
 
-CRS 3.1 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.1 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 > [!NOTE]
 > CRS 3.1 is only available on the WAF_v2 SKU.
@@ -70,6 +68,7 @@ CRS 3.1 includes 13 rule groups, as shown in the following table. Each group con
 |Rule group|Description|
 |---|---|
 |**[General](#general-31)**|General group|
+|**[KNOWN-CVES](#crs800-31)**|Help detect new and known CVEs|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-31)**|Protect against port and environment scanners|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-31)**|Protect against protocol and encoding issues|
@@ -85,11 +84,12 @@ CRS 3.1 includes 13 rule groups, as shown in the following table. Each group con
 
 ### OWASP CRS 3.0
 
-CRS 3.0 includes 12 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 |Rule group|Description|
 |---|---|
 |**[General](#general-30)**|General group|
+|**[KNOWN-CVES](#crs800-30)**|Help detect new and known CVEs|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-30)**|Protect against port and environment scanners|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-30)**|Protect against protocol and encoding issues|
@@ -106,6 +106,9 @@ CRS 3.0 includes 12 rule groups, as shown in the following table. Each group con
 
 CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
+> [!NOTE]
+> CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version.
+
 |Rule group|Description|
 |---|---|
 |**[crs_20_protocol_violations](#crs20)**|Protect against protocol violations (such as invalid characters or a GET with a request body)|
@@ -121,7 +124,7 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 
 The following rule groups and rules are available when using Web Application Firewall on Application Gateway.
 
-# [OWASP 3.2 (public preview)](#tab/owasp32)
+# [OWASP 3.2](#tab/owasp32)
 
 ## <a name="owasp32"></a> 3.2 rule sets
 
@@ -129,6 +132,15 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |200004|Possible Multipart Unmatched Boundary.|
+
+### <a name="crs800-32"></a> KNOWN-CVES
+|RuleId|Description|
+|---|---|
+|800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
+|800110|Spring4Shell Interaction Attempt|
+|800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 
 ### <a name="crs911-32"></a> REQUEST-911-METHOD-ENFORCEMENT
 |RuleId|Description|
@@ -365,6 +377,16 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |200004|Possible Multipart Unmatched Boundary.|
+
+### <a name="crs800-31"></a> KNOWN-CVES
+|RuleId|Description|
+|---|---|
+|800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
+|800110|Spring4Shell Interaction Attempt|
+|800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+
 
 ### <a name="crs911-31"></a> REQUEST-911-METHOD-ENFORCEMENT
 
@@ -607,6 +629,16 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |200004|Possible Multipart Unmatched Boundary.|
+
+### <a name="crs800-30"></a> KNOWN-CVES
+|RuleId|Description|
+|---|---|
+|800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
+|800110|Spring4Shell Interaction Attempt|
+|800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+
 
 ### <a name="crs911-30"></a> REQUEST-911-METHOD-ENFORCEMENT
 

@@ -228,7 +228,7 @@ docker rmi myregistry.azurecr.io/samples/tomcattest
 
 ## Next steps
 * For quick steps on additional Linux container features, read [Create your first Service Fabric container application on Linux](service-fabric-get-started-containers-linux.md).
-* For more detailed steps on Linux containers, read the [Create a Linux container app tutorial](service-fabric-tutorial-create-container-images.md) tutorial.
+* For more detailed steps on Linux containers, read the [Create a Linux container application tutorial](service-fabric-tutorial-create-container-images.md) tutorial.
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 
 

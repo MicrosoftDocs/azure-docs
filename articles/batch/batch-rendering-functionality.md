@@ -1,9 +1,7 @@
 ---
 title: Rendering capabilities
 description: Standard Azure Batch capabilities are used to run rendering workloads and apps. Batch includes specific features to support rendering workloads.
-author: mscurrell
-ms.author: markscu
-ms.date: 03/12/2021
+ms.date: 12/13/2021
 ms.topic: how-to
 ---
 
@@ -80,11 +78,11 @@ As with other workloads, rendering application system requirements vary, and per
 Some rendering applications, such as Arnold, are CPU-based; others such as V-Ray and Blender Cycles can use CPUs and/or GPUs.
 For a description of available VM families and VM sizes, [see VM types and sizes](../virtual-machines/sizes.md).
 
-## Low-priority VMs
+## Spot VMs
 
-As with other workloads, low-priority VMs can be utilized in Batch pools for rendering.  Low-priority VMs perform the same as regular dedicated VMs but utilize surplus Azure capacity and are available for a large discount.  The tradeoff for using low-priority VMs is that those VMs may not be available to be allocated or may be preempted at any time, depending on available capacity. For this reason, low-priority VMs aren't going to be suitable for all rendering jobs. For example, if images take many hours to render then it's likely that having the rendering of those images interrupted and restarted due to VMs being preempted wouldn't be acceptable.
+As with other workloads, Azure Spot VMs can be utilized in Batch pools for rendering. Spot VMs perform the same as regular dedicated VMs but utilize surplus Azure capacity and are available for a large discount.  The tradeoff for using Spot VMs is that those VMs may not be available to be allocated or may be preempted at any time, depending on available capacity. For this reason, Spot VMs aren't going to be suitable for all rendering jobs. For example, if images take many hours to render then it's likely that having the rendering of those images interrupted and restarted due to VMs being preempted wouldn't be acceptable.
 
-For more information about the characteristics of low-priority VMs and the various ways to configure them using Batch, see [Use low-priority VMs with Batch](./batch-low-pri-vms.md).
+For more information about the characteristics of Spot VMs and the various ways to configure them using Batch, see [Use Spot VMs with Batch](./batch-spot-vms.md).
 
 ## Jobs and tasks
 

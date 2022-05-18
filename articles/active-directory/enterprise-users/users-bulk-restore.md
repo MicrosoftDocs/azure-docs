@@ -4,7 +4,7 @@ description: Restore deleted users in bulk in the Azure AD admin center in Azure
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory

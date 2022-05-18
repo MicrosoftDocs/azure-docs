@@ -1,9 +1,10 @@
 ---
-title: 'Tutorial: Find multiple routes by mode of travel | Microsoft Azure Maps'
+title: 'Tutorial: Find multiple routes by mode of travel'
+titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Azure Maps to find routes for specific travel modes to points of interest. See how to display multiple routes on maps.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 09/10/2020
+ms.date: 12/29/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -12,29 +13,28 @@ ms.custom: mvc, devx-track-js
 
 # Tutorial: Find and display routes for different modes of travel using Azure Maps
 
-This tutorial shows you how to use the Azure Maps [Route service](/rest/api/maps/route) and [Map control](./how-to-use-map-control.md) to display route directions for both private vehicles and commercial vehicles (trucks) with `USHazmatClass2` cargo type . In addition, we'll walk you through how to visualize real-time traffic data on a map. In this tutorial, you learn how to:
+This tutorial shows you how to use the Azure Maps [Route service](/rest/api/maps/route) and [Map control](./how-to-use-map-control.md) to display route directions for both private vehicles and commercial vehicles (trucks) with `USHazmatClass2` cargo type.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Create and display the Map control on a web page
 > * Render real-time traffic data on a map
 > * Request and display private and commercial vehicle routes on a map
 
 ## Prerequisites
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. An [Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
 
-2. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
-
-3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
-
-You can obtain the full source code for the sample [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). A live sample can be found [here](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+1. An [Azure Maps primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Create a new web page using the map control API
 
 The following steps show you how to create and display the Map control in a web page.
 
 1. On your local machine, create a new file and name it **MapTruckRoute.html**.
-2. Copy/paste the following HTML markup into the file.
+2. Add the following HTML to the file:
 
     ```HTML
     <!DOCTYPE html>
@@ -79,14 +79,18 @@ The following steps show you how to create and display the Map control in a web 
     </html>
     ```
 
-     The HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. The body's `onload` event calls the `GetMap` function. In the next step, we'll add the Map control initialization code.
+   Some things to know about the above HTML:
 
-3. Add the following JavaScript code to the `GetMap` function. Replace the string `<Your Azure Maps Key>` with the primary key that you copied from your Maps account.
+   * The HTML header includes CSS and JavaScript resource files that are hosted by the Azure Map Control library.
+   * The `onload` event in the body of the page calls the `GetMap` function when the body of the page has loaded.
+   * The `GetMap` function will contain the inline JavaScript code used to access the Azure Maps API.
+
+3. Next, add the following JavaScript code to the `GetMap` function, just beneath the code added in the last step. This code creates a map control and initializes it using your Azure Maps primary subscription keys that you provide. Make sure and replace the string `<Your Azure Maps Key>` with the Azure Maps primary key that you copied from your Maps account.
 
     ```JavaScript
     //Instantiate a map object
     var map = new atlas.Map("myMap", {
-        //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+        // Replace <Your Azure Maps Key> with your Azure Maps primary subscription key. https://aka.ms/am-primaryKey
         authOptions: {
             authType: 'subscriptionKey',
             subscriptionKey: '<Your Azure Maps Key>'
@@ -94,13 +98,19 @@ The following steps show you how to create and display the Map control in a web 
     });
     ```
 
-4. Save the file and open it in your browser. A simple is displayed.
+   Some things to know about the above JavaScript:
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/basic-map.png" alt-text="Basic map rendering of Map control":::
+   * This code is the core of the `GetMap` function, which initializes the Map Control API for your Azure Maps account.
+   * [atlas](/javascript/api/azure-maps-control/atlas) is the namespace that contains the Azure Maps API and related visual components.
+   * [atlas.Map](/javascript/api/azure-maps-control/atlas.map) provides the control for a visual and interactive web map.
+
+4. Save the file and open it in your browser. The browser will display a basic map by calling `atlas.Map` using your Azure Maps primary subscription key.
+
+    :::image type="content" source="./media/tutorial-prioritized-routes/basic-map.png" alt-text="A screenshot that shows the most basic map you can make by calling the atlas Map API, using your Azure Maps primary subscription key.":::
 
 ## Render real-time traffic data on a map
 
-1. Append the following JavaScript code in the `GetMap` function. This code implements the Map control's `ready` event handler. The rest of the code in this tutorial will be placed inside the `ready` event handler.
+1. In the `GetMap` function, after initializing the map, add the following JavaScript code. This code implements the Map control's `ready` event handler.
 
     ```javascript
     map.events.add("ready", function() {
@@ -111,11 +121,15 @@ The following steps show you how to create and display the Map control in a web 
     });
     ```
 
-    In the map `ready` event handler, the traffic flow setting on the map is set to `relative`, which is the speed of the road relative to free-flow. For more traffic options, see [TrafficOptions interface](/javascript/api/azure-maps-control/atlas.trafficoptions).
+   Some things to know about the above JavaScript:
 
-2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you zoom into any city, like Los Angeles, you will see that the streets display with current traffic flow data.
+   * This code implements the Map control's `ready` event handler. The rest of the code in this tutorial will be placed inside the `ready` event handler.
+   * In the map `ready` event handler, the traffic flow setting on the map is set to `relative`, which is the speed of the road relative to free-flow.
+   * For more traffic options, see [TrafficOptions interface](/javascript/api/azure-maps-control/atlas.trafficoptions).
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="View traffic on a map":::
+2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you zoom into any city, like Los Angeles, you'll see that the streets display with current traffic flow data.
+
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="A screenshot that shows a map of Los Angeles, with the streets displaying traffic flow data.":::
 
 <a id="queryroutes"></a>
 
@@ -154,13 +168,15 @@ In this tutorial, two routes will be calculated and rendered on the map. The fir
 
     ```
 
+   Some things to know about the above JavaScript:
 
-    In the Map control's `ready` event handler, a data source is created to store the route from start to finish. [Expressions](data-driven-style-expressions-web-sdk.md) are used to retrieve the line width and color from properties on the route line feature. To ensure that the route line doesn't cover up the road labels, we've passed a second parameter with the value of `'labels'`.
+   * In the Map control's `ready` event handler, a data source is created to store the route from start to finish.
+   * [Expressions](data-driven-style-expressions-web-sdk.md) are used to retrieve the line width and color from properties on the route line feature.
+   * To ensure that the route line doesn't cover up the road labels, we've passed a second parameter with the value of `'labels'`.
 
-    Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered.Expressions have been added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions](data-driven-style-expressions-web-sdk.md).
+    Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered. Expressions have been added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions](data-driven-style-expressions-web-sdk.md).
 
-2. Set the start point as a fictitious company in Seattle called Fabrikam, and the end point as a Microsoft office.  In the Map control's `ready` event handler, append the following code.
-
+2. Next, set the start point as a fictitious company in Seattle called *Fabrikam*, and the end point as a Microsoft office.  In the Map control's `ready` event handler, append the following code.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -185,13 +201,18 @@ In this tutorial, two routes will be calculated and rendered on the map. The fir
 
     ```
 
-    This code creates two [GeoJSON Point objects](https://en.wikipedia.org/wiki/GeoJSON) to represent start and end points, which are then added to the data source.
+   About the above JavaScript:
 
-    The last block of code sets the camera view using the latitude and longitude of the start and end points. The start and end points are added to the data source. The bounding box for the start and end points is calculated using the `atlas.data.BoundingBox.fromData` function. This bounding box is used to set the map cameras view over the entire route using the `map.setCamera` function. Padding is added to compensate for the pixel dimensions of the symbol icons. For more information about the Map control's setCamera property, see [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
+   * This code creates two [GeoJSON Point objects](https://en.wikipedia.org/wiki/GeoJSON) to represent start and end points, which are then added to the data source.
+   * The last block of code sets the camera view using the latitude and longitude of the start and end points.
+   * The start and end points are added to the data source.
+   * The bounding box for the start and end points is calculated using the `atlas.data.BoundingBox.fromData` function. This bounding box is used to set the map cameras view over the entire route using the `map.setCamera` function.
+   * Padding is added to compensate for the pixel dimensions of the symbol icons.
+   * For more information, see the [setCamera](/javascript/api/azure-maps-control/atlas.map#setCamera_CameraOptions___CameraBoundsOptions___AnimationOptions_) function in the Microsoft technical documentation.
 
-3. Save **TruckRoute.html** and refresh your browser. The map is now centered over Seattle. The teardrop blue pin marks the start point. The round blue pin marks the end point.
+3. Save **TruckRoute.html** and refresh your browser. The map is now centered over Seattle. The blue teardrop pin marks the start point. The round blue pin marks the end point.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="View map with start and finish points":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="A screenshot that shows a map with a route containing a blue teardrop pin marking the start point and a blue round pin marking the end point.":::
 
 <a id="multipleroutes"></a>
 
@@ -205,19 +226,18 @@ This section shows you how to use the Azure Maps Route service to get directions
 1. In the `GetMap` function, inside the control's `ready` event handler, add the following to the JavaScript code.
 
     ```JavaScript
-    // Use SubscriptionKeyCredential with a subscription key
-    var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas.getSubscriptionKey());
-
-    // Use subscriptionKeyCredential to create a pipeline
-    var pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential);
-
-    // Construct the RouteURL object
+   //Use MapControlCredential to share authentication between a map control and the service module.
+    var pipeline = atlas.service.MapsURL.newPipeline(new atlas.service.MapControlCredential(map));
+    
+    //Construct the RouteURL object
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   The `SubscriptionKeyCredential` creates a `SubscriptionKeyCredentialPolicy` to authenticate HTTP requests to Azure Maps with the subscription key. The `atlas.service.MapsURL.newPipeline()` takes in the `SubscriptionKeyCredential` policy and creates a [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) instance. The `routeURL` represents a URL to Azure Maps [Route](/rest/api/maps/route) operations.
+    * Use [MapControlCredential](/javascript/api/azure-maps-rest/atlas.service.mapcontrolcredential) to share authentication between a map control and the service module when creating a new [pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) object.
 
-2. After setting up credentials and the URL, add the following JavaScript code to construct a truck route route from start to end point. This route is created and displayed for a truck carrying `USHazmatClass2` classed cargo.
+    * The [routeURL](/javascript/api/azure-maps-rest/atlas.service.routeurl) represents a URL to Azure Maps [Route](/rest/api/maps/route) operations.
+
+2. After setting up credentials and the URL, add the following JavaScript code to construct a truck route from the start to end points. This route is created and displayed for a truck carrying `USHazmatClass2` classed cargo.
 
     ```JavaScript
     //Start and end point input to the routeURL
@@ -244,12 +264,18 @@ This section shows you how to use the Azure Maps Route service to get directions
     });
     ```
 
-    The code above queries the Azure Maps Route service through the [Azure Maps Route Directions API](/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-). The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. Finally, the route line is added to the data source. We are adding it at the index of 0, to ensure that the truck route is rendered before any other lines in the data source, because the truck route calculation will often be slower than a car route calculation. If the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line: a blue stroke color, and a stroke width of nine pixels.
+   About the above JavaScript:
+
+   * This code queries the Azure Maps Route service through the [Azure Maps Route Directions API](/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-).
+   * The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method.
+   * The route line is then added to the data source.
+   * Two properties are added to the truck route line: a blue stroke color `#2272B9`, and a stroke width of nine pixels.
+   * The route line is given an index of 0 to ensure that the truck route is rendered before any other lines in the data source. The reason is the truck route calculation will often be slower than a car route calculation. If the truck route line is added to the data source after the car route, it will render above it.
 
     >[!TIP]
     > To see all possible options and values for the Azure Maps Route Directions API, see [URI Parameters for Post Route Directions](/rest/api/maps/route/postroutedirections#uri-parameters).
 
-3. Now append the following JavaScript code to construct a route for a car.
+3. Next, append the following JavaScript code to create a route for a car.
 
     ```JavaScript
     routeURL.calculateRouteDirections(atlas.service.Aborter.timeout(10000), coordinates).then((directions) => {
@@ -267,25 +293,26 @@ This section shows you how to use the Azure Maps Route service to get directions
     });
     ```
 
-    The code above queries the Azure Maps routing service through the  [Azure Maps Route Directions API](/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. Finally, the route line is added to the data source. Two properties are added to the truck route line: a purple stroke color, and a stroke width of five pixels.
+   About the above JavaScript:
 
-4. Save the **TruckRoute.html** file and refresh your web browser. The map should now display the truck and car routes.
+   * This code queries the Azure Maps routing service through the [Azure Maps Route Directions API](/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-) method.
+   * The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method then is added to the data source.
+   * Two properties are added to the truck route line: a purple stroke color `#B76DAB`, and a stroke width of five pixels.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Private and commercial vehicle routes on a map with Azure Route Service":::
+4. Save the **TruckRoute.html** file and refresh your web browser. The map should now display both the truck and car routes.
 
-    The truck route is displayed using a thick blue line. The car route is displayed using a thin purple line. The car route goes across Lake Washington via I-90, passing through tunnels beneath residential areas. Because the tunnels are close to residential areas, hazardous waste cargo is restricted. The truck route, which specifies a `USHazmatClass2` cargo type, is directed to use a different highway.
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="A screenshot that displays both a private as well as a commercial vehicle route on a map using the Azure Route Service.":::
 
-You can obtain the full source code for the sample [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). A live sample can be found [here](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+    * The truck route is displayed using a thick blue line and the car route is displayed using a thin purple line.
+    * The car route goes across Lake Washington via I-90, passing through tunnels beneath residential areas. Because the tunnels are in residential areas, hazardous waste cargo is restricted. The truck route, which specifies a `USHazmatClass2` cargo type, is directed to use a different route that doesn't have this restriction.
 
-You can also [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
-
-## Clean up resources
-
-There are no resources that require cleanup.
+* For the completed code used in this tutorial, see the [Truck Route](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Truck%20Route) tutorial on GitHub.
+* To view this sample live, see [Multiple routes by mode of travel](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel) on the **Azure Maps Code Samples** site.
+* You can also use [Data-driven style expressions](data-driven-style-expressions-web-sdk.md)
 
 ## Next steps
 
-The next tutorial demonstrates the process of creating a simple store locator by using Azure Maps.
+The next tutorial demonstrates the process of creating a simple store locator using Azure Maps.
 
 > [!div class="nextstepaction"]
 > [Create a store locator using Azure Maps](./tutorial-create-store-locator.md)

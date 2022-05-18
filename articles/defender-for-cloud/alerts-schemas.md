@@ -2,12 +2,12 @@
 title: Schemas for the Microsoft Defender for Cloud alerts
 description: This article describes the different schemas used by Microsoft Defender for Cloud for security alerts.
 ms.topic: conceptual
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 
 # Security alerts schemas
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 If your subscription has enhanced security features enabled, you'll receive security alerts when Defender for Cloud detects threats to their resources.
 
@@ -30,9 +30,9 @@ The Sentinel Connector gets alerts from Microsoft Defender for Cloud and sends t
 
 To create a Microsoft Sentinel case or incident using Defender for Cloud alerts, you'll need the schema for those alerts shown below.
 
-For more information about Microsoft Sentinel, see the [Sentinel documentation](../sentinel/index.yml).
+Learn more in the [Microsoft Sentinel documentation](../sentinel/index.yml).
 
-[!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
+[!INCLUDE [Sentinel and workspace schema](../../includes/defender-for-cloud-alerts-schema-log-analytics-workspace.md)]
 
 ### [Azure Activity Log](#tab/schema-activitylog)
 
@@ -128,7 +128,7 @@ You can view the security alerts events in Activity Log by searching for the Act
 |**subscriptionId**|The subscription ID of the compromised resource|
 |**properties**|A JSON bag of additional properties pertaining to the alert. These can change from one alert to the other, however, the following fields will appear in all alerts:<br>- severity: The severity of the attack<br>- compromisedEntity: The name of the compromised resource<br>- remediationSteps: Array of remediation steps to be taken<br>- intent: The kill-chain intent of the alert. Possible intents are documented in the [Intentions table](alerts-reference.md#intentions)|
 |**relatedEvents**|Constant - empty array|
-|||
+
 
 ### [Workflow automation](#tab/schema-workflow-automation)
 

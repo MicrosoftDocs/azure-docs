@@ -3,7 +3,7 @@ title: PowerShell sample - List all Azure Active Directory Application Proxy app
 description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications in your directory that have a lifetime token policy.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

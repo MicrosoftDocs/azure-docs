@@ -3,31 +3,31 @@ title: 'Quickstart: Create an Ubuntu Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine
 description: Configure and create a Data Science Virtual Machine for Linux (Ubuntu) to do analytics and machine learning.
 ms.service: data-science-vm
-author: lobrien
-ms.author: laobri
+author: jeff-shepherd
+ms.author: jeffshep
 ms.topic: quickstart
 ms.date: 03/10/2020
-# Customer intent: As a data scientist, I want to learn how to provision the Linux DSVM so that I can move my existing workflow to the cloud.
 ms.custom: mode-other
+#Customer intent: As a data scientist, I want to learn how to provision the Linux DSVM so that I can move my existing workflow to the cloud.
 ---
 
 # Quickstart: Set up the Data Science Virtual Machine for Linux (Ubuntu)
 
-Get up and running with the Ubuntu 18.04 Data Science Virtual Machine.
+Get up and running with the Ubuntu 18.04 and Ubuntu 20.04 Data Science Virtual Machines.
 
 ## Prerequisites
 
-To create an Ubuntu 18.04 Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
+To create an Ubuntu 18.04 or Ubuntu 20.04 Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
 
 >[!NOTE]
 >Azure free accounts don't support GPU enabled virtual machine SKUs.
 
 ## Create your Data Science Virtual Machine for Linux
 
-Here are the steps to create an instance of the Data Science Virtual Machine Ubuntu 18.04:
+Here are the steps to create an instance of the Data Science Virtual Machine from Ubuntu 18.04 or Ubuntu 20.04:
 
 1. Go to the [Azure portal](https://portal.azure.com). You might be prompted to sign in to your Azure account if you're not already signed in.
-1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine- Ubuntu 18.04"
+1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine- Ubuntu 18.04" or "Data Science Virtual Machine- Ubuntu 20.04"
 
 1. On the next window, select **Create**.
 

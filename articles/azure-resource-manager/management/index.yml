@@ -91,3 +91,5 @@ landingContent:
             url: request-limits-and-throttling.md
           - text: Asynchronous operations
             url: async-operations.md
+          - text: Control plane metrics in Azure Monitor
+            url: control-plane-metrics.md

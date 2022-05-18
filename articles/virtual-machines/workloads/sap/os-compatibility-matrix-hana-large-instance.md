@@ -3,7 +3,7 @@ title: Operating system compatibility matrix for SAP HANA (Large Instances)| Mic
 description: The compatibility matrix represents the compatibility of different versions of operating system with different hardware types (Large Instances).
 services: virtual-machines-linux
 documentationcenter:
-author: Ajayan1008
+author: mamccrea
 manager: hrushib
 editor:
 ms.service: virtual-machines-sap
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/18/2021
-ms.author: madhukan
+ms.author: mamccrea
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -44,6 +44,7 @@ ms.custom: H1Hack27Feb2017
   | SLES 12 SP5             | Available           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
   | SLES 15 SP1             | Available           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
   | RHEL 7.6                | Available           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
+  | RHEL 7.9                | Available           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
 
 ## Next steps
 

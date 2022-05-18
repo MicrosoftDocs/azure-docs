@@ -3,7 +3,7 @@ title: Common questions about Azure VM disaster recovery with Azure Site Recover
 description: This article answers common questions about Azure VM disaster recovery when you use Azure Site Recovery.
 author: sideeksh
 manager: rochakm
-ms.date: 07/25/2021
+ms.date: 04/28/2022
 ms.topic: conceptual
 
 ---
@@ -23,7 +23,7 @@ Every instance that's protected with Site Recovery is free for the first 31 days
 
 ### Do I incur other Azure charges in the first 31 days?
 
-Yes. Even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions, and data transfers. A recovered VM might also incur Azure compute charges. G
+Yes. Even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions, and data transfers. A recovered VM might also incur Azure compute charges.
 
 ### How do I get started with Azure VM disaster recovery?
 
@@ -48,7 +48,7 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 - Site Recovery supports:
     - ADE version 0.1, which has a schema that requires Azure Active Directory (Azure AD).
     - ADE version 1.1, which doesn't require Azure AD. For version 1.1, Windows Azure VMs must have managed disks.
-    - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema). about the extension schemas.
+    - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema) about the extension schemas.
 
 [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
 
@@ -56,7 +56,7 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 
 When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account.
 
-Currently, in the portal, you can only select an automation account in the same resource group as the vault. You can select an automation account from a different resource group using PowerShell. [Learn more](azure-to-azure-autoupdate.md#enable-automatic-updates).
+Currently, in the portal, you can only select an automation account in the same resource group as the vault. You can select an automation account from a different resource group using PowerShell. [Learn more](azure-to-azure-autoupdate.md#enable-automatic-updates) about enabling automatic updates.
 
 ### If I use a customer automation account that's not in the vault resource group, can I delete the default runbook?
 
@@ -80,7 +80,7 @@ Support for this is limited to a few regions. [Learn more](azure-to-azure-how-to
 
 ### Can I exclude disks from replication?
 
-Yes, you can exclude disks when you set up replication, using PowerShell. [Learn more](azure-to-azure-exclude-disks.md).
+Yes, you can exclude disks when you set up replication, using PowerShell. [Learn more](azure-to-azure-exclude-disks.md) about excluding disks.
 
 ### Can I replicate new disks added to replicated VMs?
 
@@ -94,7 +94,7 @@ Site Recovery doesn't support "hot remove" of disks from a replicated VM. If you
 
 ### How often can I replicate to Azure?
 
-Replication is continuous when replicating Azure VMs to another Azure region. [Learn more](./azure-to-azure-architecture.md#replication-process) about how replication works.
+Replication is continuous when replicating Azure VMs to another Azure region. [Learn more](./azure-to-azure-architecture.md#replication-process) about the replication process.
 
 ### Can I replicate virtual machines within a region?
 
@@ -124,8 +124,8 @@ No, this is unsupported. If you accidentally move storage accounts to a differen
 
 A replication policy defines the retention history of recovery points, and the frequency of app-consistent snapshots.  Site Recovery creates a default replication policy as follows:
 
-- Retain recovery points for 24 hours.
-- Take app-consistent snapshots every four hours.
+- Retain recovery points for 1 day.
+- App-consistent snapshots are disabled and are not created by default.
 
 [Learn more](azure-to-azure-how-to-enable-replication.md#customize-target-resources) about replication settings.
 
@@ -159,21 +159,34 @@ Yes. The Mobility agent for Linux support custom scripts for app-consistency. A 
 
 To understand how Site Recovery generates recovery points, let's use an example.
 
-- A replication policy retains recovery points for 24 hours, and takes an app-consistent frequency snapshot every hour.
+- A replication policy retains recovery points for one day, and takes an app-consistent snapshot every hour.
 - Site Recovery creates a crash-consistent recovery point every five minutes. You can't change this frequency.
-- Site Recovery prunes recovery points after an hour, saving one point per hour.
+- Site Recovery prunes recovery points after two hours, saving one point per hour.
 
-So, in the last hour, you can choose from 12 crash-consistent points, and one app-consistent point, as shown in the graphic.
+So, for the recent two hours, you can choose from 24 crash-consistent points, and two app-consistent points, as shown in the graphic.
 
    ![List of generated recovery points](./media/azure-to-azure-common-questions/recovery-points.png)
 
 ### How far back can I recover?
 
-The oldest recovery point that you can use is 72 hours.
+The oldest recovery point that you can use is 15 days with Managed disk and 3 days with Unmanaged disk.
 
-### What happens if Site Recovery can't generate recovery points for more than 24 hours?
+### How does the pruning of recovery points happen?
 
-If you have a replication policy of 24 hours, and Site Recovery can't generate recovery points for more than 24 hours, your old recovery points remain. Site Recovery only replaces the oldest point if it generates new points. Until there are new recovery points, all the old points remain after you reach the retention window.
+Crash-consistent recovery points are generated in every five minutes. App-consistent snapshots are generated based on the input frequency entered by you. Beyond two hours, pruning of recovery points may happen based on the retention period that you input. Following are the scenarios:
+
+|**Retention Period input**        | **Pruning mechanism**                               |
+|----------------------------------|-----------------------------------------------------|
+|0 day|No recovery point saved. You can failover only to the latest point|
+|1 day|One recovery point saved per hour beyond the last two hours|
+|2 - 7 days|One recovery point saved per two hours beyond the last two hours|
+|8 - 15 days|One recovery point saved per two hours beyond the last two hours for 7 days. Post that, one recovery point saved per four hours.<p>App-consistent snapshots will also be pruned based on the duration mentioned above in the table even if you had input lesser app-consistent snapshot frequency.|
+
+
+
+### What happens if Site Recovery can't generate recovery points for more than one day?
+
+If you have a replication policy of one day, and Site Recovery can't generate recovery points for more than one day, your old recovery points remain. Site Recovery only replaces the oldest point if it generates new points. Until there are new recovery points, all the old points remain after you reach the retention window.
 
 ### Can I change the replication policy after replication is enabled?
 
@@ -185,7 +198,7 @@ The first recovery point that's generated has the complete copy. Successive reco
 
 ### Do increases in recovery point retention increase storage costs?
 
-Yes. For example, if you increase retention from 24 hours to 72, Site Recovery saves recovery points for an additional 48 hours. The added time incurs storage changes. As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 48 per month.
+Yes. For example, if you increase retention from 1 day to 3 days, Site Recovery saves recovery points for an additional two days.The added time incurs storage changes. Earlier, it was saving recovery points per hour for 1 day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
 
 ## Multi-VM consistency
 
@@ -218,7 +231,7 @@ When you enable replication for a VM, you can add it to a new replication group,
 
 ### How do we ensure capacity in the target region?
 
-The Site Recovery team, and Azure capacity management team, plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery can deploy to the target region.
+The Site Recovery team, and Azure capacity management team, plan for sufficient infrastructure capacity on a best-effort basis. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery can deploy to the target region. 
 
 ### Is failover automatic?
 
@@ -310,7 +323,15 @@ After reprotection, failback takes about the same amount of time it took to fail
 
 ### How do we ensure capacity in the target region?
 
-The Site Recovery team and Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery can deploy to the target region.
+The Site Recovery team and Azure capacity management team plan for sufficient infrastructure capacity on a best-effort basis. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery can deploy to the target region.
+
+### Does Site Recovery work with Capacity Reservation?
+
+Yes, you can create a Capacity Reservation for your VM SKU in the disaster recovery region and/or zone, and configure it in the Compute properties of the Target VM. Once done, site recovery will use the earmarked capacity for the failover. [Learn more](../virtual-machines/capacity-reservation-overview.md).
+
+### Why should I reserve capacity using Capacity Reservation at the destination location?
+
+While Site Recovery makes a best effort to ensure that capacity is available in the recovery region, it does not guarantee the same. Site Recovery's best effort is backed by a 2-hour RTO SLA. But if you require further assurance and _guaranteed compute capacity,_ then we recommend you to purchase [Capacity Reservations](https://aka.ms/on-demand-capacity-reservations-docs)  
 
 ### Does Site Recovery work with reserved instances?
 

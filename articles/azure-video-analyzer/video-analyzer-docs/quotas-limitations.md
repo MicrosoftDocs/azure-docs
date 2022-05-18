@@ -1,5 +1,5 @@
 ---
-title: Azure Video Analyzer quotas and limitations 
+title: Quotas and limitations 
 description: This article describes Azure Video Analyzer quotas and limitations.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
@@ -7,6 +7,8 @@ ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Video Analyzer quotas and limitations
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 This article describes Azure Video Analyzer quotas and limitations.
 
@@ -62,7 +64,7 @@ Video Analyzer only supports RTSP with [interleaved RTP streams](https://datatra
 ### Support for video AI
 The HTTP or gRPC extension processors only support sending of image/video frame data with an external AI module. Thus, running inferencing on audio data is not supported. As a result, processor nodes in pipeline topologies that have an RTSP source node as one of the `inputs` also make use of an `outputSelectors` property to ensure that only video is passed into the processor. See this [topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json) as an example.
 
-## Quotas and limitations - live and batch pipeline
+## Quotas and limitations - cloud pipelines
 
 This section enumerates the quotas and limitations of Video Analyzer cloud pipelines. 
 
@@ -82,7 +84,7 @@ At most 50 live pipelines per topology are supported. 
 
 ### Concurrent low latency streaming sessions  
 
-For each active live pipeline, there can be at most one client application viewing the [low latency stream](playback-recordings-how-to.md#low-latency-streaming). If another client attempts to connect, the request will be refused.  
+For each active live pipeline, there can be at most one client application viewing the [low latency stream](viewing-videos-how-to.md#low-latency-streaming). If another client attempts to connect, the request will be refused.  
 
 ### Limitations on designing pipeline topologies 
 

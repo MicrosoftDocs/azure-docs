@@ -6,8 +6,8 @@ ms.service: load-testing
 ms.topic: quickstart
 author: ntrogh
 ms.author: nicktrog
-ms.date: 11/30/2021
-ms.custom: template-quickstart
+ms.date: 02/15/2022
+ms.custom: template-quickstart, mode-other
 adobe-target: true
 ---
 
@@ -16,6 +16,8 @@ adobe-target: true
 This quickstart describes how to create an Azure Load Testing Preview resource by using the Azure portal. With this resource, you'll create a load test with an Apache JMeter script and run the test against an external website. 
 
 After you complete this quickstart, you'll have a resource and load test that you can use for other tutorials. 
+
+Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -50,7 +52,7 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
     <?xml version="1.0" encoding="UTF-8"?>
     <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
       <hashTree>
-        <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+        <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Azure Load Testing Quickstart" enabled="true">
           <stringProp name="TestPlan.comments"></stringProp>
           <boolProp name="TestPlan.functional_mode">false</boolProp>
           <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
@@ -61,30 +63,27 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
           <stringProp name="TestPlan.user_define_classpath"></stringProp>
         </TestPlan>
         <hashTree>
-          <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="true">
-            <collectionProp name="ultimatethreadgroupdata">
-              <collectionProp name="1400604752">
-                <stringProp name="1567">5</stringProp>
-                <stringProp name="0">0</stringProp>
-                <stringProp name="48873">30</stringProp>
-                <stringProp name="49710">60</stringProp>
-                <stringProp name="10">10</stringProp>
-              </collectionProp>
-            </collectionProp>
+          <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+            <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
             <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">false</boolProp>
               <intProp name="LoopController.loops">-1</intProp>
             </elementProp>
-            <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-          </kg.apc.jmeter.threads.UltimateThreadGroup>
+            <stringProp name="ThreadGroup.num_threads">5</stringProp>
+            <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+            <boolProp name="ThreadGroup.scheduler">true</boolProp>
+            <stringProp name="ThreadGroup.duration">120</stringProp>
+            <stringProp name="ThreadGroup.delay">5</stringProp>
+            <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+          </ThreadGroup>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="homepage" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Homepage" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">{your-endpoint-url}</stringProp>
+              <stringProp name="HTTPSampler.domain">your-endpoint-url</stringProp>
               <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
               <stringProp name="HTTPSampler.path"></stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -93,9 +92,8 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
               <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
-              <stringProp name="HTTPSampler.connect_timeout">60000</stringProp>
-              <stringProp name="HTTPSampler.response_timeout">60000</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
           </hashTree>
@@ -106,7 +104,7 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
 
     This sample Apache JMeter script simulates a load test of five virtual users simultaneously accessing a web endpoint. It takes less than two minutes to complete.
 
-1. In the file, replace the placeholder text `{your-endpoint-url}` (including the curly braces) with your own endpoint URL.
+1. In the file, replace the placeholder text `your-endpoint-url` with your own endpoint URL.
 
     > [!IMPORTANT]
     > Don't include `https` or `http` in the endpoint URL.
@@ -132,7 +130,7 @@ To create a load test by using an existing Apache JMeter script:
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab." :::
     
     > [!NOTE]
-    > You can select and upload additional Apache JMeter configuration files.
+    > You can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
 
 1. (Optional) On the **Parameters** tab, configure input parameters for your Apache JMeter script.
 
@@ -152,6 +150,9 @@ To create a load test by using an existing Apache JMeter script:
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
 
+> [!NOTE]
+> You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
+
 ## <a name="run"></a> Run the load test
 
 In this section, you'll run the load test that you just created. If you selected the **Run test after creation** checkbox when you created the test, you can skip to [View the load test results](#view).
@@ -160,11 +161,7 @@ In this section, you'll run the load test that you just created. If you selected
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/tests.png" alt-text="Screenshot that shows the list of load tests." :::
 
-1. On the page that shows test details, select **Run** or **Run test**.
-
-    :::image type="content" source="./media/quickstart-create-and-run-loadtest/run-test.png" alt-text="Screenshot that shows the button for running a load test." :::
-
-1. On the **Run** confirmation page, optionally modify the test details. Then, select **Run** to start the load test.
+1. On the test details page, select **Run** or **Run test**. Then, select **Run** on the **Run test** confirmation pane to start the load test.
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/run-test-confirm.png" alt-text="Screenshot that shows the run confirmation page." :::
 

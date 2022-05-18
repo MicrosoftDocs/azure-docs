@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 
 # Edit the Hide Snapshot Path option of Azure NetApp Files

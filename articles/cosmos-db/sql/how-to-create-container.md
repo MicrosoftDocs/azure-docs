@@ -5,9 +5,10 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/16/2020
-ms.author: mjbrown 
-ms.custom: devx-track-csharp
+ms.date: 01/03/2022
+ms.author: mjbrown
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Create a container in Azure Cosmos DB SQL API
@@ -49,15 +50,18 @@ This article explains the different ways to create a container in Azure Cosmos D
 If you encounter timeout exception when creating a collection, do a read operation to validate if the collection was created successfully. The read operation throws an exception until the collection create operation is successful. For the list of status codes supported by the create operation see the [HTTP Status Codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) article.
 
 ```csharp
-// Create a container with a partition key and provision 1000 RU/s throughput.
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "myContainerName";
-myCollection.PartitionKey.Paths.Add("/myPartitionKey");
+// Create a container with a partition key and provision 400 RU/s manual throughput.
+CosmosClient client = new CosmosClient(connectionString, clientOptions);
+Database database = await client.CreateDatabaseIfNotExistsAsync(databaseId);
 
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("myDatabaseName"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 1000 });
+ContainerProperties containerProperties = new ContainerProperties()
+{
+    Id = containerId,
+    PartitionKeyPath = "/myPartitionKey"
+};
+
+var throughput = ThroughputProperties.CreateManualThroughput(400);
+Container container = await database.CreateContainerIfNotExistsAsync(containerProperties, throughput);
 ```
 
 ## Next steps

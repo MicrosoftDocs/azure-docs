@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Azure Lighthouse and the Cloud Solution Provider program
 
-If you're a [CSP (Cloud Solution Provider)](/partner-center/csp-overview) partner, you can already access the Azure subscriptions created for your customers through the CSP program by using the [Administer On Behalf Of (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) functionality. This access allows you to directly support, configure, and manage your customers' subscriptions.
+If you're a [CSP (Cloud Solution Provider)](/partner-center/csp-overview) partner, you can already access the Azure subscriptions created for your customers through the CSP program by using the Administer On Behalf Of (AOBO) functionality. This access allows you to directly support, configure, and manage your customers' subscriptions.
 
 With [Azure Lighthouse](../overview.md), you can use Azure delegated resource management along with AOBO. This helps improve security and reduces unnecessary access by enabling more granular permissions for your users. It also allows for greater efficiency and scalability, as your users can work across multiple customer subscriptions using a single login in your tenant.
 

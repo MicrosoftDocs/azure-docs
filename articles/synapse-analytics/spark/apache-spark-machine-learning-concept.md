@@ -1,14 +1,13 @@
 ---
 title: 'Machine Learning with Apache Spark'
 description: This article provides a conceptual overview of the machine learning and data science capabilities available through Apache Spark on Azure Synapse Analytics.
-services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 11/13/2020
 ms.author: midesa
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Machine learning with Apache Spark
@@ -48,7 +47,7 @@ Every Apache Spark pool in Azure Synapse Analytics comes with a set of pre-loade
   
 - [XGBoost](https://xgboost.readthedocs.io/en/latest/) is a popular machine learning library that contains optimized algorithms for training decision trees and random forests. 
   
-- [PyTorch](https://pytorch.org/) & [Tensorflow](https://www.tensorflow.org/) are powerful Python deep learning libraries. Within an Apache Spark pool in Azure Synapse Analytics, you can use these libraries to build single-machine models by setting the number of executors on your pool to zero. Even though Apache Spark is not functional under this configuration, it is a simple and cost-effective way to create single-machine models.
+- [PyTorch](https://pytorch.org/) & [TensorFlow](https://www.tensorflow.org/) are powerful Python deep learning libraries. Within an Apache Spark pool in Azure Synapse Analytics, you can use these libraries to build single-machine models by setting the number of executors on your pool to zero. Even though Apache Spark is not functional under this configuration, it is a simple and cost-effective way to create single-machine models.
 
 ## Track model development
 [MLFlow](https://www.mlflow.org/) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts. To learn more about how you can use MLFlow Tracking through Azure Synapse Analytics and Azure Machine Learning, visit this tutorial on [how to use MLFlow](../../machine-learning/how-to-use-mlflow.md).

@@ -1,28 +1,28 @@
 ---
-title: Reference guide for functions in expressions
-description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
+title: Reference guide for expression functions
+description: Reference guide to workflow expression functions for Azure Logic Apps and Power Automate.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewer: estfan, niding, azla
 ms.topic: reference
-ms.date: 09/09/2021
+ms.date: 05/05/2022
 ---
 
-# Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
+# Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
 
-For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/power-automate/getting-started), some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference these values or process the values in these expressions, you can use *functions* provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/power-automate/getting-started), some [expressions](logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference or process the values in these expressions, you can use *expression functions* provided by the [Workflow Definition Language](logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > This reference page applies to both Azure Logic Apps and Power Automate, but appears in the 
 > Azure Logic Apps documentation. Although this page refers specifically to logic app workflows, 
 > these functions work for both flows and logic app workflows. For more information about functions 
-> and expressions in Power Automate, see [Use expressions in conditions](/power-automate/use-expressions-in-conditions).
+> and expressions in Power Automate, review [Use expressions in conditions](/power-automate/use-expressions-in-conditions).
 
 For example, you can calculate values by using math functions, such as the [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function, when you want the sum from integers or floats. Here are other example tasks that you can perform with functions:
 
 | Task | Function syntax | Result |
 | ---- | --------------- | ------ |
-| Return a string in lowercase format. | toLower('<*text*>') <p>For example: toLower('Hello') | "hello" |
+| Return a string in lowercase format. | toLower('<*text*>') <br><br>For example: toLower('Hello') | "hello" |
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
@@ -41,9 +41,9 @@ Here are some other general ways that you can use functions in expressions:
 | Task | Function syntax in an expression |
 | ---- | -------------------------------- |
 | Perform work with an item by passing that item to a function. | "\@<*functionName*>(<*item*>)" |
-| 1. Get the *parameterName*'s value by using the nested `parameters()` function. </br>2. Perform work with the result by passing that value to *functionName*. | "\@<*functionName*>(parameters('<*parameterName*>'))" |
-| 1. Get the result from the nested inner function *functionName*. </br>2. Pass the result to the outer function *functionName2*. | "\@<*functionName2*>(<*functionName*>(<*item*>))" |
-| 1. Get the result from *functionName*. </br>2. Given that the result is an object with property *propertyName*, get that property's value. | "\@<*functionName*>(<*item*>).<*propertyName*>" |
+| 1. Get the *parameterName*'s value by using the nested `parameters()` function. <br>2. Perform work with the result by passing that value to *functionName*. | "\@<*functionName*>(parameters('<*parameterName*>'))" |
+| 1. Get the result from the nested inner function *functionName*. <br>2. Pass the result to the outer function *functionName2*. | "\@<*functionName2*>(<*functionName*>(<*item*>))" |
+| 1. Get the result from *functionName*. <br>2. Given that the result is an object with property *propertyName*, get that property's value. | "\@<*functionName*>(<*item*>).<*propertyName*>" |
 |||
 
 For example, the `concat()` function can take two or more string values as parameters. This function combines those strings into one string. You can either pass in string literals, for example, "Sophia" and "Owen" so that you get a combined string, "SophiaOwen":
@@ -77,9 +77,9 @@ Either way, both examples assign the result to the `customerName` property.
   The following example shows the correct and incorrect syntax:
 
   **Correct**: `"<text>/@{<function-name>('<parameter-name>')}/<text>"`
- 
+
   **Incorrect**: `"<text>/@<function-name>('<parameter-name>')/<text>"`
- 
+
   **OK**: `"@<function-name>('<parameter-name>')"`
 
 The following sections organize functions based on their general purpose, or you can browse these functions in [alphabetical order](#alphabetical-list).
@@ -100,10 +100,12 @@ To work with strings, you can use these string functions and also some [collecti
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Return the starting position for a substring. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the starting position for the last occurrence of a substring. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
+| [nthIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#nthIndexOf) | Return the starting position or index value where the *n*th occurrence of a substring appears in a string. |
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Replace a substring with the specified string, and return the updated string. |
+| [slice](../logic-apps/workflow-definition-language-functions-reference.md#slice) | Return a substring by specifying the starting and ending position or value. See also [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring). |
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Return an array that contains substrings, separated by commas, from a larger string based on a specified delimiter character in the original string. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Check whether a string starts with a specific substring. |
-| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Return characters from a string, starting from the specified position. |
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Return characters from a string, starting from the specified position. See also [slice](../logic-apps/workflow-definition-language-functions-reference.md#slice). |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Return a string in lowercase format. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Return a string in uppercase format. |
 | [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Remove leading and trailing whitespace from a string, and return the updated string. |
@@ -121,7 +123,7 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Check whether a collection is empty. |
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Return the first item from a collection. |
 | [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Return a collection that has *only* the common items across the specified collections. |
-| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | When inside a repeating action over an array, return the current item in the array during the action's current iteration. |
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | If this function appears inside a repeating action over an array, return the current item in the array during the action's current iteration. |
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Return a string that has *all* the items from an array, separated by the specified character. |
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Return the last item from a collection. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
@@ -137,7 +139,7 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 To work with conditions, compare values and expression results, or evaluate various kinds of logic, you can use these logical comparison functions. For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
-> If you use logical functions or conditions to compare values, null values are converted to empty string (`""`) values. The behavior of conditions differs when you compare with an empty string instead of a null value. For more information, see the [string() function](#string). 
+> If you use logical functions or conditions to compare values, null values are converted to empty string (`""`) values. The behavior of conditions differs when you compare with an empty string instead of a null value. For more information, see the [string() function](#string).
 
 | Logical comparison function | Task |
 | --------------------------- | ---- |
@@ -156,7 +158,7 @@ To work with conditions, compare values and expression results, or evaluate vari
 
 ## Conversion functions
 
-To change a value's type or format, you can use these conversion functions. For example, you can change a value from a Boolean to an integer. For more information about how Logic Apps handles content types during conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+To change a value's type or format, you can use these conversion functions. For example, you can change a value from a Boolean to an integer. For more information about how Azure Logic Apps handles content types during conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
 > Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
@@ -176,6 +178,7 @@ To change a value's type or format, you can use these conversion functions. For 
 | [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Return the data URI for an input value. |
 | [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Return the binary version for a data URI. |
 | [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | Return the string version for a data URI. |
+| [decimal](../logic-apps/workflow-definition-language-functions-reference.md#decimal) | Return the decimal number for a decimal string. |
 | [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | Return the string version for a base64-encoded string. |
 | [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | Return the binary version for a data URI. |
 | [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Return a string that replaces escape characters with decoded versions. |
@@ -194,13 +197,13 @@ To change a value's type or format, you can use these conversion functions. For 
 
 ## Implicit data type conversions
 
-Azure Logic Apps automatically or implicitly converts between some data types, so you don't have to manually perform these conversions. For example, if you use non-string values where strings are expected as inputs, Logic Apps automatically converts the non-string values into strings.
+Azure Logic Apps automatically or implicitly converts between some data types, so you don't have to manually perform these conversions. For example, if you use non-string values where strings are expected as inputs, Azure Logic Apps automatically converts the non-string values into strings.
 
 For example, suppose a trigger returns a numerical value as output:
 
 `triggerBody()?['123']`
 
-If you use this numerical output where string input is expected, such as a URL, Logic Apps automatically converts the value into a string by using the curly braces (`{}`) notation:
+If you use this numerical output where string input is expected, such as a URL, Azure Logic Apps automatically converts the value into a string by using the curly braces (`{}`) notation:
 
 `@{triggerBody()?['123']}`
 
@@ -208,7 +211,7 @@ If you use this numerical output where string input is expected, such as a URL, 
 
 ### Base64 encoding and decoding
 
-Logic Apps automatically or implicitly performs base64 encoding or decoding, so you don't have to manually perform these conversions by using the corresponding functions:
+Azure Logic Apps automatically or implicitly performs base64 encoding or decoding, so you don't have to manually perform these conversions by using the corresponding functions:
 
 * `base64(<value>)`
 * `base64ToBinary(<value>)`
@@ -219,7 +222,7 @@ Logic Apps automatically or implicitly performs base64 encoding or decoding, so 
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> If you manually add any of these functions while using the workflow designer, either directly to a trigger 
+> If you manually add any of these functions while using the designer, either directly to a trigger 
 > or action or by using the expression editor, navigate away from the designer, and then return to the designer, 
 > the function disappears from the designer, leaving behind only the parameter values. This behavior also happens 
 > if you select a trigger or action that uses this function without editing the function's parameter values. 
@@ -258,11 +261,11 @@ For the full reference about each function, see the
 
 | Date or time function | Task |
 | --------------------- | ---- |
-| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Add a number of days to a timestamp. |
-| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Add a number of hours to a timestamp. |
-| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Add a number of minutes to a timestamp. |
-| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Add a number of seconds to a timestamp. |
-| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Add a number of time units to a timestamp. See also [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). |
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Add days to a timestamp. |
+| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Add hours to a timestamp. |
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Add minutes to a timestamp. |
+| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Add seconds to a timestamp. |
+| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Add specified time units to a timestamp. See also [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). |
 | [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Convert a timestamp from Universal Time Coordinated (UTC) to the target time zone. |
 | [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Convert a timestamp from the source time zone to the target time zone. |
 | [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Convert a timestamp from the source time zone to Universal Time Coordinated (UTC). |
@@ -272,6 +275,7 @@ For the full reference about each function, see the
 | [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | Return the date from a timestamp. |
 | [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Return the current timestamp plus the specified time units. See also [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). |
 | [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Return the current timestamp minus the specified time units. See also [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). |
+| [parseDateTime](../logic-apps/workflow-definition-language-functions-reference.md#parseDateTime) | Return the timestamp from a string that contains a timestamp. |
 | [startOfDay](../logic-apps/workflow-definition-language-functions-reference.md#startOfDay) | Return the start of the day for a timestamp. |
 | [startOfHour](../logic-apps/workflow-definition-language-functions-reference.md#startOfHour) | Return the start of the hour for a timestamp. |
 | [startOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#startOfMonth) | Return the start of the month for a timestamp. |
@@ -304,9 +308,9 @@ For the full reference about each function, see the
 | [body](#body) | Return an action's `body` output at runtime. See also [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Create an array with the values that match a key name in *form-data* or *form-encoded* action outputs. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Return a single value that matches a key name in an action's *form-data* or *form-encoded output*. |
-| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | When inside a repeating action over an array, return the current item in the array during the action's current iteration. |
-| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | When inside a Foreach or Until loop, return the current item from the specified loop.|
-| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | When inside an Until loop, return the index value for the current iteration. You can use this function inside nested Until loops. |
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | If this function appears inside a repeating action over an array, return the current item in the array during the action's current iteration. |
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | If this function appears inside a Foreach or Until loop, return the current item from the specified loop.|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | If this function appears inside an Until loop, return the index value for the current iteration. You can use this function inside nested Until loops. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Return the "callback URL" that calls a trigger or action. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Return an action's output at runtime. |
@@ -359,11 +363,15 @@ For the full reference about each function, see the
 | [xpath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Check XML for nodes or values that match an XPath (XML Path Language) expression, and return the matching nodes or values. |
 |||
 
+## ---------------------------------
+
 <a name="alphabetical-list"></a>
 
 ## All functions - alphabetical list
 
 This section lists all the available functions in alphabetical order.
+
+## A
 
 <a name="action"></a>
 
@@ -449,7 +457,7 @@ And returns this result:
 
 ### actionOutputs
 
-Return an action's output at runtime.  and is shorthand for `actions('<actionName>').outputs`. See [actions()](#actions). The `actionOutputs()` function resolves to `outputs()` in the Logic App Designer, so consider using [outputs()](#outputs), rather than `actionOutputs()`. Although both functions work the same way, `outputs()` is preferred.
+Return an action's output at runtime.  and is shorthand for `actions('<actionName>').outputs`. See [actions()](#actions). The `actionOutputs()` function resolves to `outputs()` in the designer, so consider using [outputs()](#outputs), rather than `actionOutputs()`. Although both functions work the same way, `outputs()` is preferred.
 
 ```
 actionOutputs('<actionName>')
@@ -594,7 +602,7 @@ And returns this result: `2.5`
 
 ### addDays
 
-Add a number of days to a timestamp.
+Add days to a timestamp.
 
 ```
 addDays('<timestamp>', <days>, '<format>'?)
@@ -604,7 +612,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*days*> | Yes | Integer | The positive or negative number of days to add |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -636,7 +644,7 @@ And returns this result: `"2018-03-10T00:00:00.0000000Z"`
 
 ### addHours
 
-Add a number of hours to a timestamp.
+Add hours to a timestamp.
 
 ```
 addHours('<timestamp>', <hours>, '<format>'?)
@@ -646,7 +654,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*hours*> | Yes | Integer | The positive or negative number of hours to add |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -662,7 +670,7 @@ This example adds 10 hours to the specified timestamp:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-And returns this result: `"2018-03-15T10:00:00.0000000Z"
+And returns this result: `"2018-03-15T10:00:00.0000000Z"`
 
 *Example 2*
 
@@ -678,7 +686,7 @@ And returns this result: `"2018-03-15T10:00:00.0000000Z"`
 
 ### addMinutes
 
-Add a number of minutes to a timestamp.
+Add minutes to a timestamp.
 
 ```
 addMinutes('<timestamp>', <minutes>, '<format>'?)
@@ -688,7 +696,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*minutes*> | Yes | Integer | The positive or negative number of minutes to add |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -821,7 +829,7 @@ Here's the updated JSON object:
 
 ### addSeconds
 
-Add a number of seconds to a timestamp.
+Add seconds to a timestamp.
 
 ```
 addSeconds('<timestamp>', <seconds>, '<format>'?)
@@ -831,7 +839,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*seconds*> | Yes | Integer | The positive or negative number of seconds to add |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -863,8 +871,7 @@ And returns this result: `"2018-03-15T00:00:25.0000000Z"`
 
 ### addToTime
 
-Add a number of time units to a timestamp.
-See also [getFutureTime()](#getFutureTime).
+Add the specified time units to a timestamp. See also [getFutureTime()](#getFutureTime).
 
 ```
 addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
@@ -875,7 +882,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*interval*> | Yes | Integer | The number of specified time units to add |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -987,6 +994,8 @@ array('hello')
 ```
 
 And returns this result: `["hello"]`
+
+## B
 
 <a name="base64"></a>
 
@@ -1200,12 +1209,13 @@ These examples show the different supported types of input for `bool()`:
 | `bool('true')` | String | `true` |
 | `bool('false')` | String | `false` |
 
+## C
+
 <a name="coalesce"></a>
 
 ### coalesce
 
-Return the first non-null value from one or more parameters.
-Empty strings, empty arrays, and empty objects are not null.
+Return the first non-null value from one or more parameters. Empty strings, empty arrays, and empty objects aren't null.
 
 ```
 coalesce(<object_1>, <object_2>, ...)
@@ -1218,7 +1228,7 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*first-non-null-item*> | Any | The first item or value that is not null. If all parameters are null, this function returns null. |
+| <*first-non-null-item*> | Any | The first item or value that isn't null. If all parameters are null, this function returns null. |
 ||||
 
 *Example*
@@ -1255,7 +1265,7 @@ concat('<text1>', '<text2>', ...)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*text1text2...*> | String | The string created from the combined input strings. <p><p>**Note**: The length of the result must not exceed 104,857,600 characters. |
+| <*text1text2...*> | String | The string created from the combined input strings. <br><br><br><br>**Note**: The length of the result must not exceed 104,857,600 characters. |
 ||||
 
 > [!NOTE]
@@ -1339,8 +1349,8 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, please review: [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones). |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, review [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones). |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -1383,7 +1393,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones), but you might have to remove any punctuation from the time zone name. |
 | <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones), but you might have to remove any punctuation from the time zone name. |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -1425,7 +1435,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Windows Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones), but you might have to remove any punctuation from the time zone name. |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -1483,6 +1493,8 @@ createArray('h', 'e', 'l', 'l', 'o')
 ```
 
 And returns this result: `["h", "e", "l", "l", "o"]`
+
+## D
 
 <a name="dataUri"></a>
 
@@ -1673,11 +1685,66 @@ dayOfYear('2018-03-15T13:27:36Z')
 
 And returns this result: `74`
 
+<a name="decimal"></a>
+
+### decimal
+
+Returns a decimal number in a string as a decimal number. You can use this function when you're working with data that requires decimal precision and also as input for [logical comparison functions](#logical-comparison-functions) and [math functions](#math-functions). To capture and preserve precision when you use the result from the **decimal()** function, wrap any decimal output with the [string function](#string). This usage is shown in the following examples below where you can lose precision if you use the decimal result as a number.
+
+> [!NOTE]
+> The decimal precision that's discussed in the context for this function and the Azure Logic Apps runtime is the same as the [.NET decimal precision](/dotnet/api/system.decimal?view=netframework-4.7.1&preserve-view=true).
+
+```
+decimal('<value>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Yes | String | The decimal number in a string |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*decimal*> | Decimal Number | The decimal number for the input string |
+||||
+
+*Example 1*
+
+This example creates a decimal that's used as a number:
+
+```
+decimal('1.2345678912312131') // Returns 1.234567891231213.
+```
+
+*Example 2*
+
+This example creates a decimal and then converts the result to a string for precision preservation:
+
+```
+string(decimal('1.2345678912312131')) // Returns "1.2345678912312131".
+```
+
+*Example 3*
+
+This example uses a math function on two decimal numbers and uses the result as a number:
+
+```
+add(decimal('1.2345678912312131'), decimal('1.2345678912312131')) // Returns 2.469135782462426.
+```
+
+*Example 4*
+
+This example uses a math function on two decimal numbers and converts the result to a string for precision preservation:
+
+```
+string(add(decimal('1.2345678912312131'), decimal('1.2345678912312131'))) // Returns "2.4691357824624262".
+```
+
 <a name="decodeBase64"></a>
 
 ### decodeBase64 (deprecated)
 
-This function is deprecated, so please use [base64ToString()](#base64ToString) instead.
+This function is deprecated, so use [base64ToString()](#base64ToString) instead.
 
 <a name="decodeDataUri"></a>
 
@@ -1763,12 +1830,12 @@ div(<dividend>, <divisor>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Yes | Integer or Float | The number to divide by the *divisor* |
-| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but cannot be 0 |
+| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but can't be zero |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer or Float | The result from dividing the first number by the second number. If either the dividend or divisor has Float type, the result has Float type. <p><p>**Note**: To convert the float result to an integer, try [creating and calling a function in Azure](../logic-apps/logic-apps-azure-functions.md) from your logic app. |
+| <*quotient-result*> | Integer or Float | The result from dividing the first number by the second number. If either the dividend or divisor has Float type, the result has Float type. <br><br><br><br>**Note**: To convert the float result to an integer, try [creating and calling a function in Azure](../logic-apps/logic-apps-azure-functions.md) from your logic app. |
 ||||
 
 *Example 1*
@@ -1788,6 +1855,8 @@ Both examples return this value with Float type: `2.2`
 div(11,5.0)
 div(11.0,5)
 ```
+
+## E
 
 <a name="encodeUriComponent"></a>
 
@@ -1868,7 +1937,7 @@ And returns these results:
 
 Check whether a string ends with a specific substring.
 Return true when the substring is found, or return false when not found.
-This function is not case-sensitive.
+This function isn't case-sensitive.
 
 ```
 endsWith('<text>', '<searchText>')
@@ -1942,6 +2011,8 @@ And returns these results:
 * First example: Both values are equivalent, so the function returns `true`.
 * Second example: Both values aren't equivalent, so the function returns `false`.
 
+## F
+
 <a name="first"></a>
 
 ### first
@@ -2014,29 +2085,31 @@ And returns this result: `10.333`
 Return a timestamp in the specified format.
 
 ```
-formatDateTime('<timestamp>', '<format>'?)
+formatDateTime('<timestamp>', '<format>'?, '<locale>'?)
 ```
 
 | Parameter | Required | Type | Description |
-| --------- | -------- | ---- | ----------- |
+|-----------|----------|------|-------------|
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*locale*> | No | String | The locale to use. If unspecified, the value is `en-us`. If *locale* isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
-| ------------ | ---- | ----------- |
-| <*reformatted-timestamp*> | String | The updated timestamp in the specified format |
+|--------------|------|-------------|
+| <*reformatted-timestamp*> | String | The updated timestamp in the specified format and locale, if specified. |
 ||||
 
-*Example*
-
-This example converts a timestamp to the specified format:
+*Examples*
 
 ```
-formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
+formatDateTime('03/15/2018') // Returns '2018-03-15T00:00:00.0000000'.
+formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss') // Returns '2018-03-15T12:00:00'.
+formatDateTime('01/31/2016', 'dddd MMMM d') // Returns 'Sunday January 31'.
+formatDateTime('01/31/2016', 'dddd MMMM d', 'fr-fr') // Returns 'dimanche janvier 31'.
+formatDateTime('01/31/2016', 'dddd MMMM d', 'fr-FR') // Returns 'dimanche janvier 31'.
+formatDateTime('01/31/2016', 'dddd MMMM d', 'es-es') // Returns 'domingo enero 31'.
 ```
-
-And returns this result: `"2018-03-15T12:00:00"`
 
 <a name="formDataMultiValues"></a>
 
@@ -2120,7 +2193,7 @@ formatNumber(<number>, <format>, <locale>?)
 | --------- | -------- | ---- | ----------- |
 | <*number*> | Yes | Integer or Double | The value that you want to format. |
 | <*format*> | Yes | String | A composite format string that specifies the format that you want to use. For the supported numeric format strings, see [Standard numeric format strings](/dotnet/standard/base-types/standard-numeric-format-strings), which are supported by `number.ToString(<format>, <locale>)`. |
-| <*locale*> | No | String | The locale to use as supported by `number.ToString(<format>, <locale>)`. If not specified, the default value is `en-us`. |
+| <*locale*> | No | String | The locale to use as supported by `number.ToString(<format>, <locale>)`. If unspecified, the value is `en-us`. If *locale* isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -2160,6 +2233,8 @@ Suppose that you want to format the number `17.35`. This example formats the num
 formatNumber(17.35, 'C2', 'is-is')
 ```
 
+## G
+
 <a name="getFutureTime"></a>
 
 ### getFutureTime
@@ -2172,9 +2247,9 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Yes | Integer | The number of specified time units to add |
+| <*interval*> | Yes | Integer | The number of time units to add |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
 |||||
 
 | Return value | Type | Description |
@@ -2218,7 +2293,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Yes | Integer | The number of specified time units to subtract |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated that the provided format isn't valid and must be a numeric format string. |
 |||||
 
 | Return value | Type | Description |
@@ -2364,6 +2439,8 @@ guid('P')
 
 And returns this result: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
+## I
+
 <a name="if"></a>
 
 ### if
@@ -2401,7 +2478,7 @@ if(equals(1, 1), 'yes', 'no')
 ### indexOf
 
 Return the starting position or index value for a substring.
-This function is not case-sensitive,
+This function isn't case-sensitive,
 and indexes start with the number 0.
 
 ```
@@ -2416,7 +2493,7 @@ indexOf('<text>', '<searchText>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*index-value*>| Integer | The starting position or index value for the specified substring. <p>If the string is not found, return the number -1. |
+| <*index-value*>| Integer | The starting position or index value for the specified substring. <br><br>If the string isn't found, return the number -1. |
 ||||
 
 *Example*
@@ -2519,25 +2596,25 @@ items('myForEachLoopName')
 
 ### iterationIndexes
 
-Return the index value for the current iteration inside an Until loop. You can use this function inside nested Until loops. 
+Return the index value for the current iteration inside an Until loop. You can use this function inside nested Until loops.
 
 ```
 iterationIndexes('<loopName>')
 ```
 
-| Parameter | Required | Type | Description | 
-| --------- | -------- | ---- | ----------- | 
-| <*loopName*> | Yes | String | The name for the Until loop | 
-||||| 
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*loopName*> | Yes | String | The name for the Until loop |
+|||||
 
-| Return value | Type | Description | 
-| ------------ | ---- | ----------- | 
-| <*index*> | Integer | The index value for the current iteration inside the specified Until loop | 
-|||| 
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*index*> | Integer | The index value for the current iteration inside the specified Until loop |
+||||
 
-*Example* 
+*Example*
 
-This example creates a counter variable and increments that variable by one during each iteration in an Until loop until the counter value reaches five. The example also creates a variable that tracks the current index for each iteration. In the Until loop, during each iteration, the example increments the counter and then assigns the counter value to the current index value and then increments the counter. While in the loop, this example references the current iteration index by using the `iterationIndexes` function:
+This example creates a counter variable and increments that variable by one during each iteration in an Until loop until the counter value reaches five. The example also creates a variable that tracks the current index for each iteration. During each iteration in the Until loop, the example increments the counter value and then assigns the counter value to the current index value and then increments the counter value. While in the loop, this example references the current iteration index by using the `iterationIndexes` function:
 
 `iterationIndexes('Until_Max_Increment')`
 
@@ -2616,6 +2693,8 @@ This example creates a counter variable and increments that variable by one duri
 }
 ```
 
+## J
+
 <a name="json"></a>
 
 ### json
@@ -2630,7 +2709,7 @@ json(xml('value'))
 > [!IMPORTANT]
 > Without an XML schema that defines the output's structure, the function might return results 
 > where the structure greatly differs from the expected format, depending on the input.
->  
+>
 > This behavior makes this function unsuitable for scenarios where the output must conform 
 > to a well-defined contract, for example, in critical business systems or solutions.
 
@@ -2641,7 +2720,7 @@ json(xml('value'))
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*JSON-result*> | JSON native type, object, or array | The JSON native type value, object, or array of objects from the input string or XML. <p><p>- If you pass in XML that has a single child element in the root element, the function returns a single JSON object for that child element. <p> - If you pass in XML that has multiple child elements in the root element, the function returns an array that contains JSON objects for those child elements. <p>- If the string is null, the function returns an empty object. |
+| <*JSON-result*> | JSON native type, object, or array | The JSON native type value, object, or array of objects from the input string or XML. <br><br><br><br>- If you pass in XML that has a single child element in the root element, the function returns a single JSON object for that child element. <br><br> - If you pass in XML that has multiple child elements in the root element, the function returns an array that contains JSON objects for those child elements. <br><br>- If the string is null, the function returns an empty object. |
 ||||
 
 *Example 1*
@@ -2727,12 +2806,8 @@ And returns this result:
 
 ### intersection
 
-Return a collection that has *only* the
-common items across the specified collections.
-To appear in the result, an item must appear in
-all the collections passed to this function.
-If one or more items have the same name,
-the last item with that name appears in the result.
+Return a collection that has *only* the common items across the specified collections. To appear in the result, an item must appear in
+all the collections passed to this function. If one or more items have the same name, the last item with that name appears in the result.
 
 ```
 intersection([<collection1>], [<collection2>], ...)
@@ -2778,7 +2853,7 @@ join([<collection>], '<delimiter>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | The resulting string created from all the items in the specified array. <p><p>**Note**: The length of the result must not exceed 104,857,600 characters. |
+| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | The resulting string created from all the items in the specified array. <br><br><br><br>**Note**: The length of the result must not exceed 104,857,600 characters. |
 ||||
 
 *Example*
@@ -2791,6 +2866,8 @@ join(createArray('a', 'b', 'c'), '.')
 ```
 
 And returns this result: `"a.b.c"`
+
+## L
 
 <a name="last"></a>
 
@@ -2831,9 +2908,9 @@ And returns these results:
 
 ### lastIndexOf
 
-Return the starting position or index value for the last occurrence of a substring. This function is not case-sensitive, and indexes start with the number 0.
+Return the starting position or index value for the last occurrence of a substring. This function isn't case-sensitive, and indexes start with the number 0.
 
-```json
+```
 lastIndexOf('<text>', '<searchText>')
 ```
 
@@ -2860,13 +2937,13 @@ If the string or substring value is empty, the following behavior occurs:
 
 This example finds the starting index value for the last occurrence of the substring `world` substring in the string `hello world hello world`. The returned result is `18`:
 
-```json
+```
 lastIndexOf('hello world hello world', 'world')
 ```
 
 This example is missing the substring parameter, and returns a value of `22` because the value of the input string (`23`) minus 1 is greater than 0.
 
-```json
+```
 lastIndexOf('hello world hello world', '')
 ```
 
@@ -2982,10 +3059,7 @@ And return these results:
 
 ### listCallbackUrl
 
-Return the "callback URL" that calls a trigger or action.
-This function works only with triggers and actions for the
-**HttpWebhook** and **ApiConnectionWebhook** connector types,
-but not the **Manual**, **Recurrence**, **HTTP**, and **APIConnection** types.
+Return the "callback URL" that calls a trigger or action. This function works only with triggers and actions for the **HttpWebhook** and **ApiConnectionWebhook** connector types, but not the **Manual**, **Recurrence**, **HTTP**, and **APIConnection** types.
 
 ```
 listCallbackUrl()
@@ -3001,6 +3075,8 @@ listCallbackUrl()
 This example shows a sample callback URL that this function might return:
 
 `"https://prod-01.westus.logic.azure.com:443/workflows/<*workflow-ID*>/triggers/manual/run?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<*signature-ID*>"`
+
+## M
 
 <a name="max"></a>
 
@@ -3083,7 +3159,7 @@ mod(<dividend>, <divisor>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Yes | Integer or Float | The number to divide by the *divisor* |
-| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but cannot be 0. |
+| <*divisor*> | Yes | Integer or Float | The number that divides the *dividend*, but can't be zero |
 |||||
 
 | Return value | Type | Description |
@@ -3111,7 +3187,6 @@ mod(4, -3)
 ```
 
 The example returns these results:
-
 
 * First example: `-1`
 * Second example: `1`
@@ -3173,6 +3248,8 @@ multipartBody('<actionName>', <index>)
 | <*body*> | String | The body for the specified part |
 ||||
 
+## N
+
 <a name="not"></a>
 
 ### not
@@ -3181,7 +3258,7 @@ Check whether an expression is false.
 Return true when the expression is false,
 or return false when true.
 
-```json
+```
 not(<expression>)
 ```
 
@@ -3199,7 +3276,7 @@ not(<expression>)
 
 These examples check whether the specified expressions are false:
 
-```json
+```
 not(false)
 not(true)
 ```
@@ -3213,7 +3290,7 @@ And return these results:
 
 These examples check whether the specified expressions are false:
 
-```json
+```
 not(equals(1, 2))
 not(equals(1, 1))
 ```
@@ -3223,13 +3300,44 @@ And return these results:
 * First example: The expression is false, so the function returns `true`.
 * Second example: The expression is true, so the function returns `false`.
 
+<a name="nthIndexOf"></a>
+
+### nthIndexOf
+
+Return the starting position or index value where the *n*th occurrence of a substring appears in a string.
+
+```
+nthIndexOf('<text>', '<searchText>', <occurrence>)
+```
+
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| <*text*> | Yes | String | The string that contains the substring to find |
+| <*searchText*> | Yes | String | The substring to find |
+| <*occurrence*> | Yes | Integer | A number that specifies the *n*th occurrence of the substring to find. If *occurrence* is negative, start searching from the end. |
+|||||
+
+| Return value | Type | Description |
+|--------------|------|-------------|
+| <*index-value*> | Integer | The starting position or index value for the *n*th occurrence of the specified substring. If the substring isn't found or fewer than *n* occurrences of the substring exist, return `-1`. |
+||||
+
+*Examples*
+
+```
+nthIndexOf('123456789123465789', '1', 1) // Returns `0`.
+nthIndexOf('123456789123465789', '1', 2) // Returns `9`.
+nthIndexOf('123456789123465789', '12', 2) // Returns `9`.
+nthIndexOf('123456789123465789', '6', 4) // Returns `-1`.
+```
+
+## O
+
 <a name="or"></a>
 
 ### or
 
-Check whether at least one expression is true.
-Return true when at least one expression is true,
-or return false when all are false.
+Check whether at least one expression is true. Return true when at least one expression is true, or return false when all are false.
 
 ```
 or(<expression1>, <expression2>, ...)
@@ -3249,7 +3357,7 @@ or(<expression1>, <expression2>, ...)
 
 These examples check whether at least one expression is true:
 
-```json
+```
 or(true, false)
 or(false, false)
 ```
@@ -3277,7 +3385,7 @@ And return these results:
 
 ### outputs
 
-Return an action's outputs at runtime. Use this function, rather than `actionOutputs()`, which resolves to `outputs()` in the Logic App Designer. Although both functions work the same way, `outputs()` is preferred.
+Return an action's outputs at runtime. Use this function, rather than `actionOutputs()`, which resolves to `outputs()` in the designer. Although both functions work the same way, `outputs()` is preferred.
 
 ```
 outputs('<actionName>')
@@ -3336,12 +3444,13 @@ And returns this result:
 }
 ```
 
+## P
+
 <a name="parameters"></a>
 
 ### parameters
 
-Return the value for a parameter that is
-described in your workflow definition.
+Return the value for a parameter that is described in your workflow definition.
 
 ```
 parameters('<parameterName>')
@@ -3375,12 +3484,45 @@ parameters('fullName')
 
 And returns this result: `"Sophia Owen"`
 
+<a name="parseDateTime"></a>
+
+### parseDateTime
+
+Return the timestamp from a string that contains a timestamp.
+
+```
+parseDateTime('<timestamp>', '<locale>'?, '<format>'?)
+```
+
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| <*timestamp*> | Yes | String | The string that contains the timestamp |
+| <*locale*> | No | String | The locale to use. <br><br>If not specified, the default locale is `en-us`. <br><br>If *locale* isn't a valid value, an error is generated. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. If the format isn't specified, attempt parsing with multiple formats that are compatible with the provided locale. If the format isn't a valid value, an error is generated. |
+||||
+
+| Return value | Type | Description |
+|--------------|------|-------------|
+| <*parsed-timestamp*> | String | The parsed timestamp in ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK) format, which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+||||
+
+*Examples*
+
+```
+parseDateTime('20/10/2014', 'fr-fr') // Returns '2014-10-20T00:00:00.0000000'.
+parseDateTime('20 octobre 2010', 'fr-FR') // Returns '2010-10-20T00:00:00.0000000'.
+parseDateTime('martes 20 octubre 2020', 'es-es') // Returns '2020-10-20T00:00:00.0000000'.
+parseDateTime('21052019', 'fr-fr', 'ddMMyyyy') // Returns '2019-05-21T00:00:00.0000000'.
+parseDateTime('10/20/2014 15h', 'en-US', 'MM/dd/yyyy HH\h') // Returns '2014-10-20T15:00:00.0000000'.
+```
+
+## R
+
 <a name="rand"></a>
 
 ### rand
 
-Return a random integer from a specified range,
-which is inclusive only at the starting end.
+Return a random integer from a specified range, which is inclusive only at the starting end.
 
 ```
 rand(<minValue>, <maxValue>)
@@ -3420,7 +3562,7 @@ range(<startIndex>, <count>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*startIndex*> | Yes | Integer | An integer value that starts the array as the first item |
-| <*count*> | Yes | Integer | The number of integers in the array. The `count` parameter value must be a positive integer that doesn't exceed 100,000. <p><p>**Note**: The sum of the `startIndex` and `count` values must not exceed 2,147,483,647. |
+| <*count*> | Yes | Integer | The number of integers in the array. The `count` parameter value must be a positive integer that doesn't exceed 100,000. <br><br><br><br>**Note**: The sum of the `startIndex` and `count` values must not exceed 2,147,483,647. |
 |||||
 
 | Return value | Type | Description |
@@ -3430,8 +3572,7 @@ range(<startIndex>, <count>)
 
 *Example*
 
-This example creates an integer array that starts from
-the specified index and has the specified number of integers:
+This example creates an integer array that starts from the specified index and has the specified number of integers:
 
 ```
 range(1, 4)
@@ -3460,13 +3601,12 @@ replace('<text>', '<oldText>', '<newText>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*updated-text*> | String | The updated string after replacing the substring <p>If the substring is not found, return the original string. |
+| <*updated-text*> | String | The updated string after replacing the substring <br><br>If the substring isn't found, return the original string. |
 ||||
 
 *Example*
 
-This example finds the "old" substring in "the old string"
-and replaces "old" with "new":
+This example finds the "old" substring in "the old string" and replaces "old" with "new":
 
 ```
 replace('the old string', 'old', 'new')
@@ -3575,7 +3715,7 @@ Here's the updated JSON object:
 
 ### result
 
-Return the results from the top-level actions in the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. The `result()` function accepts a single parameter, which is the scope's name, and returns an array that contains information from the first-level actions in that scope. These action objects include the same attributes as those returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs.
+Return the results from the top-level actions in the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. The `result()` function accepts a single parameter, which is the scope's name, and returns an array that contains information from the first-level actions in that scope. These action objects include the same attributes as the attributes returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs.
 
 > [!NOTE]
 > This function returns information *only* from the first-level actions in the scoped action and not from deeper nested actions such as switch or condition actions.
@@ -3697,6 +3837,8 @@ Here's how the example returned array might look where the outer `outputs` objec
 ]
 ```
 
+## S
+
 <a name="setProperty"></a>
 
 ### setProperty
@@ -3793,8 +3935,7 @@ Here's the updated JSON object:
 
 ### skip
 
-Remove items from the front of a collection,
-and return *all the other* items.
+Remove items from the front of a collection, and return *all the other* items.
 
 ```
 skip([<collection>], <count>)
@@ -3813,8 +3954,7 @@ skip([<collection>], <count>)
 
 *Example*
 
-This example removes one item, the number 0,
-from the front of the specified array:
+This example removes one item, the number 0, from the front of the specified array:
 
 ```
 skip(createArray(0, 1, 2, 3), 1)
@@ -3822,12 +3962,48 @@ skip(createArray(0, 1, 2, 3), 1)
 
 And returns this array with the remaining items: `[1,2,3]`
 
+<a name="slice"></a>
+
+### slice
+
+Return a substring by specifying the starting and ending position or value.
+See also [substring()](#substring).
+
+```
+slice('<text>', <startIndex>, <endIndex>?)
+```
+
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| <*text*> | Yes | String | The string that contains the substring to find |
+| <*startIndex*> | Yes | Integer | The zero-based starting position or value for where to begin searching for the substring <br><br>- If *startIndex* is greater than the string length, return an empty string. <br><br>- If *startIndex* is negative, start searching at the index value that's the sum of the string length and *startIndex*. |
+| <*endIndex*> | No | Integer | The zero-based ending position or value for where to end searching for the substring. The character located at the ending index value isn't included in the search. <br><br>- If *endIndex* isn't specified or greater than the string length, search up to the end of the string. <br><br>- If *endIndex* is negative, end searching at the index value that the sum of the string length and *endIndex*. |
+|||||
+
+| Return value | Type | Description |
+|--------------|------|-------------|
+| <*slice-result*> | String | A new string that contains the found substring |
+||||
+
+*Examples*
+
+```
+slice('Hello World', 2) // Returns 'llo World'.
+slice('Hello World', 30) // Returns ''.
+slice('Hello World', 10, 2) // Returns ''.
+slice('Hello World', 0) // Returns 'Hello World'.
+slice('Hello World', 2, 5) // Returns 'llo'.
+slice('Hello World', 6, 20) // Returns 'World'.
+slice('Hello World', -2) // Returns 'ld'.
+slice('Hello World', 3, -1) // Returns 'lo Worl'.
+slice('Hello World', 3, 3) // Returns ''.
+```
+
 <a name="split"></a>
 
 ### split
 
-Return an array that contains substrings, separated by commas,
-based on the specified delimiter character in the original string.
+Return an array that contains substrings, separated by commas, based on the specified delimiter character in the original string.
 
 ```
 split('<text>', '<delimiter>')
@@ -3846,8 +4022,7 @@ split('<text>', '<delimiter>')
 
 *Example 1*
 
-This example creates an array with substrings from the specified
-string based on the specified character as the delimiter:
+This example creates an array with substrings from the specified string based on the specified character as the delimiter:
 
 ```
 split('a_b_c', '_')
@@ -3878,7 +4053,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -3909,7 +4084,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -3940,7 +4115,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -3972,9 +4147,7 @@ And returns this result: `"2018-03-01"`
 
 ### startsWith
 
-Check whether a string starts with a specific substring.
-Return true when the substring is found, or return false when not found.
-This function is not case-sensitive.
+Check whether a string starts with a specific substring. Return true when the substring is found, or return false when not found. This function isn't case-sensitive.
 
 ```
 startsWith('<text>', '<searchText>')
@@ -3993,8 +4166,7 @@ startsWith('<text>', '<searchText>')
 
 *Example 1*
 
-This example checks whether the "hello world"
-string starts with the "hello" substring:
+This example checks whether the "hello world" string starts with the "hello" substring:
 
 ```
 startsWith('hello world', 'hello')
@@ -4004,8 +4176,7 @@ And returns this result: `true`
 
 *Example 2*
 
-This example checks whether the "hello world"
-string starts with the "greetings" substring:
+This example checks whether the "hello world" string starts with the "greetings" substring:
 
 ```
 startsWith('hello world', 'greetings')
@@ -4025,17 +4196,13 @@ string(<value>)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | Any | The value to convert. If this value is null or evaluates to null, the value is converted to an empty string (`""`) value. <p><p>For example, if you assign a string variable to a non-existent property, which you can access with the `?` operator, the null value is converted to an empty string. However, comparing a null value isn't the same as comparing an empty string. |
+| <*value*> | Yes | Any | The value to convert. If this value is null or evaluates to null, the value is converted to an empty string (`""`) value. <br><br><br><br>For example, if you assign a string variable to a non-existent property, which you can access with the `?` operator, the null value is converted to an empty string. However, comparing a null value isn't the same as comparing an empty string. |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
 | <*string-value*> | String | The string version for the specified value. If the *value* parameter is null or evaluates to null, this value is returned as an empty string (`""`) value. |
 ||||
-
-
-
-
 
 *Example 1*
 
@@ -4049,9 +4216,7 @@ And returns this result: `"10"`
 
 *Example 2*
 
-This example creates a string for the specified JSON object
-and uses the backslash character (\\)
-as an escape character for the double-quotation mark (").
+This example creates a string for the specified JSON object and uses the backslash character (\\) as an escape character for the double-quotation mark (").
 
 ```
 string( { "name": "Sophie Owen" } )
@@ -4095,6 +4260,7 @@ And returns this result: `10`
 ### substring
 
 Return characters from a string, starting from the specified position, or index. Index values start with the number 0.
+See also [slice()](#slice).
 
 ```
 substring('<text>', <startIndex>, <length>)
@@ -4119,8 +4285,7 @@ substring('<text>', <startIndex>, <length>)
 
 *Example*
 
-This example creates a five-character substring from the specified string,
-starting from the index value 6:
+This example creates a five-character substring from the specified string, starting from the index value 6:
 
 ```
 substring('hello world', 6, 5)
@@ -4132,8 +4297,7 @@ And returns this result: `"world"`
 
 ### subtractFromTime
 
-Subtract a number of time units from a timestamp.
-See also [getPastTime](#getPastTime).
+Subtract a number of time units from a timestamp. See also [getPastTime](#getPastTime).
 
 ```
 subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
@@ -4144,7 +4308,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
 | <*interval*> | Yes | Integer | The number of specified time units to subtract |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -4172,6 +4336,8 @@ subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day', 'D')
 
 And returns this result using the optional "D" format: `"Monday, January, 1, 2018"`
 
+## T
+
 <a name="take"></a>
 
 ### take
@@ -4196,8 +4362,7 @@ take([<collection>], <count>)
 
 *Example*
 
-These examples get the specified number of
-items from the front of these collections:
+These examples get the specified number of items from the front of these collections:
 
 ```
 take('abcde', 3)
@@ -4233,9 +4398,7 @@ ticks('<timestamp>')
 
 ### toLower
 
-Return a string in lowercase format. If a character
-in the string doesn't have a lowercase version,
-that character stays unchanged in the returned string.
+Return a string in lowercase format. If a character in the string doesn't have a lowercase version, that character stays unchanged in the returned string.
 
 ```
 toLower('<text>')
@@ -4265,9 +4428,7 @@ And returns this result: `"hello world"`
 
 ### toUpper
 
-Return a string in uppercase format. If a character
-in the string doesn't have an uppercase version,
-that character stays unchanged in the returned string.
+Return a string in uppercase format. If a character in the string doesn't have an uppercase version, that character stays unchanged in the returned string.
 
 ```
 toUpper('<text>')
@@ -4297,20 +4458,14 @@ And returns this result: `"HELLO WORLD"`
 
 ### trigger
 
-Return a trigger's output at runtime,
-or values from other JSON name-and-value pairs,
-which you can assign to an expression.
+Return a trigger's output at runtime, or values from other JSON name-and-value pairs, which you can assign to an expression.
 
-* Inside a trigger's inputs, this function
-returns the output from the previous execution.
+* Inside a trigger's inputs, this function returns the output from the previous execution.
 
-* Inside a trigger's condition, this function
-returns the output from the current execution.
+* Inside a trigger's condition, this function returns the output from the current execution.
 
-By default, the function references the entire trigger object,
-but you can optionally specify a property whose value that you want.
-Also, this function has shorthand versions available,
-see [triggerOutputs()](#triggerOutputs) and [triggerBody()](#triggerBody).
+By default, the function references the entire trigger object, but you can optionally specify a property whose value that you want.
+Also, this function has shorthand versions available, see [triggerOutputs()](#triggerOutputs) and [triggerBody()](#triggerBody).
 
 ```
 trigger()
@@ -4325,9 +4480,7 @@ trigger()
 
 ### triggerBody
 
-Return a trigger's `body` output at runtime.
-Shorthand for `trigger().outputs.body`.
-See [trigger()](#trigger).
+Return a trigger's `body` output at runtime. Shorthand for `trigger().outputs.body`. See [trigger()](#trigger).
 
 ```
 triggerBody()
@@ -4372,10 +4525,7 @@ And returns this array as an example result: `["https://feeds.a.dj.com/rss/RSSMa
 
 ### triggerFormDataValue
 
-Return a string with a single value that matches a key
-name in a trigger's *form-data* or *form-encoded* output.
-If the function finds more than one match,
-the function throws an error.
+Return a string with a single value that matches a key name in a trigger's *form-data* or *form-encoded* output. If the function finds more than one match, the function throws an error.
 
 ```
 triggerFormDataValue('<key>')
@@ -4393,8 +4543,7 @@ triggerFormDataValue('<key>')
 
 *Example*
 
-This example creates a string from the "feedUrl" key value in
-an RSS trigger's form-data or form-encoded output:
+This example creates a string from the "feedUrl" key value in an RSS trigger's form-data or form-encoded output:
 
 ```
 triggerFormDataValue('feedUrl')
@@ -4426,10 +4575,7 @@ triggerMultipartBody(<index>)
 
 ### triggerOutputs
 
-Return a trigger's output at runtime,
-or values from other JSON name-and-value pairs.
-Shorthand for `trigger().outputs`.
-See [trigger()](#trigger).
+Return a trigger's output at runtime, or values from other JSON name-and-value pairs. Shorthand for `trigger().outputs`. See [trigger()](#trigger).
 
 ```
 triggerOutputs()
@@ -4444,8 +4590,7 @@ triggerOutputs()
 
 ### trim
 
-Remove leading and trailing whitespace from a string,
-and return the updated string.
+Remove leading and trailing whitespace from a string, and return the updated string.
 
 ```
 trim('<text>')
@@ -4463,8 +4608,7 @@ trim('<text>')
 
 *Example*
 
-This example removes the leading and trailing
-whitespace from the string " Hello World  ":
+This example removes the leading and trailing whitespace from the string " Hello World  ":
 
 ```
 trim(' Hello World  ')
@@ -4472,14 +4616,14 @@ trim(' Hello World  ')
 
 And returns this result: `"Hello World"`
 
+## U
+
 <a name="union"></a>
 
 ### union
 
-Return a collection that has *all* the items from the specified collections.
-To appear in the result, an item can appear in any collection
-passed to this function. If one or more items have the same name,
-the last item with that name appears in the result.
+Return a collection that has *all* the items from the specified collections. To appear in the result, an item can appear in any collection
+passed to this function. If one or more items have the same name, the last item with that name appears in the result.
 
 ```
 union('<collection1>', '<collection2>', ...)
@@ -4510,11 +4654,7 @@ And returns this result: `[1, 2, 3, 10, 101]`
 
 ### uriComponent
 
-Return a uniform resource identifier (URI) encoded version for a
-string by replacing URL-unsafe characters with escape characters.
-Use this function rather than [encodeUriComponent()](#encodeUriComponent).
-Although both functions work the same way,
-`uriComponent()` is preferred.
+Return a uniform resource identifier (URI) encoded version for a string by replacing URL-unsafe characters with escape characters. Use this function rather than [encodeUriComponent()](#encodeUriComponent). Although both functions work the same way, `uriComponent()` is preferred.
 
 ```
 uriComponent('<value>')
@@ -4579,8 +4719,7 @@ And returns this result:
 
 ### uriComponentToString
 
-Return the string version for a uniform resource identifier (URI) encoded string,
-effectively decoding the URI-encoded string.
+Return the string version for a uniform resource identifier (URI) encoded string, effectively decoding the URI-encoded string.
 
 ```
 uriComponentToString('<value>')
@@ -4801,7 +4940,7 @@ Optionally, you can specify a different format with the <*format*> parameter.
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No | String | Either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*format*> | No | String | A numeric format string that is either a [single format specifier](/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. <br><br>If the format isn't a valid value, an error is generated. |
 |||||
 
 | Return value | Type | Description |
@@ -4831,6 +4970,8 @@ utcNow('D')
 
 And returns this result: `"Sunday, April 15, 2018"`
 
+## V
+
 <a name="variables"></a>
 
 ### variables
@@ -4853,14 +4994,15 @@ variables('<variableName>')
 
 *Example*
 
-Suppose the current value for a "numItems" variable is 20.
-This example gets the integer value for this variable:
+Suppose the current value for a "numItems" variable is 20. This example gets the integer value for this variable:
 
 ```
 variables('numItems')
 ```
 
 And returns this result: `20`
+
+## W
 
 <a name="workflow"></a>
 
@@ -4874,7 +5016,7 @@ workflow().<property>
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | No | String | The name for the workflow property whose value you want <p><p>By default, a workflow object has these properties: `name`, `type`, `id`, `location`, `run`, and `tags`. <p><p>- The `run` property value is a JSON object that includes these properties: `name`, `type`, and `id`. <p><p>- The `tags` property is a JSON object that includes [tags that are associated with your logic app in Azure Logic Apps or flow in Power Automate](../azure-resource-manager/management/tag-resources.md) and the values for those tags. For more information about tags in Azure resources, review [Tag resources, resource groups, and subscriptions for logical organization in Azure](../azure-resource-manager/management/tag-resources.md). <p><p>**Note**: By default, a logic app has no tags, but a Power Automate flow has the `flowDisplayName` and `environmentName` tags. |
+| <*property*> | No | String | The name for the workflow property whose value you want <br><br><br><br>By default, a workflow object has these properties: `name`, `type`, `id`, `location`, `run`, and `tags`. <br><br><br><br>- The `run` property value is a JSON object that includes these properties: `name`, `type`, and `id`. <br><br><br><br>- The `tags` property is a JSON object that includes [tags that are associated with your logic app in Azure Logic Apps or flow in Power Automate](../azure-resource-manager/management/tag-resources.md) and the values for those tags. For more information about tags in Azure resources, review [Tag resources, resource groups, and subscriptions for logical organization in Azure](../azure-resource-manager/management/tag-resources.md). <br><br><br><br>**Note**: By default, a logic app has no tags, but a Power Automate flow has the `flowDisplayName` and `environmentName` tags. |
 |||||
 
 *Example 1*
@@ -4891,6 +5033,8 @@ For example, you can send custom email notifications from the flow itself that l
 
 `<a href=https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details>Open flow @{workflow()['tags']['flowDisplayName']}</a>`
 
+## X
+
 <a name="xml"></a>
 
 ### xml
@@ -4903,7 +5047,7 @@ xml('<value>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | The string with the JSON object to convert <p>The JSON object must have only one root property, which can't be an array. <br>Use the backslash character (\\) as an escape character for the double quotation mark ("). |
+| <*value*> | Yes | String | The string with the JSON object to convert <br><br>The JSON object must have only one root property, which can't be an array. <br>Use the backslash character (\\) as an escape character for the double quotation mark ("). |
 |||||
 
 | Return value | Type | Description |
@@ -4925,8 +5069,7 @@ And returns this result XML:
 
 *Example 2*
 
-This example creates the XML version for this string,
-which contains a JSON object:
+This example creates the XML version for this string, which contains a JSON object:
 
 `xml(json('{ "name": "Sophia Owen" }'))`
 
@@ -4982,7 +5125,7 @@ xpath('<xml>', '<xpath>')
 | ------------ | ---- | ----------- |
 | <*xml-node*> | XML | An XML node when only a single node matches the specified XPath expression |
 | <*value*> | Any | The value from an XML node when only a single value matches the specified XPath expression |
-| [<*xml-node1*>, <*xml-node2*>, ...] </br>-or- </br>[<*value1*>, <*value2*>, ...] | Array | An array with XML nodes or values that match the specified XPath expression |
+| [<*xml-node1*>, <*xml-node2*>, ...] -or- [<*value1*>, <*value2*>, ...] | Array | An array with XML nodes or values that match the specified XPath expression |
 ||||
 
 *Example 1*
@@ -5011,7 +5154,7 @@ This example passes in the XPath expression, `'/produce/item/name'`, to find the
 
 The example also uses the [parameters()](#parameters) function to get the XML string from `'items'` and convert the string to XML format by using the [xml()](#xml) function.
 
-Here is the result array with the nodes that match `<name></name`:
+Here's the result array with the nodes that match `<name></name`:
 
 `[ <name>Gala</name>, <name>Honeycrisp</name> ]`
 
@@ -5021,7 +5164,7 @@ Following on Example 1, this example passes in the XPath expression, `'/produce/
 
 `xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
-Here is the result: `Gala`
+Here's the result: `Gala`
 
 *Example 3*
 
@@ -5029,7 +5172,7 @@ Following on Example 1, this example pass in the XPath expression, `'/produce/it
 
 `xpath(xml(parameters('items')), '/produce/item/name[last()]')`
 
-Here is the result: `Honeycrisp`
+Here's the result: `Honeycrisp`
 
 *Example 4*
 
@@ -5055,7 +5198,7 @@ This example passes in the XPath expression, `'//name[@expired]'`, to find all t
 
 `xpath(xml(parameters('items')), '//name[@expired]')`
 
-Here is the result: `[ Gala, Honeycrisp ]`
+Here's the result: `[ Gala, Honeycrisp ]`
 
 *Example 5*
 
@@ -5081,7 +5224,7 @@ This example passes in the XPath expression, `'//name[@expired = 'true']'`, to f
 
 `xpath(xml(parameters('items')), '//name[@expired = 'true']')`
 
-Here is the result: `[ Gala ]`
+Here's the result: `[ Gala ]`
 
 *Example 6*
 
@@ -5110,7 +5253,7 @@ This example passes in the XPath expression, `'//name[price>35]'`, to find all t
 
 `xpath(xml(parameters('items')), '//name[price>35]')`
 
-Here is the result: `Honeycrisp`
+Here's the result: `Honeycrisp`
 
 *Example 7*
 
@@ -5136,7 +5279,7 @@ This example finds nodes that match the `<count></count>` node and adds those no
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
-Here is the result: `30`
+Here's the result: `30`
 
 *Example 8*
 
@@ -5146,12 +5289,12 @@ In this example, suppose you have this XML string, which includes the XML docume
 <?xml version="1.0"?><file xmlns="https://contoso.com"><location>Paris</location></file>
 ```
 
-These expressions use either XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node. These examples show the syntax that you use in either the Logic App Designer or in the expression editor:
+These expressions use either XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node. These examples show the syntax that you use in either the designer or in the expression editor:
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
 * `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
 
-Here is the result node that matches the `<location></location>` node: 
+Here's the result node that matches the `<location></location>` node: 
 
 `<location xmlns="https://contoso.com">Paris</location>`
 
@@ -5159,7 +5302,7 @@ Here is the result node that matches the `<location></location>` node:
 >
 > If you work in code view, escape the double quotation mark (") by using the backslash character (\\). 
 > For example, you need to use escape characters when you serialize an expression as a JSON string. 
-> However, if you're work in the Logic App Designer or expression editor, you don't need to escape the 
+> However, if you're work in the designer or expression editor, you don't need to escape the 
 > double quotation mark because the backslash character is added automatically to the underlying definition, for example:
 > 
 > * Code view: `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
@@ -5172,7 +5315,7 @@ Following on Example 8, this example uses the XPath expression, `'string(/*[name
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
-Here is the result: `Paris`
+Here's the result: `Paris`
 
 ## Next steps
 

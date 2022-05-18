@@ -2,7 +2,7 @@
 title: Create a Linux container app on Service Fabric in Azure
 description: In this quickstart, you will build a Docker image with your application, push the image to a container registry, and then deploy your container to a Service Fabric cluster.
 ms.topic: quickstart
-ms.date: 07/22/2019
+ms.date: 05/12/2022
 ms.custom: mvc, devx-track-azurecli, mode-other
 ---
 # Quickstart: Deploy Linux containers to Service Fabric
@@ -42,6 +42,11 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 To deploy the application to Azure, you need a Service Fabric cluster to run the application. The following commands create a five-node cluster in Azure.  The commands also create a self-signed certificate, adds it to a key vault and downloads the certificate locally. The new certificate is used to secure the cluster when it deploys and is used to authenticate clients.
 
+If you wish, you can modify the variable values to your preference. For example, westus instead of eastus for the location.
+
+> [!NOTE]
+> Key vault names should be universally unique, as they are accessed as https://{vault-name}.vault.azure.net.
+>
 ```azurecli
 #!/bin/bash
 
@@ -178,10 +183,10 @@ If you are finished working with your cluster, you can remove the certificate fr
 
 ## Next steps
 
-In this quickstart, you've deployed a Linux container application to a Service Fabric cluster in Azure, performed fail-over on the application, and scaled the application in the cluster. To learn more about working with Linux containers in Service Fabric, continue to the tutorial for Linux container apps.
+In this quickstart, you've deployed a Linux container application to a Service Fabric cluster in Azure, performed fail-over on the application, and scaled the application in the cluster. To learn more about working with Linux containers in Service Fabric, continue to the tutorial for Linux container applications.
 
 > [!div class="nextstepaction"]
-> [Create a Linux container app](./service-fabric-tutorial-create-container-images.md)
+> [Create a Linux container application](./service-fabric-tutorial-create-container-images.md)
 
 [sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
 [quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png

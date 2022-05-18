@@ -12,7 +12,6 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2021
 ms.author: thwimmer
@@ -41,16 +40,16 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
-2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and Cisco Umbrella User Management](../app-provisioning/customize-application-attributes.md). 
+1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Determine what data to [map between Azure AD and Cisco Umbrella User Management](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Import ObjectGUID attribute via Azure AD Connect (Optional)
-If you have previously provisioned user and group identities from on-premise AD to Cisco Umbrella and would now like to provision the same users and groups from Azure AD, you will need to synchronize the ObjectGUID attribute so that previously provisioned identities persist in the Umbrella policy.
+If you have previously provisioned user identities from on-premise AD to Cisco Umbrella and would now like to provision the same users from Azure AD, you will need to synchronize the ObjectGUID attribute so that previously provisioned identities persist in the Umbrella reporting. You will need to reconfigure any Umbrella policy on groups after importing groups from Azure AD.
 
 > [!NOTE]
 > The on-premise Umbrella AD Connector should be turned off before importing the ObjectGUID attribute.
   
-When using Microsoft Azure AD Connect, the ObjectGUID attribute of users and groups is not synchronized from on-premise AD to Azure AD by default. To synchronize this attribute, enable the optional **Directory Extension attribute sync** and select the objectGUID attributes for groups and users.  
+When using Microsoft Azure AD Connect, the ObjectGUID attribute of users is not synchronized from on-premise AD to Azure AD by default. To synchronize this attribute, enable the optional **Directory Extension attribute sync** and select the objectGUID attributes for users.  
 
    ![Azure Active Directory Connect wizard Optional features page](./media/cisco-umbrella-user-management-provisioning-tutorial/active-directory-connect-directory-extension-attribute-sync.png)
 
@@ -63,17 +62,16 @@ When using Microsoft Azure AD Connect, the ObjectGUID attribute of users and gro
 
 1. Log in to [Cisco Umbrella dashboard](https://login.umbrella.com ). Navigate to **Deployments** > **Core Identities** > **Users and Groups**.
 
-2. If the import mechanism is set to Manual import, click on **Import from IdP** to switch the import mechanism. 
   
-3. Expand the Azure Active Directory card and click on the **API Keys page**.
+1. Expand the Azure Active Directory card and click on the **API Keys page**.
 
    ![Api](./media/cisco-umbrella-user-management-provisioning-tutorial/keys.png)
 
-4. Expand the Azure Active Directory card on the API Keys page and click on **Generate Token**.
+1. Expand the Azure Active Directory card on the API Keys page and click on **Generate Token**.
 
    ![Generate](./media/cisco-umbrella-user-management-provisioning-tutorial/token.png)
 
-5. The generated token will be displayed only once. Copy and save the URL and the token. These values will be entered in the **Tenant URL** and **Secret Token** fields respectively in the Provisioning tab of your Cisco Umbrella User Management application in the Azure portal.  
+1. The generated token will be displayed only once. Copy and save the URL and the token. These values will be entered in the **Tenant URL** and **Secret Token** fields respectively in the Provisioning tab of your Cisco Umbrella User Management application in the Azure portal.  
 
 
 ## Step 4. Add Cisco Umbrella User Management from the Azure AD application gallery
@@ -84,9 +82,9 @@ Add Cisco Umbrella User Management from the Azure AD application gallery to star
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Cisco Umbrella User Management, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 ## Step 6. Configure automatic user provisioning to Cisco Umbrella User Management 
 
@@ -98,31 +96,31 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Cisco Umbrella User Management**.
+1. In the applications list, select **Cisco Umbrella User Management**.
 
 	![The Cisco Umbrella User Management link in the Applications list](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
 	![Provisioning tab](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input your Cisco Umbrella User Management Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Cisco Umbrella User Management. If the connection fails, ensure your Cisco Umbrella User Management account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your Cisco Umbrella User Management Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Cisco Umbrella User Management. If the connection fails, ensure your Cisco Umbrella User Management account has Admin permissions and try again.
 
  	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
-7. Select **Save**.
+1. Select **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Cisco Umbrella User Management**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Cisco Umbrella User Management**.
 
-9. Review the user attributes that are synchronized from Azure AD to Cisco Umbrella User Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cisco Umbrella User Management for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Cisco Umbrella User Management API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Cisco Umbrella User Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cisco Umbrella User Management for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Cisco Umbrella User Management API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for Filtering|
    |---|---|---|
@@ -138,31 +136,26 @@ This section guides you through the steps to configure the Azure AD provisioning
 > [!NOTE]
 > If you have imported the objectGUID attribute for users via Azure AD Connect (refer Step 2), add a mapping from objectGUID to urn:ietf:params:scim:schemas:extension:ciscoumbrella:2.0:User:nativeObjectId.
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Cisco Umbrella User Management**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Cisco Umbrella User Management**.
 
-11. Review the group attributes that are synchronized from Azure AD to Cisco Umbrella User Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Cisco Umbrella User Management for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Azure AD to Cisco Umbrella User Management in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Cisco Umbrella User Management for update operations. Select the **Save** button to commit any changes.
 
       |Attribute|Type|Supported for Filtering|
       |---|---|---|
       |displayName|String|&check;|
       |externalId|String|
       |members|Reference|
-      |urn:ietf:params:scim:schemas:extension:ciscoumbrella:2.0:Group:nativeObjectId|String|
+1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-> [!NOTE]
-> If you have imported the objectGUID attribute for groups via Azure AD Connect (refer Step 2), add a mapping from objectGUID to urn:ietf:params:scim:schemas:extension:ciscoumbrella:2.0:Group:nativeObjectId.
-
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-
-13. To enable the Azure AD provisioning service for Cisco Umbrella User Management, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for Cisco Umbrella User Management, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to Cisco Umbrella User Management by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and/or groups that you would like to provision to Cisco Umbrella User Management by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-15. When you are ready to provision, click **Save**.
+1. When you are ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
@@ -171,9 +164,9 @@ This operation starts the initial synchronization cycle of all users and groups 
 ## Step 7. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
-1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+* Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Connector Limitations
 * Cisco Umbrella User Management supports provisioning a maximum of 200 groups. Any groups beyond this number that are in scope may not be provisioned to Cisco Umbrella. 

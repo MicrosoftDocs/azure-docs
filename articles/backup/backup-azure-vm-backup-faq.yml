@@ -2,9 +2,9 @@
 metadata:
   title: FAQ - Backing up Azure VMs
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
-  ms.topic: article
+  ms.topic: faq
   ms.service: backup
-  ms.date: 11/09/2021
+  ms.date: 03/02/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -69,8 +69,7 @@ sections:
 
       - question: I enabled a lock on the resource group created by Azure Backup Service (for example, `AzureBackupRG_<geo>_<number>`). Will my backups continue to work?
         answer: |
-          If you lock the resource group created by the Azure Backup Service, backups will start to fail as there's a maximum limit of 18 restore points.
-
+          If you lock the resource group created by the Azure Backup Service, backups will start to fail.
           Remove the lock, and clear the restore point collection from that resource group to make the future backups successful. [Follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
       - question: I have a lock at the resource group level that contains all the resources related to my virtual machine. Will my backup work?
@@ -131,7 +130,15 @@ sections:
       - question: Will a new disk added to VM be backed up automatically?
         answer: |
           Yes, a new disk added to a VM will be backed up automatically during the next backup.
+          
+      
+      - question: Can I restore the files and folders from an encrypted VM backup?
+        answer: |
+          Restoring files and folders from encrypted VM backup is currently not supported, you must recover the entire VM to restore files and folders. See, [steps to restore an encrypted Azure Virtual machine](restore-azure-encrypted-virtual-machines.md).
 
+      - question: Can I stop a VM and scale it up during the Transfer data to vault phase?
+        answer: |
+          Yes, you can do this when *Transfer data to vault* phase is in progress.
 
   - name: Restore
     questions:
@@ -181,10 +188,10 @@ sections:
           Yes, you can access the VM once restored due to a VM having a broken relationship with the domain controller. For more information, see this [article](./backup-azure-arm-restore-vms.md#post-restore-steps).
 
       - question: Can I cancel an in-progress restore job?
-        answer: No, you cannot cancel a restore job that is in-progress.
+        answer: Yes, you can cancel the restore job till the data transfer phase. Once it enters VM creation phase, you can't cancel the restore job.
 
       - question: Why is my restore operation taking long time to complete?
-        answer: The total restore time depends on the input/output operations per second (IOPS) speed and the throughput of the storage account. The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve the speed of restore operation, select a storage account that isn't loaded with other application data.
+        answer: The total restore time depends on the input/output operations per second (IOPS) speed and the throughput of the storage account. The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve the speed of restore operation, select a storage account that isn't loaded with other application data. Learn about the [best practices for Azure VM backup and restore](backup-azure-vms-introduction.md#best-practices).
 
       - question: How do we handle "Create New Virtual Machine"-restore type conflicts with governance policies?
         answer: |
@@ -196,14 +203,26 @@ sections:
         answer: |
           To restore a VM in powered down state, you can [create a VM](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) or [restore disks](./backup-azure-arm-restore-vms.md#restore-disks), but you can't replace an existing VM. Learn more about the [available restore options](./backup-azure-arm-restore-vms.md#restore-options).
 
+      - question: Can I restore Azure VM that is in the powered-off state?
+        answer: |
+          Azure VM must be in the powered-off state while you restore. Otherwise, the restore operation would fail in the pre-check stage, with the error code *UserErrorVmNotShutDown*.
+
+          Also, before you swap VM disks, you must power off the VM.
+
+      -  question: Is there a limit to trigger restore in a day?
+         answer: |
+           Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours.
+
   - name: Manage VM backups
     questions:
       - question: What happens if I modify a backup policy?
         answer: |
-          The VM is backed up using the schedule and retention settings in the modified or new policy.
+          The VM is backed up using the schedule and retention settings in the modified policy.
 
           - If retention is extended, existing recovery points are marked and kept in accordance with the new policy.
           - If retention is reduced, recovery points are marked for pruning in the next cleanup job, and subsequently deleted.
+          
+          However, recovery points are specific to retention range frequency. For example, adding or modifying a yearly retention policy does not affect the retention of preexisting monthly recovery points. 
 
       - question: How do I move a VM backed up by Azure Backup to a different resource group?
         answer: |
@@ -250,10 +269,22 @@ sections:
           - You can also use the [private endpoints](private-endpoints.md) to restrict access to the iSCSI server from within the private network.
           - You can also disable this option across an organization using the [deny assignment](../role-based-access-control/deny-assignments.md) feature.
       
-      - question: I've changed the retention policy, what's the time needed for the policy to be effective?
+      - question: I have changed the retention policy, what is the time needed for the policy to be effective?
         answer: |
           The policy takes effect immediately after the modifications of the parameters, such as retention, schedule, and so on. This is applicable for all new backups taken from the modified policy. However, the pruning of the recovery points (if applicable) according to the new policy takes 24 hours.
 
+      - question: How do I extend or reduce the retention of a specific recovery point?
+        answer: |
+          This feature is currently not supported. You can post any feature ask in the [Azure Backup community](https://feedback.azure.com/d365community/forum/153aa817-0725-ec11-b6e6-000d3a4f0858#) portal.
+          
+      - question: How to modify retention period for Stopped backups?
+        answer: |
+          Retention of stopped backups cannot be modified since they do not have any policy attached to it. However, you can [resume protection](./backup-azure-manage-vms.md#resume-protection-of-a-vm) and assign a policy.
+          
+      - question: How long are the stopped backups retained?
+        answer: |
+          Stopped backups are retained until manually deleted.
+          
       - question: I’m unable to select a virtual network, subnet, or storage account in the secondary region when performing a Cross Region Restore.
         answer: |
           You need to check the subscription permissions in the secondary region. Write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) for subscription enrollment.
@@ -275,4 +306,3 @@ sections:
 
 
       
-        

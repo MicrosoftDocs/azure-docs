@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/25/2021
+ms.date: 04/22/2022
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -27,7 +27,11 @@ This Azure Database for PostgreSQL connector is supported for the following acti
 - [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
-Currently, data flow supports Azure database for PostgreSQL Single Server but not Flexible Server or Hyperscale (Citus); data flow in Azure Synapse Analytics supports all PostgreSQL flavors.
+The three activities work on all Azure Database for PostgreSQL deployment options:
+
+* [Single Server](../postgresql/single-server/index.yml)
+* [Flexible Server](../postgresql/flexible-server/index.yml)
+* [Hyperscale (Citus)](../postgresql/hyperscale/index.yml)
 
 ## Getting started
 
@@ -325,7 +329,19 @@ The below table lists the properties supported by Azure Database for PostgreSQL 
 | Skip writing key columns | If you wish to not write the value to the key column, select "Skip writing key columns". | No | `true` or `false` | skipKeyWrites |
 | Table action |Determines whether to recreate or remove all rows from the destination table prior to writing.<br>- **None**: No action will be done to the table.<br>- **Recreate**: The table will get dropped and recreated. Required if creating a new table dynamically.<br>- **Truncate**: All rows from the target table will get removed. | No | `true` or `false` | recreate<br/>truncate |
 | Batch size | Specify how many rows are being written in each batch. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data. | No | Integer | batchSize |
+| Select user DB schema | By default, a temporary table will be created under the sink schema as staging. You can alternatively uncheck the **Use sink schema** option and instead, specify a schema name under which Data Factory will create a staging table to load upstream data and automatically clean them up upon completion. Make sure you have create table permission in the database and alter permission on the schema. | No | String | stagingSchemaName |
 | Pre and Post SQL scripts | Specify multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database. | No | String | preSQLs<br>postSQLs |
+
+> [!TIP]
+> 1. It's recommended to break single batch scripts with multiple commands into multiple batches.
+> 2. Only Data Definition Language (DDL) and Data Manipulation Language (DML) statements that return a simple update count can be run as part of a batch. Learn more from [Performing batch operations](/sql/connect/jdbc/performing-batch-operations)
+
+
+* Enable incremental extract: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.
+
+* Incremental date column: When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table.
+
+* Start reading from beginning: Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on.
 
 #### Azure Database for PostgreSQL sink script example
 

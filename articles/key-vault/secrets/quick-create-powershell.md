@@ -29,7 +29,7 @@ Connect-AzAccount
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/key-vault-powershell-rg-creation.md)]
+[!INCLUDE [Create a resource group](../../../includes/powershell-rg-create.md)]
 
 ## Create a key vault
 

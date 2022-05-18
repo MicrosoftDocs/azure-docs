@@ -91,6 +91,7 @@ The overridden delay duration only applies to the invoked upgrade instance and d
 > * The settings to drain requests will not be able to prevent the Azure Load balancer from sending new requests to the endpoints which are undergoing drain.
 > * A complaint based resolution mechanism will not result in graceful draining of requests, as it triggers a service resolution after a failure. As described earlier, this should instead be enhanced to subscribe to the endpoint change notifications using [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 > * The settings are not honored when the upgrade is an impactless one i.e when the replicas will not be brought down during the upgrade.
+> * The max value of InstanceCloseDelayDuration that can be configured in the service description or the InstanceCloseDelayDurationSec in the upgrade description can't be greater than cluster config FailoverManager.MaxInstanceCloseDelayDurationInSeconds, which defaults to 1800 seconds. To update the max value, the cluster level config should to be updated. This configuration is only available in the runtime version 9.0 or later.
 >
 >
 
@@ -209,7 +210,7 @@ During rollback, the value of *UpgradeReplicaSetCheckTimeout* and the mode can s
 ## Next steps
 [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-[Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
+[Upgrading your Application Using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
 Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
 

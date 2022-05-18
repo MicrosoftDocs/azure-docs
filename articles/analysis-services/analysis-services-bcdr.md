@@ -4,7 +4,7 @@ description: This article describes how Azure Analysis Services provides high av
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions 

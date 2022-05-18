@@ -6,7 +6,6 @@ documentationcenter: na
 author: damendo
 
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
@@ -61,43 +60,46 @@ You can use traffic analytics for NSGs in any of the following supported regions
       Australia East  
       Australia Southeast  
       Brazil South  
+      Brazil Southeast
       Canada Central  
       Canada East  
       Central India  
       Central US  
       China East 2  
-	  China North   
-	  China North 2 	  
+      China North   
+      China North 2 	  
    :::column-end:::
    :::column span="":::
       East Asia  
-	  East US  
+      East US  
       East US 2  
       East US 2 EUAP  
       France Central  
       Germany West Central  
-	  Japan East  
+      Japan East  
       Japan West  
       Korea Central  
       Korea South  
-	  North Central US 	  
+      North Central US	
+      North Europe   
    :::column-end:::
    :::column span="":::
-      North Europe  
-	  South Africa North  
+      Norway East
+      South Africa North  
       South Central US  
       South India  
       Southeast Asia  
       Switzerland North  
       Switzerland West  
-	  UAE North  
-	  UK South  
-      UK West     
-	  USGov Arizona
+      UAE Central  
+      UAE North  
+      UK South  
+      UK West  
+      USGov Arizona  
    :::column-end:::
    :::column span="":::
       USGov Texas  
-	  USGov Virginia  
+      USGov Virginia  
       USNat East  
       USNat West  
       USSec East  
@@ -106,6 +108,7 @@ You can use traffic analytics for NSGs in any of the following supported regions
       West Europe  
       West US  
       West US 2  
+      West US 3  
    :::column-end:::
 :::row-end:::
 
@@ -118,22 +121,26 @@ The Log Analytics workspace must exist in the following regions:
       Australia East  
       Australia Southeast  
       Brazil South  
-	  Brazil Southeast  
+      Brazil Southeast 
+      Canada East  
       Canada Central  
       Central India  
       Central US  
-      China East 2      
-      East Asia  
+      China East 2  
+      China North  
+      China North 2  
    :::column-end:::
    :::column span="":::
+      East Asia  
       East US  
-	  East US 2  
+      East US 2  
       East US 2 EUAP  
       France Central  
-	  Germany West Central  
-	  Japan East  
-	  Japan West  
-	  Korea Central  
+      Germany West Central  
+      Japan East  
+      Japan West  
+      Korea Central   
+      Korea South  
       North Central US  
       North Europe  
    :::column-end:::
@@ -141,25 +148,27 @@ The Log Analytics workspace must exist in the following regions:
       Norway East  
       South Africa North  
       South Central US  
-	  Southeast Asia  
+      South India  
+      Southeast Asia  
       Switzerland North  
       Switzerland West  
       UAE Central  
-	  UAE North  
-	  UK South  
-      UK West      
+      UAE North  
+      UK South  
+      UK West  
+      USGov Arizona  
    :::column-end:::
    :::column span="":::
-      USGov Arizona  
+      USGov Texas  
       USGov Virginia  
       USNat East  
-	  USNat West   
-	  USSec East  
+      USNat West   
+      USSec East  
       USSec West  
       West Central US  
       West Europe  
       West US  
-      West US 2  
+      West US 2   
    :::column-end:::
 :::row-end:::
 
@@ -373,6 +382,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 - The Virtual Network Topology shows the top ribbon for selection of parameters like a virtual network's (Inter virtual network Connections/Active/Inactive), External Connections, Active Flows, and Malicious flows of the virtual network.
 - You can filter the Virtual Network Topology based on subscriptions, workspaces, resource groups and time interval. Additional filters that help you understand the flow are:
   Flow Type (InterVNet, IntraVNET, and so on), Flow Direction (Inbound, Outbound), Flow Status (Allowed, Blocked), VNETs (Targeted and Connected), Connection Type (Peering or Gateway - P2S and S2S), and NSG. Use these filters to focus on VNets that you want to examine in detail.
+- You can zoom-in and zoom-out while viewing Virtual Network Topology using mouse scroll wheel. Left-click and moving the mouse lets you drag the topology in desired direction. You can also use keyboard shortcuts to achieve these actions: A (to drag left), D (to drag right), W (to drag up), S (to drag down), + (to zoom in), - (to zoom out), R (to zoom reset).
 - The Virtual Network Topology shows the traffic distribution to a virtual network with regard to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and network security groups, for example:
 
     ![Virtual network topology showcasing traffic distribution and flow details](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
@@ -387,6 +397,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
     - Knowing which subnet is conversing to which subnet. If you see unexpected conversations, you can correct your configuration.
     - If rogue networks are conversing with a subnet, you are able to correct it by configuring NSG rules to block the rogue networks.
 - The Subnets Topology shows the top ribbon for selection of parameters such as Active/Inactive subnet, External Connections, Active Flows, and Malicious flows of the subnet.
+- You can zoom-in and zoom-out while viewing Virtual Network Topology using mouse scroll wheel. Left-click and moving the mouse lets you drag the topology in desired direction. You can also use keyboard shortcuts to achieve these actions: A (to drag left), D (to drag right), W (to drag up), S (to drag down), + (to zoom in), - (to zoom out), R (to zoom reset).
 - The Subnet Topology shows the traffic distribution to a virtual network with regard to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and NSGs, for example:
 
     ![Subnet topology showcasing traffic distribution a virtual network subnet with regards to flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)

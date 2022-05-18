@@ -4,15 +4,13 @@ description: "This article provides a conceptual overview of GitOps in Azure for
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 11/22/2021
+ms.date: 5/3/2022
 ms.topic: conceptual
-author: csand-msft
-ms.author: csand
 ---
 
 # GitOps in Azure
 
-Azure provides configuration management capability using GitOps in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters. You can easily enable and use GitOps in these clusters.
+Azure provides configuration management capability using GitOps in Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes clusters. You can easily enable and use GitOps in these clusters.
 
 With GitOps, you declare the desired state of your Kubernetes clusters in files in Git repositories. The Git repositories may contain the following files:
 
@@ -30,7 +28,7 @@ GitOps on Azure Arc-enabled Kubernetes or Azure Kubernetes Service uses [Flux](h
 
 :::image type="content" source="media/gitops/flux2-extension-install-aks.png" alt-text="Diagram showing the installation of the Flux extension for Azure Kubernetes Service cluster." lightbox="media/gitops/flux2-extension-install-aks.png":::
 
-GitOps is enabled in an Azure Arc-enabled Kubernetes or AKS cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` [cluster extension](./conceptual-extensions.md) resource.  You can install the `microsoft.flux` extension manually using the portal or the Azure CLI (*az k8s-extension create --extensionType=microsoft.flux*) or have it installed automatically when you create the first `Microsoft.KubernetesConfiguration/fluxConfigurations` in the cluster. The `microsoft.flux` extension must be installed in the cluster before one or more `fluxConfigurations` can be created.
+GitOps is enabled in an Azure Arc-enabled Kubernetes or AKS cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` [cluster extension](./conceptual-extensions.md) resource.  The `microsoft.flux` extension must be installed in the cluster before one or more `fluxConfigurations` can be created.  The extension will be installed automatically when you create the first `Microsoft.KubernetesConfiguration/fluxConfigurations` in a cluster, or you can install it manually using the portal, the Azure CLI (*az k8s-extension create --extensionType=microsoft.flux*), ARM template, or REST API. 
 
 The `microsoft.flux` extension installs by default the [Flux controllers](https://fluxcd.io/docs/components/) (Source, Kustomize, Helm, Notification) and the FluxConfig CRD, fluxconfig-agent, and fluxconfig-controller. You can control which of these controllers is installed and can optionally install the Flux image-automation and image-reflector controllers, which provide functionality around updating and retrieving Docker images.
 
@@ -52,7 +50,7 @@ The `microsoft.flux` extension installs by default the [Flux controllers](https:
     * `helmrepositories.source.toolkit.fluxcd.io`
     * `helmreleases.helm.toolkit.fluxcd.io`
     * `fluxconfigs.clusterconfig.azure.com`
-* [FluxConfig CRD](https://github.com/Azure/ClusterConfigurationAgent/blob/master/charts/azure-arc-flux/templates/clusterconfig.azure.com_fluxconfigs.yaml): Custom Resource Definition for `fluxconfigs.clusterconfig.azure.com` custom resources that define `FluxConfig` Kubernetes objects.
+* [FluxConfig CRD](https://github.com/Azure/ClusterConfigurationAgent/blob/master/charts/azure-k8s-flux/templates/clusterconfig.azure.com_fluxconfigs.yaml): Custom Resource Definition for `fluxconfigs.clusterconfig.azure.com` custom resources that define `FluxConfig` Kubernetes objects.
 * fluxconfig-agent: Responsible for watching Azure for new or updated `fluxConfigurations` resources, and for starting the associated Flux configuration in the cluster. Also, is responsible for pushing Flux status changes in the cluster back to Azure for each `fluxConfigurations` resource.
 * fluxconfig-controller: Watches the `fluxconfigs.clusterconfig.azure.com` custom resources and responds to changes with new or updated configuration of GitOps machinery in the cluster.
 
@@ -63,7 +61,7 @@ The `microsoft.flux` extension installs by default the [Flux controllers](https:
 
 :::image type="content" source="media/gitops/flux2-config-install.png" alt-text="Diagram showing the installation of a Flux configuration in an Azure Arc-enabled Kubernetes or Azure Kubernetes Service cluster." lightbox="media/gitops/flux2-config-install.png":::
 
-With the `microsoft.flux` extension installed in your cluster, you can then create Flux configuration resources (`Microsoft.KubernetesConfiguration/fluxConfigurations`) to enable GitOps management of the cluster from your Git repos. When you create a `fluxConfigurations` resource, the values you supply for the parameters, such as the target Git repo, are used to create and configure the Kubernetes objects that enable the GitOps process in that cluster. To ensure data security, the `fluxConfigurations` resource data is stored encrypted at rest in an Azure Cosmos DB database by the Cluster Configuration service.
+You create Flux configuration resources (`Microsoft.KubernetesConfiguration/fluxConfigurations`) to enable GitOps management of the cluster from your Git repos or Bucket sources. When you create a `fluxConfigurations` resource, the values you supply for the parameters, such as the target Git repo, are used to create and configure the Kubernetes objects that enable the GitOps process in that cluster. To ensure data security, the `fluxConfigurations` resource data is stored encrypted at rest in an Azure Cosmos DB database by the Cluster Configuration service.
 
 The `fluxconfig-agent` and `fluxconfig-controller` agents, installed with the `microsoft.flux` extension, manage the GitOps configuration process.  
 
@@ -79,16 +77,25 @@ The `fluxconfig-agent` and `fluxconfig-controller` agents, installed with the `m
 * Creates private/public key pair that exists for the lifetime of the `fluxConfigurations`. This key is used for authentication if the URL is SSH based and if the user doesn't provide their own private key during creation of the configuration.
 * Creates custom authentication secret based on user-provided private-key/http basic-auth/known-hosts/no-auth data.
 * Sets up RBAC (service account provisioned, role binding created/assigned, role created/assigned).
-* Creates `GitRepository` custom resource and `Kustomization` custom resources from the information in the `FluxConfig` custom resource.
+* Creates `GitRepository` or `Bucket` custom resource and `Kustomization` custom resources from the information in the `FluxConfig` custom resource.
 
-Each `fluxConfigurations` resource in Azure will be associated in a Kubernetes cluster with one Flux `GitRepository` custom resource and one or more `Kustomization` custom resources. When you create a `fluxConfigurations` resource, you'll specify, among other information, the URL to the Git repository and the sync target in the Git repository for each `Kustomization`. You can configure dependencies between `Kustomization` custom resources to control deployment sequencing. Also, you can create multiple namespace-scoped `fluxConfigurations` resources on the same cluster.
+Each `fluxConfigurations` resource in Azure will be associated in a Kubernetes cluster with one Flux `GitRepository` or `Bucket` custom resource and one or more `Kustomization` custom resources. When you create a `fluxConfigurations` resource, you'll specify, among other information, the URL to the source (Git repository or Bucket) and the sync target in the source for each `Kustomization`. You can configure dependencies between `Kustomization` custom resources to control deployment sequencing. Also, you can create multiple namespace-scoped `fluxConfigurations` resources on the same cluster for different applications and app teams.
 
 > [!NOTE]
 > * `fluxconfig-agent` monitors for new or updated `fluxConfiguration` resources in Azure. The agent requires connectivity to Azure for the desired state of the `fluxConfiguration` to be applied to the cluster. If the agent is unable to connect to Azure, there will be a delay in making the changes in the cluster until the agent can connect. If the cluster is disconnected from Azure for more than 48 hours, then the request to the cluster will time-out, and the changes will need to be re-applied in Azure.
-> * Sensitive customer inputs like private key, known hosts content, HTTPS username, and token/password are stored for less than 48 hours in the Kubernetes Configuration service. If you update any of these values in Azure, assure that your clusters connect with Azure within 48 hours.
+> * Sensitive customer inputs like private key and token/password are stored for less than 48 hours in the Kubernetes Configuration service. If you update any of these values in Azure, assure that your clusters connect with Azure within 48 hours.
+
+## GitOps with Private Link
+
+If you've added support for private link to an Azure Arc-enabled Kubernetes cluster, then the `microsoft.flux` extension works out-of-the-box with communication back to Azure. For connections to your Git repository, Helm repository, or any other endpoints that are needed to deploy your Kubernetes manifests, you will need to provision these endpoints behind your firewall or list them on your firewall so that the Flux Source controller can successfully reach them.
+
+For more information on private link scopes in Azure Arc, refer to [this document](../servers/private-link-security.md#create-a-private-link-scope).
+
+## Data residency
+The Azure GitOps service (Azure Kubernetes Configuration Management) stores/processes customer data. By default, customer data is replicated to the paired region. For the regions Singapore, East Asia, and Brazil South, all customer data is stored and processed in the region.
 
 ## Next steps
 
-Advance to the next tutorial to learn how to enable GitOps on your Azure Arc-enabled Kubernetes or AKS clusters
+Advance to the next tutorial to learn how to enable GitOps on your AKS or Azure Arc-enabled Kubernetes clusters
 > [!div class="nextstepaction"]
 * [Enable GitOps with Flux](./tutorial-use-gitops-flux2.md)

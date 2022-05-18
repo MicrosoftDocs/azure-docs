@@ -15,6 +15,9 @@ ms.author: jeedes
 
 The objective of this tutorial is to show you the steps you need to perform in GoToMeeting and Azure AD to automatically provision and de-provision user accounts from Azure AD to GoToMeeting.
 
+> [!WARNING]
+> This provisioning integration is no longer supported. As a result of this, the provisioning functionality of the GoToMeeting application in the Azure Active Directory Enterprise App Gallery will be removed soon. The application's SSO functionality will remain intact. Microsoft is working with GoToMeeting to build a new modernized provisioning integration, but there are no timelines on when this will be completed. 
+
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:

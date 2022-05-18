@@ -1,20 +1,20 @@
 ---
-title: Pay your Microsoft Customer Agreement Azure bill
+title: Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program Azure bill
 description: Learn how to pay your bill in the Azure portal. You must be a billing profile owner, contributor, or invoice manager to pay in the portal.
 keywords: billing, past due, balance, pay now,
 author: banders
-ms.reviewer: judupont
+ms.reviewer: lishepar
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/06/2021
+ms.date: 03/11/2022
 ms.author: banders
 ---
 
-# Pay your Microsoft Customer Agreement Azure bill
+# Pay your Microsoft Customer Agreement Azure or Microsoft Online Subscription Program Azure bill
 
-This article applies to customers with a Microsoft Customer Agreement (MCA).
+This article applies to customers with a Microsoft Customer Agreement (MCA) and to customers who signed up for Azure through the Azure website (for an Microsoft Online Services Program account also called pay-as-you-go account).
 
 [Check your access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -22,11 +22,21 @@ There are two ways to pay for your bill for Azure. You can pay with the default 
 
 If you signed up for Azure through a Microsoft representative, then your default payment method will always be set to *check or wire transfer*. Automatic credit card payment isn't an option if you signed up for Azure through a Microsoft representative. Instead, you can [pay with a credit card for individual invoices](#pay-now-in-the-azure-portal).
 
+If you have a Microsoft Online Services Program account, your default payment method is credit card. Payments are normally automatically deducted from your credit card, but you can also make one-time payments manually by credit card.
+
 If you have Azure credits, they automatically apply to your invoice each billing period.
+
+## Reserve Bank of India 
+
+**The Reserve Bank of India has issued new regulations.**
+
+On 1 October 2021, automatic payments in India may block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this you may need to make payments manually in the Azure portal. These regulations won't affect the total amount you will be charged for your Azure usage. 
+
+[Learn more about the Reserve Bank of India regulation for recurring payments](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0)
 
 ## Pay by default payment method
 
-The default payment method of your billing profile can either be a credit or debit card, or a check or wire transfer.
+The default payment method of your billing profile can either be a credit card, debit card, or check wire transfer.
 
 ### Credit or debit card
 
@@ -34,9 +44,13 @@ If the default payment method for your billing profile is a credit or debit card
 
 If your automatic credit or debit card charge gets declined for any reason, you can make a one-time payment with a credit or debit card in the Azure portal using **Pay now**.
 
+If have an Microsoft Online Services Program (pay-as-you-go) account and you have a bill due, you'll see the **Pay now** banner on your subscription property page. 
+
 If you want to learn how to change your default payment method to check or wire transfer, see [How to pay by invoice](../manage/pay-by-invoice.md).
 
-There are a few countries that don't allow the use of debit cards, however in general, you can use them to pay your Azure bill. Virtual and prepaid debit cards can't be used to pay your Azure bill.
+There are a few countries that don't allow the use of debit cards, however in general, you can use them to pay your Azure bill. Virtual and prepaid debit cards can't be used to pay your Azure bill. 
+
+Hong Kong and Brazil only support credit cards.
 
 ### Check or wire transfer
 
@@ -215,6 +229,10 @@ To pay invoices in the Azure portal, you must have the correct [MCA permissions]
 1. After you select a payment method, select **Pay now**.
 
 The invoice status shows *paid* within 24 hours.
+
+## Pay now might be unavailable
+
+If you have an Microsoft Online Services Program account (pay-as-you-go account), the **Pay now** option might be unavailable. Instead, you might see a **Settle balance** banner. If so, see [Resolve past due balance](../manage/resolve-past-due-balance.md#resolve-past-due-balance-in-the-azure-portal).
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: article
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 03/12/2020
+ms.date: 01/27/2022
 ---
 
 # PowerShell script - Incrementally load data by using Azure Data Factory

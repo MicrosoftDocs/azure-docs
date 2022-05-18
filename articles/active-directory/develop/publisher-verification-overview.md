@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 06/01/2021
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: jesakowi
+ms.reviewer: ardhanap, jesakowi
 ---
 
 # Publisher verification
@@ -23,6 +23,7 @@ Publisher verification helps admins and end users understand the authenticity of
 When an application is marked as publisher verified, it means that the publisher has verified their identity using a [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process and has associated this MPN account with their application registration. 
 
 A blue "verified" badge appears on the Azure AD consent prompt and other screens:
+
 ![Consent prompt](./media/publisher-verification-overview/consent-prompt.png)
 
 This feature is primarily for developers building multi-tenant apps that leverage [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) with the [Microsoft identity platform](v2-overview.md). These apps can sign users in using OpenID Connect, or they may use OAuth 2.0 to request access to data using APIs like [Microsoft Graph](https://developer.microsoft.com/graph/).
@@ -36,12 +37,16 @@ Publisher verification provides the following benefits:
 - **Smoother enterprise adoption**- admins can configure [user consent policies](../manage-apps/configure-user-consent.md), with publisher verification status as one of the primary policy criteria.
 
 > [!NOTE]
-> Starting in November 2020, end-users will no longer be able to grant consent to most newly registered multi-tenant apps without verified publishers if [risk-based step-up consent](../manage-apps/configure-risk-based-step-up-consent.md) is enabled. This will apply to apps that are registered after November 8th 2020, use OAuth2.0 to request permissions beyond basic sign-in and read user profile, and request consent from users in different tenants than the one the app is registered in. A warning will be displayed on the consent screen informing users that these apps are risky and are from unverified publishers.    
+> - Starting in November 2020, end users will no longer be able to grant consent to most newly registered multi-tenant apps without verified publishers if [risk-based step-up consent](../manage-apps/configure-risk-based-step-up-consent.md) is enabled. This will apply to apps that are registered after November 8, 2020, use OAuth2.0 to request permissions beyond basic sign-in and read user profile, and request consent from users in different tenants than the one the app is registered in. A warning will be displayed on the consent screen informing users that these apps are risky and are from unverified publishers.    
 
 ## Requirements
 There are a few pre-requisites for publisher verification, some of which will have already been completed by many Microsoft partners. They are: 
 
 -  An MPN ID for a valid [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process. This MPN account must be the [Partner global account (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) for your organization. 
+
+-  The application to be publisher verified must be registered using a Azure AD account. Applications registered using a Microsoft personal account aren't supported for publisher verification.
+
+-  The Azure AD tenant where the app is registered must be associated with the Partner Global account. If it's not the primary tenant associated with the PGA, follow the steps to [set up the MPN partner global account as a multi-tenant account and associate the Azure AD tenant](/partner-center/multi-tenant-account#add-an-azure-ad-tenant-to-your-account). 
 
 -  An app registered in an Azure AD tenant, with a [Publisher Domain](howto-configure-publisher-domain.md) configured.
 
@@ -53,11 +58,14 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
     -  In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD).
     
--  The user performing verification must sign in using [multifactor authentication](../authentication/howto-mfa-getstarted.md).
+-  The user performing verification must sign in using [multi-factor authentication](../authentication/howto-mfa-getstarted.md).
 
 -  The publisher agrees to the [Microsoft identity platform for developers Terms of Use](/legal/microsoft-identity-platform/terms-of-use).
 
 Developers who have already met these pre-requisites can get verified in a matter of minutes. If the requirements have not been met, getting set up is free. 
+
+## National Clouds and Publisher Verification
+Publisher verification is currently not supported in national clouds. Applications registered in national cloud tenants can't be publisher-verified at this time.
 
 ## Frequently asked questions 
 Below are some frequently asked questions regarding the publisher verification program. For FAQs related to the requirements and the process, see [mark an app as publisher verified](mark-app-as-publisher-verified.md).
@@ -70,7 +78,7 @@ Below are some frequently asked questions regarding the publisher verification p
 
   Developers who are also integrating with Microsoft 365 can receive additional benefits from these programs. For more information, refer to [Microsoft 365 Publisher Attestation](/microsoft-365-app-certification/docs/attestation) and [Microsoft 365 App Certification](/microsoft-365-app-certification/docs/certification). 
 
-- **Is this the same thing as the Azure AD Application Gallery?** No- publisher verification is a complementary but separate program to the [Azure Active Directory application gallery](v2-howto-app-gallery-listing.md). Developers who fit the above criteria should complete the publisher verification process independently of participation in that program. 
+- **Is this the same thing as the Azure AD Application Gallery?** No- publisher verification is a complementary but separate program to the [Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md). Developers who fit the above criteria should complete the publisher verification process independently of participation in that program. 
 
 ## Next steps
 * Learn how to [mark an app as publisher verified](mark-app-as-publisher-verified.md).

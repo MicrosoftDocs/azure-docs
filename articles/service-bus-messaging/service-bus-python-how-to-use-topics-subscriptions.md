@@ -4,10 +4,10 @@ description: This tutorial shows you how to send messages to Azure Service Bus t
 documentationcenter: python
 author: spelluru
 ms.author: spelluru
-ms.date: 11/18/2020
+ms.date: 02/16/2022
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: devx-track-python, mode-other
+ms.custom: devx-track-python, mode-api
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Python)
@@ -27,7 +27,7 @@ This article shows you how to use Python to send messages a Service Bus topic an
 ## Prerequisites
 - An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md). Note down the connection string, topic name, and a subscription name. You'll use only one subscription for this quickstart. 
-- Python 3.5 or higher, with the [Azure Python SDK][Azure Python package] package installed. For more information, see the [Python Installation Guide](/azure/developer/python/azure-sdk-install).
+- Python 3.5 or higher, with the [Azure Python SDK][Azure Python package] package installed. For more information, see the [Python Installation Guide](/azure/developer/python/sdk/azure-sdk-install).
 
 ## Send messages to a topic
 

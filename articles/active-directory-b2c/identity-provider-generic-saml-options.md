@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 01/13/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -241,6 +241,29 @@ The following example shows the `ForceAuthN` property in an authorization reques
   ...
 </samlp:AuthnRequest>
 ```
+
+### Provider name
+
+You can optionally include the `ProviderName` attribute in the SAML authorization request. Set the metadata item as shown below to include the provider name for all requests to the external SAML IDP. The following example shows the `ProviderName` property set to `Contoso app`:
+
+```xml
+<Metadata>
+  ...
+  <Item Key="ProviderName">Contoso app</Item>
+  ...
+</Metadata>
+```
+
+The following example shows the `ProviderName` property in an authorization request:
+
+
+```xml
+<samlp:AuthnRequest AssertionConsumerServiceURL="https://..."  ...
+                    ProviderName="Contoso app">
+  ...
+</samlp:AuthnRequest>
+```
+
 
 ### Include authentication context class references
 

@@ -1,22 +1,23 @@
 ---
-title: Advanced SIEM Information Model (ASIM) content | Microsoft Docs
-description: This article outlines the Microsoft Sentinel content that utilized Advanced SIEM Information Model (ASIM)
+title: Advanced Security Information Model (ASIM) security content | Microsoft Docs
+description: This article outlines the Microsoft Sentinel security content that uses the Advanced Security Information Model (ASIM).
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
-ms.custom: ignite-fall-2021
 ---
 
-# Advanced SIEM Information Model (ASIM) security content  (Public preview)
+# Advanced Security Information Model (ASIM) security content  (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Normalized security content in Microsoft Sentinel includes analytics rules, hunting queries, and workbooks that work with source-agnostic normalization parsers.
+Normalized security content in Microsoft Sentinel includes analytics rules, hunting queries, and workbooks that work with unifying normalization parsers.
 
 <a name="builtin"></a>You can find normalized, built-in content in Microsoft Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing content to use normalized data.
 
-This article lists built-in Microsoft Sentinel content that has been configured to support ASIM.  While links to the Microsoft Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Microsoft Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries.
+This article lists built-in Microsoft Sentinel content that has been configured to support the Advanced Security Information Model (ASIM).  While links to the Microsoft Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Microsoft Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries.
+
+To understand how normalized content fits within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
 > [!TIP]
 > Also watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). For more information, see [Next steps](#next-steps).
@@ -44,12 +45,12 @@ The following built-in DNS query content is supported for ASIM normalization.
 
 ### Analytics rules
 
- - (Preview) TI map Domain entity to DNS Events (Normalized DNS)
- - (Preview) TI map IP entity to DNS Events (Normalized DNS)
+ - [(Preview) TI map Domain entity to DNS Events (ASIM DNS Schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_DomainEntity_DnsEvents.yaml)
+ - [(Preview) TI map IP entity to DNS Events (ASIM DNS Schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_IPEntity_DnsEvents.yaml)
  - [Potential DGA detected (ASimDNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_HighNXDomainCount_detection.yaml)
-  - [Excessive NXDOMAIN DNS Queries (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
- - [DNS events related to mining pools (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)
- - [DNS events related to ToR proxies (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_TorProxies.yaml)
+  - [Excessive NXDOMAIN DNS Queries (ASIM DNS Schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
+ - [DNS events related to mining pools (ASIM DNS Schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)
+ - [DNS events related to ToR proxies (ASIM DNS Schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_TorProxies.yaml)
  - [Known Barium domains](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumDomainIOC112020.yaml)
  - [Known Barium IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumIPIOC112020.yaml) 
  - [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
@@ -61,6 +62,10 @@ The following built-in DNS query content is supported for ASIM normalization.
  - [Solorigate Network Beacon](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
  - [THALLIUM domains included in DCU takedown](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
  - [Known ZINC Comebacker and Klackring malware hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+ - [Known CERIUM domains and hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/CERIUMOct292020IOCs.yaml)
+ - [Known NICKEL domains and hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NICKELIOCsNov2021.yaml)
+ - [NOBELIUM - Domain, Hash, and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
+ - [Solorigate Network Beacon](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
 
 ## File Activity security content
 
@@ -74,8 +79,38 @@ The following built-in file activity content is supported for ASIM normalization
 - [NOBELIUM - Domain, Hash, and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
 - [SUNSPOT log file creation ](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SUNSPOTLogFile.yaml)
 - [Known ZINC Comebacker and Klackring malware hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+- [DEV-0586 Actor IOC - January 2022](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Dev-0586_Jan2022_IOC.yaml)
+- [NOBELIUM IOCs related to FoggyWeb backdoor](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Nobelium_FoggyWeb.yaml)
 
-## Process Activity security content
+## Network session security content
+
+The following built-in network session related content is supported for ASIM normalization.
+
+### Analytics rules
+
+- [Log4j vulnerability exploit aka Log4Shell IP IOC](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Log4J_IPIOC_Dec112021.yaml)
+- [Excessive number of failed connections from a single source (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimNetworkSession/ExcessiveHTTPFailuresFromSource.yaml)
+- [Potential beaconing activity (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimNetworkSession/PossibleBeaconingActivity.yaml)
+- [(Preview) TI map IP entity to Network Session Events (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimNetworkSession/IPEntity_imNetworkSession.yaml)
+- [Port scan detected  (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimNetworkSession/PortScan.yaml)
+- [Known Barium IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumIPIOC112020.yaml) 
+- [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
+- [Known IRIDIUM IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
+- [NOBELIUM - Domain, Hash, and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
+- [Known STRONTIUM group domains - July 2019](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
+
+
+
+### Hunting queries
+
+- [Connection from external IP to OMI related Ports](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/NetworkConnectiontoOMIPorts.yaml)
+
+## Workbooks
+
+- Threat Intelligence Workbook
+
+
+## Process activity security content
 
 The following built-in process activity content is supported for ASIM normalization.
 
@@ -107,86 +142,55 @@ The following built-in process activity content is supported for ASIM normalizat
  - [Uncommon processes - bottom 5% (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_uncommon_processes.yaml)
  - [Unicode Obfuscation in Command Line](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/UnicodeObfuscationInCommandLine.yaml)
 
-## Registry Activity security content
+## Registry activity security content
 
 The following built-in registry activity content is supported for ASIM normalization.
+
+### Analytic rules
+
+- [Potential Fodhelper UAC Bypass (ASIM Version)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PotentialFodhelperUACBypass(ASIMVersion).yaml)
 
 ### Hunting queries
 
 - [Persisting Via IFEO Registry Key](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml)
 
-## <a name="modify"></a>Modify your content to use normalized data
+## Web session security content
 
-To enable your custom content to use normalization:
+The following built-in web session related content is supported for ASIM normalization.
 
-- Modify your queries to use the source-agnostic parsers relevant to the query.
-- Modify field names in your query to use the normalized schema field names.
-- When applicable, change conditions to use the normalized values of the fields in your query.
+### Analytics rules
 
-For example, consider the **Rare client observed with high reverse DNS lookup count** DNS analytic rule, which works on DNS events send by Infoblox DNS servers:
-
-```kusto
-let threshold = 200;
-InfobloxNIOS
-| where ProcessName =~ "named" and Log_Type =~ "client"
-| where isnotempty(ResponseCode)
-| where ResponseCode =~ "NXDOMAIN"
-| summarize count() by Client_IP, bin(TimeGenerated,15m)
-| where count_ > threshold
-| join kind=inner (InfobloxNIOS
-    | where ProcessName =~ "named" and Log_Type =~ "client"
-    | where isnotempty(ResponseCode)
-    | where ResponseCode =~ "NXDOMAIN"
-    ) on Client_IP
-| extend timestamp = TimeGenerated, IPCustomEntity = Client_IP
-```
-
-The following code is the source-agnostic version, which uses normalization to provide the same detection for any source providing DNS query events:
-
-```kusto
-imDns(responsecodename='NXDOMAIN')
-| summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
-| where count_ > threshold
-| join kind=inner (imDns(responsecodename='NXDOMAIN')) on SrcIpAddr
-| extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr```
-```
-
-The normalized, source-agnostic version has the following differences:
-
-- The `imDns`normalized parser is used instead of the Infoblox Parser.
-
-- `imDns` fetches only DNS query events, so there is no need for checking the event type, as performed by the `where ProcessName =~ "named" and Log_Type =~ "client"` in the Infoblox version.
-
-- The `SrcIpAddr` field is used instead of `Client_IP`.
- 
-- Parser parameter filtering is used for ResponseCodeName, eliminating the need for explicit where clauses.
+- [(Preview) TI map Domain entity to Web Session Events (ASIM Web Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ThreatIntelligenceIndicator/DomainEntity_imWebSession.yaml)
+- [(Preview) TI map IP entity to Web Session Events (ASIM Web Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ThreatIntelligenceIndicator/IPEntity_imWebSession.yaml)
+- [Potential communication with a Domain Generation Algorithm (DGA) based hostname (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/PossibleDGAContacts.yaml)
+- [A client made a web request to a potentially harmful file (ASIM Web Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/PotentiallyHarmfulFileTypes.yaml)
+- [A host is potentially running a crypto miner (ASIM Web Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/UnusualUACryptoMiners.yaml)
+- [A host is potentially running a hacking tool (ASIM Web Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/UnusualUAHackTool.yaml)
+- [A host is potentially running PowerShell to send HTTP(S) requests (ASIM Web Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/UnusualUAPowershell.yaml)
+- [Discord CDN Risky File Download  (ASIM Web Session Schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/DiscordCDNRiskyFileDownload_ASim.yaml)
+- [Excessive number of HTTP authentication failures from a source (ASIM Web Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimWebSession/ExcessiveNetworkFailuresFromSource.yaml)
+- [Known Barium domains](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumDomainIOC112020.yaml)
+- [Known Barium IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumIPIOC112020.yaml) 
+- [Known CERIUM domains and hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/CERIUMOct292020IOCs.yaml)
+- [Known IRIDIUM IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
+- [Known NICKEL domains and hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NICKELIOCsNov2021.yaml)
+- [NOBELIUM - Domain and IP IOCs - March 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
+- [NOBELIUM - Domain, Hash, and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
+- [Known Phosphorus group domains/IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
+- [User agent search for log4j exploitation attempt](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/UserAgentSearch_log4j.yaml)
 
 
-Apart from supporting any normalized DNS source, the normalized version is shorter and easier to understand. 
 
-If the schema or parsers do not support filtering parameters, the changes are similar, excluding the last one. Instead the filtering conditions are kept from the original query as seen below:
-
-```kusto
-let threshold = 200;
-imDns
-| where isnotempty(ResponseCodeName)
-| where ResponseCodeName =~ "NXDOMAIN"
-| summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
-| where count_ > threshold
-| join kind=inner (imDns
-    | where isnotempty(ResponseCodeName)
-    | where ResponseCodeName =~ "NXDOMAIN"
-    ) on SrcIpAddr
-| extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr
-```
 
 ## <a name="next-steps"></a>Next steps
 
-This article discusses the Advanced SIEM Information Model (ASIM) content.
+This article discusses the Advanced Security Information Model (ASIM) content.
 
 For more information, see:
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model overview](normalization.md)
-- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model parsers](normalization-about-parsers.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-about-parsers.md)
+- [Using the Advanced Security Information Model (ASIM)](normalization-about-parsers.md)
+- [Modifying Microsoft Sentinel content to use the Advanced Security Information Model (ASIM) parsers](normalization-modify-content.md)
