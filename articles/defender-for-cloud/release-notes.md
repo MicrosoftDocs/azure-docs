@@ -4,7 +4,6 @@ description: A description of what's new and changed in Microsoft Defender for C
 ms.topic: reference
 =======
 ms.date: 05/17/2022
->>>>>>> dad93e84291e22db2c12210a7cbaaa19bfebca5b
 ---
 
 # What's new in Microsoft Defender for Cloud?
