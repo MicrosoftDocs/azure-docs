@@ -2,7 +2,7 @@
 title: Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers.
 description: This article describes Apache Spark concepts to help U-SQL developers understand Spark code concepts.
 ms.reviewer: jasonh
-ms.author: MikeRys
+ms.author: mrys
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
@@ -181,7 +181,7 @@ U-SQL also offers a variety of other features and concepts, such as federated qu
 
 ### Federated Queries against SQL Server databases/external tables
 
-U-SQL provides data source and external tables as well as direct queries against Azure SQL Database. While Spark does not offer the same object abstractions, it provides [Spark connector for Azure SQL Database](../azure-sql/database/spark-connector.md) that can be used to query SQL databases.
+U-SQL provides data source and external tables as well as direct queries against Azure SQL Database. While Spark does not offer the same object abstractions, it provides [Spark connector for Azure SQL Database](/azure/azure-sql/database/spark-connector) that can be used to query SQL databases.
 
 ### U-SQL parameters and variables
 
