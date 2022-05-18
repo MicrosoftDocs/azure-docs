@@ -101,13 +101,15 @@ No. When you enable [Microsoft Defender for Servers](defender-for-servers-introd
 
 ### If I enable Defender for Clouds Servers plan on the Subscription level, do I need to enable it on the workspace level?
 
-Yes, you need to enable on the Servers plan on the subscription level for your custom workspace(s) on the workspace level. If you only enable the plan on the subscription level you will see the `Microsoft Defender for servers should be enabled on workspaces` recommendation, on the recommendations page. This recommendation will advise you to enable the servers plan on the workspace level as well.
+When you enable the Servers plan on the subscription level, Defender for Cloud will enable your default workspace(s) automatically. 
 
-By enabling the Servers plan on your custom workspace(s), you will gain full access to Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more. Enabling the Servers plan only on the subscription level, will result in limited security protections.
+However, if you're using a [custom workspace](../defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks#assign-a-custom-workspace) in place of the default workspace, you'll need to enable the Servers plan on all of your custom workspaces. 
 
-Enabling the Servers plan on the workspace level after having enabled the Servers plan on your Subscription level, will not result in a double charge. The system compares the VM UUID, if they match they will be treated as one and billed as one.
+If you're using a custom workspace and enable the plan on the subscription level only, the `Microsoft Defender for servers should be enabled on workspaces` recommendation, on the recommendations page. This recommendation will advise you to enable the servers plan on the workspace level as well. Until the workspace has the Servers plan enabled, it will not benefit from the full security coverage (Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more) offered by the Defender for Cloud, but will still incur the cost.
 
-By default, when you enable the Servers plan on the subscription level, workspaces will not have the Servers plan automatically enabled. You may not want to enable the Servers plan on singular workspaces that are connected to cross enabled subscriptions with multiple solutions attached to them that may have multiple VMs connected to them. If you do connect a workspace with multiple attached VMs, that is cross enabled, you will be billed for each VM that is attached. Therefore you may only want to enable the Servers plan on the workspaces that you know it will be relevant to.
+You will not be charged twice, when you enable the Servers plan on both the workspace and subscription level. The system compares the VM UUID, if they match they'll be treated as one and billed as one.
+
+You may not want to enable the Servers plan on singular workspaces that are connected to cross enabled subscriptions with multiple solutions attached to them that may have multiple VMs connected to them. If you do connect a workspace with multiple attached VMs, that is cross enabled, you'll be billed for each VM that is attached. Therefore you may only want to enable the Servers plan on the workspaces that it will be relevant to.
 
 ### Will I be charged for machines without the Log Analytics agent installed?
 
@@ -142,6 +144,9 @@ Defender for Cloud's billing is closely tied to the billing for Log Analytics. [
 - [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent)
 - [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall)
 - [MaliciousIPCommunication](/azure/azure-monitor/reference/tables/maliciousipcommunication)
+- [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
+- [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
+- [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled. See [What data types are included in the 500-MB data daily allowance?](../../defender-for-cloud/enhanced-security-features-overview.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
 
 If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.
 
@@ -191,7 +196,7 @@ You can also view estimated costs under different pricing tiers by selecting :::
 
 You can learn how to [Analyze usage in Log Analytics workspace](../azure-monitor/logs/analyze-usage.md).
 
-Based on your usage, you will not be billed until you have used your daily allowance. If you are receiving a bill, it is only for the data used after the 500mb has been consumed, or for other service that do not fall under the coverage of Defender for Cloud.
+Based on your usage, you won't be billed until you've used your daily allowance. If you're receiving a bill, it's only for the data used after the 500mb has been consumed, or for other service that does not fall under the coverage of Defender for Cloud.
 
 ## Next steps
 This article explained Defender for Cloud's pricing options. For related material, see:
