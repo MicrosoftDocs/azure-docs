@@ -44,15 +44,15 @@ const msalInstance = new msal.PublicClientApplication(config);
 
 When a user authenticates, a session cookie is set on the Azure AD domain in the browser. MSAL.js relies on this session cookie to provide SSO for the user between different applications. MSAL.js also caches the ID tokens and access tokens of the user in the browser storage per application domain.
 
-MSAL.js offers the `ssoSilent` API to sign-in the user and obtain tokens without an interaction. However, if the user has multiple user accounts in a session with Azure AD, then the user is prompted to pick an account to sign in with. As such, there are two ways to achieve SSO using `ssoSilent` API.
+MSAL.js offers the `ssoSilent` method to sign-in the user and obtain tokens without an interaction. However, if the user has multiple user accounts in a session with Azure AD, then the user is prompted to pick an account to sign in with. As such, there are two ways to achieve SSO using `ssoSilent` method.
 
 ### With user hint
 
-If you already have the user's sign-in information, you can pass this into the `ssoSilent` API to improve performance and ensure that the authorization server will look for the correct account session. You can pass one of the following into the request object to successfully obtain the token silently.
+If you already have the user's sign-in information, you can pass this into the `ssoSilent` method to improve performance and ensure that the authorization server will look for the correct account session. You can pass one of the following into the request object to successfully obtain the token silently.
 
 - Session ID `sid` (which can be retrieved from `idTokenClaims` of an `account` object)
 - `login_hint` (which can be retrieved from the `account` object username property or the `upn` claim in the ID token)
-- `account` (which can be retrieved from using one the [account APIs](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/login-user.md#account-apis))
+- `account` (which can be retrieved from using one the [account methods](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/login-user.md#account-apis))
 
 #### Using a session ID
 
@@ -111,7 +111,7 @@ For more information about login hint and domain hint, see [Microsoft identity p
 
 #### Using an account object
 
-If you know the user account information, you can also retrieve the user account by using the `getAccountByUsername()` or `getAccountByHomeId()` APIs:
+If you know the user account information, you can also retrieve the user account by using the `getAccountByUsername()` or `getAccountByHomeId()` methods:
 
 ```javascript
 const username = "test@contoso.com";
@@ -137,7 +137,7 @@ try {
 
 ### Without user hint
 
-If there is not enough information available about the user, you can attempt to use the `ssoSilent` API without passing an account, `sid` or `login_hint`.
+If there is not enough information available about the user, you can attempt to use the `ssoSilent` method without passing an account, `sid` or `login_hint`.
 
 ```javascript
 const request = {
@@ -171,12 +171,20 @@ This indicates that the server could not determine which account to sign into, a
 
 For better performance and to help avoid issues, set the `redirectUri` to a blank page or other page that doesn't use MSAL.
 
-- If your application users only popup and silent APIs, set the `redirectUri` on the `PublicClientApplication` configuration object.
-- If your application also uses redirect APIs, set the `redirectUri` on a per-request basis.
+- If your application users only popup and silent methods, set the `redirectUri` on the `PublicClientApplication` configuration object.
+- If your application also uses redirect methods, set the `redirectUri` on a per-request basis.
 
-### 3rd party cookies
+### Third-party cookies
 
-`ssoSilent` attempts to open a hidden iframe and reuse an existing session with Azure AD. This will not work in browsers that block 3rd party cookies such as Safari. Additionally, the request object is required when using the **silent** APIs. If you already have the user's sign-in information, you can pass either the `loginHint` or `sid` optional parameters to sign-in a specific account.
+`ssoSilent` attempts to open a hidden iframe and reuse an existing session with Azure AD. This will not work in browsers that block third-party cookies such as safari, and will lead to an interaction error:
+
+```txt
+InteractionRequiredAuthError: login_required: AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD
+```
+
+To resolve the error, the user must create an interactive authentication request using the `loginPopup()` or `loginRedirect()`.
+
+Additionally, the request object is required when using the **silent** methods. If you already have the user's sign-in information, you can pass either the `loginHint` or `sid` optional parameters to sign-in a specific account.
 
 ## SSO in ADAL.js to MSAL.js update
 
