@@ -14,9 +14,9 @@ There are three primary patterns for creating outbound access to the Internet fr
 
 Your requirements for security controls, visibility, capacity, and operations drive the selection of the appropriate method for delivery of Internet access to the Azure VMware Solution private cloud.  
 
-## Internet Service hosted in Azure (or On Prem) 
+## Internet Service hosted in Azure (or On-prem) 
 
-There are multiple ways to generate a default route in Azure and send it towards your Azure VMware Solution Private Cloud. These include the following: 
+There are multiple ways to generate a default route in Azure and send it towards your Azure VMware Solution private cloud. These options include the following: 
 
 - An Azure firewall in a Virtual WAN Hub. 
 - A 3<sup>rd</sup> party Network Virtual Appliance in a Virtual WAN Hub Spoke Virtual Network.
@@ -45,9 +45,9 @@ The final option is the ability to bring an Azure Public IP allocated directly t
    
 Characteristics include: 
 
-   - Scale – the soft limit of 64 public IP’s can be increased by request to 1000s of Public IP’s allocated if required by an application.
-   - Flexibility – A Public IP can be applied anywhere in the NSX ecosystem.  It can be used to provide SNAT or DNAT, on load balancers like VMware’s AVI, or 3<sup>rd</sup> party Network Virtual Appliances, on 3<sup>rd</sup> Party Network Virtual Security Appliances on VMware segments or VM’s directly. 
-- Regionality – the Public IP to the NSX Edge is unique to the local SDDC. For “multi private cloud in distributed regions,” with local exit to Internet intentions, it’s much easier to direct traffic locally versus trying to control default route propagation for a security or SNAT service hosted in Azure. If you have two or more Azure VMware Solution Private Clouds connected with a Public IP configured, they can both have a local exit.  
+   - Scale – the soft limit of 64 public IPs can be increased by request to 1000s of Public IPs allocated if required by an application.
+   - Flexibility – A Public IP can be applied anywhere in the NSX ecosystem.  It can be used to provide SNAT or DNAT, on load balancers like VMware’s AVI, or 3<sup>rd</sup> party Network Virtual Appliances, on 3<sup>rd</sup> Party Network Virtual Security Appliances on VMware segments or VMs directly. 
+- Regionality – the Public IP to the NSX Edge is unique to the local SDDC. For “multi private cloud in distributed regions,” with local exit to Internet intentions, it’s much easier to direct traffic locally versus trying to control default route propagation for a security or SNAT service hosted in Azure. If you've two or more Azure VMware Solution Private Clouds connected with a Public IP configured, they can both have a local exit.  
 
 ### Considerations on selecting an option 
 
@@ -55,8 +55,8 @@ The option that you select depends on the following factors:
 
 1. If you already have a security inspection point provisioned in Azure native that inspects all internet traffic from Azure native endpoints, and you wish to add an Azure VMware private cloud to that configuration, you should use an Azure native construct and leak a default route from Azure to your Azure VMware Solution private cloud.
 1. If you need to run a 3<sup>rd</sup> party Network Virtual Appliance to conform to existing standards for security inspection or streamlined opex, if you have the choice of running it in Azure native with the default route method or running it in Azure VMware Solution using Public IP to NSX edge. 
-1. There are scale limits on how many Public IP’s can be allocated to a Network Virtual Appliance running in native Azure or provisioned on Azure Firewall.  The Public IP to NSX edge option allows for much higher allocations if required (1000s versus 100s).
-1. If you have multiple Azure VMware Solution private clouds in multiple Azure regions which need to communicate with each other, and communicate with the Internet, it can be challenging to match a PC with a security service in Azure because of the way a default route from Azure is propagated.  Using Public IP to the NSX edge allows for localized exit to the internet from each private cloud in its local region. 
+1. There are scale limits on how many Public IPs can be allocated to a Network Virtual Appliance running in native Azure or provisioned on Azure Firewall.  The Public IP to NSX edge option allows for much higher allocations if necessary (1000s versus 100s).
+1. If you have multiple Azure VMware Solution private clouds in multiple Azure regions, which need to communicate with each other, and communicate with the Internet, it can be challenging to match a PC with a security service in Azure because of the way a default route from Azure is propagated.  Using Public IP to the NSX edge allows for localized exit to the internet from each private cloud in its local region. 
 
 ### Next Steps 
 >[!div class="nextstepaction"]
