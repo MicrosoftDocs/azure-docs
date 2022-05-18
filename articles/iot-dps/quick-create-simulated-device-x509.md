@@ -3,7 +3,7 @@ title: Quickstart - Provision an X.509 certificate simulated device to Microsoft
 description: Learn how to provision a simulated device that authenticates with an X.509 certificate in the Azure IoT Hub Device Provisioning Service
 author: kgremban
 ms.author: kgremban
-ms.date: 09/07/2021
+ms.date: 05/18/2022
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
