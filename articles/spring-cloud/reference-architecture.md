@@ -93,11 +93,11 @@ The following diagrams represent a well-architected hub and spoke design that ad
 
 # [Azure Spring Standard](#tab/azure-spring-standard-private)
 
-![Reference architecture diagram for private applications](./media/spring-cloud-reference-architecture/architecture-private_standard.png)
+![Reference architecture diagram for private applications using Azure Spring Apps Standard](./media/spring-cloud-reference-architecture/architecture-private_standard.png)
 
 # [Azure Spring Enterprise](#tab/azure-spring-enterprise-private)
 
-![Reference architecture diagram for private applications](./media/spring-cloud-reference-architecture/architecture-private_enterprise.png)
+![Reference architecture diagram for private applications using Azure Spring Apps Enterprise](./media/spring-cloud-reference-architecture/architecture-private_enterprise.png)
 
 ---
 
@@ -155,11 +155,11 @@ The following diagrams represent a well-architected hub and spoke design that ad
 
 # [Azure Spring Standard](#tab/azure-spring-standard-public)
 
-![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public_standard.png)
+![Reference architecture diagram for public applications using Azure Spring Apps Standard](./media/spring-cloud-reference-architecture/architecture-public_standard.png)
 
 # [Azure Spring Enterprise](#tab/azure-spring-enterprise-public)
 
-![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public_enterprise.png)
+![Reference architecture diagram for public applications using Azure Spring Apps Enterprise](./media/spring-cloud-reference-architecture/architecture-public_enterprise.png)
 
 ---
 
