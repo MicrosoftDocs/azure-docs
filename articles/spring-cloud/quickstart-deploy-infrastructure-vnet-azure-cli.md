@@ -12,7 +12,7 @@ ms.date: 05/13/2022
 
 # Quickstart: Provision Azure Spring Apps using Azure CLI
 
-**This article applies to:** ✔️ Standard tier ✔️ Enterprise tier
+**This article applies to:** ✘ Basic Tier ✔️ Standard tier ✔️ Enterprise tier
 
 This quickstart describes how to use Azure CLI to deploy an Azure Spring Apps cluster into an existing virtual network.
 

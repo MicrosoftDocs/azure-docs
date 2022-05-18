@@ -12,7 +12,7 @@ ms.date: 05/13/2022
 
 # Quickstart: Provision Azure Spring Apps using an ARM template
 
-**This article applies to:** ✔️ Standard tier ✔️ Enterprise tier
+**This article applies to:** ✘ Basic Tier ✔️ Standard tier ✔️ Enterprise tier
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to deploy an Azure Spring Apps cluster into an existing virtual network.
 
