@@ -22,6 +22,7 @@ Use this article to learn about the data and service limits when using orchestra
 * Your Language resource has to be created in one of the [supported regions](#regional-support).
 
 * Pricing tiers
+
   |Tier|Description|Limit|
   |--|--|--|
   |F0 |Free tier|You are only allowed one Language resource with the F0 tier per subscription.|
