@@ -40,6 +40,10 @@ On demand calls to the API are rate limited. The time it takes to generate your 
 
 For more information, see [Cost Management API latency and rate limits](api-latency-rate-limits.md).
 
+### Supported dataset time ranges
+
+The Cost Details API supports a maximum data set time range of 1 month per report. Historical data can be retrieved for up to 13 months back from the current date. If you are looking to seed a 13 month historical dataset, we recommend placing 13 calls for 1 month datasets going back 13 months.
+
 ## Example Cost Details API requests
 
 The following example requests are used by Microsoft customers to address common scenarios. 
