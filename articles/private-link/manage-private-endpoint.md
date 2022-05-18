@@ -12,8 +12,13 @@ ms.custom: devx-track-azurepowershell
 
 ---
 # Manage Azure Private Endpoints
+Azure Private Endpoints have several options when managing the configuration and their deployment. 
 
+**GroupId** and **MemberName** can be determined by querying the Private Link resource. The **GroupID** and **MemberName** values are needed to configure a static IP address for a private endpoint during creation. 
 
+A private endpoint has two custom properties, static IP address and the network interface name. These properties must be set when the private endpoint is created.
+
+With a service provider and consumer deployment of a Private Link Service an approval process is in place to make the connection.
 
 ## Determine GroupID and MemberName
 
@@ -25,32 +30,33 @@ An Azure WebApp is used as the example private endpoint resource. Use [Get-AzPri
 
 ```azurepowershell
 ## Place the previously created webapp into a variable. ##
-$webapp = Get-AzWebApp -ResourceGroupName myResourceGroup -Name myWebApp1979
+$webapp = 
+Get-AzWebApp -ResourceGroupName myResourceGroup -Name myWebApp1979
 
-$resource = Get-AzPrivateLinkResource -PrivateLinkResourceId $webapp.ID
+$resource = 
+Get-AzPrivateLinkResource -PrivateLinkResourceId $webapp.ID
 ```
 
-To display **GroupId**, enter the following command to display **sites** for an Azure WebApp.
+You should receive an output similar to the below example.
 
-```azurepowershell
-$resource.GroupId
-```
-
-To display **MemberName**, enter the following command to display **sites** for an Azure WebApp.
-
-```azurepowershell
-$resource.RequiredMembers
-```
+:::image type="content" source="./media/manage-private-endpoint/powershell-output.png" alt-text="Screenshot of the PowerShell output of command.":::
 
 ---
 
 # [**Azure CLI**](#tab/manage-private-link-cli)
 
-An Azure WebApp is used as the example private endpoint resource. Use [az ]
+An Azure WebApp is used as the example private endpoint resource. Use [az network private-link-resource list](/cli/azure/network/private-link-resource#az-network-private-link-resource-list) to determine **GroupId** and **MemberName**. The parameter `--type` requires the namespace for the private link resource. For the webapp used in this example, the namespace is **Microsoft.Web/sites**. To determine the namespace for your private link resource, see [Azure services DNS zone configuration](private-endpoint-dns.md#azure-services-dns-zone-configuration).
 
 ```azurecli
-
+az network private-link-resource list \
+    --resource-group MyResourceGroup \
+    --name myWebApp1979 \
+    --type Microsoft.Web/sites
 ```
+
+You should receive an output similar to the below example.
+
+:::image type="content" source="./media/manage-private-endpoint/cli-output.png" alt-text="Screenshot of the PowerShell output of command.":::
 
 ---
 
