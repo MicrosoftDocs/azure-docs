@@ -1,26 +1,26 @@
 ---
 title: Red Hat Enterprise Linux images available in Azure
 description: Learn about Red Hat Enterprise Linux images in Microsoft Azure
-author: mamccrea
+author: mathapli
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: mamccrea
+ms.author: mathapli
 ---
 
 # Red Hat Enterprise Linux (RHEL) images available in Azure
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-Azure offers a variety of RHEL images for different use cases.
+Azure offers various RHEL images for different use cases.
 
 > [!NOTE]
 > All RHEL images are available in Azure public and Azure Government clouds. They are not available in Azure China clouds.
 
 ## List of RHEL images
-This is a list of RHEL images available in Azure. Unless otherwise stated, all images are LVM-partitioned and attached to regular RHEL repositories (not EUS, not E4S). The following images are currently available for general use:
+This section provides list of RHEL images available in Azure. Unless otherwise stated, all images are LVM-partitioned and attached to regular RHEL repositories (not EUS, not E4S). The following images are currently available for general use:
 
 > [!NOTE]
 > RAW images are no longer being produced in favor of LVM-partitioned images. LVM provides several advantages over the older raw (non-LVM) partitioning scheme, including significantly more flexible partition resizing options.
@@ -32,8 +32,8 @@ RHEL          | 6.7      | RAW    | Linux Agent | Extended Lifecycle Support ava
 |             | 6.9      | RAW    | Linux Agent | Extended Lifecycle Support available. [More details here.](redhat-extended-lifecycle-support.md)
 |             | 6.10     | RAW    | Linux Agent | Extended Lifecycle Support available. [More details here.](redhat-extended-lifecycle-support.md)
 |             | 7-RAW    | RAW    | Linux Agent | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS).
-|             | 7-LVM    | LVM    | Linux Agent | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS). If you are looking for a standard RHEL image to deploy, use this set of images and/or its Generation 2 counterpart.
-|             | 7lvm-gen2| LVM    | Linux Agent | Generation 2, RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS). If you are looking for a standard RHEL image to deploy, use this set of images and/or its Generation 1 counterpart.
+|             | 7-LVM    | LVM    | Linux Agent | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS). If you're looking for a standard RHEL image to deploy, use this set of images and/or its Generation 2 counterpart.
+|             | 7lvm-gen2| LVM    | Linux Agent | Generation 2, RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS). If you're looking for a standard RHEL image to deploy, use this set of images and/or its Generation 1 counterpart.
 |             | 7-RAW-CI | RAW-CI | cloud-init  | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS).
 |             | 7.2      | RAW    | Linux Agent |
 |             | 7.3      | RAW    | Linux Agent |
@@ -69,9 +69,9 @@ RHEL          | 6.7      | RAW    | Linux Agent | Extended Lifecycle Support ava
 |             | 86-gen2   | LVM    | Linux Agent |Hyper-V Generation 2 -  Hyper-V Generation 2 - Attached to EUS repositories
 RHEL-SAP-APPS | 6.8       | RAW    | Linux Agent | RHEL 6.8 for SAP Business Applications. Outdated in favor of the RHEL-SAP images.
 |             | 7.3       | LVM    | Linux Agent | RHEL 7.3 for SAP Business Applications. Outdated in favor of the RHEL-SAP images.
-|             | 7.4       | LVM    | Linux Agent | RHEL 7.4 for SAP Business Applications.
-|             | 7.6       | LVM    | Linux Agent | RHEL 7.6 for SAP Business Applications.
-|             | 7.7       | LVM    | Linux Agent | RHEL 7.7 for SAP Business Applications.
+|             | 7.4       | LVM    | Linux Agent | RHEL 7.4 for SAP Business Applications
+|             | 7.6       | LVM    | Linux Agent | RHEL 7.6 for SAP Business Applications
+|             | 7.7       | LVM    | Linux Agent | RHEL 7.7 for SAP Business Applications
 |             | 77-gen2       | LVM    | Linux Agent | RHEL 7.7 for SAP Business Applications. Generation 2 image
 |             | 8.1       | LVM    | Linux Agent | RHEL 8.1 for SAP Business Applications.
 |             | 81-gen2      | LVM    | Linux Agent | RHEL 8.1 for SAP Business Applications. Generation 2 image.
@@ -133,7 +133,7 @@ RHEL-HA (out of support)       | 7.4       | LVM    | Linux Agent | RHEL 7.4 wit
 |             | 7.6       | LVM    | Linux Agent | RHEL 7.6 with HA Add-On. Will charge a premium for HA and RHEL on top of the base compute fee. Outdated in favor of the RHEL-SAP-HA images.
 
 > [!NOTE]
-> The RHEL-SAP-HANA product offering is considered end of life by Red Hat. Existing deployments will continue to work normally, but Red Hat recommends that customers migrate from the RHEL-SAP-HANA images to the RHEL-SAP-HA images which includes the SAP HANA repositories as well as the HA add-on. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
+> The RHEL-SAP-HANA product offering is considered end of life by Red Hat. Existing deployments will continue to work normally, but Red Hat recommends that customers migrate from the RHEL-SAP-HANA images to the RHEL-SAP-HA images which includes the SAP HANA repositories and the HA add-on. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
 
 ## Next steps
 * Learn more about the [Red Hat images in Azure](./redhat-images.md).
