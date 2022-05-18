@@ -13,6 +13,7 @@ ms.service: azure-communication-services
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
 
 Mobile UI Library for iOS and Android supports calling use cases by using the **calling composite**.
+
 Composites enable developers to easily integrate a whole calling experience into their application with only a couple of lines of code; those composites take care of the entire lifecycle of the call from setup to the call ending.
 
 ## Calling
@@ -52,7 +53,7 @@ To enable Teams Interop, developers can use the calling composite, which will ta
 
 ## View shared content
 
-The Mobile UI Library provides the capability of the calling participants to view the shared content when other participants share their screens during the calling; also, the participant can zoom on the screen, making the pinching gestures over the screen to get a better look over the shared content.
+The Mobile UI Library provides the capability of the calling participants to view the shared content when other participants share their screens during the calling. Also, the participant can zoom on the screen, making the pinching gestures over the screen to get a better look over the shared content.
 
 ## Theming
 
@@ -76,7 +77,7 @@ Localization is a key to making products that can be used across the world and b
 
 ## Data Model Injection
 
-The Mobile UI Library gives the developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a image which represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the Mobile UI library. [How to inject user data model.](../../../how-tos/ui-library-sdk/data-model.md)
+The Mobile UI Library gives the developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain an image that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the Mobile UI library. [How to inject user data model.](../../../how-tos/ui-library-sdk/data-model.md)
 
 ## Recommended Architecture
 
@@ -85,7 +86,7 @@ trusted service that you manage. See [Quickstart: Create Access Tokens](../../..
 
 :::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" alt-text="Recommended architecture diagram":::
 
-These client libraries also require the context for the call they will join. Similar to user access tokens, this context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
+These client libraries also require the context for the call they'll join. Similar to user access tokens, this context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
 
 | Contoso Responsibilities                                 | UI Library Responsibilities                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
