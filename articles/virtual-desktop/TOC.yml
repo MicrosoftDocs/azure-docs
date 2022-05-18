@@ -227,6 +227,8 @@
         href: configure-host-pool-load-balancing.md
       - name: Personal desktop assignment type
         href: configure-host-pool-personal-desktop-assignment-type.md
+  - name: Move resources between regions
+    href: move-resources.md
   - name: Use Azure Virtual Desktop license
     href: apply-windows-license.md
   - name: Customize session host image
@@ -348,7 +350,7 @@
   - name: Connection quality issues
     href: troubleshoot-connection-quality.md
   - name: Sign-in screen is blank
-    href: https://docs.microsoft.com/troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
+    href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
 - name: Reference
   items:
   - name: Desktop virtualization - Microsoft Cloud Adoption Framework for Azure

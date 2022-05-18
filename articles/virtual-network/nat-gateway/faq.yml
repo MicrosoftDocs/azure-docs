@@ -22,6 +22,10 @@ sections:
           /30 (4 addresses), 
           /31 (2 addresses).  
 
+      - question: How can I use custom IP prefixes (BYOIP) with Virtual Network NAT gateway?
+        answer: |
+          You can use public IP prefixes and addresses derived from custom IP prefixes (BYOIP) with your NAT gateway resource. See [Custom IP address prefix (BYOIP)](/azure/virtual-network/ip-services/custom-ip-address-prefix) to learn more. 
+      
       - question: Can a zone-redundant public IP address be attached to a NAT gateway? 
         answer: |
           A zone-redundant public IP address can be attached to a non-zonal NAT gateway only. A NAT gateway designated to a specific zone must be attached to a public IP address from the same zone.      

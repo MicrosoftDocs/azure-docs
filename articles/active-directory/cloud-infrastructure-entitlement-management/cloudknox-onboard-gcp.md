@@ -2,14 +2,14 @@
 title:  Onboard a Google Cloud Platform (GCP) project in CloudKnox Permissions Management
 description: How to onboard a Google Cloud Platform (GCP) project on CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Onboard a Google Cloud Platform (GCP) project

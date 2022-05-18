@@ -639,6 +639,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/conversational-language-understanding/how-to/deploy-query-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/deploy-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/conversational-language-understanding/fail-over.md",
+      "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/fail-over",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/whats-new-docs.md",
       "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
       "redirect_document_id": false
@@ -14276,6 +14286,16 @@
     {
       "source_path_from_root": "/articles/databox-online/data-box-gateway-use-cases.md",
       "redirect_url": "/azure/databox-gateway/data-box-gateway-use-cases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-load.md",
+      "redirect_url": "/azure/storage/common/storage-ref-azcopy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-load-avere-cloud-file-system.md",
+      "redirect_url": "/azure/storage/common/storage-ref-azcopy",
       "redirect_document_id": false
     },
     {
