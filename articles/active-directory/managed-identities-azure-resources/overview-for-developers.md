@@ -21,9 +21,9 @@ ms.collection: M365-identity-device-management
 
 # How can I connect to Azure resources in my application without handling credentials?
 
-This page explains how developers can use Managed identities so that Azure resources can interact with resources that support authentication with Azure Active Directory, without needing to handle or store any credentials.
+This page explains how developers can use Managed identities so that Azure resources can connect to resources that support authentication with Azure Active Directory, without needing to handle or store any credentials.
 
-The example provided will show how an Azure App Service can interact with Azure Key Vault, Azure Storage, and Microsoft SQL Server. However the same principles can be used with any Azure resource that supports Managed Identities that will interact with endpoints that support Azure Active Directory authentication. 
+The example provided will show how an Azure App Service can connect to Azure Key Vault, Azure Storage, and Microsoft SQL Server. However the same principles can be used with any Azure resource that supports Managed Identities that will connect to endpoints that support Azure Active Directory authentication. 
 
 The Azure resource that will make the connection is referred to as a "source" endpoint, and the resource that you're connecting to is referred to as a "target" endpoint.
 
@@ -53,7 +53,7 @@ If you want to use a user-assigned identity, you'll need to create it before you
 
 You now have an identity that can be associated with an Azure resource. [Read more about managing your identities](how-manage-user-assigned-managed-identities.md).
 
-### Configuring your resource to use a managed identity
+### Configuring your resource to use a user-assigned managed identity
 
 Follow these steps to configure your Azure resource to have a managed identity through the Portal. Refer to the documentation for the specific resource type to learn how to configure the resource's identity using the Command Line Interface, PowerShell or ARM template.
 
@@ -72,7 +72,24 @@ Follow these steps to configure your Azure resource to have a managed identity t
 6. The identity will be associated with the resource, and the list will update.
 :::image type="content" source="media/overview-for-developers/User-Assigned-Identity-Added-To-Resource.png" alt-text="User-assigned identity has been associated with the Azure resource":::
 
-Your resource now has a user-assigned identity that it can use to interact with other resources.
+Your resource now has a user-assigned identity that it can use to connect to other resources.
+
+### Configuring your resource to use a system-assigned managed identity
+
+Some resources may only support system-assigned identities, or you may prefer to have a managed identity that's directly associated with just one resource. Follow these instructions to configure your resource to have a system-assigned identity.
+
+1. Locate the resource using the search bar at the top of the Portal
+:::image type="content" source="media/overview-for-developers/System-Assigned-Identity-Created.png" alt-text="System-assigned identity has been created":::
+2. Select the Identity link in the navigation
+:::image type="content" source="media/overview-for-developers/App-Service-Summary.png" alt-text="Identity link in Resource screen.":::
+3. Select the "Status" option so that "On" is selected
+:::image type="content" source="media/overview-for-developers/system-assigned-select.png" alt-text="Set status to 'On'.":::
+4. Select the "Save" button. A confirmation message will appear. Select "Yes".
+:::image type="content" source="media/overview-for-developers/system-assigned-confirm.png" alt-text="Confirmation message for system-assigned identity'.":::
+5. The page will automatically update, and the client (principal) ID of the identity will be displayed. 
+:::image type="content" source="media/overview-for-developers/system-assigned-created.png" alt-text="System-assigned identity is created.":::
+
+Your resource now has a system-assigned identity that it can use to connect to other resources.
 
 ## Adding permissions to the identity
 
