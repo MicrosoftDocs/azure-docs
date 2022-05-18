@@ -1164,6 +1164,8 @@
         href: isams-tutorial.md 
       - name: iServer Portal
         href: iserver-portal-tutorial.md
+      - name: i-Sight
+        href: isight-tutorial.md
       - name: ITRP
         href: itrp-tutorial.md
       - name: itslearning
