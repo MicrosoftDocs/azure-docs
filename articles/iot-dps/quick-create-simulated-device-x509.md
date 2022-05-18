@@ -389,16 +389,18 @@ You won't need the Git Bash prompt for the rest of this quickstart. However, you
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl pkey -in device-key.pem -out unencrypted-device-key.pem -noout 
+    winpty openssl pkey -in device-key.pem -out unencrypted-device-key.pem
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    openssl pkey -in device-key.pem -out unencrypted-device-key.pem -noout
+    openssl pkey -in device-key.pem -out unencrypted-device-key.pem
     ```
 
     ---
+
+7. When asked to **Enter pass phrase for device-key.pem:**, use the same pass phrase you did previously, `1234`.
 
 Keep the Git Bash prompt open. You'll need it later in this quickstart.
 
@@ -798,12 +800,19 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
 
         Copy and paste the output private key text for the constant value.
 
-1. Build the sample, and then go to the `target` folder and execute the created .jar file.
+    1. Save your changes.
+
+1. Build the sample, and then go to the `target` folder.
 
     ```cmd
     mvn clean install
     cd target
-    java -jar ./provisioning-x509-sample-{version}-with-deps.jar
+    ```
+
+1. The build outputs .jar file in the `target` folder with the following file format: `provisioning-x509-sample-{version}-with-deps.jar`; for example: `provisioning-x509-sample-1.8.1-with-deps.jar`. Execute the .jar file. You may need to replace the version in the command below.
+
+    ```cmd
+    java -jar ./provisioning-x509-sample-1.8.1-with-deps.jar
     ```
 
     The sample will connect to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
