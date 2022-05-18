@@ -54,8 +54,8 @@ Collect all the values in the following table to define the packet core instance
    |---------|---------|
    | The IP address for the control plane interface on the access network. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface.                |**N2 address (signaling)** (for 5G) or **S1-MME address** (for 4G).|
    | The IP address for the user plane interface on the access network. For 5G, this interface is the N3 interface, whereas for 4G, it's the S1-U interface.                 |N/A. You'll only need this value if you're using an ARM template to create the site.|
-   | The network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation.          |**N2 subnet** and **N3 subnet** (for 5G), or **S1-MME subnet** and **S1-U subnet** (for 4G)|
-   | The access subnet default gateway.                        |**N2 gateway** and **N3 gateway** (for 5G), or **S1-MME gateway** and **S1-U gateway** (for 4G)|
+   | The network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation.          |**N2 subnet** and **N3 subnet** (for 5G), or **S1-MME subnet** and **S1-U subnet** (for 4G).|
+   | The access subnet default gateway.                        |**N2 gateway** and **N3 gateway** (for 5G), or **S1-MME gateway** and **S1-U gateway** (for 4G).|
 
 ## Collect data network values
 
