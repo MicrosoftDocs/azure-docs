@@ -24,7 +24,7 @@ don’t have an Azure subscription, see [Create your free Azure account today](h
 
 In the Azure portal, select **Create a resource**.
 
-[ ![Screen shot of Create resource.](media/create-resource.png) ](media/create-resource.png#lightbox)
+[ ![Screenshot of Create resource.](media/create-resource.png) ](media/create-resource.png#lightbox)
 
 ## Search for Azure Health Data Services
 
