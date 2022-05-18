@@ -9,21 +9,21 @@ ms.date: 05/16/2022
 ---
 # Quickstart: Create an automatic response to a specific security alert using an ARM template or Bicep
 
-## ARM template tutorial
-
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a workflow automation that triggers a logic app when specific security alerts are received by Microsoft Defender for Cloud.
-
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
-
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
-
-[![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
+This quickstart describes how to use an Azure Resource Manager template (ARM template) or a Bicep file to create a workflow automation that triggers a logic app when specific security alerts are received by Microsoft Defender for Cloud.
 
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 For a list of the roles and permissions required to work with Microsoft Defender for Cloud's workflow automation feature, see [workflow automation](workflow-automation.md).
+
+## ARM template tutorial
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.security%2fsecuritycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
 
 ### Review the template
 
@@ -65,9 +65,12 @@ For other Defender for Cloud quickstart templates, see these [community contribu
 Use the Azure portal to check the workflow automation has been deployed.
 
 1. From the [Azure portal](https://portal.azure.com), open **Microsoft Defender for Cloud**.
+
 1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
+
 1. From Microsoft Defender for Cloud's menu, open **workflow automation** and check for your new automation.
     :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="List of configured automations." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
+
     >[!TIP]
     > If you have many workflow automations on your subscription, use the **filter by name** option.
 
@@ -76,15 +79,17 @@ Use the Azure portal to check the workflow automation has been deployed.
 When no longer needed, delete the workflow automation using the Azure portal.
 
 1. From the [Azure portal](https://portal.azure.com), open **Microsoft Defender for Cloud**.
+
 1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
+
 1. From Microsoft Defender for Cloud's menu, open **workflow automation** and find the automation to be deleted.
     :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Steps for removing a workflow automation." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
+
 1. Select the checkbox for the item to be deleted.
+
 1. From the toolbar, select **Delete**.
 
 ## Bicep tutorial
-
-This quickstart describes how to use Bicep to create a workflow automation that triggers a logic app when specific security alerts are received by Microsoft Defender for Cloud.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -171,7 +176,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-For a step-by-step tutorial that guides you through the process of creating a template, see:
+For step-by-step tutorials that guide you through the process of creating an ARM template or a Bicep file, see:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
