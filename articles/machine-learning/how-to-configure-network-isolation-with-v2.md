@@ -16,6 +16,14 @@ ms.date: 05/13/2022
 
 In this article, you'll learn about network isolation changes with our new v2 API platform on Azure Resource Manager (ARM) and its effect on network isolation.
 
+
+## Prerequisites
+
+* The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install) or [Azure CLI extension for machine learning v1](reference-azure-machine-learning-cli.md).
+
+    > [!IMPORTANT]
+    > The v1 extension (`azure-cli-ml`) version must be 1.41.0 or greater. Use the `az version` command to view version information.
+ 
 ## What is the new API platform on Azure Resource Manager (ARM)
 
 There are two types of operations used by the v1 and v2 APIs, __Azure Resource Manager (ARM)__ and __Azure Machine Learning workspace__.
@@ -92,7 +100,16 @@ ws.update(v1_legacy_mode=false)
 
 # [Azure CLI extension v1](#tab/azurecliextensionv1)
 
-The Azure CLI [extension v1 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable the parameter for a workspace, add the parameter `--set v1_legacy_mode=true`.
+The Azure CLI [extension v1 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable the parameter for a workspace, add the parameter `--v1-legacy-mode true`.
+
+> [!IMPORTANT]
+> The `v1-legacy-mode` parameter is only available in version 1.41.0 or newer of the Azure CLI extension for machine learning v1 (`azure-cli-ml`). Use the `az version` command to view version information.
+
+The return value of the `az ml workspace update` command may not show the updated value. To view the current state of the parameter, use the following command:
+ 
+```azurecli
+az ml workspace show -g <myresourcegroup> -w <myworkspace> --query v1LegacyMode
+```
 
 ---
 
