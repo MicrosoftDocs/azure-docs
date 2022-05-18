@@ -61,7 +61,8 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
     :::image type="content" source="media/quickstart-create-and-run-loadtest/quickstart-test.png" alt-text="Screenshot that shows quickstart test page.":::
 
 > [!NOTE]
-> The test created will auto-generate a JMeter script. You can download the JMeter script from the test run dashboard. Click on **Download** and select **Input file**. To run this script you will need to provide environment variables.
+> Azure Load Testing auto-generates an Apache JMeter script for your load test.
+> You can download the JMeter script from the test run dashboard. Select **Download**, and then select **Input file**. To run the script, you have to provide environment variables to configure the URL and test parameters.```
 
 ## <a name="view"></a> View the test results
 
