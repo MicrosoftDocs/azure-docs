@@ -65,7 +65,7 @@ In this article, you learned how to obtain an access token for the FHIR service 
 >[Access FHIR service using Postman](./fhir/use-postman.md)
 
 >[!div class="nextstepaction"]
->[Access FHIR service using Rest Client](./fhir/using-rest-client.md)
+>[Access FHIR service using REST Client](./fhir/using-rest-client.md)
 
 >[!div class="nextstepaction"]
 >[Access DICOM service using cURL](dicom/dicomweb-standard-apis-curl.md)
