@@ -46,15 +46,22 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
     :::image type="content" source="media/quickstart-create-and-run-loadtest/quick-test-resource-overview.png" alt-text="Screenshot that shows the quick test button on the resource overview page.":::
 
-1. On the **Quickstart test** page, enter the **Test URL** with the complete URL that you would like to run the test for. For example, https://www.example.com/login.
+1. On the **Quickstart test** page, enter the **Test URL**.
 
-1. (Optional) You can update the **Number of virtual users** to the total number of virtual users. The maximum allowed value is 11250. If the number of virtual users exceeds the maximum of 250 per test engine instance, Azure Load Testing provisions multiple test engines and distributes the load evenly. For example, 300 virtual users will result in 2 test engines with 150 virtual users each.
+    Enter the complete URL that you would like to run the test for. For example, https://www.example.com/login.
+
+1. (Optional) Update the **Number of virtual users** to the total number of virtual users. 
+
+    The maximum allowed value is 11250. If the number of virtual users exceeds the maximum of 250 per test engine instance, Azure Load Testing provisions multiple test engines and distributes the load evenly. For example, 300 virtual users will result in 2 test engines with 150 virtual users each.
 
 1. (Optional) Update the **Test duration** and **Ramp up time** for the test.
 
-1. Click on **Run test**.
+1. Select **Run test** to create and start the load test.
 
     :::image type="content" source="media/quickstart-create-and-run-loadtest/quickstart-test.png" alt-text="Screenshot that shows quickstart test page.":::
+
+> [!NOTE]
+> The test created will auto-generate a JMeter script. You can download the JMeter script from the test run dashboard. Click on **Download** and select **Input file**. To run this script you will need to provide environment variables.
 
 ## <a name="view"></a> View the test results
 
@@ -68,12 +75,17 @@ Once the load test starts, you will be redirected to the test run dashboard. Whi
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/test-result-filters.png" alt-text="Screenshot that shows the filter criteria for the results of a load test.":::
 
-> [!NOTE]
-> The test created will auto-generate a JMeter script. You can download the JMeter script from the test run dashboard. Click on **Download** and select **Input file**. To run this script you will need to provide environment variables.
+## <a name="rerun"></a> Modify load test parameters
 
-## <a name="rerun"></a> Rerun the test
+You can modify the load test configuration at any time. For example, [define test failure criteria](how-to-define-test-criteria.md) or [monitor server-side metrics for Azure-hosted applications](how-to-monitor-server-side-metrics.md).
 
-To rerun the test, select **Rerun** on the test run dashboard. You can modify the test settings by updating the following **Environment variables**:
+1. In the [Azure portal](https://portal.azure.com/), go to your Azure Load Testing resource.
+
+1. On the left pane, select **Tests** to view the list of load tests, and then select your test.
+
+1. Select **Edit** to modify the load test configuration.
+
+The generated load test uses environment variables to specify the initial configuration:
 
   - domain: Domain name of the web server (for example, www.example.com). Don't include the `http://` prefix.
   
@@ -86,9 +98,6 @@ To rerun the test, select **Rerun** on the test run dashboard. You can modify th
   - duration_in_sec: Test duration in seconds
 
   - ramp_up_time: Ramp up time in seconds for the test to reach the total number of virtual users.
-
-> [!NOTE]
-> You can update the test configuration at any time, for example [define test criteria](how-to-define-test-criteria.md) or [monitor server-side metrics](how-to-monitor-server-side-metrics.md). Choose your test in the list of tests, and then select **Edit**.
 
 ## Clean up resources
 
