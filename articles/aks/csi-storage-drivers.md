@@ -96,7 +96,7 @@ If you have in-tree Azure File persistent volumes, get `secretName`, `shareName`
 
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
-[azure-disk-static-mount]: azure-disk-volume.md#mount-disk-as-volume
+[azure-disk-static-mount]: azure-disk-volume.md#mount-disk-as-a-volume
 [azure-file-static-mount]: azure-files-volume.md#mount-file-share-as-a-persistent-volume
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md

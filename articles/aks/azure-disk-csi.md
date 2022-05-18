@@ -66,7 +66,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes storage classes][kubernetes-storage-classes].
 
-When you use the Azure Disk storage CSI driver on AKS, there are two additional built-in `StorageClasses` that use the Azure disk CSI storage driver. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When you use the Azure disk storage CSI driver on AKS, there are two additional built-in `StorageClasses` that use the Azure disk CSI storage driver. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
 - `managed-csi`: Uses Azure Standard SSD locally redundant storage (LRS) to create a managed disk.
 - `managed-csi-premium`: Uses Azure Premium LRS to create a managed disk.

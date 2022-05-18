@@ -15,7 +15,7 @@ Azure disk CSI driver v2 (preview) improves scalability and reduces pod failover
 
 ## Architecture and components
 
-The following diagram shows the components in the Kubernetes control plane (CCP) and cluster nodes, and the Azure services the Azure disk CSI Driver v2 (preview) uses.
+The following diagram shows the components in the Kubernetes control plane (CCP) and cluster nodes, and the Azure services the Azure disk CSI driver v2 (preview) uses.
 
 :::image type="content" source="media/azure-disk-csi-v2/csi_driver_v2.png" alt-text="Architecture diagram of Azure disk CSI driver v2.":::
 
@@ -79,3 +79,8 @@ The Provisioner Library is a common library to abstract the underlying platform 
 * Snapshot
 * Stage or unstage
 * Mount or unmount
+
+## Next steps
+
+- To use the CSI driver for Azure disks, see [Use Azure disks with CSI drivers](azure-disk-csi.md).
+- For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
