@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Implement Azure Policy as Code with GitHub"
-description: In this tutorial, you implement an Azure Policy as Code workflow with export, GitHub actions, and GitHub workflows
+description: In this tutorial, you implement an Azure Policy as Code workflow with export, GitHub Actions, and GitHub workflows
 ms.date: 08/17/2021
 ms.topic: tutorial
 ---
@@ -14,7 +14,7 @@ lifecycle process. These tasks include:
 > [!div class="checklist"]
 > - Export policy definitions and assignments to GitHub
 > - Push policy objects updated in GitHub to Azure
-> - Trigger a compliance scan from the GitHub action
+> - Trigger a compliance scan from the GitHub Action
 
 If you would like to assign a policy to identify the current compliance state of your existing
 resources, the quickstart articles explain how to do so.
