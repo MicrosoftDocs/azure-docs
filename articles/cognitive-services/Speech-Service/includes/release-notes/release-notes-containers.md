@@ -11,8 +11,10 @@ ms.author: eur
 #### Custom speech-to-text Container v3.1.0
 - Add support to [get display models](../../speech-container-howto.md#display-model-download-on-the-custom-speech-to-text-container).
 
+### 2022-May release
+
 #### Speech-language-detection Container v1.9.0-amd64-preview
-- Bug fixes [speech-language-detection](~/articles/cognitive-services/speech-service/speech-container-howto.md).
+- Bug fixes for [speech-language-detection](~/articles/cognitive-services/speech-service/speech-container-howto.md).
 
 ### 2022-January release
 
