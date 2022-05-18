@@ -14,7 +14,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Defining a Theme
 
-Theming on Android is handled via XML resource files. We expose the following resource ID's to the public scope:
+Theming on Android is handled via XML resource files. We expose the following resource IDs to the public scope:
 
 ```XML
 <resources>
@@ -41,7 +41,7 @@ Contoso developers can implement a **Theme** within their apps like this one to 
 
 #### Applying the Theme
 
-The theme style will be applied to pass the Theme resource id to the ThemeConfiguration/Theme in the `CallCompositeBuilder`.
+The theme style will be applied to pass the Theme resource ID to the ThemeConfiguration/Theme in the `CallCompositeBuilder`.
 
 ```Kotlin
 CallCompositeBuilder().theme(ThemeConfiguration(R.style.Contoso_Theme_Calling))
@@ -51,6 +51,6 @@ CallCompositeBuilder().theme(ThemeConfiguration(R.style.Contoso_Theme_Calling))
 
 The Android resource system handles the night theme. Night mode on Android is a system-wide configuration. When night mode is enabled, preference is given to resources in the `-night/` folders. To specify night mode colors, a second theme.xml would be added to the `values-night/`.
 
-To enable night mode programmatically, Android provides the following function. However, this applies globally to the application. There is no reliable way to set night mode for a single activity. Contoso who wants to enforce a dark theme can use this in their applications.
+To enable night mode programmatically, Android provides the following function. However, this configuration applies globally to the application. There's no reliable way to set night mode for a single activity. Contoso who wants to enforce a dark theme can use this settings in their applications.
 
 `AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)`

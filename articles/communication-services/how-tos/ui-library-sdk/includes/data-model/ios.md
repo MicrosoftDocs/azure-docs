@@ -33,6 +33,6 @@ let localSettings = LocalSettings(participantViewData)
 callComposite.launch(with: <Some Group Call Options>, localSettings: localSettings)
 ```
 
-|||
+|Setup View|Calling Experience View|
 | ---- | ---- |
 | :::image type="content" source="media/ios_modelinjection.png" alt-text="iOS data custom model injection"::: | :::image type="content" source="media/ios_modelinjection_name.png"  alt-text="iOS data custom model injection name"::: |

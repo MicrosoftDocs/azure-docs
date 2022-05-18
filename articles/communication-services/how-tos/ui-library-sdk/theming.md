@@ -1,7 +1,7 @@
 ---
 title: Theming over the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services Mobile UI library to setup localization
+description: Use Azure Communication Services Mobile UI library to setup Theming
 author: garchiro7
 ms.author: jorgegarc
 ms.service: azure-communication-services
@@ -10,7 +10,7 @@ ms.date: 05/24/2022
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android
 
-#Customer intent: As a developer, I want to setup the localization of my application
+#Customer intent: As a developer, I want to setup the Theming of my application
 ---
 
 # Theming

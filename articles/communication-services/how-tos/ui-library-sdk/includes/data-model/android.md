@@ -14,7 +14,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Local Avatar Injection
 
-The UI Library now gives developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a bitmap which represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
+The UI Library now gives developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a bitmap, that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
 
 #### Participant View Data
 
@@ -22,7 +22,7 @@ The UI Library now gives developers the ability to provide a more customized exp
 
 #### Local Settings
 
-`LocalSettings` is a options wrapper that set the persona data for UI Library components using a `ParticipantViewData` object. By default, the UI library will display the `displayName` injected in `GroupCallOptions` and `TeamsMeetingOptions`. If `ParticipantViewData` is injected, the `renderedDisplayName`, `AvatarBitMap` will be displayed in all avatar controls.
+`LocalSettings` is an options wrapper that set the persona data for UI Library components using a `ParticipantViewData` object. By default, the UI library will display the `displayName` injected in `GroupCallOptions` and `TeamsMeetingOptions`. If `ParticipantViewData` is injected, the `renderedDisplayName`, `AvatarBitMap` will be displayed in all avatar controls.
 
 #### Usage
 
@@ -38,13 +38,13 @@ callComposite.launch(
 )
 ```
 
-|||
+|Setup View| Calling Experience View|
 | ---- | ---- |
 | :::image type="content" source="media/android_modelinjection.png" alt-text="iOS data custom model injection"::: | :::image type="content" source="media/android_modelinjection_name.png"  alt-text="iOS data custom model injection name"::: |
 
 ### Remote Avatar Injection
 
-On remote participant join, developers can now inject the persona data for remote participant. This object can contain a bitmap which represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
+On remote participant join, developers can now inject the persona data for remote participant. This object can contain a bitmap, that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
 
 #### Usage
 
@@ -67,6 +67,6 @@ callComposite.setOnRemoteParticipantJoinedHandler { remoteParticipantJoinedEvent
 }
 ```
 
-|||
+|Participants list| |
 | ---- | ---- |
 | :::image type="content" source="media/android_modelinjection_remote.png" alt-text="iOS data custom model remote injection"::: ||
