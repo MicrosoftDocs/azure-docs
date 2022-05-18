@@ -110,7 +110,7 @@ Instantiate client objects with your endpoint and key. Create an **ApiKeyCredent
 
 ## Create a new Custom Vision project
 
-Start a new function to contain all of your Custom Vision function calls. Add the following code to to create a new Custom Vision service project.
+Start a new function to contain all of your Custom Vision function calls. Add the following code to create a new Custom Vision service project.
 
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_create)]
