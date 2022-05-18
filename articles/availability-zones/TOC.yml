@@ -14,6 +14,10 @@
     href: region-types-service-categories-azure.md
   - name: Azure Services that support Availability Zones
     href: az-region.md
+  - name: Migration Guidance
+    items:
+    - name: Storage accounts
+      href: migrate-storage.md
   - name: Terminology
     href: glossary.md
 - name: High Availability
