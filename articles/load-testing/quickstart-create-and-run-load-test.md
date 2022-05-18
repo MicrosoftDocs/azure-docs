@@ -48,7 +48,7 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
 1. On the **Quickstart test** page, enter the **Test URL** with the complete URL that you would like to run the test for. For example, https://www.example.com/login.
 
-1. (Optional) You can update the **Number of virtual users** to the total number of virtual users. The maximum allowed value is 11250. One engine instance can generate up to 250 threads. If the virtual users entered are above this, Azure Load Testing will evenly split it into different engines automatically.
+1. (Optional) You can update the **Number of virtual users** to the total number of virtual users. The maximum allowed value is 11250. If the number of virtual users exceeds the maximum of 250 per test engine instance, Azure Load Testing provisions multiple test engines and distributes the load evenly. For example, 300 virtual users will result in 2 test engines with 150 virtual users each.
 
 1. (Optional) You can update the **Test duration** and **Ramp up time** for the test.
 
