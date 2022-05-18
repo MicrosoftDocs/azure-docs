@@ -81,7 +81,7 @@ To rerun the test, select **Rerun** on the test run dashboard. You can modify th
 
   - path: The path to resource (for example, /servlets/myServlet).
 
-  - threads_per_engine: The number of virtual users per engine instance. It is recommended to set this to maximum 250. If you want additional virtual users increase the number of engines by updating the test. Choose your test in the list of tests, and then select **Edit**.
+  - threads_per_engine: The number of virtual users per engine instance. It is recommended to set this to maximum 250. If you need more virtual users, increase the number of test engines for the test. For more information, see [how to configure for high scale](how-to-high-scale-load.md).
 
   - duration_in_sec: Test duration in seconds
 
