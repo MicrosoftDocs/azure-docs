@@ -16,9 +16,9 @@ This reference architecture is a foundation using a typical enterprise hub and s
 
 There are two flavors of Azure Spring Apps: Standard and Enterprise
 
-Azure Spring Apps Standard is comprised of the Spring Cloud Config Server, Spring Cloud Service Registry, and the kpack build service
+Azure Spring Apps Standard is composed of the Spring Cloud Config Server, Spring Cloud Service Registry, and the kpack build service
 
-Azure Spring Apps Enterprise is comprised of the Tanzu Build Service, Application Configuration Service, Service Registry, Spring Cloud Gateway and API portal
+Azure Spring Apps Enterprise is composed of the Tanzu Build Service, Application Configuration Service, Service Registry, Spring Cloud Gateway and API portal
 
 For an implementation of this architecture, see the [Azure Spring Apps Reference Architecture][10] repository on GitHub.
 
@@ -95,7 +95,7 @@ The following diagram represents a well-architected hub and spoke design that ad
 
 ## Public applications
 
-The following list describes the infrastructure requirements for public applications. These requirements are typical in highly regulated environments. These requirements are a superset of those in the preceding section. Additional items are indicated with italics.
+The following list describes the infrastructure requirements for public applications. These requirements are typical in highly regulated environments.
 
 * A subnet must only have one instance of Azure Spring Apps.
 * Adherence to at least one Security Benchmark should be enforced.
@@ -143,7 +143,7 @@ The following list describes the Azure services in this reference architecture:
 
 * [Azure Spring Apps][1]: a managed service that's designed and optimized specifically for Java-based Spring Boot applications and .NET-based [Steeltoe][9] applications.
 
-The following diagram represents a well-architected hub and spoke design that addresses the above requirements.  Note that only the hub-virtual-network communicates with the internet:
+The following diagram represents a well-architected hub and spoke design that addresses the above requirements. Only the hub-virtual-network communicates with the internet:
 
 ![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public.png)
 
@@ -215,7 +215,7 @@ The following list shows the CIS controls that address network security in this 
 | 6.5 | Ensure that Network Watcher is 'Enabled'. |
 | 6.6 | Ensure that ingress using UDP is restricted from the internet. |
 
-Azure Spring Apps requires management traffic to egress from Azure when deployed in a secured environment. To accomplish this, you must allow the network and application rules listed in [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md).
+Azure Spring Apps requires management traffic to egress from Azure when deployed in a secured environment. You must allow the network and application rules listed in [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md).
 
 #### Application security
 
