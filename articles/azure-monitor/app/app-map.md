@@ -381,15 +381,15 @@ In a case where an edge is highlighted the explanation from the model should poi
 
 If Intelligent View doesn't load, ensure that you've opted into the preview on Application Map.
 
-:::image type="content" source="media/app-map/intelligent-view-try-preview.png" alt-text="Screenshot of the Application Map user interface preview opt in button." lightbox="media/app-map/intelligent-view-try-preview.png":::
+:::image type="content" source="media/app-map/intelligent-view-try-preview.png" alt-text="Screenshot of the Application Map user interface preview opt-in button." lightbox="media/app-map/intelligent-view-try-preview.png":::
 
 #### Intelligent View takes a long time to load
 
-Avoid clicking on the **Update Map Component** button.
+Avoid selecting the **Update Map Component**.
 
 Enable Intelligent View only for a single Application Insight resource.
 
-:::image type="content" source="media/app-map/intelligent-view-update-map-components.png" alt-text="Screenshot of the Application Map user interface update map components button." lightbox="media/app-map/intelligent-view-update-map-components.png":::
+:::image type="content" source="media/app-map/intelligent-view-update-map-components.png" alt-text="Screenshot of the update map components button within the Application Map user interface." lightbox="media/app-map/intelligent-view-update-map-components.png":::
 
 ## Portal feedback
 
