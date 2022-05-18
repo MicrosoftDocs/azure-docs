@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: how-to 
 ms.subservice: security 
 ms.date: 3/07/2022
-ms.author: ronytho
+ms.author: xurick
 ms.reviewer: sngun, wiassaf
 ms.custom: subject-rbac-steps
 ---
