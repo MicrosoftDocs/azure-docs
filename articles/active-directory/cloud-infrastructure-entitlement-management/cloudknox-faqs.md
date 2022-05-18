@@ -1,15 +1,15 @@
 ---
-title: Frequently asked questions (FAQs) about Entra Permissions Management 
+title: Frequently asked questions (FAQs) about Entra Permissions Management
 description: Frequently asked questions (FAQs) about Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
 ms.date: 04/20/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Frequently asked questions (FAQs)
@@ -18,7 +18,7 @@ ms.author: v-campisekat
 > Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-> [!NOTE] 
+> [!NOTE]
 > The Entra Permissions Management (Entra) PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 
@@ -26,26 +26,26 @@ This article answers frequently asked questions (FAQs) about Entra Permissions M
 
 ## What's Entra Permissions Management?
 
-Entra is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multi-cloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Entra detects, automatically right-sizes, and continuously monitors unused and excessive permissions. It deepens the Zero Trust security strategy by augmenting the least privilege access principle. 
+Entra is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multi-cloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Entra detects, automatically right-sizes, and continuously monitors unused and excessive permissions. It deepens the Zero Trust security strategy by augmenting the least privilege access principle.
 
 
 ## What are the prerequisites to use Entra?
 
 Entra supports data collection from AWS, GCP, and/or Microsoft Azure. For data collection and analysis, customers are required to have an Azure Active Directory (Azure AD) account to use Entra.
 
-## Can a customer use Entra if they have other identities with access to their IaaS platform that aren’t yet in Azure AD (for example, if part of their business has Okta or AWS Identity & Access Management (IAM))?
+## Can a customer use Entra if they have other identities with access to their IaaS platform that aren't yet in Azure AD (for example, if part of their business has Okta or AWS Identity & Access Management (IAM))?
 
-Yes, a customer can detect, mitigate, and monitor the risk of ‘backdoor’ accounts that are local to AWS IAM, GCP, or from other identity providers such as Okta or AWS IAM.
+Yes, a customer can detect, mitigate, and monitor the risk of 'backdoor' accounts that are local to AWS IAM, GCP, or from other identity providers such as Okta or AWS IAM.
 
 ## Where can customers access Entra?
 
-Customers can access the Entra interface with a link from the Azure AD extension in the Azure portal. 
+Customers can access the Entra interface with a link from the Azure AD extension in the Azure portal.
 
 ## Can non-cloud customers use Entra on-premises?
 
-No, Entra is a hosted cloud offering. 
+No, Entra is a hosted cloud offering.
 
-## Can non-Azure customers use Entra? 
+## Can non-Azure customers use Entra?
 
 Yes, non-Azure customers can use our solution. Entra is a multi-cloud solution so even customers who have no subscription to Azure can benefit from it.
 
@@ -53,21 +53,21 @@ Yes, non-Azure customers can use our solution. Entra is a multi-cloud solution s
 
 No, the Entra Permissions Management (Entra) PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
-## If I’m already using Azure AD  Privileged Identity Management (PIM) for Azure, what value does Entra provide?
+## If I'm already using Azure AD  Privileged Identity Management (PIM) for Azure, what value does Entra provide?
 
-Entra complements Azure AD PIM. Azure AD PIM provides just-in-time access for admin roles in Azure (and Microsoft Online Services and apps that use groups). Entra allows multi-cloud discovery, remediation, and monitoring of privileged access across Azure, AWS, and GCP. 
+Entra complements Azure AD PIM. Azure AD PIM provides just-in-time access for admin roles in Azure (and Microsoft Online Services and apps that use groups). Entra allows multi-cloud discovery, remediation, and monitoring of privileged access across Azure, AWS, and GCP.
 
 ## What languages does Entra support?
 
-Entra currently supports English. 
+Entra currently supports English.
 
 ## What public cloud infrastructures are supported by Entra?
 
-Entra currently supports the three major public clouds: Amazon Web Services (AWS), Google Cloud Platform (GCP), and Microsoft Azure. 
+Entra currently supports the three major public clouds: Amazon Web Services (AWS), Google Cloud Platform (GCP), and Microsoft Azure.
 
 ## Does Entra support hybrid environments?
 
-Entra currently doesn’t support hybrid environments. 
+Entra currently doesn't support hybrid environments.
 
 ## What types of identities are supported by Entra?
 
@@ -79,11 +79,11 @@ Entra is currently not GDPR compliant.--->
 
 ## Is Entra available in Government Cloud?
 
-No, Entra is currently not available in Government clouds. 
+No, Entra is currently not available in Government clouds.
 
 ## Is Entra available for sovereign clouds?
 
-No, Entra is currently not available in sovereign Clouds. 
+No, Entra is currently not available in sovereign Clouds.
 
 ## How does Entra collect insights about permissions usage?
 
@@ -95,7 +95,7 @@ Entra offers granular visibility into all identities and their permissions grant
 
 ## What is the Permissions Creep Index?
 
-The Permissions Creep Index (PCI) is a quantitative measure of risk associated with an identity or role determined by comparing permissions granted versus permissions exercised. It allows users to instantly evaluate the level of risk associated with the number of unused or over-provisioned permissions across identities and resources. It measures how much damage identities can cause based on the permissions they have. 
+The Permissions Creep Index (PCI) is a quantitative measure of risk associated with an identity or role determined by comparing permissions granted versus permissions exercised. It allows users to instantly evaluate the level of risk associated with the number of unused or over-provisioned permissions across identities and resources. It measures how much damage identities can cause based on the permissions they have.
 
 ## How can customers use Entra to delete unused or excessive permissions?
 
@@ -107,11 +107,11 @@ For any break-glass or one-off scenarios where an identity needs to perform a sp
 
 ## What is the difference between permissions on-demand and just-in-time access?
 
-Just-in-time (JIT) access is a method used to enforce the principle of least privilege to ensure identities are given the minimum level of permissions to perform the task at hand. Permissions on-demand are a type of JIT access that allows the temporary elevation of permissions, enabling identities to access resources on a by-request, timed basis. 
+Just-in-time (JIT) access is a method used to enforce the principle of least privilege to ensure identities are given the minimum level of permissions to perform the task at hand. Permissions on-demand are a type of JIT access that allows the temporary elevation of permissions, enabling identities to access resources on a by-request, timed basis.
 
 ## How can customers monitor permissions usage with Entra?
 
-Customers only need to track the evolution of their Permission Creep Index to monitor permissions usage. By ..using the “Analytics” tab in the Entra dashboard, they can see how the PCI of each identity or resource is evolving over time.
+Customers only need to track the evolution of their Permission Creep Index to monitor permissions usage. By ..using the "Analytics" tab in the Entra dashboard, they can see how the PCI of each identity or resource is evolving over time.
 
 ## Can customers generate permissions usage reports?
 
@@ -141,9 +141,9 @@ Once fully onboarded with data collection set up, customers can access permissio
 
 ## Is Entra collecting and storing sensitive personal data?
 
-No, Entra doesn’t have access to sensitive personal data.
+No, Entra doesn't have access to sensitive personal data.
 
-## Where can I find more information about Entra? 
+## Where can I find more information about Entra?
 
 You can read our blog and visit our web page. You can also get in touch with your Microsoft point of contact to schedule a demo.
 

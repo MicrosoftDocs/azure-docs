@@ -1,15 +1,15 @@
 ---
-title: Create and view activity alerts and alert triggers in Entra Permissions Management 
+title: Create and view activity alerts and alert triggers in Entra Permissions Management
 description: How to create and view activity alerts and alert triggers in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Create and view activity alerts and alert triggers
@@ -67,7 +67,7 @@ This article describes how you can create and view activity alerts and alert tri
     The **Triggers** table displays the following information:
 
     - **Alerts**: The name of the alert trigger.
-    - **# of users subscribed**: The number of users who have subscribed to a specific alert trigger. 
+    - **# of users subscribed**: The number of users who have subscribed to a specific alert trigger.
 
         - Select a number in this column to view information about the user.
 
@@ -79,13 +79,13 @@ This article describes how you can create and view activity alerts and alert tri
          - If the column displays **Off**, the current user isn't subscribed to that alert. Switch the toggle to **On** to subscribe to the alert.
          - The user who creates an alert trigger is automatically subscribed to the alert, and will receive emails about the alert.
 
-1. To see only activated or only deactivated triggers, from the **Status** dropdown, select **Activated** or **Deactivated**, and then select **Apply**. 
+1. To see only activated or only deactivated triggers, from the **Status** dropdown, select **Activated** or **Deactivated**, and then select **Apply**.
 
 1. To view other options available to you, select the ellipses (**...**), and then select from the available options.
 
     If the **Subscription** is **On**, the following options are available:
 
-    - **Edit**: Enables you to modify alert parameters 
+    - **Edit**: Enables you to modify alert parameters
 
        > [!NOTE]
          > Only the user who created the alert can perform the following actions: edit the trigger screen, rename an alert, deactivate an alert, and delete an alert. Changes made by other users aren't saved.
@@ -94,12 +94,12 @@ This article describes how you can create and view activity alerts and alert tri
     - **Rename**: Enter the new name of the query, and then select **Save.**
     - **Deactivate**: The alert will still be listed, but will no longer send emails to subscribed users.
     - **Activate**: Activate the alert trigger and start sending emails to subscribed users.
-    - **Notification Settings**: View the **Email** of users who are subscribed to the alert trigger and their **User Status**. 
+    - **Notification Settings**: View the **Email** of users who are subscribed to the alert trigger and their **User Status**.
     - **Delete**: Delete the alert.
 
     If the **Subscription** is **Off**, the following options are available:
     - **View**: View  details of the alert trigger.
-    - **Notification Settings**: View the **Email** of users who are subscribed to the alert trigger and their **User Status**. 
+    - **Notification Settings**: View the **Email** of users who are subscribed to the alert trigger and their **User Status**.
     - **Duplicate**: Create a duplicate copy of the selected alert trigger.
 
 

@@ -2,14 +2,14 @@
 title: View analytic information about active tasks in Entra Permissions Management
 description: How to view analytic information about active tasks in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # View analytic information about active tasks
@@ -18,7 +18,7 @@ ms.author: v-campisekat
 > Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Analytics** dashboard in Entra Permissions Management (Entra) collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for: 
+The **Analytics** dashboard in Entra Permissions Management (Entra) collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for:
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
@@ -31,9 +31,9 @@ This article describes how to view usage analytics about active tasks.
 
 ## Create a query to view active tasks
 
-When you select **Active Tasks**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities. 
+When you select **Active Tasks**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities.
 
-1. On the main **Analytics** dashboard, select **Active Tasks** from the  drop-down list at the top of the screen. 
+1. On the main **Analytics** dashboard, select **Active Tasks** from the  drop-down list at the top of the screen.
 
     The dashboard only lists tasks that are active. The following components make up the **Active Tasks** dashboard:
 
@@ -51,12 +51,12 @@ When you select **Active Tasks**, the **Analytics** dashboard provides a high-le
 
 The **Active Tasks** table displays the results of your query.
 
-- **Task Name**: Provides the name of the task. 
-    - To view details about the task, select the down arrow in the table. 
+- **Task Name**: Provides the name of the task.
+    - To view details about the task, select the down arrow in the table.
 
         - A **Normal Task** icon displays to the left of the task name if the task is normal (that is, not risky).
-        - A **Deleted Task** icon displays to the left of the task name if the task involved deleting data. 
-        - A **High-Risk Task** icon displays to the left of the task name if the task is high-risk. 
+        - A **Deleted Task** icon displays to the left of the task name if the task involved deleting data.
+        - A **High-Risk Task** icon displays to the left of the task name if the task is high-risk.
 
 - **Performed on (resources)**: The number of resources on which the task was used.
 
@@ -65,25 +65,25 @@ The **Active Tasks** table displays the results of your query.
     - **Accessed**: Displays the number of users that have accessed the task.
 
 
-## Apply filters to your query  
+## Apply filters to your query
 
-There are many filter options within the **Active Tasks** screen, including **Authorization System**, **User**, and **Task**. 
-Filters can be applied in one, two, or all three categories depending on the type of information you're looking for. 
+There are many filter options within the **Active Tasks** screen, including **Authorization System**, **User**, and **Task**.
+Filters can be applied in one, two, or all three categories depending on the type of information you're looking for.
 
 ### Apply filters by authorization system type
 
 1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset Filter** to discard your changes. 
+    Select **Reset Filter** to discard your changes.
 
 ### Apply filters by authorization system
 
-1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**. 
+1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. From the **Authorization System** dropdown, select accounts from a **List** of accounts and **Folders**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset Filter** to discard your changes. 
+    Select **Reset Filter** to discard your changes.
 
 
 ### Apply filters by task type
@@ -100,7 +100,7 @@ You can filter user details by type of user, user role, app, or service used, or
 
 ## Export the results of your query
 
-- To view a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV**. 
+- To view a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV**.
 
 ## Next steps
 

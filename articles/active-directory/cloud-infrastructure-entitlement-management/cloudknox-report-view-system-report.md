@@ -2,14 +2,14 @@
 title: Generate and view a system report in Entra Permissions Management
 description: How to generate and view a system report in the Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Generate and view a system report
@@ -20,7 +20,7 @@ ms.author: v-campisekat
 
 This article describes how to generate and view a system report in Entra Permissions Management (Entra).
 
-## Generate a system report  
+## Generate a system report
 
 1. In the Entra home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
     The **Systems Reports** subtab displays the following options in the **Reports** table:
@@ -41,12 +41,12 @@ This article describes how to generate and view a system report in Entra Permiss
 
 1. To refresh the list of reports, select **Reload**.
 
-## Search for a system report 
+## Search for a system report
 
 1. On the **Systems Reports** subtab, select **Search**.
 1. In the **Search** box, enter the name of the report you want.
 
-    The **Systems Reports** subtab displays a list of reports that match your search criteria. 
+    The **Systems Reports** subtab displays a list of reports that match your search criteria.
 1. Select a report from the **Report Name** column.
 1. To download a report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.
 1. To refresh the list of reports, select **Reload**.

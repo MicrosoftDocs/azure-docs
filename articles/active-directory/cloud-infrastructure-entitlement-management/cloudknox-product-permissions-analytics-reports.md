@@ -1,15 +1,15 @@
 ---
-title: Generate and download the Permissions analytics report in Entra Permissions Management 
+title: Generate and download the Permissions analytics report in Entra Permissions Management
 description: How to generate and download the Permissions analytics report in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Generate and download the Permissions analytics report
@@ -23,7 +23,7 @@ This article describes how to generate and download the **Permissions analytics 
 > [!NOTE]
 > This topic applies only to Amazon Web Services (AWS) users.
 
-## Generate the Permissions analytics report 
+## Generate the Permissions analytics report
 
 1. In the Entra home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
 
@@ -34,71 +34,71 @@ This article describes how to generate and download the **Permissions analytics 
 
 1. For detailed information in the report, select the right arrow next to one of the following categories. Or, select the required category under the **Findings** column.
 
-	- **AWS**
-		- Inactive Identities
-			- Users
-			- Roles
-			- Resources
-			- Serverless Functions
-		- Inactive Groups
-		- Super Identities
-			- Users
-			- Roles
-			- Resources
-			- Serverless Functions
-		- Over-Provisioned Active Identities
-			- Users
-			- Roles
-			- Resources
-			- Serverless Functions
-		- PCI Distribution
-		- Privilege Escalation
-			- Users
-			- Roles
-			- Resources
-		- S3 Bucket Encryption
-			- Unencrypted Buckets
-			- SSE-S3 Buckets
-		- S3 Buckets Accessible Externally
-		- EC2 S3 Buckets Accessibility
-		- Open Security Groups
-		- Identities That Can Administer Security Tools
-			- Users
-			- Roles
-			- Resources
-			- Serverless Functions
-		- Identities That Can Access Secret Information
-			- Users
-			- Roles
-			- Resources
-			- Serverless Functions
-		- Cross-Account Access
-			- External Accounts
-			- Roles That Allow All Identities
-		- Hygiene: MFA Enforcement
-		- Hygiene: IAM Access Key Age
-		- Hygiene: Unused IAM Access Keys
-		- Exclude From Reports
-			- Users
-			- Roles
-			- Resources
-			- Serverless Functions
-			- Groups
-			- Security Groups
-			- S3 Buckets
+    - **AWS**
+        - Inactive Identities
+            - Users
+            - Roles
+            - Resources
+            - Serverless Functions
+        - Inactive Groups
+        - Super Identities
+            - Users
+            - Roles
+            - Resources
+            - Serverless Functions
+        - Over-Provisioned Active Identities
+            - Users
+            - Roles
+            - Resources
+            - Serverless Functions
+        - PCI Distribution
+        - Privilege Escalation
+            - Users
+            - Roles
+            - Resources
+        - S3 Bucket Encryption
+            - Unencrypted Buckets
+            - SSE-S3 Buckets
+        - S3 Buckets Accessible Externally
+        - EC2 S3 Buckets Accessibility
+        - Open Security Groups
+        - Identities That Can Administer Security Tools
+            - Users
+            - Roles
+            - Resources
+            - Serverless Functions
+        - Identities That Can Access Secret Information
+            - Users
+            - Roles
+            - Resources
+            - Serverless Functions
+        - Cross-Account Access
+            - External Accounts
+            - Roles That Allow All Identities
+        - Hygiene: MFA Enforcement
+        - Hygiene: IAM Access Key Age
+        - Hygiene: Unused IAM Access Keys
+        - Exclude From Reports
+            - Users
+            - Roles
+            - Resources
+            - Serverless Functions
+            - Groups
+            - Security Groups
+            - S3 Buckets
 
 
 1. Select a category and view the following columns of information:
 
-	- **User**, **Role**, **Resource**, **Serverless Function Name**: Displays the name of the identity.
-	- **Authorization System**: Displays the authorization system to which the identity belongs.
-	- **Domain**: Displays the domain name to which the identity belongs.
-	- **Permissions**: Displays the maximum number of permissions that the identity can be granted.
-		- **Used**: Displays how many permissions that the identity has used.
-		- **Granted**: Displays how many permissions that the identity has been granted.
-	- **PCI**: Displays the permission creep index (PCI) score of the identity.
-	- **Date Last Active On**: Displays the date that the identity was last active.
-	- **Date Created On**: Displays the date when the identity was created.
+    - **User**, **Role**, **Resource**, **Serverless Function Name**: Displays the name of the identity.
+    - **Authorization System**: Displays the authorization system to which the identity belongs.
+    - **Domain**: Displays the domain name to which the identity belongs.
+    - **Permissions**: Displays the maximum number of permissions that the identity can be granted.
+        - **Used**: Displays how many permissions that the identity has used.
+        - **Granted**: Displays how many permissions that the identity has been granted.
+    - **PCI**: Displays the permission creep index (PCI) score of the identity.
+    - **Date Last Active On**: Displays the date that the identity was last active.
+    - **Date Created On**: Displays the date when the identity was created.
 
 
 
@@ -108,7 +108,7 @@ This article describes how to generate and download the **Permissions analytics 
 1. Select one of the categories from the **Permissions Analytics Report**.
 1. Select the identity name to which you want to add a tag. Then, select the checkbox at the top to select all identities.
 1. Select **Add Tag**.
-1. In the **Tag** column: 
+1. In the **Tag** column:
     - To select from the available options from the list, select **Select a Tag**.
     - To search for a tag, enter the tag name.
     - To create a new custom tag, select  **New Custom Tag**.
@@ -117,7 +117,7 @@ This article describes how to generate and download the **Permissions analytics 
 
 1. In the **Value (optional)** box, enter a value, if necessary.
 1. Select **Save**.--->
- 
+
 ## Next steps
 
 - For information on how to view system reports in the **Reports** dashboard, see [View system reports in the Reports dashboard](cloudknox-product-reports.md).

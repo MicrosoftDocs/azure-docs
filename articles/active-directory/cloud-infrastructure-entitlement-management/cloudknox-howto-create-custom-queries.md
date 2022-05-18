@@ -1,18 +1,18 @@
 ---
-title: Create a custom query in Entra Permissions Management  
+title: Create a custom query in Entra Permissions Management
 description: How to create a custom query in the Audit dashboard in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
-# Create a custom query 
+# Create a custom query
 
 > [!IMPORTANT]
 > Entra Permissions Management (Entra) is currently in PREVIEW.
@@ -35,13 +35,13 @@ This article describes how you can use the **Audit** dashboard in Entra Permissi
     For example, to query by a date, select **Date** in the first box. In the second and third boxes, select the down arrow, and then select one of the date-related options.
 
 1. To add parameters, select **Add**, select the down arrow in the first box to display a dropdown of available selections. Then select the parameter you want.
-1. To add more parameters to the same query, select **Add** (the plus sign), and from the first box, select **And** or **Or**. 
+1. To add more parameters to the same query, select **Add** (the plus sign), and from the first box, select **And** or **Or**.
 
     Repeat this step for the second and third box to complete entering the parameters.
 1. To change your query as you're creating it, select **Edit** (the pencil icon), and then change the query parameters.
 1. To change the parameter options, select the down arrow in each box to display a dropdown of available selections. Then select the option you want.
 1. To discard your selections, select **Reset Query** for the parameter you want to change, and then make your selections again.
-1. When you’re ready to run your query, select **Search**.
+1. When you're ready to run your query, select **Search**.
 1. To save the query, select **Save**.
 
     Entra saves the query and adds it to the **Saved Queries** list.
@@ -98,7 +98,7 @@ This article describes how you can use the **Audit** dashboard in Entra Permissi
 ## Rename a query
 
 1. In the **Audit** dashboard, load the query you want to rename.
-2. Select the ellipses menu **(…)** on the far right, and select **Rename**. 
+2. Select the ellipses menu **(…)** on the far right, and select **Rename**.
 3. Enter a new name for the query, and then select **Save**.
 
     Entra saves the query under the new name. Both the new query and the original query display in the **Saved Queries** list.

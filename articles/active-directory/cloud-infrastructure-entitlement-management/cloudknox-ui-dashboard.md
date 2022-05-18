@@ -2,14 +2,14 @@
 title: View key statistics and data about your authorization system in Entra Permissions Management
 description: How to view statistics and data about your authorization system in the Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 
@@ -39,8 +39,8 @@ You can view the following information in Entra:
 The Entra **Dashboard** displays the following information:
 
 - **Authorization system types**: A dropdown list of authorization system types you can access: AWS, Azure, and GCP.
- 
-- **Authorization System**: Displays a **List** of accounts and **Folders** in the selected authorization system you can access. 
+
+- **Authorization System**: Displays a **List** of accounts and **Folders** in the selected authorization system you can access.
 
     - To add or remove accounts and folders, from the **Name** list, select or deselect accounts and folders, and then select **Apply**.
 
@@ -48,17 +48,17 @@ The Entra **Dashboard** displays the following information:
 
     The PCI graph may display one or more bubbles. Each bubble displays the number of identities that are considered high risk. *High-risk* refers to the number of users who have permissions that exceed their normal or required usage.
     - To display a list of the number of identities contributing to the **Low PCI**, **Medium PCI**, and **High PCI**, select the **List** icon in the upper right of the graph.
-    - To display the PCI graph again, select the **Graph** icon in the upper right of the list box. 
+    - To display the PCI graph again, select the **Graph** icon in the upper right of the list box.
 
 - **Highest PCI change**: Displays a list of your accounts and information about the **PCI** and **Change** in the index over the past 7 days.
     - To download the list, select the down arrow in the upper right of the list box.
 
-        The following message displays: **We'll email you a link to download the file.** 
+        The following message displays: **We'll email you a link to download the file.**
         - Check your email for the message from the Entra Customer Success Team. The email contains a link to the **PCI history** report in Microsoft Excel format.
         - The email also includes a link to the **Reports** dashboard, where you can configure how and when you want to receive reports automatically.
     - To view all the PCI changes, select **View all**.
 
-- **Identity**: A summary of the **Findings** that includes: 
+- **Identity**: A summary of the **Findings** that includes:
     - The number of **Inactive** identities that haven't been accessed in over 90 days.
     - The number of **Super** identities that access data regularly.
     - The number of identities that can **Access secret information**: A list of roles that can access sensitive or secret information.
@@ -73,7 +73,7 @@ The Entra **Dashboard** displays the following information:
     - **Instances with access to S3 buckets**
     - **Unencrypted S3 buckets**
     - **SSE-S3 Encrypted buckets**
-    - **S3 Bucket accessible externally** 
+    - **S3 Bucket accessible externally**
 
 
 
@@ -85,7 +85,7 @@ The **Permission Creep Index**  heat map shows the incurred risk of users with a
 
 - The number of resources a user has access to, otherwise known as resource reach.
 
-- The high-risk permissions coupled with the number of resources a user has access to produce the score seen on the chart. 
+- The high-risk permissions coupled with the number of resources a user has access to produce the score seen on the chart.
 
     Permissions are classified as *high*, *medium*, and *low*.
 
@@ -93,11 +93,11 @@ The **Permission Creep Index**  heat map shows the incurred risk of users with a
     - **Medium** (displayed in yellow) - The score is between 34 and 67. The user has access to some high-risk permissions that they use, or have medium resource reach.
     - **Low** (displayed in green) - The score is between 0 and 33. The user has access to few high-risk permissions. They use all their permissions and have low resource reach.
 
-- The number displayed on the graph shows how many users contribute to a particular score. To view detailed data about a user, hover over the number. 
+- The number displayed on the graph shows how many users contribute to a particular score. To view detailed data about a user, hover over the number.
 
     The distribution graph displays all the users who contribute to the permission creep. It displays how many users contribute to a particular score. For example, if the score from the PCI chart is 14, the graph shows how many users have a score of 14.
 
-- The **PCI Trend** graph shows you the historical trend of the PCI score over the last 90 days. 
+- The **PCI Trend** graph shows you the historical trend of the PCI score over the last 90 days.
     - To download the **PCI history report**, select **Download**.
 
 ### View information on the heat map
@@ -107,7 +107,7 @@ The **Permission Creep Index**  heat map shows the incurred risk of users with a
     - The total number of **Identities** and how many of them are in the high, medium, and low categories.
     - The **PCI trend** over the last several weeks.
 
-1. The **Identity** section below the heat map on the left side of the page shows all the relevant findings about identities, including roles that can access secret information, roles that are inactive, over provisioned active roles, and so on. 
+1. The **Identity** section below the heat map on the left side of the page shows all the relevant findings about identities, including roles that can access secret information, roles that are inactive, over provisioned active roles, and so on.
 
     - To expand the full list of identities, select **All findings**.
 
@@ -136,5 +136,3 @@ You can also view a summary of users and activities section on the [Analytics da
 
 - For information on how to view authorization system and account activity data on the Entra Dashboard, see [View data about the activity in your authorization system](cloudknox-product-dashboard.md).
 - For an overview of the Analytics dashboard, see [An overview of the Analytics  dashboard](cloudknox-usage-analytics-home.md).
-
-

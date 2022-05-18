@@ -2,14 +2,14 @@
 title: Revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard in Entra Permissions Management
 description: How to revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities
@@ -22,7 +22,7 @@ ms.author: v-campisekat
 This article describes how you can revoke high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities using the **Remediation** dashboard.
 
 > [!NOTE]
-> To view the **Remediation** tab, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
+> To view the **Remediation** tab, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don't have these permissions, contact your system administrator.
 
 ## View an identity's permissions
 
@@ -50,7 +50,7 @@ This article describes how you can revoke high-risk and unused tasks or assign r
 1. Make a selection from the results list.
 
 1. To revoke an identity's access to tasks they aren't using, select **Revoke Unused Tasks**.
-1. When the following message displays: **Are you sure you want to change permission?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select:
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -64,7 +64,7 @@ This article describes how you can revoke high-risk and unused tasks or assign r
 1. Make a selection from the results list.
 
 1. To revoke an identity's access to high-risk tasks, select **Revoke High-Risk Tasks**.
-1. When the following message displays: **Are you sure you want to change permission?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select:
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -78,7 +78,7 @@ This article describes how you can revoke high-risk and unused tasks or assign r
 1. Make a selection from the results list.
 
 1. To revoke an identity's ability to delete tasks, select **Revoke Delete Tasks**.
-1. When the following message displays: **Are you sure you want to change permission?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select:
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -92,11 +92,11 @@ This article describes how you can revoke high-risk and unused tasks or assign r
 1. Make a selection from the results list.
 
 1. To assign read-only status to an identity, select **Assign Read-Only Status**.
-1. When the following message displays: **Are you sure you want to change permission?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select:
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
-    
+
 
 ## Next steps
 

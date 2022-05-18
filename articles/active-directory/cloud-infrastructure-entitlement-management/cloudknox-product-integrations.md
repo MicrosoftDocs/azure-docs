@@ -2,17 +2,17 @@
 title: View integration information about an authorization system in Entra Permissions Management
 description: View integration information about an authorization system in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
-# View integration information about an authorization system 
+# View integration information about an authorization system
 
 > [!IMPORTANT]
 > Entra Permissions Management (Entra) is currently in PREVIEW.
@@ -20,9 +20,9 @@ ms.author: v-campisekat
 
 The **Integrations** dashboard in Entra Permissions Management (Entra) allows you to view all your authorization systems in one place, and to ensure all applications are functioning as one. This information helps improve quality and performance as a whole.
 
-## Display integration information about an authorization system 
+## Display integration information about an authorization system
 
-Refer to the **Integration** subpages in Entra for information about available authorization systems for integration. 
+Refer to the **Integration** subpages in Entra for information about available authorization systems for integration.
 
 1. To display the **Integrations** dashboard, select **User** (your initials) in the upper right of the screen, and then select **Integrations.**
 
@@ -30,7 +30,7 @@ Refer to the **Integration** subpages in Entra for information about available a
 
 1. Select an authorization system tile to view its integration information.
 
-## Available integrated authorization systems 
+## Available integrated authorization systems
 
 The following authorization systems may be listed in the **Integrations** dashboard, depending on which systems are integrated into the Entra application.
 

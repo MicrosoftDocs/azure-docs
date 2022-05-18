@@ -2,17 +2,17 @@
 title: Attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities in the Remediation dashboard in Entra Permissions Management
 description: How to attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities in the Remediation dashboard in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
-# Attach and detach policies for Amazon Web Services (AWS) identities 
+# Attach and detach policies for Amazon Web Services (AWS) identities
 
 
 > [!IMPORTANT]
@@ -22,7 +22,7 @@ ms.author: v-campisekat
 This article describes how you can attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities using the **Remediation** dashboard.
 
 > [!NOTE]
-> To view the **Remediation** tab, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
+> To view the **Remediation** tab, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don't have these permissions, contact your system administrator.
 
 ## View permissions
 
@@ -48,9 +48,9 @@ This article describes how you can attach and detach permissions for users, role
 1. In **Enter a Group Name**, enter or select a group, then select **Apply**.
 1. Make a selection from the results list.
 1. To attach a policy, select **Attach Policies**.
-1. In the **Attach Policies** page, from the **Available policies** list, select the plus sign **(+)** to move the policy to the **Selected policies** list. 
+1. In the **Attach Policies** page, from the **Available policies** list, select the plus sign **(+)** to move the policy to the **Selected policies** list.
 1. When you have finished adding policies, select **Submit**.
-1. When the following message displays: **Are you sure you want to change permission?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select:
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -63,9 +63,9 @@ This article describes how you can attach and detach permissions for users, role
 1. In **Enter a Group Name**, enter or select a group, then select **Apply**.
 1. Make a selection from the results list.
 1. To remove a policy, select **Detach Policies**.
-1. In the **Detach Policies** page, from the **Available policies** list, select the plus sign **(+)** to move the policy to the **Selected policies** list. 
+1. In the **Detach Policies** page, from the **Available policies** list, select the plus sign **(+)** to move the policy to the **Selected policies** list.
 1. When you have finished selecting policies, select **Submit**.
-1. When the following message displays: **Are you sure you want to change permission?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select:
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -81,4 +81,3 @@ This article describes how you can attach and detach permissions for users, role
 - To view information about roles/policies, see [View information about roles/policies](cloudknox-howto-view-role-policy.md).
 - For information on how to revoke high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities, see [Revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities](cloudknox-howto-revoke-task-readonly-status.md)
 For information on how to create or approve a request for permissions, see [Create or approve a request for permissions](cloudknox-howto-create-approve-privilege-request.md).
-

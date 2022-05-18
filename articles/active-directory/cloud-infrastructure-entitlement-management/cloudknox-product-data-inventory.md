@@ -2,14 +2,14 @@
 title: Entra Permissions Management - Display an inventory of created resources and licenses for your authorization system
 description: How to display an inventory of created resources and licenses for your authorization system in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Display an inventory of created resources and licenses for your authorization system
@@ -22,8 +22,8 @@ You can use the **Inventory** dashboard in Entra Permissions Management (Entra) 
 
 ## View resources created for your authorization system
 
-1. To access your inventory information, in the Entra home page, select **Settings** (the gear icon). 
-1. Select the **Inventory** tab, select the **Inventory** subtab, and then select your authorization system type: 
+1. To access your inventory information, in the Entra home page, select **Settings** (the gear icon).
+1. Select the **Inventory** tab, select the **Inventory** subtab, and then select your authorization system type:
 
     - **AWS** for Amazon Web Services.
     - **Azure** for Microsoft Azure.
@@ -48,7 +48,7 @@ You can use the **Inventory** dashboard in Entra Permissions Management (Entra) 
     - The number of **Serverless** licenses.
     - The number of **Compute containers**.
     - The number of **Databases**.
-    - The **Total number of licenses**. 
+    - The **Total number of licenses**.
 
 
 ## Next steps

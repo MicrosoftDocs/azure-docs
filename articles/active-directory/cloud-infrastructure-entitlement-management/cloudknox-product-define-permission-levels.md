@@ -2,14 +2,14 @@
 title: Define and manage users, roles, and access levels in Entra Permissions Management
 description: How to define and manage users, roles, and access levels in Entra Permissions Management User management dashboard.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Define and manage users, roles, and access levels
@@ -42,49 +42,49 @@ Inviting a user to Entra adds the user to the system and allows system administr
 1. To invite a user to Entra, select the down caret icon next to the **User** icon on the right of the screen, and then select **User Management**.
 2. From the **Users** tab, select **Invite User**.
 3. From the **Set User Permission** window, in the **User** text box, enter the user's email address.
-4. Under **Permission**, select the applicable option. 
+4. Under **Permission**, select the applicable option.
 
     - **Admin for All Authorization System Types**: **View**, **Control**, and **Approve** permissions for all Authorization System Types.
 
         1. Select **Next**.
-        2. Select **Requestor for User** for each authorization system, if applicable.  
+        2. Select **Requestor for User** for each authorization system, if applicable.
 
            A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
-        3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.    
+        3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.
 
-             For example, a user may have various roles in different authorization systems, so they can select the **Add** icon and the **Users** icon to request access for all their accounts. 
+             For example, a user may have various roles in different authorization systems, so they can select the **Add** icon and the **Users** icon to request access for all their accounts.
         4. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
-    
+
     - **Admin for Selected Authorization System Types**: **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
-    
-        1. Select **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).  
+
+        1. Select **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).
         2. Select **Next**.
-        3. Select **Requestor for User** for each authorization system, if applicable.    
-      
+        3. Select **Requestor for User** for each authorization system, if applicable.
+
              A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
-        4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.   
+        4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.
 
              For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.
         5. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
-    
+
     - **Custom**: **View**, **Control**, and **Approve** permissions for specific accounts in **Auth System Types**.
-    
+
         1. Select **Next**.
 
             The default view displays the **List** section.
-        2. Select the appropriate boxes for **Viewer**, **Controller**, or **Approver**. 
+        2. Select the appropriate boxes for **Viewer**, **Controller**, or **Approver**.
 
-             For access to all authorization system types, select **All (Current and Future)**.  
+             For access to all authorization system types, select **All (Current and Future)**.
         1. Select **Next**.
-        1. Select **Requestor for User** for each authorization system, if applicable.    
+        1. Select **Requestor for User** for each authorization system, if applicable.
 
             A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
         5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.
 
-             For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts. 
+             For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.
         6. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
-5. Select **Save**. 
+5. Select **Save**.
 
     The following message displays in green at the top of the screen: **New User Has Been Invited Successfully**.
 
@@ -103,7 +103,7 @@ Creating a permission directly in Entra allows system administrators to assign p
 - For **Users**:
     1. To create permissions for a specific user, select the **Users** tab, and then select **Permission.**
     2. From the **Set User Permission** window, enter the user's email address in the **User** text box.
-    3. Under **Permission**, select the applicable button. Then expand menu to view instructions for each option. 
+    3. Under **Permission**, select the applicable button. Then expand menu to view instructions for each option.
         - **Admin for All Authorization System Types**: **View**, **Control**, and **Approve** permissions for all Authorization System Types.
             1. Select **Next**.
             2. Check **Requestor for User** for each authorization system, if applicable.
@@ -112,12 +112,12 @@ Creating a permission directly in Entra allows system administrators to assign p
 
             3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.
 
-                 For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.    
+                 For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.
 
             4. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
         - **Admin for Selected Authorization System Types**: **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
-            1. Check **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).  
+            1. Check **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).
             2. Select **Next**.
             3. Check **Requestor for User** for each authorization system, if applicable.
 
@@ -142,14 +142,14 @@ Creating a permission directly in Entra allows system administrators to assign p
                A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
             5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.
 
-                For example, a user can have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts. 
+                For example, a user can have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.
 
             6. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
-    4. Select **Save**. 
-     
+    4. Select **Save**.
+
        The following message displays in green at the top of the screen:
- **New User Has Been Created Successfully**.  
+ **New User Has Been Created Successfully**.
     5. The new user receives an email invitation to log in to Entra.
 
 ### The Pending tab
@@ -194,7 +194,7 @@ Creating a permission directly in Entra allows system administrators to assign p
          The identity provider creates groups.
 
          Some users may be part of multiple groups. In this case, the user's overall permissions is a union of the permissions assigned the various groups the user is a member of.
-    3. Under **Permission**, select the applicable button and expand the menu to view instructions for each option. 
+    3. Under **Permission**, select the applicable button and expand the menu to view instructions for each option.
 
         - **Admin for All Authorization System Types**: **View**, **Control**, and **Approve** permissions for all Authorization System Types.
             1. Select **Next**.
@@ -208,48 +208,48 @@ Creating a permission directly in Entra allows system administrators to assign p
             4. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
         - **Admin for Selected Authorization System Types**: **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
-            1. Check **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).  
+            1. Check **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).
             2. Select **Next**.
             3. Check **Requestor for User** for each authorization system, if applicable.
 
                  A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
             4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.
 
-               For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts. 
+               For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.
 
             5. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
-       
+
         - **Custom**: **View**, **Control**, and **Approve** permissions for specific accounts in Auth System Types.
-            1. Select **Next**.   
+            1. Select **Next**.
 
                The default view displays the **List** section.
 
-            2. Check the appropriate boxes for **Viewer**, **Controller**, or **Approver.    
+            2. Check the appropriate boxes for **Viewer**, **Controller**, or **Approver.
 
                  For access to all authorization system types, select **All (Current and Future)**.
 
             3. Select **Next**.
 
-            4. Check **Requestor for User** for each authorization system, if applicable.    
+            4. Check **Requestor for User** for each authorization system, if applicable.
 
                  A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
 
-            5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.    
+            5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.
 
-               For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts. 
+               For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.
 
             6. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
-    4. Select **Save**. 
-    
-       The following message displays in green at the top of the screen: **New Group Has Been Created Successfully**. 
+    4. Select **Save**.
+
+       The following message displays in green at the top of the screen: **New Group Has Been Created Successfully**.
 
 ### The Groups tab
 
 1. The **Groups** tab provides a high-level overview of user details to system administrators:
-    
+
     - The **Name** column lists the name of the group.
-    - The **Permissions** column lists each authorization system, and each type of permission.    
+    - The **Permissions** column lists each authorization system, and each type of permission.
 
        If a group has all permissions for all authorization systems, **Admin for All Authorization Types** displays across all columns.
 
@@ -262,7 +262,7 @@ Creating a permission directly in Entra allows system administrators to assign p
     - The **Filters** option allows a system administrator to filter by specific details. When the filter option is selected, the **Authorization System** box displays.
 
         To display all authorization system accounts, select **All**. Then select the appropriate boxes for the accounts that need to be viewed.
-        
+
 2. To make changes to the following, select the ellipses **(...)** in the far right column:
     - **View Permissions**: Displays a list of the accounts for which the group has permissions.
     - **Edit Permissions**: System administrators can edit a group's permissions.
@@ -274,4 +274,3 @@ Creating a permission directly in Entra allows system administrators to assign p
 
 - For information about how to view user management information, see [Manage users with the User management dashboard](cloudknox-ui-user-management.md).
 - For information about how to create group-based permissions, see [Create group-based permissions](cloudknox-howto-create-group-based-permissions.md).
-

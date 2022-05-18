@@ -5,9 +5,9 @@ services: active-directory
 manager: karenh444
 ms.service: active-directory
 ms.topic: overview
-author: Yvonne-deQ
+author: mtillman
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # View personal and organization information
@@ -16,7 +16,7 @@ ms.author: v-campisekat
 > Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Account settings** dashboard in Entra Permissions Management (Entra) allows you to view personal information, passwords, and account preferences. 
+The **Account settings** dashboard in Entra Permissions Management (Entra) allows you to view personal information, passwords, and account preferences.
 This information can't be modified because the user information is pulled from Azure AD. Only **User Session Time(min)**
 
 ## View personal information

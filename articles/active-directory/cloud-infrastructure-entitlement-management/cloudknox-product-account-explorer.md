@@ -5,9 +5,9 @@ services: active-directory
 manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
-author: Yvonne-deQ
+author: mtillman
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # View roles and identities that can access account information from an external account
@@ -31,8 +31,8 @@ You can view information about users, groups, and resources that can access acco
 
 1. To choose an account from your authorization system, select the lock icon in the left panel.
 1. In the **Authorization systems** pane, select an account, then select **Apply**.
-1. To choose a user, role, or group, select the person icon. 
-1. Select a user or group, then select **Apply**. 
+1. To choose a user, role, or group, select the person icon.
+1. Select a user or group, then select **Apply**.
 1. To choose an account from your authorization system, select it from the Authorization Systems menu.
 1. In the user type filter, user, role, or group.
 1. In the **Task** filter, select **All** or **High-risk tasks**, then select **Apply**.

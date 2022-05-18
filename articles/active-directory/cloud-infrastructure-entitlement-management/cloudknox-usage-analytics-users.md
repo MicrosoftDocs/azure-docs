@@ -2,14 +2,14 @@
 title: View analytic information about users in Entra Permissions Management
 description: How to view analytic information about users in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # View analytic information about users
@@ -18,7 +18,7 @@ ms.author: v-campisekat
 > Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Analytics** dashboard in Entra Permissions Management (Entra) collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for: 
+The **Analytics** dashboard in Entra Permissions Management (Entra) collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for:
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
@@ -31,9 +31,9 @@ This article describes how to view usage analytics about users.
 
 ## Create a query to view users
 
-When you select **Users**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities. 
+When you select **Users**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities.
 
-1. On the main **Analytics** dashboard, select **Users** from the  drop-down list at the top of the screen. 
+1. On the main **Analytics** dashboard, select **Users** from the  drop-down list at the top of the screen.
 
     The following components make up the **Users** dashboard:
 
@@ -43,15 +43,15 @@ When you select **Users**, the **Analytics** dashboard provides a high-level ove
     - **Search**: Enter criteria to find specific tasks.
 1. Select **Apply** to display the criteria you've selected.
 
-    Select **Reset filter** to discard your changes. 
+    Select **Reset filter** to discard your changes.
 
 
 ## View the results of your query
 
 The **Identities** table displays the results of your query.
 
-- **Name**: Provides the name of the group. 
-    - To view details about the group, select the down arrow. 
+- **Name**: Provides the name of the group.
+    - To view details about the group, select the down arrow.
 - The **Domain/Account** name.
 - The **Permission Creep Index (PCI)**: Provides the following information:
     - **Index**: A numeric value assigned to the PCI.
@@ -79,26 +79,26 @@ The **Identities** table displays the results of your query.
 
     A message displays to confirm that your remediation settings are automatically updated.
 
-## Apply filters to your query  
+## Apply filters to your query
 
-There are many filter options within the **Users** screen, including filters by **Authorization System**, **Identity Type**, and **Identity State**. 
-Filters can be applied in one, two, or all three categories depending on the type of information you're looking for. 
+There are many filter options within the **Users** screen, including filters by **Authorization System**, **Identity Type**, and **Identity State**.
+Filters can be applied in one, two, or all three categories depending on the type of information you're looking for.
 
 ### Apply filters by authorization system type
 
 1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset Filter** to discard your changes. 
+    Select **Reset Filter** to discard your changes.
 
 
 ### Apply filters by authorization system
 
-1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**. 
+1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. From the **Authorization System** dropdown, select accounts from a **List** of accounts and **Folders**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset filter** to discard your changes. 
+    Select **Reset filter** to discard your changes.
 
 ### Apply filters by identity type
 
@@ -152,7 +152,7 @@ You can filter user details by type of user, user role, app, or service used, or
 
 ## Export the results of your query
 
-- To export a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV**. 
+- To export a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV**.
 - To export the data in a detailed comma-separated values (CSV) file format, select **Export** and then select **CSV (Detailed)**.
 - To export a report of user permissions, select **Export** and then select **Permissions**.
 

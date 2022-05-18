@@ -1,15 +1,15 @@
 ---
-title: Create a role/policy in the Remediation dashboard in Entra Permissions Management 
+title: Create a role/policy in the Remediation dashboard in Entra Permissions Management
 description: How to create a role/policy in the Remediation dashboard in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Create a role/policy in the Remediation dashboard
@@ -18,10 +18,10 @@ ms.author: v-campisekat
 > Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how you can use the **Remediation** dashboard in Entra Permissions Management (Entra) to create roles/policies for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems. 
+This article describes how you can use the **Remediation** dashboard in Entra Permissions Management (Entra) to create roles/policies for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
 
 > [!NOTE]
-> To view the **Remediation** tab, you must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
+> To view the **Remediation** tab, you must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don't have these permissions, contact your system administrator.
 
 > [!NOTE]
 > Microsoft Azure uses the term *role* for what other cloud providers call *policy*. Entra automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
@@ -32,7 +32,7 @@ This article describes how you can use the **Remediation** dashboard in Entra Pe
 1. Use the dropdown lists to select the **Authorization System Type** and **Authorization System**.
 1. Select **Create Policy**.
 1. On the **Details** page, the **Authorization System Type** and **Authorization System** are pre-populated from your previous settings.
-    - To change the settings, make a selection from the dropdown. 
+    - To change the settings, make a selection from the dropdown.
 1. Under **How Would You Like To Create The Policy**, select the required option:
 
     - **Activity of User(s)**: Allows you to create a policy based on user activity.
@@ -41,7 +41,7 @@ This article describes how you can use the **Remediation** dashboard in Entra Pe
     - **Activity of Role**: Allows you to create a policy based on the aggregated activity of all the users that assumed the role.
     - **Activity of Tag(s)**: Allows you to create a policy based on the aggregated activity of all the tags.
     - **Activity of Lambda Function**: Allows you to create a new policy based on the Lambda function.
-    - **From Existing Policy**: Allows you to create a new policy based on an existing policy.  
+    - **From Existing Policy**: Allows you to create a new policy based on an existing policy.
     - **New Policy**: Allows you to create a new policy from scratch.
 1. In **Tasks performed in last**, select the duration: **90 days**, **60 days**, **30 days**, **7 days**, or **1 day**.
 1. Depending on your preference, select or deselect **Include Access Advisor data.**
@@ -81,17 +81,17 @@ This article describes how you can use the **Remediation** dashboard in Entra Pe
 1. Use the dropdown lists to select the **Authorization System Type** and **Authorization System**.
 1. Select **Create Role**.
 1. On the **Details** page, the **Authorization System Type** and **Authorization System** are pre-populated from your previous settings.
-    - To change the settings, select the box and make a selection from the dropdown. 
+    - To change the settings, select the box and make a selection from the dropdown.
 1. Under **How Would You Like To Create The Role?**, select the required option:
 
     - **Activity of User(s)**: Allows you to create a role based on user activity.
     - **Activity of Group(s)**: Allows you to create a role based on the aggregated activity of all the users belonging to the group(s).
     - **Activity of App(s)**: Allows you to create a role based on the aggregated activity of all apps.
-    - **From Existing Role**: Allows you to create a new role based on an existing role.  
+    - **From Existing Role**: Allows you to create a new role based on an existing role.
     - **New Role**: Allows you to create a new role from scratch.
 
 1. In **Tasks performed in last**, select the duration: **90 days**, **60 days**, **30 days**, **7 days**, or **1 day**.
-1. Depending on your preference: 
+1. Depending on your preference:
     - Select or deselect **Ignore Non-Microsoft Read Actions**.
     - Select or deselect **Include Read-Only Tasks**.
 1. In **Settings**, from the **Available** column, select the plus sign **(+)** to move the identity into the **Selected** column, and then select **Next**.
@@ -124,13 +124,13 @@ This article describes how you can use the **Remediation** dashboard in Entra Pe
 1. Use the dropdown lists to select the **Authorization System Type** and **Authorization System**.
 1. Select **Create Role**.
 1. On the **Details** page, the **Authorization System Type** and **Authorization System** are pre-populated from your previous settings.
-    - To change the settings, select the box and make a selection from the dropdown. 
+    - To change the settings, select the box and make a selection from the dropdown.
 1. Under **How Would You Like To Create The Role?**, select the required option:
 
     - **Activity of User(s)**: Allows you to create a role based on user activity.
     - **Activity of Group(s)**: Allows you to create a role based on the aggregated activity of all the users belonging to the group(s).
     - **Activity of Service Account(s)**: Allows you to create a role based on the aggregated activity of all service accounts.
-    - **From Existing Role**: Allows you to create a new role based on an existing role.  
+    - **From Existing Role**: Allows you to create a new role based on an existing role.
      - **New Role**: Allows you to create a new role from scratch.
 
 1. In **Tasks performed in last**, select the duration: **90 days**, **60 days**, **30 days**, **7 days**, or **1 day**.

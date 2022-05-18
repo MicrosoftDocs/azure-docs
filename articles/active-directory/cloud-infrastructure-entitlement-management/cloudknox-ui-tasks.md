@@ -2,14 +2,14 @@
 title: View information about active and completed tasks in Entra Permissions Management
 description: How to view information about active and completed tasks in the Activities pane in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # View information about active and completed tasks

@@ -2,14 +2,14 @@
 title:  Onboard a Google Cloud Platform (GCP) project in Entra Permissions Management
 description: How to onboard a Google Cloud Platform (GCP) project on Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Onboard a Google Cloud Platform (GCP) project
@@ -19,7 +19,7 @@ ms.author: v-campisekat
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 
-> [!NOTE] 
+> [!NOTE]
 > The Entra Permissions Management (Entra) PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 
@@ -35,7 +35,7 @@ To view a video on how to configure and onboard GCP accounts in Entra, select [C
 
 ## Onboard a GCP project
 
-1. If the **Data Collectors** dashboard isn't displayed when Entra launches: 
+1. If the **Data Collectors** dashboard isn't displayed when Entra launches:
 
     - In the Entra home page, select **Settings** (the gear icon), and then select the **Data Collectors** subtab.
 
@@ -46,20 +46,20 @@ To view a video on how to configure and onboard GCP accounts in Entra, select [C
 1. On the **Entra Onboarding - Azure AD OIDC App Creation** page, enter the **OIDC Azure App Name**.
 
     This app is used to set up an OpenID Connect (OIDC) connection to your GCP project. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated will create the app of this specified name in your Azure AD tenant with the right configuration.
-        
+
 1. To create the app registration, copy the script and run it in your command-line app.
 
-    > [!NOTE]    
+    > [!NOTE]
     > 1. To confirm that the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
     > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your AWS account.
 
     1. Return to Entra, and in the **Entra Onboarding - Azure AD OIDC App Creation**, select **Next**.
-        
+
 ### 2. Set up a GCP OIDC project.
 
-1. In the **Entra Onboarding - GCP OIDC Account Details & IDP Access** page, enter the **OIDC Project ID** and **OIDC Project Number** of the GCP project in which the OIDC provider and pool will be created. You can change the role name to your requirements. 
+1. In the **Entra Onboarding - GCP OIDC Account Details & IDP Access** page, enter the **OIDC Project ID** and **OIDC Project Number** of the GCP project in which the OIDC provider and pool will be created. You can change the role name to your requirements.
 
-    > [!NOTE] 
+    > [!NOTE]
     > You can find the **Project number** and **Project ID** of your GCP project on the GCP **Dashboard** page of your project in the **Project info** panel.
 
 1. You can change the **OIDC Workload Identity Pool Id**, **OIDC Workload Identity Pool Provider Id** and **OIDC Service Account Name** to meet your requirements.
@@ -74,9 +74,9 @@ To view a video on how to configure and onboard GCP accounts in Entra, select [C
 1. In the **Entra Onboarding - GCP Project Ids** page, enter the **Project IDs**.
 
     You can enter up to 10 GCP project IDs. Select the plus icon next to the text box to insert more project IDs.
-        
+
 1. You can choose to download and run the script at this point, or you can do it via Google Cloud Shell, as described in the [next step](cloudknox-onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
-    
+
 ### 4. Run scripts in Cloud Shell. (Optional if not already executed)
 
 1. In the **Entra Onboarding - GCP Project Ids** page, select **Launch SSH**.
@@ -84,7 +84,7 @@ To view a video on how to configure and onboard GCP accounts in Entra, select [C
 
     The Cloud Shell provisions the Cloud Shell machine and makes a connection to your Cloud Shell instance.
 
-    > [!NOTE]     
+    > [!NOTE]
     > Follow the instructions in the browser as they may be different from the ones given here.
 
     The **Welcome to Entra GCP onboarding** screen appears, displaying steps you must complete to onboard your GCP project.
@@ -93,12 +93,12 @@ To view a video on how to configure and onboard GCP accounts in Entra, select [C
 
 1. Return to Entra and select **Copy export variables**.
 1. In the GCP Onboarding shell editor, paste the variables you copied, and then press **Enter**.
-1. Execute the **gcloud auth login**. 
+1. Execute the **gcloud auth login**.
 1. Follow instructions displayed on the screen to authorize access to your Google account.
 1. Execute the **sh mciem-workload-identity-pool.sh** to create the workload identity pool, provider, and service account.
-1. Execute the **sh mciem-member-projects.sh** to give Entra permissions to access each of the member projects. 
+1. Execute the **sh mciem-member-projects.sh** to give Entra permissions to access each of the member projects.
 
-    - If you want to manage permissions through Entra, select **Y** to **Enable controller**. 
+    - If you want to manage permissions through Entra, select **Y** to **Enable controller**.
 
     - If you want to onboard your projects in read-only mode, select **N** to **Disable controller**.
 
@@ -108,11 +108,11 @@ To view a video on how to configure and onboard GCP accounts in Entra, select [C
 
 ### 6. Review and save.
 
-1. In the **Entra Onboarding – Summary** page, review the information you’ve added, and then select **Verify Now & Save**.
+1. In the **Entra Onboarding – Summary** page, review the information you've added, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully Created Configuration.**
 
-    On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.** 
+    On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.**
 
     You have now completed onboarding GCP, and Entra has started collecting and processing your data.
 

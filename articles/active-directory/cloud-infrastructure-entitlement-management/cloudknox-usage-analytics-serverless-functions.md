@@ -2,14 +2,14 @@
 title: View analytic information about serverless functions in Entra Permissions Management
 description: How to view analytic information about serverless functions in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # View analytic information about serverless functions
@@ -18,7 +18,7 @@ ms.author: v-campisekat
 > Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Analytics** dashboard in Entra Permissions Management (Entra) collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for: 
+The **Analytics** dashboard in Entra Permissions Management (Entra) collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for:
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
@@ -31,9 +31,9 @@ This article describes how to view usage analytics about serverless functions.
 
 ## Create a query to view serverless functions
 
-When you select **Serverless Functions**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities. 
+When you select **Serverless Functions**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities.
 
-1. On the main **Analytics** dashboard, select **Serverless Functions** from the  dropdown list at the top of the screen. 
+1. On the main **Analytics** dashboard, select **Serverless Functions** from the  dropdown list at the top of the screen.
 
     The following components make up the **Serverless Functions** dashboard:
 
@@ -49,8 +49,8 @@ When you select **Serverless Functions**, the **Analytics** dashboard provides a
 
 The **Serverless Functions** table displays the results of your query.
 
-- **Function Name**: Provides the name of the serverless function. 
-    - To view details about a serverless function, select the down arrow to the left of the function name. 
+- **Function Name**: Provides the name of the serverless function.
+    - To view details about a serverless function, select the down arrow to the left of the function name.
 - A **Function Type** icon displays to the left of the function name to describe the type of serverless function, for example **Lambda function**.
 - The **Permission Creep Index (PCI)**: Provides the following information:
     - **Index**: A numeric value assigned to the PCI.
@@ -81,25 +81,25 @@ The **Serverless Functions** table displays the results of your query.
 1. From the **Tasks** dropdown, select **All Tasks**, **High Risk Tasks**, and **Delete Tasks**.
 
 
-## Apply filters to your query  
+## Apply filters to your query
 
-You can filter the **Serverless Functions** results by **Authorization System Type** and **Authorization System**.  
+You can filter the **Serverless Functions** results by **Authorization System Type** and **Authorization System**.
 
 ### Apply filters by authorization system type
 
 1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset Filter** to discard your changes. 
+    Select **Reset Filter** to discard your changes.
 
 
 ### Apply filters by authorization system
 
-1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**. 
+1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. From the **Authorization System** dropdown, select accounts from a **List** of accounts and **Folders**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset Filter** to discard your changes. 
+    Select **Reset Filter** to discard your changes.
 
 
 
