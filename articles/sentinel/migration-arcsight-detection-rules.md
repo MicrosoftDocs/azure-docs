@@ -104,7 +104,7 @@ Here is a sample nested filter rule in ArcSight.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-3-sample-1.png" alt-text="Diagram illustrating a sample nested filter rule." lightbox="media/migration-arcsight-detection-rules/rule-3-sample-1.png":::
 
-Here is a rule for the `/All Filters/Soc Filters/Exclude Valid Users` filter:
+Here is a rule for the `/All Filters/Soc Filters/Exclude Valid Users` filter.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-3-sample-2.png" alt-text="Diagram illustrating a sample nested filter rule." lightbox="media/migration-arcsight-detection-rules/rule-3-sample-2.png":::
 
