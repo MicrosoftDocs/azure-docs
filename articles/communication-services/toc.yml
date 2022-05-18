@@ -127,16 +127,16 @@ items:
         href: concepts/chat/concepts.md
   - name: Email
     items:
-      -name: Email concepts
-       href: concepts/email/email-overview.md
-      -name: What is Email Communication Service
-       href: concepts/email/prepare-email-communication-resource.md
-      -name: Email domains and sender authentication 
-       href: concepts/email/email-domain-and-sender-authentication.md
-      -name: Best practices for sender authentication support 
-       href: concepts/email/email-authentication-best-practice.md
-      -name: Email client library
-       href: concepts/email/sdk-features.md
+      - name: Email concepts
+        href: concepts/email/email-overview.md
+      - name: What is Email Communication Service
+        href: concepts/email/prepare-email-communication-resource.md
+      - name: Email domains and sender authentication 
+        href: concepts/email/email-domain-and-sender-authentication.md
+      - name: Best practices for sender authentication support 
+        href: concepts/email/email-authentication-best-practice.md
+      - name: Email client library
+        href: concepts/email/sdk-features.md
   - name: Telephony and phone numbers
     items:
       - name: Telephony Concepts
