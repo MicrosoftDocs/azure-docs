@@ -104,7 +104,7 @@ Follow the steps provided in this section before you get started with the single
 >[!NOTE]
 > Enabling logical replication will require a server reboot for the change to take effect.
 
-- **Azure Active Directory App set up** - It is a critical component of the migration feature. Azure AD App helps with role-based access control as the migration feature needs access to both the source and target servers. See [How to setup and configure Azure AD App](./how-to-setup-aad-app-portal.md) for step-by-step process.
+- **Azure Active Directory App set up** - It is a critical component of the migration feature. Azure AD App helps with role-based access control as the migration feature needs access to both the source and target servers. See [How to setup and configure Azure AD App](./how-to-setup-azure-ad-app-portal.md) for step-by-step process.
 
 ### Data and schema migration
 
