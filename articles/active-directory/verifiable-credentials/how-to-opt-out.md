@@ -15,6 +15,8 @@ ms.author: barclayn
 
 # Opt out of the verifiable credentials (preview)
 
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
+
 In this article:
 
 - The reason why you may need to opt out.

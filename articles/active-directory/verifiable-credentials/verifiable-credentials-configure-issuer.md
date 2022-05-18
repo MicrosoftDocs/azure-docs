@@ -12,7 +12,10 @@ ms.date: 05/03/2022
 
 ---
 
+
 # Issue Azure AD Verifiable Credentials from an application (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 In this tutorial, you run a sample application from your local computer that connects to your Azure Active Directory (Azure AD) tenant. Using the application, you're going to issue and verify a verified credential expert card.
 
