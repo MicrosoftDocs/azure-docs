@@ -3,7 +3,7 @@ title: Create a function in Azure that runs on a schedule
 description: Learn how to use the Azure portal to create a function that runs based on a schedule that you define.
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
-ms.date: 05/17/2022
+ms.date: 05/18/2022
 ms.custom: mvc, cc996988-fb4f-47, devdivchpfy22
 ---
 # Create a function in the Azure portal that runs on a schedule
@@ -22,7 +22,7 @@ To complete this tutorial:
 
 Your new function app is ready to use. Next, you'll create a function in the new function app.
 
-:::image type="content" source="./media/functions-create-scheduled-function/function-app-create-success-new.png" alt-text="Screenshot of function app created successfully." border="true":::
+:::image type="content" source="./media/functions-create-scheduled-function/function-app-create-success-new.png" alt-text="Screenshot that shows function app created successfully." border="true":::
 
 <a name="create-function"></a>
 
@@ -34,11 +34,11 @@ Your new function app is ready to use. Next, you'll create a function in the new
 
 1. Select the **Timer trigger** template.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger-template.png" alt-text="Screenshot of select the timer trigger in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger-template.png" alt-text="Screenshot that shows select the timer trigger page in the Azure portal." border="true":::
 
 1. Configure the new trigger with the settings as specified in the table below the image, and then select **Create**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger-new.png" alt-text="Screenshot shows the New Function page with the Timer Trigger template selected." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger-new.png" alt-text="Screenshot that shows the New Function page with the Timer Trigger template selected." border="true":::
 
     | Setting | Suggested value | Description |
     |---|---|---|
@@ -47,13 +47,13 @@ Your new function app is ready to use. Next, you'll create a function in the new
 
 ## Test the function
 
-1. In your function, select **Code + Test** and expand the logs.
+1. In your function, select **Code + Test** and expand the **Logs**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-code-test-timer-trigger.png" alt-text="Screenshot shows the Test the timer trigger page in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-code-test-timer-trigger.png" alt-text="Screenshot that shows the Test the timer trigger page in the Azure portal." border="true":::
 
 1. Verify execution by viewing the information written to the logs.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-timer-logs-view.png" alt-text="Screenshot shows the View the timer trigger page in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-timer-logs-view.png" alt-text="Screenshot that shows the View the timer trigger page in the Azure portal." border="true":::
 
 Now, you'll change the function's schedule so that it runs once every hour instead of every minute.
 
@@ -63,7 +63,7 @@ Now, you'll change the function's schedule so that it runs once every hour inste
 
 1. Select **Timer (myTimer)**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule-new.png" alt-text="Screenshot that shows the Update the timer schedule page in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule-new.png" alt-text="Screenshot shows the Update the timer schedule page in the Azure portal." border="true":::
 
 1. Update the **Schedule** value to `0 0 */1 * * *`, and then select **Save**.  
 
