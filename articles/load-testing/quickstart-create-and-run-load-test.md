@@ -75,7 +75,7 @@ Once the load test starts, you will be redirected to the test run dashboard. Whi
 
 To rerun the test, select **Rerun** on the test run dashboard. You can modify the test settings by updating the following **Environment variables**:
 
-  - domain: Domain name of the web server, e.g. www.example.com. [Do not include the http:// prefix.]
+  - domain: Domain name of the web server (for example, www.example.com). Don't include the `http://` prefix.
   
   - protocol: HTTP or HTTPS
 
