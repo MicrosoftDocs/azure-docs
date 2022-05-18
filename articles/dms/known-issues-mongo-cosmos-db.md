@@ -18,7 +18,7 @@ ms.date: 05/18/2022
 
 # Known issues with migrations from MongoDB to Azure Cosmos DB's API
 
-Known issues and limitations associated with migrations from MongoDB to Cosmos DB's API for MongoDB are described in the following sections.
+The following sections describe known issues and limitations associated with migrations from MongoDB to Cosmos DB's API for MongoDB.
 
 ## Migration fails as a result of using the incorrect TLS/SSL Cert
 
@@ -30,7 +30,7 @@ This issue is apparent when a user can't connect to the MongoDB source server. D
 
 ## Unable to get the list of databases to map in DMS
 
-Unable to get DB list in the **Database setting** area when using **Data from Azure Storage** mode in the **Select source** area.
+Unable to get database list in the **Database setting** area when using **Data from Azure Storage** mode in the **Select source** area.
 
 | Cause         | Resolution |
 | ------------- | ------------- |
