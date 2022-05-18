@@ -12,6 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 ---
 # Manage Azure Private Endpoints
+
 Azure Private Endpoints have several options when managing the configuration and their deployment. 
 
 **GroupId** and **MemberName** can be determined by querying the Private Link resource. The **GroupID** and **MemberName** values are needed to configure a static IP address for a private endpoint during creation. 
