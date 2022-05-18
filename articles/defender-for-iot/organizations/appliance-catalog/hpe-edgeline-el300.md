@@ -72,8 +72,7 @@ Installation includes:
 
 - Enabling remote access
 - Configuring BIOS settings
-- Installing Defender for IoT
--  software
+- Installing Defender for IoT software
 
 A default administrative user is provided. We recommend that you change the password during the network configuration.
 

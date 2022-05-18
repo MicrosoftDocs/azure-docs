@@ -54,7 +54,7 @@ In contrast, when working with locally managed sensors:
 
 ## Analytics engines
 
-Defender for IoT sensors applies analytics engines on ingested data, triggering alerts based on both real-time and pre-recorded traffic.
+Defender for IoT sensors apply analytics engines on ingested data, triggering alerts based on both real-time and pre-recorded traffic.
 
 Analytics engines provide machine learning and profile analytics, risk analysis, a device database and set of insights, threat intelligence, and behavioral analytics.
 
