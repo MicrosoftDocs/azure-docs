@@ -106,7 +106,9 @@ Your App service now has an identity with permissions, so now you can use the id
 
 The recommended method is to use the Azure Identity library, which is available for C#, Java, Python, JavaScript, and Go. The library acquires access tokens for you, making it simple to connect to target endpoints.
 
-The library will automatically attempt to authenticate via multiple mechanisms. This means that it can be used in your development using your own credentials, and your production environment using a Managed identity with no changes required when you deploy your code. 
+## Using the Azure Identity library in your development environment.
+
+The Azure Identity library will automatically attempt to authenticate via multiple mechanisms, including environment variables or an interactive login. This means that it can be used in your development using your own credentials, and your production environment using a Managed identity with no changes required when you deploy your code.
 
 You can also explicitly specify that you wish to use a certain Managed identity, by passing in the identity's client ID. You can retrieve this client ID by browsing to the identity in the Portal.
 
