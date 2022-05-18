@@ -22,7 +22,7 @@ The UI Library now gives developers the ability to provide a more customized exp
 
 #### Participant View Data
 
-`ParticipantViewData` is an object that sets the `renderedDisplayName` and `avatar` UIImage for avatar components. This class is injected to UI Library to set avatar information. This will always be locally stored and never sent up to the server.
+`ParticipantViewData` is an object that sets the `renderedDisplayName` and `avatar` UIImage for avatar components. This class is injected into the UI Library to set avatar information, and it will always be locally stored and never sent up to the server.
 
 #### Usage
 
