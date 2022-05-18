@@ -59,9 +59,9 @@ PUT https://{subdomain}.{baseDomain}/api/fileUploads?api-version=1.2-preview
 The request body has the following fields:
 
 * `account`: The storage account name where to upload the file to.
-* `connectionString`:  The connection string used to configure the storage account.
-* `container`:The name of the container inside the storage account.
-* `etag`:ETag to prevent conflict with multiple uploads
+* `connectionString`: The connection string used to configure the storage account.
+* `container`: The name of the container inside the storage account.
+* `etag`: ETag to prevent conflict with multiple uploads
 * `sasTtl`: ISO 8601 duration standard, The amount of time the device’s request to upload a file is valid before it expires.
 
 ```json
@@ -132,11 +132,11 @@ To add a device to your Azure IoT Central application:
 
 1. Select the device which you created and Select **Connect**
 
-Copy the values for `ID scope`, `Device ID`, and `Primary key`. You will use these values in the device sample code.
+Copy the values for `ID scope`, `Device ID`, and `Primary key`. You'll use these values in the device sample code.
 
 ### Run the sample code
 
-Create a ".env" file at the root of your project and add the values you copied above. The file should look like the sample below with your own values.
+Create an ".env" file at the root of your project and add the values you copied above. The file should look like the sample below with your own values.
 
 ```
 scopeId=<YOUR_SCOPE_ID>
