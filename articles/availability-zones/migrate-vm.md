@@ -74,23 +74,6 @@ To learn how to move VMs to another region, see [Move Azure VMs to an availabili
 
 To learn how to move encrypted VMs to another region, see [Tutorial: Move encrypted Azure VMs across regions](../resource-mover/tutorial-move-region-encrypted-virtual-machines.md)
 
-## Migration Option 3: Regional to Zonal Move (Preview)
-
->[!IMPORTANT]
->This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
-
-### When to use Regional to Zonal Move
-
-You can use Regional to Zonal Move to redeploy non-zonal VM resources as zonal resources within the same Azure region.  Regional to Zonal Move is a PowerShell script that supports the following scenarios:
-
-- Single Instance VMs: Regional to Zonal Move
-- Individual VMs within an Availability Set: Regional to Zonal Move
-- Encrypted VMs: Regional to Zonal Move
-
-### How to use Regional to Zonal Move
-
-You can sign up for the private preview by filing this form, [Regional to Zonal Move of Azure VMs Sign up (office.com)](https://aka.ms/AAgqi21).
-
 ## Disaster Recovery Considerations
 
 Typically, availability zones are used to deploy VMs in a High Availability configuration. They may be too close to each other to serve as a Disaster Recovery solution during a natural disaster.  However, there are scenarios where availability zones can be used for Disaster Recovery. To learn more, see [Using Availability Zones for Disaster Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md#using-availability-zones-for-disaster-recovery).
