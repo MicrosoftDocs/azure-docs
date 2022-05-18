@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
 description: Learn how to configure the Microsoft Security DevOps Azure Devops extension.
-ms.date: 05/16/2022
+ms.date: 05/18/2022
 ms.topic: how-to
 ---
 
@@ -9,14 +9,14 @@ ms.topic: how-to
 
 Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Microsoft Security DevOps installs, configures, and runs the latest versions of static analysis tools (including, but not limited to, SDL/security and compliance tools). Microsoft Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
 
-The Microsoft Security DevOps leverages the following Open Source tools:
+The Microsoft Security DevOps uses the following Open Source tools:
 
 | Name | Language | License |
 |--|--|--|
 | [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
-| [BinSkim](https://github.com/Microsoft/binskim) | Binary -- Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
-| [ESlint](https://github.com/eslint/eslint) | Javascript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
-| [Credscan](https://secdevtools.azurewebsites.net/helpcredscan.html) | Credential Scanner (aka CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files <br> common types: defaul passwords, SQL connection strings, Certificates with private keys | Not Open Source |
+| [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
+| [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
+| [Credscan](https://secdevtools.azurewebsites.net/helpcredscan.html) | Credential Scanner (also known as CredScan) is a tool developed and maintained by Microsoft to identify credential leaks such as those in source code and configuration files <br> common types: default passwords, SQL connection strings, Certificates with private keys | Not Open Source |
 | [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM template | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
 | [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
 | [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
@@ -39,7 +39,8 @@ If you don't have access to install the extension, you must request access from 
 
 1.  Select **Shared**.
 
-    > [!Note] If you have already installed the Microsoft Security DevOps extension, it will be listed in the Installed tab.
+    > [!Note]
+    > If you have already installed the Microsoft Security DevOps extension, it will be listed in the Installed tab.
 
 1.  Select **Microsoft Security DevOps extension**.
 
@@ -59,7 +60,7 @@ If you don't have access to install the extension, you must request access from 
 
 1. Select **Create Pipeline**.
 
-    :::image type="content" source="../batch/media/run-python-batch-azure-data-factory/create-pipeline.png" alt-text="Screenshot showing where to locate create pipeline in Devops.":::
+    :::image type="content" source="../batch/media/run-python-batch-azure-data-factory/create-pipeline.png" alt-text="Screenshot showing where to locate create pipeline in DevOps.":::
 
 1. Select **Azure Repos Git**.
 
@@ -69,7 +70,7 @@ If you don't have access to install the extension, you must request access from 
 
 5.  Select **Starter pipeline**.
 
-    :::image type="content" source="media/msdo-azure-devops-extension/starter-piepline.png" alt-text="Screenshot showing where to select starter piepline.":::
+    :::image type="content" source="media/msdo-azure-devops-extension/starter-piepline.png" alt-text="Screenshot showing where to select starter pipeline.":::
 
 6.  Paste the following YAML into the pipeline
 
@@ -121,7 +122,7 @@ Pipelines will run for a few minutes and save the results.
 
 1. Select **Continue**.
 
-    :::image type="content" source="media/msdo-azure-devops-extension/selection-screen.png" alt-text="Screenshot showing where to select , source, team project, repository and default branch.":::
+    :::image type="content" source="media/msdo-azure-devops-extension/selection-screen.png" alt-text="Screenshot showing where to select, source, team project, repository and default branch.":::
 
 1. Select **Empty job**.
 
@@ -143,11 +144,11 @@ Pipelines will run for a few minutes and save the results.
 
 1. Select the first **Use .NET Core sdk**, and set the versions as **3.1.x**. Repeat for the next two and fill in version **5.0.x**, and then **6.0.x**.
 
-    :::image type="content" source="media/msdo-azure-devops-extension/set-versions.png" alt-text="Screenshot showing you how each Use .Net Core should be set with each version number.":::
+    :::image type="content" source="media/msdo-azure-devops-extension/set-versions.png" alt-text="Screenshot showing you how each Use .NET Core should be set with each version number.":::
 
 1. Select **Save & queue**, then **Save & queue**.
 
-    :::image type="content" source="media/msdo-azure-devops-extension/save-and-queue.png" alt-text="Screenshot showing where to go to select save and queue .":::
+    :::image type="content" source="media/msdo-azure-devops-extension/save-and-queue.png" alt-text="Screenshot showing where to go to select save and queue. ":::
 
 1. Enter a meaningful comment, for example, `Microsoft Security DevOps added`.
 

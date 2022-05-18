@@ -1,111 +1,120 @@
-# How-to Guide: Microsoft Security DevOps GitHub Action
+---
+title: Enable Microsoft Security DevOps GitHub Action
+description: 
+ms.date: 05/18/2022
+ms.topic: how-to
+---
 
-Microsoft Security DevOps (MSDO) is a command line application that integrates static analysis tools into the development lifecycle. MSDO installs, configures, and runs the latest versions of static analysis tools (including, but not limited to, SDL/security and compliance tools). MSDO is data-driven with portable configurations that enable deterministic execution across multiple environments.
+# Enable Microsoft Security DevOps GitHub Action
 
-The MSDO leverages the following Open Source tools:
-|  Name  |  Language   |  License  |
-|----------------|-------|---------|
-|[Bandit](https://github.com/PyCQA/bandit) | Python  | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
-|[BinSkim](https://github.com/Microsoft/binskim) | Binary -- Windows, ELF  | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE)|
-|[ESlint](https://github.com/eslint/eslint)  |  Javascript |  [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE)  |
-|[Template Analyzer](https://github.com/Azure/template-analyzer) |  ARM template | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt)
-|[Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE)
-|[Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE)
+Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Microsoft Security DevOps installs, configures, and runs the latest versions of static analysis tools such as, SDL/security and compliance tools. Microsoft Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
 
+The Microsoft Security DevOps uses the following Open Source tools:
 
-*Prerequisite: follow the guidance to setup* [GitHub Advanced Security](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
+| Name | Language | License |
+|--|--|--|
+| [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
+| [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
+| [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
+| [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM template | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
+| [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
+| [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/aquasecurity/trivy/blob/main/LICENSE) |
 
-Browse to the Microsoft DevOps Security GitHub Action [here](https://github.com/marketplace/actions/security-devops-action)
+## Prerequisite
+
+- Follow the guidance to set up [GitHub Advanced Security](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
+
+- Navigate to the Microsoft DevOps Security GitHub Action [here](https://github.com/marketplace/actions/security-devops-action)
+**WHY DO WE NEED TO DO THIS**
 
 ## Setup GitHub Action
 
-1.  Sign into [GitHub](https://www.github.com)
+1. Sign in [GitHub](https://www.github.com).
 
-2.  Click on a repository to configure the GitHub Action
+1. Select a repository to configure the GitHub Action to.
 
-3.  Click **Actions** to get to the Workflows page
+1. Select **Actions**.
 
-![Graphical user interface, application Description automatically
-generated](./media/msdo-github-action/image031.png)
+    :::image type="content" source="media/msdo-github-action/actions.png" alt-text="Screenshot that shows you where the Actions button is located.":::
 
-4.  Click **New workflow** to create a new workflow
+1.  Select **New workflow**.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/msdo-github-action/image032.png)
+1.  On the Get started with GitHub Actions page, select **set up a workflow yourself**
 
-5.  On the Get started with GitHub Actions page, click **set up a workflow yourself**
+    :::image type="content" source="media/msdo-github-action/new-workflow.png" alt-text="Screenshot showing where to select the new workflow button.":::
 
-![Graphical user interface, application Description automatically
-generated](./media/msdo-github-action/image033.png)
+1.  In the text box, enter a name for your workflow file. For example, `msdevopssec.yml`.
 
-6.  In the workflow/main.yml text box, type a name for your workflow file (ex. msdevopssec.yml)
+    :::image type="content" source="media/msdo-github-action/devops.png" alt-text="Screenshot showin you where to enter a name for your new worflow.":::
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/msdo-github-action/image034.png)
+1.  Copy and paste the [sample action workflow](https://github.com/microsoft/security-devops-action/blob/main/.github/workflows/sample-workflow-windows-latest.yml) into the Edit new file field.
 
-7.  In the \<\> Edit new file field, delete all the text, then cut and     paste the [sample action workflow](https://github.com/microsoft/security-devops-action/blob/main/.github/workflows/sample-workflow-windows-latest.yml):\
-    For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)
+    ```yml
+    name: MicrosoftDevOpsSecurity
+     # Controls when the workflow will run
+     on:
+     # Triggers the workflow on push or pull request events but only for the main branch                                                       
+     push:
+     branches: \[ main \]
+     pull_request:
+     branches: \[ main \]
+     # Allows you to run this workflow manually from the Actions tab
+     workflow_dispatch:
+     # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+     jobs:
+     # This workflow contains a single job called \"build\"
+     build:
+     # The type of runner that the job will run on
+     runs-on: windows-latest
+     steps:
+     # Checkout your code repository
+     - uses: actions/checkout@v2
+     # Install dotnet
+     - uses: actions/setup-dotnet@v1
+     with:
+     dotnet-version: |
+     5.0.x
+     6.0.x
+     # Run analyzers
+     - name: Run Microsoft Security DevOps Analysis
+     uses: microsoft/security-devops-action@preview
+     id: msdo
+     # Upload alerts to the Security tab
+     - name: Upload alerts to Security tab
+     uses: github/codeql-action/upload-sarif@v1
+     with:
+     sarif_file: \${{ steps.msdo.outputs.sarifFile }}
+    ``` 
+    For details on various input options, see [action.yml](https://github.com/microsoft/security-devops-action/blob/main/action.yml)`                    
 
+1.  Select **Start commit**
 
- ```
- name: MicrosoftDevOpsSecurity
- # Controls when the workflow will run
- on:
- # Triggers the workflow on push or pull request events but only for the main branch                                                       
- push:
- branches: \[ main \]
- pull_request:
- branches: \[ main \]
- # Allows you to run this workflow manually from the Actions tab
- workflow_dispatch:
- # A workflow run is made up of one or more jobs that can run sequentially or in parallel
- jobs:
- # This workflow contains a single job called \"build\"
- build:
- # The type of runner that the job will run on
- runs-on: windows-latest
- steps:
- # Checkout your code repository
- - uses: actions/checkout@v2
- # Install dotnet
- - uses: actions/setup-dotnet@v1
- with:
- dotnet-version: |
- 5.0.x
- 6.0.x
- # Run analyzers
- - name: Run Microsoft Security DevOps Analysis
- uses: microsoft/security-devops-action@preview
- id: msdo
- # Upload alerts to the Security tab
- - name: Upload alerts to Security tab
- uses: github/codeql-action/upload-sarif@v1
- with:
- sarif_file: \${{ steps.msdo.outputs.sarifFile }}
- ```                      
+    :::image type="content" source="media/msdo-github-action/start-commit.png" alt-text="Screenshot showing you where to select start commit.":::
 
-8.  Click **Start commit**
+1.  Select **Commit new file**.
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/msdo-github-action/image035.png)
+    :::image type="content" source="media/msdo-github-action/commit-new.png" alt-text="Screenshot showing you where to select commit new file.":::
 
-9.  In the Commit new file dialog, click **Commit new file**
+1. Select **Actions** and  verify the new action is running.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/msdo-github-action/image036.png)
+    :::image type="content" source="media/msdo-github-action/verify-actions.png" alt-text="Screenshot showing you where to navigate to, to see that your new action is running.":::
 
-10. Click on the Actions link to verify the running Action
+## Steps: View Scan Results
 
-![Graphical user interface, text, application, email Description
-automatically generated](./media/msdo-github-action/image037.png)
+**To view your scan results**:
 
-### Steps: View Scan Results
+1. Sign in [GitHub](https://www.github.com).
 
-1.  Click on **Security** tab in GitHub
+1. Select **Security**.
 
-2.  Click on **Code scanning alerts** (Microsoft Defender for DevOps Action results will surface here)
+1. Select **Code scanning alerts**.
 
-3.  Click on **Tool** dropdown menu to "Filter by tool"
+1. Select **Tool**. 
 
-![Graphical user interface, application Description automatically
-generated](./media/msdo-github-action/image038.png)
+1. Dropdown menu to "Filter by tool"
+
+**THEN WHAT THIS IS UNCLEAR**
+
+    :::image type="content" source="media/msdo-github-action/tool-dropdown.png" alt-text="Screenshot showing you how to navigate to the filter by tool option.":::
+
+## Next steps
