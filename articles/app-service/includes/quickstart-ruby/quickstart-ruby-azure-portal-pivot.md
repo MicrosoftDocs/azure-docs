@@ -164,7 +164,7 @@ The Ruby sample code is running in an Azure App Service Linux web app.
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, app service, and all related resources.
+When you're finished with the sample app, you can remove all of the resources for the app from Azure. It will not incur extra charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
 1. From your App Service **Overview** page, select the resource group you created in the [Create Azure resources](#create-azure-resources) step.
 
