@@ -434,7 +434,7 @@
       href: azure-stack-edge-gpu-activation-key-vault.md
     - name: Understand disconnected use
       href: azure-stack-edge-gpu-disconnected-scenario.md
-    - name: FAQ - Operational guidelines
+    - name: Operational guidelines
       href: azure-stack-edge-operational-guidelines-faq.yml
     - name: Understand data resiliency
       href: azure-stack-edge-gpu-data-resiliency.md
