@@ -44,7 +44,7 @@ Results are shown on the page when they're ready. The checks sections show what'
 
 ### Operating system
 
-The operating system check verifies whether the Hybrid Runbook Worker is running one of the [operating systems](/azure/automation/update-management/operating-system-requirements.md#windows-operating-system)  
+The operating system check verifies whether the Hybrid Runbook Worker is running one of the [operating systems.](/azure/automation/update-management/operating-system-requirements.md#windows-operating-system)  
 
 ### .NET 4.6.2
 
