@@ -1,5 +1,5 @@
 ---
-title: TBD | Microsoft Docs
+title: Select a target Azure platform to host the exported historical data | Microsoft Docs
 description: TBD
 author: limwainstein
 ms.author: lwainstein
@@ -8,7 +8,7 @@ ms.date: 05/03/2022
 ms.custom: ignite-fall-2021
 ---
 
-# Select a target Azure platform to host the exported data 
+# Select a target Azure platform to host the exported historical data 
 
 In this section, we explain the different ways available to transfer the data to the selected target platform. In the next section, we will go into details on how the end-to-end process works for several SIEM vendors.
 

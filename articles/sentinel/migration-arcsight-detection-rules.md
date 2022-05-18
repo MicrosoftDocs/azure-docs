@@ -19,14 +19,14 @@ Mapping detection rules from your SIEM to map to Microsoft Sentinel rules is cri
     - Alert grouping: Reduces alert fatigue by grouping up to 150 alerts within a given timeframe, using three [alert grouping](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-reduce-alert-noise-with-incident-settings-and-alert/ba-p/1187940) options: matching entities, alerts triggered by the scheduled rule, and matches of specific entities.
     - Entity mapping: Enables your SecOps engineers to define entities to be tracked during the investigation. [Entity mapping](map-data-fields-to-entities.md) also makes it possible for analysts to take advantage of the intuitive [investigation graph](tutorial-investigate-cases.md) to reduce time and effort.
     - Evidence summary: Surfaces events, alerts, and bookmarks associated with a particular incident within the preview pane. Entities and tactics also show up in the incident pane—providing a snapshot of essential details and enabling faster triage.
-    - KQL: The request is sent to a Log Analytics database and is stated in plain text, using a data-flow model that makes the syntax easy to read, author, and automate. Because several other Microsoft services also store data in [Azure Log](../azure-monitor/logs/log-analytics-tutorial.md) Analytics or [Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/), this reduces the learning curve needed to query or correlate.
+    - KQL: The request is sent to a Log Analytics database and is stated in plain text, using a data-flow model that makes the syntax easy to read, author, and automate. Because several other Microsoft services also store data in [Azure Log](../azure-monitor/logs/log-analytics-tutorial.md) Analytics or [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/), this reduces the learning curve needed to query or correlate.
 - Check you understand rule terminology using the diagram below.
 - Don’t migrate all rules without consideration. Focus on quality, not quantity.
 - Leverage existing functionality, and check whether Microsoft Sentinel’s [built-in analytics rules](detect-threats-built-in.md) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
 - Confirm connected data sources and review your data connection methods. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect.
 - Explore community resources such as [SOC Prime Threat Detection Marketplace](https://my.socprime.com/tdm/) to check whether  your rules are available.
 - Consider whether an online query converter such as Uncoder.io conversion tool might work for your rules? 
-- If rules aren’t available or can’t be converted, they need to be created manually, using a KQL query. Review the [Splunk to Kusto Query Language map](../data-explorer/kusto/query/splunk-cheat-sheet.md).
+- If rules aren’t available or can’t be converted, they need to be created manually, using a KQL query. Review the [Splunk to Kusto Query Language map](https:/azure.microsoft.com/services/data-explorer/kusto/query/splunk-cheat-sheet.md).
 
 ## Compare rule terminology
 
@@ -106,7 +106,7 @@ Here is a sample nested filter rule in ArcSight.
 
 Here is a rule for the `/All Filters/Soc Filters/Exclude Valid Users` filter.
 
-:::image type="content" source="media/migration-arcsight-detection-rules/rule-3-sample-2.png" alt-text="Diagram illustrating a sample nested filter rule." lightbox="media/migration-arcsight-detection-rules/rule-3-sample-2.png":::
+:::image type="content" source="media/migration-arcsight-detection-rules/rule-3-sample-2.png" alt-text="Diagram illustrating an Exclude Valid Users filter." lightbox="media/migration-arcsight-detection-rules/rule-3-sample-2.png":::
 
 ##### Nested filter: Sample KQL queries
 
@@ -163,13 +163,13 @@ isnotempty(TargetDomainName)
 
 1. Run the following query to invoke the parameter function:
 
-        ```kusto
-            let Events = (
-            SecurityEvent 
-            | where EventID == 4728
-            );
-            ExcludeValidUsers(Events)
-        ```
+    ```kusto
+        let Events = (
+        SecurityEvent 
+        | where EventID == 4728
+        );
+        ExcludeValidUsers(Events)
+    ```
 
 ###### Option 4: Use join function
 

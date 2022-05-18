@@ -1,6 +1,6 @@
 ---
 title: Migrate QRadar detection rules to Microsoft Sentinel | Microsoft Docs
-description: Identify, compare, and migrate your ArcSight detection rules to Microsoft Sentinel built-in rules.
+description: Identify, compare, and migrate your QRadar detection rules to Microsoft Sentinel built-in rules.
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
@@ -19,14 +19,14 @@ Mapping detection rules from your SIEM to map to Microsoft Sentinel rules is cri
     - Alert grouping: Reduces alert fatigue by grouping up to 150 alerts within a given timeframe, using three [alert grouping](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-reduce-alert-noise-with-incident-settings-and-alert/ba-p/1187940) options: matching entities, alerts triggered by the scheduled rule, and matches of specific entities.
     - Entity mapping: Enables your SecOps engineers to define entities to be tracked during the investigation. [Entity mapping](map-data-fields-to-entities.md) also makes it possible for analysts to take advantage of the intuitive [investigation graph](tutorial-investigate-cases.md) to reduce time and effort.
     - Evidence summary: Surfaces events, alerts, and bookmarks associated with a particular incident within the preview pane. Entities and tactics also show up in the incident pane—providing a snapshot of essential details and enabling faster triage.
-    - KQL: The request is sent to a Log Analytics database and is stated in plain text, using a data-flow model that makes the syntax easy to read, author, and automate. Because several other Microsoft services also store data in [Azure Log](../azure-monitor/logs/log-analytics-tutorial.md) Analytics or [Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/), this reduces the learning curve needed to query or correlate.
+    - KQL: The request is sent to a Log Analytics database and is stated in plain text, using a data-flow model that makes the syntax easy to read, author, and automate. Because several other Microsoft services also store data in [Azure Log](../azure-monitor/logs/log-analytics-tutorial.md) Analytics or [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/), this reduces the learning curve needed to query or correlate.
 - Check you understand rule terminology using the diagram below.
 - Don’t migrate all rules without consideration. Focus on quality, not quantity.
 - Leverage existing functionality, and check whether Microsoft Sentinel’s [built-in analytics rules](detect-threats-built-in.md) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
 - Confirm connected data sources and review your data connection methods. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect.
 - Explore community resources such as [SOC Prime Threat Detection Marketplace](https://my.socprime.com/tdm/) to check whether  your rules are available.
 - Consider whether an online query converter such as Uncoder.io conversion tool might work for your rules? 
-- If rules aren’t available or can’t be converted, they need to be created manually, using a KQL query. Review the [Splunk to Kusto Query Language map](../data-explorer/kusto/query/splunk-cheat-sheet.md).
+- If rules aren’t available or can’t be converted, they need to be created manually, using a KQL query. Review the [Splunk to Kusto Query Language map](https:/azure.microsoft.com/services/data-explorer/kusto/query/splunk-cheat-sheet.md).
 
 ## Compare rule terminology
 
@@ -40,8 +40,8 @@ Use these samples to migrate rules from QRadar to Microsoft Sentinel in various 
 
 |Rule  |Syntax |Sample detection rule (QRadar)  |Sample KQL query  |Resources  |
 |---------|---------|---------|---------|---------|
-|Common property tests     |[QRadar syntax](#common-property-tests) |• [Regular expression example](#regular-expression-example)<br>• [AQL filter query example](#aql-filter-query-example)<br>• [equals/not equals example](#equalsnot-equals-example)      |• [Regular expression example](#regular-expression-sample-kql-query)<br>• [AQL filter query example](#aql-filter-query-sample-kql-query)<br>• [equals/not equals example](#equalsnot-equals-sample-kql-query)       |• Regular expression: [matches regex](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/re2)<br>• AQL filter query: [string operators](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• equals/not equals: [String operators](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)   | 
-|Date/time tests     |[QRadar syntax](#datetime-tests) |• [Selected day of the month example](#selected-day-of-the-month-example)<br>• [Selected day of the week example](#selected-day-of-the-week-example)<br>• [after/before/at example](#afterbeforeat-example)      |• [Selected day of the month example](#selected-day-of-the-month-sample-kql-query)<br>• [Selected day of the week example](#selected-day-of-the-week-sample-kql-query))<br>• [after/before/at example](#aql-filter-query-example)   |• [Date and time operators](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/samples?pivots=azuremonitor#date-and-time-operations)<br>• Selected day of the month: [dayofmonth()](https://docs.microsoft.com/azure/data-explorer/kusto/query/dayofmonthfunction)<br>• Selected day of the week: [dayofweek()](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/dayofweekfunction)<br>• after/before/at: [format_datetime()](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/format-datetimefunction)   | 
+|Common property tests     |[QRadar syntax](#common-property-tests) |• [Regular expression example](#regular-expression-example)<br>• [AQL filter query example](#aql-filter-query-example)<br>• [equals/not equals example](#equalsnot-equals-example)      |• [Regular expression example](#regular-expression-sample-kql-query)<br>• [AQL filter query example](#aql-filter-query-sample-kql-query)<br>• [equals/not equals example](#equalsnot-equals-sample-kql-query)       |• Regular expression: [matches regex](https://docs.microsoft.com/azure/data-explorer/kusto/query/re2)<br>• AQL filter query: [string operators](https://docs.microsoft.com/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• equals/not equals: [String operators](https://docs.microsoft.com/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)   | 
+|Date/time tests     |[QRadar syntax](#datetime-tests) |• [Selected day of the month example](#selected-day-of-the-month-example)<br>• [Selected day of the week example](#selected-day-of-the-week-example)<br>• [after/before/at example](#afterbeforeat-example)      |• [Selected day of the month example](#selected-day-of-the-month-sample-kql-query)<br>• [Selected day of the week example](#selected-day-of-the-week-sample-kql-query))<br>• [after/before/at example](#aql-filter-query-example)   |• [Date and time operators](https://docs.microsoft.com/azure/data-explorer/kusto/query/samples?pivots=azuremonitor#date-and-time-operations)<br>• Selected day of the month: [dayofmonth()](https://docs.microsoft.com/azure/data-explorer/kusto/query/dayofmonthfunction)<br>• Selected day of the week: [dayofweek()](https://docs.microsoft.com/azure/data-explorer/kusto/query/dayofweekfunction)<br>• after/before/at: [format_datetime()](https://docs.microsoft.com/azure/data-explorer/kusto/query/format-datetimefunction)   | 
 |Event property tests     |[QRadar syntax](#event-property-tests) |• [IP protocol example](#ip-protocol-example)<br>• [Event Payload string example](#event-payload-string-example)<br>     |• [IP protocol example](#ip-protocol-sample-kql-query)<br>• [Event Payload string example](#event-payload-string-sample-kql-query)<br>   |• IP protocol: [String operators](https://docs.microsoft.com/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• Event Payload string: [has](https://docs.microsoft.com/azure/data-explorer/kusto/query/datatypes-string-operators)   | 
 |Functions: counters    |[QRadar syntax](#functions-counters) |[Event property and time example](#event-property-and-time-example)    |[Event property and time example](#event-property-and-time-sample-kql-query)   |[summarize](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator)   | 
 |Functions: negative conditions |[QRadar syntax](#functions-negative) |[Negative conditions example](#negative-conditions-example) |[Negative conditions example](#negative-conditions-sample-kql-query) |• [join()](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [String operators](https://docs.microsoft.com/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• [Numerical operators](https://docs.microsoft.com/azure/data-explorer/kusto/query/numoperators)] |
@@ -83,7 +83,7 @@ when the event matches <this> AQL filter query
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-1-sample-aql.png" alt-text="Diagram illustrating a common property test rule that uses an AQL filter query." lightbox="media/migration-qradar-detection-rules/rule-1-sample-aql.png:::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-1-sample-aql.png" alt-text="Diagram illustrating a common property test rule that uses an AQL filter query." "lightbox="media/migration-qradar-detection-rules/rule-1-sample-aql.png:::
 
 ###### AQL filter query: Sample KQL query
 
@@ -165,7 +165,7 @@ and when the event(s) occur <after/before/at> <this time{12.00AM, 12.05AM, ...11
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-2-sample-after-before-at.png" alt-text="Diagram illustrating a date/time tests rule that uses the after/before/at operator." lightbox=media/migration-qradar-detection-rules/rule-2-sample-after-before-at.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-2-sample-after-before-at.png" alt-text="Diagram illustrating a date/time tests rule that uses the after/before/at operator." "lightbox"=media/migration-qradar-detection-rules/rule-2-sample-after-before-at.png":::
 
 ###### Selected day of the week: Sample KQL query
 
@@ -260,9 +260,9 @@ and when none of <these rules> match in <this many> <minutes> after <these rules
 ```
 Here are two defined rules in QRadar. The negative conditions will be based on these rules.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-5-sample-1.png" alt-text="Diagram illustrating an event property tests rule that uses an IP protocol." lightbox="media/migration-qradar-detection-rules/rule-5-sample-1.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-5-sample-1.png" alt-text="Diagram illustrating an event property tests rule to be used for a negative conditions rule." lightbox="media/migration-qradar-detection-rules/rule-5-sample-1.png":::
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-5-sample-2.png" alt-text="Diagram illustrating a common property tests rule that uses IP information." lightbox="media/migration-qradar-detection-rules/rule-5-sample-2.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-5-sample-2.png" alt-text="Diagram illustrating a common property tests rule to be used for a negative conditions rule." lightbox="media/migration-qradar-detection-rules/rule-5-sample-2.png":::
 
 Here is a sample of the negative conditions rule based on the rules above.
 
