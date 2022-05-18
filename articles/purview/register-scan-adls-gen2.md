@@ -28,7 +28,7 @@ This article outlines the process to register an Azure Data Lake Storage Gen2 da
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
-* You need to have at least Reader permission on the ADLS Gen 2 account to be able to register it.
+* You need to have at least [Reader permission on the ADLS Gen 2 account](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac) to be able to register it.
 
 ## Register
 
