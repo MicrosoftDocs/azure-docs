@@ -18,6 +18,8 @@ Azure Communication Services allows you to use phone numbers to make voice calls
 
 ## Available options
 
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
 Azure Communication Services offers three types of Numbers: Toll-Free, Local, and Short Codes.
 
 - **To send or receive an SMS**, choose a Toll-Free Number or a Short Code
