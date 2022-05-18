@@ -56,7 +56,7 @@ The following image shows how you can connect your sensors to the Defender for I
 
 :::image type="content" source="media/architecture-connections/direct.png" alt-text="Diagram of a direct connection to Azure.":::
 
-With direct connections:
+With direct connections
 
 - Any sensors connected to Azure data centers directly over the internet have a secure and encrypted connection to the Azure data centers. Transport Layer Security (TLS) provides *always-on* communication between the sensor and Azure resources.
 
