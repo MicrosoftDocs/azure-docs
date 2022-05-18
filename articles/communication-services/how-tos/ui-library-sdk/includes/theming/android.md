@@ -51,6 +51,6 @@ CallCompositeBuilder().theme(ThemeConfiguration(R.style.Contoso_Theme_Calling))
 
 The Android resource system handles the night theme. Night mode on Android is a system-wide configuration. When night mode is enabled, preference is given to resources in the `-night/` folders. To specify night mode colors, a second theme.xml would be added to the `values-night/`.
 
-To enable night mode programmatically, Android provides the following function. However, this configuration applies globally to the application. There's no reliable way to set night mode for a single activity. Contoso who wants to enforce a dark theme can use this settings in their applications.
+To enable night mode programmatically, Android provides the following function. However, this configuration applies globally to the application. There's no reliable way to set night mode for a single activity. If Contoso wants to enforce a dark theme can use the below setting in their applications.
 
 `AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)`
