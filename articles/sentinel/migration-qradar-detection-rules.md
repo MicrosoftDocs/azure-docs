@@ -83,7 +83,7 @@ when the event matches <this> AQL filter query
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-1-sample-aql.png" alt-text="Diagram illustrating a common property test rule that uses an AQL filter query." lightbox"="media/migration-qradar-detection-rules/rule-1-sample-aql.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-1-sample-aql.png" alt-text="Diagram illustrating a common property test rule that uses an AQL filter query." lightbox="media/migration-qradar-detection-rules/rule-1-sample-aql.png":::
 
 ###### AQL filter query: Sample KQL query
 
