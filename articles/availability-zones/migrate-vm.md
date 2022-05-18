@@ -12,7 +12,7 @@ ms.custom: references_regions
  
 # Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support
 
-This guide describes how to migrate Virtual Machines (VMs) and Virtual Machine Scale Sets (VMSS) from non-availability zone support to availability support. We'll take you through the different options for migration, including how you can use availability zone support for Disaster Recovery solutions.
+This guide describes how to migrate Virtual Machines (VMs) and Virtual Machine Scale Sets (VMSS) from non-availability zone support to availability zone support. We'll take you through the different options for migration, including how you can use availability zone support for Disaster Recovery solutions.
 
 Virtual Machine (VM) and Virtual Machine Scale Sets (VMSS) are zonal services, which means that VM resources can be deployed by using one of the following methods:
 
@@ -24,7 +24,7 @@ When you migrate resources to availability zone support, we recommend that you s
 
 ## Prerequisites
 
-To migrate to availability zone support, your VM SKUs must be available for your region. To check for VM SKU availability, use one of the following methods:
+To migrate to availability zone support, your VM SKUs must be available across the zones in for your region. To check for VM SKU availability, use one of the following methods:
 
 - Use PowerShell to [Check VM SKU availability](../virtual-machines/windows/create-PowerShell-availability-zone.md#check-vm-sku-availability).
 - Use the Azure CLI to [Check VM SKU availability](../virtual-machines/linux/create-cli-availability-zone.md#check-vm-sku-availability).
@@ -32,7 +32,7 @@ To migrate to availability zone support, your VM SKUs must be available for your
 
 ## Downtime requirements
 
-Because zonal VMs are created across the availability zones, all migration options mentioned in this article require downtime during deployment.
+Because zonal VMs are created across the availability zones, all migration options mentioned in this article require downtime during deployment because zonal VMs are created across the availability zones.
 
 ## Migration Option 1: Redeployment
 
