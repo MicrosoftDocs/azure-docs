@@ -331,9 +331,9 @@ az deployment group create --resource-group $resourceGroupName --template-file "
 ```
 
 > [!NOTE]
-> This Bicep file serves only as an example. There are many storage account settings that aren't configured as part of this template. For example, if you want to use [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this template by setting the `isHnsEnabled` property of the `StorageAccountPropertiesCreateParameters` object to `true`.
+> This Bicep file serves only as an example. There are many storage account settings that aren't configured as part of this Bicep file. For example, if you want to use [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this Bicep file by setting the `isHnsEnabled` property of the `StorageAccountPropertiesCreateParameters` object to `true`.
 
-To learn how to modify this template or create new ones, see:
+To learn how to modify this Bicep file or create new ones, see:
 
 - [Azure Resource Manager documentation](../../azure-resource-manager/index.yml).
 - [Storage account template reference](/azure/templates/microsoft.storage/allversions).
