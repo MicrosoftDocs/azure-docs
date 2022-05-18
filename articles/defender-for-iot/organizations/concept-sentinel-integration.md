@@ -63,7 +63,7 @@ Playbooks are collections of automated remediation actions that can be run from 
 
 For example, use SOAR playbooks to:
 
-- Open an asset ticket in ServiceNow when a new asset is detected, such as a new engineering workstation. This can either be an unauthorized device that can be used by adversaries to reprogram PLCs.
+- Open an asset ticket in ServiceNow when a new asset is detected, such as a new engineering workstation. This alert can be an unauthorized device that can be used by adversaries to reprogram PLCs.
 
 - Send an email to relevant stakeholders when suspicious activity is detected, for example unplanned PLC reprogramming. The mail may be sent to OT personnel, such as a control engineer responsible on the related production line.
 
