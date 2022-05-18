@@ -162,7 +162,7 @@
         href: automate/understand-usage-details-fields.md
       - name: Retrieve large datasets with exports
         href: costs/ingest-azure-usage-at-scale.md?toc=/azure/cost-management-billing/toc.json
-      - name: Get small usage datasets on demand
+      - name: Get small cost datasets on demand
         href: automate/get-small-usage-datasets-on-demand.md
       - name: Get usage details as a legacy customer
         href: automate/get-usage-details-legacy-customer.md

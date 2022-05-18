@@ -3,7 +3,7 @@ title: Get Azure usage details as a legacy customer
 description: This article explains how you get usage data if you're a legacy customer.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/18/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,7 +12,7 @@ ms.reviewer: adwise
 
 # Get usage details as a legacy customer
 
-If you have an MSDN, pay-as-you-go, or Visual Studio Azure subscription, we recommend that you use [Exports](../costs/tutorial-export-acm-data.md) or the [Exports API](../costs/ingest-azure-usage-at-scale.md) to get usage details data. The [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml)  isn't supported for your subscription type yet.
+If you have an MSDN, pay-as-you-go, or Visual Studio Azure subscription, we recommend that you use [Exports](../costs/tutorial-export-acm-data.md) or the [Exports API](../costs/ingest-azure-usage-at-scale.md) to get usage details data. The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml)  isn't supported for your subscription type yet.
 
 If you need to download small datasets and you don't want to use use Azure Storage, you can also use the Consumption Usage Details API. Instructions about how to use the API are below. Note that the API is deprecated. The date that the API will be turned off is still being determined.
 
@@ -39,7 +39,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 ## Next steps
 
 - Read the [Ingest usage details data](automation-ingest-usage-details-overview.md) article.
-- Learn how to [get small usage datasets on demand](get-small-usage-datasets-on-demand.md).
+- Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
 - [Understand usage details fields](understand-usage-details-fields.md).
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.

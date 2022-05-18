@@ -3,7 +3,7 @@ title: Cost Management automation overview | Azure
 description: This article covers common scenarios for Cost Management automation and options available based on your situation.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/18/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -43,10 +43,10 @@ For more information about reservation-specific automation scenarios, see [APIs 
 
 - Usage Details APIs - The APIs below provide you with usage details data. Usage Details are the most granular usage and cost records that are available to you within the Azure ecosystem. To learn more about usage details best practices, see [Automate the ingestion of your usage and charges](automation-ingest-usage-details-overview.md).
   - [Exports API](/rest/api/cost-management/exports/create-or-update) - Configure a recurring task to export your usage details data to Azure storage on a daily, weekly or monthly basis. Exported data is in CSV format. This is our recommended solution for ingesting usage and charges and is the most scalable for large enterprises. To learn more, see [Retrieve large usage datasets with exports](../costs/ingest-azure-usage-at-scale.md).
-  - [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) - Download a usage details csv on demand. This is useful for smaller, date range based datasets. For larger workloads we strongly recommend that you use Exports. To learn more, see [Retrieve large usage datasets with exports](../costs/ingest-azure-usage-at-scale.md).
+  - [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) - Download a usage details csv on demand. This is useful for smaller, date range based datasets. For larger workloads we strongly recommend that you use Exports. To learn more, see [Retrieve large usage datasets with exports](../costs/ingest-azure-usage-at-scale.md).
 - [Azure Retail Prices](/rest/api/cost-management/retail-prices/azure-retail-prices) - Get meter rates with pay-as-you-go pricing. You can then use the returned information with your resource usage information to manually calculate the expected bill.
 - [Price Sheet API](/rest/api/consumption/pricesheet) - Get custom pricing for all meters. Enterprises can use this data in combination with usage details and marketplace usage information to calculate costs by using usage and marketplace data.
-- [Budgets API](/rest/api/consumption/budgets)- Create either cost or usage budgets for resources, resource groups, or billing meters. When you've created budgets, you can configure alerts to notify you when you've exceeded defined budget thresholds. You can also configure actions to occur when you've reached budget amounts. For more information, see [Get small usage datasets on demand](get-small-usage-datasets-on-demand.md).
+- [Budgets API](/rest/api/consumption/budgets)- Create either cost or usage budgets for resources, resource groups, or billing meters. When you've created budgets, you can configure alerts to notify you when you've exceeded defined budget thresholds. You can also configure actions to occur when you've reached budget amounts. For more information, see [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
 
 ### Billing
 

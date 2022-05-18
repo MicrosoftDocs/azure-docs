@@ -3,7 +3,7 @@ title: Migrate from EA to Microsoft Customer Agreement usage fields | Azure
 description: This article explains the differences between fields in the usage data files that you should know about as you migrate from an Enterprise Agreement to a Microsoft Customer Agreement.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/18/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -14,7 +14,7 @@ ms.reviewer: adwise
 
 If you were an EA customer, you'll notice that the terms in the Azure billing profile usage CSV file differ from the terms in the Azure EA usage CSV file. The following information maps the EA usage terms to the usage terms for a Microsoft Customer Agreement.
 
-THIS ARTICLE IS STILL IN DEVELOPMENT. It needs to discuss the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml).
+THIS ARTICLE IS STILL IN DEVELOPMENT. It needs to discuss the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml).
 
 ## Changes from the Azure EA usage and charges file
 

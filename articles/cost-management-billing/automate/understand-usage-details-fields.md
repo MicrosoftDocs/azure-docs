@@ -3,7 +3,7 @@ title: Understand usage details fields | Azure
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/18/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,11 +12,11 @@ ms.reviewer: adwise
 
 # Understand usage details fields
 
-This document describes the usage details fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml). For more information about usage details best practices, see [Usage details best practices](usage-details-best-practices.md).
+This document describes the usage details fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml). For more information about usage details best practices, see [Usage details best practices](usage-details-best-practices.md).
 
 ## Migration to new usage details formats
 
-If you're using an older usage details solution and want to migrate to Exports or the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml), read the following articles.
+If you're using an older usage details solution and want to migrate to Exports or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml), read the following articles.
 
 - [Migrate from Enterprise Reporting usage fields-UNPUBLISHED](../index.yml)
 - [Migrate from EA to MCA usage fields](migrate-ea-mca-usage-fields.md)
@@ -122,4 +122,4 @@ The following table maps terms used in older APIs to the new terms. Refer to the
 - Learn more about [usage details best practices](usage-details-best-practices.md).
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
-- Learn how to [get small usage datasets on demand](get-small-usage-datasets-on-demand.md).
+- Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).

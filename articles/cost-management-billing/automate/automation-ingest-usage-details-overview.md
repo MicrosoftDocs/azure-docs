@@ -3,7 +3,7 @@ title: Ingest usage details data | Azure
 description: This article explains how to use usage details records to correlate meter-based charges with the specific resources responsible for the charges so that you can properly reconcile your bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/18/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -20,7 +20,7 @@ You must have Cost Management permissions at the appropriate scope to use APIs a
 
 ## How to get usage details
 
-You can use [exports](../costs/tutorial-export-acm-data.md) or the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) to get usage details programmatically. To learn more about which solutions are best for your scenarios, see [Usage details best practices](usage-details-best-practices.md).
+You can use [exports](../costs/tutorial-export-acm-data.md) or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) to get usage details programmatically. To learn more about which solutions are best for your scenarios, see [Usage details best practices](usage-details-best-practices.md).
 
 For Azure portal download instructions, see [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md). If you have a small usage details dataset that you maintain from one month to another, you can open your usage and charges CSV file in Microsoft Excel or another spreadsheet application.
 
@@ -84,4 +84,4 @@ Note that Azure doesn't log most user actions. Instead, Azure logs resource usag
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
 - [Understand usage details fields](understand-usage-details-fields.md).
-- Learn how to [get small usage datasets on demand](get-small-usage-datasets-on-demand.md).
+- Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).

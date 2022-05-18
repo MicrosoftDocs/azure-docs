@@ -3,7 +3,7 @@ title: Migrate from EA Reporting to Azure Resource Manager APIs overview
 description: This article provides and overview about migrating from EA Reporting to Azure Resource Manager APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/18/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -43,7 +43,7 @@ Use the following information to identify the EA APIs that you currently use and
 
 | Scenario | EA APIs | Azure Resource Manager APIs |
 | --- | --- | --- |
-| [Migrate from EA Usage Details APIs](migrate-ea-usage-details-api.md)  | [/usagedetails/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)<br>[/usagedetails/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)<br>[/usagedetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)<br>[/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) | Use [Microsoft.CostManagement/Exports](/rest/api/cost-management/exports/create-or-update) for all recurring data ingestion workloads. <br>Use [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) for small on demand datasets. |
+| [Migrate from EA Usage Details APIs](migrate-ea-usage-details-api.md)  | [/usagedetails/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)<br>[/usagedetails/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)<br>[/usagedetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)<br>[/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) | Use [Microsoft.CostManagement/Exports](/rest/api/cost-management/exports/create-or-update) for all recurring data ingestion workloads. <br>Use [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) for small on demand datasets. |
 | [Migrate from EA Balance Summary APIs](migrate-ea-balance-summary-api.md) | [/balancesummary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) | [Microsoft.Consumption/balances](/rest/api/consumption/balances/getbybillingaccount) |
 | [Migrate from EA Price Sheet APIs](migrate-ea-price-sheet-api.md) | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | For negotiated prices, use [Microsoft.Consumption/pricesheets/default](/rest/api/consumption/pricesheet) <br> For retail prices, use [Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) |
 | [Migrate from EA Reserved Instance Usage Details API](migrate-ea-reserved-instance-usage-details-api.md) | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.CostManagement/generateReservationDetailsReport](/rest/api/cost-management/generatereservationdetailsreport) |

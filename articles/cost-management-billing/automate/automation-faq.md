@@ -3,7 +3,7 @@ title: Cost Management + Billing automation FAQ | Azure
 description: This FAQ is a list of frequently asked questions and answers about Cost Management + Billing automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/18/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -18,7 +18,7 @@ These APIs provide a different view of the same data:
 
 - The [Invoice API](/api/billing/2019-10-01-preview/invoices) provides an aggregated view of your monthly charges.
 - The [Transactions API](/rest/api/billing/2020-05-01/transactions/list-by-invoice) provides a view of your monthly charges aggregated at product/service family level.
-- The [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) provides a granular view of the usage and cost records for each day. Both Enterprise and Microsoft Customer Agreement customers can use it. If you're a legacy pay-as-you-go customer, see [Get Usage Details as a legacy customer](get-usage-details-legacy-customer.md).
+- The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) provides a granular view of the usage and cost records for each day. Both Enterprise and Microsoft Customer Agreement customers can use it. If you're a legacy pay-as-you-go customer, see [Get Usage Details as a legacy customer](get-usage-details-legacy-customer.md).
 
 ### I recently migrated from an EA to an MCA agreement. How do I migrate my API workloads?
 
@@ -34,7 +34,7 @@ The Consumption Usage Details API is deprecated. The date that the API will bet 
 
 ### When will the [Consumption Marketplaces API](/rest/api/consumption/marketplaces/list) get turned off?
 
-The Marketplaces API is deprecated. The date that the API will be turned off is still being determined. Data from the API is available in the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml). We recommend that you migrate to it as soon as possible. For more information, see [Migrate from Consumption Marketplaces API](migrate-consumption-marketplaces-api.md).
+The Marketplaces API is deprecated. The date that the API will be turned off is still being determined. Data from the API is available in the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml). We recommend that you migrate to it as soon as possible. For more information, see [Migrate from Consumption Marketplaces API](migrate-consumption-marketplaces-api.md).
 
 ### When will the [Consumption Forecasts API](/rest/api/consumption/forecasts/list) get turned off?
 

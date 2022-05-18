@@ -3,7 +3,7 @@ title: Get usage data with the Azure CLI
 description: This article explains how you get usage data with the Azure CLI.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/18/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -60,7 +60,7 @@ The `--dataset-filter` parameter takes a JSON string or @json-file.
 ## Next steps
 
 - Read the [Ingest usage details data](automation-ingest-usage-details-overview.md) article.
-- Learn how to [get small usage datasets on demand](get-small-usage-datasets-on-demand.md).
+- Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
 - [Understand usage details fields](understand-usage-details-fields.md).
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.

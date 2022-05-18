@@ -3,7 +3,7 @@ title: Usage details best practices | Azure
 description: This article describes best practices recommended by Microsoft when you work with data in usage details files.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/18/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -20,9 +20,9 @@ Exports is our recommended solution for ingesting usage details data. This solut
 
 To learn more about how to properly call the API and ingest usage details at scale, see [Retrieve large datasets with exports](../costs/ingest-azure-usage-at-scale.md).
 
-## Generate Detailed Cost Report API
+## Cost Details API-UNPUBLISHED
 
-Consider using the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) if you have a small cost data set. Here are recommended best practices:
+Consider using the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) if you have a small cost data set. Here are recommended best practices:
 
 - If you want to get the latest cost data, we recommend that you query at most once per day. Reports are refreshed every four hours. If you call more frequently, you'll receive identical data.
 - Once you download your cost data for historical invoices, the charges won't change unless you're explicitly notified. We recommend caching your cost data in a queryable store on to prevent repeated calls for identical data.
@@ -30,9 +30,9 @@ Consider using the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml)
 - If you have scopes with a large amount of usage data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download.
 - If your dataset is more than 2 GB month-to-month, consider using [exports](../costs/tutorial-export-acm-data.md) as a more scalable solution.
 
-To learn more about how to properly call the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml), see [Get small usage data sets on demand](get-small-usage-datasets-on-demand.md).
+To learn more about how to properly call the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml), see [Get small usage data sets on demand](get-small-usage-datasets-on-demand.md).
 
-Please note that the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml); is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you are an MSDN, pay-as-you-go or Visual Studio customer, see [Get usage details as a legacy customer](get-usage-details-legacy-customer.md).
+Please note that the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml); is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you are an MSDN, pay-as-you-go or Visual Studio customer, see [Get usage details as a legacy customer](get-usage-details-legacy-customer.md).
 
 ## Power BI
 
@@ -51,4 +51,4 @@ Only [download your usage from the Azure portal](../understand/download-azure-da
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
 - [Understand usage details fields](understand-usage-details-fields.md).
-- Learn how to [get small usage datasets on demand](get-small-usage-datasets-on-demand.md).
+- Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
