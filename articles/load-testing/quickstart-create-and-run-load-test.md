@@ -40,16 +40,21 @@ To create a Load Testing resource:
 
 Azure Load Testing enables you to quickly create a load test from the Azure portal. You'll specify the web application URL and the basic load testing parameters. Azure Load Testing abstracts the complexity of creating the load test script and provisioning the compute infrastructure.
 
-1. Go to the **Overview** page of your Azure Load Testing resource. 
-1. On the **Get started** tab, select **Quickstart**.
-    
-1. On the **Quickstart test** page, enter the **Test URL** with the complete URL that you would like to run the test for. For example, http://contoso-app.azurewebsites.net/login
+1. Go to the **Overview** page of your Azure Load Testing resource.
+
+1. On the **Get started** tab, select **Quick test**.
+
+    :::image type="content" source="media/quickstart-create-and-run-loadtest/quick-test-resource-overview.png" alt-text="Screenshot that shows the quick test button on the resource overview page.":::
+
+1. On the **Quickstart test** page, enter the **Test URL** with the complete URL that you would like to run the test for. For example, https://www.example.com/login.
 
 1. (Optional) You can update the **Number of virtual users** to the total number of virtual users. The maximum allowed value is 11250. One engine instance can generate up to 250 threads. If the virtual users entered are above this, Azure Load Testing will evenly split it into different engines automatically.
 
 1. (Optional) You can update the **Test duration** and **Ramp up time** for the test.
 
 1. Click on **Run test**.
+
+    :::image type="content" source="media/quickstart-create-and-run-loadtest/quickstart-test.png" alt-text="Screenshot that shows quickstart test page.":::
 
 ## <a name="view"></a> View the test results
 
@@ -70,7 +75,13 @@ Once the load test starts, you will be redirected to the test run dashboard. Whi
 
 To rerun the test, select **Rerun** on the test run dashboard. You can modify the test settings by updating the following **Environment variables**:
 
-  - threads_per_engine: The number of virtual users per engine instance
+  - domain: Domain name of the web server, e.g. www.example.com. [Do not include the http:// prefix.]
+  
+  - protocol: HTTP or HTTPS
+
+  - path: The path to resource (for example, /servlets/myServlet).
+
+  - threads_per_engine: The number of virtual users per engine instance. It is recommended to set this to maximum 250. If you want additional virtual users increase the number of engines by updating the test. Choose your test in the list of tests, and then select **Edit**.
 
   - duration_in_sec: Test duration in seconds
 
