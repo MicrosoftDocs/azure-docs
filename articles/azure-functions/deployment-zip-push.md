@@ -54,6 +54,59 @@ When you're using Azure CLI on your local computer, `<zip_file_path>` is the pat
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
 
+## <a name="arm"></a>Deploy by using ARM Template
+
+You can use [ZipDeploy ARM template extension](https://github.com/projectkudu/kudu/wiki/MSDeploy-VS.-ZipDeploy#zipdeploy) to push your .zip file to your function app.
+
+### Example ZipDeploy ARM Template
+
+This template includes both a production and staging slot and deploys to one or the other. Typically, you would use this template to deploy to the staging slot and then [swap](/articles/app-service/deploy-staging-slots.md) to get your new zip package running on the production slot. Except in the case of the first time deployment when you would want to deploy directly to the production slot
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceName": {
+      "type": "string"
+    },
+    "deployToProduction": {
+      "type": "bool",
+      "defaultValue": false
+    },
+    "slot": {
+      "type": "string",
+      "defaultValue": "staging"
+    },
+    "packageUri": {
+      "type": "secureString"
+    }
+  },
+  "resources": [
+    {
+      "condition": "[parameters('deployToProduction')]",
+      "type": "Microsoft.Web/sites/extensions",
+      "apiVersion": "2021-02-01",
+      "name": "[format('{0}/ZipDeploy', parameters('appServiceName'))]",
+      "properties": {
+        "packageUri": "[parameters('packageUri')]",
+        "appOffline": true
+      }
+    },
+    {
+      "condition": "[not(parameters('deployToProduction'))]",
+      "type": "Microsoft.Web/sites/slots/extensions",
+      "apiVersion": "2021-02-01",
+      "name": "[format('{0}/{1}/ZipDeploy', parameters('appServiceName'), parameters('slot'))]",
+      "properties": {
+        "packageUri": "[parameters('packageUri')]",
+        "appOffline": true
+      }
+    }
+  ]
+}
+```
+
 ## Run functions from the deployment package
 
 You can also choose to run your functions directly from the deployment package file. This method skips the deployment step of copying files from the package to the `wwwroot` directory of your function app. Instead, the package file is mounted by the Functions runtime, and the contents of the `wwwroot` directory become read-only.  
