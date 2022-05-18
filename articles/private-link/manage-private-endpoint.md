@@ -42,8 +42,6 @@ You should receive an output similar to the below example.
 
 :::image type="content" source="./media/manage-private-endpoint/powershell-output.png" alt-text="Screenshot of the PowerShell output of command.":::
 
----
-
 # [**Azure CLI**](#tab/manage-private-link-cli)
 
 An Azure WebApp is used as the example private endpoint resource. Use [az network private-link-resource list](/cli/azure/network/private-link-resource#az-network-private-link-resource-list) to determine **GroupId** and **MemberName**. The parameter `--type` requires the namespace for the private link resource. For the webapp used in this example, the namespace is **Microsoft.Web/sites**. To determine the namespace for your private link resource, see [Azure services DNS zone configuration](private-endpoint-dns.md#azure-services-dns-zone-configuration).
@@ -103,8 +101,6 @@ New-AzPrivateEndpoint @pe
 
 ```
 
----
-
 # [**Azure CLI**](#tab/manage-private-link-cli)
 
 To rename the network interface when the private endpoint is created, use the `--nic-name` parameter. The following example uses a Azure PowerShell command to create a private endpoint to an Azure WebApp. For more information, see [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create).
@@ -125,6 +121,8 @@ az network private-endpoint create \
     --nic-name myPrivateEndpointNIC \
     --vnet-name myVNet
 ```
+
+---
 
 ### Static IP address
 
@@ -230,8 +228,6 @@ $remove = @{
 }
 Remove-AzPrivateEndpointConnection @remove
 ```
-
----
 
 # [**Azure CLI**](#tab/manage-private-link-cli)
 
