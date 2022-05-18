@@ -86,7 +86,7 @@ Use the following sample JSON as your body.
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-| `api-version` | `{API-VERSION}` | The version of the API you are calling. The version used here must be the same the API version in the URL. | `2022-03-01-preview` |
+| `api-version` | `{API-VERSION}` | The version of the API you are calling. The version used here must be the same API version in the URL. | `2022-03-01-preview` |
 | `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `EmailApp` |
 | `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the utterances used in your project. If your project is a multilingual project, choose the [language code](../../language-support.md) of the majority of the utterances. |`en-us`|
 
