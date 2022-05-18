@@ -38,7 +38,7 @@ The following instructions describe how to create a Key Vault and to securely sa
 
    ```azurecli
    az keyvault create \
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --name <key-vault-name>
    ```
 
@@ -87,15 +87,15 @@ The following instructions describe how to create a Key Vault and to securely sa
 
    ```azurecli
    REDIS_HOST=$(az redis show \
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --name <redis-cache-name> | jq -r '.hostName')
 
    REDIS_PORT=$(az redis show \
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --name <redis-cache-name> | jq -r '.sslPort')
 
    REDIS_PRIMARY_KEY=$(az redis list-keys \
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --name <redis-cache-name> | jq -r '.primaryKey')
 
    az keyvault secret set \
@@ -120,19 +120,19 @@ The following instructions describe how to allow access to Key Vault secrets to 
 1. Enable a System Assigned Identity for the Cart Service Application using the following command:
 
    ```azurecli
-   az spring-cloud app identity assign \
-       --resource-group <resource-group> \
+   az spring app identity assign \
+       --resource-group <resource-group-name> \
        --name cart-service \
-       --service <spring-cloud-service>
+       --service <Azure-Spring-Apps-service-instance-name>
    ```
 
 1. Set an access policy of `get list` on Key Vault for the Cart Service Application using the following commands:
 
    ```azurecli
-   CART_SERVICE_APP_IDENTITY=$(az spring-cloud app show \
-       --resource-group <resource-group> \
+   CART_SERVICE_APP_IDENTITY=$(az spring app show \
+       --resource-group <resource-group-name> \
        --name cart-service \
-       --service <spring-cloud-service> | jq -r '.identity.principalId')
+       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.identity.principalId')
 
    az keyvault set-policy \
        --name <key-vault-name> \
@@ -143,19 +143,19 @@ The following instructions describe how to allow access to Key Vault secrets to 
 1. Enable a System Assigned Identity for the Order Service Application using the following command:
 
    ```azurecli
-   az spring-cloud app identity assign \
-       --resource-group <resource-group> \
+   az spring app identity assign \
+       --resource-group <resource-group-name> \
        --name order-service \
-       --service <spring-cloud-service>
+       --service <Azure-Spring-Apps-service-instance-name>
    ```
 
 1. Set an access policy of `get list` on Key Vault for the Order Service Application using the following commands:
 
    ```azurecli
-   ORDER_SERVICE_APP_IDENTITY=$(az spring-cloud app show \
-       --resource-group <resource-group> \
+   ORDER_SERVICE_APP_IDENTITY=$(az spring app show \
+       --resource-group <resource-group-name> \
        --name order-service \
-       --service <spring-cloud-service> | jq -r '.identity.principalId')
+       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.identity.principalId')
 
    az keyvault set-policy \
        --name <key-vault-name> \
@@ -166,19 +166,19 @@ The following instructions describe how to allow access to Key Vault secrets to 
 1. Enable a System Assigned Identity for the Catalog Service Application using the following command:
 
    ```azurecli
-   az spring-cloud app identity assign \
-       --resource-group <resource-group> \
+   az spring app identity assign \
+       --resource-group <resource-group-name> \
        --name catalog-service \
-       --service <spring-cloud-service>
+       --service <Azure-Spring-Apps-service-instance-name>
    ```
 
 1. Set an access policy of `get list` on Key Vault for the Catalog Service Application using the following commands:
 
    ```azurecli
-   CATALOG_SERVICE_APP_IDENTITY=$(az spring-cloud app show \
-       --resource-group <resource-group> \
+   CATALOG_SERVICE_APP_IDENTITY=$(az spring app show \
+       --resource-group <resource-group-name> \
        --name catalog-service \
-       --service <spring-cloud-service> | jq -r '.identity.principalId')
+       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.identity.principalId')
 
    az keyvault set-policy \
        --name <key-vault-name> \
@@ -189,19 +189,19 @@ The following instructions describe how to allow access to Key Vault secrets to 
 1. If [Single Sign-On](./quickstart-configure-single-sign-on-enterprise.md) is configured, enable a System Assigned Identity for the Identity Service Application using the following command:
 
    ```azurecli
-   az spring-cloud app identity assign \
-       --resource-group <resource-group> \
+   az spring app identity assign \
+       --resource-group <resource-group-name> \
        --name identity-service \
-       --service <spring-cloud-service>
+       --service <Azure-Spring-Apps-service-instance-name>
    ```
 
 1. Set an access policy of `get list` on Key Vault for the Identity Service Application using the following commands:
 
    ```azurecli
-   IDENTITY_SERVICE_APP_IDENTITY=$(az spring-cloud app show \
-       --resource-group <resource-group> \
+   IDENTITY_SERVICE_APP_IDENTITY=$(az spring app show \
+       --resource-group <resource-group-name> \
        --name identity-service \
-       --service <spring-cloud-service> | jq -r '.identity.principalId')
+       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.identity.principalId')
 
    az keyvault set-policy \
        --name <key-vault-name> \
@@ -222,19 +222,19 @@ After granting access to read secrets from Key Vault, the applications must be u
 1. Retrieve the URL for Spring Cloud Gateway to be used in updating applications using the following command:
 
    ```azurecli
-   GATEWAY_URL=$(az spring-cloud gateway show \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> | jq -r '.properties.url')
+   GATEWAY_URL=$(az spring gateway show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
    ```
 
 1. Remove the Service Connector binding the Order Service application and the Azure Database for PostgreSQL Flexible Server using the following command:
 
    ```azurecli
-   az spring-cloud connection delete \
-       --resource-group <resource-group> \
+   az spring connection delete \
+       --resource-group <resource-group-name> \
        --app order-service \
        --connection order_service_db \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --deployment default \
        --yes
    ```
@@ -242,21 +242,21 @@ After granting access to read secrets from Key Vault, the applications must be u
 1. Update the Order Service environment with the URI to access Key Vault using the following command:
 
    ```azurecli
-   az spring-cloud app update \
-       --resource-group <resource-group> \
+   az spring app update \
+       --resource-group <resource-group-name> \
        --name order-service \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --env "ConnectionStrings__KeyVaultUri=${KEYVAULT_URI}" "AcmeServiceSettings__AuthUrl=https://${GATEWAY_URL}" "DatabaseProvider=Postgres"
    ```
 
 1. Remove the Service Connector binding the Catalog Service application and the Azure Database for PostgreSQL Flexible Server using the following command:
 
    ```azurecli
-   az spring-cloud connection delete \
-       --resource-group <resource-group> \
+   az spring connection delete \
+       --resource-group <resource-group-name> \
        --app catalog-service \
        --connection catalog_service_db \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --deployment default \
        --yes
    ```
@@ -264,10 +264,10 @@ After granting access to read secrets from Key Vault, the applications must be u
 1. Update the Catalog Service environment and configuration pattern to access Key Vault using the following command:
 
    ```azurecli
-    az spring-cloud app update \
-       --resource-group <resource-group> \
+    az spring app update \
+       --resource-group <resource-group-name> \
        --name catalog-service \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --config-file-pattern catalog/default,catalog/key-vault \
        --env "SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTY_SOURCES_0_ENDPOINT=${KEYVAULT_URI}" "SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTY_SOURCES_0_NAME='acme-fitness-store-vault'" "SPRING_PROFILES_ACTIVE=default,key-vault"
    ```
@@ -275,11 +275,11 @@ After granting access to read secrets from Key Vault, the applications must be u
 1. Remove the Service Connector binding the Cart Service application and the Azure Cache for Redis using the following command:
 
    ```azurecli
-   az spring-cloud connection delete \
-       --resource-group <resource-group> \
+   az spring connection delete \
+       --resource-group <resource-group-name> \
        --app cart-service \
        --connection cart_service_cache \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --deployment default \
        --yes
    ```
@@ -287,20 +287,20 @@ After granting access to read secrets from Key Vault, the applications must be u
 1. Update the Cart Service environment to access Key Vault using the following command:
 
    ```azurecli
-   az spring-cloud app update \
-       --resource-group <resource-group> \
+   az spring app update \
+       --resource-group <resource-group-name> \
        --name cart-service \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --env "CART_PORT=8080" "KEYVAULT_URI=${KEYVAULT_URI}" "AUTH_URL=https://${GATEWAY_URL}"
    ```
 
 1. Update the Identity Service environment and configuration pattern to access Key Vault using the following command:
 
    ```azurecli
-    az spring-cloud app update \
-       --resource-group <resource-group> \
+    az spring app update \
+       --resource-group <resource-group-name> \
        --name identity-service \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --config-file-pattern identity/default,identity /key-vault \
        --env "SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTY_SOURCES_0_ENDPOINT=${KEYVAULT_URI}" "SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTY_SOURCES_0_NAME='acme-fitness-store-vault'" "SPRING_PROFILES_ACTIVE=default,key-vault"
    ```
@@ -308,9 +308,9 @@ After granting access to read secrets from Key Vault, the applications must be u
 1. Retrieve the URL for Spring Cloud Gateway using the following commands:
 
    ```azurecli
-   GATEWAY_URL=$(az spring-cloud gateway show \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> | jq -r '.properties.url')
+   GATEWAY_URL=$(az spring gateway show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
    echo "https://${GATEWAY_URL}"
    ```

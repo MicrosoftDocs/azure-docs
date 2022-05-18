@@ -42,7 +42,7 @@ The Application Insights connection string must be provided manually to the Orde
 
    ```azurecli
    INSTRUMENTATION_KEY=$(az monitor app-insights component show \
-       --resource-group=<resource-group>
+       --resource-group=<resource-group-name>
        --app <app-insights-name> | jq -r '.connectionString')
 
    az keyvault secret set \
@@ -56,9 +56,9 @@ The Application Insights connection string must be provided manually to the Orde
 1. Update the sampling rate for the Application Insights binding to increase the amount of data available using the following command:
 
    ```azurecli
-   az spring-cloud build-service builder buildpack-binding set \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> \
+   az spring build-service builder buildpack-binding set \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --builder-name default \
        --name default \
        --type ApplicationInsights \
@@ -68,29 +68,29 @@ The Application Insights connection string must be provided manually to the Orde
 1. Restart applications to reload configuration using the following commands:
 
    ```azurecli
-   az spring-cloud app restart \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> \
+   az spring app restart \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --name cart-service
 
-   az spring-cloud app restart \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> \
+   az spring app restart \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --name order-service
 
-   az spring-cloud app restart \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> \
+   az spring app restart \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --name catalog-service
 
-   az spring-cloud app restart \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> \
+   az spring app restart \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --name frontend
 
-   az spring-cloud app restart \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> \
+   az spring app restart \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --name identity-service
    ```
 
@@ -105,9 +105,9 @@ There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-t
 Generate traffic in the Application by moving through the application, viewing the catalog, and placing orders. The following commands can be used to continuously generate traffic (until canceled):
 
 ```azurecli
-GATEWAY_URL=$(az spring-cloud gateway show \
-    --resource-group <resource-group> \
-    --service <spring-cloud-service> | jq -r '.properties.url')
+GATEWAY_URL=$(az spring gateway show \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
 cd traffic-generator
 GATEWAY_URL=https://${GATEWAY_URL} ./gradlew gatlingRun-com.vmware.acme.simulation.GuestSimulation
@@ -116,25 +116,25 @@ GATEWAY_URL=https://${GATEWAY_URL} ./gradlew gatlingRun-com.vmware.acme.simulati
 Use the following command to get the latest 100 lines of application console logs from the Catalog Service:
 
 ```azurecli
-az spring-cloud app logs \
-    --resource-group <resource-group> \
+az spring app logs \
+    --resource-group <resource-group-name> \
     --name catalog-service \
-    --service <spring-cloud-service> \
+    --service <Azure-Spring-Apps-service-instance-name> \
     --lines 100
 ```
 
 By adding the `--follow` option you can get real-time log streaming from an app. Try log streaming for the Catalog Service using the following command:
 
 ```azurecli
-az spring-cloud app logs \
-    --resource-group <resource-group> \
+az spring app logs \
+    --resource-group <resource-group-name> \
     --name catalog-service \
-    --service <spring-cloud-service> \
+    --service <Azure-Spring-Apps-service-instance-name> \
     --follow
 ```
 
 > [!TIP]
-> You can use az spring-cloud app logs `--help` to explore more parameters and log stream functionalities.
+> You can use az spring app logs `--help` to explore more parameters and log stream functionalities.
 
 ### Log Analytics
 
@@ -274,9 +274,9 @@ In addition to Application Insights, Azure Spring Apps enterprise tier supports 
 Additional bindings can be added to a builder in Tanzu Build Service using the following command:
 
 ```azurecli
-az spring-cloud build-service builder buildpack-binding create \
-    --resource-group <resource-group> \
-    --service <spring-cloud-service> \
+az spring build-service builder buildpack-binding create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
     --builder-name <builder-name> \
     --name <binding-name> \
     --type <ApplicationInsights|AppDynamics|ApacheSkyWalking|Dynatrace|ElasticAPM|NewRelic> \

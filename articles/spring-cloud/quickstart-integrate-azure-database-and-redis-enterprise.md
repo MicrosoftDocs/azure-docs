@@ -41,7 +41,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
    ```azurecli
    az redis create \
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --name <redis-cache-name> \
        --location ${REGION} \
        --sku Basic \
@@ -55,7 +55,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
    ```azurecli
    az postgres flexible-server create \
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --name <postgres-server-name> \
        --location <location> \
        --admin-user <postgres-username> \
@@ -69,7 +69,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
    az postgres flexible-server firewall-rule create \
        --rule-name allAzureIPs \
        --name <postgres-server-name> \
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --start-ip-address 0.0.0.0 \
        --end-ip-address 0.0.0.0
    ```
@@ -78,7 +78,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
    ```azurecli
    az postgres flexible-server parameter set \
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --name azure.extensions \
        --value uuid-ossp \
        --server-name <postgres-server-name> \
@@ -88,7 +88,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
    ```azurecli
    az postgres flexible-server db create \
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --server-name <postgres-server-name> \
        --database-name acmefit_order
    ```
@@ -97,7 +97,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
    ```azurecli
    az postgres flexible-server db create \
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --server-name <postgres-server-name> \
        --database-name acmefit_catalog
    ```
@@ -134,11 +134,11 @@ The following steps show how to bind applications running in Azure Spring Apps E
 1. Create a service connector to Azure Database for PostgreSQL for the Order Service Application using the following command:
 
    ```azurecli
-   az spring-cloud connection create postgres-flexible \
-       --resource-group <resource-group> \
+   az spring connection create postgres-flexible \
+       --resource-group <resource-group-name> \
        --target-resource-group <target-resource-group> \
        --connection order_service_db \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --app order-service \
        --deployment default \
        --server <postgres-server-name> \
@@ -150,11 +150,11 @@ The following steps show how to bind applications running in Azure Spring Apps E
 1. Create a service connector to Azure Database for PostgreSQL for the Catalog Service Application using the following command:
 
    ```azurecli
-   az spring-cloud connection create postgres-flexible \
-       --resource-group <resource-group> \
+   az spring connection create postgres-flexible \
+       --resource-group <resource-group-name> \
        --target-resource-group <target-resource-group> \
        --connection catalog_service_db \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --app catalog-service \
        --deployment default \
        --server <postgres-server-name> \
@@ -166,11 +166,11 @@ The following steps show how to bind applications running in Azure Spring Apps E
 1. Create a service connector to Azure Cache for Redis for the Cart Service Application using the following command:
 
    ```azurecli
-   az spring-cloud connection create redis \
-       --resource-group <resource-group> \
+   az spring connection create redis \
+       --resource-group <resource-group-name> \
        --target-resource-group <target-resource-group> \
        --connection cart_service_cache \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --app cart-service \
        --deployment default \
        --server <redis-cache-name> \
@@ -182,42 +182,42 @@ The following steps show how to bind applications running in Azure Spring Apps E
 
    ```azurecli
    az spring app restart
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --name catalog-service \
-       --service <spring-cloud-service>
+       --service <Azure-Spring-Apps-service-instance-name>
    ```
 
 1. Retrieve the database connection information and update the Order Service Application using the following commands:
 
    ```azurecli
-   POSTGRES_CONNECTION_STR=$(az spring-cloud connection show \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> \
+   POSTGRES_CONNECTION_STR=$(az spring connection show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --deployment default \
        --connection order_service_db \
        --app order-service | jq '.configurations[0].value' -r)
 
-   az spring-cloud app update \
-       --resource-group <resource-group> \
+   az spring app update \
+       --resource-group <resource-group-name> \
        --name order-service \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --env "DatabaseProvider=Postgres" "ConnectionStrings__OrderContext=${POSTGRES_CONNECTION_STR}"
    ```
 
 1. Retrieve Redis connection information and update the Cart Service Application using the following commands:
 
    ```azurecli
-   REDIS_CONN_STR=$(az spring-cloud connection show \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> \
+   REDIS_CONN_STR=$(az spring connection show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --deployment default \
        --app cart-service \
        --connection cart_service_cache | jq -r '.configurations[0].value')
 
-   az spring-cloud app update \
-       --resource-group <resource-group> \
+   az spring app update \
+       --resource-group <resource-group-name> \
        --name cart-service \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --env "CART_PORT=8080" "REDIS_CONNECTIONSTRING=${REDIS_CONN_STR}"
    ```
 
@@ -226,9 +226,9 @@ The following steps show how to bind applications running in Azure Spring Apps E
 Retrieve the URL for Spring Cloud Gateway and explore the updated application. The output from the following command can be used to explore the application:
 
 ```azurecli
-GATEWAY_URL=$(az spring-cloud gateway show \
-    --resource-group <resource-group> \
-    --service <spring-cloud-service> | jq -r '.properties.url')
+GATEWAY_URL=$(az spring gateway show \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
 echo "https://${GATEWAY_URL}"
 ```

@@ -60,9 +60,9 @@ When the limit is exceeded, response will fail with `429 Too Many Requests` stat
 Apply the `RateLimit` filter to the `/products` route using the following command:
 
 ```azurecli
-az spring-cloud gateway route-config update \
-    --resource-group <resource-group> \
-    --service <spring-cloud-service> \
+az spring gateway route-config update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
     --name catalog-routes \
     --app-name catalog-service \
     --routes-file azure/routes/catalog-service_rate-limit.json
@@ -71,9 +71,9 @@ az spring-cloud gateway route-config update \
 Retrieve the URL for the `/products` route in Spring Cloud Gateway using the following command:
 
 ```azurecli
-GATEWAY_URL=$(az spring-cloud gateway show \
-    --resource-group <resource-group> \
-    --service <spring-cloud-service> | jq -r '.properties.url')
+GATEWAY_URL=$(az spring gateway show \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
 echo "https://${GATEWAY_URL}/products"
 ```

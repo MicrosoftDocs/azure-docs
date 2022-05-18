@@ -80,9 +80,9 @@ Use the following steps to provision an Azure Spring Apps service instance.
 1. Create an Azure Spring Apps service instance using the following the command:
 
    ```azurecli
-   az spring-cloud create \
+   az spring create \
        --resource-group <resource-group-name> \
-       --name <spring-cloud-service> \
+       --name <Azure-Spring-Apps-service-instance-name> \
        --sku enterprise \
        --enable-application-configuration-service \
        --enable-service-registry \
@@ -103,12 +103,12 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
    ```bash
    LOG_ANALYTICS_RESOURCE_ID=$(az monitor log-analytics workspace show \
-       --resource-group <resource-group> \
+       --resource-group <resource-group-name> \
        --workspace-name <workspace-name> | jq -r '.id')
 
-   SPRING_CLOUD_RESOURCE_ID=$(az spring-cloud show \
-       --resource-group <resource-group> \
-       --name <spring-cloud-service> | jq -r '.id')
+   SPRING_CLOUD_RESOURCE_ID=$(az spring show \
+       --resource-group <resource-group-name> \
+       --name <Azure-Spring-Apps-service-instance-name> | jq -r '.id')
    ```
 
 1. Configure diagnostic settings for the Azure Spring Apps Service using the following command:
@@ -159,30 +159,30 @@ Use the following steps to provision an Azure Spring Apps service instance.
 1. Create applications for `cart-service`, `order-service`, `payment-service`, `catalog-service`, and `frontend` using the following commands:
 
    ```azurecli
-   az spring-cloud app create \
-       --resource-group <resource-group> \
+   az spring app create \
+       --resource-group <resource-group-name> \
        --name cart-service \
-       --service <spring-cloud-service>
+       --service <Azure-Spring-Apps-service-instance-name>
 
-   az spring-cloud app create \
-       --resource-group <resource-group> \
+   az spring app create \
+       --resource-group <resource-group-name> \
        --name order-service \
-       --service <spring-cloud-service>
+       --service <Azure-Spring-Apps-service-instance-name>
 
-   az spring-cloud app create \
-       --resource-group <resource-group> \
+   az spring app create \
+       --resource-group <resource-group-name> \
        --name payment-service \
-       --service <spring-cloud-service>
+       --service <Azure-Spring-Apps-service-instance-name>
 
-   az spring-cloud app create \
-       --resource-group <resource-group> \
+   az spring app create \
+       --resource-group <resource-group-name> \
        --name catalog-service
-       --service <spring-cloud-service>
+       --service <Azure-Spring-Apps-service-instance-name>
 
-   az spring-cloud app create \
-       --resource-group <resource-group> \
+   az spring app create \
+       --resource-group <resource-group-name> \
        --name frontend \
-       --service <spring-cloud-service>
+       --service <Azure-Spring-Apps-service-instance-name>
    ```
 
 ## Externalize configuration with Application Configuration Service
@@ -192,10 +192,10 @@ Use the following steps to configure Application Configuration Service.
 1. Create a configuration repository for Application Configuration Service using the following command:
 
    ```azurecli
-   az spring-cloud application-configuration-service git repo add \
-       --resource-group <resource-group> \
+   az spring application-configuration-service git repo add \
+       --resource-group <resource-group-name> \
        --name acme-fitness-store-config \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --label main \
        --patterns "catalog/default,catalog/key-vault,identity/default,identity/key-vault,payment/default" \
        --uri "https://github.com/Azure-Samples/acme-fitness-store-config"
@@ -204,15 +204,15 @@ Use the following steps to configure Application Configuration Service.
 1. Bind Applications to Application Configuration Service using the following commands:
 
    ```azurecli
-   az spring-cloud application-configuration-service bind \
-       --resource-group <resource-group> \
+   az spring application-configuration-service bind \
+       --resource-group <resource-group-name> \
        --app payment-service \
-       --service <spring-cloud-service>
+       --service <Azure-Spring-Apps-service-instance-name>
 
-   az spring-cloud application-configuration-service bind \
-       --resource-group <resource-group> \
+   az spring application-configuration-service bind \
+       --resource-group <resource-group-name> \
        --app catalog-service \
-       --service <spring-cloud-service>
+       --service <Azure-Spring-Apps-service-instance-name>
    ```
 
 ## Service registration and discovery
@@ -220,15 +220,15 @@ Use the following steps to configure Application Configuration Service.
 Bind applications to Service Registry to activate Service Registration and Discovery using the following commands:
 
 ```azurecli
-az spring-cloud service-registry bind \
-    --resource-group <resource-group> \
+az spring service-registry bind \
+    --resource-group <resource-group-name> \
     --app payment-service \
-    --service <spring-cloud-service>
+    --service <Azure-Spring-Apps-service-instance-name>
 
-az spring-cloud service-registry bind \
-    --resource-group <resource-group> \
+az spring service-registry bind \
+    --resource-group <resource-group-name> \
     --app catalog-service \
-    --service <spring-cloud-service>
+    --service <Azure-Spring-Apps-service-instance-name>
 ```
 
 ## Deploy polyglot applications with Tanzu Build Service
@@ -238,20 +238,20 @@ Use the following steps to deploy and build applications. For these steps make s
 1. Create a custom builder in Tanzu Build Service using the following command:
 
    ```azurecli
-   az spring-cloud build-service builder create \
-       --resource-group <resource-group> \
+   az spring build-service builder create \
+       --resource-group <resource-group-name> \
        --name quickstart-builder \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --builder-file azure/builder.json
    ```
 
 1. Build and deploy the payment service using the following command:
 
    ```azurecli
-   az spring-cloud app deploy \
-       --resource-group <resource-group> \
+   az spring app deploy \
+       --resource-group <resource-group-name> \
        --name payment-service \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --config-file-pattern payment/default \
        --source-path apps/acme-payment
    ```
@@ -259,10 +259,10 @@ Use the following steps to deploy and build applications. For these steps make s
 1. Build and deploy the catalog service using the following command:
 
    ```azurecli
-   az spring-cloud app deploy \
-       --resource-group <resource-group> \
+   az spring app deploy \
+       --resource-group <resource-group-name> \
        --name catalog-service \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --config-file-pattern catalog/default \
        --source-path apps/acme-catalog
    ```
@@ -270,10 +270,10 @@ Use the following steps to deploy and build applications. For these steps make s
 1. Build and deploy the order service using the following command:
 
    ```azurecli
-   az spring-cloud app deploy \
-       --resource-group <resource-group> \
+   az spring app deploy \
+       --resource-group <resource-group-name> \
        --name order-service \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --builder quickstart-builder \
        --source-path apps/acme-order
    ```
@@ -281,10 +281,10 @@ Use the following steps to deploy and build applications. For these steps make s
 1. Build and deploy the cart service using the following command:
 
    ```azurecli
-   az spring-cloud app deploy \
-       --resource-group <resource-group> \
+   az spring app deploy \
+       --resource-group <resource-group-name> \
        --name cart-service \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --builder quickstart-builder \
        --env "CART_PORT=8080" \
        --source-path apps/acme-cart
@@ -293,15 +293,15 @@ Use the following steps to deploy and build applications. For these steps make s
 1. Build and deploy the frontend application using the following command:
 
    ```azurecli
-   az spring-cloud app deploy \
-       --resource-group <resource-group> \
+   az spring app deploy \
+       --resource-group <resource-group-name> \
        --name frontend \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --source-path apps/acme-shopping
    ```
 
 > [!TIP]
-> To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring-cloud app logs --name <app name> -f`.
+> To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring app logs --name <app name> -f`.
 
 ## Effortlessly route requests to apps with Spring Cloud Gateway
 
@@ -310,22 +310,22 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 1. Assign an endpoint to Spring Cloud Gateway using the following command:
 
    ```azurecli
-   az spring-cloud gateway update \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> \
+   az spring gateway update \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --assign-endpoint true
    ```
 
 1. Configure Spring Cloud Gateway API information using the following command:
 
    ```azurecli
-   GATEWAY_URL=$(az spring-cloud gateway show \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> | jq -r '.properties.url')
+   GATEWAY_URL=$(az spring gateway show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
-   az spring-cloud gateway update \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> \
+   az spring gateway update \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --api-description "Acme Fitness Store API" \
        --api-title "Acme Fitness Store" \
        --api-version "v1.0" \
@@ -336,10 +336,10 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 1. Create routes for the cart service using the following command:
 
    ```azurecli
-   az spring-cloud gateway route-config create \
-       --resource-group <resource-group> \
+   az spring gateway route-config create \
+       --resource-group <resource-group-name> \
        --name cart-routes \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --app-name cart-service \
        --routes-file azure/routes/cart-service.json
    ```
@@ -347,10 +347,10 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 1. Create routes for the order service using the following command:
 
    ```azurecli
-   az spring-cloud gateway route-config create \
-       --resource-group <resource-group> \
+   az spring gateway route-config create \
+       --resource-group <resource-group-name> \
        --name order-routes \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --app-name order-service \
        --routes-file azure/routes/order-service.json
    ```
@@ -358,10 +358,10 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 1. Create routes for the catalog service using the following command:
 
    ```azurecli
-   az spring-cloud gateway route-config create \
-       --resource-group <resource-group> \
+   az spring gateway route-config create \
+       --resource-group <resource-group-name> \
        --name catalog-routes \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --app-name catalog-service \
        --routes-file azure/routes/catalog-service.json
    ```
@@ -369,10 +369,10 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 1. Create routes for the frontend using the following command:
 
    ```azurecli
-   az spring-cloud gateway route-config create \
-       --resource-group <resource-group> \
+   az spring gateway route-config create \
+       --resource-group <resource-group-name> \
        --name frontend-routes \
-       --service <spring-cloud-service> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --app-name frontend \
        --routes-file azure/routes/frontend.json
    ```
@@ -380,9 +380,9 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 1. Retrieve the URL for Spring Cloud Gateway using the following commands:
 
    ```azurecli
-   GATEWAY_URL=$(az spring-cloud gateway show \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> | jq -r '.properties.url')
+   GATEWAY_URL=$(az spring gateway show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
    echo "https://${GATEWAY_URL}"
    ```
@@ -396,18 +396,18 @@ Use the following steps to configure API Portal.
 1. Assign an endpoint to API Portal using the following command:
 
    ```azurecli
-   az spring-cloud api-portal update \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> \
+   az spring api-portal update \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> \
        --assign-endpoint true
    ```
 
 1. Retrieve the URL for API Portal using the following commands:
 
    ```azurecli
-   PORTAL_URL=$(az spring-cloud api-portal show \
-       --resource-group <resource-group> \
-       --service <spring-cloud-service> | jq -r '.properties.url')
+   PORTAL_URL=$(az spring api-portal show \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
    echo "https://${PORTAL_URL}"
    ```
