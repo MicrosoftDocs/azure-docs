@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 02/03/2022
+ms.date: 05/18/2022
 ms.author: cynthn
 ms.reviewer: amjads
 ms.custom: 
@@ -36,7 +36,7 @@ Application packages provide benefits over other deployment and packaging method
 - Support for virtual machines, and both flexible and uniform scale sets
 
 - If you have Network Security Group (NSG) rules applied on your VM or scale set, downloading the packages from an internet repository might not be possible. And  with storage accounts, downloading packages onto locked-down VMs would require setting up private links.
-- VM applications can be used with the [DeployIfNotExists](../governance/policy/concepts/effects.md) policy.
+
 
 
 ## What are VM app packages?
