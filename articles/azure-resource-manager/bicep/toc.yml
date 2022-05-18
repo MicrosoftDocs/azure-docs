@@ -149,6 +149,8 @@
     items:
     - name: API Management
       href: ../../api-management/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Redis Web App
+      href: ../../azure-cache-for-redis/cache-web-app-bicep-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
 - name: Concepts
   expanded: true
   items:
