@@ -587,13 +587,13 @@ To override the commands, use the PowerShell or Shell script provisioners to cre
 Image Builder will read these commands, these are written out to the AIB logs, `customization.log`. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
 
 ## Properties: validate
-You can use the `validate` property to validate platform images, Azure Compute Gallery image versions, managed images, and customized images built by the Azure Image Builder service. Image Builder supports multiple `validators`. 
+You can use the `validate` property to validate platform images and any customized images you create regardless of if you used Azure Image Builder to create them.
 
-Azure Image Builder supports a 'Validation-only' mode that can be set using the `Source-Validation-Only` field. If the `Source-Validation-Only` field is set to true, the image specified in the `source` section will directly be validated. No separate build will be run to generate and then validate a customized image.
+Azure Image Builder supports a 'Source-Validation-Only' mode that can be set using the `sourceValidationOnly` field. If the `sourceValidationOnly` field is set to true, the image specified in the `source` section will directly be validated. No separate build will be run to generate and then validate a customized image.
 
 The `inVMValidations` field takes a list of validators that will be performed on the image. Azure Image Builder supports both PowerShell and Shell validators.
 
-The `continueDistributeOnFailure` field is responsible for whether the output image(s) will be distributed after failed validation. If validation fails and this field is set to false, the output image(s) will not be distributed (this is the default behavior). If validation fails and this field is set to true, the output image(s) will still be distributed. Please use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed in the case of a validation failure. This field has no effect on whether validation succeeds or not.
+The `continueDistributeOnFailure` field is responsible for whether the output image(s) will be distributed if validation fails. If validation fails and this field is set to false, the output image(s) will not be distributed (this is the default behavior). If validation fails and this field is set to true, the output image(s) will still be distributed. Please use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed in the case of a validation failure. This field has no effect on whether validation succeeds or not.
 
 When using `validate`: 
 - You can use multiple validators
@@ -637,8 +637,9 @@ How to use the `validate` property to validate Windows images
 `inVMValidations` properties:
 
 - **type** – PowerShell.
-- **scriptUri** - URI to the location of the PowerShell script file. 
-- **inline** – Inline commands to be run, separated by commas.
+- **name** - name of the validator
+- **scriptUri** - URI of the PowerShell script file. 
+- **inline** – array of commands to be run, separated by commas.
 - **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
 - **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
 - **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
@@ -675,9 +676,9 @@ How to use the `validate` property to validate Linux images
 `inVMValidations` properties:
 
 - **type** – Shell 
-- **name** - name for tracking the customization 
-- **scriptUri** - URI to the location of the file 
-- **inline** - array of shell commands, separated by commas.
+- **name** - name of the validator
+- **scriptUri** - URI of the script file 
+- **inline** - array of commands to be run, separated by commas.
 - **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
     * To generate the sha256Checksum, using a terminal on Mac/Linux run: `sha256sum <fileName>`
  
