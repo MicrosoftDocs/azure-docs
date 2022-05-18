@@ -45,17 +45,17 @@ Collect all the values in the following table for the packet core instance that 
 
 ## Collect access network values
 
-Collect all the values in the following table to define the packet core instance's connection to the access network over the control plane and user plane interfaces.
+Collect all the values in the following table to define the packet core instance's connection to the access network over the control plane and user plane interfaces. The field name displayed in the Azure portal will depend on the value you have chosen for **Technology type**, as described in [Collect packet core configuration values](#collect-packet-core-configuration-values).
 
 > [!IMPORTANT]
 > For all values in this table, you must use the same values you used when deploying the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device for this site. You did this as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   | The IP address for the control plane interface on the access network. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface.                |**Control plane access interface address (signaling)**|
+   | The IP address for the control plane interface on the access network. For 5G, this interface is the N2 interface, whereas for 4G, it's the S1-MME interface.                |**N2 address (signaling)** (for 5G) or **S1-MME address** (for 4G).|
    | The IP address for the user plane interface on the access network. For 5G, this interface is the N3 interface, whereas for 4G, it's the S1-U interface.                 |N/A. You'll only need this value if you're using an ARM template to create the site.|
-   | The network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation.          |**Control plane access interface subnet** and **User plane access interface subnet**|
-   | The access subnet default gateway.                        |**Control plane access interface gateway** and **User plane access interface gateway**|
+   | The network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation.          |**N2 subnet** and **N3 subnet** (for 5G), or **S1-MME subnet** and **S1-U subnet** (for 4G)|
+   | The access subnet default gateway.                        |**N2 gateway** and **N3 gateway** (for 5G), or **S1-MME gateway** and **S1-U gateway** (for 4G)|
 
 ## Collect data network values
 
@@ -68,8 +68,8 @@ Collect all the values in the following table to define the packet core instance
    |---------|---------|
    |The name of the data network.                  |**Data network**|
    | The IP address for the user plane interface on the data network. For 5G, this interface is the N6 interface, whereas for 4G, it's the SGi interface. You identified the IP address for this interface in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.                 |N/A. You'll only need this value if you're using an ARM template to create the site.|
-   |The network address of the data subnet in CIDR notation. You identified this address in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.                  |**User plane data interface subnet**|
-   |The data subnet default gateway. You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.                               |**User plane data interface gateway**|
+   |The network address of the data subnet in CIDR notation. You identified this address in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.                  |**N6/SGi subnet**|
+   |The data subnet default gateway. You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.                               |**N6/SGi gateway**|
    | The network address of the subnet from which dynamic IP addresses must be allocated to user equipment (UEs), given in CIDR notation. You won't need this address if you don't want to support dynamic IP address allocation for this site. You identified this in [Allocate user equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). The following example shows the network address format. </br></br>`198.51.100.0/24` </br></br>Note that the UE subnets aren't related to the access subnet.    |**Dynamic UE IP pool prefixes**|
    | The network address of the subnet from which static IP addresses must be allocated to user equipment (UEs), given in CIDR notation. You won't need this address if you don't want to support static IP address allocation for this site. You identified this in [Allocate user equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). The following example shows the network address format. </br></br>`198.51.100.0/24` </br></br>Note that the UE subnets aren't related to the access subnet.    |**Static UE IP pool prefixes**|
    |Whether Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the data network, maximizing the utility of a limited supply of public IP addresses.    |**NAPT**|
