@@ -63,7 +63,7 @@ The following example shows you how to add an integration while using a personal
 ```azurecli
 az containerapp github-action add \
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" \
-  --docker-file-path "./dockerfile" \
+  --context-path "./dockerfile" \
   --branch <BRANCH_NAME> \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
