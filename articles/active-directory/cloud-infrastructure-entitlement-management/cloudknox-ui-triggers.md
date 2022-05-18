@@ -1,6 +1,6 @@
 ---
-title: View information about activity triggers in CloudKnox Permissions Management
-description: How to view information about activity triggers in the Activity triggers dashboard in CloudKnox Permissions Management.
+title: View information about activity triggers in Entra Permissions Management
+description: How to view information about activity triggers in the Activity triggers dashboard in Entra Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -9,20 +9,20 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # View information about activity triggers
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how to use the **Activity triggers** dashboard in CloudKnox Permissions Management (CloudKnox) to view information about activity alerts and triggers.
+This article describes how to use the **Activity triggers** dashboard in Entra Permissions Management (Entra) to view information about activity alerts and triggers.
 
 ## Display the Activity triggers dashboard
 
-- In the CloudKnox home page, select **Activity triggers** (the bell icon).
+- In the Entra home page, select **Activity triggers** (the bell icon).
 
     The **Activity triggers** dashboard has four tabs:
 

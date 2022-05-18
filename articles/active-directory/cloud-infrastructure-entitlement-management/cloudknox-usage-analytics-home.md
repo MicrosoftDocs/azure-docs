@@ -1,6 +1,6 @@
 ---
-title: View analytic information with the Analytics dashboard in CloudKnox Permissions Management
-description: How to use the Analytics dashboard in CloudKnox Permissions Management to view details about users, groups, active resources, active tasks, access keys, and serverless functions.
+title: View analytic information with the Analytics dashboard in Entra Permissions Management
+description: How to use the Analytics dashboard in Entra Permissions Management to view details about users, groups, active resources, active tasks, access keys, and serverless functions.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -9,20 +9,20 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # View analytic information with the Analytics dashboard
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article provides a brief overview of the Analytics dashboard in CloudKnox Permissions Management (CloudKnox), and the type of analytic information it provides for Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
+This article provides a brief overview of the Analytics dashboard in Entra Permissions Management (Entra), and the type of analytic information it provides for Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
 
 ## Display the Analytics dashboard
 
-- From the CloudKnox home page, select the **Analytics** tab.
+- From the Entra home page, select the **Analytics** tab.
 
     The **Analytics** dashboard displays detailed information about: 
 

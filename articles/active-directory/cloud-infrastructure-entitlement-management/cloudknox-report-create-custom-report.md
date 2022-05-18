@@ -1,6 +1,6 @@
 ---
-title: Create, view, and share a custom report a custom report in CloudKnox Permissions Management
-description: How to create, view, and share a custom report in the CloudKnox Permissions Management.
+title: Create, view, and share a custom report a custom report in Entra Permissions Management
+description: How to create, view, and share a custom report in the Entra Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -9,20 +9,20 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # Create, view, and share a custom report
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how to create, view, and share a custom report in CloudKnox Permissions Management (CloudKnox).
+This article describes how to create, view, and share a custom report in Entra Permissions Management (Entra).
 
 ## Create a custom report 
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
+1. In the Entra home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 1. Select **New Custom Report**.
 1. In the **Report Name** box, enter a name for your report.
 1. From the **Report Based on** list:
@@ -48,7 +48,7 @@ The report name appears in the **Reports** table.
 
 ## View a custom report 
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
+1. In the Entra home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 
     The **Custom Reports** tab displays the following information in the **Reports** table:
 
@@ -63,17 +63,17 @@ The report name appears in the **Reports** table.
 
 ## Share a custom report
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
+1. In the Entra home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 1. In the **Reports** table, select a report and then select the ellipses (**...**) icon.
 1. In the **Report Settings** box, select **Share with**.
-1. In the **Search Email to add** box, enter the name of other CloudKnox user(s).
+1. In the **Search Email to add** box, enter the name of other Entra user(s).
 
-    You can only share reports with other CloudKnox users.
+    You can only share reports with other Entra users.
 1. Select **Save**.
 
 ## Search for a custom report 
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
+1. In the Entra home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 1. On the **Custom Reports** tab, select **Search**.
 1. In the **Search** box, enter the name of the report you want.
 
@@ -85,7 +85,7 @@ The report name appears in the **Reports** table.
 
 ## Modify a saved or scheduled custom report
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
+1. In the Entra home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 1. Hover over the report name on the **Custom Reports** tab.
 
     - To rename the report, select **Edit** (the pencil icon), and enter a new name.

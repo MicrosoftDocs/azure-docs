@@ -1,6 +1,6 @@
 ---
-title: Filter and query user activity in CloudKnox Permissions Management 
-description: How to filter and query user activity in CloudKnox Permissions Management.
+title: Filter and query user activity in Entra Permissions Management 
+description: How to filter and query user activity in Entra Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -9,16 +9,16 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # Filter and query user activity
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Audit** dashboard in CloudKnox Permissions Management (CloudKnox) details all user activity performed in your authorization system. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. The **Audit** dashboard enables you to: 
+The **Audit** dashboard in Entra Permissions Management (Entra) details all user activity performed in your authorization system. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. The **Audit** dashboard enables you to: 
 
 - Create and save new queries so you can access key data points easily.
 - Query across multiple authorization systems in one query.
@@ -29,7 +29,7 @@ If you haven't used filters before, the default filter is the first authorizatio
 
 If you have used filters before, the default filter is last filter you selected.
 
-1. To display the **Audit** dashboard, on the CloudKnox home page, select **Audit**.
+1. To display the **Audit** dashboard, on the Entra home page, select **Audit**.
 
 1. To select your authorization system type, in the **Authorization System Type** box, select Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), Google Cloud Platform (**GCP**), or Platform (**Platform**). 
 
@@ -80,7 +80,7 @@ There are several different query parameters you can configure individually or i
 The **Operator** menu displays the following options depending on the identity you select in the first dropdown:
 
 - **Is** / **Is Not**: View a list of all available usernames. You can either select or enter a username in the box.
-- **Contains** / **Not Contains**: Enter text that the **Username** should or shouldn't contain, for example, *CloudKnox*.
+- **Contains** / **Not Contains**: Enter text that the **Username** should or shouldn't contain, for example, *Entra*.
 - **In** / **Not In**: View a list all available usernames and select multiple usernames.
 
 ### Create a query with a username
@@ -95,7 +95,7 @@ The **Operator** menu displays the following options depending on the identity y
 
     You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with the username **Test**.
 
-1. Select the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *CloudKnox*.
+1. Select the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *Entra*.
 
 1. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
@@ -115,7 +115,7 @@ The **Operator** menu displays the following options depending on the identity y
 
       You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with resource name **Test**. 
 
-1. Select the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *CloudKnox*. 
+1. Select the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *Entra*. 
 
 1. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
@@ -198,7 +198,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**. 
 
-6. Select the **Add** icon, select **Or** with **Contains**, and then enter your criteria, for example *CloudKnox*. 
+6. Select the **Add** icon, select **Or** with **Contains**, and then enter your criteria, for example *Entra*. 
 
 7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
@@ -218,7 +218,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**. 
 
-6. Select the **Add** icon, select **Or** with **Contains**, and then enter your criteria, for example *CloudKnox*. 
+6. Select the **Add** icon, select **Or** with **Contains**, and then enter your criteria, for example *Entra*. 
 
 7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
@@ -258,7 +258,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select **Test**. 
 
-6. Select the **Add** icon, select **Or** with **Is**, and then enter your criteria, for example *CloudKnox*. 
+6. Select the **Add** icon, select **Or** with **Is**, and then enter your criteria, for example *Entra*. 
 
 7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
@@ -278,7 +278,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select **Test**. 
 
-6. Select the **Add** icon, select **Or** with **Is**, and then enter your criteria, for example *CloudKnox*. 
+6. Select the **Add** icon, select **Or** with **Is**, and then enter your criteria, for example *Entra*. 
 
 7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
@@ -391,7 +391,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 - To export the results of the query, select **Export**.
 
-    CloudKnox exports the results in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
+    Entra exports the results in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
 
 
 ## Next steps
