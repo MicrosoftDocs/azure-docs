@@ -40,7 +40,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).  Go to **App registrat
 
 Go to **Certificates and secrets**.  In the **Federated credentials** tab, select **Add credential**.  The **Add a credential** blade opens.
 
-In the **Federated credential scenario** drop-down box select **GitHub actions deploying Azure resources**.
+In the **Federated credential scenario** drop-down box select **GitHub Actions deploying Azure resources**.
 
 Specify the **Organization** and **Repository** for your GitHub Actions workflow.  
 
