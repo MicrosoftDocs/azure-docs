@@ -82,24 +82,24 @@ The implementation of all of the 3GPP specifications given in [3GPP specificatio
 
 - IETF RFC 768: User Datagram Protocol.
 - IETF RFC 791: Internet Protocol.
-- IETF RFC 2474: Definition of the Differentiated Services Field (DS Field) in the IPv4 and IPv6 Headers.
+- IETF RFC 2279: UTF-8, a transformation format of ISO 10646.
 - IETF RFC 2460: Internet Protocol, Version 6 (IPv6) Specification.
+- IETF RFC 2474: Definition of the Differentiated Services Field (DS Field) in the IPv4 and IPv6 Headers.
+- IETF RFC 3748: Extensible Authentication Protocol (EAP).
+- IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax.
+- IETF RFC 4187: Extensible Authentication Protocol Method for 3rd Generation Authentication and Key Agreement (EAP-AKA).
 - IETF RFC 4291: IP Version 6 Addressing Architecture.
 - IETF RFC 4960: Stream Control Transmission Protocol.
-- IETF RFC 2279: UTF-8, a transformation format of ISO 10646.
-- IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax.
+- IETF RFC 5448: Improved Extensible Authentication Protocol Method for 3rd Generation Authentication and Key Agreement (EAP-AKA').
 - IETF RFC 5789: PATCH Method for HTTP.
+- IETF RFC 6458: Sockets API Extensions for the Stream Control Transmission Protocol (SCTP).
+- IETF RFC 6733: Diameter Base Protocol.
+- IETF RFC 6749: The OAuth 2.0 Authorization Framework.
 - IETF RFC 6902: JavaScript Object Notation (JSON) Patch.
 - IETF RFC 7396: JSON Merge Patch.
 - IETF RFC 7540: Hypertext Transfer Protocol Version 2 (HTTP/2).
 - IETF RFC 7807: Problem Details for HTTP APIs.
 - IETF RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format.
-- IETF RFC 3748: Extensible Authentication Protocol (EAP).
-- IETF RFC 4187: Extensible Authentication Protocol Method for 3rd Generation Authentication and Key Agreement (EAP-AKA).
-- IETF RFC 5448: Improved Extensible Authentication Protocol Method for 3rd Generation Authentication and Key Agreement (EAP-AKA').
-- IETF RFC 6458: Sockets API Extensions for the Stream Control Transmission Protocol (SCTP).
-- IETF RFC 6733: Diameter Base Protocol.
-- IETF RFC 6749: The OAuth 2.0 Authorization Framework.
 
 ## ITU-T Recommendations
 
