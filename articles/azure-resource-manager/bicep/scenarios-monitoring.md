@@ -24,19 +24,21 @@ You can create Log Analytics workspaces with the resource type [Microsoft.Operat
 
 When creating [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in Bicep, remember that this resource is an [extension resource](scope-extension-resources.md), which means it's applied to another resource. You can create diagnostic settings in Bicep by using the resource type [Microsoft.Insights/diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings?tabs=bicep).
 
-When creating diagnostic settings in Bicep, you need to apply the scope of the diagnostic setting. The scope can be applied at the Management, Subscription, or Resource Group level. [Use the scope property on this resource to set the scope for this resource](../../azure-resource-manager/bicep/scope-extension-resources.md).
+When creating diagnostic settings in Bicep, you need to apply the scope of the diagnostic setting. The scope can be applied at the management, subscription, or resource group level. [Use the scope property on this resource to set the scope for this resource](../../azure-resource-manager/bicep/scope-extension-resources.md). 
 
 Consider the following example:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/diagnostic-settings.bicep" :::
 
-In the preceding example, you create a diagnostic setting for the App Service plan and send those diagnostics to Log Analytics. You can use the `scope` property to define your App Service plan as the scope for your diagnostic setting, and use the `workspaceId` property to define the Log Analytics workspace to send the diagnostic logs to. Diagnostic settings differ between resources, so ensure that the diagnostic settings you want to create are applicable for the resource you're using.
+In the preceding example, you create a diagnostic setting for the App Service plan and send those diagnostics to Log Analytics. You can use the `scope` property to define your App Service plan as the scope for your diagnostic setting, and use the `workspaceId` property to define the Log Analytics workspace to send the diagnostic logs to. You can also export diagnostic settings to Event Hubs and Azure Storage Accounts.
+
+Diagnostic settings differ between resources, so ensure that the diagnostic settings you want to create are applicable for the resource you're using.
 
 ## Alerts
 
 Alerts proactively notify you when issues are found within your Azure infrastructure and applications by monitoring data within Azure Monitor. By configuring your monitoring and alerting configuration within your Bicep code, you can automate the creation of these alerts alongside the infrastructure that you are provisioning in Azure.
 
-Read [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md) to further understand how alerts work in Azure, what you can alert on and how you can manage alerts and rules.
+For more information about how alerts work in Azure see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 The following sections demonstrate how you can configure different types of alerts using Bicep code.
 
@@ -105,7 +107,7 @@ In Bicep, you can create portal dashboards by using the resource type [Microsoft
 
 For more information about creating dashboards with code, see [Programmatically create an Azure Dashboard](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
-## Creating autoscaling rules
+## Autoscale rules
 
 To create an autoscaling setting, you define these using the resource type [Microsoft.Insights/autoscaleSettings](/azure/templates/microsoft.insights/autoscalesettings?tabs=bicep). 
 
