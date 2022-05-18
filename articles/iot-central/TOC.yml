@@ -212,6 +212,9 @@
           href: core/howto-manage-jobs-with-rest-api.md
         - name: Manage applications
           href: core/howto-manage-iot-central-with-rest-api.md
+        - name: Upload File
+          href: core/howto-upload-file-rest-api.md
+          
 
     - name: Secure and administer your application
       items:
