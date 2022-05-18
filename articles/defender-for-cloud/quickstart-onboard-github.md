@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud'
-description: Learn how to 
+description: Learn how to connect your github repository to Defender for Cloud.
 ms.date: 05/09/2022
 ms.topic: tutorial
 ---
