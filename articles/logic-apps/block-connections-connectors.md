@@ -12,7 +12,7 @@ ms.date: 05/18/2022
 
 If your organization doesn't permit connecting to restricted or unapproved resources using their [managed connectors](../connectors/managed.md) in Azure Logic Apps, you can block the capability to create and use those connections in logic app workflows. With [Azure Policy](../governance/policy/overview.md), you can define and enforce [policies](../governance/policy/overview.md#policy-definition) that prevent creating or using connections for connectors that you want to block. For example, for security reasons, you might want to block connections to specific social media platforms or other services and systems.
 
-This article shows how to set up a policy that blocks specific connections by using the Azure portal, but you can create policy definitions in other ways, for example, through the Azure REST API, Azure PowerShell, Azure CLI, and Azure Resource Manager templates. For more information, see [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
+This article shows how to set up a policy that blocks specific connections by using the Azure portal, but you can create policy definitions in other ways. For example, you can use the Azure REST API, Azure PowerShell, Azure CLI, and Azure Resource Manager templates. For more information, see [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ If you already have a logic app with the connection that you want to block, foll
 
       `"id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{connection-name}"`
 
-      For example, the following shows the `id` property and value for an Instagram connection:
+      The following example shows the `id` property and value for an Instagram connection:
 
       `"id": "/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/providers/Microsoft.Web/locations/westus/managedApis/instagram"`
 
@@ -127,7 +127,7 @@ To block creating a connection altogether in a logic app workflow, follow these 
    | `effect` | `deny` | The `effect` is to block the request, which is to create the specified connection <p><p>For more information, see [Understand Azure Policy effects - Deny](../governance/policy/concepts/effects.md#deny). |
    ||||
 
-   For example, suppose that you want to block creating connections with the Instagram connector. Here is the policy definition that you can use:
+   For example, suppose that you want to block creating connections with the Instagram connector. Here's the policy definition that you can use:
 
    ```json
    {
@@ -145,7 +145,7 @@ To block creating a connection altogether in a logic app workflow, follow these 
    }
    ```
 
-   Here is the way that the **POLICY RULE** box appears:
+   Here's the way that the **POLICY RULE** box appears:
 
    ![Screenshot showing the "POLICY RULE" box with a policy rule example.](./media/block-connections-connectors/policy-definition-create-connections-2.png)
 
@@ -185,7 +185,7 @@ To block creating a connection altogether in a logic app workflow, follow these 
 
 1. When you're done, select **Save**. After you save the policy definition, Azure Policy generates and adds more property values to the policy definition.
 
-1. Next, to assign the policy definition where you want enforce the policy, [create a policy assignment](#create-policy-assignment).
+1. Next, to assign the policy definition where you want to enforce the policy, [create a policy assignment](#create-policy-assignment).
 
 For more information about Azure Policy definitions, see these topics:
 
@@ -244,11 +244,11 @@ When you create a connection in a logic app workflow, this connection exists as 
    | `if` | `{condition-to-evaluate}` | The condition that determines when to enforce the policy rule <p><p>In this scenario, the `{condition-to-evaluate}` determines whether the string output from `[string(field('Microsoft.Logic/workflows/parameters'))]`, contains the string, `{connector-name}`. <p><p>For more information, see [Policy definition structure - Policy rule](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `value` | `[string(field('Microsoft.Logic/workflows/parameters'))]` | The value to compare against the condition <p><p>In this scenario, the `value` is the string output from `[string(field('Microsoft.Logic/workflows/parameters'))]`, which converts the `$connectors` object inside the `Microsoft.Logic/workflows/parameters` object to a string. |
    | `contains` | `{connector-name}` | The logical operator and value to use for comparing with the `value` property <p><p>In this scenario, the `contains` operator makes sure that the rule works regardless where `{connector-name}` appears, where the string, `{connector-name}`, is the ID for the connector that you want to restrict or block. <p><p>For example, suppose that you want to block using connections to social media platforms or databases: <p><p>- Twitter: `twitter` <br>- Instagram: `instagram` <br>- Facebook: `facebook` <br>- Pinterest: `pinterest` <br>- SQL Server or Azure SQL: `sql` <p><p>To find these connector IDs, see [Find connector reference ID](#connector-reference-ID) earlier in this topic. |
-   | `then` | `{effect-to-apply}` | The effect to apply when the `if` condition is met <p><p>In this scenario, the `{effect-to-apply}` is to block and fail a request or operation the doesn't comply with the policy. <p><p>For more information, see [Policy definition structure - Policy rule](../governance/policy/concepts/definition-structure.md#policy-rule). |
+   | `then` | `{effect-to-apply}` | The effect to apply when the `if` condition is met <p><p>In this scenario, the `{effect-to-apply}` is to block and fail a request or operation that doesn't comply with the policy. <p><p>For more information, see [Policy definition structure - Policy rule](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `effect` | `deny` | The `effect` is to `deny` or block the request to save a logic app that uses the specified connection <p><p>For more information, see [Understand Azure Policy effects - Deny](../governance/policy/concepts/effects.md#deny). |
    ||||
 
-   For example, suppose that you want to block saving logic apps that use Instagram connections. Here is the policy definition that you can use:
+   For example, suppose that you want to block saving logic apps that use Instagram connections. Here's the policy definition that you can use:
 
    ```json
    {
@@ -266,13 +266,13 @@ When you create a connection in a logic app workflow, this connection exists as 
     }
     ```
 
-   Here is the way that the **POLICY RULE** box appears:
+   Here's the way that the **POLICY RULE** box appears:
 
    ![Screenshot showing policy definition rule.](./media/block-connections-connectors/policy-definition-using-connections-2.png)
 
 1. When you're done, select **Save**. After you save the policy definition, Azure Policy generates and adds more property values to the policy definition.
 
-1. Next, to assign the policy definition where you want enforce the policy, [create a policy assignment](#create-policy-assignment).
+1. Next, to assign the policy definition where you want to enforce the policy, [create a policy assignment](#create-policy-assignment).
 
 For more information about Azure Policy definitions, see these topics:
 
