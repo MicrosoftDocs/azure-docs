@@ -21,8 +21,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in May include:
 
 - [Multi-cloud settings of Servers plan are now available in connector level](#multi-cloud-settings-of-servers-plan-are-now-available-in-connector-level)
-- [JIT is now available for AWS (Preview)](#jit-is-now-available-for-aws-preview)
 - [Changes to vulnerability assessment](#changes-to-vulnerability-assessment) 
+- [JIT is now available for AWS (Preview)](#jit-is-now-available-for-aws-preview)
 
 ### Multi-cloud settings of Servers plan are now available in connector level
 
