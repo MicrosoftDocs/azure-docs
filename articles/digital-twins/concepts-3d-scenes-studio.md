@@ -21,6 +21,8 @@ Azure Digital Twins [3D Scenes Studio (preview)](https://explorer.digitaltwins.a
 
 With a digital twin graph and curated 3D model, subject matter experts can leverage the studio's low-code builder to map the 3D elements to the digital twin, and define UI interactivity and business logic for a 3D visualization of a business environment. The 3D scenes can then be consumed in the hosted [Azure Digital Twins Explorer 3D Scenes Studio](concepts-azure-digital-twins-explorer.md), or in a custom application that leverages the embeddable 3D viewer component.
 
+This article gives an overview of 3D Scenes Studio and its key features. For comprehensive, step-by-step instructions on how to use each feature, see [Use 3D Scenes Studio (preview)](how-to-use-3d-scenes-studio.md).
+
 ## Studio overview
 
 Work in 3D Scenes Studio is built around the concept of *scenes*. A scene is a view of a single business environment, and is comprised of 3D content, custom business logic, and references to an Azure Digital Twins instance. You can have multiple scenes for a single digital twin instance.
@@ -66,9 +68,11 @@ Here's what the builder looks like:
 
 :::image type="content" source="media/concepts-3d-scenes-studio/build-mode.png" alt-text="Screenshot of 3D Scenes Studio builder."  lightbox="media/concepts-3d-scenes-studio/build-mode.png":::
 
-In the builder, you'll create *elements* and *behaviors* for your scene. Elements are user-defined 3D meshes that are linked to digital twins, mapping the visualization pieces to relevant twin data. Behaviors are business logic rules that use digital twin data to drive visuals in the scene.
+In the builder, you'll create *elements* and *behaviors* for your scene. The following sections explain these features in more detail.
 
 ### Elements
+
+*Elements* are user-defined 3D meshes that are linked to digital twins, mapping the visualization pieces to relevant twin data.
 
 When creating an element in the builder, you'll define the following components:
 
@@ -79,6 +83,8 @@ When creating an element in the builder, you'll define the following components:
 * **Aliased twins**: If you want, you can add secondary digital twin data sources for an element. You should only add aliased twins when there are additional twins with data beyond your primary twin that you want to leverage in your behaviors. After configuring an aliased twin, you'll be able to use properties from that twin when defining behaviors for that element.
 
 ### Behaviors
+
+*Behaviors* are business logic rules that use digital twin data to drive visuals in the scene.
 
 When creating a behavior for an element, you'll define the following components:
 
