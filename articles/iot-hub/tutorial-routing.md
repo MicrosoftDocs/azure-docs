@@ -1,17 +1,17 @@
 ---
-title: Tutorial - Configure message routing for Azure IoT Hub using Azure CLI
-description: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI and the Azure portal
+title: Tutorial - Configure message routing | Azure IoT Hub
+description: Tutorial - Route device messages to an Azure Storage account with message routing for Azure IoT Hub using the Azure CLI and the Azure portal
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 05/12/2022
+ms.date: 05/18/2022
 ms.author: kgremban
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using CLI and the Azure Portal.
 ---
 
-# Tutorial: Use the Azure CLI and Azure portal to configure IoT Hub message routing
+# Tutorial: Send device data to Azure Storage using IoT Hub message routing
 
 Use [message routing](iot-hub-devguide-messages-d2c.md) in Azure IoT Hub to send telemetry data from your IoT devices Azure services such as blob storage, Service Bus Queues, Service Bus Topics, and Event Hubs.
 
@@ -23,8 +23,8 @@ In this tutorial, you perform the following tasks:
 >
 > * Create an IoT hub and send device messages to it.
 > * Create a storage account.
-> * Configure a custom endpoint and message route in IoT Hub for the storage account.
-> * View device messages arriving in the storage account blob.
+> * Create a custom endpoint for the storage account and route messages to it from the IoT hub.
+> * View device messages in the storage account blob.
 
 ## Prerequisites
 

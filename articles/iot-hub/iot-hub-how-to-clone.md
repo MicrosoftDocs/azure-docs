@@ -57,18 +57,18 @@ There are several things to consider before cloning an IoT hub.
 
 This is the general method we recommend for moving an IoT hub from one region to another. For message routing, this assumes the resources are not being moved to the new region. For more information, see the [section on Message Routing](#how-to-handle-message-routing).
 
-   1. Export the hub and its settings to a Resource Manager template. 
-   
+   1. Export the hub and its settings to a Resource Manager template.
+
    1. Make the necessary changes to the template, such as updating all occurrences of the name and the location for the cloned hub. For any resources in the template used for message routing endpoints, update the key in the template for that resource.
-   
+
    1. Import the template into a new resource group in the new location. This creates the clone.
 
-   1. Debug as needed. 
-   
-   1. Add anything that wasn't exported to the template. 
-   
-       For example, consumer groups are not exported to the template. You need to add the consumer groups to the template manually or use the [Azure portal](https://portal.azure.com) after the hub is created. There is an example of adding one consumer group to a template in the article [Use an Azure Resource Manager template to configure IoT Hub message routing](tutorial-routing-config-message-routing-rm-template.md).
-       
+   1. Debug as needed.
+
+   1. Add anything that wasn't exported to the template.
+
+       For example, consumer groups are not exported to the template. You need to add the consumer groups to the template manually or use the [Azure portal](https://portal.azure.com) after the hub is created.
+
    1. Copy the devices from the original hub to the clone. This is covered in the section [Managing the devices registered to the IoT hub](#managing-the-devices-registered-to-the-iot-hub).
 
 ## How to handle message routing
