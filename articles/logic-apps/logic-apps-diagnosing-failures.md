@@ -80,21 +80,37 @@ Each time that the trigger fires, Azure Logic Apps creates a workflow instance a
 
 1. To check the workflow's run status in your Consumption logic app, [review the runs history](monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
 
-   ![Screenshot showing the Azure portal with the workflow runs and a failed run selected.](./media/logic-apps-diagnosing-failures/logic-app-runs-history-consumption.png)
+   ![Screenshot showing Azure portal with Consumption logic app workflow runs and a failed run selected.](./media/logic-apps-diagnosing-failures/logic-app-runs-history-consumption.png)
 
 1. After all the steps in the run appear, select each step to expand their shapes.
 
-   ![Screenshot showing the failed step selected.](./media/logic-apps-diagnosing-failures/logic-app-run-pane-consumption.png)
+   ![Screenshot showing Consumption logic app workflow with failed step selected.](./media/logic-apps-diagnosing-failures/logic-app-run-pane-consumption.png)
 
 1. Review the inputs, outputs, and any error messages for the failed step.
 
-   ![Screenshot showing the step's inputs.](./media/logic-apps-diagnosing-failures/failed-action-inputs-consumption.png)
+   ![Screenshot showing Consumption logic app workflow with failed step details.](./media/logic-apps-diagnosing-failures/failed-action-inputs-consumption.png)
 
    For example, the following screenshot shows the outputs from the failed Outlook action.
 
-   ![View step details](./media/logic-apps-diagnosing-failures/review-action-outputs-consumption.png)
+   ![Screenshot showing Consumption logic app workflow with failed step outputs.](./media/logic-apps-diagnosing-failures/review-action-outputs-consumption.png)
 
 ### [Standard](#tab/standard)
+
+1. To check the workflow's run status in your Standard logic app, [review the runs history](monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
+
+   ![Screenshot showing Azure portal with Standard logic app workflow runs and a failed run selected.](./media/logic-apps-diagnosing-failures/logic-app-runs-history-standard.png)
+
+1. After all the steps in the run appear, select each step to expand their shapes.
+
+   ![Screenshot showing Standard logic app workflow with failed step selected.](./media/logic-apps-diagnosing-failures/logic-app-run-pane-standard.png)
+
+1. Review the inputs, outputs, and any error messages for the failed step.
+
+   ![Screenshot showing Standard logic app workflow with failed step details.](./media/logic-apps-diagnosing-failures/failed-action-inputs-standard.png)
+
+   For example, the following screenshot shows the outputs from the failed Outlook action.
+
+   ![Screenshot showing Standard logic app workflow with failed step outputs.](./media/logic-apps-diagnosing-failures/review-action-outputs-standard.png)
 
 ---
 
