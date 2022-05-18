@@ -47,7 +47,7 @@ While not required, you may want to [configure](set-edit-policies.md) one or mor
     Example name: *ForwardContext*
 1. In the **XML policy fragment** editor, type or paste one or more policy XML elements between the `<fragment>` and `</fragment>` tags. 
 
-    :::image type="content" source="media/policy-fragments/create-fragment.png" alt-text="Create policy fragment":::
+    :::image type="content" source="media/policy-fragments/create-fragment.png" alt-text="Screenshot showing the create a new policy fragment form.":::
 
     For example, the following fragment contains a [`set-header`](api-management-transformation-policies.md#SetHTTPheader) policy configuration to forward context information to a backend service. This fragment would be included in an inbound policy section. The policy expressions in this example access the built-in [`context` variable](api-management-policy-expressions.md#ContextVariables).
 
