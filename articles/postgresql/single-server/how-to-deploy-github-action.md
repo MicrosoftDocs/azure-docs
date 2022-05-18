@@ -186,7 +186,7 @@ You will use the connection string as a GitHub secret.
 
 1. Open the first result to see detailed logs of your workflow's run.
 
-    :::image type="content" source="media/how-to-deploy-github-action/gitbub-action-postgres-success.png" alt-text="Log of GitHub actions run":::
+    :::image type="content" source="media/how-to-deploy-github-action/gitbub-action-postgres-success.png" alt-text="Log of GitHub Actions run":::
 
 ## Clean up resources
 
