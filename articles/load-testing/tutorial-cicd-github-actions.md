@@ -169,7 +169,7 @@ Follow these steps to configure the GitHub Actions workflow for your environment
       LOAD_TEST_RESOURCE_GROUP: "<your-azure-load-testing-resource-group-name>"
     ```
 
-    These variables are used to configure the GitHub actions for deploying the sample application to Azure, and to connect to your Azure Load Testing resource.
+    These variables are used to configure the GitHub Actions for deploying the sample application to Azure, and to connect to your Azure Load Testing resource.
 
 1. Commit your changes directly to the main branch.
 
