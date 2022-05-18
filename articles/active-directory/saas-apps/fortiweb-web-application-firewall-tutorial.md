@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     e.	In the **Name** field, provide the value for `<fwName>` used in the Configure Azure AD section.
 
-    f.	In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    f.	In the **Entity ID** textbox, Enter the Identifier (Entity ID) in Basic SAML Configuration section.Like https://www.<CUSTOMER_DOMAIN>.com/samlsp
 
     g. Next to **Metadata**, click **Choose File** and select the **Federation Metadata XML** file which you have downloaded from the Azure portal.
 
