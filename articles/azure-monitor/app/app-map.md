@@ -287,11 +287,11 @@ In large distributed applications there's always some degree of noise coming fro
 
 Enable the Intelligent View toggle. Optionally, to change the sensitivity of the detections choose--**Low**, **Medium**, or **High**. See more detail on [sensitivity here](#how-does-intelligent-view-sensitivity-work).
 
-:::image type="content" source="media/app-map/IntelligentViewToggle.png" alt-text="Screenshot of the Application Map user interface with options to toggle Intelligent View and provide feedback" lightbox="media/app-map/IntelligentViewToggle.png":::
+:::image type="content" source="media/app-map/intelligent-view-toggle.png" alt-text="Screenshot of the Application Map user interface with options to toggle Intelligent View and provide feedback" lightbox="media/app-map/intelligent-view-toggle.png":::
 
 After the Intelligent View has been enabled, select one of the highlighted edges to see the "actionable insights". The insights will be visible in the panel on the right and explain why the edge was highlighted.
 
-:::image type="content" source="media/app-map/IntelligentViewHighlightExplanation.png" alt-text="Screenshot of the Application Map user interface why is this highlighted section" lightbox="media/app-map/IntelligentViewHighlightExplanation.png":::
+:::image type="content" source="media/app-map/intelligent-view-highlight-explanation.png" alt-text="Screenshot of the Application Map user interface why is this highlighted section" lightbox="media/app-map/intelligent-view-highlight-explanation.png":::
 
 Begin your troubleshooting journey by selecting **Investigate Failures**. This button will launch the failures pane, in which you may investigate if the detected issue is the root cause. If no edges are red, the ML model didn't find potential incidents in the dependencies of your application.
 
@@ -381,7 +381,7 @@ In a case where an edge is highlighted the explanation from the model should poi
 
 If Intelligent View doesn't load, ensure that you've opted into the preview on Application Map.
 
-:::image type="content" source="media/app-map/IntelligentViewTryPreview.png" alt-text="Screenshot of the Application Map user interface preview opt in button" lightbox="media/app-map/IntelligentViewTryPreview.png":::
+:::image type="content" source="media/app-map/intelligent-view-try-preview.png" alt-text="Screenshot of the Application Map user interface preview opt in button" lightbox="media/app-map/intelligent-view-try-preview.png":::
 
 #### Intelligent View takes a long time to load
 
@@ -389,7 +389,7 @@ Avoid clicking on the **Update Map Component** button.
 
 Enable Intelligent View only for a single Application Insight resource.
 
-:::image type="content" source="media/app-map/IntelligentViewUpdateMapComponents.png" alt-text="Screenshot of the Application Map user interface update map components button" lightbox="media/app-map/IntelligentViewUpdateMapComponents.png":::
+:::image type="content" source="media/app-map/intelligent-view-update-map-components.png" alt-text="Screenshot of the Application Map user interface update map components button" lightbox="media/app-map/intelligent-view-update-map-components.png":::
 
 ## Portal feedback
 
