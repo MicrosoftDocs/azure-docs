@@ -1,6 +1,6 @@
 ---
-title: View data about the activity in your authorization system in CloudKnox Permissions Management
-description: How to view data about the activity in your authorization system in the CloudKnox Dashboard in CloudKnox Permissions Management.
+title: View data about the activity in your authorization system in Entra Permissions Management
+description: How to view data about the activity in your authorization system in the Entra Dashboard in Entra Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -9,7 +9,7 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 
@@ -17,14 +17,14 @@ ms.author: v-ydequadros
 # View data about the activity in your authorization system
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The CloudKnox Permissions Management (CloudKnox) **Dashboard** provides an overview of the authorization system and account activity being monitored. You can use this dashboard to view data collected from your Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) authorization systems.
+The Entra Permissions Management (Entra) **Dashboard** provides an overview of the authorization system and account activity being monitored. You can use this dashboard to view data collected from your Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) authorization systems.
 
 ## View data about your authorization system
 
-1. In the CloudKnox home page, select **Dashboard**.
+1. In the Entra home page, select **Dashboard**.
 1. From the **Authorization systems type** dropdown, select **AWS**, **Azure**, or **GCP**.
 1. Select the **Authorization System** box to display a **List** of accounts and **Folders** available to you. 
 1. Select the accounts and folders you want, and then select **Apply**. 
@@ -45,7 +45,7 @@ The CloudKnox Permissions Management (CloudKnox) **Dashboard** provides an overv
 
 1. To return to the PCI graph, select the **Graph** icon in the upper right of the list box. 
 
-For more information about the CloudKnox **Dashboard**, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
+For more information about the Entra **Dashboard**, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
 
 ## View user data on the PCI heat map
 

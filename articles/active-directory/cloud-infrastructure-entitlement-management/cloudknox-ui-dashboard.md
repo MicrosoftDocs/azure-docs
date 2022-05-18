@@ -1,6 +1,6 @@
 ---
-title: View key statistics and data about your authorization system in CloudKnox Permissions Management
-description: How to view statistics and data about your authorization system in the CloudKnox Permissions Management.
+title: View key statistics and data about your authorization system in Entra Permissions Management
+description: How to view statistics and data about your authorization system in the Entra Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -9,34 +9,34 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 
 # View key statistics and data about your authorization system
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-CloudKnox Permissions Management (CloudKnox) provides a summary of key statistics and data about your authorization system regularly. This information is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
+Entra Permissions Management (Entra) provides a summary of key statistics and data about your authorization system regularly. This information is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
 
 ## View metrics related to avoidable risk
 
-The data provided by CloudKnox includes metrics related to avoidable risk. These metrics allow the CloudKnox administrator to identify areas where they can reduce risks related to the principle of least permissions.
+The data provided by Entra includes metrics related to avoidable risk. These metrics allow the Entra administrator to identify areas where they can reduce risks related to the principle of least permissions.
 
-You can view the following information in CloudKnox:
+You can view the following information in Entra:
 
-- The **Permission Creep Index (PCI)** heat map on the CloudKnox **Dashboard** identifies:
+- The **Permission Creep Index (PCI)** heat map on the Entra **Dashboard** identifies:
     - The number of users who have been granted high-risk permissions but aren't using them.
     - The number of users who contribute to the permission creep index (PCI) and where they are on the scale.
 
 - The [**Analytics** dashboard](cloudknox-usage-analytics-home.md) provides a snapshot of permission metrics within the last 90 days.
 
 
-## Components of the CloudKnox Dashboard
+## Components of the Entra Dashboard
 
-The CloudKnox **Dashboard** displays the following information:
+The Entra **Dashboard** displays the following information:
 
 - **Authorization system types**: A dropdown list of authorization system types you can access: AWS, Azure, and GCP.
  
@@ -54,7 +54,7 @@ The CloudKnox **Dashboard** displays the following information:
     - To download the list, select the down arrow in the upper right of the list box.
 
         The following message displays: **We'll email you a link to download the file.** 
-        - Check your email for the message from the CloudKnox Customer Success Team. The email contains a link to the **PCI history** report in Microsoft Excel format.
+        - Check your email for the message from the Entra Customer Success Team. The email contains a link to the **PCI history** report in Microsoft Excel format.
         - The email also includes a link to the **Reports** dashboard, where you can configure how and when you want to receive reports automatically.
     - To view all the PCI changes, select **View all**.
 
@@ -134,7 +134,7 @@ You can also view a summary of users and activities section on the [Analytics da
 
 ## Next steps
 
-- For information on how to view authorization system and account activity data on the CloudKnox Dashboard, see [View data about the activity in your authorization system](cloudknox-product-dashboard.md).
+- For information on how to view authorization system and account activity data on the Entra Dashboard, see [View data about the activity in your authorization system](cloudknox-product-dashboard.md).
 - For an overview of the Analytics dashboard, see [An overview of the Analytics  dashboard](cloudknox-usage-analytics-home.md).
 
 

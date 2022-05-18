@@ -1,6 +1,6 @@
 ---
-title: View information about roles/ policies in the Remediation dashboard in CloudKnox Permissions Management
-description: How to view and filter information about roles/ policies in the Remediation dashboard in CloudKnox Permissions Management.
+title: View information about roles/ policies in the Remediation dashboard in Entra Permissions Management
+description: How to view and filter information about roles/ policies in the Remediation dashboard in Entra Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -9,31 +9,31 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # View information about roles/ policies in the Remediation dashboard
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Remediation** dashboard in CloudKnox Permissions Management (CloudKnox) enables system administrators to view, adjust, and remediate excessive permissions based on a user's activity data. You can use the **Roles/Policies** subtab in the dashboard to view information about roles and policies in the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems. 
+The **Remediation** dashboard in Entra Permissions Management (Entra) enables system administrators to view, adjust, and remediate excessive permissions based on a user's activity data. You can use the **Roles/Policies** subtab in the dashboard to view information about roles and policies in the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems. 
 
 > [!NOTE]
 > To view the **Remediation dashboard** tab, you must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
 
 > [!NOTE]
-> Microsoft Azure uses the term *role* for what other Cloud providers call *policy*. CloudKnox automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
+> Microsoft Azure uses the term *role* for what other Cloud providers call *policy*. Entra automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
 
 
 ## View information about roles/policies
 
-1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Role/Policies** subtab.
+1. On the Entra home page, select the **Remediation** tab, and then select the **Role/Policies** subtab.
 
     The **Role/Policies list** displays a list of existing roles/policies and the following information about each role/policy
         - **Role/Policy Name**: The name of the roles/policies available to you.
-        - **Role/Policy Type**: **Custom**, **System**, or **CloudKnox Only**
+        - **Role/Policy Type**: **Custom**, **System**, or **Entra Only**
         - **Actions**: The type of action you can perform on the role/policy, **Clone**, **Modify**, or **Delete**
 
 
@@ -61,7 +61,7 @@ The **Remediation** dashboard in CloudKnox Permissions Management (CloudKnox) en
 
     When the file is successfully exported, a message appears: **Exported Successfully.**
 
-    - Check your email for a message from the CloudKnox Customer Success Team. This email contains a link to: 
+    - Check your email for a message from the Entra Customer Success Team. This email contains a link to: 
         - The **Role Policy Details** report in CSV format.
         - The **Reports** dashboard where you can configure how and when you can automatically receive reports.
 
@@ -70,7 +70,7 @@ The **Remediation** dashboard in CloudKnox Permissions Management (CloudKnox) en
 
 ## Filter information about roles/policies
 
-1. On the CloudKnox home page, select the **Remediation** dashboard, and then select the **Role/Policies** tab.
+1. On the Entra home page, select the **Remediation** dashboard, and then select the **Role/Policies** tab.
 1. To filter the roles/policies, select from the following options:
 
     - **Authorization System Type**: Select **AWS**, **Azure**, or **GCP**.
@@ -80,7 +80,7 @@ The **Remediation** dashboard in CloudKnox Permissions Management (CloudKnox) en
          - **All**: All managed roles/policies.
          - **Custom**: A customer-managed role/policy. 
          - **System**: A cloud service provider-managed role/policy. 
-         - **CloudKnox Only**: A role/policy created by CloudKnox.
+         - **Entra Only**: A role/policy created by Entra.
 
     - **Role/Policy Status**: Select **All**, **Assigned**, or **Unassigned**.
     - **Role/Policy Usage**: Select **All** or **Unused**.

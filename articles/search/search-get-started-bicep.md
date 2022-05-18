@@ -7,7 +7,7 @@ ms.author: v-eschaffer
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
-ms.date: 03/18/2022
+ms.date: 05/16/2022
 ---
 
 # Quickstart: Deploy Cognitive Search using Bicep
@@ -23,6 +23,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Review the Bicep file
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-search-create/).
+
+Only those properties included in the template are used in the deployment. If more customization is required, such as [setting up network security](search-security-overview.md#network-security), you can [update service configuration](/cli/azure/search/service?view=azure-cli-latest#az-search-service-update) after the service is deployed.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.search/azure-search-create/main.bicep":::
 

@@ -1,6 +1,6 @@
 ---
-title: Generate and view a system report in CloudKnox Permissions Management
-description: How to generate and view a system report in the CloudKnox Permissions Management.
+title: Generate and view a system report in Entra Permissions Management
+description: How to generate and view a system report in the Entra Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -9,20 +9,20 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # Generate and view a system report
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how to generate and view a system report in CloudKnox Permissions Management (CloudKnox).
+This article describes how to generate and view a system report in Entra Permissions Management (Entra).
 
 ## Generate a system report  
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
+1. In the Entra home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
     The **Systems Reports** subtab displays the following options in the **Reports** table:
 
     - **Report Name**: The name of the report.

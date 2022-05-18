@@ -1,6 +1,6 @@
 ---
-title: View a list and description of all system reports available in CloudKnox Permissions Management reports
-description: View a list and description of all system reports available in CloudKnox Permissions Management.
+title: View a list and description of all system reports available in Entra Permissions Management reports
+description: View a list and description of all system reports available in Entra Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -15,20 +15,20 @@ ms.author: v-campisekat
 # View a list and description of system reports
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some of the information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-CloudKnox Permissions Management (CloudKnox) has various types of system reports that capture specific sets of data. These reports allow management, auditors, and administrators to:
+Entra Permissions Management (Entra) has various types of system reports that capture specific sets of data. These reports allow management, auditors, and administrators to:
 
 - Make timely decisions.
 - Analyze trends and system/user performance.
 - Identify trends in data and high risk areas so that management can address issues more quickly and improve their efficiency.
 
-This article provides you with a list and description of the system reports available in CloudKnox. Depending on the report, you can download it in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
+This article provides you with a list and description of the system reports available in Entra. Depending on the report, you can download it in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
 
 ## Download a system report
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
+1. In the Entra home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
 1. In the **Report Name** column, find the report you want, and then select the down arrow to the right of the report name to download the report.
 
     Or, from the ellipses **(...)** menu, select **Download**.

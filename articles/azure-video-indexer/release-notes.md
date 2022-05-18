@@ -51,7 +51,7 @@ Improved line break logic to better split transcript into sentences. New editing
  
 Azure Video Indexer now supports Diagnostics settings for Audit events. Logs of Audit events can now be exported through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
 
-The additions enable easier access to analyze the data, monitor resource operation, and create automatically flows to act on an event. For more information, see [Monitor Azure Video Indexer]().
+The additions enable easier access to analyze the data, monitor resource operation, and create automatically flows to act on an event. For more information, see [Monitor Azure Video Indexer](monitor-video-indexer.md).
 
 ### Video Insights improvements
 

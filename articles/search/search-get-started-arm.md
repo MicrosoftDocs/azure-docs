@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
-ms.date: 12/07/2021
+ms.date: 05/16/2022
 ---
 
 # Quickstart: Deploy Cognitive Search using an Azure Resource Manager template
@@ -16,6 +16,8 @@ ms.date: 12/07/2021
 This article walks you through the process for using an Azure Resource Manager (ARM) template to deploy an Azure Cognitive Search resource in the Azure portal.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Only those properties included in the template are used in the deployment. If more customization is required, such as [setting up network security](search-security-overview.md#network-security), you can [update service configuration](/cli/azure/search/service?view=azure-cli-latest#az-search-service-update) after the service is deployed.
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

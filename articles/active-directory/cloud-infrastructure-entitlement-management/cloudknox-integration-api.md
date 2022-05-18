@@ -1,6 +1,6 @@
 ---
-title: Set and view configuration settings in CloudKnox Permissions Management
-description: How to view the CloudKnox Permissions Management API integration settings and create service accounts and roles.
+title: Set and view configuration settings in Entra Permissions Management
+description: How to view the Entra Permissions Management API integration settings and create service accounts and roles.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -9,16 +9,16 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # Set and view configuration settings
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This topic describes how to view configuration settings, create and delete a service account, and create a role in CloudKnox Permissions Management (CloudKnox).
+This topic describes how to view configuration settings, create and delete a service account, and create a role in Entra Permissions Management (Entra).
 
 ## View configuration settings
 
@@ -30,7 +30,7 @@ The **Integrations** dashboard displays the authorization systems available to y
 
 1. Select an authorization system tile to view the following integration information:
 
-    1. To find out more about the CloudKnox API, select **CloudKnox API**, and then select documentation.
+    1. To find out more about the Entra API, select **Entra API**, and then select documentation.
         <!---Add Link: [documentation](https://developer.cloudknox.io/)--->
 
     1. To view information about service accounts, select **Integration**:
