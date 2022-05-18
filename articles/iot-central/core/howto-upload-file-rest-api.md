@@ -28,7 +28,6 @@ IoT Central lets you upload media and other files from connected devices to clou
 
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/Download) with [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension installed, or a command line will work.
-* [IoT Central Application](https://docs.microsoft.com/azure/iot-central/core/quick-deploy-iot-central)
 
 ## Clone the repository
 
