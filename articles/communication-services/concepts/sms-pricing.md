@@ -12,7 +12,7 @@ zone_pivot_groups: acs-tollfree-shortcode
 # SMS Pricing 
 
 > [!IMPORTANT]
-> SMS messages can be sent to and received from United States phone numbers. Phone numbers located in other geographies are not yet supported by Communication Services SMS.
+> SMS messages can be sent to and received from United States and Canada phone numbers. Phone numbers located in other geographies are not yet supported by Communication Services SMS.
 
 ::: zone pivot="tollfree"
 [!INCLUDE [Toll-Free](./includes/sms-tollfree-pricing.md)]
