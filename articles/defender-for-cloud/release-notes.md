@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 05/12/2022
+ms.date: 05/17/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,20 +20,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in May include:
 
-- [General availability (GA) of Defender for SQL for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-for-aws-and-gcp-environments)
 - [Multi-cloud settings of Servers plan are now available in connector level](#multi-cloud-settings-of-servers-plan-are-now-available-in-connector-level)
-
-### General availability (GA) of Defender for SQL for AWS and GCP environments
-
-The database protection capabilities provided by Microsoft Defender for Cloud now include support for your SQL databases hosted in AWS and GCP environments.
-
-Using Defender for SQL, enterprises can now protect their data, whether hosted in Azure, AWS, GCP, or on-premises machines.
-
-Microsoft Defender for SQL now provides a unified cross-environment experience to view security recommendations, security alerts and vulnerability assessment findings encompassing SQL servers and the underlying Windows OS.
-
-Using the multi-cloud onboarding experience, you can enable and enforce databases protection for VMs in AWS and GCP. After enabling multi-cloud protection, all supported resources covered by your subscription are protected. Future resources created within the same subscription will also be protected.
-
-Learn how to protect and connect your [AWS accounts](quickstart-onboard-aws.md) and your [GCP projects](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
+- [JIT is now available for AWS (Preview)](#jit-is-now-available-for-aws-preview)
 
 ### Multi-cloud settings of Servers plan are now available in connector level
 
@@ -48,6 +36,12 @@ Updates in the UI include a reflection of the selected pricing tier and the requ
 :::image type="content" source="media/release-notes/main-page.png" alt-text="Screenshot of the main plan page with the Server plan multi-cloud settings." lightbox="media/release-notes/main-page.png":::
 
 :::image type="content" source="media/release-notes/auto-provision.png" alt-text="Screenshot of the auto-provision page with the multi-cloud connector enabled.":::
+
+### JIT is now available for AWS (Preview)
+
+We would like to announce that Just-in-Time VM access (JIT) is now available (in preview) to protect your AWS EC2 instances.
+
+Learn how to [JIT protects](just-in-time-access-overview.md#how-jit-operates-with-network-resources-in-azure-and-aws) your AWS EC2 instances.
 
 ## April 2022
 
