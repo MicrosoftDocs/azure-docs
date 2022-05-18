@@ -46,7 +46,7 @@ To activate the on-premises management console:
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="Screenshot that shows selecting multiple subscriptions." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png":::
 
-   If you haven't already onboarded a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
+   If you haven't already onboarded Defender for IoT to a subscription, see [Onboard Defender for IoT to a subscription](how-to-manage-subscriptions.md#onboard-defender-for-iot-to-a-subscription).
 
    > [!Note]
    > If you delete a subscription, you must upload a new activation file to the on-premises management console that was affiliated with the deleted subscription.
