@@ -5,7 +5,7 @@ ms.date: 05/17/2022
 ms.topic: how-to
 ---
 
-## Integrate with Active Directory servers
+# Integrate with Active Directory servers
 
 Configure the sensor or on-premises management console to work with Active Directory. This allows Active Directory users to access the Microsoft Defender for IoT consoles by using their Active Directory credentials.
 
@@ -20,11 +20,11 @@ Two types of LDAP-based authentication are supported:
 
 For more information, see [networking requirements](how-to-set-up-your-network.md#other-firewall-rules-for-external-services-optional).
 
-### Active Directory and Defender for IoT permissions
+## Active Directory and Defender for IoT permissions
 
 You can associate Active Directory groups defined here with specific permission levels. For example, configure a specific Active Directory group and assign Read-only permissions to all users in the group.
 
-### Active Directory configuration guidelines
+## Active Directory configuration guidelines
 
 - You must define the LDAP parameters here exactly as they appear in Active Directory.
 - For all the Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Active Directory use uppercase.
@@ -48,7 +48,7 @@ You can associate Active Directory groups defined here with specific permission 
    | Active Directory groups | Enter the group names that are defined in your Active Directory configuration on the LDAP server. You can enter a group name that you'll associate with Admin, Security Analyst and Read-only permission levels. Use these groups when creating new sensor users.|
    | Trusted domains | To add a trusted domain, add the domain name and the connection type of a trusted domain. <br />You can configure trusted domains only for users who were defined under users. |
 
-    #### Active Directory groups for the on-premises management console
+    ### Active Directory groups for the on-premises management console
 
     If you're creating Active Directory groups for on-premises management console users, you must create an Access Group rule for each Active Directory group. On-premises management console Active Directory credentials won't work if an Access Group rule doesn't exist for the Active Directory user group. For more information, see [Define global access control](how-to-define-global-user-access-control.md).
 
