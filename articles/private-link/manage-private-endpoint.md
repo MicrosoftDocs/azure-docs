@@ -25,7 +25,7 @@ With a service provider and consumer deployment of a Private Link Service an app
 
 During the creation of a private endpoint with Azure PowerShell and Azure CLI, the **GroupId** and **MemberName** of the private endpoint resource might be needed. To determine the values of **GroupID** and **MemberName** for your private endpoint resource, use the following commands.
 
-# [**PowerShell**](#tab/manage-private-link-posh)
+# [**PowerShell**](#tab/manage-private-link-powershell)
 
 An Azure WebApp is used as the example private endpoint resource. Use [Get-AzPrivateLinkResource](/powershell/module/az.network/get-azprivatelinkresource) to determine **GroupId** and **MemberName**.
 
@@ -69,7 +69,7 @@ By default, when a private endpoint is created the network interface associated 
 
 Use the following commands when creating a private endpoint to rename the network interface.
 
-# [**PowerShell**](#tab/manage-private-link-posh)
+# [**PowerShell**](#tab/manage-private-link-powershell)
 
 To rename the network interface when the private endpoint is created, use the `-CustomNetworkInterfaceName` parameter. The following example uses a Azure PowerShell command to create a private endpoint to an Azure WebApp. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint).
 
@@ -174,7 +174,7 @@ Use the following steps to managed a private endpoint connection in the Azure po
 
 Use the following PowerShell and Azure CLI commands to manage private endpoint connections on Microsoft Partner Services or customer owned services. 
  
-# [**PowerShell**](#tab/manage-private-link-posh)
+# [**PowerShell**](#tab/manage-private-link-powershell)
 
 Use the following PowerShell commands to manage private endpoint connections.  
 
