@@ -92,7 +92,7 @@ The generated load test uses environment variables to specify the initial config
   
   - protocol: HTTP or HTTPS
 
-  - path: The path to resource (for example, /servlets/myServlet).
+  - path: The path to the resource (for example, /servlets/myServlet).
 
   - threads_per_engine: The number of virtual users per engine instance. It is recommended to set this to maximum 250. If you need more virtual users, increase the number of test engines for the test. For more information, see [how to configure for high scale](how-to-high-scale-load.md).
 
