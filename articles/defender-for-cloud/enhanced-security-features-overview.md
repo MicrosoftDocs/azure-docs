@@ -103,7 +103,7 @@ No. When you enable [Microsoft Defender for Servers](defender-for-servers-introd
 
 When you enable the Servers plan on the subscription level, Defender for Cloud will enable your default workspace(s) automatically. 
 
-However, if you're using a [custom workspace](../defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks#assign-a-custom-workspace) in place of the default workspace, you'll need to enable the Servers plan on all of your custom workspaces. 
+However, if you're using a custom workspace in place of the default workspace, you'll need to enable the Servers plan on all of your custom workspaces. 
 
 If you're using a custom workspace and enable the plan on the subscription level only, the `Microsoft Defender for servers should be enabled on workspaces` recommendation, on the recommendations page. This recommendation will advise you to enable the servers plan on the workspace level as well. Until the workspace has the Servers plan enabled, it will not benefit from the full security coverage (Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more) offered by the Defender for Cloud, but will still incur the cost.
 
@@ -146,7 +146,7 @@ Defender for Cloud's billing is closely tied to the billing for Log Analytics. [
 - [MaliciousIPCommunication](/azure/azure-monitor/reference/tables/maliciousipcommunication)
 - [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
 - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
-- [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled. See [What data types are included in the 500-MB data daily allowance?](../../defender-for-cloud/enhanced-security-features-overview.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
+- [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled.
 
 If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud and Log Analytics allocations are combined and applied jointly to all billable ingested data.
 
