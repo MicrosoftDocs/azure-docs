@@ -18,26 +18,37 @@ Theming on Android is handled via XML resource files. We expose the following re
 
 ```XML
 <resources>
-    <public name="AzureCommunicationUI.Theme.Calling" type="style" />
-    <public name="azure_communication_ui_primary_color" type="attr" />
-    <public name="azure_communication_ui_primary_color_tint10" type="attr" />
-    <public name="azure_communication_ui_primary_color_tint20" type="attr" />
-    <public name="azure_communication_ui_primary_color_tint30" type="attr" />
+    <public name="AzureCommunicationUICalling.Theme" type="style" />
+    <public name="azure_communication_ui_calling_primary_color" type="attr" />
+    <public name="azure_communication_ui_calling_primary_color_tint10" type="attr" />
+    <public name="azure_communication_ui_calling_primary_color_tint20" type="attr" />
+    <public name="azure_communication_ui_calling_primary_color_tint30" type="attr" />
 </resources>
 ```
 
 Contoso developers can implement a **Theme** within their apps like this one to supply the primary color and tints.
 
 ```XML
-<style name="Contoso.Theme.Calling" parent="AzureCommunicationUI.Theme.Calling">
-    <item name="azure_communication_ui_primary_color">#7800D4</item>
-    <item name="azure_communication_ui_primary_color_tint10">#882BD8</item>
-    <item name="azure_communication_ui_primary_color_tint20">#E0C7F4</item>
-    <item name="azure_communication_ui_primary_color_tint30">#ECDEF9</item>
+<style name="Contoso.Theme.Calling" parent="AzureCommunicationUICalling.Theme">
+    <item name="azure_communication_ui_calling_primary_color">#7800D4</item>
+    <item name="azure_communication_ui_calling_primary_color_tint10">#882BD8</item>
+    <item name="azure_communication_ui_calling_primary_color_tint20">#E0C7F4</item>
+    <item name="azure_communication_ui_calling_primary_color_tint30">#ECDEF9</item>
 </style>
 ```
 
-**The current Primary Color and Tints is used only on the "Join Call" button at this time.**
+#### Affected UI
+
+- PrimaryColor:
+  - Avatar/Video - Border - Speaking Indication
+  - Join Call Button - Background
+- PrimaryColorTint10 Color:
+  - Join Call Button - Background - Highlighted - Light Mode
+  - Join Call Button - Border - Light/Dark Mode
+- PrimaryColorTint20 Color:
+  - Join Call Button - Background - Highlighted - Dark Mode
+- PrimaryColorTint30 Color:
+  - Join Call Button - Border - Highlighted - Light/Dark Mode
 
 #### Applying the Theme
 
