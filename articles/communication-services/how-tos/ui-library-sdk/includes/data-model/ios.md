@@ -14,7 +14,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Local Avatar Injection
 
-The UI Library now gives developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a UIimage which represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
+The UI Library now gives developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a UIimage that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
 
 #### Local Settings
 
@@ -28,7 +28,6 @@ The UI Library now gives developers the ability to provide a more customized exp
 
 ```swift
 let participantViewData = ParticipantViewData(avatar: <Some UIImage>, renderDisplayName: <Some Display Name>)
-renderDisplayName: <Some Display Name>)
 let localSettings = LocalSettings(participantViewData)
 callComposite.launch(with: <Some Group Call Options>, localSettings: localSettings)
 ```

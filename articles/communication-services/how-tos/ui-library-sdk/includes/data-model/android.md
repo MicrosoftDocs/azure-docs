@@ -14,7 +14,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Local Participant View Data Injection
 
-The UI Library now gives developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a bitmap, that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
+The UI Library now gives developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a bitmap that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
 
 #### Participant View Data
 
@@ -51,7 +51,7 @@ callComposite.launch(callLauncherActivity, groupCallOptions, localSettings);
 
 ### Remote Participant View Data Injection
 
-On remote participant join, developers can inject the participant view data for remote participant. This participant view data can contain a bitmap which represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
+On remote participant join, developers can inject the participant view data for remote participant. This participant view data can contain a bitmap that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
 
 #### Usage
 

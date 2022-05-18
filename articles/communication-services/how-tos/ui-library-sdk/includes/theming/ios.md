@@ -14,7 +14,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Defining a Theme
 
-You can customize the theme by changing the primary color and its associated tints, in addition to the option of overriding the light and dark mode color scheme.
+You can customize the theme by changing the primary color and its associated tints and the option of overriding the light and dark  mode color scheme.
 
 #### Affected UI
 
