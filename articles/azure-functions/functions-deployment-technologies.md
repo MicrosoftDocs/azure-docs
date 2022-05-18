@@ -196,8 +196,8 @@ The following table shows the operating systems and languages that support porta
 | F# | | | | | | |
 | Java | | | | | | |
 | JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
-| Python (Preview) | | | | | | |
-| PowerShell (Preview) |✔|✔|✔| | | |
+| Python | | | | | | |
+| PowerShell |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
 <sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
