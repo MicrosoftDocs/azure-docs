@@ -178,10 +178,3 @@ The PHP sample code is running in an Azure App Service web app.
 
 [!INCLUDE [cli-samples-clean-up](../../../../includes/cli-samples-clean-up.md)]
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [PHP with MySQL](../../tutorial-php-mysql-app.md)
-
-> [!div class="nextstepaction"]
-> [Configure PHP app](../../configure-language-php.md)

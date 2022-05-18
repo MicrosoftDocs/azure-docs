@@ -156,12 +156,23 @@ The PHP sample code is running in an Azure App Service Linux web app.
 
     The web app menu provides different options for configuring your app.
 
-[!INCLUDE [cli-samples-clean-up](../../../../includes/cli-samples-clean-up.md)]
+## Clean up resources
 
-## Next steps
+When you're finished with the sample app, you can remove all of the resources for the app from Azure. It will not incur extra charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
-> [!div class="nextstepaction"]
-> [PHP with MySQL](../../tutorial-php-mysql-app.md)
+1. From your App Service **Overview** page, select the resource group you created in the [Create Azure resources](#create-azure-resources) step.
 
-> [!div class="nextstepaction"]
-> [Configure PHP app](../../configure-language-php.md)
+<!-- TODO: Screenshot here -->
+
+1. From the resource group page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
+
+<!-- TODO: Screenshot here -->
+
+1. Navigate to your fork repository.
+
+1. Select **Settings**.
+
+1. All the way at the bottom, in the section labeled **Danger Zone**, select **Delete this repository**.
+
+1. Read the dialog and follow its instructions on deleting the repository.
+
