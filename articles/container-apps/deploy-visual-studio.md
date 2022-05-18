@@ -113,7 +113,7 @@ When the app finishes deploying, Visual Studio opens a browser to the URL of you
 
 ### Publish the app using GitHub Actions
 
-Container Apps can also be deployed using CI/CD through [GitHub actions](https://docs.github.com/en/actions), which are a powerful tool for automating, customizing, and executing development workflows directly through the GitHub repository of your project.
+Container Apps can also be deployed using CI/CD through [GitHub Actions](https://docs.github.com/en/actions), which are a powerful tool for automating, customizing, and executing development workflows directly through the GitHub repository of your project.
 
 If Visual Studio detects the project you are publishing is hosted in GitHub, the publish flow presents an additional **Deployment type** step. This stage allows developers to choose whether to publish directly through Visual Studio using the steps shown earlier in the quickstart, or through a GitHub Actions workflow.
 
@@ -123,7 +123,7 @@ If you select the GitHub Actions workflow, Visual Studio will add a *.github* fo
 
 After you make a change and push your code, you can see the progress of the build and deploy process in GitHub under the **Actions** tab. This page provides detailed logs and indicators regarding the progress and health of the workflow.  
 
-:::image type="content" source="media/visual-studio/container-apps-github-actions.png" alt-text="A screenshot showing GitHub actions.":::
+:::image type="content" source="media/visual-studio/container-apps-github-actions.png" alt-text="A screenshot showing GitHub Actions.":::
 
 Once you see a green checkmark next to the build and deploy jobs the workflow is complete. When you browse to your Container Apps site you should see the latest changes applied. You can always find the URL for your container app using the Azure portal page.
 
