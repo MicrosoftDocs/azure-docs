@@ -56,7 +56,7 @@ The Mobile UI Library provides the capability of the calling participants to vie
 
 ## Theming
 
-The UI Library Calling Composite for iOS and Android provides the capability for developers to update the theme of the all experience by passing a primary color. The Composite uses that primary color to provide appropriate theming across the experience.
+The UI Library Calling Composite for iOS and Android provides the capability for developers to create a custom theme of the all experience by passing a set of theming colors. [How to create your theme.](../../../how-tos/ui-library-sdk/theming.md)
 
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
@@ -72,9 +72,11 @@ The calling composite offers to adapt to any screen size that would bring suppor
 
 ## Localization
 
-Localization is a key to making products that can be used across the world and by people who speak different languages.
+Localization is a key to making products that can be used across the world and by people who speak different languages. The Mobile UI Library now provides support for 13 languages: ***English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish and Chinese*** and RTL capabilities. [How to add localization to your app.](../../../how-tos/ui-library-sdk/localization.md)
 
-Localization is a key to making products that can be used across the world. The Mobile UI Library now provides support for 13 languages: ***English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish and Chinese*** and RTL capabilities.
+## Data Model Injection
+
+The Mobile UI Library gives the developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a image which represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the Mobile UI library. [How to inject user data model.](../../../how-tos/ui-library-sdk/data-model.md)
 
 ## Recommended Architecture
 
