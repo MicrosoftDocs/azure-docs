@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 05/18/2022
 ms.author: victorh
 ---
 
@@ -109,4 +109,4 @@ Monitoring for WAF with CDN is integrated with Azure Monitor to track alerts and
 
 ## Next steps
 
-- [Tutorial: Create a WAF policy with Azure CDN using the Azure portal](waf-cdn-create-portal.md)
+- [Azure CLI for CDN WAF](/cli/azure/cdn/waf?view=azure-cli-latest)
