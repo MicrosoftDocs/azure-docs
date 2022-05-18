@@ -1,33 +1,33 @@
 ---
-title: View personal and organization information in CloudKnox Permissions Management
-description: How to view personal and organization information in the Account settings dashboard in CloudKnox Permissions Management.
+title: View personal and organization information in Entra Permissions Management
+description: How to view personal and organization information in the Account settings dashboard in Entra Permissions Management.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # View personal and organization information
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Account settings** dashboard in CloudKnox Permissions Management (CloudKnox) allows you to view personal information, passwords, and account preferences. 
+The **Account settings** dashboard in Entra Permissions Management (Entra) allows you to view personal information, passwords, and account preferences. 
 This information can't be modified because the user information is pulled from Azure AD. Only **User Session Time(min)**
 
 ## View personal information
 
-1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account Settings**.
+1. In the Entra home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account Settings**.
 
-    The **Personal Information** box displays your **First Name**, **Last Name**, and the **Email Address** that was used to register your account on CloudKnox.
+    The **Personal Information** box displays your **First Name**, **Last Name**, and the **Email Address** that was used to register your account on Entra.
 
 ## View current organization information
 
-1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account Settings**.
+1. In the Entra home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account Settings**.
 
     The **Current Organization Information** displays the **Name** of your organization, the **Tenant ID** box, and the **User Session Timeout (min)**.
 

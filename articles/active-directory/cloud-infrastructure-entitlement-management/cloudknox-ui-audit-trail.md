@@ -1,6 +1,6 @@
 ---
-title: Use queries to see how users access information in an authorization system in CloudKnox Permissions Management
-description: How to use queries to see how users access information in an authorization system in CloudKnox Permissions Management.
+title: Use queries to see how users access information in an authorization system in Entra Permissions Management
+description: How to use queries to see how users access information in an authorization system in Entra Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -9,25 +9,25 @@ ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: v-campisekat
 ---
 
 # Use queries to see how users access information
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Audit** dashboard in CloudKnox Permissions Management (CloudKnox) provides an overview of queries a CloudKnox user has created to review how users access their authorization systems and accounts. 
+The **Audit** dashboard in Entra Permissions Management (Entra) provides an overview of queries a Entra user has created to review how users access their authorization systems and accounts. 
 
 This article provides an overview of the components of the **Audit** dashboard.
 
 ## View information in the Audit dashboard
 
 
-1. In CloudKnox, select the **Audit** tab.
+1. In Entra, select the **Audit** tab.
 
-    CloudKnox displays the query options available to you.
+    Entra displays the query options available to you.
 
 1. The following options display at the top of the **Audit** dashboard: 
 
@@ -41,7 +41,7 @@ This article provides an overview of the components of the **Audit** dashboard.
 
 ## Use a query to view information  
 
-1. In CloudKnox, select the **Audit** tab.
+1. In Entra, select the **Audit** tab.
 1. The **New query** tab displays the following options:
 
     - **Authorization Systems Type**: A list of your authorization systems: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), Google Cloud Platform (**GCP**), or Platform (**Platform**).
