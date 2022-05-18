@@ -2,14 +2,14 @@
 title:  Onboard a Microsoft Azure subscription in Entra Permissions Management
 description: How to a Microsoft Azure subscription on Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Onboard a Microsoft Azure subscription
@@ -18,12 +18,12 @@ ms.author: v-campisekat
 > Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-> [!NOTE] 
+> [!NOTE]
 > The Entra Permissions Management (Entra) PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
-This article describes how to onboard a Microsoft Azure subscription or subscriptions on Entra Permissions Management (Entra). Onboarding a subscription creates a new authorization system to represent the Azure subscription in Entra. 
+This article describes how to onboard a Microsoft Azure subscription or subscriptions on Entra Permissions Management (Entra). Onboarding a subscription creates a new authorization system to represent the Azure subscription in Entra.
 
-> [!NOTE] 
+> [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Entra on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
 
 ## Prerequisites
@@ -39,7 +39,7 @@ To view a video on how to enable Entra in your Azure AD tenant, select [Enable E
 
 ## How to onboard an Azure subscription
 
-1. If the **Data Collectors** dashboard isn't displayed when Entra launches: 
+1. If the **Data Collectors** dashboard isn't displayed when Entra launches:
 
     - In the Entra home page, select **Settings** (the gear icon), and then select the **Data Collectors** subtab.
 
@@ -48,18 +48,18 @@ To view a video on how to enable Entra in your Azure AD tenant, select [Enable E
 ### 1. Add Azure subscription details
 
 1. On the **Entra Onboarding - Azure Subscription Details** page, enter the **Subscription IDs** that you want to onboard.
-	
-   > [!NOTE] 
+
+   > [!NOTE]
    > To locate the Azure subscription IDs, open the **Subscriptions** page in Azure.
    > You can enter up to 10 subscriptions IDs. Select the plus sign **(+)** icon next to the text box to enter more subscriptions.
 
-1. From the **Scope** dropdown, select **Subscription** or **Management Group**. The script box displays the role assignment script. 
-	
-   > [!NOTE] 
-   > Select **Subscription** if you want to assign permissions separately for each individual subscription. The generated script has to be executed once per subscription. 
+1. From the **Scope** dropdown, select **Subscription** or **Management Group**. The script box displays the role assignment script.
+
+   > [!NOTE]
+   > Select **Subscription** if you want to assign permissions separately for each individual subscription. The generated script has to be executed once per subscription.
    > Select **Management Group** if all of your subscriptions are under one management group. The generated script must be executed once for the management group.
 
-1. To give this role assignment to the service principal, copy the script to a file on your system where Azure CLI is installed and execute it. 
+1. To give this role assignment to the service principal, copy the script to a file on your system where Azure CLI is installed and execute it.
 
     You can execute the script once for each subscription, or once for all the subscriptions in the management group.
 
@@ -72,17 +72,17 @@ To view a video on how to enable Entra in your Azure AD tenant, select [Enable E
 
 ### 2. Review and save.
 
-- In **Entra Onboarding – Summary** page, review the information you’ve added, and then select **Verify Now & Save**.
+- In **Entra Onboarding – Summary** page, review the information you've added, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully Created Configuration.**
 
-    On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.** 
+    On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.**
 
     You have now completed onboarding Azure, and Entra has started collecting and processing your data.
 
 ### 3. View the data.
 
-- To view the data, select the **Authorization Systems** tab. 
+- To view the data, select the **Authorization Systems** tab.
 
     The **Status** column in the table displays **Collecting Data.**
 

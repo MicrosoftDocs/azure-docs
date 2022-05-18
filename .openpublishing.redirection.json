@@ -14279,6 +14279,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-load.md",
+      "redirect_url": "/azure/storage/common/storage-ref-azcopy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-load-avere-cloud-file-system.md",
+      "redirect_url": "/azure/storage/common/storage-ref-azcopy",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-contact-microsoft-support.md",
       "redirect_url": "/azure/import-export/storage-import-export-contact-microsoft-support",
       "redirect_document_id": false

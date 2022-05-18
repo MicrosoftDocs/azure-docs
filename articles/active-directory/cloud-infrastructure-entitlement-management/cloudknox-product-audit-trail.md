@@ -1,15 +1,15 @@
 ---
-title: Filter and query user activity in Entra Permissions Management 
+title: Filter and query user activity in Entra Permissions Management
 description: How to filter and query user activity in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Filter and query user activity
@@ -18,24 +18,24 @@ ms.author: v-campisekat
 > Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Audit** dashboard in Entra Permissions Management (Entra) details all user activity performed in your authorization system. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. The **Audit** dashboard enables you to: 
+The **Audit** dashboard in Entra Permissions Management (Entra) details all user activity performed in your authorization system. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. The **Audit** dashboard enables you to:
 
 - Create and save new queries so you can access key data points easily.
 - Query across multiple authorization systems in one query.
 
 ## Filter information by authorization system
 
-If you haven't used filters before, the default filter is the first authorization system in the filter list. 
+If you haven't used filters before, the default filter is the first authorization system in the filter list.
 
 If you have used filters before, the default filter is last filter you selected.
 
 1. To display the **Audit** dashboard, on the Entra home page, select **Audit**.
 
-1. To select your authorization system type, in the **Authorization System Type** box, select Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), Google Cloud Platform (**GCP**), or Platform (**Platform**). 
+1. To select your authorization system type, in the **Authorization System Type** box, select Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), Google Cloud Platform (**GCP**), or Platform (**Platform**).
 
 1. To select your authorization system, in the **Authorization System** box:
 
-    - From the **List** subtab, select the accounts you want to use. 
+    - From the **List** subtab, select the accounts you want to use.
     - From the **Folders** subtab, select the folders you want to use.
 
 1. To view your query results, select **Apply**.
@@ -48,7 +48,7 @@ There are several different query parameters you can configure individually or i
 - To view an existing query, select **View** (the eye icon).
 - To edit an existing query, select **Edit** (the pencil icon).
 - To delete a function line in a query, select **Delete** (the minus sign **-** icon).
-- To create multiple queries at one time, select **Add New Tab** to the right of the **Query** tabs that are displayed. 
+- To create multiple queries at one time, select **Add New Tab** to the right of the **Query** tabs that are displayed.
 
   You can open a maximum number of six query tab pages at the same time. A message will appear when you've reached the maximum.
 
@@ -69,7 +69,7 @@ There are several different query parameters you can configure individually or i
     - **Is**: Select this option to choose a specific date from the calendar.
     - **Custom**: Select this option to set a date range from the **From** and **To** calendars.
 
-1. To run the query on the current selection, select **Search**. 
+1. To run the query on the current selection, select **Search**.
 
 1. To save your query, select **Save**.
 
@@ -99,7 +99,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-1. To run the query on the current selection, select **Search**. 
+1. To run the query on the current selection, select **Search**.
 
 1. To clear the recent selections, select **Reset**.
 
@@ -113,13 +113,13 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. To add criteria to this section, select **Add**.
 
-      You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with resource name **Test**. 
+      You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with resource name **Test**.
 
-1. Select the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *Entra*. 
+1. Select the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *Entra*.
 
 1. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-1. To run the query on the current selection, select **Search**. 
+1. To run the query on the current selection, select **Search**.
 
 1. To clear the recent selections, select **Reset**.
 
@@ -133,9 +133,9 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. To add criteria to this section, select **Add**.
 
-1. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with resource type **s3::bucket**. 
+1. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with resource type **s3::bucket**.
 
-1. Select the plus (**+**) sign, select **Or** with **Is**, and then enter or select  `ec2::instance`. 
+1. Select the plus (**+**) sign, select **Or** with **Is**, and then enter or select  `ec2::instance`.
 
 1. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
@@ -152,15 +152,15 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. From the **Operator** menu, select the required option.
 
-1. To add criteria to this section, select **Add**. 
+1. To add criteria to this section, select **Add**.
 
-1. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with task name **s3:CreateBucket**. 
+1. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with task name **s3:CreateBucket**.
 
-1. Select **Add**, select **Or**  with **Is**, and then enter or select `ec2:TerminateInstance`. 
+1. Select **Add**, select **Or**  with **Is**, and then enter or select `ec2:TerminateInstance`.
 
 1. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-1. To run the query on the current selection, select **Search**. 
+1. To run the query on the current selection, select **Search**.
 
 1. To clear the recent selections, select **Reset**.
 
@@ -174,15 +174,15 @@ The **Operator** menu displays the following options depending on the identity y
 
     - **Is** / **Is not**: Allows a user to select in the value field and select **Authorization Failure**, **Error**, or **Success**.
 
-1. To add criteria to this section, select **Add**. 
+1. To add criteria to this section, select **Add**.
 
-1. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with State **Authorization Failure**. 
+1. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with State **Authorization Failure**.
 
-1. Select the **Add** icon, select **Or** with **Is**, and then select **Success**. 
+1. Select the **Add** icon, select **Or** with **Is**, and then select **Success**.
 
 1. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-1. To run the query on the current selection, select **Search**. 
+1. To run the query on the current selection, select **Search**.
 
 1. To clear the recent selections, select **Reset**.
 
@@ -194,15 +194,15 @@ The **Operator** menu displays the following options depending on the identity y
 
 3. From the **Operator** menu, select the required option.
 
-4. To add criteria to this section, select **Add**. 
+4. To add criteria to this section, select **Add**.
 
-5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**.
 
-6. Select the **Add** icon, select **Or** with **Contains**, and then enter your criteria, for example *Entra*. 
+6. Select the **Add** icon, select **Or** with **Contains**, and then enter your criteria, for example *Entra*.
 
 7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-8. To run the query on the current selection, select **Search**. 
+8. To run the query on the current selection, select **Search**.
 
 9. To clear the recent selections, select **Reset**.
 
@@ -214,15 +214,15 @@ The **Operator** menu displays the following options depending on the identity y
 
 3. From the **Operator** menu, select the required option.
 
-4. To add criteria to this section, select **Add**. 
+4. To add criteria to this section, select **Add**.
 
-5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**.
 
-6. Select the **Add** icon, select **Or** with **Contains**, and then enter your criteria, for example *Entra*. 
+6. Select the **Add** icon, select **Or** with **Contains**, and then enter your criteria, for example *Entra*.
 
 7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-8. To run the query on the current selection, select **Search**. 
+8. To run the query on the current selection, select **Search**.
 
 9. To clear the recent selections, select **Reset**.
 
@@ -234,11 +234,11 @@ The **Operator** menu displays the following options depending on the identity y
 
 3. From the **Operator** menu, select the required option.
 
-4. To add criteria to this section, select **Add**. 
+4. To add criteria to this section, select **Add**.
 
-5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free `AKIAIFXNDW2Z2MPEH5OQ`. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free `AKIAIFXNDW2Z2MPEH5OQ`.
 
-6. Select the **Add** icon, select **Or** with **Not** **Contains**, and then enter `AKIAVP2T3XG7JUZRM7WU`. 
+6. Select the **Add** icon, select **Or** with **Not** **Contains**, and then enter `AKIAVP2T3XG7JUZRM7WU`.
 
 7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
@@ -256,13 +256,13 @@ The **Operator** menu displays the following options depending on the identity y
 
 4. To add criteria to this section, select **Add**.
 
-5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select **Test**. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select **Test**.
 
-6. Select the **Add** icon, select **Or** with **Is**, and then enter your criteria, for example *Entra*. 
+6. Select the **Add** icon, select **Or** with **Is**, and then enter your criteria, for example *Entra*.
 
 7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-8. To run the query on the current selection, select **Search**. 
+8. To run the query on the current selection, select **Search**.
 
 9. To clear the recent selections, select **Reset**.
 
@@ -276,19 +276,19 @@ The **Operator** menu displays the following options depending on the identity y
 
 4. To add criteria to this section, select **Add**.
 
-5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select **Test**. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select **Test**.
 
-6. Select the **Add** icon, select **Or** with **Is**, and then enter your criteria, for example *Entra*. 
+6. Select the **Add** icon, select **Or** with **Is**, and then enter your criteria, for example *Entra*.
 
 7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-8. To run the query on the current selection, select **Search**. 
+8. To run the query on the current selection, select **Search**.
 
 9. To clear the recent selections, select **Reset**.
 
 ### View query results
 
-1. In the **Activity** table, your query results display in columns. 
+1. In the **Activity** table, your query results display in columns.
 
      The results display all executed tasks that aren't read-only.
 
@@ -300,7 +300,7 @@ The **Operator** menu displays the following options depending on the identity y
 
     - **Resource Name**: The name of the resource on which the task is being performed.
 
-        If the column displays **Multiple**, it means multiple resources are listed in the column. 
+        If the column displays **Multiple**, it means multiple resources are listed in the column.
 
 1. To view a list of all resources, hover over **Multiple**.
 
@@ -323,22 +323,22 @@ The **Operator** menu displays the following options depending on the identity y
 
 2. In the **Query Name** box, enter a name for your query, and then select **Save**.
 
-3. To save a query with a different name, select the ellipses (**...**) next to **Save**, and then select **Save As**. 
+3. To save a query with a different name, select the ellipses (**...**) next to **Save**, and then select **Save As**.
 
 4. Make your query selections from the **New Query** section, select the ellipses (**...**), and then select **Save As**.
 
-5. To save a new query, in the **Save Query** box, enter the name for the query, and then select **Save**.  
+5. To save a new query, in the **Save Query** box, enter the name for the query, and then select **Save**.
 
-6. To save an existing query you've modified, select the ellipses (**...**). 
+6. To save an existing query you've modified, select the ellipses (**...**).
 
       - To save a modified query under the same name, select **Save**.
       - To save a modified query under a different name, select **Save As**.
 
 ### View a saved query
 
-1. Select **Saved Queries**, and then select a query from the **Load Queries** list.  
+1. Select **Saved Queries**, and then select a query from the **Load Queries** list.
 
-      A message box opens with the following options: **Load with the saved authorization system** or **Load with the currently selected authorization system**. 
+      A message box opens with the following options: **Load with the saved authorization system** or **Load with the currently selected authorization system**.
 
 1. Select the appropriate option, and then select **Load Queries**.
 
@@ -366,16 +366,16 @@ The **Operator** menu displays the following options depending on the identity y
 
 ### Save a query under a different name
 
-- Select the ellipses (**...**).  
+- Select the ellipses (**...**).
 
     System queries have only one option:
 
     - **Duplicate**: Creates a duplicate of the query and names the file *Copy of XXX*.
 
-    Custom queries have the following options: 
+    Custom queries have the following options:
 
     - **Rename**: Enter the new name of the query and select **Save**.
-    - **Delete**: Delete the saved query.  
+    - **Delete**: Delete the saved query.
 
         The **Delete Query** box opens, asking you to confirm that you want to delete the query. Select **Yes** or **No**.
 

@@ -2,14 +2,14 @@
 title: View information about roles/ policies in the Remediation dashboard in Entra Permissions Management
 description: How to view and filter information about roles/ policies in the Remediation dashboard in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # View information about roles/ policies in the Remediation dashboard
@@ -18,10 +18,10 @@ ms.author: v-campisekat
 > Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Remediation** dashboard in Entra Permissions Management (Entra) enables system administrators to view, adjust, and remediate excessive permissions based on a user's activity data. You can use the **Roles/Policies** subtab in the dashboard to view information about roles and policies in the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems. 
+The **Remediation** dashboard in Entra Permissions Management (Entra) enables system administrators to view, adjust, and remediate excessive permissions based on a user's activity data. You can use the **Roles/Policies** subtab in the dashboard to view information about roles and policies in the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
 
 > [!NOTE]
-> To view the **Remediation dashboard** tab, you must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
+> To view the **Remediation dashboard** tab, you must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don't have these permissions, contact your system administrator.
 
 > [!NOTE]
 > Microsoft Azure uses the term *role* for what other Cloud providers call *policy*. Entra automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
@@ -37,19 +37,19 @@ The **Remediation** dashboard in Entra Permissions Management (Entra) enables sy
         - **Actions**: The type of action you can perform on the role/policy, **Clone**, **Modify**, or **Delete**
 
 
-1. To display details about the role/policy and view its assigned tasks and identities, select the arrow to the left of the role/policy name. 
+1. To display details about the role/policy and view its assigned tasks and identities, select the arrow to the left of the role/policy name.
 
     The **Tasks** list appears, displaying:
     - A list of **Tasks**.
-    - **For AWS:** 
+    - **For AWS:**
         - The **Users**, **Groups**, and **Roles** the task is **Directly Assigned To**.
-        - The **Group Members** and **Role Identities** the task is **Indirectly Accessible By**. 
+        - The **Group Members** and **Role Identities** the task is **Indirectly Accessible By**.
 
-    - **For Azure:** 
+    - **For Azure:**
         - The **Users**, **Groups**, **Enterprise Applications** and **Managed Identities** the task is **Directly Assigned To**.
         - The **Group Members** the task is **Indirectly Accessible By**.
 
-    - **For GCP:** 
+    - **For GCP:**
         - The **Users**, **Groups**, and **Service Accounts** the task is **Directly Assigned To**.
         - The **Group Members** the task is **Indirectly Accessible By**.
 
@@ -57,11 +57,11 @@ The **Remediation** dashboard in Entra Permissions Management (Entra) enables sy
 
 ## Export information about roles/policies
 
-- **Export CSV**: Select this option to export the displayed list of roles/policies as a comma-separated values (CSV) file. 
+- **Export CSV**: Select this option to export the displayed list of roles/policies as a comma-separated values (CSV) file.
 
     When the file is successfully exported, a message appears: **Exported Successfully.**
 
-    - Check your email for a message from the Entra Customer Success Team. This email contains a link to: 
+    - Check your email for a message from the Entra Customer Success Team. This email contains a link to:
         - The **Role Policy Details** report in CSV format.
         - The **Reports** dashboard where you can configure how and when you can automatically receive reports.
 
@@ -78,8 +78,8 @@ The **Remediation** dashboard in Entra Permissions Management (Entra) enables sy
     - **Role/Policy Type**: Select from the following options:
 
          - **All**: All managed roles/policies.
-         - **Custom**: A customer-managed role/policy. 
-         - **System**: A cloud service provider-managed role/policy. 
+         - **Custom**: A customer-managed role/policy.
+         - **System**: A cloud service provider-managed role/policy.
          - **Entra Only**: A role/policy created by Entra.
 
     - **Role/Policy Status**: Select **All**, **Assigned**, or **Unassigned**.

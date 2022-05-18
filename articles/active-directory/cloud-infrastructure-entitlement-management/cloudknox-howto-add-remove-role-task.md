@@ -2,17 +2,17 @@
 title: Add and remove roles and tasks for groups, users, and service accounts for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard in CloudKnox Permissions Management
 description: How to attach and detach permissions for groups, users, and service accounts for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
-# Add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities 
+# Add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities
 
 
 > [!IMPORTANT]
@@ -22,7 +22,7 @@ ms.author: v-campisekat
 This article describes how you can add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities using the **Remediation** dashboard.
 
 > [!NOTE]
-> To view the **Remediation** tab, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
+> To view the **Remediation** tab, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don't have these permissions, contact your system administrator.
 
 ## View permissions
 
@@ -49,9 +49,9 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 1. Make a selection from the results list.
 
 1. To attach a role, select **Add role**.
-1. In the **Add Role** page, from the **Available Roles** list, select the plus sign **(+)** to move the role to the **Selected Roles** list. 
+1. In the **Add Role** page, from the **Available Roles** list, select the plus sign **(+)** to move the role to the **Selected Roles** list.
 1. When you have finished adding roles, select **Submit**.
-1. When the following message displays: **Are you sure you want to change permission?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select:
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -65,9 +65,9 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 1. Make a selection from the results list.
 
 1. To remove a role, select **Remove Role**.
-1. In the **Remove Role** page, from the **Available Roles** list, select the plus sign **(+)** to move the role to the **Selected Roles** list. 
+1. In the **Remove Role** page, from the **Available Roles** list, select the plus sign **(+)** to move the role to the **Selected Roles** list.
 1. When you have finished selecting roles, select **Submit**.
-1. When the following message displays: **Are you sure you want to change permission?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select:
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -81,9 +81,9 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 1. Make a selection from the results list.
 
 1. To attach a role, select **Add Tasks**.
-1. In the **Add Tasks** page, from the **Available Tasks** list, select the plus sign **(+)** to move the task to the **Selected Tasks** list. 
+1. In the **Add Tasks** page, from the **Available Tasks** list, select the plus sign **(+)** to move the task to the **Selected Tasks** list.
 1. When you have finished adding tasks, select **Submit**.
-1. When the following message displays: **Are you sure you want to change permission?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select:
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -97,9 +97,9 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 1. Make a selection from the results list.
 
 1. To remove a task, select **Remove Tasks**.
-1. In the **Remove Tasks** page, from the **Available Tasks** list, select the plus sign **(+)** to move the task to the **Selected Tasks** list. 
+1. In the **Remove Tasks** page, from the **Available Tasks** list, select the plus sign **(+)** to move the task to the **Selected Tasks** list.
 1. When you have finished selecting tasks, select **Submit**.
-1. When the following message displays: **Are you sure you want to change permission?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select:
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.

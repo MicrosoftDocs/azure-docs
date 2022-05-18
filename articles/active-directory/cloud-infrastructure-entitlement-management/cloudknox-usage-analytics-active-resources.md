@@ -2,14 +2,14 @@
 title: View analytic information about active resources in Entra Permissions Management
 description: How to view usage analytics about active resources in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # View analytic information about active resources
@@ -18,7 +18,7 @@ ms.author: v-campisekat
 > Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Analytics** dashboard in Entra Permissions Management (Entra) collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for: 
+The **Analytics** dashboard in Entra Permissions Management (Entra) collects detailed information, analyzes, reports on, and visualizes data about all identity types. System administrators can use the information to make informed decisions about granting permissions and reducing risk on unused permissions for:
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
@@ -31,7 +31,7 @@ This article describes how to view usage analytics about active resources.
 
 ## Create a query to view active resources
 
-1. On the main **Analytics** dashboard, select **Active Resources** from the  drop-down list at the top of the screen. 
+1. On the main **Analytics** dashboard, select **Active Resources** from the  drop-down list at the top of the screen.
 
     The dashboard only lists tasks that are active. The following components make up the **Active Resources** dashboard:
 1. From the dropdowns, select:
@@ -50,8 +50,8 @@ This article describes how to view usage analytics about active resources.
 
 The **Active Resources** table displays the results of your query:
 
-- **Resource Name**: Provides the name of the task. 
-    - To view details about the task, select the down arrow. 
+- **Resource Name**: Provides the name of the task.
+    - To view details about the task, select the down arrow.
 - **Account**: The name of the account.
 - **Resources Type**: The type of resources used, for example, **bucket** or **key**.
 - **Tasks**: Displays the number of **Granted** and **Executed** tasks.
@@ -68,26 +68,26 @@ The **Active Resources** table displays the results of your query:
 1. To add the tag to the serverless function, select **Add Tag**.
 
 
-## Apply filters to your query  
+## Apply filters to your query
 
-There are many filter options within the **Active Resources** screen, including filters by **Authorization System**, filters by **User** and filters by **Task**. 
-Filters can be applied in one, two, or all three categories depending on the type of information you're looking for. 
+There are many filter options within the **Active Resources** screen, including filters by **Authorization System**, filters by **User** and filters by **Task**.
+Filters can be applied in one, two, or all three categories depending on the type of information you're looking for.
 
 ### Apply filters by authorization system
 
 1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset Filter** to discard your changes. 
+    Select **Reset Filter** to discard your changes.
 
 
 ### Apply filters by authorization system type
 
-1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**. 
+1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset Filter** to discard your changes. 
+    Select **Reset Filter** to discard your changes.
 
 ### Apply filters by task type
 
@@ -114,7 +114,7 @@ You can filter user details by type of user, user role, app, or service used, or
 
 ## Export the results of your query
 
-- To view a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV**. 
+- To view a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV**.
 
 
 ## Next steps

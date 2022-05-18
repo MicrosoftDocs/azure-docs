@@ -2,14 +2,14 @@
 title: Use queries to see how users access information in an authorization system in Entra Permissions Management
 description: How to use queries to see how users access information in an authorization system in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Use queries to see how users access information
@@ -18,7 +18,7 @@ ms.author: v-campisekat
 > Entra Permissions Management (Entra) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Audit** dashboard in Entra Permissions Management (Entra) provides an overview of queries a Entra user has created to review how users access their authorization systems and accounts. 
+The **Audit** dashboard in Entra Permissions Management (Entra) provides an overview of queries a Entra user has created to review how users access their authorization systems and accounts.
 
 This article provides an overview of the components of the **Audit** dashboard.
 
@@ -29,7 +29,7 @@ This article provides an overview of the components of the **Audit** dashboard.
 
     Entra displays the query options available to you.
 
-1. The following options display at the top of the **Audit** dashboard: 
+1. The following options display at the top of the **Audit** dashboard:
 
     - A tab for each existing query. Select the tab to see details about the query.
     - **New Query**: Select the tab to create a new query.
@@ -39,7 +39,7 @@ This article provides an overview of the components of the **Audit** dashboard.
 1. To return to the main page, select **Back to Audit Trail**.
 
 
-## Use a query to view information  
+## Use a query to view information
 
 1. In Entra, select the **Audit** tab.
 1. The **New query** tab displays the following options:
@@ -51,7 +51,7 @@ This article provides an overview of the components of the **Audit** dashboard.
         - To display a **List** of accounts and **Folders** in the authorization system, select the down arrow, and then select **Apply**.
 
 1. To add an **Audit Trail Condition**, select **Conditions** (the eye icon), select the conditions you want to add, and then select **Close**.
-    
+
 1. To edit existing parameters, select **Edit** (the pencil icon).
 
 1. To add the parameter that you created to the query, select **Add**.

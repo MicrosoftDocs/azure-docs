@@ -2,14 +2,14 @@
 title: Create, view, and share a custom report a custom report in Entra Permissions Management
 description: How to create, view, and share a custom report in the Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Create, view, and share a custom report
@@ -20,7 +20,7 @@ ms.author: v-campisekat
 
 This article describes how to create, view, and share a custom report in Entra Permissions Management (Entra).
 
-## Create a custom report 
+## Create a custom report
 
 1. In the Entra home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 1. Select **New Custom Report**.
@@ -37,7 +37,7 @@ This article describes how to create, view, and share a custom report in Entra P
 1. Select the **Report Format** subtab, and then select the format for your report: comma-separated values (**CSV**) file, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) file.
 1. Select the **Schedule** tab, and then select the frequency for your report, from **None** up to **Monthly**.
 
-	- For **Hourly** and **Daily** options, set the start date by choosing from the **Calendar** dropdown, and can input a specific time of the day they want to receive the report. 
+    - For **Hourly** and **Daily** options, set the start date by choosing from the **Calendar** dropdown, and can input a specific time of the day they want to receive the report.
 
     In addition to date and time, the **Weekly** and **Biweekly** provide options for you to select on which day(s)of the week the report should repeat.
 
@@ -46,7 +46,7 @@ This article describes how to create, view, and share a custom report in Entra P
       The following message displays across the top of the screen in green if the download is successful: **Report has been created**.
 The report name appears in the **Reports** table.
 
-## View a custom report 
+## View a custom report
 
 1. In the Entra home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 
@@ -71,13 +71,13 @@ The report name appears in the **Reports** table.
     You can only share reports with other Entra users.
 1. Select **Save**.
 
-## Search for a custom report 
+## Search for a custom report
 
 1. In the Entra home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 1. On the **Custom Reports** tab, select **Search**.
 1. In the **Search** box, enter the name of the report you want.
 
-    The **Custom Reports** tab displays a list of reports that match your search criteria. 
+    The **Custom Reports** tab displays a list of reports that match your search criteria.
 1. Select the report you want.
 1. To download a report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.
 1. To refresh the list of reports, select **Reload**.
@@ -91,33 +91,33 @@ The report name appears in the **Reports** table.
     - To rename the report, select **Edit** (the pencil icon), and enter a new name.
     - To change the settings for your report, select **Settings** (the gear icon). Make your changes, and then select **Save**.
 
-	- To download a copy of the report, select the **Down arrow** icon.
+    - To download a copy of the report, select the **Down arrow** icon.
 
 1. To perform other actions to the report, select the ellipses (**...**) icon:
 
-	- **Download**: Downloads a copy of the report.
+    - **Download**: Downloads a copy of the report.
 
-	- **Report Settings**: Displays the settings for the report, including scheduling, sharing the report, and so on.
+    - **Report Settings**: Displays the settings for the report, including scheduling, sharing the report, and so on.
 
-	- **Duplicate**: Creates a duplicate of the report called **"Copy of XXX"**. Any reports not created by the current user are listed as **Duplicate**.
+    - **Duplicate**: Creates a duplicate of the report called **"Copy of XXX"**. Any reports not created by the current user are listed as **Duplicate**.
 
-		 When you select **Duplicate**, a box appears asking if you're sure you want to create a duplicate. Select **Confirm**.
+         When you select **Duplicate**, a box appears asking if you're sure you want to create a duplicate. Select **Confirm**.
 
          When the report is successfully duplicated, the following message displays: **Report generated successfully**.
 
-	- **API Settings**: Download the report using your Application Programming Interface (API) settings.
+    - **API Settings**: Download the report using your Application Programming Interface (API) settings.
 
-		 When this option is selected, the **API Settings** window opens and displays the **Report ID** and **Secret Key**. Select **Generate New Key**.
+         When this option is selected, the **API Settings** window opens and displays the **Report ID** and **Secret Key**. Select **Generate New Key**.
 
-	- **Delete**: Select this option to delete the report.
+    - **Delete**: Select this option to delete the report.
 
-		 After selecting **Delete**, a pop-up box appears asking if the user is sure they want to delete the report. Select **Confirm**. 
+         After selecting **Delete**, a pop-up box appears asking if the user is sure they want to delete the report. Select **Confirm**.
 
         **Report is deleted successfully** appears across the top of the screen in green if successfully deleted.
 
-	- **Unsubscribe**: Unsubscribe the user from receiving scheduled reports and notifications.
+    - **Unsubscribe**: Unsubscribe the user from receiving scheduled reports and notifications.
 
-		 This option is only available after a report has been scheduled.
+         This option is only available after a report has been scheduled.
 
 
 ## Next steps

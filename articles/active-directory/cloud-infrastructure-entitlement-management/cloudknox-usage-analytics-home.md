@@ -2,14 +2,14 @@
 title: View analytic information with the Analytics dashboard in Entra Permissions Management
 description: How to use the Analytics dashboard in Entra Permissions Management to view details about users, groups, active resources, active tasks, access keys, and serverless functions.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # View analytic information with the Analytics dashboard
@@ -24,7 +24,7 @@ This article provides a brief overview of the Analytics dashboard in Entra Permi
 
 - From the Entra home page, select the **Analytics** tab.
 
-    The **Analytics** dashboard displays detailed information about: 
+    The **Analytics** dashboard displays detailed information about:
 
     - **Users**: Tracks assigned permissions and usage by users. For more information, see [View analytic information about users](cloudknox-usage-analytics-users.md).
 

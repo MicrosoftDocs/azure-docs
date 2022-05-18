@@ -2,14 +2,14 @@
 title: Set and view configuration settings in Entra Permissions Management
 description: How to view the Entra Permissions Management API integration settings and create service accounts and roles.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Set and view configuration settings
@@ -43,7 +43,7 @@ The **Integrations** dashboard displays the authorization systems available to y
 
     1. To view settings information, select **Settings**:
         - **Roles can create service account**: Lists the type of roles you can create.
-        - **Access Key Rotation Policy**: Lists notifications and actions you can set. 
+        - **Access Key Rotation Policy**: Lists notifications and actions you can set.
         - **Access Key Usage Policy**: Lists notifications and actions you can set.
 
 ## Create a service account
@@ -67,7 +67,7 @@ The **Integrations** dashboard displays the authorization systems available to y
 1. On the **Integrations** dashboard, select **User**, and then select **Integrations.**
 
 1. On the right of the email address, select **Delete Service Account**.
- 
+
      On the **Validate OTP To Delete [Service Name] Integration** box, a message displays asking you to check your email for a code sent to the email address on file.
 
      If you don't receive the code, select **Resend OTP**.
@@ -79,9 +79,9 @@ The **Integrations** dashboard displays the authorization systems available to y
 ## Create a role
 
 1. On the **Integrations** dashboard, select **User**, and then select **Settings**.
-2. Under **Roles can create service account**, select the role you want: 
+2. Under **Roles can create service account**, select the role you want:
     - **Super Admin**
-    - **Viewer** 
+    - **Viewer**
     - **Controller**
 
 3. In the **Access Key Rotation Policy** column, select options for the following:

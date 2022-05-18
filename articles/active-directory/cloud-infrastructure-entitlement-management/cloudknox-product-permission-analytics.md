@@ -1,18 +1,18 @@
 ---
-title: Create and view permission analytics triggers in Entra Permissions Management 
+title: Create and view permission analytics triggers in Entra Permissions Management
 description: How to create and view permission analytics triggers in the Permission analytics tab in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
-# Create and view permission analytics triggers 
+# Create and view permission analytics triggers
 
 > [!IMPORTANT]
 > Entra Permissions Management (Entra) is currently in PREVIEW.
@@ -28,8 +28,8 @@ This article describes how you can create and view permission analytics triggers
     The **Alerts** subtab displays the following information:
 
       - **Alert Name**: Lists the name of the alert.
-           - To view the name, ID, role, domain, authorization system, statistical condition, anomaly date, and observance period, select **Alert name**.  
-           - To expand the top information found with a graph of when the anomaly occurred, select **Details**. 
+           - To view the name, ID, role, domain, authorization system, statistical condition, anomaly date, and observance period, select **Alert name**.
+           - To expand the top information found with a graph of when the anomaly occurred, select **Details**.
       - **Anomaly Alert Rule**: Displays the name of the rule select when creating the alert.
       - **# of Occurrences**: Displays how many times the alert trigger has occurred.
       - **Task**: Displays how many tasks are affected by the alert
@@ -39,7 +39,7 @@ This article describes how you can create and view permission analytics triggers
       - **Date/Time**: Displays the date and time of the alert.
       - **Date/Time (UTC)**: Lists the date and time of the alert in Coordinated Universal Time (UTC).
 
-1. To filter the alerts, select the appropriate alert name or, from the **Alert Name** menu,select **All**. 
+1. To filter the alerts, select the appropriate alert name or, from the **Alert Name** menu,select **All**.
 
       - From the **Date** dropdown menu, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**, and then select **Apply**.
 
@@ -48,7 +48,7 @@ This article describes how you can create and view permission analytics triggers
 1. To view the following details, select the ellipses (**...**):
 
       - **Details**: Displays **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, and **Identities** that matched the alert criteria.
-1. To view specific matches, select **Resources**, **Tasks**, or **Identities**. 
+1. To view specific matches, select **Resources**, **Tasks**, or **Identities**.
 
    The **Activity** section displays details about the **Identity Name**, **Resource Name**, **Task Name**, **Date**, and **IP Address**.
 
@@ -59,12 +59,12 @@ This article describes how you can create and view permission analytics triggers
 1. In the **Alert Name** box,  enter a name for the alert.
 1. Select the **Authorization System**.
 1. Select **Identity performed high number of tasks**, and then select **Next**.
-1. On the **Authorization Systems** tab, select the appropriate accounts and folders, or select **All**.  
+1. On the **Authorization Systems** tab, select the appropriate accounts and folders, or select **All**.
 
     This screen defaults to the **List** view but can also be changed to the **Folder** view, and the applicable folder can be selected instead of individually by system.
 
     - The **Status** column displays if the authorization system is online or offline
-    - The **Controller** column displays if the controller is enabled or disabled. 
+    - The **Controller** column displays if the controller is enabled or disabled.
 
 1. On the **Configuration** tab, to update the **Time Interval**, select **90 Days**, **60 Days**, or **30 Days** from the **Time range** dropdown.
 1. Select **Save**.
@@ -97,6 +97,6 @@ This article describes how you can create and view permission analytics triggers
 ## Next steps
 
 - For an overview on activity triggers, see [View information about activity triggers](cloudknox-ui-triggers.md).
-- For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md). 
+- For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md).
 - For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](cloudknox-product-rule-based-anomalies.md).
 - For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](cloudknox-product-statistical-anomalies.md).

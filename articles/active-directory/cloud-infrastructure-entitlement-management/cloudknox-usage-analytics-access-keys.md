@@ -2,14 +2,14 @@
 title: View analytic information about access keys in Entra Permissions Management
 description: How to view  analytic information about access keys in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # View analytic information about access keys
@@ -31,9 +31,9 @@ This article describes how to view usage analytics about access keys.
 
 ## Create a query to view access keys
 
-When you select **Access keys**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities. 
+When you select **Access keys**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities.
 
-1. On the main **Analytics** dashboard, select **Access Keys** from the  drop-down list at the top of the screen. 
+1. On the main **Analytics** dashboard, select **Access Keys** from the  drop-down list at the top of the screen.
 
     The following components make up the **Access Keys** dashboard:
 
@@ -53,8 +53,8 @@ When you select **Access keys**, the **Analytics** dashboard provides a high-lev
 
 The **Access Keys** table displays the results of your query.
 
-- **Access Key ID**: Provides the ID for the access key. 
-    - To view details about the access keys, select the down arrow to the left of the ID. 
+- **Access Key ID**: Provides the ID for the access key.
+    - To view details about the access keys, select the down arrow to the left of the ID.
 - The **Owner** name.
 - The **Account** number.
 - The **Permission Creep Index (PCI)**: Provides the following information:
@@ -65,26 +65,26 @@ The **Access Keys** table displays the results of your query.
 - **Access Key Age**: How old the access key is, in days.
 - **Last Used**: How long ago the access key was last accessed.
 
-## Apply filters to your query  
+## Apply filters to your query
 
-There are many filter options within the **Active Tasks** screen, including filters by **Authorization System**, filters by **User** and filters by **Task**. 
-Filters can be applied in one, two, or all three categories depending on the type of information you're looking for. 
+There are many filter options within the **Active Tasks** screen, including filters by **Authorization System**, filters by **User** and filters by **Task**.
+Filters can be applied in one, two, or all three categories depending on the type of information you're looking for.
 
 ### Apply filters by authorization system type
 
 1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset Filter** to discard your changes. 
+    Select **Reset Filter** to discard your changes.
 
 
 ### Apply filters by authorization system
 
-1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**. 
+1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. From the **Authorization System** dropdown, select accounts from a **List** of accounts and **Folders**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset Filter** to discard your changes. 
+    Select **Reset Filter** to discard your changes.
 
 ### Apply filters by key status
 
@@ -128,7 +128,7 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 ## Export the results of your query
 
-- To view a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV** or **CSV (Detailed)**. 
+- To view a report of the results of your query as a comma-separated values (CSV) file, select **Export**, and then select **CSV** or **CSV (Detailed)**.
 
 ## Next steps
 

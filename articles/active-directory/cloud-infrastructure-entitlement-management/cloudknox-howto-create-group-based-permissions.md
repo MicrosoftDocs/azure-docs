@@ -2,14 +2,14 @@
 title: Select group-based permissions settings in Entra Permissions Management with the User management dashboard
 description: How to select group-based permissions settings in Entra Permissions Management with the User management dashboard.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Select group-based permissions settings
@@ -29,7 +29,7 @@ This article describes how you can create  and manage group-based permissions in
 1. In the **Set Group Permission** box, begin typing the name of an **Azure Active Directory Security Group** in your tenant.
 
 1. Select the permission setting you want:
-2. 
+2.
     - **Admin for all Authorization System Types** provides **View**, **Control**, and **Approve** permissions for all authorization system types.
     - **Admin for selected Authorization System Types** provides **View**, **Control**, and **Approve** permissions for selected authorization system types.
     - **Custom** allows you to set **View**, **Control**, and **Approve** permissions for the authorization system types that you select.
@@ -54,4 +54,3 @@ This article describes how you can create  and manage group-based permissions in
 - For information about how to manage user information, see [Manage users and groups with the User management dashboard](cloudknox-ui-user-management.md).
 - For information about how to view information about active and completed tasks, see [View information about active and completed tasks](cloudknox-ui-tasks.md).
 - For information about how to view personal and organization information, see [View personal and organization information](cloudknox-product-account-settings.md).
-

@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/24/2022
+ms.date: 05/13/2022
 ms.author: cynthn
 ms.custom: portal
 
@@ -20,6 +20,20 @@ Generalizing removes machine specific information so the image can be used to cr
 
 
 ## Linux
+
+Distribution specific instructions for preparing Linux images for Azure are available here:
+- [Generic steps](./linux/create-upload-generic.md)
+- [CentOS](./linux/create-upload-centos.md)
+- [Debian](./linux/debian-create-upload-vhd.md)
+- [Flatcar](./linux/flatcar-create-upload-vhd.md)
+- [FreeBSD](./linux/freebsd-intro-on-azure.md)
+- [Oracle Linux](./linux/oracle-create-upload-vhd.md)
+- [OpenBSD](./linux/create-upload-openbsd.md)
+- [Red Hat](./linux/redhat-create-upload-vhd.md)
+- [SUSE](./linux/suse-create-upload-vhd.md)
+- [Ubuntu](./linux/create-upload-ubuntu.md)
+
+The following instructions only cover setting the VM to generalized. We recommend you follow the distro specific instructions for production workloads.
 
 First you'll deprovision the VM by using the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](./extensions/agent-linux.md). This process can't be reversed.
 
@@ -51,7 +65,7 @@ az vm generalize \
    --name myVM
 ```
 
-## Windows 
+## Windows
 
 Sysprep removes all your personal account and security information, and then prepares the machine to be used as an image. For information about Sysprep, see [Sysprep overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 

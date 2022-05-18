@@ -2,14 +2,14 @@
 title: Entra Permissions Management training videos
 description: Entra Permissions Management training videos.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Entra Permissions Management training videos

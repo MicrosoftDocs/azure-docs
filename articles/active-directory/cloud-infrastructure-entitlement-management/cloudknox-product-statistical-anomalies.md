@@ -2,14 +2,14 @@
 title: Create and view statistical anomalies and anomaly triggers in Entra Permissions Management
 description: How to create and view statistical anomalies and anomaly triggers in the Statistical Anomaly tab in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Create and view statistical anomalies and anomaly triggers
@@ -28,12 +28,12 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
     The **Alerts** subtab displays the following information:
 
       - **Alert Name**: Lists the name of the alert.
-      - **Anomaly Alert Rule**: Displays the name of the rule select when creating the alert. 
+      - **Anomaly Alert Rule**: Displays the name of the rule select when creating the alert.
       - **# of Occurrences**: Displays how many times the alert trigger has occurred.
       - **Authorization System**: Displays which authorization systems the alert applies to.
       - **Date/Time**: Lists the day of the outlier occurring.
       - **Date/Time (UTC)**: Lists the day of the outlier occurring in Coordinated Universal Time (UTC).
-      
+
 
 1. To filter the alerts based on name, select the appropriate alert name or choose **All** from the **Alert Name** dropdown menu, and select **Apply**.
 1. To filter the alerts based on alert time, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range** from the **Date** dropdown menu, and select **Apply**.
@@ -41,7 +41,7 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
       - **Details**, this brings you to an Alert Summary view with **Authorization System**, **Statistical Model** and **Observance Period** displayed along with a table with a row per identity triggering this alert. From here you can click:
        - **Details**: Displays graph(s) highlighting the anomaly with context, and up to the top 3 actions performed on the day of the anomaly
        - **View Trigger**: Displays the current trigger settings and applicable authorization system details
-      - **View Trigger**: Displays the current trigger settings and applicable authorization system details 
+      - **View Trigger**: Displays the current trigger settings and applicable authorization system details
 
 ## Create a statistical anomaly trigger
 
@@ -65,11 +65,11 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
       - **Identity Performed Tasks with Multiple Unusual Patterns**: The identity has several unusual patterns in the tasks performed by the identity as established by their baseline in the observance period.
 1. Select **Next**.
 
-1. On the **Authorization Systems** tab, select the appropriate systems, or, to select all systems, select **All**. 
+1. On the **Authorization Systems** tab, select the appropriate systems, or, to select all systems, select **All**.
 
-    The screen defaults to the **List** view but you can switch to **Folder** view using the menu, and then select the applicable folder instead of individually by system. 
+    The screen defaults to the **List** view but you can switch to **Folder** view using the menu, and then select the applicable folder instead of individually by system.
 
-     - The **Status** column displays if the authorization system is online or offline. 
+     - The **Status** column displays if the authorization system is online or offline.
 
      - The **Controller** column displays if the controller is enabled or disabled.
 
@@ -84,7 +84,7 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
     The **Alert Triggers** subtab displays the following information:
 
       - **Alert**: Displays the name of the alert.
-      - **Anomaly Alert Rule**: Displays the name of the rule select when creating the alert. 
+      - **Anomaly Alert Rule**: Displays the name of the rule select when creating the alert.
       - **# of users subscribed**: Displays the number of users subscribed to the alert.
       - **Created By**: Displays the email address of the user who created the alert.
       - **Last Modified By**: Displays the email address of the user who last modified the alert.
@@ -96,7 +96,7 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
 1. To view other options available to you, select the ellipses (**...**), and then select from the available options:
 
      If the **Subscription** is **On**, the following options are available:
-     - **Edit**: Enables you to modify alert parameters 
+     - **Edit**: Enables you to modify alert parameters
 
         > [!NOTE]
           > Only the user who created the alert can perform the following actions: edit the trigger screen, rename an alert, deactivate an alert, and delete an alert. Changes made by other users aren't saved.
@@ -106,12 +106,12 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
      - **Activate**: Activate the alert trigger and start sending emails to subscribed users.
      - **Notification Settings**: View the **Email** of users who are subscribed to the alert trigger.
      - **Delete**: Delete the alert.
-     
+
      If the **Subscription** is **Off**, the following options are available:
      - **View**: View  details of the alert trigger.
      - **Notification settings**: View the **Email** of users who are subscribed to the alert trigger.
      - **Duplicate**: Create a duplicate copy of the selected alert trigger.
-     
+
 
 1. Select **Apply**.
 
@@ -120,6 +120,6 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
 ## Next steps
 
 - For an overview on activity triggers, see [View information about activity triggers](cloudknox-ui-triggers.md).
-- For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md). 
+- For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](cloudknox-howto-create-alert-trigger.md).
 - For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](cloudknox-product-rule-based-anomalies.md).
 - For information on permission analytics triggers, see [Create and view permission analytics triggers](cloudknox-product-permission-analytics.md).

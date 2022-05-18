@@ -2,14 +2,14 @@
 title: View existing roles/policies and requests for permission in the Remediation dashboard in Entra Permissions Management
 description: How to view existing roles/policies and requests for permission in the Remediation dashboard in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # View roles/policies and requests for permission in the Remediation dashboard
@@ -23,7 +23,7 @@ The **Remediation** dashboard in Entra Permissions Management (Entra) provides a
 This article provides an overview of the components of the **Remediation** dashboard.
 
 > [!NOTE]
-> To view the **Remediation** dashboard, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this dashboard, you must have **Controller** or **Administrator** permissions. If you don’t have these permissions, contact your system administrator.
+> To view the **Remediation** dashboard, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this dashboard, you must have **Controller** or **Administrator** permissions. If you don't have these permissions, contact your system administrator.
 
 > [!NOTE]
 > Microsoft Azure uses the term *role* for what other cloud providers call *policy*. Entra automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
@@ -32,18 +32,18 @@ This article provides an overview of the components of the **Remediation** dashb
 
 1. On the Entra home page, select the **Remediation** tab.
 
-    The **Remediation** dashboard includes six subtabs: 
+    The **Remediation** dashboard includes six subtabs:
 
     - **Roles/Policies**: Use this subtab to perform Create Read Update Delete (CRUD) operations on roles/policies.
     - **Permissions**: Use this subtab to perform Read Update Delete (RUD) on granted permissions.
     - **Role/Policy Template**: Use this subtab to create a template for roles/policies template.
     - **Requests**: Use this subtab to view approved, pending, and processed Permission on Demand (POD) requests.
-    - **My Requests**: Use this tab to manage lifecycle of the POD request either created by you or needs your approval. 
+    - **My Requests**: Use this tab to manage lifecycle of the POD request either created by you or needs your approval.
     - **Settings**: Use this subtab to select **Request Role/Policy Filters**, **Request Settings**, and **Auto-Approve** settings.
 
 1. Use the dropdown to select the **Authorization System Type** and **Authorization System**, and then select **Apply**.
 
-## View and create roles/policies 
+## View and create roles/policies
 
 The **Role/Policies** subtab provides the following settings that you can use to view and create a role/policy.
 
@@ -59,19 +59,19 @@ The **Policy list** displays a list of existing roles/policies and the following
 
 - **Policy Name**: The name of the roles/policies available to you.
 - **Policy Type**: **Custom**, **System**, or **Entra Only**
-- **Actions** 
+- **Actions**
     - Select **Clone** to create a duplicate copy of the role/policy.
     - Select **Modify** to change the existing role/policy.
-    - Select **Delete** to delete the role/policy.  
+    - Select **Delete** to delete the role/policy.
 
 Other options available to you:
 - **Search**: Select this option to search for a specific role/policy.
 - **Reload**: Select this option to refresh the displayed list of roles/policies.
-- **Export CSV**: Select this option to export the displayed list of roles/policies as a comma-separated values (CSV) file. 
+- **Export CSV**: Select this option to export the displayed list of roles/policies as a comma-separated values (CSV) file.
 
     When the file is successfully exported, a message appears: **Exported Successfully.**
 
-    - Check your email for a message from the Entra Customer Success Team. This email contains a link to: 
+    - Check your email for a message from the Entra Customer Success Team. This email contains a link to:
         - The **Role Policy Details** report in CSV format.
         - The **Reports** dashboard where you can configure how and when you can automatically receive reports.
 - **Create Role/Policy**: Select this option to create a new role/policy. For more information, see [Create a role/policy](cloudknox-howto-create-role-policy.md).
@@ -91,11 +91,11 @@ The **Permissions** subtab provides the following settings that you can use to a
 - **Enter a Group Name**: A dropdown from which you can select a group name.
 - **Apply**: Select this option to save the changes you've made and run the filter.
 - **Reset Filter**: Select this option to discard the changes you've made.
-- **Export CSV**: Select this option to export the displayed list of roles/policies as a comma-separated values (CSV) file. 
+- **Export CSV**: Select this option to export the displayed list of roles/policies as a comma-separated values (CSV) file.
 
     When the file is successfully exported, a message appears: **Exported Successfully.**
 
-    - Check your email for a message from the Entra Customer Success Team. This email contains a link to: 
+    - Check your email for a message from the Entra Customer Success Team. This email contains a link to:
         - The **Role Policy Details** report in CSV format.
         - The **Reports** dashboard where you can configure how and when you can automatically receive reports.
 
@@ -118,7 +118,7 @@ Other options available to you:
 - **Search**: Select this option to search for a specific role/policy.
 - **Reload**: Select this option to refresh the displayed list of roles/policies.
 
-## View requests for permission 
+## View requests for permission
 
 Use the **Requests** tab to view a list of **Pending**, **Approved**, and **Processed** requests for permissions your team members have made.
 
@@ -159,7 +159,7 @@ The **Pending** table displays the following information:
 
 **To return to the previous view:**
 
-- Select the up arrow.  
+- Select the up arrow.
 
 ### View approved requests
 
@@ -169,7 +169,7 @@ The **Approved** table displays information about the requests that have been ap
 
 The **Processed** table displays information about the requests that have been processed.
 
-## View requests for permission for your approval 
+## View requests for permission for your approval
 
 Use the **My Requests** subtab to view a list of **Pending**, **Approved**, and **Processed** requests for permissions your team members have made and you must approve or reject.
 
@@ -238,4 +238,3 @@ The **Settings** subtab provides the following settings that you can use to make
 - For information on how to revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities, see [Revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities](cloudknox-howto-revoke-task-readonly-status.md)
 - For information on how to create or approve a request for permissions, see [Create or approve a request for permissions](cloudknox-howto-create-approve-privilege-request.md).
 - For information on how to view information about roles/policies, see [View information about roles/policies](cloudknox-howto-view-role-policy.md)
-

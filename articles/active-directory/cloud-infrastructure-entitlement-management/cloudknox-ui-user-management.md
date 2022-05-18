@@ -2,14 +2,14 @@
 title: Manage users and groups with the User management dashboard in Entra Permissions Management
 description: How to manage users and groups in the User management dashboard in Entra Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-campisekat
+ms.author: mtillman
 ---
 
 # Manage users and groups with the User management dashboard
@@ -30,7 +30,7 @@ This article describes how to use the Entra Permissions Management (Entra) **Use
     - **Groups**: Displays information about groups.
 
 ## Manage users
- 
+
 Use the **Users** tab to display the following information about users:
 
 - **Name** and **Email Address**: The user's name and email address.
@@ -49,11 +49,11 @@ You can also select the following options:
 - **Search**: Enter a name or email address to search for a specific user.
 
 ## Manage groups
- 
+
 Use the **Groups** tab to display the following information about groups:
 
 - **Name**: Displays the registered user's name and email address.
-- **Permissions**: 
+- **Permissions**:
     - The **Authorization Systems** and the type of permissions the user has been granted: **Admin for all Authorization System Types**, **Admin for selected Authorization System Types**, or **Custom**.
     - Information about the **Viewer**, **Controller**, **Approver**, and **Requestor**.
 - **Modified By**: The email address of the user who modified the group.
@@ -69,7 +69,7 @@ Use the **Groups** tab to display the following information about groups:
     - **Edit Permissions**: Select this option to modify the group's permissions.
     - **Delete**: Select this option to delete the group's permissions.
 
-        The **Delete Permission** box asks you to confirm that you want to delete the group. 
+        The **Delete Permission** box asks you to confirm that you want to delete the group.
         - Select **Delete** if you want to delete the group, **Cancel** to discard your changes.
 
 
@@ -77,7 +77,7 @@ You can also select the following options:
 
 - **Reload**: Select this option to refresh the information displayed in the **User** table.
 - **Search**: Enter a name or email address to search for a specific user.
-- **Filters**: Select the authorization systems and accounts you want to display. 
+- **Filters**: Select the authorization systems and accounts you want to display.
 - **Create Permission**: Create a group and set up its permissions. For more information, see [Create group-based permissions](cloudknox-howto-create-group-based-permissions.md)
 
 
