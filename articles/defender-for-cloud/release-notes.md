@@ -2,7 +2,6 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-=======
 ms.date: 05/17/2022
 ---
 
@@ -23,6 +22,7 @@ Updates in May include:
 
 - [Multi-cloud settings of Servers plan are now available in connector level](#multi-cloud-settings-of-servers-plan-are-now-available-in-connector-level)
 - [JIT is now available for AWS (Preview)](#jit-is-now-available-for-aws-preview)
+- [Changes to vulnerability assessment](#changes-to-vulnerability-assessment) 
 
 ### Multi-cloud settings of Servers plan are now available in connector level
 
