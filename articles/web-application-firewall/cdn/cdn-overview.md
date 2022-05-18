@@ -109,4 +109,4 @@ Monitoring for WAF with CDN is integrated with Azure Monitor to track alerts and
 
 ## Next steps
 
-- [Azure CLI for CDN WAF](/cli/azure/cdn/waf?view=azure-cli-latest)
+- [Azure CLI for CDN WAF](/cli/azure/cdn/waf)

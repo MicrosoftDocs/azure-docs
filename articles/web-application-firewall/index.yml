@@ -54,8 +54,6 @@ landingContent:
             url: ./ag/application-gateway-web-application-firewall-portal.md
           - text: Web Application Firewall on Front Door
             url: ./afds/waf-front-door-create-portal.md
-          - text: WAF policy on Azure CDN
-            url: ./cdn/waf-cdn-create-portal.md
 
   # Card
   - title: Manage WAF rules on Application Gateway
