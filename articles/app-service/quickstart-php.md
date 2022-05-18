@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 03/10/2022
 ms.devlang: php
 ms.custom: mode-other, devdivchpfy22
-zone_pivot_groups: app-service-platform-windows-linux
+zone_pivot_groups: app-service-linux-windows-portal
 ---
 
 # Create a PHP web app in Azure App Service
@@ -14,6 +14,10 @@ zone_pivot_groups: app-service-platform-windows-linux
 ::: zone pivot="platform-windows"  
 [!INCLUDE [quickstart-php-windows-](./includes/quickstart-php/quickstart-php-windows-pivot.md)]
 ::: zone-end  
+
+::: zone pivot="platform-azure-portal"  
+[!INCLUDE [quickstart-php-azure-portal-](./includes/quickstart-php/quickstart-php-azure-portal-pivot.md)]
+::: zone-end 
 
 ::: zone pivot="platform-linux"
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy a PHP app to Azure App Service on Linux.

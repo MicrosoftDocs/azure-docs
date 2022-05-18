@@ -1082,7 +1082,17 @@ groups:
   - id: container-windows
     title: Windows container
   - id: code-windows
-    title: Windows code    
+    title: Windows code
+- id: app-service-linux-windows-portal
+  title: Deployment platform
+  prompt: Choose a deployment platform
+  pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+  - id: platform-azure-portal
+    title: Azure portal    
 - id: programming-languages-spring-cloud
 # Owner: bmitchell287
   title: Programming languages
