@@ -16,42 +16,69 @@ Your logic app workflow generates information that can help you diagnose and deb
 
 ## Check trigger history
 
-Each workflow run starts with a trigger, which either fires on a schedule or waits for an incoming request or event. The trigger history lists all the trigger attempts that your workflow made and information about the inputs and outputs for each trigger attempt.
-
-If the trigger doesn't fire, follow these steps:
+Each workflow run starts with a trigger, which either fires on a schedule or waits for an incoming request or event. The trigger history lists all the trigger attempts that your workflow made and information about the inputs and outputs for each trigger attempt. If the trigger doesn't fire, try the following steps.
 
 ### [Consumption](#tab/consumption)
 
-1. To check the trigger's status, [review the trigger history](monitor-logic-apps.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
+1. To check the trigger's status in your Consumption logic app, [review the trigger history](monitor-logic-apps.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
 
-   ![Screenshot showing Azure portal with the workflow's trigger status and history.](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-consumption.png)
+   ![Screenshot showing Azure portal with Consumption logic app workflow trigger history.](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-consumption.png)
 
-1. Check the trigger's inputs to confirm that they appear as you expect. Under **Inputs link**, select the link, which shows the **Inputs** pane.
+1. Check the trigger's inputs to confirm that they appear as you expect. On the **History** pane, under **Inputs link**, select the link, which shows the **Inputs** pane.
 
    Trigger inputs include the data that the trigger expects and requires to start the workflow. Reviewing these inputs can help you determine whether the trigger inputs are correct and whether the condition was met so that the workflow can continue.
 
-   For example, the `feedUrl` property here has an incorrect RSS feed value:
+   ![Screenshot showing Consumption logic app workflow trigger inputs.](./media/logic-apps-diagnosing-failures/review-trigger-inputs-consumption.png)
 
-   ![Screenshot showing the trigger inputs for errors.](./media/logic-apps-diagnosing-failures/review-trigger-inputs-consumption.png)
+1. Check the triggers outputs, if any, to confirm that they appear as you expect. On the **History** pane, under **Outputs link**, select the link, which shows the **Outputs** pane.
 
-1. Check the triggers outputs, if any, to confirm that they appear as you expect. Under **Outputs link**, select the link, which shows the **Outputs** pane.
+   Trigger outputs include the data that the trigger passes to the next step in your workflow. Reviewing these outputs can help you determine whether the correct or expected values passed on to the next step in your workflow.
 
-   Trigger outputs include the data that the trigger passes to the next step in your workflow. Reviewing these outputs can help you determine whether the correct or expected values passed on to the next step in your workflow, for example:
+   For example, an error message states that the RSS feed wasn't found:
 
-   ![Screenshot showing the trigger outputs for errors.](./media/logic-apps-diagnosing-failures/review-trigger-outputs-consumption.png)
+   ![Screenshot showing Consumption logic app workflow trigger outputs.](./media/logic-apps-diagnosing-failures/review-trigger-outputs-consumption.png)
 
    > [!TIP]
    >
    > If you find any content that you don't recognize, learn more about 
    > [different content types](../logic-apps/logic-apps-content-type.md) in Azure Logic Apps.
 
+### [Standard](#tab/standard)
+
+1. To check the trigger's status in your Standard logic app, [review the trigger history](monitor-logic-apps.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
+
+   ![Screenshot showing Azure portal with Standard logic app workflow trigger history.](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-standard.png)
+
+1. Check the trigger's inputs to confirm that they appear as you expect. On the **History** pane, under **Inputs link**, select the link, which shows the **Inputs** pane.
+
+   Trigger inputs include the data that the trigger expects and requires to start the workflow. Reviewing these inputs can help you determine whether the trigger inputs are correct and whether the condition was met so that the workflow can continue.
+
+   ![Screenshot showing Standard logic app workflow trigger inputs.](./media/logic-apps-diagnosing-failures/review-trigger-inputs-standard.png)
+
+1. Check the triggers outputs, if any, to confirm that they appear as you expect. On the **History** pane, under **Outputs link**, select the link, which shows the **Outputs** pane.
+
+   Trigger outputs include the data that the trigger passes to the next step in your workflow. Reviewing these outputs can help you determine whether the correct or expected values passed on to the next step in your workflow.
+
+   For example, an error message states that the RSS feed wasn't found:
+
+   ![Screenshot showing Standard logic app workflow trigger outputs.](./media/logic-apps-diagnosing-failures/review-trigger-outputs-standard.png)
+
+   > [!TIP]
+   >
+   > If you find any content that you don't recognize, learn more about 
+   > [different content types](../logic-apps/logic-apps-content-type.md) in Azure Logic Apps.
+
+---
+
 <a name="check-runs-history"></a>
 
 ## Check workflow run history
 
-Each time that the trigger fires, Azure Logic Apps creates a workflow instance and runs that instance. If a run fails, follow these steps to review what happened during that run, including the status for each step in the workflow plus the inputs and outputs for each step.
+Each time that the trigger fires, Azure Logic Apps creates a workflow instance and runs that instance. If a run fails, try the following steps to review what happened during that run, including the status for each step in the workflow plus the inputs and outputs for each step.
 
-1. To check the workflow's run status, [review the runs history](monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
+### [Consumption](#tab/consumption)
+
+1. To check the workflow's run status in your Consumption logic app, [review the runs history](monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
 
    ![Screenshot showing the Azure portal with the workflow runs and a failed run selected.](./media/logic-apps-diagnosing-failures/logic-app-runs-history-consumption.png)
 
