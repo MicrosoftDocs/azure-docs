@@ -97,7 +97,7 @@ To block creating a connection altogether in a logic app workflow, follow these 
    | **Description** | No | <*policy-definition-name*> | A description for the policy definition |
    | **Category** | Yes | **Logic apps** | The name for an existing category or new category for the policy definition |
    | **Policy enforcement** | Yes | **Enabled** | This setting specifies whether to enable or disable the policy definition when you save your work. |
-   ||||
+   |||||
 
 1. Under **POLICY RULE**, the JSON edit box is pre-populated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the table below and by following this syntax:
 
@@ -218,7 +218,7 @@ When you create a connection in a logic app workflow, this connection exists as 
    | **Description** | No | <*policy-definition-name*> | A description for the policy definition |
    | **Category** | Yes | **Logic apps** | The name for an existing category or new category for the policy definition |
    | **Policy enforcement** | Yes | **Enabled** | This setting specifies whether to enable or disable the policy definition when you save your work. |
-   ||||
+   |||||
 
 1. Under **POLICY RULE**, the JSON edit box is pre-populated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the table below and by following this syntax:
 
