@@ -559,7 +559,7 @@ The CI/CD Dev workflow:
 
 #### CD Stage workflow
 
-The CD Stage workflow starts automatically once Flux successfully deploys the application to dev environment and notifies GitHub actions via GitOps Connector.
+The CD Stage workflow starts automatically once Flux successfully deploys the application to dev environment and notifies GitHub Actions via GitOps Connector.
 
 The CD Stage workflow:
 * Runs application smoke tests against Dev environment
