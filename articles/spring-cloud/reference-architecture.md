@@ -89,9 +89,17 @@ The following list describes the Azure services in this reference architecture:
 
 * [Azure Spring Apps][1]: a managed service that's designed and optimized specifically for Java-based Spring Boot applications and .NET-based [Steeltoe][9] applications.
 
-The following diagram represents a well-architected hub and spoke design that addresses the above requirements:
+The following diagrams represent a well-architected hub and spoke design that addresses the above requirements:
 
-![Reference architecture diagram for private applications](./media/spring-cloud-reference-architecture/architecture-private.png)
+[Azure Spring Standard](#tab/azure-spring-standard-private)
+
+![Reference architecture diagram for private applications](./media/spring-cloud-reference-architecture/architecture-private_standard.png)
+
+[Azure Spring Enterprise](#tab/azure-spring-enterprise-private)
+
+![Reference architecture diagram for private applications](./media/spring-cloud-reference-architecture/architecture-private_enterprise.png)
+
+---
 
 ## Public applications
 
@@ -143,9 +151,17 @@ The following list describes the Azure services in this reference architecture:
 
 * [Azure Spring Apps][1]: a managed service that's designed and optimized specifically for Java-based Spring Boot applications and .NET-based [Steeltoe][9] applications.
 
-The following diagram represents a well-architected hub and spoke design that addresses the above requirements. Only the hub-virtual-network communicates with the internet:
+The following diagrams represent a well-architected hub and spoke design that addresses the above requirements. Only the hub-virtual-network communicates with the internet:
 
-![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public.png)
+[Azure Spring Standard](#tab/azure-spring-standard-public)
+
+![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public_standard.png)
+
+[Azure Spring Enterprise](#tab/azure-spring-enterprise-public)
+
+![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public_enterprise.png)
+
+---
 
 ## Azure Spring Apps on-premises connectivity
 
