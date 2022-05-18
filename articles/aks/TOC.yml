@@ -384,7 +384,7 @@
           href: use-ultra-disks.md
     - name: CSI storage drivers
       items:
-        - name: CSI storage drivers overview
+        - name: CSI storage driver overview
           href: csi-storage-drivers.md
         - name: Azure disk CSI drivers
           href: azure-disk-csi.md

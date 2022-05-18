@@ -37,122 +37,124 @@ The following table describes the Storage Class parameters for the Azure disk CS
 
 ## Create an Azure disk
 
-When you create an Azure disk for use with AKS, you can create the disk resource in the **node** resource group. This approach allows the AKS cluster to access and manage the disk resource. If instead you created the disk in a separate resource group, you must grant the Azure Kubernetes Service (AKS) managed identity for your cluster the `Contributor` role to the disk's resource group.
+When you create an Azure disk for use with AKS, you can create the disk resource in the **node** resource group. This approach allows the AKS cluster to access and manage the disk resource. If instead you created the disk in a separate resource group, you must grant the Azure Kubernetes Service (AKS) managed identity for your cluster the `Contributor` role to the disk's resource group. In this exercise, you're going to create the disk in the same resource group as your cluster.
 
-In this article, you'll create the disk in the same resource group as your cluster. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
+1. Identify the resource group name using the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
 
-```azurecli-interactive
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    ```azurecli-interactive
+    $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    
+    MC_myResourceGroup_myAKSCluster_eastus
+    ```
 
-MC_myResourceGroup_myAKSCluster_eastus
-```
+2. Create a disk using the [az disk create][az-disk-create] command. Specify the node resource group name obtained in the previous command, and then a name for the disk resource, such as *myAKSDisk*. The following example creates a *20*GiB disk, and outputs the ID of the disk after it's created. If you need to create a disk for use with Windows Server containers, add the `--os-type windows` parameter to correctly format the disk.
 
-Now create a disk using the [az disk create][az-disk-create] command. Specify the node resource group name obtained in the previous command, and then a name for the disk resource, such as *myAKSDisk*. The following example creates a *20*GiB disk, and outputs the ID of the disk once created. If you need to create a disk for use with Windows Server containers, add the `--os-type windows` parameter to correctly format the disk.
+    ```azurecli-interactive
+    az disk create \
+      --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+      --name myAKSDisk \
+      --size-gb 20 \
+      --query id --output tsv
+    ```
 
-```azurecli-interactive
-az disk create \
-  --resource-group MC_myResourceGroup_myAKSCluster_eastus \
-  --name myAKSDisk \
-  --size-gb 20 \
-  --query id --output tsv
-```
+    > [!NOTE]
+    > Azure disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 32TiB for S80 or P80 disks (in preview). The throughput and IOPS performance of a Premium managed disk depends on both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
 
-> [!NOTE]
-> Azure disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 32TiB for S80 or P80 disks (in preview). The throughput and IOPS performance of a Premium managed disk depends on both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
+    The disk resource ID is displayed once the command has successfully completed, as shown in the following example output. This disk ID is used to mount the disk in the next step.
 
-The disk resource ID is displayed once the command has successfully completed, as shown in the following example output. This disk ID is used to mount the disk in the next step.
+    ```console
+    /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
+    ```
 
-```console
-/subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
-```
+3. Create a *pv-azuredisk.yaml* file with a *PersistentVolume*. Update `volumeHandle` with disk resource ID from the previous step. For example:
 
-## Mount disk as volume
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: pv-azuredisk
+    spec:
+      capacity:
+        storage: 20Gi
+      accessModes:
+        - ReadWriteOnce
+      persistentVolumeReclaimPolicy: Retain
+      storageClassName: managed-csi
+      csi:
+        driver: disk.csi.azure.com
+        readOnly: false
+        volumeHandle: /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
+        volumeAttributes:
+          fsType: ext4
+    ```
 
-Create a *pv-azuredisk.yaml* file with a *PersistentVolume*. Update `volumeHandle` with disk resource ID. For example:
+4. Create a *pvc-azuredisk.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume*. For example:
 
-```yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: pv-azuredisk
-spec:
-  capacity:
-    storage: 20Gi
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: managed-csi
-  csi:
-    driver: disk.csi.azure.com
-    readOnly: false
-    volumeHandle: /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
-    volumeAttributes:
-      fsType: ext4
-```
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: pvc-azuredisk
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 20Gi
+      volumeName: pv-azuredisk
+      storageClassName: managed-csi
+    ```
 
-Create a *pvc-azuredisk.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume*. For example:
+5. Use the `kubectl` commands to create the *PersistentVolume* and *PersistentVolumeClaim*, referencing the two YAML files created earlier:
 
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: pvc-azuredisk
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
-  volumeName: pv-azuredisk
-  storageClassName: managed-csi
-```
+    ```console
+    kubectl apply -f pv-azuredisk.yaml
+    kubectl apply -f pvc-azuredisk.yaml
+    ```
 
-Use the `kubectl` commands to create the *PersistentVolume* and *PersistentVolumeClaim*.
+6. To verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolume*, run the
+following command:
 
-```console
-kubectl apply -f pv-azuredisk.yaml
-kubectl apply -f pvc-azuredisk.yaml
-```
+    ```console
+    $ kubectl get pvc pvc-azuredisk
+    
+    NAME            STATUS   VOLUME         CAPACITY    ACCESS MODES   STORAGECLASS   AGE
+    pvc-azuredisk   Bound    pv-azuredisk   20Gi        RWO                           5s
+    ```
 
-Verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolume*.
+7. Create a *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*. For example:
 
-```console
-$ kubectl get pvc pvc-azuredisk
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: mypod
+    spec:
+      containers:
+      - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+        name: mypod
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        volumeMounts:
+          - name: azure
+            mountPath: /mnt/azure
+      volumes:
+        - name: azure
+          persistentVolumeClaim:
+            claimName: pvc-azuredisk
+    ```
 
-NAME            STATUS   VOLUME         CAPACITY    ACCESS MODES   STORAGECLASS   AGE
-pvc-azuredisk   Bound    pv-azuredisk   20Gi        RWO                           5s
-```
+8. Run the following command to apply the configuration and mount the volume, referencing the YAML
+configuration file created in the previous steps:
 
-Create a *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*. For example:
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mypod
-spec:
-  containers:
-  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-    name: mypod
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 250m
-        memory: 256Mi
-    volumeMounts:
-      - name: azure
-        mountPath: /mnt/azure
-  volumes:
-    - name: azure
-      persistentVolumeClaim:
-        claimName: pvc-azuredisk
-```
-
-```console
-kubectl apply -f azure-disk-pod.yaml
-```
+    ```console
+    kubectl apply -f azure-disk-pod.yaml
+    ```
 
 ## Next steps
 
