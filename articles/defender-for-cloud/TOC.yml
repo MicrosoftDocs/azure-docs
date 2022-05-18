@@ -119,6 +119,8 @@
     href: custom-dashboards-azure-workbooks.md
   - name: Use security recommendations to improve security
     items:
+    - name: Create custom security initiatives and policies
+      href: custom-security-policies.md
     - name: Review your security recommendations
       href: review-security-recommendations.md
     - name: Remediate recommendations
@@ -134,8 +136,6 @@
     - name: Exempt recommendations per resource, subscription, or management group
       displayName: disable
       href: exempt-resource.md
-    - name: Create custom security initiatives and policies
-      href: custom-security-policies.md
   - name: Protect your machines
     displayName: hybrid, arc, Azure Defender for machines
     items:
