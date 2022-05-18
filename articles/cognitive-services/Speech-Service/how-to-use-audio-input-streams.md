@@ -7,16 +7,16 @@ author: fmegen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# About the Speech SDK audio input stream API
+# How to use the audio input stream
 
-The Speech SDK audio input stream API provides a way to stream audio into the recognizers instead of using either the microphone or the input file APIs.
+The Speech SDK provides a way to stream audio into the recognizer as an alternative to microphone or file input.
 
 The following steps are required when you use audio input streams:
 

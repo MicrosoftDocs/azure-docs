@@ -39,6 +39,9 @@
     href: search-get-started-powershell.md
   - name: Python
     href: search-get-started-python.md
+  - name: Bicep
+    displayName: ARM, Resource Manager, Template
+    href: search-get-started-bicep.md
   - name: ARM template
     displayName: Resource Manager 
     href: search-get-started-arm.md
@@ -209,7 +212,7 @@
         href: search-security-manage-encryption-keys.md
       - name: Find encrypted objects
         href: search-security-get-encryption-keys.md
-    - name: Inbound security
+    - name: Inbound connections
       items:
       - name: Use key authentication
         href: search-security-api-keys.md
@@ -223,8 +226,10 @@
         href: service-create-private-endpoint.md
       - name: Troubleshoot private connections
         href: troubleshoot-shared-private-link-resources.md
-    - name: Outbound security (indexers)  
+    - name: Outbound connections
       items:
+      - name: Connect using a managed identity
+        href: search-howto-managed-identities-data-sources.md
       - name: Connect over an IP range
         href: search-indexer-howto-access-ip-restricted.md
       - name: Connect as a trusted service
@@ -246,29 +251,11 @@
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
     - name: Develop in .NET
-      items:
-      - name: Use Azure.Search.Documents
-        href: search-howto-dotnet-sdk.md
-      - name: Use Microsoft.Azure.Search
-        href: search-howto-dotnet-sdk-v10.md
-      - name: Legacy quickstart (Microsoft.Azure.Search)
-        href: search-get-started-dotnet-v10.md
-    - name: Upgrade the SDK
-      items:
-      - name: .NET SDK 11.0
-        href: search-dotnet-sdk-migration-version-11.md
-      - name: .NET SDK 10.0
-        href: search-dotnet-sdk-migration-version-10.md
-      - name: .NET SDK 9.0
-        href: search-dotnet-sdk-migration-version-9.md
-      - name: .NET SDK 5.0
-        href: search-dotnet-sdk-migration-version-5.md
-      - name: .NET SDK 3.0
-        href: search-dotnet-sdk-migration.md
-      - name: .NET SDK 1.1
-        href: search-dotnet-sdk-migration-version-1.md
-      - name: .NET Management SDK
-        href: search-dotnet-mgmt-sdk-migration.md
+      href: search-howto-dotnet-sdk.md
+    - name: Upgrade to 11.0
+      href: search-dotnet-sdk-migration-version-11.md
+    - name: Upgrade the Management SDK
+      href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
   - name: Indexes
@@ -279,6 +266,8 @@
       href: search-how-to-load-search-index.md
     - name: Drop and rebuild an index
       href: search-howto-reindex.md
+    - name: Create an index alias
+      href: search-how-to-alias.md
     - name: Create a multi-language index
       href: search-language-support.md
     - name: Index large data sets
@@ -323,14 +312,14 @@
         href: search-howto-index-json-blobs.md
     - name: Connect with managed identities
       items:
-      - name: Managed identities overview
-        href: search-howto-managed-identities-data-sources.md
       - name: Azure Storage
         href: search-howto-managed-identities-storage.md
       - name: Azure Cosmos DB
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
+      - name: SQL Managed Instance
+        href: search-index-azure-sql-managed-instance-with-managed-identity.md
     - name: Troubleshooting guidance
       href: search-indexer-troubleshooting.md
     - name: Troubleshoot indexer errors and warnings
@@ -355,8 +344,10 @@
           href: search-howto-index-changed-deleted-blobs.md
       - name: Azure Cosmos DB
         items:
-        - name: SQL and MongoDB APIs
+        - name: SQL API
           href: search-howto-index-cosmosdb.md
+        - name: MongoDB API
+          href: search-howto-index-cosmosdb-mongodb.md
         - name: Gremlin API
           href: search-howto-index-cosmosdb-gremlin.md
       - name: Azure DB for MySQL
@@ -510,13 +501,13 @@
     - name: Search API
       href: /javascript/api/overview/azure/search-documents-readme
     - name: Management API
-      href: /javascript/api/overview/azure/search/management
+      href: /javascript/api/@azure/arm-search/
   - name: Python
     items:
     - name: Search API
       href: /python/api/overview/azure/search-documents-readme
     - name: Management API
-      href: /python/api/overview/azure/search/management
+      href: /python/api/azure-mgmt-search/
   - name: Resource management
     items:
     - name: Azure CLI
@@ -530,6 +521,8 @@
       href: ./policy-reference.md
     - name: Monitoring data reference
       href: monitor-azure-cognitive-search-data-reference.md
+  - name: Stopwords reference
+    href: reference-stopwords.md
   - name: OData language reference
     items:
     - name: Overview
@@ -566,6 +559,8 @@
       href: search-more-like-this.md
   - name: Skills reference
     items:
+    - name: Annotation reference language
+      href: cognitive-search-skill-annotation-language.md
     - name: Built-in skills
       items: 
       - name: Overview

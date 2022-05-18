@@ -3,10 +3,10 @@
 title: Tutorial develop C module for Linux - Azure IoT Edge | Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with C code and deploy it to a Linux device running IoT Edge
 services: iot-edge
-author: kgremban
+author: PatAltimore
 
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge

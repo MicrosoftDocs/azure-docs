@@ -1,12 +1,12 @@
 ---
 title: Ev3-series and Esv3-series 
 description: Specifications for the Ev3 and Esv3-series VMs.
-author: mimckitt
 ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.author: mimckitt
+author: andysports8
+ms.author: shuji
 ---
 
 # Ev3 and Esv3-series
@@ -68,7 +68,7 @@ Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Burst cached and temp storage throughput: IOPS/MBps<sup>3</sup> | Max uncached disk throughput: IOPS/MBps |  Burst uncached disk throughput: IOPS/MBps<sup>3</sup>| Max NICs/ Expected network bandwidth  (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_E2s_v3<sup>4</sup>                | 2  | 16  | 32  | 4  | 4000/32 (50)       | 4000/100    | 3200/48    | 4000/100 | 2/1000 |
+| Standard_E2s_v3<sup>4</sup>                | 2  | 16  | 32  | 4  | 4000/32 (50)       | 4000/100    | 3200/48    | 4000/200 | 2/1000 |
 | Standard_E4s_v3 <sup>1</sup>   | 4  | 32  | 64  | 8  | 8000/64 (100)      | 8000/200    | 6400/96    | 8000/200 | 2/2000 |
 | Standard_E8s_v3 <sup>1</sup>   | 8  | 64  | 128 | 16 | 16000/128 (200)    | 16000/400   | 12800/192  | 16000/400 | 4/4000 |
 | Standard_E16s_v3 <sup>1</sup>  | 16 | 128 | 256 | 32 | 32000/256 (400)    | 32000/800   | 25600/384  | 32000/800 | 8/8000 |

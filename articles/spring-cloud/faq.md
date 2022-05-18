@@ -12,13 +12,15 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Azure Spring Cloud FAQ
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article answers frequently asked questions about Azure Spring Cloud.
 
 ## General
 
 ### Why Azure Spring Cloud?
 
-Azure Spring Cloud provides a platform as a service (PaaS) for Spring Cloud developers. Azure Spring Cloud manages your application infrastructure so that you can focus on application code and business logic. Core features built into Azure Spring Cloud include Eureka, Config Server, Service Registry Server, Pivotal Build Service, Blue-green deployment, and more. This service also enables developers to bind their applications with other Azure services, such as Azure Cosmos DB, Azure Database for MySQL, and Azure Cache for Redis.
+Azure Spring Cloud provides a platform as a service (PaaS) for Spring Cloud developers. Azure Spring Cloud manages your application infrastructure so that you can focus on application code and business logic. Core features built into Azure Spring Cloud include Eureka, Config Server, Service Registry Server, VMware Tanzu® Build Service™, Blue-green deployment, and more. This service also enables developers to bind their applications with other Azure services, such as Azure Cosmos DB, Azure Database for MySQL, and Azure Cache for Redis.
 
 Azure Spring Cloud enhances the application diagnostics experience for developers and operators by integrating Azure Monitor, Application Insights, and Log Analytics.
 
@@ -38,7 +40,7 @@ Azure Spring Cloud intelligently schedules your applications on the underlying K
 
 ### In which regions is Azure Spring Cloud available?
 
-East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, and China East 2(Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, China East 2(Mooncake), and China North 2(Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### Is any customer data stored outside of the specified region?
 
@@ -59,11 +61,16 @@ Which one should I use and what are the limits within each tier?
 * Azure Spring Cloud offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Cloud. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Cloud pricing details](https://azure.microsoft.com/pricing/details/spring-cloud/) for limits and feature level comparison.
 
 ### What's the difference between Service Binding and Service Connector?
+
 We are not actively developing additional capabilities for Service Binding in favor of the new Azure-wise solution named [Service Connector](../service-connector/overview.md). On the one hand, the new solution brings you consistent integration experience across App hosting services on Azure like App Service. On the other hand, it covers your needs better by starting with supporting 10+ most used target Azure services including MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage and more. Service Connector is currently in Public Preview, we invite you to try out the new experience.
 
 ### How can I provide feedback and report issues?
 
 If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
+
+### How do I get VMware Spring Runtime support (Enterprise tier only)
+
+Enterprise tier has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see <https://tanzu.vmware.com/spring-runtime>. To understand the details about how to register and use this support service, see the Support section in the [Enterprise tier FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open support tickets with Microsoft.
 
 ## Development
 
@@ -72,10 +79,6 @@ If you encounter any issues with Azure Spring Cloud, create an [Azure Support Re
 For the quickest way to get started with Azure Spring Cloud, follow the instructions in [Quickstart: Launch an application in Azure Spring Cloud by using the Azure portal](./quickstart.md).
 
 ::: zone pivot="programming-language-java"
-### What Java runtime does Azure Spring Cloud support?
-
-Azure Spring Cloud supports Java 8 and 11. See [Java runtime and OS versions](#java-runtime-and-os-versions)
-
 ### Is Spring Boot 2.4.x supported?
 We've identified an issue with Spring Boot 2.4 and are currently working with the Spring community to resolve it. In the meantime, please include these two dependencies to enable TLS authentication between your apps and Eureka.
 
@@ -134,7 +137,7 @@ Yes, you can open a [support ticket](https://azure.microsoft.com/support/faq/)  
 
 ### When I delete/move an Azure Spring Cloud service instance, will its extension resources be deleted/moved as well?
 
-It depends on the logic of resource providers that own the extension resources. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behavior varies by resource provider. For example, the delete/move operation will not cascade to the **diagnostics settings** resources. If a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
+It depends on the logic of resource providers that own the extension resources. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behavior varies by resource provider. For example, the delete/move operation won't cascade to the **diagnostics settings** resources. If a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
 
 You can delete Spring Cloud's diagnostic settings by using Azure CLI:
 
@@ -147,7 +150,7 @@ You can delete Spring Cloud's diagnostic settings by using Azure CLI:
 
 ### Which versions of Java runtime are supported in Azure Spring Cloud?
 
-Azure Spring Cloud supports Java LTS versions with the most recent builds, currently June 2020, Java 8 and Java 11 are supported. See [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
+Azure Spring Cloud supports Java LTS versions with the most recent builds, currently Java 8, Java 11, and Java17 are supported. For more information, see [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
 
 ### Who built these Java runtimes?
 
@@ -205,7 +208,7 @@ Yes. For more information, see [Launch your Spring Cloud application from source
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 
-Yes. For more information, see [Set up autoscale for microservice applications](./how-to-setup-autoscale.md).
+Yes. For more information, see [Set up autoscale for applications](./how-to-setup-autoscale.md).
 
 ### How does Azure Spring Cloud monitor the health status of my application?
 
@@ -219,7 +222,7 @@ Azure Spring Cloud continuously probes port 1025 for customer's applications. Th
 Yes. For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md).
 
 ::: zone pivot="programming-language-java"
-### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?
+### What are the best practices for migrating existing Spring Cloud applications to Azure Spring Cloud?
 
 For more information, see [Migrate Spring Cloud applications to Azure Spring Cloud](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud).
 ::: zone-end

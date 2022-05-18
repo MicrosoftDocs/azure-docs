@@ -7,7 +7,7 @@ ms.workload: azure-government
 ms.author: stevevi
 author: stevevi
 recommendations: false
-ms.date: 01/26/2022
+ms.date: 03/07/2022
 ---
 
 # Azure Government developer guide
@@ -47,7 +47,7 @@ Service endpoints in Azure Government are different than in Azure. For a mapping
 
 ### Feature variations
 
-For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). Services available in Azure Government are listed by category and whether they are Generally Available or available through Preview. In general, service availability in Azure Government implies that all corresponding service features are available to you. Variations to this approach and other applicable limitations are tracked and explained in [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md#service-availability).
+For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). Services available in Azure Government are listed by category and whether they are Generally Available or available through Preview. In general, service availability in Azure Government implies that all corresponding service features are available to you. Variations to this approach and other applicable limitations are tracked and explained in [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md#service-availability).
 
 ### Quickstarts
 
@@ -58,7 +58,7 @@ Navigate through the following links to get started using Azure Government:
 - [Connect with CLI](./documentation-government-get-started-connect-with-cli.md)
 - [Connect with Visual Studio](./documentation-government-connect-vs.md)
 - [Connect to Azure Storage](./documentation-government-get-started-connect-to-storage.md)
-- [Connect with Azure SDK for Python](/azure/developer/python/azure-sdk-sovereign-domain)
+- [Connect with Azure SDK for Python](/azure/developer/python/sdk/azure-sdk-sovereign-domain)
 
 ### Azure Government Video Library 
 

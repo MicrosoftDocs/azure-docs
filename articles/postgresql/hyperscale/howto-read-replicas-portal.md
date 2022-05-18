@@ -1,8 +1,8 @@
 ---
 title: Manage read replicas - Azure portal - Azure Database for PostgreSQL - Hyperscale (Citus)
 description: Learn how to manage read replicas Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal.
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to

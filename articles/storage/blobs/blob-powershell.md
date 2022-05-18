@@ -47,7 +47,7 @@ All blob data is stored within containers, so you'll need at least one container
 
 ```azurepowershell
 #Create a container object
-$container = New-AzStorageContainer -Name "demo-container" -Context $ctx
+$container = New-AzStorageContainer -Name "myContainer" -Context $ctx
 ```
 
 When you use the following examples, you'll need to replace the placeholder values in brackets with your own values. For more information about signing into Azure with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
@@ -63,7 +63,7 @@ The following example specifies a `-File` parameter value to upload a single, na
 ```azurepowershell
 #Set variables
 $path          = "C:\temp\" 
-$containerName = "demo-container"
+$containerName = "myContainer"
 $filename      = "demo-file.txt"
 $imageFiles    = $path + "*.png"
 $file          = $path + $filename
@@ -101,7 +101,7 @@ The following example shows several approaches used to provide a list of blobs. 
 ```azurepowershell
 #Set variables
 $namedContainer  = "named-container"
-$demoContainer   = "demo-container"
+$demoContainer   = "myContainer"
 $containerPrefix = "demo"
 
 $maxCount = 1000
@@ -185,7 +185,7 @@ The following sample code provides an example of both single and multiple downlo
 
 ```azurepowershell
 #Set variables
-$containerName = "demo-container"
+$containerName = "myContainer"
 $path          = "C:\temp\downloads\"
 $blobName      = "demo-file.txt"
 $fileList      = "*.png"
@@ -246,7 +246,7 @@ To read blob properties or metadata, you must first retrieve the blob from the s
 The following example retrieves a blob and lists its properties.
 
 ```azurepowershell
-$blob = Get-AzStorageBlob -Blob "blue-moon.mp3" -Container "demo-container" -Context $ctx
+$blob = Get-AzStorageBlob -Blob "blue-moon.mp3" -Container "myContainer" -Context $ctx
 $properties = $blob.BlobClient.GetProperties()
 Echo $properties.Value
 ```
@@ -281,7 +281,7 @@ The example below first updates and then commits a blob's metadata, and then ret
 
 ```azurepowershell
 #Set variable
-$container = "demo-container"
+$container = "myContainer"
 $blobName  = "blue-moon.mp3"
 
 #Retrieve blob
@@ -432,9 +432,12 @@ $data.Venue.Files.ChildNodes | ForEach-Object {
 
 You can delete either a single blob or series of blobs with the `Remove-AzStorageBlob` cmdlet. When deleting multiple blobs, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
 
+> [!WARNING]
+> Running the following examples may permanently delete blobs. Microsoft recommends enabling container soft delete to protect containers and blobs from accidental deletion. For more info, see [Soft delete for containers](soft-delete-blob-overview.md).
+
 ```azurepowershell
 #Create variables
-$containerName  = "demo-container"
+$containerName  = "myContainer"
 $blobName       = "demo-file.txt"
 $prefixName     = "file"
 
@@ -468,23 +471,99 @@ file3.txt  BlockBlob  22      application/octet-stream   2021-12-17 00:14:24Z  C
 file4.txt  BlockBlob  22      application/octet-stream   2021-12-17 00:14:25Z  Cool          True
 ```
 
-## Restore a soft-deleted blob
-As mentioned in the [List blobs](#list-blobs) section, you can configure the soft delete data protection option on your storage account. When enabled, it's possible to restore containers deleted within the associated retention period.
+## Restore a deleted blob
+As mentioned in the [List blobs](#list-blobs) section, you can configure the soft delete data protection option on your storage account. When enabled, it's possible to restore blobs deleted within the associated retention period. You may also use versioning to maintain previous versions of your blobs for each recovery and restoration.
 
-The following example explains how to restore a soft-deleted blob with the `BlobBaseClient.Undelete` method. Before you can follow this example, you'll need to enable soft delete and configure it on at least one of your storage accounts.
+If blob versioning and blob soft delete are both enabled, then modifying, overwriting, deleting, or restoring a blob automatically creates a new version. The method you'll use to restore a deleted blob will depend upon whether versioning is enabled on your storage account.
+
+The following code sample restores all soft-deleted blobs or, if versioning is enabled, restores the latest version of a blob. It first determines whether versioning is enabled with the `Get-AzStorageBlobServiceProperty` cmdlet.
+
+If versioning is enabled, the `Get-AzStorageBlob` cmdlet retrieves a list of all uniquely-named blob versions. Next, the blob versions on the list are retrieved and ordered by date. If no versions are found with the `LatestVersion` attribute value, the `Copy-AzBlob` cmdlet is used to make an active copy of the latest version.
+
+If versioning is disabled, the `BlobBaseClient.Undelete` method is used to restore each soft-deleted blob in the container.
+
+Before you can follow this example, you'll need to enable soft delete or versioning on at least one of your storage accounts.
 
 To learn more about the soft delete data protection option, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
 
 ```azurepowershell
-#Create variables
-$container = "demo-container"
-$prefix    = "file"
- 
-#Retrieve all blobs, filter deleted resources, restore deleted
-$blobs = Get-AzStorageBlob -Container "demo-container" -Prefix "file" -Context $ctx -IncludeDeleted
-Foreach($blob in $blobs)
+$accountName   ="myStorageAccount"
+$groupName     ="myResourceGroup"
+$containerName ="myContainer"
+
+
+$blobSvc = Get-AzStorageBlobServiceProperty `
+    -StorageAccountName $accountName `
+    -ResourceGroupName $groupName
+
+# If soft delete is enabled
+if($blobSvc.DeleteRetentionPolicy.Enabled)
 {
-    if($blob.IsDeleted) { $blob.BlobBaseClient.Undelete() }
+    # If versioning is enabled
+    if($blobSvc.IsVersioningEnabled -eq $true)
+    {
+        # Set context
+        $ctx = New-AzStorageContext `
+            -StorageAccountName $accountName `
+            -UseConnectedAccount
+
+        # Get all blobs and versions using -Unique 
+        # to avoid processing duplicates/versions
+        $blobs = Get-AzStorageBlob `
+            -Container $containerName `
+            -Context $ctx -IncludeVersion | `
+                Where-Object {$_.VersionId -ne $null} | `
+                Sort-Object -Property Name -Unique
+
+        # Iterate the collection
+        foreach ($blob in $blobs)
+        {
+
+            # Process versions
+            if($blob.VersionId -ne $null)
+            {
+            
+                # Get all versions of the blob, newest to oldest
+                $delBlob = Get-AzStorageBlob `
+                    -Container $containerName `
+                    -Context $ctx `
+                    -Prefix $blob.Name `
+                    -IncludeDeleted -IncludeVersion  | `
+                        Sort-Object -Property VersionId -Descending
+
+                # Verify that the newest version is NOT the latest (that the version is "deleted")
+                if (-Not $delBlob[0].IsLatestVersion)
+                {
+                    $delBlob[0] | Copy-AzStorageBlob `
+                        -DestContainer $containerName `
+                        -DestBlob $delBlob[0].Name
+                }
+                
+                #Dispose the temporary object
+                $delBlob = $null
+
+            }
+
+        }
+
+    }
+
+    # Otherwise (if versioning is disabled)
+    else
+    {
+        $blobs = Get-AzStorageBlob `
+            -Container $containerName `
+            -Context $ctx -IncludeDeleted | `
+                Where-Object {$_.IsDeleted}
+        foreach($blob in $blobs)
+        {
+            if($blob.IsDeleted) { $blob.BlobBaseClient.Undelete() }
+        }
+    }
+}
+else
+{
+    echo "Sorry, the delete retention policy is not enabled."
 }
 ```
 

@@ -1,11 +1,23 @@
 ---
-author: georgewallace
+author: timwarner-msft
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/19/2022
-ms.author: gwallace
+ms.date: 05/10/2022
+ms.author: timwarner
 ms.custom: generated
 ---
+
+## [Preview]: SWIFT CSCF v2021
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
+For more information about this compliance standard, see
+[NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Detect Anomalous Activity to Systems or Transaction Records |SWIFT CSCF v2021 6.4 |Logging and Monitoring |[Resource logs in Batch accounts should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F428256e6-1fac-4f48-a757-df34c2b3336d) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_AuditDiagnosticLog_Audit.json) |
 
 ## Azure Security Benchmark
 

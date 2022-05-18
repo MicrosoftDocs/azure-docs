@@ -1,12 +1,12 @@
 ---
 title: Server parameters – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Parameters in the Hyperscale (Citus) SQL API
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 08/10/2020
+ms.date: 02/18/2022
 ---
 
 # Server parameters
@@ -29,8 +29,7 @@ all worker nodes, or just for the coordinator node.
 
 #### citus.use\_secondary\_nodes (enum)
 
-Sets the policy to use when choosing nodes for SELECT queries. If it
-is set to 'always', then the planner will query only nodes that are
+Sets the policy to use when choosing nodes for SELECT queries. If it's set to 'always', then the planner will query only nodes that are
 marked as 'secondary' noderole in
 [pg_dist_node](reference-metadata.md#worker-node-table).
 
@@ -89,6 +88,31 @@ ALTER DATABASE foo
 SET citus.node_connection_timeout = 30000;
 ```
 
+#### citus.log_remote_commands (boolean)
+
+Log all commands that the coordinator sends to worker nodes. For instance:
+
+```postgresql
+-- reveal the per-shard queries behind the scenes
+SET citus.log_remote_commands TO on;
+
+-- run a query on distributed table "github_users"
+SELECT count(*) FROM github_users;
+```
+
+The output reveals several queries running on workers because of the single
+`count(*)` query on the coordinator.
+
+```
+NOTICE:  issuing SELECT count(*) AS count FROM public.github_events_102040 github_events WHERE true
+DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connectionId: 1
+NOTICE:  issuing SELECT count(*) AS count FROM public.github_events_102041 github_events WHERE true
+DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connectionId: 1
+NOTICE:  issuing SELECT count(*) AS count FROM public.github_events_102042 github_events WHERE true
+DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connectionId: 1
+... etc, one for each of the 32 shards
+```
+
 ### Query Statistics
 
 #### citus.stat\_statements\_purge\_interval (integer)
@@ -106,6 +130,24 @@ SET citus.stat_statements_purge_interval TO 5;
 This parameter is effective on the coordinator and can be changed at
 runtime.
 
+#### citus.stat_statements_max (integer)
+
+The maximum number of rows to store in `citus_stat_statements`. Defaults to
+50000, and may be changed to any value in the range 1000 - 10000000. Each row requires 140 bytes of storage, so setting `stat_statements_max` to its
+maximum value of 10M would consume 1.4 GB of memory.
+
+Changing this GUC won't take effect until PostgreSQL is restarted.
+
+#### citus.stat_statements_track (enum)
+
+Recording statistics for `citus_stat_statements` requires extra CPU resources.
+When the database is experiencing load, the administrator may wish to disable
+statement tracking. The `citus.stat_statements_track` GUC can turn tracking on
+and off.
+
+* **all:** (default) Track all statements.
+* **none:** Disable tracking.
+
 ### Data Loading
 
 #### citus.multi\_shard\_commit\_protocol (enum)
@@ -113,7 +155,7 @@ runtime.
 Sets the commit protocol to use when performing COPY on a hash distributed
 table. On each individual shard placement, the COPY is performed in a
 transaction block to ensure that no data is ingested if an error occurs during
-the COPY. However, there is a particular failure case in which the COPY
+the COPY. However, there's a particular failure case in which the COPY
 succeeds on all placements, but a (hardware) failure occurs before all
 transactions commit. This parameter can be used to prevent data loss in that
 case by choosing between the following commit protocols:
@@ -141,23 +183,62 @@ on the size of the cluster and rate of node failure.  For example, you may want
 to increase this replication factor if you run large clusters and observe node
 failures on a more frequent basis.
 
-#### citus.shard\_count (integer)
-
-Sets the shard count for hash-partitioned tables and defaults to 32.  This
-value is used by the
-[create_distributed_table](reference-functions.md#create_distributed_table)
-UDF when creating hash-partitioned tables. This parameter can be set at
-run-time and is effective on the coordinator.
-
-#### citus.shard\_max\_size (integer)
-
-Sets the maximum size to which a shard will grow before it gets split
-and defaults to 1 GB. When the source file\'s size (which is used for
-staging) for one shard exceeds this configuration value, the database
-ensures that a new shard gets created. This parameter can be set at
-run-time and is effective on the coordinator.
-
 ### Planner Configuration
+
+#### citus.local_table_join_policy (enum)
+
+This GUC determines how Hyperscale (Citus) moves data when doing a join between
+local and distributed tables. Customizing the join policy can help reduce the
+amount of data sent between worker nodes.
+
+Hyperscale (Citus) will send either the local or distributed tables to nodes as
+necessary to support the join. Copying table data is referred to as a
+“conversion.” If a local table is converted, then it will be sent to any
+workers that need its data to perform the join. If a distributed table is
+converted, then it will be collected in the coordinator to support the join.
+The Citus planner will send only the necessary rows doing a conversion.
+
+There are four modes available to express conversion preference:
+
+* **auto:** (Default) Citus will convert either all local or all distributed
+  tables to support local and distributed table joins. Citus decides which to
+  convert using a heuristic. It will convert distributed tables if they're
+  joined using a constant filter on a unique index (such as a primary key). The
+  conversion ensures less data gets moved between workers.
+* **never:** Citus won't allow joins between local and distributed tables.
+* **prefer-local:** Citus will prefer converting local tables to support local
+  and distributed table joins.
+* **prefer-distributed:** Citus will prefer converting distributed tables to
+  support local and distributed table joins. If the distributed tables are
+  huge, using this option might result in moving lots of data between workers.
+
+For example, assume `citus_table` is a distributed table distributed by the
+column `x`, and that `postgres_table` is a local table:
+
+```postgresql
+CREATE TABLE citus_table(x int primary key, y int);
+SELECT create_distributed_table('citus_table', 'x');
+
+CREATE TABLE postgres_table(x int, y int);
+
+-- even though the join is on primary key, there isn't a constant filter
+-- hence postgres_table will be sent to worker nodes to support the join
+SELECT * FROM citus_table JOIN postgres_table USING (x);
+
+-- there is a constant filter on a primary key, hence the filtered row
+-- from the distributed table will be pulled to coordinator to support the join
+SELECT * FROM citus_table JOIN postgres_table USING (x) WHERE citus_table.x = 10;
+
+SET citus.local_table_join_policy to 'prefer-distributed';
+-- since we prefer distributed tables, citus_table will be pulled to coordinator
+-- to support the join. Note that citus_table can be huge.
+SELECT * FROM citus_table JOIN postgres_table USING (x);
+
+SET citus.local_table_join_policy to 'prefer-local';
+-- even though there is a constant filter on primary key for citus_table
+-- postgres_table will be sent to necessary workers because we are using 'prefer-local'.
+SELECT * FROM citus_table JOIN postgres_table USING (x) WHERE citus_table.x = 10;
+```
 
 #### citus.limit\_clause\_row\_fetch\_count (integer)
 
@@ -199,8 +280,7 @@ be used.
     a round-robin fashion alternating between different replicas. This policy
     enables better cluster utilization when the shard count for a
     table is low compared to the number of workers.
--   **first-replica:** The first-replica policy assigns tasks on the
-    basis of the insertion order of placements (replicas) for the
+-   **first-replica:** The first-replica policy assigns tasks based on the insertion order of placements (replicas) for the
     shards. In other words, the fragment query for a shard is assigned to the worker that has the first replica of that shard.
     This method allows you to have strong guarantees about which shards
     will be used on which nodes (that is, stronger memory residency
@@ -211,26 +291,6 @@ coordinator.
 
 ### Intermediate Data Transfer
 
-#### citus.binary\_worker\_copy\_format (boolean)
-
-Use the binary copy format to transfer intermediate data between workers.
-During large table joins, Hyperscale (Citus) may have to dynamically
-repartition and shuffle data between different workers. By default, this data
-is transferred in text format. Enabling this parameter instructs the database
-to use PostgreSQL's binary serialization format to transfer this data. This
-parameter is effective on the workers and needs to be changed in the
-postgresql.conf file. After editing the config file, users can send a SIGHUP
-signal or restart the server for this change to take effect.
-
-#### citus.binary\_master\_copy\_format (boolean)
-
-Use the binary copy format to transfer data between coordinator and the
-workers. When running distributed queries, the workers transfer their
-intermediate results to the coordinator for final aggregation. By default, this
-data is transferred in text format. Enabling this parameter instructs the
-database to use PostgreSQL's binary serialization format to transfer this data.
-This parameter can be set at runtime and is effective on the coordinator.
-
 #### citus.max\_intermediate\_result\_size (integer)
 
 The maximum size in KB of intermediate results for CTEs that are unable
@@ -238,17 +298,6 @@ to be pushed down to worker nodes for execution, and for complex
 subqueries. The default is 1 GB, and a value of -1 means no limit.
 Queries exceeding the limit will be canceled and produce an error
 message.
-
-### DDL
-
-#### citus.enable\_ddl\_propagation (boolean)
-
-Specifies whether to automatically propagate DDL changes from the coordinator
-to all workers. The default value is true. Because some schema changes require
-an access exclusive lock on tables, and because the automatic propagation
-applies to all workers sequentially, it can make a Hyperscale (Citus) cluster
-temporarily less responsive. You may choose to disable this setting and
-propagate changes manually.
 
 ### Executor Configuration
 
@@ -260,7 +309,7 @@ Hyperscale (Citus) enforces commutativity rules and acquires appropriate locks
 for modify operations in order to guarantee correctness of behavior. For
 example, it assumes that an INSERT statement commutes with another INSERT
 statement, but not with an UPDATE or DELETE statement. Similarly, it assumes
-that an UPDATE or DELETE statement does not commute with another UPDATE or
+that an UPDATE or DELETE statement doesn't commute with another UPDATE or
 DELETE statement. This precaution means that UPDATEs and DELETEs require
 Hyperscale (Citus) to acquire stronger locks.
 
@@ -286,7 +335,7 @@ Hyperscale (Citus) has three executor types for running distributed SELECT
 queries.  The desired executor can be selected by setting this configuration
 parameter. The accepted values for this parameter are:
 
--   **adaptive:** The default. It is optimal for fast responses to
+-   **adaptive:** The default. It's optimal for fast responses to
     queries that involve aggregations and colocated joins spanning
     across multiple shards.
 -   **task-tracker:** The task-tracker executor is well suited for long
@@ -329,6 +378,16 @@ HINT:  Queries are split to multiple tasks if they have to be split into several
 STATEMENT:  select * from foo;
 ```
 
+##### citus.propagate_set_commands (enum)
+
+Determines which SET commands are propagated from the coordinator to workers.
+The default value for this parameter is ‘none’.
+
+The supported values are:
+
+* **none:** no SET commands are propagated.
+* **local:** only SET LOCAL commands are propagated.
+
 ##### citus.enable\_repartition\_joins (boolean)
 
 Ordinarily, attempting to perform repartition joins with the adaptive executor
@@ -336,6 +395,102 @@ will fail with an error message.  However setting
 `citus.enable_repartition_joins` to true allows Hyperscale (Citus) to
 temporarily switch into the task-tracker executor to perform the join.  The
 default value is false.
+
+##### citus.enable_repartitioned_insert_select (boolean)
+
+By default, an INSERT INTO … SELECT statement that can’t be pushed down will
+attempt to repartition rows from the SELECT statement and transfer them between
+workers for insertion. However, if the target table has too many shards then
+repartitioning will probably not perform well. The overhead of processing the
+shard intervals when determining how to partition the results is too great.
+Repartitioning can be disabled manually by setting
+`citus.enable_repartitioned_insert_select` to false.
+
+##### citus.enable_binary_protocol (boolean)
+
+Setting this parameter to true instructs the coordinator node to use
+PostgreSQL’s binary serialization format (when applicable) to transfer data
+with workers. Some column types don't support binary serialization.
+
+Enabling this parameter is mostly useful when the workers must return large
+amounts of data. Examples are when many rows are requested, the rows have
+many columns, or they use wide types such as `hll` from the postgresql-hll
+extension.
+
+The default value is true for Postgres versions 14 and higher. For Postgres
+versions 13 and lower the default is false, which means all results are encoded
+and transferred in text format.
+
+##### citus.max_adaptive_executor_pool_size (integer)
+
+Max_adaptive_executor_pool_size limits worker connections from the current
+session. This GUC is useful for:
+
+* Preventing a single backend from getting all the worker resources
+* Providing priority management: designate low priority sessions with low
+  max_adaptive_executor_pool_size, and high priority sessions with higher
+  values
+
+The default value is 16.
+
+##### citus.executor_slow_start_interval (integer)
+
+Time to wait in milliseconds between opening connections to the same worker
+node.
+
+When the individual tasks of a multi-shard query take little time, they
+can often be finished over a single (often already cached) connection. To avoid
+redundantly opening more connections, the executor waits between
+connection attempts for the configured number of milliseconds. At the end of
+the interval, it increases the number of connections it's allowed to open next
+time.
+
+For long queries (those taking >500 ms), slow start might add latency, but for
+short queries it’s faster. The default value is 10 ms.
+
+##### citus.max_cached_conns_per_worker (integer)
+
+Each backend opens connections to the workers to query the shards. At the end
+of the transaction, the configured number of connections is kept open to speed
+up subsequent commands. Increasing this value will reduce the latency of
+multi-shard queries, but will also increase overhead on the workers.
+
+The default value is 1. A larger value such as 2 might be helpful for clusters
+that use a small number of concurrent sessions, but it’s not wise to go much
+further (for example, 16 would be too high).
+
+##### citus.force_max_query_parallelization (boolean)
+
+Simulates the deprecated and now nonexistent real-time executor. This is used
+to open as many connections as possible to maximize query parallelization.
+
+When this GUC is enabled, Citus will force the adaptive executor to use as many
+connections as possible while executing a parallel distributed query. If not
+enabled, the executor might choose to use fewer connections to optimize overall
+query execution throughput. Internally, setting this true will end up using one
+connection per task.
+
+One place where this is useful is in a transaction whose first query is
+lightweight and requires few connections, while a subsequent query would
+benefit from more connections. Citus decides how many connections to use in a
+transaction based on the first statement, which can throttle other queries
+unless we use the GUC to provide a hint.
+
+```postgresql
+BEGIN;
+-- add this hint
+SET citus.force_max_query_parallelization TO ON;
+
+-- a lightweight query that doesn't require many connections
+SELECT count(*) FROM table WHERE filter = x;
+
+-- a query that benefits from more connections, and can obtain
+-- them since we forced max parallelization above
+SELECT ... very .. complex .. SQL;
+COMMIT;
+```
+
+The default value is false.
 
 #### Task tracker executor configuration
 
@@ -395,6 +550,16 @@ tasks. Occasionally, some of the tasks will be planned differently or have much
 higher execution times. In those cases, it can be useful to enable this
 parameter, after which the EXPLAIN output will include all tasks. Explaining
 all tasks may cause the EXPLAIN to take longer.
+
+##### citus.explain_analyze_sort_method (enum)
+
+Determines the sort method of the tasks in the output of EXPLAIN ANALYZE. The
+default value of `citus.explain_analyze_sort_method` is `execution-time`.
+
+The supported values are:
+
+* **execution-time:** sort by execution time.
+* **taskId:** sort by task ID.
 
 ## PostgreSQL parameters
 
@@ -461,7 +626,7 @@ all tasks may cause the EXPLAIN to take longer.
 * [exit_on_error](https://www.postgresql.org/docs/current/runtime-config-error-handling.html#GUC-EXIT-ON-ERROR) - Terminates session on any error
 * [extra_float_digits](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-EXTRA-FLOAT-DIGITS) - Sets the number of digits displayed for floating-point values
 * [force_parallel_mode](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FORCE-PARALLEL-MODE) - Forces use of parallel query facilities
-* [from_collapse_limit](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT) - Sets the FROM-list size beyond which subqueries are not collapsed
+* [from_collapse_limit](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT) - Sets the FROM-list size beyond which subqueries aren't collapsed
 * [geqo](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO) - Enables genetic query optimization
 * [geqo_effort](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-EFFORT) - GEQO: effort is used to set the default for other GEQO parameters
 * [geqo_generations](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-GENERATIONS) - GEQO: number of iterations of the algorithm
@@ -472,7 +637,7 @@ all tasks may cause the EXPLAIN to take longer.
 * [gin_fuzzy_search_limit](https://www.postgresql.org/docs/current/runtime-config-client.html#id-1.6.6.14.5.2.2.1.3) - Sets the maximum allowed result for exact search by GIN
 * [gin_pending_list_limit](https://www.postgresql.org/docs/current/runtime-config-client.html#id-1.6.6.14.2.2.23.1.3) - Sets the maximum size of the pending list for GIN index
 * [idle_in_transaction_session_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT) - Sets the maximum allowed duration of any idling transaction
-* [join_collapse_limit](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT) - Sets the FROM-list size beyond which JOIN constructs are not flattened
+* [join_collapse_limit](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT) - Sets the FROM-list size beyond which JOIN constructs aren't flattened
 * [lc_monetary](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LC-MONETARY) - Sets the locale for formatting monetary amounts
 * [lc_numeric](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LC-NUMERIC) - Sets the locale for formatting numbers
 * [lo_compat_privileges](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-LO-COMPAT-PRIVILEGES) - Enables backward compatibility mode for privilege checks on large objects
@@ -493,7 +658,7 @@ all tasks may cause the EXPLAIN to take longer.
 * [log_statement_stats](https://www.postgresql.org/docs/current/runtime-config-statistics.html#id-1.6.6.12.3.2.1.1.3) - For each query, writes cumulative performance statistics to the server log
 * [log_temp_files](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TEMP-FILES) - Logs the use of temporary files larger than this number of kilobytes
 * [maintenance_work_mem](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM) - Sets the maximum memory to be used for maintenance operations
-* [max_parallel_workers](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS) - Sets the maximum number of parallel workers than can be active at one time
+* [max_parallel_workers](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS) - Sets the maximum number of parallel workers that can be active at one time
 * [max_parallel_workers_per_gather](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER) - Sets the maximum number of parallel processes per executor node
 * [max_pred_locks_per_page](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-PRED-LOCKS-PER-PAGE) - Sets the maximum number of predicate-locked tuples per page
 * [max_pred_locks_per_relation](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-PRED-LOCKS-PER-RELATION) - Sets the maximum number of predicate-locked pages and tuples per relation
@@ -512,7 +677,7 @@ all tasks may cause the EXPLAIN to take longer.
 * [quote_all_identifiers](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-QUOTE-ALL-IDENTIFIERS) - When generating SQL fragments, quotes all identifiers
 * [random_page_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-RANDOM-PAGE-COST) - Sets the planner's estimate of the cost of a nonsequentially fetched disk page
 * [row_security](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-ROW-SECURITY) - Enables row security
-* [search_path](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SEARCH-PATH) - Sets the schema search order for names that are not schema-qualified
+* [search_path](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SEARCH-PATH) - Sets the schema search order for names that aren't schema-qualified
 * [seq_page_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-SEQ-PAGE-COST) - Sets the planner's estimate of the cost of a sequentially fetched disk page
 * [session_replication_role](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SESSION-REPLICATION-ROLE) - Sets the session's behavior for triggers and rewrite rules
 * [standard_conforming_strings](https://www.postgresql.org/docs/current/runtime-config-compatible.html#id-1.6.6.16.2.2.7.1.3) - Causes '...' strings to treat backslashes literally
@@ -548,5 +713,5 @@ all tasks may cause the EXPLAIN to take longer.
 
 ## Next steps
 
-* Another form of configuration, besides server parameters, are the resource [configuration options](concepts-configuration-options.md) in a Hyperscale (Citus) server group.
+* Another form of configuration, besides server parameters, are the resource [configuration options](resources-compute.md) in a Hyperscale (Citus) server group.
 * The underlying PostgreSQL data base also has [configuration parameters](http://www.postgresql.org/docs/current/static/runtime-config.html).

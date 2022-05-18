@@ -41,14 +41,16 @@ landingContent:
             url: application-lifecycle-management.md
           - text: Microservices
             url: microservices.md
+          - text: Observability
+            url: observability.md
   - title: Common tasks
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Set scaling rules
             url: scale-app.md
-          - text: Secure an app
-            url: secure-app.md
+          - text: Manage secrets
+            url: manage-secrets.md
           - text: Monitor an app
             url: monitor.md
           - text: Manage revisions
@@ -59,6 +61,10 @@ landingContent:
             url: connect-apps.md
           - text: Use a custom VNET 
             url: vnet-custom.md
+      - linkListType: concept
+        links:
+          - text: Dapr integration
+            url: dapr-overview.md
   - title: Apps and microservices
     linkLists:
       - linkListType: tutorial

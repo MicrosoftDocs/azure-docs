@@ -10,7 +10,8 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Check the encryption status of a blob

@@ -19,119 +19,360 @@ Language support varies by Speech service functionality. The following tables su
 
 ## Speech-to-text
 
-Both the Microsoft Speech SDK and the REST API support the languages (locales) in the following table.
+The Speech service supports the languages (locales) in the following tables.
 
-To improve accuracy, customization is available for some languages and baseline model versions by uploading audio + human-labeled transcripts, plain text, structured text, and pronunciation. By default, plain text customization is supported for all available baseline models. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
+To improve accuracy, customization is available for some languages and base model versions by uploading audio + human-labeled transcripts, plain text, structured text, and pronunciation. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
 
-| Language                          | Locale (BCP-47) | Customizations                                                  |
-|-----------------------------------|-----------------|-----------------------------------------------------------------|
-| Arabic (Algeria)                  | `ar-DZ`         | Plain text                                                            |
-| Arabic (Bahrain), modern standard | `ar-BH`         | Plain text                                                            |
-| Arabic (Egypt)                    | `ar-EG`         | Plain text                                                            |
-| Arabic (Iraq)                     | `ar-IQ`         | Plain text                                                            |
-| Arabic (Israel)                   | `ar-IL`         | Plain text                                                            |
-| Arabic (Jordan)                   | `ar-JO`         | Plain text                                                            |
-| Arabic (Kuwait)                   | `ar-KW`         | Plain text                                                            |
-| Arabic (Lebanon)                  | `ar-LB`         | Plain text                                                            |
-| Arabic (Libya)                    | `ar-LY`         | Plain text                                                            |
-| Arabic (Morocco)                  | `ar-MA`         | Plain text                                                            |
-| Arabic (Oman)                     | `ar-OM`         | Plain text                                                            |
-| Arabic (Palestinian Authority)    | `ar-PS`         | Plain text                                                            |
-| Arabic (Qatar)                    | `ar-QA`         | Plain text                                                            |
-| Arabic (Saudi Arabia)             | `ar-SA`         | Plain text                                                            |
-| Arabic (Syria)                    | `ar-SY`         | Plain text                                                            |
-| Arabic (Tunisia)                  | `ar-TN`         | Plain text                                                            |
-| Arabic (United Arab Emirates)     | `ar-AE`         | Plain text                                                            |
-| Arabic (Yemen)                    | `ar-YE`         | Plain text                                                            |
-| Bulgarian (Bulgaria)              | `bg-BG`         | Plain text                                                            |
-| Catalan (Spain)                   | `ca-ES`         | Plain text<br/>Pronunciation                                          |
-| Chinese (Cantonese, Traditional)  | `zh-HK`         | Plain text                                       |
-| Chinese (Mandarin, Simplified)    | `zh-CN`         | Plain text                                       |
-| Chinese (Taiwanese Mandarin)      | `zh-TW`         | Plain text                             |
-| Croatian (Croatia)                | `hr-HR`         | Plain text<br/>Pronunciation                                          |
-| Czech (Czech)                     | `cs-CZ`         | Plain text<br/>Pronunciation                                          |
-| Danish (Denmark)                  | `da-DK`         | Plain text<br/>Pronunciation                                          |
-| Dutch (Netherlands)               | `nl-NL`         | Plain text<br/>Pronunciation                     |
-| English (Australia)               | `en-AU`         | Plain text<br/>Pronunciation                     |
-| English (Canada)                  | `en-CA`         | Plain text<br/>Pronunciation                     |
-| English (Ghana)                   | `en-GH`         | Plain text<br/>Pronunciation                                          |
-| English (Hong Kong)               | `en-HK`         | Plain text<br/>Pronunciation                                          |
-| English (India)                   | `en-IN`         | Plain text<br>Structured Text (20210907)<br>Pronunciation                     |
-| English (Ireland)                 | `en-IE`         | Plain text<br/>Pronunciation                                          |
-| English (Kenya)                   | `en-KE`         | Plain text<br/>Pronunciation                                          |
-| English (New Zealand)             | `en-NZ`         | Plain text<br/>Pronunciation                     |
-| English (Nigeria)                 | `en-NG`         | Plain text<br/>Pronunciation                                          |
-| English (Philippines)             | `en-PH`         | Plain text<br/>Pronunciation                                          |
-| English (Singapore)               | `en-SG`         | Plain text<br/>Pronunciation                                          |
-| English (South Africa)            | `en-ZA`         | Plain text<br/>Pronunciation                                          |
-| English (Tanzania)                | `en-TZ`         | Plain text<br/>Pronunciation                                          |
-| English (United Kingdom)          | `en-GB`         | Audio (20201019)<br>Plain text<br>Structured Text (20210906)<br>Pronunciation                     |
-| English (United States)           | `en-US`         | Audio (20201019, 20210223)<br>Plain text<br>Structured Text (20211012)<br>Pronunciation           |
-| Estonian (Estonia)                 | `et-EE`         | Plain text<br/>Pronunciation                                          |
-| Filipino (Philippines)            | `fil-PH`        | Plain text<br/>Pronunciation                                          |
-| Finnish (Finland)                 | `fi-FI`         | Plain text<br/>Pronunciation                                          |
-| French (Canada)                   | `fr-CA`         | Audio (20201015)<br>Plain text<br>Structured Text (20210908)<br>Pronunciation                     |
-| French (France)                   | `fr-FR`         | Audio (20201015)<br>Plain text<br>Structured Text (20210908)<br>Pronunciation                     |
-| French (Switzerland)              | `fr-CH`         | Plain text<br/>Pronunciation                                          |
-| German (Austria)                  | `de-AT`         | Plain text<br/>Pronunciation                                          |
-| German (Germany)                  | `de-DE`         | Plain text<br/>Pronunciation                                          |
-| German (Switzerland)              | `de-CH`         | Audio (20201127)<br>Plain text<br>Structured Text (20210831)<br>Pronunciation |
-| Greek (Greece)                    | `el-GR`         | Plain text                                                            |
-| Gujarati (Indian)                 | `gu-IN`         | Plain text                                                            |
-| Hebrew (Israel)                   | `he-IL`         | Plain text                                                            |
-| Hindi (India)                     | `hi-IN`         | Plain text                                       |
-| Hungarian (Hungary)               | `hu-HU`         | Plain text<br/>Pronunciation                                          |
-| Indonesian (Indonesia)            | `id-ID`         | Plain text<br/>Pronunciation                                          |
-| Irish (Ireland)                   | `ga-IE`         | Plain text<br/>Pronunciation                                          |
-| Italian (Italy)                   | `it-IT`         | Audio (20201016)<br>Plain text<br>Pronunciation                     |
-| Japanese (Japan)                  | `ja-JP`         | Plain text                                                            |
-| Kannada (India)                   | `kn-IN`         | Plain text                                                            |
-| Korean (Korea)                    | `ko-KR`         | Audio (20201015)<br>Plain text                                       |
-| Latvian (Latvia)                  | `lv-LV`         | Plain text<br/>Pronunciation                                          |
-| Lithuanian (Lithuania)            | `lt-LT`         | Plain text<br/>Pronunciation                                          |
-| Malay (Malaysia)                  | `ms-MY`         | Plain text                                                            |
-| Maltese (Malta)                   | `mt-MT`         | Plain text                                                            |
-| Marathi (India)                   | `mr-IN`         | Plain text                                                            |
-| Norwegian (Bokmål, Norway)        | `nb-NO`         | Plain text                                                            |
-| Persian (Iran)                    | `fa-IR`         | Plain text                                                            |
-| Polish (Poland)                   | `pl-PL`         | Plain text<br/>Pronunciation                                          |
-| Portuguese (Brazil)               | `pt-BR`         | Audio (20201015)<br>Plain text<br>Pronunciation           |
-| Portuguese (Portugal)             | `pt-PT`         | Plain text<br/>Pronunciation                                          |
-| Romanian (Romania)                | `ro-RO`         | Plain text<br/>Pronunciation                                          |
-| Russian (Russia)                  | `ru-RU`         | Plain text                                       |
-| Slovak (Slovakia)                 | `sk-SK`         | Plain text<br/>Pronunciation                                          |
-| Slovenian (Slovenia)              | `sl-SI`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Argentina)               | `es-AR`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Bolivia)                 | `es-BO`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Chile)                   | `es-CL`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Colombia)                | `es-CO`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Costa Rica)              | `es-CR`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Cuba)                    | `es-CU`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Dominican Republic)      | `es-DO`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Ecuador)                 | `es-EC`         | Plain text<br/>Pronunciation                                          |
-| Spanish (El Salvador)             | `es-SV`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Equatorial Guinea)       | `es-GQ`         | Plain text                                                            |
-| Spanish (Guatemala)               | `es-GT`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Honduras)                | `es-HN`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Mexico)                  | `es-MX`         | Plain text<br>Structured Text (20210908)<br>Pronunciation                     |
-| Spanish (Nicaragua)               | `es-NI`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Panama)                  | `es-PA`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Paraguay)                | `es-PY`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Peru)                    | `es-PE`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Puerto Rico)             | `es-PR`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Spain)                   | `es-ES`         | Audio (20201015)<br>Plain text<br>Structured Text (20210908)<br>Pronunciation                     |
-| Spanish (Uruguay)                 | `es-UY`         | Plain text<br/>Pronunciation                                          |
-| Spanish (USA)                     | `es-US`         | Plain text<br/>Pronunciation                                          |
-| Spanish (Venezuela)               | `es-VE`         | Plain text<br/>Pronunciation                                          |
-| Swahili (Kenya)                   | `sw-KE`         | Plain text                                                            |
-| Swedish (Sweden)                  | `sv-SE`         | Plain text<br/>Pronunciation                                          |
-| Tamil (India)                     | `ta-IN`         | Plain text                                                            |
-| Telugu (India)                    | `te-IN`         | Plain text                                                            |
-| Thai (Thailand)                   | `th-TH`         | Plain text                                                            |
-| Turkish (Turkey)                  | `tr-TR`         | Plain text                                                            |
-| Vietnamese (Vietnam)              | `vi-VN`         | Plain text                                                            |
+### [Speech-to-text](#tab/speechtotext)
 
-### Phrase list
+| Language                          | Locale (BCP-47) |
+|-----------------------------------|-----------------|
+| Afrikaans (South Africa)          | `af-ZA`         |
+| Amharic (Ethiopia)                | `am-ET`         |
+| Arabic (Algeria)                  | `ar-DZ`         |
+| Arabic (Bahrain), modern standard | `ar-BH`         |
+| Arabic (Egypt)                    | `ar-EG`         |
+| Arabic (Iraq)                     | `ar-IQ`         |
+| Arabic (Israel)                   | `ar-IL`         |
+| Arabic (Jordan)                   | `ar-JO`         |
+| Arabic (Kuwait)                   | `ar-KW`         |
+| Arabic (Lebanon)                  | `ar-LB`         |
+| Arabic (Libya)                    | `ar-LY`         |
+| Arabic (Morocco)                  | `ar-MA`         |
+| Arabic (Oman)                     | `ar-OM`         |
+| Arabic (Palestinian Authority)    | `ar-PS`         |
+| Arabic (Qatar)                    | `ar-QA`         |
+| Arabic (Saudi Arabia)             | `ar-SA`         |
+| Arabic (Syria)                    | `ar-SY`         |
+| Arabic (Tunisia)                  | `ar-TN`         |
+| Arabic (United Arab Emirates)     | `ar-AE`         |
+| Arabic (Yemen)                    | `ar-YE`         |
+| Bengali (India)                   | `bn-IN`         |
+| Bulgarian (Bulgaria)              | `bg-BG`         |
+| Burmese (Myanmar)                 | `my-MM`         |
+| Catalan (Spain)                   | `ca-ES`         |
+| Chinese (Cantonese, Traditional)  | `zh-HK`         |
+| Chinese (Mandarin, Simplified)    | `zh-CN`         |
+| Chinese (Taiwanese Mandarin)      | `zh-TW`         |
+| Croatian (Croatia)                | `hr-HR`         |
+| Czech (Czech)                     | `cs-CZ`         |
+| Danish (Denmark)                  | `da-DK`         |
+| Dutch (Belgium)                   | `nl-BE`         |
+| Dutch (Netherlands)               | `nl-NL`         |
+| English (Australia)               | `en-AU`         |
+| English (Canada)                  | `en-CA`         |
+| English (Ghana)                   | `en-GH`         |
+| English (Hong Kong)               | `en-HK`         |
+| English (India)                   | `en-IN`         |
+| English (Ireland)                 | `en-IE`         |
+| English (Kenya)                   | `en-KE`         |
+| English (New Zealand)             | `en-NZ`         |
+| English (Nigeria)                 | `en-NG`         |
+| English (Philippines)             | `en-PH`         |
+| English (Singapore)               | `en-SG`         |
+| English (South Africa)            | `en-ZA`         |
+| English (Tanzania)                | `en-TZ`         |
+| English (United Kingdom)          | `en-GB`         |
+| English (United States)           | `en-US`         |
+| Estonian (Estonia)                | `et-EE`         |
+| Filipino (Philippines)            | `fil-PH`        |
+| Finnish (Finland)                 | `fi-FI`         |
+| French (Belgium)                  | `fr-BE`         |
+| French (Canada)                   | `fr-CA`         |
+| French (France)                   | `fr-FR`         |
+| French (Switzerland)              | `fr-CH`         |
+| German (Austria)                  | `de-AT`         |
+| German (Germany)                  | `de-DE`         |
+| German (Switzerland)              | `de-CH`         |
+| Greek (Greece)                    | `el-GR`         |
+| Gujarati (Indian)                 | `gu-IN`         |
+| Hebrew (Israel)                   | `he-IL`         |
+| Hindi (India)                     | `hi-IN`         |
+| Hungarian (Hungary)               | `hu-HU`         |
+| Icelandic (Iceland)               | `is-IS`         |
+| Indonesian (Indonesia)            | `id-ID`         |
+| Irish (Ireland)                   | `ga-IE`         |
+| Italian (Italy)                   | `it-IT`         |
+| Japanese (Japan)                  | `ja-JP`         |
+| Javanese (Indonesia)              | `jv-ID`         |
+| Kannada (India)                   | `kn-IN`         |
+| Khmer (Cambodia)                  | `km-KH`         |
+| Korean (Korea)                    | `ko-KR`         |
+| Lao (Laos)                        | `lo-LA`         |
+| Latvian (Latvia)                  | `lv-LV`         |
+| Lithuanian (Lithuania)            | `lt-LT`         |
+| Macedonian (North Macedonia)      | `mk-MK`         |
+| Malay (Malaysia)                  | `ms-MY`         |
+| Maltese (Malta)                   | `mt-MT`         |
+| Marathi (India)                   | `mr-IN`         |
+| Norwegian (Bokmål, Norway)        | `nb-NO`         |
+| Persian (Iran)                    | `fa-IR`         |
+| Polish (Poland)                   | `pl-PL`         |
+| Portuguese (Brazil)               | `pt-BR`         |
+| Portuguese (Portugal)             | `pt-PT`         |
+| Romanian (Romania)                | `ro-RO`         |
+| Russian (Russia)                  | `ru-RU`         |
+| Serbian (Serbia)                  | `sr-RS`         |
+| Sinhala (Sri Lanka)               | `si-LK`         |
+| Slovak (Slovakia)                 | `sk-SK`         |
+| Slovenian (Slovenia)              | `sl-SI`         |
+| Spanish (Argentina)               | `es-AR`         |
+| Spanish (Bolivia)                 | `es-BO`         |
+| Spanish (Chile)                   | `es-CL`         |
+| Spanish (Colombia)                | `es-CO`         |
+| Spanish (Costa Rica)              | `es-CR`         |
+| Spanish (Cuba)                    | `es-CU`         |
+| Spanish (Dominican Republic)      | `es-DO`         |
+| Spanish (Ecuador)                 | `es-EC`         |
+| Spanish (El Salvador)             | `es-SV`         |
+| Spanish (Equatorial Guinea)       | `es-GQ`         |
+| Spanish (Guatemala)               | `es-GT`         |
+| Spanish (Honduras)                | `es-HN`         |
+| Spanish (Mexico)                  | `es-MX`         |
+| Spanish (Nicaragua)               | `es-NI`         |
+| Spanish (Panama)                  | `es-PA`         |
+| Spanish (Paraguay)                | `es-PY`         |
+| Spanish (Peru)                    | `es-PE`         |
+| Spanish (Puerto Rico)             | `es-PR`         |
+| Spanish (Spain)                   | `es-ES`         |
+| Spanish (Uruguay)                 | `es-UY`         |
+| Spanish (USA)                     | `es-US`         |
+| Spanish (Venezuela)               | `es-VE`         |
+| Swahili (Kenya)                   | `sw-KE`         |
+| Swahili (Tanzania)                | `sw-TZ`         |
+| Swedish (Sweden)                  | `sv-SE`         |
+| Tamil (India)                     | `ta-IN`         |
+| Telugu (India)                    | `te-IN`         |
+| Thai (Thailand)                   | `th-TH`         |
+| Turkish (Turkey)                  | `tr-TR`         |
+| Ukrainian (Ukraine)               | `uk-UA`         |
+| Uzbek (Uzbekistan)                | `uz-UZ`         |
+| Vietnamese (Vietnam)              | `vi-VN`         |
+| Zulu (South Africa)               | `zu-ZA`         |
+
+### [Plain text](#tab/plaintext)
+
+| Language                          | Locale (BCP-47) |
+|-----------------------------------|-----------------|
+| Afrikaans (South Africa)          | `af-ZA`         |
+| Amharic (Ethiopia)                | `am-ET`         |
+| Arabic (Algeria)                  | `ar-DZ`         |
+| Arabic (Bahrain), modern standard | `ar-BH`         |
+| Arabic (Egypt)                    | `ar-EG`         |
+| Arabic (Iraq)                     | `ar-IQ`         |
+| Arabic (Israel)                   | `ar-IL`         |
+| Arabic (Jordan)                   | `ar-JO`         |
+| Arabic (Kuwait)                   | `ar-KW`         |
+| Arabic (Lebanon)                  | `ar-LB`         |
+| Arabic (Libya)                    | `ar-LY`         |
+| Arabic (Morocco)                  | `ar-MA`         |
+| Arabic (Oman)                     | `ar-OM`         |
+| Arabic (Palestinian Authority)    | `ar-PS`         |
+| Arabic (Qatar)                    | `ar-QA`         |
+| Arabic (Saudi Arabia)             | `ar-SA`         |
+| Arabic (Syria)                    | `ar-SY`         |
+| Arabic (Tunisia)                  | `ar-TN`         |
+| Arabic (United Arab Emirates)     | `ar-AE`         |
+| Arabic (Yemen)                    | `ar-YE`         |
+| Bulgarian (Bulgaria)              | `bg-BG`         |
+| Burmese (Myanmar)                 | `my-MM`         |
+| Catalan (Spain)                   | `ca-ES`         |
+| Chinese (Cantonese, Traditional)  | `zh-HK`         |
+| Chinese (Mandarin, Simplified)    | `zh-CN`         |
+| Chinese (Taiwanese Mandarin)      | `zh-TW`         |
+| Croatian (Croatia)                | `hr-HR`         |
+| Czech (Czech)                     | `cs-CZ`         |
+| Danish (Denmark)                  | `da-DK`         |
+| Dutch (Belgium)                   | `nl-BE`         |
+| Dutch (Netherlands)               | `nl-NL`         |
+| English (Australia)               | `en-AU`         |
+| English (Canada)                  | `en-CA`         |
+| English (Ghana)                   | `en-GH`         |
+| English (Hong Kong)               | `en-HK`         |
+| English (India)                   | `en-IN`         |
+| English (Ireland)                 | `en-IE`         |
+| English (Kenya)                   | `en-KE`         |
+| English (New Zealand)             | `en-NZ`         |
+| English (Nigeria)                 | `en-NG`         |
+| English (Philippines)             | `en-PH`         |
+| English (Singapore)               | `en-SG`         |
+| English (South Africa)            | `en-ZA`         |
+| English (Tanzania)                | `en-TZ`         |
+| English (United Kingdom)          | `en-GB`         |
+| English (United States)           | `en-US`         |
+| Estonian (Estonia)                | `et-EE`         |
+| Filipino (Philippines)            | `fil-PH`        |
+| Finnish (Finland)                 | `fi-FI`         |
+| French (Belgium)                  | `fr-BE`         |
+| French (Canada)                   | `fr-CA`         |
+| French (France)                   | `fr-FR`         |
+| French (Switzerland)              | `fr-CH`         |
+| German (Austria)                  | `de-AT`         |
+| German (Germany)                  | `de-DE`         |
+| German (Switzerland)              | `de-CH`         |
+| Greek (Greece)                    | `el-GR`         |
+| Gujarati (Indian)                 | `gu-IN`         |
+| Hebrew (Israel)                   | `he-IL`         |
+| Hindi (India)                     | `hi-IN`         |
+| Hungarian (Hungary)               | `hu-HU`         |
+| Icelandic (Iceland)               | `is-IS`         |
+| Indonesian (Indonesia)            | `id-ID`         |
+| Irish (Ireland)                   | `ga-IE`         |
+| Italian (Italy)                   | `it-IT`         |
+| Japanese (Japan)                  | `ja-JP`         |
+| Javanese (Indonesia)              | `jv-ID`         |
+| Kannada (India)                   | `kn-IN`         |
+| Khmer (Cambodia)                  | `km-KH`         |
+| Korean (Korea)                    | `ko-KR`         |
+| Lao (Laos)                        | `lo-LA`         |
+| Latvian (Latvia)                  | `lv-LV`         |
+| Lithuanian (Lithuania)            | `lt-LT`         |
+| Macedonian (North Macedonia)      | `mk-MK`         |
+| Malay (Malaysia)                  | `ms-MY`         |
+| Maltese (Malta)                   | `mt-MT`         |
+| Marathi (India)                   | `mr-IN`         |
+| Norwegian (Bokmål, Norway)        | `nb-NO`         |
+| Persian (Iran)                    | `fa-IR`         |
+| Polish (Poland)                   | `pl-PL`         |
+| Portuguese (Brazil)               | `pt-BR`         |
+| Portuguese (Portugal)             | `pt-PT`         |
+| Romanian (Romania)                | `ro-RO`         |
+| Russian (Russia)                  | `ru-RU`         |
+| Serbian (Serbia)                  | `sr-RS`         |
+| Sinhala (Sri Lanka)               | `si-LK`         |
+| Slovak (Slovakia)                 | `sk-SK`         |
+| Slovenian (Slovenia)              | `sl-SI`         |
+| Spanish (Argentina)               | `es-AR`         |
+| Spanish (Bolivia)                 | `es-BO`         |
+| Spanish (Chile)                   | `es-CL`         |
+| Spanish (Colombia)                | `es-CO`         |
+| Spanish (Costa Rica)              | `es-CR`         |
+| Spanish (Cuba)                    | `es-CU`         |
+| Spanish (Dominican Republic)      | `es-DO`         |
+| Spanish (Ecuador)                 | `es-EC`         |
+| Spanish (El Salvador)             | `es-SV`         |
+| Spanish (Equatorial Guinea)       | `es-GQ`         |
+| Spanish (Guatemala)               | `es-GT`         |
+| Spanish (Honduras)                | `es-HN`         |
+| Spanish (Mexico)                  | `es-MX`         |
+| Spanish (Nicaragua)               | `es-NI`         |
+| Spanish (Panama)                  | `es-PA`         |
+| Spanish (Paraguay)                | `es-PY`         |
+| Spanish (Peru)                    | `es-PE`         |
+| Spanish (Puerto Rico)             | `es-PR`         |
+| Spanish (Spain)                   | `es-ES`         |
+| Spanish (Uruguay)                 | `es-UY`         |
+| Spanish (USA)                     | `es-US`         |
+| Spanish (Venezuela)               | `es-VE`         |
+| Swahili (Kenya)                   | `sw-KE`         |
+| Swahili (Tanzania)                | `sw-TZ`         |
+| Swedish (Sweden)                  | `sv-SE`         |
+| Tamil (India)                     | `ta-IN`         |
+| Telugu (India)                    | `te-IN`         |
+| Thai (Thailand)                   | `th-TH`         |
+| Turkish (Turkey)                  | `tr-TR`         |
+| Ukrainian (Ukraine)               | `uk-UA`         |
+| Uzbek (Uzbekistan)                | `uz-UZ`         |
+| Vietnamese (Vietnam)              | `vi-VN`         |
+| Zulu (South Africa)               | `zu-ZA`         |
+
+
+### [Structured text](#tab/structuredtext)
+
+| Language                          | Locale (BCP-47) |
+|-----------------------------------|-----------------|
+| English (India)                   | `en-IN`         |
+| English (United Kingdom)          | `en-GB`         |
+| English (United States)           | `en-US`         |
+| French (Canada)                   | `fr-CA`         |
+| French (France)                   | `fr-FR`         |
+| German (Switzerland)              | `de-CH`         |
+| Spanish (Mexico)                  | `es-MX`         |
+| Spanish (Spain)                   | `es-ES`         |
+
+### [Pronunciation data](#tab/pronunciation)
+
+| Language                          | Locale (BCP-47) |
+|-----------------------------------|-----------------|
+| Catalan (Spain)                   | `ca-ES`         |
+| Croatian (Croatia)                | `hr-HR`         |
+| Czech (Czech)                     | `cs-CZ`         |
+| Danish (Denmark)                  | `da-DK`         |
+| Dutch (Netherlands)               | `nl-NL`         |
+| English (Australia)               | `en-AU`         |
+| English (Canada)                  | `en-CA`         |
+| English (Ghana)                   | `en-GH`         |
+| English (Hong Kong)               | `en-HK`         |
+| English (India)                   | `en-IN`         |
+| English (Ireland)                 | `en-IE`         |
+| English (Kenya)                   | `en-KE`         |
+| English (New Zealand)             | `en-NZ`         |
+| English (Nigeria)                 | `en-NG`         |
+| English (Philippines)             | `en-PH`         |
+| English (Singapore)               | `en-SG`         |
+| English (South Africa)            | `en-ZA`         |
+| English (Tanzania)                | `en-TZ`         |
+| English (United Kingdom)          | `en-GB`         |
+| English (United States)           | `en-US`         |
+| Estonian (Estonia)                | `et-EE`         |
+| Filipino (Philippines)            | `fil-PH`        |
+| Finnish (Finland)                 | `fi-FI`         |
+| French (Canada)                   | `fr-CA`         |
+| French (France)                   | `fr-FR`         |
+| French (Switzerland)              | `fr-CH`         |
+| German (Austria)                  | `de-AT`         |
+| German (Germany)                  | `de-DE`         |
+| German (Switzerland)              | `de-CH`         |
+| Hungarian (Hungary)               | `hu-HU`         |
+| Indonesian (Indonesia)            | `id-ID`         |
+| Irish (Ireland)                   | `ga-IE`         |
+| Italian (Italy)                   | `it-IT`         |
+| Latvian (Latvia)                  | `lv-LV`         |
+| Lithuanian (Lithuania)            | `lt-LT`         |
+| Polish (Poland)                   | `pl-PL`         |
+| Portuguese (Brazil)               | `pt-BR`         |
+| Portuguese (Portugal)             | `pt-PT`         |
+| Romanian (Romania)                | `ro-RO`         |
+| Slovak (Slovakia)                 | `sk-SK`         |
+| Slovenian (Slovenia)              | `sl-SI`         |
+| Spanish (Argentina)               | `es-AR`         |
+| Spanish (Bolivia)                 | `es-BO`         |
+| Spanish (Chile)                   | `es-CL`         |
+| Spanish (Colombia)                | `es-CO`         |
+| Spanish (Costa Rica)              | `es-CR`         |
+| Spanish (Cuba)                    | `es-CU`         |
+| Spanish (Dominican Republic)      | `es-DO`         |
+| Spanish (Ecuador)                 | `es-EC`         |
+| Spanish (El Salvador)             | `es-SV`         |
+| Spanish (Guatemala)               | `es-GT`         |
+| Spanish (Honduras)                | `es-HN`         |
+| Spanish (Mexico)                  | `es-MX`         |
+| Spanish (Nicaragua)               | `es-NI`         |
+| Spanish (Panama)                  | `es-PA`         |
+| Spanish (Paraguay)                | `es-PY`         |
+| Spanish (Peru)                    | `es-PE`         |
+| Spanish (Puerto Rico)             | `es-PR`         |
+| Spanish (Spain)                   | `es-ES`         |
+| Spanish (Uruguay)                 | `es-UY`         |
+| Spanish (USA)                     | `es-US`         |
+| Spanish (Venezuela)               | `es-VE`         |
+| Swedish (Sweden)                  | `sv-SE`         |
+
+### [Audio data](#tab/audiodata)
+
+| Language                          | Locale (BCP-47) |
+|-----------------------------------|-----------------|
+| English (United Kingdom)          | `en-GB`         |
+| English (United States)           | `en-US`         |
+| French (Canada)                   | `fr-CA`         |
+| French (France)                   | `fr-FR`         |
+| German (Switzerland)              | `de-CH`         |
+| Italian (Italy)                   | `it-IT`         |
+| Korean (Korea)                    | `ko-KR`         |
+| Portuguese (Brazil)               | `pt-BR`         |
+| Spanish (Spain)                   | `es-ES`         |
+
+### [Phrase list](#tab/phraselist)
 
 You can use the locales in this table with [phrase list](improve-accuracy-phrase-list.md). 
 
@@ -150,20 +391,30 @@ You can use the locales in this table with [phrase list](improve-accuracy-phrase
 | Portuguese (Brazil) | `pt-BR` |
 | Spanish (Spain) | `es-ES` |
 
+---
+
 ## Text-to-speech
 
-Both the Microsoft Speech SDK and REST APIs support these neural voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region or endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices).
+Both the Microsoft Speech SDK and REST APIs support these neural voices, each of which supports a specific language and dialect, identified by locale. You can try the demo and hear the voices on [this website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+
+You can also get a full list of languages and voices supported for each specific region or endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices). To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!IMPORTANT]
 > Pricing varies for Prebuilt Neural Voice (referred to as *Neural* on the pricing page) and Custom Neural Voice (referred to as *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
 
+
 ### Prebuilt neural voices
 
-The following table lists the prebuilt neural voices supported in each language. You can try the demo and hear the voices on [this website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
 
-> [!NOTE]
-> Prebuilt neural voices are created from samples that use a 24-khz sample rate.
-> All voices can upsample or downsample to other sample rates when synthesizing.
+> [!IMPORTANT]
+> The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021.
+> 
+> If you're using container Neural TTS, [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30, 2021, all requests with previous versions will not succeed.
+> 
+> The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria." You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" in your speech synthesis requests.
+
+The following table lists the prebuilt neural voices supported in each language. 
 
 | Language | Locale | Gender | Voice name | Style support |
 |---|---|---|---|---|
@@ -213,11 +464,15 @@ The following table lists the prebuilt neural voices supported in each language.
 | Chinese (Cantonese, Traditional) | `zh-HK` | Female | `zh-HK-HiuGaaiNeural` | General |
 | Chinese (Cantonese, Traditional) | `zh-HK` | Female | `zh-HK-HiuMaanNeural` | General |
 | Chinese (Cantonese, Traditional) | `zh-HK` | Male | `zh-HK-WanLungNeural` | General |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaochenNeural`  | Optimized for spontaneous conversation |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaohanNeural` | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | General, multiple role-play and styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural`  | Optimized for narrating |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` | Senior voice, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural`  | Child voice, optimized for child story and chat; multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)|
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` | General, multiple role-play and styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyanNeural`  | Optimized for customer service |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyouNeural` | Child voice, optimized for story narrating |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male   | `zh-CN-YunxiNeural` | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunyangNeural` | Optimized for news reading,<br /> multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -270,6 +525,7 @@ The following table lists the prebuilt neural voices supported in each language.
 | English (United States) | `en-US` | Female | `en-US-CoraNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-ElizabethNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-JennyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` as the primary default. Additional locales are supported [using SSML](speech-synthesis-markup.md#adjust-speaking-languages) | Female | `en-US-JennyMultilingualNeural`  | General |
 | English (United States) | `en-US` | Female | `en-US-MichelleNeural`| General |
 | English (United States) | `en-US` | Female | `en-US-MonicaNeural` | General |
 | English (United States) | `en-US` | Female | `en-US-SaraNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -291,7 +547,7 @@ The following table lists the prebuilt neural voices supported in each language.
 | French (Canada) | `fr-CA` | Female | `fr-CA-SylvieNeural` | General |
 | French (Canada) | `fr-CA` | Male | `fr-CA-AntoineNeural` | General |
 | French (Canada) | `fr-CA` | Male | `fr-CA-JeanNeural` | General |
-| French (France) | `fr-FR` | Female | `fr-FR-DeniseNeural` | General |
+| French (France) | `fr-FR` | Female | `fr-FR-DeniseNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) <sup>Public preview</sup> |
 | French (France) | `fr-FR` | Male | `fr-FR-HenriNeural` | General |
 | French (Switzerland) | `fr-CH` | Female | `fr-CH-ArianeNeural` | General |
 | French (Switzerland) | `fr-CH` | Male | `fr-CH-FabriceNeural` | General |
@@ -461,39 +717,38 @@ The following table lists the prebuilt neural voices supported in each language.
 | Zulu (South Africa) | `zu-ZA` | Female | `zu-ZA-ThandoNeural` | General |
 | Zulu (South Africa) | `zu-ZA` | Male | `zu-ZA-ThembaNeural` | General |
 
-> [!IMPORTANT]
-> The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021.
-> If you're using container Neural TTS, [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30,2021, all requests with previous versions will be rejected.
-
 ### Prebuilt neural voices in preview
 
 The following neural voices are in public preview.
 
+> [!NOTE]
+> Voices and styles in public preview are only available in three service [regions](regions.md#prebuilt-neural-voices): East US, West Europe, and Southeast Asia. 
+
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaochenNeural`  | Optimized for spontaneous conversation |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural`  | Optimized for narrating |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural`  | Child voice，optimized for child story and chat; multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)|
-| Chinese (Mandarin, Simplified) | `zh-CN` | Female | `zh-CN-XiaoyanNeural`  | Optimized for customer service |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-AbbiNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-BellaNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-HollieNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Female | `en-GB-OliviaNeural` <sup>New</sup> | General |
-| English (United Kingdom) | `en-GB` | Girl | `en-GB-MaisieNeural` <sup>New</sup> | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-MaisieNeural` <sup>New</sup> | General, child voice |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-AlfieNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-ElliotNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-EthanNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-NoahNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-OliverNeural` <sup>New</sup> | General |
 | English (United Kingdom) | `en-GB` | Male | `en-GB-ThomasNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Female | `en-US-JennyMultilingualNeural`  | General，multi-lingual capabilities available [using SSML](speech-synthesis-markup.md#create-an-ssml-document) |
+| English (United States) | `en-US` | Male | `en-US-DavisNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Female | `en-US-JaneNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-JasonNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Female | `en-US-NancyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-TonyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | French (France) | `fr-FR` | Female | `fr-FR-BrigitteNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Female | `fr-FR-CelesteNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Female | `fr-FR-CoralieNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Female | `fr-FR-JacquelineNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Female | `fr-FR-JosephineNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Female | `fr-FR-YvetteNeural` <sup>New</sup> | General |
-| French (France) | `fr-FR` | Girl | `fr-FR-EloiseNeural` <sup>New</sup> | General |
+| French (France) | `fr-FR` | Female | `fr-FR-EloiseNeural` <sup>New</sup> | General, child voice |
 | French (France) | `fr-FR` | Male | `fr-FR-AlainNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Male | `fr-FR-ClaudeNeural` <sup>New</sup> | General |
 | French (France) | `fr-FR` | Male | `fr-FR-JeromeNeural` <sup>New</sup> | General |
@@ -505,7 +760,7 @@ The following neural voices are in public preview.
 | German (Germany) | `de-DE` | Female | `de-DE-LouisaNeural` <sup>New</sup> | General |
 | German (Germany) | `de-DE` | Female | `de-DE-MajaNeural` <sup>New</sup> | General |
 | German (Germany) | `de-DE` | Female | `de-DE-TanjaNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Girl | `de-DE-GiselaNeural` <sup>New</sup> | General |
+| German (Germany) | `de-DE` | Female | `de-DE-GiselaNeural` <sup>New</sup> | General, child voice |
 | German (Germany) | `de-DE` | Male | `de-DE-BerndNeural` <sup>New</sup> | General |
 | German (Germany) | `de-DE` | Male | `de-DE-ChristophNeural` <sup>New</sup> | General |
 | German (Germany) | `de-DE` | Male | `de-DE-KasperNeural` <sup>New</sup> | General |
@@ -513,45 +768,41 @@ The following neural voices are in public preview.
 | German (Germany) | `de-DE` | Male | `de-DE-KlausNeural` <sup>New</sup> | General |
 | German (Germany) | `de-DE` | Male | `de-DE-RalfNeural` <sup>New</sup> | General |
 
-> [!IMPORTANT]
-> Voices in public preview are only available in three service regions: East US, West Europe, and Southeast Asia.
-
-The `en-US-JennyNeuralMultilingual` voice supports multiple languages. Check the [voices list API](rest-text-to-speech.md#get-a-list-of-voices) for a supported languages list.
-
-For more information about regional availability, see [regions](regions.md#prebuilt-neural-voices).
-
-To learn how you can configure and adjust neural voices, such as Speaking Styles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
-
-> [!IMPORTANT]
-> The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria."
-
-You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" in your speech synthesis requests.
 
 ### Voice styles and roles
 
 In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
 
+> [!NOTE]
+> The angry, cheerful, excited, friendly, hopeful, sad, shouting, terrified, unfriendly, and whispering styles for DavisNeural, JaneNeural, JasonNeural, NancyNeural and TonyNeural are only available in three service regions: East US, West Europe, and Southeast Asia. 
 To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
 Use the following table to determine supported styles and roles for each neural voice.
 
 |Voice|Styles|Style degree|Roles|
 |-----|-----|-----|-----|
-|en-US-AriaNeural|`chat`, `cheerful`, `customerservice`, `empathetic`, `narration-professional`, `newscast-casual`, `newscast-formal`|||
-|en-US-GuyNeural|`newscast`|||
-|en-US-JennyNeural|`assistant`, `chat`,`customerservice`, `newscast`|||
-|en-US-SaraNeural|`angry`, `cheerful`, `sad`|||
+|en-US-AriaNeural|`angry`, `chat`, `cheerful`, `customerservice`, `empathetic`, `excited`, `friendly`, `hopeful`, `narration-professional`, `newscast-casual`, `newscast-formal`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|en-US-DavisNeural|`angry`, `chat`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|en-US-GuyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|en-US-JaneNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|en-US-JasonNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|en-US-JennyNeural|`angry`, `assistant`, `chat`, `cheerful`,`customerservice`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, , `unfriendly`, `whispering`|||
+|en-US-NancyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|en-US-SaraNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|en-US-TonyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|fr-FR-DeniseNeural |`cheerful` <sup>Public preview</sup>, `sad`<sup>Public preview</sup>||| 
 |ja-JP-NanamiNeural|`chat`, `cheerful`, `customerservice`|||
 |pt-BR-FranciscaNeural|`calm`|||
-|zh-CN-XiaohanNeural|`affectionate`, `angry`, `cheerful`, `customerservice`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Supported|Supported|
-|zh-CN-XiaomoNeural|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported|Supported|
-|zh-CN-XiaoruiNeural|`angry`, `fearful`, `sad`|Supported||
+|zh-CN-XiaohanNeural|`affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Supported||
+|zh-CN-XiaomoNeural|`affectionate`, `angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `envious`, `fearful`, `gentle`, `sad`, `serious`|Supported|Supported|
+|zh-CN-XiaoruiNeural|`angry`, `calm`, `fearful`, `sad`|Supported||
 |zh-CN-XiaoshuangNeural|`chat`|Supported||
-|zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `fearful`, `gentle`, `lyrical`, `newscast`, `sad`, `serious`|Supported||
-|zh-CN-XiaoxuanNeural|`angry`, `calm`, `cheerful`, `customerservice`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported||
-|zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `customerservice`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|Supported|Supported|
-|zh-CN-YunyangNeural|`customerservice`|Supported||
-|zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `fearful`, `sad`, `serious`|Supported|Supported|
+|zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `newscast`, `sad`, `serious`|Supported||
+|zh-CN-XiaoxuanNeural|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported|Supported|
+|zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `narration-relaxed`, `sad`, `serious`|Supported|Supported|
+|zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Supported||
+|zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|Supported|Supported|
+
 
 ### Custom Neural Voice
 
@@ -657,7 +908,21 @@ Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
 
 ## Pronunciation assessment
 
-The [pronunciation assessment](how-to-pronunciation-assessment.md) feature currently supports the `en-US` locale, which is available with all speech-to-text regions. Support for `en-GB` and `zh-CN` languages is in preview.
+The following table lists the released languages and public preview languages.
+
+| Language | Locale |
+|--|--|
+|Chinese (Mandarin, Simplified)|`zh-CN`<sup>Public preview</sup> |
+|English (Australia)|`en-AU`<sup>Public preview</sup> |
+|English (United Kingdom)|`en-GB`<sup>Public preview</sup> |
+|English (United States)|`en-US`<sup>General available</sup>|
+|French (France)|`fr-FR`<sup>Public preview</sup> |
+|Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
+
+> [!NOTE]
+> If you want to use languages that aren't listed here, please contact us by email at [mspafeedback@microsoft.com](mailto:mspafeedback@microsoft.com). 
+>  
+> For pronunciation assessment supported regions, see [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
 
 ## Speech translation
 
@@ -790,6 +1055,14 @@ The following table outlines supported languages for custom keyword and keyword 
 | English (United States) | en-US | Yes | Yes |
 | Japanese (Japan) | ja-JP | No | Yes |
 | Portuguese (Brazil) | pt-BR | No | Yes |
+
+## Intent Recognition Pattern Matcher
+
+The Intent Recognizer Pattern Matcher supports the following locales:
+
+| Locale                            | Locale (BCP-47) |
+|-----------------------------------|-----------------|
+| English (United States)           | `en-US`         |
 
 ## Next steps
 

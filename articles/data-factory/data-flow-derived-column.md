@@ -31,7 +31,7 @@ To add more derived columns, click on **Add** above the column list or the plus 
 
 ### Column patterns
 
-In cases where your schema is not explicitly defined or if you want to update a set of columns in bulk, you will want to create column patters. Column patterns allow for you to match columns using rules based upon the column metadata and create derived columns for each matched column. For more information, learn [how to build column patterns](concepts-data-flow-column-pattern.md#column-patterns-in-derived-column-and-aggregate) in the derived column transformation.
+In cases where your schema is not explicitly defined or if you want to update a set of columns in bulk, you will want to create column patterns. Column patterns allow for you to match columns using rules based upon the column metadata and create derived columns for each matched column. For more information, learn [how to build column patterns](concepts-data-flow-column-pattern.md#column-patterns-in-derived-column-and-aggregate) in the derived column transformation.
 
 :::image type="content" source="media/data-flow/column-pattern-derive.png" alt-text="Column patterns":::
 

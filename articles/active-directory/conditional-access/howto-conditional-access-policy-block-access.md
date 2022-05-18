@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/05/2021
+ms.date: 02/14/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -74,7 +74,7 @@ A second policy is created below to require multi-factor authentication or a com
 1. Under **Cloud apps or actions** > **Include**, select **Select apps**, choose **Office 365**, and select **Select**, then **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**.
    1. Select **Require multi-factor authentication** and **Require device to be marked as compliant** select **Select**.
-   1. Ensure **Require all the selected controls** is selected.
+   1. Ensure **Require one of the selected controls** is selected.
    1. Select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.

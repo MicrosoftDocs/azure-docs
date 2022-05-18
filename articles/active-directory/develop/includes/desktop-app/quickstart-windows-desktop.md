@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Sign in users and call Microsoft Graph in a Windows desktop app | Azure"
-description: In this quickstart, learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by the Microsoft identity platform.
+description: Learn how a Windows Presentation Foundation (WPF) application can get an access token and call an API protected by the Microsoft identity platform.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 01/14/2022
+ms.date: 03/04/2022
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, mode-api
 #Customer intent: As an application developer, I want to learn how my Windows Presentation Foundation (WPF) application can get an access token and call an API that's protected by the Microsoft identity platform.
@@ -22,7 +22,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/uwp/get-started/get-set-up) workload installed
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/uwp/get-started/get-set-up) workload installed
 
 ## Register and download your quickstart app
 You have two options to start your quickstart application:
@@ -52,13 +52,13 @@ To register your application and add the app's registration information to your 
 1. In the **Redirect URIs** section, select `https://login.microsoftonline.com/common/oauth2/nativeclient` and in **Custom redirect URIs** add `ms-appx-web://microsoft.aad.brokerplugin/{client_id}` where `{client_id}` is the application (client) ID of your application (the same GUID that appears in the `msal{client_id}://auth` checkbox).
 1. Select **Configure**.
 
-#### Step 2: Download your Visual Studio project
+#### Step 2: Download the project
 
-[Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+[Download the WPF sample application](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
 
-#### Step 3: Configure your Visual Studio project
+#### Step 3: Configure the project
 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
 1. Open the project in Visual Studio.
 1. Edit **App.Xaml.cs** and replace the values of the fields `ClientId` and `Tenant` with the following code:
@@ -79,6 +79,13 @@ Where:
 
     To find the values of **Directory (tenant) ID** and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 
+#### Step 4: Run the application
+
+To build and run the sample application in Visual Studio, select the **Debug menu** > **Start Debugging**, or press the F5 key. Your application's MainWindow is displayed.
+
+When the app's main window appears, select the Call Microsoft Graph API button. You'll be prompted to sign in using your Azure Active Directory account (work or school account) or Microsoft account (live.com, outlook.com) credentials.
+
+If you're running the application for the first time, you'll be prompted to provide consent to allow the application to access your user profile and sign you in. After consenting to the requested permissions, the application displays that you've successfully logged in. You should see some basic token information and user data obtained from the call to the Microsoft Graph API.
 
 ## More information
 

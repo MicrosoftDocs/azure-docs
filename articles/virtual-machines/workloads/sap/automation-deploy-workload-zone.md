@@ -81,12 +81,14 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 Assign the correct permissions to the Service Principal: 
 
 ```azurecli
-az role assignment create --assignee <appId> --role "User Access Administrator"
+az role assignment create --assignee <appId> \
+    --scope /subscriptions/<subscriptionID> \
+    --role "User Access Administrator"
 ```
 
 ## Deploying the SAP Workload zone
    
-The sample Workload Zone configuration file `DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE` folder.
+The sample Workload Zone configuration file `DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE` folder.
 
 Running the command below will deploy the SAP Workload Zone.
 

@@ -85,7 +85,7 @@ Review your new Automation account.
 
 :::image type="content" source="./media/automation-create-standalone-account/automation-account-overview.png" alt-text="Automation account overview page":::
 
-When the Automation account is successfully created, several resources are automatically created for you. After creation, these runbooks can be safely deleted if you do not wish to keep them. The managed identities can be used to authenticate to your account in a runbook, and should be left unless you create another one or do not require them. The following table summarizes resources for the account.
+When the Automation account is successfully created, several resources are automatically created for you. After creation, these runbooks can be safely deleted if you do not wish to keep them. The managed identities can be used to authenticate to your account in a runbook, and should be left unless you create another one or do not require them. The Automation access keys are also created during Automation account creation. The following table summarizes resources for the account.
 
 |Resource |Description |
 |------||------|
@@ -95,6 +95,48 @@ When the Automation account is successfully created, several resources are autom
 
 > [!NOTE]
 > The tutorial runbooks have not been updated to authenticate using a managed identity. Review the [Using system-assigned identity](enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity) or [Using user-assigned identity](add-user-assigned-identity.md#assign-a-role-to-a-user-assigned-managed-identity) to learn how to grant the managed identity access to resources and configure your runbooks to authenticate using either type of managed identity.
+
+## Manage Automation account keys
+
+When you create an Automation account, Azure generates two 512-bit automation account access keys for that account. These keys are shared access keys that are used as registration keys for registering [DSC nodes](./automation-dsc-onboarding.md#use-dsc-metaconfiguration-to-register-hybrid-machines) as well as [Windows](./automation-windows-hrw-install.md#manual-deployment) and [Linux](./automation-linux-hrw-install.md#manually-run-powershell-commands) Hybrid runbook workers. These keys are only used while registering DSC nodes and Hybrid workers. Existing machines configured as DSC nodes or hybrid workers won’t be affected after rotation of these keys. 
+
+### View Automation account keys
+
+To view and copy your Automation account access keys, follow these steps:
+1. In the [Azure portal](https://portal.azure.com/), go to your Automation account.
+1. Under **Account Settings**, select **Keys** to view your Automation account's primary and secondary access keys. 
+You can use any of the two keys to access your Automation account. However, we recommend that you use the first key and reserve the use of second key.
+
+   :::image type="content" source="./media/automation-create-standalone-account/automation-demo-keys-inline.png" alt-text="Automation Keys page" lightbox="./media/automation-create-standalone-account/automation-demo-keys-expanded.png" :::
+
+### Manually rotate access keys
+
+We recommend that you rotate your access keys periodically to keep the Automation account secure. As you have two access keys, you can rotate them using Azure portal or Azure PowerShell cmdlet.
+
+Choose a client
+
+# [Azure portal](#tab/azureportal)
+
+Follow these steps:
+1. Go to your Automation account in [Azure portal](https://portal.azure.com/).
+1. Under **Account Settings**, select **Keys**.
+1. Select **Regenerate primary** to regenerate the primary access key for your Automation account.
+1. Select the **Regenerate secondary** to regenerate the secondary access key.
+  :::image type="content" source="./media/automation-create-standalone-account/regenerate-keys.png" alt-text="Regenerate keys":::
+  
+# [Azure PowerShell](#tab/azurepowershell)
+
+Run the [New-AzAutomationKey](/powershell/module/az.automation/new-azautomationkey) command to regenerate the primary access key, as shown in the following example: 
+
+  ```azurepowershell
+  New-AzAutomationKey -KeyType Primary -ResourceGroup <ResourceGroup> -AutomationAccountName <AutomationAccount>
+  ```
+ ---
+
+### View registration URL
+The DSC node registers with the State Configuration service using the registration URL and authenticates using a registration access key along with the Automation Account access keys.
+
+:::image type="content" source="./media/automation-create-standalone-account/automation-demo-keys-url-inline.png" alt-text="Screenshot of Automation Keys and URL" lightbox="./media/automation-create-standalone-account/automation-demo-keys-url-expanded.png" :::
 
 ## Next steps
 

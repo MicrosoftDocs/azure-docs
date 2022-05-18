@@ -6,92 +6,137 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 12/27/2021
+ms.date: 2/17/2022
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Backend pool management
+
 The backend pool is a critical component of the load balancer. The backend pool defines the group of resources that will serve traffic for a given load-balancing rule.
 
 There are two ways of configuring a backend pool:
+
 * Network Interface Card (NIC)
+
 * IP address
 
-When preallocating your backend pool with an IP address range which you plan to later create virtual machines and virtual machine scale sets, configure your backend pool by IP address and VNET ID combination.
-
+To preallocate a backend pool with an IP address range that later will contain virtual machines and virtual machine scale sets, configure the pool by IP address and virtual network ID.
 This article focuses on configuration of backend pools by IP addresses.
 
 ## Configure backend pool by IP address and virtual network
+
 In scenarios with pre-populated backend pools, use IP and virtual network.
 
-All backend pool management is done directly on the backend pool object as highlighted in the examples below.
+You configure backend pool management on the backend pool object as highlighted in the following examples.
 
 ### PowerShell
-Create new backend pool:
+
+Create a new backend pool:
 
 ```azurepowershell-interactive
-$resourceGroup = "myResourceGroup"
-$loadBalancerName = "myLoadBalancer"
-$backendPoolName = "myBackendPool"
-$vnetName = "myVnet"
-$location = "eastus"
-$nicName = "myNic"
+$be = @{
+    ResourceGroupName = 'myResourceGroup'
+    LoadBalancerName = 'myLoadBalancer'
+    Name = 'myBackendPool'
+}
+$backendPool = New-AzLoadBalancerBackendAddressPool @be
 
-$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
 ```
 
 Update backend pool with a new IP from existing virtual network:
  
 ```azurepowershell-interactive
-$virtualNetwork = 
-Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
- 
-$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
+$vnet = @{
+    Name = 'myVnet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$virtualNetwork = Get-AzVirtualNetwork @vnet
+
+$add1 = @{
+    IpAddress = '10.0.0.5'
+    Name = 'TestVNetRef'
+    VirtualNetworkId = $virtualNetwork.Id
+}
+$ip1 = New-AzLoadBalancerBackendAddressConfig @add1
  
 $backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
 Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
+
 ```
 
 Retrieve the backend pool information for the load balancer to confirm that the backend addresses are added to the backend pool:
 
 ```azurepowershell-interactive
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
+$pool = @{
+    ResourceGroupName = 'myResourceGroup'
+    LoadBalancerName = 'myLoadBalancer'
+    Name = 'myBackendPool'
+}
+Get-AzLoadBalancerBackendAddressPool @pool
+
 ```
 Create a network interface and add it to the backend pool. Set the IP address to one of the backend addresses:
 
 ```azurepowershell-interactive
-$nic =
-New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicName -PrivateIpAddress 10.0.0.4 -Subnet $virtualNetwork.Subnets[0]
+$net = @{
+    Name = 'myNic'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus'
+    PrivateIpAddress = '10.0.0.4'
+    Subnet = $virtualNetwork.Subnets[0]
+}
+$nic = New-AzNetworkInterface @net
+
 ```
 
 Create a VM and attach the NIC with an IP address in the backend pool:
+
 ```azurepowershell-interactive
 # Create a username and password for the virtual machine
 $cred = Get-Credential
 
 # Create a virtual machine configuration
-$vmname = "myVM1"
-$vmsize = "Standard_DS1_v2"
-$pubname = "MicrosoftWindowsServer"
-$nicname = "myNic"
-$off = "WindowsServer"
-$sku = "2019-Datacenter"
-$resourceGroup = "myResourceGroup"
-$location = "eastus"
+$net = @{
+    Name = 'myNic'
+    ResourceGroupName = 'myResourceGroup'
+}
+$nic = Get-AzNetworkInterface @net
 
-$nic =
-Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
+$vmc = @{
+    VMName = 'myVM1'
+    VMSize = 'Standard_DS1_v2'
+}
 
-$vmConfig =
-New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
+$vmos = @{
+    ComputerName = 'myVM1'
+    Credential = $cred
+}
+
+$vmi = @{
+    PublisherName = 'MicrosoftWindowsServer'
+    Offer = 'WindowsServer'
+    Skus = '2019-Datacenter'
+    Version = 'latest'
+}
+$vmConfig = 
+New-AzVMConfig @vmc | Set-AzVMOperatingSystem -Windows @vmos | Set-AzVMSourceImage @vmi | Add-AzVMNetworkInterface -Id $nic.Id
+
 
 # Create a virtual machine using the configuration
-$vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -VM $vmConfig
+$vm = @{
+    ResourceGroupName = 'myResourceGroup'
+    Zone = '1'
+    Location = 'eastus'
+    VM = $vmConfig
+
+}
+$vm1 = New-AzVM @vm
+
 ```
 
 ### CLI
+
 Using CLI you can either populate the backend pool via command-line parameters or through a JSON configuration file.
 
 Create and populate the backend pool via the command-line parameters:
@@ -171,18 +216,19 @@ az vm create \
   * IP based backends can only be used for Standard Load Balancers
   * Limit of 100 IP addresses in the backend pool for IP based LBs
   * The backend resources must be in the same virtual network as the load balancer for IP based LBs
-  * A Load Balancer with IP-based Backend Pool cannot function as a Private Link service
-  * ACI containers are not currently supported by IP based LBs
-  * Load Balancers or services such as Application Gateway cannot be placed in the backend pool of the load balancer
-  * Inbound NAT Rules cannot be specified by IP address
-  * You can configure IP-based and NIC-based backend pools for the same load balancer however, you cannot create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.
+  * A load balancer with IP based Backend Pool can’t function as a Private Link service
+  * ACI containers aren't currently supported by IP based LBs
+  * Load balancers or services such as Application Gateway can’t be placed in the backend pool of the load balancer
+  * Inbound NAT Rules can’t be specified by IP address
+  * You can configure IP based and NIC based backend pools for the same load balancer. You can’t create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.
 
 >[!Important]
 > When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. For secure by default configuration and applications with demanding outbound needs, configure the backend pool by NIC.
 
 ## Next steps
+
 In this article, you learned about Azure Load Balancer backend pool management and how to configure a backend pool by IP address and virtual network.
 
 Learn more about [Azure Load Balancer](load-balancer-overview.md).
 
-Review the [REST API](/rest/api/load-balancer/loadbalancerbackendaddresspools/createorupdate) for IP based backendpool management.
+Review the [REST API](/rest/api/load-balancer/loadbalancerbackendaddresspools/createorupdate) for IP based backend pool management.

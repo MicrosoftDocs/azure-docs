@@ -28,7 +28,7 @@ to support audit requirements** built-in policy initiative.
 > compliance in Azure Policy is only a partial view of your overall compliance status. The
 > associations between controls and Azure Policy definitions for this compliance blueprint sample
 > may change over time. To view the change history, see the
-> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
 
 ## Location Constraints
 

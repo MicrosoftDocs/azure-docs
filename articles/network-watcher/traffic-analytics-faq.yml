@@ -6,13 +6,12 @@ metadata:
   documentationcenter: na
   author: damendo
   ms.service: network-watcher
-  ms.topic: article
+  ms.topic: faq
   ms.tgt_pltfrm: na
   ms.workload:  infrastructure-services
   ms.date: 01/04/2021
   ms.author: damendo 
   ms.custom: devx-track-azurepowershell
-    
 title: Traffic Analytics frequently asked questions
 summary: |
   This article collects in one place many of the most frequently asked questions about traffic analytics in Azure Network Watcher.

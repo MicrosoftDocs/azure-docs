@@ -30,6 +30,8 @@
     href: virtual-machines-policy-enable.md
   - name: Enable on VMs through an ARM template
     href: arm-deploy.md
+  - name: Enable on Arc servers through an ARM template
+    href: arm-deploy-arc.md
   - name: Upgrade machines to latest Automanage Version
     href: automanage-upgrade.md
   - name: Troubleshoot onboarding errors
@@ -38,6 +40,10 @@
     href: repair-automanage-account.md
   - name: Move an Automanaged virtual machine across regions
     href: move-automanaged-vms.md
+  - name: Move an Automanaged configuration profile across regions
+    href: move-automanaged-configuration-profile.md
+  - name: Windows Server VNext Datacenter Azure Edition (preview)
+    href: windows-server-azure-edition-vnext.md
 - name: Resources
   expanded: true
   items:

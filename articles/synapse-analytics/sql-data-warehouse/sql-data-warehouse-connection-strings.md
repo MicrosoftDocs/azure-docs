@@ -1,7 +1,6 @@
 ---
 title: Connection strings
 description: Connection strings for Synapse SQL pool
-services: synapse-analytics
 author: joannapea 
 manager: craigg
 ms.service: synapse-analytics

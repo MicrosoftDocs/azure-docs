@@ -199,7 +199,7 @@ The Execute Python Script component contains sample Python code that you can use
     > [!IMPORTANT]
     > Please use unique and meaningful name for files in the script bundle since some common words (like `test`, `app` and etc) are reserved for built-in services.
    
-    Following is a script bundle example, which contains a python script file and a txt file:
+    Following is a script bundle example, which contains a Python script file and a txt file:
       
     > [!div class="mx-imgBorder"]
     > ![Script bundle example](media/module/python-script-bundle.png)  
@@ -221,7 +221,7 @@ The Execute Python Script component contains sample Python code that you can use
         # Execution logic goes here
         print(f'Input pandas.DataFrame #1: {dataframe1}')
  
-        # Test the custom defined python function
+        # Test the custom defined Python function
         dataframe1 = my_func(dataframe1)
  
         # Test to read custom uploaded files by relative path
@@ -257,7 +257,7 @@ The Execute Python Script component contains sample Python code that you can use
 
     If the component is completed, check the output if as expected.
 
-    If the component is failed, you need to do some troubleshooting. Select the component, and open **Outputs+logs** in the right pane. Open **70_driver_log.txt** and search **in azureml_main**, then you could find which line caused the error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your python script.
+    If the component is failed, you need to do some troubleshooting. Select the component, and open **Outputs+logs** in the right pane. Open **70_driver_log.txt** and search **in azureml_main**, then you could find which line caused the error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your Python script.
 
 ## Results
 

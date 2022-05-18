@@ -4,7 +4,7 @@ description: Describes the data available to monitor the health and performance 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/06/2020
+ms.date: 02/07/2022
 
 ---
 
@@ -35,7 +35,7 @@ The following table briefly describes the application tiers that may be in Azure
 
 | Tier | Description | Collection method |
 |:---|:---|:---|
-| [Operating system (guest)](#operating-system-guest) | Data about the operating system on compute resources. | Install Log Analytics agent to collect client data sources into Azure Monitor and Dependency agent to collect dependencies supporting VM insights.<br>For Azure virtual machines, install Azure Diagnostic Extension to collect logs and metrics into Azure Monitor. |
+| [Operating system (guest)](#operating-system-guest) | Data about the operating system on compute resources. | Install Azure Monitor agent on virtual machines, scale sets and Arc-enabled servers to collect logs and metrics into Azure Monitor. |
 | [Application Code](#application-code) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code to collect data into Application Insights. |
 | [Custom sources](#custom-sources) | Data from external services or other components or devices. | Collect log or metrics data into Azure Monitor from any REST client. |
 
@@ -49,9 +49,9 @@ Telemetry related to your Azure tenant is collected from tenant-wide services su
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Configure Azure AD logs to be collected in Azure Monitor to analyze them with other monitoring data. | [Integrate Azure AD logs with Azure Monitor logs (preview)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure Storage | Export Azure AD logs to Azure Storage for archiving. | [Tutorial: Archive Azure AD logs to an Azure storage account (preview)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event Hub | Stream Azure AD logs to other locations using Event Hubs. | [Tutorial: Stream Azure Active Directory logs to an Azure event hub (preview)](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
+| Azure Monitor Logs | Configure Azure AD logs to be collected in Azure Monitor to analyze them with other monitoring data. | [Integrate Azure AD logs with Azure Monitor logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Azure Storage | Export Azure AD logs to Azure Storage for archiving. | [Tutorial: Archive Azure AD logs to an Azure storage account](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Event Hub | Stream Azure AD logs to other locations using Event Hubs. | [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 
 
@@ -105,9 +105,17 @@ The configuration requirements and content of resource logs vary by resource typ
 | Event Hubs | Stream resource logs to other locations using Event Hubs. |[Stream Azure resource logs to an event hub](../essentials/resource-logs.md#send-to-azure-event-hubs) |
 
 ## Operating system (guest)
-Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of one or more agents, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves.
+Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of the Azure Monitor agent, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves.
 
-![Azure compute resource collection](media/data-sources/compute-resources.png)
+![Azure compute resource collection](media/data-sources/compute-resources-updated.png)
+
+### Azure Monitor agent 
+[Install the Azure Monitor agent](./azure-monitor-agent-manage.md) for comprehensive monitoring and management of your Windows or Linux virtual machines, scale sets and Arc-enabled servers (resources in other clouds or on-premises with Azure Arc installed, at no additional cost).
+
+| Destination | Description | Reference |
+|:---|:---|:---|
+| Azure Monitor Logs | The Azure Monitor agent allows you to collect logs from data sources that you configure using [data collection rules](./data-collection-rule-azure-monitor-agent.md) or from monitoring solutions that provide additional insights into applications running on the machine. These can be sent to one or more Log Analytics workspaces. | [Data sources and destinations](./azure-monitor-agent-overview.md#data-sources-and-destinations) |
+| Azure Monitor Metrics (preview) | The Azure Monitor agent allows you to collect performance counters and send them to Azure Monitor metrics database  | [Data sources and destinations](./azure-monitor-agent-overview.md#data-sources-and-destinations) |
 
 ### Azure Diagnostic extension
 Enabling the Azure Diagnostics extension for Azure Virtual machines allows you to collect logs and metrics from the guest operating system of Azure compute resources including Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, virtual machine scale sets, and Service Fabric.
@@ -115,18 +123,9 @@ Enabling the Azure Diagnostics extension for Azure Virtual machines allows you t
 | Destination | Description | Reference |
 |:---|:---|:---|
 | Storage | Azure diagnostics extension always writes to an Azure Storage account. | [Install and configure Windows Azure diagnostics extension (WAD)](./diagnostics-extension-windows-install.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) |
-| Azure Monitor Metrics | When you configure the Diagnostics Extension to collect performance counters, they are written to the Azure Monitor metrics database. | [Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md) |
+| Azure Monitor Metrics (preview) | When you configure the Diagnostics Extension to collect performance counters, they are written to the Azure Monitor metrics database. | [Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md) |
 | Event Hubs | Configure the Diagnostics Extension to stream the data to other locations using Event Hubs.  | [Streaming Azure Diagnostics data by using Event Hubs](./diagnostics-extension-stream-event-hubs.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Application Insights Logs | Collect logs and performance counters from the compute resource supporting your application to be analyzed with other application data. | [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](./diagnostics-extension-to-application-insights.md) |
-
-
-### Log Analytics agent 
-Install the Log Analytics agent for comprehensive monitoring and management of your Windows or Linux virtual machines. The virtual machine can be running in Azure, another cloud, or on-premises.
-
-| Destination | Description | Reference |
-|:---|:---|:---|
-| Azure Monitor Logs | The Log Analytics agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from data sources that you configure or from monitoring solutions that provide additional insights into applications running on the virtual machine. | [Agent data sources in Azure Monitor](../agents/agent-data-sources.md)<br>[Connect Operations Manager to Azure Monitor](./om-agents.md) |
-| VM Storage | VM insights uses the Log Analytics agent to store heath state information in a custom location. See the next section for more information.  |
 
 
 ### VM insights 

@@ -6,9 +6,9 @@ author: jasonfreeberg
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/10/2021
+ms.date: 03/03/2022
 ms.author: jafreebe
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, mode-other
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, mode-other, devdivchpfy22
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -18,7 +18,7 @@ adobe-target-content: ./quickstart-java-uiex
 
 # Quickstart: Create a Java app on Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
 
 # [Java SE](#tab/javase)
 
@@ -110,12 +110,16 @@ cd agoncal-application-petstore-ee7
 
 ## Configure the Maven plugin
 
+> [!TIP]
+> The Maven plugin supports **Java 17** and **Tomcat 10.0**. For more information about latest support, see [Java 17 and Tomcat 10.0 are available on Azure App Service](https://devblogs.microsoft.com/java/java-17-and-tomcat-10-0-available-on-azure-app-service/).
+
+
 The deployment process to Azure App Service will use your Azure credentials from the Azure CLI automatically. If the Azure CLI is not installed locally, then the Maven plugin will authenticate with Oauth or device login. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.3.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
 ```
 
 ::: zone pivot="platform-windows"
@@ -288,7 +292,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 
 ::: zone-end
 
-You can modify the configurations for App Service directly in your `pom.xml` if needed. Some common ones are listed below:
+You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed below:
 
 Property | Required | Description | Version
 ---|---|---|---
@@ -297,11 +301,11 @@ Property | Required | Description | Version
 `<resourceGroup>` | true | Azure Resource Group for your Web App. | 0.1.0+
 `<appName>` | true | The name of your Web App. | 0.1.0+
 `<region>` | false | Specifies the region where your Web App will be hosted; the default value is **centralus**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+
-`<pricingTier>` | false | The pricing tier for your Web App. The default value is **P1v2** for production workload, while **B2** is the recommended minimum for Java dev/test. [Learn more](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
-`<runtime>` | false | The runtime environment configuration, you could see the detail [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
-`<deployment>` | false | The deployment configuration, you could see the details [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
+`<pricingTier>` | false | The pricing tier for your Web App. The default value is **P1v2** for production workload, while **B2** is the recommended minimum for Java dev/test. For more information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
+`<runtime>` | false | The runtime environment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
+`<deployment>` | false | The deployment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 
-Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they will be used later.
+Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they'll be used later.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
@@ -336,7 +340,7 @@ mvn package azure-webapp:deploy -DskipTests
 
 -----
 
-Once deployment has completed, your application will be ready at `http://<appName>.azurewebsites.net/` (`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
+Once deployment is completed, your application will be ready at `http://<appName>.azurewebsites.net/` (`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
 
 # [Java SE](#tab/javase)
 
@@ -369,7 +373,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
+In the preceding steps, you created Azure resources in a resource group. If you don't need the resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
 
 ```azurecli-interactive
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes

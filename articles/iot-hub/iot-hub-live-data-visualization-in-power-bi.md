@@ -201,7 +201,7 @@ If you don't need the IoT hub or the other resources you created any longer, you
 
 ### Use the Azure CLI to clean up Azure resources
 
-To remove the resource group and all of its resources, use the [az group delete](/cli/azure/group#az_group_delete) command.
+To remove the resource group and all of its resources, use the [az group delete](/cli/azure/group#az-group-delete) command.
 
 ```azurecli-interactive
 az group delete --name {your resource group}

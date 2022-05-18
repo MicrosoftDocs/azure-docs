@@ -30,7 +30,7 @@ The interactive interface of Linkurious Enterprise offers an easy way to investi
 
 * [Product details](https://linkurio.us/product/)
 * [Documentation](https://doc.linkurio.us/)
-* [Demo](https://resources.linkurio.us/demo)
+* [Demo](https://linkurious.com/demo/)
 * [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/linkurious.linkurious001?tab=overview)
 
 ## Cambridge Intelligence
@@ -81,8 +81,6 @@ Users of all skill levels can take advantage of five unique graph layouts to dis
 * [Trial for Tom Sawyer Perspectives](https://www.tomsawyer.com/get-started)
 
 * [Live Demo for Tom Sawyer Databrowser](https://support.tomsawyer.com/demonstrations/graph.database.browser.demo/)
-
-* [Deploy on Azure](https://www.tomsawyer.com/cs/c/?cta_guid=b85cf3fc-2978-426d-afb3-c1f858f38e73&signature=AAH58kGNc5criGRMHSUptSOwyD0Znf3lFw&pageId=41375082967&placement_guid=d6cb1de7-6d51-4a89-a012-5a167870a715&click=7bc863ee-3c45-4509-9334-ac7674b7e75e&hsutk=4fa7e492076c5cecf5f03faad22b4a19&canon=https%3A%2F%2Fwww.tomsawyer.com%2Fgraph-database-browser&utm_referrer=https%3A%2F%2Fwww.tomsawyer.com%2F&portal_id=8313502&redirect_url=APefjpF0sV6YjeRqi4bQCt0-ubf_cmTi_nSs28RvMy55Vk01NIf6jtTaTj3GUMJ9D9z5DvIwvPnfSw89Wj9JCS_7cNss_HxsDmlT7wmeJh7BUyuPNEGYGnhucgeUZUzWGqrEeWmReCZByeMdklbMuikFnwasX6046Op7hKKiuQJx84RGd4fe1Rvq7mRLaaySZxdvLlpMg13N_4xo_GzrHRl4P2_VGZGPRUgkS3EvsvLzfJzH36u2HHDSG6AuU9ZRNgiJiH2wMLAgGQT-vDzkSTnYRb0ljRFHCq9kPjsbVDw1bTn0G9R5ZmTbdskypc49-Ob_49MdHif1ufRA9BMLU3Ks6t9TCVJ6fo4R5255u5FK2_v3Jk10yd7y_EhLqzrAv2ov-TzxDd6b&__hstc=169273150.4fa7e492076c5cecf5f03faad22b4a19.1608290688565.1626359177649.1626364757376.11&__hssc=169273150.1.1626364757376&__hsfp=3487988390&contentType=standard-page)
 
 ## Graphistry
 

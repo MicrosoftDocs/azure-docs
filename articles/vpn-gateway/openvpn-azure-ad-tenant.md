@@ -7,24 +7,22 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 04/21/2022
 ms.author: cherylmc
 
 ---
-# Create an Azure Active Directory tenant for P2S OpenVPN protocol connections
+# Create an Azure AD tenant for P2S OpenVPN protocol connections
 
-When you connect to your VNet using Point-to-Site, you have a choice of which protocol to use. The protocol you use determines the authentication options that are available to you. If you want to use Azure Active Directory authentication, you can do so when using the OpenVPN protocol. This article helps you set up an Azure AD tenant. For more information about Point-to-Site protocols and authentication, see [About Point-to-Site VPN](point-to-site-about.md).
+When you connect to your VNet using Azure VPN Gateway Point-to-Site, you have a choice of which protocol to use. The protocol you use determines the authentication options that are available to you. If you want to use Azure Active Directory authentication, you can do so when using the OpenVPN protocol. This article helps you set up an Azure AD tenant. For more information about Point-to-Site protocols and authentication, see [About Point-to-Site VPN](point-to-site-about.md).
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="tenant"></a>1. Verify Azure AD tenant
 
-Verify that you have an Azure AD tenant. If you don't have an Azure AD tenant, you can create one using the steps in the [Create a new tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) article:
+Verify that you have an Azure AD tenant. If you don't have an Azure AD tenant, you can create one using the steps in the [Create a new tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) article. Note the following fields when creating your directory:
 
 * Organizational name
 * Initial domain name
-
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="Screenshot of Create Directory page." border="false":::
 
 ## <a name="users"></a>2. Create Azure AD tenant users
 
@@ -37,11 +35,9 @@ Use the steps in [Add or delete users - Azure Active Directory](../active-direct
 
 ## <a name="enable-authentication"></a>3. Enable Azure AD authentication on the VPN gateway
 
-1. Locate the Directory ID of the directory that you want to use for authentication. It's listed in the properties section of the Active Directory page.
+1. Locate the Tenant ID of the directory that you want to use for authentication. It's listed in the properties section of the Active Directory page. For help with finding your tenant ID, see [How to find your Azure Active Directory tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Screenshot that shows the Directory Properties." lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
-
-1. Copy the Directory ID.
+1. Copy the Tenant ID.
 
 1. Sign in to the Azure portal as a user that is assigned the **Global administrator** role.
 
@@ -72,7 +68,7 @@ Use the steps in [Add or delete users - Azure Active Directory](../active-direct
     ```
 
    > [!NOTE]
-   > If you using a global admin account that is not native to the Azure AD tenant to provide consent, please replace “common” with the Azure AD directory id in the URL. You may also have to replace “common” with your directory id in certain other cases as well.
+   > If you using a global admin account that is not native to the Azure AD tenant to provide consent, please replace “common” with the Azure AD tenant ID in the URL. You may also have to replace “common” with your tenant ID in certain other cases as well.
    >
 
 1. Select the **Global Admin** account if prompted.

@@ -1,12 +1,12 @@
 ---
 title: Push data to Search index by using Data Factory 
 description: 'Learn about how to push data to Azure Cognitive Search Index by using Azure Data Factory.'
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.author: jingwang
+ms.author: jianleishen
 robots: noindex
 ---
 

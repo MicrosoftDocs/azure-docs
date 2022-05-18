@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) drivers for Azure Disks on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 10/15/2021
+ms.date: 04/06/2022
 author: palma21
 
 ---
@@ -26,6 +26,7 @@ Besides original in-tree driver features, Azure Disk CSI driver already provides
   - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, check more details about [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md)
 - [Snapshot](#volume-snapshots)
 - [Volume clone](#clone-volumes)
+- [Resize disk PV without downtime](#resize-a-persistent-volume-without-downtime)
 
 ## Use CSI persistent volumes with Azure disks
 
@@ -208,9 +209,9 @@ outfile
 test.txt
 ```
 
-## Resize a persistent volume
+## Resize a persistent volume without downtime
 
-You can instead request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
+You can request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
 
 > [!NOTE]
 > A new PV is never created to satisfy the claim. Instead, an existing volume is resized.
@@ -225,15 +226,9 @@ Filesystem      Size  Used Avail Use% Mounted on
 ```
 
 > [!IMPORTANT]
-> Currently, the Azure disk CSI driver only supports resizing PVCs with no pods associated (and the volume not mounted to a specific node).
-
-As such, let's delete the pod we created earlier:
-
-```console
-$ kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/nginx-pod-azuredisk.yaml
-
-pod "nginx-azuredisk" deleted
-```
+> Currently, Azure disk CSI driver supports resizing PVCs without downtime on specific regions.
+> Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
+> If your cluster is not in the supported region list, you need to delete application first to detach disk on the node before expanding PVC.
 
 Let's expand the PVC by increasing the `spec.resources.requests.storage` field:
 
@@ -253,18 +248,7 @@ pvc-391ea1a6-0191-4022-b915-c8dc4216174a   15Gi       RWO            Delete     
 (...)
 ```
 
-> [!NOTE]
-> The PVC won't reflect the new size until it has a pod associated to it again.
-
-Let's create a new pod:
-
-```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/nginx-pod-azuredisk.yaml
-
-pod/nginx-azuredisk created
-```
-
-And, finally, confirm the size of the PVC and inside the pod:
+And after a few minutes, confirm the size of the PVC and inside the pod:
 
 ```console
 $ kubectl get pvc pvc-azuredisk
@@ -276,102 +260,9 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc         15G   46M   15G   1% /mnt/azuredisk
 ```
 
-## Shared disk
-
-[Azure shared disks](../virtual-machines/disks-shared.md) is an Azure managed disks feature that enables attaching an Azure disk to agent nodes simultaneously. Attaching a managed disk to multiple agent nodes allows you, for example, to deploy new or migrate existing clustered applications to Azure.
-
-> [!IMPORTANT]
-> Currently, only raw block device (`volumeMode: Block`) is supported by the Azure disk CSI driver. Applications should manage the coordination and control of writes, reads, locks, caches, mounts, and fencing on the shared disk, which is exposed as a raw block device.
-
-Let's create a file called `shared-disk.yaml` by copying the following command that contains the shared disk storage class and PVC:
-
-```yaml
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: managed-csi-shared
-provisioner: disk.csi.azure.com
-parameters:
-  skuname: Premium_LRS
-  maxShares: "2"
-  cachingMode: None  # ReadOnly cache is not available for premium SSD with maxShares>1
-reclaimPolicy: Delete
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: pvc-azuredisk-shared
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 256Gi  # minimum size of shared disk is 256GB (P15)
-  volumeMode: Block
-  storageClassName: managed-csi-shared
-```
-
-Create the storage class with the [kubectl apply][kubectl-apply] command, and specify your `shared-disk.yaml` file:
-
-```console
-$ kubectl apply -f shared-disk.yaml
-
-storageclass.storage.k8s.io/managed-csi-shared created
-persistentvolumeclaim/pvc-azuredisk-shared created
-```
-
-Now let's create a file called `deployment-shared.yml` by copying the following command:
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: nginx
-  name: deployment-azuredisk
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-      name: deployment-azuredisk
-    spec:
-      containers:
-        - name: deployment-azuredisk
-          image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-          volumeDevices:
-            - name: azuredisk
-              devicePath: /dev/sdx
-      volumes:
-        - name: azuredisk
-          persistentVolumeClaim:
-            claimName: pvc-azuredisk-shared
-```
-
-Create the deployment with the [kubectl apply][kubectl-apply] command, and specify your `deployment-shared.yml` file:
-
-```console
-$ kubectl apply -f deployment-shared.yml
-
-deployment/deployment-azuredisk created
-```
-
-Finally, let's check the block device inside the pod:
-
-```console
-# kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp sh
-/ # dd if=/dev/zero of=/dev/sdx bs=1024k count=100
-100+0 records in
-100+0 records out/s
-```
-
 ## Windows containers
 
-The Azure disk CSI driver also supports Windows nodes and containers. If you want to use Windows containers, follow the [Windows containers tutorial](windows-container-cli.md) to add a Windows node pool.
+The Azure disk CSI driver also supports Windows nodes and containers. If you want to use Windows containers, follow the [Windows containers quickstart][aks-quickstart-cli] to add a Windows node pool.
 
 After you have a Windows node pool, you can now use the built-in storage classes like `managed-csi`. You can deploy an example [Windows-based stateful set](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into the file `data.txt` by deploying the following command with the [kubectl apply][kubectl-apply] command:
 
@@ -393,10 +284,6 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 (...)
 ```
 
-## Using Azure tags
-
-For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
-
 ## Next steps
 
 - To learn how to use CSI drivers for Azure Files, see [Use Azure Files with CSI drivers](azure-files-csi.md).
@@ -414,12 +301,13 @@ For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Se
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md
+[expand-an-azure-managed-disk]: ../virtual-machines/linux/expand-disks.md#expand-an-azure-managed-disk
 [az-disk-list]: /cli/azure/disk#az_disk_list
 [az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
 [az-disk-create]: /cli/azure/disk#az_disk_create
 [az-disk-show]: /cli/azure/disk#az_disk_show
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
@@ -429,4 +317,3 @@ For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Se
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[use-tags]: use-tags.md

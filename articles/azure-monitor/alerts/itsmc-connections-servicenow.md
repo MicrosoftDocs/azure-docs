@@ -2,7 +2,7 @@
 title: Connect ServiceNow with IT Service Management Connector
 description: Learn how to connect ServiceNow with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage ITSM work items.
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 2/23/2022
 
 ---
 
@@ -56,7 +56,7 @@ As a part of setting up OAuth, we recommend:
 
 ## Install the user app and create the user role
 
-Use the following procedure to install the Service Now user app and create the integration user role for it. You'll use these credentials to make the ServiceNow connection in Azure.
+Use the following procedure to install the ServiceNow user app and create the integration user role for it. You'll use these credentials to make the ServiceNow connection in Azure.
 
 > [!NOTE]
 > ITSMC supports only the official user app for Microsoft Log Analytics integration that's downloaded from the ServiceNow store. ITSMC does not support any code ingestion on the ServiceNow side or any application that's not part of the official ServiceNow solution. 

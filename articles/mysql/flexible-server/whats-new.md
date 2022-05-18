@@ -3,6 +3,7 @@ title: What's new in Azure Database for MySQL - Flexible Server
 description: Learn about recent updates to Azure Database for MySQL - Flexible Server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: hjtoland3
 ms.service: mysql
+ms.subservice: flexible-server
 ms.author: jtoland
 ms.custom: mvc, references_regions
 ms.topic: conceptual
@@ -17,6 +18,30 @@ ms.date: 10/12/2021
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+## April 2022
+
+- **Minor version upgrade for Azure Database for MySQL - Flexible server to 8.0.28**
+    Azure Database for MySQL - Flexible Server 8.0 now is running on minor version 8.0.28*, to learn more about changes coming in this minor version [visit Changes in MySQL 8.0.28 (2022-01-18, General Availability)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-28.html)
+
+- **Minor version upgrade for Azure Database for MySQL - Flexible server to 5.7.37**
+    Azure Database for MySQL - Flexible Server 5.7 now is running on minor version 5.7.37*, to learn more about changes coming in this minor version [visit Changes in MySQL 5.7.37 (2022-01-18, General Availability](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-37.html)
+
+* Please note that some regions are still running older minor versions of the Azure Database for MySQL and will be patched by end of April 2022.
+
+- **Deprecation of TLSv1 or TLSv1.1 protocols with Azure Database for MySQL - Flexible Server (8.0.28)**
+
+    Starting version 8.0.28, MySQL community edition supports TLS protocol TLSv1.2 or TLSv1.3 only. Azure Database for MySQL – Flexible Server will also stop supporting TLSv1 and TLSv1.1 protocols, to align with modern security standards. You will no longer be able to configure TLSv1 or TLSv1.1 from the server parameter blade for newly created resources as well as for resources created previously. The default will be TLSv1.2. Resources created before the upgrade will still support communication through TLS protocol TLSv1 or TLSv1.1 through 1 May 2022. 
+
+## March 2022
+
+This release of Azure Database for MySQL - Flexible Server includes the following updates.
+
+- **Migrate from locally redundant backup storage to geo-redundant backup storage for existing flexible server**
+    Azure Database for MySQL - Flexible Server now provides the added flexibility to migrate to geo-redundant backup storage from locally redundant backup storage post server-create to provide higher data resiliency. Enabling geo-redundancy via the server's Compute + Storage blade empowers customers to recover their existing flexible servers from a geographic disaster or regional failure when they can’t access the server in the primary region. With this feature enabled for their existing servers, customers can perform geo-restore and deploy a new server to the geo-paired Azure region leveraging the original server’s latest available geo-redundant backup. [Learn more](concepts-backup-restore.md)
+
+- **Simulate disaster recovery drills for your stopped servers**
+    Azure Database for MySQL - Flexible Server now provides the ability to perform geo-restore on stopped servers helping users simulate disaster recovery drills for their workloads to estimate impact and recovery time.This will help users plan better to meet their disaster recovery and business continuity objectives by leveraging geo-redundancy feature offered by Azure Database for MySQL Flexible Server. [Learn more](how-to-restore-server-cli.md)
+
 ## January 2022
 
 This release of Azure Database for MySQL - Flexible Server includes the following updates.
@@ -29,6 +54,10 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
    The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions:
   - China East 2
   - China North 2
+  
+- **Reserving 36 IOPs for Azure Database for MySQL Flexible Server which has HA enabled**
+ 
+    We're adding 36 IOPs and reserving it for supporting standby failover operation on the servers, which has High Availability enabled. This IOPs is in addition to the configured IOPs on your servers, so additional charges per month would apply based on your Azure region. The extra IOPS help us ensure our commitment to providing smooth failover experience from primary to standby replica.The extra charge can be estimated by navigating to the [Azure Database for MySQL – Flexible Server pricing page](https://azure.microsoft.com/pricing/details/mysql/flexible-server), choosing the Azure region for your server, and multiplying IOPs/month cost by 36 IOPs. For example: if your server is hosted in East US, the extra IO costs, which you can expect is $0.05*36 = $1.8 USD per month.
 
 - **Bug fixes**
 
@@ -36,7 +65,9 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Known issues**
 
-    When you're using ARM templates for provisioning or configuration changes for HA enabled servers, if a single deployment is made to enable/disable HA and along with other server properties like backup redundancy, storage etc. then deployment would fail. You can mitigate it by submitting the deployment request separately for to enable\disable and configuration changes. You wouldn’t have issue with Portal or Azure CLI as these are request already separated.
+  - When you're using ARM templates for provisioning or configuration changes for HA enabled servers, if a single deployment is made to enable/disable HA and along with other server properties like backup redundancy, storage etc. then deployment would fail. You can mitigate it by submitting the deployment request separately for to enable\disable and configuration changes. You wouldn’t have issue with Portal or Azure CLI as these are request already separated.
+
+  - When you're viewing automated backups for a HA enabled server in Backup and Restore blade, if at some point in time a forced or automatic failover is performed, you may lose viewing rights to the server's backups on the Backup and Restore blade. Despite the invisibility of information regarding backups on the portal, the flexible server is successfully taking daily automated backups for the server in the backend and the server can be restored to any point in time within the retention period.  
 
 ## November 2021
 
@@ -45,9 +76,10 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
   Azure Database for MySQL - Flexible Server is now **General Availability** in more than [30 Azure regions](overview.md) worldwide.
 
 - **View available full backups in Azure portal**
+  
   A dedicated Backup and Restore blade is now available in the Azure portal. This blade lists the backups available within the server’s retention period, effectively providing you with single pane view for managing a server’s backups and consequent restores. You can use this blade to
-   1) View the completion timestamps for all available full backups within the server’s retention period
-   2) Perform restore operations using these full backups
+     1) View the completion timestamps for all available full backups within the server’s retention period
+     2) Perform restore operations using these full backups
   
 - **Fastest restore points**
   
@@ -224,7 +256,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **GitHub actions support with Azure CLI**
 
-  Flexible Server CLI now allows customers to automate workflows to deploy updates with GitHub actions. This feature helps set up and deploy database updates with MySQL GitHub action workflow. These CLI commands assist with setting up a repository to enable continuous deployment for ease of development. [Learn more](/cli/azure/mysql/flexible-server/deploy).
+  Flexible Server CLI now allows customers to automate workflows to deploy updates with GitHub actions. This feature helps set up and deploy database updates with MySQL GitHub Actions workflow. These CLI commands assist with setting up a repository to enable continuous deployment for ease of development. [Learn more](/cli/azure/mysql/flexible-server/deploy).
 
 - **Zone redundant HA forced failover fixes**
 

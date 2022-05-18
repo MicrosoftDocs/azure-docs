@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/10/2022
+ms.date: 04/26/2022
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -41,6 +41,7 @@ This section provides references for solutions for Linux OSS applications and da
 * [Oracle Database with Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
 * [Oracle Databases on Microsoft Azure Using Azure NetApp Files](https://www.netapp.com/media/17105-tr4780.pdf)
 * [Oracle VM images and their deployment on Microsoft Azure: Shared storage configuration options](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
+* [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
 * [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md)
 * [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
 
@@ -48,6 +49,7 @@ This section provides references for solutions for Linux OSS applications and da
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
 *	[Distributed training in Azure: Lane detection - Solution design](https://www.netapp.com/media/32427-tr-4896-design.pdf)
 *	[Distributed training in Azure: Click-Through Rate Prediction – Solution design](https://docs.netapp.com/us-en/netapp-solutions/ai/aks-anf_introduction.html)
+*   [How to use Azure Machine Learning with Azure NetApp Files](https://github.com/csiebler/azureml-with-azure-netapp-files)
 
 ### Education
 
@@ -82,7 +84,6 @@ This section provides references to SAP on Azure solutions.
 ### Generic SAP and SAP Netweaver 
 
 * [Run SAP NetWeaver in Windows on Azure - Azure Architecture Center](/azure/architecture/reference-architectures/sap/sap-netweaver)
-* [SAP applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
 * [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](../virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files.md)
 * [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](../virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files.md)
 * [High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files (SMB) for SAP applications](../virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb.md)
@@ -109,6 +110,7 @@ This section provides references to SAP on Azure solutions.
 * [SAP System on Oracle Database on Azure - Azure Architecture Center](/azure/architecture/example-scenario/apps/sap-on-oracle)
 * [Oracle Azure Virtual Machines DBMS deployment for SAP workload - Azure Virtual Machines](../virtual-machines/workloads/sap/dbms_guide_oracle.md#oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux)
 * [Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
+* [Manual Recovery Guide for SAP Oracle 19c on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-oracle-19c-on-azure-vms-from-azure/ba-p/3242408)
 * [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload using Azure NetApp Files](../virtual-machines/workloads/sap/dbms_guide_ibm.md#using-azure-netapp-files)
 
 ### SAP IQ-NLS
@@ -196,6 +198,8 @@ This section provides solutions for Azure platform services.
 * [Azure NetApp Files + Trident = Dynamic and Persistent Storage for Kubernetes](https://anfcommunity.com/2021/02/16/azure-netapp-files-trident-dynamic-and-persistent-storage-for-kubernetes/)
 * [Trident - Storage Orchestrator for Containers](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
 * [Magento e-commerce platform in Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
+* [Protecting Magento e-commerce platform in AKS against disasters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-magento-e-commerce-platform-in-aks-against-disasters/ba-p/3285525)
+* [Protecting applications on private Azure Kubernetes Service clusters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-applications-on-private-azure-kubernetes-service/ba-p/3289422)
 
 ### Azure Red Hat Openshift   
 

@@ -31,10 +31,12 @@
   items:
   - name: Using App Service Environment
     href: using.md
-  - name: Provision App Service Environment from an ARM template
+  - name: Create App Service Environment from template
     href: create-from-template.md
   - name: App Service Environment custom settings
     href: app-service-app-service-environment-custom-settings.md
+  - name: App Service Environment v3 network settings
+    href: configure-network-settings.md
   - name: Migrate to App Service Environment v3
     href: migration-alternatives.md
   - name: Use the migration feature

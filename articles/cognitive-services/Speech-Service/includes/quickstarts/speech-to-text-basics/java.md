@@ -2,233 +2,111 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2020
-ms.custom: devx-track-java
+ms.date: 02/12/2022
 ms.author: eur
 ---
 
-[!INCLUDE [Header](../common/java.md)]
+[!INCLUDE [Header](../../common/java.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-### Install the Speech SDK
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-Before you can do anything, you need to install the Speech SDK. Depending on your platform, use the following instructions:
+## Set up the environment
 
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=jre" target="_blank">Java Runtime </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=android" target="_blank">Android </a>
+Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
-## Create a speech configuration
-
-To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
-
-Create a `SpeechConfig` instance by using your key and location/region. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion).
-
-```java
-import com.microsoft.cognitiveservices.speech.*;
-import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
-
-public class Program {
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
-        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
-    }
-}
-```
-
-You can initialize `SpeechConfig` in a few other ways:
-
-* With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
-* With a host: pass in a host address. A key or authorization token is optional.
-* With an authorization token: pass in an authorization token and the associated region.
-
-> [!NOTE]
-> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Recognize speech from a microphone
 
-To recognize speech by using your device microphone, create an `AudioConfig` instance by using `fromDefaultMicrophoneInput()`. Then initialize [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer) by passing `audioConfig` and `config`.
+Follow these steps to create a new console application for speech recognition.
 
-```java
-import com.microsoft.cognitiveservices.speech.*;
-import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.java`.
+1. Copy the following code into `SpeechRecognition.java`:
 
-public class Program {
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
-        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
-        fromMic(speechConfig);
-    }
+    ```java
+    import com.microsoft.cognitiveservices.speech.*;
+    import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
 
-    public static void fromMic(SpeechConfig speechConfig) throws InterruptedException, ExecutionException {
-        AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
-        SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+    import java.util.concurrent.ExecutionException;
+    import java.util.concurrent.Future;
 
-        System.out.println("Speak into your microphone.");
-        Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
-        SpeechRecognitionResult result = task.get();
-        System.out.println("RECOGNIZED: Text=" + result.getText());
-    }
-}
-```
+    public class SpeechRecognition {
+        private static String YourSubscriptionKey = "YourSubscriptionKey";
+        private static String YourServiceRegion = "YourServiceRegion";
 
-If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
-
-## Recognize speech from a file
-
-If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig` instance. But instead of calling `fromDefaultMicrophoneInput()`, you call `fromWavFileInput()` and pass the file path:
-
-```java
-import com.microsoft.cognitiveservices.speech.*;
-import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
-
-public class Program {
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
-        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
-        fromFile(speechConfig);
-    }
-
-    public static void fromFile(SpeechConfig speechConfig) throws InterruptedException, ExecutionException {
-        AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
-        SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
-        
-        Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
-        SpeechRecognitionResult result = task.get();
-        System.out.println("RECOGNIZED: Text=" + result.getText());
-    }
-}
-```
-
-## Handle errors
-
-The previous examples simply get the recognized text by using `result.getText()`. To handle errors and other responses, you need to write some code to handle the result. The following example evaluates [`result.getReason()`](/java/api/com.microsoft.cognitiveservices.speech.recognitionresult.getreason) and:
-
-* Prints the recognition result: `ResultReason.RecognizedSpeech`.
-* If there is no recognition match, informs the user: `ResultReason.NoMatch`.
-* If an error is encountered, prints the error message: `ResultReason.Canceled`.
-
-```java
-switch (result.getReason()) {
-    case ResultReason.RecognizedSpeech:
-        System.out.println("We recognized: " + result.getText());
-        exitCode = 0;
-        break;
-    case ResultReason.NoMatch:
-        System.out.println("NOMATCH: Speech could not be recognized.");
-        break;
-    case ResultReason.Canceled: {
-            CancellationDetails cancellation = CancellationDetails.fromResult(result);
-            System.out.println("CANCELED: Reason=" + cancellation.getReason());
-
-            if (cancellation.getReason() == CancellationReason.Error) {
-                System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
-                System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                System.out.println("CANCELED: Did you update the subscription info?");
-            }
+        public static void main(String[] args) throws InterruptedException, ExecutionException {
+            SpeechConfig speechConfig = SpeechConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
+            speechConfig.setSpeechRecognitionLanguage("en-US");
+            recognizeFromMicrophone(speechConfig);
         }
-        break;
-}
-```
 
-## Use continuous recognition
+        public static void recognizeFromMicrophone(SpeechConfig speechConfig) throws InterruptedException, ExecutionException {
+            AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
+            SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
-The previous examples use at-start recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
+            System.out.println("Speak into your microphone.");
+            Future<SpeechRecognitionResult> task = speechRecognizer.recognizeOnceAsync();
+            SpeechRecognitionResult speechRecognitionResult = task.get();
 
-In contrast, you use continuous recognition when you want to control when to stop recognizing. It requires you to subscribe to the `recognizing`, `recognized`, and `canceled` events to get the recognition results. To stop recognition, you must call [`stopContinuousRecognitionAsync`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
+            if (speechRecognitionResult.getReason() == ResultReason.RecognizedSpeech) {
+                System.out.println("RECOGNIZED: Text=" + speechRecognitionResult.getText());
+            }
+            else if (speechRecognitionResult.getReason() == ResultReason.NoMatch) {
+                System.out.println("NOMATCH: Speech could not be recognized.");
+            }
+            else if (speechRecognitionResult.getReason() == ResultReason.Canceled) {
+                CancellationDetails cancellation = CancellationDetails.fromResult(speechRecognitionResult);
+                System.out.println("CANCELED: Reason=" + cancellation.getReason());
 
-Start by defining the input and initializing [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer):
+                if (cancellation.getReason() == CancellationReason.Error) {
+                    System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
+                    System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
+                    System.out.println("CANCELED: Did you set the speech resource key and region values?");
+                }
+            }
 
-```java
-AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
-SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
-```
-
-Next, create a variable to manage the state of speech recognition. Declare a `Semaphore` instance at the class scope:
-
-```java
-private static Semaphore stopTranslationWithFileSemaphore;
-```
-
-Next, subscribe to the events that [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer) sends:
-
-* [`recognizing`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognizing): Signal for events that contain intermediate recognition results.
-* [`recognized`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognized): Signal for events that contain final recognition results, which indicate a successful recognition attempt.
-* [`sessionStopped`](/java/api/com.microsoft.cognitiveservices.speech.recognizer.sessionstopped): Signal for events that indicate the end of a recognition session (operation).
-* [`canceled`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result or a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
-
-```java
-// First initialize the semaphore.
-stopTranslationWithFileSemaphore = new Semaphore(0);
-
-recognizer.recognizing.addEventListener((s, e) -> {
-    System.out.println("RECOGNIZING: Text=" + e.getResult().getText());
-});
-
-recognizer.recognized.addEventListener((s, e) -> {
-    if (e.getResult().getReason() == ResultReason.RecognizedSpeech) {
-        System.out.println("RECOGNIZED: Text=" + e.getResult().getText());
+            System.exit(0);
+        }
     }
-    else if (e.getResult().getReason() == ResultReason.NoMatch) {
-        System.out.println("NOMATCH: Speech could not be recognized.");
-    }
-});
+    ```
 
-recognizer.canceled.addEventListener((s, e) -> {
-    System.out.println("CANCELED: Reason=" + e.getReason());
+1. In `SpeechRecognition.java`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
 
-    if (e.getReason() == CancellationReason.Error) {
-        System.out.println("CANCELED: ErrorCode=" + e.getErrorCode());
-        System.out.println("CANCELED: ErrorDetails=" + e.getErrorDetails());
-        System.out.println("CANCELED: Did you update the subscription info?");
-    }
+Run your new console application to start speech recognition from a microphone:
 
-    stopTranslationWithFileSemaphore.release();
-});
-
-recognizer.sessionStopped.addEventListener((s, e) -> {
-    System.out.println("\n    Session stopped event.");
-    stopTranslationWithFileSemaphore.release();
-});
+```console
+java SpeechRecognition
 ```
 
-With everything set up, call [`startContinuousRecognitionAsync`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.startcontinuousrecognitionasync) to start recognizing:
+Speak into your microphone when prompted. What you speak should be output as text: 
 
-```java
-// Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
-recognizer.startContinuousRecognitionAsync().get();
-
-// Waits for completion.
-stopTranslationWithFileSemaphore.acquire();
-
-// Stops recognition.
-recognizer.stopContinuousRecognitionAsync().get();
+```console
+Speak into your microphone.
+RECOGNIZED: Text=I'm excited to try speech to text.
 ```
 
-### Dictation mode
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
-When you're using continuous recognition, you can enable dictation processing by using the corresponding function. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
+Here are some additional considerations:
 
-To enable dictation mode, use the [`enableDictation`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.enabledictation) method on [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig):
+- This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+- To recognize speech from an audio file, use `fromWavFileInput` instead of `fromDefaultMicrophoneInput`:
+    ```java
+    AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
+    ```
+- For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
 
-```java
-config.enableDictation();
-```
+## Clean up resources
 
-## Change the source language
-
-A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to French. In your code, find your [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance and add this line directly below it:
-
-```java
-config.setSpeechRecognitionLanguage("fr-FR");
-```
-
-[`setSpeechRecognitionLanguage`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setspeechrecognitionlanguage) is a parameter that takes a string as an argument. You can provide any value in the [list of supported locales/languages](../../../language-support.md).
+[!INCLUDE [Delete resource](../../common/delete-resource.md)]
 

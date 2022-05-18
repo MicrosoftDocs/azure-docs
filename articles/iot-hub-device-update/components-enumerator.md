@@ -468,8 +468,8 @@ For example, for *hostfw*, the value of the property `properties.version` will b
 
 This example is written in C++. You can choose to use C if you prefer. To explore example source codes, see:
 
-- [CMakeLists.txt](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/contoso-component-enumerator/CMakeLists.txt)
-- [contoso-component-enumerator.cpp](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/contoso-component-enumerator/contoso-component-enumerator.cpp)
+- [CMakeLists.txt](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/CMakeLists.txt)
+- [contoso-component-enumerator.cpp](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/contoso-component-enumerator.cpp)
 - [inc/aduc/component_enumerator_extension.hpp](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/inc/aduc/component_enumerator_extension.hpp)
 
 For various sample updates for components connected to the Contoso Virtual Vacuum device, see [Proxy update demo](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo/README.md).

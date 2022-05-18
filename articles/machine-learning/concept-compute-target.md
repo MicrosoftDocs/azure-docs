@@ -116,7 +116,7 @@ While Azure Machine Learning supports these VM series, they might not be availab
 > [!NOTE]
 > Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
+> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#azureml-core-compute-amlcompute-amlcompute-supported-vmsizes)
 >
 
 If using the GPU-enabled compute targets, it is important to ensure that the correct CUDA drivers are installed in the training environment. Use the following table to determine the correct CUDA version to use:
@@ -132,8 +132,8 @@ If using the GPU-enabled compute targets, it is important to ensure that the cor
 
 In addition to ensuring the CUDA version and hardware are compatible, also ensure that the CUDA version is compatible with the version of the machine learning framework you are using: 
 
-- For PyTorch, you can check the compatibility [here](https://pytorch.org/get-started/previous-versions/). 
-- For Tensorflow, you can check the compatibility [here](https://www.tensorflow.org/install/source#gpu).
+- For PyTorch, you can check the compatibility by visiting [Pytorch's previous versions page](https://pytorch.org/get-started/previous-versions/). 
+- For Tensorflow, you can check the compatibility by visiting [Tensorflow's build from source page](https://www.tensorflow.org/install/source#gpu).
 
 ### Compute isolation
 

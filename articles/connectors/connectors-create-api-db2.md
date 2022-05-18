@@ -1,10 +1,10 @@
 ---
 title: Access and manage IBM DB2 resources
-description: Read, edit, update, and manage IBM DB2 resources by building automated workflows using Azure Logic Apps
+description: Read, edit, update, and manage IBM DB2 resources by building automated workflows using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: plarsen, logicappspm
-ms.topic: conceptual
+ms.reviewer: ChristopherHouser, azla
+ms.topic: how-to
 ms.date: 11/19/2020
 tags: connectors
 ---
@@ -60,8 +60,8 @@ which map to the corresponding actions in the connector:
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An IBM DB2 database, either cloud-based or on-premises
 

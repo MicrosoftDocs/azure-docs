@@ -11,7 +11,7 @@ ms.author: ofshezaf
 
 The Microsoft Sentinel user management normalization schema is used to describe user management activities, such as creating a user or a group, changing user attribute, or adding a user to a group. Such events are reported, for example, by operating systems, directory services, identity management systems, and any other system reporting on its local user management activity.
 
-For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The user management normalization schema is currently in *preview*. This feature is provided without a service level agreement. We don't recommend it for production workloads.
@@ -37,23 +37,38 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 
 ## Schema details
 
-### Common fields
+### Common ASIM fields
 
 > [!IMPORTANT]
-> Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following list mentions only fields that have specific guidelines for user management events.
+> Fields common to all schemas are described in detail in the [ASIM Common Fields](normalization-common-fields.md) article.
 >
+
+#### Common fields with specific guidelines
+
+The following list mentions fields that have specific guidelines for process activity events:
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For User Management activity, the supported values are:<br> - `UserCreated`<br> - `UserDeleted`<br> - `UserModified`<br> - `UserLocked`<br> - `UserUnlocked`<br> - `UserDisabled`<br> - `UserEnabled`<br> - `PasswordChanged`<br> - `PasswordReset`<br> - `GroupCreated`<br> - `GroupDeleted`<br> - `GroupModified`<br> - `UserAddedToGroup`<br> - `UserRemovedFromGroup`<br> - `GroupEnumerated`<br> - `UserRead`<br> - `GroupRead`<br> |
 | <a name="eventsubtype"></a>**EventSubType** | Optional | Enumerated | The following sub-types are supported:<br> - `UserRead`: Password, Hash<br> - `UserCreated`, `GroupCreated`, `UserModified`, `GroupModified`. For more information, see [UpdatedPropertyName](#updatedpropertyname) |
 | **EventResult** | Mandatory | Enumerated | While failure is possible, most systems report only successful user management events. The expected value for successful events is `Success`. |
-| **EventResultDetails** | Optional | Enumerated | The valid values are `NotAuthorized` and `Other`. |
+| **EventResultDetails** | Recommended | Enumerated | The valid values are `NotAuthorized` and `Other`. |
 | **EventSeverity** | Mandatory | Enumerated | While any valid severity value is allowed, the severity of user management events is typically `Informational`. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `UserManagement`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1.1`.        |
 | **Dvc** fields| | | For user management events, device fields refer to the system reporting the event. This is usually the system on which the user is managed. |
-| | | | |
+
+
+#### All common fields
+
+Fields that appear in the table below are common to all ASIM schemas. Any guideline specified above overrides the general guidelines for the field. For example, a field might be optional in general, but mandatory for a specific schema. For further details on each field, refer to the [ASIM Common Fields](normalization-common-fields.md) article.
+
+| **Class** | **Fields** |
+| --------- | ---------- |
+| Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
+| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)|
+
 
 ### Updated property fields
 
@@ -62,7 +77,7 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 | <a name="updatedpropertyname"></a>**UpdatedPropertyName** | Alias | | Alias to [EventSubType](#eventsubtype) when the Event Type is `UserCreated`, `GroupCreated`, `UserModified`, or `GroupModified`.<br><br>Supported values are:<br>- `MultipleProperties`: Used when the activity updates multiple properties<br>- `Previous<PropertyName>`, where `<PropertyName>` is one of the supported values for `UpdatedPropertyName`. <br>- `New<PropertyName>`, where `<PropertyName>` is one of the supported values for `UpdatedPropertyName`. |
 | <a name="previouspropertyvalue"></a>**PreviousPropertyValue** | Optional | String | The previous value that was stored in the specified property. |
 | <a name="newpropertyvalue"></a>**NewPropertyValue** | Optional | String | The new value stored in the specified property. |
-|||||
+
 
 ### Target user fields
 
@@ -74,7 +89,7 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 | <a name="targetusernametype"></a>**TargetUsernameType** | Optional | Enumerated | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. Supported values include `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `Windows` |
 | **TargetUserType** | Optional | Enumerated | The type of target user. Supported values include:<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [TargetOriginalUserType](#targetoriginalusertype) field. |
 | <a name="targetoriginalusertype"></a>**TargetOriginalUserType** | Optional | String | The original destination user type, if provided by the source. |
-|||||
+
 
 ### Actor fields
 
@@ -88,7 +103,7 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 | **ActorUserType** | Optional | Enumerated | The type of the Actor. Allowed values are:<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [ActorOriginalUserType](#actororiginalusertype) field. |
 | <a name="actororiginalusertype"></a>**ActorOriginalUserType** | | | The original actor user type, if provided by the source. |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.   |
-|||||
+
 
 ### Group fields
 
@@ -100,7 +115,7 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 | <a name="groupnametype"></a>**GroupNameType** | Optional | Enumerated | Specifies the type of the group name stored in the [GroupName](#groupname) field. Supported values include `UPN`, `Windows`, `DN`, and `Simple`.<br><br>Example: `Windows` |
 | **GroupType** | Optional | Enumerated | The type of the group, for activities involving a group. Supported values include:<br>- `Local Distribution`<br>- `Local Security Enabled`<br>- `Global Distribution`<br>- `Global Security Enabled`<br>- `Universal Distribution`<br>- `Universal Security Enabled`<br>- `Other`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [GroupOriginalType](#grouporiginaltype) field. |
 | <a name="grouporiginaltype"></a>**GroupOriginalType** | Optional | String | The original group type, if provided by the source. |
-|||||
+
 
 ### Source fields
 
@@ -121,7 +136,7 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 | **SrcGeoCity** | Optional | City | The city associated with the source IP address.<br><br>Example: `Burlington` |
 | **SrcGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the source IP address.<br><br>Example: `44.475833` |
 | **SrcGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the source IP address.<br><br>Example: `73.211944` |
-| | | | |
+
 
 ### Acting Application
 
@@ -131,14 +146,14 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 | **ActiveAppName** | Optional | String | The name of the application used by the actor to perform the activity, including a process, browser, or service. <br><br>For example: `C:\Windows\System32\svchost.exe` |
 | **ActingAppType** | Optional | Enumerated | The type of acting application. Supported values include: <br>- `Process` <br>- `Browser` <br>- `Resource` <br>- `Other` |
 | **HttpUserAgent** |	Optional	| String |	When authentication is performed over HTTP or HTTPS, this field's value is the user_agent HTTP header provided by the acting application when performing the authentication.<br><br>For example: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1` |
-|||||
+
 
 ### Additional fields and aliases
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="hostname"></a>**Hostname** | Alias | | Alias to [DvcHostname](normalization-about-schemas.md#dvchostname). |
-|||||
+| <a name="hostname"></a>**Hostname** | Alias | | Alias to [DvcHostname](normalization-common-fields.md#dvchostname). |
+
 
 
 ## Next steps
@@ -146,8 +161,8 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 For more information, see:
 
 - Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)
 

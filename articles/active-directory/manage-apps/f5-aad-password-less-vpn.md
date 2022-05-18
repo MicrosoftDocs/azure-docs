@@ -3,14 +3,14 @@ title: Configure F5 BIG-IP SSL-VPN solution in Azure AD
 titleSuffix: Azure AD
 description: Tutorial to configure F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA) 
 services: active-directory
-author: davidmu1
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/12/2020
-ms.author: v-nisba
+ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.reviewer: v-nisba
 ---
@@ -21,13 +21,13 @@ In this tutorial, learn how to integrate F5’s BIG-IP based Secure socket layer
 
 Enabling a BIG-IP SSL-VPN for Azure AD single sign-on (SSO) provides many benefits, including:
 
-- Improved Zero trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
+- Improved Zero trust governance through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
 - [Password-less authentication to the VPN service](https://www.microsoft.com/security/business/identity/passwordless)
 - Manage Identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
 To learn about all of the benefits, see [Integrate F5 BIG-IP with Azure Active Directory](./f5-aad-integration.md) and [What is single sign-on in Azure Active Directory?](/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Despite these great value adds, classic VPNs do however remain network orientated, often providing little to zero fine grained access to corporate applications. For this reason, we encourage moving to a more Identity centric approach at achieving Zero Trust [access on a per application basis](/fundamentals/five-steps-to-full-application-integration-with-azure-ad).
+Despite these great value adds, classic VPNs do however remain network orientated, often providing little to zero fine grained access to corporate applications. For this reason, we encourage moving to a more Identity centric approach at achieving Zero Trust [access on a per application basis](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md).
 
 ## Scenario description
 

@@ -233,9 +233,9 @@ There are a few steps to creating the indexer:
         "maxFailedItems": null,
         "maxFailedItemsPerBatch": null,
         "base64EncodeKeys": null,
-        "configuration:" {
-            "indexedFileNameExtensions" : null,
-            "excludedFileNameExtensions" : null,
+        "configuration": {
+            "indexedFileNameExtensions" : ".pdf, .docx",
+            "excludedFileNameExtensions" : ".png, .jpg",
             "dataToExtract": "contentAndMetadata"
           }
         },

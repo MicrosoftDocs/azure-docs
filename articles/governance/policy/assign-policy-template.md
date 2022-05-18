@@ -3,7 +3,7 @@ title: "Quickstart: New policy assignment with templates"
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a policy assignment to identify non-compliant resources.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources by using an ARM template
 

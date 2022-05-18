@@ -1,19 +1,19 @@
 ---
-title: Microsoft Sentinel Advanced SIEM Information Model (ASIM) parsers overview | Microsoft Docs
-description: This article provides an overview of Advanced SIEM Information Model (ASIM) parsers and a link to more detailed ASIM parsers documents.
+title: Microsoft Sentinel Advanced Security Information Model (ASIM) parsers overview | Microsoft Docs
+description: This article provides an overview of Advanced Security Information Model (ASIM) parsers and a link to more detailed ASIM parsers documents.
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
 --- 
 
-# The Advanced SIEM Information Model (ASIM) parsers (Public preview)
+# The Advanced Security Information Model (ASIM) parsers (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 In Microsoft Sentinel, parsing and [normalizing](normalization.md) happen at query time. Parsers are built as [KQL user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) that transform data in existing tables, such as **CommonSecurityLog**, custom logs tables, or Syslog, into the normalized schema.
 
-Users [use Advanced SIEM Information Model (ASIM) parsers](normalization-about-parsers.md) instead of table names in their queries to view data in a normalized format, and to include all data relevant to the schema in your query. 
+Users [use Advanced Security Information Model (ASIM) parsers](normalization-about-parsers.md) instead of table names in their queries to view data in a normalized format, and to include all data relevant to the schema in your query. 
 
 To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
@@ -32,15 +32,15 @@ Each method has advantages over the other:
 | **Advantages** | Exist in every Microsoft Sentinel instance. <br><br>Usable with other built-in content. | New parsers are often delivered first as workspace-deployed parsers.|
 | **Disadvantages** |Cannot be directly modified by users. <br><br>Fewer parsers available. | Not used by built-in content. |
 | **When to use** | Use in most cases that you need ASIM parsers. | Use when deploying new parsers, or for parsers not yet available out-of-the-box. |
-| | | |
 
-> [!TIP]
-> Using both built-in and workspace-deployed parsers is useful when you want to customize built-in parsers by adding custom, workspace-deployed parsers to the built-in parser hierarchy. For more information, see [Managing ASIM parsers](normalization-manage-parsers.md). 
->
+It is recommended to use built-in parsers for  schemas for which built-in parsers are available. 
 
 ## Parser hierarchy
 
 ASIM includes two levels of parsers: **unifying** parser and **source-specific** parsers. The user usually uses the **unifying** parser for the relevant schema, ensuring all data relevant to the schema is queried. The **unifying** parser in turn calls **source-specific** parsers to perform the actual parsing and normalization, which is specific for each source.
+
+The unifying parser name is `_Im_<schema>` for built-in parsers and `im<schema>` for workspace deployed parsers, where `<schema>` stands for the specific schema it serves. sSource-specific parsers can also be used independently. For example, in an Infoblox-specific workbook, use the `vimDnsInfobloxNIOS` source-specific parser. You can find a list of source-specific parsers in the [ASIM parsers list](normalization-parsers-list.md).
+
 
 >[!TIP]
 > The built-in parser hierarchy adds a layer to support customization. For more information, see [Managing ASIM parsers](normalization-develop-parsers.md).
@@ -52,11 +52,12 @@ Learn more about ASIM parsers:
 - [Use ASIM parsers](normalization-about-parsers.md)
 - [Develop custom ASIM parsers](normalization-develop-parsers.md)
 - [Manage ASIM parsers](normalization-manage-parsers.md)
+- [The ASIM parsers list](normalization-parsers-list.md)
 
 
 For more about ASIM, in general, see: 
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

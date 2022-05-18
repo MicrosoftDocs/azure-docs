@@ -9,7 +9,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 01/10/2022
 
 ---

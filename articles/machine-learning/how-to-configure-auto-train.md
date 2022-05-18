@@ -2,8 +2,8 @@
 title: Set up AutoML with Python
 titleSuffix: Azure Machine Learning
 description: Learn how to set up an AutoML training run with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
-author: cartacioS
-ms.author: sacartac
+author: blackmist
+ms.author: larryfr
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
@@ -40,10 +40,14 @@ For this article you need,
 
 ## Select your experiment type
 
-Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of `classification`, `regression`, and `forecasting`. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting--computer-vision).
+Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of `classification`, `regression`, and `forecasting`. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp).
 
 >[!NOTE]
-> Support for computer vision tasks: image classification (multi-class and multi-label), object detection, and instance segmentation is available in public preview. [Learn more about computer vision tasks in automated ML](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting--computer-vision).<br><br> This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Support for computer vision tasks: image classification (multi-class and multi-label), object detection, and instance segmentation is available in public preview. [Learn more about computer vision tasks in automated ML](concept-automated-ml.md#computer-vision-preview). 
+>
+>Support for natural language processing (NLP) tasks: image classification (multi-class and multi-label) and named entity recognition is available in public preview. [Learn more about NLP tasks in automated ML](concept-automated-ml.md#nlp). 
+>
+> These preview capabilities are provided without a service-level agreement. Certain features might not be supported or might have constrained functionality. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The following code uses the `task` parameter in the `AutoMLConfig` constructor to specify the experiment type as `classification`.
 
@@ -404,11 +408,14 @@ Automated ML offers options for you to monitor and evaluate your training result
 
 * You can view your training results in a widget or inline if you are in a notebook. See [Monitor automated machine learning runs](#monitor) for more details.
 
-* For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md) . 
+* For definitions and examples of the performance charts and metrics provided for each run, see [Evaluate automated machine learning experiment results](how-to-understand-automated-ml.md).
 
 * To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
 
 You can view the hyperparameters, the scaling and normalization techniques, and algorithm applied to a specific automated ML run with the [custom code solution, `print_model()`](how-to-configure-auto-features.md#scaling-and-normalization). 
+
+> [!TIP]
+> Automated ML also let's you [view the generated model training code for Auto ML trained models](how-to-generate-automl-training-code.md). This functionality is in public preview and can change at any time. 
 
 ## <a name="monitor"></a> Monitor automated machine learning runs
 

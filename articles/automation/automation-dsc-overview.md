@@ -91,7 +91,7 @@ Check [Azure Automation Network Configuration](automation-network-configuration.
 
 #### Proxy support
 
-Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` properties in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
+Proxy support for the DSC agent is available in Windows release 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` properties in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
 used to register nodes.
 
 >[!NOTE]

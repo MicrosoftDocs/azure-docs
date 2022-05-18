@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Migrate devices and groups from Public Preview to Public Preview Refresh
 
-As the Device Update for IoT Hub service releases new versions, you'll want to update your devices for the latest features and security improvements. This article provides information about how to migrate from the [Public Preview release](/previous-versions/azure/iot-hub-device-update) to the current, [Public Preview Refresh (PPR) release](understand-device-update.md). This article also explains the group and UX behavior across these releases. If you do not have devices, groups, and deployments that use the Public Preview release, you can ignore this page.
+As the Device Update for IoT Hub service releases new versions, you'll want to update your devices for the latest features and security improvements. This article provides information about how to migrate from the [Public Preview release](/previous-versions/azure/iot-hub-device-update/understand-device-update) to the current, [Public Preview Refresh (PPR) release](understand-device-update.md). This article also explains the group and UX behavior across these releases. If you do not have devices, groups, and deployments that use the Public Preview release, you can ignore this page.
 
 To migrate successfully, you will have to upgrade the DU agent running on your devices. You will also have to create new device groups to deploy and manage updates. Note that as there are major changes with the PPR release, we recommend that you follow the instructions closely to avoid errors.
 
@@ -22,7 +22,7 @@ For the Public Preview Refresh release, the Device Update agent needs to be upda
 
    :::image type="content" source="media/migration/switch-banner.png" alt-text="Screenshot of banner." lightbox="media/migration/switch-banner.png":::
 
-2. Create a new IoT/IoT Edge device on the Azure portal. Copy the primary connection string for the device from the device view for later. For more details, refer the [Add Device to IoT Hub](device-update-simulator.md#add-device-to-azure-iot-hub) section.
+2. Create a new IoT/IoT Edge device on the Azure portal. Copy the primary connection string for the device from the device view for later. For more details, refer the [Add Device to IoT Hub](device-update-simulator.md#add-a-device-to-azure-iot-hub) section.
  
 3. Then, SSH into your device and remove any old Device Update agent.
    ```bash
@@ -68,7 +68,7 @@ For the Public Preview Refresh release, the Device Update agent needs to be upda
  
 2. Delete the existing groups in the public preview portal by navigating through the banner. 
  
-3. Add group tag to the device twin for the updated devices. For more details, refer the [Add a tag to your device](device-update-simulator.md#add-device-to-azure-iot-hub) section.
+3. Add group tag to the device twin for the updated devices. For more details, refer the [Add a tag to your device](device-update-simulator.md#add-a-device-to-azure-iot-hub) section.
 
 4. Recreate the groups in the PPR portal by going to ‘Add Groups’ and selecting the corresponding groups tag from the drop-down list. 
  

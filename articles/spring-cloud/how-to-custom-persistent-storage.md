@@ -4,7 +4,7 @@ description: How to bring your own storage as persistent storages in Azure Sprin
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/28/2021
+ms.date: 2/18/2022
 ms.author: xuycao
 ms.custom: devx-track-java, devx-track-azurecli
 ---
@@ -12,6 +12,8 @@ ms.custom: devx-track-java, devx-track-azurecli
 # How to enable your own persistent storage in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article shows you how to enable your own persistent storage in Azure Spring Cloud.
 
@@ -23,6 +25,11 @@ With Bring Your Own Storage, these artifacts are uploaded into a storage account
 
 * An existing Azure Storage Account and a pre-created Azure File Share. If you need to create a storage account and file share in Azure, see [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md).
 * The [Azure Spring Cloud extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
+
+> [!IMPORTANT]
+> If you deployed your Azure Spring Cloud in your own virtual network and you want the storage account to be accessed only from the virtual network, consult the following guidance:
+> - [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
+> - [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md), especially the [Grant access from a virtual network using service endpoint](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) section
 
 ## Mount your own extra persistent storage to applications
 
@@ -43,11 +50,11 @@ Use the following steps to bind an Azure Storage account as a storage resource i
    | Account name | The name of the storage account.                                                           |
    | Account key  | The storage account key.                                                                   |
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/add-storage-resource.png" alt-text="Azure portal screenshot showing the Storage page and the 'Add storage' pane" lightbox="media/how-to-custom-persistent-storage/add-storage-resource.png":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/add-storage-resource.png" alt-text="Screenshot of Azure portal showing the Storage page and the 'Add storage' pane." lightbox="media/how-to-custom-persistent-storage/add-storage-resource.png":::
 
 1. Go to the **Apps** page, then select an application to mount the persistent storage.
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png" alt-text="Screenshot of the Apps page" lightbox="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png" alt-text="Screenshot of Azure portal Apps page." lightbox="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png":::
 
 1. Select **Configuration**, then select **Persistent Storage**.
 
@@ -62,11 +69,11 @@ Use the following steps to bind an Azure Storage account as a storage resource i
     | Mount options           | Optional                                                       |
     | Read only               | Optional                                                       |
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/add-persistent-storage.png" alt-text="Screenshot of the 'Add persistent storage' form":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/add-persistent-storage.png" alt-text="Screenshot of Azure portal 'Add persistent storage' form.":::
 
 1. Select **Save** to apply all the configuration changes.
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/save-persistent-storage-changes.png" alt-text="Screenshot of the Persistent Storage section of the Configuration page" lightbox="media/how-to-custom-persistent-storage/save-persistent-storage-changes.png":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/save-persistent-storage-changes.png" alt-text="Screenshot of Azure portal Persistent Storage section of the Configuration page." lightbox="media/how-to-custom-persistent-storage/save-persistent-storage-changes.png":::
 
 # [CLI](#tab/Azure-CLI)
 
@@ -196,6 +203,10 @@ The following are frequently asked questions (FAQ) about using your own persiste
    * `dir_mode`
 
    *The `mountOptions` property is optional. The default values for above mount options are: ["uid=0", "gid=0", "file_mode=0777", "dir_mode=0777"]*
+
+* I'm using the service endpoint to configure the storage account to allow access only from my own virtual network. Why did I receive *Permission Denied* while trying to mount custom persistent storage to my applications?
+
+    *A service endpoint provides network access on a subnet level only. Be sure you've added both subnets used by the Azure Spring Cloud instance to the scope of the service endpoint.*
 
 ## Next steps
 

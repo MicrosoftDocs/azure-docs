@@ -138,3 +138,5 @@ landingContent:
             url: service-bus-managed-service-identity.md            
           - text: Authenticate an application with Azure Active Directory
             url: authenticate-application.md
+          - text: Enforce minimum required TLS version
+            url: transport-layer-security-enforce-minimum-version.md

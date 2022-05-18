@@ -13,7 +13,7 @@ manager: corywink
 
 # Take a tour of the Azure IoT Central UI
 
-This article introduces you to Azure IoT Central UI. You can use the UI to create, manage, and use an IoT Central application and its connected devices.
+This article introduces you to Azure IoT Central UI. You can use the UI to create, administer, and use an IoT Central application and its connected devices.
 
 ## IoT Central homepage
 
@@ -23,7 +23,7 @@ The [IoT Central homepage](https://apps.azureiotcentral.com/) page is the place 
 
 ### Create an application
 
-In the **Build** section you can browse the list of industry-relevant IoT Central templates, or start from scratch using a Custom app template.  
+In the **Build** section you can browse the list of industry-relevant IoT Central templates, or start from scratch using a Custom application template.  
 
 :::image type="content" source="media/overview-iot-central-tour/iot-central-build.png" alt-text="IoT Central build page":::
 
@@ -117,7 +117,7 @@ The device templates page is where you can view and create device templates in t
 
 ### Data Explorer
 
-:::image type="content" source="Media/overview-iot-central-tour/analytics.png" alt-text="Screenshot of Analytics page.":::
+:::image type="content" source="Media/overview-iot-central-tour/analytics.png" alt-text="Screenshot of data analytics page.":::
 
 Data explorer exposes rich capabilities to analyze historical trends and correlate various telemetries from your devices. To learn more, see the [Create analytics for your Azure IoT Central application](howto-create-analytics.md) article.
 
@@ -143,7 +143,7 @@ This page lets you view and create rules based on device data. When a rule fires
 
 :::image type="content" source="Media/overview-iot-central-tour/export.png" alt-text="Data Export":::
 
-Data export enables you to set up streams of data to external systems. To learn more, see the [Export your data in Azure IoT Central](./howto-export-data.md) article.
+Data export enables you to set up streams of data to external systems. To learn more, see the [Export your data in Azure IoT Central](./howto-export-to-blob-storage.md) article.
 
 ### Permissions
 

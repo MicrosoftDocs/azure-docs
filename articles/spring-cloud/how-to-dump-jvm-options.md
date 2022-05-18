@@ -13,7 +13,9 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ❌ C#
 
-This article describes how to use diagnostic settings through JVM options to conduct advanced troubleshooting in Azure Spring Cloud.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to use diagnostic settings through JVM options to conduct advanced troubleshooting in Azure Spring Cloud.
 
 There are several JVM-based application startup parameters related to heap dump, Java Flight Recorder (JFR), and garbage collection (GC) logs. In Azure Spring Cloud, we support JVM configuration using JVM options.
 
@@ -99,4 +101,4 @@ az spring-cloud app append-persistent-storage \
 
 ## Next steps
 
-- [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Cloud](how-to-capture-dumps.md)
+* [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Cloud](how-to-capture-dumps.md)

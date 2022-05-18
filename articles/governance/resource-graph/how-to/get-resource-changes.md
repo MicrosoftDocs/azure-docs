@@ -1,18 +1,18 @@
 ---
 title: Get resource changes
-description: Understand how to find when a resource was changed, get a list of the properties that changed, and evaluate the diffs.
-ms.date: 08/17/2021
+description: Understand how to find when a resource was changed and query the list of resource configuration changes at scale
+ms.date: 03/08/2022
 ms.topic: how-to
 ---
 # Get resource changes
 
 Resources get changed through the course of daily use, reconfiguration, and even redeployment.
 Change can come from an individual or by an automated process. Most change is by design, but
-sometimes it isn't. With the last 14 days of change history, Azure Resource Graph enables you to:
+sometimes it isn't. With the **last fourteen days** of changes, Resource configuration changes enables you to:
 
 - Find when changes were detected on an Azure Resource Manager property
 - For each resource change, see property change details
-- See a full comparison of the resource before and after the detected change
+- Query changes at scale across your subscriptions, Management group, or tenant
 
 Change detection and details are valuable for the following example scenarios:
 
@@ -21,12 +21,12 @@ Change detection and details are valuable for the following example scenarios:
 - Keeping a Configuration Management Database, known as a CMDB, up-to-date. Instead of refreshing
   all resources and their full property sets on a scheduled frequency, only get what changed.
 - Understanding what other properties may have been changed when a resource changed compliance
-  state. Evaluation of these additional properties can provide insights into other properties that
+  state. Evaluation of these extra properties can provide insights into other properties that
   may need to be managed via an Azure Policy definition.
 
-This article shows how to gather this information through Resource Graph's SDK. To see this
-information in the Azure portal, see Azure Policy's
-[Change history](../../policy/how-to/determine-non-compliance.md#change-history) or Azure Activity
+This article shows how to query Resource configuration changes through Resource Graph. To see this
+information in the Azure portal, see [Azure Resource Graph Explorer](../first-query-portal.md), Azure Policy's
+[Change history](../../policy/how-to/determine-non-compliance.md#change-history), or Azure Activity
 Log [Change history](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). For
 details about changes to your applications from the infrastructure layer all the way to application
 deployment, see
@@ -34,285 +34,245 @@ deployment, see
 Monitor.
 
 > [!NOTE]
-> Change details in Resource Graph are for Resource Manager properties. For tracking changes inside
+> Resource configuration changes is for Azure Resource Manager properties. For tracking changes inside
 > a virtual machine, see Azure Automation's
 > [Change tracking](../../../automation/change-tracking/overview.md) or Azure Policy's
 > [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
-> Change history in Azure Resource Graph is in Public Preview.
+> Resource configuration changes only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Subscriptions and Resource groups. Changes are queryable for fourteen days.
 
 ## Find detected change events and view change details
 
-The first step in seeing what changed on a resource is to find the change events related to that
-resource within a window of time. Each change event also includes details about what changed on the
-resource. This step is done through the **resourceChanges** REST endpoint.
+When a resource is created, updated, or deleted, a new change resource (Microsoft.Resources/changes) is created to extend the modified resource and represent the changed properties. Change records should be available in under five minutes.
 
-The **resourceChanges** endpoint accepts the following parameters in the request body:
-
-- **resourceId** \[required\]: The Azure resource to look for changes on.
-- **interval** \[required\]: A property with _start_ and _end_ dates for when to check for a change
-  event using the **Zulu Time Zone (Z)**.
-- **fetchPropertyChanges** (optional): A Boolean property that sets if the response object includes
-  property changes.
-
-Example request body:
+Example change resource property bag:
 
 ```json
 {
-    "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-    "interval": {
-        "start": "2019-09-28T00:00:00.000Z",
-        "end": "2019-09-29T00:00:00.000Z"
+  "targetResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/microsoft.compute/virtualmachines/myVM",
+  "targetResourceType": "microsoft.compute/virtualmachines",
+  "changeType": "Update",
+  "changeAttributes": {
+    "changesCount": 2,
+    "correlationId": "88420d5d-8d0e-471f-9115-10d34750c617",
+    "timestamp": "2021-12-07T09:25:41.756Z",
+    "previousResourceSnapshotId": "ed90e35a-1661-42cc-a44c-e27f508005be",
+    "newResourceSnapshotId": "6eac9d0f-63b4-4e7f-97a5-740c73757efb"
+  },
+  "changes": {
+    "properties.provisioningState": {
+      "newValue": "Succeeded",
+      "previousValue": "Updating",
+      "changeCategory": "System",
+      "propertyChangeType": "Update"
     },
-    "fetchPropertyChanges": true
-}
-```
-
-With the above request body, the REST API URI for **resourceChanges** is:
-
-```http
-POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChanges?api-version=2018-09-01-preview
-```
-
-The response looks similar to this example:
-
-```json
-{
-	"changes": [
-		{
-			"changeId": "{\"beforeId\":\"3262e382-9f73-4866-a2e9-9d9dbee6a796\",\"beforeTime\":\"2019-09-28T00:45:35.012Z\",\"afterId\":\"6178968e-981e-4dac-ac37-340ee73eb577\",\"afterTime\":\"2019-09-28T00:52:53.371Z\"}",
-			"beforeSnapshot": {
-				"snapshotId": "3262e382-9f73-4866-a2e9-9d9dbee6a796",
-				"timestamp": "2019-09-28T00:45:35.012Z"
-			},
-			"afterSnapshot": {
-				"snapshotId": "6178968e-981e-4dac-ac37-340ee73eb577",
-				"timestamp": "2019-09-28T00:52:53.371Z"
-			},
-			"changeType": "Create"
-		},
-		{
-			"changeId": "{\"beforeId\":\"a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c\",\"beforeTime\":\"2019-09-28T00:43:38.366Z\",\"afterId\":\"3262e382-9f73-4866-a2e9-9d9dbee6a796\",\"afterTime\":\"2019-09-28T00:45:35.012Z\"}",
-			"beforeSnapshot": {
-				"snapshotId": "a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c",
-				"timestamp": "2019-09-28T00:43:38.366Z"
-			},
-			"afterSnapshot": {
-				"snapshotId": "3262e382-9f73-4866-a2e9-9d9dbee6a796",
-				"timestamp": "2019-09-28T00:45:35.012Z"
-			},
-			"changeType": "Delete"
-		},
-		{
-			"changeId": "{\"beforeId\":\"b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c\",\"beforeTime\":\"2019-09-28T00:43:15.518Z\",\"afterId\":\"a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c\",\"afterTime\":\"2019-09-28T00:43:38.366Z\"}",
-			"beforeSnapshot": {
-				"snapshotId": "b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c",
-				"timestamp": "2019-09-28T00:43:15.518Z"
-			},
-			"afterSnapshot": {
-				"snapshotId": "a00f5dac-86a1-4d86-a1c5-a9f7c8147b7c",
-				"timestamp": "2019-09-28T00:43:38.366Z"
-			},
-			"propertyChanges": [
-				{
-					"propertyName": "tags.org",
-					"afterValue": "compute",
-					"changeCategory": "User",
-					"changeType": "Insert"
-				},
-				{
-					"propertyName": "tags.team",
-					"afterValue": "ARG",
-					"changeCategory": "User",
-					"changeType": "Insert"
-				}
-			],
-			"changeType": "Update"
-		},
-		{
-			"changeId": "{\"beforeId\":\"19d12ab1-6ac6-4cd7-a2fe-d453a8e5b268\",\"beforeTime\":\"2019-09-28T00:42:46.839Z\",\"afterId\":\"b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c\",\"afterTime\":\"2019-09-28T00:43:15.518Z\"}",
-			"beforeSnapshot": {
-				"snapshotId": "19d12ab1-6ac6-4cd7-a2fe-d453a8e5b268",
-				"timestamp": "2019-09-28T00:42:46.839Z"
-			},
-			"afterSnapshot": {
-				"snapshotId": "b37a90d1-7ebf-41cd-8766-eb95e7ee4f1c",
-				"timestamp": "2019-09-28T00:43:15.518Z"
-			},
-			"propertyChanges": [{
-				"propertyName": "tags.cgtest",
-				"afterValue": "hello",
-				"changeCategory": "User",
-				"changeType": "Insert"
-			}],
-			"changeType": "Update"
-		}
-	]
-}
-```
-
-Each detected change event for the **resourceId** has the following properties:
-
-- **changeId** - This value is unique to that resource. While the **changeId** string may sometimes
-  contain other properties, it's only guaranteed to be unique.
-- **beforeSnapshot** - Contains the **snapshotId** and **timestamp** of the resource snapshot that
-  was taken before a change was detected.
-- **afterSnapshot** - Contains the **snapshotId** and **timestamp** of the resource snapshot that
-  was taken after a change was detected.
-- **changeType** - Describes the type of change detected for the entire change record between the
-  **beforeSnapshot** and **afterSnapshot**. Values are: _Create_, _Update_, and _Delete_. The
-  **propertyChanges** property array is only included when **changeType** is _Update_.
-
-  > [!IMPORTANT]
-  > _Create_ is only available on resources that previously existed and were deleted within the last
-  > 14 days.
-
-- **propertyChanges** - This array of properties details all of the resource properties that were
-  updated between the **beforeSnapshot** and the **afterSnapshot**:
-  - **propertyName** - The name of the resource property that was altered.
-  - **changeCategory** - Describes what made the change. Values are: _System_ and _User_.
-  - **changeType** - Describes the type of change detected for the individual resource property.
-    Values are: _Insert_, _Update_, _Remove_.
-  - **beforeValue** - The value of the resource property in the **beforeSnapshot**. Isn't displayed
-    when **changeType** is _Insert_.
-  - **afterValue** - The value of the resource property in the **afterSnapshot**. Isn't displayed
-    when **changeType** is _Remove_.
-
-## Compare resource changes
-
-With the **changeId** from the **resourceChanges** endpoint, the **resourceChangeDetails** REST
-endpoint is then used to get the before and after snapshots of the resource that was changed.
-
-The **resourceChangeDetails** endpoint requires two parameters in the request body:
-
-- **resourceId**: The Azure resource to compare changes on.
-- **changeId**: The unique change event for the **resourceId** gathered from **resourceChanges**.
-
-Example request body:
-
-```json
-{
-    "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"afterTime\":'2019-05-10T00:00:00.000Z\"}"
-}
-```
-
-With the above request body, the REST API URI for **resourceChangeDetails** is:
-
-```http
-POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChangeDetails?api-version=2018-09-01-preview
-```
-
-The response looks similar to this example:
-
-```json
-{
-    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}",
-    "beforeSnapshot": {
-        "timestamp": "2019-03-29T01:32:05.993Z",
-        "content": {
-            "sku": {
-                "name": "Standard_LRS",
-                "tier": "Standard"
-            },
-            "kind": "Storage",
-            "id": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-            "name": "mystorageaccount",
-            "type": "Microsoft.Storage/storageAccounts",
-            "location": "westus",
-            "tags": {},
-            "properties": {
-                "networkAcls": {
-                    "bypass": "AzureServices",
-                    "virtualNetworkRules": [],
-                    "ipRules": [],
-                    "defaultAction": "Allow"
-                },
-                "supportsHttpsTrafficOnly": false,
-                "encryption": {
-                    "services": {
-                        "file": {
-                            "enabled": true,
-                            "lastEnabledTime": "2018-07-27T18:37:21.8333895Z"
-                        },
-                        "blob": {
-                            "enabled": true,
-                            "lastEnabledTime": "2018-07-27T18:37:21.8333895Z"
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                },
-                "provisioningState": "Succeeded",
-                "creationTime": "2018-07-27T18:37:21.7708872Z",
-                "primaryEndpoints": {
-                    "blob": "https://mystorageaccount.blob.core.windows.net/",
-                    "queue": "https://mystorageaccount.queue.core.windows.net/",
-                    "table": "https://mystorageaccount.table.core.windows.net/",
-                    "file": "https://mystorageaccount.file.core.windows.net/"
-                },
-                "primaryLocation": "westus",
-                "statusOfPrimary": "available"
-            }
-        }
-    },
-    "afterSnapshot": {
-        "timestamp": "2019-03-29T01:54:24.42Z",
-        "content": {
-            "sku": {
-                "name": "Standard_LRS",
-                "tier": "Standard"
-            },
-            "kind": "Storage",
-            "id": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-            "name": "mystorageaccount",
-            "type": "Microsoft.Storage/storageAccounts",
-            "location": "westus",
-            "tags": {},
-            "properties": {
-                "networkAcls": {
-                    "bypass": "AzureServices",
-                    "virtualNetworkRules": [],
-                    "ipRules": [],
-                    "defaultAction": "Allow"
-                },
-                "supportsHttpsTrafficOnly": true,
-                "encryption": {
-                    "services": {
-                        "file": {
-                            "enabled": true,
-                            "lastEnabledTime": "2018-07-27T18:37:21.8333895Z"
-                        },
-                        "blob": {
-                            "enabled": true,
-                            "lastEnabledTime": "2018-07-27T18:37:21.8333895Z"
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                },
-                "provisioningState": "Succeeded",
-                "creationTime": "2018-07-27T18:37:21.7708872Z",
-                "primaryEndpoints": {
-                    "blob": "https://mystorageaccount.blob.core.windows.net/",
-                    "queue": "https://mystorageaccount.queue.core.windows.net/",
-                    "table": "https://mystorageaccount.table.core.windows.net/",
-                    "file": "https://mystorageaccount.file.core.windows.net/"
-                },
-                "primaryLocation": "westus",
-                "statusOfPrimary": "available"
-            }
-        }
+    "tags.key1": {
+      "newValue": "NewTagValue",
+      "previousValue": "null",
+      "changeCategory": "User",
+      "propertyChangeType": "Insert"
     }
+  }
 }
 ```
 
-**beforeSnapshot** and **afterSnapshot** each give the time the snapshot was taken and the
-properties at that time. The change happened at some point between these snapshots. Looking at the
-previous example, we can see that the property that changed was **supportsHttpsTrafficOnly**.
+Each change resource has the following properties:
 
-To compare the results, either use the **changes** property in **resourceChanges** or evaluate the
-**content** portion of each snapshot in **resourceChangeDetails** to determine the difference. If
-you compare the snapshots, the **timestamp** always shows as a difference despite being expected.
+- **targetResourceId** - The resourceID of the resource on which the change occurred.
+ - **targetResourceType** - The resource type of the resource on which the change occurred.
+- **changeType** - Describes the type of change detected for the entire change record. Values are: _Create_, _Update_, and _Delete_. The
+  **changes** property dictionary is only included when **changeType** is _Update_. For the _Delete_ case, the change resource will still be maintained as an extension of the deleted resource for fourteen days, even if the entire Resource group has been deleted. The change resource will not block deletions or impact any existing delete behavior.
+
+
+- **changes** - Dictionary of the resource properties (with property name as the key) that were updated as part of the change:
+  - **propertyChangeType** - Describes the type of change detected for the individual resource property.
+    Values are: _Insert_, _Update_, _Remove_.
+  - **previousValue** - The value of the resource property in the previous snapshot. Value is _null_ when **changeType** is _Insert_.
+  - **newValue** - The value of the resource property in the new snapshot. Value is _null_ when **changeType** is _Remove_.
+  - **changeCategory** - Describes if the property change was the result of a change in value (_User_) or a difference in referenced API versions (_System_). Values are: _System_ and _User_.
+
+- **changeAttributes** - Array of metadata related to the change:
+  - **changesCount** - The number of properties changed as part of this change record.
+  - **correlationId** - Contains the ID for tracking related events. Each deployment has a correlation ID, and all actions in a single template will share the same correlation ID.
+  - **timestamp** - The datetime of when the change was detected.
+  - **previousResourceSnapshotId** - Contains the ID of the resource snapshot that was used as the previous state of the resource.
+  - **newResourceSnapshotId** - Contains the ID of the resource snapshot that was used as the new state of the resource.
+
+## How to query changes using Resource Graph
+### Prerequisites
+- To enable Azure PowerShell to query Azure Resource Graph, the [module must be added](../first-query-powershell.md#add-the-resource-graph-module).
+- To enable Azure CLI to query Azure Resource Graph, the [extension must be added](../first-query-azurecli.md#add-the-resource-graph-extension).
+
+### Run your Resource Graph query
+It's time to try out a tenant-based Resource Graph query of the **resourcechanges** table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. To query by
+[management group](../../management-groups/overview.md) or subscription, use the `-ManagementGroup`
+or `-Subscription` parameters.
+
+1. Run your first Azure Resource Graph query:
+
+# [Azure CLI](#tab/azure-cli)
+  ```azurecli
+  # Login first with az login if not using Cloud Shell
+
+  # Run Azure Resource Graph query
+  az graph query -q 'resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
+  ```
+   
+# [PowerShell](#tab/azure-powershell)
+  ```azurepowershell-interactive
+  # Login first with Connect-AzAccount if not using Cloud Shell
+
+  # Run Azure Resource Graph query
+  Search-AzGraph -Query 'resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
+  ```
+   
+# [Portal](#tab/azure-portal)
+  Open the [Azure portal](https://portal.azure.com) to find and use the Resource Graph Explorer
+  following these steps to run your first Resource Graph query:
+
+  1. Select **All services** in the left pane. Search for and select **Resource Graph Explorer**.
+
+  1. In the **Query 1** portion of the window, enter the query
+     ```kusto
+     resourcechanges 
+     | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes 
+     | limit 5
+     ``` 
+     and select **Run query**.
+
+  1. Review the query response in the **Results** tab. Select the **Messages** tab to see details
+   about the query, including the count of results and duration of the query. Errors, if any, are
+   displayed under this tab.
+   
+---
+
+   > [!NOTE]
+   > As this query example doesn't provide a sort modifier such as `order by`, running this query
+   > multiple times is likely to yield a different set of resources per request.
+
+
+2. Update the query to specify a more user-friendly column name for the **timestamp** property: 
+
+# [Azure CLI](#tab/azure-cli)
+   ```azurecli
+   # Run Azure Resource Graph query with 'extend' to define a user-friendly name for properties.changeAttributes.timestamp 
+   az graph query -q 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
+   ```
+   
+# [PowerShell](#tab/azure-powershell)
+   ```azurepowershell-interactive
+   # Run Azure Resource Graph query with 'extend' to define a user-friendly name for properties.changeAttributes.timestamp 
+   Search-AzGraph -Query 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
+   ```
+   
+# [Portal](#tab/azure-portal)
+   ```kusto
+   resourcechanges 
+   | extend changeTime=todatetime(properties.changeAttributes.timestamp) 
+   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes 
+   | limit 5
+   ``` 
+   Then, select **Run query**.
+
+---
+
+
+3. To get the most recent changes, update the query to `order by` the user-defined **changeTime** property:
+ 
+# [Azure CLI](#tab/azure-cli)
+   ```azurecli
+   # Run Azure Resource Graph query with 'order by'
+   az graph query -q 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | order by changeTime desc | limit 5'
+   ```
+
+# [PowerShell](#tab/azure-powershell)
+   ```azurepowershell-interactive
+   # Run Azure Resource Graph query with 'order by'
+   Search-AzGraph -Query 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | order by changeTime desc | limit 5'
+   ```
+
+# [Portal](#tab/azure-portal)
+   ```kusto
+   resourcechanges 
+   | extend changeTime=todatetime(properties.changeAttributes.timestamp) 
+   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes 
+   | order by changeTime desc 
+   | limit 5
+   ``` 
+   Then, select **Run query**.
+   
+---
+
+   > [!NOTE]
+   > The order of the query commands is important. In this example,
+   > the `order by` must come before the `limit` command. This command order first orders the query results by the change time and
+   > then limits them to ensure that you get the five *most recent* results.
+
+
+When the final query is run several times, assuming that nothing in your environment is changing,
+the results returned are consistent and ordered by the **properties.changeAttributes.timestamp** (or your user-defined name of **changeTime**) property, but still limited to the
+top five results.
+
+
+> [!NOTE]
+> If the query does not return results from a subscription you already have access to, then note
+> that the `Search-AzGraph` PowerShell cmdlet defaults to subscriptions in the default context. To see the list of
+> subscription IDs which are part of the default context run this
+> `(Get-AzContext).Account.ExtendedProperties.Subscriptions` If you wish to search across all the
+> subscriptions you have access to, one can set the PSDefaultParameterValues for `Search-AzGraph`
+> cmdlet by running
+> `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+
+Resource Graph Explorer also provides a clean interface for converting the results of some queries into a chart that can be pinned to an Azure dashboard.
+- [Create a chart from the Resource Graph query](../first-query-portal.md#create-a-chart-from-the-resource-graph-query)
+- [Pin the query visualization to a dashboard](../first-query-portal.md#pin-the-query-visualization-to-a-dashboard)
+
+## Resource Graph query samples
+
+With Resource Graph, you can query the **resourcechanges** table to filter or sort by any of the change resource properties:
+
+### All changes in the past one day
+```kusto
+resourcechanges
+| extend changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId),
+changeType = tostring(properties.changeType), correlationId = properties.changeAttributes.correlationId, 
+changedProperties = properties.changes, changeCount = properties.changeAttributes.changesCount
+| where changeTime > ago(1d)
+| order by changeTime desc
+| project changeTime, targetResourceId, changeType, correlationId, changeCount, changedProperties
+```
+
+### Resources deleted in a specific resource group
+```kusto
+resourcechanges
+| where resourceGroup == "myResourceGroup"
+| extend changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId),
+changeType = tostring(properties.changeType), correlationId = properties.changeAttributes.correlationId
+| where changeType == "Delete"
+| order by changeTime desc
+| project changeTime, resourceGroup, targetResourceId, changeType, correlationId
+```
+
+### Changes to a specific property value
+```kusto
+resourcechanges
+| extend provisioningStateChange = properties.changes["properties.provisioningState"], changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType)
+| where isnotempty(provisioningStateChange)and provisioningStateChange.newValue == "Succeeded"
+| order by changeTime desc
+| project changeTime, targetResourceId, changeType, provisioningStateChange.previousValue, provisioningStateChange.newValue
+```
+
+### Query the latest resource configuration for resources created in the last seven days
+```kusto
+resourcechanges
+| extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp)
+| where changeTime > ago(7d) and changeType == "Create"
+| project  targetResourceId, changeType, changeTime
+| join ( Resources | extend targetResourceId=id) on targetResourceId
+| order by changeTime desc
+| project changeTime, changeType, id, resourceGroup, type, properties
+```
 
 ## Next steps
 

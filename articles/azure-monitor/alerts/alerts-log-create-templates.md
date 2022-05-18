@@ -4,7 +4,7 @@ description: Learn how to use a Resource Manager template to create a log alert
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 2/23/2022
 ---
 # Create a log alert with a Resource Manager template
 
@@ -273,7 +273,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
 
 ## Simple template (up to API version 2018-04-16)
 
-[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update) template based on [number of results log alert](./alerts-unified-log.md#count-of-the-results-table-rows) (sample data set as variables):
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update) template based on [number of results log alert](./alerts-unified-log.md#result-count) (sample data set as variables):
 
 ```json
 {
@@ -348,7 +348,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
 
 ## Template with cross-resource query (up to API version 2018-04-16)
 
-[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update) template based on [metric measurement](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) that queries [cross-resources](../logs/cross-workspace-query.md) (sample data set as variables):
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update) template based on [metric measurement](./alerts-unified-log.md#calculation-of-a-value) that queries [cross-resources](../logs/cross-workspace-query.md) (sample data set as variables):
 
 ```json
 {

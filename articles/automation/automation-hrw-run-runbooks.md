@@ -16,7 +16,7 @@ When you author a runbook to run on a Hybrid Runbook Worker, you should edit and
 
 ## Plan for Azure services protected by firewall
 
-Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md), or [Azure SQL](../azure-sql/database/firewall-configure.md) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
+Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## Plan runbook job behavior
 
@@ -108,6 +108,11 @@ Follow the next steps to use a managed identity for Azure resources on a Hybrid 
     1. From line 5, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
     1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
     1. Enter the Client ID.
+
+>[!NOTE]
+>By default, the Azure contexts are saved for use between PowerShell sessions. It is possible that when a previous runbook on the Hybrid Runbook Worker has been authenticated with Azure, that context persists to the disk in the System PowerShell profile, as per [Azure contexts and sign-in credentials | Microsoft Docs](/powershell/azure/context-persistence?view=azps-7.3.2). 
+For instance, a runbook with `Get-AzVM` can return all the VMs in the subscription with no call to `Connect-AzAccount`, and the user would be able to access Azure resources without having to authenticate within that runbook. You can disable context autosave in Azure PowerShell, as detailed [here](/powershell/azure/context-persistence?view=azps-7.3.2#save-azure-contexts-across-powershell-sessions).
+
 
 ### Use runbook authentication with Run As account
 
@@ -231,6 +236,20 @@ To finish preparing the Run As account:
 >  In case of unrestricted access, a user with VM Contributor rights or having permissions to run commands against the hybrid worker machine can use the Automation Account Run As certificate from the hybrid worker machine, using other sources like Azure cmdlets which could potentially allow a malicious user access as a subscription contributor. This could jeopardize the security of your Azure environment. </br> </br>
 >  We recommend that you divide the tasks within the team and grant the required permissions/access to users as per their job. Do not provide unrestricted permissions to the machine hosting the hybrid runbook worker role.
 
+## Start a runbook on a Hybrid Runbook Worker
+
+[Start a runbook in Azure Automation](start-runbooks.md) describes different methods for starting a runbook. Starting a runbook on a Hybrid Runbook Worker uses a **Run on** option that allows you to specify the name of a Hybrid Runbook Worker group. When a group is specified, one of the workers in that group retrieves and runs the runbook. If your runbook does not specify this option, Azure Automation runs the runbook as usual.
+
+When you start a runbook in the Azure portal, you're presented with the **Run on** option for which you can select **Azure** or **Hybrid Worker**. Select **Hybrid Worker**, to choose the Hybrid Runbook Worker group from a dropdown.
+
+:::image type="content" source="./media/automation-hrw-run-runbooks/start-runbook-hrw-inline.png" alt-text="Screenshot showing how to select the Hybrid Runbook Worker group." lightbox="./media/automation-hrw-run-runbooks/start-runbook-hrw-expanded.png":::
+
+
+When starting a runbook using PowerShell, use the `RunOn` parameter with the [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet. The following example uses Windows PowerShell to start a runbook named **Test-Runbook** on a Hybrid Runbook Worker group named MyHybridGroup.
+
+```azurepowershell-interactive
+Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -RunOn "MyHybridGroup"
+```
 
 ## Work with signed runbooks on a Windows Hybrid Runbook Worker
 
@@ -364,17 +383,7 @@ The signed runbook is called **\<runbook name>.asc**.
 
 You can now upload the signed runbook to Azure Automation and execute it like a regular runbook.
 
-## Start a runbook on a Hybrid Runbook Worker
 
-[Start a runbook in Azure Automation](start-runbooks.md) describes different methods for starting a runbook. Starting a runbook on a Hybrid Runbook Worker uses a **Run on** option that allows you to specify the name of a Hybrid Runbook Worker group. When a group is specified, one of the workers in that group retrieves and runs the runbook. If your runbook does not specify this option, Azure Automation runs the runbook as usual.
-
-When you start a runbook in the Azure portal, you're presented with the **Run on** option for which you can select **Azure** or **Hybrid Worker**. If you select **Hybrid Worker**, you can choose the Hybrid Runbook Worker group from a dropdown.
-
-When starting a runbook using PowerShell, use the `RunOn` parameter with the [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet. The following example uses Windows PowerShell to start a runbook named **Test-Runbook** on a Hybrid Runbook Worker group named MyHybridGroup.
-
-```azurepowershell-interactive
-Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -RunOn "MyHybridGroup"
-```
 ## Logging
 
 To help troubleshoot issues with your runbooks running on a hybrid runbook worker, logs are stored locally in the following location:

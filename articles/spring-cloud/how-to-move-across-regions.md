@@ -11,6 +11,8 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Move an Azure Spring Cloud service instance to another region
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article shows you how to move your Azure Spring Cloud service instance to another region. Moving your instance is useful, for example, as part of a disaster recovery plan or to create a duplicate testing environment.
 
 You can't move an Azure Spring Cloud instance from one region to another directly, but you can use an Azure Resource Manager template (ARM template) to deploy to a new region. For more information about using Azure Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
@@ -163,7 +165,7 @@ After you modify the template, use the following steps to deploy the template an
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the top search box, search for *Deploy a custom template*.
 
-    :::image type="content" source="media/how-to-move-across-regions/search-deploy-template.png" alt-text="Azure portal screenshot showing search results." lightbox="media/how-to-move-across-regions/search-deploy-template.png" border="true":::
+    :::image type="content" source="media/how-to-move-across-regions/search-deploy-template.png" alt-text="Screenshot of Azure portal showing search results." lightbox="media/how-to-move-across-regions/search-deploy-template.png" border="true":::
 
 1. Under **Services**, select **Deploy a custom template**.
 1. Go to the **Select a template** tab, then select **Build your own template in the editor**.
@@ -175,7 +177,7 @@ After you modify the template, use the following steps to deploy the template an
     - The target region.
     - Any other parameters required for the template.
 
-    :::image type="content" source="media/how-to-move-across-regions/deploy-template.png" alt-text="Azure portal screenshot showing 'Custom deployment' pane.":::
+    :::image type="content" source="media/how-to-move-across-regions/deploy-template.png" alt-text="Screenshot of Azure portal showing 'Custom deployment' pane.":::
 
 1. Select **Review + create** to create the target service instance.
 1. Wait until the template has deployed successfully. If the deployment fails, select **Deployment details** to view the failure reason, then update the template or configurations accordingly.

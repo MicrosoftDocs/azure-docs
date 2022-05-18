@@ -14,6 +14,8 @@ items:
     href: service-limits.md
   - name: What's new
     href: whats-new.md
+  - name: Form Recognizer FAQ
+    href: faq.yml
 - name: Quickstarts
   items:
    - name: Form Recognizer v2.1
@@ -42,24 +44,32 @@ items:
     href:  create-a-form-recognizer-resource.md
   - name: Migrate to Form Recognizer v3.0 (preview)
     href: v3-migration-guide.md
-  - name: Use the SDKs and REST API (v2.1)
+  - name: Use the prebuilt-read model
+    href: how-to-guides/use-prebuilt-read.md
+  - name: Use SDKs and the REST API (v2.1)
     href: how-to-guides/try-sdk-rest-api.md
-  - name: Generate SAS tokens for Azure Blob containers
+  - name: Create SAS tokens for Azure Blob storage
     href:  generate-sas-tokens.md
   - name: Custom models
     items:
-    - name: Build and train custom models
+    - name: Build a custom model (v2.1)
       items:
       - name: Assemble a training data set
         href: build-training-data-set.md
-      - name:   Deploy the Sample Labeling tool
+      - name: Deploy the sample-labeling tool
         href: deploy-label-tool.md
-      - name: Train a custom model with the Sample Labeling tool
+      - name: Train a custom model with the sample-labeling tool
         href: label-tool.md
       - name: Use table tags to train your custom model
         href: supervised-table-tags.md
-    - name: Compose custom models
-      href: compose-custom-models.md
+    - name: Build a custom model (v3.0)
+      href: how-to-guides/build-custom-model-v3.md
+  - name: Composed models
+    items:
+     - name: Compose models v3.0 (preview)
+       href: compose-custom-models-preview.md
+     - name: Compose models v2.1 (GA)
+       href: compose-custom-models.md
   - name: Back up and recover models
     href: disaster-recovery.md
   - name: Use containers
@@ -69,17 +79,17 @@ items:
       href: containers/form-recognizer-container-install-run.md
     - name: Configure containers
       href: containers/form-recognizer-container-configuration.md
-      displayName: docker, container, run, billing, apikey, logging
+      displayName: docker, container, run, billing, key, logging
     - name: Container image tags
       href: containers/form-recognizer-container-image-tags.md
     - name: Use container instances
       href: ../../cognitive-services/containers/azure-container-instance-recipe.md
-  - name: Enterprise readiness
+  - name: Configure secure communications
     items:
     - name: Set up Virtual Networks
       href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
-    - name: Create and use managed identity
-      href: managed-identity-byos.md
+    - name: Create and use managed identities
+      href: managed-identities.md
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
@@ -89,7 +99,7 @@ items:
   - name: "C#/.NET"
     href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples/
   - name: "Java"
-    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples
+    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true#examples
   - name: "Python"
     href: /samples/azure/azure-sdk-for-python/formrecognizer-samples/
   - name: "JavaScript"
@@ -114,6 +124,10 @@ items:
     href: concept-form-recognizer-studio.md
   - name: General document model | preview
     href: concept-general-document.md
+  - name: W-2 form model | preview
+    href: concept-w2.md
+  - name: Read model | preview
+    href: concept-read.md
   - name: Layout model
     href: concept-layout.md
   - name: Invoice model
@@ -124,12 +138,24 @@ items:
     href: concept-id-document.md
   - name: Business card model
     href: concept-business-card.md
-  - name: Custom model
-    href: concept-custom.md
+  - name: Custom models
+    items:  
+    - name: Custom model
+      href: concept-custom.md
+    - name: Custom template model
+      href: concept-custom-template.md
+    - name: Custom neural model
+      href: concept-custom-neural.md
+    - name: Accuracy and confidence scores
+      href: concept-accuracy-confidence.md
+  - name: Composed models
+    href:  concept-composed-models.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Azure Logic Apps
     href: tutorial-logic-apps.md
+  - name: Use managed identities to access Azure storage
+    href: ../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json
   - name: "Create Form Recognizer workflows with AI Builder"
     expanded: true
     items:
@@ -154,17 +180,17 @@ items:
   - name: Azure Form Recognizer REST API v3.0 (preview)
     items:
     - name: REST API v3.0 reference
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument
     - name: Client libraries and SDKs
       items:
       - name: .NET
-        href: https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.1/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.3/index.html
       - name: Python
-        href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b1/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b3/index.html
       - name: Java
-        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.1/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.4/index.html
       - name: JavaScript
-        href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.1/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.3/index.html
   - name: Azure Form Recognizer REST API v2.1
     items:
     - name: REST API v2.1 reference

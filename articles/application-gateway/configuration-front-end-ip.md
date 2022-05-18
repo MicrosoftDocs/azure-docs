@@ -2,7 +2,7 @@
 title: Azure Application Gateway front-end IP address configuration
 description: This article describes how to configure the Azure Application Gateway front-end IP address.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020

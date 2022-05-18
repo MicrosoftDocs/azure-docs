@@ -113,7 +113,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. If you're using Node.js 16, also change `--runtime-version` to `16`.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. If you're using Node.js 16, also change `--runtime-version` to `16`.
 
     # [Azure PowerShell](#tab/azure-powershell)
 

@@ -206,7 +206,7 @@ For the example in this article, use the following two device registration IDs w
 
 # [Azure CLI](#tab/azure-cli)
 
-The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps#az_iot_dps_compute_device_key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
+The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps#az-iot-dps-compute-device-key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
 
 Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
 

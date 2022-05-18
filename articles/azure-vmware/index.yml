@@ -33,6 +33,8 @@ landingContent:
             url: concepts-api-management.md
           - text: Hub and spoke
             url: concepts-hub-and-spoke.md
+          - text: Network design considerations
+            url: concepts-network-design-considerations.md
           - text: Networking and interconnectivity
             url: concepts-networking.md
           - text: Private clouds and clusters
@@ -154,8 +156,6 @@ landingContent:
             url: integrate-azure-native-services.md
           - text: Integrate Microsoft Defender for Cloud
             url: azure-security-integration.md
-          - text: Integrate Azure NetApp Files
-            url: netapp-files-with-azure-vmware-solution.md
           - text: Protect web apps with Azure Application Gateway
             url: protect-azure-vmware-solution-with-application-gateway.md
           - text: Deploy Traffic Manager to balance workloads
@@ -164,6 +164,8 @@ landingContent:
             url: configure-alerts-for-azure-vmware-solution.md
           - text: Attach disk pools to Azure VMware Solution hosts
             url: attach-disk-pools-to-azure-vmware-solution-hosts.md
+          - text: Attach Azure NetApp Files to Azure VMware Solution VMs
+            url: netapp-files-with-azure-vmware-solution.md
 
 # card 6 == backup and restore
   - title: Backup with Azure Backup Server
@@ -188,6 +190,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Configure HCX network extension
+            url: configure-hcx-network-extension.md
+          - text: Configure HCX network extension high availability
+            url: configure-hcx-network-extension-high-availability.md
           - text: Configure vRealize Operations
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon
@@ -206,6 +212,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: Operating system support for VMs
+            url: ecosystem-os-vms.md
           - text: Backup solutions for VMs
             url: ecosystem-back-up-vms.md
           - text: Migration solutions for VMs

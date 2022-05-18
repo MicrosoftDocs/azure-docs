@@ -3,7 +3,7 @@ title: Statsbeat in Azure Application Insights | Microsoft Docs
 description: Statistics about Application Insights SDKs and Auto-Instrumentation
 ms.topic: conceptual
 ms.date: 09/20/2021
-
+ms.custom: references_regions
 ---
 
 # Statsbeat in Azure Application Insights
@@ -55,6 +55,8 @@ N/A
 
 N/A
 
+---
+
 ### Essential Statsbeat
 
 #### Network Statsbeat
@@ -68,6 +70,7 @@ N/A
 |Throttle Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`|
 |Exception Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`|
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 #### Attach Statsbeat
 
 |Metric Name|Unit|Supported dimensions|

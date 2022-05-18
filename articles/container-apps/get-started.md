@@ -5,9 +5,10 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 03/21/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Deploy your first container app
@@ -32,8 +33,6 @@ To create the environment, run the following command:
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
   --location $LOCATION
 ```
 
@@ -43,8 +42,6 @@ az containerapp env create \
 az containerapp env create `
   --name $CONTAINERAPPS_ENVIRONMENT `
   --resource-group $RESOURCE_GROUP `
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
   --location $LOCATION
 ```
 
@@ -64,7 +61,7 @@ az containerapp create \
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
   --target-port 80 \
   --ingress 'external' \
-  --query configuration.ingress.fqdn
+  --query properties.configuration.ingress.fqdn
 ```
 
 # [PowerShell](#tab/powershell)
@@ -77,7 +74,7 @@ az containerapp create `
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
   --target-port 80 `
   --ingress 'external' `
-  --query configuration.ingress.fqdn
+  --query properties.configuration.ingress.fqdn
 ```
 
 ---

@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Link an Azure Machine Learning workspace'
 description: Link your Synapse workspace to an Azure Machine Learning workspace
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart

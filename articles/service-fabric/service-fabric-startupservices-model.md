@@ -124,7 +124,7 @@ Sample StartupServices.xml file
 </StartupServicesManifest>
 ```
 
-The startupServices.xml feature is enabled for all new project in SDK version 5.0.516.9590 and above. For actor services, this is enabled in Microsoft.ServiceFabric.Actors NuGet version 5.0.516 and above. Projects created with older version of SDK are are fully backward compatible with latest SDK. Migration of old projects into new design is not supported. If user wants to create an Service Fabric Application without StartupServices.xml in newer version of SDK, user should click on "Help me choose a project template" link as shown in picture below.
+The startupServices.xml feature is enabled for all new project in SF SDK version 5.0.516.9590 and above. Projects created with older version of SDK are are fully backward compatible with latest SDK. Migration of old projects into new design is not supported. If user wants to create an Service Fabric Application without StartupServices.xml in newer version of SDK, user should click on "Help me choose a project template" link as shown in picture below.
 
 ![Create New Application option in New Design][create-new-project]
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 04/06/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -31,6 +31,8 @@ Bringing your devices to Azure AD maximizes user productivity through single sig
 - (**For federated domains**) At least Windows Server 2012 R2 with Active Directory Federation Services installed.
 - Users can register their devices with Azure AD. More information about this setting can be found under the heading **Configure device settings**, in the article, [Configure device settings](device-management-azure-portal.md#configure-device-settings).
 
+### Network connectivity requirements
+
 Hybrid Azure AD join requires devices to have access to the following Microsoft resources from inside your organization's network:  
 
 - `https://enterpriseregistration.windows.net`
@@ -42,14 +44,14 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 > [!WARNING]
 > If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to these URLs are excluded from TLS break-and-inspect. Failure to exclude these URLs may cause interference with client certificate authentication, cause issues with device registration, and device-based Conditional Access.
 
-If your organization requires access to the internet via an outbound proxy, you can use [Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v=technet.10)) to enable Windows 10 computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)).
+If your organization requires access to the internet via an outbound proxy, you can use [Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v=technet.10)) to enable Windows 10 or newer computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)).
 
 If you don't use WPAD, you can configure WinHTTP proxy settings on your computer with a Group Policy Object (GPO) beginning with Windows 10 1709. For more information, see [WinHTTP Proxy Settings deployed by GPO](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > If you configure proxy settings on your computer by using WinHTTP settings, any computers that can't connect to the configured proxy will fail to connect to the internet.
 
-If your organization requires access to the internet via an authenticated outbound proxy, make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration by using machine context, configure outbound proxy authentication by using machine context. Follow up with your outbound proxy provider on the configuration requirements.
+If your organization requires access to the internet via an authenticated outbound proxy, make sure that your Windows 10 or newer computers can successfully authenticate to the outbound proxy. Because Windows 10 or newer computers run device registration by using machine context, configure outbound proxy authentication by using machine context. Follow up with your outbound proxy provider on the configuration requirements.
 
 Verify devices can access the required Microsoft resources under the system account by using the [Test Device Registration Connectivity](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) script.
 
@@ -103,7 +105,7 @@ Configure hybrid Azure AD join by using Azure AD Connect for a federated environ
 1. On the **Device options** page, select **Configure Hybrid Azure AD join**, and then select **Next**.
 1. On the **SCP** page, complete the following steps, and then select **Next**:
    1. Select the forest.
-   1. Select the authentication service. You must select **AD FS server** unless your organization has exclusively Windows 10 clients and you have configured computer/device sync, or your organization uses seamless SSO.
+   1. Select the authentication service. You must select **AD FS server** unless your organization has exclusively Windows 10 or newer clients and you have configured computer/device sync, or your organization uses seamless SSO.
    1. Select **Add** to enter the enterprise administrator credentials.
    
    ![Azure AD Connect SCP configuration federated domain](./media/howto-hybrid-azure-ad-join/azure-ad-connect-scp-configuration-federated.png)
@@ -139,6 +141,7 @@ If you experience issues with completing hybrid Azure AD join for domain-joined 
 - [Troubleshooting devices using dsregcmd command](./troubleshoot-device-dsregcmd.md)
 - [Troubleshoot hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md)
 - [Troubleshoot hybrid Azure AD join for Windows downlevel devices](troubleshoot-hybrid-join-windows-legacy.md)
+- [Troubleshoot pending device state](/troubleshoot/azure/active-directory/pending-devices)
 
 ## Next steps
 

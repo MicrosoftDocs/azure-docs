@@ -7,7 +7,7 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 11/16/2021
-ms.custom: mode-other
+ms.custom: mode-other, contperf-fy22q3
 zone_pivot_groups: iot-develop-nxp-toolset
 
 # Owner: timlt
@@ -496,6 +496,9 @@ Select **About** tab from the device page.
 :::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mcuxpresso"
 :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-device-about-iar.png" alt-text="Screenshot of NXP device information in IoT Central.":::
 :::zone-end
+
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
 
 ## Troubleshoot and debug
 

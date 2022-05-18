@@ -6,7 +6,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 02/24/2022
 ms.author: banders
 ---
 
@@ -64,7 +64,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     # [PowerShell](#tab/azure-powershell)
 
-    Use the [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, right-click the shell windows, and the select **Paste**.
+    Use the [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, select and hold (or right-click) the shell windows, and the select **Paste**.
 
     ```azurepowershell-interactive
     Get-AzEnrollmentAccount
@@ -82,7 +82,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     # [Azure CLI](#tab/azure-cli)
 
-    Use the [az billing enrollment-account list](/cli/azure/billing) command to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, right-click the shell windows, and the select **Paste**.
+    Use the [az billing enrollment-account list](/cli/azure/billing) command to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, select and hold (or right-click) the shell windows, and the select **Paste**.
 
     ```azurecli-interactive
     az billing enrollment-account list
@@ -131,7 +131,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     {
       "properties": {
-        "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
+        "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
         "principalId": "<userObjectId>"
       }
     }

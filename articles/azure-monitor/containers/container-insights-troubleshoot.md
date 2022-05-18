@@ -18,12 +18,9 @@ During the onboarding or update process, granting the **Monitoring Metrics Publi
 
 You can also manually grant this role from the Azure portal by performing the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Kubernetes**. As you begin typing, the list filters based on your input. Select **Azure Kubernetes**.
-3. In the list of Kubernetes clusters, select one from the list.
-2. From the left-hand menu, click **Access control (IAM)**.
-3. Select **+ Add** to add a role assignment and select the **Monitoring Metrics Publisher** role and under the **Select** box type **AKS** to filter the results on just the clusters service principals defined in the subscription. Select the one from the list that is specific to that cluster.
-4. Select **Save** to finish assigning the role.
+1. Assign the **Publisher** role to the **Monitoring Metrics** scope.
+
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). 
 
 ## Container insights is enabled but not reporting any information
 

@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2020
 ms.custom: ignite-fall-2021
 ---

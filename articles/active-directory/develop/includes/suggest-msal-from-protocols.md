@@ -2,7 +2,7 @@
 title: Prefer MSAL | Azure
 description: Include file indicating that it's best to use MSAL. 
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: include
 ms.date: 11/17/2020
-ms.author: hirsin
-ms.reviewer: hirsin
+ms.author: ludwignick
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ---
 

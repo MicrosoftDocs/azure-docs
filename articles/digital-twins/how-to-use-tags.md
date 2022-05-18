@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to implement marker and value tags on models and digital twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/5/2022
+ms.date: 02/24/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -27,7 +27,7 @@ Tags are first added as properties within the [model](concepts-models.md) that d
 
 ## Marker tags 
 
-A **marker tag** is a simple string that is used to mark or categorize a digital twin, such as "blue" or "red". This string is the tag's name, and marker tags have no meaningful value—the tag is significant just by its presence (or absence). 
+A *marker tag* is a simple string that is used to mark or categorize a digital twin, such as "blue" or "red". This string is the tag's name, and marker tags have no meaningful value—the tag is significant just by its presence (or absence). 
 
 ### Add marker tags to model 
 
@@ -85,7 +85,7 @@ You can also combine tags for more complex queries. Here's a query to get all tw
 
 ## Value tags 
 
-A **value tag** is a key-value pair that is used to give each tag a value, such as `"color": "blue"` or `"color": "red"`. Once a value tag is created, it can also be used as a marker tag by ignoring the tag's value. 
+A *value tag* is a key-value pair that is used to give each tag a value, such as `"color": "blue"` or `"color": "red"`. Once a value tag is created, it can also be used as a marker tag by ignoring the tag's value. 
 
 ### Add value tags to model 
 

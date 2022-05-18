@@ -35,7 +35,11 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: cli-samples.md
+    items:
+    - name: Overview
+      href: cli-samples.md
+    - name: Direct traffic across regions for HA
+      href: scripts/traffic-manager-cli-websites-high-availability.md
   - name: Azure PowerShell
     href: powershell-samples.md
 - name: Concepts
@@ -72,7 +76,11 @@
   - name: Configure performance routing in Traffic Manager
     href: traffic-manager-configure-performance-routing-method.md
   - name: Configure multivalue routing in Traffic Manager
-    href: traffic-manager-configure-multivalue-routing-method.md
+    items: 
+    - name: Portal
+      href: traffic-manager-configure-multivalue-routing-method.md
+    - name: ARM template
+      href: configure-multivalue-routing-method-template.md
   - name: Configure subnet routing in Traffic Manager
     href: traffic-manager-configure-subnet-routing-method.md
   - name: Send Real User Measurements to Traffic Manager

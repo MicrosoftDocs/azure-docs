@@ -115,7 +115,7 @@ After identifying stale manifest digests, you can run the following Bash script 
 > [!WARNING]
 > Use the following sample script with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not run these scripts. Deleting the manifest digests will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice](container-registry-image-tag-version.md). 
 
-```bash
+```azurecli
 #!/bin/bash
 
 # WARNING! This script deletes data!

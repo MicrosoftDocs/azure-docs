@@ -11,7 +11,8 @@ ms.date: 07/07/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account
@@ -264,10 +265,16 @@ To create a policy with an Audit effect for the minimum TLS version with the Azu
               "equals": "Microsoft.Storage/storageAccounts"
             },
             {
-              "not": {
-                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
-                "equals": "TLS1_2"
-              }
+                "anyOf": [
+                  {
+                    "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                    "notEquals": "TLS1_2"
+                  },
+                  {
+                    "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                    "exists": "false"
+                  }
+                ]
             }
           ]
         },
@@ -328,10 +335,16 @@ To create a policy with a Deny effect for a minimum TLS version that is less tha
           "equals": "Microsoft.Storage/storageAccounts"
         },
         {
-          "not": {
-            "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
-            "equals": "TLS1_2"
-          }
+            "anyOf": [
+              {
+                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                "notEquals": "TLS1_2"
+              },
+              {
+                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                "exists": "false"
+              }
+            ]
         }
       ]
     },

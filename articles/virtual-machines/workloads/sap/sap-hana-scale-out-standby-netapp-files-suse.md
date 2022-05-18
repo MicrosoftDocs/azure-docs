@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/06/2021
+ms.date: 05/10/2022
 ms.author: radeltch
 
 ---
@@ -22,7 +22,6 @@ ms.author: radeltch
 
 [anf-azure-doc]:/azure/azure-netapp-files/
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
@@ -73,7 +72,6 @@ Before you begin, refer to the following SAP notes and papers:
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 * [SUSE SAP HA Best Practice Guides][suse-ha-guide]: Contains all required information to set up NetWeaver High Availability and SAP HANA System Replication on-premises (to be used as a general baseline; they provide much more detailed information)
 * [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
-* [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 
 ## Overview
@@ -207,7 +205,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 The next instructions assume that you've already created the resource group, the Azure virtual network, and the three Azure virtual network subnets: `client`, `storage` and `hana`. When you deploy the VMs, select the client subnet, so that the client network interface is the primary interface on the VMs. You will also need to configure an explicit route to the Azure NetApp Files delegated subnet via the storage subnet gateway. 
 
 > [!IMPORTANT]
-> Make sure that the OS you select is SAP-certified for SAP HANA on the specific VM types you're using. For a list of SAP HANA certified VM types and OS releases for those types, go to the [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) site. Click into the details of the listed VM type to get the complete list of SAP HANA-supported OS releases for that type.  
+> Make sure that the OS you select is SAP-certified for SAP HANA on the specific VM types you're using. For a list of SAP HANA certified VM types and OS releases for those types, go to the [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120) site. Click into the details of the listed VM type to get the complete list of SAP HANA-supported OS releases for that type.  
 
 1. Create an availability set for SAP HANA. Make sure to set the max update domain.  
 
@@ -320,18 +318,15 @@ Configure and prepare your OS by doing the following steps:
 
     Reboot the VM to activate the changes.  
 
-3. **[A]** Prepare the OS for running SAP HANA on NetApp Systems with NFS, as described in [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]. Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
+3. **[A]** Prepare the OS for running SAP HANA on NetApp Systems with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
 
     <pre><code>
     vi /etc/sysctl.d/netapp-hana.conf
     # Add the following entries in the configuration file
     net.core.rmem_max = 16777216
     net.core.wmem_max = 16777216
-    net.core.rmem_default = 16777216
-    net.core.wmem_default = 16777216
-    net.core.optmem_max = 16777216
-    net.ipv4.tcp_rmem = 65536 16777216 16777216
-    net.ipv4.tcp_wmem = 65536 16777216 16777216
+    net.ipv4.tcp_rmem = 4096 131072 16777216
+    net.ipv4.tcp_wmem = 4096 16384 16777216
     net.core.netdev_max_backlog = 300000
     net.ipv4.tcp_slow_start_after_idle=0
     net.ipv4.tcp_no_metrics_save = 1
@@ -356,7 +351,7 @@ Configure and prepare your OS by doing the following steps:
 > [!TIP]
 > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more details see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
-4. **[A]** Adjust the sunrpc settings, as recommended in the [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].  
+4. **[A]** Adjust the sunrpc settings, as recommended in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).  
 
     <pre><code>
     vi /etc/modprobe.d/sunrpc.conf
@@ -481,7 +476,7 @@ Configure and prepare your OS by doing the following steps:
     sudo mount -a 
     </code></pre>
 
-10. **[A]** Verify that all HANA volumes are mounted with NFS protocol version **NFSv4**.  
+10. **[A]** Verify that all HANA volumes are mounted with NFS protocol version **NFSv4.1**.  
 
     <pre><code>
     sudo nfsstat -m
@@ -628,7 +623,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
    - `async_write_submit_active` **on**
    - `async_write_submit_blocks` **all**
 
-   For more information, see [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]. 
+   For more information, see [I/O stack configuration for SAP HANA](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_i_o_stack_configuration_for_sap_hana.html).  
 
    Starting with SAP HANA 2.0 systems, you can set the parameters in `global.ini`. For more information, see SAP Note [1999930](https://launchpad.support.sap.com/#/notes/1999930).  
    

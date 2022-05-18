@@ -163,7 +163,7 @@ The administrative role required to create, manage, or read an access review dep
 | Group or application| Global administrator <p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator (only does reviews for Azure AD role-assignable groups)<p>Group owner ([if enabled by an admin]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview))| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator<p>Security reader<p>Group owner ([if enabled by an admin]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview)) |
 |Azure AD roles| Global administrator <p>Privileged Role administrator|  Global administrator<p>Global reader<p>User administrator<p>Privileged Role administrator<p> <p>Security reader |
 | Azure resource roles| User Access Administrator (for the resource)<p>Resource owner| User Access Administrator (for the resource)<p>Resource owner<p>Reader (for the resource) |
-| Access package| Global administrator<p>User administrator<p>Identity Governance administrator| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p> <p>Security reader  |
+| Access package| Global administrator<p>User administrator<p>Identity Governance administrator<p>Catalog owner (for the access package)<p>Access package manager (for the access package)| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p>Catalog owner (for the access package)<p>Access package manager (for the access package)<p>Security reader  |
 
 For more information, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
 
@@ -319,7 +319,9 @@ To create access reviews for an application, set the **User assignment required?
 
  ![Screenshot that shows planning app assignments.](./media/deploy-access-review/6-plan-applications-assignment-required.png)
 
-Then [assign the users and groups](../manage-apps/assign-user-or-group-access-portal.md) that you want to have access.
+Then [assign the users and groups](../manage-apps/assign-user-or-group-access-portal.md) whose access you want to have reviewed.
+
+Read more about how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md).
 
 ### Reviewers for an application
 

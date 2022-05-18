@@ -43,7 +43,7 @@ You can use Visual Studio to produce an application package that contains multip
 
 ## Use Yeoman to package and deploy an existing executable on Linux
 
-The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application.
+The procedure for creating and deploying a guest executable on Linux is the same as deploying a C# or Java application.
 
 1. In a terminal, type `yo azuresfguest`.
 2. Name your application.

@@ -76,6 +76,10 @@ Output for this command will look similar to the following and specify whether a
 
 ## Log Analytics workspace
 VM insights requires a Log Analytics workspace. See [Configure Log Analytics workspace for VM insights](vminsights-configure-workspace.md) for details and requirements of this workspace.
+
+> [!NOTE]
+> VM Insights does not support sending data to more than one Log Analytics workspace (multi-homing).
+> 
 ## Agents
 When you enable VM insights for a machine, the following two agents are installed. See [Network requirements](../agents/log-analytics-agent.md#network-requirements) for the network requirements for these agents.
 

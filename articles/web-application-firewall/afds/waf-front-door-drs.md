@@ -5,12 +5,12 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 02/04/2022
+ms.date: 04/07/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
 
-Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
+Azure Front Door web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures. Default rule set also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
 
 ## Default rule sets
@@ -55,10 +55,8 @@ In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked
 |Warning      |3|
 |Notice       |2|
 
-There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic.
+There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ to learn what content types are supported for body inspection with different DRS versions.
 
-> [!NOTE]
-> Body inspection is only available on DRS 2.0
 
 ### DRS 2.0
 
@@ -113,9 +111,13 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |**[APPLICATION-ATTACK-RFI](#drs931-10)**|Protection against remote file inclusion attacks|
 |**[APPLICATION-ATTACK-RCE](#drs932-10)**|Protection against remote command execution|
 |**[APPLICATION-ATTACK-PHP](#drs933-10)**|Protect against PHP-injection attacks|
+|**[CROSS-SITE-SCRIPTING](#drs941-10)**|XSS - Cross-site Scripting|
 |**[APPLICATION-ATTACK-SQLI](#drs942-10)**|Protect against SQL-injection attacks|
 |**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-10)**|Protect against session-fixation attacks|
 |**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-10)**|Protect against JAVA attacks|
+|**[MS-ThreatIntel-WebShells](#drs9905-10)**|Protect against Web shell attacks|
+|**[MS-ThreatIntel-CVEs](#drs99001-10)**|Protect against CVE attacks|
+
 
 
 
@@ -361,6 +363,7 @@ Front Door.
 |99005002|Web Shell Interaction Attempt (POST)|
 |99005003|Web Shell Upload Attempt (POST) - CHOPPER PHP|
 |99005004|Web Shell Upload Attempt (POST) - CHOPPER ASPX|
+|99005006|Spring4Shell Interaction Attempt|
 
 ### <a name="drs9903-20"></a> MS-ThreatIntel-AppSec
 |RuleId|Description|
@@ -378,6 +381,9 @@ Front Door.
 |RuleId|Description|
 |---|---|
 |99001001|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
+|99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)
 
 # [DRS 1.1](#tab/drs11)
 
@@ -448,7 +454,7 @@ Front Door.
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
-|941140|XSS Filter - Category 4: Javascript URI Vector|
+|941140|XSS Filter - Category 4: JavaScript URI Vector|
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
@@ -540,6 +546,7 @@ Front Door.
 |99005002|Web Shell Interaction Attempt (POST)|
 |99005003|Web Shell Upload Attempt (POST) - CHOPPER PHP|
 |99005004|Web Shell Upload Attempt (POST) - CHOPPER ASPX|
+|99005006|Spring4Shell Interaction Attempt|
 
 ### <a name="drs9903-11"></a> MS-ThreatIntel-AppSec
 |RuleId|Description|
@@ -557,6 +564,9 @@ Front Door.
 |RuleId|Description|
 |---|---|
 |99001001|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
+|99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 
 # [DRS 1.0](#tab/drs10)
 
@@ -714,6 +724,19 @@ Front Door.
 |944210|Possible use of Java serialization|
 |944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
+
+### <a name="drs9905-10"></a> MS-ThreatIntel-WebShells
+|RuleId|Description|
+|---|---|
+|99005006|Spring4Shell Interaction Attempt|
+
+### <a name="drs99001-10"></a> MS-ThreatIntel-CVEs
+|RuleId|Description|
+|---|---|
+|99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+
 
 # [Bot rules](#tab/bot)
 

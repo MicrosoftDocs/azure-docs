@@ -81,17 +81,13 @@ Install IoT Edge for Linux on Windows on your target device.
 # [Windows Admin Center](#tab/windowsadmincenter)
 
 >[!NOTE]
->The Azure IoT Edge extension for Windows Admin Center is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Installation and management processes may be different than for generally available features.
+>The Azure IoT Edge extension for Windows Admin Center is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The management process may be different than for generally available features.
 
-Install Azure IoT Edge for Linux on Windows on your device.
-
-1. Download the [Azure IoT Edge for Linux on Windows installer](https://aka.ms/AzEflowMSI).
-
-1. Once you have installed Azure IoT Edge for Linux on Windows, open Windows Admin Center.
+1. [Install](https://www.microsoft.com/evalcenter/evaluate-windows-admin-center) and open Windows Admin Center.
 
    On the Windows Admin Center start page, under the list of connections, you will see a local host connection representing the PC where you are running Windows Admin Center. Any additional servers, PCs, or clusters that you manage will also show up here.
 
-   You can use Windows Admin Center to install and manage Azure IoT Edge for Linux on Windows on either your local device or remote managed devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
+   You can use Windows Admin Center to manage Azure IoT Edge for Linux on Windows on either your local device or remote managed devices. In this guide, the local host connection will serve as the target device for the deployment of Azure IoT Edge for Linux on Windows.
 
 1. Confirm that your local device is listed under **All connections**, like shown below.
 
@@ -126,7 +122,7 @@ Install Azure IoT Edge for Linux on Windows on your device.
    | Setting | Default value |
    | ------- | ------------- |
    | Virtual disk size in GB | 16 |
-   | Memory in MB | 1024 |
+   | Memory in MB **(even number)** | 1024 |
    | Number of cores | 2 |
    | Azure IoT Edge version | 1.1 (LTS) |
 

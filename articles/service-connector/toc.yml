@@ -31,6 +31,8 @@ items:
     href: tutorial-java-spring-mysql.md
   - name: Spring Cloud app with Kafka on Confluent Cloud
     href: tutorial-java-spring-confluent-kafka.md
+  - name: Web app with App Configuration
+    href: tutorial-connect-web-app-app-configuration.md
 - name: Concepts
   expanded: true
   items:
@@ -62,6 +64,12 @@ items:
       href: how-to-integrate-key-vault.md
     - name: Azure Cache for Redis
       href: how-to-integrate-redis-cache.md
+    - name: Azure Service Bus
+      href: how-to-integrate-service-bus.md
+    - name: Azure Event Hubs
+      href: how-to-integrate-event-hubs.md
+    - name: Azure App Configuration
+      href: how-to-integrate-app-configuration.md
     - name: Azure SignalR Service
       href: how-to-integrate-signalr.md
     - name: Apache Kafka on Confluent Cloud
@@ -73,7 +81,7 @@ items:
 - name: Reference
   expanded: true
   items:
-  - name: Rest API
+  - name: REST API
     href: /rest/api/serviceconnector
   - name: Python SDK
-    href: /python/api/overview/azure/
+    href: /python/api/azure-mgmt-servicelinker/

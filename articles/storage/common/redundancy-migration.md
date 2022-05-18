@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/28/2022
+ms.date: 02/28/2022
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
@@ -43,10 +43,12 @@ The following table provides an overview of how to switch from each type of repl
 <sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier.<br />
 <sup>3</sup> Live migration is supported for standard general-purpose v2 and premium file share storage accounts. Live migration is not supported for premium block blob or page blob storage accounts.<br />
 <sup>4</sup> After an account failover to the secondary region, it's possible to initiate a fail back from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, see [Use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary). <br />
-<sup>5</sup> Migrating from LRS to ZRS is not supported if the storage account contains Azure Files NFSv4.1 shares. <br />
+<sup>5</sup> Migrating from LRS to ZRS is not supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares. <br />
 
 > [!CAUTION]
 > If you performed an [account failover](storage-disaster-recovery-guidance.md) for your (RA-)GRS or (RA-)GZRS account, the account is locally redundant (LRS) in the new primary region after the failover. Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of so-called failback operations. For example, if you perform an account failover from RA-GZRS to the LRS in the secondary region, and then configure it again to RA-GRS and perform another account failover to the original primary region, you can't contact support for the original live migration to RA-GZRS in the primary region. Instead, you'll need to perform a manual migration to ZRS or GZRS.
+
+To change the redundancy configuration for a storage account that contains blobs in the Archive tier, you must first rehydrate all archived blobs to the Hot or Cool tier. Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs if at all possible, because rehydration operations can be costly and time-consuming.
 
 ## Change the replication setting
 
@@ -76,7 +78,7 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
 
 # [Azure CLI](#tab/azure-cli)
 
-To change the redundancy option for your storage account with Azure CLI, call the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and specify the `--sku` parameter:
+To change the redundancy option for your storage account with Azure CLI, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and specify the `--sku` parameter:
 
 ```azurecli-interactive
 az storage account update \

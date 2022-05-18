@@ -1,8 +1,8 @@
 ---
 title: Security overview - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Information protection and network security for Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
@@ -37,7 +37,7 @@ disabled.
 
 ## Limits and limitations
 
-See Hyperscale (Citus) [limits and limitations](concepts-limits.md)
+See Hyperscale (Citus) [limits and limitations](reference-limits.md)
 page.
 
 ## Next steps

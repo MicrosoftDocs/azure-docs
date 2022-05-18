@@ -4,11 +4,10 @@ metadata:
   description: Read about common errors and questions when configuring commercial marketplace leads in Partner Center 
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
-  ms.topic: conceptual
-  author: keferna
-  ms.author: keferna
+  ms.topic: faq
+  author: durior1
+  ms.author: uridor
   ms.date: 12/03/2021
-    
 title: Common questions and troubleshooting for lead configuration
 summary: |
   This article answers some common questions about lead management for your commercial marketplace offers. It also addresses errors you might encounter when configuring leads to your customer relationship management (CRM) system in Partner Center.
@@ -41,7 +40,6 @@ sections:
           | Managed Service | Yes |
           | Power BI App | No |
           | Power BI Visual | No |
-          |||
 
       - question: |
           How can I find the test lead?

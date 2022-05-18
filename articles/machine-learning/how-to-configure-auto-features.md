@@ -2,8 +2,8 @@
 title: Featurization with automated machine learning
 titleSuffix: Azure Machine Learning
 description: Learn the data featurization settings in Azure Machine Learning and how to customize those features for your automated ML experiments.
-author: nibaccam
-ms.author: nibaccam
+author: blackmist
+ms.author: larryfr
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
@@ -128,7 +128,7 @@ Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 
 You can customize your featurization settings to ensure that the data and features that are used to train your ML model result in relevant predictions.
 
-To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization). To customize featurization for forecastings task types, refer to the [forecasting how-to](how-to-auto-train-forecast.md#customize-featurization).
+To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization). To customize featurization for forecastings task types, refer to the [forecasting how-to](how-to-auto-train-forecast.md#customize-featurization).
 
 Supported customizations include:
 
@@ -325,16 +325,17 @@ If the underlying model does not support the `predict_proba()` function or the f
 
 ## BERT integration in automated ML
 
-[BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) is used in the featurization layer of AutoML. In this layer, if a column contains free text or other types of data like timestamps or simple numbers, then featurization is applied accordingly.
+[BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) is used in the featurization layer of automated ML. In this layer, if a column contains free text or other types of data like timestamps or simple numbers, then featurization is applied accordingly.
 
 For BERT, the model is fine-tuned and trained utilizing the user-provided labels. From here, document embeddings are output as features alongside others, like timestamp-based features, day of week. 
 
+Learn how to [set up natural language processing (NLP) experiments that also use BERT with automated ML](how-to-auto-train-nlp-models.md).
 
 ### Steps to invoke BERT
 
 In order to invoke BERT, set  `enable_dnn: True` in your automl_settings and use a GPU compute (`vm_size = "STANDARD_NC6"` or a higher GPU). If a CPU compute is used, then instead of BERT, AutoML enables the BiLSTM DNN featurizer.
 
-AutoML takes the following steps for BERT. 
+Automated ML takes the following steps for BERT. 
 
 1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
 

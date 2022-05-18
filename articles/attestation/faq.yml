@@ -5,11 +5,9 @@ metadata:
   services: attestation
   author: msmbaldwin
   ms.service: attestation
-  ms.topic: reference
+  ms.topic: faq
   ms.date: 07/20/2020
   ms.author: mbaldwin
-  
-    
 title: Frequently asked questions for Microsoft Azure Attestation
 summary: |
   This article provides answers to some of the most common questions about [Azure Attestation](overview.md).

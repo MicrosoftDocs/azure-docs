@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/18/2021
+ms.date: 03/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -274,7 +274,7 @@ Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 
 ## Add Facebook as an identity provider
 
-The **SocialAndLocalAccounts** starter pack includes Facebook social sign in. Facebook is *not* required for using custom policies, but we use it here to demonstrate how you can enable federated social login in a custom policy.
+The **SocialAndLocalAccounts** starter pack includes Facebook social sign in. Facebook is *not* required for using custom policies, but we use it here to demonstrate how you can enable federated social login in a custom policy. If you don't need to enable federated social login, use the **LocalAccounts** starter pack instead, and skip [Add Facebook as an identity provider](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-facebook-as-an-identity-provider) section. 
 
 ### Create Facebook application
 

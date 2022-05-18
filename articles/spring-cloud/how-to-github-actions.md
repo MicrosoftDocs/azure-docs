@@ -1,6 +1,6 @@
 ---
-title:  Azure Spring Cloud CI/CD with GitHub Actions
-description: How to build up CI/CD workflow for Azure Spring Cloud with GitHub Actions
+title: Use Azure Spring Cloud CI/CD with GitHub Actions
+description: How to build up a CI/CD workflow for Azure Spring Cloud with GitHub Actions
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -10,7 +10,11 @@ ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Azure Spring Cloud CI/CD with GitHub Actions
+# Use Azure Spring Cloud CI/CD with GitHub Actions
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to build up a CI/CD workflow for Azure Spring Cloud with GitHub Actions.
 
 GitHub Actions support an automated software development lifecycle workflow. With GitHub Actions for Azure Spring Cloud you can create workflows in your repository to build, test, package, release, and deploy to Azure.
 
@@ -221,7 +225,7 @@ jobs:
     runs-on: ubuntu-latest
     name: deploy to production with artifact
     steps:
-      - name: Checkout Github Action
+      - name: Checkout GitHub Action
         uses: actions/checkout@v2
         
       - name: Set up JDK 1.8
@@ -263,7 +267,7 @@ jobs:
     runs-on: ubuntu-latest
     name: deploy to production with soruce code
     steps:
-      - name: Checkout Github Action
+      - name: Checkout GitHub Action
         uses: actions/checkout@v2
 
       - name: Login via Azure CLI
@@ -284,7 +288,7 @@ jobs:
 
 #### Blue-green
 
-The following examples deploy to an existing staging deployment. This deployment will not receive production traffic until it is set as a production deployment. You can set use-staging-deployment true to find the staging deployment automatically or just allocate specific deployment-name. We will only focus on the spring-cloud-deploy action and leave out the preparatory jobs in the rest of the article.
+The following examples deploy to an existing staging deployment. This deployment won't receive production traffic until it is set as a production deployment. You can set use-staging-deployment true to find the staging deployment automatically or just allocate specific deployment-name. We will only focus on the spring-cloud-deploy action and leave out the preparatory jobs in the rest of the article.
 
 ```yml
 # environment preparation configurations omitted
@@ -401,5 +405,5 @@ If your action runs in error, for example, if you haven't set the Azure credenti
 ## Next steps
 
 * [Key Vault for Spring Cloud GitHub actions](./github-actions-key-vault.md)
-* [Azure Active Directory service principals](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
+* [Azure Active Directory service principals](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)

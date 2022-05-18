@@ -4,12 +4,10 @@ metadata:
   description: Find answer to common questions about Azure IoT Hub Device Provisioning Service.
   author: kgremban
   ms.author: kgremban
-  ms.date: 11/08/2021
-  ms.topic: conceptual
+  ms.date: 03/01/2022
+  ms.topic: faq
   ms.service: iot-dps
   services: iot-dps
-  
-    
 title: Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ)
 summary: |
   This article answers to common questions about Azure IoT Hub Device Provisioning Service. The following topics are covered:
@@ -31,9 +29,22 @@ sections:
         answer: |
          You can create a disabled individual enrollment entry for the device. To learn more, see [How to disenroll a device from Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
       - question: |
-         Can I use a WHERE clause to filer results when querying individual enrollments or enrollment groups? 
+         Can I use a WHERE clause to filter results when querying individual enrollments or enrollment groups? 
         answer: |
          Filtering results with a `WHERE` clause is not supported at this time. You can use `SELECT *` to return paged results for all the individual enrollments or enrollment groups in a DPS instance.
+      - question: |
+         How does the health of an IoT hub affect device provisioning? 
+        answer: |
+         Currently DPS doesn't check the health of an IoT hub before assigning devices. DPS will continue to try to assign devices to an IoT hub that is down based on its configured allocation policy. For example, if the configured allocation policy is *Lowest latency* and DPS has a linked IoT hub in region A (hub A) and one in region B (hub B), it will assign a device trying to provision from region A to hub A, even if hub A is down. To factor in IoT hub health when provisioning devices, you can implement a custom allocation policy with your own monitoring logic based on [IoT Hub diagnostics](../iot-hub/monitor-iot-hub.md) or your own user-defined metrics. To learn more about custom allocation policies, see [How to use custom allocation policies](how-to-use-custom-allocation-policies.md).
+      - question: |
+         Can multiple DPS instances provision devices to the same IoT hub? 
+        answer: |
+         Yes; however, built-in allocation policies apply to each DPS instance individually, so load balancing across multiple IoT hubs is not possible when using the built-in DPS policies. Instead, you can use a custom allocation policy to implement load balancing when using multiple DPS instances. To learn more about custom allocation policies, see [How to use custom allocation policies](how-to-use-custom-allocation-policies.md).
+      - question: |
+         How can I get an authorization token to use for REST service operations? 
+        answer: |
+         For information about how to get an authorization token for REST service operations like [Create or Update Enrollment Group](/rest/api/iot-dps/service/enrollment-group/create-or-update) and [Get Device Registration State](/rest/api/iot-dps/service/device-registration-state/get), see [Service API authentication](how-to-control-access.md#service-api-authentication).
+
   - name: DPS Billing
     questions:
       - question: |

@@ -15,15 +15,16 @@ ms.custom: mvc
 
 Azure Maps integrates with Azure Event Grid, so that users can send event notifications to other services and trigger downstream processes. The purpose of this article is to help you configure your business applications to listen to Azure Maps events. This allows users to react to critical events in a reliable, scalable, and secure manner. For example, users can build an application to update a database, create a ticket, and deliver an email notification, every time a device enters a geofence.
 
-Azure Event Grid is a fully managed event routing service, which uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../azure-functions/functions-overview.md). It can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](../event-grid/overview.md).
+> [!NOTE]
+> The Geofence API async event requires the region property of your Azure Maps account be set to ***Global***. When creating an Azure Maps account in the Azure portal, this isn't given as an option. For more information, see [Create an Azure Maps account with a global region](tutorial-geofence.md#create-an-azure-maps-account-with-a-global-region).
 
+Azure Event Grid is a fully managed event routing service, which uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../azure-functions/functions-overview.md). It can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](../event-grid/overview.md).
 
 ![Azure Event Grid functional model](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
 
-
 ## Azure Maps events types
 
-Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. An Azure Maps account emits the following event types: 
+Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. An Azure Maps account emits the following event types:
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -68,6 +69,7 @@ The following example shows the schema for GeofenceResult:
 
 Applications that handle Azure Maps geofence events should follow a few recommended practices:
 
+* The Geofence API async event requires the region property of your Azure Maps account be set to ***Global***. When creating an Azure Maps account in the Azure portal, this isn't given as an option. For more information, see [Create an Azure Maps account with a global region](tutorial-geofence.md#create-an-azure-maps-account-with-a-global-region).
 * Configure multiple subscriptions to route events to the same event handler. It's important not to assume that events are from a particular source. Always check the message topic to ensure that the message came from the source that you expect.
 * Use the `X-Correlation-id` field in the response header to understand if your information about objects is up to date. Messages can arrive out of order or after a delay.
 * When a GET or a POST request in the Geofence API is called with the mode parameter set to `EnterAndExit`, then an Enter or Exit event is generated for each geometry in the geofence for which the status has changed from the previous Geofence API call.

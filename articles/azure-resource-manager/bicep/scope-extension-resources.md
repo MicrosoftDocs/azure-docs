@@ -2,7 +2,7 @@
 title: Scope on extension resource types (Bicep)
 description: Describes how to use the scope property when deploying extension resource types with Bicep.
 ms.topic: conceptual
-ms.date: 02/07/2022
+ms.date: 02/11/2022
 ---
 
 # Set scope for extension resources in Bicep
@@ -52,9 +52,6 @@ param principalId string
 @description('Built-in role to assign')
 param builtInRoleType string
 
-@description('The role assignment name')
-param roleNameGuid string
-
 var role = {
   Owner: '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635'
   Contributor: '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c'
@@ -62,7 +59,7 @@ var role = {
 }
 
 resource roleAssignSub 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
-  name: roleNameGuid
+  name: guid(subscription().id, principalId, role[builtInRoleType])
   properties: {
     roleDefinitionId: role[builtInRoleType]
     principalId: principalId
@@ -88,8 +85,6 @@ param principalId string
 @description('Built-in role to assign')
 param builtInRoleType string
 
-@description('A new GUID used to identify the role assignment')
-param roleNameGuid string = newGuid()
 param location string = resourceGroup().location
 
 var role = {
@@ -110,7 +105,7 @@ resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2019-04-01' = {
 }
 
 resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
-  name: roleNameGuid
+  name: guid(demoStorageAcct.id, principalId, role[builtInRoleType])
   properties: {
     roleDefinitionId: role[builtInRoleType]
     principalId: principalId

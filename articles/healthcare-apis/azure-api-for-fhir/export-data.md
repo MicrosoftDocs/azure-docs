@@ -1,12 +1,12 @@
 ---
 title: Executing the export by invoking $export command on Azure API for FHIR
 description: This article describes how to export FHIR data using $export for Azure API for FHIR
-author: caitlinv39
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/26/2022
-ms.author: cavoeg
+ms.date: 02/15/2022
+ms.author: mikaelw
 ---
 
 # How to export FHIR data in Azure API for FHIR
@@ -22,7 +22,7 @@ After configuring the Azure API for FHIR for export, you can use the $export com
 
 **Jobs stuck in a bad state**
 
-In some situations, there’s a potential for a job to be stuck in a bad state. This can occur especially if the storage account permissions haven’t been set up properly. One way to validate if your export is successful is to check your storage account to see if the corresponding container (that is, `ndjson`) files are present. If they aren’t present, and there are no other export jobs running, then there’s a possibility the current job is stuck in a bad state. You should cancel the export job by sending a cancellation request and try re-queuing the job again. Our default run time for an export in bad state is 10 minutes before it will stop and move to a new job or retry the export. 
+In some situations, there’s a potential for a job to be stuck in a bad state. This can occur especially if the storage account permissions haven’t been set up properly. One way to validate if your export is successful is to check your storage account to see if the corresponding container (that is, `ndjson`) files are present. If they aren’t present, and there are no other export jobs running, then there’s a possibility the current job is stuck in a bad state. You should cancel the export job by sending a cancellation request and try requeuing the job again. Our default run time for an export in bad state is 10 minutes before it will stop and move to a new job or retry the export. 
 
 The Azure API For FHIR supports $export at the following levels:
 * [System](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---system-level-export): `GET https://<<FHIR service base URL>>/$export>>`

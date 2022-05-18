@@ -1,8 +1,8 @@
 ---
 title: Modify distributed tables - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: SQL commands to create and modify distributed tables - Hyperscale (Citus) using the Azure portal
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
@@ -41,12 +41,10 @@ SELECT create_distributed_table('github_events', 'repo_id');
 ```
 
 The function call informs Hyperscale (Citus) that the github\_events table
-should be distributed on the repo\_id column (by hashing the column value). The
-function also creates shards on the worker nodes using the citus.shard\_count
-and citus.shard\_replication\_factor configuration values.
+should be distributed on the repo\_id column (by hashing the column value).
 
-It creates a total of citus.shard\_count number of shards, where each shard
-owns a portion of a hash space and gets replicated based on the default
+It creates a total of 32 shards by default, where each shard owns a portion of
+a hash space and gets replicated based on the default
 citus.shard\_replication\_factor configuration value. The shard replicas
 created on the worker have the same table schema, index, and constraint
 definitions as the table on the coordinator. Once the replicas are created, the
@@ -109,13 +107,6 @@ In addition to distributing a table as a single replicated shard, the
 commits ([2PC](https://en.wikipedia.org/wiki/Two-phase_commit_protocol)) for
 modifications to tables marked this way, which provides strong consistency
 guarantees.
-
-If you have a distributed table with a shard count of one, you can upgrade it
-to be a recognized reference table like this:
-
-```postgresql
-SELECT upgrade_to_reference_table('table_name');
-```
 
 For another example of using reference tables, see the [multi-tenant database
 tutorial](tutorial-design-database-multi-tenant.md).
@@ -245,8 +236,6 @@ Attempting to run DDL that is ineligible for automatic propagation will raise
 an error and leave tables on the coordinator node unchanged.
 
 Here is a reference of the categories of DDL statements that propagate.
-Automatic propagation can be enabled or disabled with a [configuration
-parameter](reference-parameters.md#citusenable_ddl_propagation-boolean)
 
 ### Adding/Modifying Columns
 

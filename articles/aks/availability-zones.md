@@ -4,7 +4,7 @@ description: Learn how to create a cluster that distributes nodes across availab
 services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
-ms.date: 12/10/2021
+ms.date: 03/31/2022
 
 ---
 
@@ -39,6 +39,7 @@ AKS clusters can currently be created using availability zones in the following 
 * North Europe
 * Norway East
 * Southeast Asia
+* South Africa North
 * South Central US
 * Sweden Central
 * UK South
@@ -114,21 +115,21 @@ First, get the AKS cluster credentials using the [az aks get-credentials][az-aks
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Next, use the [kubectl describe][kubectl-describe] command to list the nodes in the cluster and filter on the *failure-domain.beta.kubernetes.io/zone* value. The following example is for a Bash shell.
+Next, use the [kubectl describe][kubectl-describe] command to list the nodes in the cluster and filter on the `topology.kubernetes.io/zone` value. The following example is for a Bash shell.
 
 ```console
-kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
+kubectl describe nodes | grep -e "Name:" -e "topology.kubernetes.io/zone"
 ```
 
 The following example output shows the three nodes distributed across the specified region and availability zones, such as *eastus2-1* for the first availability zone and *eastus2-2* for the second availability zone:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
-            failure-domain.beta.kubernetes.io/zone=eastus2-1
+            topology.kubernetes.io/zone=eastus2-1
 Name:       aks-nodepool1-28993262-vmss000001
-            failure-domain.beta.kubernetes.io/zone=eastus2-2
+            topology.kubernetes.io/zone=eastus2-2
 Name:       aks-nodepool1-28993262-vmss000002
-            failure-domain.beta.kubernetes.io/zone=eastus2-3
+            topology.kubernetes.io/zone=eastus2-3
 ```
 
 As you add additional nodes to an agent pool, the Azure platform automatically distributes the underlying VMs across the specified availability zones.
@@ -150,7 +151,7 @@ aks-nodepool1-34917322-vmss000002   eastus   eastus-3
 
 ## Verify pod distribution across zones
 
-As documented in [Well-Known Labels, Annotations and Taints][kubectl-well_known_labels], Kubernetes uses the `failure-domain.beta.kubernetes.io/zone` label to automatically distribute pods in a replication controller or service across the different zones available. In order to test this, you can scale up your cluster from 3 to 5 nodes, to verify correct pod spreading:
+As documented in [Well-Known Labels, Annotations and Taints][kubectl-well_known_labels], Kubernetes uses the `topology.kubernetes.io/zone` label to automatically distribute pods in a replication controller or service across the different zones available. In order to test this, you can scale up your cluster from 3 to 5 nodes, to verify correct pod spreading:
 
 ```azurecli-interactive
 az aks scale \
@@ -159,19 +160,19 @@ az aks scale \
     --node-count 5
 ```
 
-When the scale operation completes after a few minutes, the command `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` in a Bash shell should give an output similar to this sample:
+When the scale operation completes after a few minutes, the command `kubectl describe nodes | grep -e "Name:" -e "topology.kubernetes.io/zone"` in a Bash shell should give an output similar to this sample:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
-            failure-domain.beta.kubernetes.io/zone=eastus2-1
+            topology.kubernetes.io/zone=eastus2-1
 Name:       aks-nodepool1-28993262-vmss000001
-            failure-domain.beta.kubernetes.io/zone=eastus2-2
+            topology.kubernetes.io/zone=eastus2-2
 Name:       aks-nodepool1-28993262-vmss000002
-            failure-domain.beta.kubernetes.io/zone=eastus2-3
+            topology.kubernetes.io/zone=eastus2-3
 Name:       aks-nodepool1-28993262-vmss000003
-            failure-domain.beta.kubernetes.io/zone=eastus2-1
+            topology.kubernetes.io/zone=eastus2-1
 Name:       aks-nodepool1-28993262-vmss000004
-            failure-domain.beta.kubernetes.io/zone=eastus2-2
+            topology.kubernetes.io/zone=eastus2-2
 ```
 
 We now have two additional nodes in zones 1 and 2. You can deploy an application consisting of three replicas. We will use NGINX as an example:
@@ -200,19 +201,19 @@ This article detailed how to create an AKS cluster that uses availability zones.
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-aks-create]: /cli/azure/aks#az-aks-create
 [az-overview]: ../availability-zones/az-overview.md
 [best-practices-bc-dr]: operator-best-practices-multi-region.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [standard-lb-limitations]: load-balancer-standard.md#limitations
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
-[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
 [arm-template-null]: ../azure-resource-manager/templates/template-expressions.md#null-values
 

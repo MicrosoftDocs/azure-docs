@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: AutoML- train object detection model'
 titleSuffix: Azure Machine Learning
-description: Train an  object detection model to predict NYC taxi fares with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
+description: Train an object detection model to identify if an image contains certain objects with automated ML and the Azure Machine Learning Python SDK  automated ML.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: tutorial
 author: swatig007
 ms.author: swatig
@@ -489,7 +489,7 @@ In this automated machine learning tutorial, you did the following tasks:
 
 * [Learn more about computer vision in automated ML (preview)](concept-automated-ml.md#computer-vision-preview).
 * [Learn how to set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md).
-* [Learn how to onfigure incremental training on computer vision models](how-to-auto-train-image-models.md#incremental-training-optional).
+* [Learn how to configure incremental training on computer vision models](how-to-auto-train-image-models.md#incremental-training-optional).
 * See [what hyperparameters are available for computer vision tasks](reference-automl-images-hyperparameters.md).
 * Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml). Please check the folders with 'image-' prefix for samples specific to building computer vision models.
 

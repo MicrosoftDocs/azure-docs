@@ -39,7 +39,7 @@ Azure Monitor for SAP Solutions uses the [Azure Monitor](../../../azure-monitor/
 - Create [custom visualizations](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) by editing the default Workbooks provided by Azure Monitor for SAP Solutions. 
 - Write [custom queries](../../../azure-monitor/logs/log-analytics-tutorial.md).
 - Create [custom alerts](../../../azure-monitor/alerts/alerts-log.md) by using Azure Log Analytics workspace. 
-- Take advantage of the [flexible retention period](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) in Azure Monitor Logs/Log Analytics. 
+- Take advantage of the [flexible retention period](../../../azure-monitor/logs/data-retention-archive.md) in Azure Monitor Logs/Log Analytics. 
 - Connect monitoring data with your ticketing system.
 
 ## What data does Azure Monitor for SAP Solutions collect?

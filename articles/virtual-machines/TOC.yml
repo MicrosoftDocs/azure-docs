@@ -16,7 +16,11 @@
       href: ./linux/quick-create-portal.md
     - name: PowerShell
       href: ./linux/quick-create-powershell.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./linux/quick-create-bicep.md
     - name: ARM template
+      displayName: Resource Manager
       href: ./linux/quick-create-template.md
   - name: Create a Windows VM
     items:
@@ -26,7 +30,11 @@
       href: ./windows/quick-create-portal.md
     - name: PowerShell
       href: ./windows/quick-create-powershell.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./windows/quick-create-bicep.md
     - name: ARM template
+      displayName: Resource Manager
       href: ./windows/quick-create-template.md
   expanded: true
 - name: Tutorials
@@ -82,13 +90,13 @@
     - name: .NET SDK
       href: https://github.com/Azure/azure-sdk-for-net
     - name: Reference
-      href: /dotnet/api/overview/azure/virtualmachines?view=azure-dotnet?context=/azure/virtual-machines/context/context
+      href: /dotnet/api/overview/azure/virtualmachines
   - name: Java
     items:
     - name: Java SDK
       href: https://github.com/Azure/azure-sdk-for-java
     - name: Reference
-      href: /java/api/com.azure.resourcemanager.compute?view=azure-java-stable?context=/azure/virtual-machines/context/context
+      href: /java/api/com.azure.resourcemanager.compute
   - name: Go
     items:
     - name: Go SDK
@@ -140,7 +148,7 @@
   - name: Azure Confidential Compute
     href: ../confidential-computing/overview.md
   - name: SQL on Virtual Machines
-    href: ../azure-sql/virtual-machines/index.yml
+    href: /azure/azure-sql/virtual-machines/index
   - name: High Performance Computing (HPC)
     href: /azure/architecture/topics/high-performance-computing/
 - name: Instances
@@ -209,6 +217,8 @@
         href: ev4-esv4-series.md
       - name: Ev5 and Esv5-series
         href: ev5-esv5-series.md
+      - name: Ebdsv5 and Ebsv5 series
+        href: ebdsv5-ebsv5-series.md
       - name: Edv5 and Edsv5-series
         href: edv5-edsv5-series.md
       - name: Easv5 and Eadsv5-series
@@ -251,6 +261,8 @@
         href: ncv3-series.md
       - name: NCasT4_v3-series
         href: nct4-v3-series.md
+      - name: NC_A100_v4-series
+        href: nc-a100-v4-series.md
       - name: NDasrA100_v4-series
         href: nda100-v4-series.md
       - name: NDm_A100_v4-series
@@ -265,6 +277,8 @@
         href: nvv3-series.md
       - name: NVv4-series
         href: nvv4-series.md
+      - name: NVadsA10_v5-series
+        href: nva10v5-series.md
       - name: Setup NVIDIA GPU drivers
         items:
         - name: Linux
@@ -357,8 +371,7 @@
   - name: Azure Compute Gallery
     items:
     - name: Overview
-      displayName: Shared Image Gallery, SIG, sig, gallery, image
-      href: ./shared-image-galleries.md
+      href: azure-compute-gallery.md
     - name: Create a gallery
       displayName: Shared Image Gallery, SIG, sig, gallery, image
       href: create-gallery.md
@@ -366,6 +379,9 @@
       href: share-gallery.md
     - name: Images
       items:
+      - name: Images in a gallery
+        displayName: Shared Image Gallery, SIG, sig, gallery, image
+        href: ./shared-image-galleries.md
       - name: Capture a VM in the portal
         href: capture-image-portal.md
       - name: Create an image
@@ -404,7 +420,8 @@
       - name: Using customer-managed keys
         displayName: SSE, CMK, encrypt
         href: image-version-encryption.md
-      - name: Managed disk from image version
+      - name: Export an image to a managed disk
+        desplayName: export, image version, disk, SIG, gallery
         href: managed-disk-from-image-version.md
       - name: Purchase plan information
         href: marketplace-images.md
@@ -587,6 +604,9 @@
       - name: Store scripts
         displayName: Image builder, images, building, scripts
         href: ./linux/image-builder-user-assigned-identity.md
+      - name: What's new in Azure Image Builder
+        displayName: Image builder, images, building, api, features, updates, change log
+        href: image-builder-api-update-release-notes.md
       - name: Troubleshoot
         displayName: Image builder, images, building
         href: ./linux/image-builder-troubleshoot.md
@@ -622,6 +642,12 @@
     - name: GPU Optimized SKUs
       displayName: dedicated, packing, dedicated host, GPU optimized
       href: dedicated-host-gpu-optimized-skus.md
+    - name: Dedicated Host SKU Retirement
+      displayName: dedicated, dedicated host, retirement
+      href: dedicated-host-retirement.md
+    - name: Dedicated Host SKU Migration
+      displayName: dedicated, dedicated host, retirement, migration
+      href: dedicated-host-migration-guide.md
   - name: Azure Spot Virtual Machines
     items:
     - name: Overview
@@ -667,7 +693,7 @@
     - name: VM instance size flexibility
       displayName: Reserved Instances, RI, prepay
       href: reserved-vm-instance-size-flexibility.md
-  - name: Capacity reservation (preview)
+  - name: Capacity reservation
     items:
     - name: Overview
       displayName: on-demand capacity reservation
@@ -687,9 +713,12 @@
     - name: Remove a VM
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-vm.md
-    - name: Associate a virtual machine scale set
+    - name: Associate a virtual machine scale set with uniform orchestration
       displayName: on-demand capacity reservation
       href: capacity-reservation-associate-virtual-machine-scale-set.md
+    - name: Associate a virtual machine scale set
+      displayName: on-demand capacity reservation with flexible orchestration
+      href: capacity-reservation-associate-virtual-machine-scale-set-flex.md
     - name: Remove a virtual machine scale set
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-virtual-machine-scale-set.md
@@ -733,12 +762,14 @@
         href: ./windows/ps-template.md
       - name: Secure web server with TLS\SSL
         href: ./windows/tutorial-secure-web-server.md
-  - name: Delete a VM and it's resources
+  - name: Delete a VM and its resources
     href: delete.md
   - name: Connect to Virtual Machines
     items:
     - name: Linux
       items:
+      - name: Connect to a Linux VM
+        href: linux-vm-connect.md
       - name: Create and manage SSH keys locally
         href: ./linux/create-ssh-keys-detailed.md
       - name: Create and manage SSH keys in the portal
@@ -977,7 +1008,7 @@
       href: ./windows/create-powershell-availability-zone.md
     - name: Portal
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
-      href: ./windows/create-portal-availability-zone.md
+      href: ./create-portal-availability-zone.md
   - name: Proximity Placement Groups
     items:
     - name: Overview
@@ -1234,6 +1265,8 @@
     items:
     - name: Enable incremental snapshots
       href: disks-incremental-snapshots.md
+    - name: Copy incremental snapshots across regions
+      href: disks-copy-incremental-snapshot-across-regions.md
     - name: Azure Disk Backup
       items:
       - name: Overview
@@ -1252,7 +1285,29 @@
     - name: Backup and disaster recovery for unmanaged disks
       href: page-blobs-backup-and-disaster-recovery.md
   - name: Ephemeral OS disks
-    href: ephemeral-os-disks.md
+    items:
+    - name: Overview
+      href: ephemeral-os-disks.md
+    - name: Create a VM using ephemeral OS disks
+      href: ephemeral-os-disks-deploy.md
+  - name: Securely import/export a disk
+    items:
+    - name: Configure private links for disks - CLI
+      href: ./linux/disks-export-import-private-links-cli.md
+    - name: Configure private links for disks - Portal
+      href: disks-enable-private-links-for-import-export-portal.md
+    - name: Upload a vhd to a disk - PowerShell
+      href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
+    - name: Upload a vhd to a disk - CLI
+      href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
+    - name: Download a VHD
+      items:
+      - name: Linux
+        displayName: Download a VHD
+        href: ./linux/download-vhd.md
+      - name: Windows
+        displayName: Download a VHD
+        href: ./windows/download-vhd.md
   - name: Migration and conversion
     items:
     - name: Convert disk to another disk type
@@ -1324,24 +1379,6 @@
     - name: Deploy disks with ARM template
       displayName: Azure Resource Manager
       href: using-managed-disks-template-deployments.md
-    - name: Securely import/export a disk
-      items:
-      - name: Configure private links for disks - CLI
-        href: ./linux/disks-export-import-private-links-cli.md
-      - name: Configure private links for disks - Portal
-        href: disks-enable-private-links-for-import-export-portal.md
-      - name: Upload a vhd to a disk - PowerShell
-        href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
-      - name: Upload a vhd to a disk - CLI
-        href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
-      - name: Download a VHD
-        items:
-        - name: Linux
-          displayName: Download a VHD
-          href: ./linux/download-vhd.md
-        - name: Windows
-          displayName: Download a VHD
-          href: ./windows/download-vhd.md
     - name: Use Storage Explorer to manage disks
       href: disks-use-storage-explorer-managed-disks.md
     - name: Swap the OS disk - CLI
@@ -1374,17 +1411,21 @@
     - name: CLI
       items:
       - name: Create managed disk from a VHD
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd
+        href: ./scripts/create-managed-disk-from-vhd.md
       - name: Create a managed disk from a snapshot
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd
+        href: ./scripts/create-managed-disk-from-snapshot.md
       - name: Copy a managed disk to the same or different subscription
-        href: https://github.com/Azure-Samples/azure-cli-samples/blob/master/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh
-      - name: Copy a snapshot to the same or different subscription
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription
+        href: ./scripts/copy-managed-disks-to-same-or-different-subscription.md
       - name: Export a snapshot as a VHD to a storage account
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account
+        href: ./scripts/copy-snapshot-to-storage-account.md
       - name: Export a managed disk as a VHD to a storage account
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account
+        href: ./scripts/copy-managed-disks-vhd-to-storage-account.md
+      - name: Copy a snapshot to the same or different subscription
+        href: ./scripts/copy-snapshot-to-same-or-different-subscription.md
+      - name: Create virtual machine from snapshot
+        href: ./scripts/create-vm-from-snapshot.md
+      - name: Create virtual machine from existing managed OS disk
+        href: ./scripts/create-vm-from-managed-os-disks.md
     - name: PowerShell
       items:
       - name: Create managed disk from a VHD
@@ -1489,6 +1530,8 @@
     - name: Portal
       displayName: port nsg network security group
       href: ./windows/nsg-quickstart-portal.md
+  - name: Migrate a virtual machine public IP address
+    href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-machines/toc.json
   - name: Assign public IP address
     href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Use a custom domain name
@@ -1683,20 +1726,20 @@
       - name: PowerShell
         displayName: Maintenance notifications
         href: maintenance-notifications-powershell.md
-    - name: Maintenance control
+    - name: Maintenance configurations
       items:
       - name: Overview
-        displayName: Maintenance control
-        href: maintenance-control.md
+        displayName: Maintenance configurations
+        href: maintenance-configurations.md
       - name: CLI
-        displayName: Maintenance control
-        href: maintenance-control-cli.md
+        displayName: Maintenance configurations
+        href: maintenance-configurations-cli.md
       - name: PowerShell
-        displayName: Maintenance control
-        href: maintenance-control-powershell.md
+        displayName: Maintenance configurations
+        href: maintenance-configurations-powershell.md
       - name: Portal
-        displayName: Maintenance control
-        href: maintenance-control-portal.md
+        displayName: Maintenance configurations
+        href: maintenance-configurations-portal.md
     - name: Scheduled events
       items:
       - name: Linux
@@ -1992,7 +2035,7 @@
     href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
   - name: Microsoft Q&A
     href: /answers/topics/azure-virtual-machines.html
-  - name: Azure Quickstart templates
+  - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/#Linux

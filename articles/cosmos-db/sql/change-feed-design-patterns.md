@@ -6,12 +6,18 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 03/24/2022
+ms.reviewer: wiassaf
+ms.custom: cosmos-db-video
 ---
 # Change feed design patterns in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 The Azure Cosmos DB change feed enables efficient processing of large datasets with a high volume of writes. Change feed also offers an alternative to querying an entire dataset to identify what has changed. This document focuses on common change feed design patterns, design tradeoffs, and change feed limitations.
+
+>
+> [!VIDEO https://aka.ms/docs.change-feed-azure-functions]
+
 
 Azure Cosmos DB is well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to use changes to the data to trigger additional actions. Examples of additional actions include:
 
@@ -36,11 +42,11 @@ For example, you might receive and store event data from devices, sensors, infra
 
 :::image type="content" source="../media/change-feed/lambda.png" alt-text="Azure Cosmos DB-based lambda pipeline for ingestion and query" border="false":::
 
-In many cases, stream processing implementations first receive a high volume of incoming data into a temporary message queue such as Azure Event Hub or Apache Kafka. The change feed is a great alternative due to Azure Cosmos DB's ability to support a sustained high rate of data ingestion with guaranteed low read and write latency. The advantages of the Azure Cosmos DB change feed over a message queue include:
+In many cases, stream processing implementations first receive a high volume of incoming data into a temporary message queue such as Azure Event Hubs or Apache Kafka. The change feed is a great alternative due to Azure Cosmos DB's ability to support a sustained high rate of data ingestion with guaranteed low read and write latency. The advantages of the Azure Cosmos DB change feed over a message queue include:
 
 ### Data persistence
 
-Data written to Azure Cosmos DB will show up in the change feed and be retained until deleted. Message queues typically have a maximum retention period. For example, [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) offers a maximum data retention of 90 days.
+Data written to Azure Cosmos DB will show up in the change feed and be retained until deleted. Message queues typically have a maximum retention period. For example, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) offers a maximum data retention of 90 days.
 
 ### Querying ability
 
@@ -114,5 +120,5 @@ Here are some real-world change feed code examples that extend beyond the scope 
 * [Options to read change feed](read-change-feed.md)
 * [Using change feed with Azure Functions](change-feed-functions.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

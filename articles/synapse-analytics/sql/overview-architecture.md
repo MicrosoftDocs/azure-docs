@@ -1,7 +1,6 @@
 ---
 title: Synapse SQL architecture 
 description: Learn how Azure Synapse SQL combines distributed query processing capabilities with Azure Storage to achieve high performance and scalability. 
-services: synapse-analytics
 author: mlee3gsd
 manager: rothja
 ms.service: synapse-analytics

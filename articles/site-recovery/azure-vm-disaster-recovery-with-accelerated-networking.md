@@ -81,6 +81,6 @@ If you have enabled Accelerated Networking on the source virtual machine after e
 The above process should also be followed for existing replicated virtual machines, that did not previously have Accelerated Networking enabled automatically by Site Recovery.
 
 ## Next steps
-- Learn more about [benefits of Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md#benefits).
-- Learn more about limitations and constraints of Accelerated Networking for [Windows virtual machines](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) and [Linux virtual machines](../virtual-network/create-vm-accelerated-networking-cli.md#limitations-and-constraints).
+- Learn more about [benefits of Accelerated Networking](../virtual-network/accelerated-networking-overview.md#benefits).
+- Learn more about limitations and constraints of Accelerated Networking for [Windows virtual machines](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints) and [Linux virtual machines](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints).
 - Learn more about [recovery plans](site-recovery-create-recovery-plans.md) to automate application failover.

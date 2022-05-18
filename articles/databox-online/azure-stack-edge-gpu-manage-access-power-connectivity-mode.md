@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 02/22/2022
 ms.author: alkohli 
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,13 +18,13 @@ ms.custom: devx-track-azurepowershell
 
 This article describes how to manage the access, power, and connectivity mode for your Azure Stack Edge Pro with GPU device. These operations are performed via the local web UI or the Azure portal.
 
-This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
-
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Manage device access
+> * Enable device access via remote PowerShell over HTTP
+> * Enable device access from outside network
 > * Manage resource access
 > * Manage connectivity mode
 > * Manage power
@@ -111,9 +111,37 @@ Follow these steps in the local UI to enable remote PowerShell over HTTP:
 
 You can now connect to the PowerShell interface of the device over HTTP. For details, see [Connect to the PowerShell interface of your device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
+## Enable device access from outside network
+
+To be able to connect to your Azure Stack Edge device from an outside network, make sure the network for your laptop and the network for the device meet the following requirements.
+
+| Traffic direction  | Out-of-network requirements |
+|--------------------|-----------------------------|
+| Outbound to laptop |On the network for the Azure Stack Edge device:<ul><li>Configure the correct gateways on the device to enable traffic to reach the laptop’s network.</li><li>If you configure multiple gateways on the device, ensure that traffic can reach your laptop's network on all gateways.<br>A device ideally tries to use the network interface card (NIC) with the lowest route metric. However, there's no clear way for an Azure Stack Edge device to identify the NIC with the lowest metric. So it's best to make your laptop network reachable on all configured gateways.</li></ul>|
+|Inbound to device   |On the network for your laptop:<ul><li>Configure a clear network route from the laptop to the network for the device, possibly through defined gateways.</li></ul>|
+
+> [!NOTE]
+> Diagnostic tests for Azure Stack Edge return a warning if all gateways don't have internet connectivity. For diagnostics information, see [Run diagnostics](azure-stack-edge-gpu-troubleshoot.md#run-diagnostics).
+
+<!--ORIGINAL PRESENTATION: If a user needs to be able to connect to the Azure Stack Edge appliance from an outside network, you'll need this network configuration:
+
+- **In-bound traffic:** For in-bound traffic from the customer's laptop (in network A) to the appliance (in network B), network A should have a clear route to network B, possibly through defined gateways.
+
+- **Outbound traffic:** For outbound traffic from the appliance to the customer's laptop (network B to network A):
+
+  - Configure the correct gateways on the appliance so that traffic can reach network A.
+
+  - If you configure multiple gateways on the appliance, ensure that traffic can reach network B on all gateways.
+
+    An appliance ideally tries to use the network interface card (NIC) with the lowest route metric. However, there's no clear way for an Azure Stack Edge appliance to identify the NIC with the lowest metric. So it's best to make network A reachable on all configured gateways.
+
+    > [!NOTE]
+    > Diagnostic tests for Azure Stack Edge return a warning if all gateways don't have internet connectivity. For diagnostics information, see [Run diagnostics](azure-stack-edge-gpu-troubleshoot.md#run-diagnostics). Terminology creep: This is the first reference to internet connectivity.-->
+
+
 ## Manage resource access
 
-To create your Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage resource, you need permissions as a contributor or higher at a resource group level. You also need the corresponding resource providers to be registered. For any operations that involve activation key and credentials, permissions to the Microsoft Graph API are also required. These are described in the following sections. 
+To create your Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage resource, you need permissions as a contributor or higher at a resource group level. You also need the corresponding resource providers to be registered. For any operations that involve activation key and credentials, permissions to the Microsoft Graph API are also required. These requirements are described in the following sections.
 
 ### Manage Microsoft Graph API permissions
 

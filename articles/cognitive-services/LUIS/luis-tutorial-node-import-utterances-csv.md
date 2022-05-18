@@ -9,7 +9,7 @@ ms.devlang: javascript
 ms.custom: seodec18, devx-track-js
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 05/17/2021
 
 ---

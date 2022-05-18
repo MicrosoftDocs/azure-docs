@@ -1,0 +1,40 @@
+items:
+- name: Events
+  href: index.yml
+- name: Overview
+  expanded: true
+  items: 
+  - name: About Events
+    href: events-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Deploy Events in the Azure portal
+    href: events-deploy-portal.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Display Events metrics
+    href: events-display-metrics.md 
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Configure Events diagnostic settings
+    href: events-export-logs-metrics.md
+  - name: Disable Events and delete workspaces
+    href: events-disable-delete-workspace.md   
+- name: Concepts
+  expanded: true
+  items:
+  - name: Events message structure
+    href: events-message-structure.md
+- name: Resources
+  expanded: true
+  items:
+    - name: FAQs
+      href: events-faqs.md
+    - name: Troubleshooting
+      expanded: true
+      items:
+      - name: Events troubleshooting guide  
+        href: events-troubleshooting-guide.md

@@ -245,7 +245,7 @@ AzureDiagnostics 
 
 ## Set up alerts - examples
 
-You can set up Site Recovery alerts based on Azure Monitor data. [Learn more](../azure-monitor/alerts/alerts-log.md#create-a-log-alert-rule-in-the-azure-portal) about setting up log alerts. 
+You can set up Site Recovery alerts based on Azure Monitor data. [Learn more](../azure-monitor/alerts/alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal) about setting up log alerts. 
 
 > [!NOTE]
 > Some of the examples use **replicationProviderName_s** set to **A2A**. This sets alerts for Azure VMs that are replicated to a secondary Azure region. In these examples, you can replace **A2A** with **InMageAzureV2** if you want to set alerts for on-premises VMware VMs or physical servers replicated to Azure.

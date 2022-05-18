@@ -3,13 +3,11 @@ metadata:
   title: Microsoft Defender for Cloud FAQ - data collection and agents
   description: Frequently asked questions about data collection, agents, and workspaces for Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
-  author: memildin
-  ms.author: memildin
+  author: elkrieger
+  ms.author: elkrieger
   manager: raynew
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 01/02/2022
-    
-    
 title: 'FAQ - Questions about data collection, agents, and workspaces'
 summary: |
   Defender for Cloud collects data from your Azure virtual machines (VMs), Virtual machine scale sets, IaaS containers, and non-Azure computers (including on-premises machines) to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.

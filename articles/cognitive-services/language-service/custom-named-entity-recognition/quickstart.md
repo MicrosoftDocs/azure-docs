@@ -36,7 +36,7 @@ After you've created entity extraction model, you can:
 
 * [Use the runtime API to extract entities](how-to/call-api.md)
 
-When you start to create your own entity classification projects, use the how-to articles to learn more about developing your model in greater detail:
+When you start to create your own custom NER projects, use the how-to articles to learn more about tagging, training and consuming your model in greater detail:
 
 * [Data selection and schema design](how-to/design-schema.md)
 * [Tag data](how-to/tag-data.md)

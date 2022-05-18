@@ -4,7 +4,8 @@ description: Explains the different factors that affect latency in collecting lo
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/18/2019
+ms.reviewer: eternovsky
+ms.date: 03/21/2022
 
 ---
 
@@ -34,7 +35,7 @@ Agents and management solutions use different strategies to collect data from a 
 |:--------------|:----------------------|:------|
 | Windows events, syslog events, and performance metrics | collected immediately| | 
 | Linux performance counters | polled at 30-second intervals| |
-| IIS logs and custom logs | collected once their timestamp changes | For IIS logs, this is influenced by the [rollover schedule configured on IIS](../agents/data-sources-iis-logs.md). |
+| IIS logs and text logs | collected once their timestamp changes | For IIS logs, this is influenced by the [rollover schedule configured on IIS](../agents/data-sources-iis-logs.md). |
 | Active Directory Replication solution | Assessment every five days | The agent collects these logs only when assessment is complete.|
 | Active Directory Assessment solution | weekly assessment of your Active Directory infrastructure | The agent collects these logs only when assessment is complete.|
 
@@ -102,9 +103,9 @@ Ingestion time may vary for different resources under different circumstances. Y
 
 | Step | Property or Function | Comments |
 |:---|:---|:---|
-| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. |
+| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. | If at processing time, the Time Generated value is older than 3 days the row will be dropped. |
 | Record received by Azure Monitor ingestion endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | This field is not optimized for mass processing and should not be used to filter large datasets. |
-| Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | It is recommended to use ingestion_time() if there is a need to filter only records that where ingested in a certain time window. In such case, it is recommended to add also TimeGenerated filter with a larger range. |
+| Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | It is recommended to use ingestion_time() if there is a need to filter only records that were ingested in a certain time window. In such case, it is recommended to add also TimeGenerated filter with a larger range. |
 
 ### Ingestion latency delays
 You can measure the latency of a specific record by comparing the result of the [ingestion_time()](/azure/kusto/query/ingestiontimefunction) function to the _TimeGenerated_ property. This data can be used with various aggregations to find how ingestion latency behaves. Examine some percentile of the ingestion time to get insights for large amount of data. 

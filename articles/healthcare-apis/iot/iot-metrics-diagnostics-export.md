@@ -1,30 +1,27 @@
 ---
-title: Configure IoT connector Diagnostic settings for metrics export - Azure Healthcare APIs
-description: This article explains how to configure IoT connector Diagnostic settings for metrics exporting.
+title: Configure the MedTech service Diagnostic settings for metrics export - Azure Health Data Services
+description: This article explains how to configure the MedTech service Diagnostic settings for metrics exporting.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 1/20/2021
+ms.date: 02/16/2022
 ms.author: jasteppe
 ---
 
-# Configure diagnostic setting for IoT connector metrics exporting
+# Configure diagnostic setting for the MedTech service metrics exporting
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+In this article, you'll learn how to configure the diagnostic setting for MedTech service to export metrics to different destinations for audit, analysis, or backup.
 
-In this article, you'll learn how to configure the diagnostic setting for IoT connector to export metrics to different destinations for audit, analysis, or backup.
-
-## Create diagnostic setting for IoT connector
-1. To enable metrics export for IoT connector, select **IoT connectors** in your Workspace.
+## Create diagnostic setting for the MedTech service
+1. To enable metrics export for the MedTech service, select **MedTech service** in your workspace.
  
-   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-workspace.png" alt-text="Screenshot of select IoT connector within Workspace." lightbox="media/iot-metrics-export/iot-connector-logging-workspace.png":::
+   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-workspace.png" alt-text="Screenshot of select the MedTech service within workspace." lightbox="media/iot-metrics-export/iot-connector-logging-workspace.png":::
 
-2. Select the IoT connector that you want to configure metrics export for.
+2. Select the MedTech service that you want to configure metrics export for.
    
-   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-connector.png" alt-text="Screenshot of select IoT connector for exporting metrics" lightbox="media/iot-metrics-export/iot-connector-logging-select-connector.png":::
+   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-connector.png" alt-text="Screenshot of select the MedTech service for exporting metrics" lightbox="media/iot-metrics-export/iot-connector-logging-select-connector.png":::
 
 3. Select the **Diagnostic settings** button and then select the **+ Add diagnostic setting** button.
 
@@ -34,7 +31,7 @@ In this article, you'll learn how to configure the diagnostic setting for IoT co
 
     :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png" alt-text="Screenshot diagnostic setting and required fields." lightbox="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png"::: 
 
-5. Under **Destination details**, select the destination you want to use to export your IoT connector metrics to. In the above example, we've selected an Azure storage account.
+5. Under **Destination details**, select the destination you want to use to export your MedTech service metrics to. In the above example, we've selected an Azure storage account.
 
    Metrics can be exported to the following destinations:
 
@@ -51,23 +48,23 @@ In this article, you'll learn how to configure the diagnostic setting for IoT co
 6. Select **AllMetrics**.
 
    > [!Note]
-   > To view a complete list of IoT connector metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisworkspacesiotconnectors). 
+   > To view a complete list of MedTech service metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisworkspacesiotconnectors). 
 
 7. Select **Save**.
 
    > [!Note] 
-   > It might take up to 15 minutes for the first IoT connector metrics to display in the destination of your choice.  
+   > It might take up to 15 minutes for the first MedTech service metrics to display in the destination of your choice.  
  
 For more information about how to work with diagnostics logs, see the [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Conclusion 
-Having access to metrics is essential for monitoring and troubleshooting.  IoT connector allows you to do these actions through the export of metrics. 
+Having access to metrics is essential for monitoring and troubleshooting.  MedTech service allows you to do these actions through the export of metrics. 
 
 ## Next steps
 
-To view the frequently asked questions (FAQs) about IoT connector, see
+To view the frequently asked questions (FAQs) about the MedTech service, see
 
 >[!div class="nextstepaction"]
->[IoT connector FAQs](iot-connector-faqs.md)
+>[MedTech service FAQs](iot-connector-faqs.md)
 
 (FHIR&#174;) is a registered trademark of HL7 and is used with the permission of HL7.

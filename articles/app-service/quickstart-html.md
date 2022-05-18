@@ -17,11 +17,14 @@ adobe-target-content: ./quickstart-html-uiex
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure App Service. You'll complete this quickstart in [Cloud Shell](../cloud-shell/overview.md), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
-![Home page of sample app](media/quickstart-html/hello-world-in-browser-az.png)
+> [!NOTE]
+> For information regarding hosting static HTML files in a serverless environment, please see [Static Web Apps](../static-web-apps/overview.md).
+
+:::image type="content" source="media/quickstart-html/hello-world-in-browser.png" alt-text="Home page of sample app":::
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Download the sample
 
@@ -41,9 +44,9 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## Create a web app
 
-Change to the directory that contains the sample code and run the `az webapp up` command. In the following example, replace <app_name> with a unique app name. Static content is indicated by the `--html` flag.
+Change to the directory that contains the sample code and run the [az webapp up](/cli/azure/webapp#az-webapp-up) command. In the following example, replace <app_name> with a unique app name. Static content is indicated by the `--html` flag.
 
-```bash
+```azurecli
 cd html-docs-hello-world
 
 az webapp up --location westeurope --name <app_name> --html
@@ -83,7 +86,7 @@ In a browser, go to the app URL: `http://<app_name>.azurewebsites.net`.
 
 The page is running as an Azure App Service web app.
 
-![Sample app home page](media/quickstart-html/hello-world-in-browser-az.png)
+:::image type="content" source="media/quickstart-html/hello-world-in-browser.png" alt-text="Sample app home page":::
 
 **Congratulations!** You've deployed your first HTML app to App Service.
 
@@ -97,13 +100,13 @@ Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
 
 You'll now redeploy the app with the same `az webapp up` command.
 
-```bash
+```azurecli
 az webapp up --location westeurope --name <app_name> --html
 ```
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
-![Updated sample app home page](media/quickstart-html/hello-azure-in-browser-az.png)
+:::image type="content" source="media/quickstart-html/hello-world-in-browser.png" alt-text="Updated sample app home page":::
 
 ## Manage your new Azure app
 
@@ -125,7 +128,7 @@ The left menu provides different pages for configuring your app.
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#create-a-web-app) step.
 
-```bash
+```azurecli
 az group delete --name appsvc_rg_Windows_westeurope
 ```
 

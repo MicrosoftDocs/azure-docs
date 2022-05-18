@@ -5,8 +5,8 @@ description: How to troubleshoot when you get errors running a machine learning 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: nibaccam
-ms.author: nibaccam
+author: blackmist
+ms.author: larryfr
 ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
@@ -209,11 +209,11 @@ run.log("scalar_value", 0.95)
 # Python print statement
 print("I am a python print statement, I will be sent to the driver logs.")
 
-# Initialize python logger
+# Initialize Python logger
 logger = logging.getLogger(__name__)
 logger.setLevel(args.log_level)
 
-# Plain python logging statements
+# Plain Python logging statements
 logger.debug("I am a plain debug statement, I will be sent to the driver logs.")
 logger.info("I am a plain info statement, I will be sent to the driver logs.")
 

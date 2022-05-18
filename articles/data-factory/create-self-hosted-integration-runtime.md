@@ -211,7 +211,7 @@ Here are details of the application's actions and arguments:
 9. Get the authentication key by using PowerShell. Here's a PowerShell example for retrieving the authentication key:
 
     ```powershell
-    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName
     ```
 
 10. On the **Register Integration Runtime (Self-hosted)** window of Microsoft Integration Runtime Configuration Manager running on your machine, take the following steps:

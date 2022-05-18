@@ -1,8 +1,8 @@
 ---
 title: Connection pooling – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Scaling client database connections
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
@@ -37,19 +37,9 @@ through PgBouncer, follow these steps:
    portal.
 2. Enable the checkbox **PgBouncer connection strings**. (The listed connection
    strings will change.)
-
-   > [!IMPORTANT]
-   >
-   > If the checkbox does not exist, PgBouncer isn't enabled for your server
-   > group yet. Managed PgBouncer is being rolled out to all [supported
-   > regions](concepts-configuration-options.md#regions).  Once
-   > enabled in a region, it'll be added to existing server groups in the
-   > region during a [scheduled
-   > maintenance](concepts-maintenance.md) event.
-
 3. Update client applications to connect with the new string.
 
 ## Next steps
 
-Discover more about the [limits and limitations](concepts-limits.md)
+Discover more about the [limits and limitations](reference-limits.md)
 of Hyperscale (Citus).

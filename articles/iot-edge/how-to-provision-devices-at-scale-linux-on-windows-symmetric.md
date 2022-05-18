@@ -1,8 +1,8 @@
 ---
 title: Create and provision IoT Edge devices using symmetric keys on Linux on Windows - Azure IoT Edge | Microsoft Docs
 description: Use symmetric key attestation to test provisioning Linux on Windows devices at scale for Azure IoT Edge with device provisioning service
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.date: 02/09/2022
 ms.topic: conceptual
 ms.service: iot-edge
@@ -196,6 +196,9 @@ You can verify that the group enrollment that you created in device provisioning
 <!-- end 1.2 -->
 
 When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+
+<!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
+[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](../../includes/iot-edge-uninstall-linux-on-windows.md)]
 
 ## Next steps
 

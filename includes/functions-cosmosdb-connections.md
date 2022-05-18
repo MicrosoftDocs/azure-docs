@@ -35,4 +35,4 @@ Additional properties may be set to customize the connection. See [Common proper
 
 [!INCLUDE [functions-cosmos-permissions](./functions-cosmos-permissions.md)]
 
-[version 4.x or higher of the extension]: ../articles/azure-functions/functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher
+[version 4.x or higher of the extension]: ../articles/azure-functions/functions-bindings-cosmosdb-v2.md?tabs=extensionv4

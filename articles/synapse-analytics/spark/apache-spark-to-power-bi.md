@@ -1,7 +1,6 @@
 ---
 title: 'Azure Synapse Studio notebooks'
 description: This tutorial provides an overview on how to create a Power BI dashboard using Apache Spark and a Serverless SQL pool.
-services: synapse-analytics
 author: midesa
 ms.author: midesa 
 ms.reviewer: sngun 

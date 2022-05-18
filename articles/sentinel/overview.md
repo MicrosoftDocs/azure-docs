@@ -14,7 +14,7 @@ ms.author: yelevin
 
 Microsoft Sentinel is a scalable, cloud-native, **security information and event management (SIEM)** and **security orchestration, automation, and response (SOAR)** solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for attack detection, threat visibility, proactive hunting, and threat response.
 
-Microsoft Sentinel is your birds-eye view across the enterprise alleviating the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames.
+Microsoft Sentinel is your bird's-eye view across the enterprise alleviating the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames.
 
 - **Collect data at cloud scale** across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 
@@ -56,7 +56,7 @@ While Workbooks are displayed differently in Microsoft Sentinel, it may be usefu
 
 To help you reduce noise and minimize the number of alerts you have to review and investigate, Microsoft Sentinel uses [analytics to correlate alerts into incidents](detect-threats-built-in.md). **Incidents** are groups of related alerts that together create an actionable possible-threat that you can investigate and resolve. Use the built-in correlation rules as-is, or use them as a starting point to build your own. Microsoft Sentinel also provides machine learning rules to map your network behavior and then look for anomalies across your resources. These analytics connect the dots, by combining low fidelity alerts about different entities into potential high-fidelity security incidents.
 
-![Incidents](./media/tutorial-investigate-cases/incident-severity.png)
+![Incidents](./media/investigate-cases/incident-severity.png#lightbox)
 
 
 ## Security automation & orchestration
@@ -78,7 +78,7 @@ For example, if you use the ServiceNow ticketing system, you can use the tools p
 
 Currently in preview, Microsoft Sentinel [deep investigation](investigate-cases.md) tools help you to understand the scope and find the root cause, of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat. 
 
-![Investigation](./media/tutorial-investigate-cases/map-timeline.png)
+![Investigation](./media/investigate-cases/map-timeline.png)
 
 
 ## Hunting

@@ -87,7 +87,7 @@ to trigger an on-demand evaluation scan from your
 [GitHub workflow](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows)
 on one or multiple resources, resource groups, or subscriptions, and gate the workflow based on the
 compliance state of resources. You can also configure the workflow to run at a scheduled time so
-that you get the latest compliance status at a convenient time. Optionally, this GitHub action can
+that you get the latest compliance status at a convenient time. Optionally, this GitHub Actions can
 generate a report on the compliance state of scanned resources for further analysis or for
 archiving.
 
@@ -114,12 +114,12 @@ jobs:
 ```
 
 For more information and workflow samples, see the
-[GitHub Action for Azure Policy Compliance Scan repo](https://github.com/Azure/policy-compliance-scan).
+[GitHub Actions for Azure Policy Compliance Scan repo](https://github.com/Azure/policy-compliance-scan).
 
 #### On-demand evaluation scan - Azure CLI
 
 The compliance scan is started with the
-[az policy state trigger-scan](/cli/azure/policy/state#az_policy_state_trigger_scan) command.
+[az policy state trigger-scan](/cli/azure/policy/state#az-policy-state-trigger-scan) command.
 
 By default, `az policy state trigger-scan` starts an evaluation for all resources in the current
 subscription. To start an evaluation on a specific resource group, use the **resource-group**
@@ -349,6 +349,9 @@ details on the REST API, see the [Azure Policy](/rest/api/policy/) reference. Th
 pages have a green 'Try It' button on each operation that allows you to try it right in the browser.
 
 Use ARMClient or a similar tool to handle authentication to Azure for the REST API examples.
+
+> [!NOTE]
+> Currently "reason for non-compliance" cannot be retrieved from Command line.  We are working on mapping the reason code to the "reason for non-compliance" and at this point there is no ETA on this.
 
 ### Summarize results
 

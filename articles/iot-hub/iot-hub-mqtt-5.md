@@ -2,11 +2,11 @@
  title: Azure IoT Hub MQTT 5 support (preview)
  description: Learn about IoT Hub's MQTT 5 support
  services: iot-hub
- author: jlian
+ author: kgremban
  ms.service: iot-fundamentals
  ms.topic: conceptual
  ms.date: 11/19/2020
- ms.author: jlian
+ ms.author: kgremban
 ---
 
 # IoT Hub MQTT 5 support overview (preview)

@@ -142,7 +142,7 @@ The conda environment file specifies the dependencies for the service. It includ
 ```yaml
 name: project_environment
 dependencies:
-  # The python interpreter version.
+  # The Python interpreter version.
   # Currently Azure ML only supports 3.5.2 and later.
 - python=3.6.2
 
@@ -289,4 +289,4 @@ aks_target.delete()
 
 * [Deploy model on FPGA](how-to-deploy-fpga-web-service.md)
 * [Deploy model with ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
-* [Train Tensorflow DNN Models](how-to-train-tensorflow.md)
+* [Train TensorFlow DNN Models](how-to-train-tensorflow.md)

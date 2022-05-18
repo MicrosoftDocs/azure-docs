@@ -1,6 +1,6 @@
 ---
 title: Data security and privacy policies for Google connectors
-description: Learn about the impact that Google security and privacy policies have on Google connectors, such as Gmail, in Azure Logic Apps
+description: Learn about the impact that Google security and privacy policies have on Google connectors, such as Gmail, in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla

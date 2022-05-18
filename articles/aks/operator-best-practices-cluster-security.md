@@ -44,6 +44,34 @@ Meanwhile, let's say you bind the individual user directly to a role and their j
 
 For more information about Azure AD integration, Kubernetes RBAC, and Azure RBAC, see [Best practices for authentication and authorization in AKS][aks-best-practices-identity].
 
+## Restrict access to Instance Metadata API
+
+> **Best practice guidance** 
+> 
+> Add a network policy in all user namespaces to block pod egress to the metadata endpoint.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: restrict-instance-metadata
+spec:
+  podSelector:
+    matchLabels: {}
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 10.10.0.0/0#example
+        except:
+        - 169.254.169.254/32
+```
+
+> [!NOTE]
+> Alternatively you can use [Pod Identity](./use-azure-ad-pod-identity.md) thought this is in Public Preview.  It has a pod (NMI) that runs as a DaemonSet on each node in the AKS cluster. NMI intercepts security token requests to the Azure Instance Metadata Service on each node, redirect them to itself and validates if the pod has access to the identity it's requesting a token for and fetch the token from the Azure AD tenant on behalf of the application.
+>
+
 ## Secure container access to resources
 
 > **Best practice guidance** 

@@ -152,7 +152,7 @@ case ResultReason.Canceled:
     {
         Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
         Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
     }
 }
 default:
@@ -243,7 +243,7 @@ At this point, your code should look like this:
                         {
                             Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
                             Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-                            Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                            Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                         }
                     }
                     default:
@@ -270,8 +270,3 @@ RECOGNIZED: Text= Take me to floor 7.
   Intent Id= ChangeFloors
   FloorName= 7
 ```
-
-## Next steps
-
-> Improve your pattern matching by using [custom entities](../../../../how-to-use-custom-entity-pattern-matching.md).
-
