@@ -50,7 +50,7 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
 1. (Optional) You can update the **Number of virtual users** to the total number of virtual users. The maximum allowed value is 11250. If the number of virtual users exceeds the maximum of 250 per test engine instance, Azure Load Testing provisions multiple test engines and distributes the load evenly. For example, 300 virtual users will result in 2 test engines with 150 virtual users each.
 
-1. (Optional) You can update the **Test duration** and **Ramp up time** for the test.
+1. (Optional) Update the **Test duration** and **Ramp up time** for the test.
 
 1. Click on **Run test**.
 
