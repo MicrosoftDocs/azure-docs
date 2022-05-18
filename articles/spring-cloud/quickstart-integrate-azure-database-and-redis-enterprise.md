@@ -110,11 +110,11 @@ The following instructions describe how to provision an Azure Cache for Redis an
 
 The template used in this quickstart can be found in the [ACME Fitness Store GitHub Repository](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure/templates/azuredeploy.json).
 
-To Deploy this template follow these steps:
+To deploy this template, follow these steps:
 
-1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cache for Redis and a Azure Databse for PostgreSQL Flexible Server.
+1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cache for Redis and a Azure Database for PostgreSQL Flexible Server.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure%2Ftemplates%2Fazuredeploy.json)
+   :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure%2Ftemplates%2Fazuredeploy.json":::
 
 1. Enter values for the following fields:
 

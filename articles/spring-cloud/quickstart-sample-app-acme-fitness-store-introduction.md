@@ -20,7 +20,7 @@ In this quickstart, we use the [ACME Fitness Store](https://github.com/Azure-Sam
 
 The following diagram shows a common application architecture:
 
-![Architecture of the ACME Fitness Store](media/acme-store-quickstart-introduction/architecture.jpg)
+:::image type="content" source="media/acme-store-quickstart-introduction/architecture.jpg" alt-text="Architecture of the ACME Fitness Store":::
 
 This architecture shows an application composed of smaller applications with a gateway, multiple databases, security services, monitoring, and automation.
 
@@ -42,7 +42,7 @@ This quickstart applies this architecture to a Fitness Store application. This a
 
 The following picture shows the ACME Fitness Store home page.
 
-![The ACME Fitness Store Application](media/acme-store-quickstart-introduction/homepage.png)
+:::image type="content" source="media/acme-store-quickstart-introduction/homepage.png" alt-text="The ACME Fitness Store Application":::
 
 ## Next steps
 
