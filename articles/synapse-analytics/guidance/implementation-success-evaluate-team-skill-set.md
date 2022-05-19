@@ -13,7 +13,7 @@ ms.date: 05/23/2022
 
 [!INCLUDE [implementation-success-context](includes/implementation-success-context.md)]
 
-Solution development requires a team comprising individuals with many different skills. It's very important for the success of your solution that your team has the necessary skills to successfully complete their assigned tasks. This evaluation takes an honest and critical look at the skill level of your project resources, and it provides you with a list of roles that are commonly needed during the implementation of an Azure Synapse solution. Your team needs to possess relevant experience and skills to complete their assigned project tasks within the expected time frame.
+Solution development requires a team comprising individuals with many different skills. It's important for the success of your solution that your team has the necessary skills to successfully complete their assigned tasks. This evaluation takes an honest and critical look at the skill level of your project resources, and it provides you with a list of roles that are commonly needed during the implementation of an Azure Synapse solution. Your team needs to possess relevant experience and skills to complete their assigned project tasks within the expected time frame.
 
 ## Microsoft learning level definitions
 
@@ -30,7 +30,7 @@ This article uses the Microsoft standard level definitions for describing learni
 
 Successfully delivering an Azure Synapse solution involves many different roles and skill sets. This topic describes roles commonly required to implement a successful project. Not all of the roles will be required for all projects, and not all of the roles will be required for the entire duration of the project. However, these roles will be required to complete some critical project tasks. You should evaluate the skill level of the individuals executing tasks to ensure their success in completing their job.
 
-Refer to your project plan and verify that these resources and roles were identified. Also, check to see if your project plan identifies additional resources and roles. In many cases, you may find that a single individual works in more than one roles. For example, the Azure administrator could also be your Azure network administrator. It's also possible that a role in your organization is split between multiple individuals. For example, the Synapse administrator doesn't get involved in Synapse SQL security. In this case, adjust your evaluation accordingly.
+Refer to your project plan and verify that these resources and roles were identified. Also, check to see if your project plan identifies other resources and roles. In many cases, you may find that an individual works in more than one role. For example, the Azure administrator could also be your Azure network administrator. It's also possible that a role in your organization is split between multiple individuals. For example, the Synapse administrator doesn't get involved in Synapse SQL security. In this case, adjust your evaluation accordingly.
 
 For each role (described below):
 
@@ -39,14 +39,14 @@ For each role (described below):
 - Identify the specific project tasks that will be performed by each individual.
 - Assign a [learning level](#microsoft-learning-level-definitions) to each individual for their tasks and roles.
 
-Typically, a successful implementation requires that each individual has at least a level-300 proficiency for the tasks they will perform. It's strongly recommended that individuals at level-200 or below be provided with guidance and instruction to raise their level of understanding prior to beginning their project tasks. In this case, involve a level-300 (or above) individual to mentor and review. It's recommended that you adjust the project plan timeline and effort estimates to factor in learning new skills.
+Typically, a successful implementation requires that each individual has at least a level-300 proficiency for the tasks they'll perform. It's highly recommended that individuals at level-200 (or below) be provided with guidance and instruction to raise their level of understanding prior to beginning their project tasks. In this case, involve a level-300 (or above) individual to mentor and review. It's recommended that you adjust the project plan timeline and effort estimates to factor in learning new skills.
 
 > [!NOTE]
 > We recommend you align your roles aligning with the built-in roles. There are two sets of built-in roles: [RBAC roles for Azure Synapse](../security/synapse-workspace-synapse-rbac-roles.md) and [RBAC roles built into Azure](../../role-based-access-control/built-in-roles.md). Be aware that these two sets of built-in roles and permissions are independent.
 
 ### Azure administrator
 
-The *Azure administrator* manages administrative aspects of Azure. They are responsible for subscriptions, region identification, resource groups, Azure Monitoring, and portal access. The also provision resources, like resource groups, storage accounts, Azure Data Factory (ADF), Microsoft Purview, and more.
+The *Azure administrator* manages administrative aspects of Azure. They're responsible for subscriptions, region identification, resource groups, Azure Monitoring, and portal access. They also provision resources, like resource groups, storage accounts, Azure Data Factory (ADF), Microsoft Purview, and more.
 
 ### Security administrator
 
@@ -91,7 +91,7 @@ Other responsibilities include:
 - Logical and physical database design.
 - Table design, including distribution, indexing, and partitioning.
 - Programming object design and development, including stored procedures and functions.
-- Design and development of additional performance optimizations, including materialized views, workload management, and more.
+- Design and development of other performance optimizations, including materialized views, workload management, and more.
 - Design and implementation of [data protection](security-white-paper-data-protection.md), including data encryption.
 - Design and implementation of [access control](security-white-paper-access-control.md), including object-level security, row-level security, column-level security, dynamic data masking, and Synapse role-based access control.
 - Monitoring, auditing, performance tuning and troubleshooting.
@@ -104,7 +104,7 @@ The *Spark developer* is responsible for creating notebooks and executing Spark 
 
 The *Data integration administrator* is responsible for setting up and securing data integration by using Synapse pipelines, ADF, or third-party integration tools. for performing all configuration and security functions to support the data integration tools.
 
-For Synapse pipelines and ADF, additional responsibilities include setting up the integration runtime (IR), self-hosted integration runtime (SHIR), and/or SSIS integration runtime (SSIS-IR). Knowledge of virtual machine provisioning - on-premises or in Azure - may be required.
+For Synapse pipelines and ADF, other responsibilities include setting up the integration runtime (IR), self-hosted integration runtime (SHIR), and/or SSIS integration runtime (SSIS-IR). Knowledge of virtual machine provisioning - on-premises or in Azure - may be required.
 
 ### Data integration developer
 
