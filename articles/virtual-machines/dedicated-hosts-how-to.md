@@ -25,6 +25,7 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 - Not all Azure VM SKUs, regions and availability zones support Ultra disks, see [Azure ultra disks](disks-enable-ultra-ssd.md) for more information.
+- The fault domain count of the virtual machine scale set can't exceed the fault domain count of the host group.
 
 ## Create a host group
 
