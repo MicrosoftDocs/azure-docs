@@ -52,7 +52,7 @@ For public preview the following limitations exist.
 - Max configured number of access policies per authorization: 100
 - Authorization code PKCE flow with code challenge isn't supported.
 - Authorizations feature isn't supported on self-hosted gateways.
-- No API documentation is available. Please see [this](https://github.com/Azure/APIManagement-Authorizations) GitHub repository with samples.  
+- API documentation is not available yet. Please see [this](https://github.com/Azure/APIManagement-Authorizations) GitHub repository with samples.  
 
 ### Authorization providers
  
