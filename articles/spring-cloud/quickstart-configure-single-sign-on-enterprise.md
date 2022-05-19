@@ -33,7 +33,7 @@ To configure Single Sign-On for the application, you will need to prepare creden
 
 Follow these steps to configure Single Sign-On using an existing Identity Provider. If you're provisioning an Azure Active Directory App Registration, continue on to [Provision Azure Active Directory](#provision-azure-active-directory).
 
-1. Add the urls output from the following command to your Single Sign-On Provider's configuration:
+1. Your existing identity provider must be configured to allow redirects back to Spring Cloud Gateway and API Portal. Spring Cloud Gateway has a single URI to allow re-entry to the gateway. API Portal has two URIs for supporting the user interface and underlying API. Retrieve these URIs using the following commands and add them to your Single Sign-On Provider's configuration:
 
     ```azurecli
     GATEWAY_URL=$(az spring-cloud gateway show \
@@ -56,7 +56,7 @@ Follow these steps to configure Single Sign-On using an existing Identity Provid
 > [!NOTE]
 > Only authorization servers supporting OpenID Connect Discovery protocol can be used.
 
-1. Obtain the `JSON Web Key (JWK) URI` for your identity provider. The `JWK URI` typically takes the form `${ISSUER_URI}/keys` or `${ISSUER_URI}/<version>/keys`. 
+1. The Identity Service application will uses the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by your Single Sign-On Identity Provider's authorization server. Obtain the `JWK URI` for your identity provider for use later. The `JWK URI` typically takes the form `${ISSUER_URI}/keys` or `${ISSUER_URI}/<version>/keys`.
 
 ### Provision Azure Active Directory
 
@@ -118,7 +118,7 @@ To register the application with Azure Active Directory, follow these steps. If 
     echo "https://login.microsoftonline.com/${TENANT_ID}/v2.0"
     ```
 
-1. The `JSON Web Key (JWK) URI` is needed for later. Save the output from the following command to be used later:
+1. The Identity Service application will uses the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by Active Directory. Retrieve the `JWK URI` from the output of the following command:
 
     ```bash
     TENANT_ID=$(cat sso.json | jq -r '.tenant')
