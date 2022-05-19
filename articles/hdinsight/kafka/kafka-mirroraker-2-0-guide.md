@@ -21,7 +21,7 @@ In this article, you'll learn how to use Kafka MirrorMaker 2.0 in data migration
 
 ## Use case
 
-Simulation of MirrorMaker 2.0 to replicate data points/offsets between two Kafka clusters in HDInsight. The same can be leveraged for scenarios like required data replication between two or more Kafka Clusters like Disaster Recovery, Cloud Adaption, Geo-replication, Data Isolation, and Data Aggregation.
+Simulation of MirrorMaker 2.0 to replicate data points/offsets between two Kafka clusters in HDInsight. The same can be used for scenarios like required data replication between two or more Kafka Clusters like Disaster Recovery, Cloud Adaption, Geo-replication, Data Isolation, and Data Aggregation.
 
 ## Offset replication with MirrorMaker 2.0
 
@@ -52,7 +52,7 @@ The summary of the broker setup process is as follows:
       
 ### Deployment
 
-1. Connect-mirror-maker.sh script bundled with the Kafka library implements a distributed MM2 cluster which manages the Connect workers internally based on a config file. Internally Mirrormaker driver creates and handles pairs of each connector – MirrorSourceConnector, MirrorSinkConnector, MirrorCheckpoint connector and MirrorHeartbeatConnector.
+1. Connect-mirror-maker.sh script bundled with the Kafka library implements a distributed MM2 cluster, which manages the Connect workers internally based on a config file. Internally Mirrormaker driver creates and handles pairs of each connector – MirrorSourceConnector, MirrorSinkConnector, MirrorCheckpoint connector and MirrorHeartbeatConnector.
 1. Start the Mirormaker2.
     
 ```
@@ -73,7 +73,7 @@ export KAFKA_OPTS="-Djava.security.auth.login.config=<path-to-jaas.conf>"
 
     # connection information for each cluster
     # This is a comma separated host:port pairs for each cluster
-    # for e.g. "A_host1:9092, A_host2:9092, A_host3:9092"
+    # for example. "A_host1:9092, A_host2:9092, A_host3:9092"
     source.bootstrap.servers = wn0-src-kafka.azurehdinsight.net:9092,wn1-src-kafka.azurehdinsight.net:9092,wn2-src-kafka.azurehdinsight.net:9092
     destination.bootstrap.servers = wn0-dest-kafka.azurehdinsight.net:9092,wn1-dest-kafka.azurehdinsight.net:9092,wn2-dest-kafka.azurehdinsight.net:9092
 
@@ -111,8 +111,8 @@ destination.sasl.mechanism=GSSAPI
 ```
 ### Global configurations
 
-| Property    |   Default value                                                      | Description |
-|---------------------|--------------------------------------------------------------------|----|
+| Property | Default value | Description |
+|----|----|----|
 |name|required|name of the connector, e.g. "us-west->us-east"|
 |topics|empty string|regex of topics to replicate, e.g. "topic1|topic2|topic3". Comma-separated lists are also supported|
 |topics.blacklist|".*\.internal, .*\.replica, __consumer_offsets" or similar|topics to exclude from replication|
@@ -134,32 +134,32 @@ destination.sasl.mechanism=GSSAPI
 |refresh.groups.interval.seconds|5 (seconds)|frequency to check source cluster for new consumer groups|
 |readahead.queue.capacity|500 (records)|number of records to let consumer get ahead of producer|
 |replication.policy.class|org.apache.kafka.connect.mirror.DefaultReplicationPolicy|use LegacyReplicationPolicy to mimic legacy MirrorMaker|
-|heartbeats.topic.retention.ms|1 day|used when creating heartbeat topics for the first time|
-|checkpoints.topic.retention.ms|1 day|used when creating checkpoint topics for the first time|
+|heartbeats.topic.retention.ms|one day|used when creating heartbeat topics for the first time|
+|checkpoints.topic.retention.ms|one day|used when creating checkpoint topics for the first time|
 |offset.syncs.topic.retention.ms|max long|used when creating offset sync topic for the first time|
-|replication.factor|2|used when creating the remote topics|
+|replication.factor|two|used when creating the remote topics|
 
 ### Frequently asked questions
 
 * Why do we see a difference in the last offset on source and destination cluster post replication of a topic?
 
-  It is possible that the source topic’s data points might have been purged due to which the actual record count would be less than the last offset value. This results in the difference between last offset on source and destination cluster post replication, as the replication will always start from offset-0 of the destination cluster.
+  It's possible that the source topic’s data points might have been purged due to which the actual record count would be less than the last offset value. This results in the difference between last offset on source and destination cluster post replication, as the replication will always start from offset-0 of the destination cluster.
 
-* How will the consumers behave on migration, provided that the destination cluster may have a different offset mapping to data points?
+* How will the consumers behave on migration, if that the destination cluster may have a different offset mapping to data points?
 
     Mirrormaker2’s MirrorCheckpointConnector automatically stores consumer group offset checkpoints for consumer groups on the source cluster. Each checkpoint  contains a mapping of the last committed offset for each group in the source cluster to the equivalent offset in destination cluster. So on migration the consumers that start consuming from same topic on the destination cluster will be able to resume receiving messages from the last offset they committed on the source cluster. 
 
 * How can we retain the exact topic name in destination cluster, as the source alias is prefixed with all the topics replicated?
 
-  This is the default behaviour in Mirrormaker2.0 to avoid data overriding in complex mirroring topologies. Customization of this needs to be done carefully in terms of replication flow design and topic management to avoid data loss. This can be done by using a custom replication policy class against “replication.policy.class”.
+  This is the default behavior in Mirrormaker2.0 to avoid data overriding in complex mirroring topologies. Customization of this needd to be done carefully in terms of replication flow design and topic management to avoid data loss. This can be done by using a custom replication policy class against “replication.policy.class”.
 
 * Why do we see new internal topics created in my source and destination Kafka?
 
   Mirrormaker2 internal topics are created by the Connectors to keep track of the replication process, monitoring, offset mapping and checkpointing.
 
-* Why does the mirrormaker creates only 2 replicas of the topic in the destination cluster while the source has more?
+* Why does the mirrormaker creates only two replicas of the topic in the destination cluster while the source has more?
 
-  Mirrormaker2 doesn’t replicate the replication factor of topics to target clusters. This can be controlled from MM2 config, by specifying the required number of “replication.factor”. The default value for the same is 2.
+  Mirrormaker2 doesn’t replicate the replication factor of topics to target clusters. This can be controlled from MM2 config, by specifying the required number of “replication.factor”. The default value for the same is two.
 
 * How to use custom replication policy in Mirrormaker2?
 
@@ -210,4 +210,4 @@ The implementation needs to be added to the Kafka classpath for the class refere
 
 [Apache Kafka 2.4 Documentation](https://kafka.apache.org/24/documentation.html)
 
-[Connect an on-premises network to Azure](azure/architecture/reference-architectures/hybrid-networking)
+[Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking.md)
