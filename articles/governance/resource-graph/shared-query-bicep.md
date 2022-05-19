@@ -40,9 +40,9 @@ The resource defined in the Bicep file is:
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 
-> [!NOTE]
-> The Bicep file isn't required to be named **main.bicep**. If you save the file with a different name, you must change the name of
-> the template file in the deployment step below.
+    > [!NOTE]
+    > The Bicep file isn't required to be named **main.bicep**. If you save the file with a different name, you must change the name of
+    > the template file in the deployment step below.
 
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
