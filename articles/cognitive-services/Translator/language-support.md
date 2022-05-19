@@ -144,7 +144,7 @@ ms.author: lajanuar
 
 ## Document Translation: scanned PDF support
 
-|Language|Language Code|Supported as **source language** for scanned PDF?|Supported as **target language** for scanned PDF?|
+|Language|Language Code|Supported as source language for scanned PDF?|Supported as target language for scanned PDF?|
 |:----|:----:|:----:|:----:|
 |Afrikaans|af|Yes|Yes|
 |Albanian|sq|Yes|Yes|
