@@ -27,8 +27,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* A [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true
-), version 8 or later
+* A [Java Development Kit (JDK)](/azure/developer/java/fundamentals/?view=azure-java-stable), version 8 or later
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
