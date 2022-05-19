@@ -72,7 +72,7 @@ Use the `az containerapp revision list` command to get the revision, replica, an
 ```azurecli
 az containerapp revision list \
   --name album-api \
-  --resource-group album-api-rg \
+  --resource-group album-api-rg
 ```
 
 # [PowerShell](#tab/powershell)
@@ -90,7 +90,8 @@ Show the streaming container logs:
 # [Bash](#tab/bash)
 
 ```azurecli
-az containerapp logs show --name album-api \
+az containerapp logs show \
+  --name album-api \
   --resource-group album-api-rg \
   --revision album-api--v2 \
   --replica album-api--v2-5fdd5b4ff5-6mblw \
@@ -101,7 +102,8 @@ az containerapp logs show --name album-api \
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az containerapp logs show --name album-api `
+az containerapp logs show  `
+  --name album-api `
   --resource-group album-api-rg `
   --revision album-api--v2 `
   --replica album-api--v2-5fdd5b4ff5-6mblw `
@@ -132,17 +134,17 @@ For example, you can connect to a container console in a container app with a si
 # [Bash](#tab/bash)
 
 ```azurecli
-az containerapp exec 
+az containerapp exec \
   --name album-api \
-  --resource-group album-api-rg \
+  --resource-group album-api-rg
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az containerapp exec 
+az containerapp exec `
   --name album-api `
-  --resource-group album-api-rg `
+  --resource-group album-api-rg
 ```
 
 ---
@@ -156,7 +158,7 @@ Use the `az containerapp revision list` command to get the revision, replica and
 ```azurecli
 az containerapp revision list \
   --name album-api \
-  --resource-group album-api-rg \
+  --resource-group album-api-rg
 ```
 
 # [PowerShell](#tab/powershell)
@@ -164,7 +166,7 @@ az containerapp revision list \
 ```azurecli
 az containerapp revision list `
   --name album-api `
-  --resource-group album-api-rg `
+  --resource-group album-api-rg
 ```
 
 ---
@@ -174,7 +176,8 @@ Connect to the container console.
 # [Bash](#tab/bash)
 
 ```azurecli
-az containerapp exec --name album-api \
+az containerapp exec \
+  --name album-api \
   --resource-group album-api-rg \
   --revision album-api--v2 \
   --replica album-api--v2-5fdd5b4ff5-6mblw \
@@ -184,7 +187,8 @@ az containerapp exec --name album-api \
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az containerapp exec --name album-api `
+az containerapp exec `
+  --name album-api `
   --resource-group album-api-rg `
   --revision album-api--v2 `
   --replica album-api--v2-5fdd5b4ff5-6mblw `

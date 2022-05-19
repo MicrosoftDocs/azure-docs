@@ -45,10 +45,12 @@
           href: application-consent-experience.md
         - name: Consent framework
           href: consent-framework.md
-        - name: Conditional access (CA) dev guide
+        - name: Conditional Access dev guide
           href: v2-conditional-access-dev-guide.md
-        - name: Conditional access (CA) auth context
+          displayName: ca
+        - name: Conditional Access auth context
           href: developer-guide-conditional-access-authentication-context.md
+          displayName: ca
     - name: App registrations and workload identities
       displayName: App configuration
       items:
@@ -234,22 +236,6 @@
           href: ./howto-remove-app.md
         - name: Restore or remove a deleted app registration
           href: ./howto-restore-app.md
-- name: Multi-service tutorials
-  items: 
-    - name: Secure web app accesses storage and Microsoft Graph
-      items:
-        - name: Overview
-          href: multi-service-web-app-overview.md        
-        - name: Set up App Service authentication
-          href: multi-service-web-app-authentication-app-service.md
-        - name: Access storage as the app
-          href: multi-service-web-app-access-storage.md
-        - name: Access Microsoft Graph as the user
-          href: multi-service-web-app-access-microsoft-graph-as-user.md
-        - name: Access Microsoft Graph as the app
-          href: multi-service-web-app-access-microsoft-graph-as-app.md
-        - name: Clean up resources
-          href: multi-service-web-app-clean-up-resources.md        
 - name: Single-page app (SPA)
   items:
     - name: SPA authentication documentation
@@ -340,6 +326,20 @@
           href: tutorial-blazor-server.md
         - name: Node.js
           href: tutorial-v2-nodejs-webapp-msal.md
+        - name: Secure web app accesses storage and Microsoft Graph
+          items:
+            - name: Overview
+              href: multi-service-web-app-overview.md
+            - name: Set up App Service authentication
+              href: multi-service-web-app-authentication-app-service.md
+            - name: Access storage as the app
+              href: multi-service-web-app-access-storage.md
+            - name: Access Microsoft Graph as the user
+              href: multi-service-web-app-access-microsoft-graph-as-user.md
+            - name: Access Microsoft Graph as the app
+              href: multi-service-web-app-access-microsoft-graph-as-app.md
+            - name: Clean up resources
+              href: multi-service-web-app-clean-up-resources.md
     - name: Samples
       displayName: code samples, example code, code snippets
       href: sample-v2-code.md#web-applications

@@ -22,37 +22,6 @@ Container Apps support the following probes:
 
 For a full listing of the specification supported in Azure Container Apps, refer to [Azure REST API specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/app/resource-manager/Microsoft.App/stable/2022-03-01/CommonDefinitions.json#L119-L236).
 
-## Default configuration 
-
-Container Apps offers default probe settings if no probes are defined. If your app takes an extended amount of time to start, which is very common in Java, you often need to customize the probes so your container won't crash.
-
-The following example demonstrates how to extend the liveness and readiness probes to accommodate an extended start-up process.
-
-```json
-"probes": [
-       {
-        "type": "liveness",
-        "failureThreshold": 3,
-        "periodSeconds": 10,
-        "successThreshold": 1,
-        "tcpSocket": {
-          "port": 80
-        },
-        "timeoutSeconds": 1
-       },
-       {
-         "type": "readiness",
-         "failureThreshold": 48,
-         "initialDelaySeconds": 3,
-         "periodSeconds": 5,
-         "successThreshold": 1,
-         "tcpSocket": {
-           "port": 80
-          },
-          "timeoutSeconds": 5
-       }
-```
-
 ## HTTP probes
 
 HTTP probes allow you to implement custom logic to check the status of application dependencies before reporting a healthy status. Configure your health probe endpoints to respond with an HTTP status code greater than or equal to `200` and less than `400` to indicate success. Any other response code outside this range indicates a failure.
@@ -185,6 +154,37 @@ containers:
 ---
 
 The optional `failureThreshold` setting defines the number of attempts Container Apps tries if the probe if execution fails. Attempts that exceed the `failureThreshold` amount cause different results for each probe.
+
+## Default configuration
+
+Container Apps offers default probe settings if no probes are defined. If your app takes an extended amount of time to start, which is very common in Java, you often need to customize the probes so your container won't crash.
+
+The following example demonstrates how to configure the liveness and readiness probes in order to extend the startup times.
+
+```json
+"probes": [
+       {
+        "type": "liveness",
+        "failureThreshold": 3,
+        "periodSeconds": 10,
+        "successThreshold": 1,
+        "tcpSocket": {
+          "port": 80
+        },
+        "timeoutSeconds": 1
+       },
+       {
+         "type": "readiness",
+         "failureThreshold": 48,
+         "initialDelaySeconds": 3,
+         "periodSeconds": 5,
+         "successThreshold": 1,
+         "tcpSocket": {
+           "port": 80
+          },
+          "timeoutSeconds": 5
+       }
+```
 
 ## Next steps
 

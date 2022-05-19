@@ -20,10 +20,10 @@ Some example scenarios that will be possible through this feature are:
 -	Unattended scenarios such as an Azure function using a Timer trigger can utilize this feature to connect to a backend API using OAuth 2.0. 
 -	A marketing team on an enterprise company could use the same authorization for interacting with a social media platform using OAuth 2.0.
 -	Exposing APIs in API Management as a Logic Apps Custom Connector in Logic Apps where the backend service requires OAuth 2.0 flow.  
--	On behalf of scenario where a service such as Dropbox or any other service protected by OAuth 2.0 flow are being used by multiple clients.  
--	Connect to different services that requires authorization OAuth 2.0 using GraphQL federation in API Management. 
+-	On behalf of a scenario where a service such as Dropbox or any other service protected by OAuth 2.0 flow are being used by multiple clients.  
+-	Connect to different services that require authorization OAuth 2.0 using GraphQL federation in API Management. 
 -	Enterprise Application Integration (EAI) patterns using service-to-service authorization can use client credentials grant type against backend APIs that are using OAuth 2.0. 
--	SPA applications that only want to retrieve an access token to be used in a client SDK’s against a API using OAuth 2.0. 
+-	SPA applications that only want to retrieve an access token to be used in a client SDK’s against an API using OAuth 2.0. 
 
 The feature consists of two parts, management and runtime:
 
@@ -33,7 +33,7 @@ The feature consists of two parts, management and runtime:
 
     During the policy execution, the access to the tokens is also validated using access policies.
 
-:::image type="content" source="media/authorizations-overview/overview.png" alt-text="Screenshot showing identity providers that can be used for O Auth 2.0 authorizations in API Management." border="false":::    
+:::image type="content" source="media/authorizations-overview/overview.png" alt-text="Screenshot showing identity providers that can be used for OAuth 2.0 authorizations in API Management." border="false":::    
 
 ### Requirements 
 
@@ -92,6 +92,7 @@ The following image shows the process flow for creating an authorization in API 
 
 :::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Process flow for creating authorizations" border="false":::
 
+
 1. Client sends a request to create an authorization provider. 
 1. Authorization provider is created and a response is sent back.
 1. Client sends a request to create an authorization.
@@ -106,15 +107,15 @@ The following image shows the process flow for creating an authorization in API 
 
 ### Process flow for runtime
 
-The following image shows the process flow to fetch and store authorization and refresh tokens based on a configured authorization. After the tokens has been retrieved a call is made to the backend API. 
+The following image shows the process flow to fetch and store authorization and refresh tokens based on a configured authorization. After the tokens have been retrieved a call is made to the backend API. 
 
-:::image type="content" source="media/authorizations-overview/get-token-for-backend.png" alt-text="Process flow for creating runtime" border="false":::
+:::image type="content" source="media/authorizations-overview/get-token-for-backend.svg" alt-text="Diagram that shows the process flow for creating runtime." border="false":::
 
 1. Client sends request to API Management instance.
 1. The policy [`get-authorization-context`](api-management-access-restriction-policies.md#GetAuthorizationContext) checks if the access token is valid for the current authorization.
 1. If the access token has expired but the refresh token is valid, API Management tries to fetch new access and refresh token from the configured identity provider.
 1. The identity provider returns both an access token and a refresh token, which are encrypted and saved to API Management. 
-1. After the tokens has been retrieved, the access token is attached using the `set-header` policy as an authorization header to the outgoing request to the backend API.
+1. After the tokens have been retrieved, the access token is attached using the `set-header` policy as an authorization header to the outgoing request to the backend API.
 1. Response is returned to API Management.
 1. Response is returned to the client.
 

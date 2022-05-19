@@ -908,6 +908,8 @@
         href: fuse-tutorial.md
       - name: Fuze
         href: fuze-tutorial.md  
+      - name: gamba!
+        href: gamba-tutorial.md
       - name: G Suite
         href: google-apps-tutorial.md
       - name: GaggleAMP
@@ -1360,6 +1362,8 @@
         href: luum-tutorial.md
       - name: Lynda.com
         href: lynda-tutorial.md
+      - name: Lyve Cloud
+        href: lyve-cloud-tutorial.md
       - name: M-Files
         href: m-files-tutorial.md
       - name: Mail Luck!
@@ -2024,6 +2028,8 @@
         href: skillsmanager-tutorial.md
       - name: Skills Workflow
         href: skills-workflow-tutorial.md
+      - name: Skopenow
+        href: skopenow-tutorial.md
       - name: SkyDesk Email
         href: skydeskemail-tutorial.md
       - name: SKYSITE
