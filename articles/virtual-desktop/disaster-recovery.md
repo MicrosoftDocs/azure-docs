@@ -160,12 +160,12 @@ We recommend you configure the FSLogix agent VHDLocation registry setting with b
 For example, let's say your primary session host VMs are in the Central US region, and the profile container is also in the Central US region for performance reasons. In this case, you'd configure the FSLogix agent with a path to the storage in the Central US region listed first. Next, you'd configure the storage service you used in the previous example to replicate to the West US region. Once the path to Central US fails, the agent will try to load the profile in West US instead.
 
 >[!NOTE]
->VHDLocations offers some business continuity. However, VHDLocations isn't intended to be a high availability or disaster recovery solution for user profiles. What it does offer is the ability for users to stay in active sessions during a disaster.
+>VHDLocations offers some business continuity. However, VHDLocations isn't designed to be a complete high availability or disaster recovery solution. What it does offer is the ability for users to have user sessions during a disaster.
 >
 >Here's how VHDLocations works, as well as some things you should consider if you plan to make VHDLocations part of your disaster recovery strategy:
 >
 >- If the primary storage is unavailable for whatever reason and a user signs in, the FSLogix agent won't be able to access the existing user profile from that primary share. The user can still sign in, but FSLogix will create a new profile on the secondary share. Because the user is now using a new profile, they'll lose their saved data from their user profile until the primary storage is available again.
->- Once the primary storage is available again, you won't be able to merge this new, temporary profile back into the main profile. When a user signs in after the primary share is available again, their user experience will be restored to how it was before the disaster. They'll lose any changes they made in that secondary profile during the disaster once their original profile is restored.
+>- Once the primary storage is available again, you won't be able to merge this new, temporary profile back into the main profile. When a user signs in after the primary share is available again, their user profile will be restored to how it was before the disaster. They'll lose any changes they made in the temporary secondary profile during the disaster once their original profile is restored.
 
 ### FSlogix Cloud Cache
 
