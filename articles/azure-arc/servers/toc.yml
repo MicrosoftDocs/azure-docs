@@ -107,7 +107,7 @@
       href: scenario-onboard-azure-sentinel.md
     - name: Onboard to Microsoft Defender for Cloud
       href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
-    - name: Manage Arc-enabled servers with Windows Admin Center
+    - name: Manage with Windows Admin Center
       href: /windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines
   - name: Connect via SSH
     items:
