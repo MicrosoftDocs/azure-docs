@@ -3,7 +3,7 @@ title: What's new for Azure Active Directory Verifiable Credentials (preview)
 description: Recent updates for Azure Active Directory Verifiable Credentials
 author: barclayn
 manager: rkarlin
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: reference
 ms.date: 05/10/2022
@@ -15,6 +15,8 @@ ms.author: barclayn
 ---
 
 # What's new in Azure Active Directory Verifiable Credentials (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 This article lists the latest features, improvements, and changes in the Azure Active Directory (Azure AD) Verifiable Credentials service.
 

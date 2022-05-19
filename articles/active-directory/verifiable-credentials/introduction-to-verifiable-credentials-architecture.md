@@ -4,7 +4,7 @@ description: Learn foundational information to plan and design your solution
 documentationCenter: ''
 author: barbaraselden
 manager: martinco
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
@@ -12,6 +12,8 @@ ms.author: baselden
 ---
 
 # Azure AD Verifiable Credentials architecture overview (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

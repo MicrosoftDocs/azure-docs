@@ -3,8 +3,8 @@ title: How to customize your Azure Active Directory Verifiable Credentials (prev
 description: This article shows you how to create your own custom verifiable credential
 services: active-directory
 author: barclayn
-manager: karenhoran
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
@@ -13,6 +13,8 @@ ms.author: barclayn
 ---
 
 # How to customize your verifiable credentials (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 Verifiable credentials are made up of two components, the rules and display files. The rules file determines what the user needs to provide before they receive a verifiable credential. The display file controls the branding of the credential and styling of the claims. In this guide, we will explain how to modify both files to meet the requirements of your organization. 
 
