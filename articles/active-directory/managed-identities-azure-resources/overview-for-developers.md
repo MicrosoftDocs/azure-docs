@@ -43,9 +43,9 @@ There are two types of managed identity; system-assigned and user-assigned. Syst
 If you want to use a user-assigned identity, you'll need to create it before you associate it with your Azure resource.
 1. Search for "Managed Identities" from the search bar at the top of the Portal and select the matching result.
 :::image type="content" source="media/overview-for-developers/Managed-Identities-Search.png" alt-text="Search for managed identities":::
-2. Select the "Create" button
+2. Select the "Create" button.
 :::image type="content" source="media/overview-for-developers/Managed-Identity-Create-Button.png" alt-text="Managed identity - create button":::
-3. Select the Subscription and Resource group, and enter a name for the Managed identity
+3. Select the Subscription and Resource group, and enter a name for the Managed identity.
 :::image type="content" source="media/overview-for-developers/Managed-Identity-Create-Screen.png" alt-text="Managed identity - create screen":::
 4. Select "Review + create" to run the validation test, and then select the "Create" button.
 5. When the identity has been created, a confirmation screen will appear.
