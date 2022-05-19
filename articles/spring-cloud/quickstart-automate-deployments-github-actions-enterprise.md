@@ -21,7 +21,7 @@ This quickstart shows you automate deployments to Azure Spring Apps Enterprise t
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
@@ -94,10 +94,10 @@ In addition to `AZURE_CREDENTIALS`, add the following secrets to GitHub Actions:
 
 - `TF_PROJECT_NAME` - with the value of your choosing. This will be the name of your Terraform Project
 - `AZURE_LOCATION` - this is the Azure Region your resources will be created in.
-- `OIDC_JWK_SET_URI` - use the `JWK_SET_URI` defined in [Configuring Single Sign-On](./quickstart-configure-single-sign-on-enterprise.md)
-- `OIDC_CLIENT_ID` - use the `CLIENT_ID` defined in [Configuring Single Sign-On](./quickstart-configure-single-sign-on-enterprise.md)
-- `OIDC_CLIENT_SECRET` - use the `CLIENT_SECRET` defined in [Configuring Single Sign-On](./quickstart-configure-single-sign-on-enterprise.md)
-- `OIDC_ISSUER_URI` - use the `ISSUER_URI` defined in [Configuring Single Sign-On](./quickstart-configure-single-sign-on-enterprise.md)
+- `OIDC_JWK_SET_URI` - use the `JWK_SET_URI` defined in [Configuring Single Sign-On](quickstart-configure-single-sign-on-enterprise.md)
+- `OIDC_CLIENT_ID` - use the `CLIENT_ID` defined in [Configuring Single Sign-On](quickstart-configure-single-sign-on-enterprise.md)
+- `OIDC_CLIENT_SECRET` - use the `CLIENT_SECRET` defined in [Configuring Single Sign-On](quickstart-configure-single-sign-on-enterprise.md)
+- `OIDC_ISSUER_URI` - use the `ISSUER_URI` defined in [Configuring Single Sign-On](quickstart-configure-single-sign-on-enterprise.md)
 
 Add the secret `TF_BACKEND_CONFIG` to GitHub Actions with the value:
 
@@ -132,3 +132,8 @@ read resourceGroupName &&
 az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Quickstart: Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)

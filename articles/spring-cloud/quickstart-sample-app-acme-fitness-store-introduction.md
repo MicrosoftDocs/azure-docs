@@ -47,4 +47,4 @@ The following picture shows the ACME Fitness Store home page.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart - Build and deploy apps to Azure Spring Apps Enterprise tier](quickstart-deploy-apps-enterprise.md)
+> [Quickstart: Build and deploy apps to Azure Spring Apps Enterprise tier](quickstart-deploy-apps-enterprise.md)

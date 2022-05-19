@@ -12,11 +12,11 @@ items:
   items:
   - name: Launch your first app
     href: quickstart.md
-  - name: Introduction to PetClinic sample
-    href: quickstart-sample-app-introduction.md
-  - name: Run apps on Basic/Standard tier
     expanded: true
     items:
+    - name: Introduction to PetClinic sample
+      href: quickstart-sample-app-introduction.md
+    - name: Run apps on Basic/Standard tier
     - name: Provision a service instance
       href: quickstart-provision-service-instance.md
     - name: Set up configuration server
@@ -25,12 +25,27 @@ items:
       href: quickstart-deploy-apps.md
   - name: Run apps on Enterprise tier
     items:
-    - name: Provision a service instance
-      href: quickstart-provision-service-instance-enterprise.md
-    - name: Use Application Configuration Service
-      href: quickstart-setup-application-configuration-service-enterprise.md
+    - name: Introduction to Fitness Store sample
+      href: quickstart-sample-app-acme-fitness-store-introduction.md
     - name: Build and deploy apps
       href: quickstart-deploy-apps-enterprise.md
+    - name: Configure Single Sign-On
+      href: quickstart-configure-single-sign-on-enterprise.md
+    - name: Integrate Azure Database for PostgreSQL and Azure Cache for Redis
+      href: quickstart-integrate-azure-database-and-redis-enterprise.md
+    - name: Securely load application secrets using Key Vault
+      href: quickstart-key-vault-enterprise.md
+    - name: Monitor applications end-to-end
+      href: quickstart-monitor-end-to-end-enterprise.md
+    - name: Set Request Rate Limits
+      href: quickstart-set-request-rate-limits-enterprise.md
+    - name: Automate deployments
+      href: quickstart-automate-deployments-github-actions-enterprise.md
+
+
+
+    - name: Use Application Configuration Service
+      href: quickstart-setup-application-configuration-service-enterprise.md
   - name: Set up Log Analytics
     href: quickstart-setup-log-analytics.md
   - name: Use logs, metrics and tracing

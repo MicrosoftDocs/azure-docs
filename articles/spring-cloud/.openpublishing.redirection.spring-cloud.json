@@ -364,6 +364,11 @@
             "source_path": "spring-cloud-cli-reference.md",
             "redirect_url": "/cli/azure/spring-cloud",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "quickstart-provision-service-instance-enterprise.md",
+            "redirect_url": "/azure/spring-cloud/quickstart-deploy-apps-enterprise",
+            "redirect_document_id": false
         }
     ]
 }

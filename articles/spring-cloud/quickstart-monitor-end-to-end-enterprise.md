@@ -21,15 +21,15 @@ This quickstart shows you how monitor apps running Azure Spring Apps Enterprise 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- A license for Azure Spring Apps Enterprise tier. For more information, see [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Complete the previous quickstarts in this series:
-  - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](./quickstart-deploy-enterprise.md)
-  - [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](./quickstart-integrate-azure-database-and-redis-enterprise.md)
-  - [Securely Load Application Secrets using Key Vault](./quickstart-key-vault-enterprise.md)
+  - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-enterprise.md)
+  - [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
+  - [Securely Load Application Secrets using Key Vault](quickstart-key-vault-enterprise.md)
 
 ## Update applications
 
@@ -298,4 +298,4 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Set Request Rate Limits](./quickstart-set-request-rate-limits-enterprise.md)
+> [Quickstart: Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
