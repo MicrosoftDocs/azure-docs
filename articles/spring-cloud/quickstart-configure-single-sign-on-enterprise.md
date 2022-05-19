@@ -27,7 +27,7 @@ This quickstart shows you how to configure Single Sign-On for applications runni
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Complete the previous quickstarts in this series:
-- [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-enterprise.md).
+- [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
 ## Prepare Single Sign-On credentials
 

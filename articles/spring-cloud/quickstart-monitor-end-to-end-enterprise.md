@@ -27,7 +27,7 @@ This quickstart shows you how monitor apps running Azure Spring Apps Enterprise 
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 - Complete the previous quickstarts in this series:
-  - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-enterprise.md)
+  - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md)
   - [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
   - [Securely Load Application Secrets using Key Vault](quickstart-key-vault-enterprise.md)
 
