@@ -349,3 +349,5 @@ items:
   items:
   - name: Release notes
     href: https://github.com/Azure/Communication/blob/master/releasenotes
+  - name: Learn modules
+    href: resources/learn-modules.md

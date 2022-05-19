@@ -2,7 +2,7 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 05/11/2022
+ms.date: 05/12/2022
 ms.custom: references_regions
 author: v-amallick
 ms.service: backup
@@ -43,7 +43,7 @@ Archive tier supports the following clients:
 | Workloads | Preview | Generally available |
 | --- | --- | --- |
 | SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines | None | All regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West. |
-| Azure Virtual Machines | US Gov Virginia, US Gov Texas, US Gov Arizona, UAE North, China North 2, China East 2. | All public regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West, UAE North. |
+| Azure Virtual Machines | US Gov Virginia, US Gov Texas, US Gov Arizona, China North 2, China East 2. | All public regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West, UAE North. |
 
 ## How Azure Backup moves recovery points to the Vault-archive tier?
 
