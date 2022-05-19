@@ -47,7 +47,7 @@ callComposite.launch(callLauncherActivity, groupCallOptions, localSettings);
 
 |Setup View| Calling Experience View|
 | ---- | ---- |
-| :::image type="content" source="media/android-model-injection.png" alt-text="Android data custom model injection"::: | :::image type="content" source="media/android-model-injection-name.png"  alt-text="Android data custom model injection name"::: |
+| :::image type="content" source="media/android-model-injection.png" alt-text="Screenshot of a Android data custom model injection."::: | :::image type="content" source="media/android-model-injection-name.png"  alt-text="Screenshot of a Android data custom model injection with name."::: |
 
 ### Remote Participant View Data Injection
 
