@@ -44,7 +44,7 @@ In this step, you'll create the **Mobile Network Site** resource representing th
 1. In the **Packet core** section, set the fields as follows:
 
     - Set **Technology type** to *5G*.
-    - Leave the **Version** field blank unless you've been instructed to do otherwise by your support representative.
+    - Leave the **Version** field blank unless you've been instructed to do otherwise by your support representative. <!-- Advice here might change -->
     - Set **Custom location** to the custom location you collected in [Collect custom location information](collect-required-information-for-a-site.md#collect-custom-location-information).
 
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following:

@@ -19,15 +19,48 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
 
 ## Prerequisites
 
-- Contact your Microsoft assigned trials engineer. They'll guide you through the upgrade process and provide you with the required information, including the amount of time you'll need to allow for the upgrade to complete and the new software version number.
+- Contact your Microsoft assigned trials engineer. They'll guide you through the upgrade process and provide you with the required information, including the amount of time you'll need to allow for the upgrade to complete and the new software version number. <!-- Still relevant? -->
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
-## Upgrade the packet core instance
+## View the current packet core version
 
-Carry out the following steps to upgrade the packet core instance.
+To check which version your packet core instance is currently at, and whether there is a newer version available:
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
 1. Search for and select the **Mobile Network** resource representing the private mobile network.
+
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
+
+1. In the **Resource** menu, select **Sites**.
+1. Select the site containing the packet core instance you're interested in.
+1. Under the **Network function** heading, select the name of the packet core control plane resource shown next to **Packet Core**.
+
+    :::image type="content" source="media/upgrade-packet-core-azure-portal/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
+
+1. ...
+1. Select the **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
+1. Check the **Version** field under the **Configuration** heading to view the current software version. If there's an attention icon below this field, a new packet core version is available. If there's a warning that you're running an unsupported version, we advise that you upgrade your packet core instance to a version that Microsoft currently supports.
+
+## Upgrade the packet core instance
+
+1. From the versions drop-down list, select the latest packet core version.
+    > [!IMPORTANT]
+    > You can upgrade or downgrade to any version of packet core. However, distributed tracing and packet core data might be lost when you move in or out of unsupported packet core versions. <!-- Can we be more specific over which upgrade/downgrade boundaries we can guarantee data won't be lost? -->
+
+1. A pop-up window will appear to advise that upgrading the packet core instance will cause a temporary outage. Select ... .
+1. Azure will now redeploy the packet core instance at the new software version. The Azure portal will display the following confirmation screen when this deployment is complete.
+
+    :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
+
+1. Select **Go to resource group**, and then select the **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
+1. Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version. 
+
+<!-- Should we keep the old method below? -->
+## Upgrade the packet core instance (alternative method)
+
+Carry out the following steps to upgrade the packet core instance.
+
+1. In the Azure portal, search for and select the **Mobile Network** resource representing the private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
