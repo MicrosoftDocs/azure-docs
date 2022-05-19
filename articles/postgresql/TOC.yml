@@ -769,6 +769,14 @@
         displayName: read-only, hyperscale
       - name: Useful diagnostic queries
         href: hyperscale/howto-useful-diagnostic-queries.md
+      - name: App Stacks - Sample apps
+        items:
+        - name: nodejs
+          href: hyperscale/howto-app-stacks-nodejs.md
+        - name: python
+          href: hyperscale/howto-app-stacks-python.md
+        - name: C#
+          href: hyperscale/howto-app-stacks-C#.md
   - name: Reference
     items:
       - name: PostgreSQL versions
