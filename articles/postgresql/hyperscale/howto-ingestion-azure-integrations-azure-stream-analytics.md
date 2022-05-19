@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics
+title: Ingest events data into Hyperscale (Citus) using Azure Stream Analytics
 description: Classify workload for scalable application
 ms.author: sasriram
 author: saimicrosoft
