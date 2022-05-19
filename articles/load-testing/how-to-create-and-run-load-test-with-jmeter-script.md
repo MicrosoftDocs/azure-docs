@@ -27,9 +27,9 @@ Learn more about the [key concepts for Azure Load Testing](./concept-load-testin
 
 - An Azure Load Testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
-## <a name="jmeter"></a> Create an Apache JMeter script
+## Create an Apache JMeter script
 
-In this section, you'll create a sample Apache JMeter script that you'll use in the next section to load test a web endpoint. If you already have a script, you can skip to [Create a load test](#create_test).
+In this section, you'll create a sample Apache JMeter script that you'll use in the next section to load test a web endpoint. If you already have a script, you can skip to [Create a load test](#create-a-load-test).
 
 1. Create a *SampleTest.jmx* file on your local machine:
 
@@ -102,7 +102,7 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
 
 1. Save and close the file.
 
-## <a name="create_test"></a> Create a load test
+## Create a load test
 
 With Azure Load Testing, you can use an Apache JMeter script to create a load test. This script defines the application test plan. It contains information about the web endpoint, the number of virtual users, and other test configuration settings.
 
@@ -144,7 +144,7 @@ To create a load test by using an existing Apache JMeter script:
 > [!NOTE]
 > You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
 
-## <a name="run"></a> Run the load test
+## un the load test
 
 In this section, you'll run the load test that you just created.
 
