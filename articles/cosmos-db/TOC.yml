@@ -996,6 +996,8 @@
           href: sql/sql-api-sdk-node.md
         - name: Python
           href: sql/sql-api-sdk-python.md
+        - name: Go
+          href: sql/sql-api-sdk-go.md
         - name: REST (Data plane)
           href: /rest/api/cosmos-db/
         - name: REST (Management plane)

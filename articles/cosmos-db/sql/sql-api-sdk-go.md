@@ -33,7 +33,7 @@ ms.custom: devx-track-go
 
 ## Release history
 
-Release history is maintained in the Azure Cosmos DB Go SDK source repo. For a detailed list of feature releases and bugs fixed in each release, see the [SDK changelog documentation](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/data/azcosmos/CHANGELOG.md)
+Release history is maintained in the Azure Cosmos DB Go SDK source repo. For a detailed list of feature releases and bugs fixed in each release, see the [SDK changelog documentation](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/data/azcosmos/CHANGELOG.md).
 
 ## FAQ
 
