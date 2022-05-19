@@ -60,7 +60,7 @@ The following architecture diagram shows the implementation.
 ## Onboard with xID
 
 Request API documents by filling out [the request form](https://xid.inc/contact-us). In the message field, indicate that you'd like to onboard with Azure AD B2C. Then, an xID sales representative will contact you. Follow the instructions provided in the xID API document and request an xID API client. xID tech team will send client information to you in 3-4 working days.
-Supply redirect URI. This is the URI in your site to which the user is returned after a successful authentication. The URI that should be provided to xID for your Azure B2C follows the pattern - [https://<your-b2c-domain>.b2clogin.com/<your-b2c-domain>.onmicrosoft.com/oauth2/authresp].
+Supply redirect URI. This is the URI in your site to which the user is returned after a successful authentication. The URI that should be provided to xID for your Azure B2C follows the pattern - `https://<your-b2c-domain>.b2clogin.com/<your-b2c-domain>.onmicrosoft.com/oauth2/authresp`.
 
 ## Step 1: Register a web application in Azure AD B2C
 
