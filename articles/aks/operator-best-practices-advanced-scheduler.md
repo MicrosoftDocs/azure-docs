@@ -98,7 +98,7 @@ Let's assume:
 
 Again, let's assume:
 1. You have a two-node cluster: *node1* and *node2*. 
-1. You upgrade then node pool.
+1. You upgrade the node pool.
 1. An additional node is created: *node3*.
 1. The taints from *node1* are applied to *node3*.
 1. *node1* is deleted.
@@ -122,7 +122,7 @@ Alternatively, you can use node selectors. For example, you label nodes to indic
 
 Unlike tolerations, pods without a matching node selector can still be scheduled on labeled nodes. This behavior allows unused resources on the nodes to consume, but prioritizes pods that define the matching node selector.
 
-Let's look at an example of nodes with a high amount of memory. These nodes prioritize pods that request a high amount of memory. To ensure the resources don't sit idle, they also allow other pods to run. The follow example command adds a node pool with the label *hardware=highmem* to the *myAKSCluster* in the *myResourceGroup*. All nodes in that node pool will have this label.
+Let's look at an example of nodes with a high amount of memory. These nodes prioritize pods that request a high amount of memory. To ensure the resources don't sit idle, they also allow other pods to run. The following example command adds a node pool with the label *hardware=highmem* to the *myAKSCluster* in the *myResourceGroup*. All nodes in that node pool will have this label.
 
 ```azurecli-interactive
 az aks nodepool add \
