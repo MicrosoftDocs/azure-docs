@@ -783,6 +783,12 @@
         displayName: read-only, hyperscale
       - name: Useful diagnostic queries
         href: hyperscale/howto-useful-diagnostic-queries.md
+    - name: Ingestion
+      items:
+      - name: Azure integration
+        items:
+        - name: Real-time data ingestion using Azure Stream Analytics (ASA)
+          href: hyperscale/howto-ingestion-azure-integrations-azure-stream-analytics.md
   - name: Reference
     items:
       - name: PostgreSQL versions
