@@ -79,12 +79,12 @@ Before we begin, it is assumed that you already have Azure IOT Hub provisioned a
 
 
 6. **Configure Job Output**
-    *    Navigate to the Stream Analytics job that you created earlier.
-    *    Select **Outputs** > **Add** > **Azure PostgreSQL**.
-    *    Fill out the **Azure PostgreSQL** page with the following values:
+    * Navigate to the Stream Analytics job that you created earlier.
+    * Select **Outputs** > **Add** > **Azure PostgreSQL**.
+    * Fill out the **Azure PostgreSQL** page with the following values:
         *    **Output alias** - Name to identify the job's output.
         *    Select **"Provide PostgreSQL database settings manually"** and enter the DB server connection details like server FQDN, database, table name, username, and password.
-    *    Click on **Save** to save the settings.
+    * Click on **Save** to save the settings.
 
 ![Diagram of configuring job output in ASA](../media/howto-ingestion/04-ASA-output.png)
 
