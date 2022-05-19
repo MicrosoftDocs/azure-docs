@@ -79,7 +79,7 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 > [!WARNING]
 > Azure Front Door currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
 
-- Your key vault can have network access restrictions enabled. Front Door is a trusted Azure service and can connect to your key vault even if you enable the firewall. However, you must grant Front Door access by creating an access policy, which is described below.
+- If your key vault has network access restrictions enabled, you must configure your key vault to allow trusted Microsoft services to bypass the firewall.
 
 - Your key vault must be configured to use the *Key Vault access policy* permission model.
 

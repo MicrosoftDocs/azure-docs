@@ -52,7 +52,7 @@ You can also choose to use your own TLS certificate.  When you create your TLS/S
     > [!WARNING]
     > Azure Front Door currently only supports key vaults in the same subscription as the Front Door profile. Choosing a key vault under a different subscription than your Azure Front Door Standard/Premium profile will result in a failure.
 
-- Your key vault can have network access restrictions enabled. Front Door is a trusted Azure service and can connect to your key vault even if you enable the firewall. However, you must grant Front Door access by creating an access policy, which is described below.
+- If your key vault has network access restrictions enabled, you must configure your key vault to allow trusted Microsoft services to bypass the firewall.
 
 - Your key vault must be configured to use the *Key Vault access policy* permission model.
 
