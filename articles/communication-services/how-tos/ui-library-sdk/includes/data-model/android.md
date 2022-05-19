@@ -47,7 +47,7 @@ callComposite.launch(callLauncherActivity, groupCallOptions, localSettings);
 
 |Setup View| Calling Experience View|
 | ---- | ---- |
-| :::image type="content" source="media/android_modelinjection.png" alt-text="iOS data custom model injection"::: | :::image type="content" source="media/android_modelinjection_name.png"  alt-text="iOS data custom model injection name"::: |
+| :::image type="content" source="media/android-model-injection.png" alt-text="Android data custom model injection"::: | :::image type="content" source="media/android-model-injection-name.png"  alt-text="Android data custom model injection name"::: |
 
 ### Remote Participant View Data Injection
 
@@ -83,4 +83,4 @@ callComposite.setOnRemoteParticipantJoinedHandler { remoteParticipantJoinedEvent
 
 |Participants list|
 | ---- |
-| :::image type="content" source="media/android_modelinjection_remote.png" alt-text="iOS data custom model remote injection"::: |
+| :::image type="content" source="media/android-model-injection-remote.png" alt-text="Android data custom model remote injection"::: |

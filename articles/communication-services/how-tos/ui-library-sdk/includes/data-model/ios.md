@@ -34,4 +34,4 @@ callComposite.launch(with: <Some Group Call Options>, localSettings: localSettin
 
 |Setup View|Calling Experience View|
 | ---- | ---- |
-| :::image type="content" source="media/ios_modelinjection.png" alt-text="iOS data custom model injection"::: | :::image type="content" source="media/ios_modelinjection_name.png"  alt-text="iOS data custom model injection name"::: |
+| :::image type="content" source="media/ios-model-injection.png" alt-text="I O S data custom model injection"::: | :::image type="content" source="media/ios-model-injection-name.png"  alt-text="I O S data custom model injection name"::: |
