@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to deploy Bicep files by using Gi
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/18/2022
+ms.date: 05/19/2022
 ms.custom: github-actions-azure
 ---
 
