@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent network requirements
 description: Learn about the networking requirements for using the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 03/14/2022
+ms.date: 05/24/2022
 ms.topic: conceptual 
 ---
 
@@ -29,6 +29,7 @@ Be sure to allow access to the following Service Tags:
 * AzureResourceManager
 * AzureArcInfrastructure
 * Storage
+* WindowsAdminCenter (if [using Windows Admin Center to manage Arc-enabled servers](/windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines))
 
 For a list of IP addresses for each service tag/region, see the JSON file [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
@@ -51,6 +52,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
 |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service for extension and connectivity scenarios|Always| Private |
 |`azgn*.servicebus.windows.net`|Notification service for extension and connectivity scenarios|Always| Public |
+|`*servicebus.windows.net`|For Windows Admin Center and SSH scenarios|If using SSH or Windows Admin Center from Azure|Public|
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.services.visualstudio.com`|Agent telemetry|Optional| Public |
 
