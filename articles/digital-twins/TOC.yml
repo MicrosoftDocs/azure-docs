@@ -41,7 +41,7 @@
     href: concepts-query-language.md
   - name: Query Units
     href: concepts-query-units.md 
-  - name: Data history (with Azure Data Explorer) (preview)
+  - name: Data history (with Azure Data Explorer)
     href: concepts-data-history.md
   - name: Querying with the Azure Data Explorer plugin
     href: concepts-data-explorer-plugin.md
@@ -127,7 +127,7 @@
       href: how-to-manage-routes.md
     - name: Route events with a managed identity
       href: how-to-route-with-managed-identity.md
-    - name: Use data history with Azure Data Explorer (preview)
+    - name: Use data history with Azure Data Explorer
       href: how-to-use-data-history.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md

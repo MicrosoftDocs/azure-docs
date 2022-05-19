@@ -1,17 +1,19 @@
 ---
-title: Microsoft Defender for Cloud - an introduction
+title: What is Microsoft Defender for Cloud?
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multi-cloud resources and workloads.
 ms.topic: overview
-ms.author: elkrieger
-author: ElazarK
+ms.author: benmansheim
+author: bmansheim
 ms.custom: mvc
 ms.date: 05/19/2022
 ---
 # What is Microsoft Defender for Cloud?
 
-Defender for Cloud is a tool for security posture management and threat protection. It strengthens the security posture of your cloud resources, and with its integrated Microsoft Defender plans, Defender for Cloud protects workloads running in Azure, hybrid, and other cloud platforms.
+Microsoft Defender for Cloud is a Cloud Workload Protection Platform (CWPP) that also delivers Cloud Security Posture Management (CSPM) for all of your Azure, on-premises, and multi-cloud (Amazon AWS and Google GCP) resources.
 
-Defender for Cloud provides the tools needed to harden your resources, track your security posture, protect against cyber attacks, and streamline security management. Because it's natively integrated, deployment of Defender for Cloud is easy, providing you with simple auto provisioning to secure your resources by default.
+- [**Defender for Cloud recommendations**](security-policy-concept.md) identify cloud workloads that require security actions and provide you with steps to protect your workloads from security risks.
+- [**Defender for Cloud secure score**](secure-score-security-controls.md) gives you a clear view of your security posture based on the implementation of the security recommendations so you can track new security opportunities and precisely report on the progress of your security efforts.
+- [**Defender for Cloud alerts**](alerts-overview.md) warn you about security events in your workloads in real-time, including the indicators that led to the event.
 
 Defender for Cloud fills three vital needs as you manage the security of your resources and workloads in the cloud and on-premises:
 

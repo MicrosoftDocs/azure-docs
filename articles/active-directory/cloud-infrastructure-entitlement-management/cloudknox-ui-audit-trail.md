@@ -2,14 +2,14 @@
 title: Use queries to see how users access information in an authorization system in CloudKnox Permissions Management
 description: How to use queries to see how users access information in an authorization system in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Use queries to see how users access information
