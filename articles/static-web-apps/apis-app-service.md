@@ -52,29 +52,17 @@ When the linking process is complete, requests to routes beginning with `/api/` 
 
 Your App Service app is configured with an identity provider named `Azure Static Web Apps (Linked)` that permits only traffic that is proxied through the static web app. To make your App Service app accessible to other applications, update its authentication configuration to add another identity provider or change the security settings to allow unauthenticated access.
 
-## Re-link an Azure App Service app
-
-The re-link action ensures the connection between the static web app and the Azure App Service app is correctly configured. It's useful if you've made changes to your App Service app and it's no longer accessible from the linked static web app.
-
-To re-link an Azure App Service app as the API backend for a static web app, follow these steps:
-
-1. In the Azure portal, navigate to the static web app.
-
-1. Select **APIs** from the navigation menu.
-
-    Confirm that the static web app is linked to the correct Azure App Service app.
-
-1. Select **Re-link**.
-
 ## Unlink an Azure App Service app
 
-To unlink an Azure App Service app from a static web app, follow these steps:
+To unlink a web app from a static web app, follow these steps:
 
 1. In the Azure portal, navigate to the static web app.
 
 1. Select **APIs** from the navigation menu.
 
-1. Locate the environment that you want to unlink and select **Unlink**.
+1. Locate the environment that you want to unlink and select the web app name.
+
+1. Select **Unlink**.
 
 When the unlinking process is complete, requests to routes beginning with `/api/` are no longer proxied to your App Service app.
 
