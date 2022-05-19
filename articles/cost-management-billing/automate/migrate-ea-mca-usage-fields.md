@@ -1,5 +1,6 @@
 ---
-title: Migrate from EA to Microsoft Customer Agreement usage fields | Azure
+title: Migrate from EA to Microsoft Customer Agreement usage fields
+titleSuffix: Azure Cost Management + Billing
 description: This article explains the differences between fields in the usage data files that you should know about as you migrate from an Enterprise Agreement to a Microsoft Customer Agreement.
 author: bandersmsft
 ms.author: banders

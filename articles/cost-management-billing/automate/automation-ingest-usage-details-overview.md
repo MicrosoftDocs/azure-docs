@@ -1,5 +1,6 @@
 ---
-title: Ingest usage details data | Azure
+title: Ingest usage details data
+titleSuffix: Azure Cost Management + Billing
 description: This article explains how to use usage details records to correlate meter-based charges with the specific resources responsible for the charges so that you can properly reconcile your bill.
 author: bandersmsft
 ms.author: banders

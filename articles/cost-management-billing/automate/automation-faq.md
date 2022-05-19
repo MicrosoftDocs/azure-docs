@@ -1,5 +1,6 @@
 ---
-title: Cost Management + Billing automation FAQ | Azure
+title: Cost Management + Billing automation FAQ
+titleSuffix: Azure Cost Management + Billing
 description: This FAQ is a list of frequently asked questions and answers about Cost Management + Billing automation.
 author: bandersmsft
 ms.author: banders

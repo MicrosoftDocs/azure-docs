@@ -1,9 +1,10 @@
 ---
-title: Migrate from Consumption Forecasts API | Azure
+title: Migrate from Consumption Forecasts API
+titleSuffix: Azure Cost Management + Billing
 description: This article has information to help you migrate from the Consumption Forecasts API.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

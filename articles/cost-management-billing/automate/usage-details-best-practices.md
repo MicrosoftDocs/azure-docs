@@ -1,5 +1,6 @@
 ---
-title: Usage details best practices | Azure
+title: Usage details best practices
+titleSuffix: Azure Cost Management + Billing
 description: This article describes best practices recommended by Microsoft when you work with data in usage details files.
 author: bandersmsft
 ms.author: banders
@@ -16,7 +17,7 @@ There are multiple ways to work with the usage details dataset. If your organiza
 
 ## Exports
 
-Exports is our recommended solution for ingesting usage details data. This solution is the most scalable for large enterprises. Exports are [configured in the Azure portal](../costs/tutorial-export-acm-data.md) or using the [Exports API](/rest/api/cost-management/exports).
+Exporting is our recommended solution for ingesting usage details data. This solution is the most scalable for large enterprises. Exports are [configured in the Azure portal](../costs/tutorial-export-acm-data.md) or using the [Exports API](/rest/api/cost-management/exports).
 
 To learn more about how to properly call the API and ingest usage details at scale, see [Retrieve large datasets with exports](../costs/ingest-azure-usage-at-scale.md).
 
@@ -32,7 +33,7 @@ Consider using the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) if y
 
 To learn more about how to properly call the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml), see [Get small usage data sets on demand](get-small-usage-datasets-on-demand.md).
 
-Please note that the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml); is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you are an MSDN, pay-as-you-go or Visual Studio customer, see [Get usage details as a legacy customer](get-usage-details-legacy-customer.md).
+The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml); is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, pay-as-you-go or Visual Studio customer, see [Get usage details as a legacy customer](get-usage-details-legacy-customer.md).
 
 ## Power BI
 
@@ -43,7 +44,7 @@ Power BI is another solution that's used to work with Usage Details data. The fo
 
 ## Azure portal download
 
-Only [download your usage from the Azure portal](../understand/download-azure-daily-usage.md) if you have a small usage details dataset that is capable of being loaded in Excel. Usage files that are larger than 1 or 2 GB may take a very long time to generate on demand from the Azure portal. They'll take longer to transfer over a network to your local computer. We recommend using one of the above solutions if you have a large monthly usage dataset.
+Only [download your usage from the Azure portal](../understand/download-azure-daily-usage.md) if you have a small usage details dataset that is capable of being loaded in Excel. Usage files that are larger than one or two GB may take an exceedingly long time to generate on demand from the Azure portal. They'll take longer to transfer over a network to your local computer. We recommend using one of the above solutions if you have a large monthly usage dataset.
 
 ## Next steps
 

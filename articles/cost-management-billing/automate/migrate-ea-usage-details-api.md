@@ -1,5 +1,6 @@
 ---
-title: Migrate from the EA Usage Details APIs | Azure
+title: Migrate from the EA Usage Details APIs
+titleSuffix: Azure Cost Management + Billing
 description: This article has information to help you migrate from the EA Usage Details APIs.
 author: bandersmsft
 ms.author: banders

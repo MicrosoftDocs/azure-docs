@@ -1,9 +1,10 @@
 ---
-title: Get small cost datasets on demand | Azure
+title: Get small cost datasets on demand
+titleSuffix: Azure Cost Management + Billing
 description: The article explains how you can use the Cost Details API to get raw, unaggregated cost data that corresponds to your Azure bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,13 +13,13 @@ ms.reviewer: adwise
 
 # Get small cost datasets on demand
 
-Use the [Cost Details API-UNPUBLISHED](../index.yml) to get raw, unaggregated cost data that corresponds to your Azure bill. The API is useful when your organization needs a programmatic data retrieval solution. Consider using the API if want to analyze smaller cost data sets of 2Gb (2 million rows) or less. However, you should use Exports for ongoing data ingestion workloads and for the download of larger datasets.
+Use the [Cost Details API-UNPUBLISHED](../index.yml) to get raw, unaggregated cost data that corresponds to your Azure bill. The API is useful when your organization needs a programmatic data retrieval solution. Consider using the API if want to analyze smaller cost data sets of 2 GB (2 million rows) or less. However, you should use Exports for ongoing data ingestion workloads and for the download of larger datasets.
 
 If you want to get large amounts of exported data regularly, see [Retrieve large cost datasets recurringly with exports](../costs/ingest-azure-usage-at-scale.md).
 
 To learn more about the data in cost details (formerly referred to as *usage details*), see [Ingest cost details data](automation-ingest-usage-details-overview.md).
 
-The [Cost Details API-UNPUBLISHED](../index.yml) is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you are an MSDN, Pay-As-You-Go or Visual Studio customer, please see [Get cost details as a legacy customer](get-usage-details-legacy-customer.md).
+The [Cost Details API-UNPUBLISHED](../index.yml) is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, Pay-As-You-Go or Visual Studio customer, see [Get cost details as a legacy customer](get-usage-details-legacy-customer.md).
 
 ## Cost Details API best practices
 
@@ -26,13 +27,13 @@ Microsoft recommends the following best practices as you use the Cost Details AP
 
 ### Request schedule
 
-If you want to get the latest cost data, we recommend you query at most once per day. Reports are refreshed every four hours. If you call more frequently than this you will receive identical data. Once you download your cost data for historical invoices, the charges will not change unless you are explicitly notified. We recommend caching your cost data in a queryable store on your side to prevent repeated calls for identical data.
+If you want to get the latest cost data, we recommend you query at most once per day. Reports are refreshed every four hours. If you call more frequently, you'll receive identical data. Once you download your cost data for historical invoices, the charges won't change unless you're explicitly notified. We recommend caching your cost data in a queryable store on your side to prevent repeated calls for identical data.
 
 ### Chunk your requests 
 
 Chunk your calls into small date ranges to get more manageable files that you can download over the network. For example, we recommend chunking by day or by week if you have a large Azure cost file month-to-month. If you have scopes with a large amount of cost data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download. For more information about Cost Management scopes, see [Understand and work with scopes](../costs/understand-work-scopes.md). After you download the data, use Excel to analyze data further with filters and pivot tables.
 
-If your dataset is more than two GB (or roughly 2 million rows) month-to-month, consider using [Exports](../costs/tutorial-export-acm-data.md) as a more scalable solution.
+If your dataset is more than two GB (or roughly two million rows) month-to-month, consider using [Exports](../costs/tutorial-export-acm-data.md) as a more scalable solution.
 
 ### Latency and rate limits
 
@@ -42,7 +43,7 @@ For more information, see [Cost Management API latency and rate limits](api-late
 
 ### Supported dataset time ranges
 
-The Cost Details API supports a maximum data set time range of 1 month per report. Historical data can be retrieved for up to 13 months back from the current date. If you are looking to seed a 13 month historical dataset, we recommend placing 13 calls for 1 month datasets going back 13 months.
+The Cost Details API supports a maximum data set time range of one month per report. Historical data can be retrieved for up to 13 months back from the current date. If you're looking to seed a 13 month historical dataset, we recommend placing 13 calls for one month datasets going back 13 months.
 
 ## Example Cost Details API requests
 
@@ -50,7 +51,7 @@ The following example requests are used by Microsoft customers to address common
 
 ### Get data for a scope during specific date range
 
-The data that's returned by the request corresponds to the date when the cost was received by the billing system. It might include costs from multiple invoices. Note that it is an Asynchronous API. As such, you place an initial call to request your report and receive a polling link in the response header. From there, you can poll the link provided until the report is available for you.
+The data that's returned by the request corresponds to the date when the cost was received by the billing system. It might include costs from multiple invoices. It's an asynchronous API. As such, you place an initial call to request your report and receive a polling link in the response header. From there, you can poll the link provided until the report is available for you.
 
 Use the `retry-after` header in the API response to dictate when to poll the API next. The header provides an estimated minimum time that your report will take to generate.
 
@@ -58,7 +59,7 @@ To learn more about the API contract, see [Cost Details API-UNPUBLISHED](../inde
 
 ### Actual cost versus amortized cost
 
-You can control whether you would like to see an actual cost or amortized cost report by changing the value used for the metric field in the initial request body. The available metric values are `ActualCost` or `AmortizedCost`.
+To control whether you would like to see an actual cost or amortized cost report, change the value used for the metric field in the initial request body. The available metric values are `ActualCost` or `AmortizedCost`.
 
 Amortized cost breaks down your reservation purchases into daily chunks and spreads them over the duration of the reservation term. For example, instead of seeing a $365 purchase on January 1, you'll see a $1.00 purchase every day from January 1 to December 31. In addition to basic amortization, the costs are also reallocated and associated by using the specific resources that used the reservation. For example, if the $1.00 daily charge was split between two virtual machines, you'd see two $0.50 charges for the day. If part of the reservation isn't utilized for the day, you'd see one $0.50 charge associated with the applicable virtual machine and another $0.50 charge with a charge type of `UnusedReservation`. Unused reservation costs are seen only when viewing amortized cost.
 
@@ -94,7 +95,7 @@ Response headers:
 
 ### Report Polling and Download
 
-Once you have requested to create a Cost Details report, poll for the report using the endpoint provided in the `location` header of the API response. An example polling request is below.
+Once you've requested to create a Cost Details report, poll for the report using the endpoint provided in the `location` header of the API response. An example polling request is below.
 
 Report polling request:
 
@@ -135,14 +136,15 @@ GET https://management.azure.com/{scope}/providers/Microsoft.CostManagement/cost
   "validTill": "2022-05-10T08:08:46.1973252Z"
 }
 ```
+
 A summary of the key fields in the API response is below:
 
-- **manifestVersion** - This is the version of the manifest contract that is used in the response. At this time the manifest version will remain the same for a given API version.
-- **dataFormat** - Csv is the only supported file format provided by the API at this time.
-- **blobCount** - This represents the number of individual data blobs present in the report dataset. It is important to note that this API may provide a partitioned dataset of more than 1 file in the response. Design your data pipelines to be able to handle partitioned files accordingly. Partitioning will allow you to be able to ingest larger datasets more quickly moving forward.
-- **byteCount** - This is the total byte count of the report dataset across all partitions.
+- **manifestVersion** - The version of the manifest contract that is used in the response. At this time, the manifest version will remain the same for a given API version.
+- **dataFormat** - CSV is the only supported file format provided by the API at this time.
+- **blobCount** - Represents the number of individual data blobs present in the report dataset. It's important to note that this API may provide a partitioned dataset of more than one file in the response. Design your data pipelines to be able to handle partitioned files accordingly. Partitioning will allow you to be able to ingest larger datasets more quickly moving forward.
+- **byteCount** - The total byte count of the report dataset across all partitions.
 - **compressData** - Compression is always set to false for the first release. The API will support compression in the future, however.
-- **requestContext** - This is the initial configuration requested for the report.
+- **requestContext** - The initial configuration requested for the report.
 - **blobs** - A list of n blob files that together comprise the full report.
   - **blobLink** - The download URL of an individual blob partition.
   - **byteCount** - The byte count of the individual blob partition.

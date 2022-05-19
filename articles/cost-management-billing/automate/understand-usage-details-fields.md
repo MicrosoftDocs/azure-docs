@@ -1,5 +1,6 @@
 ---
-title: Understand usage details fields | Azure
+title: Understand usage details fields
+titleSuffix: Azure Cost Management + Billing
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders

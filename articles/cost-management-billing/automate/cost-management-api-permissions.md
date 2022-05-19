@@ -1,9 +1,10 @@
 ---
-title: Assign permissions to Cost Management APIs | Azure
+title: Assign permissions to Cost Management APIs
+titleSuffix: Azure Cost Management + Billing
 description: This article describes what you need to know to successfully assign permissions to an Azure service principal.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -22,7 +23,6 @@ Before using the Azure Cost Management APIs, you need to properly assign permiss
     - If you're not already using Azure Resource Manager APIs, [register your client app with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad). Registration creates a service principal for you to use to call the APIs.
     - Assign the service principal access to the scopes needed, as outlined below.
     - Update any programming code to use [Azure AD authentication](/rest/api/azure/#create-the-request) with your service principal.
-
 
 ## Assign service principal access to Azure Resource Manager APIs
 

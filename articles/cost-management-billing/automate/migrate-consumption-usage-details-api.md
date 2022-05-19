@@ -1,5 +1,6 @@
 ---
-title: Migrate from Consumption Usage Details API | Azure
+title: Migrate from Consumption Usage Details API
+titleSuffix: Azure Cost Management + Billing
 description: This article has information to help you migrate from the Consumption Usage Details API.
 author: bandersmsft
 ms.author: banders

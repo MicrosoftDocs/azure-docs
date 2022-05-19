@@ -1,5 +1,6 @@
 ---
-title: Migrate from Consumption Marketplaces API | Azure
+title: Migrate from Consumption Marketplaces API
+titleSuffix: Azure Cost Management + Billing
 description: This article has information to help you migrate from the Consumption Marketplaces API.
 author: bandersmsft
 ms.author: banders
@@ -30,10 +31,10 @@ If you have a smaller usage details dataset or a scenario that isn't met by Expo
 New solutions provide many benefits over the Consumption Usage Details API. Here's a summary:
 
 - **Single dataset for all usage details** - Azure and Azure Marketplace usage details were merged into one dataset. It reduces the number of APIs that you need to call to get see all your charges.
-- **Scalability** - The Marketplaces API is deprecated because it promotes a call pattern that isn't able to scale as your Azure usage increases. The usage details dataset can get extremely large as you deploy more resources into the cloud. The Marketplaces API is a paginated synchronous API so it isn't optimized to effectively transfer large volumes of data over a network with high efficiency and reliability. Exports and the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) are asynchronous. They provide you with a CSV file that can be directly downloaded over the network.
+- **Scalability** - The Marketplaces API is deprecated because it promotes a call pattern that isn't able to scale as your Azure usage increases. The usage details dataset can get exceedingly large as you deploy more resources into the cloud. The Marketplaces API is a paginated synchronous API so it isn't optimized to effectively transfer large volumes of data over a network with high efficiency and reliability. Exports and the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) are asynchronous. They provide you with a CSV file that can be directly downloaded over the network.
 - **API improvements** - Exports and the Cost Details API-UNPUBLISHED are the solutions that Azure supports moving forward. All new features are being integrated into them.
 - **Schema consistency** - The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) and [Exports](../costs/tutorial-export-acm-data.md) provide files with matching fields os you can move from one solution to the other, based on your scenario.
-- **Cost Allocation integration** - Enterprise Agreement and Microsoft Customer Agreement customers using Exports or the Cost Details API-UNPUBLISHED can view charges in relation to the cost allocation rules that they have configured. For more information about cost allocation, see [Allocate costs](../costs/allocate-costs.md).
+- **Cost Allocation integration** - Enterprise Agreement and Microsoft Customer Agreement customers using Exports or the Cost Details API-UNPUBLISHED can view charges in relation to the cost allocation rules that they've configured. For more information about cost allocation, see [Allocate costs](../costs/allocate-costs.md).
 
 ## Field differences
 

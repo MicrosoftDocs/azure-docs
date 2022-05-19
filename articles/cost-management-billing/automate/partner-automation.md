@@ -1,5 +1,6 @@
 ---
-title: Cost Management automation for partners | Azure
+title: Cost Management automation for partners
+titleSuffix: Azure Cost Management + Billing
 description: This article explains how Microsoft partners and their customers can use Cost Management APIs for common tasks.
 author: bandersmsft
 ms.author: banders
