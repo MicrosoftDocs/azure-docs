@@ -48,7 +48,7 @@ The sign-in frequency setting works with apps that have implemented OAUTH2 or OI
 - Dynamics CRM Online
 - Azure portal
 
-The sign-in frequency setting works with SAML applications as well, as long as they don't drop their own cookies and are redirected back to Azure AD for authentication on regular basis.
+The sign-in frequency setting works with 3rd party SAML applications and apps that have implemented OAUTH2 or OIDC protocols, as long as they don't drop their own cookies and are redirected back to Azure AD for authentication on regular basis.
 
 ### User sign-in frequency and multi-factor authentication
 
