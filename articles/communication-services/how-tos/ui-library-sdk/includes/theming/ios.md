@@ -64,4 +64,4 @@ let callCompositeOptions = CallCompositeOptions(theme: CustomThemeConfiguration(
 
 Define each color in the assets, with a shade for the light and dark modes. Like the below reference image, describe how Contoso can configure the assets on the XCODE project.
 
-:::image type="content" source="media/ios-theming.png" alt-text="I O S color assets example configuration":::
+:::image type="content" source="media/ios-theming.png" alt-text="Screenshot of a I O S color assets example configuration.":::
