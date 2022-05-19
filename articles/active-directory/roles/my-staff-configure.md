@@ -23,7 +23,7 @@ Before you configure My Staff for your organization, we recommend that you revie
 
 ## How My Staff works
 
-My Staff is based on administrative units, which are a container of resources which can be used to restrict the scope of a role assignment's administrative control. For more information, see [Administrative units management in Azure Active Directory](administrative-units.md). In My Staff, administrative units can used to contain a group of users in a store or department. A team manager can then be assigned to an administrative role at a scope of one or more units.
+My Staff is based on administrative units, which are a container of resources which can be used to restrict the scope of a role assignment's administrative control. For more information, see [Administrative units management in Azure Active Directory](administrative-units.md). In My Staff, administrative units can be used to contain a group of users in a store or department. A team manager can then be assigned to an administrative role at a scope of one or more units.
 
 ## Before you begin
 
