@@ -40,7 +40,7 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 **Change**
 
-Today, when a user is sent to ADFS to authenticate, they will be silently signed into any account that already has a session with ADFS.  This silent sign-in occurs even if the user intended to sign into a different user account. To reduce the frequency of this incorrect sign in occurring, starting in December Azure AD will send the `prompt=login` parameter to ADFS if the Web Account Manager in Windows provides Azure AD a `login_hint` during sign-in, which indicates a specific user is desired for sign-in. 
+Today, when a user is sent to ADFS to authenticate, they will be silently signed into any account that already has a session with ADFS.  This silent sign-in occurs even if the user intended to sign into a different user account. To reduce the frequency of this incorrect sign-in occurring, starting in December Azure AD will send the `prompt=login` parameter to ADFS if the Web Account Manager in Windows provides Azure AD a `login_hint` during sign-in, which indicates a specific user is desired for sign-in. 
 
 When the above requirements are met (WAM is used to send the user to Azure AD to sign in, a `login_hint` is included, and the [ADFS instance for the user's domain supports `prompt=login`](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)) the user will not be silently signed in, and instead asked to provide a username to continue signing into ADFS.  If they wish to sign into their existing ADFS session, they can select the "Continue as current user" option displayed below the login prompt. Otherwise, they can continue with the username that they intend to sign in with. 
 
@@ -82,7 +82,7 @@ You can review the current text of the 50105 error and more on the error lookup 
 For single tenant applications, adding or updating the AppId URI validates that the domain in the HTTPS scheme URI is listed in the verified domain list in the customer tenant or that the value uses the default scheme (`api://{appId}`) provided by Azure AD.  This could prevent applications from adding an AppId URI if the domain isn't in the verified domain list or the value does not use the default scheme.
 To find more information on verified domains, refer to the [custom domains documentation](../../active-directory/fundamentals/add-custom-domain.md).
 
-The change does not affect existing applications using unverified domains in their AppID URI. It validates only new applications or when an existing application updates an identifier URIs or adds a new one to the identifierUri collection. The new restrictions apply only to URIs added to an app's identifierUris collection after 10/15/2021. AppId URIs already in an application's identifierUris collection when the restriction takes affect on 10/15/2021 will continue to function even if you add new URIs to that collection.
+The change does not affect existing applications using unverified domains in their AppID URI. It validates only new applications or when an existing application updates an identifier URI or adds a new one to the identifierUri collection. The new restrictions apply only to URIs added to an app's identifierUris collection after 10/15/2021. AppId URIs already in an application's identifierUris collection when the restriction takes effect on 10/15/2021 will continue to function even if you add new URIs to that collection.
 
 If a request fails the validation check, the application API for create/update will return a `400 badrequest` to the client indicating HostNameNotOnVerifiedDomain.
 
@@ -105,7 +105,7 @@ Applications using dynamic consent today are given all of the permissions they h
 
 In order to reduce the number of unnecessary Conditional Access prompts, Azure AD is changing the way that unrequested scopes are provided to applications so that only explicitly requested scopes trigger Conditional Access. This change may cause apps reliant on Azure AD's previous behavior (namely, providing all permissions even when they were not requested) to break, as the tokens they request will be missing permissions.
 
-Apps will now receive access tokens with a mix of permissions in this - those requested, as well as those they have consent for that do not require Conditional Access prompts.  The scopes of the access token is reflected in the token response's `scope` parameter. 
+Apps will now receive access tokens with a mix of permissions in this - those requested, as well as those they have consent for that do not require Conditional Access prompts.  The scopes of the access token are reflected in the token response's `scope` parameter. 
 
 This change will be made for all apps except those with an observed dependency on this behavior.  Developers will receive outreach if they are exempted from this change, as them may have a dependency on the additional conditional access prompts. 
 
@@ -174,9 +174,9 @@ For more details, please see the [Azure Government blog post on this migration](
 
 **Protocol impacted**: All user flows.
 
-Users with passwords longer than 256 characters that sign in directly to Azure AD (as opposed to a federated IDP like ADFS) will be unable to sign in starting March 13, 2020, and be asked to reset their password instead.  Admins may receive requests to help reset the users password.
+Users with passwords longer than 256 characters that sign in directly to Azure AD (as opposed to a federated IDP like ADFS) will be unable to sign in starting March 13, 2020, and be asked to reset their password instead.  Admins may receive requests to help reset the user password.
 
-The error in the sign in logs will be AADSTS 50052: InvalidPasswordExceedsMaxLength
+The error in the sign-in logs will be AADSTS 50052: InvalidPasswordExceedsMaxLength
 
 Message: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
