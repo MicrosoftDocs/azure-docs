@@ -35,7 +35,7 @@ The feature consists of two parts, management and runtime:
 
 :::image type="content" source="media/authorizations-overview/overview.png" alt-text="Identity providers that can be used for OAuth 2.0 authorizations in API Management" border="false":::  
 
-### Requirements
+### Requirements 
 
 - Managed System assigned identity must be enabled for the API Management instance.
 - To manage Authorizations the Contributor RBAC role is required.  
