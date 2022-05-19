@@ -36,8 +36,6 @@
           href: apis-app-service.md 
         - name: Azure Container Apps
           href: apis-container-apps.md
-        - name: Azure Logic Apps
-          href: apis-logic-apps.md
     - name: Configuration
       items:
         - name: Configuration overview

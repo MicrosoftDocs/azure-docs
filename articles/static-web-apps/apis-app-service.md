@@ -17,28 +17,32 @@ ms.author: cshoe
 
 [Azure App Service](../app-service/overview.md) is a managed platform for hosting web applications that execute code on servers. It supports many runtimes and frameworks including Node.js, ASP.NET Core, PHP, Java, and Python.
 
-When you link your Azure App Service instance to your static web app, any requests to your static web app with a route that starts with `/api/` are proxied to the same route on the Azure App Service app.
+When you link your Azure App Service web app to your static web app, any requests to your static web app with a route that starts with `/api/` are proxied to the same route on the Azure App Service app.
 
 By default, when an App Service app is linked to a static web app, the App Service app only accepts requests that are proxied through the linked static web app. An Azure App Service app can be linked to a single static web app at a time.
 
 All Azure App Service hosting plans are available for use with Azure Static Web Apps.
 
 > [!NOTE]
-> Currently, you cannot link an App Service app to a Static Web Apps [pre-production environment](review-publish-pull-requests.md).
+> You cannot link a web app to a Static Web Apps [pull request environment](review-publish-pull-requests.md).
 
-## Link an Azure App Service app
+## Link an Azure App Service Web App
 
-To link an Azure App Service app as the API backend for a static web app, follow these steps:
+To link a web app as the API backend for a static web app, follow these steps:
 
 1. In the Azure portal, navigate to the static web app.
 
 1. Select **APIs** from the navigation menu.
 
-1. In *API Source*, select **Azure App Service**.
+1. Locate the environment you want to link the API Management instance to. Select **Link**.
+
+1. In *Backend resource type*, select **Web App**.
 
 1. In *Subscription*, select the subscription containing the Azure App Service app you want to link.
 
-1. In *Resource*, select the Azure App Service app.
+1. In *Resource name*, select the Azure App Service app.
+
+1. Leave *Slot* empty to link the web app's production slot. Select a slot to link the web app to a specific slot.
 
 1. Select **Link**.
 
@@ -70,7 +74,7 @@ To unlink an Azure App Service app from a static web app, follow these steps:
 
 1. Select **APIs** from the navigation menu.
 
-1. Select **Unlink**.
+1. Locate the environment that you want to unlink and select **Unlink**.
 
 When the unlinking process is complete, requests to routes beginning with `/api/` are no longer proxied to your App Service app.
 

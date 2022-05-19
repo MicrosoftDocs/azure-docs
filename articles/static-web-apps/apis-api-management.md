@@ -34,11 +34,13 @@ To link an Azure API Management instance as the API backend for a static web app
 
 1. Select **APIs** from the navigation menu.
 
-1. In *API Source*, select **Azure API Management**.
+1. Locate the environment you want to link the API Management instance to. Select **Link**.
+
+1. In *Backend resource type*, select **API Management**.
 
 1. In *Subscription*, select the subscription containing the Azure API Management instance you want to link.
 
-1. In *Resource*, select the Azure API Management instance.
+1. In *Resource name*, select the Azure API Management instance.
 
 1. Select **Link**.
 
@@ -50,12 +52,9 @@ Azure API Management has a feature named *products* that defines how APIs are su
 
 The linking process also automatically configures your API Management instance with the following:
 
-* Access to product associated with the linked static web app is configured to require a subscription.
-
+* The product associated with the linked static web app is configured to require a subscription.
 * A subscription named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)` is created. It's scoped to the product with the same name.
-
 * An inbound *validate-jwt* policy is added to the product to allow only requests that contain a valid access token from the linked static web app.
-
 * The linked static web app is configured to include the subscription's primary key and a valid access token when proxying requests to the API Management instance.
 
 > [!IMPORTANT]
@@ -87,9 +86,7 @@ To unlink an Azure API Management instance from a static web app, follow these s
 
 1. In the Azure portal, navigate to the static web app.
 
-1. Select **APIs** from the navigation menu.
-
-1. Select **Unlink**.
+1. Locate the environment that you want to unlink and select **Unlink**.
 
 When the unlinking process is complete, requests to routes beginning with `/api/` are no longer proxied to your API Management instance.
 
