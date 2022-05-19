@@ -30,7 +30,7 @@ Use an Azure AD Connect server if your organization needs to take advantage of a
 
 - Device synchronization: Hybrid Azure AD join or Hello for Business
 - Pass-through authentication
-- More than 150,000-object support
+- Support for more than 150,000 objects
 - Support for writeback
 
 >[!NOTE]
@@ -164,7 +164,7 @@ After you've prepared your list of source and destination targets, it's time to 
 
    Verify that your updates still include all attributes expected in Azure AD. If multiple attributes are being deleted, you might need to manually populate these on-premises AD values before you remove the staging mode.
 
-   ![Screenshot that of the Connector Space Object Properties window. The attributes for user John Smith are visible.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/on-premises-ad-values.png)
+   ![Screenshot of the Connector Space Object Properties window. The attributes for user John Smith are visible.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/on-premises-ad-values.png)
 
    >[!NOTE]
    >Before you continue to the next step, ensure all user attributes are syncing properly and appear on the **Pending Export** tab as expected. If they're deleted, make sure their ImmutableID values match and the user is in one of the selected OUs for synchronization.
@@ -212,7 +212,7 @@ After you disable Okta provisioning, the Azure AD Connect server is ready to beg
 
    ![Screenshot of the Synchronization Service window. An export line is selected, and export statistics like the number of adds, updates, and deletes are visible.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/verify-sync-service.png)
 
-You've now successfully migrated to Azure AD Connect server-based provisioning. Updates and expansions to the feature set of Azure AD Connect can be done by rerunning the installation wizard.
+You've now successfully migrated to Azure AD Connect server-based provisioning. You can update and expand the feature set of Azure AD Connect by rerunning the installation wizard.
 
 ## Enable cloud sync agents
 

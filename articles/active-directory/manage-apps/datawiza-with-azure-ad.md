@@ -84,7 +84,7 @@ To run DAB with a header-based application, follow these steps:
 1. Use either Docker or Kubernetes to run DAB:
 
    - For Docker-specific instructions, see [Deploy Datawiza Access Broker With Your App](https://docs.datawiza.com/step-by-step/step3.html).
-   - For Kubernetes-specific instructions, see [https://docs.datawiza.com/step-by-step/step3.html](https://docs.datawiza.com/tutorial/web-app-AKS.html).
+   - For Kubernetes-specific instructions, see [Deploy Datawiza Access Broker with a Web App using Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html).
 
    You can use the following sample docker image docker-compose.yml file:
 
@@ -113,7 +113,7 @@ To run DAB with a header-based application, follow these steps:
 
    `docker-compose -f docker-compose.yml up`
 
-   The header-based application should have SSO enabled with Azure AD.
+   The header-based application should now have SSO enabled with Azure AD.
 
 1. In a browser, go to `http://localhost:9772/`. An Azure AD sign-in page appears.
 

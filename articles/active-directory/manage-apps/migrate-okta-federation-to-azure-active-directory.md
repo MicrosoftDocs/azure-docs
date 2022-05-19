@@ -49,7 +49,7 @@ Follow these steps to configure Azure AD Connect for password hash synchronizati
 
    ![Screenshot that shows the Azure A D icon and the Configure button in the Azure A D Connect app.](media/migrate-okta-federation-to-azure-active-directory/configure-azure-ad.png)
 
-1. Select **Change user sign-in** > **Next**.
+1. Select **Change user sign-in**, and then select **Next**.
 
    ![Screenshot of the Azure A D Connect app that shows the page for changing user sign-in.](media/migrate-okta-federation-to-azure-active-directory/change-user-signin.png)
 
@@ -130,7 +130,7 @@ To configure the enterprise application registration for Okta:
 
    :::image type="content" source="media/migrate-okta-federation-to-azure-active-directory/register-application.png" alt-text="Screenshot that shows the Create your own application menu. The app name is visible. The option to integrate with Azure A D is turned on." lightbox="media/migrate-okta-federation-to-azure-active-directory/register-application.png":::
 
-1. Select **Accounts in any organizational directory (Any Azure AD Directory - Multitenant)** > **Register**.
+1. Select **Accounts in any organizational directory (Any Azure AD Directory - Multitenant)**, and then select **Register**.
 
    ![Screenshot that shows how to register an application and change the application account.](media/migrate-okta-federation-to-azure-active-directory/register-change-application.png)
 
