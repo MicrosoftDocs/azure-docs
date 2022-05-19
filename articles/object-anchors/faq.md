@@ -1,12 +1,12 @@
 ---
 title: Frequently asked questions
-description: FAQs about the Azure Object Anchors service.
+description: Answers to frequently asked questions about the Azure Object Anchors service, which enables an application to detect an object in the world using a 3D model.
 author: craigktreasure
 manager: vriveras
-
+ms.custom: kr2b-contr-experiment
 ms.author: crtreasu
-ms.date: 09/10/2021
-ms.topic: overview
+ms.date: 05/20/2022
+ms.topic: troubleshooting
 ms.service: azure-object-anchors
 #Customer intent: Address frequently asked questions regarding Azure Object Anchors.
 ---
@@ -87,7 +87,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: Which version of the Mixed Reality Toolkit (MRTK) should my HoloLens Unity application use to be able to work with the Object Anchors Unity SDK?**
 
-**A:** The Azure Object Anchors Unity SDK doesn't depend on the Mixed Reality Toolkit in any way, which means you are free to use any version you like. For more information, see [Introducing MRTK for Unity](/windows/mixed-reality/develop/unity/mrtk-getting-started).
+**A:** The Azure Object Anchors Unity SDK doesn't depend on the Mixed Reality Toolkit in any way, which means you're free to use any version you like. For more information, see [Introducing MRTK for Unity](/windows/mixed-reality/develop/unity/mrtk-getting-started).
 
 **Q: How accurate is an estimated pose?**
 
@@ -95,7 +95,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: Can Object Anchors handle moving objects?**
 
-**A:** We don't support **continuously moving** or **dynamic** objects. We do support objects in an entirely new position in the space once they have been physically moved there, but cannot track it while it is being moved.
+**A:** We don't support **continuously moving** or **dynamic** objects. We do support objects in an entirely new position in the space once they've been physically moved there, but can't track it while it's being moved.
 
 **Q: Can Object Anchors handle deformation or articulations?**
 
@@ -129,11 +129,11 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: Why does the source model not align with the physical object when using the pose returned by the Object Anchors Unity SDK?**
 
-**A:** Unity may change the coordinate system when importing an object model. For example, the Object Anchors Unity SDK inverts the Z axis when converting from a right-handed to left-handed coordinate system, but Unity may apply an additional rotation about either the X or Y axis. A developer can determine this additional rotation by visualizing and comparing the coordinate systems.
+**A:** Unity may change the coordinate system when importing an object model. For example, the Object Anchors Unity SDK inverts the Z axis when it converts from a right-handed to left-handed coordinate system. Unity may apply another rotation about either the X or Y axis. A developer can determine this other rotation by visualizing and comparing the coordinate systems.
 
 **Q: Do you support 2D?**
 
-**A:** Since we are geometry based, we only support 3D.
+**A:** Since we're geometry based, we only support 3D.
 
 **Q: Can you differentiate between the same model in different colors?**
 
@@ -142,8 +142,8 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 **Q: Can I use Object Anchors without internet connectivity?**
 
 **A:**
-* For model conversion and training, connectivity is required as this occurs in the cloud.
-* Runtime sessions are fully on-device and do not require connectivity as all computations occur on the HoloLens 2.
+* For model conversion and training, connectivity is required as these actions occur in the cloud.
+* Runtime sessions are fully on-device and don't require connectivity as all computations occur on the HoloLens 2.
 
 ## Privacy FAQ
 **Q: How does Azure Object Anchors store data?**
