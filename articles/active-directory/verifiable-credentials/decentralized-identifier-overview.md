@@ -98,7 +98,7 @@ The scenario we use to explain how VCs work involves:
 
 Today, Alice provides a username and password to log onto Woodgrove’s networked environment. Woodgrove is deploying a verifiable credential solution to provide a more manageable way for Alice to prove that she is an employee of Woodgrove. Proseware accepts verifiable credentials issued by Woodgrove as proof of employment to offer corporate discounts as part of their corporate discount program.
 
-Alice requests Woodgrove Inc for a proof of employment verifiable credential. Woodgrove Inc attests Alice's identiy and issues a signed verfiable credential that Alice can accept and store in her digital wallet application. Alice can now present this verifiable credential as a proof of employement on the Proseware site. After a succesfull presentation of the credential, Prosware offers discount to Alice and the transaction is logged in Alice's wallet application so that she can track where and to whom she has presented her proof of employment verifiable credential.
+Alice requests Woodgrove Inc for a proof of employment verifiable credential. Woodgrove Inc attests Alice's identity and issues a signed verfiable credential that Alice can accept and store in her digital wallet application. Alice can now present this verifiable credential as a proof of employement on the Proseware site. After a succesfull presentation of the credential, Prosware offers discount to Alice and the transaction is logged in Alice's wallet application so that she can track where and to whom she has presented her proof of employment verifiable credential.
 
 ![microsoft-did-overview](media/decentralized-identifier-overview/did-overview.png)
 
