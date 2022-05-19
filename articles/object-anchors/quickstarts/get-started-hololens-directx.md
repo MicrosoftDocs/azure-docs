@@ -83,9 +83,9 @@ To launch and debug the app, select **Debug** > **Start debugging**.
 
 ## Ingest object model and detect its instance
 
-The **AoaSampleApp** app is now running on your HoloLens device. Walk close, within 2-meter distance, to the target object (chair) and scan it by looking at it from multiple perspectives. You should see a pink bounding box around the object with some yellow points rendered close to object's surface, which indicates that it was detected.
+The **AoaSampleApp** app is now running on your HoloLens device. Walk close, within 2-meter distance, to the target object (chair) and scan it by looking at it from multiple perspectives. You should see a pink bounding box around the object with some yellow points rendered close to object's surface, which indicates that it was detected. You should also see a yellow box that indicates the search area.
 
-:::image type="content" source="./media/chair-detection.png" alt-text="Phonograph shows a chair with the bounding box, point cloud and search area as.":::
+:::image type="content" source="./media/chair-detection.png" alt-text="Photograph shows a chair with the bounding box, point cloud, and search area.":::
 
 You can define a search space for the object in the app by finger clicking in the air with either your right or left hand. The search space will switch among a sphere of 2-meters radius, a 4 m^3 bounding box and a view frustum. For larger objects such as cars, the best choice is usually to use the view frustum selection while standing facing a corner of the object at about a 2-meter distance. Each time the search area changes, the app removes instances currently being tracked. It then tries to find them again in the new search area.
 
