@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 ms.devlang: csharp
 ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 05/13/2022
+ms.date: 05/19/2022
 ---
 
 # Develop Azure Functions using Visual Studio  
