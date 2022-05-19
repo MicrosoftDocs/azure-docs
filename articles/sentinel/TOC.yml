@@ -196,11 +196,7 @@
       - name: Ingest data
         href: migration-export-ingest.md
     - name: Convert dashboards to workbooks
-      items: 
-      - name: Review dashboards
-        href: migration-review-dashboards.md
-      - name: Convert dashboards
-        href: migration-convert-dashboards.md
+      href: migration-convert-dashboards.md
     - name: Update SOC operations
       items:
       - name: Update SOC operations
