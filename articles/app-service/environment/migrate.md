@@ -114,11 +114,11 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 
 After updating all dependent resources with your new IPs and properly delegating your subnet, you should continue with migration as soon as possible.
 
-During migration, the following events will occur:
+During migration, which takes about three hours, the following events will occur:
 
 - The existing App Service Environment is shut down and replaced by the new App Service Environment v3.
 - All App Service plans in the App Service Environment are converted from Isolated to Isolated v2.
-- All of the apps that are on your App Service Environment are temporarily down. You should expect about one hour of downtime.
+- All of the apps that are on your App Service Environment are temporarily down. You should expect about one hour of downtime during this period.
   - If you can't support downtime, see [migration-alternatives](migration-alternatives.md#guidance-for-manual-migration).
 - The public addresses that are used by the App Service Environment will change to the IPs identified during the previous step.
 
