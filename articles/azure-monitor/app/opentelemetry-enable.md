@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 6/30/2021
 ms.devlang: csharp, javascript, python
 ---
 
@@ -454,6 +454,52 @@ The following libraries are validated to work with the preview release.
   [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.24b0/)
 
 ---
+
+### Messaging
+
+#### [.NET](#tab/net)
+
+- 
+
+#### [Node.js](#tab/nodejs)
+
+- 
+
+#### [Python](#tab/python)
+
+- 
+
+---
+
+### Azure SDK
+Telemetry emitted by these Azure SDKs is automatically collected by default:
+
+* [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
+* [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Azure Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
+* [Azure Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
+* [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
+* [Azure Communication Phone Numbers](/java/api/overview/azure/communication-phonenumbers-readme) 1.0.0+
+* [Azure Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Azure Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Azure Digital Twins - Core](/java/api/overview/azure/digitaltwins-core-readme) 1.1.0+
+* [Azure Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
+* [Azure Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
+* [Azure Event Hubs - Azure Blob Storage Checkpoint Store](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
+* [Azure Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Azure Identity](/java/api/overview/azure/identity-readme) 1.2.4+
+* [Azure Key Vault - Certificates](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
+* [Azure Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
+* [Azure Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
+* [Azure Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Azure Storage - Blobs](/java/api/overview/azure/storage-blob-readme) 12.11.0+
+* [Azure Storage - Blobs Batch](/java/api/overview/azure/storage-blob-batch-readme) 12.9.0+
+* [Azure Storage - Blobs Cryptography](/java/api/overview/azure/storage-blob-cryptography-readme) 12.11.0+
+* [Azure Storage - Common](/java/api/overview/azure/storage-common-readme) 12.11.0+
+* [Azure Storage - Files Data Lake](/java/api/overview/azure/storage-file-datalake-readme) 12.5.0+
+* [Azure Storage - Files Shares](/java/api/overview/azure/storage-file-share-readme) 12.9.0+
+* [Azure Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
+* [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
 
 > [!NOTE]
 > The *preview* offering only includes instrumentations that handle HTTP and database requests. To learn more, see [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions).
