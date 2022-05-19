@@ -78,7 +78,7 @@ The resulting Cosmos DB container will embed the inner query into a single docum
 
 15. In the aggregate formula, add a new column called "details" and use this formula to collect the values in the structure that we created earlier called ```orderdetailsstruct```: ```collect(orderdetailsstruct)```.
 
-16. The aggregate transformation will only output columns that are part of aggregate or group by formulas. So, we need to include the columns from the sales header as well. To do that, add a column pattern in that same aggregate transformation. This pattern will include all other columns in the output, excluding the columns liste below (OrderQty, UnitPrice, SalesOrderID):
+16. The aggregate transformation will only output columns that are part of aggregate or group by formulas. So, we need to include the columns from the sales header as well. To do that, add a column pattern in that same aggregate transformation. This pattern will include all other columns in the output, excluding the columns listed below (OrderQty, UnitPrice, SalesOrderID):
 
    `instr(name,'OrderQty')==0&&instr(name,'UnitPrice')==0&&instr(name,'SalesOrderID')==0`
 
