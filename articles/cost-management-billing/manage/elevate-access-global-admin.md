@@ -217,7 +217,7 @@ In the request body, replace `<roleDefinitionName>` with the `name` copied from 
 
 ---
 
-## Need help? Contact support
+## Need help? contact support
 
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
