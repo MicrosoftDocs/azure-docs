@@ -37,7 +37,7 @@ You can switch a storage account from one type of replication to any other type,
 
 If you choose manual migration, downtime is required. If you choose live migration, there's no downtime requirement.
 
-## Migration Option 1: Manual Migration
+## Migration option 1: Manual migration
 
 ### When to use a manual migration
 
@@ -67,7 +67,7 @@ To manually migration your Azure Storage accounts:
 
 1. Determine which type of replication you need and follow the directions in [Switch between types of replication](../storage/common/redundancy-migration.md#switch-between-types-of-replication).
 
-## Migration Option 2: Request a live migration
+## Migration option 2: Request a live migration
 
 ### When to request a live migration
 
@@ -95,7 +95,7 @@ However, be aware of the following limitations:
 
 - For premium performance, live migration is supported for premium file share accounts, but not for premium block blob or premium page blob accounts.
 
-### How to request a Live migration
+### How to request a live migration
 
 [Request a live migration](../storage/common/redundancy-migration.md) by creating a new support request from Azure portal.
 
