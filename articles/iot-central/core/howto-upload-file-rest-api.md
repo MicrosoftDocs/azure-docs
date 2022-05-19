@@ -25,14 +25,10 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
-
 ## Prerequisites
 
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
-
-## Clone the repository
-
 
 ## Upload storage account configuration REST API
 
