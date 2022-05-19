@@ -129,9 +129,9 @@ A cluster with Windows nodes can have approximately 500 services before it encou
 
 Yes. Azure Hybrid Benefit for Windows Server reduces operating costs by letting you bring your on-premises Windows Server license to AKS Windows nodes.
 
-Azure Hybrid Benefit can be used on your entire AKS cluster or on individual nodes. For individual nodes, you need to browse to the [node resource group][resource-groups] and apply the Azure Hybrid Benefit to the nodes directly. For more information on applying Azure Hybrid Benefit to individual nodes, see [Azure Hybrid Benefit for Windows Server][hybrid-vms]. 
+Azure Hybrid Benefit can be used on your entire AKS cluster or on individual nodes. For individual nodes, you need to browse to the [node resource group][resource-groups] and apply the Azure Hybrid Benefit to the nodes directly. For more information on applying Azure Hybrid Benefit to individual nodes, see [Azure Hybrid Benefit for Windows Server][hybrid-vms].
 
-To use Azure Hybrid Benefit on a new AKS cluster, use the `--enable-ahub` argument.
+To use Azure Hybrid Benefit on a new AKS cluster, run the `az aks create` command and use the `--enable-ahub` argument.
 
 ```azurecli
 az aks create \
@@ -144,7 +144,7 @@ az aks create \
     --enable-ahub
 ```
 
-To use Azure Hybrid Benefit on an existing AKS cluster, update the cluster by using the `--enable-ahub` argument.
+To use Azure Hybrid Benefit on an existing AKS cluster, run the `az aks update` command and use the update the cluster by using the `--enable-ahub` argument.
 
 ```azurecli
 az aks update \
@@ -153,19 +153,20 @@ az aks update \
     --enable-ahub
 ```
 
-To check if Azure Hybrid Benefit is set on the cluster, use the following command:
+To check if Azure Hybrid Benefit is set on the Windows nodes in the cluster, run the `az vmss show` command with the `--name` and `--resource-group` arguments to query the virtual machine scale set. To identify the resource group the scale set for the Windows node pool is created in, you can run the `az vmss list -o table` command.
 
 ```azurecli
-az vmss show --name myAKSCluster --resource-group MC_CLUSTERNAME
+az vmss show --name myScaleSet --resource-group MC_<resourceGroup>_<clusterName>_<region>
 ```
 
-If the cluster has Azure Hybrid Benefit enabled, the output of `az vmss show` will be similar to the following:
+If the Windows nodes in the scale set have Azure Hybrid Benefit enabled, the output of `az vmss show` will be similar to the following:
 
 ```console
-"platformFaultDomainCount": 1,
-  "provisioningState": "Succeeded",
-  "proximityPlacementGroup": null,
-  "resourceGroup": "MC_CLUSTERNAME"
+""hardwareProfile": null,
+    "licenseType": "Windows_Server",
+    "networkProfile": {
+      "healthProbe": null,
+      "networkApiVersion": null,
 ```
 
 ## How do I change the time zone of a running container?
