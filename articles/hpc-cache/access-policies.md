@@ -4,7 +4,7 @@ description: How to create and apply custom access policies to limit client acce
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/02/2022
+ms.date: 05/19/2022
 ms.author: v-erinkelly
 ---
 
@@ -76,7 +76,7 @@ Check this box to allow the specified clients to directly mount this export's su
 
 Choose whether or not to set root squash for clients that match this rule.
 
-This setting controls how Azure HPC Cache treats requests from the root user on client machines. When root squash is enabled, root users from a client are automatically mapped to a non-privileged user  when they send requests through the Azure HPC Cache. It also prevents client requests from using set-UID permission bits.
+This setting controls how Azure HPC Cache treats requests from the root user on client machines. When root squash is enabled, root users from a client are automatically mapped to a non-privileged user when they send requests through the Azure HPC Cache. It also prevents client requests from using set-UID permission bits.
 
 If root squash is disabled, a request from the client root user (UID 0) is passed through to a back-end NFS storage system as root. This configuration might allow inappropriate file access.
 

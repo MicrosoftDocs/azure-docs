@@ -49,23 +49,29 @@ Check these settings both on the NAS itself and also on any firewalls between th
 
 ## Check root squash settings
 
-Check that the access settings for the superuser root are properly configured. Check the settings that affect each mount point and the cache itself.
+Check that the access settings for the superuser root are properly configured. Check the settings for each storage export and settings on the HPC Cache.
 
 > [!TIP]
 >
-> Older versions of Azure HPC Cache required NAS storage systems to allow root access from the HPC Cache, but this requirement has changed. You only need to configure root squash on a storage target export if you want HPC Cache clients to have root access to that path.
+> Older versions of Azure HPC Cache required NAS storage systems to allow root access from the HPC Cache, but this requirement has changed. Now, you only need to configure root squash on a storage target export if you want HPC Cache clients to have root access to that path.
 
-This table explains the behavior for different root squash scenarios.
+Root squash prevents requests sent by a local superuser root on the client from being sent to a back-end storage system as root. It reassigns requests from root to a non-privileged user ID (UID).
 
-| HPC Cache root setting | Storage target export root squash setting | Effective client access |
-|--|--|--|
-| no root squash (off) | root squash (on) | ? |
-| root squash (on) | no root squash (off) | ? |
+Root squash can be enabled in various ways in an HPC Cache system:
 
-Squashing on in core filer, root disallowed or reassigned at filer
-Squashing on in cache, root disallowed before sending to core filer. Core filer will never see root except to mount. 
-Squashing on in cache, root reassigned to non-root user before sending to filer. Core filer will never see root except for mount. 
-***xxx start here xxx*** 
+* At the Azure HPC Cache - Use [client access policies](access-policies.md#root-squash) to configure root squash for clients that match specific filter rules. A client access policy is part of each NFS storage target namespace path. By default, Azure HPC Cache does not squash root.
+* At the storage export - Configure your storage system to reassign incoming requests from root to a non-privileged user ID (UID).
+
+This table illustrates the behavior for different root squash scenarios when a client request is sent as UID 0 (root).
+
+| Setting | UID sent from client | UID sent from HPC Cache | Effective UID on back-end storage |
+|--|--|--|--|
+| no root squash | 0 (root) | 0 (root) | 0 (root) |
+| root squash at HPC Cache | 0 (root) | 65534 (nobody) | 65534 (nobody) |
+| root squash at NAS storage | 0 (root) | 0 (root) | 65534 (nobody) |
+| root squash at HPC Cache and NAS | 0 (root) | 65534 (nobody) | 65534 (nobody) |
+
+(UID 65534 is an example; when you turn on root squash in a client access policy you can customize the UID.)
 
 ## Check access on directory paths
 <!-- previously linked in prereqs article as allow-root-access-on-directory-paths -->
