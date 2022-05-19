@@ -209,7 +209,7 @@ In the **Status** tab, you can define states for your element. *States* are data
 
 To create a state, first choose whether the state is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The expression should have a numeric outcome. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
-Once you've defined your property expression, set value ranges to create state boundaries, and choose colors to represent each state in the visualization.
+Once you've defined your property expression, set value ranges to create state boundaries, and choose colors to represent each state in the visualization. The min of each value range is inclusive, and the max is exclusive.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-status.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Status tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-status.png":::
 
@@ -219,9 +219,15 @@ In the **Alerts** tab, you can set conditional notifications to help you quickly
 
 First, enter a **Trigger expression**. This is a JavaScript expression involving one or more properties of *PrimaryTwin* that yields a boolean result. This expression will generate an alert badge in the visualization when it evaluates to true. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
-Then, customize your alert badge with a **Badge icon**, **Badge color**, and **Notification text**.
+Then, customize your alert badge with a **Badge icon**, **Badge color**, and a string for **Notification text**. 
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-alerts.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Alerts tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-alerts.png":::
+
+Notification text can also include calculation expressions with this syntax: `${<calculation-expression>}`. Expressions will be computed and displayed dynamically in the [viewer](#view-scenes-individually).
+
+For an example of notification text with an expression, consider a behavior for a pasteurization tank, whose twin has double properties for `InFlow` and `OutFlow`. To display the difference between the tank's inflow and outflow in the notification, you could use this notification text: `Too much flow (InFlow is ${PrimaryTwin.InFlow - PrimaryTwin.OutFlow} greater than OutFlow)`. The computed result of the expression will be shown in the alert text in the viewer.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-alerts-expression.png" alt-text="Screenshots showing the notification text being entered on the Alerts dialog, and how the alert appears in the Viewer." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-alerts-expression.png":::
 
 ### Widgets 
 
@@ -237,6 +243,8 @@ Here are the types of widget that you can create:
 
     Enter a **Label** and **Unit of measure**, then choose whether the gauge reflects a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The expression should have a numeric outcome. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
+    Once you've defined your property expression, set value ranges to appear in certain colors on the gauge. The min of each value range is inclusive, and the max is exclusive.
+
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png" alt-text="Screenshot of creating a new gauge-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png":::
 
 * **Link**: For including externally-referenced content via a linked URL
@@ -245,11 +253,21 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-link.png" alt-text="Screenshot of creating a new link-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-link.png":::
 
+    Link URLs can also include calculation expressions with this syntax: `${<calculation-expression>}`. The screenshot above contains an expression for accessing a property of the primary twin. Expressions will be computed and displayed dynamically in the [viewer](#view-scenes-individually).
+
 * **Value**: For directly displaying twin property values
 
     Enter a **Display name** and select a **Property expression** that you want to display. This can be a **Single property** of the primary twin, or a **Custom (advanced)** property expression. Custom expressions should be JavaScript expressions using one or more properties of the twin, and you'll select which outcome type the expression will produce. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png" alt-text="Screenshot of creating a new value-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png":::
+
+    If your custom property expression outputs a string, you can also use JavaScript's [template literal syntax](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Template_literals) to include a dynamic expression in the string output. Format the dynamic expression with this syntax: `${<calculation-expression>}`. Then, wrap the whole string output with backticks (`` ` ``).
+
+    Below is an example of a value widget that checks if the `InFlow` value of the primary twin exceeds 99. If so, it outputs a string with an expression containing the twin's `$dtId`. Otherwise, there will be no expression in the output, so no backticks are required. 
+
+    Here's the value expression: `` PrimaryTwin.InFlow > 99 ? `${PrimaryTwin.$dtId} has an InFlow problem`  : 'Everything looks good' ``. The computed result of the expression (the `$dtId`) will be shown in the widget in the viewer.
+
+    :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value-expression.png" alt-text="Screenshots showing the notification text being entered on the value widget dialog, and how the widget appears in the Viewer." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value-expression.png":::
 
 ### Use custom (advanced) expressions
 
