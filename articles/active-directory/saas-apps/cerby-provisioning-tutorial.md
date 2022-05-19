@@ -32,7 +32,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* A user account in Cerby with Admin permission
+* A user account in Cerby with the Workspace Owner role.
+* The Cerby SAML2-based integration must be set up. Follow the instructions in the [How to Configure the Cerby App Gallery SAML App with Your Azure AD Tenant](https://help.cerby.com/en/articles/5457563-how-to-configure-the-cerby-app-gallery-saml-app-with-your-azure-ad-tenant) article to set up the integration.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -40,8 +41,19 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Cerby](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure Cerby to support provisioning with Azure AD
+Cerby has enabled by default the provisioning support for Azure AD. You must only retrieve the SCIM API authentication token by completing the following steps:
 
-To configure Cerby to support provisioning with Azure AD, refer the [Cerby Help Doc](https://help.cerby.com/en/articles/5638472-how-to-configure-automatic-user-provisioning-for-azure-ad#h_6684c37cc7) .
+1. Log in to your corresponding [Cerby workspace](https://app.cerby.com/).
+1. Click the **Hi there < user >!** button located at the bottom of the left side navigation menu. A drop-down menu is displayed.
+1. Select the **Workspace Configuration** option related to your account from the drop-down menu. The **Workspace Configuration** page is displayed.
+1. Activate the **IDP Settings** tab.
+1. Click the **View Token** button located in the **Directory Sync** section of the **IDP Settings** tab. A pop-up window is displayed waiting to confirm your identity, and a push notification is sent to your Cerby mobile application.
+**IMPORTANT:** To confirm your identity, you must have installed and logged in to the Cerby mobile application to receive push notifications.
+1. Click the **It's me!** button in the **Confirmation Request** screen of your Cerby mobile application to confirm your identity. The pop-up window in your Cerby workspace is closed, and the **Show Token** pop-up window is displayed.
+1. Click the **Copy** button to copy the SCIM token to the clipboard.
+
+	>[!TIP]
+	>Keep the **Show Token** pop-up window open to copy the token at any time. You need the token to configure provisioning with Azure AD.
 
 ## Step 3. Add Cerby from the Azure AD application gallery
 
@@ -53,7 +65,8 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* If you need other roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
+
 
 ## Step 5. Configure automatic user provisioning to Cerby 
 
@@ -63,33 +76,35 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
+	![Enterprise applications blade](common/enterprise-applications.png)
 
 1. In the applications list, select **Cerby**.
 
-	![Screenshot of the Cerby link in the Applications list.](common/all-applications.png)
+	![The Cerby link in the Applications list](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
-	![Screenshot of Provisioning tab.](common/provisioning.png)
+	![Provisioning tab](common/provisioning.png)
 
 1. Set the **Provisioning Mode** to **Automatic**.
 
-	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
+	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. In the **Admin Credentials** section, input your Cerby Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Cerby. If the connection fails, ensure your Cerby account has Admin permissions and try again.
+1. In the **Admin Credentials** section, input `https://api.cerby.com/v1/scim/v2` as your Cerby Tenant URL and the SCIM API authentication token that you have previously retrieved. 
 
-	![Screenshot of Token & Tenant urlinput box.](common/provisioning-testconnection-tenanturltoken.png)
+1. Click **Test Connection** to ensure Azure AD can connect to Cerby. If the connection fails, ensure your Cerby account has Admin permissions and try again.
+
+	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-	![Screenshot of Notification Email.](common/provisioning-notification-email.png)
+	![Notification Email](common/provisioning-notification-email.png)
 
 1. Select **Save**.
 
 1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Cerby**.
 
-1. Review the user attributes that are synchronized from Azure AD to Cerby in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cerby for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Cerby API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Cerby in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Cerby for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Cerby API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|Required by Cerby|
    |---|---|---|---|
@@ -104,15 +119,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. To enable the Azure AD provisioning service for Cerby, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Screenshot of Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
+	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
 1. Define the users and groups that you would like to provision to Cerby by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
+	![Provisioning Scope](common/provisioning-scope.png)
 
 1. When you're ready to provision, click **Save**.
 
-	![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
+	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
