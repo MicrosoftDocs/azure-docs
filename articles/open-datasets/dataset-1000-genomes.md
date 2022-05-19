@@ -11,7 +11,7 @@ ms.date: 04/16/2021
 
 # 1000 Genomes
 
-The 1000 Genomes Project ran between 2008 and 2015, creating the largest public catalog of human variation and genotype data. The final data set contains data for 2,504 individuals from 26 populations and 84 million identified variants. The 100 Genomes is currently maintained by the [IGSR](https://www.internationalgenome.org/about) to ensure the data is 1. Available in latest reference dataset. 2. Maintain and publish additional dataset on 1000 genomes samples. 3. Expand the collection with additional populations.
+The 1000 Genomes Project ran between 2008 and 2015, creating the largest public catalog of human variation and genotype data. The final data set contains data for 2,504 individuals from 26 populations and 84 million identified variants. The 1000 Genomes is currently maintained by the [IGSR](https://www.internationalgenome.org/about) to ensure the data is 1. Available in latest reference dataset. 2. Maintain and publish additional dataset on 1000 genomes samples. 3. Expand the collection with additional populations.
 
 Pilot Analysis: [A map of human genome variation from population-scale sequencing](https://www.nature.com/articles/nature09534)
 
