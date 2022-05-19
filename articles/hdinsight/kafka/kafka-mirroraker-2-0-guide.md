@@ -109,14 +109,16 @@ destination.ssl.keystore.password=<password>
 destination.ssl.keystore.location=/path/to/kafka.server.keystore.jks
 destination.sasl.mechanism=GSSAPI
 ```
+
+
 ### Global configurations
 
-| Property | Default value | Description |
-|----|----|----|
-|name|required|name of the connector, e.g. "us-west->us-east"|
-|topics|empty string|regex of topics to replicate, e.g. "topic1|topic2|topic3". Comma-separated lists are also supported|
+|Property |Default value |Description |
+|---------|---------|---------|
+|name|required|name of the connector, For Example, "us-west->us-east"|
+|topics|empty string|regex of topics to replicate, e.g. "topic1,topic2,topic3". Comma-separated lists are also supported.|
 |topics.blacklist|".*\.internal, .*\.replica, __consumer_offsets" or similar|topics to exclude from replication|
-|groups|empty string|regex of groups to replicate, e.g. ".*"|  
+|groups|empty string|regex of groups to replicate, For Example, ".*"|  
 |groups.blacklist|empty string|groups to exclude from replication|
 |source.cluster.alias|required|name of the cluster being replicated|
 |target.cluster.alias|required|name of the downstream Kafka cluster|
@@ -204,7 +206,7 @@ The implementation needs to be added to the Kafka classpath for the class refere
 
 [Mirrormaker2 Changes Apache Doc](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0)
 
-[Client certificates setup for HDI Kafka](apache-kafka-ssl-encryption-authentication#client-setup-without-authentication.md)
+[Client certificates setup for HDI Kafka](apache-kafka-ssl-encryption-authentication.md)
 
 [HDInsight Kafka](./apache-kafka-introduction.md)
 
