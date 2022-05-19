@@ -72,9 +72,10 @@ A graph shows the number of recommendations and alerts by classified resource ty
 
 ## Learn more
 
-If you would like to learn more from the product manager about Microsoft Defender for Cloud's integration with Azure Purview check out [Microsoft Defender for Cloud in the Field](episode-two.md).
+If you would like to learn more from the product manager about Microsoft Defender for Cloud's [integration with Azure Purview](episode-two.md).
 
 You can also check out the following blog:
+
 - [Secure sensitive data in your cloud resources](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/secure-sensitive-data-in-your-cloud-resources/ba-p/2918646).
 
 ## Next steps
