@@ -144,7 +144,7 @@ To create a load test by using an existing Apache JMeter script:
 > [!NOTE]
 > You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
 
-## un the load test
+## Run the load test
 
 In this section, you'll run the load test that you just created.
 

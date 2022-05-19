@@ -36,7 +36,7 @@ To create a Load Testing resource:
 
 [!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
 
-## <a name="create_test"></a> Create a load test
+## Create a load test
 
 Azure Load Testing enables you to quickly create a load test from the Azure portal. You'll specify the web application URL and the basic load testing parameters. Azure Load Testing abstracts the complexity of creating the load test script and provisioning the compute infrastructure.
 
@@ -64,7 +64,7 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 > Azure Load Testing auto-generates an Apache JMeter script for your load test.
 > You can download the JMeter script from the test run dashboard. Select **Download**, and then select **Input file**. To run the script, you have to provide environment variables to configure the URL and test parameters.```
 
-## <a name="view"></a> View the test results
+## View the test results
 
 Once the load test starts, you will be redirected to the test run dashboard. While the load test is running, Azure Load Testing captures both client-side metrics and server-side metrics. In this section, you'll use the dashboard to monitor the client-side metrics.
 
@@ -76,7 +76,7 @@ Once the load test starts, you will be redirected to the test run dashboard. Whi
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/test-result-filters.png" alt-text="Screenshot that shows the filter criteria for the results of a load test.":::
 
-## <a name="rerun"></a> Modify load test parameters
+## Modify load test parameters
 
 You can modify the load test configuration at any time. For example, [define test failure criteria](how-to-define-test-criteria.md) or [monitor server-side metrics for Azure-hosted applications](how-to-monitor-server-side-metrics.md).
 
