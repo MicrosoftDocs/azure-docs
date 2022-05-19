@@ -60,25 +60,25 @@ The *network administrator* must have local knowledge of the existing networking
 
 The *Synapse administrator* is responsible for the administration of the overall Azure Synapse environment. This role is responsible for the availability and scale of workspace resources, data lake administration, analytics pools, and workspace administration and monitoring. This role works closely with all other roles to ensure access to Azure Synapse, the availability of analytics services, and sufficient scale. Other responsibilities include:
 
-- Provisioning Synapse workspaces.
-- Setting up Azure Synapse networking and security requirements.
-- Monitoring Synapse workspace activity.
+- Provision Synapse workspaces.
+- Set up Azure Synapse networking and security requirements.
+- Monitor Synapse workspace activity.
 
 ### Synapse database administrator
 
 The *Synapse database administrator* is responsible for the design, implementation, maintenance, and operational aspects of the SQL pools (serverless and dedicated). This role is responsible for the overall availability, consistent performance, and optimizations of the SQL pools. This role is also responsible for managing the security of the data in the databases, granting privileges over the data, and granting or denying user access. Other responsibilities include:
 
-- Performing various dedicated SQL pool administration functions, like provisions, scale, pauses, resumes, restores, workload management, monitoring, and others.
-- Performing various dedicated SQL pool administration functions, like securing, monitoring, and others.
-- Setting up SQL pool database security.
+- Perform various dedicated SQL pool administration functions, like provisions, scale, pauses, resumes, restores, workload management, monitoring, and others.
+- Perform various dedicated SQL pool administration functions, like securing, monitoring, and others.
+- Set up SQL pool database security.
 - Performance tuning and troubleshooting.
 
 ### Synapse Spark administrator
 
 The *Synapse Spark administrator* is responsible for the design, implementation, maintenance, and operational aspects of the Spark pools. This role is responsible for the overall availability, consistent performance, and optimizations of the Spark pools. This role is also responsible for managing the security of the data, granting privileges over the data, and granting or denying user access. Other responsibilities include:
 
-- Performing various dedicated Spark pool administration functions, like provisions, monitoring, and others.
-- Setting up Spark pool data security.
+- Perform various dedicated Spark pool administration functions, like provisions, monitoring, and others.
+- Set up Spark pool data security.
 - Notebook troubleshooting and performance.
 - Pipeline Spark execution troubleshooting and performance.
 
