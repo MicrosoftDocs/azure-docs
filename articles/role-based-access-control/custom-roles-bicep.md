@@ -52,15 +52,13 @@ The resource defined in the Bicep file is:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep
+    az deployment sub create --name demoSubDeployment --location eastus --template-file main.bicep
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+    New-AzSubscriptionDeployment -Name demoSubDeployment -Location eastus -TemplateFile ./main.bicep
     ```
 
     ---
@@ -69,7 +67,7 @@ The resource defined in the Bicep file is:
 
 ## Review deployed resources
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+Use the Azure portal, Azure CLI, or Azure PowerShell to verify that the custom role was created.
 
 # [CLI](#tab/CLI)
 
