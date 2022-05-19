@@ -2,22 +2,22 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/20/2022
+ms.date: 05/19/2022
 ms.author: glenga
 ms.custom: devdivchpfy22
 ---
 
 1. In **Solution Explorer**, right-click the project and select **Publish**. In the **Target**, select **Azure**, and then select **Next**.
 
-    :::image type="content" source="media/functions-vstools-publish/functions-vs-publish.png" alt-text="Screenshot of Publish window.":::
+    :::image type="content" source="media/functions-vstools-publish/functions-vs-publish.png" alt-text="Screenshot of publish window.":::
 
 1. Select **Azure Function App (Windows)** for the **Specific target**, which creates a function app that runs on Windows, and then select **Next**.
 
-    :::image type="content" source="media/functions-vstools-publish/fucntions-vs-specific-target.png" alt-text="Screenshot of Publish window with specific target.":::
+    :::image type="content" source="media/functions-vstools-publish/fucntions-vs-specific-target.png" alt-text="Screenshot of publish window with specific target.":::
 
 1. In the **Function Instance**, select **Create a new Azure Function...**
 
-    :::image type="content" source="media/functions-vstools-publish/functions-vs-functions-instance.png" alt-text="Screenshot of Create a new function app instance.":::
+    :::image type="content" source="media/functions-vstools-publish/functions-vs-functions-instance.png" alt-text="Screenshot of create a new function app instance.":::
 
 1. Create a new instance using the values specified in the following table:
 
@@ -44,6 +44,6 @@ ms.custom: devdivchpfy22
 
 1. In the Publish tab, select **Manage in Cloud Explorer**. It will open the new function app Azure resource in Cloud Explorer.
 
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Screenshot of Publish success message.":::
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Screenshot of publish success message.":::
 
     Cloud Explorer lets you use Visual Studio to view the contents of the site, start and stop the function app, and browse directly to function app resources on Azure and in the Azure portal.

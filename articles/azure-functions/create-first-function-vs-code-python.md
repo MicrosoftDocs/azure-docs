@@ -2,7 +2,7 @@
 title: Create a Python function using Visual Studio Code - Azure Functions
 description: Learn how to create a Python function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 05/20/2022
+ms.date: 05/19/2022
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, devdivchpfy22
 adobe-target: true
@@ -43,7 +43,7 @@ In this section, you'll use Visual Studio Code to create a local Azure Functions
 
 1. Select the Azure icon in the Activity bar, then in the **Azure: Functions** area, select the **Create new project...** icon.
 
-    :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of Create a new project window.":::
+    :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
 1. Select the directory location for your project workspace and select **Select**. We recommend that you create a new folder or choose an empty folder as the project workspace.
 
@@ -82,7 +82,7 @@ In this section, you'll create a function app and related resources in your Azur
 
 1. Select the Azure icon in the Activity bar, then in the **Azure: Functions** area, select the **Deploy to function app...** button.
 
-    :::image type="content" source="../../includes/media/functions-publish-project-vscode/function-app-publish-project.png" alt-text="Screenshot of Publish your project to Azure window.":::
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/function-app-publish-project.png" alt-text="Screenshot of publish your project to Azure window.":::
 
 1. Provide the following information at the prompts:
 
@@ -123,7 +123,7 @@ In this section, you'll create a function app and related resources in your Azur
 
 ## Next steps
 
-You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=python) to create a function app with a simple HTTP-triggered function. In the next article, you'll expand that function by connecting to Azure Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=python).
+You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=python) to create a function app with a simple HTTP-triggered function. In the next article, you'll expand that function by connecting to Azure Storage. For more information about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=python).
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)

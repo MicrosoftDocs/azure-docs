@@ -1,7 +1,7 @@
 ---
 title: Create a Python function from the command line - Azure Functions
 description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 05/20/2022
+ms.date: 05/19/2022
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, mode-api, devdivchpfy22
@@ -123,17 +123,18 @@ In Azure Functions, a function project is a container for one or more individual
     cd LocalFunctionProj
     ```
 
-    This folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). As *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
+
     `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
-    
-   Get the list of templates by using the following command:
-   
+
+    Get the list of templates by using the following command:
+
     ```console
     func templates list -l python
     ```
@@ -167,7 +168,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 Before you can deploy your function code to Azure, you need to create three resources:
 
 + A resource group, which is a logical container for related resources.
-+ A storage account, which maintains state and other information about your projects.
++ A storage account, which maintains the state and other information about your projects.
 + A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
 Use the following commands to create these items. Both Azure CLI and PowerShell are supported.
@@ -196,6 +197,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     ```azurecli
     az config param-persist on
     ```
+
     # [Azure PowerShell](#tab/azure-powershell)
 
     This feature isn't available in Azure PowerShell.

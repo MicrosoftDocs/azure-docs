@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/20/2022
+ms.date: 05/19/2022
 ms.author: glenga
 ms.custom: devdivchpfy22
 ---
@@ -18,7 +18,7 @@ In this section, you'll create a function app and related resources in your Azur
 
     :::image type="content" source="./media/functions-publish-project-vscode/function-app-publish-project.png" alt-text="Screenshot of the publish your project to Azure window.":::
 
-1. Provide the following information at the prompts:
+1. Follow the prompts and provide the following information:
 
     - **Select folder**: Select a folder from your workspace or browse to the one that contains your function app. You won't see this prompt if you already have a valid function app opened.
 
@@ -32,7 +32,7 @@ In this section, you'll create a function app and related resources in your Azur
 
     The extension shows the status of individual resources as they're being created in Azure in the notification area.
 
-    :::image type="content" source="media/functions-publish-project-vscode/resource-notification.png" alt-text="Screenshot that shows notification of Azure resource creation.":::
+    :::image type="content" source="media/functions-publish-project-vscode/resource-notification.png" alt-text="Screenshot of Azure resource creation notification.":::
 
 1. When completed, the following Azure resources are created in your subscription, and resources are named based on your function app name:
 

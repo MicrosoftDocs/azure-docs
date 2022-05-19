@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/20/2022
+ms.date: 05/19/2022
 ms.custom: devdivchpfy22
 ms.author: glenga
 ---
@@ -17,11 +17,11 @@ Visual Studio Code integrates with [Azure Functions Core tools](../articles/azur
 
     If you have trouble running on Windows, ensure that the default terminal for Visual Studio Code isn't set to **WSL Bash**.
 
-1. With Core Tools running, go to the **Azure: Functions** area. Under **Functions**, expand **Local Project** > **Functions**. Right-click (Windows) or <kbd>Ctrl -</kbd> click (macOS) the `HttpExample` function and select **Execute Function Now...**.
+1. With the Core Tools running, go to the **Azure: Functions** area. Under **Functions**, expand **Local Project** > **Functions**. Right-click (Windows) or <kbd>Ctrl -</kbd> click (macOS) the `HttpExample` function and select **Execute Function Now...**.
 
-    :::image type="content" source="media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Screenshot of the Execute function now window from Visual Studio Code.":::
+    :::image type="content" source="media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Screenshot of the execute function now window from Visual Studio Code.":::
 
-1. In the **Enter request body**, you'll see the request message body value as `{ "name": "Azure" }`. Press Enter to send this request message to your function.
+1. In the **Enter request body**, you'll see the request message body value as `{ "name": "Azure" }`. Press <kbd>Enter</kbd> to send this request message to your function.
 
 1. When the function executes locally and returns a response, a notification is raised in Visual Studio Code. Information about the function execution is shown in the **Terminal** panel.
 

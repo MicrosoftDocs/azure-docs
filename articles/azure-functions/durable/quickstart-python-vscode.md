@@ -3,7 +3,7 @@ title: Create your first durable function in Azure using Python
 description: Create and publish an Azure Durable Function in Python using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 05/20/2022
+ms.date: 05/19/2022
 ms.reviewer: azfuncdf, antchu
 ms.devlang: python
 ms.custom: mode-api, devdivchpfy22
@@ -13,7 +13,7 @@ ms.custom: mode-api, devdivchpfy22
 
 Durable Functions is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
-In this article, you'll learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function. This function will orchestrate and chain together calls to other functions. You can then publish the function code to Azure.
+In this article, you'll learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function. This function will orchestrate and chains together calls to other functions. You can then publish the function code to Azure.
 
 :::image type="content" source="./media/quickstart-python-vscode/functions-vs-code-complete.png" alt-text="Screenshot of the running durable function in Azure.":::
 
@@ -23,7 +23,7 @@ To complete this tutorial:
 
 * Install [Visual Studio Code](https://code.visualstudio.com/download).
 
-* Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) VS Code extension.
+* Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) Visual Studio Code extension.
 
 * Ensure that you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
 
@@ -37,7 +37,7 @@ To complete this tutorial:
 
 In this section, you'll use Visual Studio Code to create a local Azure Functions project.
 
-1. In Visual Studio Code, press F1 (or <kbd>Ctrl/Cmd+Shift+P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, press <kbd>F1</kbd> (or <kbd>Ctrl/Cmd+Shift+P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
     :::image type="content" source="media/quickstart-python-vscode/functions-create-project.png" alt-text="Screenshot of Create function window.":::
 
@@ -152,16 +152,16 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. If you don't have it installed, you're prompted to install these tools the first time you start a function from Visual Studio Code.
 
-1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/\_\_init__.py*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/\_\_init__.py*). Press <kbd>F5</kbd> or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
     > [!NOTE]
     > For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
 
-1. Durable Functions require an Azure Storage account to run. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
+1. Durable Functions require an Azure Storage account to run. When Visual Studio Code prompts you to select a storage account, select **Select storage account**.
 
     :::image type="content" source="media/quickstart-python-vscode/functions-select-storage.png" alt-text="Screenshot of how to create storage account.":::
 
-1. Follow the prompts and provide the following information to create a new storage account in Azure.
+1. Follow the prompts and provide the following information to create a new storage account in Azure:
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
@@ -175,11 +175,11 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     :::image type="content" source="media/quickstart-python-vscode/functions-f5.png" alt-text="Screenshot of Azure local output.":::
 
-1. Use your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+1. Use your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL must be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
    The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It isn't yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
 
-1. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
+1. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
    The request will query the orchestration instance for the status. You must get an eventual response, which shows the instance has completed and includes the outputs or results of the durable function. It looks like:
 
@@ -200,7 +200,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     }
     ```
 
-1. To stop debugging, press <kbd>Shift+F5</kbd> in VS Code.
+1. To stop debugging, press <kbd>Shift+F5</kbd> in Visual Studio Code.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -210,9 +210,9 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Test your function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function must be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
-1. Paste this new URL for the HTTP request in your browser's address bar. You should get the same status response as before when using the published app.
+1. Paste this new URL for the HTTP request in your browser's address bar. You must get the same status response as before when using the published app.
 
 ## Next steps
 

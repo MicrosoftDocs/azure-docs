@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/20/2022
+ms.date: 05/19/2022
 ms.custom: devdivchpfy22
 ms.author: glenga
 ---
@@ -17,7 +17,7 @@ Open the *HttpExample.cs* project file and add the following parameter to the `R
 
 The `msg` parameter is an `ICollector<T>` type, representing a collection of messages written to an output binding when the function completes. In this case, the output is a storage queue named `outqueue`. The `StorageAccountAttribute` sets the connection string for the Storage account. This attribute indicates the setting that contains the Storage account connection string and can be applied at the class, method, or parameter level. In this case, you could omit `StorageAccountAttribute` because you're already using the default storage account.
 
-The Run method definition should now look like the following code:  
+The Run method definition must now look like the following code:  
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-18":::
 
