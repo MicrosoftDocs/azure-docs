@@ -2,7 +2,7 @@
 author: baanders
 description: include file containing query reference information for Azure Digital Twins
 ms.topic: include
-ms.date: 4/22/2021
+ms.date: 5/11/2022
 ms.author: baanders
 ---
 
@@ -12,7 +12,7 @@ The Query language reference can be found under **Reference** in the left table 
 * Clauses
     * [SELECT](../articles/digital-twins/reference-query-clause-select.md)
     * [FROM](../articles/digital-twins/reference-query-clause-from.md)
-    * [MATCH (preview)](../articles/digital-twins/reference-query-clause-match.md)
+    * [MATCH](../articles/digital-twins/reference-query-clause-match.md)
     * [JOIN](../articles/digital-twins/reference-query-clause-join.md)
     * [WHERE](../articles/digital-twins/reference-query-clause-where.md)
 * [Functions](../articles/digital-twins/reference-query-functions.md)
