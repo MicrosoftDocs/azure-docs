@@ -64,7 +64,7 @@ It should only take a few moments to create the host group.
 
 ### [CLI](#tab/cli)
 
-You can list host availability, and any offer restrictions before you start provisioning dedicated hosts.
+Not all host SKUs are available in all regions, and availability zones. You can list host availability, and any offer restrictions before you start provisioning dedicated hosts.
 
 ```azurecli-interactive
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
@@ -129,7 +129,6 @@ az vm host group create \
    --platform-fault-domain-count 2 \
    --automatic-placement true 
 ```
-
 ### [PowerShell](#tab/powershell)
 
 This example uses [New-AzHostGroup](/powershell/module/az.compute/new-azhostgroup) to create a host group in zone 1, with 2 fault domains.
@@ -150,7 +149,6 @@ $hostGroup = New-AzHostGroup `
    -SupportAutomaticPlacement true
 ```
 Add the `-EnableUltraSSD true` (Preview) parameter to enable creation of VMs that can support Ultra disks. 
-
 
 Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement](dedicated-hosts.md#manual-vs-automatic-placement).
 
