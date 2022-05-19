@@ -46,7 +46,7 @@ This problem can occur if another application or the operating system takes over
 
 On iOS for example, while on an ACS call, if a PSTN call comes in, then a microphoneMutedUnexepectedly bad UFD will be raised and audio will stop flowing in the ACS call and the call will be marked as muted. Once the PSTN call is over, the user will have to go and unmute the ACS call for audio to start flowing again in the ACS call. In the case of Android Chrome when a PSTN call comes in, audio will stop flowing in the ACS call and the ACS call will not be marked as muted. Once the PSTN call is finished, android chrome will regain audio automatically and audio will start flowing normally again in the ACS call.
 
-In case camera is on and an interruption occurs, acs may or may not loose the camera. If lost then camera will be marked as off and user will have to go turn it back on after the interruption has released the camera.
+In case camera is on and an interruption occurs, ACS call may or may not loose the camera. If lost then camera will be marked as off and user will have to go turn it back on after the interruption has released the camera.
 
 Occasionally, microphone or camera devices won't be released on time, and that can cause issues with the original call. For example, if the user tries to unmute while watching a YouTube video, or if a PSTN call is active simultaneously.
 
