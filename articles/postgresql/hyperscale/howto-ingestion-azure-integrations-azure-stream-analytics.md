@@ -11,21 +11,21 @@ ms.date: 05/17/2022
 
 # What is Azure Stream Analytics (ASA)?
 
-[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#features) is a real-time analytics and complex event-processing engine that is designed to analyze and process high volumes of fast streaming data from devices, sensors, web sites, social media, applications, infrastructure systems, and more. It is also available on Azure IoT Edge runtime, enabling to process data on IoT devices.
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#features) is a real-time analytics and event-processing engine that is designed to analyze and process high volumes of fast streaming data from devices, sensors, web sites and so on. It is also available on Azure IoT Edge runtime, enabling to process data on IoT devices.
 An Azure Stream Analytics job consists of an input, query, and an output. Stream Analytics ingests data from Azure Event Hubs, Azure IoT Hub, or Azure Blob Storage.  Then a SQL based query language can be used to perform filter, sort, aggregate and join streaming data over a period. You can also extend this SQL language with JavaScript and C# user-defined functions (UDFs). 
 Each job has one or several outputs for the transformed data, and you can control what happens in response to the information you've analysed. For example: you can run analytics on stream outputs with Hyperscale (Citus), or you can send the output to another service, like Event Hubs or Power BI for real-time visualization.
 
  
- # ASA for realtime ingestion to Hyperscale (Citus)
+ # ASA for real-time ingestion to Hyperscale (Citus)
  
-Hyperscale (Citus) shines at realtime time series workloads such as [IOT](howto-build-scalable-apps-model-high-throughput.md). For such workloads, Azure Stream Analytics (ASA) can act as a no-code, performant & scalable alternative to pre-process and stream data in real-time from Event Hub, IOT Hub and Azure Blob Storage into Citus.
+Hyperscale (Citus) shines at real-time time series workloads such as [IOT](howto-build-scalable-apps-model-high-throughput.md). For such workloads, Azure Stream Analytics (ASA) can act as a no-code, performant & scalable alternative to pre-process and stream data in real-time from Event Hub, IOT Hub and Azure Blob Storage into Citus.
 Below diagram depicts a sample reference architecture for such apps:<br><br>
 
 ![Diagram of reference architecture of ASA with Citus](../media/howto-ingestion/01-ASA-reference-arch.png)
 
 # Steps to setup ASA with Hyperscale (Citus)
-In this tutorial, we will walk you through the steps involved in creating an Azure Stream Analytics job to integrate data flowing in from Azure IOT Hub to Hyperscale (Citus).
-Before we begin, it is assumed that you already have Azure IOT Hub provisioned and devices added to it. If you are new to Azure IOT Hub, [here](https://docs.microsoft.com/azure/iot-hub/iot-concepts-and-iot-hub) is a quick guide on how to get started.
+In this tutorial, we'll walk you through the steps involved in creating an Azure Stream Analytics job to integrate data flowing in from Azure IOT Hub to Hyperscale (Citus).
+Before we begin, it's assumed that you already have Azure IOT Hub provisioned and devices added to it. If you're new to Azure IOT Hub, [here](https://docs.microsoft.com/azure/iot-hub/iot-concepts-and-iot-hub) is a quick guide on how to get started.
 
 > [!NOTE]
 >
@@ -117,5 +117,5 @@ where counter%2 = 0;
 8. **Start the Stream Analytics Job and Verify Output**
     * Return to the job overview page and select Start.
     * Under Start job, select Now, for the Job output start time field. Then, select Start to start your job.
-    * After few minutes, you can login to the Hyperscale Citus server and verify the data loaded. The job will take some time to start at the first time, but once triggered it will continue to run as the data arrives.
+    * After few minutes, you can query the Hyperscale (Citus) database to verify the data loaded. The job will take some time to start at the first time, but once triggered it will continue to run as the data arrives.
 ![Diagram of querying data ingested into Citus](../media/howto-ingestion/06-ASA-postgres-query.png)
