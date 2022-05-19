@@ -46,12 +46,13 @@ The feature consists of two parts, management and runtime:
 For public preview the following limitations exist.
 
 - Identity providers supported: Azure AD, DropBox, Generic OAuth 2, GitHub, Google, LinkedIn, Spotify
+- Authorizations are not supported in the following Azure regions: swedencentral, australiacentral, australiacentral2 and jioindiacentral
 - Maximum configured number of authorization providers per API Management instance: 50
 - Maximum configured number of authorizations per Authorization provider: 500
 - Max configured number of access policies per authorization: 100
 - Authorization code PKCE flow with code challenge isn't supported.
 - Authorizations feature isn't supported on self-hosted gateways.
-- No API documentation is available. Please see [this](https://aka.ms/apimauthorizations/postmancollection) Postman collection.   
+- No API documentation is available. Please see [this](https://github.com/Azure/APIManagement-Authorizations) GitHub repository with samples.  
 
 ### Authorization providers
  
@@ -87,7 +88,7 @@ Access policies determine which identities can use the authorization that the ac
 
 ### Process flow for creating authorizations
 
-The following image shows the process flow for creating an authorization in API Management using the grant type authorization code. For public preview no API documentation is available please see [this](https://aka.ms/apimauthorizations/postmancollection) Postman collection. 
+The following image shows the process flow for creating an authorization in API Management using the grant type authorization code. For public preview no API documentation is available please see [this](https://github.com/Azure/APIManagement-Authorizations) GitHub repository with samples.
 
 :::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Process flow for creating authorizations" border="false":::
 
@@ -127,13 +128,9 @@ If the value is set to `false` and the on-error section in the policy is configu
 
 ### Authorizations FAQ
 
-##### Which features and identity providers are on the roadmap after public preview?
+##### How can I provide feedback and influence the roadmap for this feature?
 
-Features that are on the roadmap: 
--	Support for Authorization code with PKCE and jwt-bearer grant type
-
-Identified providers on the roadmap: Salesforce, Dynamics, Workday 
-
+Please use [this](https://aka.ms/apimauthorizations/feedback) form to provide feedback.  
 
 
 ##### How are the tokens stored in API Management?
@@ -175,6 +172,7 @@ The other identity providers support authorization code. After public preview, m
 - Learn how to [configure and use an authorization](authorizations-how-to.md).
 - See [reference](authorizations-reference.md) for supported identity providers in authorizations.
 - Use [policies]() together with authorizations.  
+- Authorizations [samples](https://github.com/Azure/APIManagement-Authorizations) GitHub repository. 
 - Learn more about OAuth 2.0:
 
     * [OAuth 2.0 overview](https://aaronparecki.com/oauth-2-simplified/)
