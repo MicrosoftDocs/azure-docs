@@ -42,7 +42,7 @@ Once the copy is complete, order status updates to **Completed**. The **DATA COP
 
 You can choose **View by Storage Account(s)** or **View by Managed Disk(s)** to display the data copy details.
 
-[![Screenshot of the Overview pane for a Data Box Disk import order in Copy Completed state. The Overview option, Copy Completed order status, and Copy Log Path are highlighted.](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)](media/data-box-disk-deploy-picked-up/data-box-portal-completed-inline.png#lightbox)
+[![Screenshot of the Data Copy Details.](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)](media/data-box-disk-deploy-picked-up/data-box-portal-completed-inline.png#lightbox)
 
 If the copy completes with errors, see [troubleshoot upload errors](data-box-disk-troubleshoot-upload.md).
 
