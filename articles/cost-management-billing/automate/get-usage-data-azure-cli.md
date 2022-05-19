@@ -22,20 +22,20 @@ Start by preparing your environment for the Azure CLI.
 
 ## Configure an export job to export cost data to Azure storage
 
-After you sign in, use the [az costmanagement export](/cli/azure/costmanagement/export) commands to export usage data to an Azure storage account. You can download the data from there.
+After you sign in, use the [export](/cli/azure/costmanagement/export) commands to export usage data to an Azure storage account. You can download the data from there.
 
-1. Create a resource group or use an existing resource group. To create a resource group, run the [az group create](/cli/azure/group#az_group_create) command:
+1. Create a resource group or use an existing resource group. To create a resource group, run the [group create](/cli/azure/group#az_group_create) command:
 
     ```azurecli
     az group create --name TreyNetwork --location "East US"
     ```
-1. Create a storage account to receive the exports or use an existing storage account. To create an account, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
+1. Create a storage account to receive the exports or use an existing storage account. To create an account, use the [storage account create](/cli/azure/storage/account#az_storage_account_create) command:
 
     ```azurecli
     az storage account create --resource-group TreyNetwork --name cmdemo
     ```
 
-1. Run the [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) command to create the export:
+1. Run the [export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) command to create the export:
 
     ```azurecli
     az costmanagement export create --name DemoExport --type Usage \--scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \--storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
@@ -43,7 +43,7 @@ After you sign in, use the [az costmanagement export](/cli/azure/costmanagement/
 
 ## Get cost summaries for a scope
 
-You can also use the [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) command to query month-to-date usage information for your subscription. It gives you summarized cost data instead of the raw usage data. To learn more about querying your cost data, see [Query API](/rest/api/cost-management/query/usage).
+You can also use the [query](/cli/azure/costmanagement#az_costmanagement_query) command to query month-to-date usage information for your subscription. It gives you summarized cost data instead of the raw usage data. To learn more about querying your cost data, see [Query API](/rest/api/cost-management/query/usage).
 
 ```azurecli
 az costmanagement query --timeframe MonthToDate --type Usage \   --scope "subscriptions/00000000-0000-0000-0000-000000000000"
