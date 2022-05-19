@@ -29,7 +29,6 @@ The following table shows the listing options for SaaS offers in the commercial 
 | Free trial | The customer is redirected to your target URL via Azure Active Directory (Azure AD).``*``<br>You can change to a different listing option after publishing the offer. |
 | Get it now (Free) | The customer is redirected to your target URL via Azure AD.``*``<br>You can change to a different listing option after publishing the offer. |
 | Sell through Microsoft  | Offers sold through Microsoft are called _transactable_ offers. An offer that is transactable is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. We bill SaaS offers using the pricing model you choose, and manage customer transactions on your behalf. Azure infrastructure usage fees are billed to you, the partner, directly. You should account for infrastructure costs in your pricing model. This is explained in more detail in [SaaS billing](#saas-billing) below.<br><br>**Note**: You cannot change this option once your offer is published.  |
-|||
 
 ``*`` Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to order, fulfillment, metering, billing, invoicing, payment, and collection.
 
@@ -114,7 +113,6 @@ If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business s
 | Yes             | Yes         | Yes          | Azure Marketplace and Azure portal* |
 | Yes             | No          | Yes          | Azure portal only |
 | No              | No          | Yes          | Azure portal and AppSource |
-|||||
 
 &#42; The private plan of the offer will only be available via the Azure portal and AppSource.
 
@@ -265,7 +263,6 @@ The following example shows a sample breakdown of costs and payouts to demonstra
 | Customer is billed by Microsoft | $100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee) |
 | **Microsoft bills** | **$100 per month** |
 | Microsoft charges a 3% Marketplace Service Fee and pays you 97% of your license cost | $97.00 per month |
-|
 
 A preview audience can access your offer prior to being published live in the online stores. They can see how your offer will look in the commercial marketplace and test the end-to-end functionality before you publish it live. 
 

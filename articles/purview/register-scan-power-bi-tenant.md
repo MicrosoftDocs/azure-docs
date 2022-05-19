@@ -24,11 +24,13 @@ This article outlines how to register a Power BI tenant in a **same-tenant scena
 
 |**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
 |---------|---------|---------|---------|---------|---------|
-|Scenario 1     |Allowed     |Allowed        |Azure Runtime      | Microsoft Purview Managed Identity   | [Review deployment checklist](#deployment-checklist) |
-|Scenario 2     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
-|Scenario 3     |Allowed     |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
-|Scenario 4     |Denied      |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
-|Scenario 5     |Denied      |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
+|Public access with Azure IR     |Allowed     |Allowed        |Azure Runtime      | Microsoft Purview Managed Identity   | [Review deployment checklist](#deployment-checklist) |
+|Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
+|Private access     |Allowed     |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
+|Private access     |Denied      |Allowed*        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
+|Private access     |Denied      |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](#deployment-checklist) |
+
+\* Power BI tenant must have a private endpoint which is deployed in a Virtual Network accessible from the self-hosted integration runtime VM. For more information, see [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links).
 
 ### Known limitations
 
@@ -54,9 +56,8 @@ Before you start, make sure you have the following prerequisites:
 ## Deployment checklist
 Use any of the following deployment checklists during the setup or for troubleshooting purposes, based on your scenario:   
 
-# [Scenario 1](#tab/Scenario1)
-
-### Scenario 1 - Scan same-tenant Power BI using Azure IR and Managed Identity in public network
+# [Public access with Azure IR](#tab/Scenario1)
+### Scan same-tenant Power BI using Azure IR and Managed Identity in public network
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
 2. Make sure Power BI tenant Id is entered correctly during the registration. 
@@ -66,8 +67,8 @@ Use any of the following deployment checklists during the setup or for troublesh
 6. From Azure Active Directory tenant, make sure [Microsoft Purview account MSI is member of the new security group](#authenticate-to-power-bi-tenant-managed-identity-only).
 7. On the Power BI Tenant Admin portal, validate if [Allow service principals to use read-only Power BI admin APIs](#associate-the-security-group-with-power-bi-tenant) is enabled for the new security group.
 
-# [Scenario 2](#tab/Scenario2)
-### Scenario 2 - Scan same-tenant Power BI using self-hosted IR and Delegated Authentication in public network
+# [Public access with Self-hosted IR](#tab/Scenario2)
+### Scan same-tenant Power BI using self-hosted IR and Delegated Authentication in public network
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
 2. Make sure Power BI tenant Id is entered correctly during the registration. 
@@ -96,8 +97,8 @@ Use any of the following deployment checklists during the setup or for troublesh
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled.
    4. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
 
-# [Scenario 3, 4 and 5](#tab/Scenario3)
-### Scenario 3, 4 and 5 - Scan same-tenant Power BI using self-hosted IR and Delegated Authentication in a private network
+# [Private access](#tab/Scenario3)
+### Scan same-tenant Power BI using self-hosted IR and Delegated Authentication in a private network
 
 1. Make sure Power BI and Microsoft Purview accounts are in the same tenant.
 2. Make sure Power BI tenant Id is entered correctly during the registration. 
@@ -263,25 +264,25 @@ To create and run a new scan, do the following:
 
 1. Create a user account in Azure Active Directory tenant and assign the user to Azure Active Directory role, **Power BI Administrator**. Take note of username and login to change the password.
 
-3. Assign proper Power BI license to the user.  
+1. Assign proper Power BI license to the user.  
 
-2. Navigate to your Azure key vault.
+1. Navigate to your Azure key vault.
 
-3. Select **Settings** > **Secrets** and select **+ Generate/Import**.
+1. Select **Settings** > **Secrets** and select **+ Generate/Import**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-key-vault.png" alt-text="Screenshot how to navigate to Azure Key Vault.":::
 
-4. Enter a name for the secret and for **Value**, type the newly created password for the Azure AD user. Select **Create** to complete.
+1. Enter a name for the secret and for **Value**, type the newly created password for the Azure AD user. Select **Create** to complete.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-key-vault-secret.png" alt-text="Screenshot how to generate an Azure Key Vault secret.":::
 
-5. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account) 
+1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account) 
    
-6. Create an App Registration in your Azure Active Directory tenant. Provide a web URL in the **Redirect URI**. Take note of Client ID(App ID).
+1. Create an App Registration in your Azure Active Directory tenant. Provide a web URL in the **Redirect URI**. Take note of Client ID(App ID).
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot how to create a Service principle.":::
   
-7. From Azure Active Directory dashboard, select newly created application and then select **App registration**. From **API Permissions**, assign the application the following delegated permissions and grant admin consent for the tenant:
+1. From Azure Active Directory dashboard, select newly created application and then select **App registration**. From **API Permissions**, assign the application the following delegated permissions and grant admin consent for the tenant:
 
    - Power BI Service Tenant.Read.All
    - Microsoft Graph openid
@@ -289,46 +290,45 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI Service and Microsoft Graph.":::
 
-8. In the Microsoft Purview Studio, navigate to the **Data map** in the left menu.
+1. In the Microsoft Purview Studio, navigate to the **Data map** in the left menu.
 
-9. Navigate to **Sources**.
+1. Navigate to **Sources**.
 
-10. Select the registered Power BI source.
+1. Select the registered Power BI source.
 
-11. Select **+ New scan**.
+1. Select **+ New scan**.
 
-12. Give your scan a name. Then select the option to include or exclude the personal workspaces.
+1. Give your scan a name. Then select the option to include or exclude the personal workspaces.
    
     >[!Note]
     > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of PowerBI source.
 
-13. Select your self-hosted integration runtime from the drop-down list. 
+1. Select your self-hosted integration runtime from the drop-down list. 
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-shir.png" alt-text="Image showing Power BI scan setup using SHIR for same tenant.":::
 
-14. For the **Credential**, select **Delegated authentication** and click **+ New** to create a new credential.
+1. For the **Credential**, select **Delegated authentication** and click **+ New** to create a new credential.
 
-15. Create a new credential and provide required parameters:
+1. Create a new credential and provide required parameters:
     
     - **Name**: Provide a unique name for credential
     - **Client ID**: Use Service Principal Client ID (App ID) you created earlier   
     - **User name**: Provide the username of Power BI Administrator you created earlier
     - **Password**: Select the appropriate Key vault connection and the **Secret name** where the Power BI account password was saved earlier.
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-authentication.png" alt-text="Screenshot of the new credential menu, showing Power B I credential with all required values supplied.":::
 
-   :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-authentication.png" alt-text="Image showing Power BI scan setup using Delegated authentication.":::
-
-16. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
+1. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
     2. Assets (+ lineage) - Failed status means the Microsoft Purview - Power BI authorization has failed. Make sure the Microsoft Purview managed identity is added to the security group associated in Power BI admin portal.
     3. Detailed metadata (Enhanced) - Failed status means the Power BI admin portal is disabled for the following setting - **Enhance admin APIs responses with detailed metadata**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-test-connection-status-report.png" alt-text="Screenshot of test connection status report page.":::
 
-17. Set up a scan trigger. Your options are **Recurring**, and **Once**.
+1. Set up a scan trigger. Your options are **Recurring**, and **Once**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Screenshot of the Microsoft Purview scan scheduler.":::
 
-18. On **Review new scan**, select **Save and run** to launch your scan.
+1. On **Review new scan**, select **Save and run** to launch your scan.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Screenshot of Save and run Power BI source.":::
 
@@ -336,6 +336,6 @@ To create and run a new scan, do the following:
 
 Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

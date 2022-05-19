@@ -4,6 +4,7 @@ description: Learn about using Data-in replication to synchronize from an extern
 author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 06/08/2021
 ---

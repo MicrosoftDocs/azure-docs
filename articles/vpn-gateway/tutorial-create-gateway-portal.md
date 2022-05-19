@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 04/22/2022
+ms.date: 05/06/2022
 
 ---
 
@@ -74,7 +74,7 @@ You can view the gateway public IP address on the **Overview** page for your gat
 
 :::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Screenshot of Overview page.":::
 
-To see additional information about the public IP address object, click the name/IP address link next to **Public IP address**.
+To see additional information about the public IP address object, select the name/IP address link next to **Public IP address**.
 
 ## <a name="resize"></a>Resize a gateway SKU
 

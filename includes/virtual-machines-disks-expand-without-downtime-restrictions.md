@@ -8,23 +8,7 @@
  ms.date: 04/25/2022
  ms.author: rogarana
  ms.custom: include file
----
-- Currently only available in the following regions:
-    - Australia Central
-    - Brazil South
-    - Canada Central
-    - Central India
-    - East Asia
-    - France Central
-    - Germany West Central
-    - Japan East
-    - Japan West
-    - North Europe
-    - Norway West
-    - South Africa North
-    - UK South
-    - West India
-    
+---    
 - Only supported for data disks.
 - Disks smaller than 4 TiB can't be expanded to 4 TiB or larger without downtime.
 - Install and use either:

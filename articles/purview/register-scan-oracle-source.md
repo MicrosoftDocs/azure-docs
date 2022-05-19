@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 05/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -51,18 +51,18 @@ Currently, the Oracle service name isn't captured in the metadata or hierarchy.
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
-    * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
     * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-    * Manually download an Oracle JDBC driver from [here](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) onto your virtual machine where self-hosted integration runtime is running.
+    * Download the [Oracle JDBC driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) on the machine where your self-hosted integration runtime is running. Note down the folder path which you will use to set up the scan.
 
         > [!Note]
-        > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
+        > The driver should be accessible by the self-hosted integration runtime. By default, self-hosted integration runtime uses [local service account "NT SERVICE\DIAHostService"](manage-integration-runtimes.md#service-account-for-self-hosted-integration-runtime). Make sure it has "Read and execute" and "List folder contents" permission to the driver folder.
 
 ## Register
 
@@ -122,12 +122,12 @@ On the **Register sources (Oracle)** screen, do the following:
 1. Enter a **Name** that the data source will be listed within the Catalog.
 
 1. Enter the **Host** name to connect to an Oracle source. This can either be:
-    * A host name used by JDBC to connect to the database server. For example: `MyDatabaseServer.com`
+    * A host name used to connect to the database server. For example: `MyDatabaseServer.com`
     * An IP address. For example: `192.169.1.2`
 
-1. Enter the **Port number** used by JDBC to connect to the database server (1521 by default for Oracle).
+1. Enter the **Port number** used to connect to the database server (1521 by default for Oracle).
 
-1. Enter the **Oracle service name** used by JDBC to connect to the database server.
+1. Enter the **Oracle service name** (not Oracle UID) used to connect to the database server.
 
 1. Select a collection or create a new one (Optional)
 
@@ -160,8 +160,8 @@ To create and run a new scan, do the following:
 
     1. **Credential**: Select the credential to connect to your data source. Make sure to:
         * Select Basic Authentication while creating a credential.
-        * Provide the user name used by JDBC to connect to the database server in the User name input field.
-        * Store the user password used by JDBC to connect to the database server in the secret key.
+        * Provide the user name used to connect to the database server in the User name input field.
+        * Store the user password used to connect to the database server in the secret key.
 
     1. **Schema**: List subset of schemas to import expressed as a semicolon separated list in **case-sensitive** manner. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
 
@@ -173,10 +173,7 @@ To create and run a new scan, do the following:
 
         Usage of NOT and special characters aren't acceptable.
 
-    1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
-
-        > [!Note]
-        > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+    1. **Driver location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running, e.g. `D:\Drivers\Oracle`. It's the path to valid JAR folder location. Make sure the driver is accessible by the self-hosted integration runtime, learn more from [prerequisites section](#prerequisites).
 
     1. **Stored procedure details**: Controls the number of details imported from stored procedures:
 
@@ -193,6 +190,9 @@ To create and run a new scan, do the following:
         :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 
 1. Select **Test connection**.
+
+    > [!Note]
+    > Use the "Test connection" button in the scan setup UI to test the connection. The "Test Connection" in self-hosted integration runtime configuration manager UI -> Diagnostics tab does not fully validate the connectivity.
 
 1. Select **Continue**.
 
@@ -214,6 +214,6 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 05/05/2022
 ms.author: tamram
 ms.subservice: blobs  
 ms.custom: devx-track-azurepowershell
@@ -19,7 +19,7 @@ Blob soft delete protects an individual blob and its versions, snapshots, and me
 
 Blob soft delete is part of a comprehensive data protection strategy for blob data. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
-Blob soft delete is disabled by default for a new storage account. You can enable or disable soft delete for a storage account at any time by using the Azure portal, PowerShell, or Azure CLI.
+Blob soft delete is enabled by default for a new storage account. You can enable or disable soft delete for a storage account at any time by using the Azure portal, PowerShell, or Azure CLI.
 
 ## Enable blob soft delete
 

@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Defender for Cloud readiness roadmap
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This document provides you a readiness roadmap that will assist you to get started with Defender for Cloud.
 
 ## Understanding Defender for Cloud

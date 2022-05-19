@@ -5,7 +5,7 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 04/28/2022
 ms.author: tamram
 ms.reviewer: twooley
 ---
@@ -16,12 +16,11 @@ ms.reviewer: twooley
 
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob storage. Blobfuse allows you to access your existing block blob data in your storage account through the Linux file system. Blobfuse uses the virtual directory scheme with the forward-slash '/' as a delimiter.
 
-This guide shows you how to use blobfuse, and mount a Blob storage container on Linux and access data. To learn more about blobfuse, read the details in [the blobfuse repository](https://github.com/Azure/azure-storage-fuse).
+This guide shows you how to use blobfuse, and mount a Blob storage container on Linux and access data. To learn more about blobfuse, see the [readme](https://github.com/Azure/azure-storage-fuse) and [wiki](https://github.com/Azure/azure-storage-fuse/wiki).
 
 > [!WARNING]
 > Blobfuse doesn't guarantee 100% POSIX compliance as it simply translates requests into [Blob REST APIs](/rest/api/storageservices/blob-service-rest-api). For example, rename operations are atomic in POSIX, but not in blobfuse.
 > For a full list of differences between a native file system and blobfuse, visit [the blobfuse source code repository](https://github.com/azure/azure-storage-fuse).
->
 
 ## Install blobfuse on Linux
 
@@ -29,7 +28,7 @@ Blobfuse binaries are available on [the Microsoft software repositories for Linu
 
 Blobfuse is published in the Linux repo for Ubuntu versions: 16.04, 18.04, and 20.04, RHELversions: 7.5, 7.8, 7.9, 8.0, 8.1, 8.2, CentOS versions: 7.0, 8.0, Debian versions: 9.0, 10.0, SUSE version: 15, OracleLinux  8.1 . Run this command to make sure that you have one of those versions deployed:
 
-```
+```bash
 lsb_release -a
 ```
 
@@ -65,8 +64,14 @@ sudo apt-get install blobfuse
 
 On an Enterprise Linux distribution:
 
-```bash    
+```bash
 sudo yum install blobfuse
+```
+
+On a SUSE distribution:
+
+```bash
+sudo zypper install blobfuse
 ```
 
 ## Prepare for mounting
@@ -79,7 +84,7 @@ Blobfuse provides native-like performance by requiring a temporary path in the f
 
 ### (Optional) Use a ramdisk for the temporary path
 
-The following example creates a ramdisk of 16 GB and a directory for blobfuse. Choose the size based on your needs. This ramdisk allows blobfuse to open files up to 16 GB in size. 
+The following example creates a ramdisk of 16 GB and a directory for blobfuse. Choose the size based on your needs. This ramdisk allows blobfuse to open files up to 16 GB in size.
 
 ```bash
 sudo mkdir /mnt/ramdisk
@@ -99,36 +104,36 @@ sudo mkdir /mnt/resource/blobfusetmp -p
 sudo chown <youruser> /mnt/resource/blobfusetmp
 ```
 
-### Configure your storage account credentials
+### Authorize access to your storage account
 
-Blobfuse requires your credentials to be stored in a text file in the following format:
+You can authorize access to your storage account by using the account access key, a shared access signature, a managed identity, or a service principal. Authorization information can be provided on the command line, in a config file, or in environment variables. For details, see [Valid authentication setups](https://github.com/Azure/azure-storage-fuse#valid-authentication-setups) in the blobfuse readme.
 
-```
+For example, suppose you are authorizing with the account access keys and storing them in a config file. The config file should have the following format:
+
+```bash
 accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
 
-The `accountName` is the prefix for your storage account - not the full URL.
+The `accountName` is the name of your storage account, and not the full URL.
 
 Create this file using:
 
-```
-touch ~/fuse_connection.cfg
+```bash
+touch /path/to/fuse_connection.cfg
 ```
 
 Once you've created and edited this file, make sure to restrict access so no other users can read it.
 
 ```bash
-chmod 600 ~/fuse_connection.cfg
+chmod 600 /path/to/fuse_connection.cfg
 ```
 
 > [!NOTE]
-> If you have created the configuration file on Windows, make sure to run `dos2unix` to sanitize and convert the file to Unix format. 
->
+> If you have created the configuration file on Windows, make sure to run `dos2unix` to sanitize and convert the file to Unix format.
 
 ### Create an empty directory for mounting
-
 
 ```bash
 mkdir ~/mycontainer
@@ -143,7 +148,7 @@ mkdir ~/mycontainer
 To mount blobfuse, run the following command with your user. This command mounts the container specified in '/path/to/fuse_connection.cfg' onto the location '/mycontainer'.
 
 ```bash
-sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
+blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
 > [!NOTE]
@@ -156,6 +161,10 @@ cd ~/mycontainer
 mkdir test
 echo "hello world" > test/blob.txt
 ```
+
+## Persist the mount
+
+To learn how to persist the mount, see [Persisting](https://github.com/Azure/azure-storage-fuse/wiki/2.-Configuring-and-Running#persisting) in the blobfuse wiki.
 
 ## Feature support
 
