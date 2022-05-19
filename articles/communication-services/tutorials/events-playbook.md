@@ -62,11 +62,16 @@ Microsoft Graph enables event management platforms to empower organizers to sche
 
 ### Scheduling registration-enabled events with Microsoft Graph
 
-1.	Authorize Graph APIs to act on their behalf:
+1.	Authorize application to use Graph APIs on behalf of service account. This is required in order to have the application use credentials to interact with your tenant to schedule events and register attendees. 
 
-    a.	IT Admin runs a PowerShell script that authorizes scopes. [Need a link to existing documentation or it needs to be created.]
+a. Create an account that will own the meetings and is branded appropriately. This is the account that will create the events and which will recieve notifications for it. We recommend to not user a personal production account given the overhead it might incur in the form of remainders.
 
-    b.	Event Management Company publishes an App that the Microsoft Teams customer installs and runs. [Need link to an example.]
+b. As part of the application setup, the service account is used to login into the solution once. This allows the application to retrieve and store an access token on behalf of the service account which will own the meetings. Your application will need to store the tokens generated from the login and place them ina  secure location such as a key vault. The application will need to store both the access token and the refresh token. Learn more about [auth tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens). and [refresh tokens](https://docs.microsoft.com/azure/active-directory/develop/refresh-tokens).
+
+c. The application will require "on behalf of" permissions with the [offline scope](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#offline_access) to act on behalf of the service account for the purpose of creating meetings. Individual Graph APIs require different scopes, learn more in the links detailed below as we introduce the required APIs.
+
+d. Refresh tokens can be revoked in the event of a breach or account termination
+
 
 >[!NOTE]
 >Authorization is required by both developers for testing and organizers who will be using your event platform to set up their events.
