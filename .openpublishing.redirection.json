@@ -2919,6 +2919,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/api-management/graphql-validation-policies.md",
+      "redirect_url": "/azure/api-management/graphql-policies",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/api-management/api-management-policy-reference.md",
       "redirect_url": "/azure/api-management/api-management-policies",
       "redirect_document_id": false
