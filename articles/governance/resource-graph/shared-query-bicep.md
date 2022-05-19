@@ -9,7 +9,14 @@ ms.custom: subject-armqs, mode-arm
 ---
 # Quickstart: Create a shared query using Bicep
 
-Resource Graph queries can be saved as a _private query_ or a _shared query_. A private query is saved to the individuals portal profile and isn't visible to others. A shared query is a Resource Manager object that can be shared with others through permissions and role-based access. A shared query provides common and consistent execution of resource discovery. This quickstart uses Bicep to create a shared query.
+[Azure Resource Graph](../../governance/resource-graph/overview.md) is an Azure service designed to extend Azure Resource Management by providing efficient and performant resource exploration with the ability to query at scale across a given set of subscriptions so you can effectively govern your environment. With Resource Graph queries, you can:
+
+- Query resources with complex filtering, grouping, and sorting by resource properties.
+- Explore resources iteratively based on governance requirements.
+- Assess the impact of applying policies in a vast cloud environment.
+- [Query changes made to resource properties](./how-to/get-resource-changes.md) (preview).
+
+Resource Graph queries can be saved as a _private query_ or a _shared query_. A private query is saved to the individual's Azure portal profile and isn't visible to others. A shared query is a Resource Manager object that can be shared with others through permissions and role-based access. A shared query provides common and consistent execution of resource discovery. This quickstart uses Bicep to create a shared query.
 
 [!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -31,11 +38,12 @@ The resource defined in the Bicep file is:
 
 ## Deploy the Bicep file
 
-> [!NOTE]
-> Azure Resource Graph service is free. For more information, see
-> [Overview of Azure Resource Graph](./overview.md).
-
 1. Save the Bicep file as **main.bicep** to your local computer.
+
+> [!NOTE]
+> The Bicep file isn't required to be named **main.bicep**. If you save the file with a different name, you must change the name of
+> the template file in the deployment step below.
+
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
     # [CLI](#tab/CLI)
@@ -99,7 +107,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-In this quickstart, you created a Resource Graph shared query.
+In this quickstart, you created a Resource Graph shared query using Bicep.
 
 To learn more about shared queries, continue to the tutorial for:
 
