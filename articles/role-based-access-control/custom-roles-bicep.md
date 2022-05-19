@@ -6,12 +6,11 @@ author: schaffererin
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/12/2022
+ms.date: 05/19/2022
 ms.author: v-eschaffer 
 ms.custom: devx-track-azurepowershell
 
 #Customer intent: As an IT admin, I want to create custom and/or roles using Bicep so that I can start automating custom role processes.
-
 ---
 
 # Create or update Azure custom roles using Bicep
@@ -20,13 +19,13 @@ If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs o
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
-To create a custom role, you specify a role name, permissions, and where the role can be used. In this article, you create a role named _Custom Role - RG Reader_ with resource permissions that can be assigned at a subscription scope or lower.
+To create a custom role, you specify a role name, role permissions, and where the role can be used. In this article, you create a role named _Custom Role - RG Reader_ with resource permissions that can be assigned at a subscription scope or lower.
 
 ## Prerequisites
 
-To create a custom role, you must have:
+To create a custom role, you must have permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
 
-- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+You also must have an active Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Review the Bicep file
 
@@ -96,7 +95,7 @@ Here are the changes you would need to make to the previous Bicep file to update
 
     ```bicep
     ...
-    @description('ID of the role definition)
+    @description('ID of the role definition')
     param roleDefName string = '<ID-name>'
     ...
 
@@ -117,13 +116,13 @@ Then, use Azure CLI or Azure PowerShell to deploy the updated Bicep file.
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az deployment group create --resource-group exampleRG --template-file main.bicep --actions <actions> --roleDefName <role-name>
+az deployment group create --resource-group exampleRG --template-file main.bicep --roleDefName=<role-name>
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-New-AzDeployment -ResourceGroupName exampleRG -Location eastus -TemplateFile ./main.bicep -Actions <actions> -roleDefName <role-name>
+New-AzDeployment -ResourceGroupName exampleRG -Location eastus -TemplateFile ./main.bicep -roleDefName "<role-name>"
 ```
 
 ---
