@@ -142,7 +142,7 @@ ms.author: lajanuar
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
 
-## Document Translation: Scanned PDFs
+## Document Translation: scanned PDF support
 
 |Language|Language Code|Supported as **source language** for scanned PDF?|Supported as **target language** for scanned PDF?|
 |:----|:----:|:----:|:----:|
