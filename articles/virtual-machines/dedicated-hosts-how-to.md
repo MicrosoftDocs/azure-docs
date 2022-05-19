@@ -48,7 +48,8 @@ In this example, we will create a host group using 1 availability zone and 2 fau
 1. For **Host group name**, type *myHostGroup*.
 1. For **Location**, select **East US**.
 1. For **Availability Zone**, select **1**.
-1. For **Fault domain count**, select **2**.
+1. Select **Enable Ultra SSD** to use Ultra disks with supported Virtual Machines. This setting cannot be changed once the host group is created and not all Azure VM SKUs, regions and availability support Ultra disks, see [Azure ultra disks](disks-enable-ultra-ssd.md) and .
+1. For **Fault domain count**, select **2**. If you intend to use L-Series VMs with Ultra disks, select **1**.
 1. Select **Automatic placement** to automatically assign VMs and scale set instances to an available host in this group.
 1. Select **Review + create** and then wait for validation.
 1. Once you see the **Validation passed** message, select **Create** to create the host group.
@@ -64,6 +65,18 @@ Not all host SKUs are available in all regions, and availability zones. You can 
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
 ```
 
+Not all Azure VM SKUs, regions and availability support Ultra disks, see [Azure ultra disks](disks-enable-ultra-ssd.md). You can verify if a VM SKU supports Ultra disks similar to below example.
+
+```azurecli-interactive
+subscription="<yourSubID>"
+# example value is southeastasia
+region="<yourLocation>"
+# example value is Standard_E64s_v3
+vmSize="<yourVMSize>"
+
+az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
+```
+
 In this example, we will use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group using both availability zones and fault domains.
 
 ```azurecli-interactive
@@ -73,6 +86,7 @@ az vm host group create \
    -z 1 \
    --platform-fault-domain-count 2
 ```
+Add the `--ultra-ssd-enabled true` parameter to enable creation of VMs that can support Ultra disks, this setting cannot be changed once the host group is created. If you intend to use L-Series VMs on ADH with Ultra disks, set `platform-fault-domain-count` as **1**.
 
 Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
 
@@ -85,6 +99,7 @@ You can also use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-g
 az vm host group create \
    --name myAZHostGroup \
    -g myDHResourceGroup \
+   -l eastus2 \
    -z 1 \
    --platform-fault-domain-count 1
 ```
@@ -98,6 +113,18 @@ az vm host group create \
    --platform-fault-domain-count 2
 ```
 
+The following uses [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group that supports Ultra SSD disks and auto placement of VMs enabled.
+
+```azurecli-interactive
+az vm host group create \
+   --name myFDHostGroup \
+   -g myDHResourceGroup \
+   -z 1 \
+   --ultra-ssd-enabled true \
+   --platform-fault-domain-count 2 \
+   --automatic-placement true 
+```
+
 ### [PowerShell](#tab/powershell)
 
 This example uses [New-AzHostGroup](/powershell/module/az.compute/new-azhostgroup) to create a host group in zone 1, with 2 fault domains.
@@ -105,17 +132,19 @@ This example uses [New-AzHostGroup](/powershell/module/az.compute/new-azhostgrou
 
 ```azurepowershell-interactive
 $rgName = "myDHResourceGroup"
-$location = "EastUS"
+$location = "EastUS2"
 
 New-AzResourceGroup -Location $location -Name $rgName
 $hostGroup = New-AzHostGroup `
-   -Location $location `
    -Name myHostGroup `
-   -PlatformFaultDomain 2 `
    -ResourceGroupName $rgName `
-   -Zone 1
+   -Location $location `
+   -Zone 1 `
+   -EnableUltraSSD true `
+   -PlatformFaultDomain 2 `
+   -SupportAutomaticPlacement true
 ```
-
+Add the `-EnableUltraSSD true` parameter to enable creation of VMs that can support Ultra disks, this setting cannot be changed once the host group is created. Not all Azure VM SKUs, regions and availability support Ultra disks, see [Azure ultra disks](disks-enable-ultra-ssd.md). If you intend to use L-Series VMs on ADH with Ultra disks, set `-PlatformFaultDomain` as **1**.
 
 Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
 
@@ -175,6 +204,9 @@ $dHost = New-AzHost `
 ## Create a VM
 
 Now create a VM on the host.
+
+If you would like to create a VM with Ultra disks support, make sure the host group in which the VM would be placed is Ultra SSD Enabled, then create the VM in the same host group. See [Deploy an ultra disk](disks-enable-ultra-ssd.md#deploy-an-ultra-disk) for the steps to attach an ultra disk to a VM.
+
 
 ### [Portal](#tab/portal)
 
