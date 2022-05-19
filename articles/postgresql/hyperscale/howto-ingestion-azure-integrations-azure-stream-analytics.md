@@ -1,7 +1,7 @@
 ---
 title: Azure Stream Analytics
 description: Classify workload for scalable application
-ms.author: saimicrosoft
+ms.author: sasriram
 author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
