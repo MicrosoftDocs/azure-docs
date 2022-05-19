@@ -84,9 +84,9 @@ All the *read-only* `nodetool` commands such as `status` are available through A
 
 The settings for table metadata such as bloom filter, caching, read repair chance, gc_grace, and compression memtable_flush_period are fully supported as with any self-hosted Apache Cassandra environment.
 
-### Can I deploy managed instance cluster using Terraform?
+### Can I deploy a managed instance cluster using Terraform?
 
-Yes. You can find a sample for deploying a cluster with a single datacenter [here](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_datacenter).
+Yes. You can find a sample for deploying a cluster with a datacenter [here](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_datacenter).
 
 ## Next steps
 
