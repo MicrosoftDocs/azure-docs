@@ -138,7 +138,7 @@ The project folder contains a list of all the modules included in that project. 
 
 #### Deployment manifest of your project
 
-The project folder also contains a file named `deployment.template.json`. This file is a template of an IoT Edge deployment manifest, which defines all the modules that run on a device along with how they communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). 
+The project folder also contains a file named `deployment.debug.template.json`. This file is a template of an IoT Edge deployment manifest, which defines all the modules that run on a device along with how they communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). 
 
 If you open this deployment template, you see that the two runtime modules, **edgeAgent** and **edgeHub** are included, along with the custom module that you created in this Visual Studio project. A fourth module named **SimulatedTemperatureSensor** is also included. This default module generates simulated data that you can use to test your modules, or delete if it's not necessary. To see how the simulated temperature sensor works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
@@ -154,7 +154,7 @@ The IoT Edge extension defaults to the latest stable version of the IoT Edge run
 
 1. If you changed the version, re-generate your deployment manifest by right-clicking the name of your project and select **Generate deployment for IoT Edge**. This will generate a deployment manifest based on your deployment template and will appear in the **config** folder of your Visual Studio project.
 
-## Module infrastructure and development options
+## Module infrastructure & development options
 
 When you add a new module, it comes with default code that is ready to be built and deployed to a device so that you can start testing without touching any code. The module code is located within the module folder in a file named `Program.cs` (for C#) or `main.c` (for C).
 
@@ -215,9 +215,11 @@ Typically, you'll want to test and debug each module before running it within an
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
     ```
 
-   ![Debug Single Module](./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png)
+   :::image type="content" source="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png" alt-text="Screenshot of the output console, Visual Studio project, and Bash window." lightbox="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png":::
 
-   The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window, found when the debugger is running. Go to Debug > Windows > Locals.
+   The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window, found when the debugger is running. Go to Debug > Windows > Locals. 
+
+   You should see a `{"message":"accepted"}` confirmation in your bash or shell.
 
    > [!TIP]
    > You can also use [PostMan](https://www.getpostman.com/) or other API tools to send messages instead of `curl`.
@@ -232,17 +234,17 @@ After you're done developing a single module, you might want to run and debug an
 
    :::image type="content" source="./media/how-to-visual-studio-develop-module/add-new-module.png" alt-text="Screenshot of the 'New IoT Edge Module' menu option." lightbox="./media/how-to-visual-studio-develop-module/add-new-module.png":::
 
-1. Open the file `deployment.template.json` to see that the new module has been added in the **modules** section. A new route was also added to the **routes** section to send messages from the new module to IoT Hub. To send data from the simulated temperature sensor to the new module, add another route like the following example: 
+1. Open the file `deployment.debug.template.json` to see that the new module has been added in the **modules** section. A new route was also added to the **routes** section to send messages from the new module to IoT Hub. To send data from the simulated temperature sensor to the new module, add another route with the following line of `JSON`. Replace `<NewModuleName>` with your own module name.
 
     ```json
    "sensorTo<NewModuleName>": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/<NewModuleName>/inputs/input1\")"
     ```
 
-1. Right-click the solution and select **Set as StartUp Projects**. In the popup, choose `Start` from the dropdown menu next to both modules.
+1. Right-click the main project (for example, `IoTEdgeProject`) and select **Set as StartUp Project**. 
 
 1. Create your breakpoints and then press **F5** to run and debug multiple modules simultaneously. You should see multiple .NET Core console app windows, with each window representing a different module.
 
-   ![Debug Multiple Modules](./media/how-to-visual-studio-develop-csharp-module/debug-multiple-modules.png)
+   :::image type="content" source="./media/how-to-visual-studio-develop-csharp-module/debug-multiple-modules.png" alt-text="Screenshot of Visual Studio with two output consoles.":::
 
 1. Press **Ctrl + F5** or select the stop button to stop debugging.
 
@@ -259,7 +261,7 @@ After you're done developing a single module, you might want to run and debug an
     docker login -u <ACR username> -p <ACR password> <ACR login server>
     ```
 
-1. The Azure Container Registry login information should be added to the runtime settings found in the file `deployment.template.json`. There are two ways to do this. You can either add your registry credentials to your `.env` file (most secure) or add them directly to your `deployment.template.json` file.
+1. The Azure Container Registry login information should be added to the runtime settings found in the file `deployment.debug.template.json`. There are two ways to do this. You can either add your registry credentials to your `.env` file (most secure) or add them directly to your `deployment.debug.template.json` file.
 
    **Add credentials to your `.env` file:**
 
@@ -273,7 +275,7 @@ After you're done developing a single module, you might want to run and debug an
        CONTAINER_REGISTRY_PASSWORD_myregistry=<my-registry-password>
    ```
 
-   **Add credentials directly to `deployment.template.json`:**
+   **Add credentials directly to `deployment.debug.template.json`:**
 
    If you'd rather add your credentials directly to your deployment template, replace the placeholders with your actual ACR admin username, password, and registry name.
 
@@ -326,25 +328,21 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
         }
      ```
     > [!TIP]
-    > The deployment template for Visual Studio 2022 requires the 1.2 schema version. If you need it to be 1.1 or 1.0, wait until after the deployment is generated (do not change it in `deployment.template.json`). Generating a deployment will create a 1.2 schema by default. However, you can manually change `deployment.amd64.debug.json`, the generated manifest, if needed before deploying it to Azure.
+    > The deployment template for Visual Studio 2022 requires the 1.2 schema version. If you need it to be 1.1 or 1.0, wait until after the deployment is generated (do not change it in `deployment.debug.template.json`). Generating a deployment will create a 1.2 schema by default. However, you can manually change `deployment.amd64.debug.json`, the generated manifest, if needed before deploying it to Azure.
 
-1. Now let's deploy our manifest with an Azure CLI command. In Visual Studio, from the **Tools** menu choose **Command Line**, then choose the **Developer Command Prompt**.
-
-   :::image type="content" source="./media/how-to-visual-studio-develop-module/get-dev-command-prompt.png" alt-text="Screenshot of the location of the command prompt menu item.":::
-
-1. The command prompt window will appear. Notice it opens directly from your project folder. Now, change to the **config** directory.
+1. Now let's deploy our manifest with an Azure CLI command. Open the Visual Studio **Developer Command Prompt** and change to the **config** directory.
 
     ```cmd
         cd config
     ```
 
-1. From your **config** folder, execute a deployment command. Replace the `[device id]`, `[hub name]`, and `[file path]` with your values. 
+1. From your **config** folder, execute the following deployment command. Replace the `[device id]`, `[hub name]`, and `[file path]` with your values. 
 
     ```cmd
         az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
     ```
 
-    For example, your command might look like this, if run from your `config` folder: 
+    For example, your command might look like this: 
     
     ```cmd
     az iot edge set-modules --device-id my-device-name --hub-name my-iot-hub-name --content deployment.amd64.debug.json
