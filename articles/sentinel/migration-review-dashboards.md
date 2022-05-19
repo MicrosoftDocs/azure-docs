@@ -1,14 +1,13 @@
 ---
-title: TBD | Microsoft Docs
+title: Review your current dashboards and plan your conversion to Azure Workbooks | Microsoft Docs
 description: TBD
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
 ms.date: 05/03/2022
-ms.custom: ignite-fall-2021
 ---
 
-# Review dashboards
+# Review dashboards in your current SIEM
 
 Dashboards in your existing SIEM will migrate to Microsoft Sentinel workbooks. Consider the following when designing your migration.
 - Discover dashboards. Gather information about your dashboards, including design, parameters, data sources, and other details. Identity the purpose or usage of each dashboard.

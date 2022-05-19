@@ -124,7 +124,7 @@ In addition to selecting an ingestion tool, your team needs to invest time in se
 To use the SIEM data migration accelerator:
 
 1. [Download the deployment wizard](http://aka.ms/siemdatamigration).
-1. Click **Deploy to Azure** button and authenticate.
+1. Click **Deploy to Azure** and authenticate.
 1. Select **Basics**, select your resource group and location, and select **Next**.
 1. Select **Migration VM**, and do the following: 
     - Type the VM name, username and password.
