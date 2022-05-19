@@ -4,7 +4,7 @@ description: Learn how to set up a connection between HDInsight Spark cluster an
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/20/2020
+ms.date: 04/08/2022
 ---
 
 # Use HDInsight Spark cluster to read and write data to Azure SQL Database
@@ -15,13 +15,13 @@ Learn how to connect an Apache Spark cluster in Azure HDInsight with Azure SQL D
 
 * Azure HDInsight Spark cluster.  Follow the instructions at [Create an Apache Spark cluster in HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* Azure SQL Database. Follow the instructions at [Create a database in Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md). Make sure you create a database with the sample **AdventureWorksLT** schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database. The instructions to add the firewall rule is available in the same article. Once you've created your SQL database, make sure you keep the following values handy. You need them to connect to the database from a Spark cluster.
+* Azure SQL Database. Follow the instructions at [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart). Make sure you create a database with the sample **AdventureWorksLT** schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database. The instructions to add the firewall rule is available in the same article. Once you've created your SQL database, make sure you keep the following values handy. You need them to connect to the database from a Spark cluster.
 
     * Server name.
     * Database name.
     * Azure SQL Database admin user name / password.
 
-* SQL Server Management Studio (SSMS). Follow the instructions at [Use SSMS to connect and query data](../../azure-sql/database/connect-query-ssms.md).
+* SQL Server Management Studio (SSMS). Follow the instructions at [Use SSMS to connect and query data](/azure/azure-sql/database/connect-query-ssms).
 
 ## Create a Jupyter Notebook
 

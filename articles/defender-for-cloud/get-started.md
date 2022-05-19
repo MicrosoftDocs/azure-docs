@@ -10,8 +10,6 @@ ms.custom: mode-other
 
 # Quickstart: Set up Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Defender for Cloud provides unified security management and threat protection across your hybrid and multi-cloud workloads. While the free features offer limited security for your Azure resources only, enabling enhanced security features extends these capabilities to on-premises and other clouds. Defender for Cloud helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try the enhanced security features at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 This quickstart section will walk you through all the recommended steps to enable Microsoft Defender for Cloud and the enhanced security features. When you've completed all the quickstart steps, you'll have:

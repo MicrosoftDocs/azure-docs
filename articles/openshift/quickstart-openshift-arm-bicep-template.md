@@ -4,7 +4,7 @@ description: In this Quickstart, learn how to create an Azure Red Hat OpenShift 
 author: rahulm23
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: mode-arm
 ms.author: rahulmehta
 ms.date: 03/17/2022
 keywords: azure, openshift, aro, red hat, arm, bicep
@@ -59,7 +59,7 @@ The following example shows how your ARM template should look when configured fo
 The template defines three Azure resources:
 
 * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-* [**Microsoft.Network/virtualNetworks/providers/roleAssignments**](/azure/templates/microsoft.network/virtualnetworks/providers/roleassignments)
+* [**Microsoft.Network/virtualNetworks/providers/roleAssignments**](/azure/templates/microsoft.authorization/roleassignments)
 * [**Microsoft.RedHatOpenShift/OpenShiftClusters**](/azure/templates/microsoft.redhatopenshift/openshiftclusters)
 
 More Azure Red Hat OpenShift template samples can be found on the [Red Hat OpenShift web site](https://docs.openshift.com/container-platform/4.9/installing/installing_azure/installing-azure-user-infra.html).
@@ -364,7 +364,7 @@ The following example shows how your Azure Bicep file should look when configure
 The Bicep file defines three Azure resources:
 
 * [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-* [Microsoft.Network/virtualNetworks/providers/roleAssignments](/azure/templates/microsoft.network/virtualnetworks/providers/roleassignments)
+* [Microsoft.Network/virtualNetworks/providers/roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [Microsoft.RedHatOpenShift/OpenShiftClusters](/azure/templates/microsoft.redhatopenshift/openshiftclusters)
 
 More Azure Red Hat OpenShift templates can be found on the [Red Hat OpenShift web site](https://docs.openshift.com/container-platform/4.9/installing/installing_azure/installing-azure-user-infra.html).
@@ -607,7 +607,7 @@ The following sections provide instructions using PowerShell or Azure CLI.
 
 ## PowerShell steps 
 
-Perform the following steps if you are using PowerShell.
+Perform the following steps if you're using PowerShell.
 
 ### Before you begin - PowerShell
 
@@ -710,7 +710,7 @@ Remove-AzResourceGroup -Name $resourceGroup -Force
 ```
 ## Azure CLI steps 
 
-Perform the following steps if you are using Azure CLI.
+Perform the following steps if you're using Azure CLI.
 
 ### Before you begin - Azure CLI
 

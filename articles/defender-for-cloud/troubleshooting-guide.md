@@ -6,8 +6,6 @@ ms.date: 12/26/2021
 ---
 # Microsoft Defender for Cloud Troubleshooting Guide
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations need to troubleshoot Defender for Cloud related issues.
 
 Defender for Cloud uses the Log Analytics agent to collect and store data. See [Microsoft Defender for Cloud Platform Migration](./enable-data-collection.md) to learn more. The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.

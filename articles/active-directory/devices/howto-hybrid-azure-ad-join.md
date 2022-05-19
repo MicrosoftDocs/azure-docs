@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 04/06/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -141,6 +141,7 @@ If you experience issues with completing hybrid Azure AD join for domain-joined 
 - [Troubleshooting devices using dsregcmd command](./troubleshoot-device-dsregcmd.md)
 - [Troubleshoot hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md)
 - [Troubleshoot hybrid Azure AD join for Windows downlevel devices](troubleshoot-hybrid-join-windows-legacy.md)
+- [Troubleshoot pending device state](/troubleshoot/azure/active-directory/pending-devices)
 
 ## Next steps
 

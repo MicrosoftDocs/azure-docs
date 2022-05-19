@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/11/2020
 ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # What is Direct Line Speech?
@@ -22,7 +23,7 @@ Direct Line Speech offers the highest levels of customization and sophistication
 
 ## Getting started with Direct Line Speech
 
-The first steps for creating a voice assistant using Direct Line Speech are to [get a speech subscription key](overview.md#try-the-speech-service-for-free), create a new bot associated with that subscription, and connect the bot to the Direct Line Speech channel.
+To create a voice assistant using Direct Line Speech, create a Speech resource and Azure Bot resource in the [Azure portal](https://portal.azure.com). Then [connect the bot](/azure/bot-service/bot-service-channel-connect-directlinespeech) to the Direct Line Speech channel.
 
    ![Conceptual diagram of the Direct Line Speech orchestration service flow](media/voice-assistants/overview-directlinespeech.png "The Speech Channel flow")
 

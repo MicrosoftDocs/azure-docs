@@ -6,7 +6,7 @@
     displayName: rbac, assign, initiative, parameters, count
     href: overview.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: Assign a policy - Portal
     displayName: assign, compliance
@@ -19,7 +19,7 @@
     href: ./assign-policy-powershell.md
   - name: Assign a policy - .NET
     displayName: assign, compliance
-    href: ./assign-policy-dotnet.md  
+    href: ./assign-policy-dotnet.md
   - name: Assign a policy - JavaScript
     displayName: assign, compliance
     href: ./assign-policy-javascript.md
@@ -131,6 +131,8 @@
         href: ./samples/nist-sp-800-53-r4.md
       - name: NIST SP 800-171 R2
         href: ./samples/nist-sp-800-171-r2.md
+      - name: SWIFT CSCF 2021
+        href: ./samples/swift-cscf-v2021.md
       - name: UK OFFICIAL and UK NHS
         href: ./samples/ukofficial-uknhs.md
     - name: Azure Government built-ins

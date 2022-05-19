@@ -8,8 +8,11 @@
   items:
   - name: Create a lab - Portal
     href: devtest-lab-create-lab.md
+  - name: Create a lab - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: create-lab-windows-vm-bicep.md
   - name: Create a lab - ARM template
-    displayName: ARM template
+    displayName: Resource Manager
     href: create-lab-windows-vm-template.md
   - name: Create a lab - PowerShell with REST API
     href: quickstarts/create-lab-rest.md
@@ -240,14 +243,12 @@
         href: devtest-lab-guidance-governance-policy-compliance.md
       - name: Application migration and integration
         href: devtest-lab-guidance-governance-application-migration-integration.md
-  - name: Test your app in Azure
+  - name: Set up an app for testing
     href: test-app-azure.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot VM and environment creation failures
       href: troubleshoot-vm-environment-creation-failures.md
-    - name: Troubleshoot artifact failures
-      href: devtest-lab-troubleshoot-artifact-failure.md
     - name: Troubleshoot issues when applying artifacts
       href: devtest-lab-troubleshoot-apply-artifacts.md
   - name: Monitor
@@ -258,6 +259,8 @@
       href: create-alerts.md
   - name: Move to new region
     href: how-to-move-labs.md
+  - name: Move schedules to another region
+    href: how-to-move-schedule-to-new-region.md
 - name: Reference
   items:
   - name: CLI

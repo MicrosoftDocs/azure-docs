@@ -30,6 +30,10 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
+          - text: Azure portal quickstart
+            url: quickstart-portal.md
+          - text: CLI quickstart
+            url: quickstart-cli.md
           - text: Python quickstart
             url: quickstart-python.md
           - text: ARM template quickstart

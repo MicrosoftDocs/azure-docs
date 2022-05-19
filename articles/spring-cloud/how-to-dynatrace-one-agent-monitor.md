@@ -54,7 +54,7 @@ The following sections describe how to activate Dynatrace OneAgent.
 
 To activate Dynatrace OneAgent on your Azure Spring Cloud instance, you need to configure four environment variables: `DT_TENANT`, `DT_TENANTTOKEN`, `DT_CONNECTION_POINT`, and `DT_CLUSTER_ID`. For more information, see [Integrate OneAgent with Azure Spring Cloud](https://www.dynatrace.com/support/help/shortlink/azure-spring).
 
-For applications with multiple instances, Dynatrace has several ways to group them. `DT_CLUSTER_ID` is one of the ways. For more information, see [Customize the structure of process groups](https://www.dynatrace.com/support/help/how-to-use-dynatrace/process-groups/configuration/adapt-the-composition-of-default-process-groups/).
+For applications with multiple instances, Dynatrace has several ways to group them. `DT_CLUSTER_ID` is one of the ways. For more information, see [Process group detection](https://www.dynatrace.com/support/help/how-to-use-dynatrace/process-groups/configuration/pg-detection).
 
 ### Add the environment variables to your application
 
@@ -157,7 +157,7 @@ Next, go to the **Profiling and optimization** section.
 
 You can find the **CPU analysis** from **Profiling and optimization/CPU analysis**:
 
-:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png" alt-text="Screenshot of the 'CPU analysis' report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png":::
+:::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png" alt-text="Screenshot of the 'C P U analysis' report." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png":::
 
 Next, go to the **Databases** section.
 

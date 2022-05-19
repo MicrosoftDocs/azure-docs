@@ -49,9 +49,9 @@ Open the **Replicate Data Globally** tab and select **Enable** to enable multi-r
 
 :::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Azure Cosmos account configures multi-region writes screenshot":::
 
-## <a id="automatic-failover"></a>Enable automatic failover for your Azure Cosmos account
+## <a id="automatic-failover"></a>Enable service-managed failover for your Azure Cosmos account
 
-The Automatic failover option allows Azure Cosmos DB to failover to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified. Account must have two or more regions to enable automatic failover.
+The Service-Managed failover option allows Azure Cosmos DB to failover to the region with the highest failover priority with no user action should a region become unavailable. When service-managed failover is enabled, region priority can be modified. Account must have two or more regions to enable service-managed failover.
 
 1. From your Azure Cosmos account, open the **Replicate data globally** pane.
 
@@ -70,7 +70,7 @@ The Automatic failover option allows Azure Cosmos DB to failover to the region w
 After a Cosmos account is configured for automatic failover, the failover priority for regions can be changed.
 
 > [!IMPORTANT]
-> You cannot modify the write region (failover priority of zero) when the account is configured for automatic failover. To change the write region, you must disable automatic failover and do a manual failover.
+> You cannot modify the write region (failover priority of zero) when the account is configured for service-managed failover. To change the write region, you must disable service-managed failover and do a manual failover.
 
 1. From your Azure Cosmos account, open the **Replicate data globally** pane.
 

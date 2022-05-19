@@ -4,7 +4,7 @@ description: This article outlines how to manage workflow runs.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-workflows
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 03/01/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -16,9 +16,9 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This article outlines how to manage workflows that are already running.
 
-1. To view workflow runs you triggered, sign in to the [Azure Purview Studio](https://web.purview.azure.com/resource/), select the Management center, and select **Workflow runs**. 
+1. To view workflow runs you triggered, sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), select the Management center, and select **Workflow runs**. 
 
-    :::image type="content" source="./media/how-to-workflow-manage-runs/select-workflow-runs.png" alt-text="Screenshot of the management menu in the Azure Purview studio. The Workflow runs tab is highlighted.":::
+    :::image type="content" source="./media/how-to-workflow-manage-runs/select-workflow-runs.png" alt-text="Screenshot of the management menu in the Microsoft Purview governance portal. The Workflow runs tab is highlighted.":::
 
 1. You'll be presented with the list of workflow runs and their statuses.
 
@@ -41,7 +41,7 @@ This article outlines how to manage workflows that are already running.
 
 ## Next steps
 
-- [What are Azure Purview workflows](concept-workflow.md)
+- [What are Microsoft Purview workflows](concept-workflow.md)
 - [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)
 - [Self-service data access workflow for hybrid data estates](how-to-workflow-self-service-data-access-hybrid.md)
 - [Manage workflow requests and approvals](how-to-workflow-manage-requests-approvals.md)

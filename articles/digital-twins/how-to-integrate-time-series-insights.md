@@ -19,7 +19,10 @@ ms.service: digital-twins
 
 In this article, you'll learn how to integrate Azure Digital Twins with [Azure Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md).
 
-The solution described in this article will allow you to gather and analyze historical data about your IoT solution. Azure Digital Twins is a great fit for feeding data into Time Series Insights, as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights.
+The solution described in this article uses Time Series Insights to collect and analyze historical data about your IoT solution. Azure Digital Twins is a good fit for feeding data into Time Series Insights, as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights.
+
+>[!TIP]
+>The simplest way to analyze historical twin data over time is to use the [data history (preview)](concepts-data-history.md) feature to connect an Azure Digital Twins instance to an Azure Data Explorer cluster, so that digital twin property updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md). If you don't need to use Time Series Insights specifically, you might consider this alternative for a simpler integration experience.
 
 ## Prerequisites
 
@@ -99,10 +102,10 @@ az dt endpoint create eventhub --dt-name <your-Azure-Digital-Twins-instance-name
 
 Azure Digital Twins instances can emit [twin update events](./concepts-event-notifications.md) whenever a twin's state is updated. In this section, you'll create an Azure Digital Twins event route that will direct these update events to the twins hub for further processing.
 
-Create a [route](concepts-route-events.md#create-an-event-route) in Azure Digital Twins to send twin update events to your endpoint from above. The filter in this route will only allow twin update messages to be passed to your endpoint. Specify a name for the twins hub event route.
+Create a [route](concepts-route-events.md#create-an-event-route) in Azure Digital Twins to send twin update events to your endpoint from above. The filter in this route will only allow twin update messages to be passed to your endpoint. Specify a name for the twins hub event route. For the Azure Digital Twins instance name placeholder in this command, you can use the friendly name or the host name for a boost in performance.
 
 ```azurecli-interactive
-az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <your-twins-hub-endpoint-from-earlier> --route-name <name-for-your-twins-hub-event-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+az dt route create --dt-name <your-Azure-Digital-Twins-instance-hostname-or-name> --endpoint-name <your-twins-hub-endpoint-from-earlier> --route-name <name-for-your-twins-hub-event-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
 ```
 
 ### Get twins hub connection string
@@ -238,10 +241,10 @@ In this section, you'll set up Time Series Insights instance to receive data fro
 
 To begin sending data to Time Series Insights, you'll need to start updating the digital twin properties in Azure Digital Twins with changing data values.
 
-Use the [az dt twin update](/cli/azure/dt/twin#az-dt-twin-update) CLI command to update a property on the twin you added in the [Prerequisites](#prerequisites) section. If you used the twin creation instructions from [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)), you can use the following command in the local CLI or the Cloud Shell bash terminal to update the temperature property on the thermostat67 twin.
+Use the [az dt twin update](/cli/azure/dt/twin#az-dt-twin-update) CLI command to update a property on the twin you added in the [Prerequisites](#prerequisites) section. If you used the twin creation instructions from [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)), you can use the following command in the local CLI or the Cloud Shell bash terminal to update the temperature property on the thermostat67 twin. There's one placeholder for the Azure Digital Twins instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
 ```azurecli-interactive
-az dt twin update --dt-name <your-Azure-Digital-Twins-instance-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
+az dt twin update --dt-name <your-Azure-Digital-Twins-instance-hostname-or-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
 ```
 
 Repeat the command at least 4 more times with different property values to create several data points that can be observed later in the Time Series Insights environment.

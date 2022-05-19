@@ -70,7 +70,7 @@ For multi-class classification, the dataset can contain several text columns and
 text,labels
 "I love watching Chicago Bulls games.","NBA"
 "Tom Brady is a great player.","NFL"
-"There is a game between Yankees and Orioles tonight","NFL"
+"There is a game between Yankees and Orioles tonight","MLB"
 "Stephen Curry made the most number of 3-Pointers","NBA"
 ```
 
@@ -84,7 +84,7 @@ For multi-label classification, the dataset columns would be the same as multi-c
 |Python list with quotes| `"['label1','label2','label3']"`| `"['label1']"`|`"[]"`
 
 > [!IMPORTANT]
-> Different parsers are used to read labels for these formats. If you are using the plaint text format, only use alphabetical, numerical and `'_'` in your labels. All other characters are recognized as the separator of labels. 
+> Different parsers are used to read labels for these formats. If you are using the plain text format, only use alphabetical, numerical and `'_'` in your labels. All other characters are recognized as the separator of labels. 
 >
 > For example, if your label is `"cs.AI"`, it's read as `"cs"` and `"AI"`. Whereas with the Python list format, the label would be `"['cs.AI']"`, which is read as `"cs.AI"` .
 
@@ -142,7 +142,7 @@ Before training, automated ML applies data validation checks on the input data t
 
 Task | Data validation check
 ---|---
-All tasks | At least 50 training samples are required 
+All tasks | - Both training and validation sets must be provided <br> - At least 50 training samples are required 
 Multi-class and Multi-label | The training data and validation data must have <br> - The same set of columns <br>- The same order of columns from left to right <br>- The same data type for columns with the same name <br>- At least two unique labels <br>  - Unique column names within each dataset (For example, the training set can't have multiple columns named **Age**)
 Multi-class only | None
 Multi-label only | - The label column format must be in [accepted format](#multi-label) <br> - At least one sample should have 0 or 2+ labels, otherwise it should be a `multiclass` task <br> - All labels should be in `str` or `int` format, with no overlapping. You should not have both label `1` and label `'1'`
@@ -152,14 +152,18 @@ NER only | - The file should not start with an empty line <br> - Each line must 
 
 Automated ML's NLP capability is triggered through `AutoMLConfig`, which is the same workflow for submitting automated ML experiments for classification, regression and forecasting tasks. You would set most of the parameters as you would for those experiments, such as `task`, `compute_target` and data inputs. 
 
-However, there are key differences include: 
+However, there are key differences: 
 * You can ignore `primary_metric`, as it is only for reporting purpose. Currently, automated ML only trains one model per run for NLP and there is no model selection.
 * The `label_column_name` parameter is only required for multi-class and multi-label text classification tasks. 
+* If the majority of the samples in your dataset contain more than 128 words, it's considered long range. For this scenario, you can enable the long range text option with the `enable_long_range_text=True` parameter in your `AutoMLConfig`. Doing so, helps improve model performance but requires a longer training times.
+   * If you enable long range text, then a GPU with higher memory is required such as, [NCv3](../virtual-machines/ncv3-series.md) series  or  [ND](../virtual-machines/nd-series.md)  series.
+   * The `enable_long_range_text` parameter is only available for multi-class classification tasks.
 
 
 ```python
 automl_settings = {
     "verbosity": logging.INFO,
+    "enable_long_range_text": True, # # You only need to set this parameter if you want to enable the long-range text setting
 }
 
 automl_config = AutoMLConfig(

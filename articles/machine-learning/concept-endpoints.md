@@ -8,15 +8,16 @@ ms.subservice: mlops
 ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
-ms.reviewer: laobri
+ms.reviewer: larryfr
 ms.custom: devplatv2, ignite-fall-2021
-ms.date: 12/22/2021
+ms.date: 03/31/2022
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
 # What are Azure Machine Learning endpoints (preview)? 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
 Use Azure Machine Learning endpoints (preview) to streamline model deployments for both real-time and batch inference deployments. Endpoints provide a unified interface to invoke and manage model deployments across compute types.
 

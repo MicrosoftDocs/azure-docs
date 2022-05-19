@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "how-to-set-up-instance-powershell.md",
+      "redirect_url": "/azure/digital-twins/how-to-set-up-instance-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "troubleshoot-alerts.md",
       "redirect_url": "/azure/digital-twins/how-to-monitor-alerts",
       "redirect_document_id": true

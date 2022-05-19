@@ -1,6 +1,10 @@
 items:
 - name: Basic Load Balancer documentation
   href: index.yml
+- name: Overview
+  items:
+  - name: What is Basic Azure Load Balancer?
+    href: overview.md 
 - name: Quickstarts
   items:
   - name: Create a basic public load balancer
@@ -15,8 +19,24 @@ items:
     items:
     - name: Portal
       href: quickstart-basic-internal-load-balancer-portal.md
+    - name: PowerShell
+      href: quickstart-basic-internal-load-balancer-powershell.md
     - name: CLI
       href: quickstart-basic-internal-load-balancer-cli.md
+- name: Concepts
+  items:
+  - name: Azure Load Balancer SKUs
+    href: ../skus.md?toc=/azure/load-balancer/basic/toc.json
+- name: How-to
+  items:
+  - name: IPv6
+    items:
+    - name: Deploy an IPv6 dual stack application using Basic Load Balancer - PowerShell
+      href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+    - name: Deploy an IPv6 dual stack application using Basic Load Balancer - Azure CLI
+      href: virtual-network-ipv4-ipv6-dual-stack-cli.md
+    - name: Deploy an IPv6 dual stack application using Basic Load Balancer - ARM template
+      href: ipv6-configure-template-json.md
 - name: Reference
   items:
   - name: Azure CLI

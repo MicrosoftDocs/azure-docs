@@ -28,7 +28,7 @@ To check the health of your instance, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
 
-2. From your instance's menu, select **Resource health** under Support + troubleshooting. This will take you to the page for viewing resource health history. 
+2. From your instance's menu, select **Resource health** under **Support + troubleshooting**. This will take you to the page for viewing resource health history. 
 
     :::image type="content" source="media/how-to-monitor-resource-health/resource-health.png" alt-text="Screenshot showing the 'Resource health' page. There is a 'Health history' section showing a daily report from the last nine days.":::
 

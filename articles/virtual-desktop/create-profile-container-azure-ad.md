@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 04/05/2022
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory (preview)
@@ -174,6 +174,9 @@ To enable Azure AD authentication on a storage account, you need to create an Az
     }
     ```
 
+    > [!IMPORTANT]
+    > This password expires every six months, so you must update it by following the steps in [Update the service principal's password](#update-the-service-principals-password).
+
 ### Set the API permissions on the newly created application
 
 You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
@@ -208,7 +211,7 @@ All users that need to have FSLogix profiles stored on the storage account you'r
 
 ### Assign directory level access permissions
 
-To prevent users from accessing the user profile of other users, you must also assign directory-level permissions. This section will give you a step-by-step guide for how to configure the permissions. 
+To prevent users from accessing the user profile of other users, you must also assign directory-level permissions. This section will give you a step-by-step guide for how to configure the permissions.
 
 > [!IMPORTANT]
 > Without proper directory level permissions in place, a user can delete the user profile or access the personal information of a different user. It's important to make sure users have proper permissions to prevent accidental deletion from happening.
@@ -370,6 +373,85 @@ Finally, test the profile to make sure that it works:
 5. Select the file share you configured to store the profiles.
 
 6. If everything's set up correctly, you should see a directory with a name that's formatted like this: `<user SID>_<username>`.
+
+## Update the service principal's password
+
+The service principal's password will expire every six months. To update the password:
+
+1. Install the Azure Storage and Azure AD PowerShell module. To install the modules, open PowerShell and run the following commands:
+
+    ```powershell
+    Install-Module -Name Az.Storage
+    Install-Module -Name AzureAD
+    ```
+
+2. Set the required variables for your tenant, subscription, storage account name, and resource group name by running the following PowerShell cmdlets, replacing the values with the ones relevant to your environment.
+
+    ```powershell
+    $tenantId = "<MyTenantId>"
+    $subscriptionId = "<MySubscriptionId>"
+    $resourceGroupName = "<MyResourceGroup>"
+    $storageAccountName = "<MyStorageAccount>"
+    ```
+
+3. Generate a new kerb1 key and password for the service principal by running this command:
+
+    ```powershell
+    Connect-AzAccount -Tenant $tenantId -SubscriptionId $subscriptionId
+    $kerbKeys = New-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName -KeyName "kerb1" -ErrorAction Stop | Select-Object -ExpandProperty Keys
+    $kerbKey = $kerbKeys | Where-Object { $_.KeyName -eq "kerb1" } | Select-Object -ExpandProperty Value
+    $azureAdPasswordBuffer = [System.Linq.Enumerable]::Take([System.Convert]::FromBase64String($kerbKey), 32);
+    $password = "kk:" + [System.Convert]::ToBase64String($azureAdPasswordBuffer);
+    ```
+
+4. Connect to Azure AD and retrieve the tenant information, application, and service principal by running the following cmdlets:
+
+    ```powershell
+    Connect-AzureAD
+    $azureAdTenantDetail = Get-AzureADTenantDetail;
+    $azureAdTenantId = $azureAdTenantDetail.ObjectId
+    $azureAdPrimaryDomain = ($azureAdTenantDetail.VerifiedDomains | Where-Object {$_._Default -eq $true}).Name
+    $application = Get-AzureADApplication -Filter "DisplayName eq '$($storageAccountName)'" -ErrorAction Stop;
+    $servicePrincipal = Get-AzureADServicePrincipal -Filter "AppId eq '$($application.AppId)'"
+    if ($servicePrincipal -eq $null) {
+      Write-Host "Could not find service principal corresponding to application with app id $($application.AppId)"
+      Write-Error -Message "Make sure that both service principal and application exist and are correctly configured" -ErrorAction Stop
+    }
+    ```
+
+5. Set the password for the storage account's service principal by running the following cmdlets.
+
+    ```powershell
+    $Token = ([Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens['AccessToken']).AccessToken;
+    $Uri = ('https://graph.windows.net/{0}/{1}/{2}?api-version=1.6' -f $azureAdPrimaryDomain, 'servicePrincipals', $servicePrincipal.ObjectId)
+    $json = @'
+    {
+      "passwordCredentials": [
+      {
+        "customKeyIdentifier": null,
+        "endDate": "<STORAGEACCOUNTENDDATE>",
+        "value": "<STORAGEACCOUNTPASSWORD>",
+        "startDate": "<STORAGEACCOUNTSTARTDATE>"
+      }]
+    }
+    '@
+
+    $now = [DateTime]::UtcNow
+    $json = $json -replace "<STORAGEACCOUNTSTARTDATE>", $now.AddDays(-1).ToString("s")
+	$json = $json -replace "<STORAGEACCOUNTENDDATE>", $now.AddMonths(6).ToString("s")
+    $json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password
+
+    $Headers = @{'authorization' = "Bearer $($Token)"}
+
+    try {
+      Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method Patch -Headers $Headers -Body $json 
+      Write-Host "Success: Password is set for $storageAccountName"
+    } catch {
+      Write-Host $_.Exception.ToString()
+      Write-Host "StatusCode: " $_.Exception.Response.StatusCode.value
+      Write-Host "StatusDescription: " $_.Exception.Response.StatusDescription
+    }
+    ```
 
 ## Disable Azure AD authentication on your Azure Storage account
 

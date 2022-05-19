@@ -2,12 +2,12 @@
 title: Azure DDoS Protection reference architectures
 description: Learn Azure DDoS protection reference architectures.
 services: ddos-protection
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/19/2022
-ms.author: yitoh
+ms.date: 04/29/2022
+ms.author: abell
 ms.custom: fasttrack-edit
 ---
 
@@ -16,7 +16,7 @@ ms.custom: fasttrack-edit
 DDoS Protection Standard is designed [for services that are deployed in a virtual network](../virtual-network/virtual-network-for-azure-services.md). The following reference architectures are arranged by scenarios, with architecture patterns grouped together.
 
 > [!NOTE]
-> Protected resources include public IPs attached to an IaaS VM, Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). PaaS services (multitenant) are not supported at present. This includes Azure App Service Environment for Power Apps or API management in a virtual network with a public IP.
+> Protected resources include public IPs attached to an IaaS VM (except for single VM running behind a public IP), Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs). PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps or API management in a virtual network with a public IP, are not supported at present.
 
 ## Virtual machine (Windows/Linux) workloads
 
@@ -38,10 +38,10 @@ There are many ways to implement an N-tier architecture. The following diagram s
 ![Diagram of the reference architecture for an application running on Windows N-tier](./media/ddos-best-practices/image-10.png)
 
 In this architecture, DDoS Protection Standard is enabled on the virtual network. All public IPs in the virtual network get DDoS protection for Layer 3 and 4. For Layer 7 protection, deploy Application Gateway in the WAF SKU. For more information on this reference architecture, see 
-[this article](/azure/architecture/reference-architectures/virtual-machines-windows/n-tier).
+[Windows N-tier application on Azure](/azure/architecture/reference-architectures/virtual-machines-windows/n-tier).
 
 > [!NOTE]
-> Scenarios in which a single VM is running behind a public IP are not supported.
+> Scenarios in which a single VM is running behind a public IP are not supported. DDoS mitigation may not initiate instantaneously when a DDoS attack is detected. As a result a single VM deployment that can’t scale out will go down in such cases.
 
 ### PaaS web application
 
@@ -52,11 +52,11 @@ A standby region is set up for failover scenarios.
 
 Azure Traffic Manager routes incoming requests to Application Gateway in one of the regions. During normal operations, it routes requests to Application Gateway in the active region. If that region becomes unavailable, Traffic Manager fails over to Application Gateway in the standby region.
 
-All traffic from the internet destined to the web application is routed to the [Application Gateway public IP address](../application-gateway/application-gateway-web-app-overview.md) via Traffic Manager. In this scenario, the app service (web app) itself is not directly externally facing and is protected by Application Gateway. 
+All traffic from the internet destined to the web application is routed to the [Application Gateway public IP address](../application-gateway/configure-web-app.md) via Traffic Manager. In this scenario, the app service (web app) itself is not directly externally facing and is protected by Application Gateway.
 
 We recommend that you configure the Application Gateway WAF SKU (prevent mode) to help protect against Layer 7 (HTTP/HTTPS/WebSocket) attacks. Additionally, web apps are configured to [accept only traffic from the Application Gateway](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/) IP address.
 
-For more information about this reference architecture, see [this article](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+For more information about this reference architecture, see [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 ## Mitigation for non-web PaaS services
 

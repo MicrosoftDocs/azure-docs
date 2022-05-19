@@ -1,7 +1,7 @@
 ---
-title: Swagger documentation - Speech service
+title: Generate a REST API client library - Speech service
 titleSuffix: Azure Cognitive Services
-description: The Swagger documentation can be used to auto-generate SDKs for a number of programming languages. All operations in our service are supported by Swagger
+description: The Swagger documentation can be used to auto-generate SDKs for a number of programming languages. 
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
@@ -12,14 +12,14 @@ ms.date: 02/16/2021
 ms.author: alexeyo
 ---
 
-# Swagger documentation
+# Generate a REST API client library for the Speech-to-text REST API v3.0
 
 Speech service offers a Swagger specification to interact with a handful of REST APIs used to import data, create models, test model accuracy, create custom endpoints, queue up batch transcriptions, and manage subscriptions. Most operations available through the [Custom Speech area of the Speech Studio](https://aka.ms/speechstudio/customspeech) can be completed programmatically using these APIs.
 
 > [!NOTE]
 > Speech service has several REST APIs for [Speech-to-text](rest-speech-to-text.md) and [Text-to-speech](rest-text-to-speech.md).  
 >
-> However only [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) and v2.0 are documented in the Swagger specification. See the documents referenced in the previous paragraph for the information on all other Speech Services REST APIs.
+> However only [Speech-to-text REST API v3.0](rest-speech-to-text.md) is documented in the Swagger specification. See the documents referenced in the previous paragraph for the information on all other Speech Services REST APIs.
 
 ## Generating code from the Swagger specification
 
@@ -41,13 +41,7 @@ You'll need to set Swagger to the region of your Speech resource. You can confir
 
 You can use the Python library that you generated with the [Speech service samples on GitHub](https://aka.ms/csspeech/samples).
 
-## Reference documents
-
-* [Swagger: Speech-to-text REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
-* [Speech-to-text REST API](rest-speech-to-text.md)
-* [Text-to-speech REST API](rest-text-to-speech.md)
-
 ## Next steps
 
 * [Speech service samples on GitHub](https://aka.ms/csspeech/samples).
-* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
+* [Speech-to-text REST API v3.0](rest-speech-to-text.md)

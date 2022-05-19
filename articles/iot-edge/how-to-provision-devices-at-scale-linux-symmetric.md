@@ -3,7 +3,7 @@ title: Create and provision IoT Edge devices using symmetric keys on Linux - Azu
 description: Use symmetric key attestation to test provisioning Linux devices at scale for Azure IoT Edge with device provisioning service
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/29/2021
+ms.date: 05/12/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -66,18 +66,19 @@ Have the following information ready:
 
    The `provisioning:` line should have no preceding whitespace, and nested items should be indented by two spaces.
 
-   ```yml
-   # DPS TPM provisioning configuration
-   provisioning:
-     source: "dps"
-     global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "PASTE_YOUR_SCOPE_ID_HERE"
-     attestation:
-       method: "symmetric_key"
-       registration_id: "PASTE_YOUR_REGISTRATION_ID_HERE"
-       symmetric_key: "PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE"
-   #  always_reprovision_on_startup: true
-   #  dynamic_reprovisioning: false
+    ```yml
+    # DPS TPM provisioning configuration
+    provisioning:
+      source: "dps"
+      global_endpoint: "https://global.azure-devices-provisioning.net"
+      scope_id: "PASTE_YOUR_SCOPE_ID_HERE"
+      attestation:
+        method: "symmetric_key"
+        registration_id: "PASTE_YOUR_REGISTRATION_ID_HERE"
+        symmetric_key: "PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE"
+
+   # always_reprovision_on_startup: true
+   # dynamic_reprovisioning: true
    ```
 
 1. Update the values of `scope_id`, `registration_id`, and `symmetric_key` with your DPS and device information.
@@ -110,25 +111,29 @@ Have the following information ready:
 
 1. Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with symmetric key, and make sure any other provisioning lines are commented out.
 
-   ```toml
-   # DPS provisioning with symmetric key
-   [provisioning]
-   source = "dps"
-   global_endpoint = "https://global.azure-devices-provisioning.net"
-   id_scope = "PASTE_YOUR_SCOPE_ID_HERE"
-   
-   [provisioning.attestation]
-   method = "symmetric_key"
-   registration_id = "PASTE_YOUR_REGISTRATION_ID_HERE"
-
-   symmetric_key = "PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE"
-   ```
+    ```toml
+    # DPS provisioning with symmetric key
+    [provisioning]
+    source = "dps"
+    global_endpoint = "https://global.azure-devices-provisioning.net"
+    id_scope = "PASTE_YOUR_SCOPE_ID_HERE"
+    
+    [provisioning.attestation]
+    method = "symmetric_key"
+    registration_id = "PASTE_YOUR_REGISTRATION_ID_HERE"
+    
+    symmetric_key = { value = "PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE" }
+    
+    # auto_reprovisioning_mode = Dynamic
+    ```
 
 1. Update the values of `id_scope`, `registration_id`, and `symmetric_key` with your DPS and device information.
 
    The symmetric key parameter can accept a value of an inline key, a file URI, or a PKCS#11 URI. Uncomment just one symmetric key line, based on which format you're using.
 
    If you use any PKCS#11 URIs, find the **PKCS#11** section in the config file and provide information about your PKCS#11 configuration.
+
+1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 1. Save and close the config.toml file.
 

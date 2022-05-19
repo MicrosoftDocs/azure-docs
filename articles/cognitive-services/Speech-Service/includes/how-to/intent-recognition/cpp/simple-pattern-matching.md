@@ -136,7 +136,7 @@ case ResultReason::Canceled:
     if (!cancellation->ErrorDetails.empty())
     {
         std::cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails.c_str() << std::endl;
-        std::cout << "CANCELED: Did you update the subscription info?" << std::endl;
+        std::cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
     }
 }
 default:
@@ -216,7 +216,7 @@ int main()
         if (!cancellation->ErrorDetails.empty())
         {
             std::cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails.c_str() << std::endl;
-            std::cout << "CANCELED: Did you update the subscription info?" << std::endl;
+            std::cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
         }
     }
     default:
@@ -240,8 +240,3 @@ RECOGNIZED: Text = Take me to floor 7.
   Intent Id = ChangeFloors
   Floor name: = 7
 ```
-
-## Next steps
-
-> Improve your pattern matching by using [custom entities](../../../../how-to-use-custom-entity-pattern-matching.md).
-

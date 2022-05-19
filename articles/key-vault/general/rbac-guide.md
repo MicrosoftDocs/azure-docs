@@ -27,7 +27,7 @@ The Azure RBAC model provides the ability to set permissions on different scope 
 
 For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
-## Best Practices for individual keys, secrets, and certificates
+## Best Practices for individual keys, secrets, and certificates role assignments
 
 Our recommendation is to use a vault per application per environment
 (Development, Pre-Production, and Production).
@@ -335,8 +335,6 @@ For more Information about how to create custom roles, see:
 -   Role assignments latency: at current expected performance, it will take up to 10 minutes (600 seconds) after role assignments is changed for role to be applied
 
 ## Learn more
-1. Assign the [ROLENAME] role to the [USER | GROUP | SERVICEPRINCIPAL | MANAGEDIDENTITY] at [MANAGEMENTGROUP | SUBSCRIPTION | RESOURCEGROUP | RESOURCE] scope.
-
 
 - [Azure RBAC Overview](../../role-based-access-control/overview.md)
 - [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)

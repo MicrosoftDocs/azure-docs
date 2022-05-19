@@ -14,7 +14,7 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
 
-Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can be associated with multiple RemoteApp groups, one desktop app group, and multiple session hosts.
+Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop. Each host pool can be associated with multiple RemoteApp groups, one desktop app group, and multiple session hosts.
 
 ## Create a host pool
 

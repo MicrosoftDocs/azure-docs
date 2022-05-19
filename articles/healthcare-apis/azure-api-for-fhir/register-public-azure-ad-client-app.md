@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 03/21/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ---
 
 # Register a public client application in Azure Active Directory for Azure API for FHIR

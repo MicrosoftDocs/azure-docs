@@ -6,7 +6,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 3/24/2022
+ms.date: 3/25/2022
 ms.subservice: hybrid
 ms.author: rodejo
 ms.custom: has-adal-ref
@@ -84,7 +84,7 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 
 ### Bug fixes
  - Fixed an issue where some sync rule functions were not parsing surrogate pairs properly.
- - Fixed an issue where, under certain circumstances, the sync service would not start due to a model db corruption. You can read more about the model db corroption issue in [this article](https://docs.microsoft.com/troubleshoot/azure/active-directory/resolve-model-database-corruption-sqllocaldb)
+ - Fixed an issue where, under certain circumstances, the sync service would not start due to a model db corruption. You can read more about the model db corruption issue in [this article](/troubleshoot/azure/active-directory/resolve-model-database-corruption-sqllocaldb)
 
 ## 2.0.91.0
 

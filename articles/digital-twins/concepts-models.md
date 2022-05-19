@@ -21,7 +21,7 @@ ms.custom: fasttrack-edit
 
 A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-provided *models*. You can think of models as the nouns in a description of your world. Azure Digital Twins models are represented in the JSON-LD-based *Digital Twin Definition Language (DTDL)*. 
 
-A model is similar to a *class* in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as Room or TemperatureSensor), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Later, you'll use these models to create [digital twins](concepts-twins-graph.md) that represent specific entities that meet this type description.
+A model is similar to a *class* in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as Room or TemperatureSensor), and contain elements such as properties, telemetry, and relationships that describe what this type of entity in your environment does. Later, you'll use these models to create [digital twins](concepts-twins-graph.md) that represent specific entities that meet this type description.
 
 ## Digital Twin Definition Language (DTDL) for models
 
@@ -81,8 +81,8 @@ The fields of the model are:
 | `@id` | An identifier for the model. Must be in the format `dtmi:<domain>:<unique-model-identifier>;<model-version-number>`. |
 | `@type` | Identifies the kind of information being described. For an interface, the type is `Interface`. |
 | `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2`. |
-| `displayName` | [optional] Gives you the option to define a friendly name for the model. |
-| `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (`Property`, `Telemetry`, `Command`, `Relationship`, or `Component`) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a `Property`). |
+| `displayName` | [optional] Gives you the option to define a friendly name for the model. If you don't use this field, the model will use its full DTMI value.|
+| `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (`Property`, `Telemetry`, `Relationship`, or `Component`) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a `Property`). |
 
 #### Example model
 
@@ -113,7 +113,7 @@ Telemetry is often used with IoT devices, because many devices either can't, or 
 
 As a result, when designing a model in Azure Digital Twins, you'll probably use properties in most cases to model your twins. Doing so allows you to have the backing storage and the ability to read and query the data fields.
 
-Telemetry and properties often work together to handle data ingress from devices. As all ingress to Azure Digital Twins is via [APIs](concepts-apis-sdks.md), you'll typically use your ingress function to read telemetry or property events from devices, and set a property in Azure Digital Twins in response. 
+Telemetry and properties often work together to handle data ingress from devices. You'll often use an ingress function to read telemetry or property events from devices, and set a property in Azure Digital Twins in response. 
 
 You can also publish a telemetry event from the Azure Digital Twins API. As with other telemetry, that is a short-lived event that requires a listener to handle.
 
@@ -151,9 +151,12 @@ The following example shows another version of the Home model, with a property f
 
 Semantic types make it possible to express a value with a unit. Properties and telemetry can be represented with any of the semantic types that are supported by DTDL. For more information on semantic types in DTDL and what values are supported, see [Semantic types in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#semantic-types).
 
-The following example shows a Sensor model with a semantic-type telemetry for Temperature, and a semantic-type property for Humidity.
+The following example shows a Sensor model with a semantic-type telemetry for Temperature, and a semantic-type property for Humidity. 
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ISensor.json" highlight="7-18":::
+
+> [!NOTE]
+> *"Property"* or *"Telemetry"* must be the first element of the `@type` array, followed by the semantic type. Otherwise, the field may not be visible in [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
 
 ## Relationships
 
@@ -234,7 +237,7 @@ This section describes additional considerations and recommendations for modelin
 
 ### Use DTDL industry-standard ontologies
 
-If your solution is for a certain established industry (like smart buildings, smart cities, or energy grids), consider starting with a pre-existing set of models for you industry instead of designing your models from scratch. Microsoft has partnered with domain experts to create DTDL model sets based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md).
+If your solution is for a certain established industry (like smart buildings, smart cities, or energy grids), consider starting with a pre-existing set of models for your industry instead of designing your models from scratch. Microsoft has partnered with domain experts to create DTDL model sets based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md).
 
 ### Consider query implications
 
@@ -252,13 +255,13 @@ This section describes the current set of samples in more detail.
 
 ### Model uploader 
 
-Once you're finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. You can do so by using the [Azure Digital Twins APIs](concepts-apis-sdks.md), as described in [Manage DTDL models](how-to-manage-model.md#upload-models).
+Once you're finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. You can do so by using the [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), [az dt CLI commands](concepts-cli.md), or [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
 
 However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use the [Azure Digital Twins Model Uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels) to upload many models at once. Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
 
 ### Model visualizer 
 
-Once you have uploaded models into your Azure Digital Twins instance, you can view the models in your Azure Digital Twins instance, including any inheritance and model relationships, using the [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). This sample is currently in a draft state. We encourage the digital twins development community to extend and contribute to the sample. 
+Once you have uploaded models into your Azure Digital Twins instance, you can view the models in your Azure Digital Twins instance, including any inheritance and model relationships, using the [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-tools/tree/master/AdtModelVisualizer). This sample is currently in a draft state. We encourage the digital twins development community to extend and contribute to the sample. 
 
 ## Next steps
 

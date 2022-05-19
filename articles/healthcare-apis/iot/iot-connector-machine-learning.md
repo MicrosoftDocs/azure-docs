@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/14/2022
+ms.date: 03/25/2022
 ms.author: jasteppe
 ---
 
@@ -41,7 +41,7 @@ The four line colors show the different parts of the data journey.
 
 6. Normalized ungrouped data stream sent to Azure Function (ML Input).
 7. Azure Function (ML Input) requests Patient resource to merge with IoMT payload.
-8. IoMT payload with PHI is sent to Event Hub for distribution to Machine Learning compute and storage.
+8. IoMT payload with PHI is sent to an event hub for distribution to Machine Learning compute and storage.
 9. PHI IoMT payload is sent to Azure Data Lake Storage Gen 2 for scoring observation over longer time windows.
 10. PHI IoMT payload is sent to Azure Databricks for windowing, data fitting, and data scoring.
 11. The Azure Databricks requests more patient data from data lake as needed. a. Azure Databricks also sends a copy of the scored data to the data lake.

@@ -44,4 +44,4 @@ sections:
       - question: |
           I already have security solution on my workspaces. What are the billing implications?
         answer: |
-          The Security & Audit solution is used to enable **Microsoft Defender for servers**. If the Security & Audit solution is already installed on a workspace, Defender for Cloud uses the existing solution. There is no change in billing.
+          The Security & Audit solution is used to enable **Microsoft Defender for Servers**. If the Security & Audit solution is already installed on a workspace, Defender for Cloud uses the existing solution. There is no change in billing.

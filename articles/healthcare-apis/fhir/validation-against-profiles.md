@@ -1,12 +1,12 @@
 ---
 title: Validate FHIR resources against profiles in Azure Health Data Services
 description: This article describes how to validate FHIR resources against profiles in the FHIR service.
-author: caitlinv39
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/01/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ---
 
 # Validate FHIR resources against profiles in Azure Health Data Services

@@ -1,18 +1,18 @@
 ---
 title: How to create Azure Health Data Services, workspaces, FHIR and DICOM service, and MedTech service using Azure Bicep
 description: This document describes how to deploy Azure Health Data Services using Azure Bicep.
-author: stevewohl
+author: dougseven
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/22/2022
-ms.author: zxue
+ms.date: 03/24/2022
+ms.author: dseven
 ms.custom: mode-api
 ---
 
 # Deploy Azure Health Data Services using Azure Bicep
 
-In this article, you'll learn how to create Azure Health Data Services, including workspaces, FHIR services, DICOM services, and MedTech service using Azure Bicep. You can view and download the Bicep scripts used in this article in [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/templates/healthcareapis.bicep). 
+In this article, you'll learn how to create Azure Health Data Services, including workspaces, FHIR services, DICOM services, and MedTech service using Azure Bicep. You can view and download the Bicep scripts used in this article in [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/templates/ahds.bicep). 
 
 ## What is Azure Bicep
 
@@ -34,16 +34,19 @@ We then define variables for resources with the keyword *var*. Also, we define v
 It's important to note that one Bicep function and environment(s) are required to specify the log in URL, `https://login.microsoftonline.com`. For more information on Bicep functions, see [Deployment functions for Bicep](../azure-resource-manager/bicep/bicep-functions-deployment.md#environment).
 
 ```
+//Define parameters
 param workspaceName string
 param fhirName string
 param dicomName string
-param iotName string
+param medtechName string
 param tenantId string
+param location string
 
+//Define variables
 var fhirservicename = '${workspaceName}/${fhirName}'
 var dicomservicename = '${workspaceName}/${dicomName}'
-var iotconnectorname = '${workspaceName}/${iotName}'
-var iotdestinationname = '${iotconnectorname}/output1'
+var medtechservicename = '${workspaceName}/${medtechName}'
+var medtechdestinationname = '${medtechservicename}/output1'
 var loginURL = environment().authentication.loginEndpoint
 var authority = '${loginURL}${tenantId}'
 var audience = 'https://${workspaceName}-${fhirName}.fhir.azurehealthcareapis.com'
@@ -245,19 +248,19 @@ You can use the `az deployment group create` command to deploy individual Bicep 
 For the Azure subscription and tenant, you can specify the values, or use CLI commands to obtain them from the current sign-in session.
 
 ```
-resourcegroupname=xxx
-location=e.g. eastus2
-workspacename=xxx
-fhirname=xxx
-dicomname=xxx
-iotname=xxx
-bicepfilename=xxx.bicep
-#tenantid=xxx
-#subscriptionid=xxx
+deploymentname=xxx
+resourcegroupname=rg-$deploymentname
+location=centralus
+workspacename=ws$deploymentname
+fhirname=fhir$deploymentname
+dicomname=dicom$deploymentname
+medtechname=medtech$deploymentname
+bicepfilename=ahds.bicep
 subscriptionid=$(az account show --query id --output tsv)
 tenantid=$(az account show --subscription $subscriptionid --query tenantId --output tsv)
 
-az deployment group create --resource-group $resourcegroupname --template-file $bicepfilename --parameters workspaceName=$workspacename fhirName=$fhirname dicomName=$dicomname iotName=$iotname tenantId=$tenantid
+az group create --name $resourcegroupname --location $location
+az deployment group create --resource-group $resourcegroupname --template-file $bicepfilename --parameters workspaceName=$workspacename fhirName=$fhirname dicomName=$dicomname medtechName=$medtechname tenantId=$tenantid location=$location
 ```
 
 Note that the child resource name such as the FHIR service includes the parent resource name, and the "dependsOn" property is required. However, when the child resource is created within the parent resource, its name doesn't need to include the parent resource name, and the "dependsOn" property isn't required. For more info on nested resources, see [Set name and type for child resources in Bicep](../azure-resource-manager/bicep/child-resource-name-type.md).

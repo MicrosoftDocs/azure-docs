@@ -1,9 +1,9 @@
 ---
-author: adrianhall
+author: dlepow
 ms.service: api-management
 ms.topic: include
 ms.date: 11/03/2021
-ms.author: adhal
+ms.author: danlep
 ---
 ## Related topics
 

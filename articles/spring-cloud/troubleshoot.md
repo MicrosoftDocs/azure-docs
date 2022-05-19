@@ -21,9 +21,7 @@ This article provides instructions for troubleshooting Azure Spring Cloud develo
 
 Export the logs to Azure Log Analytics. The table for Spring application logs is named *AppPlatformLogsforSpring*. To learn more, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
-The following error message might appear in your logs:
-
-> "org.springframework.context.ApplicationContextException: Unable to start web server"
+The following error message might appear in your logs: `org.springframework.context.ApplicationContextException: Unable to start web server`
 
 The message indicates one of two likely problems:
 
@@ -38,23 +36,23 @@ To fix this error, go to the `server parameters` of your MySQL instance, and cha
 
 ### My application crashes or throws an unexpected error
 
-When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to _App management_ in the Azure portal to ensure that the statuses of all the applications are _Running_ and _UP_.
+When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to *App management* in the Azure portal to ensure that the statuses of all the applications are *Running* and *UP*.
 
-* If the status is _Running_ but the discovery status is not _UP_, go to the ["My application can't be registered"](#my-application-cant-be-registered) section.
+* If the status is *Running* but the discovery status is not *UP*, go to the ["My application can't be registered"](#my-application-cant-be-registered) section.
 
-* If the discovery status is _UP_, go to Metrics to check the application's health. Inspect the following metrics:
+* If the discovery status is *UP*, go to Metrics to check the application's health. Inspect the following metrics:
 
-   - `TomcatErrorCount` (_tomcat.global.error_):
+  * `TomcatErrorCount` (*tomcat.global.error*):
 
-      All Spring application exceptions are counted here. If this number is large, go to Azure Log Analytics to inspect your application logs.
+    All Spring application exceptions are counted here. If this number is large, go to Azure Log Analytics to inspect your application logs.
 
-   - `AppMemoryMax` (_jvm.memory.max_):
+  * `AppMemoryMax` (*jvm.memory.max*):
 
-      The maximum amount of memory available to the application. The amount might be undefined, or it might change over time if it is defined. If it's defined, the amount of used and committed memory is always less than or equal to max. However, a memory allocation might fail with an `OutOfMemoryError` message if the allocation attempts to increase the used memory such that *used > committed*, even if *used <= max* is still true. In such a situation, try to increase the maximum heap size by using the `-Xmx` parameter.
+    The maximum amount of memory available to the application. The amount might be undefined, or it might change over time if it is defined. If it's defined, the amount of used and committed memory is always less than or equal to max. However, a memory allocation might fail with an `OutOfMemoryError` message if the allocation attempts to increase the used memory such that *used > committed*, even if *used <= max* is still true. In such a situation, try to increase the maximum heap size by using the `-Xmx` parameter.
 
-   - `AppMemoryUsed` (_jvm.memory.used_):
+  * `AppMemoryUsed` (*jvm.memory.used*):
 
-      The amount of memory in bytes that's currently used by the application. For a normal load Java application, this metric series forms a *sawtooth* pattern, where the memory usage steadily increases and decreases in small increments and suddenly drops a lot, and then the pattern recurs. This metric series occurs because of garbage collection inside Java virtual machine, where collection actions represent drops on the sawtooth pattern.
+    The amount of memory in bytes that's currently used by the application. For a normal load Java application, this metric series forms a *sawtooth* pattern, where the memory usage steadily increases and decreases in small increments and suddenly drops a lot, and then the pattern recurs. This metric series occurs because of garbage collection inside Java virtual machine, where collection actions represent drops on the sawtooth pattern.
 
     This metric is important to help identify memory issues, such as:
 
@@ -102,8 +100,8 @@ Before you onboard your application, ensure that it meets the following criteria
 * The configuration items have their expected values. For more information, see [Set up a Spring Cloud Config Server instance for your service](./how-to-config-server.md). For enterprise tier, see [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
 * The environment variables have their expected values.
 * The JVM parameters have their expected values.
-* We recommended that you disable or remove the embedded _Config Server_ and _Spring Service Registry_ services from the application package.
-* If any Azure resources are to be bound via _Service Binding_, make sure the target resources are up and running.
+* We recommended that you disable or remove the embedded *Config Server* and *Spring Service Registry* services from the application package.
+* If any Azure resources are to be bound via *Service Binding*, make sure the target resources are up and running.
 
 ## Configuration and management
 
@@ -138,11 +136,11 @@ When you deploy your application package by using the [Azure CLI](/cli/azure/get
 
 If the polling is interrupted, you can still use the following command to fetch the deployment logs:
 
-`az spring-cloud app show-deploy-log -n <app-name>`
+```azurecli
+az spring-cloud app show-deploy-log --name <app-name>
+```
 
-Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you will receive an error message similar to the following:
-
-> "Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714"
+Ensure that your application is packaged in the correct [executable JAR format](https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html). If it isn't packaged correctly, you will receive an error message similar to the following: `Error: Invalid or corrupt jarfile /jar/38bc8ea1-a6bb-4736-8e93-e8f3b52c8714`
 
 ### I can't deploy a source package
 
@@ -152,7 +150,9 @@ When you deploy your application package by using the [Azure CLI](/cli/azure/get
 
 If the polling is interrupted, you can still use the following command to fetch the build and deployment logs:
 
-`az spring-cloud app show-deploy-log -n <app-name>`
+```azurecli
+az spring-cloud app show-deploy-log --name <app-name>
+```
 
 However, note that one Azure Spring Cloud service instance can trigger only one build job for one source package at one time. For more information, see [Deploy an application](./quickstart.md) and [Set up a staging environment in Azure Spring Cloud](./how-to-staging-environment.md).
 
@@ -162,9 +162,9 @@ In most cases, this situation occurs when *Required Dependencies* and *Service D
 
 Wait at least two minutes before a newly registered instance starts receiving traffic.
 
-If you're migrating an existing Spring Cloud-based solution to Azure, ensure that your ad-hoc _Service Registry_ and _Config Server_ instances are removed (or disabled) to avoid conflicting with the managed instances provided by Azure Spring Cloud.
+If you're migrating an existing Spring Cloud-based solution to Azure, ensure that your ad-hoc *Service Registry* and *Config Server* instances are removed (or disabled) to avoid conflicting with the managed instances provided by Azure Spring Cloud.
 
-You can also check the _Service Registry_ client logs in Azure Log Analytics. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)
+You can also check the *Service Registry* client logs in Azure Log Analytics. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)
 
 To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
 
@@ -177,15 +177,15 @@ Environment variables inform the Azure Spring Cloud framework, ensuring that Azu
 
 1. Go to `https://<your application test endpoint>/actuator/health`.
 
-    - A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled.
-    - If the response is negative, include the following dependency in your *POM.xml* file:
+   * A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled.
+   * If the response is negative, include the following dependency in your *POM.xml* file:
 
-        ```xml
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-actuator</artifactId>
-            </dependency>
-        ```
+     ```xml
+     <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-actuator</artifactId>
+     </dependency>
+     ```
 
 1. With the Spring Boot Actuator endpoint enabled, go to the Azure portal and look for the configuration page of your application.  Add an environment variable with the name `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` and the value `*`.
 
@@ -193,19 +193,19 @@ Environment variables inform the Azure Spring Cloud framework, ensuring that Azu
 
 1. Go to `https://<your application test endpoint>/actuator/env` and inspect the response.  It should look like this:
 
-    ```json
-    {
-        "activeProfiles": [],
-        "propertySources": {,
-            "name": "server.ports",
-            "properties": {
-                "local.server.port": {
-                    "value": 1025
-                }
-            }
-        }
-    }
-    ```
+   ```json
+   {
+       "activeProfiles": [],
+       "propertySources": {,
+           "name": "server.ports",
+           "properties": {
+               "local.server.port": {
+                   "value": 1025
+               }
+           }
+       }
+   }
+   ```
 
 Look for the child node named `systemEnvironment`.  This node contains your application's environment variables.
 
@@ -214,9 +214,9 @@ Look for the child node named `systemEnvironment`.  This node contains your appl
 
 ### I can't find metrics or logs for my application
 
-Go to **App management** to ensure that the application statuses are _Running_ and _UP_.
+Go to **App management** to ensure that the application statuses are *Running* and *UP*.
 
-Check to see whether _JMX_ is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.
+Check to see whether *JMX* is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.
 
 Check to see whether the `spring-boot-actuator` dependency is enabled in your application package and that it successfully boots up.
 
@@ -229,33 +229,37 @@ Check to see whether the `spring-boot-actuator` dependency is enabled in your ap
 
 If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you [set up your workspace correctly](../azure-monitor/logs/quick-create-workspace.md). If you're using a free tier of Azure Log Analytics, note that [the free tier does not provide a service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 
-## Enterprise Tier
+## Enterprise tier
 
 ### Error 112039: Failed to purchase on Azure Marketplace
 
 Creating an Azure Spring Cloud Enterprise tier instance fails with error code "112039". Check the detailed error message for below for more information:
 
-- **"Failed to purchase on Azure Marketplace because the Microsoft.SaaS RP is not registered on the Azure subscription."** : Azure Spring Cloud Enterprise tier purchase a SaaS offer from VMWare. 
+* **"Failed to purchase on Azure Marketplace because the Microsoft.SaaS RP is not registered on the Azure subscription."** : Azure Spring Cloud Enterprise tier purchase a SaaS offer from VMware.
   
   You must register the Microsoft.SaaS resource provider before creating Azure Spring Cloud Enterprise instance. See how to [register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-- **"Failed to load catalog product vmware-inc.azure-spring-cloud-vmware-tanzu-2 in the Azure subscription market."**: Your Azure subscription's billing account address is not in the supported location. 
+* **"Failed to load catalog product vmware-inc.azure-spring-cloud-vmware-tanzu-2 in the Azure subscription market."**: Your Azure subscription's billing account address is not in the supported location.
 
   For more information, see the section [No plans are available for market '\<Location>'](#no-plans-are-available-for-market-location).
 
-- **"Failed to purchase on Azure Marketplace due to signature verification on Marketplace legal agreement. Check the Azure subcription has agree terms vmware-inc.azure-spring-cloud-vmware-tanzu-2.tanzu-asc-ent-mtr"**: Your Azure subscription has not signed the terms for the offer and plan to be purchased. 
+* **"Failed to purchase on Azure Marketplace due to signature verification on Marketplace legal agreement. Check the Azure subscription has agree terms vmware-inc.azure-spring-cloud-vmware-tanzu-2.tanzu-asc-ent-mtr"**: Your Azure subscription has not signed the terms for the offer and plan to be purchased.
 
   Go to your Azure subscription and run the following Azure CLI command to agree to the terms:
+
   ```azurecli
-  az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
+  az term accept \
+      --publisher vmware-inc \
+      --product azure-spring-cloud-vmware-tanzu-2 \
+      --plan tanzu-asc-ent-mtr
   ```
 
   If that doesn't help, you can contact the support team with the following info.
 
-  - `AZURE_TENANT_ID`: the Azure tenant ID that hosts the Azure subscription
-  - `AZURE_SUBSCRIPTION_ID`: the Azure subscription ID used to create the Spring Cloud instance
-  - `SPRING_CLOUD_NAME`: the failed instance name
-  - `ERROR_MESSAGE`: the observed error message
+  * `AZURE_TENANT_ID`: the Azure tenant ID that hosts the Azure subscription
+  * `AZURE_SUBSCRIPTION_ID`: the Azure subscription ID used to create the Spring Cloud instance
+  * `SPRING_CLOUD_NAME`: the failed instance name
+  * `ERROR_MESSAGE`: the observed error message
 
 ### No plans are available for market '\<Location>'
 
@@ -269,10 +273,9 @@ Azure Spring Cloud Enterprise tier needs customers to pay for a license to Tanzu
 
 You can view the billing account for your subscription if you have admin access. See [view billing accounts](../cost-management-billing/manage/view-all-accounts.md#check-the-type-of-your-account).
 
+### I need VMware Spring Runtime Support (Enterprise tier only)
 
-### I need VMware Spring Runtime Support (Enterprise Tier only)
-
-Enterprise tier has built-in VMware Spring Runtime Support so you can directly open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in scope of VMware Spring Runtime Support. For more information, see [https://tanzu.vmware.com/spring-runtime](https://tanzu.vmware.com/spring-runtime). For any other issues, directly open support tickets with Microsoft.
+Enterprise tier has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see <https://tanzu.vmware.com/spring-runtime>. To understand the details about how to register and use this support service, see the Support section in the [Enterprise tier FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open support tickets with Microsoft.
 
 ## Next steps
 

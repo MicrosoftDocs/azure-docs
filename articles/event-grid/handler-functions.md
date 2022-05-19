@@ -19,9 +19,6 @@ We recommend that you use the first approach (Event Grid trigger) as it has the 
 -	Event Grid automatically validates Event Grid triggers. With generic HTTP triggers, you must implement the [validation response](webhook-event-delivery.md) yourself.
 -	Event Grid automatically adjusts the rate at which events are delivered to a function triggered by an Event Grid event based on the perceived rate at which the function can process events. This rate match feature averts delivery errors that stem from the inability of a function to process events as the function’s event processing rate can vary over time. To improve efficiency at high throughput, enable batching on the event subscription. For more information, see [Enable batching](#enable-batching).
 
-    > [!NOTE]
-    > Currently, you can't use an Event Grid trigger for a function app when the event is delivered in the **CloudEvents** schema. Instead, use an HTTP trigger.
-
 ## Tutorials
 
 |Title  |Description  |
