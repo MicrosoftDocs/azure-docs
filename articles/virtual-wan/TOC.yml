@@ -183,8 +183,6 @@
         href: howto-always-on-device-tunnel.md
     - name: Configure forced tunneling
       href: how-to-forced-tunnel.md
-    - name: Configure High Availability VPN client
-      href: high-availability-vpn-client.md
   - name: Routing
     items:
     - name: Configure virtual hub routing
