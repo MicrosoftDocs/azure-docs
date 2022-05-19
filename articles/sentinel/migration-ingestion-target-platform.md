@@ -28,64 +28,58 @@ This article reviews a set of Azure platforms you can use for your historical lo
 
 ## General considerations 
 
-Now that we know more about the possible target platforms, let’s review what additional factors should be considered. There are three main factors that will drive your decision: 
+Now that you know more about the available target platforms, review these main factors to finalize your decision. 
 
-What will be the use of the migrated logs? 
+- [How will your organization use the ingested logs?](#use-of-ingested-logs)
+- [How fast does the migration need to run?](#migration-speed)
+- [What is the amount of data to ingest?](#amount-of-data)
+- What are the estimated migration costs, during and after migration? See the [platform comparison](#select-a-target-azure-platform-to-host-the-exported-historical-data) to compare the costs. 
 
-How fast does the migration need to run? 
+##### Use of ingested logs 
 
-Migration costs during and after the migration 
+Define how your organization will use the ingested logs to guide your selection of the ingestion platform.  
 
-Use of migrated logs 
+Consider these three general scenarios: 
 
-Understanding how the migrated logs will be used is of vital importance, as it will narrow down the options. 
+- Your organization needs to keep the logs only for compliance or audit purposes. In this case, your organization will rarely access the data. Even if your organization accesses the data, high performance or ease of use are not a priority.
+- Your organization needs to retain the logs so that your teams can access the logs easily and fairly quickly.
+- Your organization needs to retain the logs so that your teams can access the logs occasionally. Performance and ease of use are secondary. 
 
-In general, there are three main scenarios: 
+See the [platform comparison](#select-a-target-azure-platform-to-host-the-exported-historical-data) to understand which platform suits each of these scenarios. 
 
-Need to keep the logs just for compliance or audit purposes: in this case, the data will rarely be accessed, and even if it needs to be accessed, we don’t need good performance or ease of use. 
+#### Migration speed 
 
-Need to keep the logs so teams can access them frequently with decent performance and ease of use. 
+In some scenarios, you might need to meet a tight deadline, for example, your organization might need to urgently move from the previous SIEM due to a license expiration event. 
 
-Need to keep the logs so teams can access them occasionally and performance and ease of use are secondary 
+Review the components and factors that determine the speed of your migration.
+- [Data source](#data-source)
+- [Compute power](#compute-power)
+- [Target platform](#target-platform)
 
-At the end of this section, we provide a table that summarizes which platform fits with each of these scenarios. 
+##### Data source
 
-Migration speed 
+The data source is typically a local filesystem or cloud storage, for example, S3. A server's storage performance depends on multiple factors, such as disk technology (SSD vs HDD), the nature of the IO requests, and the size of each request.
 
-How fast the migration needs to happen is also an important factor to take into account. In some situations, we have a tight deadline for the migration to finish as there might be a license expiration event that is forcing us to evacuate the previous SIEM platform. 
+For example, Azure virtual machine performance ranges from 30MB per second on smaller VM SKUs, to 20GB per second for some of the storage-optimized SKUs using NVM Express (NVMe) disks. Learn how to [design your Azure VM for high storage performance](/azure/virtual-machines/premium-storage-performance). Most concepts can also be applied to premises servers. 
 
-The speed of migration is determined by the different components that are part of it: 
+#### Compute power 
 
-Data source, normally a local filesystem or cloud storage (e.g. S3) 
+In some cases, even if your disk is capable of copying your data quickly, compute power is the bottleneck in the copy process. In these cases, you can choose one these scaling options: 
 
-Compute power copying and sending the data 
+- Scale vertically: You increase the power of a single server by adding more CPUs, or increasing the CPU speed
+- Scale horizontally: Add more servers that can increase the parallelism of the copy process.  
 
-Target platform ingestion performance 
+##### Target platform 
 
-Amount of data 
+Each of the target platforms discussed in this section has a different performance profile.
 
-Data source: storage performance on a server depends on multiple factors, like disk technology (SSD vs HDD), nature of the IO requests and the size of each request.  
+- **Azure Monitor Basic logs**: By default, Basic logs can be pushed to Azure Monitor at a rate of approximately 1GB per minute. This allows you to ingest approximately 1.5TB per day or 43TB per month.
+- **Azure Data Explorer**: Ingestion performance varies, depending on the size of the cluster you provision, and the batching settings you apply. [Learn about ingestion best practices](/azure/data-explorer/kusto/management/ingestion-faq), including performance and monitoring. 
 
-Taking Azure VMs as an example, performance can go from around 30MB/sec on smaller VM SKUs, up to 20GB/sec for some of the storage optimized SKUs with NVMe disks. If this article you can see how you can design your Azure VM for high storage performance: Azure Premium Storage: Design for high performance - Azure Virtual Machines | Microsoft Docs, but most of the concepts can be also applied if your server is on premises. 
+Performance of your storage account can also greatly vary depending on the number and size of the files, job size, concurrency, and so in. [Learn how to optimize AzCopy performance with Azure Storage](https://docs.microsoft.com/azure/data-explorer/kusto/management/ingestion-faq).  
 
-Compute power: sometimes, even if your disk is capable of copying the data at a great speed, compute power is the bottleneck in the copy process.  In those cases, there are two options, scale vertically or horizontally. Scaling vertically means increasing the power of a single server by adding more CPUs or increasing the speed of them, whereas scaling horizontally means adding more servers that can increase the parallelism of the copy process.  
+#### Amount of data
 
-Target platform: Each of the target platforms discussed above has a different performance profile.  
+The amount of data is the main factor that affects the duration of the migration process, if you do not change the rest of your pipeline. You should therefore consider how to set up your environment depending on your data set. 
 
-Azure Monitor Basic logs: By default, Basic logs can be pushed to Azure Monitor at a rate of approximately 1GB/minute. This would allow you to migrate around 1.5TB per day or 43TB per month. 
-
-Azure Data Explorer: Ingestion performance can greatly vary depending on the size of the cluster you provision, and the batching settings applied. In this article you can see a discussion on best practices around ingestion including performance and monitoring. 
-
-Storage: Performance of storage account can also greatly vary depending on the number and size of the files, job size, concurrency, etc. In this article you can see how to optimize the performance of AzCopy with Azure Storage.  
-
-Amount of data: obviously, the more data you need to migrate, the longer the process will be if we keep the rest of the pipeline unchanged. That is why it is especially important that you consider how to set up your environment depending on the dataset at hand. Taking into account the amount of data and the ingestion speed of the target platform, you should be able to determine the minimum duration of the migration and where the bottleneck could be. For example, if we have a target platform that can ingest 1 GB/second, and we have to migrate 100 TB, the minimum migration time will be 100000 GB / 1 GB/sec / 3600 sec/hour » 27 hours. This is obviously if the rest of the components in the pipeline can perform at the same speed (1GB/sec), so other components like the local disk, the network and the VM should be able to sustain it. 
-
-Costs 
-
-We have already discussed costs for each of the different alternatives and this is also summarized in the table below.  
-
-Summary table 
-
-Based on these three factors, we can map out the corresponding recommended platforms: 
-
-[Add table]
+To determine the minimum duration of the migration and where the bottleneck could be, consider the amount of data and the ingestion speed of the target platform. For example, if you select a target platform that can ingest 1 GB per second, and you have to migrate 100 TB, your migration will take a minimum of 100000 GB or 1 GB per second, which calculates to 27 hours. This is obviously if the rest of the components in the pipeline, such as the local disk, the network, and the virtual machines, can perform at a speed of 1 GB per second.
