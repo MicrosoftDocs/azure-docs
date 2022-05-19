@@ -23,7 +23,7 @@ This functionality enables the following usage scenarios:
 When you deploy Azure Load Testing in a virtual network, the load test agents are attached to the virtual network in your subscription. The load test agents can then communicate with the other resources in the virtual network. You aren't billed for the load agent compute resources.
 
 > [!IMPORTANT]
-> When you deploy Azure Load Testing in a virtual network, you'll incur additional charges for generated traffic. For more information, see the [Virtual Network pricing information](https://azure.microsoft.com/en-us/pricing/details/virtual-network).
+> When you deploy Azure Load Testing in a virtual network, you'll incur additional charges for generated traffic. For more information, see the [Virtual Network pricing information](https://azure.microsoft.com/pricing/details/virtual-network).
 
 The following diagram provides a technical overview:
 
