@@ -38,7 +38,7 @@ As soon as you open Defender for Cloud for the first time, Defender for Cloud:
 
 - **Generates a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Azure Security Benchmark](/security/benchmark/azure/overview). Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add other regulations (such as NIST and Azure CIS) or organization-specific security requirements. You can also apply recommendations, and score based on the AWS Foundational Security Best practices standards.
 
-1. **Provides hardening recommendations** based on any identified security misconfigurations and weaknesses. Use these security recommendations to strengthen the security posture of your organization's Azure, hybrid, and multi-cloud resources.
+- **Provides hardening recommendations** based on any identified security misconfigurations and weaknesses. Use these security recommendations to strengthen the security posture of your organization's Azure, hybrid, and multi-cloud resources.
 
 [Learn more about secure score](secure-score-security-controls.md).
 
