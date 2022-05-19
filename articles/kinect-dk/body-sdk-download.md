@@ -23,7 +23,7 @@ This document provides links to install each version of the Azure Kinect Body Tr
 
 Version       | Download
 --------------|----------
-1.1.2 | [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.1.2)
+1.1.2 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=104221) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.1.2)
 1.1.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=104015) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.1.1)
 1.1.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=102901)
 1.0.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100942) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.1)
