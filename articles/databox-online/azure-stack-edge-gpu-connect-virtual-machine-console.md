@@ -55,23 +55,23 @@ The first step is to [Connect to the PowerShell interface](azure-stack-edge-gpu-
 
 ### Enable console access to the VM
 
-1.    In the PowerShell interface, run the following command to enable access to the VM console.
+1. In the PowerShell interface, run the following command to enable access to the VM console.
 
-    ```powershell
-    Grant-HcsVMConnectAccess -ResourceGroupName <VM resource group> -VirtualMachineName <VM name>
-    ```
+   ```powershell
+   Grant-HcsVMConnectAccess -ResourceGroupName <VM resource group> -VirtualMachineName <VM name>
+   ```
 2. In the sample output, make a note of the virtual machine ID. You'll need this for a later step.
 
-    ```powershell
-    [10.100.10.10]: PS>Grant-HcsVMConnectAccess -ResourceGroupName mywindowsvm1rg -VirtualMachineName mywindowsvm1
+   ```powershell
+   [10.100.10.10]: PS>Grant-HcsVMConnectAccess -ResourceGroupName mywindowsvm1rg -VirtualMachineName mywindowsvm1
 
-    VirtualMachineId       : 81462e0a-decb-4cd4-96e9-057094040063
-    VirtualMachineHostName : 3V78B03
-    ResourceGroupName      : mywindowsvm1rg
-    VirtualMachineName     : mywindowsvm1
-    Id                     : 81462e0a-decb-4cd4-96e9-057094040063
-    [10.100.10.10]: PS>
-    ```
+   VirtualMachineId       : 81462e0a-decb-4cd4-96e9-057094040063
+   VirtualMachineHostName : 3V78B03
+   ResourceGroupName      : mywindowsvm1rg
+   VirtualMachineName     : mywindowsvm1
+   Id                     : 81462e0a-decb-4cd4-96e9-057094040063
+   [10.100.10.10]: PS>
+   ```
 
 ### Connect to the VM
 
@@ -88,11 +88,12 @@ You can now use a Remote Desktop client to connect to the virtual machine consol
     username:s:EdgeARMUser
     negotiate security layer:i:0
     ```
+
 1. Save the file as **.rdp* on your client system. You'll use this profile to connect to the VM.
 1. Double-click the profile to connect to the VM. Provide the following credentials:
 
-    - **Username**: Sign in as EdgeARMUser.
-    - **Password**: Provide the local Azure Resource Manager password for your device. If you have forgotten the password, [Reset Azure Resource Manager password via the Azure portal](azure-stack-edge-gpu-set-azure-resource-manager-password.md#reset-password-via-the-azure-portal).
+   - **Username**: Sign in as EdgeARMUser.
+   - **Password**: Provide the local Azure Resource Manager password for your device. If you have forgotten the password, [Reset Azure Resource Manager password via the Azure portal](azure-stack-edge-gpu-set-azure-resource-manager-password.md#reset-password-via-the-azure-portal).
 
 #### Use FreeRDP
 
@@ -106,9 +107,10 @@ If using FreeRDP on your Linux client, run the following command:
 
 To revoke access to the VM console, return to the PowerShell interface of your device. Run the following command:
 
-```
+```powershell
 Revoke-HcsVMConnectAccess -ResourceGroupName <VM resource group> -VirtualMachineName <VM name>
 ```
+
 Here is an example output:
 
 ```powershell
@@ -122,6 +124,7 @@ Id                     : 81462e0a-decb-4cd4-96e9-057094040063
 
 [10.100.10.10]: PS>
 ```
+
 > [!NOTE]
 > We recommend that after you are done using the VM console, you either revoke the access or close the PowerShell window to exit the session.
 
