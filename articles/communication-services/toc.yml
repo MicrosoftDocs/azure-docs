@@ -94,6 +94,8 @@ items:
 - name: Tutorials
   expanded: false
   items:
+  - name: Virtual visit scenarios
+    href: tutorials/virtual-visits.md
   - name: Use Postman to send SMS messages
     href: tutorials/postman-tutorial.md
   - name: Sign an HTTP request with HMAC using C#
