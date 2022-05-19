@@ -67,9 +67,9 @@ Azure Government customers can’t request their invoice by email. They can only
 1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal.
 1. Select **Invoices** from the billing section.  
     ![Screenshot that shows a user selecting invoices option for a subscription](./media/download-azure-invoice/select-subscription-invoice.png)
-1. Select the invoice that you want to download and then click **Download invoices**.  
+1. Select the invoice that you want to download and then select **Download invoices**.  
     ![Screenshot that the download option for an MOSP invoice](./media/download-azure-invoice/downloadinvoice-subscription.png)
-1. You can also download a daily breakdown of consumed quantities and charges by clicking the download icon and then clicking **Prepare Azure usage file** button under the usage details section. It may take a few minutes to prepare the CSV file.  
+1. You can also download a daily breakdown of consumed quantities and charges by selecting the download icon and then selecting **Prepare Azure usage file** button under the usage details section. It may take a few minutes to prepare the CSV file.  
     ![Screenshot that shows Download invoice and usage page](./media/download-azure-invoice/usage-and-invoice-subscription.png)
 
 For more information about your invoice, see [Understand your bill for Microsoft Azure](../understand/review-individual-bill.md). For help identify unusual costs, see [Analyze unexpected charges](analyze-unexpected-charges.md).
@@ -86,7 +86,7 @@ You must have an account admin role on the support plan subscription to download
 1. Select **Invoices** from the left-hand side.
 1. Select your support plan subscription.  
     [![Screenshot that shows an MOSP support plan invoice billing profile list](./media/download-azure-invoice/cmb-invoices.png)](./media/download-azure-invoice/cmb-invoices-zoomed-in.png#lightbox)
-1. Select the invoice that you want to download and then click **Download invoices**.  
+1. Select the invoice that you want to download and then select **Download invoices**.  
     ![Screenshot that shows  the download option for an MOSP support plan invoice ](./media/download-azure-invoice/download-invoice-support-plan.png)
 
 ## Allow others to download your subscription invoice
@@ -101,7 +101,7 @@ To download an invoice:
 
 3.  Select **Invoices** from the left-hand side.
 
-4.  Select your Azure subscription and then click **Allow others to download invoice**.
+4.  Select your Azure subscription and then select **Allow others to download invoice**.
 
     [![Screenshot that shows selecting access to invoice](./media/download-azure-invoice/cmb-select-access-to-invoice.png)](./media/download-azure-invoice/cmb-select-access-to-invoice-zoomed-in.png#lightbox)
 
@@ -152,11 +152,11 @@ You must have an owner, contributor, reader, or an invoice manager role on a bil
 
 4. In the invoices table, select the invoice that you want to download.
 
-5. Click on the **Download invoice pdf** button at the top of the page.
+5. Select **Download invoice pdf** at the top of the page.
 
     [![Screenshot that shows downloading invoice pdf](./media/download-azure-invoice/mca-billingprofile-download-invoice.png)](./media/download-azure-invoice/mca-billingprofile-download-invoice-zoomed-in.png#lightbox)
 
-6. You can also download your daily breakdown of consumed quantities and estimated charges by clicking **Download Azure usage**. It may take a few minutes to prepare the csv file.
+6. You can also download your daily breakdown of consumed quantities and estimated charges by selecting **Download Azure usage**. It may take a few minutes to prepare the csv file.
 
 ## Get your billing profile's invoice in email
 
@@ -229,7 +229,7 @@ There could be several reasons that you don't see an invoice:
 
 - You have access to the invoice through one of your other accounts.
 
-    - This situation typically happens when you click on a link in the email, asking you to view your invoice in the portal. You click on the link and you see an error message - `We can't display your invoices. Please try again`. Verify that you're signed in with the email address that has permissions to view the invoices.
+    - This situation typically happens when you select a link in the email, asking you to view your invoice in the portal. You select the link and you see an error message - `We can't display your invoices. Please try again`. Verify that you're signed in with the email address that has permissions to view the invoices.
 
 - You have access to the invoice through a different identity. 
 

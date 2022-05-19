@@ -34,12 +34,16 @@ Metrics are a feature for certain Azure resources that allow you to view perform
 | BackendHealthPercentage | Backend Health Percentage | Percent | Backend</br>BackendPool | The percentage of successful health probes from Front Door to backends. |
 | WebApplicationFirewallRequestCount | Web Application Firewall Request Count | Count | PolicyName</br>RuleName</br>Action | The number of client requests processed by the application layer security of Front Door. |
 
+> [!NOTE]
+> Activity log doesn't include any GET operations or operations that you perform by using either the Azure portal or the original Management API.
+>
+
 ## <a name="activity-log"></a>Activity logs
 
 Activity logs provide information about the operations done on an Azure Front Door (classic) profile. They also determine the what, who, and when for any write operations (put, post, or delete) done against an Azure Front Door (classic) profile.
 
 >[!NOTE]
->Activity logs don't include read (get) operations. They also don't include operations that you perform by using either the Azure portal or the original Management API.
+>If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.
 
 Access activity logs in your Front Door or all the logs of your Azure resources in Azure Monitor. To view activity logs:
 
@@ -74,7 +78,7 @@ Front Door currently provides diagnostic logs. Diagnostic logs provide individua
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
 | ClientPort | The IP port of the client that made the request. |
 | HttpMethod | HTTP method used by the request. |
-| HttpStatusCode | The HTTP status code returned from the proxy. |
+| HttpStatusCode | The HTTP status code returned from the proxy. If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.|
 | HttpStatusDetails | Resulting status on the request. Meaning of this string value can be found at a Status reference table. |
 | HttpVersion | Type of the request or connection. |
 | POP | Short name of the edge where the request landed. |

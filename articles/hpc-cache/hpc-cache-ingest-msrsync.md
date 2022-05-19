@@ -27,7 +27,7 @@ Follow these instructions to use ``msrsync`` to populate Azure Blob storage with
 1. Install ``msrsync`` and its prerequisites (``rsync`` and Python 2.6 or later)
 1. Determine the total number of files and directories to be copied.
 
-   For example, use the utility ``prime.py`` with arguments ```prime.py --directory /path/to/some/directory``` (available by downloading <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
+   For example, use the utility ``prime.py`` with arguments ```prime.py --directory /path/to/some/directory``` (available by downloading <https://github.com/Azure/Avere/blob/main/src/clientapps/dataingestor/prime.py>).
 
    If not using ``prime.py``, you can calculate the number of items with the GNU ``find`` tool as follows:
 

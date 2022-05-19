@@ -103,7 +103,7 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 
 | Resource | Limit |
 | --- | --- |
-| Maximum accounts per subscription | 50 by default. <sup>1</sup> |
+| Maximum number of accounts per subscription | 50 by default. <sup>1</sup> |
 | Maximum number of regional failovers | 1/hour by default. <sup>1</sup> <sup>2</sup> |
 
 <sup>1</sup> You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md).
@@ -137,8 +137,8 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 | Resource | Limit |
 | --- | --- |
 | Maximum length of database or container name | 255 |
-| Maximum stored procedures per container | 100 <sup>1</sup> |
-| Maximum UDFs per container | 50 <sup>1</sup> |
+| Maximum number of stored procedures per container | 100 <sup>1</sup> |
+| Maximum number of UDFs per container | 50 <sup>1</sup> |
 | Maximum number of paths in indexing policy| 100 <sup>1</sup> |
 | Maximum number of unique keys per container|10 <sup>1</sup> |
 | Maximum number of paths per unique key constraint|16 <sup>1</sup> |

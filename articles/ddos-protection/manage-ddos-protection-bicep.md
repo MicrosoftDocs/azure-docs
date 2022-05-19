@@ -3,7 +3,7 @@ title: Create and enable an Azure DDoS Protection plan using Bicep.
 description: Learn how to create and enable an Azure DDoS Protection plan using Bicep.
 services: ddos-protection
 documentationcenter: na
-author: schaffererin
+author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: quickstart
 ms.tgt_pltfrm: na

@@ -7,7 +7,7 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/28/2021
+ms.date: 05/11/2022
 ms.custom: mode-ui
 ---
 
@@ -48,15 +48,19 @@ This quickstart also uses [Cognitive Services](https://azure.microsoft.com/servi
 
 Because the data is multiple rows in one CSV file, set the *parsing mode* to get one search document for each row.
 
-1. In **Connect to your data**, choose **Azure Blob Storage**, selecting the account and container you created. 
+1. In **Connect to your data**, choose **Azure Blob Storage**. 
 
 1. For the **Name**, enter "hotel-reviews-ds".
 
+1. For **Data to extract**, choose **Content and Metadata**.
+
 1. For **Parsing mode**, select **Delimited text**, and then select the **First Line Contains Header** checkbox. Make sure the **Delimiter character** is a comma (,).
 
-1. In **Connection String**, paste in a connection string to your Azure Storage account. 
+1. In **Connection String**, choose an existing connection if the storage account is in the same subscription. Otherwise, paste in a connection string to your Azure Storage account. 
 
-   A connection string has the following format: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+   A connection string can be full access, having the following format: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+
+   Or, a connection string can reference a managed identity, assuming it's [configured and assigned a role](search-howto-managed-identities-data-sources.md) in Azure Storage: `ResourceId=/subscriptions/{YOUR-SUBSCRIPTION-ID}/resourceGroups/{YOUR-RESOURCE-GROUP-NAME}/providers/Microsoft.Storage/storageAccounts/{YOUR-ACCOUNT-NAME};`
 
 1. In **Containers**, enter the name of the blob container holding the data ("hotel-reviews").
 

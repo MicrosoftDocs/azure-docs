@@ -18,14 +18,18 @@ Normally the Translator service retains profanity that is present in the source 
 
 If you want to avoid seeing profanity in the translation, even if profanity is present in the source text, use the profanity filtering option available in the Translate() method. This option allows you to choose whether you want the profanity deleted, marked with appropriate tags, or no action taken.
 
-The Translate method takes the "options" parameter, which contains the new element "ProfanityAction". The accepted values of ProfanityAction are "NoAction", "Marked" and "Deleted."
+The Translate() method takes the "options" parameter, which contains the new element "ProfanityAction." The accepted values of ProfanityAction are "NoAction," "Marked," and "Deleted." For the value of "Marked," an additional, optional element "ProfanityMarker" can take the values "Asterisk" (default) and "Tag."
 
-## Accepted values of ProfanityAction and examples
-|ProfanityAction value | Action | Example: Source - Japanese | Example: Target - English|
-| :---|:---|:---|:---|
-| NoAction | Default. Same as not setting the option. Profanity passes from source to target. | 彼は変態です。 | He's a jerk. |
-| Marked | Profane words are surrounded by XML tags \<profanity> ... \</profanity>. | 彼は変態です。 | He's a \<profanity>jerk\</profanity>. |
-| Deleted | Profane words are removed from the output without replacement. | 彼は。 | He's a\. |
+
+## Accepted values and examples of ProfanityMarker and ProfanityAction
+| ProfanityAction value | ProfanityMarker value | Action | Example: Source - Spanish| Example: Target - English|
+|:--|:--|:--|:--|:--|
+| NoAction|  | Default. Same as not setting the option. Profanity passes from source to target. | Que coche de \<insert-profane-word> | What a \<insert-profane-word> car  |                         
+| Marked                | Asterisk              | Profane words are replaced by asterisks (default).                               | Que coche de \<insert-profane-word> | What a *** car      |                                         
+| Marked                | Tag                   | Profane words are surrounded by XML tags \<profanity\>...\</profanity>.          | Que coche de \<insert-profane-word> | What a \<profanity> \<insert-profane-word> \</profanity> car |
+| Deleted               |                       | Profane words are removed from the output without replacement.                   | Que coche de \<insert-profane-word> | What a car        |                                           
+
+In the above examples, **\<insert-profane-word>** is a placeholder for profane words.
 
 ## Next steps
 > [!div class="nextstepaction"]

@@ -26,7 +26,7 @@ This article shows you how to create and manage a catalog of resources and acces
 
 ## Create a catalog
 
-A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. Whoever creates the catalog becomes the first catalog owner. A catalog owner can add more catalog owners.
+A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. A user who has been delegated the [catalog creator](entitlement-management-delegate.md) role can create a catalog for resources that they own.  Whoever creates the catalog becomes the first catalog owner. A catalog owner can add more catalog owners.
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, User administrator, or Catalog creator
 

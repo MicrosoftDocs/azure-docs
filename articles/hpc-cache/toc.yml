@@ -17,6 +17,8 @@ items:
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/hpc-cache-security-baseline?toc=/azure/hpc-cache/toc.json
+    - name: Security information
+      href: hpc-cache-security-info.md
 - name: How-to guides
   items:
   - name: Prerequisites

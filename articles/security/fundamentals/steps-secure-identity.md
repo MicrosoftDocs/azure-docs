@@ -104,6 +104,8 @@ For more information, see the article [Blocking legacy authentication protocols 
 
 Using the verify explicitly principle, you should reduce the impact of compromised user credentials when they happen. For each app in your environment, consider the valid use cases: which groups, which networks, which devices and other elements are authorized – then block the rest. With Azure AD Conditional Access, you can control how authorized users access their apps and resources based on specific conditions you define.
 
+For more information on how to use Conditional Access for your Cloud Apps and user actions, see [Conditional Access Cloud apps, actions, and authentication context](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md). 
+
 ### Review and govern admin roles
 
 Another Zero Trust pillar is the need to minimize the likelihood a compromised account can operate with a privileged role. This control can be accomplished by assigning the least amount of privilege to an identity. If you’re new to Azure AD Roles, this article will help you understand Azure AD Roles.

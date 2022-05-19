@@ -44,7 +44,7 @@
     - name: Standard load balancer with IPv4 + IPv6 dual stack 
       href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md
     - name: Create and test a NAT gateway
-      href: ./nat-gateway/tutorial-create-nat-gateway-cli.md
+      href: ./nat-gateway/quickstart-create-nat-gateway-cli.md
   - name: Azure PowerShell
     href: powershell-samples.md
   - name: Resource Manager templates

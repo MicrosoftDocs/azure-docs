@@ -31,7 +31,7 @@ The Azure Percept Workload enables several features that end users can take adva
 - A retraining loop for grabbing images from the device periodically, retraining the model in the cloud, and then pushing the newly trained model back down to the device. Using the device's ability to update and swap models on the fly.
 
 ## AI workload details
-The Workload application is open-sourced in the Azure Percept Advanced Development [github repository](https://github.com/microsoft/azure-percept-advanced-development/tree/main/azureeyemodule/app) and is made up of many small C++ modules, with some of the more important being:
+The Workload application is open-sourced in the Azure Percept Advanced Development [GitHub repository](https://github.com/microsoft/azure-percept-advanced-development/tree/main/azureeyemodule/app) and is made up of many small C++ modules, with some of the more important being:
 - [main.cpp](https://github.com/microsoft/azure-percept-advanced-development/blob/main/azureeyemodule/app/main.cpp): Sets up everything and then runs the main loop.
 - [iot](https://github.com/microsoft/azure-percept-advanced-development/tree/main/azureeyemodule/app/iot): This folder contains modules that handle incoming and outgoing messages from the Azure IoT Edge Hub, and the twin update method.
 - [model](https://github.com/microsoft/azure-percept-advanced-development/tree/main/azureeyemodule/app/model): This folder contains modules for a class hierarchy of computer vision models.

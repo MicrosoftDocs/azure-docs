@@ -399,10 +399,9 @@ To verify that the enrollment group has been created:
 
 :::zone-end
 
-
 ## Clean up resources
 
-If you plan to explore the [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md), don't clean up the resources created in this quickstart. Otherwise, use the following steps to delete all resources created by this quickstart.
+If you plan to explore the DPS tutorials, don't clean up the resources created in this quickstart. Otherwise, use the following steps to delete all resources created by this quickstart.
 
 1. Close the sample output window on your computer.
 
@@ -438,7 +437,7 @@ If you plan to explore the [Azure IoT Hub Device Provisioning Service tutorials]
 
 ## Next steps
 
-In this quickstart, you’ve programmatically created an individual enrollment entry for a TPM device. Optionally, you created a TPM simulated device on your computer and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal.
+In this quickstart, you’ve programmatically created an individual enrollment entry for a TPM device. Optionally, you created a TPM simulated device on your computer and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn about provisioning multiple devices, continue to the tutorials for the Device Provisioning Service.
 
 > [!div class="nextstepaction"]
-> [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)
+> [How to provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md)

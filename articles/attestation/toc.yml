@@ -39,15 +39,26 @@
   items:
   - name: Basic concepts
     href: basic-concepts.md
-  - name: Attestation policy claims
+    items:
+      - name: Trusted Platform Module (TPM) Attestation
+        href: tpm-attestation-concepts.md
+  - name: Attestation policy
     items:
       - name: Claim rule grammar
         href: claim-rule-grammar.md
       - name: Claim sets
         href: claim-sets.md
+      - name: Claim Rule Functions
+        href: claim-rule-functions.md
+      - name: Policy Version 1.0
+        href: policy-version-1-0.md
+      - name: Policy Version 1.1
+        href: policy-version-1-1.md
+      - name: Policy Version 1.2
+        href: policy-version-1-2.md
   - name: Workflow
     href: workflow.md
-  - name: Azure Attestation logging
+  - name: View audit logs
     href: audit-logs.md
 - name: References
   items:

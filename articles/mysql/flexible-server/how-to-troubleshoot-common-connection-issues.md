@@ -5,6 +5,7 @@ keywords: mysql connection,connection string,connectivity issues,persistent erro
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: troubleshooting
 ms.date: 9/21/2020
 ---

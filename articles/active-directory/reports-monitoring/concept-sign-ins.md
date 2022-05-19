@@ -207,23 +207,6 @@ The **Location** - The location the connection was initiated from:
 
 
 
-
-
-
-
-
-
-## Download sign-in activities
-
-Click the **Download** option to create a CSV or JSON file of the most recent 250,000 records. Start with [download the sign-ins data](./howto-download-logs.md) if you want to work with it outside the Azure portal.  
-
-![Download](./media/concept-sign-ins/71.png "Download")
-
-> [!IMPORTANT]
-> The number of records you can download is constrained by the [Azure Active 
-> Directory report retention policies](reference-reports-data-retention.md).  
-
-
 ## Sign-ins data shortcuts
 
 Azure AD and the Azure portal both provide you with additional entry points to sign-ins data:
@@ -335,6 +318,6 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 
 - [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs.md)
 
-- [Azure AD data retention policies](reference-reports-data-retention.md)
+- [How to download logs in Azure Active Directory](howto-download-logs.md)
 
-- [Azure AD report latencies](reference-reports-latencies.md)
+- [How to access activity logs in Azure AD](howto-access-activity-logs.md)

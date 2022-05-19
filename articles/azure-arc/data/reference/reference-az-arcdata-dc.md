@@ -12,11 +12,14 @@ ms.subservice: azure-arc-data
 ---
 
 # az arcdata dc
+
+Create, delete, and manage data controllers.
 ## Commands
 | Command | Description|
 | --- | --- |
 [az arcdata dc create](#az-arcdata-dc-create) | Create data controller.
 [az arcdata dc upgrade](#az-arcdata-dc-upgrade) | Upgrade data controller.
+[az arcdata dc update](#az-arcdata-dc-update) | Update data controller.
 [az arcdata dc list-upgrades](#az-arcdata-dc-list-upgrades) | List available upgrade versions.
 [az arcdata dc delete](#az-arcdata-dc-delete) | Delete data controller.
 [az arcdata dc endpoint](reference-az-arcdata-dc-endpoint.md) | Endpoint commands.
@@ -59,6 +62,27 @@ az arcdata dc upgrade
 Data controller upgrade.
 ```azurecli
 az arcdata dc upgrade --k8s-namespace namespace --use-k8s
+```
+### Global Arguments
+#### `--debug`
+Increase logging verbosity to show all debug logs.
+#### `--help -h`
+Show this help message and exit.
+#### `--output -o`
+Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
+#### `--query -q`
+JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
+#### `--verbose`
+Increase logging verbosity. Use `--debug` for full debug logs.
+## az arcdata dc update
+Updates the datacontroller to enable/disable auto uploading logs and metrics
+```azurecli
+az arcdata dc update 
+```
+### Examples
+Data controller upgrade.
+```azurecli
+az arcdata dc update --auto-upload-logs true --auto-upload-metrics true --name dc-name --resource-group resource-group 
 ```
 ### Global Arguments
 #### `--debug`
