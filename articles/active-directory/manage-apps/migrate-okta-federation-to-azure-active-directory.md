@@ -5,11 +5,10 @@ description: Learn how to migrate your Okta-federated applications to managed au
 services: active-directory
 author: gargi-sinha
 manager: martinco
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2022
+ms.date: 05/19/2022
 ms.author: gasinh
 ms.subservice: app-mgmt
 ms.custom: kr2b-contr-experiment
