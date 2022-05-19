@@ -261,7 +261,7 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png" alt-text="Screenshot of creating a new value-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png":::
 
-    If your custom property expression outputs a string, you can also use JavaScript's [template literal syntax](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Template_literals) to include a dynamic expression in the string output. Format the dynamic expression with this syntax: `${<calculation-expression>}`. Then, wrap the whole string output with backticks (`` ` ``).
+    If your custom property expression outputs a string, you can also use JavaScript's template literal syntax to include a dynamic expression in the string output. Format the dynamic expression with this syntax: `${<calculation-expression>}`. Then, wrap the whole string output with backticks (`` ` ``).
 
     Below is an example of a value widget that checks if the `InFlow` value of the primary twin exceeds 99. If so, it outputs a string with an expression containing the twin's `$dtId`. Otherwise, there will be no expression in the output, so no backticks are required. 
 
@@ -277,7 +277,7 @@ While defining [status](#status), [alerts](#alerts), and [widgets](#widgets) in 
 
 These expressions use the JavaScript language, and allow you to use one or more properties of associated twins to define custom logic.
 
-The following chart indicates which [JavaScript operators](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Expressions_and_Operators#operators) are supported in 3D Scenes Studio.
+The following chart indicates which JavaScript operators are supported in 3D Scenes Studio.
 
 | Operator type | Supported? |
 | --- | --- |
