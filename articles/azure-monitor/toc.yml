@@ -1255,36 +1255,40 @@ items:
       href: containers/container-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#container-insights
-    - name: Enable monitoring
+    - name: Enable
+      displayName: container insights
       items:
-      - name: Enable monitoring overview
+      - name: Overview
+        displayName: container insights
         href: containers/container-insights-onboard.md
-      - name: Enable for new AKS cluster
+      - name: New AKS cluster
         href: containers/container-insights-enable-new-cluster.md
-      - name: Enable for existing AKS cluster
+      - name: Existing AKS cluster
         href: containers/container-insights-enable-existing-clusters.md
-      - name: Enable for Azure Arc-enabled cluster
+      - name: Azure Arc-enabled cluster
         href: containers/container-insights-enable-arc-enabled-clusters.md
-      - name: Enable for hybrid cluster
+      - name: Hybrid cluster
         href: containers/container-insights-hybrid-setup.md
-      - name: Enable for Azure Red Hat OpenShift v3
+      - name: Azure Red Hat OpenShift v3
         href: containers/container-insights-azure-redhat-setup.md
-      - name: Enable for Azure Red Hat OpenShift v4
+      - name: Azure Red Hat OpenShift v4
         href: containers/container-insights-azure-redhat4-setup.md
       - name: Enable with Azure Policy
         href: containers/container-insights-enable-aks-policy.md
-      - name: Region mappings
+      - name: Supported region mappings
         href: containers/container-insights-region-mapping.md
+      - name: Migrate from Azure Red Hat OpenShift v4.x
+        href: containers/container-insights-transition-hybrid.md
+    - name: Configure
+      items:
       - name: Agent management
         href: containers/container-insights-manage-agent.md
+      - name: Agent collection settings
+        href: containers/container-insights-agent-config.md
       - name: Configure Prometheus metric scraping
         href: containers/container-insights-prometheus-integration.md
-      - name: Configure agent collection settings
-        href: containers/container-insights-agent-config.md
       - name: Update to enable metrics
         href: containers/container-insights-update-metrics.md
-      - name: Migration from Azure Red Hat OpenShift v4.x to Azure Arc enabled cluster
-        href: containers/container-insights-transition-hybrid.md
     - name: Monitor
       items:
       - name: Monitor performance
