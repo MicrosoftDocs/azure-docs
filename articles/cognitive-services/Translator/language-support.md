@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2022
+ms.date: 05/24/2022
 ms.author: lajanuar
 ---
 # Translator language support
@@ -17,7 +17,7 @@ ms.author: lajanuar
 
 **Translation – Containers:** Language support for Containers.
 
-**Custom Translator:** Custom Translator can be used to create customized translation models which you can then use to customize your translated output while using the Text Translation or Document Translation features.
+**Custom Translator:** Custom Translator can be used to create customized translation models that you can then use to customize your translated output while using the Text Translation or Document Translation features.
 
 **Auto Language Detection:** Automatically detect the language of the source text while using Text Translation or Document Translation.
 
@@ -304,7 +304,7 @@ The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Trans
 |Urdu| `ur` | Arabic `Arab`  | <--> | Latin `Latn` |
 
 ## Other Cognitive Services
-Add additional capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for additional services are below.
+Add more capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for other services are below.
 * [Computer Vision](../computer-vision/language-support.md) 
 * [Speech](../speech-service/language-support.md) 
 * [Language service](../language-service/index.yml) 
