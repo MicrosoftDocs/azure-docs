@@ -10,7 +10,7 @@ ms.author: dademath
 ms.date: 03/31/2022
 ms.topic: tutorial
 ms.service: azure-communication-services
-ms.subservice: interop
+ms.subservice: teams-interop
 ---
 
 # Build a custom event management platform with Microsoft Teams, Graph and Azure Communication Services
@@ -98,7 +98,7 @@ Event management platforms can use a custom registration flow to register attend
 ### Leverage Azure Communication Services to build a custom attendee experience
 
 >[!NOTE]
-> Limitations when using Azure Communication Services as part of a Teams Webinar experience. Please visit our [documentation for more details.](https://docs.microsoft.com/en-us/azure/communication-services/concepts/join-teams-meeting#limitations-and-known-issues)
+> Limitations when using Azure Communication Services as part of a Teams Webinar experience. Please visit our [documentation for more details.](https://docs.microsoft.com/azure/communication-services/concepts/join-teams-meeting#limitations-and-known-issues)
 
 Attendee experience can be directly embedded into an application or platform using [Azure Communication Services](https://docs.microsoft.com/azure/communication-services/overview) so that your attendees never need to leave your platform. It provides low-level calling and chat SDKs which support [interoperability with Teams Events](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop), as well as a turn-key UI Library which can be leveraged to reduce development time and easily embed communications. Azure Communication Services enables developers to have flexibility with the type of solution they need. Review [limitations](https://docs.microsoft.com/azure/communication-services/concepts/join-teams-meeting#limitations-and-known-issues) of using Azure Communication Services for webinar scenarios.
 
