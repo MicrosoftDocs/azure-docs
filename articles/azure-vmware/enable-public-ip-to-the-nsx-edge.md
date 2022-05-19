@@ -98,7 +98,7 @@ Using a Gateway Firewall, you can provide security protection for your network t
 7.	Select the Policy and click ADD RULE. 
 8.	Configure the rule.
     <ol type="A"> 
-     <li>Click New Rule.</li>
+     <li>okthey show in the  New Rule.</li>
      <li>Enter a descriptive name.</li>
      <li>Configure the source, destination, services, and action.</li>
     </ol>
