@@ -99,3 +99,5 @@ Role definition resource names must be unique within the Azure Active Directory 
   - [Assign a role at subscription scope](https://azure.microsoft.com/resources/templates/subscription-role-assignment/)
   - [Assign a role at tenant scope](https://azure.microsoft.com/resources/templates/tenant-role-assignment/)
   - [Create a resourceGroup, apply a lock and RBAC](https://azure.microsoft.com/resources/templates/create-rg-lock-role-assignment/)
+- Community blog posts
+  - [Create role assignments for different scopes with Bicep](https://4bes.nl/2022/04/24/create-role-assignments-for-different-scopes-with-bicep/), by Barbara Forbes
