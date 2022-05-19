@@ -48,6 +48,4 @@ A well-planned solution development environment design will improve the quality 
 
 ## Next steps
 
-For more information about this article, check out the following resources:
-
-- [Continuous integration and delivery for an Azure Synapse Analytics workspace](../cicd/continuous-integration-delivery.md)
+In the [next article](implementation-success-evaluate-team-skill-set.md) in the *Azure Synapse success by design* series, learn how to assemble a team of skilled resources to implement your Azure Synapse solution.
