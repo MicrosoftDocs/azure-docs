@@ -33,7 +33,7 @@ The feature consists of two parts, management and runtime:
 
     During the policy execution, the access to the tokens is also validated using access policies.
 
-:::image type="content" source="media/authorizations-overview/overview.png" alt-text="Identity providers that can be used for OAuth 2.0 authorizations in API Management" border="false":::  
+:::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Process flow for creating authorizations" border="false":::  
 
 ### Requirements 
 
