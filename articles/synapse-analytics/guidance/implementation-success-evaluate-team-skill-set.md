@@ -37,7 +37,7 @@ For each role (described below):
 - Identify the roles that will be required by your solution implementation.
 - Identify the specific individuals in your project that will fulfill each role.
 - Identify the specific project tasks that will be performed by each individual.
-- Assign a [learning level](#microsoft-learning-level-definitions) to each individual for their tasks and roles.
+- Assign a [learning level](#microsoft-learning-leveldefinitions) to each individual for their tasks and roles.
 
 Typically, a successful implementation requires that each individual has at least a level-300 proficiency for the tasks they'll perform. It's highly recommended that individuals at level-200 (or below) be provided with guidance and instruction to raise their level of understanding prior to beginning their project tasks. In this case, involve a level-300 (or above) individual to mentor and review. It's recommended that you adjust the project plan timeline and effort estimates to factor in learning new skills.
 
@@ -50,7 +50,7 @@ The *Azure administrator* manages administrative aspects of Azure. They're respo
 
 ### Security administrator
 
-The *security administrator* must have local knowledge of the existing security landscape and requirements. This role collaborates with the [Synapse administrator](synapse-administrator), [Synapse database administrator](synapse-database-administrator), [Synapse Spark administrator](synapse-spark-administrator), and other roles to set up security requirements. The security administrator could also be an Azure Active Directory (Azure AD) administrator.
+The *security administrator* must have local knowledge of the existing security landscape and requirements. This role collaborates with the [Synapse administrator](#synapse-administrator), [Synapse database administrator](#synapse-database-administrator), [Synapse Spark administrator](#synapse-spark-administrator), and other roles to set up security requirements. The security administrator could also be an Azure Active Directory (Azure AD) administrator.
 
 ### Network administrator
 
