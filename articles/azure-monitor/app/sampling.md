@@ -104,11 +104,11 @@ In [`ApplicationInsights.config`](./configuration-with-applicationinsights-confi
   
     The amount of telemetry to sample when the app has just started. Don't reduce this value while you're debugging.
 
-* `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
+* `<ExcludedTypes>type;type</ExcludedTypes>`
   
     A semi-colon delimited list of types that you do not want to be subject to sampling. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, `Trace`. All telemetry of the specified types is transmitted; the types that are not specified will be sampled.
 
-* `<IncludedTypes>Request;Dependency</IncludedTypes>`
+* `<IncludedTypes>type;type</IncludedTypes>`
   
     A semi-colon delimited list of types that you do want to subject to sampling. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, `Trace`. The specified types will be sampled; all telemetry of the other types will always be transmitted.
 
