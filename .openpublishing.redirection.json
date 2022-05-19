@@ -13034,8 +13034,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/vpn-gateway-howto-openvpn-clients.md",
-      "redirect_url": "/azure/azure-vmware/point-to-site-vpn-client-cert-windows",
+      "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
       "redirect_document_id": false
     },
     {
