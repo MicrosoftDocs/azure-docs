@@ -48,7 +48,7 @@ The resulting Cosmos DB container will embed the inner query into a single docum
 
 4. We will construct this data flow graph below
 
-:::image type="content" source="media/data-flow/cosmosb1.png" alt-text="Data Flow Graph":::
+   :::image type="content" source="media/data-flow/cosmosb1.png" alt-text="Data Flow Graph":::
 
 5. Define the source for "SourceOrderDetails". For dataset, create a new Azure SQL Database dataset that points to the ```SalesOrderDetail``` table.
 
@@ -58,19 +58,19 @@ The resulting Cosmos DB container will embed the inner query into a single docum
 
 8. Add another derived column and call it "MakeStruct". This is where we will create a hierarchical structure to hold the values from the details table. Remember, details is a ```M:1``` relation to header. Name the new structure ```orderdetailsstruct``` and create the hierarchy in this way, setting each subcolumn to the incoming column name:
 
-:::image type="content" source="media/data-flow/cosmosdb-9.png" alt-text="Create Structure":::
+    :::image type="content" source="media/data-flow/cosmosdb-9.png" alt-text="Create Structure":::
 
 9. Now, let's go to the sales header source. Add a Join transformation. For the right-side select "MakeStruct". Leave it set to inner join and choose ```SalesOrderID``` for both sides of the join condition.
 
 10. Click on the Data Preview tab in the new join that you added so that you can see your results up to this point. You should see all of the header rows joined with the detail rows. This is the result of the join being formed from the ```SalesOrderID```. Next, we'll combine the details from the common rows into the details struct and aggregate the common rows.
 
-:::image type="content" source="media/data-flow/cosmosb4.png" alt-text="Join":::
+    :::image type="content" source="media/data-flow/cosmosb4.png" alt-text="Join":::
 
 11. Before we can create the arrays to denormalize these rows, we first need to remove unwanted columns and make sure the data values will match Cosmos DB data types.
 
 12. Add a Select transformation next and set the field mapping to look like this:
 
-:::image type="content" source="media/data-flow/cosmosb5.png" alt-text="Column scrubber":::
+    :::image type="content" source="media/data-flow/cosmosb5.png" alt-text="Column scrubber":::
 
 13. Now let's again cast a currency column, this time ```TotalDue```. Like we did above in step 7, set the formula to: ```toDouble(round(TotalDue,2))```.
 
