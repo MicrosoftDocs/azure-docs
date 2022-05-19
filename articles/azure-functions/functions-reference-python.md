@@ -952,7 +952,7 @@ To improve throughput, Functions lets your out-of-process Python language worker
 For example, you might enable shared memory to reduce bottlenecks when using Blob storage bindings to transfer payloads larger than 1 MB.
 
 This functionality is available only for function apps running in Premium and Dedicated (App Service) plans. To learn more, see [Shared memory](https://github.com/Azure/azure-functions-python-worker/wiki/Shared-Memory). 
-
+     
 ## Known issues and FAQ
 
 Following is a list of troubleshooting guides for common issues:
