@@ -8,7 +8,7 @@ ms.date: 05/12/2022
 
 In this article, you'll learn how to enable Public IP to the NSX Edge for your Azure VMware Solution. Before you enable Internet access to your Azure VMware Solution, review the [Internet connectivity design considerations](concepts-design-avs-public-internet-access.md). 
 
-Public IP to the NSX Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment. The Public IP is configured in Azure VMware Solution via the Azure Portal and the NSX-T Data center interface all within your Azure VMware Solution private cloud.
+Public IP to the NSX Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment. The Public IP is configured in Azure VMware Solution via the Azure portal and the NSX-T Data center interface all within your Azure VMware Solution private cloud.
 With this capability, you have the following features:
 - A cohesive and simplified experience for reserving and consuming a Public IP down to the NSX Edge.
 - The ability to receive up to 1000 or more Public IPs, enabling Internet access at scale.
@@ -45,7 +45,7 @@ Here are three options for configuring your reserved Public IP down to the NSX E
 
 ### Outbound Internet Access for VMs
  
-A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT) is used to allow many to one SNAT. This connetion means you can provide internet connectivity for many VMs.
+A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT) is used to allow many to one SNAT. This connection means you can provide internet connectivity for many VMs.
 1.	From your Azure VMware Solution Private Cloud, select vCenter Credentials
 2.	Locate your NSX-T URL and credentials.
 3.	Login to NSX-T.
@@ -68,7 +68,7 @@ Logging can be enabled via the logging slider. For more information on NSX-T NAT
 A Destination Network Translation Service (DNAT) is used to expose a VM on a specific Public IP address and/or a specific port. This provides inbound internet access to your workload VMs.
 1.	From your Azure VMware Solution Private Cloud, select VMware Credentials.
 2.	Locate your NSX-T URL and credentials.
-3.	Login to NSX-T.
+3.	Sign in to NSX-T.
     :::image type="content" source="media/public-ip-usage/nsx-t-login-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 1.	Configure the DNAT rule.
      <ol type="A">
