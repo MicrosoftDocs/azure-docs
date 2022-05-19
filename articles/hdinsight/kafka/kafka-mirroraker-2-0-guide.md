@@ -9,7 +9,7 @@ ms.date: 05/20/2022
 
 # How to use Kafka MirrorMaker 2.0 in data migration, replication and the use-cases.
 
-MirrorMaker 2 (MM2) is designed to make it easier to mirror or replicate topics from one Kafka cluster to another. It uses the Kafka Connect framework to simplify configuration and scaling. It dynamically detects changes to topics and ensures source and target topic properties are synchronized, including offsets and partitions. 
+MirrorMaker 2 (MM2) is designed to make it easier to mirror or replicate topics from one Kafka cluster to another. It uses the Kafka Connect framework to simplify configuration and scaling. It dynamically detects changes to topics and ensures source and target topic properties are synchronized, including offsets and partitions.
 
 In this article, you'll learn how to use Kafka MirrorMaker 2.0 in data migration/replication and the use-cases.
 
@@ -21,12 +21,7 @@ In this article, you'll learn how to use Kafka MirrorMaker 2.0 in data migration
 
 ## Use case
 
-Simulation of MirrorMaker 2.0 to replicate data points/offsets between two Kafka clusters in HDInsight. The same can be leveraged for scenarios like required data replication between two or more Kafka Clusters like Disaster Recovery, Cloud Adaption, Geo-replication, Data Isolation, and Data Aggregation
-*  [!Note] 
-
-## Use case
-
-Simulation of MirrorMaker 2.0 to replicate data points/offsets between two Kafka clusters in HDInsight. It can be leveraged for scenarios like required data replication between two or more Kafka Clusters like Disaster Recovery, Cloud Adaption, Geo-replication, Data Isolation, and Data AggregationThis guide will use self-signed certificates, but the most secure solution is to use certificates issued by trusted CAs.
+Simulation of MirrorMaker 2.0 to replicate data points/offsets between two Kafka clusters in HDInsight. The same can be leveraged for scenarios like required data replication between two or more Kafka Clusters like Disaster Recovery, Cloud Adaption, Geo-replication, Data Isolation, and Data Aggregation.
 
 ## Offset replication with MirrorMaker 2.0
 
@@ -61,17 +56,14 @@ The summary of the broker setup process is as follows:
 1. Start the Mirormaker2.
     
 ```
-./bin/connect-mirror-maker.sh ./config/mirror-maker.properties
-    
+./bin/connect-mirror-maker.sh ./config/mirror-maker.properties    
 ```
 
 > [!NOTE]
 > For Kerberos enabled clusters, the JAAS configuration must be exported to the KAFKA_OPTS or must be specified in the MM2 config file.
 
-
 ```
-export KAFKA_OPTS="-Djava.security.auth.login.config=<path-to-jaas.conf>"
-    
+export KAFKA_OPTS="-Djava.security.auth.login.config=<path-to-jaas.conf>"    
 ```
 ### Sample Mirrormaker 2.0 Configuration file
        
@@ -102,8 +94,7 @@ export KAFKA_OPTS="-Djava.security.auth.login.config=<path-to-jaas.conf>"
 
     offset.storage.replication.factor=1
     status.storage.replication.factor=1
-    config.storage.replication.factor=1
-    
+    config.storage.replication.factor=1    
 ```
     
 ### SSL configuration
@@ -124,7 +115,7 @@ destination.sasl.mechanism=GSSAPI
 |---------------------|--------------------------------------------------------------------|----|
 |name|required|name of the connector, e.g. "us-west->us-east"|
 |topics|empty string|regex of topics to replicate, e.g. "topic1|topic2|topic3". Comma-separated lists are also supported|
-|topics.blacklist| ".*\.internal, .*\.replica, __consumer_offsets" or similar|topics to exclude from replication|
+|topics.blacklist|".*\.internal, .*\.replica, __consumer_offsets" or similar|topics to exclude from replication|
 |groups|empty string|regex of groups to replicate, e.g. ".*"|  
 |groups.blacklist|empty string|groups to exclude from replication|
 |source.cluster.alias|required|name of the cluster being replicated|
@@ -207,4 +198,16 @@ The implementation needs to be added to the Kafka classpath for the class refere
 
 ## Next steps
 
-* [What is Apache Kafka on HDInsight?](apache-kafka-introduction.md)
+[What is Apache Kafka on HDInsight?](apache-kafka-introduction.md)
+
+## References
+
+[Mirrormaker2 Changes Apache Doc](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0)
+
+[Client certificates setup for HDI Kafka](apache-kafka-ssl-encryption-authentication#client-setup-without-authentication.md)
+
+[HDInsight Kafka](./apache-kafka-introduction.md)
+
+[Apache Kafka 2.4 Documentation](https://kafka.apache.org/24/documentation.html)
+
+[Connect an on-premises network to Azure](azure/architecture/reference-architectures/hybrid-networking)
