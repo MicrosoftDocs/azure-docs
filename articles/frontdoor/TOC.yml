@@ -45,6 +45,8 @@
       href: front-door-routing-methods.md
     - name: Routing limits
       href: front-door-routing-limits.md
+  - name: Endpoint
+    href: endpoint.md
   - name: Origin
     href: origin.md
   - name: Wildcard domain
