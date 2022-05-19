@@ -52,7 +52,7 @@ For public preview the following limitations exist.
 - Max configured number of access policies per authorization: 100
 - Authorization code PKCE flow with code challenge isn't supported.
 - Authorizations feature isn't supported on self-hosted gateways.
-- No API documentation is available. Please see [this](https://github.com/Azure/APIManagement-Authorizations) GitHub repository with samples.  
+- API documentation is not available yet. Please see [this](https://github.com/Azure/APIManagement-Authorizations) GitHub repository with samples.  
 
 ### Authorization providers
  
@@ -88,7 +88,7 @@ Access policies determine which identities can use the authorization that the ac
 
 ### Process flow for creating authorizations
 
-The following image shows the process flow for creating an authorization in API Management using the grant type authorization code.
+The following image shows the process flow for creating an authorization in API Management using the grant type authorization code. 
 
 :::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Process flow for creating authorizations" border="false":::
 
