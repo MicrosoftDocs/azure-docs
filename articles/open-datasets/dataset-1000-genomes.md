@@ -20,7 +20,7 @@ Phase 1 Analysis: [An integrated map of genetic variation from 1,092 human genom
 Phase 3 Analysis: [A global reference for human genetic variation](https://www.nature.com/articles/nature15393)
                   [An integrated map of structural variation in 2,504 human genomes](https://www.nature.com/articles/nature15394)
 
-#[Explore the meta data](https://msit.powerbi.com/reportEmbed?reportId=de861d8e-90df-42be-8042-301258ff113e&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9kZi1tc2l0LXNjdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D)
+[Explore the meta data](https://msit.powerbi.com/reportEmbed?reportId=de861d8e-90df-42be-8042-301258ff113e&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9kZi1tc2l0LXNjdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D)
 
 For details on data formats refer to http://www.internationalgenome.org/formats
 
@@ -28,19 +28,19 @@ For details on data formats refer to http://www.internationalgenome.org/formats
 
 [!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
 
-## Data source
+### Data source
 
 This dataset is a mirror of ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/
 
-## Data volumes and update frequency
+### Data volumes and update frequency
 
 This dataset contains approximately 815 TB of data and is updated daily.
 
-## Storage location
+### Storage location
 
 This dataset is stored in the West US 2 and West Central US Azure regions. Allocating compute resources in West US 2 or West Central US is recommended for affinity.
 
-## Data Access
+### Data Access
 
 West US 2: 'https://dataset1000genomes.blob.core.windows.net/dataset'
 
@@ -48,17 +48,31 @@ West Central US: 'https://dataset1000genomes-secondary.blob.core.windows.net/dat
 
 [SAS Token](../storage/common/storage-sas-overview.md): sv=2019-10-10&si=prod&sr=c&sig=9nzcxaQn0NprMPlSh4RhFQHcXedLQIcFgbERiooHEqM%3D
 
-## Data Access: Curated 1000 genomes dataset in parquet format
+### Data Access: Curated 1000 genomes dataset in parquet format
 
 East US: https://curated1000genomes.blob.core.windows.net/dataset
 
 SAS Token: sv=2018-03-28&si=prod&sr=c&sig=BgIomQanB355O4FhxqBL9xUgKzwpcVlRZdBewO5%2FM4E%3D
 
-## Use Terms
+### Use Terms
 
 Following the final publications, data from the 1000 Genomes Project is publicly available without embargo to anyone for use under the terms provided by the dataset source ([http://www.internationalgenome.org/data](http://www.internationalgenome.org/data)). Use of the data should be cited per details available in the [FAQs]() from the 1000 Genome Project.
 
-## Contact
+### Usage
+
+Sample notebook to access 1000 Genomes data on Azure [Notebook](https://github.com/microsoft/genomicsnotebook/blob/main/sample-notebooks/1000-genomes_Azure_Genomics_Data_Lake.ipynb)
+
+### Use cases 
+[Applications of the 1000 Genomes Project resources](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5439288/)
+
+1.  Genotype imputations: The only freely downloadable data from diverse population can be used as reference for haplotype phasing, genotyping imputation or as a training set for ancestry inference.
+2.	Prioritize variants for pathogenicity: 1000 genomes along with other public data can be used to establish novelty of variants as well as pathogenicity of variant based on frequency.
+3.	Evolutionary genetics and population history: Use of 1000 genomes data to study signature of positive selection.The data has also been used demography and population
+4.	Impact of genetic variation on gene expression: With RNAseq data available, it is also used to study genetic basis of gene expression studying eQTLs
+5.	Test data for computational tools and statistical methods: It also used as test data for developing novel methods and tools
+
+
+### Contact
 
 https://www.internationalgenome.org/contact
 
