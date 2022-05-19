@@ -4,7 +4,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 This quickstart shows you how to make these changes within your browser, without having to install the development environment tools on your machine.
 
-![Sample app running in Azure](../../media/quickstart-php/hello-world-in-browser.png)
+![Sample app running in Azure](../../media/quickstart-php/php8-hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
@@ -21,9 +21,11 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 1. In the upper right corner, select **Fork**.
 
-    <!-- TODO: screenshot here -->
+    ![In GitHub, in the Azure-Samples/php-docs-hello-world repo, select Fork.](../../media/quickstart-php/fork-php-docs-hello-world-repo.png)
 
-1. On the **Create a new fork** screen, accept the defaults. Select **Create fork**.
+1. On the **Create a new fork** screen, confirm the **Owner** and **Repository name** fields. Select **Create fork**.
+
+    ![In GitHub, in the Azure-Samples/php-docs-hello-world repo, select Fork.](../../media/quickstart-php/fork-details-php-docs-hello-world-repo.png)
 
     >[!NOTE]
     > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/php-docs-hello-world
@@ -32,13 +34,21 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 1. From the fork repository, select **Settings**.
 
-1. Under **Code and automation**, select **Branches**.
+ ![In GitHub, in the forked php-docs-hello-world repo, select Settings.](../../media/quickstart-php/forked-php-docs-hello-world-repo-settings.png)
 
-1. Under **Default branch**, to the right of `master`, select the Rename branch button.
+2. Under **Code and automation**, select **Branches**.
 
-1. In the **Rename this branch** pop-up, enter `main`.
+ ![In GitHub, in the forked php-docs-hello-world repo's Settings, select Branches.](../../media/quickstart-php/forked-php-docs-hello-world-repo-settings-branches.png)
 
-1. Select **Rename branch**.
+3. Under **Default branch**, to the right of `master`, select the **Rename branch** button represented by a pencil icon.
+
+ ![In GitHub, in the forked php-docs-hello-world repo's Settings, select Branches.](../../media/quickstart-php/forked-php-docs-hello-world-repo-settings-branches-edit.png)
+
+4. In the **Rename this branch** pop-up, enter `main`.
+
+ ![In GitHub, in the forked php-docs-hello-world repo's Settings, select Branches.](../../media/quickstart-php/forked-php-docs-hello-world-repo-rename-this-branch.png)
+
+5. Select **Rename branch**.
 
 > [!TIP]
 > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main`, this quickstart also shows you how to deploy a repository from `main`.
@@ -52,33 +62,46 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ### Create Azure resources
 
-1. Type **app services** in the search. Under **Services**, select **App Services**.
+1. At the top of the portal, type **app services** in the search box. Under **Services**, select **App Services**.
 
-<!-- TODO: screenshot here -->
+ ![In the Azure portal, search for app services. Then select App Services.](../../media/quickstart-php/azure-portal-search-for-app-services.png)
 
-1. In the **App Services** page, select **Create**.
+1. On the **App Services** page, select **Create**.
 
-1. In the **Basics** tab, under **Project details**, ensure the correct subscription is selected and then select to **Create new** resource group. Type *myResourceGroup* for the name.
+ ![In the Azure portal, on the App Services page, select Create from the actions bar.](../../media/quickstart-php/azure-portal-create-app-service.png)
 
-<!-- TODO: screenshot here -->
+2. In the **Basics** tab, under **Project details**, ensure the correct subscription is selected and then select to **Create new** resource group. Type *myResourceGroup* for the name. Then, select **OK**.
 
-1. Under **Instance details**, type a globally unique name for your web app and select **Code**. Select *PHP 8.0* **Runtime stack**, *Linux* **Operating System**, and a **Region** you want to serve your app from.
+ ![On the Create Web App screen, on the Basics tab, in the Project Details section, for Resource group, select the 'Create new' link and add a group named 'myResourceGroup'.](../../media/quickstart-php/azure-portal-create-app-service-create-resource-group.png)
 
-<!-- TODO: screenshot here -->
+1. Under **Instance details**, set the following settings:
+   - **Name**: Type a globally unique name for your web app. 
+   - **Publish**: Select *Code*.
+   - **Runtime stack**: Select *PHP 8.0*. 
+   - **Operating system**: Select *Linux*.
+   - **Region**: Select the region you want to serve your app from.
 
-1. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change to the Free tier, select **Change size**, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
+ ![On the Create Web App screen, on the Basics tab, in the Instance Details section, use a globally unique name. Select the options for Publish, Runtime stack, Operating system, and region.](../../media/quickstart-php/azure-portal-create-app-service-instance-details-php8.png)
 
-<!-- TODO: screenshot here -->
+2. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. Then select **OK**.
+
+ ![On the Create Web App screen, on the Basics tab, in the App Service Plan section, select the 'Create new' link. Enter myAppServicePlan in the textbox.](../../media/quickstart-php/azure-portal-create-app-service-create-app-service-plan.png)   
+
+3.  To change to the Free tier, next to **Sku and size**, select **Change size**. 
+   
+4.  In the Spec Picker, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
+
+ ![On the Create Web App screen, on the Basics tab, in the App Service Plan section, select the 'Create new' link. Enter myAppServicePlan in the textbox.](../../media/quickstart-php/azure-portal-create-app-service-select-free-tier.png)   
+
     
 1. Select the **Review + create** button at the bottom of the page.
 
-<!-- TODO: screenshot here -->
+ ![On the Create Web App screen, on the Basics tab, in the App Service Plan section, select the 'Create new' link. Enter myAppServicePlan in the textbox.](../../media/quickstart-php/azure-portal-create-app-service-review-create.png)   
+
 
 1. After validation runs, select the **Create** button at the bottom of the page.
 
 1. After deployment is complete, select **Go to resource**.
-
-<!-- TODO: screenshot here -->
 
 ### Set up continuous deployment
 
@@ -86,16 +109,20 @@ This step will set up continuous deployment using GitHub actions.
 
 1. In the Azure portal, navigate to the app service.
    
-1. Select **Deployment Center**.
+1. From the navigation, select **Deployment Center**.
 
-1. Under **Settings**, select a **Source**. For this quickstart, select `GitHub`.
+![On the App Service resource, under the Deployment section of navigation, select Deployment Center.](../../media/quickstart-php/azure-portal-configure-app-service-deployment-center.png)  
 
-1. In the section under **GitHub**, select the following settings:
-    - Organization: Select the respective organization.
+2. Under **Settings**, select a **Source**. For this quickstart, select `GitHub`.
+
+3. In the section under **GitHub**, select the following settings:
+    - Organization: Select your organization.
     - Repository: Select `php-docs-hello-world`.
     - Branch: Select `main`.
 
-1. Select **Save**.
+4. Select **Save**.
+
+![Verify organization, repository, and branch settings. Then select Save from the actions bar.](../../media/quickstart-php/azure-portal-configure-app-service-github-integration.png)  
 
 > [!TIP]
 > This quickstart uses GitHub. Additional continuous deployment sources include Bitbucket, Local Git, Azure Repos, and External Git. FTPS is also a supported deployment method.
@@ -103,15 +130,18 @@ This step will set up continuous deployment using GitHub actions.
    
 ### Browse to the app
 
-Browse to the deployed application using your web browser.
+Browse to the deployed application using your web browser. From the Deployment Center screen, navigate to **Overview**.
 
-```
-http://<app-name>.azurewebsites.net
-```
+![On the App Service resource, on the Deployment Center, Overview is highlighted in the navigation window.](../../media/quickstart-php/azure-portal-navigate-to-overview-from-deployment-center.png)  
+
+On the Overview, select the link under **URL**.
+
+![On the App Service resource, on the Overview, the URL is highlighted.](../../media/quickstart-php/azure-portal-app-service-url.png)  
+
 
 The PHP sample code is running in an Azure App Service Linux web app.
 
-![Sample app running in Azure](../../media/quickstart-php/hello-world-in-browser.png)
+![Sample app running in Azure](../../media/quickstart-php/php8-hello-world-in-browser.png)
 
 **Congratulations!** You've deployed your first PHP app to App Service using the Azure portal.
 
@@ -124,35 +154,39 @@ The PHP sample code is running in an Azure App Service Linux web app.
     > [!NOTE]
     > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
 
-1. Edit index.php so that it shows "Hello Azure!" instead of "Hello World!"
+1. Edit **index.php** so that it shows "Hello Azure!" instead of "Hello World!"
 
     ```php
     <?php
-        echo "Hello World!";
+        echo "Hello Azure!";
     ?>
     ```
 
-1. From the Source Control menu, select the Stage Changes button to stage the change.
+1. From the **Source Control** menu, select the **Stage Changes** button to stage the change.
 
-1. Enter a commit message such as `"Hello Azure"`. Then, select Commit and Push.
+    ![On the App Service resource, on the Overview, the URL is highlighted.](../../media/quickstart-php/vscode-in-browser-stage-changes.png)
+
+1. Enter a commit message such as `"Hello Azure"`. Then, select **Commit and Push**.
+    
+    ![On the App Service resource, on the Overview, the URL is highlighted.](../../media/quickstart-php/vscode-in-browser-commit-push.png)
 
 1. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
-    ![Updated sample app running in Azure](../../media/quickstart-php/hello-azure-in-browser.png)
+    ![Updated sample app running in Azure](../../media/quickstart-php/php8-hello-azure-in-browser.png)
 
 ## Manage your new Azure app
 
 1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created. Search for and select **App Services**.
 
-    ![Search for App Services, Azure portal, create PHP web app](../../media/quickstart-php/navigate-to-app-services-in-the-azure-portal.png)
+    ![In the Azure portal, search for app services. Then select App Services.](../../media/quickstart-php/azure-portal-search-for-app-services.png)
 
 2. Select the name of your Azure app.
 
-    ![Portal navigation to Azure app](../../media/quickstart-php/php-docs-hello-world-app-service-list.png)
+    ![Portal navigation to Azure app](../../media/quickstart-php/php8-docs-hello-world-app-service-list.png)
 
     Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
 
-    ![App Service page in Azure portal](../../media/quickstart-php/php-docs-hello-world-app-service-detail.png)
+    ![App Service page in Azure portal](../../media/quickstart-php/php8-docs-hello-world-app-service-detail.png)
 
     The web app menu provides different options for configuring your app.
 
@@ -162,17 +196,4 @@ When you're finished with the sample app, you can remove all of the resources fo
 
 1. From your App Service **Overview** page, select the resource group you created in the [Create Azure resources](#create-azure-resources) step.
 
-<!-- TODO: Screenshot here -->
-
 1. From the resource group page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
-
-<!-- TODO: Screenshot here -->
-
-1. Navigate to your fork repository.
-
-1. Select **Settings**.
-
-1. All the way at the bottom, in the section labeled **Danger Zone**, select **Delete this repository**.
-
-1. Read the dialog and follow its instructions on deleting the repository.
-
