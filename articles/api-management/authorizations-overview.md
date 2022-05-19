@@ -29,7 +29,7 @@ The feature consists of two parts, management and runtime:
 
 * The **management** part takes care of configuring identity providers, enabling the consent flow for the identity provider, and managing access to the authorizations.
 
-* The **runtime** part is using the [`get-authorization-context`](api-management-access-restriction-policies.md#GetAuthorizationContext) policy to fetch and store authorization and refresh tokens. When a call comes into API Management and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, the refresh token is used to try to fetch a new authorization and refresh token from the configured identity provider. If the call to the backend provider is successful, the new authorization token will be used and both the authorization token and refresh token will be stored encrypted.
+* The **runtime** part is using the [`get-authorization-context`](api-management-access-restriction-policies.md#GetAuthorizationContext) policy to fetch and store access and refresh tokens. When a call comes into API Management and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, the refresh token is used to try to fetch a new authorization and refresh token from the configured identity provider. If the call to the backend provider is successful, the new authorization token will be used and both the authorization token and refresh token will be stored encrypted.
 
     During the policy execution, the access to the tokens is also validated using access policies.
 
@@ -65,7 +65,7 @@ The following identity providers are supported for public preview:
 
 - Azure AD, DropBox, Generic OAuth 2, GitHub, Google, LinkedIn, Spotify
 
-With the Generic OAuth 2 provider, other identity providers that support the standards of OAuth 2.0 flow can be used.
+With Generic OAuth 2, other identity providers that support the standards of OAuth 2.0 flow can be used.
 
 ### Authorizations
 
@@ -73,11 +73,11 @@ To use an authorization provider, at least one *authorization* is required. Depe
 
 **Authorization code grant type**
 
-Authorization code grant type is bound to a user context, which means that a user needs to consent to the authorization. As long as the refresh token is valid, API Management can retrieve new access and refresh tokens. If the refresh token becomes invalid, the user needs to reauthorize. All identity providers support authorization code. [Read more about Authorization code grant type](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.1) 
+Authorization code grant type is bound to a user context, which means that a user needs to consent to the authorization. As long as the refresh token is valid, API Management can retrieve new access and refresh tokens. If the refresh token becomes invalid, the user needs to re-authorize. All identity providers support authorization code. [Read more about Authorization code grant type](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.1). 
 
 **Client credentials grant type**
 
-Client credentials grant type isn't bound to a user and is often used in application-to-application scenarios. No consent is required for client credentials grant type, and the authorization doesn’t become invalid.  [Read more about Client Credentials grant type](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.4)
+Client credentials grant type isn't bound to a user and is often used in application-to-application scenarios. No consent is required for client credentials grant type, and the authorization doesn’t become invalid. [Read more about Client Credentials grant type](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.4).
 
 ### Access policies
 Access policies determine which identities can use the authorization that the access policy is related to. The supported identities are managed identities, user identities and service principals. The identities must belong to the same tenant as the API Management tenant.  
@@ -88,7 +88,7 @@ Access policies determine which identities can use the authorization that the ac
 
 ### Process flow for creating authorizations
 
-The following image shows the process flow for creating an authorization in API Management using the grant type authorization code. For public preview no API documentation is available please see [this](https://github.com/Azure/APIManagement-Authorizations) GitHub repository with samples.
+The following image shows the process flow for creating an authorization in API Management using the grant type authorization code.
 
 :::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Process flow for creating authorizations" border="false":::
 
@@ -158,7 +158,7 @@ All underlying authorizations and access policies are also deleted.
 
 ##### Are the access tokens cached by API Management?
 
-The access tokens are cached for 15 seconds by API Management.
+The access token is cached by the API management until 3 minutes before the token expiration time.
 
 ##### What grant types are supported?
 
