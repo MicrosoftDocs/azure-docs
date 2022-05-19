@@ -1,16 +1,16 @@
 ---
-title: Definitions used in conversational language understanding
+title: Definitions used in orchestration workflow
 titleSuffix: Azure Cognitive Services
-description: Learn about definitions used in conversational language understanding.
+description: Learn about definitions used in orchestration workflow.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/19/2022
 ms.author: aahi
-ms.custom: language-service-custom-classification, ignite-fall-2021
+ms.custom: language-service-orchestration
 ---
 
 # Terms and definitions used in orchestration workflow 

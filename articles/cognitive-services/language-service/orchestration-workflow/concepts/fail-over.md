@@ -7,10 +7,10 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/19/2022
 ms.author: aahi
-ms.custom: language-service-clu
+ms.custom:  language-service-orchestration
 ---
 
 # Back up and recover your orchestration workflow models

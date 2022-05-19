@@ -1,7 +1,7 @@
 ---
-title: conversational language understanding data formats
+title: orchestration workflow data formats
 titleSuffix: Azure Cognitive Services
-description: Learn about the data formats accepted by conversational language understanding.
+description: Learn about the data formats accepted by orchestration workflow.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 05/19/2022
 ms.author: aahi
-ms.custom: language-service-custom-clu, ignite-fall-2021
+ms.custom:  language-service-orchestration
 ---
 
 # Data formats accepted by orchestration workflow

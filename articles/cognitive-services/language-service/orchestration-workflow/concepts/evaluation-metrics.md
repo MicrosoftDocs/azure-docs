@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/19/2022
 ms.author: aahi
 ms.custom: language-service-orchestration
@@ -15,7 +15,7 @@ ms.custom: language-service-orchestration
 
 # Evaluation metrics for orchestration workflow models
 
-Your [dataset is split](../how-to/train-model.md#data-splitting) into two parts: a set for training, and a set for testing. The training set is used to train the model, while the testing set is used as a test for model after training to calculate the model performance and evaluation. The testing set isn't introduced to the model through the training process, to make sure that the model is tested on new data.
+Your dataset is split into two parts: a set for training, and a set for testing. The training set is used to train the model, while the testing set is used as a test for model after training to calculate the model performance and evaluation. The testing set isn't introduced to the model through the training process, to make sure that the model is tested on new data. <!--See [data splitting](../how-to/train-model.md#data-splitting) for more information-->
 
 Model evaluation is triggered automatically after training is completed successfully. The evaluation process starts by using the trained model to predict user defined intents for utterances in the test set, and compares them with the provided tags (which establishes a baseline of truth). The results are returned so you can review the model’s performance. For evaluation, orchestration workflow uses the following metrics:
 
@@ -68,7 +68,7 @@ The model could make the following predictions:
 
 **Recall** = `#True_Positive / (#True_Positive + #False_Negatives) = 1 / (1 + 1) = 0.5`
 
-**F1 Score** = `2 * Precision * Recall / (Precision + Recall) =  (2 * 0.5 * 0.5) / (0.5 + 0.5) = 0.5 `
+**F1 Score** = `2 * Precision * Recall / (Precision + Recall) =  (2 * 0.5 * 0.5) / (0.5 + 0.5) = 0.5`
 
 ### Intent level evaluation for *Greeting* intent
 
@@ -82,7 +82,7 @@ The model could make the following predictions:
 
 **Recall** = `#True_Positive / (#True_Positive + #False_Negatives) = 1 / (1 + 1) = 0.5`
 
-**F1 Score** = `2 * Precision * Recall / (Precision + Recall) =  (2 * 0.5 * 0.5) / (0.5 + 0.5) = 0.5 `
+**F1 Score** = `2 * Precision * Recall / (Precision + Recall) =  (2 * 0.5 * 0.5) / (0.5 + 0.5) = 0.5`
 
 
 ### Model-level evaluation for the collective model
