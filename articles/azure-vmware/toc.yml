@@ -106,15 +106,15 @@
     href: configure-identity-source-vcenter.md
   - name: Configure GitHub Enterprise Server
     href: configure-github-enterprise-server.md
-    - name: Configure Internet connectivity
-     items:
+  - name: Configure Internet connectivity
+    items:
     - name: Enable Managed SNAT for Azure VMware Solution Workloads
       href: enable-managed-snat-for-avs-workloads.md
     - name: Enable Public IP to the NSX Edge for Azure VMware Solution
       href: enable-public-ip-to-the-nsx-edge.md
     - name: Disable Internet access or enable a default route
       href: disable-internet-access.md
-   - name: Configure networking
+  - name: Configure networking
      items:
     - name: Configure DHCP server or relay
       href: configure-dhcp-azure-vmware-solution.md

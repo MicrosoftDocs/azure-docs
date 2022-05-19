@@ -136,8 +136,6 @@ landingContent:
             url: configure-dns-azure-vmware-solution.md
           - text: Configure port mirroring 
             url: configure-port-mirroring-azure-vmware-solution.md
-          - text: Enable Public IP to the NSX Edge for Azure VMware Solution
-            url: enable-public-ip-to-the-nsx-edge.md
           - text: Enable public internet access
             url: enable-public-internet-access.md
           - text: Configure a site-to-site VPN in vWAN
