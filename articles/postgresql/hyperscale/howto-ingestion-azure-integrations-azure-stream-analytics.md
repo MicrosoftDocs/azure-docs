@@ -46,15 +46,15 @@ Before we begin, it is assumed that you already have Azure IOT Hub provisioned a
 
 ![Diagram of create ASA](../media/howto-ingestion/02-ASA-create.png)
 
-5.    **Configure Job Input**
-    * Once the resource deployment is complete, navigate to your Stream Analytics job. 
-    * Select **Inputs** > **Add Stream input** > **IoT Hub**.
-    * Fill out the IoT Hub page with the following values:
-    * **Input alias** - Name to identify the job's input.
-    * **Subscription** - Select the Azure subscription that has the IOT Hub account you created.
-    * **IoT Hub** – Select the name of the IoT Hub you have already created.
-    * Leave other options to default values and select **Save** to save the settings.
-    * Once the input stream is added, you can also verify/download the dataset flowing in. Below is the data for sample event in our use case:
+5. **Configure Job Input**
+   * Once the resource deployment is complete, navigate to your Stream Analytics job. 
+   * Select **Inputs** > **Add Stream input** > **IoT Hub**.
+   * Fill out the IoT Hub page with the following values:
+   * **Input alias** - Name to identify the job's input.
+   * **Subscription** - Select the Azure subscription that has the IOT Hub account you created.
+   * **IoT Hub** – Select the name of the IoT Hub you have already created.
+   * Leave other options to default values and select **Save** to save the settings.
+   * Once the input stream is added, you can also verify/download the dataset flowing in. Below is the data for sample event in our use case:
 
 ```json
 {
