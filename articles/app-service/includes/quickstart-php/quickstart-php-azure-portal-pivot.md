@@ -25,7 +25,7 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 3. On the **Create a new fork** screen, confirm the **Owner** and **Repository name** fields. Select **Create fork**.
 
-    ![In GitHub, in the Azure-Samples/php-docs-hello-world repo, select Fork.](../../media/quickstart-php/fork-details-php-docs-hello-world-repo.png)
+    ![In GitHub, in the Azure-Samples/php-docs-hello-world repo, on the Create a new fork screen, confirm the details for the Owner and Repository name fields.](../../media/quickstart-php/fork-details-php-docs-hello-world-repo.png)
 
     >[!NOTE]
     > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/php-docs-hello-world
