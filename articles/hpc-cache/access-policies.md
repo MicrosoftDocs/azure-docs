@@ -22,7 +22,7 @@ If you don't need fine-grained control over storage target access, you can use t
 
 ## Create a client access policy
 
-Use the **Client access policies** page in the Azure portal to create and manage policies. <!-- is there AZ CLI for this? -->
+Use the **Client access policies** page in the Azure portal to create and manage policies. <!-- is there AZ CLI for this yet? -->
 
 [![screenshot of client access policies page. Several policies are defined, and some are expanded to show their rules](media/policies-overview.png)](media/policies-overview.png#lightbox)
 
