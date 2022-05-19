@@ -316,7 +316,7 @@ dfToReadFromTable = (spark.read
                      # Set user's password to the database
                      .option(Constants.PASSWORD, "<user_password>")
                      # Set name of the data source definition that is defined with database scoped credentials.
-                     # https://docs.microsoft.com/en-us/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+                     # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
                      # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
                      .option(Constants.DATA_SOURCE, "<data_source_name>")
                      # Three-part table name from where data will be read.
@@ -460,7 +460,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
  # to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
  .option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net")
  # Set name of the data source definition that is defined with database scoped credentials.
- # https://docs.microsoft.com/en-us/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+ # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
  .option(Constants.DATA_SOURCE, "<data_source_name>")
  # Choose a save mode that is apt for your use case.
  # Options for save modes are "error" or "errorifexists" (default), "overwrite", "append", "ignore".    
@@ -553,7 +553,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
  # Set user's password to the database
  .option(Constants.PASSWORD, "<user_password>")
  # Set name of the data source with database scoped credentials for external table.
- # https://docs.microsoft.com/en-us/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+ # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
  .option(Constants.DATA_SOURCE, "<data_source_name>")
  # For Basic Auth, need the storage account key for the storage account where the data will be staged
  .option(Constants.STAGING_STORAGE_ACCOUNT_KEY,"<storage_account_key>")
@@ -704,15 +704,15 @@ Spark DataFrame's `createOrReplaceTempView` can be used to access data fetched i
         spark.sql("select * from <temporary_view_name>").show()
     ```
 
-## Response handling
+### Response handling
 
 Invoking `synapsesql` has two possible end states - Success or a Failed State. This section describes how to handle the request response for each scenario.
 
-### Read request response
+#### Read request response
 
 Upon completion, the read response snippet is displayed in the cell's output. Failure in the current cell will also cancel subsequent cell executions. Detailed error information is available in the Spark Application Logs.
 
-### Write request response
+#### Write request response
 
 By default, a write response is printed to the cell output. On failure, the current cell is marked as failed, and subsequent cell executions will be aborted. The other approach is to pass the [callback handle](#write-request-callback-handle) option to the `synapsesql` method. The callback handle will provide programmatic access to the write response.
 
