@@ -479,6 +479,17 @@ Input bindings simplify code that reads data. For this example, the queue messag
    using System.IO;
    ```
 
+1. In **Program.cs**, in the `ConfigureWebJobs` extension method, add the `AddAzureStorageBlobs` method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance (before the `Build` command) to initialize the Storage extension. At this point, the `ConfigureWebJobs` method looks like this:
+
+    ```cs
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddAzureStorageQueues();
+        b.AddAzureStorageBlobs();
+    });
+    ``` 
+
 1. Create a blob container in your storage account.
 
    a. In the Azure portal, navigate to the **Containers** tab below **Data storage** and select **+ Container**
@@ -495,13 +506,13 @@ Input bindings simplify code that reads data. For this example, the queue messag
 
    c. Find and select *Program.cs*, and then select **OK**.
 
-1. Temporarily **Stop** the App Service instance you created, so that the Azure WebJob does not consume the queue message before the local one.
-
-    ![This image shows how to stop the App Service instance.](./media/webjobs-sdk-get-started/stop-app-service.png)
+1. Publish the Web Job to the App Service instance.
 
 1. Create a queue message in the queue you created earlier, with *Program.cs* as the text of the message.
 
    ![Queue message Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
+
+TODO: Resolve local vs. Azure deployment conflict, given that the Azure Web Job will consume the message before the local Web Job
 
 1. Run the project locally.
 
