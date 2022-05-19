@@ -54,7 +54,8 @@ Before we begin, it is assumed that you already have Azure IOT Hub provisioned a
    * **Subscription** - Select the Azure subscription that has the IOT Hub account you created.
    * **IoT Hub** – Select the name of the IoT Hub you have already created.
    * Leave other options to default values and select **Save** to save the settings.
-   * Once the input stream is added, you can also verify/download the dataset flowing in. Below is the data for sample event in our use case:
+   * Once the input stream is added, you can also verify/download the dataset flowing in. 
+   * Below is the data for sample event in our use case:
 
 ```json
 {
@@ -77,7 +78,7 @@ Before we begin, it is assumed that you already have Azure IOT Hub provisioned a
 ![Diagram of configuring job input in ASA](../media/howto-ingestion/03-ASA-input.png)
 
 
-6.    **Configure Job Output**
+6. **Configure Job Output**
     *    Navigate to the Stream Analytics job that you created earlier.
     *    Select **Outputs** > **Add** > **Azure PostgreSQL**.
     *    Fill out the **Azure PostgreSQL** page with the following values:
