@@ -75,6 +75,7 @@ Follow these steps to install the Speech CLI in a Docker container:
    ```console   
    docker pull msftspeech/spx
    ```
+
 Enter this command to display help information for the Speech CLI:
 
 ```console 
@@ -131,6 +132,15 @@ For more extended interaction with the command-line tool, you can start a contai
 ```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
+
+You can combine that with AZ Login and have SPX Init guide you through creating the speech keys and selecting a matching data region without having to use the azure web portal.  The keys will be automatically stored for later use
+
+   ```
+   docker run -it --rm --entrypoint /bin/bash -v c:\spx-data:/data msftspeech/spx
+
+   az login
+   spx init
+   ```
 
 <!-- Need to troubleshoot issues with docker pull image
 
