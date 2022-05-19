@@ -16,7 +16,7 @@ ms.author: banders
 
 As a Global Administrator in Azure Active Directory (Azure AD), you might not have access to all billing accounts in your directory. This article describes the ways that you can elevate your access to all billing accounts.
 
-Elevating your access to manage all billing accounts gives you the ability to view and manage cost and billing for your accounts. You can view invoices, charges, and products that are purchased and the users that have access to the billing accounts. If you want to elevate your access to manage subscriptions, management groups, and resources, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md#elevate-access-to-manage-all-azure-subscriptions-and-management-groups).
+Elevating your access to manage all billing accounts gives you the ability to view and manage cost and billing for your accounts. You can view invoices, charges, products that are purchased, and the users that have access to the billing accounts. If you want to elevate your access to manage subscriptions, management groups, and resources, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md#elevate-access-to-manage-all-azure-subscriptions-and-management-groups).
 
 > [!NOTE]
 > Elevated access only works for Microsoft Customer Agreement (MCA) and Microsoft Partner Agreement (MPA) billing account types. As a Global Administrator you can't elevate your access to manage billing accounts for Enterprise Agreement (EA) and Microsoft Online Service Program (MOSP) types. To learn more about billing accounts, see [Billing accounts and scopes in the Azure portal](view-all-accounts.md).
@@ -57,7 +57,7 @@ All Global Administrators in Azure Active Directory (Azure AD) get read-only acc
 
 You can use the [Azure Billing](/rest/api/billing/) APIs to programmatically elevate yourself to manage all billing accounts in your directory.
 
-## Find all billing accounts in your directory
+### Find all billing accounts in your directory
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?includeAllOrgs=true&api-version=2020-05-01
@@ -119,7 +119,7 @@ The API response returns a list of billing accounts in your directory.
 
 Use the `displayName` property of the billing account to identify the billing account for which you want to elevate your access. Copy the `name` of the billing account. For example, if you want to elevate yourself as owner on the **Connie Wilson** billing account, you'd copy `6e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
 
-## Get definitions of roles available for your billing account
+### Get definitions of roles available for your billing account
 
 Make the following request, replacing `<billingAccountName>` with the `name` copied in the first step (`6e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx`).
 
@@ -193,7 +193,7 @@ The API response returns list of roles available to your billing account.
 
 Use the `roleName` property to identify the owner role definition. Copy the `name` of the role definition. For example, from the above API response, you'd copy `50000000-aaaa-bbbb-cccc-100000000000`. Paste this value somewhere so that you can use it in the next step.
 
-## Add yourself as an owner
+### Add yourself as an owner
 
 Make the following request, replacing `<billingAccountName>` with the `name` copied in the first step (`6e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx`).
 
@@ -201,15 +201,10 @@ Make the following request, replacing `<billingAccountName>` with the `name` cop
 PUT  https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountName>/createBillingRoleAssignment?api-version=2020-05-01
 ```
 
-### Request body
+#### Request body
 
 To add yourself as an owner, you need to get your object ID. You can find the object ID either in the Users page of the Azure Active Directory section in the Azure portal or your can use the [Microsoft Graph API](/graph/api/resources/users?view=graph-rest-1.0&preserve-view=true) to get the object ID.
 
-Make the following request, replacing `<billingAccountName>` with the `name` copied in the first step (`6e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx`).
-
-```json
-POST  https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountName>/createBillingRoleAssignment?api-version=2020-05-01
-```
 
 In the request body, replace `<roleDefinitionName>` with the `name` copied from Step 2. Replace `<principalId>` with the object ID that you got either from the Azure portal or through the Microsoft Graph API.
 
@@ -219,6 +214,8 @@ In the request body, replace `<roleDefinitionName>` with the `name` copied from 
 	    "roleDefinitionId": "<roleDefinitionName>"
 }
 ```
+
+---
 
 ## Need help? Contact support
 
