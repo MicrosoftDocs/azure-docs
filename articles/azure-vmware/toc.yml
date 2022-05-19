@@ -106,8 +106,7 @@
     href: configure-identity-source-vcenter.md
   - name: Configure GitHub Enterprise Server
     href: configure-github-enterprise-server.md
- 
-   - name: Configure Internet connectivity
+    - name: Configure Internet connectivity
      items:
     - name: Enable Managed SNAT for Azure VMware Solution Workloads
       href: enable-managed-snat-for-avs-workloads.md
