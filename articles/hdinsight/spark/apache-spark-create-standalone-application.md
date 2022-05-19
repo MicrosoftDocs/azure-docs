@@ -43,15 +43,15 @@ Do the following steps to install the Scala plugin:
 
 1. On the welcome screen, navigate to **Configure** > **Plugins** to open the **Plugins** window.
 
-   ![IntelliJ1.](media/apache-spark-create-standalone-application/spark1.png)
+   ![Screenshot showing IntelliJ Welcome Screen.](media/apache-spark-create-standalone-application/spark1.png)
 
 1. Select **Install** for Azure Toolkit for IntelliJ.
 
-   ![IntelliJ2.](media/apache-spark-create-standalone-application/spark2.png)
+   ![Screenshot showing IntelliJ Azure Tool Kit.](media/apache-spark-create-standalone-application/spark2.png)
 
 1. Select **Install** for the Scala plugin that is featured in the new window.  
 
-   ![IntelliJ3.](media/apache-spark-create-standalone-application/spark3.png)
+   ![Screenshot showing IntelliJ Scala Plugin.](media/apache-spark-create-standalone-application/spark3.png)
 
 1. After the plugin installs successfully, you must restart the IDE.
 
@@ -68,7 +68,7 @@ Do the following steps to install the Scala plugin:
    * **Maven** for Scala project-creation wizard support.
    * **SBT** for managing the dependencies and building for the Scala project.
 
-   ![IntelliJ6.](media/apache-spark-create-standalone-application/spark6.png)
+   ![Screenshot showing create application.](media/apache-spark-create-standalone-application/spark6.png)
 
 1. Select **Next**.
 
