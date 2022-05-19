@@ -385,7 +385,7 @@ To execute a function in Azure from Visual Studio Code.
 
 You can also run your function from the **Azure: Functions** area by right-clicking (Ctrl-clicking on Mac) the function you want to run from your function app in your Azure subscription and choosing **Execute Function Now...**.
 
-When extensions run functions in Azure, they use your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
+When you run your functions in Azure from Visual Studio Code, the extension uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
 
 ### Run functions locally
 
