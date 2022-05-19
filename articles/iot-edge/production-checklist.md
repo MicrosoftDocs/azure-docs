@@ -232,6 +232,8 @@ Since the IP address of an IoT hub can change without notice, always use the FQD
 
 Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
 
+You can enable Dedicated Data Endpoints in your Azure Container registry to avoid wildcard whitelisting of the \*.blob.core.windows.net FQDN. For more information, see [Enable dedicated data endpoints](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-firewall-access-rules#enable-dedicated-data-endpoints).
+
 > [!NOTE]
 > To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  
 > For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
