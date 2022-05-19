@@ -3,7 +3,7 @@ title: Manage Azure DDoS Protection Standard using the Azure portal
 description: Learn how to use Azure DDoS Protection Standard to mitigate an attack.
 services: ddos-protection
 documentationcenter: na
-author: KumudD
+author: AbdullahBell
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.custom: mode-ui
 ms.date: 04/13/2022
-ms.author: kumud
+ms.author: abell
 
 ---
 

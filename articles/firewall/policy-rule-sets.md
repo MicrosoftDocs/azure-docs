@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/9/2021
+ms.date: 05/11/2022
 ms.author: victorh
 ---
 
@@ -30,7 +30,7 @@ Even though you can't delete the default rule collection groups nor modify their
 
 Rule collection groups contain one or multiple rule collections, which can be of type DNAT, network, or application. For example, you can group rules belonging to the same workloads or a VNet in a rule collection group. 
 
-Rule collection groups have a maximum size of 2 Mb. If you need more than 2 Mb, you can split the rules into multiple rule collection groups. A Firewall Policy can contain 50 rule collection groups.
+Rule collection groups have a maximum size of 2 MB. If you need more than 2 MB, you can split the rules into multiple rule collection groups. A Firewall Policy can contain 50 rule collection groups.
 
 
 ## Rule collections

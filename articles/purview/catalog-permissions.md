@@ -1,6 +1,6 @@
 ---
-title: Understand access and permissions
-description: This article gives an overview permission, access control, and collections in Microsoft Purview. Role-based access control is managed within Microsoft Purview itself, so this guide will cover the basics to secure your information.
+title: Understand access and permissions in the Microsoft Purview Data Map
+description: This article gives an overview permission, access control, and collections in the Microsoft Purview Data Map. Role-based access control is managed within the Microsoft Purview Data Map itself, so this guide will cover the basics to secure your information.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/09/2022
 ---
 
-# Access control in Microsoft Purview
+# Access control in the Microsoft Purview Data Map
 
-Microsoft Purview uses **Collections** to organize and manage access across its sources, assets, and other artifacts. This article describes collections and access management in your Microsoft Purview account.
+The Microsoft Purview Data Map uses **Collections** to organize and manage access across its sources, assets, and other artifacts. This article describes collections and access management in your Microsoft Purview Data Map.
 
 > [!IMPORTANT]
-> This article refers to permissions required for the Microsoft Purview governance portal. If you are looking for permissions information for the Microsoft Purview compliance center, follow [the article for permissions in the Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center-permissions).
+> This article refers to permissions required for the Microsoft Purview governance portal, and applications like the Microsoft Purview Data Map, Data Catalog, Data Estate Insights, etc. If you are looking for permissions information for the Microsoft Purview compliance center, follow [the article for permissions in the Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center-permissions).
 
 ## Collections
 

@@ -93,7 +93,7 @@ To create an Azure Front Door profile, see [create a Azure Front Door](create-fr
 
 ## Configure origin timeout
 
-Origin timeout is the amount of time Azure Front Door will wait until it consider the connection to origin has timed out. You can set this value on the overview page of the Azure Front Door profile. This value will be applied to all endpoints in the profile.
+Origin timeout is the amount of time Azure Front Door will wait until it considers the connection to origin has timed out. You can set this value on the overview page of the Azure Front Door profile. This value will be applied to all endpoints in the profile.
 
 :::image type="content" source="./media/how-to-configure-endpoints/origin-timeout.png" alt-text="Screenshot of the origin timeout settings on the overview page of the Azure Front Door profile.":::
 

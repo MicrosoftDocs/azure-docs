@@ -16,6 +16,5 @@ Changing your offer type may require a simple edit and republish, or it may requ
 |Contact Me | Trial | Republish the offer. |
 Contact Me | Transact | For SaaS offers, update the listing option and republish. For all other offer types, create a new offer. |
 |Trial | Transact | For SaaS offers, update the listing option and republish. For all other offer types, create a new offer. |
-|
 
 To add a Test Drive to any offer, republish the offer.
