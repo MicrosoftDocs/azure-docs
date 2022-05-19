@@ -369,6 +369,11 @@
             "source_path": "quickstart-provision-service-instance-enterprise.md",
             "redirect_url": "/azure/spring-cloud/quickstart-deploy-apps-enterprise",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "quickstart-setup-application-configuration-service-enterprise.md",
+            "redirect_url": "/azure/spring-cloud/quickstart-deploy-apps-enterprise",
+            "redirect_document_id": false
         }
     ]
 }

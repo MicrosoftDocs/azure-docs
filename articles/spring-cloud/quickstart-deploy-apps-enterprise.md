@@ -201,7 +201,7 @@ Use the following steps to configure Application Configuration Service.
        --uri "https://github.com/Azure-Samples/acme-fitness-store-config"
    ```
 
-1. Bind Applications to Application Configuration Service using the following commands:
+1. Bind applications to Application Configuration Service using the following commands:
 
    ```azurecli
    az spring application-configuration-service bind \

@@ -23,6 +23,10 @@ items:
       href: quickstart-setup-config-server.md
     - name: Build and deploy apps
       href: quickstart-deploy-apps.md
+    - name: Set up Log Analytics
+      href: quickstart-setup-log-analytics.md
+    - name: Use logs, metrics and tracing
+      href: quickstart-logs-metrics-tracing.md
   - name: Run apps on Enterprise tier
     items:
     - name: Introduction to Fitness Store sample
@@ -33,23 +37,14 @@ items:
       href: quickstart-configure-single-sign-on-enterprise.md
     - name: Integrate Azure Database for PostgreSQL and Azure Cache for Redis
       href: quickstart-integrate-azure-database-and-redis-enterprise.md
-    - name: Securely load application secrets using Key Vault
+    - name: Load application secrets using Key Vault
       href: quickstart-key-vault-enterprise.md
     - name: Monitor applications end-to-end
       href: quickstart-monitor-end-to-end-enterprise.md
-    - name: Set Request Rate Limits
+    - name: Set request rate limits
       href: quickstart-set-request-rate-limits-enterprise.md
     - name: Automate deployments
       href: quickstart-automate-deployments-github-actions-enterprise.md
-
-
-
-    - name: Use Application Configuration Service
-      href: quickstart-setup-application-configuration-service-enterprise.md
-  - name: Set up Log Analytics
-    href: quickstart-setup-log-analytics.md
-  - name: Use logs, metrics and tracing
-    href: quickstart-logs-metrics-tracing.md
   - name: Integrate with Azure Database for MySQL
     href: quickstart-integrate-azure-database-mysql.md
   - name: Provisioning
