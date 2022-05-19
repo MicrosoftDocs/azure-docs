@@ -209,7 +209,7 @@ You can use the following options for input data when invoking a batch endpoint:
 - Azure Machine Learning registered datasets - for more information, see [Create Azure Machine Learning datasets](how-to-train-with-datasets.md), which uses SDK v1.
 
     > [!NOTE]
-    > We strongly recommend using Cloud data (either public data URI or data path in datatore) or local data for batch inference. Existing V1 FileDataset works with batch endpoint, but it will be deprecated and replaced with V2 data assets as we add support for batch endpoint to enhance usability in the future. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
+    > We strongly recommend using Cloud data (either data path in datatore or public data URI) or local data for batch inference. Existing V1 FileDataset works with batch endpoint, but it will be deprecated and replaced with V2 data assets as we add full V2 data assets support for batch endpoint to enhance usability in the future. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
 
 For more information on supported input options, see [Batch scoring with batch endpoint](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-with-different-input-options).
 
