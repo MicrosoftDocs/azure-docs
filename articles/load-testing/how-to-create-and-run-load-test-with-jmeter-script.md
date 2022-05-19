@@ -110,15 +110,15 @@ To create a load test by using an existing Apache JMeter script:
 
 1. Go to your Azure Load Testing resource, select **Tests** from the left pane, and then select **+ Create new test**.
 
-    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-JMeter-script/create-new-test.png" alt-text="Screenshot that shows the Azure Load Testing page and the button for creating a new test." :::
+    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-jmeter-script/create-new-test.png" alt-text="Screenshot that shows the Azure Load Testing page and the button for creating a new test." :::
     
 1. On the **Basics** tab, enter the **Test name** and **Test description** information. Optionally, you can select the **Run test after creation** checkbox.
 
-    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-JMeter-script/create-new-test-basics.png" alt-text="Screenshot that shows the Basics tab for creating a test." :::
+    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-jmeter-script/create-new-test-basics.png" alt-text="Screenshot that shows the Basics tab for creating a test." :::
 
 1. On the **Test plan** tab, select your Apache JMeter script, and then select **Upload** to upload the file to Azure.
 
-    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-JMeter-script/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab." :::
+    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-jmeter-script/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab." :::
     
     > [!NOTE]
     > You can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
@@ -131,7 +131,7 @@ To create a load test by using an existing Apache JMeter script:
     |---------|---------|---------|
     |**Engine instances**     |**1**         |The number of parallel test engines that run the Apache JMeter script. |
     
-    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-JMeter-script/create-new-test-load.png" alt-text="Screenshot that shows the Load tab for creating a test." :::
+    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-jmeter-script/create-new-test-load.png" alt-text="Screenshot that shows the Load tab for creating a test." :::
 
 1. (Optional) On the **Test criteria** tab, configure criteria to determine when your load test should fail.
 
@@ -139,7 +139,7 @@ To create a load test by using an existing Apache JMeter script:
 
 1. Select **Review + create**. Review all settings, and then select **Create** to create the load test.
 
-    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-JMeter-script/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
+    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-jmeter-script/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
 
 > [!NOTE]
 > You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
@@ -150,11 +150,11 @@ In this section, you'll run the load test that you just created.
 
 1. Go to your Load Testing resource, select **Tests** from the left pane, and then select the test that you created.
 
-    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-JMeter-script/tests.png" alt-text="Screenshot that shows the list of load tests." :::
+    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-jmeter-script/tests.png" alt-text="Screenshot that shows the list of load tests." :::
 
 1. On the test details page, select **Run** or **Run test**. Then, select **Run** on the **Run test** confirmation pane to start the load test.
 
-    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-JMeter-script/run-test-confirm.png" alt-text="Screenshot that shows the run confirmation page." :::
+    :::image type="content" source="./media/how-to-create-and-run-loadtest-with-jmeter-script/run-test-confirm.png" alt-text="Screenshot that shows the run confirmation page." :::
 
     > [!TIP]
     > You can stop a load test at any time from the Azure portal.
