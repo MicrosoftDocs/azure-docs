@@ -58,7 +58,7 @@ The resulting Cosmos DB container will embed the inner query into a single docum
 
 8. Add another derived column and call it "MakeStruct". This is where we will create a hierarchical structure to hold the values from the details table. Remember, details is a ```M:1``` relation to header. Name the new structure ```orderdetailsstruct``` and create the hierarchy in this way, setting each subcolumn to the incoming column name:
 
-:::image type="content" source="media/data-flow/cosmosb9.png" alt-text="Create Structure":::
+:::image type="content" source="media/data-flow/cosmosdb-9.png" alt-text="Create Structure":::
 
 9. Now, let's go to the sales header source. Add a Join transformation. For the right-side select "MakeStruct". Leave it set to inner join and choose ```SalesOrderID``` for both sides of the join condition.
 
@@ -78,17 +78,17 @@ The resulting Cosmos DB container will embed the inner query into a single docum
 
 15. In the aggregate formula, add a new column called "details" and use this formula to collect the values in the structure that we created earlier called ```orderdetailsstruct```: ```collect(orderdetailsstruct)```.
 
-16. The aggregate transformation will only output columns that are part of aggregate or group by formulas. So, we need to include the columns from the sales header as well. To do that, add a column pattern in that same aggregate transformation. This pattern will include all other columns in the output:
+16. The aggregate transformation will only output columns that are part of aggregate or group by formulas. So, we need to include the columns from the sales header as well. To do that, add a column pattern in that same aggregate transformation. This pattern will include all other columns in the output, excluding the columns liste below (OrderQty, UnitPrice, SalesOrderID):
 
    `instr(name,'OrderQty')==0&&instr(name,'UnitPrice')==0&&instr(name,'SalesOrderID')==0`
 
-17. Use the "this" syntax in the other properties so that we maintain the same column names and use the ```first()``` function as an aggregate:
+17. Use the "this" syntax ($$) in the other properties so that we maintain the same column names and use the ```first()``` function as an aggregate. This tells ADF to keep the first matching value found:
 
 :::image type="content" source="media/data-flow/cosmosb6.png" alt-text="Aggregate":::
 
 18. We're ready to finish the migration flow by adding a sink transformation. Click "new" next to dataset and add a Cosmos DB dataset that points to your Cosmos DB database. For the collection, we'll call it "orders" and it will have no schema and no documents because it will be created on the fly.
 
-19. In Sink Settings, Partition Key to ```\SalesOrderID``` and collection action to "recreate". Make sure your mapping tab looks like this:
+19. In Sink Settings, Partition Key to ```/SalesOrderID``` and collection action to "recreate". Make sure your mapping tab looks like this:
 
 :::image type="content" source="media/data-flow/cosmosb7.png" alt-text="Screenshot shows the Mapping tab.":::
 
