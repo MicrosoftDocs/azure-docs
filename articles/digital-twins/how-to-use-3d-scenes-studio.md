@@ -296,8 +296,6 @@ The following chart indicates which [JavaScript operators](https://developer.moz
 
 You can create *layers* in your scene to help organize your [behaviors](#add-behaviors). Layers act like tags on the behaviors, enabling you to define which behaviors need to be seen together, thus creating custom views of your scene for different roles or tasks.
 
-If there are no layers in a scene, all of the behaviors will show up in the scene viewer. If there's at least one layer present in the scene, then only behaviors that are **tagged with a layer** will show up in the viewer.
-
 One way to create layers is to use the **Scene layers** button in the **Build** view for a scene.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/layers-start-button.png" alt-text="Screenshot of 3D Scenes Studio builder for a scene. The Scene layers button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/layers-start-button.png":::
@@ -307,6 +305,10 @@ Selecting **New layer** will prompt you to enter a name for the new layer you wa
 Alternatively, you can create layers while [creating or modifying a behavior](#name-and-scene-layers). The behavior pane is also where you can add the behavior to a layer you've already created.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/layers-start-behavior.png" alt-text="Screenshot of the Modify Behavior options in 3D Scenes Studio. A Scene layer is being selected." lightbox="media/how-to-use-3d-scenes-studio/layers-start-behavior.png":::
+
+When looking at your scene in the viewer, you can use the **Select layers** button to choose which layers show up in the visualization. Behaviors that aren't part of any layer are grouped under **Unlayered behaviors**.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/layers-select-viewer.png" alt-text="Screenshot of 3D Scenes Studio in View mode. The layer selection is highlighted." lightbox="media/how-to-use-3d-scenes-studio/layers-select-viewer.png":::
 
 ## Modify theme 
 
