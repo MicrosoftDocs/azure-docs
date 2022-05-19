@@ -25,15 +25,15 @@ Based on our experience, we recommend evaluating these areas:
 ## Compare SIEM terminology
 
 
-| ArcSight                                    | QRadar               | Splunk                 | Microsoft Sentinel                                                                                                                                          |
-|---------------------------------------------|----------------------|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Event                                       | Event                | Event                  | Event                                                                                                                                                       |
-| Correlation Event                           | Correlation Event    | Notable Event          | Alert                                                                                                                                                       |
-| Incident                                    | Offense              | Notable Event          | Incident                                                                                                                                                    |
-|                                             | List of offenses     | Tags                   | Incidents page                                                                                                                                              |
-| Labels                                      | Custom field in SOAR | Tags                   | Tags                                                                                                                                                        |
-|                                             | Jupyter Notebooks    | Jupyter Notebooks      | Microsoft Sentinel Notebooks                                                                                                                                |
-| Dashboards                                  | Dashboards           | Dashboards             | Workbooks                                                                                                                                                   |
-| Correlation rules                           | Building blocks      | Correlation rules      | Analytics rules                                                                                                                                             |
-| Automation Bit (Python or JavaScript-based) |                      | Python                 | Custom code embedded in function app (Learn about [Supported languages in Azure Functions](../azure-functions/supported-languages)), PowerShell |
-| Workflow playbook canvas                    |                      | Visual Playbook Editor | Logic App Designer                                                                                                                                          |  |
+| ArcSight | QRadar | Splunk | Microsoft Sentinel |
+|--|--|--|--|
+| Event | Event | Event | Event |
+| Correlation Event | Correlation Event | Notable Event | Alert |
+| Incident | Offense | Notable Event | Incident |
+|  | List of offenses | Tags | Incidents page |
+| Labels | Custom field in SOAR | Tags | Tags |
+|  | Jupyter Notebooks | Jupyter Notebooks | Microsoft Sentinel Notebooks |
+| Dashboards | Dashboards | Dashboards | Workbooks |
+| Correlation rules | Building blocks | Correlation rules | Analytics rules |
+| Automation Bit (Python or JavaScript-based) |  | Python | Custom code embedded in function app (Learn about [Supported languages in Azure Functions](../azure-functions/supported-languages.md), PowerShell |
+| Workflow playbook canvas |  | Visual Playbook Editor | Logic App Designer |
