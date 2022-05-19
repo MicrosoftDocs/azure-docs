@@ -2,7 +2,7 @@
 title: Integrate Azure Purview with Microsoft Defender for Cloud
 description: Learn how to integrate Azure Purview with Microsoft Defender for Cloud.
 ms.topic: reference
-ms.date: 04/27/2022
+ms.date: 05/19/2022
 ---
 
 # Integrate Azure Purview with Microsoft Defender for Cloud 
@@ -20,9 +20,9 @@ David explains the use case scenarios for this integration and how the data clas
 
 - [2:40](/shows/mdc-in-the-field/integrate-with-purview) - Integration with Microsoft Defender for Cloud
 
-- [3:48](/shows/mdc-in-the-field/integrate-with-purview) - How the integration with Azure Purview help to prioritize Recommendations in Microsoft Defender for Cloud
+- [3:48](/shows/mdc-in-the-field/integrate-with-purview) - How the integration with Azure Purview helps to prioritize Recommendations in Microsoft Defender for Cloud
 
-- [5:26](/shows/mdc-in-the-field/integrate-with-purview) - How the integration with Azure Purview help to prioritize Alerts in Microsoft Defender for Cloud
+- [5:26](/shows/mdc-in-the-field/integrate-with-purview) - How the integration with Azure Purview helps to prioritize Alerts in Microsoft Defender for Cloud
 
 - [8:54](/shows/mdc-in-the-field/integrate-with-purview) - Demonstration
 

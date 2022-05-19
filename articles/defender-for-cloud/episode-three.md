@@ -2,7 +2,7 @@
 title: Microsoft Defender for Containers
 description: Learn how about Microsoft Defender for Containers.
 ms.topic: reference
-ms.date: 05/10/2022
+ms.date: 05/19/2022
 ---
 
 # Microsoft Defender for Containers
@@ -46,4 +46,4 @@ Learn more about [Microsoft Defender for Containers](defender-for-containers-int
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Watch Episode 4](episode-four.md)
+> [Security posture management improvements](episode-four.md)

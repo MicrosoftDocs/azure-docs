@@ -2,7 +2,7 @@
 title: Microsoft Defender for Servers
 description: Learn all about Microsoft Defender for Servers from the product manager.
 ms.topic: reference
-ms.date: 05/11/2022
+ms.date: 05/19/2022
 ---
 
 # Microsoft Defender for Servers
@@ -46,4 +46,4 @@ Learn how to [Investigate weaknesses with Microsoft Defender for Endpoint's thre
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Watch Episode 6](episode-six.md)
+> [Lessons Learned from the Field](episode-six.md)

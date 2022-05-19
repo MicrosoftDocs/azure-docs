@@ -5,7 +5,7 @@ ms.topic: overview
 ms.author: elkrieger
 author: ElazarK
 ms.custom: mvc
-ms.date: 03/31/2022
+ms.date: 05/19/2022
 ---
 # What is Microsoft Defender for Cloud?
 
@@ -142,6 +142,16 @@ Use the advanced protection tiles in the [workload protections dashboard](worklo
 
 > [!TIP]
 > Microsoft Defender for IoT is a separate product. You'll find all the details in [Introducing Microsoft Defender for IoT](../defender-for-iot/overview.md).
+
+## Learn More
+
+If you would like to learn more about Defender for Cloud from a cybersecurity expert, check out [Lessons Learned from the Field](episode-six.md).
+
+You can also check out the following blogs:
+
+- [A new name for multi-cloud security: Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/a-new-name-for-multi-cloud-security-microsoft-defender-for-cloud/ba-p/2943020)
+- [Microsoft Defender for Cloud - Use cases](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-use-cases/ba-p/2953619)
+- [Microsoft Defender for Cloud PoC Series - Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-poc-series-microsoft-defender-for/ba-p/3064644)
 
 ## Next steps
 

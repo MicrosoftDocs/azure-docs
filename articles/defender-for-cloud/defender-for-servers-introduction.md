@@ -128,7 +128,13 @@ You can simulate alerts by downloading one of the following playbooks:
 
 ## Learn more
 
-If you would like to learn more from the product manager about Defender for Servers, check out [Microsoft Defender for Servers](episode-five.md).
+If you would like to learn more from the product manager about Defender for Servers, check out [Microsoft Defender for Servers](episode-five.md). You can also learn about the [Enhanced workload protection features in Defender for Servers](episode-twelve.md).
+
+You can also check out the following blogs:
+
+- [Security posture management and server protection for AWS and GCP are now generally available](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/security-posture-management-and-server-protection-for-aws-and/ba-p/3271388)
+
+- [Microsoft Defender for Cloud Server Monitoring Dashboard](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-server-monitoring-dashboard/ba-p/2869658)
 
 ## Next steps
 
