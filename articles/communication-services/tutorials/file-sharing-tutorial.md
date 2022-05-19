@@ -48,7 +48,7 @@ The UI Library Chat Composite supports file sharing by enabling developers to pa
 
 The diagram below shows a typical flow of a file sharing scenario for both upload and download. The section marked as `Client Managed` shows the building blocks that need to be implemented by developers.
 
-![Filesharing typical flow](./media/filesharing-typical-flow.png "Filesharing typical flow")
+![Filesharing typical flow](./media/filesharing-typical-flow.png "Diagram that shows the the file sharing typical flow.")
 
 ## Setup File Storage using Azure Blob
 
@@ -266,7 +266,7 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
     
 When an upload fails, the UI Library Chat Composite will display an error message. 
 
-![File Upload Error Bar](./media/file-too-big.png "File Upload Error Bar")
+![File Upload Error Bar](./media/file-too-big.png "Screenshot that shows the File Upload Error Bar.")
 
 Here is sample code showcasing how you can fail an upload due to a size validation error by changing the `fileUploadHandler` above.
 
@@ -313,7 +313,7 @@ const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
 
 Download errors will be displayed to users in an error bar on top of the Chat Composite.
 
-![File Download Error](./media/download-error.png "File Download Error")
+![File Download Error](./media/download-error.png "Screenshot that shows the File Download Error.")
 
 
 ## Clean up resources
