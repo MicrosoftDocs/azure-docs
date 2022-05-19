@@ -45,7 +45,7 @@ Set up a new project in an Azure subscription.
 
 
     > [!Note]
-    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](how-to-use-azure-migrate-with-private-endpoints.md#create-a-project-with-private-endpoint-connectivity) 
+    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity) 
 
 7. Select **Create**.
 

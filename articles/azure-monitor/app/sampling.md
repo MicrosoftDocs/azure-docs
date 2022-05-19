@@ -180,7 +180,7 @@ The above code will disable adaptive sampling. Follow the steps below to add sam
 Use extension methods of `TelemetryProcessorChainBuilder` as shown below to customize sampling behavior.
 
 > [!IMPORTANT]
-> If you use this method to configure sampling, please make sure to set the `aiOptions.EnableAdaptiveSampling` property to `false` when calling `AddApplicationInsightsTelemetry()`. After making this change, you then need to follow the instructions in the code block below **exactly** in order to re-enable adaptive sampling with your customizations in place. Failure to do so can result in excess data ingestion. Always test post changing sampling settings, and set an appropriate [daily data cap](pricing.md#set-the-daily-cap) to help control your costs.
+> If you use this method to configure sampling, please make sure to set the `aiOptions.EnableAdaptiveSampling` property to `false` when calling `AddApplicationInsightsTelemetry()`. After making this change, you then need to follow the instructions in the code block below **exactly** in order to re-enable adaptive sampling with your customizations in place. Failure to do so can result in excess data ingestion. Always test post changing sampling settings, and set an appropriate [daily data cap](../logs/daily-cap.md) to help control your costs.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility
@@ -444,7 +444,7 @@ In general, for most small and medium size applications you don't need sampling.
 The main advantages of sampling are:
 
 * Application Insights service drops ("throttles") data points when your app sends a very high rate of telemetry in a short time interval. Sampling reduces the likelihood that your application will see throttling occur.
-* To keep within the [quota](pricing.md) of data points for your pricing tier. 
+* To keep within the [quota](../logs/daily-cap.md) of data points for your pricing tier. 
 * To reduce network traffic from the collection of telemetry. 
 
 ### Which type of sampling should I use?
@@ -506,6 +506,9 @@ When the SDK **does** throttle the telemetry through sampling the `itemCount` is
 
 
 One caveat for this example is that App Insights SDK samples based on operation ID, meaning that an `operation_Id` is selected and **all** of the telemetry for that single operation are ingested and saved (not random individual records). This can also result in fluctuations based on application operation telemetry counts. If one operation has a higher amount of records and that operation is sampled it would show up as a spike in adjusted sample rates. For example if one operation produces 4000 telemetry records and the other operations only produce 1 to 3 telemetry records. The sampling based on `operation_Id` is done to enable an end-to-end view for failing operations. All telemetry for an operation can be reviewed, including exception details, to precisely diagnose application code errors.
+
+> [!WARNING]
+> A distributed operation's end-to-end view integrity may be impacted if any application in the distributed operation has turned on sampling. Different sampling decisions are made by each application in a distributed operation, so telemetry for one Operation ID may be saved by one application while other applications may decide to not sample the telemetry for that same Operation ID.
 
 As sampling rates increase log based queries accuracy decrease and are usually inflated. This only impacts the accuracy of log-based queries when sampling is enabled and the sample rates are in a higher range (~ 60%). The impact varies based on telemetry types, telemetry counts per operation as well as other factors.
 

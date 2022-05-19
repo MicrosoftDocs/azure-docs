@@ -8,10 +8,7 @@
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
-      "xref_query_tags": [
-        "/dotnet",
-        "/python"
-      ],
+      "xref_query_tags": ["/dotnet", "/python"],
       "open_to_public_contributors": true,
       "type_mapping": {
         "ZonePivotGroups": "Toc",
@@ -26,12 +23,8 @@
       "version": 0
     }
   ],
-  "notification_subscribers": [
-    "azure-docs-publish@microsoft.com"
-  ],
-  "sync_notification_subscribers": [
-    "angrobe_extended_dir@microsoft.com"
-  ],
+  "notification_subscribers": ["azure-docs-publish@microsoft.com"],
+  "sync_notification_subscribers": ["angrobe_extended_dir@microsoft.com"],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",
   "git_repository_branch_open_to_public_contributors": "main",
@@ -250,6 +243,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-functions-kafka-extension",
+      "url": "https://github.com/Azure/azure-functions-kafka-extension",
+      "branch": "dev",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-python-worker-extension",
       "url": "https://github.com/Azure-Samples/python-worker-extension-timer",
       "branch": "main",
@@ -439,6 +438,12 @@
       "path_to_root": "azureml-examples-main",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-march-cli-preview",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "march-cli-preview",
       "branch_mapping": {}
     },
     {
@@ -795,21 +800,33 @@
       "branch": "main",
       "branch_mapping": {}
     },
-    {  
+    {
       "path_to_root": "active-directory-b2c-msal-node-sign-in-sign-out-webapp",
       "url": "https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp",
       "branch": "main",
       "branch_mapping": {}
     },
-    {  
+    {
       "path_to_root": "active-directory-b2c-javascript-nodejs-webapi",
       "url": "https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi",
       "branch": "master",
       "branch_mapping": {}
     },
-    {  
+    {
+      "path_to_root": "ms-identity-b2c-javascript-spa",
+      "url": "https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
       "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-javascript-v2",
+      "url": "https://github.com/Azure-Samples/ms-identity-javascript-v2",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -854,17 +871,18 @@
       "url": "https://github.com/Azure/azure-webpubsub",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-sql-todo-sample",
+      "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
+      "branch": "docs-snippets",
+      "branch_mapping": {}
     }
+
   ],
   "branch_target_mapping": {
-    "live": [
-      "Publish",
-      "PDF"
-    ],
-    "main": [
-      "Publish",
-      "PDF"
-    ]
+    "live": ["Publish", "PDF"],
+    "main": ["Publish", "PDF"]
   },
   "need_generate_pdf_url_template": true,
   "targets": {
@@ -878,16 +896,15 @@
   "redirection_files": [
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
-    ".openpublishing.redirection.azure-sql.json",
+    ".openpublishing.redirection.azure-blob.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.iot-hub.json",
     ".openpublishing.redirection.key-vault.json",
-    ".openpublishing.redirection.media-services.json",
-    ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.sql-database.json",
+    ".openpublishing.redirection.security-benchmark.json",
     "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.azure-web-pubsub.json",
     ".openpublishing.redirection.azure-monitor.json",
@@ -924,6 +941,7 @@
     "articles/mysql/.openpublishing.redirection.mysql.json",
     "articles/container-apps/.openpublishing.redirection.container-apps.json",
     "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
-    "articles/load-testing/.openpublishing.redirection.azure-load-testing.json"
+    "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
+    "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json"
   ]
 }

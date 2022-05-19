@@ -60,7 +60,7 @@ All containers created inside a database with provisioned throughput must be cre
 
 If the workload on a logical partition consumes more than the throughput that's allocated to a specific logical partition, your operations are rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire database or retry the operations. For more information on partitioning, see [Logical partitions](partitioning-overview.md).
 
-Containers in a shared throughput database share the throughput (RU/s) allocated to that database. With standard (manual) provisioned throughput, you can have up to 25 containers with a minimum of 400 RU/s on the database. With autoscale provisioned throughput, you can have up to 25 containers in a database with autoscale max 4000 RU/s (scales between 400 - 4000 RU/s).
+Containers in a shared throughput database share the throughput (RU/s) allocated to that database. With standard (manual) provisioned throughput, you can have up to 25 containers with a minimum of 400 RU/s on the database. With autoscale provisioned throughput, you can have up to 25 containers in a database with autoscale minimum 1000 RU/s (scales between 100 - 1000 RU/s).
 
 > [!NOTE]
 > In February 2020, we introduced a change that allows you to have a maximum of 25 containers in a shared throughput database, which  better enables throughput sharing across the containers. After the first 25 containers, you can add more containers to the database only if they are [provisioned with dedicated throughput](#set-throughput-on-a-database-and-a-container), which is separate from the shared throughput of the database.<br>
@@ -143,8 +143,8 @@ This table shows a comparison between provisioning standard (manual) throughput 
 
 |**Parameter**  |**Standard (manual) throughput on a database**  |**Standard (manual) throughput on a container**|**Autoscale throughput on a database** | **Autoscale throughput on a container**|
 |---------|---------|---------|---------|---------|
-|Entry point (minimum RU/s) |400 RU/s. Can have up to 25 containers with no RU/s minimum per container.</li> |400| Autoscale between 400 - 4000 RU/s. Can have up to 25 containers with no RU/s minimum per container.</li> | Autoscale between 400 - 4000 RU/s.|
-|Minimum RU/s per container|--|400|--|Autoscale between 400 - 4000 RU/s|
+|Entry point (minimum RU/s) |400 RU/s. Can have up to 25 containers with no RU/s minimum per container.</li> |400| Autoscale between 100 - 1000 RU/s. Can have up to 25 containers with no RU/s minimum per container.</li> | Autoscale between 100 - 1000 RU/s.|
+|Minimum RU/s per container|--|400|--|Autoscale between 100 - 1000 RU/s|
 |Maximum RUs|Unlimited, on the database.|Unlimited, on the container.|Unlimited, on the database.|Unlimited, on the container.
 |RUs assigned or available to a specific container|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|
 |Maximum storage for a container|Unlimited.|Unlimited|Unlimited|Unlimited|

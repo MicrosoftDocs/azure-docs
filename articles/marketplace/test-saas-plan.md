@@ -16,8 +16,8 @@ This article explains how to test a software as a service (SaaS) offer in previe
 
 Here are some general guidelines to be aware of when you’re testing your offer.
 
-- If your SaaS offer supports metered billing using the commercial marketplace metering service, review and follow the testing best practices detailed in [Marketplace metered billing APIs](/partner-center-portal/saas-metered-billing.md).
-- Review and follow the testing instructions in [Implementing a webhook on the SaaS service](/partner-center-portal/pc-saas-fulfillment-webhook#development-and-testing.md) to ensure your offer is successfully integrated with the APIs.
+- If your SaaS offer supports metered billing using the commercial marketplace metering service, review and follow the testing best practices detailed in [Marketplace metered billing APIs](./partner-center-portal/saas-metered-billing.md).
+- Review and follow the testing instructions in [Implementing a webhook on the SaaS service](./partner-center-portal/pc-saas-fulfillment-webhook.md#development-and-testing) to ensure your offer is successfully integrated with the APIs.
 - If the Offer validation step resulted in warnings, a **View validation report** link appears on the **Offer overview** page. Be sure to review the report and address the issues before you select the **Go live** button. Otherwise, certification will most likely fail and delay your offer from going Live.
 - If you need to make changes after previewing and testing the offer, you can edit and resubmit to publish a new preview. For more information, see [Update an existing offer in the commercial marketplace](update-existing-offer.md).
 
@@ -83,7 +83,6 @@ _Query parameters:_
 | quantity | You can enter 1 for quantity as the test value |
 | dimension | Enter the name of the dimension defined in the metered plan |
 | planId | Enter the metered plan ID |
-|||
 
 ### View the response
 

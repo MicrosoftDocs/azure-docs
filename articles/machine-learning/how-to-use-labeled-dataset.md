@@ -2,8 +2,8 @@
 title: Create and explore datasets with labels
 titleSuffix: Azure Machine Learning
 description: Learn how to export data labels from your Azure Machine Learning labeling projects and use them for machine learning tasks.  
-author: nibaccam
-ms.author: nibaccam
+author: blackmist
+ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to

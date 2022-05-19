@@ -7,6 +7,7 @@ ms.date: 12/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+ms.custom: [iot-central-frontdoor]
 
 ---
 
@@ -20,12 +21,12 @@ This article describes the types of token you can use in the authorization heade
 
 ## Token types
 
-You'll want to use the user bearer token when you're doing some automation/testing/API calls yourself; you'll want to use the SPN bearer token when you're automating/scripting your development environment (i.e. devops). The API token can be used for both cases, but has the risk of expiry and leaks, so we recommend using bearer whenever possible. Does that make sense? 
-
 To access an IoT Central application using the REST API, you can use an:
 
 - _Azure Active Directory bearer token_. A bearer token is associated with an Azure Active Directory user account or service principal. The token grants the caller the same permissions the user or service principal has in the IoT Central application.
 - IoT Central API token. An API token is associated with a role in your IoT Central application.
+
+Use a bearer token associated with your user account while you're developing and testing automation and scripts that use the REST API. Use a bearer token that's associated with a service principal for production automation and scripts. Use a bearer token in preference to an API token to reduce the risk of leaks and problems when tokens expire.
 
 To learn more about users and roles in IoT Central, see [Manage users and roles in your IoT Central application](howto-manage-users-roles.md).
 
@@ -144,7 +145,7 @@ Using the REST API:
 You can use the REST API to list and delete API tokens in an application.
 
 > [!TIP]
-> The [preview API](/rest/api/iotcentral/1.1-previewdataplane/api-tokens) includes support for the new [organizations feature](howto-create-organizations.md).
+> The [preview API](/rest/api/iotcentral/1.2-previewdataplane/api-tokens) includes support for the new [organizations feature](howto-create-organizations.md).
 
 ## Use a bearer token
 

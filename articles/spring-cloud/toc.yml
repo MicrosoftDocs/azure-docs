@@ -74,7 +74,7 @@ items:
     href: concept-app-status.md
   - name: Metrics
     href: concept-metrics.md
-  - name: Azure Spring Boot Actuator
+  - name: Spring Boot Actuator
     href: concept-manage-monitor-app-spring-boot-actuator.md
 - name: Security
   items:
@@ -84,8 +84,6 @@ items:
     href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure Policy Security controls
     href: security-controls-policy.md
-  - name: Plan for disaster recovery
-    href: disaster-recovery.md
 - name: How-to guides
   items:
   - name: Develop
@@ -120,10 +118,14 @@ items:
       href: how-to-intellij-deploy-apps.md
     - name: Use VS Code to deploy apps
       href: https://code.visualstudio.com/docs/java/java-spring-cloud
+    - name: Deploy Azure Spring Cloud with Maven
+      href: how-to-maven-deploy-apps.md 
     - name: Deploy Azure Spring Cloud with Azure PowerShell
       href: how-to-deploy-powershell.md
     - name: Deploy non-Java enterprise applications
       href: how-to-enterprise-deploy-non-java-apps.md
+    - name: Deploy with a custom container
+      href: how-to-deploy-with-custom-container-image.md
   - name: Manage
     items:
     - name: Start or stop a service
@@ -204,14 +206,18 @@ items:
       href: troubleshooting-vnet.md
   - name: Secure
     items:
+    - name: Use managed identities for applications in Azure Spring Cloud
+      href: how-to-use-managed-identities.md
     - name: Enable system-assigned managed identity
       href: how-to-enable-system-assigned-managed-identity.md
+    - name: Manage user-assigned managed identities
+      href: how-to-manage-user-assigned-managed-identities.md
     - name: Create roles and permissions
       href: how-to-permissions.md
     - name: Use TLS/SSL certificates
       href: how-to-use-tls-certificate.md
-    - name: Enable end-to-end Transport Layer Security
-      href: how-to-enable-end-to-end-tls.md
+    - name: Enable ingress-to-app Transport Layer Security
+      href: how-to-enable-ingress-to-app-tls.md
     - name: Access Config Server and Service Registry
       href: how-to-access-data-plane-azure-ad-rbac.md
   - name: Automate
@@ -222,6 +228,12 @@ items:
       href: how-to-github-actions.md
     - name: Auth with Key Vault in GitHub Actions
       href: github-actions-key-vault.md
+  - name: Disaster recovery
+    items:
+    - name: Enable availability zone
+      href: how-to-enable-availability-zone.md
+    - name: Plan for disaster recovery
+      href: disaster-recovery.md
   - name: Troubleshoot
     items:
     - name: Self diagnose and solve problems
@@ -236,6 +248,8 @@ items:
       href: how-to-dump-jvm-options.md
   - name: Migrate
     items:
+    - name: Migrate Standard and Basic to Enterprise
+      href: how-to-migrate-standard-tier-to-enterprise-tier.md
     - name: Spring Cloud
       href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
     - name: Spring Boot
@@ -246,14 +260,6 @@ items:
   items:
   - name: Reference architecture
     href: reference-architecture.md
-- name: DevOps deployment
-  items:
-  - name: CI/CD with Azure DevOps
-    href: how-to-cicd.md
-  - name: CI/CD with GitHub Actions
-    href: how-to-github-actions.md
-  - name: Auth with Key Vault in GitHub Actions
-    href: github-actions-key-vault.md
 - name: Reference
   items:
   - name: Azure CLI plugin

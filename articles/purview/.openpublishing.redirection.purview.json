@@ -139,6 +139,21 @@
         "source_path_from_root": "/articles/purview/use-purview-studio.md",
         "redirect_url": "/azure/purview/use-azure-purview-studio",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/scan-insights.md",
+        "redirect_url": "/azure/purview/how-to-monitor-scan-runs",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/tutorial-data-owner-policies-resource-group.md",
+        "redirect_url": "/azure/purview/how-to-data-owner-policies-resource-group",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-enable-data-use-governance.md",
+        "redirect_url": "/azure/purview/how-to-enable-data-use-management",
+        "redirect_document_id": true
       }
 ]
 }

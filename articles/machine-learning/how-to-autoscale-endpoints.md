@@ -10,7 +10,7 @@ author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2, cliv2
 
-ms.date: 11/03/2021
+ms.date: 04/27/2022
 
 ---
 # Autoscale a managed online endpoint (preview)
@@ -189,7 +189,7 @@ If you are not going to use your deployments, delete them:
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="delete_endpoint" :::
 
 ## Next steps
 

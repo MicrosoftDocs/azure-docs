@@ -6,7 +6,7 @@ keywords: hadoop emulator,hadoop sandbox
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
-ms.date: 05/29/2019
+ms.date: 04/28/2022
 ---
 
 # Get started with an Apache Hadoop sandbox, an emulator on a virtual machine

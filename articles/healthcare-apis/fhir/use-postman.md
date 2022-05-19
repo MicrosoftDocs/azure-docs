@@ -2,11 +2,11 @@
 title: Access the Azure Health Data Services FHIR service using Postman
 description: This article describes how to access Azure Health Data Services FHIR service with Postman.
 services: healthcare-apis
-author: ginalee-dotcom
+author: dougseven
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 03/01/2022
-ms.author: zxue
+ms.author: dseven
 ---
 
 # Access using Postman

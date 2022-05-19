@@ -1,22 +1,22 @@
 ---
 title: Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation (Preview)
-description: This article tells how to deploy an extension-based Windows or Linux Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
+description: This article provides information about deploying the extension-based User Hybrid Runbook Worker to run runbooks on Windows or Linux machines in your on-premises datacenter or other cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/17/2021
+ms.date: 04/13/2022
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ---
 
-# Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation (Preview)
+# Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation (Preview)
 
-The extension-based onboarding is only for **User** Hybrid Runbook Workers. For **System** Hybrid Runbook Worker onboarding, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](./automation-windows-hrw-install.md) or [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md). 
+The extension-based onboarding is only for **User** Hybrid Runbook Workers. This article describes how to: deploy a user Hybrid Runbook Worker on a Windows or Linux machine, remove the worker, and remove a Hybrid Runbook Worker group. 
+
+For **System** Hybrid Runbook Worker onboarding, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](./automation-windows-hrw-install.md) or [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md). 
 
 You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 
-Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. This article describes how to: deploy a user Hybrid Runbook Worker on a Windows or Linux machine, remove the worker, and remove a Hybrid Runbook Worker group.
-
-After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
+Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
 
 > [!NOTE]
@@ -35,7 +35,7 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 
 | Windows | Linux (x64)|
 |---|---|
-| &#9679; Windows Server 2019 (including Server Core), <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 <br><br> | &#9679; Debian GNU/Linux 7 and 8, <br> &#9679; Ubuntu 18.04, and 20.04 LTS, <br> &#9679; SUSE Linux Enterprise Server 15, and 15.1 (SUSE didn't release versions numbered 13 or 14), and <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 | &#9679; Debian GNU/Linux 7 and 8 <br> &#9679; Ubuntu 18.04, and 20.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15, and 15.1 (SUSE didn't release versions numbered 13 or 14), and <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
 
 ### Other Requirements
 

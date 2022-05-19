@@ -15,6 +15,7 @@ You can enable and disable the live trace feature with a single click. You can a
 
 > [!NOTE]
 > Please note that the live traces will be counted as outbound messages.
+> Azure Active Directory access to live trace tool is not supported, please enable `Access Key` in `Keys` menu.
 
 ## Launch the live trace tool
 

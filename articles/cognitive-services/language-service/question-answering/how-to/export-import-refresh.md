@@ -4,8 +4,8 @@ description: Learn about backing up your question answering projects and knowled
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 recommendations: false
 ms.date: 01/25/2022
 ---

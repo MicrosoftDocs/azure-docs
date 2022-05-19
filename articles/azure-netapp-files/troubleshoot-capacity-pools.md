@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 03/24/2022
+ms.date: 04/18/2022
 ms.author: anfdocs
 ---
 # Troubleshoot capacity pool errors
@@ -31,7 +31,6 @@ This article describes resolutions to issues you might have when managing capaci
 
 |     Error condition    |     Resolution    |
 |-|-|
-| Changing the capacity pool for a volume is not permitted. | You might not be authorized yet to use this feature. <br> The feature to move a volume to another capacity pool is currently in preview. If you're using this feature for the first time, you need to register the feature first and set `-FeatureName ANFTierChange`. See the registration steps in [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md). |
 | The capacity pool size is too small for total volume size. |  The error is a result of the destination capacity pool not having the available capacity for the volume being moved.  <br> Increase the size of the destination pool, or choose another pool that is larger.  See [Resize a capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md).   |
 |  The pool change cannot be completed because a volume called `'{source pool name}'` already exists in the target pool `'{target pool name}'` | This error occurs because the volume with same name already exists in the target capacity pool.  Select another capacity pool that does not have a volume with same name.   | 
 | Error changing volume's pool. Pool: `'{target pool name}'` not available or does not exit | You cannot change a volume's capacity pool when the destination capacity pool is not healthy. Check the status of the destination capacity pool. If the pool is in a failed state (not "Succeeded"), try performing an update on the capacity pool by adding a tag name and value pair, then save. |

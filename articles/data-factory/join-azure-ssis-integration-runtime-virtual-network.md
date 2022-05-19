@@ -58,7 +58,7 @@ When joining your Azure-SSIS IR to a virtual network, remember these important p
 
 If you host SSISDB in Azure SQL Database server configured with a virtual network service endpoint, make sure that you join your Azure-SSIS IR to the same virtual network and subnet.
 
-If you host SSISDB in Azure SQL Managed Instance that joins a virtual network, make sure that you join your Azure-SSIS IR to the same virtual network, but in a different subnet than the managed instance. To join your Azure-SSIS IR to a different virtual network than the managed instance, we recommend either virtual network peering (which is limited to the same region) or virtual network-to-virtual network connection. For more information, see [Connect your application to Azure SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
+If you host SSISDB in Azure SQL Managed Instance that joins a virtual network, make sure that you join your Azure-SSIS IR to the same virtual network, but in a different subnet than the managed instance. To join your Azure-SSIS IR to a different virtual network than the managed instance, we recommend either virtual network peering (which is limited to the same region) or virtual network-to-virtual network connection. For more information, see [Connect your application to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/connect-application-instance).
 
 ## Access to Azure data stores
 

@@ -1,14 +1,14 @@
 items:
-- name: Azure Purview documentation
+- name: Microsoft Purview documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Purview?
+  - name: What is Microsoft Purview?
     href: overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an Azure Purview account
+  - name: Create a Microsoft Purview account
     items:
     - name: Create an account - Azure portal
       href: create-catalog-portal.md
@@ -18,43 +18,41 @@ items:
       href: create-azure-purview-dotnet.md
     - name: Create an account - Python
       href: create-azure-purview-python.md
+    - name: Create an account - ARM
+      href: quickstart-ARM-create-azure-purview.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
 - name: Tutorials
   items:
-  - name: Azure Purview deployment checklist
+  - name: Microsoft Purview deployment checklist
     href: tutorial-azure-purview-checklist.md
+  - name: Data owner policies for Azure Storage
+    href: tutorial-data-owner-policies-storage.md
+  - name: Integrate with Microsoft Sentinel
+    href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
   - name: Onboard Azure sources at scale
     items:
     - name: Azure source readiness at scale
       href: tutorial-data-sources-readiness.md
-    - name: Azure Purview MSI configuration at scale
+    - name: Microsoft Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
-  - name: Data policies
-    items:
-    - name: Data owner policies for Azure Storage
-      href: tutorial-data-owner-policies-storage.md
-    - name: Data owner policies on resource groups or subscriptions
-      href: tutorial-data-owner-policies-resource-group.md
   - name: Onboard an on-premises SQL Server instance
     href: tutorial-register-scan-on-premises-sql-server.md
+  - name: Use Atlas 2.2 APIs
+    href: tutorial-atlas-2-2-apis.md
   - name: Use REST APIs for data planes
     href: tutorial-using-rest-apis.md
   - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
-  - name: Data owner policies on resource groups or subscriptions
-    href: tutorial-access-policies-resource-group.md
-  - name: Integrate with Microsoft Sentinel
-    href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
 - name: Concepts
   items:
-  - name: Use Azure Purview Studio
+  - name: Use the Microsoft Purview governance portal
     href: use-azure-purview-studio.md
   - name: Best practices and guidelines
     items:
       - name: Accounts architecture best practices
         href: concept-best-practices-accounts.md
-      - name: Accounts - Default Azure Purview account 
+      - name: Accounts - Default Microsoft Purview account 
         href: concept-default-purview-account.md
       - name: Asset lifecycle best practices
         href: concept-best-practices-asset-lifecycle.md
@@ -82,7 +80,7 @@ items:
         href: concept-best-practices-scanning.md
       - name: Security best practices
         href: concept-best-practices-security.md  
-  - name: Azure Purview permissions
+  - name: Permissions and access
     href: catalog-permissions.md
   - name: Data map
     items:
@@ -108,7 +106,9 @@ items:
     items:
     - name: Data owner policies
       href: concept-data-owner-policies.md
-  - name: Data insights
+    - name: Self-service data access policy
+      href: concept-self-service-data-access-policy.md
+  - name: Data Estate Insights
     href: concept-insights.md
 - name: How-to guides
   items:
@@ -179,6 +179,8 @@ items:
       href: register-scan-hive-metastore-source.md
     - name: Looker
       href: register-scan-looker-source.md
+    - name: MongoDB
+      href: register-scan-mongodb.md
     - name: MySQL
       href: register-scan-mysql.md
     - name: On-premises SQL Server
@@ -187,8 +189,14 @@ items:
       href: register-scan-oracle-source.md
     - name: PostgreSQL
       href: register-scan-postgresql.md
-    - name: Power BI tenant - Portal
-      href: register-scan-power-bi-tenant.md
+    - name: Power BI tenant
+      items:
+      - name: Power BI same-tenant
+        href: register-scan-power-bi-tenant.md
+      - name: Power BI cross-tenant
+        href: register-scan-power-bi-tenant-cross-tenant.md
+      - name: Troubleshoot Power BI scans
+        href: register-scan-power-bi-tenant-troubleshoot.md
     - name: Salesforce
       href: register-scan-salesforce.md
     - name: SAP Business Warehouse
@@ -213,6 +221,8 @@ items:
       href: create-a-scan-rule-set.md
     - name: Resource set pattern rules
       href: how-to-resource-set-pattern-rules.md
+    - name: Monitor scan runs
+      href: how-to-monitor-scan-runs.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
   - name: Search and manage data catalog
@@ -257,20 +267,18 @@ items:
       href: apply-classifications.md
   - name: Label
     items:
-    - name: Labeling in Azure Purview
+    - name: Labeling in Microsoft Purview
       href: create-sensitivity-label.md
     - name: How to label your data
       href: how-to-automatically-label-your-content.md
     - name: Sensitivity labels FAQ
       href: sensitivity-labels-frequently-asked-questions.yml
-  - name: Insights
+  - name: Data Estate Insights
     items:
     - name: View asset insights
       href: asset-insights.md
     - name: View glossary insights
       href: glossary-insights.md
-    - name: View scan insights
-      href: scan-insights.md
     - name: View classification insights
       href: classification-insights.md
     - name: View sensitivity label insights
@@ -291,23 +299,25 @@ items:
         href: catalog-private-link-name-resolution.md
       - name: Troubleshoot private endpoints
         href: catalog-private-link-troubleshoot.md                     
-      - name: Private endpoint FAQ
+      - name: Private endpoint and Managed VNets FAQ
         href: catalog-private-link-faqs.md
-    - name: Azure Purview deployment exceptions
+    - name: Microsoft Purview deployment exceptions
       href: create-azure-purview-portal-faq.md
     - name: Conditional access
       href: catalog-conditional-access.md
   - name: Data policies
     items:
-    - name: Registering data sources for Data use governance
-      href: how-to-enable-data-use-governance.md
-    - name: Authoring and publishing data owner access policies
+    - name: Register data sources for Data Use Management
+      href: how-to-enable-data-use-management.md
+    - name: Author and publish data owner access policies
       href: how-to-data-owner-policy-authoring-generic.md
-    - name: Self-service data access policy
-      href: concept-self-service-data-access-policy.md
-    - name: View Self-service data access policy
+    - name: Data owner policies for Azure Storage
+      href: how-to-data-owner-policies-storage.md
+    - name: Data owner policies on resource groups or subscriptions
+      href: how-to-data-owner-policies-resource-group.md
+    - name: View self-service data access policy
       href: how-to-view-self-service-data-access-policy.md
-    - name: Delete Self-service data access policy
+    - name: Delete self-service data access policy
       href: how-to-delete-self-service-data-access-policy.md
   - name: Workflows
     items:
@@ -329,13 +339,13 @@ items:
     href: how-to-integrate-with-azure-security-products.md
 - name: Reference
   items:
-    - name: Azure Purview product glossary
+    - name: Microsoft Purview product glossary
       href: reference-azure-purview-glossary.md
     - name: Supported browsers
       href: supported-browsers.md
     - name: Supported classifications
       href: supported-classifications.md
-    - name: Azure Purview limits
+    - name: Microsoft Purview limits
       href: how-to-manage-quotas.md
     - name: Java
       href: /samples/browse/?products=azure&languages=java&terms=purview
@@ -347,9 +357,9 @@ items:
       href: /python/api/azure-mgmt-purview/
     - name: REST
       href: /rest/api/purview/
-    - name: Azure Purview open-source tools utilities
+    - name: Microsoft Purview open-source tools utilities
       href: tutorial-azure-purview-tools.md
-    - name: Azure Purview Audit Events and Diagnostics Logs
+    - name: Microsoft Purview Audit Events and Diagnostics Logs
       href: tutorial-purview-audit-logs-diagnostics.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md

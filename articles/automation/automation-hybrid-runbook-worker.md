@@ -86,6 +86,9 @@ The process to install a user Hybrid Runbook Worker depends on the operating sys
 |Linux   | [Manual](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker) |
 |Either  | For user Hybrid Runbook Workers, see [Deploy an extension-based Windows or Linux user Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md). This is the recommended method. |
 
+>[!NOTE]
+> Hybrid Runbook Worker is currently not supported on VM Scale Sets.
+
 ## <a name="network-planning"></a>Network planning
 
 Check [Azure Automation Network Configuration](automation-network-configuration.md#network-planning-for-hybrid-runbook-worker) for detailed information on the ports, URLs, and other networking details required for the Hybrid Runbook Worker.

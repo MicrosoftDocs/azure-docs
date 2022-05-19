@@ -45,64 +45,7 @@ Complete the following prerequisites to successfully walk through this guide.
    * Be sure to follow the steps in "Install the OpenShift CLI" because we'll use the `oc` command later in this article.
    * Write down the cluster console URL. It will look like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
    * Take note of the `kubeadmin` credentials.
-
-1. Verify you can sign in to the OpenShift CLI with the token for user `kubeadmin`.
-
-### Configure Azure Active Directory authentication
-
-Azure Active Directory (Azure AD) implements OpenID Connect (OIDC). OIDC lets you use Azure AD to sign in to the ARO cluster. Follow the steps in [Configure Azure Active Directory authentication](configure-azure-ad-cli.md) to set up your cluster.
-
-After you complete the setup, return to this document and sign in to the cluster with an Azure AD user.
-
-1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user. We'll leverage the OpenShift OpenID authentication against Azure Active Directory to use OpenID to define the administrator.
-
-   1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console. The window will look different after having enabled OIDC.
-   
-      :::image type="content" source="media/built-in-container-registry/oidc-enabled-login-window.png" alt-text="OpenID Connect enabled sign in window.":::
-   1. Select **AAD**
-
-   > [!NOTE]
-   > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this article.
-1. Sign in with the OpenShift CLI by using the following steps.  For discussion, this process is known as `oc login`.
-   1. At the right-top of the web console, expand the context menu of the signed-in user, then select **Copy Login Command**.
-   1. Sign in to a new tab window with the same user if necessary.
-   1. Select **Display Token**.
-   1. Copy the value listed below **Login with this token** to the clipboard and run it in a shell, as shown here.
-
-       ```bash
-       oc login --token=<login-token> --server=<server-url>
-       ```
-
-1. Run `oc whoami` in the console and note the output as **\<aad-user>**.  We'll use this value later in the article.
-1. Sign out of the OpenShift web console. Select the button in the top right of the browser window labeled as the **\<aad-user>** and choose **Log Out**.
-
-### Create an OpenShift namespace for the Java app
-
-1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
-2. Navigate to **Administration** > **Namespaces** > **Create Namespace**.
-3. Fill in `open-liberty-demo` for **Name** and select **Create**, as shown next.
-
-   ![create namespace](./media/howto-deploy-java-liberty-app/create-namespace.png)
-
-### Create an administrator for the demo project
-
-Besides image management, the **aad-user** will also be granted administrative permissions for managing resources in the demo project of the ARO 4 cluster. Sign in to the OpenShift CLI and grant the **aad-user** the necessary privileges by following these steps.
-
-1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
-1. At the right-top of the web console, expand the context menu of the signed-in user, then select **Copy Login Command**.
-1. Sign in to a new tab window with the same user if necessary.
-1. Select **Display Token**.
-1. Copy the value listed below **Login with this token** to the clipboard and run it in a shell, as shown here.
-1. Execute the following commands to grant `admin` role to the **aad-user** in namespace `open-liberty-demo`.
-
-   ```bash
-   # Switch to project "open-liberty-demo"
-   oc project open-liberty-demo
-   Now using project "open-liberty-demo" on server "https://api.x8xl3f4y.eastus.aroapp.io:6443".
-
-   oc adm policy add-role-to-user admin <aad-user>
-   clusterrole.rbac.authorization.k8s.io/admin added: "kaaIjx75vFWovvKF7c02M0ya5qzwcSJ074RZBfXUc34"
-   ```
+   * Be sure to follow the steps in "Connect using the OpenShift CLI" with the `kubeadmin` credentials.
 
 ### Install the Open Liberty OpenShift Operator
 
@@ -114,11 +57,21 @@ After creating and connecting to the cluster, install the Open Liberty Operator.
 4. Select **Install**.
 5. In the page **Install Operator**, check **beta2** for **Update channel**, **All namespaces on the cluster (default)** for **Installation mode**, and **Automatic** for **Update approval**:
 
-   ![create operator subscription for Open Liberty Operator](./media/howto-deploy-java-liberty-app/install-operator.png)
+   ![Screenshot of creating operator subscription for Open Liberty Operator.](./media/howto-deploy-java-liberty-app/install-operator.png)
 6. Select **Install** and wait a minute or two until the installation completes.
 7. Observe the Open Liberty Operator is successfully installed and ready for use. If you don't, diagnose and resolve the problem before continuing.
 
    :::image type="content" source="media/howto-deploy-java-liberty-app/open-liberty-operator-installed.png" alt-text="Installed Operators showing Open Liberty is installed.":::
+
+### Create an OpenShift namespace for the Java app
+
+Follow the instructions below to create an OpenShift namespace for use with your app.
+
+1. Make sure you have signed in to the OpenShift web console from your browser using the `kubeadmin` credentials.
+2. Navigate to **Administration** > **Namespaces** > **Create Namespace**.
+3. Fill in `open-liberty-demo` for **Name** and select **Create**, as shown next.
+
+   ![Screenshot of creating namespace.](./media/howto-deploy-java-liberty-app/create-namespace.png)
 
 ### Create an Azure Database for MySQL
 
@@ -134,7 +87,7 @@ Follow the instructions below to set up an Azure Database for MySQL for use with
    2. Select **Add current client IP address**. 
    3. Set **Minimal TLS Version** to **>1.0** and select **Save**.
 
-   ![configure mysql database connection security rule](./media/howto-deploy-java-liberty-app/configure-mysql-database-connection-security.png)
+   ![Screenshot of configuring mysql database connection security rule.](./media/howto-deploy-java-liberty-app/configure-mysql-database-connection-security.png)
 
 3. Open **your SQL database** > **Connection strings** > Select **JDBC**. Write down the **Port number** following sql server address. For example, **3306** is the port number in the example below.
 
@@ -202,7 +155,7 @@ cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
 export DB_SERVER_NAME=<Server name>.mysql.database.azure.com
 export DB_PORT_NUMBER=3306
 export DB_NAME=<Database name>
-export DB_USER=<Server admin username>@<Database name>
+export DB_USER=<Server admin username>@<Server name>
 export DB_PASSWORD=<Server admin password>
 export NAMESPACE=open-liberty-demo
 
@@ -249,7 +202,7 @@ In the sample application, we've prepared Dockerfile-local and Dockerfile-wlp-lo
 
 1. Open `http://localhost:9080/` in your browser to visit the application home page. The application will look similar to the following image:
 
-   ![JavaEE Cafe Web UI](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
+   ![Screenshot of JavaEE Cafe Web UI.](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
 1. Press **Control-C** to stop the application and Open Liberty server.
 
 The directory `2-simple` of your local clone shows the Maven project with the above changes already applied.
@@ -264,31 +217,11 @@ Complete the following steps to build the application image:
 
 # [with DB connection](#tab/with-mysql-image)
 
-### Log in to the OpenShift CLI as the Azure AD user
-
-Since you have already successfully run the app in the Liberty Docker container, sign in to the OpenShift CLI as the Azure AD user in order to build image remotely on the cluster.
-
-1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user.
-
-   1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console.
-   1. Select **AAD**
-
-   > [!NOTE]
-   > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this and other articles.
-1. Sign in with the OpenShift CLI by using the following steps. For discussion, this process is known as `oc login`.
-   1. At the right-top of the web console, expand the context menu of the signed-in user, then select **Copy Login Command**.
-   1. Sign in to a new tab window with the same user if necessary.
-   1. Select **Display Token**.
-   1. Copy the value listed below **Login with this token** to the clipboard and run it in a shell, as shown here.
-
-       ```bash
-       oc login --token=<login-token> --server=<server-url>
-       ```
-
 ### Build the application and push to the image stream
 
-Next, you're going to build the image remotely on the cluster by executing the following commands.
+Since you have already successfully run the app in the Liberty Docker container, you're going to build the image remotely on the cluster by executing the following commands.
 
+1. Make sure you have already signed in to the OpenShift CLI using the `kubeadmin` credentials.
 1. Identify the source directory and Dockerfile.
 
    ```bash
@@ -352,31 +285,11 @@ Before deploying the containerized application to a remote cluster, build and ru
 1. Open `http://localhost:9080/` in your browser to visit the application home page.
 1. Press **Control-C** to stop the application and Liberty server.
 
-### Log in to the OpenShift CLI as the Azure AD user
-
-When you're satisfied with the state of the application, sign in to the OpenShift CLI as the Azure AD user in order to build image remotely on the cluster.
-
-1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user.
-
-   1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console.
-   1. Select **AAD**
-
-   > [!NOTE]
-   > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this and other articles.
-1. Sign in with the OpenShift CLI by using the following steps. For discussion, this process is known as `oc login`.
-   1. At the right-top of the web console, expand the context menu of the signed-in user, then select **Copy Login Command**.
-   1. Sign in to a new tab window with the same user if necessary.
-   1. Select **Display Token**.
-   1. Copy the value listed below **Login with this token** to the clipboard and run it in a shell, as shown here.
-
-       ```bash
-       oc login --token=<login-token> --server=<server-url>
-       ```
-
 ### Build the application and push to the image stream
 
-Next, you're going to build the image remotely on the cluster by executing the following commands.
+When you're satisfied with the state of the application, you're going to build the image remotely on the cluster by executing the following commands.
 
+1. Make sure you have already signed in to the OpenShift CLI using the `kubeadmin` credentials.
 1. Identity the source directory and the Dockerfile.
 
    ```bash
@@ -412,19 +325,20 @@ Next, you're going to build the image remotely on the cluster by executing the f
 ## Deploy application on the ARO 4 cluster
 
 Now you can deploy the sample Liberty application to the Azure Red Hat OpenShift 4 cluster you created earlier when working through the prerequisites.
+
 # [with DB from web console](#tab/with-mysql-deploy-console)
 
 ### Deploy the application from the web console
 
 Because we use the Open Liberty Operator to manage Liberty applications, we need to create an instance of its *Custom Resource Definition*, of type "OpenLibertyApplication". The Operator will then take care of all aspects of managing the OpenShift resources required for deployment.
 
-1. Sign in to the OpenShift web console from your browser using the credentials of the Azure AD user.
+1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
 1. Expand **Home**, Select **Projects** > **open-liberty-demo**.
 1. Navigate to **Operators** > **Installed Operators**.
 1. In the middle of the page, select **Open Liberty Operator**.
 1. In the middle of the page, select **Open Liberty Application**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
    <!-- Diagram source https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/diagrams/aro-java-containment.vsdx -->
-   ![ARO Java Containment](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
+   ![Diagram of ARO Java Containment.](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
 1. Select **Create OpenLibertyApplication**
 1. Replace the generated yaml with yours, which is located at `<path-to-repo>/3-integration/connect-db/mysql/target/openlibertyapplication.yaml`.
 1. Select **Create**. You'll be returned to the list of OpenLibertyApplications.
@@ -448,8 +362,8 @@ You'll see the application home page opened in the browser.
 Instead of using the web console GUI, you can deploy the application from the CLI. If you haven't already done so, download and install the `oc` command-line tool by following the steps in Red Hat documentation: [Getting Started with the CLI](https://docs.openshift.com/container-platform/4.2/cli_reference/openshift_cli/getting-started-cli.html).
 
 Now you can deploy the sample Liberty application to the ARO 4 cluster with the following steps.
-1. Log in to the OpenShift web console from your browser using the credentials of the Azure AD user.
-1. [Log in to the OpenShift CLI with the token for the Azure AD user](https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/guides/howto-deploy-java-liberty-app.md#log-in-to-the-openshift-cli-with-the-token).
+
+1. Make sure you have already signed in to the OpenShift CLI using the `kubeadmin` credentials.
 1. Run the following commands to deploy the application.
    ```bash
    # Change directory to "<path-to-repo>/3-integration/connect-db/mysql/target"
@@ -483,13 +397,13 @@ Once the Liberty application is up and running, open the output of **Route Host*
 
 Because we use the Open Liberty Operator to manage Liberty applications, we need to create an instance of its *Custom Resource Definition*, of type "OpenLibertyApplication". The Operator will then take care of all aspects of managing the OpenShift resources required for deployment.
 
-1. Sign in to the OpenShift web console from your browser using the credentials of the Azure AD user.
+1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
 1. Expand **Home**, Select **Projects** > **open-liberty-demo**.
 1. Navigate to **Operators** > **Installed Operators**.
 1. In the middle of the page, select **Open Liberty Operator**.
 1. In the middle of the page, select **Open Liberty Application**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
    <!-- Diagram source https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/diagrams/aro-java-containment.vsdx -->
-   ![ARO Java Containment](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
+   ![Diagram of ARO Java Containment.](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
 1. Select **Create OpenLibertyApplication**
 1. Replace the generated yaml with yours, which is located at `<path-to-repo>/2-simple/openlibertyapplication.yaml`.
 1. Select **Create**. You'll be returned to the list of OpenLibertyApplications.
@@ -516,9 +430,8 @@ When you're done with the application, follow these steps to delete the applicat
 
 Instead of using the web console GUI, you can deploy the application from the CLI. If you haven't already done so, download and install the `oc` command-line tool by following Red Hat documentation [Getting Started with the CLI](https://docs.openshift.com/container-platform/4.2/cli_reference/openshift_cli/getting-started-cli.html).
 
-1. Sign in to the OpenShift web console from your browser using the credentials of the Azure AD user.
-2. Sign in to the OpenShift CLI with the token for the Azure AD user.
-3. Change directory to `2-simple` of your local clone, and run the following commands to deploy your Liberty application to the ARO 4 cluster. Command output is also shown inline.
+1. Make sure you have already signed in to the OpenShift CLI using the `kubeadmin` credentials.
+1. Change directory to `2-simple` of your local clone, and run the following commands to deploy your Liberty application to the ARO 4 cluster. Command output is also shown inline.
 
    ```bash
    # Switch to namespace "open-liberty-demo" where resources of demo app will belong to
@@ -544,8 +457,8 @@ Instead of using the web console GUI, you can deploy the application from the CL
    javaee-cafe-simple   1/1     1            0           102s
    ```
 
-4. Check to see `1/1` under the `READY` column before you continue. If not, investigate and resolve the problem before continuing.
-5. Discover the host of route to the application with the `oc get route` command, as shown here.
+1. Check to see `1/1` under the `READY` column before you continue. If not, investigate and resolve the problem before continuing.
+1. Discover the host of route to the application with the `oc get route` command, as shown here.
 
    ```bash
    # Get host of the route

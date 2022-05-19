@@ -41,7 +41,7 @@
     href: concepts-query-language.md
   - name: Query Units
     href: concepts-query-units.md 
-  - name: Data history (with Azure Data Explorer) (preview)
+  - name: Data history (with Azure Data Explorer)
     href: concepts-data-history.md
   - name: Querying with the Azure Data Explorer plugin
     href: concepts-data-explorer-plugin.md
@@ -75,14 +75,6 @@
         href: how-to-set-up-instance-cli.md
     - name: Enable private access with Private Link
       href: how-to-enable-private-link.md
-    - name: Write app authentication code
-      href: how-to-authenticate-client.md
-    - name: Create an app registration with Azure Digital Twins access
-      items:
-      - name: Portal
-        href: how-to-create-app-registration-portal.md
-      - name: CLI
-        href: how-to-create-app-registration-cli.md
     - name: Move instance to a different region
       href: how-to-move-regions.md
   - name: Design models
@@ -109,6 +101,14 @@
     items:
     - name: Make API requests with Postman
       href: how-to-use-postman.md
+    - name: Write app authentication code
+      href: how-to-authenticate-client.md
+    - name: Create an app registration with Azure Digital Twins access
+      items:
+      - name: Portal
+        href: how-to-create-app-registration-portal.md
+      - name: CLI
+        href: how-to-create-app-registration-cli.md
     - name: Integrate with Azure SignalR Service
       href: how-to-integrate-azure-signalr.md
   - name: Connect input
@@ -127,7 +127,7 @@
       href: how-to-manage-routes.md
     - name: Route events with a managed identity
       href: how-to-route-with-managed-identity.md
-    - name: Use data history with Azure Data Explorer (preview)
+    - name: Use data history with Azure Data Explorer
       href: how-to-use-data-history.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md
@@ -154,7 +154,9 @@
       - name: Error 404 (Sub-Domain not found)
         href: troubleshoot-error-404.md
       - name: Azure Digital Twins Explorer authentication error
-        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md  
+        href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
+      - name: CLI parsing failures
+        href: troubleshoot-error-cli-parse.md  
 - name: Reference
   items:
   - name: REST API reference
@@ -166,13 +168,13 @@
         - name: .NET (C#) SDK
           href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
         - name: Java SDK
-          href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable&preserve-view=true
+          href: /java/api/com.azure.resourcemanager.digitaltwins
       - name: Data plane
         items:
         - name: .NET (C#) SDK
           href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
         - name: Java SDK
-          href: /java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true
+          href: /java/api/overview/azure/digitaltwins
         - name: JavaScript SDK
           href: /javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true
         - name: Python SDK
@@ -189,7 +191,7 @@
           href: reference-query-clause-select.md
         - name: FROM
           href: reference-query-clause-from.md
-        - name: MATCH (preview)
+        - name: MATCH
           href: reference-query-clause-match.md
         - name: JOIN
           href: reference-query-clause-join.md

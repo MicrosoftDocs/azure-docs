@@ -41,6 +41,9 @@ Add at least one and up to three PDF documents to support your offer listing. Af
 
 ## Marketplace media
 
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
+
 > [!NOTE]
 > If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.
 

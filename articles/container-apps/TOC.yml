@@ -26,6 +26,12 @@
           href: get-started-existing-container-image-portal.md
         - name: Azure CLI
           href: get-started-existing-container-image.md
+        - name: Visual Studio
+          href: deploy-visual-studio.md
+        - name: Visual Studio Code
+          href: deploy-visual-studio-code.md
+      - name: With code on your local machine
+        href: quickstart-code-to-cloud.md
 - name: Concepts
   items:
     - name: Environment
@@ -38,26 +44,68 @@
       href: application-lifecycle-management.md
     - name: Microservices
       href: microservices.md
+    - name: Networking
+      items: 
+      - name: Architecture overview
+        href: networking.md
+      - name: Deploy with an external environment
+        href: vnet-custom.md
+      - name: Deploy with an internal environment
+        href: vnet-custom-internal.md
+      - name: Firewall integration
+        href: firewall-integration.md
+    - name: Observability
+      href: observability.md
+    - name: Authentication
+      href: authentication.md
+    - name: Dapr integration
+      href: dapr-overview.md
 - name: How-to guides
   items:
     - name: Scale an app
       href: scale-app.md
     - name: Manage secrets
       href: manage-secrets.md
+    - name: Use managed identities
+      href: managed-identity.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions
       href: revisions-manage.md
     - name: Set up HTTPS ingress
       href: ingress.md
+    - name: Set up custom domains and certificates
+      href: custom-domains-certificates.md
     - name: Connect multiple apps
       href: connect-apps.md
     - name: Publish revisions with GitHub Actions
       href: github-actions-cli.md
     - name: Use a custom VNET
       href: vnet-custom.md
+    - name: Use health probes
+      href: health-probes.md
+    - name: Enable authentication
+      items:
+      - name: Azure Active Directory
+        href: authentication-azure-active-directory.md
+      - name: Facebook
+        href: authentication-facebook.md
+      - name: GitHub
+        href: authentication-github.md
+      - name: Google
+        href: authentication-google.md
+      - name: Twitter
+        href: authentication-twitter.md
+      - name: Custom OpenID Connect
+        href: authentication-openid.md
+    - name: Use storage mounts
+      href: storage-mounts.md
+    - name: Plan for disaster recovery
+      href: disaster-recovery.md
 - name: Tutorials
   items:
+    - name: Communicate between microservices
+      href: communicate-between-microservices.md
     - name: Microservices with Dapr using the CLI
       href: microservices-dapr.md
     - name: Microservices with Dapr using ARM or Bicep
@@ -72,11 +120,14 @@
       href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
 - name: Resources
   items:
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/container-apps/
+    - name: Samples
+      href: samples.md
+    - name: Billing
+      href: billing.md
     - name: Quotas
       href: quotas.md
-    - name: Frequently asked questions
-      href: https://github.com/microsoft/azure-container-apps/wiki/FAQs
     - name: "Video: Build and deliver apps with Container Apps"
       href: https://www.youtube.com/watch?v=b3dopSTnSRg
+    - name: Frequently asked questions
+      href: faq.yml
+      displayName: faq

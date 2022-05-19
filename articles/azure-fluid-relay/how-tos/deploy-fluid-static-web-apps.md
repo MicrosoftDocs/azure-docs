@@ -1,7 +1,7 @@
 ---
 title: 'How to: Deploy Fluid applications using Azure Static Web Apps'
 description: Detailed explanation about how Fluid applications can be hosted on Azure Static Web Apps
-author: sdeshpande3
+author: sonalivdeshpande
 ms.author: sdeshpande
 ms.date: 08/19/2021
 ms.topic: article

@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot Azure Cosmos DB Java SDK v4
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Java SDK v4.
 author: TheovanKraay
 ms.service: cosmos-db
-ms.date: 02/28/2022
+ms.date: 04/01/2022
 ms.author: thvankra
 ms.devlang: java
 ms.subservice: cosmosdb-sql
@@ -92,7 +92,7 @@ CosmosPagedIterable<Family> filteredFamilies = container.queryItems(sql, new Cos
         
 //  Add handler to capture diagnostics
 filteredFamilies = filteredFamilies.handle(familyFeedResponse -> {
-    logger.info("Query Item diagnostics through handler : {}", 
+    logger.info("Query Item diagnostics through handle : {}", 
     familyFeedResponse.getCosmosDiagnostics());
 });
         
@@ -103,16 +103,28 @@ filteredFamilies.iterableByPage().forEach(familyFeedResponse -> {
 });
 ``` 
 
+#### Cosmos Exceptions
+
+```Java
+try {
+  CosmosItemResponse<Family> familyCosmosItemResponse = container.readItem(documentId,
+                    new PartitionKey(documentLastName), Family.class);
+} catch (CosmosException ex) {
+  CosmosDiagnostics diagnostics = ex.getDiagnostics();
+  logger.error("Read item failure diagnostics : {}", diagnostics);
+}
+```
+
 # [Async](#tab/async)
 
 #### Database Operations
 
 ```Java
 Mono<CosmosDatabaseResponse> databaseResponseMono = client.createDatabaseIfNotExists(databaseName);
-CosmosDatabaseResponse cosmosDatabaseResponse = databaseResponseMono.block();
-        
-CosmosDiagnostics diagnostics = cosmosDatabaseResponse.getDiagnostics();
-logger.info("Create database diagnostics : {}", diagnostics);
+databaseResponseMono.map(databaseResponse -> {
+  CosmosDiagnostics diagnostics = databaseResponse.getDiagnostics();
+  logger.info("Create database diagnostics : {}", diagnostics);
+}).subscribe();
 ``` 
 
 #### Container Operations
@@ -120,9 +132,10 @@ logger.info("Create database diagnostics : {}", diagnostics);
 ```Java
 Mono<CosmosContainerResponse> containerResponseMono = database.createContainerIfNotExists(containerProperties,
                     throughputProperties);
-CosmosContainerResponse cosmosContainerResponse = containerResponseMono.block();
-CosmosDiagnostics diagnostics = cosmosContainerResponse.getDiagnostics();
-logger.info("Create container diagnostics : {}", diagnostics);
+containerResponseMono.map(containerResponse -> {
+  CosmosDiagnostics diagnostics = containerResponse.getDiagnostics();
+  logger.info("Create container diagnostics : {}", diagnostics);
+}).subscribe();
 ``` 
 
 #### Item Operations
@@ -133,16 +146,19 @@ Mono<CosmosItemResponse<Family>> itemResponseMono = container.createItem(family,
                     new PartitionKey(family.getLastName()),
                     new CosmosItemRequestOptions());
         
-CosmosItemResponse<Family> itemResponse = itemResponseMono.block();
-CosmosDiagnostics diagnostics = itemResponse.getDiagnostics();
-logger.info("Create item diagnostics : {}", diagnostics);        
+itemResponseMono.map(itemResponse -> {
+  CosmosDiagnostics diagnostics = itemResponse.getDiagnostics();
+  logger.info("Create item diagnostics : {}", diagnostics);
+}).subscribe();
         
 // Read Item
 Mono<CosmosItemResponse<Family>> itemResponseMono = container.readItem(documentId,
                     new PartitionKey(documentLastName), Family.class);
-CosmosItemResponse<Family> familyCosmosItemResponse = itemResponseMono.block();
-CosmosDiagnostics diagnostics = familyCosmosItemResponse.getDiagnostics();
-logger.info("Read item diagnostics : {}", diagnostics);
+
+itemResponseMono.map(itemResponse -> {
+  CosmosDiagnostics diagnostics = itemResponse.getDiagnostics();
+  logger.info("Read item diagnostics : {}", diagnostics);
+}).subscribe();
 ```
 
 #### Query Operations
@@ -153,16 +169,32 @@ CosmosPagedFlux<Family> filteredFamilies = container.queryItems(sql, new CosmosQ
                     Family.class);
 //  Add handler to capture diagnostics
 filteredFamilies = filteredFamilies.handle(familyFeedResponse -> {
-  logger.info("Query Item diagnostics through handler : {}",
+  logger.info("Query Item diagnostics through handle : {}",
   familyFeedResponse.getCosmosDiagnostics());
 });
         
 //  Or capture diagnostics through byPage() APIs.
-filteredFamilies.byPage().toIterable().forEach(familyFeedResponse -> {
-  logger.info("Query item diagnostics through iterableByPage : {}",
+filteredFamilies.byPage().map(familyFeedResponse -> {
+  logger.info("Query item diagnostics through byPage : {}",
   familyFeedResponse.getCosmosDiagnostics());
-});  
+}).subscribe();
 ``` 
+
+#### Cosmos Exceptions
+
+```Java
+Mono<CosmosItemResponse<Family>> itemResponseMono = container.readItem(documentId,
+                    new PartitionKey(documentLastName), Family.class);
+
+itemResponseMono.onErrorResume(throwable -> {
+  if (throwable instanceof CosmosException) {
+    CosmosException cosmosException = (CosmosException) throwable;
+    CosmosDiagnostics diagnostics = cosmosException.getDiagnostics();
+    logger.error("Read item failure diagnostics : {}", diagnostics);
+  }
+  return Mono.error(throwable);
+}).subscribe();
+```
 ---
 
 ## Retry design <a id="retry-logics"></a><a id="retry-design"></a><a id="error-codes"></a>

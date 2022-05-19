@@ -12,7 +12,8 @@
 
 - [Webhooks](../handler-webhooks.md). Azure Automation runbooks and Logic Apps are supported via webhooks. 
 - [Azure functions](../handler-functions.md)
-- [Event hubs](../handler-event-hubs.md)
+- [Event Hubs](../handler-event-hubs.md)
 - [Service Bus queues and topics](../handler-service-bus.md)
 - [Relay hybrid connections](../handler-relay-hybrid-connections.md)
 - [Storage queues](../handler-storage-queues.md)
+- [Partner destinations](../deliver-events-to-partner-destinations.md)

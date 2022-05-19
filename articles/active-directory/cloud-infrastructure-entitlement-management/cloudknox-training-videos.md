@@ -2,14 +2,14 @@
 title: CloudKnox Permissions Management training videos
 description: CloudKnox Permissions Management training videos.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/14/2022
-ms.author: v-ydequadros
+ms.date: 04/20/2022
+ms.author: mtillman
 ---
 
 # CloudKnox Permissions Management training videos
@@ -31,33 +31,7 @@ To view a video on how to configure and onboard Amazon Web Services (AWS) accoun
 
 To view a video on how to configure and onboard Google Cloud Platform (GCP) accounts in CloudKnox, select [Configure and onboard GCP accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
 
-<!---## Privilege on demand (POD) work flows
 
-- View a step-by-step video on the [privilege on demand (POD) work flow from the Just Enough Permissions (JEP) Controller](https://vimeo.com/461508166/3d88107f41).
-
-## Usage analytics
-
-- View a step-by-step video on [usage analytics](https://vimeo.com/461509556/b7bb392b83).
-
-## Just Enough Permissions (JEP) roles and policies
-
-- View a step-by-step video on [how to use and interpret data on the Role/Policy tab under the JEP Controller](https://vimeo.com/461510754/3dd31d85b7).
-
-## Attach or detach permissions for users, roles, and resources
-
-- View a step-by-step video on [how to attach and detach permissions for users, roles, and resources](https://vimeo.com/461512552/6f6a06e6c1).
-
-## Audit trails
-
-- View a step-by-step video on [how to use the audit trail](https://vimeo.com/461513290/b431a38b6c).
-
-## Alert triggers
-
-- View a step-by-step video on [how to create an alert trigger](https://vimeo.com/461881849/019c843cc6).
-
-## Group permissions
-
-- View a step-by-step video on [how to create group-based permissions](https://vimeo.com/462797947/d041de9157).--->
 
 
 ## Next steps

@@ -43,8 +43,15 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
 * Oracle Linux 6, 7, and 8
 * Red Hat Enterprise Linux Server 5, 6, 7, and 8
 * Debian GNU/Linux 6, 7, and 8
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 18.04, and 20.04 LTS
-* SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE didn't release versions numbered 13 or 14)
+* SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE didn't release versions numbered 13 or 14) 
+* Ubuntu
+
+   **Linux OS** | **Name** |
+  ---|--- |
+  20.04 LTS | Focal Fossa 
+  18.04 LTS | Bionic Beaver 
+  16.04 LTS | Xenial Xerus   
+  14.04 LTS | Trusty Tahr  
 
 > [!IMPORTANT]
 > Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).

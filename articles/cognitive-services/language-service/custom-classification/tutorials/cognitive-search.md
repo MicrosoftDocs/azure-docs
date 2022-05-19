@@ -1,7 +1,7 @@
 ---
 title: Enrich a Cognitive Search index with custom classes
 titleSuffix: Azure Cognitive Services
-description: Improve your cognitive search indices using custom classifications
+description: Improve your cognitive search indices using custom text classification
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,13 +13,13 @@ ms.author: aahi
 ms.custom: 
 ---
 
-# Tutorial: Enrich Cognitive search index with custom classifications from your data
+# Tutorial: Enrich Cognitive search index with custom classes from your data
 
-With the abundance of electronic documents within the enterprise, the problem of search through them becomes a tiring and expensive task. [Azure Cognitive Search](../../../../search/search-create-service-portal.md) helps with searching through your files based on their indices. Custom classification helps in enriching the indexing of these files by classifying them into your custom classes.
+With the abundance of electronic documents within the enterprise, the problem of search through them becomes a tiring and expensive task. [Azure Cognitive Search](../../../../search/search-create-service-portal.md) helps with searching through your files based on their indices. Custom text classification helps in enriching the indexing of these files by classifying them into your custom classes.
 
 In this tutorial, you will learn how to:
 
-* Create a custom classification project.
+* Create a custom text classification project.
 * Publish Azure function.
 * Add Index to your Azure Cognitive search.
 
@@ -35,7 +35,7 @@ In this tutorial, you will learn how to:
 
 * Download this [sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/language-service/Custom%20text%20classification/Custom%20multi%20classification%20-%20movies%20summary.zip).
 
-## Create a custom classification project through Language studio
+## Create a custom text classification project through Language studio
 
 [!INCLUDE [Create a project using Language Studio](../includes/create-project.md)]
 
@@ -45,7 +45,7 @@ In this tutorial, you will learn how to:
 
 ## Deploy your model
 
-To deploy your model, go to your project in [Language Studio](https://aka.ms/custom-classification). You can also use the [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob).
+To deploy your model, go to your project in [Language Studio](https://aka.ms/custom-classification). You can also use the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob).
 
 [!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
 
@@ -90,7 +90,7 @@ If you deploy your model through Language Studio, your `deployment-name` will be
 
         :::image type="content" source="../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen in the Azure portal" lightbox="../../media/azure-portal-resource-credentials.png":::
 
-6. Get your custom classification project secrets
+6. Get your custom text classification project secrets
 
     1. You will need your **project-name**, project names are case-sensitive.
 

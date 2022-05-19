@@ -32,7 +32,7 @@ Before connecting your Microsoft Sentinel workspace to an external source contro
 
     Microsoft Sentinel currently supports connections only with GitHub and Azure DevOps repositories.
 
-- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace. The **Owner** role is required to create the connection between Microsoft Sentinel and your source control repository. If you are using Azure Lighthouse in your environment, you can instead have the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
+- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you are unable to use the Owner role in your environment, you can instead use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
 
 ### Maximum connections and deployments
 
@@ -114,7 +114,7 @@ Each connection can support multiple types of custom content, including analytic
 
 After the connection is created, a new workflow or pipeline is generated in your repository, and the content stored in your repository is deployed to your Microsoft Sentinel workspace.
 
-The deployment time may vary depending on the amount of content that you're deploying. 
+The deployment time may vary depending on the volume of content that you're deploying. 
 
 ### View the deployment status
 
@@ -128,6 +128,16 @@ After the deployment is complete:
 - The connection details on the **Repositories** page are updated with the link to the connection's deployment logs. For example:
 
     :::image type="content" source="media/ci-cd/deployment-logs-link.png" alt-text="Screenshot of a GitHub repository connection's deployment logs.":::
+    
+### Improve deployment performance with smart deployments
+
+Smart deployments is a back-end capability that improves the performance of deployments by actively tracking modifications made to the content files of a connected repository/branch using a csv file within the '.sentinel' folder in your repository. By actively tracking modifications made to content in each commit, your Microsoft Sentinel repositories will avoid redeploying any content that has not been modified since the last deployment into your Microsoft Sentinel workspace(s). This will improve your deployment performance and avoid unintentionally tampering with unchanged content in your workspace, such as resetting the dynamic schedules of your analytics rules by redeploying them. 
+
+While smart deployments is enabled by default on newly created connections, we understand that some customers would prefer all their source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not. You can modify your workflow to disable smart deployments to have your connection deploy all content regardless of its modification status. See [Customize the deployment workflow](#customize-the-deployment-workflow) for more details. 
+
+   > [!NOTE]
+   > This capapbilty was launched in public preview on April 20th, 2022. Connections created prior to launch would need to be updated or recreated for smart deployments to be turned on.
+   >
 
 ### Customize the deployment workflow
 
@@ -135,7 +145,7 @@ The default content deployment deploys all of the relevant custom content from t
 
 If the default configuration for your content deployment from GitHub or Azure DevOps does not meet all your requirements, you can modify the experience to fit your needs.
 
-For example, you may want to configure different deployment triggers, or deploy content only from a specific root folder.
+For example, you may want to turn off smart deployments, configure different deployment triggers, or deploy content only from a specific root folder.
 
 Select one of the following tabs depending on your connection type:
 
@@ -188,6 +198,8 @@ Select one of the following tabs depending on your connection type:
         ...
             directory: '${{ github.workspace }}/SentinelContent'
         ```
+    - **To disable smart deployments**:
+        Navigate to the `jobs` section of your workflow. Switch the `smartDeployment` default value (typically on line 33) from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
 
 For more information, see the [GitHub documentation](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpaths) on GitHub Actions and editing GitHub workflows.
 
@@ -240,6 +252,9 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
             azureSubscription: `Sentinel_Deploy_ServiceConnection_0000000000000000`
             workingDirectory: `SentinelContent`
         ```
+    
+    - **To disable smart deployments**:
+        Navigate to the `ScriptArguments` section of your pipeline. Switch the `smartDeployment` default value (typically on line 33) from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
 
 For more information, see the [Azure DevOps documentation](/azure/devops/pipelines/yaml-schema) on the Azure DevOps YAML schema.
 
@@ -288,7 +303,7 @@ For more information, see:
 
 - [Discover and deploy Microsoft Sentinel solutions (Public preview)](sentinel-solutions-deploy.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
-- [Advanced Security Information Model (ASIM) parsers (Public preview)](normalization-about-parsers.md)
+- [Advanced Security Information Model (ASIM) parsers (Public preview)](normalization-parsers-overview.md)
 - [Visualize collected data](get-visibility.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
 - [Hunt for threats with Microsoft Sentinel](hunting.md)

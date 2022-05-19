@@ -64,6 +64,8 @@ landingContent:
             url: how-to-stop-start-server-portal.md
           - text: Schedule maintenance
             url: how-to-maintenance-portal.md
+          - text: Move servers between regions
+            url: how-to-move-regions.md
 
 # Card
   - title: Business continuity

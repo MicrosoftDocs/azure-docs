@@ -170,6 +170,10 @@ For metric alerts, typically you will get notified in under 5 minutes if you set
 
 You can find the full list of supported resource types in this [article](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
+## Pricing model
+
+Each Metrics Alert rule is billed based for time series monitored. Prices for Metric Alert rules are available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). 
+
 ## Next steps
 
 - [Learn how to create, view, and manage metric alerts in Azure](../alerts/alerts-metric.md)

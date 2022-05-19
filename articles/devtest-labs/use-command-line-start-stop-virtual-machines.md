@@ -2,6 +2,8 @@
 title: Start & stop lab VMs with command lines
 description: Use Azure PowerShell or Azure CLI command lines and scripts to start and stop Azure DevTest Labs virtual machines.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/29/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli

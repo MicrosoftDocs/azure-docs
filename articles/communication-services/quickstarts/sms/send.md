@@ -20,6 +20,9 @@ zone_pivot_groups: acs-js-csharp-java-python
 > [!IMPORTANT]
 > SMS messages can be sent to and received from United States phone numbers. Phone numbers located in other geographies are not yet supported by Communication Services SMS.
 > For more information, see **[Phone number types](../../concepts/telephony/plan-solution.md)**.
+<br/>
+<br/>
+>[!VIDEO https://www.youtube.com/embed/YEyxSZqzF4o]
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET SDK](./includes/send-sms-net.md)]

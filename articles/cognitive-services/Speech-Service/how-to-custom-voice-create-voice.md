@@ -96,7 +96,7 @@ The issues are divided into three types. Refer to the following tables to check 
 
 **Auto-rejected**
 
-Data with these errors will be excluded during training.
+Data with these errors will not be used for training. Imported data with errors will be ignored, so you don't need to delete them. You can resubmit the corrected data for training.  
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
@@ -111,6 +111,7 @@ Data with these errors will be excluded during training.
 | Audio | Low sampling rate| The sampling rate of the .wav files can't be lower than 16 KHz.|
 | Audio | Too long audio| Audio duration is longer than 30 seconds. Split the long audio into multiple files. It's a good idea to make utterances shorter than 15 seconds.|
 | Audio | No valid audio| No valid audio is found in this dataset. Check your audio data and upload again.|
+| Mismatch | Low scored utterance| Sentence-level pronunciation score is lower than 70. Review the script and the audio content to make sure they match.|
 
 **Auto-fixed**
 

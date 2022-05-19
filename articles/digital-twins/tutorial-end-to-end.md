@@ -136,17 +136,19 @@ To publish the function app to Azure, you'll first need to create a storage acco
 
         This command publishes the project to the *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory.
 
-    1. Create a zip of the published files that are located in the *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. 
+    1. Create a zip of the published files that are located in the *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. Name the zipped folder *publish.zip*.
         
-        If you're using PowerShell, you can create the zip by copying the full path to that *\publish* directory and pasting it into the following command:
-    
-        ```powershell
-        Compress-Archive -Path <full-path-to-publish-directory>\* -DestinationPath .\publish.zip
-        ```
+        >[!TIP] 
+        >If you're using PowerShell, you can create the zip by copying the full path to that *\publish* directory and pasting it into the following command:
+        >
+        >```powershell
+        >Compress-Archive -Path <full-path-to-publish-directory>\* -DestinationPath .\publish.zip
+        >```
+        > The cmdlet will create the *publish.zip* file in the directory location of your terminal.
 
-        The cmdlet will create a *publish.zip* file in the directory location of your terminal that includes a *host.json* file, as well as *bin*, *ProcessDTRoutedData*, and *ProcessHubToDTEvents* directories.
+        Your *publish.zip* file should contain folders for *bin*, *ProcessDTRoutedData*, and *ProcessHubToDTEvents*, and there should also be a *host.json* file.
 
-        If you're not using PowerShell and don't have access to the `Compress-Archive` cmdlet, you'll need to zip up the files using the File Explorer or another method.
+        :::image type="content" source="media/tutorial-end-to-end/publish-zip.png" alt-text="Screenshot of File Explorer in Windows showing the contents of the publish zip folder.":::
 
 1. In the Azure CLI, run the following command to deploy the published and zipped functions to your Azure function app:
 
@@ -154,7 +156,7 @@ To publish the function app to Azure, you'll first need to create a storage acco
     az functionapp deployment source config-zip --resource-group <resource-group> --name <name-of-your-function-app> --src "<full-path-to-publish.zip>"
     ```
 
-    > [!NOTE]
+    > [!TIP]
     > If you're using the Azure CLI locally, you can access the ZIP file on your computer directly using its path on your machine.
     > 
     >If you're using the Azure Cloud Shell, upload the ZIP file to Cloud Shell with this button before running the command:

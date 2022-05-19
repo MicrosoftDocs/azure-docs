@@ -66,6 +66,22 @@ The Azure Image Builder Service is available in the following regions: regions.
 - Australia East
 - UK South
 - UK West
+- Brazil South
+- Canada Central
+- Central India
+- Central US
+- France Central
+- Germany West Central
+- Japan East
+- North Central US
+- Norway East
+- Switzerland North
+- Jio India West
+- UAE North
+- East Asia
+- Korea Central
+- South Africa North
+
 
 ## OS support
 Azure Image Builder will support Azure Marketplace base OS images:
