@@ -88,7 +88,7 @@ Access policies determine which identities can use the authorization that the ac
 
 ### Process flow for creating authorizations
 
-The following image shows the process flow for creating an authorization in API Management using the grant type authorization code. For public preview no API documentation is available please see [this](https://github.com/Azure/APIManagement-Authorizations) GitHub repository with samples.
+The following image shows the process flow for creating an authorization in API Management using the grant type authorization code. 
 
 :::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Process flow for creating authorizations" border="false":::
 
