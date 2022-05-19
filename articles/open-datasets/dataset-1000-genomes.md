@@ -67,7 +67,7 @@ Sample notebook to access 1000 Genomes data on Azure [Notebook](https://github.c
 
 1.  Genotype imputations: The only freely downloadable data from diverse population can be used as reference for haplotype phasing, genotyping imputation or as a training set for ancestry inference.
 2.	Prioritize variants for pathogenicity: 1000 genomes along with other public data can be used to establish novelty of variants as well as pathogenicity of variant based on frequency.
-3.	Evolutionary genetics and population history: Use of 1000 genomes data to study signature of positive selection.The data has also been used demography and population
+3.	Evolutionary genetics and population history: Use of 1000 genomes data to study signature of positive selection. The data has also been used for demography and population
 4.	Impact of genetic variation on gene expression: With RNAseq data available, it is also used to study genetic basis of gene expression studying eQTLs
 5.	Test data for computational tools and statistical methods: It also used as test data for developing novel methods and tools
 
