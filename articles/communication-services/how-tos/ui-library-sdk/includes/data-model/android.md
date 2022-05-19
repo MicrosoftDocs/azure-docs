@@ -83,4 +83,4 @@ callComposite.setOnRemoteParticipantJoinedHandler { remoteParticipantJoinedEvent
 
 |Participants list|
 | ---- |
-| :::image type="content" source="media/android-model-injection-remote.png" alt-text="Android data custom model remote injection"::: |
+| :::image type="content" source="media/android-model-injection-remote.png" alt-text="Screenshot showing the Android data custom model remote injection."::: |
