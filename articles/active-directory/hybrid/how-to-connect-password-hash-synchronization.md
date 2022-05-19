@@ -217,6 +217,7 @@ If your server has been locked down according to Federal Information Processing 
 3. Go to the configuration/runtime node at the end of the file.
 4. Add the following node: `<enforceFIPSPolicy enabled="false"/>`
 5. Save your changes.
+6. Reboot for the changes to take effect.
 
 For reference, this snippet is what it should look like:
 
