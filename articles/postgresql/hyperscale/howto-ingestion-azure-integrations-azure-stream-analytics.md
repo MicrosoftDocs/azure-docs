@@ -20,7 +20,8 @@ Each job has one or several outputs for the transformed data, and you can contro
  
 Hyperscale (Citus) shines at realtime time series workloads such as [IOT](howto-build-scalable-apps-model-high-throughput.md). For such workloads, Azure Stream Analytics (ASA) can act as a no-code, performant & scalable alternative to pre-process and stream data in real-time from Event Hub, IOT Hub and Azure Blob Storage into Citus.
 Below diagram depicts a sample reference architecture for such apps:<br><br>
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/64438692/168922576-afd32810-7c8c-48b7-851a-cc83ddc7735a.png">
+
+![Diagram of reference architecture of ASA with Citus](../media/howto-ingestion/01-ASA-reference-arch.png)
 
 # Steps to setup ASA with Hyperscale (Citus)
 In this tutorial, we will walk you through the steps involved in creating an Azure Stream Analytics job to integrate data flowing in from Azure IOT Hub to Hyperscale (Citus).
@@ -42,7 +43,8 @@ Before we begin, it is assumed that you already have Azure IOT Hub provisioned a
    *  **Streaming units** - Streaming units represent the computing resources that are required to execute a job.
    *  **Hosting environment** - Cloud allows you to deploy to Azure Cloud, and Edge allows you to deploy to an IoT Edge device.
 4. Select **Create**. You should see a *Deployment in progress...* notification displayed in the top right of your browser window.
-![image](https://user-images.githubusercontent.com/64438692/168928180-1267c416-1ffd-421c-8848-2cee16650ca0.png)
+
+![Diagram of create ASA](../media/howto-ingestion/02-ASA-create.png)
 
 5.    **Configure Job Input**
     * Once the resource deployment is complete, navigate to your Stream Analytics job. 
@@ -72,7 +74,7 @@ Before we begin, it is assumed that you already have Azure IOT Hub provisioned a
 }
 ```
 
-![image](https://user-images.githubusercontent.com/64438692/168928290-57d08b81-aa6d-42bf-bf5e-927ad25a7a1d.png)
+![Diagram of configuring job input in ASA](../media/howto-ingestion/03-ASA-input.png)
 
 
 6.    **Configure Job Output**
@@ -83,7 +85,7 @@ Before we begin, it is assumed that you already have Azure IOT Hub provisioned a
     *    Select **"Provide PostgreSQL database settings manually"** and enter the DB server connection details like server FQDN, database, table name, username, and password.
     *    Click on **Save** to save the settings.
 
- ![image](https://user-images.githubusercontent.com/64438692/168928406-efc633b7-3ebe-46c4-bc59-2a97f294a32c.png)
+![Diagram of configuring job output in ASA](../media/howto-ingestion/04-ASA-output.png)
 
  
 > [!NOTE]
@@ -103,7 +105,7 @@ from
     [src-iot-hub]
 where counter%2 = 0;
 ```
-![image](https://user-images.githubusercontent.com/64438692/168928924-e99f51a4-e36a-46d9-ad71-ec639fc2a9dc.png)
+![Diagram of transformation query in ASA](../media/howto-ingestion/05-ASA-transformation-query.png)
 
     
      * Select Save Query
@@ -116,4 +118,4 @@ where counter%2 = 0;
     * Return to the job overview page and select Start.
     * Under Start job, select Now, for the Job output start time field. Then, select Start to start your job.
     * After few minutes, you can login to the Hyperscale Citus server and verify the data loaded. The job will take some time to start at the first time, but once triggered it will continue to run as the data arrives.
-![image](https://user-images.githubusercontent.com/64438692/168928655-84ec183a-aa7d-4836-ab54-3767deffcfeb.png)
+![Diagram of querying data ingested into Citus](../media/howto-ingestion/06-ASA-postgres-query.png)
