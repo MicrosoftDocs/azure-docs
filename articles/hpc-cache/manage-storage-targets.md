@@ -1,21 +1,25 @@
 ---
 title: Manage Azure HPC Cache storage targets
 description: How to suspend, remove, force delete, and flush Azure HPC Cache storage targets, and how to understand the storage target state
-author: ronhogue
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/26/2022
-ms.author: rohogue
+ms.date: 05/19/2022
+ms.author: v-erinkelly
 ---
 
 # View and manage storage targets
 
 The storage targets settings page shows information about each storage target for your HPC Cache, and gives options to manage individual storage targets.
 
+This page also has a utility for customizing the amount of cache space allocated to each individual storage target. Read [Allocate cache storage](#allocate-cache-storage) for details.
+
 > [!TIP]
 > Instructions for listing storage targets using Azure CLI are included in the [Add storage targets](hpc-cache-add-storage.md#view-storage-targets) article. Other actions listed here might not yet be available in Azure CLI.
 
 ![Screenshot of the Settings > Storage targets page in the Azure portal. There are multiple storage targets in the list, and column headings show Name, Type, State, Provisioning state, Address/Container, and Usage model for each one.](media/storage-targets-list-states.png)
+
+<!-- to do: update all storage target list screenshots -->
 
 ## Manage storage targets
 
@@ -152,6 +156,12 @@ The **State** value affects which management options you can use. Here's a short
 * **Busy** - The storage target is processing another operation. You can delete or force remove the storage target.
 * **Suspended** - The storage target has been taken offline. You can still flush, delete, or force remove this storage target. Choose **Resume** to put the target back in service.
 * **Flushing** - The storage target is writing data to the back-end storage. The target can't process client requests while flushing, but it will automatically go back to its previous state after it finishes writing data.
+
+## Allocate cache storage
+
+xxx to come xxx
+
+![Screenshot of the storage targets page in the Azure portal.](media/storage-target-allocation.png)
 
 ## Next steps
 
