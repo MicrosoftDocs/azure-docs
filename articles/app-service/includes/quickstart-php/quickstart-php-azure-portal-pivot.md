@@ -165,11 +165,11 @@ The PHP sample code is running in an Azure App Service Linux web app.
 
 4. From the **Source Control** menu, select the **Stage Changes** button to stage the change.
 
-    ![On the App Service resource, on the Overview, the URL is highlighted.](../../media/quickstart-php/vscode-in-browser-stage-changes.png)
+    ![Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](../../media/quickstart-php/vscode-in-browser-stage-changes.png)
 
 5. Enter a commit message such as `"Hello Azure"`. Then, select **Commit and Push**.
     
-    ![On the App Service resource, on the Overview, the URL is highlighted.](../../media/quickstart-php/vscode-in-browser-commit-push.png)
+    ![Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted ](../../media/quickstart-php/vscode-in-browser-commit-push.png)
 
 6. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
