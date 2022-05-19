@@ -183,6 +183,8 @@
         href: manage/azure-account-for-microsoft-365-subscription.md
       - name: Pay using strong customer authentication
         href: manage/open-banking-strong-customer-authentication.md
+      - name: Elevate access
+        href: manage/elevate-access-global-admin
     - name: Manage subscriptions
       items:
       - name: Pay by invoice
