@@ -6,7 +6,7 @@
  ms.author: cherylmc
  ms.custom: include file
 
-#Customer intent: This file is duplicated as vpn-gateway-config-openvpn-linux.md. If the steps and screenshots in this file are updated, they need to be also updated in the other file unless specific to Virtual WAN.
+#Customer intent: This file is duplicated as vpn-gateway-vwan-config-openvpn-linux.md. If the steps and screenshots in this file are updated, they need to be also updated in the other file unless specific to VPN Gateway.
 ---
 
 1. Open a new Terminal session. You can open a new session by pressing 'Ctrl + Alt + t' at the same time.
@@ -18,9 +18,9 @@
    sudo apt-get -y install network-manager-openvpn
    sudo service network-manager restart
    ```
-1. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal.
+1. Next, go to the VPN client profile folder and unzip to view the files.
 
-1. Export the P2S client certificate you created and uploaded to your P2S configuration on the gateway. See [Virtual WAN point-to-site](../articles/virtual-wan/certificates-point-to-site.md#clientexport) for instructions.
+1. Export the P2S client certificate you created and uploaded to your P2S configuration on the gateway. For steps, see [VPN Gateway point-to-site](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).
 
 1. Extract the private key and the base64 thumbprint from the .pfx. There are multiple ways to do this. Using OpenSSL on your computer is one way.
 
