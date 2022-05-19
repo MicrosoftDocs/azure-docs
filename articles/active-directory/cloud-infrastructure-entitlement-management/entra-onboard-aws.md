@@ -40,7 +40,7 @@ To view a video on how to configure and onboard AWS accounts in Entra, select [C
 
 1. On the **Data Collectors** dashboard, select **AWS**, and then select **Create Configuration**.
 
-### 1. Create an Azure AD OIDC App.
+### 1. Create an Azure AD OIDC App
 
 1. On the **Entra Onboarding - Azure AD OIDC App Creation** page, enter the **OIDC Azure app name**.
 
@@ -54,7 +54,7 @@ To view a video on how to configure and onboard AWS accounts in Entra, select [C
 
 1. Return to Entra, and in the **Entra Onboarding - Azure AD OIDC App Creation**, select **Next**.
 
-### 2. Set up an AWS OIDC account.
+### 2. Set up an AWS OIDC account
 
 1. In the **Entra Onboarding - AWS OIDC Account Setup** page, enter the **AWS OIDC account ID** where the OIDC provider is created. You can change the role name to your requirements.
 1. Open another browser window and sign in to the AWS account where you want to create the OIDC provider.
@@ -65,7 +65,7 @@ To view a video on how to configure and onboard AWS accounts in Entra, select [C
 
 1. Return to Entra, and in the **Entra Onboarding - AWS OIDC Account Setup** page, select **Next**.
 
-### 3. Set up an AWS master account. (Optional)
+### 3. Set up an AWS master account (Optional)
 
 1. If your organization has Service Control Policies (SCPs) that govern some or all of the member accounts, set up the master account connection in the **Entra Onboarding - AWS Master Account Details** page.
 
@@ -89,7 +89,7 @@ To view a video on how to configure and onboard AWS accounts in Entra, select [C
 
 1.  Return to Entra, and in **Entra Onboarding - AWS Master Account Details**, select **Next**.
 
-### 4. Set up an AWS Central logging account. (Optional but recommended)
+### 4. Set up an AWS Central logging account (Optional but recommended)
 
 1. If your organization has a central logging account where logs from some or all of your AWS account are stored, in the **Entra Onboarding - AWS Central Logging Account Details** page, set up the logging account connection.
 
@@ -109,7 +109,7 @@ To view a video on how to configure and onboard AWS accounts in Entra, select [C
 
 1. Return to Entra, and in the **Entra Onboarding - AWS Central Logging Account Details** page, select **Next**.
 
-### 5. Set up an AWS member account.
+### 5. Set up an AWS member account
 
 1. In the **Entra Onboarding - AWS Member Account Details** page, enter the **Member Account Role** and the **Member Account IDs**.
 
@@ -146,7 +146,7 @@ To view a video on how to configure and onboard AWS accounts in Entra, select [C
 
     This step completes the sequence of required connections from Azure AD STS to the OIDC connection account and the AWS member account.
 
-### 6. Review and save.
+### 6. Review and save
 
 1. In **Entra Onboarding – Summary**, review the information you've added, and then select **Verify Now & Save**.
 
@@ -156,7 +156,7 @@ To view a video on how to configure and onboard AWS accounts in Entra, select [C
 
     You have now completed onboarding AWS, and Entra has started collecting and processing your data.
 
-### 7. View the data.
+### 7. View the data
 
 1. To view the data, select the **Authorization Systems** tab.
 
