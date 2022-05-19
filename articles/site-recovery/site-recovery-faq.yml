@@ -224,7 +224,7 @@ sections:
                 * Easy transition to "Future State"
             * Cons: 
               * No SLA and potentially higer latency
-              * requires an on-premis VPN device availability
+              * requires an on-premises VPN device availability
       - question: |
          Can I use Riverbed SteelHeads for replication?
         answer: |
