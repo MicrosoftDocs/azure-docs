@@ -12,6 +12,7 @@ items:
   items:
   - name: Launch your first app
     href: quickstart.md
+  - name: Run apps on Basic/Standard tier
     expanded: true
     items:
     - name: Introduction to PetClinic sample
@@ -27,6 +28,8 @@ items:
       href: quickstart-setup-log-analytics.md
     - name: Use logs, metrics and tracing
       href: quickstart-logs-metrics-tracing.md
+    - name: Integrate with Azure Database for MySQL
+      href: quickstart-integrate-azure-database-mysql.md
   - name: Run apps on Enterprise tier
     items:
     - name: Introduction to Fitness Store sample
@@ -45,8 +48,6 @@ items:
       href: quickstart-set-request-rate-limits-enterprise.md
     - name: Automate deployments
       href: quickstart-automate-deployments-github-actions-enterprise.md
-  - name: Integrate with Azure Database for MySQL
-    href: quickstart-integrate-azure-database-mysql.md
   - name: Provisioning
     expanded: true
     items:

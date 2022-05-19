@@ -26,7 +26,7 @@ This quickstart shows you how to provision and prepare an Azure Database for Pos
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
-- Complete the previous quickstarts in this series:
+- Complete the previous quickstart in this series:
   - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
 ## Provision services

@@ -136,4 +136,4 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)
+> [Reference architecture](reference-architecture.md)
