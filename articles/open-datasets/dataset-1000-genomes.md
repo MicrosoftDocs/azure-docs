@@ -11,13 +11,16 @@ ms.date: 04/16/2021
 
 # 1000 Genomes
 
-The 1000 Genomes Project ran between 2008 and 2015, creating the largest public catalog of human variation and genotype data. The final data set contains data for 2,504 individuals from 26 populations and 84 million identified variants. For more information, see the 1000 Genome Project website and the following publications:
+The 1000 Genomes Project ran between 2008 and 2015, creating the largest public catalog of human variation and genotype data. The final data set contains data for 2,504 individuals from 26 populations and 84 million identified variants. The 100 Genomes is currently maintained by the [IGSR](https://www.internationalgenome.org/about) to ensure the data is 1. Available in latest reference dataset. 2. Maintain and publish additional dataset on 1000 genomes samples. 3. Expand the collection with additional populations.
 
-Pilot Analysis: A map of human genome variation from population-scale sequencing Nature 467, 1061-1073 (28 October 2010)
+Pilot Analysis: [A map of human genome variation from population-scale sequencing](https://www.nature.com/articles/nature09534)
 
-Phase 1 Analysis: An integrated map of genetic variation from 1,092 human genomes Nature 491, 56-65 (01 November 2012)
+Phase 1 Analysis: [An integrated map of genetic variation from 1,092 human genomes](https://www.nature.com/articles/nature11632)
 
-Phase 3 Analysis: A global reference for human genetic variation Nature 526, 68-74 (01 October 2015) and An integrated map of structural variation in 2,504 human genomes Nature 526, 75-81 (01 October 2015)
+Phase 3 Analysis: [A global reference for human genetic variation](https://www.nature.com/articles/nature15393)
+                  [An integrated map of structural variation in 2,504 human genomes](https://www.nature.com/articles/nature15394)
+
+#[Explore the meta data](https://msit.powerbi.com/reportEmbed?reportId=de861d8e-90df-42be-8042-301258ff113e&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9kZi1tc2l0LXNjdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D)
 
 For details on data formats refer to http://www.internationalgenome.org/formats
 
