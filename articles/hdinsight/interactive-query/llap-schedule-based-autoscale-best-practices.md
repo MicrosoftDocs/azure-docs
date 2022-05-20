@@ -3,8 +3,8 @@ title: HDInsight Interactive Query Autoscale(Schedule-Based) Guide and Best Prac
 description: LLAP Autoscale Guide and Best Practices 
 ms.service: hdinsight
 ms.topic: quickstart
-author: mohantyr
-ms.author: rishikeshmohanty
+author: rishikeshmohanty
+ms.author: mohantyr
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/25/2022
 ---
@@ -15,7 +15,7 @@ This document provides the onboarding steps to enable schedule-based autosca
 
 ## **Supportability**
 
-- Autoscale is not supported in HDI 3.6 Interactive Query(LLAP) cluster.  
+- Autoscale isn't supported in HDI 3.6 Interactive Query(LLAP) cluster.  
 - HDI 4.0 Interactive Query Cluster supports only Schedule-Based Autoscale. 
 
 Feature Supportability with HDInsight 4.0 Interactive Query(LLAP) Autoscale
@@ -27,7 +27,7 @@ Feature Supportability with HDInsight 4.0 Interactive Query(LLAP) Autoscale
 | Manually Installed LLAP  | NO  |
 
 > [!WARNING]  
-> Behaviour of the scheduled autoscale is not deterministic, If there are other services installed on the HDI Interactive Query Cluster which utilizes the YARN resources. 
+> Behaviour of the scheduled autoscale isn't deterministic, If there are other services installed on the HDI Interactive Query Cluster which utilizes the YARN resources. 
 
 ### **Interactive Query Cluster setup for Autoscale**
 
@@ -78,7 +78,7 @@ If there are running jobs(triggered from Spark Cluster) while scale-down is trig
 
 <b>3. Why is my query running slow even after scale-up?</b>
 
-As the Autoscale Smart probe add/remove worker nodes as part of autoscale, LLAP data cache on newly added worker nodes would require warming up after scale-up. First query on a given dataset might be slow due to cache-misses but the subsequent queries would run fast. It is recommended to run some queries on performance critical tables after scaling to warm up the data cache (Optional). 
+As the Autoscale Smart probe add/remove worker nodes as part of autoscale, LLAP data cache on newly added worker nodes would require warming up after scale-up. First query on a given dataset might be slow due to cache-misses but the subsequent queries would run fast. It's recommended to run some queries on performance critical tables after scaling to warm up the data cache (Optional). 
 
 
 <b>4. Does schedule based autoscale support Workload Management in LLAP?</b> 
@@ -89,7 +89,7 @@ Disabling the WLM should be before the actual schedule of the scaling event and 
 
 <b>5. Why do we observe stale hive configs in the Ambari UI after the scaling has happened?</b>
 
-Each time the Interactive Query cluster scales, the Autoscale smart probe would perform a silent update of the number of LLAP Daemons and the Concurrency in the Ambari since these configs are static. 
+Each time the Interactive Query cluster scales, the Autoscale smart probe would perform a silent update of the number of LLAP Daemons and the Concurrency in the Ambari since these configurations are static. 
 These configs are updated to make sure if autoscale is in disabled state or LLAP Service restarts for some reason. It utilizes all the worker nodes resized at that time. Explicit restart of services to handle these stale config changes isn't required.
 
 ### **Next Steps**
@@ -99,7 +99,7 @@ If the above guidelines didn't resolve your query, visit one of the following.
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
 
 ## **Other References:**
   * [Interactive Query in Azure HDInsight](/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
