@@ -4,7 +4,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 This quickstart shows you how to make these changes within your browser, without having to install the development environment tools on your machine.
 
-<!-- TODO: screenshot here -->
+![Sample app running in Azure](../../media/quickstart-java/hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
@@ -17,18 +17,18 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 ## Fork the sample repository
 
-1. In your browser, navigate to the repository containing [the sample code](https://github.com/Azure-Samples/java-docs-hello-world).
+1. In your browser, navigate to the repository containing [the sample code](https://github.com/Azure-Samples/java-docs-spring-hello-world).
 
 2. In the upper right corner, select **Fork**.
 
-    ![In GitHub, in the Azure-Samples/java-docs-hello-world repo, select Fork.](../../media/quickstart-java/fork-java-docs-hello-world-repo.png)
+    ![In GitHub, in the Azure-Samples/java-docs-spring-hello-world repo, select Fork.](../../media/quickstart-java/fork-java-docs-hello-world-repo.png)
 
 3. On the **Create a new fork** screen, confirm the **Owner** and **Repository name** fields. Select **Create fork**.
 
-    ![In GitHub, in the Azure-Samples/java-docs-hello-world repo, on the Create a new fork screen, confirm the details for the Owner and Repository name fields.](../../media/quickstart-java/fork-details-java-docs-hello-world-repo.png)
+    ![In GitHub, in the Azure-Samples/java-docs-spring-hello-world repo, on the Create a new fork screen, confirm the details for the Owner and Repository name fields.](../../media/quickstart-java/fork-details-java-docs-hello-world-repo.png)
 
     >[!NOTE]
-    > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-hello-world
+    > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-spring-hello-world
 
 ### Update the fork's default branch
 
@@ -38,15 +38,15 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 2. Under **Code and automation**, select **Branches**.
 
- ![In GitHub, in the forked java-docs-hello-world repo's Settings, select Branches.](../../media/quickstart-java/forked-java-docs-hello-world-repo-settings-branches.png)
+ ![In GitHub, in the forked java-docs-spring-hello-world repo's Settings, select Branches.](../../media/quickstart-java/forked-java-docs-hello-world-repo-settings-branches.png)
 
 3. Under **Default branch**, to the right of `master`, select the **Rename branch** button represented by a pencil icon.
 
- ![In GitHub, in the forked java-docs-hello-world repo's Settings, select Branches.](../../media/quickstart-java/forked-java-docs-hello-world-repo-settings-branches-edit.png)
+ ![On the Branches for the forked java-docs-spring-hello-world repo, select the Rename branch button after master.](../../media/quickstart-java/forked-java-docs-hello-world-repo-settings-branches-edit.png)
 
 4. In the **Rename this branch** pop-up, enter `main`.
 
- ![In GitHub, in the forked java-docs-hello-world repo's Settings, select Branches.](../../media/quickstart-java/forked-java-docs-hello-world-repo-rename-this-branch.png)
+ ![In the Rename this branch dialog, enter 'main'.](../../media/quickstart-java/forked-java-docs-hello-world-repo-rename-this-branch.png)
 
 5. Select **Rename branch**.
 
@@ -93,11 +93,11 @@ Sign in to the Azure portal at https://portal.azure.com.
    
 7.  In the Spec Picker, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
-    ![On the Create Web App screen, on the Basics tab, in the App Service Plan section, select the 'Create new' link. Enter myAppServicePlan in the textbox.](../../media/quickstart-java/azure-portal-create-app-service-select-free-tier.png)   
+    ![In the Spec Picker, select Dev/Test, then select F1. Finally select the Apply.](../../media/quickstart-java/azure-portal-create-app-service-select-free-tier.png)   
 
 8. Select the **Review + create** button at the bottom of the page.
 
-    ![On the Create Web App screen, on the Basics tab, in the App Service Plan section, select the 'Create new' link. Enter myAppServicePlan in the textbox.](../../media/quickstart-java/azure-portal-create-app-service-review-create.png)   
+    ![At the bottom of the Create Web App screen, select 'Review + create'.](../../media/quickstart-java/azure-portal-create-app-service-review-create.png)   
 
 9. After validation runs, select the **Create** button at the bottom of the page.
 
@@ -117,7 +117,7 @@ This step will set up continuous deployment using GitHub actions.
 
 4. In the section under **GitHub**, select the following settings:
     - Organization: Select your organization.
-    - Repository: Select `java-docs-hello-world`.
+    - Repository: Select `java-docs-spring-hello-world`.
     - Branch: Select `main`.
 
 5. Select **Save**.
@@ -173,7 +173,7 @@ The Java sample code is running in an Azure App Service Linux web app.
 
 6. Enter a commit message such as `"Hello Azure"`. Then, select **Commit and Push**.
 
-    ![Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello world' and the Commit and Push button highlighted ](../../media/quickstart-java/vscode-in-browser-commit-push.png)
+    ![Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted ](../../media/quickstart-java/vscode-in-browser-commit-push.png)
 
 7. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
@@ -187,11 +187,11 @@ The Java sample code is running in an Azure App Service Linux web app.
 
 2. Select the name of your Azure app.
 
-    ![Portal navigation to Azure app](../../media/quickstart-java/java-docs-hello-world-app-service-list.png)
+    ![Portal navigation to Azure app](../../media/quickstart-java/java-docs-spring-hello-world-app-service-list.png)
 
 Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
 
-![App Service page in Azure portal](../../media/quickstart-java/java-docs-hello-world-app-service-detail.png)
+![App Service page in Azure portal](../../media/quickstart-java/java-docs-spring-hello-world-app-service-detail.png)
 
 The web app menu provides different options for configuring your app.
 
