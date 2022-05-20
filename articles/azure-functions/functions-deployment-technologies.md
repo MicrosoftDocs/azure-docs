@@ -62,7 +62,7 @@ When you change any of your triggers, the Functions infrastructure must be aware
 * Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook-trigger.md#authorization-keys).
 * Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app.
 
-When you deploy using an external package URL and the contents of the package change but the URL itself doesn't change, you need to also manually restart your function app to fully sync your updates.
+When you deploy using an external package URL and the contents of the package change but the URL itself doesn't change, you need to manually restart your function app to fully sync your updates.
 
 ### Remote build
 
