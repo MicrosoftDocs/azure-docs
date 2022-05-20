@@ -140,4 +140,4 @@ To complete online, self-paced training, browse the available learning paths and
 
 ## Next steps
 
-In the [next article](implementation-success-evaluate-spark-pool-design.md) in the *Azure Synapse success by design* series, learn how to evaluate your Spark pool design to identify issues and validate that it meets guidelines and requirements.
+In the [next article](implementation-success-perform-operational-readiness-review.md) in the *Azure Synapse success by design* series, learn how to perform an operational readiness review to evaluate your solution for its preparedness to provide optimal services to users.
