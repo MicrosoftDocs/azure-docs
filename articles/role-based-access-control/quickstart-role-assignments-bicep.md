@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
 ms.workload: identity
-ms.date: 05/12/2022
+ms.date: 05/20/2022
 ms.author: v-eschaffer
 #Customer intent: As a new user, I want to see how to grant access to resources using Bicep so that I can start automating role assignment processes.
 ---
