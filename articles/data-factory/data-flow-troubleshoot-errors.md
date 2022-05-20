@@ -114,7 +114,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: InvalidTemplate
 - **Message**: The pipeline expression cannot be evaluated.
 - **Cause**: The pipeline expression passed in the Data Flow activity isn't being processed correctly because of a syntax error.
-- **Recommendation**: Check data flow activity name. Check expressions in activity monitoring to verify the expressions. For example, data flow activity name can not have a space or a hyphen.
+- **Recommendation**: Check data flow activity name. Check expressions in activity monitoring to verify the expressions. For example, data flow activity name can't have a space or a hyphen.
 
 ## Error code: 2011
 - **Message**: The activity was running on Azure Integration Runtime and failed to decrypt the credential of data store or compute connected via a Self-hosted Integration Runtime. Please check the configuration of linked services associated with this activity, and make sure to use the proper integration runtime type.
@@ -138,13 +138,13 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Xml-InvalidReferenceResource
 - **Message**: Reference resource in xml data file cannot be resolved.
-- **Cause**: The reference resource in the XML data file cannot be resolved.
+- **Cause**: The reference resource in the XML data file can't be resolved.
 - **Recommendation**: Check the reference resource in the XML data file.
 
 ## Error code: DF-Xml-InvalidSchema
 - **Message**: Schema validation failed.
 - **Cause**: The invalid schema is provided on the XML source.
-- **Recommendation**: Check the schema settings on the XML source to make sure that it is the subset schema of the source data.
+- **Recommendation**: Check the schema settings on the XML source to make sure that it's the subset schema of the source data.
 
 ## Error code: DF-Xml-UnsupportedExternalReferenceResource
 - **Message**: External reference resource in xml data file is not supported.
@@ -185,7 +185,6 @@ This article lists common error codes and messages reported by mapping data flow
 - **Message**: Partition key path cannot be empty for update and delete operations.
 - **Cause**: The partition key path is empty for update and delete operations.
 - **Recommendation**: Use the providing partition key in the Azure Cosmos DB sink settings.
-
 - **Message**: Partition key is not mapped in sink for delete and update operations.
 - **Cause**: An invalid partition key is provided.
 - **Recommendation**: In Cosmos DB sink settings, use the right partition key that is same as your container's partition key.
@@ -296,7 +295,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-SQLDW-InvalidStorageType
 - **Message**: Storage type can either be blob or gen2.
 - **Cause**: An invalid storage type is provided for staging.
-- **Recommendation**: Check the storage type of the linked service used for staging and make sure that it is Blob or Gen2.
+- **Recommendation**: Check the storage type of the linked service used for staging and make sure that it's Blob or Gen2.
 
 ## Error code: DF-SQLDW-InvalidGen2StagingConfiguration
 - **Message**: ADLS Gen2 storage staging only support service principal key credential.
@@ -415,12 +414,12 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Cosmos-FailToResetThroughput
 - **Message**: Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
-- **Cause**: The throughput scale operation of the Azure Cosmos DB cannot be performed because another scale operation is in progress.
+- **Cause**: The throughput scale operation of the Azure Cosmos DB can't be performed because another scale operation is in progress.
 - **Recommendation**: Login to Azure Cosmos DB account, and manually change container throughput to be auto scale or add a custom activity after mapping data flows to reset the throughput.
 
 ## Error code: DF-Executor-InvalidPath
 - **Message**: Path does not resolve to any file(s). Please make sure the file/folder exists and is not hidden.
-- **Cause**: An invalid file/folder path is provided, which cannot be found or accessed.
+- **Cause**: An invalid file/folder path is provided, which can't be found or accessed.
 - **Recommendation**: Please check the file/folder path, and make sure it is existed and can be accessed in your storage.
 
 ## Error code: DF-Executor-InvalidPartitionFileNames
@@ -436,7 +435,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Executor-InvalidInputColumns
 - **Message**: The column in source configuration cannot be found in source data's schema.
 - **Cause**: Invalid columns are provided on the source.
-- **Recommendation**: Check columns in the source configuration and make sure that it is the subset of the source data's schemas.
+- **Recommendation**: Check columns in the source configuration and make sure that it's the subset of the source data's schemas.
 
 ## Error code: DF-AdobeIntegration-InvalidMapToFilter
 - **Message**: Custom resource can only have one Key/Id mapped to filter.
@@ -473,7 +472,7 @@ This article lists common error codes and messages reported by mapping data flow
 
   - Option-2: Use larger cluster size (for example, 48 cores) to run your data flow pipelines. You can learn more about cluster size through this document: [Cluster size](./concepts-integration-runtime-performance.md#cluster-size).
   
-  - Option-3: Repartition your input data. For the task running on the data flow spark cluster, one partition is one task and runs on one node. If data in one partition is too large, the related task running on the node needs to consume more memory than the node itself, which causes failure. So you can use repartition to avoid data skew, and ensure that data size in each partition is average while the memory consumption is not too heavy.
+  - Option-3: Repartition your input data. For the task running on the data flow spark cluster, one partition is one task and runs on one node. If data in one partition is too large, the related task running on the node needs to consume more memory than the node itself, which causes failure. So you can use repartition to avoid data skew, and ensure that data size in each partition is average while the memory consumption isn't too heavy.
     
       :::image type="content" source="media/data-flow-troubleshoot-guide/configure-partition.png" alt-text="Screenshot that shows the configuration of partitions.":::
 
@@ -545,12 +544,12 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Cosmos-InvalidAccountKey
 - **Message**: The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used.
-- **Cause**: There is no enough permission to read/write Azure Cosmos DB data.
+- **Cause**: There's no enough permission to read/write Azure Cosmos DB data.
 - **Recommendation**: Please use the read-write key to access Azure Cosmos DB.
 
 ## Error code: DF-Cosmos-ResourceNotFound
 - **Message**: Resource not found.
-- **Cause**: Invalid configuration is provided (for example, the partition key with invalid characters) or the resource does not exist.
+- **Cause**: Invalid configuration is provided (for example, the partition key with invalid characters) or the resource doesn't exist.
 - **Recommendation**: To solve this issue, refer to [Diagnose and troubleshoot Azure Cosmos DB not found exceptions](../cosmos-db/troubleshoot-not-found.md).
 
 ## Error code: DF-Snowflake-IncompatibleDataType
