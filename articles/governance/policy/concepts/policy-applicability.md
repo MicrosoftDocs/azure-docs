@@ -37,4 +37,4 @@ The applicability is based on the **If** conditions. When the **If** evaluates t
 
 - Learn how to [Get compliance data of Azure resources](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review the [update in policy compliance for resource type policies](https://azure.microsoft.com/en-us/updates/general-availability-update-in-policy-compliance-for-resource-type-policies/).
+- Review the [update in policy compliance for resource type policies](https://azure.microsoft.com/updates/general-availability-update-in-policy-compliance-for-resource-type-policies/).
