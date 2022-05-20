@@ -16,7 +16,7 @@ This article outlines the process to register an Azure SQL data source in Micros
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| No | [Yes](#lineagepreview)(Preview)** |
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| No | [Yes](#lineagepreview) (Preview)** |
 
 \** Lineage is also supported if Azure SQL tables/views used as source/sink in [Data Factory Copy and Data Flow activities](how-to-link-azure-data-factory.md) 
 
@@ -77,8 +77,6 @@ It's important to register the data source in Microsoft Purview before setting u
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-data-source.png" alt-text="Screenshot that shows the collection used to register the data source.":::
 
 1. Select the **Azure SQL Database** data source and select **Continue**
-
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-select-ds.png" alt-text="Screenshot that allows selection of the data source.":::
 
 1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, **Server name** for the SQL server and the **collection** and select on **Apply**
 
@@ -147,8 +145,6 @@ Select your chosen method of authentication from the tabs below for steps to aut
 1. You'll need a SQL login with at least `db_datareader` permissions to be able to access the information Microsoft Purview needs to scan the database. You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a sign-in for Azure SQL Database. You'll need to save the **username** and **password** for the next steps.
 
 1. Navigate to your key vault in the Azure portal.
-
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault.png" alt-text="Screenshot that shows the key vault.":::
 
 1. Select **Settings > Secrets** and select **+ Generate/Import**
 
@@ -238,8 +234,6 @@ The service principal needs permission to get metadata for the database, schemas
 ##### Create the credential
 
 1. Navigate to your key vault in the Azure portal
-
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault.png" alt-text="Screenshot that shows the key vault to add a secret for Service Principal.":::
 
 1. Select **Settings > Secrets** and select **+ Generate/Import**
 
