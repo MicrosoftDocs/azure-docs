@@ -152,8 +152,6 @@ Select your chosen method of authentication from the tabs below for steps to aut
 
 1. Enter the **Name** and **Value** as the *password* from your Azure SQL Database.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-secret-sql.png" alt-text="Screenshot that shows the key vault option to enter the sql secret values.":::
-
 1. Select **Create** to complete
 
 1. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
@@ -241,8 +239,6 @@ The service principal needs permission to get metadata for the database, schemas
 
 1. Give the secret a **Name** of your choice.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-create-secret.png" alt-text="Screenshot that shows the key vault option to enter the secret values.":::
-
 1. The secret's **Value** will be the Service Principal's **Secret Value**. If you've already created a secret for your service principal, you can find its value in **Client credentials** on your secret's overview page.
 
     If you need to create a secret, you can follow the steps in the [service principal guide](create-service-principal-azure.md#adding-a-secret-to-the-client-credentials).
@@ -250,8 +246,6 @@ The service principal needs permission to get metadata for the database, schemas
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp-client-credentials.png" alt-text="Screenshot that shows the Client credentials for the Service Principal.":::
 
 1. Select **Create** to create the secret.
-
-    :::image type="content" source="media/register-scan-azure-sql-database/select-create.png" alt-text="Screenshot that shows the Key Vault Create a secret menu, with the Create button highlighted.":::
 
 1. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 
@@ -327,11 +321,7 @@ Select your method of authentication from the tabs below for scanning steps.
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scan-trigger.png" alt-text="scan trigger.":::
-
 1. Review your scan and select **Save and run**.
-
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-review-scan.png" alt-text="review scan.":::
 
 ### View Scan
 
