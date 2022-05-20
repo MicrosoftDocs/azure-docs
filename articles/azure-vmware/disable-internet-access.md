@@ -22,15 +22,15 @@ With a default route setup, you can achieve the following tasks:
 1. Search for Azure VMware Solution and select it.
 1. Locate and select your Azure VMware Solution private cloud. 
   :::image type="content" source="media/public-ip-usage/private-cloud-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-1. Under Workload networking, select Internet connectivity.
+1. On the left navigation, under **Workload networking**, select **Internet connectivity**.
 
    :::image type="content" source="media/public-ip-usage/private-cloud-workload-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-1. Select Don't connect or connect using default route from Azure and click Save.
+1. Select **Don't connect or connect using default route from Azure** and select **Save**.
    :::image type="content" source="media/public-ip-usage/private-cloud-default-route-internet-connectivity_2.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 If you don't have a default route from on-prem or from Azure, you have successfully disabled Internet connectivity to your Azure VMware Solution private cloud. 
 
 ## Next Steps 
->[!div class="nextstepaction"]
->[Internet connectivity design considerations](concepts-design-avs-public-internet-access.md)<br>
->[Enable Managed SNAT for Azure VMware Solution Workloads](enable-managed-snat-for-avs-workloads.md)<br>
->[Enable Public IP to the NSX Edge for Azure VMware Solution](enable-public-ip-to-the-nsx-edge.md)<br>
+
+[Internet connectivity design considerations](concepts-design-avs-public-internet-access.md)<br>
+[Enable Managed SNAT for Azure VMware Solution Workloads](enable-managed-snat-for-avs-workloads.md)<br>
+[Enable Public IP to the NSX Edge for Azure VMware Solution](enable-public-ip-to-the-nsx-edge.md)<br>
