@@ -39,20 +39,20 @@ The Bicep file defines one resource:
 
     ```azurecli
     az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters sqlAdministratorLogin=<admin-login> databasesName=<db-name>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters sqlAdministratorLogin=<admin-login> databasesName=<db-name> capacity=<int>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -sqlAdministratorLogin "<admin-login>" -databasesName "<db-name>"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -sqlAdministratorLogin "<admin-login>" -databasesName "<db-name>" -capacity <int>
     ```
 
     ---
 
-> [!NOTE]
-> Replace **\<admin-login\>** with the administrator login username for the SQL server. Replace **\<db-name\>** with the name of the database. You'll be prompted to enter **sqlAdministratorPassword**.
+    > [!NOTE]
+    > Replace **\<admin-login\>** with the administrator login username for the SQL server. Replace **\<db-name\>** with the name of the database. Replace **\<int\>** with the DW performance level. The minimum value is 900 and the maximum value is 54000. You'll also be prompted to enter **sqlAdministratorPassword**.
 
   When the deployment finishes, you should see a message indicating the deployment succeeded.
 
