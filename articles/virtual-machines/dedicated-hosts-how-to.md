@@ -38,7 +38,7 @@ You can also decide to use both availability zones and fault domains.
 
 ### [Portal](#tab/portal)
 
-In this example, we will create a host group using one availability zone and two fault domains.
+In this example, we'll create a host group using one availability zone and two fault domains.
 
 1. Open the Azure [portal](https://portal.azure.com).
 1. Select **Create a resource** in the upper left corner.
@@ -65,7 +65,7 @@ Not all host SKUs are available in all regions, and availability zones. You can 
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
 ```
 
-In this example, we will use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group using both availability zones and fault domains.
+In this example, we'll use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group using both availability zones and fault domains.
 
 ```azurecli-interactive
 az vm host group create \
@@ -145,7 +145,7 @@ If you set a fault domain count for your host group, you'll need to specify the 
 
 ### [CLI](#tab/cli)
 
-Use [az vm host create](/cli/azure/vm/host#az-vm-host-create) to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.
+Use [az vm host create](/cli/azure/vm/host#az-vm-host-create) to create a host. If you set a fault domain count for your host group, you'll be asked to specify the fault domain for your host.
 
 ```azurecli-interactive
 az vm host create \
@@ -650,5 +650,5 @@ Remove-AzResourceGroup -Name $rgName
 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
-- There's sample template, available at [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+- There's sample template, available at [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), which uses both zones and fault domains for maximum resiliency in a region.
 
