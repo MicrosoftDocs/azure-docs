@@ -13,9 +13,9 @@ services: storage
 
 # Troubleshoot availability issues in Azure Storage accounts
 
-Introduction goes here.
+This article helps you investigate changes in the availability (such as number of failed requests). These changes in availability can often be identified by monitoring storage metrics in Azure Monitor. 
 
-## <a name="monitoring-availability"></a>Monitoring availability
+## Monitoring availability
 
 You should monitor the availability of the storage services in your storage account by monitoring the value of the **Availability** metric. The **Availability** metric contains a percentage value and is calculated by taking the total billable requests value and dividing it by the number of applicable requests, including those requests that produced unexpected errors.
 
@@ -23,7 +23,7 @@ Any value less than 100% indicates that some storage requests are failing. You c
 
 You can use features in Azure Monitor to alert you if **Availability** for a service falls below a threshold that you specify.
 
-## <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Metrics show an increase in throttling errors
+## Metrics show an increase in throttling errors
 
 Throttling errors occur when you exceed the scalability targets of a storage service. The storage service throttles to ensure that no single client or tenant can use the service at the expense of others. For more information, see [Scalability and performance targets for standard storage accounts](scalability-targets-standard-account.md) for details on scalability targets for storage accounts and performance targets for partitions within storage accounts.
 
@@ -34,14 +34,14 @@ If the **ClientThrottlingError** or **ServerBusyError** value of the **ResponseT
 
 An increase in throttling errors often occurs at the same time as an increase in the number of storage requests, or when you are initially load testing your application. This may also manifest itself in the client as "503 Server Busy" or "500 Operation Timeout" HTTP status messages from storage operations.
 
-### <a name="transient-increase-in-PercentThrottlingError"></a>Transient increase in throttling errors
+### Transient increase in throttling errors
 
 If you are seeing spikes in throttling errors that coincide with periods of high activity for the application, you implement an exponential (not linear) back-off strategy for retries in your client. Back-off retries reduce the immediate load on the partition and help your application to smooth out spikes in traffic. For more information about how to implement retry policies using the Storage Client Library, see the [RetryOptions.MaxRetries](/dotnet/api/microsoft.azure.storage.retrypolicies) property.
 
 > [!NOTE]
 > You may also see spikes in throttling errors that do not coincide with periods of high activity for the application: the most likely cause here is the storage service moving partitions to improve load balancing.
 
-### <a name="permanent-increase-in-PercentThrottlingError"></a>Permanent increase in throttling errors
+### Permanent increase in throttling errors
 
 If you are seeing a consistently high value for throttling errors following a permanent increase in your transaction volumes, or when you are performing your initial load tests on your application, then you need to evaluate how your application is using storage partitions and whether it is approaching the scalability targets for a storage account. For example, if you are seeing throttling errors on a queue (which counts as a single partition), then you should consider using additional queues to spread the transactions across multiple partitions. If you are seeing throttling errors on a table, you need to consider using a different partitioning scheme to spread your transactions across multiple partitions by using a wider range of partition key values. One common cause of this issue is the prepend/append anti-pattern where you select the date as the partition key and then all data on a particular day is written to one partition: under load, this can result in a write bottleneck. Either consider a different partitioning design or evaluate whether using blob storage might be a better solution. Also check whether throttling is occurring as a result of spikes in your traffic and investigate ways of smoothing your pattern of requests.
 
@@ -52,7 +52,7 @@ Inefficient query design can also cause you to hit the scalability limits for ta
 > [!NOTE]
 > Your performance testing should reveal any inefficient query designs in your application.
 
-## <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>Metrics show an increase in throttling errors
+## Metrics show an increase in timeout errors
 
 Timeout errors occur when the **ResponseType** dimension is equal to **ServerTimeoutError** or **ClientTimeout**.
 
@@ -65,10 +65,20 @@ The server timeouts (**ServerTimeOutError**) are caused by an error on the serve
 
 Server timeouts indicate a problem with the storage service that requires further investigation. You can use metrics to see if you are hitting the scalability limits for the service and to identify any spikes in traffic that might be causing this problem. If the problem is intermittent, it may be due to load-balancing activity in the service. If the problem is persistent and is not caused by your application hitting the scalability limits of the service, you should raise a support issue. For client timeouts, you must decide if the timeout is set to an appropriate value in the client and either change the timeout value set in the client or investigate how you can improve the performance of the operations in the storage service, for example by optimizing your table queries or reducing the size of your messages.
 
-## <a name="metrics-show-an-increase-in-PercentNetworkError"></a>Metrics show an increase in network errors
+## Metrics show an increase in network errors
 
 Network errors occur when the **ResponseType** dimension is equal to **NetworkError**. These occur when a storage service detects a network error when the client makes a storage request.
 
-The most common cause of this error is a client disconnecting before a timeout expires in the storage service. Investigate the code in your client to understand why and when the client disconnects from the storage service. You can also use third-party network analysis tools such as _Wireshark_, or _Tcping_ to investigate network connectivity issues from the client. 
+The most common cause of this error is a client disconnecting before a timeout expires in the storage service. Investigate the code in your client to understand why and when the client disconnects from the storage service. You can also use third-party network analysis tools to investigate network connectivity issues from the client. 
 
 ## See also
+
+| Guide | Description |
+|---|---|
+| [Troubleshoot performance issues](../common/troubleshoot-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| Common performance issues and guidance about how to troubleshoot them. |
+| [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| Common issues with connecting clients and how to troubleshoot them.|
+| [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md) |
+| [Monitoring Azure Files](../files/storage-files-monitoring.md) |
+| [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md) |
+| [Monitoring Azure Table storage](../tables/monitor-table-storage.md) |
+| [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/) | Troubleshoot storage account issues (contains step-by-step guidance). |

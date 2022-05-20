@@ -1,5 +1,6 @@
 ---
 title: Monitoring Azure Blob Storage
+
 description: Learn how to monitor the performance and availability of Azure Blob Storage. Monitor Azure Blob Storage data, learn about configuration, and analyze metric and log data.
 author: normesta
 services: storage
@@ -522,7 +523,7 @@ Requests made by the Blob storage service itself, such as log creation or deleti
 
 - Successful requests
 - Server errors
-- Time-out errors for both client and server
+- Timeout errors for both client and server
 - Failed GET requests with the error code 304 (Not Modified)
 
 All other failed anonymous requests aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-blob-storage-reference.md).

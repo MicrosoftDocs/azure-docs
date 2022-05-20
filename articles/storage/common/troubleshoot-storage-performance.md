@@ -13,21 +13,23 @@ services: storage
 
 # Troubleshoot performance in Azure Storage accounts
 
-Introduction goes here.
+This article helps you investigate unexpected changes in behavior (such as slower than usual response times). These changes in behavior can often be identified by monitoring storage metrics in Azure Monitor. 
 
 ## Monitoring performance
 
 To monitor the performance of the storage services, you can use the following metrics from the hourly and minute metrics tables.
 
 - The **SuccessE2ELatency** and **SuccessServerLatency** metrics show the average time the storage service or API operation type is taking to process requests. **SuccessE2ELatency** is a measure of end-to-end latency that includes the time taken to read the request and send the response in addition to the time taken to process the request (therefore includes network latency once the request reaches the storage service); **SuccessServerLatency** is a measure of just the processing time and therefore excludes any network latency related to communicating with the client. 
+
 - The **Egress** and **Ingress** metrics show the total amount of data, in bytes, coming in to and going out of your storage service or through a specific API operation type.
+
 - The **Transactions** metric shows the total number of requests that the storage service of API operation is receiving. **Transactions** is the total number of requests that the storage service receives.
 
 Typically, you will monitor for unexpected changes in any of these values as an indicator that you have an issue that requires investigation.
 
 In the [Azure portal](https://portal.azure.com), you can add alert rules to notify you if any of the performance metrics for this service fall below or exceed a threshold that you specify.
 
-### Diagnose performance issues
+## Diagnose performance issues
 
 The performance of an application can be subjective, especially from a user perspective. Therefore, it is important to have baseline metrics available to help you identify where there might be a performance issue. Many factors might affect the performance of an Azure storage service from the client application perspective. These factors might operate in the storage service, in the client, or in the network infrastructure; therefore it is important to have a strategy for identifying the origin of the performance issue.
 
@@ -35,13 +37,10 @@ After you have identified the likely location of the cause of the performance is
 
 ## Metrics show high SuccessE2ELatency and low SuccessServerLatency
 
-The illustration below from the [Azure portal](https://portal.azure.com) monitoring tool shows an example where the **SuccessE2ELatency** is significantly higher than the **SuccessServerLatency**.
-
-The storage service only calculates the metric **SuccessE2ELatency** for successful requests and, unlike **SuccessServerLatency**, includes the time the client takes to send the data and receive acknowledgment from the storage service. Therefore, a difference between **SuccessE2ELatency** and **SuccessServerLatency** could be either due to the client application being slow to respond, or due to conditions on the network.
+In some cases, you might find that **SuccessE2ELatency** is significantly higher than the **SuccessServerLatency**. The storage service only calculates the metric **SuccessE2ELatency** for successful requests and, unlike **SuccessServerLatency**, includes the time the client takes to send the data and receive acknowledgment from the storage service. Therefore, a difference between **SuccessE2ELatency** and **SuccessServerLatency** could be either due to the client application being slow to respond, or due to conditions on the network.
 
 > [!NOTE]
 > You can also view **E2ELatency** and **ServerLatency** for individual storage operations in the Storage Logging log data.
-
 
 ### Investigating client performance issues
 
@@ -59,14 +58,16 @@ Typically, high end-to-end latency caused by the network is due to transient con
 
 ## Metrics show low SuccessE2ELatency and low SuccessServerLatency but the client is experiencing high latency
 
-In this scenario, the most likely cause is a delay in the storage requests reaching the storage service. You should investigate why requests from the client are not making it through to the blob service.
+In this scenario, the most likely cause is a delay in the storage request reaching the storage service. You should investigate why requests from the client are not making it through to the blob service.
 
 One possible reason for the client delaying sending requests is that there are a limited number of available connections or threads.
 
 Also check whether the client is performing multiple retries, and investigate the reason if it is. To determine whether the client is performing multiple retries, you can:
 
 - Examine logs. If multiple retries are happening, you will see multiple operations with the same client request ID but with different server request IDs.
+
 - Examine the client logs. Verbose logging will indicate that a retry has occurred.
+
 - Debug your code, and check the properties of the **OperationContext** object associated with the request. If the operation has retried, the **RequestResults** property will include multiple unique server request IDs. You can also check the start and end times for each request. For more information, see the code sample in the section [Server request ID].
 
 If there are no issues in the client, you should investigate potential network issues such as packet loss. You can use tools such as Wireshark to investigate network issues.
@@ -87,9 +88,23 @@ High **SuccessServerLatency** values can also be a symptom of poorly designed ta
 If you are experiencing a delay between the time an application adds a message to a queue and the time it becomes available to read from the queue, then you should take the following steps to diagnose the issue:
 
 - Verify the application is successfully adding the messages to the queue. Check that the application is not retrying the **AddMessage** method several times before succeeding. 
+
 - Verify there is no clock skew between the worker role that adds the message to the queue and the worker role that reads the message from the queue that makes it appear as if there is a delay in processing.
+
 - Check if the worker role that reads the messages from the queue is failing. If a queue client calls the **GetMessage** method but fails to respond with an acknowledgment, the message will remain invisible on the queue until the **invisibilityTimeout** period expires. At this point, the message becomes available for processing again.
+
 - Check if the queue length is growing over time. This can occur if you do not have sufficient workers available to process all of the messages that other workers are placing on the queue. Also check the metrics to see if delete requests are failing and the dequeue count on messages, which might indicate repeated failed attempts to delete the message.
+
 - Examine the Storage logs for any queue operations that have higher than expected **E2ELatency** and **ServerLatency** values over a longer period of time than usual.
 
 ## See also
+
+| Guide | Description |
+|---|---|
+| [Troubleshoot availability issues](../common/troubleshoot-storage-availability.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| Common availability issues and guidance about how to troubleshoot them.|
+| [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| Common issues with connecting clients and how to troubleshoot them.|
+| [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md) |
+| [Monitoring Azure Files](../files/storage-files-monitoring.md) |
+| [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md) |
+| [Monitoring Azure Table storage](../tables/monitor-table-storage.md) |
+| [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/) | Troubleshoot storage account issues (contains step-by-step guidance). |
