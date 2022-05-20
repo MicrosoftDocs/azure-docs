@@ -1,93 +1,86 @@
 ---
-title: Evaluate data integration design
-description: "TODO: Evaluate data integration design"
+title: "Synapse implementation success methodology: Evaluate data integration design"
+description: "Learn how to evaluate the data integration design and validate that it meets guidelines and requirements."
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 05/23/2022
 ---
 
-# Evaluate data integration design
+# Synapse implementation success methodology: Evaluate data integration design
 
 [!INCLUDE [implementation-success-context](includes/implementation-success-context.md)]
 
-Azure Synapse Analytics is a complete analytics platform where business can choose one of three analytics runtimes (Apache Spark, Serverless SQL or Dedicated SQL Pool) for converting raw data into meaningful insights. It has a robust built-in data integration module called [Synapse Pipeline](../overview-what-is.md#built-in-data-integration) for building effective, scalable and secured data pipelines.
+Azure Synapse Analytics contains the same data integration engine and experiences as Azure Data Factory (ADF), allowing you to create rich at-scale ETL pipelines without leaving Azure Synapse Analytics.
 
-:::image type="content" source="media/implementation-success-evaluate-data-integration-design/data-integration-design-evaluation.png" alt-text="Image shows - TODO.":::
+:::image type="content" source="media/implementation-success-evaluate-data-integration-design/data-integration-design-evaluation.png" alt-text="Image shows the components of Azure Synapse, with the Data Integration component highlighted.":::
 
-In this guide we will evaluate the design of the Data Integration components of your project. Upon conclusion we will be able to determine if Synapse Pipelines are the best fit for your data integration use cases and we will have checked that all the key aspects of the design have been considered. Time invested in evaluating the design prior to solution development will help to eliminate unexpected design changes that may impact your project timeline or cost.
+This article describes how to evaluate the design of the data integration components for your project. It helps you to determine whether Azure Synapse pipelines are the best fit for your data integration requirements. Time invested in evaluating the design prior to solution development can help to eliminate unexpected design changes that may impact on your project timeline or cost.
 
-## Design review
+## Fit gap analysis
 
-### Fit-gap analysis
+You should perform a thorough fit gap analysis of your data integration strategy. If you choose Azure Synapse pipelines as the data integration tool, review the following points to ensure they're the best fit for your data integrations and orchestration. Even if you choose different data integration tools, you should still review the following points to validate that all key design points have been considered and that your chosen tool will support your solution needs. This information should have been captured during your assessment performed earlier in this method.
 
-You need to do a thorough fit-gap analysis of the data integration strategy. If the design has chosen Synapse Pipelines as one of the data integration tools to be used in the solution, review the following points to make sure Synapse Pipeline is the best tool for data integrations and orchestration. Some of the key aspects identified below need to be assessed in your environment. If another data integration tool or tools have been specified in the solution design the following points should still be reviewed to validate that these key design points have been considered and the chosen tool will support you solution's needs. This information should have been captured during your assessment performed earlier in this method.
+- Review your data sources and destinations (targets):
+    - Validate that source and destination stores are [supported data stores](/azure/data-factory/connector-overview).
+    - If they're not supported, check whether you can use the [extensible options](/azure/data-factory/connector-overview#integrate-with-more-data-stores).
+- Review the triggering points of your data integration and the frequency:
+    - Azure Synapse pipelines support schedule, tumbling window, and storage event triggers.
+    - Validate the minimum recurrence interval and supported storage events against your requirements.
+- Review the required modes of data integration:
+    - Scheduled, periodic, and triggered batch processing can be effectively designed in Azure Synapse pipelines.
+    - To implement Change Data Capture (CDC) functionality, use third party products or create a custom solution.
+    - To support real-time streaming, use [Azure Event Hubs](/azure/event-hubs/event-hubs-about), [Azure Event Hubs from Apache Kafka](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), or [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub).
+    - To run SQL Server Integration Services (SSIS) packages, you can [lift and shift SSIS workloads to the cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview?view=sql-server-ver15&preserve-view=true).
+- Review the compute design: Does the compute required for the pipelines need to be serverless or provisioned?
+    - Azure Synapse pipelines support both modes of integration runtime (IR): serverless or self-hosted on a Windows machine.
+    - Validate [ports and firewalls](/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory#ports-and-firewalls) and [proxy setting](/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory#proxy-server-considerations) if using the self-hosted IR (provisioned).
+- Review security requirements, networking, and firewall configuration of the environment and compare it to the security, networking and firewall configuration design:
+    - Review how the data sources are secured and networked.
+    - Review how the target data stores are secured and networked. Azure Synapse pipelines have different [data access strategies](/azure/data-factory/data-access-strategies) that provide a secure way to connect data stores via private endpoints or virtual networks.
+    - Use [Azure Key Vault](/azure/key-vault/general/basic-concepts) to store credentials whenever applicable.
+    - Use ADF for customer-managed key (CMK) encryption of credentials and store them in the self-hosted IR.
+- Review the design for ongoing monitoring of all data integration components.
 
-- Review your data sources and destinations (targets)
-    - Validate source and destination store are [supported data stores](../../data-factory/connector-overview.md)
-    - If not supported, check if you can leverage the [extensible options](../../data-factory/connector-overview.md#integrate-with-more-data-stores) of pipeline
-- Review the triggering points of your data integration and the frequency
-    - Synapse pipeline supports schedule, tumbling window and storage event triggers
-    - Validate minimum recurrence interval and supported storage events against your requirement
-- Review the modes of data integration required
-    - Scheduled, periodic and triggered batch processing can be effectively designed in Synapse pipelines
-    - To support Change Data Capture capabilities, leverage third party products or create a custom solution
-    - To support real-time streaming, leverage Event Hub/Kafka/IoT Hub
-    - To support Lift-and-Shift of SSIS packages, leverage [Azure Data Factory SSIS-IR](../../data-factory/tutorial-deploy-ssis-packages-azure.md)
-- Review the compute design. Does the compute required for the pipelines need to be serverless or provisioned?
-    - Synapse pipeline supports both modes where integration runtime can be serverless or self-hosted on a windows machine
-    - Validate [ports and firewall](../../data-factory/create-self-hosted-integration-runtime.md#ports-and-firewalls) and [proxy setting](../../data-factory/create-self-hosted-integration-runtime.md#proxy-server-considerations) in case of self-hosted IR (provisioned)
-- Review the security requirements, networking, and firewall configuration of the environment and compare to the security, networking and firewall configuration design.
-    - Review how the data sources are secured and networked
-    - Review how the target data stores are secured and networked
-    - Synapse pipeline has different [data access](../../data-factory/ data-access-strategies.md#data-access-strategies-through-azure-data-factory) strategies to provide a secured way to connect data stores via private endpoints/VNET/Firewall/Internet
-    - Use Azure key-vault to store credentials whenever applicable
-    - Leverage Azure Data factory for customer managed key (CMK) encryption or encryption credentials and store in self-hosted IR
-- Review the design for ongoing monitoring of the data integration components
+## Architecture considerations
 
-### Architecture Considerations
+As you review the data integration design, consider the following recommendations and guidelines to ensure that the data integration components of your solution will provide ongoing operational excellence, performance efficiency, reliability, and security.
 
-As you review the data integration design consider the following recommendations and guidelines to ensure that the data integration components of your solution will provide ongoing operational excellence, performance efficiency, reliability and security.
+### Operational excellence
 
-#### Operational Excellence
+For operational excellence, evaluate the following points.
 
-**Environment:** When planning for environments, segregate it by dev/test, UAT, and Production. Having a clean and working lower environment (with working data connections and pipelines) makes development and support streamlined and smooth.\ Leverage the Folder organizational options to organize your pipelines and datasets by business/ETL jobs for better maintainability. Use [Annotations](https://azure.microsoft.com/resources/videos/azure-friday-enhanced-monitoring-capabilities-and-tagsannotations-in-azure-data-factory/) to tag your pipelines which later can be used in monitoring.\
-Leverage parameters and Iterations/Conditionals activities to create re-usable pipelines.
+- **Environment:** When planning your environments, segregate them by development/test, user acceptance testing (UAT), and production. Use the folder organizational options to organize your pipelines and datasets by business/ETL jobs to support better maintainability. Use [annotations](https://azure.microsoft.com/resources/videos/azure-friday-enhanced-monitoring-capabilities-and-tagsannotations-in-azure-data-factory/) to tag your pipelines so you can easily monitor them. Create reusable pipelines by using parameters, and iteration and conditional activities.
+- **Monitoring and alerting:** Synapse workspaces include the [Monitor Hub](../get-started-monitor.md), which has rich monitoring information of each and every pipeline run. It also integrates with [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) for further log analysis and alerting. You should implement these features to provide proactive error notifications. Also, use *Upon Failure* paths to implement customized [error handling](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
+- **Automated deployment and testing:** Azure Synapse pipelines are built into Synapse workspace, so you can take advantage of workspace automation and deployment. Minimize manual activities while creating Synapse workspaces across environments by using [ARM templates](../quickstart-deployment-template-workspaces.md). Also, [integrate Synapse workspaces with Azure DevOps](../cicd/continuous-integration-delivery.md#set-up-a-release-pipeline-in-azure-devops) to build code versioning and automate publication.
 
-**Monitoring and alerting:** Synapse workspace includes [Monitor hub](../get-started-monitor.md) which has rich monitoring information of each and every pipeline run. It also integrates with Log Analytics for further log analysis and alerting. These features should be implemented to provide proactive error notifications. Leverage "Failure" branch for implementing user-defined [error handling](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
+### Performance efficiency
 
-**Automated deployment and testing:** Synapse pipeline is built into Synapse workspace, so you can take advantage of Workspace automation/deployment. Minimize manual activities while creating Synapse workspaces across environments by using [ARM templates](../quickstart-deployment-template-workspaces.md). Integrate Synapse workspaces with Azure DevOps to build code versioning and automated publication.
+For performance efficiency, evaluate the following points.
 
-#### Performance efficiency
+- Follow [performance guide](/azure/data-factory/copy-activity-performance) and [optimization features](/azure/data-factory/copy-activity-performance-features) when working with the copy activity.
+- Choose optimized connectors for data transfer instead of generic connectors. For example, use PolyBase instead of bulk insert when moving data from Azure Data Lake Storage Gen2 (ALDS Gen2) to a dedicated SQL pool.
+- When creating a new Azure IR, set the region location as [auto-resolve](/azure/data-factory/concepts-integration-runtime#azure-ir-location) or select the same region as the data stores.
+- For self-hosted IR, choose the [Azure virtual machine (VM) size](/azure/data-factory/copy-activity-performance-features#self-hosted-integration-runtime-scalability) based on the integration requirements.
+- Choose a stable network connection, like [Azure ExpressRoute](/azure/expressroute/expressroute-introduction), for fast and consistent bandwidth.
 
-There are multiple factors that impact performance of pipeline execution. Some of the key points are.
+### Reliability
 
-- Follow [performance guide](../../data-factory/copy-activity-performance.md) and [optimization features](../../data-factory/copy-activity-performance-features.md) when working with the Copy activity
-- Choose optimized connectors for data transfer instead of generic ones. For example, PolyBase instead of bulk insert when moving data from ADLS Gen2 to Dedicated SQL pool
-- When creating a new Azure IR, pick the region as [Auto Resolve](../../data-factory/concepts-integration-runtime.md#azure-ir-location) or select the same region as the data stores
-- For Self-hosted IR, choose the [Azure VM size](../../data-factory/copy-activity-performance-features.md#self-hosted-integration-runtime-scalability) based on the integration requirements
-- Choose a stable network connection like Azure ExpressRoute for fast and consistent bandwidth
+When you execute a pipeline by using Azure IR, it's serverless in nature and so it provides resiliency out of the box. There's little for customers to manage. However, when a pipeline runs in a self-hosted IR, it's recommended to run it by using a [high availability configuration](/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory#high-availability-and-scalability) in Azure VMs. This configuration ensures integration pipelines aren't broken even when a VM goes offline. Also, it's recommended to use Azure ExpressRoute for a fast and reliable network connection between on-premises and Azure.
 
-#### Reliability
+### Security
 
-**Availability:** When you are executing a pipeline using Azure IR, it is serverless in nature and provides resiliency out of the box. There is little for customers to manage. But when a pipeline is running in a self-hosted IR, it is recommended to run using a [HA configuration](../../data-factory/create-self-hosted-integration-runtime.md#high-availability-and-scalability) using Azure VMs. This will ensure integration pipelines are not broken even when a VM goes down. Secondly, it is recommended to have Azure ExpressRoute for a fast and reliable network connection between on-premises and Azure.
+A secured data platform is one of the key requirements of every organization. You should thoroughly plan security for the entire platform rather than individual components. Here are some security guidelines for Azure Synapse pipeline solutions.
 
-#### Security
-
-A secured data platform is one of the key requirements of every organization. A lot of thought needs to be given to overall security of the platform rather than individual components. Here are some security guidelines for Azure Synapse Pipeline solutions.
-
-- Secure data movement to cloud using [Azure Synapse private endpoints](https://techcommunity.microsoft.com/t5/azure-architecture-blog/understanding-azure-synapse-private-endpoints/ba-p/2281463)
-- Use AAD/MSI for authentication and Azure RBAC and [Synapse RBAC](../security/synapse-workspace-synapse-rbac.md) for authorization
-- Store credentials, secrets and keys in Azure Key Vault rather than in pipeline ([link](../../data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities.md))
-- Integrate on-premises via Azure ExpressRoute or VPN over private endpoints.
-- Enable Secure input/output in pipeline activities for parameters storing secrets/passwords
-
-## Conclusion
-
-Upon completion of this review of the data integration design of your solution you should know if the data integration tool(s) selected for your implementation will meet all the requirements of your organization and you will have taken the time to consider and validate that many important guidelines and recommendations have been reviewed and applied to your data integration design. Prior to solution development is the best time to make design modifications to better meet your solution needs and will improve the overall success of your solution and your project.
+- Secure data movement to the cloud by using [Azure Synapse private endpoints](https://techcommunity.microsoft.com/t5/azure-architecture-blog/understanding-azure-synapse-private-endpoints/ba-p/2281463).
+- Use Azure Active Directory (Azure AD) [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for authentication.
+- Use Azure role-based access control (RBAC) and [Synapse RBAC](../security/synapse-workspace-synapse-rbac.md) for authorization.
+- Store credentials, secrets, and keys in Azure Key Vault rather than in the pipeline. For more information, see [Use Azure Key Vault secrets in pipeline activities](/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities).
+- Connect to on-premises resources via Azure ExpressRoute or VPN over private endpoints.
+- Enable the **Secure output** and **Secure input** options in pipeline activities when parameters store secrets or passwords.
 
 ## Next steps
 
-TODO
+In the [next article](implementation-success-evaluate-dedicated-sql-pool-design.md) in the *Azure Synapse success by design* series, learn how to evaluate your dedicated SQL pool design to identify issues and validate that it meets guidelines and requirements.
