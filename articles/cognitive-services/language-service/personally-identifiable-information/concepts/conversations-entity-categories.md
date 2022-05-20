@@ -191,7 +191,7 @@ This category contains the following entity:
 
         Any credit card number, any security code on the back, or the expiration date is considered as PII.
 
-        To get this entity category, add `CreditCardNumber` to the `pii-categories` parameter. `CreditCardNumber` will be returned in the API response if detected.
+        To get this entity category, add `CreditCard` to the `pii-categories` parameter. `CreditCard` will be returned in the API response if detected.
 
     :::column-end:::
     :::column span="2":::
