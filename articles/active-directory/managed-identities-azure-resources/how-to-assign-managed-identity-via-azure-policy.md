@@ -2,20 +2,16 @@
 title: [Preview] Use Azure Policy to assign managed identities - Azure Active Directory
 description: Documentation for the Azure Policy that can be used to assign managed identities to Azure resources.
 services: active-directory
-documentationcenter: 
 author: vakarand
 manager: skwan
-editor: 
+editor: barclayn
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: 
 ms.topic: how-to
-ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 5/16/2022
+ms.date: 05/16/2022
 ms.author: vakarand
 ms.collection: M365-identity-device-management
-ms.custom: 
 ---
 # [Preview] Use Azure Policy to assign managed identities
 ## Overview
@@ -59,10 +55,10 @@ The policy takes three input parameters:
 The policy definition can be assigned to different scopes in Azure – at the management group subscription or a specific resource group. As policies need to be enforced all the time, the assignment operation is performed using a managed identity associated with the policy-assignment object. The policy assignment object supports both system-assigned and user-assigned managed identity. 
 For example, Joe can create a user-assigned managed identity called PolicyAssignmentMI. The built-in policy creates a user-assigned managed identity in each subscription and in each region with resources that are in scope of the policy assignment. The user-assigned managed identities created by the policy has the following resourceId format: 
 
-> /subscriptions/<subscription-id>/resourceGroups/built-in-identity-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/built-in-identity-<location>
+> /subscriptions/your-subscription-id/resourceGroups/built-in-identity-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/built-in-identity-<location>
 
 For example: 
-> /subscriptions/<subscription-id>/resourceGroups/built-in-identity-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/built-in-identity-eastus
+> /subscriptions/aaaabbbb-aaaa-bbbb-1111-111122223333/resourceGroups/built-in-identity-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/built-in-identity-eastus
 
 ### Required authorization 
 
