@@ -3,17 +3,16 @@ title: Quickstart - Create an Azure budget with Bicep
 description: Quickstart showing how to create a budget with Bicep.
 author: schaffererin
 ms.author: v-eschaffer
-tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 05/02/2022
+ms.date: 05/20/2022
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 
 # Quickstart: Create a budget with Bicep
 
-Budgets in Cost Management help you plan for and drive organizational accountability. With budgets, you can account for the Azure services you consume or subscribe to during a specific period. They help you inform others about their spending to proactively manage costs and monitor how spending progresses over time. When the budget thresholds you've created are exceeded, notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs. This quickstart shows you how to create a budget using Bicep.
+Budgets in Cost Management help you plan for and drive organizational accountability. With budgets, you can account for the Azure services you consume or subscribe to during a specific period. They help you inform others about their spending to proactively manage costs and monitor how spending progresses over time. When the budget thresholds you've created are exceeded, notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs. This quickstart shows you how to create a budget named 'MyBudget' using Bicep.
 
 [!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -49,9 +48,9 @@ For Azure EA subscriptions, you must have read access to view budgets. To create
 
 The following Azure permissions, or scopes, are supported per subscription for budgets by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-- Owner – Can create, modify, or delete budgets for a subscription.
-- Contributor and Cost Management contributor – Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
-- Reader and Cost Management reader – Can view budgets that they have permission to.
+- Owner: Can create, modify, or delete budgets for a subscription.
+- Contributor and Cost Management contributor: Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
+- Reader and Cost Management reader: Can view budgets that they have permission to.
 
 For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](assign-access-acm-data.md).
 
@@ -67,7 +66,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 One Azure resource is defined in the Bicep file:
 
-* [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
+- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
 
 ### Deploy the Bicep file
 
@@ -83,15 +82,19 @@ One Azure resource is defined in the Bicep file:
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -startDate "<start-date>" -endDate "<end-date>" -contactEmails "[]"
+    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -startDate "<start-date>" -endDate "<end-date>" -contactEmails []
     ```
 
     ---
 
-    > [!NOTE]
-    > Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period. Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date. **[]** with the list of email addresses to send the budget notification to when the threshold is exceeded.
+    You need to enter the following parameters:
 
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
+    - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period.
+    - **endDate**: Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
+    - **contactEmails**: Within the brackets, **[]**, enter the list of email addresses to send the budget notification to when the threshold is exceeded.
+
+    > [!NOTE]
+    > When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## [One filter](#tab/one-filter)
 
@@ -103,7 +106,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 One Azure resource is defined in the Bicep file:
 
-* [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
+- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
 
 ### Deploy the Bicep file
 
@@ -119,15 +122,20 @@ One Azure resource is defined in the Bicep file:
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -startDate "<start-date>" -endDate "<end-date>" -contactEmails "[]" -resourceGroupFilterValues="[]"
+    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -startDate "<start-date>" -endDate "<end-date>" -contactEmails []"-resourceGroupFilterValues []
     ```
 
     ---
 
-    > [!NOTE]
-    > Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period. Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date. Replace **[]** with the list of email addresses to send the budget notification to when the threshold is exceeded. Replace **[]** with the set of values for the resource group filter.
+    You need to enter the following parameters:
 
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
+    - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period.
+    - **endDate**: Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
+    - **contactEmails**: Within the brackets, **[]**, enter the list of email addresses to send the budget notification to when the threshold is exceeded.
+    - **resourceGroupFilterValues**: Within the brackets, **[]**,  enter the set of values for the resource group filter.
+
+    > [!NOTE]
+    > When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## [Two or more filters](#tab/two-filters)
 
@@ -139,7 +147,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 One Azure resource is defined in the Bicep file:
 
-* [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
+- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
 
 ### Deploy the Bicep file
 
@@ -155,15 +163,22 @@ One Azure resource is defined in the Bicep file:
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -startDate "<start-date>" -endDate "<end-date>" -contactEmails "[]" -contactGroups "[]" -resourceGroupFilterValues="[]" -meterCategoryFilterValues="[]"
+    New-AzSubscriptionDeployment -Name demoSubDeployment -Location centralus -TemplateFile ./main.bicep -startDate "<start-date>" -endDate "<end-date>" -contactEmails [] -contactGroups [] -resourceGroupFilterValues [] -meterCategoryFilterValues []
     ```
 
     ---
 
-    > [!NOTE]
-    > Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period. Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date. Replace **[]** with the list of email addresses to send the budget notification to when the threshold is exceeded. Replace **[]** with the list of action groups to send the budget notification to when the threshold is exceeded. Replace **[]** with the set of values for the resource group filter. Replace **[]** with the set of values for the meter category filter.
+    You need to enter the following parameters:
 
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
+    - **startDate**: Replace **\<start-date\>** with the start date. It must be the first of the month in YYYY-MM-DD format. A future start date shouldn't be more than three months in the future. A past start date should be selected within the timegrain period.
+    - **endDate**: Replace **\<end-date\>** with the end date in YYYY-MM-DD format. If not provided, it defaults to ten years from the start date.
+    - **contactEmails**: Within the brackets, **[]**, enter the list of email addresses to send the budget notification to when the threshold is exceeded.
+    - **contactGroups**: Within the brackets, **[]**, enter the list of action groups to send the budget notification to when the threshold is exceeded.
+    - **resourceGroupFilterValues**: Within the brackets, **[]**, enter the set of values for the resource group filter.
+    - **meterCategoryFilterValues**: Within the brackets, **[]**, enter the set of values for the meter category filter.
+
+    > [!NOTE]
+    > When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 
@@ -172,31 +187,31 @@ Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resour
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az resource list --resource-group exampleRG
+az consumption budget list
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName exampleRG
+Get-AzConsumptionBudget
 ```
 
 ---
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the VM and all of the resources in the resource group.
+When you no longer need the budget, use the Azure portal, Azure CLI, or Azure PowerShell to delete it:
 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az group delete --name exampleRG
+az consumption budget delete --budget-name MyBudget
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name exampleRG
+Remove-AzConsumptionBudget -Name MyBudget
 ```
 
 ---
@@ -207,4 +222,4 @@ In this quickstart, you created an Azure budget and deployed it using Bicep. To 
 
 - Read the [Cost Management and Billing](../cost-management-billing-overview.md) overview
 - [Create budgets](tutorial-acm-create-budgets.md) in the Azure portal
-- Learn more about [Azure Resource Manager](../../azure-resource-manager/bicep/overview.md)
+- Learn more about [Bicep](../../azure-resource-manager/bicep/overview.md)
