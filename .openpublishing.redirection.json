@@ -649,6 +649,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/orchestration-workflow/deploy-query-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/orchestration-workflow/call-api",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/whats-new-docs.md",
       "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
       "redirect_document_id": false
