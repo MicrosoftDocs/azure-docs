@@ -33,11 +33,11 @@ This section describes the changes and high-level implementation details of the 
 
 ### StorageClass
 
-In addition to the existing StorageClass dynamic disk parameters, the Azure disk CSI driver v2 (preview) supports the following:
+In addition to the [existing][azure-disk-csi-dynamic-disk-params] StorageClass dynamic disk parameters, the Azure disk CSI driver v2 (preview) supports the following:
 
 | Name | Meaning  | Available Value | Mandatory | Default value |
 |------|----------|-----------------|-----------|---------------|
-| `maxShares` | The total number of shared disk mounts allowed for the disk. Setting the value to 2 or higher enables attachment replicas. | Supported values depend on the disk size. See [Share an Azure managed disk](../virtual-machines/disks-shared.md) for supported values. | No | 1 |
+| `maxShares` | The total number of shared disk mounts allowed for the disk. Setting the value to 2 or higher enables attachment replicas. | Supported values depend on the disk size. See [Share an Azure managed disk][azure-disk-shared] for supported values. | No | 1 |
 | `maxMountReplicaCount` | The number of replicas attachments to maintain. | This value must be in the range `[0..(maxShares - 1)]` | No | If `accessMode` is `ReadWriteMany`, the default is `0`. Otherwise, the default is `maxShares - 1` |
 
 ### Custom resources and controllers
@@ -84,3 +84,8 @@ The Provisioner Library is a common library to abstract the underlying platform 
 
 - To use the CSI driver for Azure disks, see [Use Azure disks with CSI drivers](azure-disk-csi.md).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
+
+<!-- LINKS - internal -->
+[azure-disk-csi-dynamic-disk-params]: azure-disk-csi.md#storage-class-driver-dynamic-disk-parameters
+[azure-disk-shared]: ../virtual-machines/disks-shared.md
+[operator-best-practices-storage]: operator-best-practices-storage.md
