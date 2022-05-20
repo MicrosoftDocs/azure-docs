@@ -5,12 +5,11 @@ services: container-service
 ms.topic: tutorial
 ms.custom: template-tutorial
 ms.date: 05/20/2022
-
 ---
 
 # Tutorial: Configure zone-redundant storage with Azure Kubernetes Service (AKS)
 
-The Azure disk CSI driver v2 (preview) enhances the Azure disk CSI driver to improve scalability and reduce pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. It is beneficial for both a single zone and multi-zone scenario using [Zone Redundant Disks](../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks).
+The Azure disk CSI driver v2 (preview) enhances the Azure disk CSI driver to improve scalability and reduce pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. [Zone redundant storage](../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks) enable disks to tolerate zonal failures.
 
 In this tutorial, you learn how to:
 
@@ -50,7 +49,7 @@ Perform the following steps to create a test three node AKS cluster to test the 
     }
     ```
 
-2. Create an AKS cluster using the [az aks create][az-aks-create] command with the *--name*, *--zones*, *--resource-group*, **--kubernetes-version*, and *--generate-ssh-keys* parameters. The following example creates a cluster named *myAKSCluster* with three nodes:
+2. Create an AKS cluster using the [az aks create][az-aks-create] command with the *--name*, *--zones*, *--resource-group*, *--kubernetes-version*, and *--generate-ssh-keys* parameters. The following example creates a cluster named *myAKSCluster* with three nodes:
 
     ```azurecli-interactive
     az aks create --resource-group myResourceGroup --name myAKSCluster --location <region> --kubernetes-version 1.23 --generate-ssh-keys --zones 1 2 3
@@ -75,7 +74,7 @@ Perform the following steps to create a test three node AKS cluster to test the 
 
 ## Configure storage
 
-By default the Azure CSI driver is installed with your AKS cluster if it is running version 1.21 or higher. For this tutorial, the Azure disk CSI driver (v2) preview is going to be installed side-by-side with the v1 driver.
+By default the Azure CSI driver is installed on an AKS cluster running version 1.21 or higher. For this tutorial, the Azure disk CSI driver (v2) preview is going to be installed side-by-side with the v1 driver.
 
 1. Install the Azure disk CSI driver v2 (preview) using Helm.  
 
@@ -475,7 +474,7 @@ With the Mysql application installed and running, we need to create a database a
 
 ## Simulate a failure and notice failover
 
-1. Use the `kubectl` command to simulate a failure by cordoning and draining a node in the pool. When you created our cluster earlier, you activated the availability zones feature and created three nodes. You should see that they are equally split across all availability zones. 
+1. Use the `kubectl` command to simulate a failure by cordoning and draining a node in the pool. When you created our cluster earlier, you activated the availability zones feature and created three nodes. You should see that they're equally split across all availability zones.
 
     ```bash
     kubectl get nodes --output=custom-columns=NAME:.metadata.name,ZONE:".metadata.labels.topology\.kubernetes\.io/zone"
