@@ -52,15 +52,19 @@ Parameters are case-sensitive.
 
 | Output name   | Description                   |
 |---------------|-------------------------------|
-| `entities` | An array of complex types that contains the following fields: <ul><li>`"name"`: The top-level entity; it represents the "normalized" form. </li> <li>`"id"`:  A unique identifier for the entity as defined in the "Custom Entity Definition Format". </li> <li>`"description"`: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li>`"type"`: Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> `"subtype"`: Entity subtype as defined by the user in the "Custom Entity Definition Format".</li> <li>`"matches"`: An array of complex types that contain: <ul><li>`"text"` from the source document </li><li>`"offset"` location where the match was found, </li><li>`"length"` of the text measured in characters <li>`"matchDistance"` or the number of characters that differ between the match and the entity `"name"`. </li></li></ul>|</ul> |
+| `entities` | An array of complex types that contains the following fields: <ul><li>`"name"`: The top-level entity; it represents the "normalized" form. </li><li>`"id"`:  A unique identifier for the entity as defined in the "Custom Entity Definition". </li> <li>`"description"`: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li>`"type"`: Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> `"subtype"`: Entity subtype as defined by the user in the "Custom Entity Definition Format".</li> <li>`"matches"`: An array of complex types that contain: <ul><li>`"text"` from the source document </li><li>`"offset"` location where the match was found, </li><li>`"length"` of the text measured in characters <li>`"matchDistance"` or the number of characters that differ between the match and the entity `"name"`. </li></li></ul></ul> |
 
-## Custom Entity Definition Format
+## Custom Entity Definition
 
-There are 3 different ways to provide the list of custom entities to the Custom Entity Lookup skill. You can provide the list in a .CSV file, a .JSON file or as an inline definition as part of the skill definition.  
+There are 3 different ways to provide the list of custom entities to the Custom Entity Lookup skill:
 
-If the definition file is a .CSV or .JSON file, the path of the file needs to be provided as part of the *entitiesDefinitionUri* parameter. In this case, the file is downloaded once at the beginning of each indexer run. The file must be accessible as long as the indexer is intended to run. Also, the file must be encoded UTF-8.
++ .CSV file
++ .JSON file
++ Inline within the skill definition
 
-If the definition is provided inline, it should be provided as inline as the content of the *inlineEntitiesDefinition* skill parameter. 
+If the definition file is a .CSV or .JSON file, provide the full path in the "entitiesDefinitionUri" parameter. The file is downloaded at the start of each indexer run. It must remain accessible until the indexer stops. Also, the file must be encoded UTF-8.
+
+If you're using an inline definition, specify it under the "inlineEntitiesDefinition" skill parameter.
 
 ### CSV format
 
@@ -391,7 +395,7 @@ This section provides a sample index definition. Both "entities" and "matches" a
 
 ## Warnings
 
-"Reached maximum capacity for matches, skipping all further duplicate matches."
+`"Reached maximum capacity for matches, skipping all further duplicate matches."`
 
 This warning will be emitted if the number of matches detected is greater than the maximum allowed. No more duplicate matches will be returned. If this is unacceptable, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so we can assist you with your individual use case.
 
