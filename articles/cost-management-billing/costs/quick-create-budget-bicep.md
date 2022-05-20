@@ -56,7 +56,7 @@ For more information about assigning permission to Cost Management data, see [As
 
 ## Review and deploy the Bicep file
 
-## [No filter](#tab/no-filter)
+## No filter
 
 ### Review the Bicep file
 
@@ -96,7 +96,7 @@ One Azure resource is defined in the Bicep file:
     > [!NOTE]
     > When the deployment finishes, you should see a message indicating the deployment succeeded.
 
-## [One filter](#tab/one-filter)
+## One filter
 
 ### Review the Bicep file
 
@@ -137,7 +137,7 @@ One Azure resource is defined in the Bicep file:
     > [!NOTE]
     > When the deployment finishes, you should see a message indicating the deployment succeeded.
 
-## [Two or more filters](#tab/two-filters)
+## Two or more filters
 
 ### Review the Bicep file
 
