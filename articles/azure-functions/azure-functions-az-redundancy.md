@@ -35,6 +35,7 @@ Zone-redundant Premium plans can currently be enabled in any of the following re
   - West US 2
   - West US 3
   - Central US
+  - South Central US 
   - East US
   - East US 2
   - Canada Central
