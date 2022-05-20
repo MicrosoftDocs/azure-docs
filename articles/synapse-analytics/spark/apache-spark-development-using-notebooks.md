@@ -385,7 +385,7 @@ Notebook will use default value if run a notebook in interactive mode directly o
 During the pipeline run mode, you can configure pipeline Notebook activity settings as below:
 ![Screenshot of parameterized session configuration](./media/apache-spark-development-using-notebooks/parameterized-session-config.png)
 
-If you want to change the session configuration, pipeline Notebook activity parameters name should be same as activityParameterName in the notebook. When run this pipeline, in this example driverCores in %%configure will be replaced by 8 and livy.rsc.sql.num-rows will be replaced by 4000.
+If you want to change the session configuration, pipeline Notebook activity parameters name should be same as activityParameterName in the notebook. When running this pipeline, in this example driverCores in %%configure will be replaced by 8 and livy.rsc.sql.num-rows will be replaced by 4000.
 
 > [!NOTE]
 >  If run pipeline failed because of using this new %%configure magic, you can check more error information by running %%configure magic cell in the interactive mode of the notebook. 
@@ -455,7 +455,7 @@ Widgets are eventful python objects that have a representation in the browser, o
    ```python
    import ipywidgets as widgets
    ```
-2. You can use top-level `display` function to render a widget, or leave a expression of **widget** type at the last line of code cell.
+2. You can use top-level `display` function to render a widget, or leave an expression of **widget** type at the last line of code cell.
    ```python
    slider = widgets.IntSlider()
    display(slider)

@@ -31,7 +31,7 @@ Follow the steps below to create an Apache Spark Configuration in Synapse Studio
    6. For **Annotations**, you can add annotations by clicking the **New** button, and also you can delete existing annotations by selecting and clicking **Delete** button.
    7. For **Configuration properties**, customize the configuration by clicking **Add** button to add properties. If you do not add a property, Azure Synapse will use the default value when applicable. 
    
-      ![Screenshot that create spark configuration](./media/apache-spark-azure-log-analytics/create-spark-configuration.png)
+      ![Screenshot that create spark configuration.](./media/apache-spark-azure-log-analytics/create-spark-configuration.png)
    
    8. Click on **Continue** button.
    9. Click on **Create** button when the validation succeeded.
@@ -49,7 +49,7 @@ Follow the steps below to create an Apache Spark configuration in an existing Ap
    1. Select an existing Apache Spark pool, and click on action "..." button.
    2. Select the **Apache Spark configuration** in the content list.
    
-      ![Screenshot that apache spark configuration](./media/apache-spark-azure-create-spark-configuration/create-spark-configuration-by-right-click-on-spark-pool.png)   
+      ![Screenshot that apache spark configuration.](./media/apache-spark-azure-create-spark-configuration/create-spark-configuration-by-right-click-on-spark-pool.png)   
 
    3. For Apache Spark configuration, you can select an already created configuration from the drop-down list, or click on **+New** to create a new configuration.
       
@@ -60,7 +60,7 @@ Follow the steps below to create an Apache Spark configuration in an existing Ap
    
    4. Click **View Configurations** to open the **Select a Configuration** page. All configurations will be displayed on this page. You can select a configuration that you want to use on this Apache Spark pool.
   
-         ![Screenshot that select a configuration](./media/apache-spark-azure-create-spark-configuration/select-a-configuration.png)
+         ![Screenshot that select a configuration.](./media/apache-spark-azure-create-spark-configuration/select-a-configuration.png)
 
    5. Click on **Apply** button to save your action.
 
@@ -75,7 +75,7 @@ If you need to use a custom Apache Spark Configuration when creating a Notebook,
    4. Scroll down the configure session page, for Apache Spark configuration, expand the drop-down menu, you can click on New button to [create a new configuration](#create-custom-configurations-in-apache-spark-configurations). Or select an existing configuration, if you select an existing configuration, click the **Edit** icon to go to the Edit Apache Spark configuration page to edit the configuration.
    5. Click **View Configurations** to open the **Select a Configuration** page. All configurations will be displayed on this page. You can select a configuration that you want to use.
 
-      ![Screenshot that create configuration in configure session](./media/apache-spark-azure-create-spark-configuration/create-spark-config-in-configure-session.png)
+      ![Screenshot that create configuration in configure session.](./media/apache-spark-azure-create-spark-configuration/create-spark-config-in-configure-session.png)
 
 ### Create an Apache Spark Configuration in Apache Spark job definitions
 
@@ -85,7 +85,7 @@ When you are creating a spark job definition, you need to use Apache Spark confi
    2. For **Apache Spark configuration**, you can click on New button to [create a new configuration](#create-custom-configurations-in-apache-spark-configurations). Or select an existing configuration in the drop-down menu, if you select an existing configuration, click the **Edit** icon to go to the Edit Apache Spark configuration page to edit the configuration.
    3. Click **View Configurations** to open the **Select a Configuration** page. All configurations will be displayed on this page. You can select a configuration that you want to use.
 
-      ![Screenshot that create configuration in spark job definitions](./media/apache-spark-azure-create-spark-configuration/create-spark-config-in-spark-job-definition.png)
+      ![Screenshot that create configuration in spark job definitions.](./media/apache-spark-azure-create-spark-configuration/create-spark-config-in-spark-job-definition.png)
 
 
 > [!NOTE] 
