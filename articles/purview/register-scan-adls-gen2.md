@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 05/20/2022
 ms.custom: template-how-to, ignite-fall-2021, references_regions
 ---
 # Connect to Azure Data Lake Storage in Microsoft Purview
@@ -109,11 +109,11 @@ It's important to give your Microsoft Purview account or user-assigned managed i
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Microsoft Purview account":::
 
-> [!Note]
-> For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
+    > [!Note]
+    > For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
 
-> [!NOTE]
-> If you have firewall enabled for the storage account, you must use **managed identity** authentication method when setting up a scan.
+    > [!NOTE]
+    > If you have firewall enabled for the storage account, you must use **managed identity** authentication method when setting up a scan.
 
 1. Go into your ADLS Gen2 storage account in [Azure portal](https://portal.azure.com)
 1. Navigate to **Security + networking > Networking**
