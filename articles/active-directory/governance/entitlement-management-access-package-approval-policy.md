@@ -22,9 +22,9 @@ ms.collection: M365-identity-device-management
 ---
 # Change approval and requestor information settings for an access package in Azure AD entitlement management
 
-As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new policy.
+As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new policy for requesting access.
 
-This article describes how to change the approval and requestor information settings for an existing access package.
+This article describes how to change the approval and requestor information settings for an existing access package, through an access package policy.
 
 ## Approval
 

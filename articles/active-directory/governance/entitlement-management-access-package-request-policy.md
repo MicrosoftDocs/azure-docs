@@ -205,7 +205,7 @@ To change the request and approval settings for an access package, you need to o
 
 1. If you are editing a policy click **Update**. If you are adding a new policy, click **Create**.
 
-## Prevent requests from users with incompatible access (preview)
+## Prevent requests from users with incompatible access
 
 In addition to the policy checks on who can request, you may wish to further restrict access, in order to avoid a user who already has some access - via a group or another access package - from obtaining excessive access.
 
