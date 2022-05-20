@@ -539,10 +539,18 @@ items:
     items: 
       - name: Evaluation metrics
         href: orchestration-workflow/concepts/evaluation-metrics.md
+      - name: Back up and recover your models
+        href: orchestration-workflow/concepts/fail-over.md
+      - name: None intent
+        href: orchestration-workflow/concepts/none-intent.md
+      - name: Data formats
+        href: orchestration-workflow/concepts/data-formats.md
   - name: Reference
     items:
     - name: Service limits
       href: orchestration-workflow/service-limits.md
+    - name: Glossary
+      href: orchestration-workflow/glossary.md
     - name: REST API
       items:
       - name: Authoring
