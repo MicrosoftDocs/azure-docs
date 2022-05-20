@@ -850,7 +850,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | Value | True |
 
-### Example: Read current blob versions and a specific blob version
+### Example: Read current blob versions and a specific blob version (Option 1)
 
 This condition allows a user to read current blob versions as well as read blobs with a version ID of 2022-06-01T23:38:32.8883645Z. The user cannot read other blob versions.
 
@@ -864,7 +864,7 @@ You must add this condition to any role assignments that include the following a
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 
-![Diagram of condition showing read access to a specific blob version.](./media/storage-auth-abac-examples/version-id-specific-blob-read.png)
+![Diagram of condition showing read access to a specific blob version (Option 1).](./media/storage-auth-abac-examples/version-id-specific-blob-read.png)
 
 ```
 (
@@ -898,6 +898,52 @@ Here are the settings to add this condition using the Azure portal.
 > | Attribute | [Version ID](storage-auth-abac-attributes.md#version-id) |
 > | Exists | [Checked](../../role-based-access-control/conditions-format.md#exists) |
 > | Negate this expression | Checked |
+
+### Example: Read current blob versions and a specific blob version (Option 2)
+
+This condition allows a user to read current blob versions as well as read blobs with a version ID of 2022-06-01T23:38:32.8883645Z. The user cannot read other blob versions.
+
+You must add this condition to any role assignments that include the following action.
+
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+
+![Diagram of condition showing read access to a specific blob version (Option 2).](./media/storage-auth-abac-examples/version-id-specific-blob-read.png)
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+ )
+ OR 
+ (
+  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T23:38:32.8883645Z'
+  OR
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion] BoolEquals true
+ )
+)
+```
+
+#### Azure portal
+
+Here are the settings to add this condition using the Azure portal.
+
+> [!div class="mx-tableFixed"]
+> | Condition #1 | Setting |
+> | --- | --- |
+> | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
+> | Attribute source | Request |
+> | Attribute | [Version ID](storage-auth-abac-attributes.md#version-id) |
+> | Operator | [DateTimeEquals](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
+> | Value | &lt;blobVersionId&gt; |
+> | **Expression 2** |  |
+> | Operator | Or |
+> | Attribute source | Resource |
+> | Attribute | [Is Current Version](storage-auth-abac-attributes.md#is-current-version) |
+> | Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
+> | Value | True |
 
 ### Example: Delete old blob versions
 
