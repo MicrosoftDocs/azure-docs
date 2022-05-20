@@ -15,12 +15,12 @@ Diagnostic settings are used to configure streaming export of platform logs and 
 In this article, you'll configure a diagnostic setting to collect VMware syslogs for your Azure VMware Solution private cloud. You'll store the syslog to a storage account to view the vCenter Server logs and analyze for diagnostic purposes. 
  >[!IMPORTANT]
    >The **VMware syslogs** Contains the following logs.
-   >Distributed Firewall Logs
-   >NSX-T Manager Logs
-   >Gateway Firewall Logs
-   >ESXi Logs
-   >vCenter Logs
-   >NSX Edge Logs
+   > - Distributed Firewall Logs
+   >- NSX-T Manager Logs
+   >- Gateway Firewall Logs
+   >- ESXi Logs
+   >- vCenter Logs
+   >- NSX Edge Logs
  
 
 ## Prerequisites
