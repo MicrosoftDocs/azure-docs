@@ -77,7 +77,7 @@ If you encounter any issues with Azure Spring Apps, create an [Azure Support Req
 
 ### How do I get VMware Spring Runtime support (Enterprise tier only)
 
-Enterprise tier has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see <https://tanzu.vmware.com/spring-runtime>. To understand the details about how to register and use this support service, see the Support section in the [Enterprise tier FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open support tickets with Microsoft.
+Enterprise tier has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see <https://tanzu.vmware.com/spring-runtime>. To understand the details about how to register and use this support service, see the Support section in the [Enterprise tier FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open support tickets with Microsoft. **NOTICE: please expect your entitlement to be ready within 3 business days after you created an enterprise tier instance. In case you meet any exception, please directly raise a support ticket to Microsoft to help on it.**
 
 ## Development
 
