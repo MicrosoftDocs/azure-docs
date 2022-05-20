@@ -217,7 +217,8 @@ Specify the storage output location to any datastore and path. By default, batch
 ### Security
 
 - Authentication: Azure Active Directory Tokens
-- SSL by default for endpoint invocation
+- SSL: enabled by default for endpoint invocation
+- VNET support: Batch endpoints support ingress protection. A batch endpoint with ingress protection will accept scoring requests only from hosts inside a virtual network but not from the public internet. A batch endpoint that is created in a private-link enabled workspace will have ingress protection. To created a private-link enabled workspace, see [Create a secure workspace](tutorial-create-secure-workspace.md).
 
 ## Next steps
 
