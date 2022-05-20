@@ -24,7 +24,7 @@ The sizes and hardware types available for dedicated hosts vary by region. Refer
 
 The Eadsv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Eadsv5-Type1 runs [Eadsv5-series](easv5-eadsv5-series.md#eadsv5-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Eadsv5-Type1 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Eadsv5-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size   | # VMs |
 |----------------|-----------------|---------------|-----------|-------|
@@ -43,7 +43,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Easv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Easv5-Type1 runs [Easv5-series](easv5-eadsv5-series.md#easv5-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Easv5-Type1 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Easv5-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
@@ -62,7 +62,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Edsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Edsv5-Type1 runs [Edsv5-series](edv5-edsv5-series.md#edsv5-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Edsv5-Type1 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Edsv5-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
@@ -80,7 +80,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Esv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Esv5-Type1 runs [Esv5-series](ev5-esv5-series.md#esv5-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv5-Type1 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Esv5-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
@@ -98,7 +98,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Easv4-Type1 is a Dedicated Host SKU utilizing AMD's 2.35 GHz EPYC™ 7452 processor. It offers 64 physical cores, 96 vCPUs, and 672 GiB of RAM. The Easv4-Type1 runs [Easv4-series](eav4-easv4-series.md#easv4-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Easv4-Type1 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Easv4-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
@@ -116,7 +116,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Easv4-Type2 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Easv4-Type2 runs [Easv4-series](eav4-easv4-series.md#easv4-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Easv4-Type2 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Easv4-Type2 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
@@ -136,7 +136,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Edsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Edsv4-Type1 runs [Edsv4-series](edv4-edsv4-series.md#edsv4-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Edsv4-Type1 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Edsv4-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
@@ -153,7 +153,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Edsv4-Type2 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Edsv4-Type2 runs [Edsv4-series](edv4-edsv4-series.md#edsv4-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Edsv4-Type2 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Edsv4-Type2 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
@@ -171,7 +171,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Esv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Esv4-Type1 runs [Esv4-series](ev4-esv4-series.md#esv4-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv4-Type1 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Esv4-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
@@ -188,7 +188,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Esv4-Type2 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Esv4-Type2 runs [Esv4-series](ev4-esv4-series.md#esv4-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv4-Type2 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Esv4-Type2 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
@@ -206,7 +206,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Esv3-Type1 is a Dedicated Host SKU utilizing the Intel® Broadwell (2.3 GHz Xeon® E5-2673 v4) processor. It offers 40 physical cores, 64 vCPUs, and 448 GiB of RAM. The Esv3-Type1 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv3-Type1 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Esv3-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
@@ -223,7 +223,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Esv3-Type2 is a Dedicated Host SKU utilizing the Intel® Skylake (Xeon® 8171M) processor. It offers 48 physical cores, 76 vCPUs, and 504 GiB of RAM. The Esv3-Type2 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv3-Type2 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Esv3-Type2 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
@@ -240,7 +240,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Esv3-Type3 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Esv3-Type3 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv3-Type3 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Esv3-Type3 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
@@ -257,7 +257,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 The Esv3-Type4 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Esv3-Type4 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
 
-The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv3-Type4 host.
+The following packing configuration outlines the max packing of uniform VMs you can put onto an Esv3-Type4 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
@@ -397,4 +397,4 @@ The Mdsv2MedMem-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake
 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
-- There is sample template, available at [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+- There's sample template, available at [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), which uses both zones and fault domains for maximum resiliency in a region.
