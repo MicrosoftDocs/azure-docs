@@ -51,7 +51,7 @@ For event hosts and organizers, they can join a virtual experience that enables 
 
 Throughout the rest of this tutorial, we will focus on how using Azure Communication Services and Microsoft Graph, developers can embed a fully custom event management experience into their application. For this, we will be leveraging the sample architecture below. Based on that architecture we will be focusing on setting up scheduling and registration flows and embedding the attendee experience right on the event platform to join the event.
 
-![image](https://user-images.githubusercontent.com/43075365/168175440-b7502142-2de4-484b-920a-46b18eb4e58f.png)
+:::image type="content" source="./media/event-architecture.svg" alt-text="Sample architecture for event management platform":::
 
 ## Leveraging Microsoft Graph to schedule events and register attendees
 
@@ -94,6 +94,12 @@ d. Refresh tokens can be revoked in the event of a breach or account termination
 ### Register attendees with Microsoft Graph
 
 Event management platforms can use a custom registration flow to register attendees. This flow is powered by the [External Meeting Registrant API](https://docs.microsoft.com/graph/api/externalmeetingregistrant-post?view=graph-rest-beta&tabs=http). By using the API Contoso will receive a unique `Teams Join URL` for each attendee.  This URL will be used as part of the attendee experience either through Teams or Azure Communication Services to have the attendee join the meeting.
+
+### Communicate with your attendees using Azure Communication Services
+
+Through Azure Communication Services, developers can leverage SMS and Email capabilities to send remainders to attendees for the event they have registered. Communication can also include confirmation for the event as well as information for joining and participating. 
+- [SMS capabilities](https://docs.microsoft.com/azure/communication-services/quickstarts/sms/send) enable you to send text messages to your attendees. 
+- [Email capabilities](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email) support direct communication to your attendees using custom domains.
 
 ### Leverage Azure Communication Services to build a custom attendee experience
 
