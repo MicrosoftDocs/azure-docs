@@ -67,12 +67,12 @@ The [DocumentBulkExecutor.importAll](/java/api/com.microsoft.azure.documentdb.bu
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=PatchOperations)]
 
-Then you can pass the operations, along with the reactive stream of documents, to a method like the below. In this example, we apply both `add` and `set` patch operation types. The full set of patch operation types supported can be found [here](partial-document-update.md#supported-operations) in our overview of [partial document update in Azure Cosmos DB](partial-document-update.md).
+Then you can pass the operations, along with the reactive stream of documents, to a method like the below. In this example, we apply both `add` and `set` patch operation types. The full set of patch operation types supported can be found [here](../partial-document-update.md#supported-operations) in our overview of [partial document update in Azure Cosmos DB](../partial-document-update.md).
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkPatchItems)]
 
 > [!NOTE]
-> In the above example, we apply the `add` and `set` to patch elements whose root parent exists. However, you cannot do this where the root parent does **not** exist. This is because Azure Cosmos DB partial document update is [inspired by JSON Patch RFC 6902](../partial-document-update-faq.md#is-this-an-implementation-of-json-patch-rfc-6902-). If patching where root parent does not exist, first read back the full documents, then use a method like the below to replace the documents:
+> In the above example, we apply the `add` and `set` to patch elements whose root parent exists. However, you cannot do this where the root parent does **not** exist. This is because Azure Cosmos DB partial document update is [inspired by JSON Patch RFC 6902](../partial-document-update-faq.yml#is-this-an-implementation-of-json-patch-rfc-6902-). If patching where root parent does not exist, first read back the full documents, then use a method like the below to replace the documents:
 > [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkReplaceItems)]               
 
 
