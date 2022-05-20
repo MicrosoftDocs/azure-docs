@@ -137,7 +137,14 @@ az sig gallery-application version create \
    --update-command  "mv myApp .\myApp\myApp \
    --default-configuration-file-link "https://<storage account name>.blob.core.windows.net/<container name>/<filename>"\
 ```
+Set a VM application to an existing VM using [az vm application set](/cli/azure/vm/application#az-vm-application-set) and replace the values of the parameters with your own.
 
+```azurecli-interactive
+az vm application set \
+	--resource-group myResourceGroup \
+	--name myVM \
+--app-version-ids /subscriptions/{subID}/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 \
+```
 
 ### [PowerShell](#tab/powershell)
 
