@@ -17,9 +17,6 @@ In this article, you'll learn how to:
 > * Enable access to the developer portal for users from Azure Active Directory (Azure AD).
 > * Manage groups of Azure AD users by adding external groups that contain the users.
 
-> [!NOTE]
-> This article shows steps to enable sign-in for users in a single Azure AD tenant. API Management also supports sign-in for users in multiple Azure AD tenants.
-
 ## Prerequisites
 
 - Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
@@ -79,7 +76,7 @@ After the Azure AD provider is enabled:
     
     * Set **Name** to a meaningful name such as *developer-portal*
     * Set **Supported account types** to **Accounts in this organizational directory only**. 
-    * In **Redirect URI**, select **Web** and paste     the redirect URL you saved from a previous step. 
+    * In **Redirect URI**, select **Web** and paste the redirect URL you saved from a previous step. 
     * Select **Register**. 
 
 1.  After you've registered the application, copy the **Application (client) ID** from the **Overview** page. 
@@ -148,20 +145,20 @@ Follow these steps to grant:
    az rest --method PATCH --uri "https://graph.microsoft.com/v1.0/$($tenantId)/applications/$($appObjectID)" --body "{'requiredResourceAccess':[{'resourceAccess': [{'id': 'e1fe6dd8-ba31-4d61-89e7-88639da4683d','type': 'Scope'},{'id': '7ab1d382-f21e-4acd-a863-ba3e13f7da61','type': 'Role'}],'resourceAppId': '00000003-0000-0000-c000-000000000000'}]}"
    ```
 
-Sign out and sign back in to the Azure portal.
-3. Navigate to the App Registration page for the application you registered in [the previous section](#authorize-developer-accounts-by-using-azure-ad). 
-4. Select **API Permissions**. You should see the permissions granted by the Azure CLI script in step 1. 
-5. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
+1. Sign out and sign back in to the Azure portal.
+1. Navigate to the App Registration page for the application you registered in [the previous section](#authorize-developer-accounts-by-using-azure-ad). 
+1. Select **API Permissions**. You should see the permissions granted by the Azure CLI script in step 1. 
+1. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
 Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.
 
 1. Under **Developer portal** in the side menu, select **Groups**.
-2. Select the **Add Azure AD group** button.
+1. Select the **Add Azure AD group** button.
 
    !["Screenshot showing Add Azure AD group button.](./media/api-management-howto-aad/api-management-with-aad008.png)
 1. Select the **Tenant** from the drop-down. 
-2. Search for and select the group that you want to add.
-3. Press the **Select** button.
+1. Search for and select the group that you want to add.
+1. Press the **Select** button.
 
 Once you add an external Azure AD group, you can review and configure its properties: 
 1. Select the name of the group from the **Groups** tab. 
