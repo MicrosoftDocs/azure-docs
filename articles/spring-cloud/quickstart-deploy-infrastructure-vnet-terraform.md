@@ -17,6 +17,17 @@ This quickstart describes how to use Terraform to deploy an Azure Spring Apps cl
 
 Azure Spring Apps makes it easy to deploy Spring applications to Azure without any code changes. The service manages the infrastructure of Spring Apps applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
+The Enterprise Tier deployment plan additionally includes the following Tanzu Components:
+* Build Service
+* Application Configuration Service
+* Service Registry
+* Spring Cloud Gateway
+* API Portal
+
+The API Portal component will be included when it becomes available through the AzureRM Terraform provider.
+
+For additional customization including custom domain support, see the [Azure Spring Terraform provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_service) documentation.
+
 ## Prerequisites
 
 * An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
