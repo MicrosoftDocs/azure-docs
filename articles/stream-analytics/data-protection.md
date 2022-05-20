@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 05/20/2022
 ---
 
 # Data protection in Azure Stream Analytics 
