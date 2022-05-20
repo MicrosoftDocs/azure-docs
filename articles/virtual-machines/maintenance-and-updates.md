@@ -32,7 +32,7 @@ Most nonzero-impact maintenance pauses the VM for less than 10 seconds. In certa
 
 Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, L, M, N, and H series. Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations.  
 
-These maintenance operations that don't require a reboot are applied one fault domain at a time. They stop if they receive any warning health signals from platform monitoring tools. 
+These maintenance operations that don't require a reboot are applied one fault domain at a time. They stop if they receive any warning health signals from platform monitoring tools. Maintenance operations that do not require a reboot may occur simultaneously in paired regions or Availability Zones. For a given change, the deployment are mostly sequenced across Availability Zones and across Region pairs, but there can be overlap at the tail.
 
 These types of updates can affect some applications. When the VM is live-migrated to a different host, some sensitive workloads might show a slight performance degradation in the few minutes leading up to the VM pause. To prepare for VM maintenance and reduce impact during Azure maintenance, try [using Scheduled Events for Windows](./windows/scheduled-events.md) or [Linux](./linux/scheduled-events.md) for such applications. 
 
@@ -85,7 +85,7 @@ Availability zones are unique physical locations within an Azure region. Each zo
 
 An availability zone is a combination of a fault domain and an update domain. If you create three or more VMs across three zones in an Azure region, your VMs are effectively distributed across three fault domains and three update domains. The Azure platform recognizes this distribution across update domains to make sure that VMs in different zones are not updated at the same time.
 
-Each infrastructure update rolls out zone by zone, within a single region. But, you can have deployment going on in Zone 1, and different deployment going in Zone 2, at the same time. Deployments are not all serialized. But, a single deployment only rolls out one zone at a time to reduce risk.
+Each infrastructure update rolls out zone by zone, within a single region. But, you can have deployment going on in Zone 1, and different deployment going in Zone 2, at the same time. Deployments are not all serialized. But, a single rebootful deployment only rolls out one zone at a time to reduce risk. In general, rebootful updates are avoided when possible, and Azure attempts to leverage Live Migration or provide customers control.
 
 #### Virtual machine scale sets
 
