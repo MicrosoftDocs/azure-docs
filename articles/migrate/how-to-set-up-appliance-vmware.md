@@ -189,13 +189,13 @@ If validation fails, you can select a **Failed** status to see the validation er
 > Ensure the following credentials are not passed in any credentials as special characters are not supported for SSO passwords:
 >  - Non-ASCII characters
 >  - Ampersand (&)
->  Semicolon (;)
->  Double quotation mark (")
->  Single quotation mark (')
->  Circumflex (^)
->  Backslash (\)
->  Percentage (%)
->  Angle brackets (<,>)
+>  - Semicolon (;)
+>  - Double quotation mark (")
+>  - Single quotation mark (')
+>  - Circumflex (^)
+>  - Backslash (\)
+>  - Percentage (%)
+>  - Angle brackets (<,>)
 
 ### Start discovery
 
