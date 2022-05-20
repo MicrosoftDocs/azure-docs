@@ -147,6 +147,11 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 ## Scan cross-tenant Power BI
 
+> [!TIP]
+> To troubleshoot any issues with scanning:
+> 1. Confirm you have completed the [**deployment checklist for your scenario**](#deployment-checklist).
+> 1. Review our [**scan troubleshooting documentation**](register-scan-power-bi-tenant-troubleshoot.md).
+
 ### Scan cross-tenant Power BI using Delegated authentication 
 
 Delegated authentication is the only supported option for cross-tenant scan option, however, you can use either Azure runtime or a self-hosted integration runtime to run a scan. 
