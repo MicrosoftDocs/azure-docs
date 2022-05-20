@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 IP-based connection lets you connect to your on-premises, non-Azure, and Azure virtual machines via Azure Bastion over ExpressRoute or a VPN site-to-site connection using a specified private IP address. The steps in this article show you how to configure your Bastion deployment, and then connect to an on-premises resource using IP-based connection. For more information about Azure Bastion, see the [Overview](bastion-overview.md).
 
-:::image type="content" source="./media/connect-ip-address/architecture.png" alt-text="Architecture diagram." lightbox="./media/connect-ip-address/architecture.png":::
+:::image type="content" source="./media/connect-ip-address/architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/connect-ip-address/architecture.png":::
 
 > [!NOTE]
 > This configuration requires the Standard SKU tier for Azure Bastion. To upgrade, see [Upgrade a SKU](upgrade-sku.md).
@@ -45,7 +45,7 @@ Before you begin these steps, verify that you have the following environment set
 1. IP based connection requires the Standard SKU tier. On the **Configuration** page, for **Tier**, verify the tier is set to the **Standard** SKU. If the tier is set to the Basic SKU, select **Standard** from the dropdown.
 1. To enable **IP based connection**, select **IP based connection**.
 
-    :::image type="content" source="./media/connect-ip-address/ip-connection.png" alt-text="Screenshot of Configuration page." lightbox="./media/connect-ip-address/ip-connection.png":::
+    :::image type="content" source="./media/connect-ip-address/ip-connection.png" alt-text="Screenshot that shows the Configuration page." lightbox="./media/connect-ip-address/ip-connection.png":::
 
 1. Select **Apply** to apply the changes. It takes a few minutes for the Bastion configuration to complete.
 
@@ -55,7 +55,7 @@ Before you begin these steps, verify that you have the following environment set
 
 1. On the Bastion **Connect** page, for **Hostname**, enter the private IP address of the target VM.
 
-    :::image type="content" source="./media/connect-ip-address/ip-address.png" alt-text="Screenshot of Connect using Azure Bastion page." lightbox="./media/connect-ip-address/ip-address.png":::
+    :::image type="content" source="./media/connect-ip-address/ip-address.png" alt-text="Screenshot of the Connect using Azure Bastion page." lightbox="./media/connect-ip-address/ip-address.png":::
 
 1. Adjust your connection settings to the desired **Protocol** and **Port**.
 
