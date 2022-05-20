@@ -13,10 +13,10 @@ ms.date: 05/19/2022
 
 # Custom Entity Lookup cognitive skill
 
-The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not exact.  
+The **Custom Entity Lookup** skill is used to detect or recognize entities that you define. During skillset execution, the skill looks for text from a custom, user-defined list of words and phrases. The skill uses this list to label any matching entities found within source documents. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not exact.  
 
 > [!NOTE]
-> This skill is not bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
+> This skill isn't bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
 
 ## @odata.type  
 
@@ -25,8 +25,8 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 ## Data limits
 
 + The maximum input record size supported is 256 MB. If you need to break up your data before sending it to the custom entity lookup skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
-+ The maximum entities definition table supported is 10 MB if it is provided using the *entitiesDefinitionUri* parameter. 
-+ If the entities are defined inline, using the *inlineEntitiesDefinition* parameter, the maximum supported size is 10 KB.
++ The maximum entities definition table supported is 10 MB if it's provided using the "entitiesDefinitionUri" parameter. 
++ If the entities are defined inline, using the "inlineEntitiesDefinition" parameter, the maximum supported size is 10 KB.
 
 ## Skill parameters
 
@@ -36,10 +36,10 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | `entitiesDefinitionUri`    | Path to a JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This config must be accessible over HTTPS. See [Custom Entity Definition Format](#custom-entity-definition-format) below for expected CSV or JSON schema.|
 |`inlineEntitiesDefinition` | Inline JSON entity definitions. This parameter supersedes the entitiesDefinitionUri parameter if present. No more than 10 KB of configuration may be provided inline. See [Custom Entity Definition](#custom-entity-definition-format) below for expected JSON schema. |
-|`defaultLanguageCode` |    (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a languagecode-countrycode format, only the languagecode part of the format is used.  |
-|`globalDefaultCaseSensitive` | (Optional) Default case sensitive value for the skill. If `defaultCaseSensitive` value of an entity is not specified, this value will become the `defaultCaseSensitive` value for that entity. |
-|`globalDefaultAccentSensitive` | (Optional) Default accent sensitive value for the skill. If `defaultAccentSensitive` value of an entity is not specified, this value will become the `defaultAccentSensitive` value for that entity. |
-|`globalDefaultFuzzyEditDistance` | (Optional) Default fuzzy edit distance value for the skill. If `defaultFuzzyEditDistance` value of an entity is not specified, this value will become the `defaultFuzzyEditDistance` value for that entity. |
+|`defaultLanguageCode` |    (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a `languagecode-countrycode` format, only the `languagecode` part of the format is used.  |
+|`globalDefaultCaseSensitive` | (Optional) Default case sensitive value for the skill. If `defaultCaseSensitive` value of an entity isn't specified, this value will become the `defaultCaseSensitive` value for that entity. |
+|`globalDefaultAccentSensitive` | (Optional) Default accent sensitive value for the skill. If `defaultAccentSensitive` value of an entity isn't specified, this value will become the `defaultAccentSensitive` value for that entity. |
+|`globalDefaultFuzzyEditDistance` | (Optional) Default fuzzy edit distance value for the skill. If `defaultFuzzyEditDistance` value of an entity isn't specified, this value will become the `defaultFuzzyEditDistance` value for that entity. |
 
 ## Skill inputs
 
@@ -54,21 +54,21 @@ Parameters are case-sensitive.
 |---------------|-------------------------------|
 | `entities` | An array of complex types that contains the following fields: <ul><li>`"name"`: The top-level entity; it represents the "normalized" form. </li><li>`"id"`:  A unique identifier for the entity as defined in the "Custom Entity Definition". </li> <li>`"description"`: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li>`"type"`: Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> `"subtype"`: Entity subtype as defined by the user in the "Custom Entity Definition Format".</li> <li>`"matches"`: An array of complex types that contain: <ul><li>`"text"` from the source document </li><li>`"offset"` location where the match was found, </li><li>`"length"` of the text measured in characters <li>`"matchDistance"` or the number of characters that differ between the match and the entity `"name"`. </li></li></ul></ul> |
 
-## Custom Entity Definition
+## Custom entity definition format
 
-There are 3 different ways to provide the list of custom entities to the Custom Entity Lookup skill:
+There are three approaches for providing the list of custom entities to the Custom Entity Lookup skill:
 
-+ .CSV file
-+ .JSON file
++ .CSV file (UTF-8 encoded)
++ .JSON file (UTF-8 encoded)
 + Inline within the skill definition
 
-If the definition file is a .CSV or .JSON file, provide the full path in the "entitiesDefinitionUri" parameter. The file is downloaded at the start of each indexer run. It must remain accessible until the indexer stops. Also, the file must be encoded UTF-8.
+If the definition file is in a .CSV or .JSON file, provide the full path in the "entitiesDefinitionUri" parameter. The file is downloaded at the start of each indexer run. It must remain accessible until the indexer stops.
 
 If you're using an inline definition, specify it under the "inlineEntitiesDefinition" skill parameter.
 
 ### CSV format
 
-You can provide the definition of the custom entities to look for in a Comma-Separated Value (CSV) file by providing the path to the file and setting it in the *entitiesDefinitionUri*  skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
+You can provide the definition of the custom entities to look for in a Comma-Separated Value (CSV) file by providing the path to the file and setting it in the "entitiesDefinitionUri"  skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
 
 The CSV format is simple. Each line represents a unique entity, as shown below:
 
@@ -84,7 +84,7 @@ In this case, there are three entities that can be returned (Bill Gates, Satya N
 
 You can provide the definition of the custom entities to look for in a JSON file as well. The JSON format gives you a bit more flexibility since it allows you to define matching rules per term. For instance, you can specify the fuzzy matching distance (Damerau-Levenshtein distance) for each term or whether the matching should be case-sensitive or not. 
 
- Just like with CSV files, you need to provide the path to the JSON file and set it in the *entitiesDefinitionUri* skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
+ Just like with CSV files, you need to provide the path to the JSON file and set it in the "entitiesDefinitionUri" skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.
 
 The most basic JSON custom entity list definition can be a list of entities to match:
 
@@ -166,7 +166,7 @@ The tables below describe the configuration parameters you can set when defining
 
 ### Inline format
 
-In some cases, it may be more convenient to embed the custom entity definition so that its inline with the skill definition. You can use the same JSON format as the one described above, but it is included within the skill definition. Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
+In some cases, it may be more convenient to embed the custom entity definition so that its inline with the skill definition. You can use the same JSON format as the one described above, except that it's included within the skill definition. Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
 
 ## Sample skill definition
 
@@ -397,7 +397,7 @@ This section provides a sample index definition. Both "entities" and "matches" a
 
 `"Reached maximum capacity for matches, skipping all further duplicate matches."`
 
-This warning will be emitted if the number of matches detected is greater than the maximum allowed. No more duplicate matches will be returned. If this is unacceptable, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so we can assist you with your individual use case.
+This warning will be emitted if the number of matches detected is greater than the maximum allowed. No more duplicate matches will be returned. If you need a higher threshold, you can file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) for assistance with your individual use case.
 
 ## See also
 
