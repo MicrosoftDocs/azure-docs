@@ -103,7 +103,7 @@ The **Use from** setting in the configuration specifies the location of your API
 
 ## Use the external cache
 
-After adding a Redis-compatible cache, configure [caching policies](api-management-caching-policies.md) to enable response caching in the external cache.
+After adding a Redis-compatible cache, configure [caching policies](api-management-caching-policies.md) to enable response caching, or caching of values by key, in the external cache.
 
 For a detailed example, see [Add caching to improve performance in Azure API Management](api-management-howto-cache.md).
 
