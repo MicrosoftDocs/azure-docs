@@ -108,7 +108,7 @@ Grant Azure Front Door permission to access the certificates in your Azure Key V
 1. In **Review + create**, select **Create**.
 
 > [!NOTE]
-> If your key vault is protected with network access restrictions, make sure to allow Azure Front Door to access your key vault.
+> If your key vault is protected with network access restrictions, make sure to allow trusted Microsoft services to access your key vault.
 
 Azure Front Door can now access this key vault and the certificates it contains.
 

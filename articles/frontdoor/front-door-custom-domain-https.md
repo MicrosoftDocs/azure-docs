@@ -76,8 +76,8 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 - You must have a key vault account in the same Azure subscription as your front door. Create a key vault account if you don't have one.
 
-> [!WARNING]
-> Azure Front Door currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
+    > [!WARNING]
+    > Azure Front Door currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
 
 - If your key vault has network access restrictions enabled, you must configure your key vault to allow trusted Microsoft services to bypass the firewall.
 
@@ -135,7 +135,7 @@ Grant Azure Front Door permission to access the certificates in your Azure Key V
 1. In **Review + create**, select **Create**.
 
 > [!NOTE]
-> If your key vault is protected with network access restrictions, make sure to allow Azure Front Door to access your key vault.
+> If your key vault is protected with network access restrictions, make sure to allow trusted Microsoft services to access your key vault.
 
 Azure Front Door can now access this key vault and the certificates it contains.
 
