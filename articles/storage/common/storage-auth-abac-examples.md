@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: rolyon
 ms.reviewer: 
 ms.subservice: common
-ms.date: 05/16/2022
+ms.date: 05/24/2022
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
@@ -812,12 +812,50 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/Alp
 
 ## Blob versions or blob snapshots
 
+### Example: Read only current blob versions
+
+This condition allows a user to only read current blob versions. The user cannot read other blob versions.
+
+You must add this condition to any role assignments that include the following action.
+
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+
+![Diagram of condition showing read access to current blob version only.](./media/storage-auth-abac-examples/current-version-read-only.png)
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion] BoolEquals true
+ )
+)
+```
+
+#### Azure portal
+
+Here are the settings to add this condition using the Azure portal.
+
+> [!div class="mx-tableFixed"]
+> | Condition #1 | Setting |
+> | --- | --- |
+> | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
+> | Attribute source | Resource |
+> | Attribute | [Is Current Version](storage-auth-abac-attributes.md#is-current-version) |
+> | Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
+> | Value | True |
+
 ### Example: Read current blob versions and a specific blob version
 
 This condition allows a user to read current blob versions as well as read blobs with a version ID of 2022-06-01T23:38:32.8883645Z. The user cannot read other blob versions.
 
 > [!NOTE]
-> The condition includes a `NOT Exists` expression for the version ID attribute. This expression is included so that the Azure portal can list list the current version of the blob.
+> The condition includes a `NOT Exists` expression for the version ID attribute. This expression is included so that the Azure portal can list the current version of the blob.
 
 You must add this condition to any role assignments that include the following action.
 
