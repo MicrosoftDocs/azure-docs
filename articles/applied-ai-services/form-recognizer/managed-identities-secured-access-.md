@@ -1,5 +1,5 @@
 ---
-title: "Secure communication with Form Recognizer using managed identities and private endpoints"
+title: "Configure secure access with managed identities and private endpoints"
 titleSuffix: Azure Applied AI Services
 description: Learn how to configure secure communications between Form Recognizer and other Azure Services.
 author: laujan
@@ -11,7 +11,7 @@ ms.date: 05/20/2022
 ms.author: vikurpad
 ---
 
-# Configuring secure access to your Form Recognizer resource
+# Configure secure access with managed identities and private endpoints
 
 This how-to guide will walk you through the process of enabling secure connections for your Form Recognizer resource. You can secure the following connections:
 
@@ -126,7 +126,7 @@ Great! You've configured for your Form Recognizer resource to use a managed iden
 > [!TIP]
 >
 > When you try the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio), you'll see the READ API and other prebuilt models don't require storage access to process documents. However, training a custom model requires additional configuration because the Studio can't directly communicate with a storage account.
- > You can enable storage access by selecting **Add your client IP address** from the **Networking** tab of the storage account to configure your machine to access the storage account via IP whitelisting.
+  > You can enable storage access by selecting **Add your client IP address** from the **Networking** tab of the storage account to configure your machine to access the storage account via IP allowlisting.
 
 ## Configure private endpoints for access from VNETs
 
