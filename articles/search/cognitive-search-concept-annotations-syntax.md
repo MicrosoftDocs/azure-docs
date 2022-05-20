@@ -21,8 +21,6 @@ Before reviewing the syntax, let's revisit a few important concepts to better un
 
 | Term | Description |
 |------|-------------|
-| Term | Description |
-|------|-------------|
 | "enriched document" | An enriched document is an internal structure that collects skill output as it's created and it holds all annotations related to a document. Think of an enriched document as a tree of annotations. Generally, an annotation created from a previous annotation becomes its child. </p>Enriched documents only exist for the duration of skillset execution. Once content is mapped to the search index, the enriched document is no longer needed. Although you don't interact with enriched documents directly, it's useful to have a mental model of the documents when creating a skillset. |
 | "annotation" | Within an enriched document, a node that is created and populated by a skill, such as "text" and "layoutText" in the OCR skill, is called an annotation. An enriched document is populated with both annotations and unchanged field values or metadata copied from the source. |
 | "context" | The context in which the enrichment takes place, in terms of which element or component of the document is enriched. By default, the enrichment context is at the `"/document"` level, scoped to individual documents contained in the data source. When a skill runs, the outputs of that skill become [properties of the defined context](#example-2). |
