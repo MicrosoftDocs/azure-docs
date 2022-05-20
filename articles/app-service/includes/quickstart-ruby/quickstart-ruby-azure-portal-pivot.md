@@ -4,7 +4,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 This quickstart shows you how to make these changes within your browser, without having to install the development environment tools on your machine.
 
-<!-- TODO: screenshot here -->
+![Sample app running in Azure](../../media/quickstart-ruby/ruby-hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
@@ -42,11 +42,11 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 3. Under **Default branch**, to the right of `master`, select the **Rename branch** button represented by a pencil icon.
 
- ![In GitHub, in the forked ruby-docs-hello-world repo's Settings, select Branches.](../../media/quickstart-ruby/forked-ruby-docs-hello-world-repo-settings-branches-edit.png)
+ ![On the Branches for the forked ruby-docs-hello-world repo, select the Rename branch button after master.](../../media/quickstart-ruby/forked-ruby-docs-hello-world-repo-settings-branches-edit.png)
 
 4. In the **Rename this branch** pop-up, enter `main`.
 
- ![In GitHub, in the forked ruby-docs-hello-world repo's Settings, select Branches.](../../media/quickstart-ruby/forked-ruby-docs-hello-world-repo-rename-this-branch.png)
+ ![In the Rename this branch dialog, enter 'main'.](../../media/quickstart-ruby/forked-ruby-docs-hello-world-repo-rename-this-branch.png)
 
 5. Select **Rename branch**.
 
@@ -92,11 +92,11 @@ Sign in to the Azure portal at https://portal.azure.com.
    
 7.  In the Spec Picker, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
-    ![On the Create Web App screen, on the Basics tab, in the App Service Plan section, select the 'Create new' link. Enter myAppServicePlan in the textbox.](../../media/quickstart-ruby/azure-portal-create-app-service-select-free-tier.png)   
+    ![In the Spec Picker, select Dev/Test, then select F1. Finally select the Apply.](../../media/quickstart-ruby/azure-portal-create-app-service-select-free-tier.png)   
 
 8. Select the **Review + create** button at the bottom of the page.
 
-    ![On the Create Web App screen, on the Basics tab, in the App Service Plan section, select the 'Create new' link. Enter myAppServicePlan in the textbox.](../../media/quickstart-ruby/azure-portal-create-app-service-review-create.png)   
+    ![At the bottom of the Create Web App screen, select 'Review + create'.](../../media/quickstart-ruby/azure-portal-create-app-service-review-create.png)   
 
 9. After validation runs, select the **Create** button at the bottom of the page.
 
