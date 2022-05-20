@@ -37,8 +37,7 @@ The feature consists of two parts, management and runtime:
 
 ### Requirements 
 
-- Managed System assigned identity must be enabled for the API Management instance.
-- To manage Authorizations the Contributor RBAC role is required.  
+- Managed System assigned identity must be enabled for the API Management instance.  
 - API Management instance must have outbound connectivity to internet on port `443` (HTTPS).
 
 ### Limitations
