@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up Chronus SAML** section, copy the appropriate URL(s) based on your requirement.
 
-    ![Screenshot shows to copy configuration appropriate URLs.](common/copy-configuration-urls.png "Attributes")
+    ![Screenshot shows to copy configuration appropriate U R L's.](common/copy-configuration-urls.png "Attributes")
 
 ### Create an Azure AD test user
 
