@@ -126,8 +126,37 @@ Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAcco
 
 Once you have that key, create either a service or computer account under your OU. Use the following specification (remember to replace the example text with your storage account name):
 
-SPN: "cifs/your-storage-account-name-here.file.core.windows.net"
-Password: Kerberos key for your storage account.
+servicePrincipalName: "cifs/your-storage-account-name-here.file.core.windows.net"
+unicodePwd: Encoded Kerberos key for your storage account.
+
+To encode the kerberos key for unicodePwd we have to first add double quotes around the string. So 'password', becomes '"password"'. Then each character in the string must be UTF16-LE encoded. (Little endian). 
+After the string is UTF16-LE format, it must be base64 converted. When you have the Base64 string, you may add this to
+unicodePwd by ~replacing~ the attribute, or ~adding~ it when creating the account.
+```python
+import base64
+import sys
+def encode_pwd(pw):
+    new_pw = b""
+    pw = "\"" + pw + "\""
+    for char in pw:
+        new_pw += char.encode("utf-16le")
+    return base64.standard_b64encode(new_pw)
+pw = sys.argv[1]
+result = encode_pwd(pw)
+stripped_result=str(result).strip("b'")
+print(stripped_result)
+```
+The result given is the encoded string which can be passed on to ldap; for example using [openLdap](https://www.openldap.org/)
+Example code for bash using openldap:
+```bash
+ldapmodify -v -H 'ldaps://host' -U "user" -w "password" -Y DIGEST-MD5 \
+<<EOF
+dn: "CN=computerAccountName,DC=contoso,DC=com"
+replace: unicodePwd
+unicodePwd::$b64UnicodePwd
+EOF
+```
+(Note the double colon in the LDIF. This is not a typo. The double semicolon is used instead of space)
 
 If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure file shares. See [Update the password of your storage account identity in AD](storage-files-identity-ad-ds-update-password.md) for details.
 
