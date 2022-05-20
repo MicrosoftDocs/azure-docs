@@ -90,9 +90,9 @@ Each time that the trigger fires, Azure Logic Apps creates a workflow instance a
 
    ![Screenshot showing Consumption logic app workflow with failed step details.](./media/logic-apps-diagnosing-failures/failed-action-inputs-consumption.png)
 
-   For example, the following screenshot shows the outputs from the failed Outlook action.
+   For example, the following screenshot shows the outputs from the failed RSS action.
 
-   ![Screenshot showing Consumption logic app workflow with failed step outputs.](./media/logic-apps-diagnosing-failures/review-action-outputs-consumption.png)
+   ![Screenshot showing Consumption logic app workflow with failed step outputs.](./media/logic-apps-diagnosing-failures/failed-action-outputs-consumption.png)
 
 ### [Standard](#tab/standard)
 
@@ -108,9 +108,9 @@ Each time that the trigger fires, Azure Logic Apps creates a workflow instance a
 
    ![Screenshot showing Standard logic app workflow with failed step details.](./media/logic-apps-diagnosing-failures/failed-action-inputs-standard.png)
 
-   For example, the following screenshot shows the outputs from the failed Outlook action.
+   For example, the following screenshot shows the outputs from the failed RSS action.
 
-   ![Screenshot showing Standard logic app workflow with failed step outputs.](./media/logic-apps-diagnosing-failures/review-action-outputs-standard.png)
+   ![Screenshot showing Standard logic app workflow with failed step outputs.](./media/logic-apps-diagnosing-failures/failed-action-outputs-standard.png)
 
 ---
 
