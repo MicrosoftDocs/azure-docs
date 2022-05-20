@@ -19,7 +19,7 @@ See below for information about changes to Speech services and resources.
 
 ## What's new?
 
-* Speech SDK 1.21.0 and Speech CLI 1.21.0 were released in April 2022. See details below.
+* Speech SDK 1.22.0 and Speech CLI 1.22.0 were released in May 2022. See details below.
 * Custom speech-to-text container v3.1.0 released in March 2022, with support to get display models.
 * TTS Service March 2022, public preview of Cheerful and Sad styles with fr-FR-DeniseNeural.
 * TTS Service February 2022, public preview of Custom Neural Voice Lite, extended CNV language support to 49 locales.  

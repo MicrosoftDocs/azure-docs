@@ -6,6 +6,17 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### Speech CLI 1.22.0: May 2022 release
+
+Uses Speech SDK 1.22.0.
+
+#### New features
+
+- Added `spx init` command to guide users through service key creation without going to Azure Web Portal.
+- Our docker contain now has Azure CLI included, so the `spx init` command will work out of the box.
+- Added timestamp as an event output option, to make SPX more useful when calculating latencies.
+
+
 ### Speech CLI 1.21.0: April 2022 release
 
 Uses Speech SDK 1.21.0.

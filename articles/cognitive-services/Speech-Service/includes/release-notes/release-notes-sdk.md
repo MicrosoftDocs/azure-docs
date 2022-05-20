@@ -6,6 +6,29 @@ ms.date: 02/22/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.22.0: May 2022 release
+
+#### New features
+
+- **Java**: IntentRecognitionResult API for getEntities(), applyLanguageModels(), and recognizeOnceAsync(text) added to support the simple pattern matching engine.
+- **Unity**: Added support for Mac M1 (Apple Silicon) for Unity package ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1465))
+- **C#**: Added support for x86_64 for Xamarin Android ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1457))
+- **C#**: .NET framework minimum version updated to v4.6.2 for SDK C# package as v4.6.1 has retired (see [Microsoft .NET Framework Component Lifecycle Policy](https://docs.microsoft.com/en-us/lifecycle/products/microsoft-net-framework))
+- **Linux**: Added support for Debian 11 and Ubuntu 22.04 LTS. Ubuntu 22.04 LTS requires manual installation of libssl1.1 either as a binary package from [here](http://security.ubuntu.com/ubuntu/pool/main/o/openssl) (e.g. libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb or newer for x64), or by compiling from sources.
+
+#### Bug fixes
+
+- **UWP**: OpenSSL dependency removed from UWP libraries and replaced with WinRT websocket and HTTP APIs to meet security compliance and smaller binary footprint.
+- **Mac**: Fixed "MicrosoftCognitiveServicesSpeech Module Not Found" issue when using Swift projects targeting MacOS platform
+- **Windows, Mac**: Fixed a platform-specific issue where audio sources that were configured via properties to stream at a real-time rate sometimes fell behind and eventually exceeded capacity
+
+#### Samples ([GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk))
+
+- **C#**: .NET framework samples updated to use v4.6.2
+- **Unity**: Virtual-assistant sample fixed for Android and UWP
+- **Unity**: Unity samples updated for Unity 2020 LTS version
+
+
 ### Speech SDK 1.21.0: April 2022 release
 
 #### New features
