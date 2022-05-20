@@ -42,7 +42,6 @@ This setting must be configured at the time of Stream Analytics job creation, an
 
 Updating or rotating keys to your storage account is not possible using the Stream Analytics portal. You can update the keys using the REST APIs. You can also connect to your job storage account using managed identity authentication with allow trusted services.
 
-> [!NOTE] 
 > VNET scenarios won't work unless managed identity authentication with allow trusted services. For more information, visit: [Connect Stream Analytics jobs to resources in an Azure Virtual Network (VNet)](connect-job-to-vnet.md)
 
 
