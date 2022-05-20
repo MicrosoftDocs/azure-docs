@@ -59,7 +59,7 @@ Currently, the Oracle service name isn't captured in the metadata or hierarchy.
 
     * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-    * Download the [Oracle JDBC driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) on the machine where your self-hosted integration runtime is running. Note down the folder path which you will use to set up the scan.
+    * Download the [Oracle JDBC driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) on the machine where your self-hosted integration runtime is running. Note down the folder path that you'll use to set up the scan.
 
         > [!Note]
         > The driver should be accessible by the self-hosted integration runtime. By default, self-hosted integration runtime uses [local service account "NT SERVICE\DIAHostService"](manage-integration-runtimes.md#service-account-for-self-hosted-integration-runtime). Make sure it has "Read and execute" and "List folder contents" permission to the driver folder.
@@ -178,7 +178,7 @@ To create and run a new scan, do the following:
 
         Usage of NOT and special characters aren't acceptable.
 
-    1. **Driver location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running, e.g. `D:\Drivers\Oracle`. It's the path to valid JAR folder location. Make sure the driver is accessible by the self-hosted integration runtime, learn more from [prerequisites section](#prerequisites).
+    1. **Driver location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running, for example, `D:\Drivers\Oracle`. It's the path to valid JAR folder location. Make sure the driver is accessible by the self-hosted integration runtime, learn more from [prerequisites section](#prerequisites).
 
     1. **Stored procedure details**: Controls the number of details imported from stored procedures:
 

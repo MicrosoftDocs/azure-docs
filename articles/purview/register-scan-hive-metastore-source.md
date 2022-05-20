@@ -52,7 +52,7 @@ When setting up scan, you can choose to scan an entire Hive metastore database, 
 
     * Ensure that Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](https://www.microsoft.com/download/details.aspx?id=30679).
 
-    * Download the Hive Metastore database's JDBC driver on the machine where your self-hosted integration runtime is running. For example, if the database is *mssql*, download [Microsoft's JDBC driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server). If you scan Azure Databricks's Hive Metastore, download the MariaDB Connector/J version 2.7.5 from [here](https://dlm.mariadb.com/1965742/Connectors/java/connector-java-2.7.5/mariadb-java-client-2.7.5.jar); version 3.0.3 isn't supported. Note down the folder path which you will use to set up the scan.
+    * Download the Hive Metastore database's JDBC driver on the machine where your self-hosted integration runtime is running. For example, if the database is *mssql*, download [Microsoft's JDBC driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server). If you scan Azure Databricks's Hive Metastore, download the MariaDB Connector/J version 2.7.5 from [here](https://dlm.mariadb.com/1965742/Connectors/java/connector-java-2.7.5/mariadb-java-client-2.7.5.jar); version 3.0.3 isn't supported. Note down the folder path that you'll use to set up the scan.
 
         > [!Note]
         > The driver should be accessible by the self-hosted integration runtime. By default, self-hosted integration runtime uses [local service account "NT SERVICE\DIAHostService"](manage-integration-runtimes.md#service-account-for-self-hosted-integration-runtime). Make sure it has "Read and execute" and "List folder contents" permission to the driver folder.
@@ -122,7 +122,7 @@ Use the following steps to scan Hive Metastore databases to automatically identi
 
        :::image type="content" source="media/register-scan-hive-metastore-source/databricks-credentials.png" alt-text="Screenshot that shows Azure Databricks username and password examples as property values." border="true":::
 
-    1. **Metastore JDBC Driver Location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running, e.g. `D:\Drivers\HiveMetastore`. It's the path to valid JAR folder location. Make sure the driver is accessible by the self-hosted integration runtime, learn more from [prerequisites section](#prerequisites).
+    1. **Metastore JDBC Driver Location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running, for example, `D:\Drivers\HiveMetastore`. It's the path to valid JAR folder location. Make sure the driver is accessible by the self-hosted integration runtime, learn more from [prerequisites section](#prerequisites).
 
        > [!Note]
        > If you scan Azure Databricks's Hive Metastore, download the MariaDB Connector/J version 2.7.5 from [here](https://dlm.mariadb.com/1965742/Connectors/java/connector-java-2.7.5/mariadb-java-client-2.7.5.jar). Version 3.0.3 is not supported.
