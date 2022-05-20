@@ -148,7 +148,7 @@ Next, you'll configure the virtual network to ensure only resources within the v
 
 1. Enable the **Selected Networking and Private Endpoints** option from the **Firewalls and virtual networks** tab and select save.
 
-> [!NOTE] 
+> [!NOTE]
 >
 >If you try accessing any of the Form Recognizer Studio features, you'll see an access denied message. To enable access from the Studio on your machine, select the **client IP address checkbox** and **Save** to restore access.
 
@@ -157,40 +157,71 @@ Next, you'll configure the virtual network to ensure only resources within the v
 1. Navigate to the **Private endpoint connections** tab and select the **+ Private endpoint**. You'll be
 navigated to the **Create a private endpoint** dialog page.
 
-* On the **Create private endpoint** dialog page, select the following options:
-subscription and resource group, name your private endpoint and add it to the same region as the virtual network before clicking next.
+1. On the **Create private endpoint** dialog page, select the following options:
 
-  :::image type="content" source="media/managed-identities/v2-fr-private-end-basics.png" alt-text="Screenshot showing how to set-up a private endpoint":::
+    * **Subscription**. Select your billing subscription.
 
-* On the **Resource** tab, accept the default values and select **Next**.
+    * **Resource group**. Select the appropriate resource group.
 
-* On the **Virtual Network** tab, ensure that the VNET you created is selected in the virtual network. If you have multiple subnets, select the subnet where you want the private endpoint to connect. Accept the default value of yes for integrating with private DNS zone.
+    * **Name**. Enter a name for your private endpoint.
+
+    * **Region**. Select the same region as your virtual network.
+
+    * Select **Next: Resource**.
+
+    :::image type="content" source="media/managed-identities/v2-fr-private-end-basics.png" alt-text="Screenshot showing how to set-up a private endpoint":::
+
+1. On the **Resource** tab, accept the default values and select **Next: Virtual Network**.
+
+1. On the **Virtual Network** tab, ensure that the virtual network you created is selected in the virtual network.
+
+1. If you have multiple subnets, select the subnet where you want the private endpoint to connect. Accept the default value to **Dynamically allocate IP address**.
+
+1. Select **Next: DNS**
+
+1. Accept the default value **Yes** to **integrate with private DNS zone**.
 
   :::image type="content" source="media/managed-identities/v2-fr-private-end-vnet.png" alt-text="Screenshot showing how to configure private endpoint":::
 
-* Accept the remaining defaults and continue to select **Next** until you can review and create the private endpoint.
+1. Accept the remaining defaults and select **Next: Tags**.
 
-Your Form Recognizer resource now is only accessible from the virtual network and any IP addresses in the IP allowlist.
+1. Select **Next: Review + create** .
+
+Well done! Your Form Recognizer resource now is only accessible from the virtual network and any IP addresses in the IP allowlist.
 
 ### Configure private endpoints for storage
 
-Navigate to your storage account on the portal, select the **Networking** tab.
+Navigate to your **storage account** on the Azure portal.
 
-1. On the **Private endpoint connections** tab, add a private endpoint.
+1. Select the **Networking** tab from the left navigation menu.
 
-1. Provide a name and pick the same region as the virtual network, select **Next**.
+1. Select the **Private endpoint connections** tab.
+
+1. Choose add **+ Private endpoint**.
+
+1. Provide a name and choose the same region as the virtual network.
+
+1. Select **Next: Resource**.
 
   :::image type="content" source="media/managed-identities/v2-stg-private-end-basics.png" alt-text="Screenshot showing how to create a private endpoint":::
 
-1. On the resource tab, select **blob** from the target **sub-resource** list and select **Next**.
+1. On the resource tab, select **blob** from the **Target sub-resource** list.
+
+1. select **Next: Virtual Network**.
 
    :::image type="content" source="media/managed-identities/v2-stg-private-end-resource.png" alt-text="Screenshot showing how to configure a private endpoint for a blob.":::
 
-1. As with the Form Recognizer resource, select the virtual network and subnet, validate that the private DNS zone is selected.
+1. Select the **Virtual network** and **Subnet**. Make sure **Enable network policies for all private endpoints in this subnet** is selected and the **Dynamically allocate IP address** is enabled.
 
-1. Select **Next** on the tabs to create the private endpoint.
+1. Select **Next: DNS**.
 
-You now have all the connections between the Form Recognizer resource and storage configured to use managed identities. 
+1. Make sure that **Yes** is enabled for **Integrate with private DNS zone**.
+
+1. Select **Next: Tags**.
+
+1. Select **Next: Review + create**.
+
+Great work! You now have all the connections between the Form Recognizer resource and storage configured to use managed identities.
 
 > [!NOTE]
 > The resources are only accessible from the virtual network.
@@ -199,36 +230,44 @@ You now have all the connections between the Form Recognizer resource and storag
 
 ## Validate your deployment
 
-To validate your deployment, you can deploy a VM to the virtual network and connect to the resources.
+To validate your deployment, you can deploy a virtual machine (VM) to the virtual network and connect to the resources.
 
 1. Configure a [Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview) in the virtual network.
 
-1. Remote desktop into the VM to launch a browser session to access the Studio.
+1. Remotely connect into the VM from your desktop to launch a browser session to access Form Recognizer Studio.
 
 1. Analyze requests and the training operations should now work successfully.
+
+That's it! You can now configure secure access for your Form Recognizer resource with managed identities and private endpoints.
 
 ## Common error messages
 
 * **Failed to access Blob container**:
 
-   :::image type="content" source="media/managed-identities/cors-error.png" alt-text="Error message when CORS config is required"::: 
+   :::image type="content" source="media/managed-identities/cors-error.png" alt-text="Error message when CORS config is required":::
 
-  **Resolution**: [Configure CORS](../quickstarts/try-v3-form-recognizer-studio.md#prerequisites-for-new-users)|
+  **Resolution**: [Configure CORS](../quickstarts/try-v3-form-recognizer-studio.md#prerequisites-for-new-users).
 
 * **AuthorizationFailure**:
 
   :::image type="content" source="media/managed-identities/auth-failure.png" alt-text="Authorization failure":::
 
-  **Resolution**: Ensure that there's network line-of-sight between the computer accessing the form recognizer studio and the storage account. For example, you may need  to add the client IP address in the storage account's networking tab.
+  **Resolution**: Ensure that there's a network line-of-sight between the computer accessing the form recognizer studio and the storage account. For example, you may need  to add the client IP address in the storage account's networking tab.
 
 * **ContentSourceNotAccessible**:
 
    :::image type="content" source="media/managed-identities/content-source-error.png" alt-text="Content Source Not Accessible":::
 
-    **Resolution**: Make sure you have given the form recognizer service's managed identity  the role of" Storage Blob Data Reader" and enable Trusted services access or Resource instance rules on the networking tab.
+    **Resolution**: Make sure you've given your Form Recognizer managed identity the role of **Storage Blob Data Reader** and enabled **Trusted services** access or **Resource instance** rules on the networking tab.
 
 * **AccessDenied**:
 
   :::image type="content" source="media/managed-identities/access-denied.png" alt-text="AccessDenied":::
 
   **Resolution**: Check to make sure there's connectivity between the computer accessing the form recognizer studio and the form recognizer service. For example, you may need to add the client IP address to the Form Recognizer service's networking tab.
+
+## Next Steps
+
+> [!div class="nextstepaction"]
+> [Access Azure Storage from a web app using managed identities](../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json)
+
