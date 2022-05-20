@@ -1,7 +1,7 @@
 ---
 title: Azure Policy applicability logic
 description: Describes the rules Azure Policy uses to determine whether the policy is applied to its assigned resources.
-ms.date: 05/19/2022
+ms.date: 05/20/2022
 ms.topic: conceptual
 ms.author: timwarner
 author: timwarner-msft
@@ -21,28 +21,17 @@ Following are special cases to the previously described applicability logic:
 - Any invalid aliases in the ****If**** conditions
     - The policy is not applicable
 - When the **If** conditions consist of only type conditions
-    - The policy is applicable to all resources. (Legacy logic. Configurable)
+    - The policy is applicable to all resources.
 - When the **If** conditions consist of only name conditions
     - The policy is applicable to all resources.
 - When the **If** conditions consist of only type and name conditions
-	- It depends on which field the first condition in the **If** refers to. It applies the applicability logic with conditions with that field only. E.g. when "type" field appears in the first condition of the **If**, only type conditions are considered when deciding applicability. When "name" field appears in the first condition of the **If**, only name conditions are considered when deciding applicability.
+	- It depends on which field the first condition in the **If** refers to. It applies the applicability logic with conditions with that field only. E.g. when **type** field appears in the first condition of the **If**, only type conditions are considered when deciding applicability. When **name** field appears in the first condition of the **If**, only name conditions are considered when deciding applicability.
 - When any conditions (including deployment parameters) include a location condition
     - Will not be applicable to subscriptions
 
 ## Applicability logic for AuditIfNotExists and DeployIfNotExists policy effects
 
-Audit**If**NotExists / Deploy**If**NotExists policies
-The applicability is based on the **If** conditions.
-
-Applicability logic
-When the **If** evaluates to false, the policy is not applicable.
-
-
-
-
-
-
-
+The applicability is based on the **If** conditions. When the **If** evaluates to false, the policy is not applicable.
 
 ## Next steps
 
