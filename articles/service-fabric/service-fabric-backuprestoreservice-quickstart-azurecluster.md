@@ -185,7 +185,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
     ![Create Backup Policy][6]
 
-2. Fill out the information. For details out how to specify a frequency based interval, see the [TimeGrain property](azure.management.monitor.models.metricavailability.timegrain?view=azure-dotnet.md). For Azure clusters, AzureBlobStore should be selected.
+2. Fill out the information. For details out how to specify a frequency based interval, see the [TimeGrain property](azure.management.monitor.models.metricavailability.timegrain?view=azure-dotnet). For Azure clusters, AzureBlobStore should be selected.
 
     ![Create Backup Policy Azure Blob Storage][7]
 
