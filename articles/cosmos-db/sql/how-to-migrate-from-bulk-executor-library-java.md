@@ -54,24 +54,25 @@ for (int i = 1; i <= 5; i++){
 Flux<SampleDoc> docs = Flux.fromIterable(docList);
 ```
 
-If you want to do bulk import (similar to using [DocumentBulkExecutor.importAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.importall)), you need to pass the reactive stream to a method like the following:
-
-   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkCreateItems)]
-
-If you want to do bulk *update* (similar to using [DocumentBulkExecutor.updateAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.updateall)), you need to use bulk upsert:
+If you want to do bulk create or upsert items (similar to using [DocumentBulkExecutor.importAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.importall)), you need to pass the reactive stream to a method like the following:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkUpsertItems)]
 
-If you want to do bulk *patch* (similar to using [DocumentBulkExecutor.mergeAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.mergeall)), you need to first create patch operations:
+You can also use a method like the below, but this is only used for creating items:
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkCreateItems)]
+
+
+The [DocumentBulkExecutor.importAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.importall) method in the old BulkExecutor library can also be used to bulk *patch* items. The old can [DocumentBulkExecutor.mergeAll](/java/api/com.microsoft.azure.documentdb.bulkexecutor.documentbulkexecutor.mergeall) method can also be used for patch, but only for the `set` patch operation type. To do bulk patch operations in the V4 SDK, first you need to create patch operations:
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=PatchOperations)]
 
-Then you can pass the operations, along with the reactive stream of documents, to a method like the below:
+Then you can pass the operations, along with the reactive stream of documents, to a method like the below. In this example, we apply both `add` and `set` patch operation types. The full set of patch operation types supported can be found [here](partial-document-update.md#supported-operations) in our overview of [partial document update in Azure Cosmos DB](partial-document-update.md).
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkPatchItems)]
 
 > [!NOTE]
-> In the above example, we apply `add` and `set` to patch elements whose root parent exists. However, you cannot do this where the root parent does **not** exist. When this is required, first read the full documents, then use a method like the below to replace the documents:
+> In the above example, we apply the `add` and `set` to patch elements whose root parent exists. However, you cannot do this where the root parent does **not** exist. This is because Azure Cosmos DB partial document update is [inspired by JSON Patch RFC 6902](../partial-document-update-faq.md#is-this-an-implementation-of-json-patch-rfc-6902-). If patching where root parent does not exist, first read back the full documents, then use a method like the below to replace the documents:
 > [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkReplaceItems)]               
 
 
