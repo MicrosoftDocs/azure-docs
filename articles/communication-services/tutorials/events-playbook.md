@@ -96,7 +96,7 @@ Event management platforms can use a custom registration flow to register attend
 
 Through Azure Communication Services, developers can uses SMS and Email capabilities to send remainders to attendees for the event they have registered. Communication can also include confirmation for the event as well as information for joining and participating. 
 - [SMS capabilities](https://docs.microsoft.com/azure/communication-services/quickstarts/sms/send) enable you to send text messages to your attendees. 
-- [Email capabilities](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email) support direct communication to your attendees using custom domains.
+- [Email capabilities](https://docs.microsoft.com/azure/communication-services/quickstarts/email/send-email) support direct communication to your attendees using custom domains.
 
 ### Leverage Azure Communication Services to build a custom attendee experience
 
