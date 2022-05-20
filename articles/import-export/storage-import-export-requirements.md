@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: azure-import-export
 ms.topic: conceptual
-ms.date: 05/17/2022
+ms.date: 05/19/2022
 ms.author: alkohli
 ---
 # Azure Import/Export system requirements
@@ -83,16 +83,20 @@ If you use Advanced Format (or 512e) drive and connect the drive to the system u
 
 To check the logical sector size that the disk reports, run the following commands:
 1. Run PowerShell as Administrator.
-1. To identify the disk drive number, run Get-disk cmdlet. Make a note of the number of the USB connected drive.
+1. To identify the disk drive number, run `Get-disk` cmdlet. Make a note of the number of the USB connected drive.
 1. To see the logical sector size on this disk, run the following command:
 
-    Get-Disk -number <Enter Disk Number> | fl *
+    `Get-Disk -number <Enter Disk Number> | fl *`
+
+### Unsupported disks
 
 The following disk types are not supported:
 
 - USBs.
 - External HDD with built-in USB adaptor.
 - Disks that are inside the casing of an external HDD.
+
+### Using multiple disks
 
 A single import/export job can have:
 
