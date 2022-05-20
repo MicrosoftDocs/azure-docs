@@ -30,6 +30,29 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
     >[!NOTE]
     > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/ruby-docs-hello-world
 
+### Update the fork's default branch
+
+1. From the fork repository, select **Settings**.
+
+ ![In GitHub, in the forked ruby-docs-hello-world repo, select Settings.](../../media/quickstart-ruby/forked-ruby-docs-hello-world-repo-settings.png)
+
+2. Under **Code and automation**, select **Branches**.
+
+ ![In GitHub, in the forked ruby-docs-hello-world repo's Settings, select Branches.](../../media/quickstart-ruby/forked-ruby-docs-hello-world-repo-settings-branches.png)
+
+3. Under **Default branch**, to the right of `master`, select the **Rename branch** button represented by a pencil icon.
+
+ ![In GitHub, in the forked ruby-docs-hello-world repo's Settings, select Branches.](../../media/quickstart-ruby/forked-ruby-docs-hello-world-repo-settings-branches-edit.png)
+
+4. In the **Rename this branch** pop-up, enter `main`.
+
+ ![In GitHub, in the forked ruby-docs-hello-world repo's Settings, select Branches.](../../media/quickstart-ruby/forked-ruby-docs-hello-world-repo-rename-this-branch.png)
+
+5. Select **Rename branch**.
+
+> [!TIP]
+> The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main`, this quickstart also shows you how to deploy a repository from `main`.
+
 ## Deploy to Azure
 
 ### Sign in to Azure portal
