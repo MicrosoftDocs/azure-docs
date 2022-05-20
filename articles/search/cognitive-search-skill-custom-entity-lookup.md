@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 03/22/2022
+ms.date: 05/19/2022
 
 ---
 
@@ -19,9 +19,11 @@ The **Custom Entity Lookup** skill looks for text from a custom, user-defined li
 > This skill is not bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
 
 ## @odata.type  
+
 Microsoft.Skills.Text.CustomEntityLookupSkill 
 
 ## Data limits
+
 + The maximum input record size supported is 256 MB. If you need to break up your data before sending it to the custom entity lookup skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 + The maximum entities definition table supported is 10 MB if it is provided using the *entitiesDefinitionUri* parameter. 
 + If the entities are defined inline, using the *inlineEntitiesDefinition* parameter, the maximum supported size is 10 KB.
@@ -32,7 +34,7 @@ Parameters are case-sensitive.
 
 | Parameter name     | Description |
 |--------------------|-------------|
-| `entitiesDefinitionUri`    | Path to a JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This config must be accessible over HTTPS. See [Custom Entity Definition](#custom-entity-definition-format) Format" below for expected CSV or JSON schema.|
+| `entitiesDefinitionUri`    | Path to a JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This config must be accessible over HTTPS. See [Custom Entity Definition Format](#custom-entity-definition-format) below for expected CSV or JSON schema.|
 |`inlineEntitiesDefinition` | Inline JSON entity definitions. This parameter supersedes the entitiesDefinitionUri parameter if present. No more than 10 KB of configuration may be provided inline. See [Custom Entity Definition](#custom-entity-definition-format) below for expected JSON schema. |
 |`defaultLanguageCode` |    (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a languagecode-countrycode format, only the languagecode part of the format is used.  |
 |`globalDefaultCaseSensitive` | (Optional) Default case sensitive value for the skill. If `defaultCaseSensitive` value of an entity is not specified, this value will become the `defaultCaseSensitive` value for that entity. |
@@ -46,14 +48,11 @@ Parameters are case-sensitive.
 | `text`          | The text to analyze.          |
 | `languageCode`    | Optional. Default is `"en"`.  |
 
-
 ## Skill outputs
-
 
 | Output name      | Description                   |
 |---------------|-------------------------------|
-| `entities` | An array of objects that contain information about the matches that were found, and related metadata. Each of the entities identified may contain the following fields:  <ul> <li> *name*: The top-level entity identified. The entity represents the "normalized" form. </li> <li> *id*:  A unique identifier for the entity as defined by the user in the "Custom Entity Definition Format".</li> <li> *description*: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li> *type:* Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> *subtype:* Entity subtype as defined by the user in the "Custom Entity Definition Format".</li>  <li> *matches*: Collection that describes each of the matches for that entity on the source text. Each match will have the following members: </li> <ul> <li> *text*: The raw text match from the source document. </li> <li> *offset*: The location where the match was found in the text. </li> <li> *length*:  The length of the matched text. </li> <li> *matchDistance*: The number of characters different this match was from original entity name or alias.  </li> </ul> </ul>
-  |
+| `entities` | An array of complex types that contains the following fields: <ul><li>`"name"`: The top-level entity; it represents the "normalized" form. </li> <li>`"id"`:  A unique identifier for the entity as defined in the "Custom Entity Definition Format". </li> <li>`"description"`: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li>`"type"`: Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> `"subtype"`: Entity subtype as defined by the user in the "Custom Entity Definition Format".</li> <li>`"matches"`: An array of complex types that contain: <ul><li>`"text"` from the source document </li><li>`"offset"` location where the match was found, </li><li>`"length"` of the text measured in characters <li>`"matchDistance"` or the number of characters that differ between the match and the entity `"name"`. </li></li></ul>|</ul>
 
 ## Custom Entity Definition Format
 
@@ -166,7 +165,7 @@ The tables below describe in more details the different configuration parameters
 In some cases, it may be more convenient to provide the list of custom entities to match inline directly into the skill definition. In that case you can use a similar  JSON format to the one described above, but it is inlined in the skill definition.
 Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
 
-## Sample definition
+## Sample skill definition
 
 A sample skill definition using an inline format is shown below:
 
@@ -227,10 +226,106 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
       }
     ]
   }
-
 ```
 
-## Sample input
+## Sample index definition
+
+Both "entities" and "matches" are arrays of complex types.
+
+```json
+{
+  "name": "entities",
+  "type": "Collection(Edm.ComplexType)",
+  "fields": [
+    {
+      "name": "name",
+      "type": "Edm.String",
+      "facetable": false,
+      "filterable": false,
+      "retrievable": true,
+      "searchable": true,
+      "sortable": false,
+    },
+    {
+      "name": "id",
+      "type": "Edm.String",
+      "facetable": false,
+      "filterable": false,
+      "retrievable": true,
+      "searchable": false,
+      "sortable": false,
+    },
+    {
+      "name": "description",
+      "type": "Edm.String",
+      "facetable": false,
+      "filterable": false,
+      "retrievable": true,
+      "searchable": true,
+      "sortable": false,
+    },
+    {
+      "name": "type",
+      "type": "Edm.String",
+      "facetable": true,
+      "filterable": true,
+      "retrievable": true,
+      "searchable": false,
+      "sortable": false,
+    },
+    {
+      "name": "subtype",
+      "type": "Edm.String",
+      "facetable": true,
+      "filterable": true,
+      "retrievable": true,
+      "searchable": false,
+      "sortable": false,
+    },
+    {
+      "name": "matches",
+      "type": "Collection(Edm.ComplexType)",
+      "fields": [
+        {
+          "name": "text",
+          "type": "Edm.String",
+          "facetable": false,
+          "filterable": false,
+          "retrievable": true,
+          "searchable": true,
+          "sortable": false,
+        },
+        {
+          "name": "offset",
+          "type": "Edm.Int32",
+          "facetable": true,
+          "filterable": true,
+          "retrievable": true,
+          "sortable": false,
+        },
+        {
+          "name": "length",
+          "type": "Edm.Int32",
+          "facetable": true,
+          "filterable": true,
+          "retrievable": true,
+          "sortable": false,
+        },
+        {
+          "name": "matchDistance",
+          "type": "Edm.Double",
+          "facetable": true,
+          "filterable": true,
+          "retrievable": true,
+          "sortable": false,
+        }
+      ]
+    }
+  ]
+}
+```
+
+## Sample input data
 
 ```json
 {
