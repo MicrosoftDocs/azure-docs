@@ -26,7 +26,7 @@ The Enterprise Tier deployment plan includes the following Tanzu Components:
 
 The API Portal component will be included when it becomes available through the AzureRM Terraform provider.
 
-For additional customization including custom domain support, see the [Azure Spring Terraform provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_service) documentation.
+For more customization including custom domain support, see the [Azure Spring Terraform provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_service) documentation.
 
 ## Prerequisites
 
