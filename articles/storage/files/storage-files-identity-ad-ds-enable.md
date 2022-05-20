@@ -131,7 +131,7 @@ unicodePwd: Encoded Kerberos key for your storage account.
 
 To encode the kerberos key for unicodePwd we have to first add double quotes around the string. So 'password', becomes '"password"'. Then each character in the string must be UTF16-LE encoded. (Little endian). 
 After the string is UTF16-LE format, it must be base64 converted. When you have the Base64 string, you may add this to
-unicodePwd by ~replacing~ the attribute, or ~adding~ it when creating the account.
+unicodePwd by *replacing* the attribute, or *adding* it when creating the account.
 ```python
 import base64
 import sys
