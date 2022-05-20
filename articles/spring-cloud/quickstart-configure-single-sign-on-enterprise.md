@@ -229,7 +229,9 @@ Spring Cloud Gateway can be configured to authenticate requests via Single Sign-
     echo "https://${GATEWAY_URL}"
     ```
 
-    The above URL can be opened in a browser, use this to explore the updated application. The Log In function will now work, allowing items to be added to the cart and orders to be placed.
+    The above URL can be opened in a browser, use this to explore the updated application. The Log In function will now work, allowing items to be added to the cart and orders to be placed. After logging in, the customer information button will display the logged in username:
+
+![An image showing a logged in user to the ACME Fitness Store](media/spring-cloud-enterprise-quickstart-configure-single-sign-on/login_success.png)
 
 ## Configure Single Sign-On for API Portal
 
