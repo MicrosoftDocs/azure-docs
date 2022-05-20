@@ -55,7 +55,7 @@ The policy takes three input parameters:
 The policy definition can be assigned to different scopes in Azure – at the management group subscription or a specific resource group. As policies need to be enforced all the time, the assignment operation is performed using a managed identity associated with the policy-assignment object. The policy assignment object supports both system-assigned and user-assigned managed identity. 
 For example, Joe can create a user-assigned managed identity called PolicyAssignmentMI. The built-in policy creates a user-assigned managed identity in each subscription and in each region with resources that are in scope of the policy assignment. The user-assigned managed identities created by the policy has the following resourceId format: 
 
-> /subscriptions/your-subscription-id/resourceGroups/built-in-identity-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/built-in-identity-<location>
+> /subscriptions/your-subscription-id/resourceGroups/built-in-identity-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/built-in-identity-{location}
 
 For example: 
 > /subscriptions/aaaabbbb-aaaa-bbbb-1111-111122223333/resourceGroups/built-in-identity-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/built-in-identity-eastus
@@ -66,10 +66,10 @@ For PolicyAssignmentMI managed identity to be able to assign the built-in policy
 
 | Principal| Role / Action | Scope | Purpose |
 |----|----|----------------|----|
-|PolicyAssigmentMI |Managed Identity Operator | /subscription/<subscription-id>/resourceGroups/built-in-identity <br> OR <br>Bring-your-own-User-assinged-Managed identity |Required to assign the built-in identity to VMs.|
-|PolicyAssigmentMI |Contributor | /subscription/<subscription-id>/ |Required to create the resource-group that holds the built-in managed identity in the subscription. |
-|PolicyAssigmentMI |Managed Identity Contributor | /subscription/<subscription-id>/resourceGroups/built-in-identity |Required to create a new user-assigned managed identity.|
-|PolicyAssigmentMI |User Access Adminstrator | /subscription/<subscription-id>/resourceGroups/built-in-identity <br> OR <br>Bring-your-own-User-assinged-Managed identity |Required to set a lock on the user-assigned managed identity created by the policy.|
+|PolicyAssigmentMI |Managed Identity Operator | /subscription/subscription-id/resourceGroups/built-in-identity <br> OR <br>Bring-your-own-User-assinged-Managed identity |Required to assign the built-in identity to VMs.|
+|PolicyAssigmentMI |Contributor | /subscription/subscription-id> |Required to create the resource-group that holds the built-in managed identity in the subscription. |
+|PolicyAssigmentMI |Managed Identity Contributor | /subscription/subscription-id/resourceGroups/built-in-identity |Required to create a new user-assigned managed identity.|
+|PolicyAssigmentMI |User Access Adminstrator | /subscription/subscription-id/resourceGroups/built-in-identity <br> OR <br>Bring-your-own-User-assinged-Managed identity |Required to set a lock on the user-assigned managed identity created by the policy.|
 
 As the policy assignment object must have this permission ahead of time, PolicyAssignmentMI cannot be a system-assigned managed identity for this scenario. The user performing the policy assignment task must pre-authorize PolicyAssignmentMI ahe3ad of time with the above role assignments.
 As you can see the resultant least privilege role required is “contributor” at the subscription scope.
