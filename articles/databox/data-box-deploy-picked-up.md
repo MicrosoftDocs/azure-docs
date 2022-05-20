@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 03/31/2022
+ms.date: 05/19/2022
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to return a Data Box to upload on-premises data from my server onto Azure.
