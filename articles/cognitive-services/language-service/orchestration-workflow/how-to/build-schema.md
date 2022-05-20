@@ -46,7 +46,7 @@ To build a project schema within [Language Studio](https://aka.ms/languageStudio
    
 5. Click on **Add intent** to add your intent.
  
-## Next Steps
+## Next steps
 
 * [Add utterances](tag-utterances.md)
 

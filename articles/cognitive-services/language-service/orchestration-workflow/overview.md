@@ -40,7 +40,7 @@ In a large corporation, an enterprise chat bot may handle a variety of employee 
 
 Creating an orchestration workflow project typically involves several different steps. 
 
-:::image type="content" source="media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="media/development-lifecycle.png":::
+:::image type="content" source="media/development-lifecycle.png" alt-text="Diagram showing the development lifecycle." lightbox="media/development-lifecycle.png":::
 
 Follow these steps to get the most out of your model:
 
