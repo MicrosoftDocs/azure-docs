@@ -44,8 +44,6 @@ After completing the CLU quickstart, and creating an orchestration project, the 
 
 To train a model, you need to start a training job. The output of a successful training job is your trained model.
 
-### Start training your model
-
 [!INCLUDE [train model](../rest-api/train-model.md)]
 
 ### Get Training Status
