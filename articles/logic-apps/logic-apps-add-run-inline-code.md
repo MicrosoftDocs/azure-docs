@@ -19,7 +19,7 @@ To run a code snippet in your logic app workflow, you can use the built-in Inlin
   >
   > The Inline Code action doesn't support the `require()` function for running JavaScript.
 
-* Uses the following [Node.js versions](https://nodejs.org/en/download/releases/) based on your [logic app type](logic-apps-overview.md#resource-type-differences):
+* Uses the following [Node.js versions](https://nodejs.org/en/download/releases/) based on your [logic app type](logic-apps-overview.md#resource-environment-differences):
 
   * Standard logic app: Node.js versions 12.x.x or 14.x.x
   * Consumption logic app: Node.js version 8.11.1 
