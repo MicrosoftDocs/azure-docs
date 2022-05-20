@@ -17,6 +17,9 @@ In this article, you'll learn how to:
 > * Enable access to the developer portal for users from Azure Active Directory (Azure AD).
 > * Manage groups of Azure AD users by adding external groups that contain the users.
 
+> [!NOTE]
+> This article shows steps to enable sign-in for users in a single Azure AD tenant. API Management also supports sign-in for users in multiple Azure AD tenants.
+
 ## Prerequisites
 
 - Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
