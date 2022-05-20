@@ -59,6 +59,10 @@
       href: tutorial-kubernetes-app-update.md
     - name: 7 - Upgrade cluster
       href: tutorial-kubernetes-upgrade-cluster.md
+    - name: CSI driver v2 (preview)
+      items:
+        - name: Configure zone-redundant storage
+          href: learn/tutorial-azure-disk-zrs.md
 - name: Concepts
   items:
     - name: Core concepts
@@ -390,7 +394,7 @@
           href: azure-disk-csi.md
         - name: Azure disk CSI driver v2 (preview)
           href: azure-disk-csi-v2.md
-        - name: Azure disk CSI driver optimizations
+        - name: Azure disk CSI driver v2 optimizations
           href: azure-disk-csi-optimization.md
         - name: Azure Files CSI drivers
           href: azure-files-csi.md

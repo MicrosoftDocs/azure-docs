@@ -548,3 +548,24 @@ With the Mysql application installed and running, we need to create a database a
     pod "mysql-client" deleted
     ```
 
+## Clean up resources
+
+To avoid Azure charges, if you don't plan on using this cluster for any other tutorials or testing, clean up your unnecessary resources. Use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, and all related resources.
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+> [!NOTE]
+> The AKS cluster was created with system-assigned managed identity (default identity option for an AKS cluster). The identity is managed by the platform and does not require removal.
+
+## Next steps
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Create a three node AKS cluster replicated across three availability zones
+> * Deploy a single Mysql pod
+> * Insert test data into the Mysql database
+> * Simulate a failure and observe pod failover
+
+For more information on <what should we point them to?>
