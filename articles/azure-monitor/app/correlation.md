@@ -3,7 +3,6 @@ title: Azure Application Insights telemetry correlation | Microsoft Docs
 description: Application Insights telemetry correlation
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.reviewer: sergkanz
 ms.devlang: csharp, java, javascript, python
 ms.custom: "devx-track-python, devx-track-csharp"
 ---
@@ -27,7 +26,9 @@ Every outgoing operation, such as an HTTP call to another component, is represen
 
 You can build a view of the distributed logical operation by using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. These fields also define the causality order of telemetry calls.
 
-In a microservices environment, traces from components can go to different storage items. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, Application Insights queries data from every storage item. When the number of storage items is large, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request. The second field identifies which component returned the response of the dependency call.
+In a microservices environment, traces from components can go to different storage items. Every component can have its own connection string in Application Insights. To get telemetry for the logical operation, Application Insights queries data from every storage item. When the number of storage items is large, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request. The second field identifies which component returned the response of the dependency call.
+
+For information on querying from multiple disparate instances using the `app` query expression, see [app() expression in Azure Monitor query](../logs/app-expression.md#app-expression-in-azure-monitor-query).
 
 ## Example
 
@@ -41,7 +42,7 @@ You can analyze the resulting telemetry by running a query:
 | project timestamp, itemType, name, id, operation_ParentId, operation_Id
 ```
 
-In the results, note that all telemetry items share the root `operation_Id`. When an Ajax call is made from the page, a new unique ID (`qJSXU`) is assigned to the dependency telemetry, and the ID of the pageView is used as `operation_ParentId`. The server request then uses the Ajax ID as `operation_ParentId`.
+In the results, all telemetry items share the root `operation_Id`. When an Ajax call is made from the page, a new unique ID (`qJSXU`) is assigned to the dependency telemetry, and the ID of the pageView is used as `operation_ParentId`. The server request then uses the Ajax ID as `operation_ParentId`.
 
 | itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
@@ -74,7 +75,7 @@ The [W3C Trace-Context](https://w3c.github.io/trace-context/) and Application In
 |------------------------------------    |-------------------------------------------------|
 | `Id` of `Request` and `Dependency`     | [parent-id](https://w3c.github.io/trace-context/#parent-id)                                     |
 | `Operation_Id`                         | [trace-id](https://w3c.github.io/trace-context/#trace-id)                                           |
-| `Operation_ParentId`                   | [parent-id](https://w3c.github.io/trace-context/#parent-id) of this span's parent span. If this is a root span, then this field must be empty.     |
+| `Operation_ParentId`                   | [parent-id](https://w3c.github.io/trace-context/#parent-id) of this span's parent span. This field must be empty if it's a root span.|
 
 For more information, see [Application Insights telemetry data model](../../azure-monitor/app/data-model.md).
 
@@ -87,7 +88,7 @@ W3C TraceContext based distributed tracing is enabled by default in all recent
 
 #### Java 3.0 agent
 
-  Java 3.0 agent supports W3C out of the box and no additional configuration is needed.
+  Java 3.0 agent supports W3C out of the box and no more configuration is needed.
 
 #### Java SDK
 - **Incoming configuration**
@@ -148,13 +149,15 @@ Add the following configuration:
 
 ## Telemetry correlation in OpenCensus Python
 
-OpenCensus Python supports [W3C Trace-Context](https://w3c.github.io/trace-context/) without requiring additional configuration.
+OpenCensus Python supports [W3C Trace-Context](https://w3c.github.io/trace-context/) without requiring extra configuration.
 
 As a reference, the OpenCensus data model can be found [here](https://github.com/census-instrumentation/opencensus-specs/tree/master/trace).
 
 ### Incoming request correlation
 
-OpenCensus Python correlates W3C Trace-Context headers from incoming requests to the spans that are generated from the requests themselves. OpenCensus will do this automatically with integrations for these popular web application frameworks: Flask, Django, and Pyramid. You just need to populate the W3C Trace-Context headers with the [correct format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) and send them with the request. Here's a sample Flask application that demonstrates this:
+OpenCensus Python correlates W3C Trace-Context headers from incoming requests to the spans that are generated from the requests themselves. OpenCensus will correlate automatically with integrations for these popular web application frameworks: Flask, Django, and Pyramid. You just need to populate the W3C Trace-Context headers with the [correct format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) and send them with the request.
+
+**Sample Flask application**
 
 ```python
 from flask import Flask
@@ -191,7 +194,7 @@ By looking at the [Trace-Context header format](https://www.w3.org/TR/trace-cont
 
 `trace-flags`: `01`
 
-If you look at the request entry that was sent to Azure Monitor, you can see fields populated with the trace header information. You can find this data under Logs (Analytics) in the Azure Monitor Application Insights resource.
+If you look at the request entry that was sent to Azure Monitor, you can see fields populated with the trace header information. You can find the data under Logs (Analytics) in the Azure Monitor Application Insights resource.
 
 ![Request telemetry in Logs (Analytics)](./media/opencensus-python/0011-correlation.png)
 
@@ -201,9 +204,9 @@ The `operation_ParentId` field is in the format `<trace-id>.<parent-id>`, where 
 
 ### Log correlation
 
-OpenCensus Python enables you to correlate logs by adding a trace ID, a span ID, and a sampling flag to log records. You add these attributes by installing OpenCensus [logging integration](https://pypi.org/project/opencensus-ext-logging/). The following attributes will be added to Python `LogRecord` objects: `traceId`, `spanId`, and `traceSampled`. Note that this takes effect only for loggers that are created after the integration.
+OpenCensus Python enables you to correlate logs by adding a trace ID, a span ID, and a sampling flag to log records. You add these attributes by installing OpenCensus [logging integration](https://pypi.org/project/opencensus-ext-logging/). The following attributes will be added to Python `LogRecord` objects: `traceId`, `spanId`, and `traceSampled`. (applicable only for loggers that are created after the integration)
 
-Here's a sample application that demonstrates this:
+**Sample application**
 
 ```python
 import logging
@@ -228,7 +231,7 @@ When this code runs, the following prints in the console:
 2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
 2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
 ```
-Notice that there's a `spanId` present for the log message that's within the span. This is the same `spanId` that belongs to the span named `hello`.
+Notice that there's a `spanId` present for the log message that's within the span. The `spanId` is the same as that which belongs to the span named `hello`.
 
 You can export the log data by using `AzureLogHandler`. For more information, see [this article](./opencensus-python.md#logs).
 
@@ -281,6 +284,12 @@ def function_1(parent_tracer=None):
 
 ## Telemetry correlation in .NET
 
+Correlation is handled by default when onboarding an app. No special actions are required.
+
+* [Application Insights for ASP.NET Core applications](asp-net-core.md#application-insights-for-aspnet-core-applications)
+* [Configure Application Insights for your ASP.NET website](asp-net.md#configure-application-insights-for-your-aspnet-website)
+* [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md#application-insights-for-worker-service-applications-non-http-applications)
+
 .NET runtime supports distributed with the help of [Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) and [DiagnosticSource](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)
 
 The Application Insights .NET SDK uses `DiagnosticSource` and `Activity` to collect and correlate telemetry.
@@ -314,10 +323,12 @@ You might want to customize the way component names are displayed in the [Applic
 - With Application Insights Java SDK 2.5.0 and later, you can specify the `cloud_RoleName`
   by adding `<RoleName>` to your ApplicationInsights.xml file:
 
+:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
+
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
   <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-     <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+     <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
      <RoleName>** Your role name **</RoleName>
      ...
   </ApplicationInsights>

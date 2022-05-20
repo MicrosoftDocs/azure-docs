@@ -5,13 +5,13 @@ author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 04/29/2022
 ms.author: rochakm
 ---
 
 # Troubleshoot Azure-to-Azure VM replication errors
 
-This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of Azure virtual machines (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
+This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of [Azure virtual machines](azure-to-azure-tutorial-enable-replication.md) (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
 
 ## Azure resource quota issues (error code 150097)
 
@@ -31,7 +31,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### Fix the problem
 
-Contact [Azure billing support](../azure-portal/supportability/regional-quota-requests.md) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
+Contact [Azure billing support](../azure-portal/supportability/regional-quota-requests.md) to enable your subscription to create VMs of the required sizes in the target location. Then retry the failed operation.
 
 If the target location has a capacity constraint, disable replication to that location. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
@@ -383,7 +383,7 @@ Go to **Virtual machines** > **Settings** > **Extensions** and check for any ext
 
 ## VM provisioning state isn't valid (error code 150019)
 
-To enable replication on the VM, its provisioning state must be **Succeeded**. Follow these steps to check the provisioning state:
+To enable replication on the VM, its provisioning state must be **Succeeded**. Perform the following steps to check the provisioning state:
 
 1. In the Azure portal, select the **Resource Explorer** from **All Services**.
 1. Expand the **Subscriptions** list and select your subscription.
@@ -535,7 +535,7 @@ Delete the replica disk identified in the error message and retry the failed pro
 
 ## Enable protection failed as the installer is unable to find the root disk (error code 151137)
 
-This error occurs for Linux machines where the OS disk is encrypted using Azure Disk Encryption (ADE). This is valid issue in Agent version 9.35 only.
+This error occurs for Linux machines where the OS disk is encrypted using Azure Disk Encryption (ADE). This is a valid issue in Agent version 9.35 only.
 
 ### Possible Causes
 
@@ -543,7 +543,7 @@ The installer is unable to find the root disk that hosts the root file-system.
 
 ### Fix the problem
 
-Follow the below steps to fix this issue -
+Perform the following steps to fix this issue.
 
 1. Find the agent bits under the directory _/var/lib/waagent_ on RHEL and CentOS machines using the below command: <br>
 

@@ -5,8 +5,8 @@ description: Learn how to set up AutoML training runs without a single line of c
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.author: nibaccam
-author: cartacioS
+ms.author: larryfr
+author: blackmist
 ms.reviewer: nibaccam
 ms.date: 11/15/2021
 ms.topic: how-to

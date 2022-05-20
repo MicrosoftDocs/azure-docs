@@ -29,13 +29,22 @@ For more details about subscription licenses that qualify to run Windows 10 on A
 > [!IMPORTANT]
 > Users **must** have one of the below subscription licenses in order to use Windows 10 images in Azure for any production workload. If you do not have one of these subscription licenses, they can be purchased through your [Cloud Service Partner](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) or directly through [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
 
-**Eligible subscription licenses:**
+## Operating systems and licenses
 
--	Windows 10 Enterprise E3/E5
--	Windows 10 Education A3/A5 
--	Microsoft 365 A3/A5
--	Microsoft 365 F3/E3/E5 
--	Windows VDA E3/E5
+You have a choice of operating systems that you can use for session hosts to provide virtual desktops and remote apps. You can use different operating systems with different host pools to provide flexibility to your users. Supported dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/). We support the following 64-bit versions of these operating systems: 
+
+### Operating system licenses
+- Windows 11 Enterprise multi-session
+- Windows 11 Enterprise
+- Windows 10 Enterprise, version 1909 and later
+
+### License entitlement
+- Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit
+- Windows Enterprise E3, E5
+- Windows VDA E3, E5
+- Windows Education A3, A5
+
+External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) instead of license entitlement.
 
 ## Deploying Windows 10 Image from Azure Marketplace 
 For PowerShell, CLI and Azure Resource Manager template deployments, Windows 10 images can be found using the `PublisherName: MicrosoftWindowsDesktop` and `Offer: Windows-10`. Windows 10 version Creators Update (1809) or later is supported for Multitenant Hosting Rights. 

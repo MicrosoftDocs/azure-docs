@@ -4,11 +4,11 @@ description: Provides an overview of the available compliance assurances for Azu
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.custom: references_regions
 ms.author: stevevi
 author: stevevi
+ms.custom: references_regions
 recommendations: false
-ms.date: 03/07/2022
+ms.date: 04/06/2022
 ---
 
 # Azure Government compliance
@@ -25,7 +25,7 @@ Azure Government maintains the following authorizations that pertain to Azure Go
 - [DoD IL4](/azure/compliance/offerings/offering-dod-il4) PA issued by DISA
 - [DoD IL5](/azure/compliance/offerings/offering-dod-il5) PA issued by DISA
 
-For links to additional Azure Government compliance assurances, see [Azure compliance](../compliance/index.yml). For example, Azure Government can help you meet your compliance obligations with many US government requirements, including:
+For links to extra Azure Government compliance assurances, see [Azure compliance](../compliance/index.yml). For example, Azure Government can help you meet your compliance obligations with many US government requirements, including:
 
 - [Criminal Justice Information Services (CJIS)](/azure/compliance/offerings/offering-cjis)
 - [Internal Revenue Service (IRS) Publication 1075](/azure/compliance/offerings/offering-irs-1075)
@@ -72,15 +72,16 @@ You must have an existing subscription or free trial account in [Azure](https://
 
 ## Azure Policy regulatory compliance built-in initiatives
 
-For additional customer assistance, Microsoft provides **Azure Policy regulatory compliance built-in initiatives**, which map to **compliance domains** and **controls** in key US government standards, including:
+For extra customer assistance, Microsoft provides Azure Policy regulatory compliance built-in initiatives, which map to **compliance domains** and **controls** in key US government standards, including:
 
 - [FedRAMP High](../governance/policy/samples/gov-fedramp-high.md)
 - [DoD IL4](../governance/policy/samples/gov-dod-impact-level-4.md)
 - [DoD IL5](../governance/policy/samples/gov-dod-impact-level-5.md)
+- And others
 
-For additional regulatory compliance built-in initiatives that pertain to Azure Government, see [Azure Policy samples](../governance/policy/samples/index.md#regulatory-compliance).
+For more regulatory compliance built-in initiatives that pertain to Azure Government, see [Azure Policy samples](../governance/policy/samples/index.md#regulatory-compliance).
 
-Regulatory compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility - customer, Microsoft, or shared. For Microsoft-responsible controls, we provide additional audit result details based on third-party attestations and our control implementation details to achieve that compliance. Each control is associated with one or more Azure Policy definitions. These policies may help you [assess compliance](../governance/policy/how-to/get-compliance-data.md) with the control; however, compliance in Azure Policy is only a partial view of your overall compliance status. Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to more granular status.
+Regulatory compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility – customer, Microsoft, or shared. For Microsoft-responsible controls, we provide extra audit result details based on third-party attestations and our control implementation details to achieve that compliance. Each control is associated with one or more Azure Policy definitions. These policies may help you [assess compliance](../governance/policy/how-to/get-compliance-data.md) with the control; however, compliance in Azure Policy is only a partial view of your overall compliance status. Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to more granular status.
 
 ## Next steps
 

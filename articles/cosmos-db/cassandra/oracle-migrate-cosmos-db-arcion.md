@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 04/02/2022
+ms.date: 04/04/2022
 ms.reviewer: sngun
 ---
 
@@ -22,6 +22,9 @@ Cassandra API in Azure Cosmos DB has become a great choice for enterprise worklo
 * **No overhead of managing and monitoring:** As a fully managed cloud service, Azure Cosmos DB removes the overhead of managing and monitoring a myriad of settings.
 
 There are various ways to migrate database workloads from one platform to another. [Arcion](https://www.arcion.io) is a tool that offers a secure and reliable way to perform zero downtime migration from other databases to Azure Cosmos DB. This article describes the steps required to migrate data from Oracle database to Azure Cosmos DB Cassandra API using Arcion.
+
+> [!NOTE]
+> This offering from Arcion is currently in beta. For more information, please contact them at [Arcion Support](mailto:support@arcion.io)
 
 ## Benefits using Arcion for migration
 

@@ -1,16 +1,16 @@
 ---
-title: Attach disk pools to Azure VMware Solution hosts (Preview)
-description: Learn how to attach a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud. Once the datastore is configured, you can create volumes on it and attach them to your VMware instance.
+title: Attach Azure disk pools to Azure VMware Solution hosts (Preview)
+description: Learn how to attach an Azure disk pool surfaced through an iSCSI target as the VMware vSphere datastore of an Azure VMware Solution private cloud. Once the datastore is configured, you can create volumes on it and consume them from your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.date: 11/02/2021
-#Customer intent: As an Azure service administrator, I want to scale my AVS hosts using disk pools instead of scaling clusters. So that I can use block storage for active working sets and tier less frequently accessed data from vSAN to disks. I can also replicate data from on-premises or primary VMware environment to disk storage for the secondary site.
+#Customer intent: As an Azure service administrator, I want to scale my AVS hosts using disk pools instead of scaling clusters. So that I can use block storage for active working sets and tier less frequently accessed data from vSAN to disks. I can also replicate data from on-premises or primary VMware vSphere environment to disk storage for the secondary site.
 ms.custom: ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
 # Attach disk pools to Azure VMware Solution hosts (Preview)
 
-[Azure disk pools](../virtual-machines/disks-pools.md) offer persistent block storage to applications and workloads backed by Azure Disks. You can use disks as the persistent storage for Azure VMware Solution for optimal cost and performance. For example, you can scale up by using disk pools instead of scaling clusters if you host storage-intensive workloads. You can also use disks to replicate data from on-premises or primary VMware environments to disk storage for the secondary site. To scale storage independent of the Azure VMware Solution hosts, we support surfacing [ultra disks](../virtual-machines/disks-types.md#ultra-disks), [premium SSD](../virtual-machines/disks-types.md#premium-ssds) and [standard SSD](../virtual-machines/disks-types.md#standard-ssds) as the datastores.  
+[Azure disk pools](../virtual-machines/disks-pools.md) offer persistent block storage to applications and workloads backed by Azure Disks. You can use disks as the persistent storage for Azure VMware Solution for optimal cost and performance. For example, you can scale up by using disk pools instead of scaling clusters if you host storage-intensive workloads. You can also use disks to replicate data from on-premises or primary VMware vSphere environments to disk storage for the secondary site. To scale storage independent of the Azure VMware Solution hosts, we support surfacing [ultra disks](../virtual-machines/disks-types.md#ultra-disks), [premium SSD](../virtual-machines/disks-types.md#premium-ssds) and [standard SSD](../virtual-machines/disks-types.md#standard-ssds) as the datastores.  
 
 >[!IMPORTANT]
 >Azure disk pools on Azure VMware Solution (Preview) is currently in public preview.

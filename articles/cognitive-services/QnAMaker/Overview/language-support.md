@@ -32,7 +32,7 @@ Consider the following:
 
 ## Supporting multiple languages in one QnA Maker resource
 
-This functionality is not supported in our current Generally Available (GA) stable release. Check out QnA Maker managed to test out this functionality. 
+This functionality is not supported in our current Generally Available (GA) stable release. Check out [question answering](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/overview) to test out this functionality. 
 
 ## Supporting multiple languages in one knowledge base
 

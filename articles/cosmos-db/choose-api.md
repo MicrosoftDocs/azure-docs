@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/08/2021
 ms.custom: cosmos-db-video
+adobe-target: true
 ---
 
 # Choose an API in Azure Cosmos DB

@@ -1,9 +1,9 @@
 ---
-author: mikebudzynski
+author: dlepow
 ms.service: api-management
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 
 > [!NOTE]

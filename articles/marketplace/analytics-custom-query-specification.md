@@ -60,7 +60,6 @@ These are some sample queries that show how to extract various types of data.
 | **SELECT** MarketplaceSubscriptionId, EstimatedExtendedChargeCC **FROM** ISVUsage **ORDER BY** EstimatedExtendedChargeCC **LIMIT** 10 | This query will get the top 10 subscriptions in decreasing order of the number of licenses sold under each subscription. |
 | **SELECT** CustomerId, NormalizedUsage, RawUsage **FROM** ISVUsage **WHERE** NormalizedUsage > 100000 **ORDER BY** NormalizedUsage **TIMESPAN** LAST_6_MONTHS | This query will get the NormalizedUsage and RawUsage of all the Customers who have NormalizedUsage greater than 100,000. |
 | **SELECT** MarketplaceSubscriptionId, MonthStartDate, NormalizedUsage **FROM** ISVUsage **WHERE** CustomerId IN (‘2a31c234-1f4e-4c60-909e-76d234f93161’, ‘80780748-3f9a-11eb-b378-0242ac130002’) | This query will get the `MarketplaceSubscriptionId` and the normalized usage for every month by the two `CustomerId` values: `2a31c234-1f4e-4c60-909e-76d234f93161` and `80780748-3f9a-11eb-b378-0242ac130002`. |
-|||
 
 ## Query specification
 
@@ -76,7 +75,6 @@ This table describes the symbols used in queries.
 | * | Zero or more |
 | + | One or more |
 | &#124; | Or/One of the list |
-| | |
 
 ### Query definition
 

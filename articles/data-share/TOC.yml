@@ -71,6 +71,8 @@
     href: disaster-recovery.md
   - name: Troubleshoot
     href: data-share-troubleshoot.md
+  - name: Move Data Share account to new region
+    href: move-to-new-region.md
 
 - name: Reference
   items:

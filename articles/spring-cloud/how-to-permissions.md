@@ -139,7 +139,7 @@ The Developer role includes permissions to restart apps and see their log stream
 
    * **Read : Read operation status**
 
-   [![Azure portal screenshot that shows the selections for Developer permissions.](media/spring-cloud-permissions/developer-permissions-box.png)](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
+   [![Screenshot of Azure portal that shows the selections for Developer permissions.](media/spring-cloud-permissions/developer-permissions-box.png)](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
 9. Select **Add**.
 
@@ -369,7 +369,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
    * **Read : List available skus**
 
-   [![Azure portal screenshot that shows the selections for DevOps permissions.](media/spring-cloud-permissions/dev-ops-permissions.png)](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
+   [![Screenshot of Azure portal that shows the selections for DevOps permissions.](media/spring-cloud-permissions/dev-ops-permissions.png)](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
 
 3. Select **Add**.
 
@@ -545,7 +545,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
    * **Read : Read operation status**
 
-   [![Azure portal screenshot that shows the selections for Ops - Site Reliability Engineering permissions.](media/spring-cloud-permissions/ops-sre-permissions.png)](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
+   [![Screenshot of Azure portal that shows the selections for Ops - Site Reliability Engineering permissions.](media/spring-cloud-permissions/ops-sre-permissions.png)](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
 
 3. Select **Add**.
 
@@ -705,7 +705,7 @@ This role can create and configure everything in Azure Spring Cloud and apps wit
 
    * **Read : List available skus**
 
-   [![Azure portal screenshot that shows the selections for Azure Pipelines / Jenkins / GitHub Actions permissions.](media/spring-cloud-permissions/pipelines-permissions-box.png)](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)
+   [![Screenshot of Azure portal that shows the selections for Azure Pipelines / Jenkins / GitHub Actions permissions.](media/spring-cloud-permissions/pipelines-permissions-box.png)](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)
 
 4. Select **Add**.
 

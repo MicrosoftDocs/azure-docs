@@ -62,7 +62,7 @@ $MetricInformation.Data
 
 **Metric Name** - Refers to the name of the metric you are querying, which in this case is called 'VirtualHubDataProcessed'. This metric shows all the data that the Virtual Hub Router has processed in the selected time period of the hub.  
 
-**Time Grain** - Refers to the frequency at which you want see the aggregation of. In the current command, you will see a selected aggregated unit per 5 mins. You can select – 5M/15M/30M/1H/6H/12H and 1D.
+**Time Grain** - Refers to the frequency at which you want to see the aggregation. In the current command, you will see a selected aggregated unit per 5 mins. You can select – 5M/15M/30M/1H/6H/12H and 1D.
 
 **Start Time and End Time** - This time is based on UTC, so please ensure that you are entering UTC values when inputting these parameters. If these parameters are not used, by default the past one hour's worth of data is shown.  
 
@@ -129,10 +129,10 @@ The following metrics are available for Azure ExpressRoute gateways:
 
 | Metric | Description|
 | --- | --- |
-| **BitsInPerSecond** | Bits ingressing Azure per second.|
-| **BitsOutPerSecond** | Bits egressing Azure per second. |
+| **BitsInPerSecond** |  Bits per second ingressing Azure through the ExpressRoute Gateway. |
+| **BitsOutPerSecond** | Bits per second egressing Azure through the ExpressRoute Gateway  |
 | **CPU Utilization** | CPU Utilization of the ExpressRoute Gateway.|
-| **Packets per second** | Packet count of ExpressRoute Gateway.|
+| **Packets per second** | Total Packets received on ExpressRoute Gateway per second.|
 | **Count of routes advertised to peer**| Count of Routes Advertised to Peer by ExpressRoute Gateway. | 
 | **Count of routes learned from peer**| Count of Routes Learned from Peer by ExpressRoute Gateway.|
 | **Frequency of routes changed** | Frequency of Route changes in ExpressRoute Gateway.|

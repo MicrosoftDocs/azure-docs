@@ -77,7 +77,7 @@ To troubleshoot connectivity issues to the Azure Storage account:
 
 - Check for added network security groups (NSGs). If a subscription policy was added to automatically configure NSGs in all virtual networks, it would affect the virtual network used for creating lab VMs.
 
-- Verify NSG rules. Use [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md#use-ip-flow-verify) to determine whether an NSG rule is blocking traffic to or from a VM. You can also review effective security group rules to ensure that an inbound **Allow** NSG rule exists. For more information, see [Using effective security rules to troubleshoot VM traffic flow](/azure/virtual-network/diagnose-network-traffic-filter-problem).
+- Verify NSG rules. Use [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md#use-ip-flow-verify) to determine whether an NSG rule is blocking traffic to or from a VM. You can also review effective security group rules to ensure that an inbound **Allow** NSG rule exists. For more information, see [Using effective security rules to troubleshoot VM traffic flow](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 - Check the lab's default storage account. The default storage account is the first storage account created when the lab was created. The name usually starts with the letter "a" and ends with a multi-digit number, such as a\<labname>#.
 
@@ -86,7 +86,7 @@ To troubleshoot connectivity issues to the Azure Storage account:
   1. On the storage account **Overview** page, select **Firewalls and virtual networks** in the left navigation.
   1. Ensure that **Firewalls and virtual networks** is set to **All networks**. Or, if the **Selected networks** option is selected, make sure the lab's virtual networks used to create VMs are added to the list.
 
-For in-depth troubleshooting, see [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security.md).
+For in-depth troubleshooting, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 
 ## Troubleshoot artifact failures from the lab VM
 
@@ -100,13 +100,13 @@ You can connect to the lab VM where the artifact failed, and investigate the iss
 
 1. Open and inspect the *STATUS* file to view the error.
 
-For instructions on finding the log files on a **Linux** VM, see [Use the Azure Custom Script Extension Version 2 with Linux virtual machines](/azure/virtual-machines/extensions/custom-script-linux#troubleshooting).
+For instructions on finding the log files on a **Linux** VM, see [Use the Azure Custom Script Extension Version 2 with Linux virtual machines](../virtual-machines/extensions/custom-script-linux.md#troubleshooting).
 
 ### Check the VM Agent
 
-Ensure that the [Azure Virtual Machine Agent (VM Agent)](/azure/virtual-machines/extensions/agent-windows) is installed and ready.
+Ensure that the [Azure Virtual Machine Agent (VM Agent)](../virtual-machines/extensions/agent-windows.md) is installed and ready.
 
-When the VM first starts, or when the CSE first installs to serve the request to apply artifacts, the VM might need to either upgrade the VM Agent or wait for the VM Agent to initialize. The VM Agent might depend on services that take a long time to initialize. For further troubleshooting, see [Azure Virtual Machine Agent overview](/azure/virtual-machines/extensions/agent-windows).
+When the VM first starts, or when the CSE first installs to serve the request to apply artifacts, the VM might need to either upgrade the VM Agent or wait for the VM Agent to initialize. The VM Agent might depend on services that take a long time to initialize. For further troubleshooting, see [Azure Virtual Machine Agent overview](../virtual-machines/extensions/agent-windows.md).
 
 To verify if the artifact appeared to stop responding because of the VM Agent:
 
@@ -126,7 +126,7 @@ To verify if the artifact appeared to stop responding because of the VM Agent:
 
 In the previous example, the VM Agent took 10 minutes and 20 seconds to start. The cause was the OOBE service taking a long time to start.
 
-For general information about Azure extensions, see [Azure virtual machine extensions and features](/azure/virtual-machines/extensions/overview).
+For general information about Azure extensions, see [Azure virtual machine extensions and features](../virtual-machines/extensions/overview.md).
 
 ### Investigate script issues
 
@@ -158,4 +158,3 @@ If you need more help, try one of the following support channels:
 - Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums).
 - Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 - Go to the [Azure support site](https://azure.microsoft.com/support/options) and select **Get Support** to file an Azure support incident.
-

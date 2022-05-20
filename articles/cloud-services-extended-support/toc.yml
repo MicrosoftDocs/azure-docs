@@ -29,6 +29,8 @@
     href: extensions.md
   - name: Available VM sizes
     href: available-sizes.md
+  - name: Power and Provisioning States
+    href: states.md
   - name: Guest OS patches
     href: ../cloud-services/cloud-services-guestos-msrc-releases.md?context=/azure/cloud-services-extended-support/context/context
   - name: Guest OS retirement

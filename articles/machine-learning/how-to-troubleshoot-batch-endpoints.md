@@ -8,8 +8,8 @@ ms.subservice: mlops
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devplatv2, cliv2
 ms.reviewer: laobri
-ms.author: tracych
-author: tracych
+ms.author: larryfr
+author: blackmist
 ms.date: 03/31/2022
 #Customer intent: As an ML Deployment Pro, I want to figure out why my batch endpoint doesn't run so that I can fix it.
 
@@ -41,7 +41,7 @@ Option 1: Stream logs to local console
 
 You can run the following command to stream system-generated logs to your console. Only logs in the `azureml-logs` folder will be streamed.
 
-```bash
+```azurecli
 az ml job stream -name <job_name>
 ```
 

@@ -26,7 +26,7 @@ The following screenshot shows a page using a custom screenshot with the customi
 
 ## Create theme
 
-To create a custom theme, navigate to the **Appearance** page in the **Customization** section under **Settings**:
+To create a custom theme, navigate to the **Appearance** section in the **Customization** page.
 
 ![IoT Central themes](./media/howto-customize-ui/themes.png)
 
@@ -47,17 +47,17 @@ A PNG image, no larger than 32 x 32 pixels, with a transparent background. A web
 You can change the color of the page header and the color used for accenting buttons and other highlights. Use a six character hex color value in the format `##ff6347`. For more information about **HEX Value** color notation, see [HTML Colors](https://www.w3schools.com/html/html_colors.asp).
 
 > [!NOTE]
-> You can always revert back to the default options on the **Customize your application** page.
+> You can always revert back to the default options on the **Appearance** section.
 
 ### Changes for operators
 
-If an administrator creates a custom theme, then operators and other users of your application can no longer choose a theme in **Settings**.
+If an administrator creates a custom theme, then operators and other users of your application can no longer choose a theme in **Appearance**.
 
 ## Replace help links
 
 To provide custom help information to your operators and other users, you can modify the links on the application **Help** menu.
 
-To modify the help links, navigate to the **Help links** page in the **Customization** section under **Settings**:
+To modify the help links, navigate to the **Help links** section in the **Customization** page.
 
 ![Customize IoT Central help links](./media/howto-customize-ui/help-links.png)
 
@@ -66,11 +66,11 @@ You can also add new entries to the help menu and remove default entries:
 ![Customized IoT Central help](./media/howto-customize-ui/custom-help.png)
 
 > [!NOTE]
-> You can always revert back to the default help links on the **Customize help** page.
+> You can always revert back to the default help links on the **Customization** page.
 
 ## Change application text
 
-To change text labels in the application, navigate to the **Text** page in the **Customization** section under **Settings**.
+To change text labels in the application, navigate to the **Text** section in the **Customization** page.
 
 On this page, you can customize the text of your application for all supported languages. You can change 'Device' related text to any word you prefer using the text customization file. After you upload the file, the application text automatically appears with the updated words. You can make further customizations by editing and overwriting the customization file. You can repeat the process for any language that the IoT Central UI supports.
 
@@ -183,7 +183,7 @@ Following example shows how to change the word `Device` to `Asset` when you view
 
     :::image type="content" source="media/howto-customize-ui/updated-ui-text.png" alt-text="Screenshot that shows updated text in the U I.":::
 
-You can reupload the customization file with further changes by selecting the relevant language from the list on the **Text** page in the **Customization** section.
+You can reupload the customization file with further changes by selecting the relevant language from the list on the **Text** section in the **Customization** page.
 
 ## Next steps
 

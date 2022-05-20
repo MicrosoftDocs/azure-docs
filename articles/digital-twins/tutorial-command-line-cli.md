@@ -59,7 +59,7 @@ After you set up your Azure Digital Twins instance, make a note of the following
 * The **Azure subscription** that you used to create the instance
 
 >[!TIP]
->If you know the name of your instance, you can use the following CLI command to get the host name and subscription values:
+>If you know the friendly name of your instance, you can use the following CLI command to get the host name and subscription values:
 >
 >```azurecli-interactive
 >az dt show --dt-name <Azure-Digital-Twins-instance-name>
@@ -93,11 +93,11 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     
     Navigate to the *Room.json* file on your machine and select "Open." Then, repeat this step for *Floor.json*.
 
-1. Next, use the [az dt model create](/cli/azure/dt/model#az-dt-model-create) command as shown below to upload your updated Room model to your Azure Digital Twins instance. The second command uploads another model, Floor, which you'll also use in the next section to create different types of twins. If you're using Cloud Shell, *Room.json* and *Floor.json* are in the main storage directory, so you can just use the file names directly in the command below where a path is required.
+1. Next, use the [az dt model create](/cli/azure/dt/model#az-dt-model-create) command as shown below to upload your updated Room model to your Azure Digital Twins instance. The second command uploads another model, Floor, which you'll also use in the next section to create different types of twins. There's a placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance), and a placeholder for a path to each model file. If you're using Cloud Shell, *Room.json* and *Floor.json* are in the main storage directory, so you can just use the file names directly in the command below where a path is required.
 
     ```azurecli-interactive
-    az dt model create --dt-name <Azure-Digital-Twins-instance-name> --models <path-to-Room.json>
-    az dt model create --dt-name <Azure-Digital-Twins-instance-name> --models <path-to-Floor.json>
+    az dt model create --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --models <path-to-Room.json>
+    az dt model create --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --models <path-to-Floor.json>
     ```
     
     The output from each command will show information about the successfully uploaded model.
@@ -105,10 +105,10 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     >[!TIP]
     >You can also upload all models within a directory at the same time, by using the `--from-directory` option for the model create command. For more information, see [Optional parameters for az dt model create](/cli/azure/dt/model#az-dt-model-create-optional-parameters).
 
-1. Verify the models were created with the [az dt model list](/cli/azure/dt/model#az-dt-model-list) command as shown below. Doing so will print a list of all models that have been uploaded to the Azure Digital Twins instance with their full information. 
+1. Verify the models were created with the [az dt model list](/cli/azure/dt/model#az-dt-model-list) command as shown below. Doing so will print a list of all models that have been uploaded to the Azure Digital Twins instance with their full information. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
     ```azurecli-interactive
-    az dt model list --dt-name <Azure-Digital-Twins-instance-name> --definition
+    az dt model list --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --definition
     ```
     
     Look for the edited Room model in the results:
@@ -122,7 +122,7 @@ The CLI also handles errors from the service.
 Rerun the `az dt model create` command to try re-uploading one of the same models you uploaded, for a second time:
 
 ```azurecli-interactive
-az dt model create --dt-name <Azure-Digital-Twins-instance-name> --models Room.json
+az dt model create --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --models Room.json
 ```
 
 As models cannot be overwritten, running this command on the same model will now return an error code of `ModelIdAlreadyExists`.
@@ -133,13 +133,13 @@ Now that some models have been uploaded to your Azure Digital Twins instance, yo
 
 To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create) command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You don't have to pass any relationship information at this stage.
 
-1. Run this code in the CLI to create several twins, based on the Room model you updated earlier and another model, Floor. Recall that Room has three properties, so you can provide arguments with the initial values for these properties. (Initializing property values is optional in general, but they're needed for this tutorial.)
+1. Run this code in the CLI to create several twins, based on the Room model you updated earlier and another model, Floor. Recall that Room has three properties, so you can provide arguments with the initial values for these properties. (Initializing property values is optional in general, but they're needed for this tutorial.) There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
     ```azurecli-interactive
-    az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{"RoomName":"Room0", "Temperature":70, "HumidityLevel":30}'
-    az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{"RoomName":"Room1", "Temperature":80, "HumidityLevel":60}'
-    az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Floor;1" --twin-id floor0
-    az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Floor;1" --twin-id floor1
+    az dt twin create --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{"RoomName":"Room0", "Temperature":70, "HumidityLevel":30}'
+    az dt twin create --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{"RoomName":"Room1", "Temperature":80, "HumidityLevel":60}'
+    az dt twin create --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --dtmi "dtmi:example:Floor;1" --twin-id floor0
+    az dt twin create --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --dtmi "dtmi:example:Floor;1" --twin-id floor1
     ```
 
     >[!NOTE]
@@ -149,10 +149,10 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az-
     
     The output from each command will show information about the successfully created twin (including properties for the room twins that were initialized with them).
 
-1. You can verify that the twins were created with the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command as shown below. The query shown finds all the digital twins in your Azure Digital Twins instance.
+1. You can verify that the twins were created with the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command as shown below. The query shown finds all the digital twins in your Azure Digital Twins instance. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
     
     ```azurecli-interactive
-    az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT * FROM DIGITALTWINS"
+    az dt twin query --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --query-command "SELECT * FROM DIGITALTWINS"
     ```
     
     Look for the room0, room1, floor0, and floor1 twins in the results. Here's an excerpt showing part of the result of this query.
@@ -165,10 +165,10 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az-
 
 You can also modify the properties of a twin you've created. 
 
-1. Run this [az dt twin update](/cli/azure/dt/twin#az-dt-twin-update) command to change room0's RoomName from Room0 to PresidentialSuite:
+1. Run the following [az dt twin update](/cli/azure/dt/twin#az-dt-twin-update) command to change room0's RoomName from Room0 to PresidentialSuite. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
     ```azurecli-interactive
-    az dt twin update --dt-name <Azure-Digital-Twins-instance-name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
+    az dt twin update --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
     ```
     
     >[!NOTE]
@@ -178,10 +178,10 @@ You can also modify the properties of a twin you've created.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Screenshot of Cloud Shell showing result of the update command, which includes a RoomName of PresidentialSuite." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
-1. You can verify the update succeeded by running the [az dt twin show](/cli/azure/dt/twin#az-dt-twin-show) command to see room0's information:
+1. You can verify the update succeeded by running the [az dt twin show](/cli/azure/dt/twin#az-dt-twin-show) command to see room0's information. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
     ```azurecli-interactive
-    az dt twin show --dt-name <Azure-Digital-Twins-instance-name> --twin-id room0
+    az dt twin show --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --twin-id room0
     ```
     
     The output should reflect the updated name.
@@ -194,11 +194,11 @@ The types of relationships that you can create from one twin to another are defi
 
 To add a relationship, use the [az dt twin relationship create](/cli/azure/dt/twin/relationship#az-dt-twin-relationship-create) command. Specify the twin that the relationship is coming from, the type of relationship, and the twin that the relationship is connecting to. Lastly, give the relationship a unique ID. If a relationship was defined to have properties, you can initialize the relationship properties in this command as well.
 
-1. Run the following code to add a `contains`-type relationship from each of the Floor twins you created earlier to the corresponding Room twin. The relationships are named relationship0 and relationship1.
+1. Run the following code to add a `contains`-type relationship from each of the Floor twins you created earlier to the corresponding Room twin. The relationships are named relationship0 and relationship1. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
     ```azurecli-interactive
-    az dt twin relationship create --dt-name <Azure-Digital-Twins-instance-name> --relationship-id relationship0 --relationship contains --twin-id floor0 --target room0
-    az dt twin relationship create --dt-name <Azure-Digital-Twins-instance-name> --relationship-id relationship1 --relationship contains --twin-id floor1 --target room1
+    az dt twin relationship create --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --relationship-id relationship0 --relationship contains --twin-id floor0 --target room0
+    az dt twin relationship create --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --relationship-id relationship1 --relationship contains --twin-id floor1 --target room1
     ```
     
     >[!TIP]
@@ -210,21 +210,21 @@ To add a relationship, use the [az dt twin relationship create](/cli/azure/dt/tw
     
     The output from each command will show information about the successfully created relationship.
 
-1. You can verify the relationships with any of the following commands, which print the relationships in your Azure Digital Twins instance.
+1. You can verify the relationships with any of the following commands, which print the relationships in your Azure Digital Twins instance. Each command has one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
     * To see all relationships coming off of each floor (viewing the relationships from one side):
         ```azurecli-interactive
-        az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-name> --twin-id floor0
-        az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-name> --twin-id floor1
+        az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --twin-id floor0
+        az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --twin-id floor1
         ```
     * To see all relationships arriving at each room (viewing the relationship from the "other" side):
         ```azurecli-interactive
-        az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-name> --twin-id room0 --incoming
-        az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-name> --twin-id room1 --incoming
+        az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --twin-id room0 --incoming
+        az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --twin-id room1 --incoming
         ```
     * To look for these relationships individually, by ID:
         ```azurecli-interactive
-        az dt twin relationship show --dt-name <Azure-Digital-Twins-instance-name> --twin-id floor0 --relationship-id relationship0
-        az dt twin relationship show --dt-name <Azure-Digital-Twins-instance-name> --twin-id floor1 --relationship-id relationship1
+        az dt twin relationship show --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --twin-id floor0 --relationship-id relationship0
+        az dt twin relationship show --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --twin-id floor1 --relationship-id relationship1
         ```
 
 The twins and relationships you have set up in this tutorial form the following conceptual graph:
@@ -237,12 +237,12 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 [!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
-Run the following queries in the CLI to answer some questions about the sample environment.
+Run the following queries in the CLI to answer some questions about the sample environment. Each command has one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
 1. What are all the entities from my environment represented in Azure Digital Twins? (query all)
 
     ```azurecli-interactive
-    az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT * FROM DIGITALTWINS"
+    az dt twin query --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --query-command "SELECT * FROM DIGITALTWINS"
     ```
 
     This query allows you to take stock of your environment at a glance, and make sure everything is represented as you want it to be within Azure Digital Twins. The result of this query is an output containing each digital twin with its details. Here's an excerpt:
@@ -255,7 +255,7 @@ Run the following queries in the CLI to answer some questions about the sample e
 1. What are all the rooms in my environment? (query by model)
 
     ```azurecli-interactive
-    az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')"
+    az dt twin query --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --query-command "SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')"
     ```
 
     You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows room0 and room1, but doesn't show floor0 or floor1 (since they're floors, not rooms).
@@ -265,7 +265,7 @@ Run the following queries in the CLI to answer some questions about the sample e
 1. What are all the rooms on floor0? (query by relationship)
 
     ```azurecli-interactive
-    az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.\$dtId = 'floor0'"
+    az dt twin query --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.\$dtId = 'floor0'"
     ```
 
     You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area. This query also illustrates that a twin's ID (like floor0 in the query above) is queried using the metadata field `$dtId`. Only room0 is on floor0, so it's the only room in the result for this query.
@@ -278,7 +278,7 @@ Run the following queries in the CLI to answer some questions about the sample e
 1. What are all the twins in my environment with a temperature above 75? (query by property)
 
     ```azurecli-interactive
-    az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT * FROM DigitalTwins T WHERE T.Temperature > 75"
+    az dt twin query --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --query-command "SELECT * FROM DigitalTwins T WHERE T.Temperature > 75"
     ```
 
     You can query the graph based on properties to answer different kinds of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported. room1 shows up in the results here, because it has a temperature of 80.
@@ -288,7 +288,7 @@ Run the following queries in the CLI to answer some questions about the sample e
 1. What are all the rooms on floor0 with a temperature above 75? (compound query)
 
     ```azurecli-interactive
-    az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.\$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75"
+    az dt twin query --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.\$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75"
     ```
 
     You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on floor0—which in this case, is none of them. The result set is empty.

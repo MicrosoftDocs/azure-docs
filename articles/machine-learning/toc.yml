@@ -205,6 +205,10 @@
           href: concept-optimize-data-processing.md
         - name: Studio network data access
           href: concept-network-data-access.md
+    - name: Collect data
+      items:
+        - name: Sourcing human data responsibly
+          href: concept-sourcing-human-data.md
     - name: Security
       items:
         - name: Enterprise security overview
@@ -265,6 +269,8 @@
             - name: Configure required network traffic
               href: how-to-access-azureml-behind-firewall.md
               displayName: firewall, user-defined route, udr
+            - name: Configure network isolation with v2
+              href: how-to-configure-network-isolation-with-v2.md
         - name: Data protection
           items:
             - name: Failover & disaster recovery
@@ -653,9 +659,6 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
-      - name: Deploy encrypted inferencing service
-        displayName: homomorphic,encryption,deployment
-        href: how-to-homomorphic-encryption-seal.md
       - name: Profile models
         displayName: profile resource requirement
         href: how-to-deploy-profile-model.md

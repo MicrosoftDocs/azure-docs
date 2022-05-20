@@ -7,6 +7,9 @@ ms.custom: subject-rbac-steps
 ---
 
 # How to add additional owners to an existing lab in Azure Lab Services
+
+[!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
+
 This article shows you how you, as an administrator, can add additional owners to an existing lab.
 
 ## Add user to the reader role for the lab account

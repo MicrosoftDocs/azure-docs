@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: tracych
-ms.author: tracych
+author: blackmist
+ms.author: larryfr
 ms.date: 03/31/2022
 ms.reviewer: nibaccam
 ms.custom: devplatv2
@@ -48,7 +48,7 @@ In this article, you learn how to use the new REST APIs to:
 > [!NOTE]
 > Batch endpoint names need to be unique at the Azure region level. For example, there can be only one batch endpoint with the name mybatchendpoint in westus2.
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="set_endpoint_name":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="set_endpoint_name":::
 
 ## Azure Machine Learning batch endpoints
 
@@ -64,18 +64,18 @@ In the following REST API calls, we use `SUBSCRIPTION_ID`, `RESOURCE_GROUP`, `LO
 
 Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). Replace `TOKEN` with your own value. You can retrieve this token with the following command:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" range="10":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" range="10":::
 
 The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. Set the API version as a variable to accommodate future versions:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" range="8":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" range="8":::
 
 ### Create compute
 Batch scoring runs only on cloud computing resources, not locally. The cloud computing resource is a reusable virtual computer cluster where you can run batch scoring workflows.
 
 Create a compute cluster:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="create_compute":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_compute":::
 
 > [!TIP]
 > If you want to use an existing compute instead, you must specify the full Azure Resource Manager ID when [creating the batch deployment](#create-batch-deployment). The full ID uses the format `/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes/<your-compute-name>`.
@@ -86,41 +86,41 @@ To register the model and code, first they need to be uploaded to a storage acco
 
 You can use the tool [jq](https://stedolan.github.io/jq/) to parse the JSON result and get the required values. You can also use the Azure portal to find the same information:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="get_storage_details":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="get_storage_details":::
 
 ### Upload & register code
 
 Now that you have the datastore, you can upload the scoring script. Use the Azure Storage CLI to upload a blob into your default container:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="upload_code":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="upload_code":::
 
 > [!TIP]
 > You can also use other methods to upload, such as the Azure portal or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 Once you upload your code, you can specify your code with a PUT request:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="create_code":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_code":::
 
 ### Upload and register model
 
 Similar to the code, Upload the model files:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="upload_model":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="upload_model":::
 
 Now, register the model:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="create_model":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_model":::
 
 ### Create environment
 The deployment needs to run in an environment that has the required dependencies. Create the environment with a PUT request. Use a docker image from Microsoft Container Registry. You can configure the docker image with `image` and add conda dependencies with `condaFile`.
 
 Run the following code to read the `condaFile` defined in json. The source file is at `/cli/endpoints/batch/mnist/environment/conda.json` in the example repository:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="read_condafile":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="read_condafile":::
 
 Now, run the following snippet to create an environment:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="create_environment":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_environment":::
 
 ## Deploy with batch endpoints
 
@@ -130,19 +130,19 @@ Next, create the batch endpoint, a deployment, and set the default deployment.
 
 Create the batch endpoint:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="create_endpoint":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_endpoint":::
 
 ### Create batch deployment
 
 Create a batch deployment under the endpoint:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="create_deployment":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_deployment":::
 
 ### Set the default batch deployment under the endpoint
 
 There's only one default batch deployment under one endpoint, which will be used when invoke to run batch scoring job.
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="set_endpoint_defaults":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="set_endpoint_defaults":::
 
 ## Run batch scoring
 
@@ -152,23 +152,23 @@ Invoking a batch endpoint triggers a batch scoring job. A job `id` is returned i
 
 Get the scoring uri and access token to invoke the batch endpoint. First get the scoring uri:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="get_endpoint":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="get_endpoint":::
 
 Get the batch endpoint access token:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="get_access_token":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="get_access_token":::
 
 Now, invoke the batch endpoint to start a batch scoring job. The following example scores data publicly available in the cloud:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="score_endpoint_with_data_in_cloud":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="score_endpoint_with_data_in_cloud":::
 
 If your data is stored in an Azure Machine Learning registered datastore, you can invoke the batch endpoint with a dataset. The following code creates a new dataset:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="create_dataset":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_dataset":::
 
 Next, reference the dataset when invoking the batch endpoint:
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="score_endpoint_with_dataset":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="score_endpoint_with_dataset":::
 
 In the previous code snippet, a custom output location is provided by using `datastoreId`, `path`, and `outputFileName`. These settings allow you to configure where to store the batch scoring results.
 
@@ -177,7 +177,7 @@ In the previous code snippet, a custom output location is provided by using `dat
 
 For this example, the output is stored in the default blob storage for the workspace. The folder name is the same as the endpoint name, and the file name is randomly generated by the following code:
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" ID="unique_output" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score-rest.sh" ID="unique_output" :::
 
 ### Check the batch scoring job
 
@@ -186,7 +186,7 @@ Batch scoring jobs usually take some time to process the entire set of inputs. M
 > [!TIP]
 > The example invokes the default deployment of the batch endpoint. To invoke a non-default deployment, use the `azureml-model-deployment` HTTP header and set the value to the deployment name. For example, using a parameter of `--header "azureml-model-deployment: $DEPLOYMENT_NAME"` with curl.
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="check_job":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="check_job":::
 
 ### Check batch scoring results
 
@@ -196,7 +196,7 @@ For information on checking the results, see [Check batch scoring results](how-t
 
 If you aren't going use the batch endpoint, you should delete it with the below command (it deletes the batch endpoint and all the underlying deployments):
 
-:::code language="rest-api" source="~/azureml-examples-march-cli-preview/cli/batch-score-rest.sh" id="delete_endpoint":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="delete_endpoint":::
 
 ## Next steps
 

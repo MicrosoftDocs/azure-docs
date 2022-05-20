@@ -13,6 +13,9 @@
       href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
       href: quickstart-control-device.md
+    - name: Auto-route messages using Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-bicep-route-messages.md
     - name: Auto-route messages using an ARM template
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
@@ -388,38 +391,8 @@
           href: iot-hub-troubleshoot-connectivity.md
         - name: Troubleshoot message routing
           href: troubleshoot-message-routing.md
-        - name: Problem resolution
-          items:          
-            - name: 400027 ConnectionForcefullyClosedOnNewConnection
-              href: iot-hub-troubleshoot-error-400027-connectionforcefullyclosedonnewconnection.md
-            - name: 401003 IoTHubUnauthorized
-              href: iot-hub-troubleshoot-error-401003-iothubunauthorized.md
-            - name: 403002 IoTHubQuotaExceeded
-              href: iot-hub-troubleshoot-error-403002-iothubquotaexceeded.md
-            - name: 403004 DeviceMaximumQueueDepthExceeded
-              href: iot-hub-troubleshoot-error-403004-devicemaximumqueuedepthexceeded.md
-            - name: 403006 DeviceMaximumActiveFileUploadLimitExceeded
-              href: iot-hub-troubleshoot-error-403006-devicemaximumactivefileuploadlimitexceeded.md
-            - name: 404001 DeviceNotFound
-              href: iot-hub-troubleshoot-error-404001-devicenotfound.md
-            - name: 404103 DeviceNotOnline
-              href: iot-hub-troubleshoot-error-404103-devicenotonline.md
-            - name: 404104 DeviceConnectionClosedRemotely
-              href: iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md
-            - name: 409001 DeviceAlreadyExists
-              href: iot-hub-troubleshoot-error-409001-devicealreadyexists.md
-            - name: 409002 LinkCreationConflict
-              href: iot-hub-troubleshoot-error-409002-linkcreationconflict.md
-            - name: 412002 DeviceMessageLockLost
-              href: iot-hub-troubleshoot-error-412002-devicemessagelocklost.md
-            - name: 429001 ThrottlingException
-              href: iot-hub-troubleshoot-error-429001-throttlingexception.md
-            - name: 500xxx Internal errors
-              href: iot-hub-troubleshoot-error-500xxx-internal-errors.md
-            - name: 503003 PartitionNotFound
-              href: iot-hub-troubleshoot-error-503003-partitionnotfound.md
-            - name: 504101 GatewayTimeout
-              href: iot-hub-troubleshoot-error-504101-gatewaytimeout.md
+        - name: Resolve error codes
+          href: troubleshoot-error-codes.md
 - name: Reference
   items:
     - name: Azure CLI
@@ -465,10 +438,6 @@
       href: ./policy-reference.md
     - name: Feature and API retirement
       items:
-        - name: Operations monitoring
-          href: iot-hub-operations-monitoring.md
-        - name: Migrate to Azure Monitor
-          href: iot-hub-migrate-to-diagnostics-settings.md
         - name: TLS 1.0 and 1.1 deprecation
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
         - name: Classic IP filter

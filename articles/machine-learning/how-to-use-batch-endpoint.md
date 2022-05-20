@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: tracych
-ms.author: tracych
+author: blackmist
+ms.author: larryfr
 ms.reviewer: larryfr
 ms.date: 03/31/2022
 ms.custom: how-to, devplatv2
@@ -64,7 +64,7 @@ Set your endpoint name. Replace `YOUR_ENDPOINT_NAME` with a unique name within a
 
 For Unix, run this command:
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="set_variables" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="set_variables" :::
 
 For Windows, run this command:
 
@@ -79,7 +79,7 @@ set ENDPOINT_NAME="<YOUR_ENDPOINT_NAME>"
 
 Batch endpoint runs only on cloud computing resources, not locally. The cloud computing resource is a reusable virtual computer cluster. Run the following code to create an Azure Machine Learning compute cluster. The following examples in this article use the compute created here named `batch-cluster`. Adjust as needed and reference your compute using `azureml:<your-compute-name>`.
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="create_compute" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_compute" :::
 
 > [!NOTE]
 > You are not charged for compute at this point as the cluster will remain at 0 nodes until a batch endpoint is invoked and a batch scoring job is submitted. Learn more about [manage and optimize cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
@@ -93,7 +93,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
 
 The following YAML file defines a batch endpoint, which you can include in the CLI command for [batch endpoint creation](#create-a-batch-endpoint). In the repository, this file is located at `/cli/endpoints/batch/batch-endpoint.yml`.
 
-:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/endpoints/batch/batch-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
 
 The following table describes the key properties of the endpoint YAML. For the full batch endpoint YAML schema, see [CLI (v2) batch endpoint YAML schema](./reference-yaml-endpoint-batch.md).
 
@@ -114,7 +114,7 @@ For more information about how to reference an Azure ML entity, see [Referencing
 
 The example repository contains all the required files. The following YAML file defines a batch deployment with all the required inputs and optional settings. You can include this file in your CLI command to [create your batch deployment](#create-a-batch-deployment). In the repository, this file is located at `/cli/endpoints/batch/nonmlflow-deployment.yml`. 
 
-:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/endpoints/batch/nonmlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/nonmlflow-deployment.yml":::
 
 The following table describes the key properties of the deployment YAML. For the full batch deployment YAML schema, see [CLI (v2) batch deployment YAML schema](./reference-yaml-deployment-batch.md).
 
@@ -157,7 +157,7 @@ Now, let's deploy the model with batch endpoints and run batch scoring.
 
 The simplest way to create a batch endpoint is to run the following code providing only a `--name`.
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="create_batch_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_batch_endpoint" :::
 
 You can also create a batch endpoint using a YAML file. Add `--file` parameter in above command and specify the YAML file path.
 
@@ -165,7 +165,7 @@ You can also create a batch endpoint using a YAML file. Add `--file` parameter i
 
 Run the following code to create a batch deployment named `nonmlflowdp` under the batch endpoint and set it as the default deployment. 
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="create_batch_deployment_set_default" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_batch_deployment_set_default" :::
 
 > [!TIP]
 > The `--set-default` parameter sets the newly created deployment as the default deployment of the endpoint. It's a convenient way to create a new default deployment of the endpoint, especially for the first deployment creation. As a best practice for production scenarios, you may want to create a new deployment without setting it as default, verify it, and update the default deployment later. For more information, see the [Deploy a new model](#deploy-a-new-model) section.
@@ -176,11 +176,11 @@ Use `show` to check endpoint and deployment details.
 
 To check a batch deployment, run the following code:
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="check_batch_deployment_detail" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_deployment_detail" :::
 
 To check a batch endpoint, run the following code. As the newly created deployment is set as the default deployment, you should see `nonmlflowdp` in `defaults.deployment_name` from the response.
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_batch_endpooint_detail" :::
 
 ### Invoke the batch endpoint to start a batch scoring job
 
@@ -198,7 +198,7 @@ There are three options to specify the data inputs in CLI `invoke`.
 
     The example uses publicly available data in a folder from `https://pipelinedata.blob.core.windows.net/sampledata/mnist`, which contains thousands of hand-written digits. Name of the batch scoring job will be returned from the invoke response. Run the following code to invoke the batch endpoint using this data. `--query name` is added to only return the job name from the invoke response, and it will be used later to [Monitor batch scoring job execution progress](#monitor-batch-scoring-job-execution-progress) and [Check batch scoring results](#check-batch-scoring-results). Remove `--query name -o tsv` if you want to see the full invoke response. For more information on the `--query` parameter, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
 
-    :::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="start_batch_scoring_job" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job" :::
 
 * __Option 2: Registered dataset__
 
@@ -234,7 +234,7 @@ Some settings can be overwritten when invoke to make best use of the compute res
 
 To specify the output location and overwrite settings when invoke, run the following code. The example stores the outputs in a folder with the same name as the endpoint in the workspace's default blob storage, and also uses a random file name to ensure the output location uniqueness. The code should work in Unix. Replace with your own unique folder and file name.
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="start_batch_scoring_job_configure_output_settings" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_configure_output_settings" :::
 
 ### Monitor batch scoring job execution progress
 
@@ -242,7 +242,7 @@ Batch scoring jobs usually take some time to process the entire set of inputs.
 
 You can use CLI `job show` to view the job. Run the following code to check job status from the previous endpoint invoke. To learn more about job commands, run `az ml job -h`.
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="check_job_status" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_job_status" :::
 
 ### Check batch scoring results
 
@@ -250,7 +250,7 @@ Follow the below steps to view the scoring results in Azure Storage Explorer whe
 
 1. Run the following code to open batch scoring job in Azure Machine Learning studio. The job studio link is also included in the response of `invoke`, as the value of `interactionEndpoints.Studio.endpoint`.
 
-    :::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="show_job_in_studio" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="show_job_in_studio" :::
 
 1. In the graph of the run, select the `batchscoring` step.
 1. Select the __Outputs + logs__ tab and then select **Show data outputs**.
@@ -270,7 +270,7 @@ Once you have a batch endpoint, you can continue to refine your model and add ne
 
 To create a new batch deployment under the existing batch endpoint but not set it as the default deployment, run the following code:
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="create_new_deployment_not_default" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_new_deployment_not_default" :::
 
 Notice that `--set-default` is not used. If you `show` the batch endpoint again, you should see no change of the `defaults.deployment_name`. 
 
@@ -278,7 +278,7 @@ The example uses a model (`/cli/endpoints/batch/autolog_nyc_taxi`) trained and t
 
 Below is the YAML file the example uses to deploy an MLflow model, which only contains the minimum required properties. The source file in repository is `/cli/endpoints/batch/mlflow-deployment.yml`.
 
-:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/endpoints/batch/mlflow-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mlflow-deployment.yml":::
 
 > [!NOTE]
 > `scoring_script` and `environment` auto generation only supports Python Function model flavor and column-based model signature.
@@ -287,7 +287,7 @@ Below is the YAML file the example uses to deploy an MLflow model, which only co
 
 To test the new non-default deployment, run the following code. The example uses a different model that accepts a publicly available csv file from `https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv`.
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="test_new_deployment" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="test_new_deployment" :::
 
 Notice `--deployment-name` is used to specify the new deployment name. This parameter allows you to `invoke` a non-default deployment, and it will not update the default deployment of the batch endpoint.
 
@@ -295,7 +295,7 @@ Notice `--deployment-name` is used to specify the new deployment name. This para
 
 To update the default batch deployment of the endpoint, run the following code:
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="update_default_deployment" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="update_default_deployment" :::
 
 Now, if you `show` the batch endpoint again, you should see `defaults.deployment_name` is set to `mlflowdp`. You can `invoke` the batch endpoint directly without the `--deployment-name` parameter.
 
@@ -307,11 +307,11 @@ If you want to update the deployment (for example, update code, model, environme
 
 If you aren't going to use the old batch deployment, you should delete it by running the following code. `--yes` is used to confirm the deletion.
 
-::: code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="delete_deployment" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="delete_deployment" :::
 
 Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs will not be deleted.
 
-::: code language="azurecli" source="~/azureml-examples-march-cli-preview/cli/batch-score.sh" ID="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="delete_endpoint" :::
 
 ## Next steps
 

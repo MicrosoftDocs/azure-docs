@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 04/28/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -50,6 +50,9 @@ More details around using these options are shared below:
 
 Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
 
+> [!NOTE]
+> Private endpoints are supported for Azure Backup and Azure storage. Azure AD has support private end-points in private preview. Until they are generally available, Azure backup supports setting up proxy for AAD so that no outbound connectivity is required for HANA VMs. Refer to the [proxy support section](#use-an-http-proxy-server-to-route-traffic) for more details.
+
 #### NSG tags
 
 If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
@@ -86,6 +89,30 @@ You can also use the following FQDNs to allow access to the required services fr
 
 > [!NOTE]
 > Currently, we only support HTTP Proxy for Azure Active Directory (Azure AD) traffic for SAP HANA. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in HANA VMs, use other options, such as private endpoints.
+
+##### Using an HTTP proxy server for AAD traffic
+
+1. Go to the "opt/msawb/bin" folder
+2. Create a new JSON file named "ExtensionSettingsOverrides.json"
+3. Add a key-value pairs to the JSON file as follows:
+
+    ```json
+    {
+        "UseProxyForAAD":true,
+        "UseProxyForAzureBackup":false,
+        "UseProxyForAzureStorage":false,
+        "ProxyServerAddress":"http://xx.yy.zz.mm:port"
+    }
+    ```
+
+4. Change the permissions and ownership of the file as follows:
+    
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. No restart of any service is required. The Azure Backup service will attempt to route the AAD traffic via the proxy server mentioned in the JSON file.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

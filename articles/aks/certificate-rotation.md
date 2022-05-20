@@ -3,7 +3,7 @@ title: Certificate Rotation in Azure Kubernetes Service (AKS)
 description: Learn certificate rotation in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 3/29/2022
+ms.date: 5/10/2022
 ---
 
 # Certificate rotation in Azure Kubernetes Service (AKS)
@@ -60,25 +60,34 @@ For AKS to automatically rotate non-CA certificates, the cluster must have [TLS 
 > [!Note]
 > If you have an existing cluster you have to upgrade that cluster to enable Certificate Auto-Rotation.
 
-For any AKS clusters created or upgraded after March 2022 Azure Kubernetes Service will automatically rotate non-ca certificates on both the control plane and agent nodes within 80% of the client certificate valid time, before they expire with no downtime for the cluster.
+For any AKS clusters created or upgraded after March 2022 Azure Kubernetes Service will automatically rotate non-CA certificates on both the control plane and agent nodes within 80% of the client certificate valid time, before they expire with no downtime for the cluster.
 
-#### How to check whether current agent node pool is TLS Bootstrapping enabled?
-To verify if TLS Bootstrapping is enabled on your cluster browse to the following paths.  On a Linux node: /var/lib/kubelet/bootstrap-kubeconfig, on a Windows node, it’s c:\k\bootstrap-config.
+### How to check whether current agent node pool is TLS Bootstrapping enabled?
+
+To verify if TLS Bootstrapping is enabled on your cluster browse to the following paths:
+
+* On a Linux node: */var/lib/kubelet/bootstrap-kubeconfig*
+* On a Windows node: *C:\k\bootstrap-config*
+
+To access agent nodes, see [Connect to Azure Kubernetes Service cluster nodes for maintenance or troubleshooting][aks-node-access] for more information.
 
 > [!Note]
-> The file path may change as k8s version evolves in the future.
+> The file path may change as Kubernetes version evolves in the future.
 
-> [!IMPORTANT]
->Once a region is configured either create a new cluster or upgrade 'az aks upgrade -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME' an existing cluster to set that cluster for auto-cert rotation. 
+Once a region is configured, create a new cluster or upgrade an existing cluster with `az aks upgrade` to set that cluster for auto-certificate rotation. A control plane and node pool upgrade is needed to enable this feature. 
+
+```azurecli
+az aks upgrade -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
+``` 
 
 ### Limitation
 
-Auto cert rotation won't be enabled on non-rbac cluster.
+Auto certificate rotation won't be enabled on a non-RBAC cluster.
 
 ## Manually rotate your cluster certificates
 
 > [!WARNING]
-> Rotating your certificates using `az aks rotate-certs` will recreate all of your nodes and their OS Disks and can cause up to 30 minutes of downtime for your AKS cluster.
+> Rotating your certificates using `az aks rotate-certs` will recreate all of your nodes, VM scale set and their Disks and can cause up to 30 minutes of downtime for your AKS cluster.
 
 Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS cluster. This command also downloads and configures the `kubectl` client certificate on your local machine.
 
@@ -98,7 +107,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 Verify that the old certificates are no longer valid by running a `kubectl` command. Since you have not updated the certificates used by `kubectl`, you will see an error.  For example:
 
 ```console
-$ kubectl get no
+$ kubectl get nodes
 Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "ca")
 ```
 
@@ -111,7 +120,7 @@ az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-exis
 Verify the certificates have been updated by running a `kubectl` command, which will now succeed. For example:
 
 ```console
-kubectl get no
+kubectl get nodes
 ```
 
 > [!NOTE]
@@ -127,3 +136,4 @@ This article showed you how to automatically rotate your cluster's certificates,
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
+[aks-node-access]: ./node-access.md

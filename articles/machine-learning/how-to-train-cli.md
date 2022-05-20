@@ -44,7 +44,7 @@ Using `--depth 1` clones only the latest commit to the repository, which reduces
 
 You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/setup-repo/create-compute.sh" id="create_computes":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-compute.sh" id="create_computes":::
 
 You are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at zero nodes until a job is submitted. Learn more about how to [manage and optimize cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
@@ -326,7 +326,7 @@ And run it:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_iris":::
 
-To register a model, you can download the outputs and create a model from the local directory:
+To register a model, you can upload the model files from the run to the model registry:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_download_register_model":::
 
@@ -363,13 +363,13 @@ Then create an Azure Machine Learning data asset from the local directory, which
 
 Optionally, remove the local file and directory:
 
-:::code language="azurecli" source="~/azureml-examples-march-cli-preview/setup-repo/create-datasets.sh" id="cleanup_cifar":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="cleanup_cifar":::
 
 Registered data assets can be used as inputs to job using the `path` field for a job input. The format is `azureml:<data_name>:<data_version>`, so for the CIFAR-10 dataset just created, it is `azureml:cifar-10-example:1`. You can optionally use the `azureml:<data_name>@latest` syntax instead if you want to reference the latest version of the data asset. Azure ML will resolve that reference to the explicit version.
 
 With the data asset in place, you can author a distributed PyTorch job to train our model:
 
-:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
 
 And run it:
 

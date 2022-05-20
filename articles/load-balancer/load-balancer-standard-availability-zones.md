@@ -61,7 +61,7 @@ Now that you understand the zone-related properties for Standard Load Balancer, 
 ### Tolerance to zone failure
 
 - A **zone redundant** frontend can serve a zonal resource in any zone with a single IP address.  The IP can survive one or more zone failures as long as at least one zone remains healthy within the region.
-- A **zonal** frontend is a reduction of the service to a single zone and shares fate with the respective zone. If the zone your deployment is in goes down, your deployment will not survive this failure.
+- A **zonal** frontend is a reduction of the service to a single zone and shares fate with the respective zone. If the deployment in your zone goes down, your load balancer will not survive this failure.
 
 Members in the backend pool of a load balancer are normally associated with a single zone (e.g. zonal virtual machines).  A common design for production workloads would be to have multiple zonal resources (e.g. virtual machines from zone 1, 2, and 3) in the backend of a load balancer with a zone-redundant frontend.
 

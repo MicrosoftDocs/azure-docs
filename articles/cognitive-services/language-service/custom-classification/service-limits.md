@@ -25,7 +25,7 @@ Use this article to learn about the data and rate limits when using custom text 
 
 * All files should be available at the root of your container.
 
-* Your [training dataset](how-to/train-model.md#data-split) should include at least 10 files and no more than 1,000,000 files.
+* Your [training dataset](how-to/train-model.md) should include at least 10 files and no more than 1,000,000 files.
 
 ## API limits
 

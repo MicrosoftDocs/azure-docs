@@ -5,7 +5,7 @@ description: Learn how to develop code for Azure Cache for Redis.
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/23/2022
+ms.date: 04/15/2022
 ms.author: franlanglois
 
 ---
@@ -79,6 +79,10 @@ While you can connect from outside of Azure, it isn't recommended *especially wh
 ## Rely on hostname not public IP address
 
 The public IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname, in the form `<cachename>.redis.cache.windows.net`, instead of an explicit public IP address.
+
+## Choose an appropriate Redis version
+
+The default version of Redis that is used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
 
 ## Use TLS encryption
 

@@ -16,6 +16,13 @@ ms.date: 06/16/2021
 
 This article will describe how to let self-hosted integration runtime auto-update to the latest version and how ADF manages the versions of self-hosted integration runtime.
 
+## How to check your self-hosted integration runtime version
+You can check the version either in your self-hosted integration runtime client or in Azure data factory portal:
+
+:::image type="content" source="./media/self-hosted-integration-runtime-auto-update/self-hosted-integration-runtime-version-client.png" alt-text="Screenshot that shows the version in self-hosted integration runtime client.":::
+
+:::image type="content" source="./media/self-hosted-integration-runtime-auto-update/self-hosted-integration-runtime-version-portal.png" alt-text="Screenshot that shows the version in Azure data factory portal.":::
+
 ## Self-hosted Integration Runtime Auto-update
 Generally, when you install a self-hosted integration runtime in your local machine or an Azure VM, you have two options to manage the version of self-hosted integration runtime: auto-update or maintain manually. Typically, ADF releases two new versions of self-hosted integration runtime every month which includes new feature release, bug fix or enhancement. So we recommend users to update to newer version in order to get the latest feature and enhancement.
 
