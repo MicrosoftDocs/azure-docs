@@ -28,10 +28,10 @@ Looking for CA details specific to Azure Active Directory? See the [Certificate 
 
 | Certificate Authority | Expiry Date | Serial Number /<br>Thumbprint | Download |
 |---- |---- |---- |---- |
+| Baltimore CyberTrust Root | May 12, 2025 | 0x20000b9<br>D4DE20D05E66FC53FE1A50882C78DB2852CAE474 | [PEM](https://crt.sh/?d=76) |
 | DigiCert Global Root CA | Nov 10, 2031 | 0x083be056904246b1a1756ac95991c74a<br>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 | [PEM](https://crt.sh/?d=853428) |
 | DigiCert Global Root G2 | Jan 15 2038 | 0x033af1e6a711a9a0bb2864b11d09fae5<br>DF3C24F9BFD666761B268073FE06D1CC8D4F82A4 | [PEM](https://crt.sh/?d=8656329) |
 | DigiCert Global Root G3 | Jan 15, 2038 | 0x055556bcf25ea43535c3a40fd5ab4572<br>7E04DE896A3E666D00E687D33FFAD93BE83D349E | [PEM](https://crt.sh/?d=8568700) |
-| Baltimore CyberTrust Root | May 12, 2025 | 0x20000b9<br>D4DE20D05E66FC53FE1A50882C78DB2852CAE474 | [PEM](https://crt.sh/?d=76) |
 | Microsoft ECC Root Certificate Authority 2017 | Jul 18, 2042 | 0x66f23daf87de8bb14aea0c573101c2ec<br>999A64C37FF47D9FAB95F14769891460EEC4C3C5 | [PEM](https://crt.sh/?d=2565145421) |
 | Microsoft RSA Root Certificate Authority 2017 | Jul 18, 2042 | 0x1ed397095fd8b4b347701eaabe7f45b3<br>73A5E64A3BFF8316FF0EDCCC618A906E4EAE4D74 | [PEM](https://crt.sh/?d=2565151295) |
 
@@ -39,13 +39,13 @@ Looking for CA details specific to Azure Active Directory? See the [Certificate 
 
 | Certificate Authority | Expiry Date | Serial Number<br>Thumbprint | Downloads |
 |---- |---- |---- |---- |
+| DigiCert Basic RSA CN CA G2 | Mar 4, 2030 | 0x02f7e1f982bad009aff47dc95741b2f6<br>4D1FA5D1FB1AC3917C08E43F65015E6AEA571179 | [PEM](https://crt.sh/?d=2545289014) |
+| DigiCert Cloud Services CA-1 | Aug 4, 2030 | 0x019ec1c6bd3f597bb20c3338e551d877<br>81B68D6CD2F221F8F534E677523BB236BBA1DC56 | [PEM](https://crt.sh/?d=12624881) |
 | DigiCert SHA2 Secure Server CA | Sep 22, 2030 | 0x02742eaa17ca8e21c717bb1ffcfd0ca0<br>626D44E704D1CEABE3BF0D53397464AC8080142C | [PEM](https://crt.sh/?d=3422153451) |
 | DigiCert TLS Hybrid ECC SHA384 2020 CA1 | Sep 22, 2030 | 0x0a275fe704d6eecb23d5cd5b4b1a4e04<br>51E39A8BDB08878C52D6186588A0FA266A69CF28 | [PEM](https://crt.sh/?d=3422153452) |
-| DigiCert Cloud Services CA-1 | Aug 4, 2030 | 0x019ec1c6bd3f597bb20c3338e551d877<br>81B68D6CD2F221F8F534E677523BB236BBA1DC56 | [PEM](https://crt.sh/?d=12624881) |
-| DigiCert Basic RSA CN CA G2 | Mar 4, 2030 | 0x02f7e1f982bad009aff47dc95741b2f6<br>4D1FA5D1FB1AC3917C08E43F65015E6AEA571179 | [PEM](https://crt.sh/?d=2545289014) |
 | DigiCert TLS RSA SHA256 2020 CA1 | Apr 13, 2031 | 0x06d8d904d5584346f68a2fa754227ec4<br>1C58A3A8518E8759BF075B76B750D4F2DF264FCD | [PEM](https://crt.sh/?d=4385364571) |
-| GeoTrust TLS DV RSA Mixed SHA256 2020 CA-1 | May 31, 2023 | 0x0c08966535b942a9735265e4f97540bc<br>2F7AA2D86056A8775796F798C481A079E538E004 | [PEM](https://crt.sh/?d=3112858728)|
 | GeoTrust Global TLS RSA4096 SHA256 2022 CA1 | Nov 09, 2031 | 0x0f622f6f21c2ff5d521f723a1d47d62d<br>7E6DB7B7584D8CF2003E0931E6CFC41A3A62D3DF | [PEM](https://crt.sh/?d=6670931375)|
+| GeoTrust TLS DV RSA Mixed SHA256 2020 CA-1 | May 31, 2023 | 0x0c08966535b942a9735265e4f97540bc<br>2F7AA2D86056A8775796F798C481A079E538E004 | [PEM](https://crt.sh/?d=3112858728)|
 | Microsoft Azure TLS Issuing CA 01 | Jun 27, 2024 | 0x0aafa6c5ca63c45141ea3be1f7c75317<br>2F2877C5D778C31E0F29C7E371DF5471BD673173 | [PEM](https://crt.sh/?d=3163654574) |
 | Microsoft Azure TLS Issuing CA 01 | Jun 27, 2024 | 0x1dbe9496f3db8b8de700000000001d<br>B9ED88EB05C15C79639493016200FDAB08137AF3 | [PEM](https://crt.sh/?d=2616326024) |
 | Microsoft Azure TLS Issuing CA 02 | Jun 27, 2024 | 0x0c6ae97cced599838690a00a9ea53214<br>E7EEA674CA718E3BEFD90858E09F8372AD0AE2AA | [PEM](https://crt.sh/?d=3163546037) |
