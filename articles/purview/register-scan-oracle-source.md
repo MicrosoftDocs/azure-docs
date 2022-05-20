@@ -139,6 +139,11 @@ On the **Register sources (Oracle)** screen, do the following:
 
 Follow the steps below to scan Oracle to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
+> [!TIP]
+> To troubleshoot any issues with scanning:
+> 1. Confirm you have followed all [**prerequisites**](#prerequisites).
+> 1. Review our [**scan troubleshooting documentation**](troubleshoot-connections.md).
+
 ### Create and run scan
 
 To create and run a new scan, do the following:

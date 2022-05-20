@@ -90,6 +90,13 @@ It's important to register the data source in Microsoft Purview before setting u
 
 ## Scan
 
+> [!TIP]
+> To troubleshoot any issues with scanning:
+> 1. Confirm you have followed all [**prerequisites**](#prerequisites).
+> 1. Check network by confirming [firewall](#firewall-settings), [Azure connections](#allow-azure-connections), or [integration runtime](#self-hosted-integration-runtime) settings.
+> 1. Confirm [authentication](#authentication-for-a-scan) is properly set up.
+> 1. Review our [**scan troubleshooting documentation**](troubleshoot-connections.md).
+
 ### Firewall settings
 
 If your database server has a firewall enabled, you'll need to update the firewall to allow access in one of two ways:
