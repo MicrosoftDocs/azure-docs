@@ -1,5 +1,5 @@
 ---
-title: orchestration workflow data formats
+title: Orchestration workflow data formats
 titleSuffix: Azure Cognitive Services
 description: Learn about the data formats accepted by orchestration workflow.
 services: cognitive-services

@@ -1,5 +1,5 @@
 ---
-title: orchestration workflow None intent
+title: Orchestration workflow none intent
 titleSuffix: Azure Cognitive Services
 description: Learn about the default None intent in orchestration workflow.
 services: cognitive-services

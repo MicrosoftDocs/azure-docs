@@ -29,7 +29,7 @@ Model evaluation is triggered automatically after training is completed successf
 
 * **F1 score**: The F1 score is a function of Precision and Recall. It's needed when you seek a balance between Precision and Recall.
 
-    `F1 Score = 2 * Precision * Recall / (Precision + Recall)` <br> 
+    `F1 Score = 2 * Precision * Recall / (Precision + Recall)` 
 
 
 Precision, recall, and F1 score are calculated for:
