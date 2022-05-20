@@ -1,8 +1,9 @@
 ---
 title: How to config ingress for Azure Spring Apps
 description: Describes how to config ingress for Azure Spring Apps
+author: frankliu20
 ms.author: haital
-ms.service: spring
+ms.service:  spring-cloud
 ms.topic: how-to
 ms.date: 05/27/2022
 ms.custom: devx-track-java, devx-track-azurecli
@@ -47,7 +48,7 @@ You can update ingress configuration for an existing service in Portal or CLI.
 1. Sign in to the portal using an account associated with the Azure subscription that contains the Azure Spring Apps instance.
 2. Navigate to the **Networking** blade, then go to the tab **Ingress configuration**.
 3. Update ingress configurations, and then click **Save**:
-:::image type="content" source="media/how-to-config-ingress/config-ingress-read-timeout.png" lightbox="media/how-to-config-ingress/config-ingress-read-timeout.pn" alt-text="Screenshot of Azure portal example for config ingress read timeout.":::
+:::image type="content" source="media/how-to-config-ingress/config-ingress-read-timeout.png" lightbox="media/how-to-config-ingress/config-ingress-read-timeout.png" alt-text="Screenshot of Azure portal example for config ingress read timeout.":::
 
 # [Azure CLI](#tab/azure-cli)
 To update ingress configuration for an existing service, use the following command:
