@@ -33,9 +33,16 @@ Download the [applicationinsights-agent-3.2.11.jar](https://github.com/microsoft
 
 > [!WARNING]
 > 
-> If you're upgrading from 3.0 Preview:
+> If you're upgrading from 3.2.x to 3.3.0-BETA:
+> 
+>    -  Starting from 3.3.0-BETA, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
 >
->    - Review all [configuration options](./java-standalone-config.md) carefully. The JSON structure has completely changed. The file name is now all lowercase.
+> If you're upgrading from 3.1.x:
+> 
+>    -  Starting from 3.2.0, controller "InProc" dependencies are not captured by default. For details on how to enable this, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
+>    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
+>    This change can affect custom dashboards or alerts if they relied on the previous values.
+>    For details, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
 > 
 > If you're upgrading from 3.0.x:
 > 
@@ -43,11 +50,7 @@ Download the [applicationinsights-agent-3.2.11.jar](https://github.com/microsoft
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
 >    For details, see the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0).
 >
-> If you're upgrading from 3.1.x:
->    -  Starting from 3.2.0, controller "InProc" dependencies are not captured by default. For details on how to enable this, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
->    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
->    This change can affect custom dashboards or alerts if they relied on the previous values.
->    For details, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
+
 
 #### Point the JVM to the jar file
 

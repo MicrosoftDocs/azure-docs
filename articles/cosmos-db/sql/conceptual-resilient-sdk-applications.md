@@ -3,7 +3,7 @@ title: Designing resilient applications with Azure Cosmos DB SDKs
 description: Learn how to build resilient applications using the Azure Cosmos DB SDKs and what all are the expected error status codes to retry on.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 03/25/2022
+ms.date: 05/05/2022
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
@@ -50,23 +50,23 @@ Your application should be resilient to a [certain degree](#when-to-contact-cust
 
 The short answer is **yes**. But not all errors make sense to retry on, some of the error or status codes aren't transient. The table below describes them in detail:
 
-| Status Code | Should add retry | Description |
+| Status Code | Should add retry | SDKs retry | Description |
 |----------|-------------|-------------|
-| 400 | No | [Bad request](troubleshoot-bad-request.md) |
-| 401 | No | [Not authorized](troubleshoot-unauthorized.md) |
-| 403 | Optional | [Forbidden](troubleshoot-forbidden.md) |
-| 404 | No | [Resource is not found](troubleshoot-not-found.md) |
-| 408 | Yes | [Request timed out](troubleshoot-dot-net-sdk-request-timeout.md) |
-| 409 | No | Conflict failure is when the identity (ID and partition key) provided for a resource on a write operation has been taken by an existing resource or when a [unique key constraint](../unique-keys.md) has been violated. |
-| 410 | Yes | Gone exceptions (transient failure that shouldn't violate SLA) |
-| 412 | No | Precondition failure is where the operation specified an eTag that is different from the version available at the server. It's an [optimistic concurrency](database-transactions-optimistic-concurrency.md#optimistic-concurrency-control) error. Retry the request after reading the latest version of the resource and updating the eTag on the request.
-| 413 | No | [Request Entity Too Large](../concepts-limits.md#per-item-limits) |
-| 429 | Yes | It's safe to retry on a 429. Review the [guide to troubleshoot HTTP 429](troubleshoot-request-rate-too-large.md).|
-| 449 | Yes | Transient error that only occurs on write operations, and is safe to retry. This can point to a design issue where too many concurrent operations are trying to update the same object in Cosmos DB. |
-| 500 | No | The operation failed due to an unexpected service error. Contact support by filing an [Azure support issue](https://aka.ms/azure-support). |
-| 503 | Yes | [Service unavailable](troubleshoot-service-unavailable.md) |
+| 400 | No | No | [Bad request](troubleshoot-bad-request.md) |
+| 401 | No | No | [Not authorized](troubleshoot-unauthorized.md) |
+| 403 | Optional | No | [Forbidden](troubleshoot-forbidden.md) |
+| 404 | No | No | [Resource is not found](troubleshoot-not-found.md) |
+| 408 | Yes | Yes | [Request timed out](troubleshoot-dot-net-sdk-request-timeout.md) |
+| 409 | No | No | Conflict failure is when the identity (ID and partition key) provided for a resource on a write operation has been taken by an existing resource or when a [unique key constraint](../unique-keys.md) has been violated. |
+| 410 | Yes | Yes | Gone exceptions (transient failure that shouldn't violate SLA) |
+| 412 | No | No | Precondition failure is where the operation specified an eTag that is different from the version available at the server. It's an [optimistic concurrency](database-transactions-optimistic-concurrency.md#optimistic-concurrency-control) error. Retry the request after reading the latest version of the resource and updating the eTag on the request.
+| 413 | No | No | [Request Entity Too Large](../concepts-limits.md#per-item-limits) |
+| 429 | Yes | Yes | It's safe to retry on a 429. Review the [guide to troubleshoot HTTP 429](troubleshoot-request-rate-too-large.md).|
+| 449 | Yes | Yes | Transient error that only occurs on write operations, and is safe to retry. This can point to a design issue where too many concurrent operations are trying to update the same object in Cosmos DB. |
+| 500 | No | No | The operation failed due to an unexpected service error. Contact support by filing an [Azure support issue](https://aka.ms/azure-support). |
+| 503 | Yes | Yes | [Service unavailable](troubleshoot-service-unavailable.md) |
 
-In the table above, all the status codes marked with **Yes** should have some degree of retry coverage in your application.
+In the table above, all the status codes marked with **Yes** on the second column should have some degree of retry coverage in your application.
 
 ### HTTP 403
 
@@ -96,6 +96,13 @@ If the account has multiple regions available, the SDKs will also attempt a [cro
 Because of the nature of timeouts and connectivity failures, these might not appear in your [account metrics](../monitor-cosmos-db.md), as they only cover failures happening on the service side.
 
 It's recommended for applications to have their own retry policy for these scenarios and take into consideration how to resolve write timeouts. For example, retrying on a Create timeout can yield an HTTP 409 (Conflict) if the previous request did reach the service, but it would succeed if it didn't.
+
+### Language specific implementation details
+
+For further implementation details regarding a language see:
+
+* [.NET SDK implementation information](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/docs/)
+* [Java SDK implementation information](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/docs/)
 
 ## Do retries affect my latency?
 

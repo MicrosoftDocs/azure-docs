@@ -8,24 +8,13 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 04/20/2022
+ms.date: 05/05/2022
 ---
 
 # Model and load data
 
-Within Hyperscale (Citus) servers, there are three types of tables:
-
-* **Distributed Tables** - Distributed across worker nodes (scaled out).
-  Large tables should be distributed tables to improve performance.
-* **Reference tables** - Replicated to all nodes. Enables joins with
-  distributed tables. Typically used for small tables like countries or product
-  categories.
-* **Local tables** - Tables that reside on coordinator node. Administration
-  tables are good examples of local tables.
-
-In this quickstart, we'll focus on distributed tables, and get familiar with
-them.  The data model we're going to work with is simple: an HTTP request log
-for multiple websites, sharded by site.
+In this example, we'll use Hyperscale (Citus) to store and query events
+recorded from GitHub open source contributors.
 
 ## Prerequisites
 
@@ -68,15 +57,24 @@ CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-## Shard tables across worker nodes
+Notice the GIN index on `payload` in `github_events`. The index allows fast
+querying in the JSONB column. Since Citus is a PostgreSQL extension, Hyperscale
+(Citus) supports advanced PostgreSQL features like the JSONB datatype for
+storing semi-structured data.
 
-Next, we’ll tell Hyperscale (Citus) to shard the tables. If your server group
-is running on the Standard Tier (meaning it has worker nodes), then the table
-shards will be created on workers. If the server group is running on the Basic
-Tier, then the shards will all be stored on the coordinator node.
+## Distribute tables
 
-To shard and distribute the tables, call `create_distributed_table()` and
-specify the table and key to shard it on.
+`create_distributed_table()` is the magic function that Hyperscale (Citus)
+provides to distribute tables and use resources across multiple machines.  The
+function decomposes tables into shards, which can be spread across nodes for
+increased storage and compute performance.
+
+The server group in this quickstart uses the Basic Tier, so the shards will be
+stored on just one node. However, if you later decide to graduate to the
+Standard Tier, then the shards can be spread across more nodes. With Hyperscale
+(Citus), you can start small and scale seamlessly.
+
+Let's distribute the tables:
 
 ```sql
 SELECT create_distributed_table('github_users', 'user_id');
@@ -84,23 +82,6 @@ SELECT create_distributed_table('github_events', 'user_id');
 ```
 
 [!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../../includes/azure-postgresql-hyperscale-dist-alert.md)]
-
-By default, `create_distributed_table()` splits tables into 32 shards.  We can
-verify using the `citus_shards` view:
-
-```sql
-SELECT table_name, count(*) AS shards
-  FROM citus_shards
- GROUP BY 1;
-```
-
-```
-  table_name   | shards
----------------+--------
- github_users  |     32
- github_events |     32
-(2 rows)
-```
 
 ## Load data into distributed tables
 
@@ -121,31 +102,25 @@ pre-installed in the Azure Cloud Shell.)
 \COPY github_events FROM PROGRAM 'curl https://examples.citusdata.com/events.csv' WITH (FORMAT CSV)
 ```
 
-We can confirm the shards now hold data:
+We can review details of our distributed tables, including their sizes, with
+the `citus_tables` view:
 
 ```sql
-SELECT table_name,
-       pg_size_pretty(sum(shard_size)) AS shard_size_sum
-  FROM citus_shards
- GROUP BY 1;
+SELECT * FROM citus_tables;
 ```
 
 ```
-  table_name   | shard_size_sum
----------------+----------------
- github_users  | 38 MB
- github_events | 95 MB
+  table_name   | citus_table_type | distribution_column | colocation_id | table_size | shard_count | table_owner | access_method 
+---------------+------------------+---------------------+---------------+------------+-------------+-------------+---------------
+ github_events | distributed      | user_id             |             1 | 388 MB     |          32 | citus       | heap
+ github_users  | distributed      | user_id             |             1 | 39 MB      |          32 | citus       | heap
 (2 rows)
 ```
 
-If you created your server group in the Basic Tier, all shards are stored on
-one node, the coordinator.  Otherwise, if the server group is in the Standard
-Tier, it has multiple worker nodes that store the shards.
-
 ## Next steps
 
-Now we have a table sharded and loaded with data. Next, let's try running
-queries across the data in these shards.
+Now we have distributed tables and loaded them with data. Next, let's try
+running queries across the distributed tables.
 
 > [!div class="nextstepaction"]
 > [Run distributed queries >](quickstart-run-queries.md)

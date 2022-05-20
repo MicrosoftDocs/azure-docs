@@ -47,7 +47,7 @@ The final step is to set the import configuration of the FHIR service, which con
 > [!NOTE]
 > If you haven't assigned storage access permissions to the FHIR service, the import operations ($import) will fail.
 
-To specify the Azure Storage account, you need to use [Rest API](/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
+To specify the Azure Storage account, you need to use [REST API](/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
 
 To get the request URL and body, browse to the Azure portal of your FHIR service. Select **Overview**, and then **JSON View**.
 

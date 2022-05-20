@@ -130,6 +130,8 @@
 
 - name: Data security, encryption, and storage
   items: 
+  - name: Azure Certificate Authority details
+    href: azure-CA-details.md
   - name: Data security and encryption
     href: encryption-overview.md
   - name: Key management in Azure

@@ -26,7 +26,7 @@ By default, the following users can view and manage reservations:
 - A Reservation administrator for reservations in their Azure Active Directory (Azure AD) tenant (directory)
 - A Reservation reader has read-only access to reservations in their Azure Active Directory tenant (directory)
 
-Currently, the reservation administrator and reservation reader roles are are only available to assign using PowerShell. They can't be viewed or assigned in the Azure portal. For more information, see [Grant access with PowerShell](#grant-access-with-powershell).
+Currently, the reservation administrator and reservation reader roles are only available to assign using PowerShell. They can't be viewed or assigned in the Azure portal. For more information, see [Grant access with PowerShell](#grant-access-with-powershell).
 
 The reservation lifecycle is independent of an Azure subscription, so the reservation isn't a resource under the Azure subscription. Instead, it's a tenant-level resource with its own Azure RBAC permission separate from subscriptions. Reservations don't inherit permissions from subscriptions after the purchase.
 
@@ -39,7 +39,7 @@ If you're a billing administrator, use following steps to view and manage all re
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 1. In the left menu, select **Products + services** > **Reservations**.
 1. The complete list of reservations for your EA enrollment or billing profile is shown.
-1. Billing administrators can take ownership of a reservation by selecting one or multiple reservations, clicking on **Grant access** and selecting **Grant access** in the window that appears.
+1. Billing administrators can take ownership of a reservation by selecting one or multiple reservations, selecting **Grant access** and selecting **Grant access** in the window that appears.
 
 ### Add billing administrators
 

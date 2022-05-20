@@ -4,7 +4,7 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/29/2022
+ms.date: 05/05/2022
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -272,9 +272,6 @@ Because a system-assigned managed identity can only be retrieved after the creat
 1.	Optionally, you can then remove the Azure Cosmos DB first-party identity from your Azure Key Vault access policy.
 
 ### To use a user-assigned managed identity
-
-> [!IMPORTANT]
-> When using a user-assigned managed identity, firewall rules on the Azure Key Vault account aren't currently supported. You must keep your Azure Key Vault account accessible from all networks.
 
 1.	When creating the new access policy in your Azure Key Vault account as described [above](#add-access-policy), use the `Object ID` of the managed identity you wish to use instead of Azure Cosmos DB's first-party identity.
 

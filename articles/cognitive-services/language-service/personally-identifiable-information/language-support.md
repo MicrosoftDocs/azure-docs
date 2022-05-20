@@ -19,7 +19,8 @@ Use this article to learn which natural languages are supported by the PII featu
 
 > [!NOTE]
 > * Languages are added as new [model versions](how-to-call.md#specify-the-pii-detection-model) are released.
-> * The current model version for PII is `2021-01-15`.
+
+# [PII for documents](#tab/documents)
 
 ## PII language support
 
@@ -35,6 +36,16 @@ Use this article to learn which natural languages are supported by the PII featu
 | Portuguese (Brazil)   | `pt-BR`       | 2021-01-15                      |                    |
 | Portuguese (Portugal) | `pt-PT`       | 2021-01-15                      | `pt` also accepted |
 | Spanish               | `es`          | 2020-04-01                      |                    |
+
+# [PII for conversations](#tab/conversations)
+
+## PII language support
+
+| Language              | Language code | Starting with v3 model version: | Notes              |
+|:----------------------|:-------------:|:-------------------------------:|:------------------:|
+| English               | `en`          | 2022-05-15-preview              |                    |
+
+---
 
 ## Next steps
 

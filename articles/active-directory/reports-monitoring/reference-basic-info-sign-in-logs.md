@@ -13,7 +13,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/02/2022
+ms.date: 05/05/2022
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -35,7 +35,7 @@ In Azure AD, a resource access has three relevant components:
 - **What** – The target (Resource) accessed by the identity.
 
 
-Each component has an associated unique identifier (ID). Below is an example of user using the Windows Azure classic deployment model to access the Azure portal.
+Each component has an associated unique identifier (ID). Below is an example of user using the Microsoft Azure classic deployment model to access the Azure portal.
 
 ![Open audit logs](./media/reference-basic-info-sign-in-logs/sign-in-details-basic-info.png)
 
@@ -47,6 +47,7 @@ The sign-in log tracks two tenant identifiers:
 - **Resource tenant** – The tenant that owns the (target) resource.
 
 These identifiers are relevant in cross-tenant scenarios. For example, to find out how users outside your tenant are accessing your resources, select all entries where the home tenant doesn’t match the resource tenant.
+For the home tenant, Azure AD tracks the ID and the name. 
 
 ### Request ID
 

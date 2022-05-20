@@ -2,14 +2,14 @@
 title: Select group-based permissions settings in CloudKnox Permissions Management with the User management dashboard
 description: How to select group-based permissions settings in CloudKnox Permissions Management with the User management dashboard.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Select group-based permissions settings

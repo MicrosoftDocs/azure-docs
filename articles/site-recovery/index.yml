@@ -10,8 +10,8 @@ metadata:
   ms.service: site-recovery
   ms.topic: landing-page
   ms.collection: collection
-  author: JYOTHIRMAISURI
-  ms.author: v-jysur
+  author: rishjai-msft
+  ms.author: rishjai
   ms.date: 11/19/2019
 
 landingContent:
@@ -35,8 +35,8 @@ landingContent:
         links:
           - text: Disaster recovery for Azure VMs
             url: ./azure-to-azure-tutorial-enable-replication.md
-          - text: Move Azure VMs to another region
-            url: ./azure-to-azure-tutorial-migrate.md
+          - text: Move Azure VMs to another region (Resource Mover)
+            url: ../resource-mover/tutorial-move-region-virtual-machines.md
       - linkListType: learn
         links:
           - text: Azure VM disaster recovery architecture
