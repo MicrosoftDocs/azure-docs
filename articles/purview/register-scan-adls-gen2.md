@@ -66,6 +66,11 @@ It is important to register the data source in Microsoft Purview prior to settin
 
 ## Scan
 
+> [!TIP]
+> To troubleshoot any issues with scanning:
+> 1. Confirm you have followed all [**prerequisites for scanning**](#prerequisites-for-scan).
+> 1. Review our [**scan troubleshooting documentation**](troubleshoot-connections.md).
+
 ### Prerequisites for scan
 
 In order to have access to scan the data source, an authentication method in the ADLS Gen2 Storage account needs to be configured.
@@ -86,6 +91,8 @@ The following options are supported:
 * **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
 
 ### Authentication for a scan
+
+# [System or user assigned managed identity](#tab/MI)
 
 #### Using a system or user assigned managed identity for scanning
 
@@ -125,6 +132,8 @@ It is important to give your Microsoft Purview account or user-assigned managed 
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-permission-microsoft-services.png" alt-text="Screenshot that shows the exceptions to allow trusted Microsoft services to access the storage account":::
 
+# [Account Key](#tab/AK)
+
 #### Using Account Key for scanning
 
 When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
@@ -155,6 +164,8 @@ When authentication method selected is **Account Key**, you need to get your acc
 
 1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to set up your scan
+
+# [Service Principal](#tab/SP)
 
 #### Using Service Principal for scanning
 
@@ -187,6 +198,8 @@ It is important to give your service principal the permission to scan the ADLS G
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-permission.png" alt-text="Screenshot that shows the details to provide storage account permissions to the service principal":::
 
+---
+
 ### Create the scan
 
 1. Open your **Microsoft Purview account** and select the **Open Microsoft Purview governance portal**
@@ -195,17 +208,23 @@ It is important to give your service principal the permission to scan the ADLS G
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
 
+# [System or user assigned managed identity](#tab/MI)
+
 #### If using a system or user assigned managed identity
 
 1. Provide a **Name** for the scan, select the system-assigned or user-assigned managed identity under **Credential**, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**.
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
 
+# [Account Key](#tab/AK)
+
 #### If using Account Key
 
 1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select **Authentication method** as _Account Key_
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-acct-key.png" alt-text="Screenshot that shows the Account Key option for scanning":::
+
+# [Service Principal](#tab/SP)
 
 #### If using Service Principal
 
@@ -218,6 +237,8 @@ It is important to give your service principal the permission to scan the ADLS G
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-service-principal-option.png" alt-text="Screenshot that shows the service principal option":::
 
 1. Select **Test connection**. On a successful connection, select **Continue**
+
+---
 
 ### Scope and run the scan
 
