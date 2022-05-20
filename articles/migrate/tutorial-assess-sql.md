@@ -168,12 +168,13 @@ You can review readiness reports for different migration strategies:
     :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-readiness.png" alt-text="Details of Azure SQL readiness.":::
 
 1. Review the readiness columns in the respective reports:
-    **Migration strategy** | **Readiness Columns (Respective deployment target)** 
-    --- | ---
-    Recommended | MI readiness (Azure SQL MI), VM readiness (SQL Server on Azure VM), DB readiness (Azure SQL DB)
+    
+    **Migration strategy** | **Readiness Columns (Respective deployment target)**
+    --- | --- 
+    Recommended | MI readiness (Azure SQL MI), VM readiness (SQL Server on Azure VM), DB readiness (Azure SQL DB).
     Instances to Azure SQL MI | MI readiness (Azure SQL Managed Instance)
-    Instances to SQL Server on Azure VM | VM readiness (SQL Server on Azure VM)
-    Servers to SQL Server on Azure VM | Azure VM readiness (SQL Server on Azure VM)
+    Instances to SQL Server on Azure VM | VM readiness (SQL Server on Azure VM).
+    Servers to SQL Server on Azure VM | Azure VM readiness (SQL Server on Azure VM).
     Databases to Azure SQL DB | DB readiness (Azure SQL Database)
 
 1. Review the readiness for the assessed SQL instances/SQL Servers/Databases:
