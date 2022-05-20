@@ -87,7 +87,9 @@ items:
   - name: Prepare a Node.js web app for Calling
     href: tutorials/building-app-start.md
   - name: Export SDK telemetry to Application Insights
-    href: quickstarts/telemetry-application-insights.md  
+    href: quickstarts/telemetry-application-insights.md
+  - name: Build a custom event management platform
+    href: tutorials/events-playbook.md
 - name: Concepts
   expanded: false
   items:
