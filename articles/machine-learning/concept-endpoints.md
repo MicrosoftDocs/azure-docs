@@ -204,12 +204,11 @@ You can [override compute resource settings](how-to-use-batch-endpoint.md#config
 
 You can use the following options for input data when invoking a batch endpoint:
 
-- Cloud data - Either a public data URI or data path in datastore. For more information, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md)
-- Data stored locally - it will be automatically uploaded to the datastore and referenced by the batch endpoint.
-- Azure Machine Learning registered datasets - for more information, see [Create Azure Machine Learning datasets](how-to-train-with-datasets.md), which uses SDK v1.
+- Cloud data - Either a path on Azure Machine Learning registered datastore, a reference to Azure Machine Learning registered V2 data asset, or a public URI. For more information, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md)
+- Data stored locally - it will be automatically uploaded to the Azure ML registered datastore and passed to the batch endpoint.
 
     > [!NOTE]
-    > We strongly recommend using Cloud data (either data path in datatore or public data URI) or local data for batch inference. Existing V1 FileDataset works with batch endpoint, but it will be deprecated and replaced with V2 data assets as we add full V2 data assets support for batch endpoint to enhance usability in the future. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
+    > If you are using existing V1 FileDataset for batch endpoint, we recommend migrating them to V2 data assets for `uri_folder`/`uri_file` and refer to them directly when invoking batch endpoints. You can also extract the URI or path on datastore extracted from V1 FileDataset and use that information for invoke. While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
 
 For more information on supported input options, see [Batch scoring with batch endpoint](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-with-different-input-options).
 

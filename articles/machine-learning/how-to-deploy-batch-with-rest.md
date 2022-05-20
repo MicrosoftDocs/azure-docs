@@ -123,7 +123,7 @@ Now, run the following snippet to create an environment:
 
 ## Deploy with batch endpoints
 
-Next, create a batch endpoint, a batch deployment, and set the default deployment.
+Next, create a batch endpoint, a batch deployment, and set the default deployment for the endpoint.
 
 ### Create batch endpoint
 
@@ -182,17 +182,24 @@ JOB_ID=$(echo $response | jq -r '.id')
 JOB_ID_SUFFIX=$(echo ${JOB_ID##/*/})
 ```
 
-Now, let's look at other options for invoking the batch endpoint. When it comes to input data, there are multiple scenarios you can choose from, depending on the input type (whether you are specifying a folder or a single file), and the URI type (whether you are using a public URI or a path on Azure Machine Learning registered datastore).
+Now, let's look at other options for invoking the batch endpoint. When it comes to input data, there are multiple scenarios you can choose from, depending on the input type (whether you are specifying a folder or a single file), and the URI type (whether you are using a path on Azure Machine Learning registered datastore, a reference to Azure Machine Learning registered V2 data asset, or a public URI).
 
 - An `InputData` property has `JobInputType` and `Uri` keys. When you are specifying a single file, use `"JobInputType": "UriFile"`, and when you are specifying a folder, use `'JobInputType": "UriFolder"`.
 
-- When the file or folder is on Azure ML registered datastore, the syntax for the `Uri` is  `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/` for folder, and `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>` for a specific file. You can also use the longer forms to represent the same path, such as `azureml://subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/datastores/<datastore-name>/paths/<path-on-datastore>/` or `/subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/datastores/<datastore-name>/paths/<path-on-datastore>`. For more information about data URI, see [Azure Machine Learning data reference URI](reference-yaml-core-syntax.md#azure-ml-data-reference-uri).
+- When the file or folder is on Azure ML registered datastore, the syntax for the `Uri` is  `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/` for folder, and `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>` for a specific file. You can also use the longer form to represent the same path, such as `azureml://subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/datastores/<datastore-name>/paths/<path-on-datastore>/`.
 
-- When the file of folder is publicly accessible path, the syntax for the URI is `https://<public-path>/` for folder, `https://<public-path>/<file-name>` for a specific file.
+- When the file or folder is registered as V2 data asset as `uri_folder` or `uri_file`, the syntax for the `Uri` is `\"azureml://data/<data-name>/versions/<data-version>/\"` (short form) or `\"azureml://subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/data/<data-name>/versions/<data-version>/\"` (long form).
+
+- When the file or folder is a publicly accessible path, the syntax for the URI is `https://<public-path>/` for folder, `https://<public-path>/<file-name>` for a specific file.
+
+> [!NOTE]
+> For more information about data URI, see [Azure Machine Learning data reference URI](reference-yaml-core-syntax.md#azure-ml-data-reference-uri).
 
 Below are some examples using different types of input data.
 
-- If your data is a single file publicly available from the web, you can use the following snippet:
+- If your data is a folder on the Azure ML registered datastore, you can either:
+
+    - Use the short form to represent the URI:
 
     ```rest-api
     response=$(curl --location --request POST $SCORING_URI \
@@ -202,8 +209,8 @@ Below are some examples using different types of input data.
         \"properties\": {
             \"InputData\": {
                 \"mnistInput\": {
-                    \"JobInputType\" : \"UriFile\",
-                    \"Uri": \"https://pipelinedata.blob.core.windows.net/sampledata/mnist/0.png\"
+                    \"JobInputType\" : \"UriFolder\",
+                    \"Uri": \"azureml://datastores/workspaceblobstore/paths/$ENDPOINT_NAME/mnist\"
                 }
             }
         }
@@ -213,7 +220,7 @@ Below are some examples using different types of input data.
     JOB_ID_SUFFIX=$(echo ${JOB_ID##/*/})
     ```
 
-- If your data is a folder (potentially with multiple files) publicly available from the web, you can use the following snippet:
+    - Or use the long form for the same URI:
 
     ```rest-api
     response=$(curl --location --request POST $SCORING_URI \
@@ -224,8 +231,49 @@ Below are some examples using different types of input data.
         	\"InputData\": {
         		\"mnistinput\": {
         			\"JobInputType\" : \"UriFolder\",
-        			\"Uri\":  \"https://pipelinedata.blob.core.windows.net/sampledata/mnist\"
+        			\"Uri\": \"azureml://subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/workspaces/$WORKSPACE/datastores/workspaceblobstore/paths/$ENDPOINT_NAME/mnist\"
         		}
+            }
+        }
+    }")
+    
+    JOB_ID=$(echo $response | jq -r '.id')
+    JOB_ID_SUFFIX=$(echo ${JOB_ID##/*/})
+    ```
+
+- If you want to manage your data as Azure ML registered V2 data asset as `uri_folder`, you can follow the two steps:
+
+    1. Create the V2 data asset:
+
+    ```rest-api
+    DATA_NAME="mnist"
+    DATA_VERSION=$RANDOM
+    
+    response=$(curl --location --request PUT https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/datasets/$DATA_NAME/versions/$DATA_VERSION?api-version=$API_VERSION \
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer $TOKEN" \
+    --data-raw "{
+        \"properties\": {
+            \"dataType\": \"uri_folder\",
+      \"dataUri\": \https://pipelinedata.blob.core.windows.net/sampledata/mnist\,
+      \"description\": \"Mnist data asset\"
+        }
+    }")
+    ```
+
+    2. Reference the data asset in the batch scoring job:
+
+    ```rest-api
+    response=$(curl --location --request POST $SCORING_URI \
+    --header "Authorization: Bearer $SCORING_TOKEN" \
+    --header "Content-Type: application/json" \
+    --data-raw "{
+        \"properties\": {
+            \"InputData\": {
+                \"mnistInput\": {
+                    \"JobInputType\" : \"UriFolder\",
+                    \"Uri": \"azureml://data/$DATA_NAME/versions/$DATA_VERSION/\"
+                }
             }
         }
     }")
@@ -254,10 +302,11 @@ Below are some examples using different types of input data.
     JOB_ID=$(echo $response | jq -r '.id')
     JOB_ID_SUFFIX=$(echo ${JOB_ID##/*/})
     ```
+
 > [!NOTE]
-> We strongly recommend using the latest REST API version to use Cloud data (either data path in datastore or public data URI) for batch scoring.
+> We strongly recommend using the latest REST API version for batch scoring.
 > - If you want to use local data, you can upload it to Azure Machine Learning registered datastore and use REST API for Cloud data.
-> - If you want to use existing V1 FileDataset, while you can still use 2022-02-01-preview REST API version, we recommend migrating to the latest API version using the URI or path on datastore extracted from V1 FileDataset. We will be adding full V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
+> - If you are using existing V1 FileDataset for batch endpoint, we recommend migrating them to V2 data assets for `uri_folder`/`uri_file` and refer to them directly when invoking batch endpoints. You can also extract the URI or path on datastore extracted from V1 FileDataset and use that information for invoke. While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
 
 #### Configure the output location and overwrite settings
 
