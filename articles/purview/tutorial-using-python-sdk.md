@@ -33,17 +33,11 @@ For this tutorial, you'll need:
 *   An Microsoft Purview account. If you don't already have one, you can [follow our quickstart guide to create one](create-catalog-portal.md).
 * A [service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) with a [client secret](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
->[!IMPORTANT]
->Get the following information from your service principal and secret, they'll be needed later:
->   *    Client ID (or Application ID)
->   *    Tenant ID (or Directory ID)
->   *    Client secret
-
-## Give Purview access to the Storage account
+## Give Microsoft Purview access to the Storage account
 
 Before being able to scan the content of the Storage account, you need to give Microsoft Purview the right role.
 
-1. Go to your Storage Account via the portal. 
+1. Go to your Storage Account through the [Azure portal](https://portal.azure.com). 
 1. Select Access Control (IAM). 
 1. Select the Add button and select **Add role assignment**.
 
@@ -65,21 +59,30 @@ Microsoft Purview now has the required reading right to scan your Blob Storage.
 
 ## Grant your application the access to your Microsoft Purview account
 
-1. First, you'll need the Client ID, Tenant ID, and Client secret from your service principal. To find this information, select your **Azure Active Directory**. From **App registrations** select your application and locate the required information:
-   *    Client ID (or Application ID)
-   *    Tenant ID (or Directory ID)
-          :::image type="content" source="media/tutorial-using-python-sdk/app-registration-info.png" alt-text="Service principal with the Client ID and Tenant ID highlighted."::: 
-   *    [Client secret](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
-          :::image type="content" source="media/tutorial-using-python-sdk/get-service-principal-secret.png" alt-text="Service principal, with the Certificates & secrets tab selected, showing the available client certificates and secrets."::: 
+1. First, you'll need the Client ID, Tenant ID, and Client secret from your service principal. To find this information, select your **Azure Active Directory**.
+1. Then, select **App registrations**.
+1. Select your application and locate the required information:
+    * Name
+    * Client ID (or Application ID)
+    * Tenant ID (or Directory ID)
+        :::image type="content" source="media/tutorial-using-python-sdk/app-registration-info.png" alt-text="Service principal with the Client ID and Tenant ID highlighted.":::
+    * [Client secret](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
+        :::image type="content" source="media/tutorial-using-python-sdk/get-service-principal-secret.png" alt-text="Service principal, with the Certificates & secrets tab selected, showing the available client certificates and secrets.":::
+
+1. You now need to give the relevant Microsoft Purview roles to your service principal. To do so, access your Microsoft Purview instance. Select **Open Microsoft Purview governance portal** or open [the Microsoft Purview's governance portal directly](https://web.purview.azure.com/) and choose the instance that you deployed.
+
+1. Inside the Microsoft Purview governance portal, select **Data map**, then **Collections**:
+    :::image type="content" source="media/tutorial-using-python-sdk/purview-collections.png" alt-text="The data map tab is selected, then the collections tab is selected.":::
+
+1. Select the collection you want to work with, and go on the **Role assignments** tab. Add the service principal in the following roles:
+    * Collection admins
+    * Data source admins
+    * Data curators
+    * Data readers
     
-2. You now need to give the relevant Microsoft Purview roles to your service principal. To do so, access the Microsoft Purview instance. Select **Open Purview Studio** or open [Microsoft Purview's home page](https://web.purview.azure.com/) and choose the instance that you deployed.
+For to each role, select the **Edit role assignments** button and select the role you want to add the service principal to. Or select the **Add** button next to each role, and add the service principal by searching its name or Client ID as shown below:  
 
-    Inside Purview Studio, go to the collections:
-    :::image type="content" source="media/tutorial-using-python-sdk/purview-collections.png" alt-text="The data map tab is selected, then the collections tab is selected."::: 
-
-    Select the collection you want to work with, and go on the **Role assignments** tab. Add the service principal in the following roles: Collection admins, Data source admins, Data curators, Data readers. For to each role, select the **Add** button and add the service principal by searching its name as shown below:  
-
-    :::image type="content" source="media/tutorial-using-python-sdk/add-role-purview.png" alt-text="The add user button is select next to the Collection admins tab. The add or remove collection admins pane is shown, with a search for the service principal in the text box."::: 
+:::image type="content" source="media/tutorial-using-python-sdk/add-role-purview.png" alt-text="The add user button is select next to the Collection admins tab. The add or remove collection admins pane is shown, with a search for the service principal in the text box."::: 
 
 ## Install the Python packages
 
@@ -88,26 +91,35 @@ Microsoft Purview now has the required reading right to scan your Blob Storage.
     ```bash
     pip install azure-identity
     ```
-1.	Install the Microsoft Purview Scanning Client package
+1.	Install the Microsoft Purview Scanning Client package:
     ```bash
     pip install azure-purview-scanning
     ```
-1.	Install the Microsoft Purview Client package
+1.	Install the Microsoft Purview Client package:
     ```bash
     pip install azure-purview-catalog
     ```
-1.	Install the Azure core package
+1.	Install the Microsoft Purview Account package:
+    ```bash
+    pip install azure-purview-account
+    ```
+1.	Install the Azure core package:
     ```bash
     pip install azure-core
     ```
 
+## Create Python script file
+
+Create a plain text file, and save it as a python script with the suffix .py.
+For example: tutorial.py.
+
 ## Instantiate a Scanning and a Catalog client
 
 In this section, you learn how to instantiate:
-*    A scanning client useful to registering data sources, creating and managing scan rules, triggering a scan, etc. 
-*    A catalog client useful to interact with the catalog through searching, browsing the discovered assets, identifying the sensitivity of your data, etc.
+* A scanning client useful to registering data sources, creating and managing scan rules, triggering a scan, etc. 
+* A catalog client useful to interact with the catalog through searching, browsing the discovered assets, identifying the sensitivity of your data, etc.
 
-First you need to authenticate to your Azure Active Directory. In this tutorial, you'll use the [client secret you created](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+First you need to authenticate to your Azure Active Directory. For this, you'll use the [client secret you created](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
 
 
 1.	Start with required import statements:
@@ -150,12 +162,13 @@ First you need to authenticate to your Azure Active Directory. In this tutorial,
         return client
     ```
  
-Many of our operations will follow a similar formula.
+Many of our operations will scripts will start with this same information.
 
 ## Register a data source
 
 In this section, you'll register your Blob Storage. For the sake of this tutorial, you'll register it in the root collection of Microsoft Purview.
-1.	First you need to define the following information to be able to register the Blob storage programmatically:
+1. Gather the resource ID for your storage account by following this guide: [get the resource ID for a storage account.](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account)
+1.	Then, in your python file, define the following information to be able to register the Blob storage programmatically:
     ```python
     storage_name = "<name of your Storage Account>"
     storage_id = "<id of your Storage Account>"
@@ -163,11 +176,14 @@ In this section, you'll register your Blob Storage. For the sake of this tutoria
     rg_location = "<location of your resource group>"
     reference_name_purview = "<name of your Microsoft Purview account>"
     ```
-
-
-1.	For both clients and depending on the operations, you might need to also provide an input body. You'll need to provide an input body for data source registration:
+1. Provide the name of the collection where you'd like to register your blob storage. (It should be the same collection where you applied permissions earlier. If it is not, first apply permissions to this collection.) If it is the root collection, use the same name as your Microsoft Purview instance.
     ```python
-    ds_name = "myds"
+    collection_name = "<name of your collection>"
+    ```
+
+1. For both clients and depending on the operations, you might need to also provide an input body. You'll need to provide an input body for data source registration:
+    ```python
+    ds_name = "<friendly name for your data source>"
     
     body_input = {
             "kind": "AzureStorage",
@@ -179,14 +195,12 @@ In this section, you'll register your Blob Storage. For the sake of this tutoria
                 "resourceId": storage_id,
                 "collection": {
                     "type": "CollectionReference",
-                    "referenceName": reference_name_purview #here we use the root collection
+                    "referenceName": collection_name
                 },
                 "dataUseGovernance": "Disabled"
             }
         }    
     ```
-
-    In the above snippet, the name of the collection is the same as the Microsoft Purview account because we're working with the root collection. This is the highest level collection in your Microsoft Purview account, and has the same name as your Microsoft Purview account. Feel free to pass the name of another collection you might have created.
 
 1.	Register the data source.
     ```python
@@ -220,7 +234,12 @@ client_id = "<your client id>"
 client_secret = "<your client secret>",
 tenant_id = "<your tenant id>",
 reference_name_purview = "<name of your Microsoft Purview account>"
-
+storage_name = "<name of your Storage Account>"
+storage_id = "<id of your Storage Account>"
+rg_name = "<name of your resource group>"
+rg_location = "<location of your resource group>"
+collection_name = "<name of your collection>"
+ds_name = "<friendly data source name>"
 
 def get_credentials():
     credentials = ClientSecretCredential(client_id=client_id, client_secret=client_secret, tenant_id=tenant_id)
@@ -235,6 +254,22 @@ def get_catalog_client():
     credentials = get_credentials()
     client = PurviewCatalogClient(endpoint=f"https://{reference_name_purview}.purview.azure.com/", credential=credentials, logging_enable=True)
     return client
+    
+body_input = {
+	"kind": "AzureStorage",
+	"properties": {
+		"endpoint": ("https://{}.blob.core.windows.net/".format(storage_name)),
+                "resourceGroup": rg_name,
+                "location": rg_location,
+                "resourceName": storage_name,
+                "resourceId": storage_id,
+                "collection": {
+			"type": "CollectionReference",
+			"referenceName": collection_name
+                },
+		"dataUseGovernance": "Disabled"
+	}
+}
 
 try:
     client = get_purview_client()
@@ -246,7 +281,7 @@ try:
     print(response)
     print(f"Data source {ds_name} successfully created or updated")
 except HttpResponseError as e:
-    print(e)
+    print(e)    
 ```
 
 ## Scan the data source
