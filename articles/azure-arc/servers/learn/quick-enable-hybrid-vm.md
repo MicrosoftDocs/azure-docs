@@ -38,7 +38,7 @@ Use the Azure portal to create a script that automates the agent download and in
 
     :::image type="content" source="media/quick-enable-hybrid-vm/add-single-server.png" alt-text="Screenshot of Azure portal's add server page":::
     > [!NOTE]
-> You can also reach the page for adding servers by searching for and selecting "Servers-Azure Arc" from the home page of the portal and then selecting **+Add**.
+    > In the portal, you can also reach the page for adding servers by searching for and selecting "Servers-Azure Arc" and then selecting **+Add**.
 
 1. Review the information on the **Prerequisites** page, then select **Next**.
 
