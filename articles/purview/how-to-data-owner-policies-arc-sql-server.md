@@ -52,7 +52,9 @@ This section describes the steps to configure the SQL Server on Azure Arc to use
 
 1. Set **External Policy Based Authorization** to enabled
 
-1. Enter **Microsoft Purview Gateway Endpoint** in the format *https://\<purview-account-name\>.purview.azure.com*
+1. Enter **Microsoft Purview Gateway Endpoint** in the format *https://\<purview-account-name\>.purview.azure.com*. You can get the enpoint by selecting your Microsoft Purview account through [this link](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Purview%2FAccounts) and then navigating to the Properties section on the left.
+
+1. Make a note of the **App registration ID**, you will need it when you register this data source in Microsoft Purview for *Data use Management*
    
 1. Select the **Save** button to save the configuration
 
