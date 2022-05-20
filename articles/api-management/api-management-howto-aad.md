@@ -146,7 +146,7 @@ Follow these steps to grant:
    ```
 
 1. Sign out and sign back in to the Azure portal.
-1. Navigate to the App Registration page for the application you registered in [the previous section](#authorize-developer-accounts-by-using-azure-ad). 
+1. Navigate to the App Registration page for the application you registered in [the previous section](#enable-user-sign-in-using-azure-ad---portal). 
 1. Select **API Permissions**. You should see the permissions granted by the Azure CLI script in step 1. 
 1. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
