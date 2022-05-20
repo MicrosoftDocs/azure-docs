@@ -146,7 +146,7 @@ If you cannot select a collection when accepting a pending share or register a d
 
 ### Cannot select target storage account when mapping an asset
 When you map an asset to a target, if your storage account is not listed for you to select, it is likely due to the following reasons:
-* The storage account is not supported. Microsoft Purview Data share only [supports storage accounts with specific configurations](#storage-account-prerequisites).
+* The storage account is not supported. Microsoft Purview Data share only [supports storage accounts with specific configurations](#azure-storage-account-prerequisites).
 * You do not have **Data Share Contributor** role to the collection where the storage account is registered in. Data Share Contributor role is required to view the list of registered storage account in a collection. 
 
 
