@@ -51,7 +51,7 @@ The Application Insights connection string must be provided manually to the Orde
    ```
 
 > [!NOTE]
-> By default, the app insights name is the same name as the spring cloud service.
+> By default, the Application Insights service instance has the same name as the Azure Spring Apps service instance.
 
 1. Update the sampling rate for the Application Insights binding to increase the amount of data available using the following command:
 

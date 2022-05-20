@@ -40,12 +40,6 @@ cd acme-fitness-store
 
 Use the following steps to provision an Azure Spring Apps service instance.
 
-1. Update Azure CLI with the Azure Spring Apps extension using the following command:
-
-   ```azurecli
-   az extension update --name spring
-   ```
-
 1. Sign in to the Azure CLI and choose your active subscription using the following command:
 
    ```azurecli
