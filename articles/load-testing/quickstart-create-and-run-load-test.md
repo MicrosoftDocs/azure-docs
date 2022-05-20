@@ -44,7 +44,7 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
 1. On the **Get started** tab, select **Quick test**.
 
-    :::image type="content" source="media/quickstart-create-and-run-loadtest/quick-test-resource-overview.png" alt-text="Screenshot that shows the quick test button on the resource overview page.":::
+    :::image type="content" source="media/quickstart-create-and-run-load-test/quick-test-resource-overview.png" alt-text="Screenshot that shows the quick test button on the resource overview page.":::
 
 1. On the **Quickstart test** page, enter the **Test URL**.
 
@@ -58,7 +58,7 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
 1. Select **Run test** to create and start the load test.
 
-    :::image type="content" source="media/quickstart-create-and-run-loadtest/quickstart-test.png" alt-text="Screenshot that shows quickstart test page.":::
+    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test.png" alt-text="Screenshot that shows quickstart test page.":::
 
 > [!NOTE]
 > Azure Load Testing auto-generates an Apache JMeter script for your load test.
@@ -70,11 +70,11 @@ Once the load test starts, you will be redirected to the test run dashboard. Whi
 
 1. On the test run dashboard, you can see the streaming client-side metrics while the test is running. By default, the data refreshes every five seconds.
 
-    :::image type="content" source="./media/quickstart-create-and-run-loadtest/test-run-aggregated-by-percentile.png" alt-text="Screenshot that shows results of the load test.":::
+    :::image type="content" source="./media/quickstart-create-and-run-load-test/test-run-aggregated-by-percentile.png" alt-text="Screenshot that shows results of the load test.":::
 
 1. Optionally, change the display filters to view a specific time range, result percentile, or error type.
 
-    :::image type="content" source="./media/quickstart-create-and-run-loadtest/test-result-filters.png" alt-text="Screenshot that shows the filter criteria for the results of a load test.":::
+    :::image type="content" source="./media/quickstart-create-and-run-load-test/test-result-filters.png" alt-text="Screenshot that shows the filter criteria for the results of a load test.":::
 
 ## Modify load test parameters
 
