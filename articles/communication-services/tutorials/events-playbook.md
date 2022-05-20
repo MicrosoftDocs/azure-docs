@@ -51,7 +51,7 @@ Event hosts and organizers require the ability to present content, manage attend
 
 Throughout the rest of this tutorial, we will focus on how using Azure Communication Services and Microsoft Graph to build a custom event management platform. We will be using the sample architecture below. Based on that architecture we will be focusing on setting up scheduling and registration flows and embedding the attendee experience right on the event platform to join the event.
 
-:::image type="content" source="./media/event-architecture.svg" alt-text="Sample architecture for event management platform":::
+:::image type="content" source="./media/event-management-platform-architecture.svg" alt-text="Diagram showing sample architecture for event management platform":::
 
 ## Leveraging Microsoft Graph to schedule events and register attendees
 
@@ -94,7 +94,7 @@ Event management platforms can use a custom registration flow to register attend
 
 ### Communicate with your attendees using Azure Communication Services
 
-Through Azure Communication Services, developers can uses SMS and Email capabilities to send remainders to attendees for the event they have registered. Communication can also include confirmation for the event as well as information for joining and participating. 
+Through Azure Communication Services, developers can use SMS and Email capabilities to send remainders to attendees for the event they have registered. Communication can also include confirmation for the event as well as information for joining and participating. 
 - [SMS capabilities](https://docs.microsoft.com/azure/communication-services/quickstarts/sms/send) enable you to send text messages to your attendees. 
 - [Email capabilities](https://docs.microsoft.com/azure/communication-services/quickstarts/email/send-email) support direct communication to your attendees using custom domains.
 
