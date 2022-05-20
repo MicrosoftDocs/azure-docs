@@ -22,13 +22,13 @@ With this capability, you:
 
 1. Sign into the Azure portal and then search for and select Azure VMware Solution. 
 2.	Select the Azure VMware Solution private cloud.
-    :::image type="content" source="media/public-ip-usage/private-cloud-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
+    :::image type="content" source="media/public-ip-usage/private-cloud-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution private cloud.":::
 
 1. Under Workload Networking, select Internet Connectivity.
    :::image type="content" source="media/public-ip-usage/private-cloud-workload-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 
 4.	Select Connect using SNAT and click Save.  
-    :::image type="content" source="media/public-ip-usage/private-cloud-save-snat-internet-connectivity.png" alt-text="Screenshot Internet save SNAT Internet connectivity in Azure VMware Solution.":::
+    :::image type="content" source="media/public-ip-usage/private-cloud-save-snat-internet-connectivity.png" alt-text="Screenshot Internet connect using SNAT Internet connectivity in Azure VMware Solution.":::
 
 You have successfully enabled outbound internet access for your Azure VMware Solution Private Cloud using our Managed SNAT service.  
 

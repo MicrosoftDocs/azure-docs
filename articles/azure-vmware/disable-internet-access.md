@@ -13,7 +13,7 @@ With a default route setup, you can achieve the following tasks:
   > [!Note]
   > Ensure that a default route is not advertised from on-premises or Azure as that will override this behavior
  
-- Enable Internet access by generating a default route from Azure Firewall or third</sup> party Network Virtual Appliance. [Learn more](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity)
+- Enable Internet access by generating a default route from Azure Firewall or third party Network Virtual Appliance. [Learn more](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity)
 ## Prerequisites      
 - If Internet access is required, a default route must be advertised from a Native Azure Firewall, Network Virtual Appliance or Virtual WAN Hub. 
 - Azure VMware Solution private cloud.
