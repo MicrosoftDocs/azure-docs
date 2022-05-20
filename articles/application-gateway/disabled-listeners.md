@@ -1,5 +1,5 @@
 ---
-title: Identifying and fixing a disabled listener
+title: Understanding disabled listener state
 titleSuffix: Azure Application Gateway
 description: The article explains the details of a disabled listener and ways to resolve the problem.
 author: jaesoni
@@ -10,7 +10,7 @@ ms.author: jaysoni
 
 ---
 
-# Identifying and fixing a disabled listener on your gateway
+# Understanding disabled listener state
 
 The SSL/TLS certificates for Azure Application Gateway’s listeners can be referenced from a customer’s Key Vault resource. Your application gateway must always have access to such linked key vault resource and its certificate object to ensure smooth operations of the TLS termination feature and the overall health of the gateway resource.
 
