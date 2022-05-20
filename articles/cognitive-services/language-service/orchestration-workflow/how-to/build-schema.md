@@ -26,7 +26,7 @@ Consider the following guidelines and recommendations for your project:
 *	If there is an overlap of similar intents between domains, create the common intents in a separate domain and removing them from the others for the best accuracy.
 *	For intents that are general across domains, such as “Greeting”, “Confirm”, “Reject”, you can either add them in a separate domain or as direct intents in the Orchestration project. 
 *	Orchestrate to Custom question answering knowledge base when a domain has FAQ type questions with static answers. Ensure that the vocabulary and language used to ask questions is distinctive from the one used in the other Conversational Language Understanding projects and LUIS applications.
-*	If an utterance is being misclassified and routed to an incorrect intent, then add similar utterances to the intent to influence its results. If the intent is connected to a project, then add utterances to the connected project itself. After retraining your orchestration project, the new utterances in the connected project will influence predictions.
+*	If an utterance is being misclassified and routed to an incorrect intent, then add similar utterances to the intent to influence its results. If the intent is connected to a project, then add utterances to the connected project itself. After you retrain your orchestration project, the new utterances in the connected project will influence predictions.
 *	Add test data to your orchestration projects to validate there isn’t confusion between linked projects and other intents.
 
 

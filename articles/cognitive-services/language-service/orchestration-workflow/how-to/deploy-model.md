@@ -21,7 +21,7 @@ Once you are satisfied with how your model performs, it's ready to be deployed, 
 
 * A successfully [created project](create-project.md) 
 * [Labeled utterances](tag-utterances.md) and successfully [trained model](train-model.md)
-* Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
+<!--* Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.-->
 
 See [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
