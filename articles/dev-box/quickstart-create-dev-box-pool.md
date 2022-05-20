@@ -15,9 +15,9 @@ ms.date: 04/15/2022
 
 # Quickstart: Create a Dev Box Pool
 
-This quickstart describes how to set up a Dev Box Pool by using the Azure portal. You can go through this workflow to configure the resources required to create dev boxes. This is great for a trial experience or pilot of the service.
+This quickstart describes how to set up a Dev Box Pool by using the Azure portal. Follow the steps in this article to configure the resources required to create dev boxes. This is great for a trial experience or pilot of the service.
 
-In this quickstart, you will do the following actions:
+In this quickstart, you will perform the following actions:
 
 * [Create a DevCenter](#create-a-devcenter)
 * [Create a Network Connection](#create-a-network-connection)
@@ -39,13 +39,17 @@ The following steps illustrate how to use the Azure portal to create and configu
 2. On the DevCenter page, select **+ Create** 
    :::image type="content" source="./media/quickstart-create-dev-box-pool/create-devcenter.png" alt-text="Azure portal create DevCenter":::
 
-3. On the **Basics** tab of **Create a Fidalgo DevCenter** window, perform the following actions:
+3. On the **Basics** tab, enter the following values:
+
+   |Name|Value|
+   |----|----|
+   |**Subscription**|Select the subscription in which you want to create the DevCenter. The subscription you select must be whitelisted.|
+   |**Resource group**|Select an existing resource group or select **Create new**, and enter a name for the resource group. |
+   |**Name**|Enter a name for your DevCenter. |
+   |**Location**|Select the location/region you want the DevCenter to be created in. |
+ 
    :::image type="content" source="./media/quickstart-create-dev-box-pool/create-devcenter-basics.png" alt-text="Create DevCenter Basics tab":::
-    1. For **Subscription**, select the subscription in which you want to create the DevCenter. Kindly note that you need to use the whitelisted subscription
-    2. For **Resource group**, either use an existing resource group or select **Create new**, and enter a name for the resource group.
-    3. For **Name**, enter a name for the DevCenter
-    4. For **Location**, select the location/region you want the DevCenter to be created in.
-    
+       
     The currently supported Azure locations with capacity are:
     - East US
     - East US 2
@@ -54,7 +58,7 @@ The following steps illustrate how to use the Azure portal to create and configu
     - West Europe
 
 
-3. [Optional] In the 'Tags' tab, enter a name and value pair that you want to assign.
+3. [Optional] In the **Tags** tab, enter a name and value pair that you want to assign.
    :::image type="content" source="./media/quickstart-create-dev-box-pool/create-devcenter-tags.png" alt-text="Create DevCenter Tags tab":::
 
 4. Review + Create
@@ -201,6 +205,10 @@ The Pool resource will be deployed and health checks will be run to ensure the i
 
 ## Next steps
 
-In this quickstart, you created a Dev Box Pool including the resources necessary to configure it. To learn about how to create to your dev box and connect to it, advance to the next quickstart:
+In this quickstart, you created a Dev Box Pool including the resources necessary to configure it. 
 
-- [Create a dev box](./quickstart-create-dev-box.md)
+To learn about how to create to your dev box and connect to it, advance to the next quickstart:
+
+> [!div class="nextstepaction"]
+> [Create a dev box](./quickstart-create-dev-box.md)
+
