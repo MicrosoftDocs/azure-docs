@@ -27,7 +27,7 @@ This article shows you how to use Partner Center to submit your Dynamics 365 off
     - **Complete** – The page is complete. All required data has been provided and there are no errors.
 
 1. If any of the pages have a status other than **Complete**, select the page name, correct the issue, save the page, and then select **Review and publish** again to return to this page.
-1. After all of the pages are complete, if you see a **Notes for certification** box, provide testing instructions to the certification team to ensure that your app is tested correctly. Provide any supplementary notes helpful for understanding your app.
+1. Some offer types require testing. After all of the pages are complete, if you see a **Notes for certification** box, provide testing instructions to the certification team to ensure that your app is tested correctly. Provide any supplementary notes helpful for understanding your app.
 1. To start the publishing process for your offer, select **Publish**. The **Offer overview** page appears and shows the offer's **Publish status**.
 
 ## Publish status
@@ -55,7 +55,7 @@ The following screenshot shows the **Offer overview** page for a _Dynamics 365 a
     [ ![Illustrates the preview link on the Offer overview page.](./media/dynamics-365/preview-link.png) ](./media/dynamics-365/preview-link.png#lightbox)
 
 > [!IMPORTANT]
-> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a support ticket to ensure we don't process a charge. Otherwise, the customer account used for the purchase will be billed and invoiced. Publisher Payout will occur when the criteria are met and will be paid out per the payout schedule with the agency fee deducted from the purchase price.
+> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a support ticket to ensure we are aware that you're testing the offer. Otherwise, the customer account used for the purchase will be billed and invoiced. Publisher Payout will occur when the criteria are met and will be paid out per the payout schedule with the agency fee deducted from the purchase price.
 
 If your offer is a _Contact Me_ listing, test that a lead is created as expected by providing the Contact Me details during preview.
 

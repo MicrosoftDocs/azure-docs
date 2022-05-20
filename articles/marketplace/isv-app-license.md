@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers 
-ms.date: 05/26/2022
+ms.date: 05/25/2022
 ---
 
 # ISV app license management
@@ -16,18 +16,14 @@ Applies to the following offer type:
 
 - Dynamics 365 apps on Dataverse and Power Apps
 
-_ISV app license management_ enables independent software vendors (ISVs) who build solutions using Dynamics 365 suite of products to manage and enforce licenses for their solutions using systems provided by Microsoft. By adopting this approach ISVs can:
+_ISV app license management_ enables independent software vendors (ISVs) who build solutions using Dynamics 365 suite of products to manage and enforce licenses for their solutions using systems provided by Microsoft. By adopting license management, ISVs can:
 
 - Enable your customers to assign and unassign licenses of ISV products using familiar tools such as Microsoft 365 Admin Center, which customers use to manage Office and Dynamics licenses.
 - Have the Power Platform enforce ISV product licenses at runtime to ensure that only licensed users can access your solution.
 - Save yourself the effort of building and maintaining your own license management and enforcement system.
 
-
-> [!NOTE]
-> ISV app license management is only available to ISVs participating in the ISV Connect program. Microsoft is not involved in the sale of licenses.
-
 ISV app license management currently supports:
-- A named user license model. Each license must be assigned to an Azure AD user.
+- A named user license model. Each license must be assigned to an Azure AD user or Azure AD security group.
 - Enforcement for model-driven apps.
 
 ## Prerequisites
@@ -45,50 +41,48 @@ The process varies depending on whether Microsoft hosts transactions on your beh
 
 These steps illustrate the high-level process to manage ISV app licenses:
 
-### Step 1: ISV creates an offer
+### Step 1: Create an offer
 
-**Transactable offers**:
-- The ISV [creates an offer in Partner Center](dynamics-365-customer-engage-offer-setup.md) and chooses to transact through Microsoft’s commerce system and enable Microsoft to manage the licenses of these add-ons. The ISV also defines at least one plan and configures pricing information and availability. The ISV can optionally define a private plan which only specific customers can see and purchase on [Microsoft AppSource](https://appsource.microsoft.com/).
-- 
-**List-only offers**:
-- The ISV [creates an offer in Partner Center](dynamics-365-customer-engage-offer-setup.md) and chooses to manage licenses for this offer through Microsoft. This includes defining one or more licensing plans for the offer.
+| Transactable offer | Licensable-only offers |
+| ------------ | ------------- |
+| The ISV [creates an offer in Partner Center](dynamics-365-customer-engage-offer-setup.md) and chooses to transact through Microsoft’s commerce system and enable Microsoft to manage the licenses of these add-ons. The ISV also defines at least one plan and configures pricing information and availability. The ISV can optionally define a private plan which only specific customers can see and purchase on [Microsoft AppSource](https://appsource.microsoft.com/). | - The ISV [creates an offer in Partner Center](dynamics-365-customer-engage-offer-setup.md) and chooses to manage licenses for this offer through Microsoft. This includes defining one or more licensing plans for the offer. |
 
-### Step 2: ISV adds license metadata to solution package
+### Step 2: Add license metadata to solution package
 
 The ISV creates a solution package for the offer that includes license plan information as metadata and uploads it to Partner Center for publication to Microsoft AppSource. To learn more, see [Adding license metadata to your solution](/powerapps/developer/data-platform/appendix-add-license-information-to-your-solution).
 
-### Step 3: Customers purchase subscription to ISV products
+### Step 3: Purchase subscription to ISV products
 
-**Transactable offers**:
+| Transactable offer | Licensable-only offers |
+| ------------ | ------------- |
+| Customers discover the ISV’s offer in AppSource, purchase a subscription to the offer from AppSource, and get licenses for the ISV app. |
+| - Customers discover the ISV’s offer in AppSource or directly on the ISV’s website. Customers purchase licenses for the plans they want directly from the ISV.<br>
+- The ISV registers the purchase with Microsoft in Partner Center. As part of [deal registration](/partner-center/csp-commercial-marketplace-licensing#register-isv-connect-deal-in-deal-registration), the ISV will specify the type and quantity of each licensing plan purchased by the customer. |
 
-- Customers discover the ISV’s offer in AppSource, purchase a subscription to the offer from AppSource, and get licenses for the ISV app.
+### Step 4: Manage subscription
 
-**List-only offers**:
-- Customers discover the ISV’s offer in AppSource or directly on the ISV’s website. Customers purchase licenses for the plans they want directly from the ISV.
-- The ISV registers the purchase with Microsoft in Partner Center. As part of [deal registration](/partner-center/csp-commercial-marketplace-licensing#register-isv-connect-deal-in-deal-registration), the ISV will specify the type and quantity of each licensing plan purchased by the customer.
+| Transactable offer | Licensable-only offers |
+| ------------ | ------------- |
+| ISVs activate the subscription.  |
+| Customers can manage the subscriptions of these add-ons and offers in [Microsoft 365 admin center](https://admin.microsoft.com/), just like they normally do for any of their other subscriptions, such as Microsoft Office or Dynamics.|
 
-### Step 4: Customers manage subscription
+### Step 5: Assign licenses
 
-Customers can manage the subscriptions of these add-ons and offers in [Microsoft 365 admin center](https://admin.microsoft.com/), just like they normally do for any of their other subscriptions, such as Microsoft Office or Dynamics.
-
-### Step 5: Customers assign licenses
-
-**Transactable offers**:
 - Customers can assign licenses of these add-ons in license pages under the billing node in [Microsoft 365 admin center](https://admin.microsoft.com/). Customers can assign licenses to users or groups. Doing so will enable these users to launch the ISV app. Customers can also install the app from [Microsoft 365 admin center](https://admin.microsoft.com/) into their Power Platform environment.
 
-**List-only offers:**
+**Licensable-only offers:**
 - The license plans will appear in Microsoft 365 Admin Center for the customer to [assign to users or groups](/microsoft-365/commerce/licenses/manage-third-party-app-licenses) in their organization. The customer can also install the application in their tenant via the Power Platform Admin Center.
 
 ### Step 6: Power Platform performs license checks
 
 When a user within the customer’s organization tries to run an application, Microsoft checks to ensure that the user has a license before permitting them to run it. If they do not have a license, the user sees a message explaining that they need to contact an administrator for a license.
 
-### Step 7: ISV can view reports
+### Step 7: View reports
 
 ISVs can view information on:
 - Orders purchased, renewed, or cancelled over time and by geography.
 
-- Provisions and assigned licenses over a period of time and by geography.
+- Provisioned and assigned licenses over a period of time and by geography.
 
 ## Enabling app license management through Microsoft
 

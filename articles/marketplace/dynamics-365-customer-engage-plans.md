@@ -23,8 +23,6 @@ You need to define at least one plan, if your offer has app license management e
 1. Near the top of the page, select **+ Create new plan**.
 1. In the dialog box that appears, in the **Plan ID** box, enter a unique plan ID. Use up to 50 lowercase alphanumeric characters, dashes, or underscores. You cannot modify the plan ID after you select **Create**.
 1. In the **Plan name** box, enter a unique name for this plan. Use a maximum of 200 characters.
-    > [!NOTE]
-    > You cannot change this name after the offer is published live.
 1. Select **Create**.
 
 ## Define the plan listing
@@ -37,7 +35,7 @@ On the **Plan listing** tab, you can define the plan name and description as you
 
 ## Define pricing and availability
 
-If you choose to sell through Microsoft and have Microsoft host transactions on your behalf, then the **Pricing and availability** tab appears in the left-nav. Otherwise, go to [Copy the Service IDs](#copy-the-service-ids).
+If you chose to sell through Microsoft and have Microsoft host transactions on your behalf, then the **Pricing and availability** tab appears in the left-nav. Otherwise, go to [Copy the Service IDs](#copy-the-service-ids).
 
 1. In the left-nav, select **Pricing and availability**.
 1. In the **Markets** section, select **Edit markets**.
