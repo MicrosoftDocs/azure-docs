@@ -182,7 +182,7 @@ CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
 );
 ```
 > [!NOTE]
-> The SQL users needs to have proper permissions on database scoped credentials to access the data source in Azure Synapse Analytics Serverless SQL Pool. [GRANT Database Scoped Credential Permissions](https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-database-scoped-credential-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest).
+> The SQL users needs to have proper permissions on database scoped credentials to access the data source in Azure Synapse Analytics Serverless SQL Pool. [Access external storage using serverless SQL pool in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-storage-files-overview?tabs=impersonation#permissions).
 
 The following example creates an external data source for Azure Data Lake Gen2 pointing to the publicly available New York data set:
 
