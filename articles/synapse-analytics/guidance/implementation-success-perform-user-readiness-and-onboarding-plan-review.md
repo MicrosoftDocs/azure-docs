@@ -1,57 +1,46 @@
 ---
-title: Perform user readiness and onboarding plan review
-description: TODO (pre-golive)
+title: "Synapse implementation success methodology: Perform user readiness and onboarding plan review"
+description: "Learn how to perform user readiness and onboarding of new users to ensure successful adoption of your data warehouse."
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 05/23/2022
 ---
 
-# Perform user readiness and onboarding plan review
+# Synapse implementation success methodology: Perform user readiness and onboarding plan review
 
 [!INCLUDE [implementation-success-context](includes/implementation-success-context.md)]
 
-We certainly do our best to make our sophisticated cloud services simple and easy to maintain, operate and use. Authoring detailed documentation, training technical personnel, service/platform administrators and developers, etc. on how to use the system is just part of what needs to be done. We must extend this effort and make sure the end users of your solution understand it, are able to see how it fits their needs and how it can bring value. Educating end users is critical to the overall
-success of your solution.
+Training technical people, like administrators and developers, is important to deliver success. Don't overlook that you must extend this effort to include end users, too. Review the use cases and roles identified during the assessment, project planning, and solution development to ensure that *everyone* is readied for success.
 
-Review the use cases and personas identified during the assessment, project planning and solution development to assure that everyone will all be prepared to be successful on Day One. Evaluate the project's plan for preparing all of the end users and support infrastructure of your solution.
+Evaluate your project plan and prepare an onboarding plan for each group of users, including:
 
-Look for an onboarding plan for these groups as they apply to your solution:
-
-- Big Data Analytics users
-- Structured Data Analytics users
-- Users of each and every one of your identified data consumption tools
-- Operations Support
-- Help Desk and User Support
+- Big data analytics users.
+- Structured data analytics users.
+- Users of each of your identified data consumption tools.
+- Operations support.
+- Help desk and user support.
 
 ## Onboarding and readiness
 
-Don't expect the users to just figure out how to use Azure Synapse Analytics even if they have some experience on similar technologies. Have a plan to reach out to your user groups to ensure a smooth transition for them to the new environment.
+It's unrealistic to expect that users figure out how to use Azure Synapse, even when they have experience with similar technologies. So, plan to reach out to your users to ensure a smooth transition for them to the new environment. Ensure that:
 
-As you reach out verify that:
+- Users understand what Azure Synapse does and how it does it.
+- Users understand how to use the Azure Synapse service or the platform that uses it.
+- Onboarding of users is a consistent and continuous process.
+- Users see and understand the value of the new environment.
 
-- Users understand what Azure Synapse Analytics does and how it does it
-- Users understand how to use the Azure Synapse service or platform that includes it
-- Onboarding of users is a consistent and continuous process
-- Users see and understand the value
+The onboarding of users starts with explanatory sessions or technical workshops. It also involves giving them access to the platform. The onboarding process can span several months depending on the complexity of the solution, and it should set the right tone for future interactions with the Azure Synapse platform and services.
 
-Onboarding of users starts with explanatory sessions or technical workshops and giving them access to the platform will usually span several months depending on the complexity of the solution. This will set the right tone for future interactions with Azure Synapse platform and services.
+Take tracking steps and make sure users are capable of completing a set of core tasks that will form part of their daily operations. These tasks will be specific to different groups of user groups, roles, and use cases. Identify:
 
-Take tracking steps and make sure the users are capable of successfully completing a set of core tasks that will be part of their day-to-day operations (or very close to). These tasks will be specific to different user groups, personas and use cases
+- The core actions users need to be able to perform.
+- The steps users must take to perform each action.
 
-Identify:
-
-- What core actions the users need to be able to perform
-- What steps the users must take to perform each action
-
-Focus your efforts on points where the users struggle the most and provide straightforward instructions and processes. Be mindful of to how long it takes for the users to complete specific tasks. It is always a good idea to additionally request qualitative feedback to better track user readiness and onboarding experience.
-
-## Conclusion
-
-User and Support onboarding is of extreme importance -- providing even the best implementation of Azure Synapse platform to the users will likely fail if they do not have necessary understanding of its capabilities, the purpose of the features it provides them and how to perform operations that will lead to creation of business value.
+Focus your efforts on the tasks that users struggle the most with. Be sure to provide straightforward instructions and processes, yet be mindful of to how long it takes for users to complete specific tasks. It's always a good idea to request qualitative feedback to better track user readiness and improve the onboarding experience.
 
 ## Next steps
 
-TODO
+In the [next article](implementation-success-perform-monitoring-review.md) in the *Azure Synapse success by design* series, learn how to monitor your Azure Synapse solution.
