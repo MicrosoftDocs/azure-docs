@@ -1,7 +1,7 @@
 ---
-title: How to send API requests to an orchestration workflow project
+title: How to deploy an orchestration workflow project
 titleSuffix: Azure Cognitive Services
-description: Learn about sending a request to orchestration workflow projects.
+description: Learn about deploying orchestration workflow projects.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,14 +13,14 @@ ms.author: aahi
 ms.custom: language-service-orchestration
 ---
 
-# Deploy a model 
+# Deploy an orchestration workflow model 
 
 Once you are satisfied with how your model performs, it's ready to be deployed, and query it for predictions from utterances. Deploying a model makes it available for use through the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 ## Prerequisites
 
 * A successfully [created project](create-project.md) 
-* [Labeled utterances](tag-data.md) and successfully [trained model](train-model.md)
+* [Labeled utterances](tag-utterances.md) and successfully [trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
 
 See [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
