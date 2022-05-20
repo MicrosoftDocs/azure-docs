@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new policy for requesting access.
 
-This article describes how to change the approval and requestor information settings for an existing access package, through an access package policy.
+This article describes how to change the approval and requestor information settings for an existing access package, through an access package's policy.
 
 ## Approval
 
@@ -204,7 +204,7 @@ In order to make sure users are getting access to the right access packages, you
 
 1. Fill out the remaining tabs (e.g., Lifecycle) based on your needs.
 
-After you have configured requestor information in your access package policy, can view the requestor's responses to the questions. For guidance on seeing requestor information, see [View requestor's answers to questions](entitlement-management-request-approve.md#view-requestors-answers-to-questions).
+After you have configured requestor information in your access package's policy, can view the requestor's responses to the questions. For guidance on seeing requestor information, see [View requestor's answers to questions](entitlement-management-request-approve.md#view-requestors-answers-to-questions).
 
 ## Next steps
 - [Change lifecycle settings for an access package](entitlement-management-access-package-lifecycle-policy.md)
