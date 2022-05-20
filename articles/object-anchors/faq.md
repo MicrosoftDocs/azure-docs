@@ -59,11 +59,9 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **A:** HoloLens 2.
 
-**Q: Which OS build should my HoloLens run?**
+**Q: Which version of Windows Holographic should my HoloLens 2 have installed?**
 
-**A:** OS Build 18363.720 or newer, released after March 12, 2020.
-
-  More details at [Windows 10 March 12, 2020 update](https://support.microsoft.com/help/4551762).
+**A:** We recommend the most recent release from Windows Update. See the Windows Holographic [release notes](/hololens/hololens-release-notes) and [update instructions](/hololens/hololens-update-hololens).
 
 **Q: How long does it take to detect an object on HoloLens?**
 
