@@ -45,98 +45,49 @@ az provider register --namespace Microsoft.SaaS
 az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
 ```
 
-## Review the configuration file
+## Review the Terraform Plan
 
 The configuration file used in this quickstart is from the [Azure Spring Apps reference architecture](reference-architecture.md).
 
-```hcl
-provider "azurerm" {
-    features {}
-}
+# [Azure Spring Standard](#tab/azure-spring-standard)
 
-resource "azurerm_resource_group" "sc_corp_rg" {
-    name      = var.resource_group_name
-    location  = var.location
-}
+:::code language="hcl" source="~/azure-spring-cloud-reference-architecture/terraform/brownfield-deployment/Standard/main.tf":::
 
-resource "azurerm_application_insights" "sc_app_insights" {
-  name                = var.app_insights_name
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  application_type    = "web"
-  depends_on = [azurerm_resource_group.sc_corp_rg]
-}
+# [Azure Spring Enterprise](#tab/azure-spring-enterprise)
 
-resource "azurerm_spring_cloud_service" "sc" {
-  name                = var.sc_service_name
-  resource_group_name = var.resource_group_name
-  location            = var.location
+:::code language="hcl" source="~/azure-spring-cloud-reference-architecture/terraform/brownfield-deployment/Enterprise/main.tf":::
 
-  network {
-    app_subnet_id                   = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringcloudvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.app_subnet_id}"
-    service_runtime_subnet_id       = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringcloudvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.service_runtime_subnet_id}"
-    cidr_ranges                     = var.sc_cidr
-  }
+---
 
-  timeouts {
-      create = "60m"
-      delete = "2h"
-  }
+## Apply the Terraform Plan
 
-  depends_on = [azurerm_resource_group.sc_corp_rg]
-  tags = var.tags
+To apply the Terraform Plan, follow these steps:
 
-}
-
-resource "azurerm_monitor_diagnostic_setting" "sc_diag" {
-  name                        = "monitoring"
-  target_resource_id          = azurerm_spring_cloud_service.sc.id
-  log_analytics_workspace_id = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringcloudvnetrg}/providers/Microsoft.OperationalInsights/workspaces/${var.sc_law_id}"
-
-  log {
-    category = "ApplicationConsole"
-    enabled  = true
-
-    retention_policy {
-      enabled = false
-    }
-  }
-
-  metric {
-    category = "AllMetrics"
-
-    retention_policy {
-      enabled = false
-    }
-  }
-}
-```
-
-## Apply the configuration
-
-To apply the configuration, follow these steps:
-
-1. Save the [variables.tf](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/terraform/brownfield-deployment/variable.tf) file locally, then open it in an editor.
+1. Save the variables.tf file for [Standard Tier](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/terraform/brownfield-deployment/Standard/variable.tf) or [Enterprise Tier](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/terraform/brownfield-deployment/Enterprise/variable.tf) locally, then open it in an editor.
 
 1. Edit the file to add the following values:
 
-   * The subscription ID of the Azure account you'll be deploying to.
+   * The subscription ID of the Azure account you'll be deploying to
 
-   * A deployment location from the regions where Azure Spring Apps is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all). You'll need the short form of the location name. To get this value, use the following command to generate a list of Azure locations, then look up the **Name** value for the region you selected.
+   * A deployment location from the regions where Azure Spring Apps is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all). You'll need the short form of the location name. To get this value, use the following command to generate a list of Azure locations, then look up the **Name** value for the region you selected
 
    ```azurecli
    az account list-locations --output table
    ```
 
-   * The name of the resource group you'll deploy to.
-   * A name of your choice for the Spring Apps Deployment.
-   * The name of the virtual network resource group where you'll deploy your resources.
-   * The name of the spoke virtual network (for example, *vnet-spoke*).
-   * The name of the subnet to be used by the Spring Apps Application Service (for example, *snet-app*).
-   * The name of the subnet to be used by the Spring Apps Runtime Service (for example, *snet-runtime*).
-   * The name of the Azure Log Analytics workspace.
-   * The CIDR ranges from your virtual network to be used by Azure Spring Apps (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).
-   * The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
+*New Deployment Information*
+* The name of the resource group you'll deploy to.
+* A name of your choice for the Spring Apps Deployment
+* A name of your choice for the App Insights Resource
+* Three CIDR ranges (at least /16) which are used to host the Spring Apps backend infrastructure. The CIDR ranges must not overlap with any existing CIDR ranges in the target Subnet
+* The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md)
+
+*Existing Infrastructure Information*
+* The name of the resource group where the existing virtual network resides
+* The name of the existing scope virtual network
+* The name of the existing subnet to be used by the Spring Apps Application Service
+* The name of the existing subnet to be used by the Spring Apps Runtime Service
+* The name of the Azure Log Analytics workspace
 
 1. Run the following command to initialize the Terraform modules:
 
