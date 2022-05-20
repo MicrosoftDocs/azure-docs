@@ -14,7 +14,7 @@ Defender for Cloud assesses the configuration of your resources to identify secu
 In addition to the built-in roles, there are two roles specific to Defender for Cloud:
 
 * **Security Reader**: A user that belongs to this role has viewing rights to Defender for Cloud. The user can view recommendations, alerts, a security policy, and security states, but cannot make changes.
-* **Security Admin**: A user that belongs to this role has the same rights as the Security Reader and can also update the security policy and dismiss alerts and recommendations.
+* **Security Admin**: A user that belongs to this role has the same rights as the Security Reader and can also update the security policy and dismiss alerts and recommendations, and apply recommendations.
 
 > [!NOTE]
 > The security roles, Security Reader and Security Admin, have access only in Defender for Cloud. The security roles do not have access to other Azure services such as Storage, Web & Mobile, or Internet of Things.
