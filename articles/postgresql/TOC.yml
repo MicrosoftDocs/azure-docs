@@ -14,12 +14,16 @@
   items:
   - name: Migration
     items:
-      - name: Migrate from Single to Flexible Server using CLI
-        href: single-server/how-to-migrate-single-to-flex-cli.md
-      - name: Migrate from Single to Flexible Server using portal
-        href: single-server/how-to-migrate-single-to-flex-portal.md
-      - name: Use Azure AD to migrate from Single to Flexible Server
-        href: single-server/how-to-setup-azure-ad-app-portal.md
+      - name: Single Server to Flexible Server migration (preview)
+        items:
+          - name: Single to Flexible - Concepts
+            href: single-server/concepts-single-to-flexible.md
+          - name: Single to Flexible - Migrate using portal
+            href: single-server/how-to-migrate-single-to-flex-portal.md
+          - name: Single to Flexible - Migrate using CLI
+            href: single-server/how-to-migrate-single-to-flex-cli.md
+          - name: Single to Flexible - Set up Azure AD app using portal
+            href: single-server/how-to-setup-azure-ad-app-portal.md
       - name: Migrate data with pg_dump and pg_restore
         href: single-server/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
@@ -133,8 +137,6 @@
       href: single-server/concepts-extensions.md
     - name: Limits
       href: single-server/concepts-limits.md
-    - name: Single to Flexible Server Migration
-      href: single-server/concepts-single-to-flexible.md
     - name: Understand pricing tiers
       items:
       - name: Pricing tiers
