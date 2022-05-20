@@ -116,7 +116,7 @@ az storage account create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az storage account create `
   --name $STORAGE_ACCOUNT `
   --resource-group $RESOURCE_GROUP `
@@ -137,7 +137,7 @@ STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GRO
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 $STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
 ```
 
@@ -194,7 +194,7 @@ az containerapp env dapr-component set \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az containerapp env dapr-component set `
     --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP `
     --dapr-component-name statestore `
@@ -323,7 +323,7 @@ az monitor log-analytics query \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 $LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`
 (az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
 
@@ -363,6 +363,8 @@ az group delete \
 ```azurecli
 az group delete `
     --resource-group $RESOURCE_GROUP
+```
+
 ---
 
 This command deletes the resource group that includes all of the resources created in this tutorial.
