@@ -22,13 +22,13 @@ The sizes and hardware types available for dedicated hosts vary by region. Refer
 ## Eadsv5
 ### Eadsv5-Type1
 
-The Eadsv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 96 vCPUs, and 768 GiB of RAM. The Eadsv5-Type1 runs [Eadsv5-series](easv5-eadsv5-series.md#eadsv5-series) VMs.
+The Eadsv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Eadsv5-Type1 runs [Eadsv5-series](easv5-eadsv5-series.md#eadsv5-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Eadsv5-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size   | # VMs |
 |----------------|-----------------|---------------|-----------|-------|
-| 64             | 96             | 768 GiB       | E2ads v5  | 32    |
+| 64             | 112             | 768 GiB       | E2ads v5  | 32    |
 |                |                 |               | E4ads v5  | 21    |
 |                |                 |               | E8ads v5  | 10    |
 |                |                 |               | E16ads v5 | 5     |
@@ -41,13 +41,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Easv5
 ### Easv5-Type1
 
-The Easv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 96 vCPUs, and 768 GiB of RAM. The Easv5-Type1 runs [Easv5-series](easv5-eadsv5-series.md#easv5-series) VMs.
+The Easv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Easv5-Type1 runs [Easv5-series](easv5-eadsv5-series.md#easv5-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Easv5-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
-| 64             | 96              | 768 GiB       | E2as v5  | 32    |
+| 64             | 112             | 768 GiB       | E2as v5  | 32    |
 |                |                 |               | E4as v5  | 21    |
 |                |                 |               | E8as v5  | 10    |
 |                |                 |               | E16as v5 | 5     |
@@ -60,13 +60,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Edsv5
 ### Edsv5-Type1
 
-The Edsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 96 vCPUs, and 768 GiB of RAM. The Edsv5-Type1 runs [Edsv5-series](edv5-edsv5-series.md#edsv5-series) VMs.
+The Edsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Edsv5-Type1 runs [Edsv5-series](edv5-edsv5-series.md#edsv5-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Edsv5-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
-| 64             | 96              | 768 GiB       | E2ds v5  | 32    |
+| 64             | 119             | 768 GiB       | E2ds v5  | 32    |
 |                |                 |               | E4ds v5  | 21    |
 |                |                 |               | E8ds v5  | 10    |
 |                |                 |               | E16ds v5 | 5     |
@@ -78,13 +78,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Esv5
 ### Esv5-Type1
 
-The Esv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 84 vCPUs, and 768 GiB of RAM. The Esv5-Type1 runs [Esv5-series](ev5-esv5-series.md#esv5-series) VMs.
+The Esv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Esv5-Type1 runs [Esv5-series](ev5-esv5-series.md#esv5-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv5-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
-| 64             | 84              | 768 GiB       | E2s v5  | 32    |
+| 64             | 119             | 768 GiB       | E2s v5  | 32    |
 |                |                 |               | E4s v5  | 21    |
 |                |                 |               | E8s v5  | 10    |
 |                |                 |               | E16s v5 | 5     |
@@ -114,13 +114,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ### Easv4-Type2
 
-The Easv4-Type2 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 96 vCPUs, and 768 GiB of RAM. The Easv4-Type2 runs [Easv4-series](eav4-easv4-series.md#easv4-series) VMs.
+The Easv4-Type2 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Easv4-Type2 runs [Easv4-series](eav4-easv4-series.md#easv4-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Easv4-Type2 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
-| 64             | 96              | 768 GiB       | E2as v4  | 32    |
+| 64             | 112             | 768 GiB       | E2as v4  | 32    |
 |                |                 |               | E4as v4  | 21    |
 |                |                 |               | E8as v4  | 10    |
 |                |                 |               | E16as v4 | 5     |
@@ -134,13 +134,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Edsv4
 ### Edsv4-Type1
 
-The Edsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 64 vCPUs, and 504 GiB of RAM. The Edsv4-Type1 runs [Edsv4-series](edv4-edsv4-series.md#edsv4-series) VMs.
+The Edsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Edsv4-Type1 runs [Edsv4-series](edv4-edsv4-series.md#edsv4-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Edsv4-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
-| 52             | 64              | 504 GiB       | E2ds v4  | 31    |
+| 52             | 80              | 504 GiB       | E2ds v4  | 31    |
 |                |                 |               | E4ds v4  | 15    |
 |                |                 |               | E8ds v4  | 7     |
 |                |                 |               | E16ds v4 | 3     |
@@ -151,13 +151,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ### Edsv4-Type2
 
-The Edsv4-Type2 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 76 vCPUs, and 768 GiB of RAM. The Edsv4-Type2 runs [Edsv4-series](edv4-edsv4-series.md#edsv4-series) VMs.
+The Edsv4-Type2 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Edsv4-Type2 runs [Edsv4-series](edv4-edsv4-series.md#edsv4-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Edsv4-Type2 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
-| 64             | 76              | 768 GiB       | E2ds v4  | 32    |
+| 64             | 119             | 768 GiB       | E2ds v4  | 32    |
 |                |                 |               | E4ds v4  | 19    |
 |                |                 |               | E8ds v4  | 9     |
 |                |                 |               | E16ds v4 | 4     |
@@ -169,13 +169,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Esv4
 ### Esv4-Type1
 
-The Esv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 64 vCPUs, and 504 GiB of RAM. The Esv4-Type1 runs [Esv4-series](ev4-esv4-series.md#esv4-series) VMs.
+The Esv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Esv4-Type1 runs [Esv4-series](ev4-esv4-series.md#esv4-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv4-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
-| 52             | 64              | 504 GiB       | E2s v4  | 31    |
+| 52             | 80              | 504 GiB       | E2s v4  | 31    |
 |                |                 |               | E4s v4  | 15    |
 |                |                 |               | E8s v4  | 7     |
 |                |                 |               | E16s v4 | 3     |
@@ -186,13 +186,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ### Esv4-Type2
 
-The Esv4-Type2 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 84 vCPUs, and 768 GiB of RAM. The Esv4-Type2 runs [Esv4-series](ev4-esv4-series.md#esv4-series) VMs.
+The Esv4-Type2 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Esv4-Type2 runs [Esv4-series](ev4-esv4-series.md#esv4-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv4-Type2 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
-| 64             | 84              | 768 GiB       | E2s v4  | 32    |
+| 64             | 119             | 768 GiB       | E2s v4  | 32    |
 |                |                 |               | E4s v4  | 21    |
 |                |                 |               | E8s v4  | 10    |
 |                |                 |               | E16s v4 | 5     |
@@ -221,13 +221,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ### Esv3-Type2
 
-The Esv3-Type2 is a Dedicated Host SKU utilizing the Intel® Skylake (Xeon® 8171M) processor. It offers 48 physical cores, 64 vCPUs, and 504 GiB of RAM. The Esv3-Type2 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
+The Esv3-Type2 is a Dedicated Host SKU utilizing the Intel® Skylake (Xeon® 8171M) processor. It offers 48 physical cores, 76 vCPUs, and 504 GiB of RAM. The Esv3-Type2 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv3-Type2 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
-| 48             | 64              | 504 GiB       | E2s v3  | 31    |
+| 48             | 76              | 504 GiB       | E2s v3  | 31    |
 |                |                 |               | E4s v3  | 15    |
 |                |                 |               | E8s v3  | 7     |
 |                |                 |               | E16s v3 | 3     |
@@ -238,13 +238,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ### Esv3-Type3
 
-The Esv3-Type3 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 64 vCPUs, and 504 GiB of RAM. The Esv3-Type3 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
+The Esv3-Type3 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Esv3-Type3 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv3-Type3 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
-| 52             | 64              | 504 GiB       | E2s v3  | 31    |
+| 52             | 80              | 504 GiB       | E2s v3  | 31    |
 |                |                 |               | E4s v3  | 15    |
 |                |                 |               | E8s v3  | 7     |
 |                |                 |               | E16s v3 | 3     |
@@ -255,13 +255,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ### Esv3-Type4
 
-The Esv3-Type4 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 84 vCPUs, and 768 GiB of RAM. The Esv3-Type4 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
+The Esv3-Type4 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Esv3-Type4 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv3-Type4 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
-| 64             | 84              | 768 GiB       | E2s v3  | 32    |
+| 64             | 119             | 768 GiB       | E2s v3  | 32    |
 |                |                 |               | E4s v3  | 21    |
 |                |                 |               | E8s v3  | 10    |
 |                |                 |               | E16s v3 | 5     |
