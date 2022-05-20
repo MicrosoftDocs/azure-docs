@@ -65,7 +65,7 @@ You can also read the [common scenarios](entitlement-management-scenarios.md), o
 
 Entitlement management introduces to Azure AD the concept of an *access package*. An access package is a bundle of all the resources with the access a user needs to work on a project or perform their task. Access packages are used to govern access for your internal employees, and also users outside your organization.
 
- Here are the types of resources you can manage user's access to with entitlement management:
+ Here are the types of resources you can manage user's access to, with entitlement management:
 
 - Membership of Azure AD security groups
 - Membership of Microsoft 365 Groups and Teams
