@@ -650,7 +650,7 @@
     },
     {
       "source_path": "articles/cognitive-services/orchestration-workflow/deploy-query-model.md",
-      "redirect_url": "/azure/cognitive-services/language-service/orchestration-workflow/call-api",
+      "redirect_url": "/azure/cognitive-services/language-service/orchestration-workflow/how-to/call-api",
       "redirect_document_id": true
     },
     {
