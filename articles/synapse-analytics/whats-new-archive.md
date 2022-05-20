@@ -15,6 +15,8 @@ This article describes previous month updates to Azure Synapse Analytics. For th
 
 ## Mar 2022 update
 
+The following updates are new to Azure Synapse Analytics this month.
+
 ### Developer Experience
 
 * Code cells in Synapse notebooks that result in exception will now show standard output along with the exception message. This feature is supported for Python and Scala languages. To learn more, see the [example output when a code statement fails](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_1).
