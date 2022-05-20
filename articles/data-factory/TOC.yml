@@ -347,6 +347,8 @@ items:
       href: connector-amazon-simple-storage-service.md
     - name: Amazon S3 Compatible Storage
       href: connector-amazon-s3-compatible-storage.md
+    - name: Asana
+      href: connector-asana.md     
     - name: Avro format
       href: format-avro.md
     - name: Azure Blob Storage
