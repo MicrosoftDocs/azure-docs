@@ -2,9 +2,9 @@
 title: HDInsight Interactive Query Autoscale(Schedule-Based) Guide and Best Practices
 description: LLAP Autoscale Guide and Best Practices 
 ms.service: hdinsight
-ms.topic: Quickstarts
-author: rishikesh.mohanty
-ms.author: mohantyr
+ms.topic: quickstart
+author: mohantyr
+ms.author: rishikeshmohanty
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/25/2022
 ---
@@ -32,7 +32,7 @@ Feature Supportability with HDInsight 4.0 Interactive Query(LLAP) Autoscale
 ### **Interactive Query Cluster setup for Autoscale**
 
 1. [Create an HDInsight Interactive Query Cluster.](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)
-2. Post successful creation of cluster, navigate to Azure Portal and apply the recommended Script Action
+2. Post successful creation of cluster, navigate to **Azure Portal** and apply the recommended Script Action
 
 ```
 - Script Action: https://hdiconfigactions2.blob.core.windows.net/update-ambari-configs-for-llap-autoscale/update_ambari_configs.sh
@@ -53,7 +53,7 @@ Feature Supportability with HDInsight 4.0 Interactive Query(LLAP) Autoscale
 
 
 > [!NOTE]  
-> It is recommended to have sufficient gap between two schedules so that data cache is efficiently utilized i.e schedule scale up’s when there is peak usage and scale down’s when there is no usage. 
+> It's recommended to have sufficient gap between two schedules so that data cache is efficiently utilized i.e schedule scale up’s when there is peak usage and scale down’s when there is no usage. 
 
 ### **Interactive Query Autoscale FAQs**
 
@@ -62,7 +62,7 @@ Feature Supportability with HDInsight 4.0 Interactive Query(LLAP) Autoscale
 If there are running jobs while scale-down is triggered, then we can expect one of the following outcomes
 - Query fails due to Tez AM getting killed. 
 - Query slows down due to capacity reduced but completes successfully. 
-- Query complete successfully without any impact. 
+- Query completes successfully without any impact. 
  
 
 > [!NOTE]  
@@ -78,22 +78,22 @@ If there are running jobs(triggered from Spark Cluster) while scale-down is trig
 
 <b>3. Why is my query running slow even after scale-up?</b>
 
-As the Autoscale Smartprobe add/remove worker nodes as part of autoscale, LLAP data cache on newly added worker nodes would require warming up after scale-up. First query on a given dataset might be slow due to cache-misses but the subsequent queries would run fast. It is recommended to run some queries on performance critical tables after scaling to warm up the data cache (Optional). 
+As the Autoscale Smart probe add/remove worker nodes as part of autoscale, LLAP data cache on newly added worker nodes would require warming up after scale-up. First query on a given dataset might be slow due to cache-misses but the subsequent queries would run fast. It is recommended to run some queries on performance critical tables after scaling to warm up the data cache (Optional). 
 
 
 <b>4. Does schedule based autoscale support Workload Management in LLAP?</b> 
 
-Workload Management in LLAP is not supported with Schedule Based Autoscale as of now. However this can be handled with a custom cron job to disable and enable WLM once the scaling action is done. 
+Workload Management in LLAP isn't supported with Schedule Based Autoscale as of now. However you schedule with a custom cron job to disable and enable WLM once the scaling action is done. 
 Disabling the WLM should be before the actual schedule of the scaling event and enabling should be 1 hour after the scaling event. Here, user/admin should come up with a different WLM resource plan that suits their cluster size after the scale. 
 
 
 <b>5. Why do we observe stale hive configs in the Ambari UI after the scaling has happened?</b>
 
-Each time the Interactive Query cluster scales, the Autoscale smartprobe would perform a silent update of the number of LLAP Daemons and the Concurrency in the Ambari since these are static configs. 
-These configs are updated to make sure if autoscale is disabled or LLAP Service is restarted for some reason, it utilizes all the worker nodes that was resized at that time. Explicit restart of services to handle these stale config changes is not required.
+Each time the Interactive Query cluster scales, the Autoscale smart probe would perform a silent update of the number of LLAP Daemons and the Concurrency in the Ambari since these configs are static. 
+These configs are updated to make sure if autoscale is in disabled state or LLAP Service restarts for some reason. It utilizes all the worker nodes resized at that time. Explicit restart of services to handle these stale config changes isn't required.
 
 ### **Next Steps**
-If the above guidelines didn't resolve your query, visit one of the following...
+If the above guidelines didn't resolve your query, visit one of the following.
 
 * Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
