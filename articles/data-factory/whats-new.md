@@ -53,7 +53,7 @@ This page is updated monthly, so revisit it regularly.
 
 <tr><td><b>Integration runtime</b></td><td>New UI layout in Azure IR creation and edit page</td><td>The UI layout of the IR creation and edit page now uses tab style for Settings, Virtual network, and Data flow runtime.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/new-ui-layout-in-azure-integration-runtime-creation-and-edit/ba-p/3248237">Learn more</a></td></tr>
 
-<tr><td rowspan=2><b>Orchestration</b></td><td>Transform data by using the Script activity</td><td>You can use a Script activity to invoke a SQL script in SQL Database, Azure Synapse Analytics, SQL Server Database, Oracle, or Snowflake.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/execute-sql-statements-using-the-new-script-activity-in-azure/ba-p/3239969">Learn more</a></td></tr>
+<tr><td rowspan=2><b>Orchestration</b></td><td>Transform data by using the Script activity</td><td>You can use a Script activity to invoke a SQL script in SQL Database, Azure Synapse Analytics, SQL Server, Oracle, or Snowflake.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/execute-sql-statements-using-the-new-script-activity-in-azure/ba-p/3239969">Learn more</a></td></tr>
 <tr><td>Web activity timeout improvement</td><td>You can configure response timeout in a Web activity to prevent it from timing out if the response period is more than one minute, especially in the case of synchronous APIs.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/web-activity-response-timeout-improvement/ba-p/3260307">Learn more</a></td></tr>
 
 </table>
@@ -73,7 +73,7 @@ This page is updated monthly, so revisit it regularly.
 
 <tr><td><b>Region expansion</b></td><td>Data Factory is now available in West US3 and Jio India West</td><td>Data Factory is now available in two new regions: West US3 and Jio India West. You can colocate your ETL workflow in these new regions if you're using these regions to store and manage your modern data warehouse. You can also use these regions for business continuity and disaster recovery purposes if you need to fail over from another region within the geo.<br><a href="https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all">Learn more</a></td></tr>
  
-<tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Azure Active Directory (Azure AD) tenant</td><td>You can connect your Data Factory to an Azure DevOps account in a different Azure AD tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr>
+<tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Azure Active Directory (Azure AD) tenant</td><td>You can connect your Data Factory instance to an Azure DevOps account in a different Azure AD tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr>
 </table>
 
 ## January 2022
