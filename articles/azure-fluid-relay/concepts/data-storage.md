@@ -17,7 +17,7 @@ A Container is the atomic unit of storage in the Azure Fluid Relay service and r
 
 You have control of the Azure region where container data is stored. During the provisioning of the Azure Fluid Relay resource, you can select the region where you want that data to be stored at-rest. All containers created in that Azure Fluid Relay resource will be stored in that region. Once selected, the region cannot be changed. You will need to create a new Azure Fluid Relay resource in another region to store data in a different region.
 
-To deliver a highly available service, the container data is replicated to another region. This helps in the cases where disaster recovery is needed in face of a full regional outage. Internally, Azure Fluid Relay uses Azure Blob Storage cross-region replication to achieve that. The region where data is replicated is defined by the Azure regional pairs listed on the [Cross-region replication in Azure](https://docs.microsoft.com/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies) page.
+To deliver a highly available service, the container data is replicated to another region. This helps in the cases where disaster recovery is needed in face of a full regional outage. Internally, Azure Fluid Relay uses Azure Blob Storage cross-region replication to achieve that. The region where data is replicated is defined by the Azure regional pairs listed on the [Cross-region replication in Azure](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) page.
 
 ## Single region offering
 
@@ -33,4 +33,4 @@ If the Fluid container is required for the duration of the collaborative session
 
 - [Overview of Azure Fluid Relay architecture](architecture.md)
 - [How to: Provision an Azure Fluid Relay service](../how-tos/provision-fluid-azure-portal.md)
-- [Delete Fluid containers in Azure Fluid Relay](..how-tos/container-deletion.md)
+- [Delete Fluid containers in Azure Fluid Relay](../how-tos/container-deletion.md)
