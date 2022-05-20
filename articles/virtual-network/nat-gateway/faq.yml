@@ -78,9 +78,9 @@ sections:
         answer: |
           Virtual Network NAT can be zonal or placed in "no zone".  
 
-          A "no zone" Virtual Network NAT is one that hasn't been associated to a specific zone. A "no zone" Virtual Network NAT is still assigned to one zone within the virtual network. In this instance, Azure decides which zone to choose for the Virtual Network NAT. 
+          A "no zone" NAT gateway is placed into a zone for you by Azure and does not give a guarantee of redundancy.
 
-          A zonal Virtual Network NAT is associated to a specific zone by the user when the Virtual Network NAT is created. 
+          A zonal Virtual Network NAT is associated to a specific zone by the user when the NAT gateway is created. 
 
       - question: How does NAT gateway work with virtual networks that are peered to one another?
         answer: |
