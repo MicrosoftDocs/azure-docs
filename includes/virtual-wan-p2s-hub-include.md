@@ -40,7 +40,7 @@ ms.topic: include
 
       After you create the User VPN gateway, go to gateway and note the RADIUS proxy IPs field. The RADIUS proxy IPs are the source IPs of the RADIUS packets the User VPN gateway sends to your RADIUS server. Therefore, your RADIUS server needs to be configured to accept authentication requests from the RADIUS proxy IPs. If the RADIUS proxy IPs field is blank or none, configure the RADIUS server to accept authentication requests from the hub's address space.  
 
-      :::image type="content" source="media/virtual-wan-p2s-hub/radius-proxy-ips.png" alt-text="Screenshot of User VPN Config with RADIUS Proxy IPs." lightbox="media/virtual-wan-p2s-hub/radius-proxy-ips.png":::
+      :::image type="content" source="media/virtual-wan-p2s-hub/radius-proxy-ips.png" alt-text="Screenshot of User V P N Config with RADIUS Proxy I P's." lightbox="media/virtual-wan-p2s-hub/radius-proxy-ips.png":::
 
    * **Client address pool** -  The address pool from which IP addresses will be automatically assigned to VPN clients. For more information, see [About client address pools](../articles/virtual-wan/about-client-address-pools.md).
    * **Custom DNS Servers** - The IP address of the DNS server(s) the clients will use. You can specify up to 5.
