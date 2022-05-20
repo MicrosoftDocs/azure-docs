@@ -142,7 +142,7 @@ For details, see the [Java runtime and OS versions](./faq.md?pivots=programming-
 
 To prepare an existing Spring Boot application for deployment to Azure Spring Cloud, include the Spring Boot and Spring Cloud dependencies in the application POM file as shown in the following sections.
 
-Azure Spring Cloud will support the latest Spring Boot or Spring Cloud release within one month after it’s been released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-cloud/spring-cloud-release/wiki).
+Azure Spring Cloud will support the latest Spring Boot or Spring Cloud major version starting from 30 days after its release. The latest minor version will be supported as soon as it is released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-cloud/spring-cloud-release/wiki).
 
 The following table lists the supported Spring Boot and Spring Cloud combinations:
 

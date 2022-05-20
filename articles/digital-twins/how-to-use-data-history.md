@@ -251,13 +251,17 @@ You can set up a sample graph for this scenario using the **Azure Digital Twins 
 
 You can use the **Azure Digital Twins Data Simulator** to provision a sample twin graph and push property updates to it. The twin graph created here models pasteurization processes for a dairy company.
 
-Start by opening the [Azure Digital Twins Data Simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher) web application in your browser.
+Start by opening the [Azure Digital Twins Data Simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher) in your browser. Set these fields:
+* **Instance URL**: Enter the host name of your Azure Digital Twins instance. The host name can be found in the [portal](https://portal.azure.com) page for your instance, and has a format like `<Azure-Digital-Twins-instance-name>.api.<region-code>.digitaltwins.azure.net`. 
+* **Simulation Type**: Select *Dairy facility* from the dropdown menu.
 
-:::image type="content"  source="media/how-to-use-data-history/data-simulator.png" alt-text="Screenshot of the Azure Digital Twins Data simulator. The screen shows configuration fields for Instance URL, Live stream data, and buttons to Generate environment and Start simulation.":::
+Select **Generate Environment**. 
 
-Enter the host name of your Azure Digital Twins instance in the Instance URL field. The host name can be found in the [portal](https://portal.azure.com) page for your instance, and has a format like `<Azure-Digital-Twins-instance-name>.api.<region-code>.digitaltwins.azure.net`. Select **Generate Environment**. 
+:::image type="content"  source="media/how-to-use-data-history/data-simulator.png" alt-text="Screenshot of the Azure Digital Twins Data simulator.":::
 
-You'll see confirmation messages on the screen as models, twins, and relationships are created in your environment. When the simulation is ready, the **Start simulation** button will become enabled. Select **Start simulation** to push simulated data to your Azure Digital Twins instance. To continuously update the twins in your Azure Digital Twins instance, keep this browser window in the foreground on your desktop (and complete other browser actions in a separate window). 
+You'll see confirmation messages on the screen as models, twins, and relationships are created in your environment. 
+
+When the simulation is ready, the **Start simulation** button will become enabled. Select **Start simulation** to push simulated data to your Azure Digital Twins instance. To continuously update the twins in your Azure Digital Twins instance, keep this browser window in the foreground on your desktop (and complete other browser actions in a separate window). 
 
 To verify that data is flowing through the data history pipeline, navigate to the [Azure portal](https://portal.azure.com) and open the Event Hubs namespace resource you created. You should see charts showing the flow of messages into and out of the namespace, indicating the flow of incoming messages from Azure Digital Twins and outgoing messages to Azure Data Explorer.
 

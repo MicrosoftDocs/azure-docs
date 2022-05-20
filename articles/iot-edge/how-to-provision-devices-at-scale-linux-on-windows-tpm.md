@@ -139,6 +139,12 @@ Simulated TPM samples:
    ```powershell
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
    ```
+   
+   If you have enrolled the device using a custom **Registration Id**, you must specify that Registration Id as well when provisioning:
+   
+   ```powershell
+   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE" -registrationId "REGISTRATION_ID_HERE"
+   ```
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
@@ -166,6 +172,12 @@ Simulated TPM samples:
 
    ```powershell
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
+   ```
+   
+   If you have enrolled the device using a custom **Registration Id**, you must specify that Registration Id as well when provisioning:
+   
+   ```powershell
+   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE" -registrationId "REGISTRATION_ID_HERE"
    ```
 
 :::moniker-end
