@@ -93,7 +93,7 @@ Spring Cloud Gateway for Tanzu supports authentication and authorization using S
 | clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
 | scope | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
 
-See [guide](./how-to-setup-sso-with-azure-ad.md) to setup SSO with Azure AD.
+To setup SSO with Azure AD, see [How to set up Single Sign-On with Azure AD for Spring Cloud Gateway and API Portal for Tanzu](./how-to-setup-sso-with-azure-ad.md).
 
 > [!NOTE]
 > Only authorization servers supporting OpenID Connect Discovery protocol are supported. Also, be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
