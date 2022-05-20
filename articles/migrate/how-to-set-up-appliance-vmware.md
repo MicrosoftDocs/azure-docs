@@ -185,6 +185,18 @@ If validation fails, you can select a **Failed** status to see the validation er
 
 :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Screenshot that shows providing and validating multiple credentials.":::
 
+> [!NOTE]
+> Ensure the following credentials are not passed in any credentials as special characters are not supported for SSO passwords:
+>  - Non-ASCII characters
+>  - Ampersand (&)
+>  Semicolon (;)
+>  Double quotation mark (")
+>  Single quotation mark (')
+>  Circumflex (^)
+>  Backslash (\)
+>  Percentage (%)
+>  Angle brackets (<,>)
+
 ### Start discovery
 
 To start vCenter Server discovery, in **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of ASP.NET web apps in your VMware environment.**, select **Start discovery**. After the discovery is successfully initiated, you can check the discovery status by looking at the vCenter Server IP address or FQDN in the sources table.
