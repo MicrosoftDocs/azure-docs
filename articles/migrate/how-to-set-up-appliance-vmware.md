@@ -186,7 +186,7 @@ If validation fails, you can select a **Failed** status to see the validation er
 :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Screenshot that shows providing and validating multiple credentials.":::
 
 > [!NOTE]
-> Ensure the following credentials are not passed in any credentials as special characters are not supported for SSO passwords:
+> Ensure that the following special characters are not passed in any credentials as they are not supported for SSO passwords:
 >  - Non-ASCII characters
 >  - Ampersand (&)
 >  - Semicolon (;)
