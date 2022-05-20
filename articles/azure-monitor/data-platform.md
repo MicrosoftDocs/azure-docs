@@ -20,7 +20,7 @@ Enabling observability across today's complex computing environments running dis
 [Azure Monitor](overview.md) collects and aggregates data from a variety of sources into a common data platform where it can be used for analysis, visualization, and alerting. It provides a consistent experience on top of data from multiple sources, which gives you deep insights across all your monitored resources and even with data from other services that store their data in Azure Monitor.
 
 
-![Azure Monitor overview](media/data-platform/overview.png)
+![Azure Monitor overview](media/overview/overview.png)
 
 ## Observability data in Azure Monitor
 Metrics, logs, and distributed traces are commonly referred to as the three pillars of observability. These are the different kinds of data that a monitoring tool must collect and analyze to provide sufficient observability of a monitored system. Observability can be achieved by correlating data from multiple pillars and aggregating data across the entire set of resources being monitored. Because Azure Monitor stores data from multiple sources together, the data can be correlated and analyzed using a common set of tools. It also correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services.
@@ -70,6 +70,9 @@ The following table compares Metrics and Logs in Azure Monitor.
 | Collection | Collected at regular intervals. | May be collected sporadically as events trigger a record to be created. |
 | View in Azure portal | Metrics Explorer | Log Analytics |
 | Data sources include | Platform metrics collected from Azure resources.<br>Applications monitored by Application Insights.<br>Custom defined by application or API. | Application and resource  logs.<br>Monitoring solutions.<br>Agents and VM extensions.<br>Application requests and exceptions.<br>Microsoft Defender for Cloud.<br>Data Collector API. |
+
+## Control plane
+
 
 ## Collect monitoring data
 Different [sources of data for Azure Monitor](agents/data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others may write to another location such as Azure storage and require some configuration to populate logs or metrics. 
