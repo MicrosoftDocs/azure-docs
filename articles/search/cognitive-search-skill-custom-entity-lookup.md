@@ -13,7 +13,7 @@ ms.date: 05/19/2022
 
 # Custom Entity Lookup cognitive skill
 
-The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact.  
+The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not exact.  
 
 > [!NOTE]
 > This skill is not bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
@@ -50,9 +50,9 @@ Parameters are case-sensitive.
 
 ## Skill outputs
 
-| Output name      | Description                   |
+| Output name   | Description                   |
 |---------------|-------------------------------|
-| `entities` | An array of complex types that contains the following fields: <ul><li>`"name"`: The top-level entity; it represents the "normalized" form. </li> <li>`"id"`:  A unique identifier for the entity as defined in the "Custom Entity Definition Format". </li> <li>`"description"`: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li>`"type"`: Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> `"subtype"`: Entity subtype as defined by the user in the "Custom Entity Definition Format".</li> <li>`"matches"`: An array of complex types that contain: <ul><li>`"text"` from the source document </li><li>`"offset"` location where the match was found, </li><li>`"length"` of the text measured in characters <li>`"matchDistance"` or the number of characters that differ between the match and the entity `"name"`. </li></li></ul>|</ul>
+| `entities` | An array of complex types that contains the following fields: <ul><li>`"name"`: The top-level entity; it represents the "normalized" form. </li> <li>`"id"`:  A unique identifier for the entity as defined in the "Custom Entity Definition Format". </li> <li>`"description"`: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li>`"type"`: Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> `"subtype"`: Entity subtype as defined by the user in the "Custom Entity Definition Format".</li> <li>`"matches"`: An array of complex types that contain: <ul><li>`"text"` from the source document </li><li>`"offset"` location where the match was found, </li><li>`"length"` of the text measured in characters <li>`"matchDistance"` or the number of characters that differ between the match and the entity `"name"`. </li></li></ul>|</ul> |
 
 ## Custom Entity Definition Format
 
@@ -74,7 +74,7 @@ Microsoft, MSFT
 Satya Nadella 
 ```
 
-In this case, there are three entities that can be returned as entities found (Bill Gates, Satya Nadella, Microsoft), but they will be identified if any of the terms on the line (aliases) are matched on the text. For instance, if the string "William H. Gates" is found in a document, a match for the "Bill Gates" entity will be returned.
+In this case, there are three entities that can be returned (Bill Gates, Satya Nadella, Microsoft). Aliases follow after the main entity. A match on an alias is bundled under the primary entity. For example, if the string "William H. Gates" is found in a document, a match for the "Bill Gates" entity will be returned.
 
 ### JSON format
 
@@ -98,7 +98,7 @@ The most basic JSON custom entity list definition can be a list of entities to m
 ]
 ```
 
-A more complex example of a JSON definition can optionally provide the id, description, type and subtype of each entity -- as well as other *aliases*. If an alias term is matched, the entity will be returned as well:
+More complex definitions can provide a user-defined ID, description, type, subtype, and aliases. If an alias term is matched, the entity will be returned as well:
 
 ```json
 [ 
@@ -136,7 +136,7 @@ A more complex example of a JSON definition can optionally provide the id, descr
 ] 
 ```
 
-The tables below describe in more details the different configuration parameters you can set when defining the entities to match:
+The tables below describe the configuration parameters you can set when defining custom entities:
 
 |  Field name  |        Description  |
 |--------------|----------------------|
@@ -162,8 +162,7 @@ The tables below describe in more details the different configuration parameters
 
 ### Inline format
 
-In some cases, it may be more convenient to provide the list of custom entities to match inline directly into the skill definition. In that case you can use a similar  JSON format to the one described above, but it is inlined in the skill definition.
-Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
+In some cases, it may be more convenient to embed the custom entity definition so that its inline with the skill definition. You can use the same JSON format as the one described above, but it is included within the skill definition. Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
 
 ## Sample skill definition
 
@@ -206,7 +205,7 @@ A sample skill definition using an inline format is shown below:
   }
 ```
 
-Alternatively, if you decide to provide a pointer to the entities definition file, a sample skill definition using the `entitiesDefinitionUri` format is shown below:
+Alternatively, you can point to an external entities definition file. A sample skill definition using the `entitiesDefinitionUri` format is shown below:
 
 ```json
   {
@@ -230,7 +229,7 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
 
 ## Sample index definition
 
-Both "entities" and "matches" are arrays of complex types.
+This section provides a sample index definition. Both "entities" and "matches" are arrays of complex types. You can have multiple entities per document, and multiple matches for each entity.
 
 ```json
 {
@@ -390,14 +389,15 @@ Both "entities" and "matches" are arrays of complex types.
   } 
 ```
 
-## Errors and warnings
+## Warnings
 
-### Warning: Reached maximum capacity for matches, skipping all further duplicate matches.
+"Reached maximum capacity for matches, skipping all further duplicate matches."
 
-This warning will be emitted if the number of matches detected is greater than the maximum allowed. In this case, we will stop including duplicate matches. If this is unacceptable to you, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so we can assist you with your individual use case.
+This warning will be emitted if the number of matches detected is greater than the maximum allowed. No more duplicate matches will be returned. If this is unacceptable, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so we can assist you with your individual use case.
 
 ## See also
 
++ [Custom Entity Lookup sample and readme](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/skill-examples/custom-entity-lookup-skill)
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Entity Recognition skill (to search for well known entities)](cognitive-search-skill-entity-recognition-v3.md)
