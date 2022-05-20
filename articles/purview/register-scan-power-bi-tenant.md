@@ -154,6 +154,11 @@ This section describes how to register a Power BI tenant in Microsoft Purview fo
 
 ## Scan same-tenant Power BI
 
+> [!TIP]
+> To troubleshoot any issues with scanning:
+> 1. Confirm you have completed the [**deployment checklist for your scenario**](#deployment-checklist).
+> 1. Review our [**scan troubleshooting documentation**](register-scan-power-bi-tenant-troubleshoot.md).
+
 ### Scan same-tenant Power BI using Azure IR and Managed Identity
 This is a suitable scenario, if both Microsoft Purview and Power BI tenant are configured to allow public access in the network settings. 
 
