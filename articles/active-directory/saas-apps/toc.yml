@@ -924,7 +924,7 @@
         href: gigya-tutorial.md
       - name: GitHub
         href: github-tutorial.md
-      - name: GitHub AE
+      - name: GitHub Enterprise Server
         href: github-ae-tutorial.md
       - name: GitHub Enterprise Cloud - Enterprise Account
         href: github-enterprise-cloud-enterprise-account-tutorial.md  
