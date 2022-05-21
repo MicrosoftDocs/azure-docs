@@ -15,6 +15,9 @@ This article presents a high-level methodology for preparing and running an effe
 
 [!INCLUDE [proof-of-concept-playbook-context](includes/proof-of-concept-playbook-context.md)]
 
+> [!TIP]
+> If you're new to dedicated SQL pools, we recommend you work through the [Work with Data Warehouses using Azure Synapse Analytics](/learn/paths/work-with-data-warehouses-using-azure-synapse-analytics/) learning path.
+
 ## Prepare for the POC
 
 Before deciding on your Azure Synapse POC goals, we recommend that you first read the [Azure Synapse SQL architecture](../sql/overview-architecture.md) article to familiarize yourself with how a dedicated SQL pool separates compute and storage to provide industry-leading performance.
@@ -126,6 +129,9 @@ Using the scoped tests, you can now identify the dataset required to execute tho
 - Identify the [distribution pattern](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md), [indexing option](../sql-data-warehouse/sql-data-warehouse-tables-index.md), and [partitioning](../sql-data-warehouse/sql-data-warehouse-tables-partition.md) for each table. If there are any questions regarding distribution, indexing, or partitioning, add tests to your POC to answer them. Bear in mind that you may want to test more than one distribution option or indexing option for some tables.
 - Check with the business owners for any blockers for moving the POC dataset to the cloud.
 - Identify any security or privacy concerns.
+
+> [!IMPORTANT]
+> Make sure you check with business owners for any blockers before moving any data to the cloud. Identify any security or privacy concerns or any data obfuscation needs that should be done before moving data to the cloud.
 
 Next, you need to assemble the team of experts.
 

@@ -60,7 +60,7 @@ A successful POC project requires planning. Start by identify why you're doing a
 > - Who will use the outputs?
 > - What will define a successful POC?
 
-Keep in mind that a POC should be a short and focused effort to quickly prove a limited set of concepts and capabilities. These concepts and capabilities should be representative of the overall workload. If you have a long list of items to prove, you may want to plan more than one POC. In that case, define gates between the POCs to determine whether you need to continue with the next one. Given the different professional roles that can use a serverless SQL pool (and the different scenarios that serverless SQL pool supports), you may choose to execute multiple POCs. For example, one POC could focus on requirements for the data engineering role, such as ingestion and processing. Another could focus on machine learning model development.
+Keep in mind that a POC should be a short and focused effort to quickly prove a limited set of concepts and capabilities. These concepts and capabilities should be representative of the overall workload. If you have a long list of items to prove, you may want to plan more than one POC. In that case, define gates between the POCs to determine whether you need to continue with the next one. Given the different professional roles that may use Spark pools and notebooks in Azure Synapse, you may choose to execute multiple POCs. For example, one POC could focus on requirements for the data engineering role, such as ingestion and processing. Another POC could focus on machine learning (ML) model development.
 
 As you consider your POC goals, ask yourself the following questions to help you shape the goals:
 
@@ -82,7 +82,7 @@ Here are some examples of POC goal setting:
     - We need to know whether near real-time stream processing is possible and how much throughput it can support. (Will it support our business requirements?)
     - We need to know if our existing data ingestion and transformation processes are a good fit and where improvements will need to be made.
     - We need to know if we can shorten our data integration run times and by how much.
-    - We need to know if our data scientists can build and train machine learning models and leverage AI/ML libraries as needed in a Spark pool.     - We need to know if our data scientists use the Spark pool, Azure Machine Learning (AML), or Azure SQL Kubernetes for deployment of trained models to do scoring.
+    - We need to know if our data scientists can build and train machine learning models and leverage AI/ML libraries as needed in a Spark pool.
     - Will the move to cloud-based Synapse Analytics meet our cost goals?
 - At the conclusion of this POC:
     - We will have the data to determine if our data processing performance requirements can be met for both batch and real-time streaming.
@@ -130,8 +130,6 @@ Here are some testing scenarios:
 - **Spark pool test A:** We will execute data processing across multiple node types (small, medium, and large) as well as different numbers of worker nodes.
 - **Spark pool test B:** We will load/retrieve processed data from the Spark pool to the dedicated SQL pool by using [the connector](../spark/synapse-spark-sql-pool-import-export.md).
 - **Spark pool test C:** We will load/retrieve processed data from the Spark pool to Cosmos DB by using Azure Synapse Link.
-- **Dedicated SQL pool test A:** We will execute tests N, M, and P by using scales of 500DWU, 1000DWU, and 2000DWU, respectively.
-- **Dedicated SQL pool test B:** Test load scenarios A and B by using different dynamic and static resource groups.
 
 ### Evaluate the POC dataset
 

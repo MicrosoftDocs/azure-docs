@@ -159,7 +159,6 @@ The following table compares the two Synapse SQL pool types.
 | Workloads | *Ideal for continuous workloads.* Loading boosts performance, with more complexity. Charging per DWU (when sized well) will be cost-beneficial. | *Ideal for ad hoc or intermittent workloads.* There's no need to load data, so it's easier to start and run. Charging per using will be cost-beneficial. |
 | Query performance | *Delivers high concurrent and low latency.* Supports rich caching options, including materialized views. There's the ability to choose trade-offs with workload management (WLM). | *Not suited for dashboarding queries.* Millisecond response times aren't expected. works only on external data. |
 
-
 ### Dedicated SQL pool assessment
 
 For the dedicated SQL pool assessment, evaluate the following platform points.
@@ -258,7 +257,7 @@ For the serverless SQL pool assessment, evaluate the following points.
 - Identify the number of queries that will be sent to the serverless SQL pool and the result set size of each query.
 
 > [!TIP]
-> For complete guide on Synapse serverless SQL pools, work through the [Build data analytics solutions using Azure Synapse serverless SQL pools](/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/) learning path.
+> If you're new to serverless SQL pools, we recommend you work through the [Build data analytics solutions using Azure Synapse serverless SQL pools](/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/) learning path.
 
 ### Spark pool assessment
 
@@ -294,7 +293,7 @@ For the Spark pool assessment, evaluate the following points.
 - Identify whether cluster customization is required.
 
 > [!TIP]
-> For complete guide on Spark pools, work through the [Perform data engineering with Azure Synapse Apache Spark Pools](/learn/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/) learning path.
+> If you're new to Spark pools, we recommend you work through the [Perform data engineering with Azure Synapse Apache Spark Pools](/learn/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/) learning path.
 
 ## Next steps
 
