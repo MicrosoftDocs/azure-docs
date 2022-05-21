@@ -81,7 +81,7 @@ The steps in this section guide you through creating an Azure Database for Postg
    Use the [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) command to create the DB server. The following example creates a DB server named *youruniquedbname*. Make sure *youruniqueacrname* is unique within Azure.
    
    > [!TIP]
-   > To help ensure a globally unique name, prepend a disambiguation string such as your intitials and the MMDD of today's date.
+   > To help ensure a globally unique name, prepend a disambiguation string such as your initials and the MMDD of today's date.
 
 
    ```bash
@@ -153,7 +153,7 @@ In directory *liberty/config*, the *server.xml* is used to configure the DB conn
 
 After the offer is successfully deployed, an AKS cluster will be generated automatically. The AKS cluster is configured to connect to the ACR. Before we get started with the application, we need to extract the namespace configured for the AKS.
 
-1. Run following command to print the current deployment file, using the `appDeploymentTemplateYamlEncoded` you saved above. The output contains all the variables we need.
+1. Run the following command to print the current deployment file, using the `appDeploymentTemplateYamlEncoded` you saved above. The output contains all the variables we need.
 
    ```bash
    echo <appDeploymentTemplateYamlEncoded> | base64 -d
