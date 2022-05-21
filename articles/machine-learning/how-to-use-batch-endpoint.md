@@ -190,19 +190,29 @@ Invoke a batch endpoint triggers a batch scoring job. A job `name` will be retur
 
 You can either use CLI or REST to `invoke` the endpoint. For REST experience, see [Use batch endpoints with REST](how-to-deploy-batch-with-rest.md)
 
-There are three options to specify the data inputs in CLI `invoke`.
+There are several options to specify the data inputs in CLI `invoke`.
 
-* __Option 1: Data in the cloud__
+* __Option 1-1: Data in the cloud__
 
-    Use `--input` and `--input-type` to specify a file or folder in an Azure Machine Learning registered datastore. When you are specifying a single file, use `--input-type uri_file`, and when you are specifying a folder, use `--input-type uri_folder`). 
+    Use `--input` and `--input-type` to specify a file or folder on an Azure Machine Learning registered datastore or a publicly accessible path. When you are specifying a single file, use `--input-type uri_file`, and when you are specifying a folder, use `--input-type uri_folder`). 
 
-    When the file or folder is on Azure ML registered datastore, the syntax for the URI is `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/` for folder, and `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>` for a specific file. When the file of folder is publicly accessible path, the syntax for the URI is `https://<public-path>/` for folder, `https://<public-path>/<file-name>` for a specific file.
+    When the file or folder is on Azure ML registered datastore, the syntax for the URI is `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/` for folder, and `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>` for a specific file. When the file of folder is on a publicly accessible path, the syntax for the URI is `https://<public-path>/` for folder, `https://<public-path>/<file-name>` for a specific file.
 
     For more information about data URI, see [Azure Machine Learning data reference URI](reference-yaml-core-syntax.md#azure-ml-data-reference-uri).
 
     The example uses publicly available data in a folder from `https://pipelinedata.blob.core.windows.net/sampledata/mnist`, which contains thousands of hand-written digits. Name of the batch scoring job will be returned from the invoke response. Run the following code to invoke the batch endpoint using this data. `--query name` is added to only return the job name from the invoke response, and it will be used later to [Monitor batch scoring job execution progress](#monitor-batch-scoring-job-execution-progress) and [Check batch scoring results](#check-batch-scoring-results). Remove `--query name -o tsv` if you want to see the full invoke response. For more information on the `--query` parameter, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job" :::
+
+* __Option 1-2: Registered dataset__
+
+    Use `--input` to pass in an Azure Machine Learning registered V2 data assets for `uri_file`/`url_folder`. You do not need to specify `--input-type` in this option. The syntax for this option is `azureml:<dataset-name>:<dataset-version>`.
+
+    You can optionally pass an Azure ML registered V1 `FileDataset` only if the existing endpoint is created with older CLIv2.
+
+    ```azurecli
+    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:<dataset-name>:<dataset-version>
+    ```
 
 * __Option 2: Data stored locally__
 
@@ -212,16 +222,8 @@ There are three options to specify the data inputs in CLI `invoke`.
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input <local-path>
     ```
 
-* __Option 3: Registered dataset__
-
-    Use `--input` to pass in an Azure Machine Learning registered V1 `FileDataset`. You do not need to specify `--input-type` in this option. The syntax for this option is `azureml:<dataset-name>:<dataset-version>`. V1 `TabularDataset` is not supported.
-
-    ```azurecli
-    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:<dataset-name>:<dataset-version>
-    ```
-
 > [!NOTE]
-> We strongly recommend using Cloud data (either data path in datatore or public data URI) or local data for batch inference. Existing V1 FileDataset works with batch endpoint CLIv2 now, but it will be deprecated and replaced with V2 data assets as we add full v2 data assets support for batch endpoint to enhance usability in the future. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
+> If you are using existing V1 FileDataset for batch endpoint, we recommend migrating them to V2 data assets for `uri_folder`/`uri_file` and refer to them directly when invoking batch endpoints. You can also extract the URI or path on datastore extracted from V1 FileDataset and use that information for invoke. While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
 
 #### Configure the output location and overwrite settings
 
