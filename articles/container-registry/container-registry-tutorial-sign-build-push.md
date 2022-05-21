@@ -232,7 +232,7 @@ ACR support for ORAS Artifacts creates a linked graph of supply chain artifacts 
     az acr manifest list-metadata $REGISTRY/$REPO -o jsonc
     ```
 
-    generates a result, showing the `subject` in the artifact, representing the notary v2 signature, that points to the container image. Notice, the `"tags": []` collection is empty.
+    The command generates a result showing the `subject` in the artifact representing the notary v2 signature that points to the container image. Notice the `"tags": []` collection is empty.
 
     ```json
     [
