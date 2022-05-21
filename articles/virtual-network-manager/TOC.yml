@@ -68,7 +68,7 @@
   - name: REST
     href: /rest/api/networkmanager/
   - name: .NET SDK
-    href: /dotnet/api/microsoft.azure.management.network?view=azure-dotnet
+    href: /dotnet/api/microsoft.azure.management.network
 - name: Resources
   items:
   - name: Azure roadmap

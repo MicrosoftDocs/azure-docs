@@ -75,7 +75,7 @@
   - name: REST API documentation
     href: /rest/api/chaosstudio/
   - name: Python SDK
-    href: /python/api/azure-mgmt-chaos/?view=azure-python-preview
+    href: /python/api/azure-mgmt-chaos/
   - name: .NET SDK
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Chaos/0.9.15-preview
 - name: Resources

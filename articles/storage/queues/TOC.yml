@@ -309,7 +309,7 @@
       - name: Azure Storage client library version 12.x
         href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
       - name: Blobs, Queues, and Files (version 8)
-        href: /java/api/overview/azure/storage?view=azure-java-legacy
+        href: /java/api/overview/azure/storage
       - name: Azure Storage client library version 8.x and earlier
         href: https://github.com/Azure/azure-storage-java
     - name: Node.js

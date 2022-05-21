@@ -291,7 +291,7 @@ items:
     - name: Calling (JavaScript)
       href: /javascript/api/azure-communication-services/@azure/communication-calling/
     - name: Calling (Android/Java)
-      href: /java/api/com.azure.android.communication.calling?view=communication-services-java-android
+      href: /java/api/com.azure.android.communication.calling
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
   - name: Chat libraries
@@ -339,7 +339,7 @@ items:
   - name: UI Library
     items:
     - name: UI Library (JavaScript)
-      href: /javascript/api/@azure/communication-react/?view=azure-node-latest
+      href: /javascript/api/@azure/communication-react/
     - name: UI Library (iOS)
       href: https://htmlpreview.github.io/?https://github.com/Azure/azure-sdk-for-ios/blob/communication/CommunicationUIJazzy/build/jazzy/AzureCommunicationUI/index.html
     - name: UI Library (Android)
