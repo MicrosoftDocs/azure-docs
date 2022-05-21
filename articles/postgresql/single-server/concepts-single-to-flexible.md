@@ -110,8 +110,8 @@ Follow the steps provided in this section before you get started with the single
 
 Once all these pre-requisites are taken care of, you can do the migration. This automated step involves schema and data migration using Azure portal or Azure CLI.
 
-- [Migrate using Azure portal](./how-to-migrate-single-to-flex-portal.md)
-- [Migrate using Azure CLI](./how-to-migrate-single-to-flex-cli.md)
+- [Migrate using Azure portal](./how-to-migrate-single-to-flexible-portal.md)
+- [Migrate using Azure CLI](./how-to-migrate-single-to-flexible-cli.md)
 
 ### Post migration
 
@@ -180,5 +180,5 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 ## Next steps
 
-- [Migrate to Flexible Server using Azure portal](./how-to-migrate-single-to-flex-portal.md).
-- [Migrate to Flexible Server using Azure CLI](./how-to-migrate-single-to-flex-cli.md)
+- [Migrate to Flexible Server using Azure portal](./how-to-migrate-single-to-flexible-portal.md).
+- [Migrate to Flexible Server using Azure CLI](./how-to-migrate-single-to-flexible-cli.md)
