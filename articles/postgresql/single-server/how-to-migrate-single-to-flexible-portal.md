@@ -20,11 +20,11 @@ This guide shows you how to use Single to Flexible server migration feature to m
 
 Go to Azure portal homepage and navigate to your subscription as shown below.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-azure-portal.png" alt-text="Azure Portal Subscription details" lightbox="./media/concepts-single-to-flex/single-to-flex-azure-portal.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-azure-portal.png" alt-text="Screenshot of Azure Portal Subscription details." lightbox="./media/concepts-single-to-flexible/single-to-flex-azure-portal.png":::
 
 In your subscription, navigate to **Resource Providers** from the left navigation menu. Search for **Microsoft.DataMigration**; as shown below and click on **Register**.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-register-data-migration.png" alt-text="Register Data Migration Service." lightbox="./media/concepts-single-to-flex/single-to-flex-register-data-migration.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-register-data-migration.png" alt-text="Screenshot of Register button for Data Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-register-data-migration.png":::
 
 ## Pre-requisites
 
@@ -34,26 +34,27 @@ Take care of the pre-requisites listed [here](./concepts-single-to-flexible.md#p
 
 Single to Flexible server migration feature comes with a simple, wizard-based portal experience. Let us get started to know the steps needed to consume the tool from portal.
 
-- **Sign into the Azure portal -** Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in. The default view is your service dashboard.
-- Navigate to your Azure database for PostgreSQL flexible server.If you have not created an Azure database for PostgreSQL flexible server, create one using this [link](../flexible-server/quickstart-create-server-portal.md).
+1. **Sign into the Azure portal -** Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in. The default view is your service dashboard.
 
-- In the **Overview** tab of your flexible server, use the left navigation menu and scroll down to the option of **Migration (preview)** and click on it.
+2. Navigate to your Azure database for PostgreSQL flexible server.If you have not created an Azure database for PostgreSQL flexible server, create one using this [link](../flexible-server/quickstart-create-server-portal.md).
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-preview.png" alt-text="Migration Preview Tab details are shown." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-preview.png":::
+3. In the **Overview** tab of your flexible server, use the left navigation menu and scroll down to the option of **Migration (preview)** and click on it.
 
-Click the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you are using the migration feature, you will see an empty grid with a prompt to begin your first migration.
+    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png" alt-text="Screenshot of Migration Preview Tab details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png":::
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migrate-single-server.png" alt-text="Migrate from Single Server screenshot." lightbox="./media/concepts-single-to-flex/single-to-flex-migrate-single-server.png":::
+4. Click the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you are using the migration feature, you will see an empty grid with a prompt to begin your first migration.
 
-If you have already created migrations to your flexible server, you should see the grid populated with information of the list of migrations that were attempted to this flexible server from single servers.
+    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png" alt-text="Screenshot of Migrate from Single Server tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png":::
 
-Click on the **Migrate from Single Server** button. You will be taken through a wizard-based user interface to create a migration to this flexible server from any single server.
+    If you have already created migrations to your flexible server, you should see the grid populated with information of the list of migrations that were attempted to this flexible server from single servers.
+
+5. Click on the **Migrate from Single Server** button. You will be taken through a wizard-based user interface to create a migration to this flexible server from any single server.
 
 ### Setup tab
 
 The first is the setup tab which has basic information about the migration and the list of pre-requisites that need to be taken care of to get started with migrations. The list of pre-requisites is the same as the ones listed in the pre-requisites section [here](./concepts-single-to-flexible.md). Click on the provided link to know more about the same.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-setup.png" alt-text="Setup Tab detais are shown." lightbox="./media/concepts-single-to-flex/single-to-flex-setup.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-setup.png" alt-text="Screenshot of Setup Tab details." lightbox="./media/concepts-single-to-flexible/single-to-flex-setup.png":::
 
 - The **Migration name** is the unique identifier for each migration to this flexible server. This field accepts only alphanumeric characters and does not accept any special characters except **&#39;-&#39;**. The name cannot start with a **&#39;-&#39;** and should be unique for a target server. No two migrations to the same flexible server can have the same name.
 - The **Migration resource group** is where all the migration-related components will be created by this migration feature.
@@ -62,13 +63,13 @@ By default, it is resource group of the target flexible server and all the compo
 
 - For the **Azure Active Directory App**, click the **select** option and pick the app that was created as a part of the pre-requisite step. Once the Azure AD App is chosen, paste the client secret that was generated for the Azure AD app to the **Azure Active Directory Client Secret** field.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-client-secret.png" alt-text="Client Secret is entered." lightbox="./media/concepts-single-to-flex/single-to-flex-client-secret.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-client-secret.png" alt-text="Screenshot of field to enter Client Secret." lightbox="./media/concepts-single-to-flexible/single-to-flex-client-secret.png":::
 
 Click on the **Next** button.
 
 ### Source tab
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-source.png" alt-text="Select source for the migration." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-source.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-source.png" alt-text="Screenshot of source database server details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-source.png":::
 
 The source tab prompts you to give details related to the source single server from which databases needs to be migrated. As soon as you pick the **Subscription** and  **Resource Group**, the dropdown for server names will have the list of single servers under that resource group across regions. It is recommended to migrate databases from a single server to flexible server in the same region.
 
@@ -86,7 +87,7 @@ After filling out all the fields, please click the **Next** button.
 
 ### Target tab
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-target.png" alt-text="Select target for the migration." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-target.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-target.png" alt-text="Screenshot of target database server details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-target.png":::
 
 This tab displays metadata of the flexible server like the **Subscription**, **Resource Group**, **Server name**, **Location**, and **PostgreSQL version**. It displays  **server admin login name**  which is the admin username that was used during the creation of the flexible server.Enter the corresponding password for the admin user. This is required for the migration feature to login into the flexible server to perform restore operations.
 
@@ -103,7 +104,7 @@ The content on the Networking tab depends on the networking topology of your sou
 
 - If both source and target servers are in public access, then you are going to see the message below.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-networking.png" alt-text="Migration Networking configuration." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-networking.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-networking.png" alt-text="Screenshot of Migration Networking configuration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-networking.png":::
 
 In this case, you need not do anything and can just click on the **Next**  button.
 
@@ -114,7 +115,7 @@ In this case, you need not do anything and can just click on the **Next**  butto
 
 If either source or target is configured in private access, then the networking tab looks like the following
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-private.png" alt-text="Networking Private Access configuration." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-private.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-private.png" alt-text="Screenshot of Networking Private Access configuration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-private.png":::
 
 All the fields will be automatically populated with subnet details. This is the subnet in which the migration feature will deploy Azure DMS to move data between the source and target.
 
@@ -126,17 +127,17 @@ After picking a subnet, click on **Next** button
 
 This tab gives a summary of all the details for creating the migration. Review the details and click on the **Create** button to start the migration.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-review.png" alt-text="Migration review screenshot." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-review.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-review.png" alt-text="Screenshot of Migration review." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-review.png":::
 
 ## Monitoring migrations
 
 After clicking on the **Create** button, you should see a notification in a few seconds saying the migration was successfully created.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-monitoring.png" alt-text="Migration monitoring screenshot." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-monitoring.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-monitoring.png" alt-text="Screenshot of Migration monitoring." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-monitoring.png":::
 
 You should automatically be redirected to **Migrations (Preview)** page of flexible server that will have a new entry of the recently created migration
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-review-tab.png" alt-text="Migration review tab is shown." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-review-tab.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-review-tab.png" alt-text="Screenshot of Migration review tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-review-tab.png":::
 
 The grid displaying the migrations has various columns including  **Name**, **Status**,  **Source server name**, **Region**, **Version**, **Database names**, and the  **Migration start time**. By default, the grid shows the list of migrations in the decreasing order of migration start time. In other words, recent migrations appear on top of the grid.
 
@@ -144,7 +145,7 @@ You can use the refresh button to refresh the status of the migrations.
 
 You can click on the migration name in the grid to see the details of that migration.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-grid.png" alt-text="Migration grid is shown." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-grid.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png" alt-text="Screenshot of Migration grid." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png":::
 
 - As soon as the migration is created, the migration moves to the **InProgress** state and **PerformingPreRequisiteSteps** substate. It takes up to 10 minutes for the migration workflow to move out of this substate since it takes time to create and deploy DMS, add its IP on firewall list of source and target servers and to perform a few maintenance tasks.
 - After the **PerformingPreRequisiteSteps** substate is completed, the migration moves to the substate of **Migrating Data** where the dump and restore of the databases take place.
@@ -153,23 +154,23 @@ You can click on the migration name in the grid to see the details of that migra
 - For **Offline** mode, the migration moves to **Succeeded** state as soon as the **Migrating Data** state completes successfully. If there is an issue at the **Migrating Data** state, the migration moves into a **Failed** state.
 - For **Online** mode, the migration moves to the state of **WaitingForUserAction** and **WaitingForCutOver** substate after the **Migrating Data** substate completes successfully.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-status-wait.png" alt-text="Migration status showing wait." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-status-wait.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-status-wait.png" alt-text="Screenshot of Migration status." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-status-wait.png":::
 
 You can click on the migration name to go into the migration details page and should see the substate of **WaitingForCutover**.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-cutover.png" alt-text="Migration ready for cutover." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-cutover.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-cutover.png" alt-text="Screenshot of Migration ready for cutover." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-cutover.png":::
 
 At this stage, the ongoing writes at your source single server will be replicated to the target flexible server using the logical decoding feature of PostgreSQL. You should wait until the replication reaches a state where the target is almost in sync with the source. You can monitor the replication lag by clicking on each of the databases that are being migrated. It opens a fan-out blade with a bunch of metrics. Look for the value of **Pending Bytes** metric and it should be nearing zero over time. Once it reaches to a few MB for all the databases, stop any further writes to your single server and wait until the metric reaches 0. This should be followed by the validation of data and schema on your flexible server to make sure it matches exactly with the source server.
 
 After completing the above steps, click on the **Cutover** button. You should see the following message
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-click-cutover.png" alt-text="Click cutover after migration." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-click-cutover.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-click-cutover.png" alt-text="Screenshot of cutover button before migration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-click-cutover.png":::
 
 Click on the **Yes** button to start cutover.
 
 In a few seconds after starting cutover, you should see the following notification
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-successful-cutover.png" alt-text="Successful cutover after migration." lightbox="./media/concepts-single-to-flex/single-to-flex-migration-successful-cutover.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-successful-cutover.png" alt-text="Screenshot of Successful cutover after migration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-successful-cutover.png":::
 
 Once the cutover is complete, the migration moves to **Succeeded** state and migration of schema data from your single server to flexible server is now complete. You can use the refresh button in the page to check if the cutover was successful.
 
@@ -178,7 +179,7 @@ After completing the above steps, you can make changes to your application code 
 Possible migration states include
 
 - **InProgress**: The migration infrastructure is being setup, or the actual data migration is in progress.
-- **Canceled**: The migration has been cancelled or deleted.
+- **Canceled**: The migration has been canceled or deleted.
 - **Failed**: The migration has failed.
 - **Succeeded**: The migration has succeeded and is complete.
 - **WaitingForUserAction**: Migration is waiting on a user action..
@@ -199,9 +200,9 @@ You also have the option to cancel any ongoing migrations. For a migration to be
 
 You can choose multiple ongoing migrations at once and can cancel them.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-migration-multiple.png" alt-text="Migration multiple" lightbox="./media/concepts-single-to-flex/single-to-flex-migration-multiple.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-multiple.png" alt-text="Screenshot of multiple migrations in process." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-multiple.png":::
 
-Note that **cancel migration** just stops any more further migration activity on your target server. It will not drop or roll back any changes on your target server that were done by the migration attempts. Make sure to drop the databases involved in a cancelled migration on your target server.
+Note that **cancel migration** just stops any more further migration activity on your target server. It will not drop or roll back any changes on your target server that were done by the migration attempts. Make sure to drop the databases involved in a canceled migration on your target server.
 
 ## Post migration steps
 

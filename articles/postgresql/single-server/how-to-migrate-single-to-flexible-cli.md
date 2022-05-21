@@ -21,11 +21,11 @@ This quick start article shows you how to use Single to Flexible Server migratio
 1. If you are new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate our offerings. 
 2. Register your subscription for Azure Database Migration Service (DMS). If you have already done it, you can skip this step. Go to Azure portal homepage and navigate to your subscription as shown below.
 
-  :::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-dms.png" alt-text="Screenshot of C L I DMS" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-dms.png":::
+  :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dms.png" alt-text="Screenshot of C L I Database Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dms.png":::
 
 3. In your subscription, navigate to **Resource Providers** from the left navigation menu. Search for "**Microsoft.DataMigration**"; as shown below and click on **Register**.
 
-  :::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-dms-register.png" alt-text="Screenshot of C L I DMS register" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-dms-register.png":::
+  :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dms-register.png" alt-text="Screenshot of C L I Database Migration Service register button." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dms-register.png":::
 
 ## Pre-requisites
 
@@ -35,10 +35,10 @@ This quick start article shows you how to use Single to Flexible Server migratio
 2. In case Azure CLI is already installed, check the version by issuing **az version** command. The version should be **2.28.0 or above** to use the migration CLI commands. If not, update your Azure CLI using this [link](/cli/azure/update-azure-cli.md).
 3. Once you have the right Azure CLI version, run the **az login** command. A browser page is opened with Azure sign-in page to authenticate. Provide your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, visit this [link](/cli/azure/authenticate-azure-cli.md).
    
-  ```bash
-  az login
-  ```
-1. Take care of the pre-requisites listed in this [**document**](./concepts-single-to-flexible.md#pre-requisites) which are necessary to get started with the Single to Flexible migration feature.
+      ```bash
+      az login
+      ```
+4. Take care of the pre-requisites listed in this [**document**](./concepts-single-to-flexible.md#pre-requisites) which are necessary to get started with the Single to Flexible migration feature.
 
 ## Migration CLI commands
 
@@ -50,7 +50,7 @@ az postgres flexible-server migration --help
 
   gives you the following output.
 
-  :::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-help.png" alt-text="Screenshot of C L I help" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-help.png":::
+  :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-help.png" alt-text="Screenshot of C L I help." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-help.png":::
 
 It lists the set of migration commands that are supported along with their actions. Let us look into these commands in detail.
 
@@ -64,7 +64,7 @@ az postgres flexible-server migration create -- help
 
 gives the following result
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-create.png" alt-text="Screenshot of C L I create" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-create.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-create.png" alt-text="Screenshot of C L I create." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-create.png":::
 
 It calls out the expected arguments and has an example syntax that needs to be used to create a successful migration from the source to target server. The CLI command to create a migration is given below
 
@@ -173,7 +173,7 @@ az postgres flexible-server migration list [--subscription]
 
 There is a parameter called **filter** and it can take **Active** and **All** as values.
 
-- **Active** – Lists down the current active migration attempts for the target server. It does not include the migrations that have reached a failed/cancelled/succeeded state.
+- **Active** – Lists down the current active migration attempts for the target server. It does not include the migrations that have reached a failed/canceled/succeeded state.
 - **All** – Lists down all the migration attempts to the target server. This includes both the active and past migrations irrespective of the state.
 
 ```azurecli-interactive
@@ -195,7 +195,7 @@ az postgres flexible-server migration list [--subscription]
 
 The **migration_name** is the name assigned to the migration during the **create migration** command. Here is a snapshot of the sample response from the **Show Details** CLI command.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-migration-name.png" alt-text="Screenshot of C L I migration name" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-migration-name.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-migration-name.png" alt-text="Screenshot of C L I migration name." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-migration-name.png":::
 
 Some important points to note on the command response:
 
@@ -280,7 +280,7 @@ for any additional information.
 
 ### Delete/Cancel Migration
 
-Any ongoing migration attempts can be deleted or cancelled using the **delete migration** command. This command stops all migration activities in that task, but does not drop or rollback any changes on your target server. Below is the CLI command to delete a migration
+Any ongoing migration attempts can be deleted or canceled using the **delete migration** command. This command stops all migration activities in that task, but does not drop or rollback any changes on your target server. Below is the CLI command to delete a migration
 
 ```azurecli
 az postgres flexible-server migration delete [--subscription]
@@ -310,7 +310,7 @@ Migration **states**:
 | Migration State | Description |
 | ---- | ---- |
 | **InProgress** | The migration infrastructure is being setup, or the actual data migration is in progress. |
-| **Canceled** | The migration has been cancelled or deleted. |
+| **Canceled** | The migration has been canceled or deleted. |
 | **Failed** | The migration has failed. |
 | **Succeeded** | The migration has succeeded and is complete. |
 | **WaitingForUserAction** | Migration is waiting on a user action. This state has a list of substates that were discussed in detail in the previous section. |
@@ -331,7 +331,7 @@ Migration **substates**:
 ## How to find if custom DNS is used for name resolution?
 Navigate to your Virtual network where you deployed your source or the target server and click on **DNS server**. It should indicate if it is using a custom DNS server or default Azure provided DNS server.
 
-:::image type="content" source="./media/concepts-single-to-flex/single-to-flex-cli-dns-server.png" alt-text="CLI dns server" lightbox="./media/concepts-single-to-flex/single-to-flex-cli-dns-server.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dns-server.png" alt-text="Screenshot of CLI dns server." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dns-server.png":::
 
 ## Post Migration Steps
 

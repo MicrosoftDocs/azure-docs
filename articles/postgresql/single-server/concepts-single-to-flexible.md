@@ -35,7 +35,7 @@ You choose the source server and can select up to **8** databases from it. This 
 8. Migrates data from source to target
 
 Following is the flow diagram for Single to Flexible migration feature.
-:::image type="content" source="./media/concepts-single-to-flex/concepts-flow-diagram.png" alt-text="Single to Flexible Server migration" lightbox="./media/concepts-single-to-flex/concepts-flow-diagram.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/concepts-flow-diagram.png" alt-text="Diagram that shows Single to Flexible Server migration." lightbox="./media/concepts-single-to-flexible/concepts-flow-diagram.png":::
     
 **Steps:**
 1. Create a Flex PG server
@@ -99,7 +99,7 @@ Follow the steps provided in this section before you get started with the single
 
 - **Source Server pre-requisites** - You must [enable logical replication](./concepts-logical.md) on the source server.
 
-    :::image type="content" source="./media/concepts-single-to-flex/logical-replication-support.png" alt-text="Logical replication from Azure portal" lightbox="./media/concepts-single-to-flex/logical-replication-support.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/logical-replication-support.png" alt-text="Screenshot of logical replication support in Azure portal." lightbox="./media/concepts-single-to-flexible/logical-replication-support.png":::
 
 >[!NOTE]
 > Enabling logical replication will require a server reboot for the change to take effect.
@@ -180,5 +180,5 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 ## Next steps
 
-- [Migrate to Flexible server using Azure portal](./how-to-migrate-single-to-flex-portal.md).
-- [Migrate to Flexible server using Azure CLI](./how-to-migrate-single-to-flex-cli.md)
+- [Migrate to Flexible Server using Azure portal](./how-to-migrate-single-to-flex-portal.md).
+- [Migrate to Flexible Server using Azure CLI](./how-to-migrate-single-to-flex-cli.md)

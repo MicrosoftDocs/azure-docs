@@ -19,9 +19,9 @@
           - name: Single to Flexible - Concepts
             href: single-server/concepts-single-to-flexible.md
           - name: Single to Flexible - Migrate using portal
-            href: single-server/how-to-migrate-single-to-flex-portal.md
+            href: single-server/how-to-migrate-single-to-flexible-portal.md
           - name: Single to Flexible - Migrate using CLI
-            href: single-server/how-to-migrate-single-to-flex-cli.md
+            href: single-server/how-to-migrate-single-to-flexible-cli.md
           - name: Single to Flexible - Set up Azure AD app using portal
             href: single-server/how-to-setup-azure-ad-app-portal.md
       - name: Migrate data with pg_dump and pg_restore
