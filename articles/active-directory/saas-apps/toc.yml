@@ -2290,6 +2290,8 @@
         href: torii-tutorial.md
       - name: TruNarrative
         href: trunarrative-tutorial.md
+      - name: TVU Service
+        href: tvu-service-tutorial.md
       - name: Tulip
         href: tulip-tutorial.md
       - name: TurboRater
