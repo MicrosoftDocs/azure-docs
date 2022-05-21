@@ -1,6 +1,6 @@
 ---
 title: Synapse proof of concept playbook
-description: Introduction to a series of articles that provide a high-level methodology for planning, preparing, and running an effective Azure Synapse Analytics proof of concept project. 
+description: "Introduction to a series of articles that provide a high-level methodology for planning, preparing, and running an effective Azure Synapse Analytics proof of concept project."
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
@@ -41,7 +41,7 @@ The playbook includes three subjects:
 
 - [Data warehousing with dedicated SQL pool in Azure Synapse Analytics](proof-of-concept-playbook-dedicated-sql-pool.md)
 - [Data lake exploration with serverless SQL pool in Azure Synapse Analytics](proof-of-concept-playbook-serverless-sql-pool.md)
-- [Big data analytics with Apache Spark pool in Azure Synapse Analytics](proof-of-concept-playbook-apache-spark-pool.md)
+- [Big data analytics with Apache Spark pool in Azure Synapse Analytics](proof-of-concept-playbook-spark-pool.md)
 
 ## Next steps
 
@@ -52,7 +52,7 @@ The playbook includes three subjects:
 > [Data lake exploration with serverless SQL pool in Azure Synapse Analytics](proof-of-concept-playbook-serverless-sql-pool.md)
 
 > [!div class="nextstepaction"]
-> [Big data analytics with Apache Spark pool in Azure Synapse Analytics](proof-of-concept-playbook-apache-spark-pool.md)
+> [Big data analytics with Apache Spark pool in Azure Synapse Analytics](proof-of-concept-playbook-spark-pool.md)
 
 > [!div class="nextstepaction"]
 > [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)

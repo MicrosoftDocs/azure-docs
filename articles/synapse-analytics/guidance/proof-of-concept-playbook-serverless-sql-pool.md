@@ -1,6 +1,6 @@
 ---
 title: "Synapse POC playbook: Data lake exploration with serverless SQL pool in Azure Synapse Analytics"
-description: A high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for serverless SQL pool.
+description: "A high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for serverless SQL pool."
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
@@ -158,7 +158,7 @@ When you complete all the POC tests, you evaluate the results. Begin by evaluati
 > [Data lake exploration with dedicated SQL pool in Azure Synapse Analytics](proof-of-concept-playbook-dedicated-sql-pool.md)
 
 > [!div class="nextstepaction"]
-> [Big data analytics with Apache Spark pool in Azure Synapse Analytics](proof-of-concept-playbook-apache-spark-pool.md)
+> [Big data analytics with Apache Spark pool in Azure Synapse Analytics](proof-of-concept-playbook-spark-pool.md)
 
 > [!div class="nextstepaction"]
 > [Build data analytics solutions using Azure Synapse serverless SQL pools](/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools/)

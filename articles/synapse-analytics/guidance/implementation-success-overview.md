@@ -1,5 +1,5 @@
 ---
-title: Synapse implementation success methodology
+title: Azure Synapse implementation success by design
 description: "Learn about the Azure Synapse success series of articles that's designed to help you deliver a successful implementation of Azure Synapse Analytics."
 author: peter-myers
 ms.author: v-petermyers
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 02/28/2022
 ---
 
-# Synapse implementation success methodology
+# Azure Synapse implementation success by design
 
-The *Azure Synapse success by design* series of articles is designed to help you deliver a successful implementation of Azure Synapse Analytics. It describes a methodology to complement your solution implementation project. It includes suggested checks at strategic points during your project that can help assure a successful implementation. The methodology shouldn't replace or change your chosen project management methodology (Scrum, Agile, or waterfall); it suggests validations that can improve the success of your project deployment to a production environment.
+The *Azure Synapse implementation success by design* series of articles is designed to help you deliver a successful implementation of Azure Synapse Analytics. It describes a methodology to complement your solution implementation project. It includes suggested checks at strategic points during your project that can help assure a successful implementation. The methodology shouldn't replace or change your chosen project management methodology (Scrum, Agile, or waterfall); it suggests validations that can improve the success of your project deployment to a production environment.
 
 [Azure Synapse](../overview-what-is.md) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, pipelines for data integration and ETL/ELT, and deep integration with other Azure services such as Power BI, Azure Cosmos DB, and Azure Machine Learning.
 
@@ -121,4 +121,4 @@ The *post go-live* checklist provides a final readiness check to monitor your Az
 
 ## Next steps
 
-In the [next article](implementation-success-assess-environment.md) in the *Azure Synapse success by design* series, learn how to assess your environment to help evaluate the solution design and make informed technology decisions to implement Azure Synapse.
+In the [next article](implementation-success-assess-environment.md) in the *Azure Synapse implementation success by design* series, learn how to assess your environment to help evaluate the solution design and make informed technology decisions to implement Azure Synapse.
