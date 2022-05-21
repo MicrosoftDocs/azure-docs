@@ -90,27 +90,27 @@ For networking and security, evaluate the following points.
 
 Use the below checklists of possible requirements to guide your assessment.
 
-    - **Data protection**
-        - In-transit encryption
-        - Encryption at rest (default keys or customer-managed keys)
-        - Data discovery and classification
-    - **Access control**
-        - Object-level security
-        - Row-level security
-        - Column-level security
-        - Dynamic data masking
-    - **Authentication**
-        - SQL login
-        - Azure Active Directory (Azure AD)
-        - Multi-factor authentication (MFA)
-    - **Network security**
-        - Virtual networks
-        - Firewall
-        - Azure ExpressRoute
-    - **Threat protection**
-        - Thread detection
-        - Auditing
-        - Vulnerability assessment
+- **Data protection**
+    - In-transit encryption
+    - Encryption at rest (default keys or customer-managed keys)
+    - Data discovery and classification
+- **Access control**
+    - Object-level security
+    - Row-level security
+    - Column-level security
+    - Dynamic data masking
+- **Authentication**
+    - SQL login
+    - Azure Active Directory (Azure AD)
+    - Multi-factor authentication (MFA)
+- **Network security**
+    - Virtual networks
+    - Firewall
+    - Azure ExpressRoute
+- **Threat protection**
+    - Thread detection
+    - Auditing
+    - Vulnerability assessment
 
 ### Azure environment
 
