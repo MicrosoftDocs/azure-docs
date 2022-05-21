@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/02/2021
+ms.date: 05/20/2022
 ms.author: alkohli
 ---
 # Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU
@@ -17,6 +17,36 @@ ms.author: alkohli
 This article gives guidance for resolving the most common issues that cause installation of the GPU extension on a GPU VM to fail on an Azure Stack Edge Pro GPU device.
 
 For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md?tabs=linux).
+
+## Linux GPU extension installs old signing keys: signature and/or required key missing
+
+**Error description:** The Linux GPU extension installs old signing keys, preventing download of the the required GPU driver. In this case, you will see the following error in the syslog of the Linux VM:
+ 
+   ```powershell
+   /var/log/syslog and /var/log/waagent.log 
+   May  5 06:04:53 gpuvm12 kernel: [  833.601805] nvidia:module verification failed: signature and/or required key missing- tainting kernel 
+   ```
+**Suggested solutions:** You have two options to mitigate this issue: 
+ 
+1.	Use updated GPU extensions included in the Azure Stack Edge 2205 release. Files are located in the Github /GpuExtension/ folder at [Azure-Samples/azure-stack-edge-deploy-vms/](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/Templates/ExtensionTemplates). 
+ 
+2.	Manually install the new signing keys. After creating a GPU virtual machine of size in NCasT4_v3-series, set required signing keys using steps in [Updating the CUDA Linux GPG Repository Key | NVIDIA Technical Blog](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/).
+
+    Examples:
+ 
+    Ubuntu 
+
+    ```powershell
+    $ sudo apt-key adv --fetch-
+    keys https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/3bf863cc.pub 
+    ```
+
+    Example on Ubuntu 1804 Virtual Machine 
+
+    ```powershell
+    $ sudo apt-key adv --fetch-
+    keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub 
+    ```
 
 ## VM size is not GPU VM size
 

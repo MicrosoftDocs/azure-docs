@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/02/2021
+ms.date: 05/20/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install GPU extension on GPU virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
@@ -62,7 +62,7 @@ The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
 	"value": "NvidiaGpuDriverWindows" 
 	},
 	"typeHandlerVersion": {
-	"value": "1.3" 
+	"value": "1.5" 
 	},
 	"settings": {
 	"value": {
@@ -95,7 +95,7 @@ If using Ubuntu or Red Hat Enterprise Linux (RHEL), the `addGPUExtLinuxVM.parame
 	"value": "NvidiaGpuDriverLinux" 
 	},
 	"typeHandlerVersion": {
-	"value": "1.3" 
+	"value": "1.8" 
 	},
 	"settings": {
 	}
@@ -123,7 +123,7 @@ Here is a sample Ubuntu parameter file that was used in this article:
             "value": "NvidiaGpuDriverLinux" 
         },
         "typeHandlerVersion": {
-            "value": "1.3" 
+            "value": "1.8" 
         },
         "settings": {
         }
@@ -145,7 +145,15 @@ If you created your VM using a Red Hat Enterprise Linux Bring Your Own Subscript
 
 ### [Windows](#tab/windows)
 
-Deploy the template `addGPUextensiontoVM.json`. This template deploys extension to an existing VM. Run the following command:
+Use the following steps to deploy...
+
+1. If you are not using a Windows 2016 VHD, skip to Step 2. For Windows 2016 VHD, run this command inside the VHD to enable TLS1.2:
+
+   ```dotnetcli
+   sp hklm:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 SchUseStrongCrypto 1
+   ```
+
+1. Deploy the template `addGPUextensiontoVM.json`. This template deploys extension to an existing VM. Run the following command:
 
 ```powershell
 $templateFile = "<Path to addGPUextensiontoVM.json>" 
