@@ -1,6 +1,6 @@
 ---
 title: "Synapse implementation success methodology: Perform monitoring review"
-description:  "Learn how to monitor your Azure Synapse solution."
+description: "Learn how to perform monitoring of your Azure Synapse solution."
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
@@ -13,7 +13,7 @@ ms.date: 05/23/2022
 
 [!INCLUDE [implementation-success-context](includes/implementation-success-context.md)]
 
-Monitoring is a key part of the operationalization  of any Azure solution. This article provides guidance on reviewing and configuring the monitoring of your Azure Synapse environment. Key to this activity is the identification of what needs to be monitored and who needs to review the monitoring results.
+Monitoring is a key part of the operationalization of any Azure solution. This article provides guidance on reviewing and configuring the monitoring of your Azure Synapse environment. Key to this activity is the identification of what needs to be monitored and who needs to review the monitoring results.
 
 Using your solution requirements and other data collected during assessment and solution development, build a list of important behaviors and activities that need to be monitored in your production environment. As you build this list, identify the groups of user that will need access to monitoring information and build the procedures they can follow to respond to monitoring results.
 

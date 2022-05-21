@@ -84,4 +84,4 @@ Use the built-in DR mechanisms available with Azure services for building your D
 
 ## Next steps
 
-In the [next article](implementation-success-perform-user-readiness-and-onboarding-plan-review.md) in the *Azure Synapse success by design* series, learn how to perform user readiness and onboarding of new users to ensure successful adoption of your data warehouse.
+In the [next article](implementation-success-perform-user-readiness-and-onboarding-plan-review.md) in the *Azure Synapse success by design* series, learn how to perform monitoring of your Azure Synapse solution.

@@ -1500,8 +1500,8 @@ items:
         href: ./guidance/implementation-success-evaluate-project-plan.md
       - name: Evaluate solution development environment design
         href: ./guidance/implementation-success-evaluate-solution-development-environment-design.md
-      - name: Evaluate team skill set
-        href: ./guidance/implementation-success-evaluate-team-skill-set.md
+      - name: Evaluate team skill sets
+        href: ./guidance/implementation-success-evaluate-team-skill-sets.md
       - name: Perform operational readiness review
         href: ./guidance/implementation-success-perform-operational-readiness-review.md
       - name: Perform user readiness and onboarding plan review

@@ -48,4 +48,4 @@ A well-planned solution development environment design will improve the quality 
 
 ## Next steps
 
-In the [next article](implementation-success-evaluate-team-skill-set.md) in the *Azure Synapse success by design* series, learn how to assemble a team of skilled resources to implement your Azure Synapse solution.
+In the [next article](implementation-success-evaluate-team-skill-sets.md) in the *Azure Synapse success by design* series, learn how to evaluate your team of skilled resources that will implement your Azure Synapse solution.

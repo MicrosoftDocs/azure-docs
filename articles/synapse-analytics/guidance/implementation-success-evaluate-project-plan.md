@@ -1,6 +1,6 @@
 ---
 title: "Synapse implementation success methodology: Evaluate project plan"
-description: "Learn how to review your modern data warehouse project plan before the project starts."
+description: "Learn how to evaluate your modern data warehouse project plan before the project starts."
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
@@ -51,4 +51,4 @@ Identify the project plan components that address each aspect of Azure Synapse a
 
 ## Next steps
 
-In the [next article](implementation-success-evaluate-solution-development-environment-design.md) in the *Azure Synapse success by design* series, learn how to establish multiple environments for your modern data warehouse project to support development, testing, and production.
+In the [next article](implementation-success-evaluate-solution-development-environment-design.md) in the *Azure Synapse success by design* series, learn how to evaluate the environments for your modern data warehouse project to support development, testing, and production.
