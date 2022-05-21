@@ -42,7 +42,7 @@ Data security and privacy are non-negotiable. Azure Synapse implements a multi-l
 - **Access control:** Ensure proper access controls are in place following the [principle of least privilege](/azure/active-directory/develop/secure-least-privileged-access). Use security features available with Azure services to strengthen the security of your solution. For example, Azure Synapse provides granular security features such as row-level security (RLS), column-level security, and dynamic data masking). For more information, see [Azure Synapse Analytics security white paper: Access control](security-white-paper-access-control.md).
 - **Threat protection:** Ensure proper threat detection mechanisms are place to prevent, detect, and respond to threats. Azure Synapse provides SQL Auditing, SQL Threat Detection, and Vulnerability Assessment to audit, protect, and monitor databases. For more information, see [Azure Synapse Analytics security white paper: Threat detection](security-white-paper-threat-protection.md).
 
-For more information, see [Azure Synapse Analytics security white paper: Introduction](security-white-paper-introduction.md).
+For more information, see the [Azure Synapse Analytics security white paper](security-white-paper-introduction.md).
 
 ### Monitoring
 
