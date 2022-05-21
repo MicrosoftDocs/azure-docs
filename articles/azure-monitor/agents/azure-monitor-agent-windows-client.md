@@ -16,7 +16,8 @@ With the new client installer available in this preview, you can now collect tel
 Both the [generally available extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and this installer use Data Collection rules to configure the **same underlying agent**.
 
 ### Comparison with virtual machine extension
-Here is a comparison between client installer and VM extension for Azure Monitor agent. It also highlights which parts are in preview:
+Here is a comparison between client installer and VM extension for Azure Monitor agent. It also highlights which parts are in preview:  
+
 | Functional component | For VMs/servers via extension | For clients via installer|  
 |:---|:---|:---|
 | Agent installation method | Via VM extension | Via client installer <sup>preview</sup> |
@@ -26,7 +27,8 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 | Associating config rules to agents | DCRs associates directly to individual VM resources | DCRs associate to Monitored Object (MO), which maps to all devices within the AAD tenant <sup>preview</sup> |
 | Data upload to Log Analytics	| Via Log Analytics endpoints | Same |
 | Feature support | All features documented [here](./azure-monitor-agent-overview.md) | Features dependent on AMA agent extension that don't require additional extensions. This includes support for Sentinel Windows Event filtering |
-| [Networking options](./azure-monitor-agent-overview.md#networking) | Proxy support, Private link support | Proxy support only |
+| [Networking options](./azure-monitor-agent-overview.md#networking) | Proxy support, Private link support | Proxy support only |  
+
 
 
 ## Supported device types
