@@ -1,6 +1,6 @@
 ---
 title: Synapse implementation success methodology
-description: "TODO: Synapse implementation success methodology"
+description: "Learn about the Azure Synapse success series of articles that's designed to help you deliver a successful implementation of Azure Synapse Analytics."
 author: peter-myers
 ms.author: v-petermyers
 ms.reviewer: sngun
@@ -11,107 +11,114 @@ ms.date: 02/28/2022
 
 # Synapse implementation success methodology
 
-The Success By Design: Synapse Implementation Success methodology is designed to help guide you to a successful solution implementation that includes Azure Synapse Analytics as a component. This methodology is designed to complement your solution implementation project by adding suggested checks at strategic points during your project that can help assure a successful implementation of Azure Synapse Analytics. This methodology doesn't replace or change your chosen project management methodology (SCRUM, Agile, Waterfall), but will suggest validations to make while your project is in flight to improve the success of your overall deployment to a production environment.
+The *Azure Synapse success by design* series of articles is designed to help you deliver a successful implementation of Azure Synapse Analytics. It describes a methodology to complement your solution implementation project. It includes suggested checks at strategic points during your project that can help assure a successful implementation. The methodology shouldn't replace or change your chosen project management methodology (Scrum, Agile, or waterfall); it suggests validations that can improve the success of your project deployment to a production environment.
 
-[Azure Synapse](../overview-what-is.md) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services such as Power BI, CosmosDB, and AzureML.
+[Azure Synapse](../overview-what-is.md) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, pipelines for data integration and ETL/ELT, and deep integration with other Azure services such as Power BI, Azure Cosmos DB, and Azure Machine Learning.
 
-:::image type="content" source="media/implementation-success-overview/azure-synapse-analytics-architecture.png" alt-text="Image shows the Azure Synapse Analytics in terms of data lake, analytics runtimes, and the studio.":::
+:::image type="content" source="media/implementation-success-overview/azure-synapse-analytics-architecture.png" alt-text="Image shows the Azure Synapse Analytics in terms of data lake, analytics runtimes, and Synapse Studio.":::
 
-The Synapse Implementation Success methodology uses a strategic checkpoint approach to assessing and monitoring a project's progress.
+The methodology uses a strategic checkpoint approach to assess and monitor the progress of your project. The goals of these checkpoints are:
 
-The goals of these checkpoints include:
+- Proactive identification of possible issues and blockers.
+- Continuous validation of the solution's fit to the use cases.
+- Successful deployment to production.
+- Smooth operation and monitoring once in production.
 
-- Proactive identification of possible issues and blockers
-- Continuous validation of the solution's fit to the use case
-- Successful deployment to production
-- Smooth operation and monitoring once in production
+The checkpoints are invoked at four milestones during the lifecycle of your project:
 
-Synapse Implementation Success checkpoints are invoked at four key places within the Implementation Project:
+1. [Project planning](#project-planning-checkpoint)
+1. [Solution development](#solution-development-checkpoint)
+1. [Pre go-live](#pre-go-live-checkpoint)
+1. [Post go-live](#post-go-live-checkpoint)
 
-- Project Planning
-- Solution Development
-- Pre Go-Live
-- Post Go-Live
+### Project planning checkpoint
 
-## Synapse implementation success strategic checkpoints
+The project planning checkpoint includes the solution evaluation, project plan evaluation, the solution development environment design evaluation, and the team skill set evaluation.
 
-Here are the strategic checkpoints we recommend during these four project phases
+#### Solution evaluation
 
-### Project Planning
+You'll need to evaluation your entire solution with a focus on how it intends to use Azure Synapse. An assessment involves gathering data that will identify the required components of Azure Synapse, the interfaces each will have with other products, a review of the data sources, the data consumers, the roles, and use cases. This assessment will also gather data about the existing environment including detailed specifications from existing data warehouses, big data environments, and integration and data consumption tooling. The assessment will identify which Azure Synapse components will be implemented and therefore which evaluations and check points should be made throughout the implementation effort. This assessment will also provide additional information to validate the design and implementation against requirements, constraints, and assumptions.
 
-#### Solution Evaluation
+Here's a list of tasks you should complete.
 
-The Solution in total will need to be evaluated with a focus on how it is making use of Azure Synapse as part of the architecture.  An assessment will gather data that will identify the components of Azure Synapse that are being used, the interfaces each will have with other products, review the data sources, the data consumers, the personas, and use cases. This assessment will also gather data about the existing environment including detailed specifications from existing data warehouses, big data environments and integration and data consumption tooling. The assessment will identify which Synapse components will be implemented and thus what evaluations and check points should be made throughout the implementation effort. This assessment will also provide additional information to make validate design and implementation against requirements, constraints and assumptions.
+1. [Assess](implementation-success-assess-environment.md) your environment to help evaluate the solution design.
+1. Make informed technology decisions to implement Azure Synapse Analytics.
+1. Identify the Azure Synapse Analytics solution components to implement:
+  - [Evaluate the workspace design](implementation-success-evaluate-workspace-design.md).
+  - [Evaluate the data integration design](implementation-success-evaluate-data-integration-design.md).
+  - [Evaluate the dedicated SQL pool design](implementation-success-evaluate-dedicated-sql-pool-design.md).
+  - [Evaluate the serverless SQL pool design](implementation-success-evaluate-serverless-sql-pool-design.md).
+  - [Evaluate the Spark pool design](implementation-success-evaluate-spark-pool-design.md).
+1. Review the results of each evaluation and respond accordingly.
 
-- Perform an [assessment](implementation-success-assess-environment.md) of the solution
-- Identify the Azure Synapse Analytics solution components
-- Execute Evaluations based upon the solution components
-  - [Evaluate workspace design](implementation-success-evaluate-workspace-design.md)
-  - [Evaluate data integration design](implementation-success-evaluate-data-integration-design.md)
-  - [Evaluate dedicated SQL pool design](implementation-success-evaluate-dedicated-sql-pool-design.md)
-  - [Evaluate serverless SQL pool design](implementation-success-evaluate-serverless-sql-pool-design.md)
-  - [Evaluate Spark pool design](implementation-success-evaluate-spark-pool-design.md)
-- Review the results of these evaluations and respond accordingly
+#### Project plan evaluation
 
-#### Project Plan Evaluation
+Evaluate the project plan as it relates to the Azure Synapse requirements that need to be developed. This evaluation isn't about producing a project plan. Rather, the evaluation is about identify any steps that could lead to blockers or that could impact on the project timeline. Once evaluated, you may need to make adjustments to the project plan.
 
-Evaluate the project plan as it relates to the Azure Synapse Analytics work that needs to be completed.  This evaluation is not to make project plan changes but to identify steps that may be missing that could lead to blockers and impact the planned timeline. Once evaluated, the project plan may need to be modified and updated in response to the findings.
+Here's a list of tasks you should complete.
 
-- [Evaluate project plan](implementation-success-evaluate-project-plan.md).
-- Evaluate project planning specific to the solution architecture components of Azure Synapse Analytics being implemented.
-- Review the results and adjust accordingly.
+1. [Evaluate the project plan](implementation-success-evaluate-project-plan.md).
+1. Evaluate project planning specific to the Azure Synapse components being implemented.
+1. Review the results of each evaluation and respond accordingly.
 
-#### Solution Development Environment Evaluation
+#### Solution development environment design evaluation
 
-Evaluate the environment that is to be used to develop the solution. Having a controlled develop - test - production development environment incorporating automated deployment and source code control is essential to a successful and smooth solution development and the project success.
+Evaluate the environment that's to be used to develop the solution. Establish separate development, test, and production environments. Also, setting up automated deployment and source code control is essential to a successful and smooth solution development.
 
-- [Evaluate solution development environment design](implementation-success-evaluate-solution-development-environment-design.md)
-- Review the results and adjust accordingly.
+Here's a list of tasks you should complete.
 
-#### Assess Team Readiness and Training
+1. [Evaluate the solution development environment design](implementation-success-evaluate-solution-development-environment-design.md).
+1. Review the results of each evaluation and respond accordingly.
 
-Evaluate the project team with a focus their skill level and readiness to implement the solution incorporating Azure Synapse Analytics.  
-It will be important for the project’s success to have the correct skillsets. There are many and differing skillsets required for a successful implementation using Azure Synapse Analytics. Take time at this point to identify gaps and secure resources with the required skillset or take the time to complete training.
-This evaluation is critical at this stage. The lack of the proper skillset will impact both the timeline and the overall success of the solution.
+#### Team skill set evaluation
 
-- [Evaluate](implementation-success-evaluate-team-skill-set.md) the team's Azure Synapse Analytics Skillset
-- Secure additional skilled team members or skill-up team members
+Evaluate the project team with a focus on their skill level and readiness to implement the Azure Synapse solution. The success of the project depends on having the correct skill sets and experience. Many different skill sets are required to implement an Azure Synapse solution. Ensure you take time to identify gaps and secure suitable resources that have the required skill sets (or arrange for them to complete training). This evaluation is critical at this stage of your project. A lack of the proper skills can impact on both the timeline and the overall success of the project.
 
-### Solution Development
+Here's a list of tasks you should complete.
 
-#### Periodic Quality Checks
+1. [Evaluate the team skill sets](implementation-success-evaluate-team-skill-sets.md).
+1. Secure skilled resources, or upskill resources to expand their capabilities.
+1. Review the results of each evaluation and respond accordingly.
 
-Throughout the solution development checks should be made periodically to validate that the solution is being built with respect to recommended practices as they apply to the different components of Azure Synapse Analytics. Check that the project use cases will be satisfied, and the enterprise requirements are being met. For the purposes of this methodology, we are calling these periodic evaluations quality checks.
-Implement the following quality checks as appropriate to your solution.
+### Solution development checkpoint
 
-- Quality Checks for Workspaces
-- Quality Checks for Data Integration
-- Quality Checks for dedicated SQL Pools
-- Quality Checks for serverless SQL Pools
-- Quality Checks for Spark Pools
+The solution development checkpoint includes periodic quality checks and additional skill building.
 
-#### Recommend Additional Skill Building
+#### Periodic quality checks
 
-As the project progresses identify if additional skills are needed. Take the time to get the additional skillset to improve the quality of the solution and avoid project delays and project timeline impacts.
+During solution development, you should make periodic checks to validate that the solution is being developed according to recommended practices. Check that the project use cases will be satisfied, and that enterprise requirements are being met. For the purposes of this methodology, these checks are called *periodic quality checks*.
 
-### Pre Go-Live
+Implement the following quality checks:
 
-Prior to deploying your solution to production, the following reviews are recommended to assess the preparedness of the solution and the organization for adoption and support of the solution on Azure Synapse Analytics. The Go-Live checklists for the specific Azure Synapse Analytics components will provide a final check of readiness to successfully move to production.
+- Quality checks for workspaces.
+- Quality checks for data integration.
+- Quality checks for dedicated SQL pools.
+- Quality checks for serverless SQL pools.
+- Quality checks for Spark pools.
 
-- [Perform operational readiness review](implementation-success-perform-operational-readiness-review.md)
-- [Perform user readiness and onboarding plan review](implementation-success-perform-user-readiness-and-onboarding-plan-review.md)
+#### Additional skill building
 
-### Post Go-Live
+As the project progresses, identify whether more skill sets are needed. Take the time to determine whether more skill sets could improve the quality of the solution. Supplementing the team with more skill sets can help to avoid project delays and project timeline impacts.
 
-Following the deployment to production the following reviews are recommended to assure that the solution is operating as expected now that it is in production.
-Select the reviews appropriate to the solution
+### Pre go-live checkpoint
 
-- [Perform monitoring review](implementation-success-perform-monitoring-review.md)
+Before deploying your solution to production, we recommend that you perform reviews to assess the preparedness of the solution.
 
-## Conclusion
+The *pre go-live* checklist provides a final readiness check to successfully deploy to production.
 
-The Success By Design Synapse Implementation Success methodology is provided to help you with implementing a solution incorporating Azure Synapse Analytics. By utilizing this methodology during your Azure Synapse Analytics implementation project, you should be able to identify and address any issues early on and deploy to production a solution that benefits your business and delights your users.
+1. [Perform the operational readiness review](implementation-success-perform-operational-readiness-review.md).
+1. [Perform the user readiness and onboarding plan review](implementation-success-perform-user-readiness-and-onboarding-plan-review.md).
+1. Review the results of each review and respond accordingly.
+
+### Post go-live checkpoint
+
+After deploying to production, we recommend that you validate that the solution operates as expected.
+
+The *post go-live* checklist provides a final readiness check to monitor your Azure Synapse solution.
+
+1. [Perform the monitoring review](implementation-success-perform-monitoring-review.md).
+1. Continually monitor your Azure Synapse solution.
 
 ## Next steps
 
-TODO
+In the [next article](implementation-success-assess-environment.md) in the *Azure Synapse success by design* series, learn how to assess your environment to help evaluate the solution design and make informed technology decisions to implement Azure Synapse.
