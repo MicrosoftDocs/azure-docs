@@ -76,7 +76,7 @@ Define and document *recovery time objective (RTO)* and *recovery point objectiv
 
 Each of the Azure services publishes a set of guidelines and metrics on the expected high availability (HA) of the service. Ensure these HA metrics map to your business expectations. If not, customizations may be necessary to meet your HA requirements. For example, Azure Synapse dedicated SQL pool supports an eight-hour RPO with automatic restore points. If that RPO isn't sufficient, you can set up user-defined restore points with an appropriate frequency to meet your RPO needs. For more information, see [Backup and restore in Azure Synapse dedicated SQL pool](../sql-data-warehouse/backup-and-restore.md).
 
-### Disaster Recovery
+### Disaster recovery
 
 Define and document a detailed process for disaster recovery (DR) scenarios. DR scenarios can include a failover process, communication mechanisms, escalation process, war room setup, and others. Also document the process for identifying the causes of outages and the steps to take to recover from disasters.
 
