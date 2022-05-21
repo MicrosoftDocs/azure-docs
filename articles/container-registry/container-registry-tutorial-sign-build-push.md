@@ -1,6 +1,6 @@
 ---
 title: Build, Sign and Verify a container image using notation and certificate in Azure Key Vault
-description: Create a signing certificate, build container image, remote sign image with notation and Azure Key Vault, verify the container image using  Azure container registry.
+description: In this tutorial, you will learn how to create a signing certificate, build a container image, remote sign image with notation and Azure Key Vault, and then verify the container image using the Azure Container Registry.
 author: dtzar
 ms.author: davete
 ms.service: container-registry
@@ -10,29 +10,29 @@ ms.date: 05/08/2022
 
 # Build, Sign, and Verify container images using Notary and Azure Key Vault
 
-Signed containers enable users to assure deployments are built by the entities they trust and haven't been tampered with since their creation.
+The signed containers enable users to assure deployments are built from a trusted entity and verify every artifact remains unmodified and hasn't been tampered with since their creation. The signed artifacts thus ensure integrity and authenticity before pulling an artifact into any environment to avoid attacks.
 
-In this article you learn:
+In this tutorial:
 
 > [!div class="checklist"]
-> * How to store a signing certificate in Azure Key Vault
-> * How to remotely sign a container image with notation
-> * How to verify a container image signature with notation
+> * Store a signing certificate in Azure Key Vault
+> * Sign a container image with notation
+> * Verify a container image signature with notation
 > TODO: Include a diagram of AKV --> Build --> Sign --> ACR --> Verify
 
 ## Prerequisites
 
-This article requires the following to be completed or installed:
+> * [Install the notation CLI and Azure Key Vault plugin](#install-the-notation-cli-and-akv-plugin)
+> * [Follow the article to install, create and sign in to ORAS Artifact enabled registry](/articles/container-registry/container-registry-oras-artifacts#sign-in-with-oras-1)
+> * [Create or use an Azure Key Vault](/azure/key-vault/general/quick-create-cli)
 
-- [Complete the steps in this article at least up to **Sign in with ORAS**](/articles/container-registry/container-registry-oras-artifacts#sign-in-with-oras-1)
-- [Create or use an Azure Key Vault](/azure/key-vault/general/quick-create-cli)
-- [Install the notation CLI and Azure Key Vault plugin](#install-the-notation-cli-and-akv-plugin)
 
-This article can be run in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
+This tutorial can be run in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
 ## Install the notation CLI and AKV plugin
 
-> NOTE: The walk-through uses early released versions of notation and notation plugins.  
+> [!NOTE]
+> The walk-through uses early released versions of notation and notation plugins.  
 
 1. Install notation with plugin support from [this release](https://github.com/notaryproject/notation/releases/tag/feat-kv-extensibility)
 
@@ -40,7 +40,6 @@ This article can be run in the [Azure Cloud Shell](https://portal.azure.com/#clo
     # Choose a binary
     timestamp=20220121081115
     commit=17c7607
-
     # Download, extract and install
     curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/feat-kv-extensibility/notation-feat-kv-extensibility-$timestamp-$commit.tar.gz
     tar xvzf notation.tar.gz
@@ -78,9 +77,8 @@ This article can be run in the [Azure Cloud Shell](https://portal.azure.com/#clo
 
 ## Configure Environment Variables
 
-To ease the execution of the commands to complete this article, provide values for the Azure resources.
-
->  NOTE: This should match the existing Azure Container Registry and Azure Key Vault resources already created in the pre-requisite steps.
+> [!NOTE]
+> Providing values for the Azure resources to match the existing Azure Container Registry and Azure Key Vault resources will simplify the execution of commands in this tutorial.
 
 1. Configure Azure Key Vault resource names
 
@@ -94,7 +92,7 @@ To ease the execution of the commands to complete this article, provide values f
     KEY_SUBJECT_NAME=wabbit-networks.io
     ```
 
-1. Configure Azure Container Registry and image resource names
+2. Configure Azure Container Registry and image resource names
 
     ```bash
     # Name of the existing registry example: myregistry.azurecr.io
@@ -116,36 +114,29 @@ To ease the execution of the commands to complete this article, provide values f
     ```bash
     # Service Principal Name
     SP_NAME=https://${AKV_NAME}-sp
-
     # Create the service principal, capturing the password
     export AZURE_CLIENT_SECRET=$(az ad sp create-for-rbac --skip-assignment --name $SP_NAME --query "password" --output tsv)
-
     # Capture the service principal appId
     export AZURE_CLIENT_ID=$(az ad sp list --display-name $SP_NAME --query "[].appId" --output tsv)
-
     # Capture the Azure Tenant ID
     export AZURE_TENANT_ID=$(az account show --query "tenantId" -o tsv)
     ```
 
-1. Assign key and certificate permissions to the service principal object ID
+2. Assign key and certificate permissions to the service principal object ID
 
     ```azure-cli
     az keyvault set-policy --name $AKV_NAME --key-permissions get sign --spn $AZURE_CLIENT_ID
-
     az keyvault set-policy --name $AKV_NAME --certificate-permissions get --spn $AZURE_CLIENT_ID
 
 ## Store the signing certificate in Azure Key Vault
 
 In this step, create or provide an x509 signing certificate, storing it in Azure Key Vault for remote signing.
-
 If you have an existing certificate, upload to Azure Key Vault and skip to [Create a service principal and assign permissions to the key](#create-a-service-principal-and-assign-permissions-to-the-key)
 
 ### Create a self-signed Certificate (Azure CLI)
 
 1. Create a certificate policy file
-
     Once this policy is executed below, it creates a valid signing certificate compatible with **notation** in Azure Key Vault.  For more information to use your own signing key, see the notary project [signing certificate requirements](https://github.com/notaryproject/notaryproject/blob/main/signature-specification.md#certificate-requirements).
-
     ```bash
     cat <<EOF > ./my_policy.json
     {
@@ -232,7 +223,7 @@ ACR support for ORAS Artifacts creates a linked graph of supply chain artifacts 
     az acr manifest list-metadata $REGISTRY/$REPO -o jsonc
     ```
 
-    The command generates a result showing the `subject` in the artifact representing the notary v2 signature that points to the container image. Notice the `"tags": []` collection is empty.
+    generates a result, showing the `subject` in the artifact, representing the notary v2 signature, that points to the container image. Notice, the `"tags": []` collection is empty.
 
     ```json
     [
@@ -271,4 +262,5 @@ sha256:81a768032a0dcf5fd0d571092d37f2ab31afcac481aa91bb8ea891b0cff8a6ec
 Azure Key Vault (AKV) can be used to store a signing key that can be utilized by **notation** with the AKV notation plugin to sign and verify container images and other artifacts.  Those signatures can be attached to the Azure Container Registry using the **az** or **oras** CLI commands.
 
 ## Next steps
+
 [Enforce policy to only deploy signed container images to Azure Kubernetes Service (AKS) utilizing **ratify** and **gatekeeper**.](https://github.com/Azure/notation-azure-kv/blob/main/docs/nv2-sign-verify-aks.md)
