@@ -149,7 +149,7 @@ Use the following steps to deploy...
 
 1. If you are not using a Windows 2016 VHD, skip to Step 2. For Windows 2016 VHD, run this command inside the VHD to enable TLS1.2:
 
-   ```dotnetcli
+   ```powershell
    sp hklm:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 SchUseStrongCrypto 1
    ```
 
