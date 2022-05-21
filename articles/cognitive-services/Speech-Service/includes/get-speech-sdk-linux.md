@@ -8,7 +8,7 @@ ms.author: eur
 
 :::row:::
     :::column span="3":::
-        The Speech SDK only supports **Ubuntu 18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
+        The Speech SDK only supports **Ubuntu 18.04/20.04/22.04**, **Debian 9/10/11**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
     :::column-end:::
     :::column:::
         <br>
@@ -18,13 +18,10 @@ ms.author: eur
     :::column-end:::
 :::row-end:::
 
-- x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for C++ development
-- x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for Java
-- x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for .NET Core
-- x64 for Python
-
-> [!IMPORTANT]
-> For C# on Linux ARM64, the .NET Core 3.x (dotnet-sdk-3.x package) is required.
+- x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for **C++** development
+- x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for **Java**
+- x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for **.NET Core**
+- x64 (not RHEL/CentOS 7) for **Python**
 
 To use the Speech SDK in Alpine Linux, create a Debian chroot environment as documented in the Alpine Linux Wiki on [running glibc programs](https://wiki.alpinelinux.org/wiki/Running_glibc_programs). Then follow the Debian instructions here.
 
@@ -33,17 +30,26 @@ To use the Speech SDK in Alpine Linux, create a Debian chroot environment as doc
 For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, more dependencies might be required:
 
 - The shared libraries of the GNU C library, including the POSIX Threads Programming library, `libpthreads`
-- The OpenSSL library (`libssl`)
+- The OpenSSL library (`libssl`) version 1.x
 - The shared library for ALSA applications (`libasound`)
 
-# [Ubuntu 18.04/20.04](#tab/ubuntu)
+# [Ubuntu 18.04/20.04/22.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl-dev libasound2 wget
 ```
 
-# [Debian 9/10](#tab/debian)
+> [!IMPORTANT]
+> On Ubuntu 22.04, install `libssl1.1` either as a binary package from http://security.ubuntu.com/ubuntu/pool/main/o/openssl/ (e.g. `libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb` or newer for x64) or by compiling it from sources. The Speech SDK does not support OpenSSL 3.0 (the default in Ubuntu 22.04) at the moment.
+
+Example of installing `libssl1.1` on Ubuntu 22.04:
+```Bash
+wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb
+sudo dpkg -i libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb
+```
+
+# [Debian 9/10/11](#tab/debian)
 
 ```Bash
 sudo apt-get update
