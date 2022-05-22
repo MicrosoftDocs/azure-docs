@@ -74,7 +74,7 @@ Metric alerts notify you when on of your metrics crosses a defined threshold. Yo
 
 ### Activity log alerts
 
-The [Azure Activity log](../../azure-monitor/essentials/activity-log.md) is a platform log in Azure that provides insights into events at the subscription level. This includes information such as when a resource in Azure is modified.
+The [Azure activity log](../../azure-monitor/essentials/activity-log.md) is a platform log in Azure that provides insights into events at the subscription level. This includes information such as when a resource in Azure is modified.
 
 Activity log alerts are alerts that are activated when a new activity log event occurs that matches the conditions that are specified in the alert. 
 
@@ -113,12 +113,12 @@ To create an autoscaling setting, you define these using the resource type [Micr
 
 To target the resource that you want to apply the autoscaling setting to, you need to provide the target resource identifier of the resource that the setting should be added to.
 
-In this example, a *scale up* condition for the App Service plan based on the average CPU percentage over a 10 minute time period. If the App Service plan exceeds 70% average CPU consumption over 10 minutes, the autoscale engine scales up the plan by one instance. 
+In this example, a *scale out* condition for the App Service plan based on the average CPU percentage over a 10 minute time period. If the App Service plan exceeds 70% average CPU consumption over 10 minutes, the autoscale engine scales out the plan by adding one instance. 
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/autoscaling-rules.bicep" :::
 
 > [!NOTE]
-> When defining autoscaling rules, keep best practices in mind to avoid issues when attempting to autoscale, such as flapping. For more information, see the following documentation on [best practices for Autoscale](../../azure-monitor/autoscale/autoscale-best-practices.md)
+> When defining autoscaling rules, keep best practices in mind to avoid issues when attempting to autoscale, such as flapping. For more information, see the following documentation on [best practices for Autoscale](../../azure-monitor/autoscale/autoscale-best-practices.md).
 
 ## Related resources
 
