@@ -85,7 +85,7 @@ Navigate to the Form Recognizer resource in the Azure portal and select the **Id
 
 Start configuring secure communications by navigating to the **Networking** tab on your **Storage account** in the Azure portal.
 
-1. Under **Firewalls and virtual networks**, choose **Enabled from selected virtual networks and IP addresses** form the **Public network access** list.
+1. Under **Firewalls and virtual networks**, choose **Enabled from selected virtual networks and IP addresses** from the **Public network access** list.
 
 1. Ensure that **Allow Azure services on the trusted services list to access this storage account** is selected from the **Exceptions** list.
 
@@ -142,7 +142,7 @@ When you connect to resources from a virtual network, adding private endpoints w
 
 Next, you'll configure the virtual network to ensure only resources within the virtual network or traffic router through the network will have access to the Form Recognizer resource and the storage account.
 
-1. In the Azure portal navigate to your Form Recognizer resource.
+1. In the Azure portal, navigate to your Form Recognizer resource.
 
 1. Select the **Networking** tab from the left navigation bar.
 

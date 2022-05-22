@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/19/2022
+ms.date: 05/22/2022
 ms.author: lajanuar
 ---
 
@@ -31,17 +31,6 @@ For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [For
 | **Max size of OCR json response** | 500 MB | 500 MB |
 | Adjustable | No | No |
 
-# [Form Recognizer v2.1 (GA)](#tab/v21)
-
-| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
-|--|--|--|
-| **Compose Model limit** | 5 | 100 (default value) |
-| Adjustable | No | No |
-| **Training dataset size** | 50 MB | 50 MB (default value) |
-| Adjustable | No | No |
-| **Max number of pages (Training)** | 500 | 500 (default value) |
-| Adjustable | No | No |
-
 # [Form Recognizer v3.0 (Preview)](#tab/v30)
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
@@ -61,9 +50,20 @@ For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [For
 
 <sup>3</sup> Open a support request to increase the monthly training limit.
 
+# [Form Recognizer v2.1 (GA)](#tab/v21)
+
+| Quota | Free (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| **Compose Model limit** | 5 | 100 (default value) |
+| Adjustable | No | No |
+| **Training dataset size** | 50 MB | 50 MB (default value) |
+| Adjustable | No | No |
+| **Max number of pages (Training)** | 500 | 500 (default value) |
+| Adjustable | No | No |
+
 -----
 
-<sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).
+<sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
 <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice),  and [adjustment instructions](#create-and-submit-support-request).
 
 ## Detailed description, Quota adjustment, and best practices
