@@ -135,7 +135,7 @@ These alerts are used to notify a user about suspicious activity connected to a 
 
 **Estimated date for change:** June 2022
 
-The `API App should only be accessible over HTTPS` policy will be deprecated. In its place, we will recommend you apply a new policy, "App Service apps should only be accessible over HTTPS". This new policy will be similar to the existing "Web Application should only be accessible over HTTPS" policy, but with an expanded scope. 
+The policy `API App should only be accessible over HTTPS` is set to be deprecated. This policy will be replaced with `Web Application should only be accessible over HTTPS`, which will be renamed to `App Service apps should only be accessible over HTTPS`. 
 
 To learn more about policy definitions for Azure App Service, see [Azure Policy built-in definitions for Azure App Service](../azure-app-configuration/policy-reference.md)
 
