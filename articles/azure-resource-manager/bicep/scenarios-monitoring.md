@@ -70,7 +70,7 @@ You can create log alert rules in Bicep by using the type [Microsoft.Insights/sc
 
 ### Metric alert rules
 
-Metric alerts notify you when on of your metrics crosses a defined threshold. You can define a metric alert rule in your Bicep code by using the type [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts?tabs=bicep).
+Metric alerts notify you when one of your metrics crosses a defined threshold. You can define a metric alert rule in your Bicep code by using the type [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts?tabs=bicep).
 
 ### Activity log alerts
 
