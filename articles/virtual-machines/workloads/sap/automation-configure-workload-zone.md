@@ -54,7 +54,8 @@ The table below contains the networking parameters.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                         | Description                                                          | Type      | Notes  |
 > | -------------------------------- | -------------------------------------------------------------------- | --------- | ------ |
-> | `network_name`                   | The logical name of the network                                      | Required  |        |       
+> | `network_name`                   | The name of the network                                              | Optional  |        |       
+> | `network_logical_name`           | The logical name of the network, for eaxmple 'SAP01'                 | Required  | Used for resource naming        |       
 > | `network_arm_id`                 | The Azure resource identifier for the virtual network                | Optional  | For existing environment deployments |
 > | `network_address_space`          | The address range for the virtual network                            | Mandatory | For new environment deployments   |
 > | `admin_subnet_name`              | The name of the `admin` subnet                                       | Optional  |         |
@@ -79,19 +80,18 @@ The table below contains the networking parameters.
 > | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the `web` Network Security Group   | Mandatory | For existing environment deployments |
 
 
-```python 
-{ 
-os_type=""
-source_image_id=""
-publisher="SUSE"
-offer="sles-sap-12-sp5"
-sku="gen1"
-version="latest"
-}
+**Minimum required network definition**
+
+```terraform
+network_logical_name = "SAP01"
+network_address_space = "10.110.0.0/16"
+
+db_subnet_address_prefix = "10.110.96.0/19"
+app_subnet_address_prefix = "10.110.32.0/19"
+
 ```
 
 ### Authentication Parameters
-
 
 The table below defines the credentials used for defining the Virtual Machine authentication
 
@@ -103,11 +103,18 @@ The table below defines the credentials used for defining the Virtual Machine au
 > | `automation_path_to_public_key`    | Path to existing public key          | Optional    |
 > | `automation_path_to_private_key`   | Path to existing private key         | Optional    |
 
+**Minimum required authentication definition**
+
+```terraform
+automation_username = "azureadm"
+
+```
+
 
 ## Key Vault Parameters
 
-The table below defines the parameters used for defining the Key Vault information
 
+The table below defines the parameters used for defining the Key Vault information
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                               | Type          | 
@@ -128,17 +135,21 @@ The table below defines the parameters used for defining the Key Vault informati
 ## NFS Support
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                             | Type        |
-> | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
-> | `NFS_provider`                     | Defines what NFS backend to use, the options are 'AFS' for Azure Files NFS or 'ANF' for Azure NetApp files, 'NONE' for NFS from the SCS server or 'NFS' for an external NFS solution.  | Optional |
-> | `transport_volume_size`               | Defines the size (in GB) for the 'transport' volume                        | Optional    |
+> | Variable                           | Description                                                             | Type        | Notes  |
+> | ---------------------------------- | ----------------------------------------------------------------------- | ----------- | ------ |
+> | `NFS_provider`                     | Defines what NFS backend to use, the options are 'AFS' for Azure Files NFS or 'ANF' for Azure NetApp files, 'NONE' for NFS from the SCS server or 'NFS' for an external NFS solution.  | Optional | |
+> | `install_volume_size`              | Defines the size (in GB) for the 'install' volume                        | Optional    | |
+> | `install_private_endpoint_id`      | Azure resource ID for the 'install' private endpoint                     | Optional    | For existing endpoints|
+> | `transport_volume_size`            | Defines the size (in GB) for the 'transport' volume                      | Optional    | |
+> | `transport_private_endpoint_id`    | Azure resource ID for the 'transport' private endpoint                   | Optional    | For existing endpoints|
 
 ### Azure Files NFS Support
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                            | Type         | Notes  |
 > | ---------------------------------- | -----------------------------------------------------------------------| -----------  | ------ |
-> | `azure_files_transport_storage_account_id`               | Azure resource identifier for the 'transport' storage account.   | Optional     | For existing environment deployments |
+> | `install_storage_account_id`       | Azure resource identifier for the 'install' storage account.           | Optional     | For existing environment deployments |
+> | `transport_storage_account_id`     | Azure resource identifier for the 'transport' storage account.         | Optional     | For existing environment deployments |
 
 ### Azure NetApp Files Support
 
@@ -150,8 +161,8 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `ANF_service_level`                | Service level for the Azure NetApp Files Capacity Pool                 | Optional     | |
 > | `ANF_pool_size`                    | The size (in GB) of the Azure NetApp Files Capacity Pool               | Optional     | |
 > | `anf_subnet_name`                  | The name of the ANF subnet                                             | Optional     | |
-> | `anf_subnet_arm_id`                | The Azure resource identifier for the `ANF` subnet                     | Required     | For existing environment deployments |
-> | `anf_subnet_address_prefix`        | The address range for the `ANF` subnet                                 | Required     | For new environment deployments  |
+> | `anf_subnet_arm_id`                | The Azure resource identifier for the `ANF` subnet                     | Required     | When using existing subnets |
+> | `anf_subnet_address_prefix`        | The address range for the `ANF` subnet                                 | Required     | For new deployments  |
 
 ## ISCSI Parameters
 
