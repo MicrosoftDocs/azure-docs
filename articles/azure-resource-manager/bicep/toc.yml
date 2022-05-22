@@ -81,6 +81,8 @@
     items:
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Service Fabric
+      href: ../../service-fabric/quickstart-cluster-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Databases
     items:
     - name: Cosmos DB
