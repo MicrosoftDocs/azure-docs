@@ -196,6 +196,6 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the Forescout integration. Continue on to learn about our [Palo Alto integration](./tutorial-palo-alto.md).
+In this article, you learned how to get started with the Forescout integration. Continue on to learn about our [Palo Alto integration](./tutorial-palo-alto.md).
 
 

@@ -1,6 +1,6 @@
 ---
 title: Integrate Fortinet with Microsoft Defender for IoT
-description: In this tutorial, you will learn how to integrate Microsoft Defender for IoT with Fortinet.
+description: In this article, you will learn how to integrate Microsoft Defender for IoT with Fortinet.
 ms.topic: tutorial
 ms.date: 11/09/2021
 ms.custom: template-tutorial
@@ -251,7 +251,6 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the Fortinet integration. Continue on to learn about our Palo Alto integration.
+In this tutorial, you learned how to get started with the Fortinet integration. Continue on to learn about our [Palo Alto integration](./tutorial-palo-alto.md)
 
-> [!div class="nextstepaction"]
-> [Next steps button](./tutorial-palo-alto.md)
+
