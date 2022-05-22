@@ -78,25 +78,6 @@ The table below contains the networking parameters.
 > | `web_subnet_nsg_name`            | The name of the `web` Network Security Group name                    | Optional	|          |
 > | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the `web` Network Security Group   | Mandatory | For existing environment deployments |
 
-## ISCSI Parameters
-
-
-> [!div class="mx-tdCol2BreakAll "]
-> | Variable                         | Description                                                               | Type      | Notes                                  |
-> | -------------------------------- | ------------------------------------------------------------------------- | --------- | -------------------------------------- |
-> | `iscsi_subnet_name`              | The name of the `iscsi` subnet                                            | Optional  |                                        |
-> | `iscsi_subnet_address_prefix`    | The address range for the `iscsi` subnet                                  | Mandatory | For new environment deployments        |
-> | `iscsi_subnet_arm_id`	         | The Azure resource identifier for the `iscsi` subnet                      | Mandatory | For existing environment deployments   |
-> | `iscsi_subnet_nsg_name`          |  The name of the `iscsi` Network Security Group name                      | Optional  |                                        |
-> | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the `iscsi` Network Security Group      | Mandatory | For existing environment deployments   |
-> | `iscsi_count`                    | The number of iSCSI Virtual Machines                                      | Optional  |                                        |   
-> | `iscsi_use_DHCP`                 | Controls whether to use dynamic IP addresses provided by the Azure subnet | Optional  |                                        |
-> | `iscsi_image`	                 | Defines the Virtual machine image to use, see below                       | Optional  |                                        |
-> | `iscsi_authentication_type`      | Defines the default authentication for the iSCSI Virtual Machines         | Optional  |                                        |
-> | `iscsi__authentication_username` | Administrator account name                                                | Optional  |                                        |
-> | `iscsi_nic_ips`                  | IP addresses for the iSCSI Virtual Machines                               | Optional  | ignored if `iscsi_use_DHCP` is defined |
- 
-
 
 ```python 
 { 
@@ -172,6 +153,24 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `anf_subnet_arm_id`                | The Azure resource identifier for the `ANF` subnet                     | Required     | For existing environment deployments |
 > | `anf_subnet_address_prefix`        | The address range for the `ANF` subnet                                 | Required     | For new environment deployments  |
 
+## ISCSI Parameters
+
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                         | Description                                                               | Type      | Notes                                  |
+> | -------------------------------- | ------------------------------------------------------------------------- | --------- | -------------------------------------- |
+> | `iscsi_subnet_name`              | The name of the `iscsi` subnet                                            | Optional  |                                        |
+> | `iscsi_subnet_address_prefix`    | The address range for the `iscsi` subnet                                  | Mandatory | For new environment deployments        |
+> | `iscsi_subnet_arm_id`	         | The Azure resource identifier for the `iscsi` subnet                      | Mandatory | For existing environment deployments   |
+> | `iscsi_subnet_nsg_name`          |  The name of the `iscsi` Network Security Group name                      | Optional  |                                        |
+> | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the `iscsi` Network Security Group      | Mandatory | For existing environment deployments   |
+> | `iscsi_count`                    | The number of iSCSI Virtual Machines                                      | Optional  |                                        |   
+> | `iscsi_use_DHCP`                 | Controls whether to use dynamic IP addresses provided by the Azure subnet | Optional  |                                        |
+> | `iscsi_image`	                 | Defines the Virtual machine image to use, see below                       | Optional  |                                        |
+> | `iscsi_authentication_type`      | Defines the default authentication for the iSCSI Virtual Machines         | Optional  |                                        |
+> | `iscsi__authentication_username` | Administrator account name                                                | Optional  |                                        |
+> | `iscsi_nic_ips`                  | IP addresses for the iSCSI Virtual Machines                               | Optional  | ignored if `iscsi_use_DHCP` is defined |
+ 
 
 ## Other Parameters
 

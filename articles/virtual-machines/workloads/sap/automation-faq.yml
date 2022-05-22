@@ -103,6 +103,10 @@ sections:
         answer: |
           You might see the error `'netAppAccounts' has been restricted in this region`.
           This error means the subscription isn't registered for the `netAppAccounts` resource provider. [Register the provider](../../../azure-netapp-files/azure-netapp-files-register.md) to fix the issue. 
+      - question: |
+          What does the error "AADSTS70043: The refresh token has expired or is invalid due to sign-in frequency checks by conditional access" mean? 
+        answer: |
+          This error means that the credentials for the service principal have expired. Please update the secret for the Service Principal in Azure AD. Also update the secret in the deployer key vault.
   - name: Ansible configuration
     questions:
       - question: |
@@ -110,6 +114,14 @@ sections:
         answer: |
           When you deploy the SAP HANA software from `configuration_menu.sh`, you might get the fatal error `Retrieve SSH Key Secret Details`.
           Make sure that the name of the secrets in the user credentials' key vault match the environment naming prefix. For example, you might need to change `DEV-<ID>-SAP01` to `DEV-<ID>-SAP`.
+
+  - name: DevOps 
+    questions:
+      - question: |
+          What does the error "ERROR: AADSTS7000215: Invalid client secret provided. Ensure the secret being sent in the request is the client secret value, not the client secret ID, for a secret added to app" mean?
+        answer: |
+          This error means that the secret for the service principal stored in the variable group is incorrect.
+         
 
 additionalContent: |
 
