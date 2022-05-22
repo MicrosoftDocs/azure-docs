@@ -190,6 +190,5 @@ There are no resources to clean up.
 
 ## Next step
 
-In this article, you learned how to get started with the [Palo Alto integration](./tutorial-splunk.md).
-
+In this article, you learned how to get started with the [Palo Alto integration](tutorial-splunk.md).
 
