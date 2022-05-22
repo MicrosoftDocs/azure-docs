@@ -24,7 +24,7 @@ Automation rules are made up of several components:
 
 ### Trigger
 
-Automation rules are triggered by the creation of an incident. 
+Automation rules are triggered by the creation of an incident. They can also be triggered when an incident is updated (now in **Preview**).
 
 To review – incidents are created from alerts by analytics rules, of which there are several types, as explained in the tutorial [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
 
@@ -64,7 +64,7 @@ For example, if "First Automation Rule" changed an incident's severity from Medi
 
 ### Incident-triggered automation
 
-Until now, only alerts could trigger an automated response, through the use of playbooks. With automation rules, incidents can now trigger automated response chains, which can include new incident-triggered playbooks ([special permissions are required](#permissions-for-automation-rules-to-run-playbooks)), when an incident is created. 
+Before automation rules existed, only alerts could trigger an automated response, through the use of playbooks. With automation rules, incidents can now trigger automated response chains, which can include new incident-triggered playbooks ([special permissions are required](#permissions-for-automation-rules-to-run-playbooks)), when an incident is created. 
 
 ### Trigger playbooks for Microsoft providers
 
@@ -74,7 +74,7 @@ Microsoft security alerts include the following:
 
 - Microsoft Defender for Cloud Apps
 - Azure AD Identity Protection
-- Microsoft Defender for Cloud
+- Microsoft Defender for Cloud (formerly Azure Defender or Azure Security Center)
 - Defender for IoT (formerly Azure Security Center for IoT)
 - Microsoft Defender for Office 365 (formerly Office 365 ATP)
 - Microsoft Defender for Endpoint (formerly MDATP)

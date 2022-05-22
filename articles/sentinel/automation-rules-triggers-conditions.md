@@ -15,36 +15,53 @@ This article explains the types of triggers and conditions that govern the runni
 
 This article also goes together with our other automation documentation, [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md), and these three documents will refer to each other back and forth.
 
-<!-- ## A word about triggers ???
-
-
-
-## Permissions required
-
-| Roles \ Connector components | Triggers | "Get" actions | Update incident,<br>add a comment |
-| ------------- | :-----------: | :------------: | :-----------: |
-| **[Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
-| **Microsoft Sentinel [Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)/[Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
-| 
-
-[Learn more about permissions in Microsoft Sentinel](./roles.md).
--->
-
 ## Triggers summary
 
-| Trigger name | Events that cause the rule to run |
+Automation rules run when an incident is created or updated. The following table shows the different possible ways that incidents can be created or updated that will cause an automation rule to run.
+
+| Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **When an incident is created** | When a new incident is created<br>- by an analytics rule.<br>- by synchronization of a Microsoft 365 Defender incident.<br>- manually. |
-| **When an incident is updated** | When an existing incident<br>- has one of its properties changed.<br>- has a new alert added to it.<br>- has a comment added to it. |
+| **An incident was created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender .<br>- A new incident is created manually. |
+| **An incident was updated** | - An existing incident has one of its properties changed.<br>- An incident has a new alert added to it.<br>- An incident has a comment added to it. |
 
 ## Conditions summary
 
+When an incident is created or updated, any automation rules that apply will run. Recall that [automation rules](automate-incident-handling-with-automation-rules.md) are composed of **conditions** that are evaluated and **actions** that are executed if the conditions are met (if they evaluate to `true`). The following section explains which conditions are evaluated, how they are evaluated, and under which circumstances.
+
 ### Trigger: When an incident is created
 
-- Condition: {property} equals/does not equal {value}
+#### Current state evaluation
+
+The following conditions evaluate to `true` if the parameter being evaluated has the specified value.
+
+This is the case regardless of whether the incident *was created* with the parameter having the value, or if the parameter *was assigned* the value by another automation rule that ran when the incident was created. 
+
+- Condition: `{parameter}` "Equals"/"Does not equal" `{value}`
+- Condition: `{parameter}` "Contains"/"Does not contain" `{value}`
+- Condition: `{parameter}` "Starts with"/"Does not start with" `{value}`
+- Condition: `{parameter}` "Ends with"/"Does not end with" `{value}`
 
 ### Trigger: When an incident is updated
 
+#### Current state evaluation
+
+The following conditions evaluate to `true` if an incident parameter `{parameter}` has the value `{value}` while the incident is being updated, even if these conditions were not changed by the update:
+
+- Condition: `{parameter}` "Equals"/"Does not equal" {value}
+- Condition: `{parameter}` "Contains"/"Does not contain" {value}
+- Condition: `{parameter}` "Starts with"/"Does not start with" {value}
+- Condition: `{parameter}` "Ends with"/"Does not end with" {value}
+
+#### State change evaluation
+
+The following conditions evaluate to `true` according to the criteria shown below:
+
+| Condition | Evaluates to `true` if... |
+| - | - |
+| `{parameter}` "Changed" | The parameter value changed during the update event. |
+| `{parameter}` "Changed from" `{value}` | The parameter had the value `{value}` **before** the update, and is different after. |
+| `{parameter}` "Changed to" `{value}` | The parameter has the value `{value}` **after** the update, and was different before. |
+| `{list item}` (Alert/Comment/Tag/Tactic) "Added" | New items of type `{list item}` were added to the list. |
 
 
 ### Incident dynamic fields
