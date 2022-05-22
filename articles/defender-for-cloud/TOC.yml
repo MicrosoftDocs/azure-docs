@@ -85,6 +85,8 @@
       href: security-policy-concept.md
     - name: Security posture
       href: secure-score-security-controls.md
+    - name: Multicloud
+      href: multicloud.yml
     - name: Reference list of recommendations
       href: recommendations-reference.md
     - name: Reference list of AWS recommendations

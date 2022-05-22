@@ -1,0 +1,79 @@
+### YamlMime:Landing
+
+title: Defender for Cloud for your multicloud environment # < 60 chars
+summary: Microsoft Defender for Cloud provides unified security management and advanced threat protection for multicloud environments. # < 160 chars
+
+metadata:
+  title: The Defender for Cloud multicloud solution # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: See all of the docs that relate to multicloud scenarios in Microsoft Defender for Cloud on one page. # Required; article description that is displayed in search results. < 160 chars.
+  services: defender-for-cloud
+  author: bmansheim
+  ms.author: benmansheim
+  manager: raynew
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  ms.date: 05/22/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Defend Amazon AWS resources
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Protect your AWS virtual machines with Defender for Servers
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-introduction.md
+          - text: Protect your AWS EKS containers with Defender for Containers
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction.md
+          - text: Supported features for AWS virtual machines
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-multi-cloud#supported-features-for-virtual-machines-and-servers
+          - text: Supported features for AWS EKS containers
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers.md?tabs=aws-eks
+      - linkListType: get-started
+        links:
+          - text: Connect your AWS accounts to Microsoft Defender for Cloud
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/quickstart-onboard-aws.md?pivots=env-settings
+          - text: Protect your AWS EKS containers with Defender for Containers
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks
+      - linkListType: how-to-guide
+        links:
+          - text: Secure your AWS management ports with just-in-time access
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-usage.md?tabs=jit-config-asc%2Cjit-request-asc
+          - text: Protect your AWS virtual machines with Microsoft Defender for Endpoint
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/integration-defender-for-endpoint.md?tabs=windows
+          - text: Harden your AWS Docker hosts
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/harden-docker-hosts.md
+          - text: Monitor file changes that might indicate an attack
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/file-integrity-monitoring-overview.md
+          - text: Scan your AWS virtual machines for vulnerabilities
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/deploy-vulnerability-assessment-vm.md
+      - linkListType: reference
+        links:
+          - text: Security recommendations for AWS resources
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/recommendations-reference-aws.md
+  # Card
+  - title: Defend Google GCP resources
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Protect your GCP virtual machines with Defender for Servers
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-introduction.md
+          - text: Protect your GCP GKE containers with Defender for Containers
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction.md
+          - text: Supported features for GCP virtual machines
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-multi-cloud#supported-features-for-virtual-machines-and-servers
+          - text: Supported features for GCP GKE containers
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers.md?tabs=gcp-gke
+      - linkListType: get-started
+        links:
+          - text: Connect your GCP accounts to Microsoft Defender for Cloud
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/quickstart-onboard-gcp.md?pivots=env-settings
+          - text: Protect your GCP GKE containers with Defender for Containers
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-gke
+      # - linkListType: reference
+      #   links:
+      #     - text: Security recommendations for GCP resources
+      #       url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/recommendations-reference-gcp.md
