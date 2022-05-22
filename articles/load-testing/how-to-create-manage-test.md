@@ -11,19 +11,6 @@ ms.topic: how-to
 ---
 <!-- Intent: As a user I want to configure the test plan for a load test, so that I can successfully run a load test -->
 
-<!-- 
-    For new or existing load tests
-    Must have: 1 JMX file
-    Optional
-        user properties file to override jmeter settings or use custom properties in JMX
-        data files and config files
-            CSV -> read CSV
-    Setting for splitting CSV input data
-    upload individual files
-    upload zip archive (max 50GB) for data and config files
-        JMX and user props file must be excluded from zip
- -->
-
 # Create and manage tests in Azure Load Testing Preview
 
 Learn how to create and manage [tests](./concept-load-testing-concepts.md#test) in your Azure Load Testing Preview resource.
