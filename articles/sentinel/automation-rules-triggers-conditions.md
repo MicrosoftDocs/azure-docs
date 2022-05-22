@@ -21,7 +21,7 @@ Automation rules run when an incident is created or updated. The following table
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **An incident was created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender .<br>- A new incident is created manually. |
+| **An incident was created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
 | **An incident was updated** | - An existing incident has one of its properties changed.<br>- An incident has a new alert added to it.<br>- An incident has a comment added to it. |
 
 ## Conditions summary
@@ -64,7 +64,7 @@ The following conditions evaluate to `true` according to the criteria shown belo
 | `{list item}` (Alert/Comment/Tag/Tactic) "Added" | New items of type `{list item}` were added to the list. |
 
 
-### Incident dynamic fields
+<!--### Incident dynamic fields
 
 The **Incident** object received from **Microsoft Sentinel incident** includes the following dynamic fields:
 
@@ -199,7 +199,10 @@ You can supply the following JSON code to generate the schema. The code shows th
 
     ![Fields from schema ready to use.](./media/playbook-triggers-actions/fields-ready-to-use.png)
     
+-->
+
 ## Next steps
 
-In this article, you learned more about using the triggers and actions in Microsoft Sentinel playbooks to respond to threats. 
-- Learn how to [proactively hunt for threats](hunting.md) using Microsoft Sentinel.
+In this article, you learned about using the triggers used to activate Microsoft Sentinel automation rules and the conditions that they evaluate in incidents. 
+
+- Learn more about [automation rules](automate-incident-handling-with-automation-rules.md) in Microsoft Sentinel.
