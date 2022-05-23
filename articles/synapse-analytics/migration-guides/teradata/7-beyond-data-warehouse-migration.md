@@ -154,7 +154,7 @@ Run mapping data flows that transform data as activities in a Data Factory pipel
 
 The next screenshot shows an example Data Factory mapping data flow.
 
-:::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-mapping-dataflows.png" border="true" alt-text="Screenshot showing an example of an Azure Data Factory mapping dataflow.":::
+:::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-mapping-dataflows.png" border="true" alt-text="Screenshot showing an example of an Azure Data Factory mapping dataflow." lightbox="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-mapping-dataflows-lrg.png":::
 
 Data engineers can profile data quality and view the results of individual data transforms by switching on a debug capability during development.
 
