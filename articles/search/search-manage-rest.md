@@ -1,7 +1,7 @@
 ---
 title: REST APIs for search management
 titleSuffix: Azure Cognitive Search
-description: Create and configure an Azure Cognitive Search service with the REST Management API. You can scale a service up or down, manage admin and query api-keys, and query for system information.
+description: Create and configure an Azure Cognitive Search service with the Management REST API. The Management REST API is comprehensive in scope, with access to generally available and preview features.
 
 author: HeidiSteen
 ms.author: heidist
@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 05/23/2022
 ---
 
-# Manage your Azure Cognitive Search service with PowerShell
+# Manage your Azure Cognitive Search service with REST APIs
+
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -19,17 +20,17 @@ ms.date: 05/23/2022
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
-In this article, learn how to create and configure an Azure Cognitive Search service using using the [Management REST APIs](/rest/api/searchmanagement/). Although you can use the portal, script, or other SDKs for most management tasks, only the Management REST API is guaranteed to provide access to [preview service administration features](/rest/api/searchmanagement/management-api-versions#2021-04-01-preview).
+In this article, learn how to create and configure an Azure Cognitive Search service using the [Management REST APIs](/rest/api/searchmanagement/). Only the Management REST APIs are guaranteed to provide early access to [preview features](/rest/api/searchmanagement/management-api-versions#2021-04-01-preview).
 
 > [!div class="checklist"]
 > * [List search services](#list-search-services)
-> * [Create or update a service](#create-or-update-a-service)
-> * [(preview) Enable Azure role-based authentication for data plane](#enable-rbac)
+> * [Create or update a service](#create-or-update-services)
+> * [(preview) Enable Azure role-based access control for data plane](#enable-rbac)
 > * [(preview) Enforce a customer-managed key policy](#enforce-cmk)
 > * [(preview) Disable semantic search](#disable-semantic-search)
 > * [(preview) Disable workloads that push data to external resources](#disable-external-access)
 
-All of the Management REST APIs have examples. If a task isn't covered in this article, see the API reference instead.
+All of the Management REST APIs have examples. If a task isn't covered in this article, see the [API reference](/rest/api/searchmanagement/) instead.
 
 ## Prerequisites
 
@@ -41,20 +42,26 @@ All of the Management REST APIs have examples. If a task isn't covered in this a
 
 ## Create a security principle
 
-Management REST API calls are authenticated through Azure Active Directory, which means calls from the client need a security principle in Azure AD, along with permissions to create and configure a resource. This section explains how to create a security principal to generate the access token used for authenticating to Azure AD. 
+Management REST API calls are authenticated through Azure Active Directory (Azure AD). You'll need a security principal for your client, along with permissions to create and configure a resource. This section explains how to create a security principal and assign a role. 
 
-The following steps are from ["How to call REST APIs with Postman"](../rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
+The following steps are from ["How to call REST APIs with Postman"](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
 
 An easy way to generate the required client ID and password is using the **Try It** feature in the [Create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli#1-create-a-service-principal) article.
 
-1. Select **Try It** and if necessary sign in to your Azure subscription.
+1. In [Create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli#1-create-a-service-principal), select **Try It**. Sign in to your Azure subscription.
 
-1. In the AzureCloudShell console, paste in the following command. After replacing placeholder values with valid values, press Enter to run the command. Notice that the security principal needs "owner" permissions. This role allows you to create or update an Azure resource in the specified subscription.
+1. First, get your subscription ID. In the console, enter the following command:
+
+   ```azurecli
+   az account show --query id -o tsv
+   ````
+
+1. Paste in the following command. After replacing placeholder values with valid values, press Enter to run it. Notice that the security principal needs "owner" permissions. This role allows you to create or update an Azure resource in the specified subscription.
 
     ```azurecli
     az ad sp create-for-rbac --name mySecurityPrincipalName \
                              --role owner \
-                             --scopes /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName]
+                             --scopes /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName
     ```
 
    Your response should look similar to the following screenshot:
@@ -63,11 +70,6 @@ An easy way to generate the required client ID and password is using the **Try I
 
    You'll use "appId", "password", and "tenantId" for the variables "clientId", "clientSecret", and "tenantId" in the next section..
 
-1. Before closing the shell, enter the following command to get your subscription ID:
-
-   ```azurecli
-   az account show --query id -o tsv
-   ````
 
 ## Set up Postman
 
@@ -145,7 +147,7 @@ Creates or updates a search service under the current subscription:
 ```rest
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
 {
-  "location": "westus2",
+  "location": "{{region}}",
   "sku": {
     "name": "basic"
   },
@@ -163,12 +165,12 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
 
 If you want to use Azure role-based access control (Azure RBAC), set "authOptions" to "aadOrApiKey" and then send the request.
 
-If you want to use Azure RBAC exclusively, you can [turn off API key authentication](search-security-rbac.md#disable-api-key-authentication) by following up a second request, this time setting "disableLocalAuth" to "false".
+If you want to use Azure RBAC exclusively, [turn off API key authentication](search-security-rbac.md#disable-api-key-authentication) by following up a second request, this time setting "disableLocalAuth" to "false".
 
 ```rest
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
 {
-  "location": "westus",
+  "location": "{{region}}",
   "tags": {
     "app-name": "My e-commerce app"
   },
@@ -176,7 +178,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
     "name": "standard"
   },
   "properties": {
-    "replicaCount": 3,
+    "replicaCount": 1,
     "partitionCount": 1,
     "hostingMode": "default",
     "disableLocalAuth": false,
@@ -190,23 +192,20 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
 
 ## (preview) Enforce a customer-managed key policy
 
-If you're using [customer-managed encryption](search-security-manage-encryption-keys.md), you can enable "encryptionWithCMK" with "enforcement" set to "Enabled" if you want the search service to report it's compliance status.
+If you're using [customer-managed encryption](search-security-manage-encryption-keys.md), you can enable "encryptionWithCMK" with "enforcement" set to "Enabled" if you want the search service to report its compliance status.
 
-When this policy is enabled, calls that create objects with sensitive data, such as the connection string within a data source, will fail if an encryption key is not provided: `"Error creating Data Source: "CannotCreateNonEncryptedResource: The creation of non-encrypted DataSources is not allowed when encryption policy is enforced."`
+When this policy is enabled, calls that create objects with sensitive data, such as the connection string within a data source, will fail if an encryption key isn't provided: `"Error creating Data Source: "CannotCreateNonEncryptedResource: The creation of non-encrypted DataSources is not allowed when encryption policy is enforced."`
 
 
 ```rest
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
 {
   "location": "westus",
-  "tags": {
-    "app-name": "My e-commerce app"
-  },
   "sku": {
     "name": "standard"
   },
   "properties": {
-    "replicaCount": 3,
+    "replicaCount": 1,
     "partitionCount": 1,
     "hostingMode": "default",
     "encryptionWithCmk": {
@@ -217,11 +216,11 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
 }
 ```
 
-<a name="disable-semantic search"></a>
+<a name="disable-semantic-search"></a>
 
 ## (preview) Disable semantic search
 
-Although you have to [enable semantic search](semantic-search-overview#enable-semantic-search.md) before you can use it, you can also lock it down at the service level.
+Although you have to [enable semantic search](semantic-search-overview.md#enable-semantic-search) before you can use it, you can also lock it down at the service level.
 
 ```rest
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -245,12 +244,12 @@ Azure Cognitive Search makes outbound calls that [write to external data sources
 ```rest
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
 {
-  "location": "westus",
+  "location": "{{region}}",
   "sku": {
     "name": "standard"
   },
   "properties": {
-    "replicaCount": 3,
+    "replicaCount": 1,
     "partitionCount": 1,
     "hostingMode": "default",
     "disabledDataExfiltrationOptions": [
