@@ -215,6 +215,11 @@ GROUP BY 1,2
 ORDER BY 1;
 ```
 
+> [!TIP]
+> Third-party tools and services can automate data mapping tasks.
+
+There are third-party vendors who offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool such as Informatica or Talend is already in use in the Teradata environment, those tools can implement any required data transformations.
+
 ### Data Definition Language (DDL) generation
 
 > [!TIP]
