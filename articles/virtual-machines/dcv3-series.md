@@ -14,11 +14,11 @@ ms.custom: ignite-fall-2021
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The DCsv3 and DCdsv3-series Azure Virtual Machines help protect the confidentiality and integrity of your code and data while they're being processed in the public cloud. By leveraging Intel&reg; Software Guard Extensions and Intel&reg; [Total Memory Encryption - Multi Key](https://itpeernetwork.intel.com/memory-encryption/), customers can ensure their data is always encrypted and protected in use. 
+The DCsv3 and DCdsv3-series Azure Virtual Machines help protect the confidentiality and integrity of your code and data while they're being processed in the public cloud. By using Intel&reg; Software Guard Extensions and Intel&reg; [Total Memory Encryption - Multi Key](https://itpeernetwork.intel.com/memory-encryption/), customers can ensure their data is always encrypted and protected in use. 
 
-These machines are powered by the latest 3rd Generation Intel&reg; Xeon Scalable processors, and leverage Intel&reg; Turbo Boost Max Technology 3.0 to reach 3.5 GHz. 
+These machines are powered by the latest 3rd Generation Intel&reg; Xeon Scalable processors, and use Intel&reg; Turbo Boost Max Technology 3.0 to reach 3.5 GHz. 
 
-With this generation, CPU Cores have increased 6x (up to a maximum of 48 physical cores). Encrypted Memory (EPC) has increased 1500x to 256GB. Regular Memory has increased 12x to 384GB. All these changes substantially improve the performance and unlock new entirely new scenarios. 
+With this generation, CPU Cores have increased 6x (up to a maximum of 48 physical cores). Encrypted Memory (EPC) has increased 1500x to 256 GB. Regular Memory has increased 12x to 384 GB. All these changes substantially improve the performance and unlock new entirely new scenarios. 
 
 > [!NOTE]
 > Hyperthreading is disabled for added security posture. Pricing is the same as Dv5 and Dsv5-series per physical core.
@@ -85,6 +85,6 @@ Dcsv3-series instances run on a 3rd Generation Intel&reg; Xeon Scalable Processo
 - DCsv3 and DCdsv3 VMs are [Generation 2 VMs](./generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
 - Currently available in the regions listed in [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
 
-Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
