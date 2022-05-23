@@ -2500,6 +2500,10 @@ o
 Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop alert delivery of all alerts, except for malware alerts on critical devices.
 
 The APIs that you define here appear in the on-premises management console's Alert Exclusions window as a read-only exclusion rule.
+This API is supported for maintenance purposes only and is not meant to be used instead of [alert exclusion rules](https://docs.microsoft.com/en-us/azure/defender-for-iot/organizations/how-to-work-with-alerts-on-premises-management-console#create-alert-exclusion-rules). Use this API for one-time maintenance operations only.
+
+TTL is required for this API.
+
 
 #### Method - POST
 
