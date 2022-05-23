@@ -52,7 +52,7 @@ To address the threats described above, we recommend you adhere to the principle
 
 ![Reference architecture for protecting Microsoft 365, as described in the following list.](media/protect-m365/protect-m365-principles.png)
 
-1. Fully isolate your Microsoft 365 administrator accounts. They should be:
+1. **Fully isolate your Microsoft 365 administrator accounts.** They should be:
 
    - Mastered in Azure AD.
    - Authenticated by using multifactor authentication.
@@ -63,11 +63,11 @@ To address the threats described above, we recommend you adhere to the principle
 
    For more information, see [About admin roles](/microsoft-365/admin/add-users/about-admin-roles). Also, see [Roles for Microsoft 365 in Azure AD](../roles/m365-workload-docs.md).
 
-1. Manage devices from Microsoft 365. Use Azure AD join and cloud-based mobile device management (MDM) to eliminate dependencies on your on-premises device management infrastructure. These dependencies can compromise device and security controls.
+1. **Manage devices from Microsoft 365.** Use Azure AD join and cloud-based mobile device management (MDM) to eliminate dependencies on your on-premises device management infrastructure. These dependencies can compromise device and security controls.
 
-1. Ensure no on-premises account has elevated privileges to Microsoft 365. Some accounts access on-premises applications that require NTLM, LDAP, or Kerberos authentication. These accounts must be in the organization's on-premises identity infrastructure. Ensure that these accounts, including service accounts, aren't included in privileged cloud roles or groups. Also ensure that changes to these accounts can't affect the integrity of your cloud environment. Privileged on-premises software must not be capable of affecting Microsoft 365 privileged accounts or roles.
+1. **Ensure no on-premises account has elevated privileges to Microsoft 365.** Some accounts access on-premises applications that require NTLM, LDAP, or Kerberos authentication. These accounts must be in the organization's on-premises identity infrastructure. Ensure that these accounts, including service accounts, aren't included in privileged cloud roles or groups. Also ensure that changes to these accounts can't affect the integrity of your cloud environment. Privileged on-premises software must not be capable of affecting Microsoft 365 privileged accounts or roles.
 
-1. Use Azure AD cloud authentication to eliminate dependencies on your on-premises credentials. Always use strong authentication, such as Windows Hello, FIDO, Microsoft Authenticator, or Azure AD multifactor authentication.
+1. **Use Azure AD cloud authentication to eliminate dependencies on your on-premises credentials.** Always use strong authentication, such as Windows Hello, FIDO, Microsoft Authenticator, or Azure AD multifactor authentication.
 
 ## Specific security recommendations
 
@@ -123,16 +123,16 @@ On-premises accounts synced from Active Directory are marked to never expire in 
 
 We recommend the following provisioning methods:
 
-- Provision from cloud HR apps to Azure AD. This provisioning enables an on-premises compromise to be isolated. This isolation doesn't disrupt your joiner-mover-leaver cycle from your cloud HR apps to Azure AD.
-- Cloud applications. Where possible, deploy Azure AD app provisioning as opposed to on-premises provisioning solutions. This method protects some of your software as a service (SaaS) apps from malicious hacker profiles in on-premises breaches. For more information, see [What is app provisioning in Azure Active Directory](../app-provisioning/user-provisioning.md).
-- External identities. Use Azure AD B2B collaboration to reduce the dependency on on-premises accounts for external collaboration with partners, customers, and suppliers. Carefully evaluate any direct federation with other identity providers. For more information, see [B2B collaboration overview](../external-identities/what-is-b2b.md).
+- **Provision from cloud HR apps to Azure AD.** This provisioning enables an on-premises compromise to be isolated. This isolation doesn't disrupt your joiner-mover-leaver cycle from your cloud HR apps to Azure AD.
+- **Cloud applications.** Where possible, deploy Azure AD app provisioning as opposed to on-premises provisioning solutions. This method protects some of your software as a service (SaaS) apps from malicious hacker profiles in on-premises breaches. For more information, see [What is app provisioning in Azure Active Directory](../app-provisioning/user-provisioning.md).
+- **External identities.** Use Azure AD B2B collaboration to reduce the dependency on on-premises accounts for external collaboration with partners, customers, and suppliers. Carefully evaluate any direct federation with other identity providers. For more information, see [B2B collaboration overview](../external-identities/what-is-b2b.md).
 
   We recommend limiting B2B guest accounts in the following ways:
 
   - Limit guest access to browsing groups and other properties in the directory. Use the external collaboration settings to restrict guests' ability to read groups they're not members of.
   - Block access to the Azure portal. You can make rare necessary exceptions.  Create a Conditional Access policy that includes all guests and external users. Then implement a policy to block access. See [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md).
 
-- Disconnected forests. Use Azure AD cloud provisioning to connect to disconnected forests. This approach eliminates the need to establish cross-forest connectivity or trusts, which can broaden the effect of an on-premises breach. For more information, see [What is Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
+- **Disconnected forests.** Use Azure AD cloud provisioning to connect to disconnected forests. This approach eliminates the need to establish cross-forest connectivity or trusts, which can broaden the effect of an on-premises breach. For more information, see [What is Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
 
 ### Limitations and tradeoffs
 
@@ -142,9 +142,9 @@ When used to provision hybrid accounts, the Azure-AD-from-cloud-HR system relies
 
 Cloud groups allow you to decouple your collaboration and access from your on-premises infrastructure.
 
-- Collaboration: Use Microsoft 365 Groups and Microsoft Teams for modern collaboration. Decommission on-premises distribution lists, and [upgrade distribution lists to Microsoft 365 Groups in Outlook](/office365/admin/manage/upgrade-distribution-lists).
-- Access: Use Azure AD security groups or Microsoft 365 Groups to authorize access to applications in Azure AD.
-- Office 365 licensing: Use group-based licensing to provision to Office 365 by using cloud-only groups. This method decouples control of group membership from on-premises infrastructure.
+- **Collaboration**. Use Microsoft 365 Groups and Microsoft Teams for modern collaboration. Decommission on-premises distribution lists, and [upgrade distribution lists to Microsoft 365 Groups in Outlook](/office365/admin/manage/upgrade-distribution-lists).
+- **Access**. Use Azure AD security groups or Microsoft 365 Groups to authorize access to applications in Azure AD.
+- **Office 365 licensing**. Use group-based licensing to provision to Office 365 by using cloud-only groups. This method decouples control of group membership from on-premises infrastructure.
 
 Owners of groups that are used for access should be considered privileged identities to avoid membership takeover in an on-premises compromise. A takeover would include direct manipulation of group membership on-premises or manipulation of on-premises attributes that can affect dynamic group membership in Microsoft 365.
 
@@ -154,28 +154,29 @@ Use Azure AD capabilities to securely manage devices.
 
 Deploy Azure AD joined Windows 10 workstations with mobile device management policies. Enable Windows Autopilot for a fully automated provisioning experience. See [Plan your Azure AD join implementation](../devices/azureadjoin-plan.md) and [Windows Autopilot](/mem/autopilot/windows-autopilot).
 
-- Deprecate machines that run Windows 8.1 and earlier.
-- Don't deploy computers that have server operating systems as workstations.
-- Use Microsoft Endpoint Manager as the authority for all device management workloads. See [Microsoft Endpoint Manager](https://www.microsoft.com/security/business/microsoft-endpoint-manager).
-- Deploy privileged access devices.  For more information, see [Device roles and profiles](/security/compass/privileged-access-devices#device-roles-and-profiles).
+- **Use Windows 10 workstations**
+  - Deprecate machines that run Windows 8.1 and earlier.
+  - Don't deploy computers that have server operating systems as workstations.
+- **Use Microsoft Endpoint Manager as the authority for all device management workloads.** See [Microsoft Endpoint Manager](https://www.microsoft.com/security/business/microsoft-endpoint-manager).
+- **Deploy privileged access devices.** For more information, see [Device roles and profiles](/security/compass/privileged-access-devices#device-roles-and-profiles).
 
 ### Workloads, applications, and resources 
 
-- On-premises single-sign-on (SSO) systems
+- **On-premises single-sign-on (SSO) systems**
 
   Deprecate any on-premises federation and web access management infrastructure. Configure applications to use Azure AD.
 
-- SaaS and line-of-business (LOB) applications that support modern authentication protocols
+- **SaaS and line-of-business (LOB) applications that support modern authentication protocols**
 
   Use Azure AD for SSO. The more apps you configure to use Azure AD for authentication, the less risk in an on-premises compromise. For more information, see [What is single sign-on in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-- Legacy applications
+- **Legacy applications**
 
   You can enable authentication, authorization, and remote access to legacy applications that don't support modern authentication. Use [Azure AD Application Proxy](../app-proxy/application-proxy.md). Or, enable them through a network or application delivery controller solution by using secure hybrid access partner integrations. See [Secure legacy apps with Azure Active Directory](../manage-apps/secure-hybrid-access.md).
 
    Choose a VPN vendor that supports modern authentication. Integrate its authentication with Azure AD. In an on-premises compromise, you can use Azure AD to disable or block access by disabling the VPN.
 
-- Application and workload servers
+- **Application and workload servers**
 
   Applications or resources that required servers can be migrated to Azure infrastructure as a service (IaaS). Use Azure AD Domain Services (Azure AD DS) to decouple trust and dependency on on-premises instances of Active Directory. To achieve this decoupling, make sure virtual networks used for Azure AD DS don't have a connection to corporate networks. See [Azure AD Domain Services](../../active-directory-domain-services/overview.md).
 
@@ -203,19 +204,19 @@ After you configure your environment to protect your Microsoft 365 from an on-pr
 
 Monitor the following key scenarios, in addition to any scenarios specific to your organization. For example, you should proactively monitor access to your business-critical applications and resources.
 
-- Suspicious activity
+- **Suspicious activity**
 
   Monitor all Azure AD risk events for suspicious activity. See [Risk detection and remediation](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation). Azure AD Identity Protection is natively integrated with Microsoft Defender for Cloud. See [What is Identity Protection](../identity-protection/overview-identity-protection.md).
 
   Define the network named locations to avoid noisy detections on location-based signals. See [Using the location condition in a Conditional Access policy](../conditional-access/location-condition.md).
 
-- User and Entity Behavioral Analytics (UEBA) alerts.
+- **User and Entity Behavioral Analytics (UEBA) alerts**
 
   Use UEBA to get insights on anomaly detection. Microsoft Defender for Cloud Apps provides UEBA in the cloud. See [Investigate risky users](/cloud-app-security/tutorial-ueba).
 
   You can integrate on-premises UEBA from Azure Advanced Threat Protection (ATP). Microsoft Defender for Cloud Apps reads signals from Azure AD Identity Protection. See [Connect to your Active Directory Forest](/defender-for-identity/install-step2).
 
-- Emergency access accounts activity
+- **Emergency access accounts activity**
 
   Monitor any access that uses emergency access accounts. See [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md). Create alerts for investigations. This monitoring must include the following actions: 
 
@@ -224,11 +225,11 @@ Monitor the following key scenarios, in addition to any scenarios specific to yo
   - Any updates on group memberships
   - Application assignments
 
-- Privileged role activity
+- **Privileged role activity**
 
   Configure and review security alerts generated by Azure AD Privileged Identity Management (PIM). Monitor direct assignment of privileged roles outside PIM by generating alerts whenever a user is assigned directly. See [Security alerts](../privileged-identity-management/pim-how-to-configure-security-alerts.md?tabs=new#security-alerts).
 
-- Azure AD tenant-wide configurations
+- **Azure AD tenant-wide configurations**
 
   Any change to tenant-wide configurations should generate alerts in the system. These changes include but aren't limited to the following changes:
 
@@ -237,13 +238,13 @@ Monitor the following key scenarios, in addition to any scenarios specific to yo
   - Azure AD B2B changes to allowed identity providers, such as SAML identity providers through direct federation or social sign-ins
   - Conditional Access or Risk policy changes
 
-- Application and service principal objects
+- **Application and service principal objects**
 
   - New applications or service principals that might require Conditional Access policies
   - Credentials added to service principals
   - Application consent activity
 
-- Custom roles
+- **Custom roles**
 
   - Updates to the custom role definitions
   - Newly created custom roles
@@ -252,7 +253,7 @@ Monitor the following key scenarios, in addition to any scenarios specific to yo
 
 Define a log storage and retention strategy, design, and implementation to facilitate a consistent tool set. For example, you could consider security information and event management (SIEM) systems like Microsoft Sentinel, common queries, and investigation and forensics playbooks.
 
-- Azure AD logs. Ingest generated logs and signals by consistently following best practices for settings such as diagnostics, log retention, and SIEM ingestion.
+- **Azure AD logs**. Ingest generated logs and signals by consistently following best practices for settings such as diagnostics, log retention, and SIEM ingestion.
 
   The log strategy must include the following Azure AD logs:
 
@@ -266,7 +267,7 @@ Define a log storage and retention strategy, design, and implementation to facil
 
   You can stream Azure AD logs to Azure Monitor logs. See [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
-- Hybrid infrastructure operating system security logs. All hybrid identity infrastructure operating system logs should be archived and carefully monitored as a tier-0 system, because of the surface-area implications. Include the following elements:
+- **Hybrid infrastructure operating system security logs**. All hybrid identity infrastructure operating system logs should be archived and carefully monitored as a tier-0 system, because of the surface-area implications. Include the following elements:
 
   - Application Proxy agents
   - Password writeback agents

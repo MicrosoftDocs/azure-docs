@@ -38,18 +38,18 @@ The log files you use for investigation and monitoring are:
 
 From the Azure portal, you can view the Azure AD Audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
-* [Microsoft Sentinel](../../sentinel/overview.md). Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
-* [Azure Monitor](../../azure-monitor/overview.md). Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
-* [Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM. Enables Azure AD logs to be pushed to other SIEMs such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Azure Active Directory logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
-* [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security). Enables you to discover and manage apps, govern across apps and resources, and check your cloud apps' compliance.
-* Microsoft Graph. Enables you to export data and use Microsoft Graph to do more analysis. For more information, see [Microsoft Graph PowerShell SDK and Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md).
+* **[Microsoft Sentinel](../../sentinel/overview.md)**. Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
+* **[Azure Monitor](../../azure-monitor/overview.md)**. Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
+* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM. Enables Azure AD logs to be pushed to other SIEMs such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Azure Active Directory logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)**. Enables you to discover and manage apps, govern across apps and resources, and check your cloud apps' compliance.
+* **Microsoft Graph**. Enables you to export data and use Microsoft Graph to do more analysis. For more information, see [Microsoft Graph PowerShell SDK and Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md).
 * [Identity Protection](../identity-protection/overview-identity-protection.md). Generates three key reports you can use to help with your investigation:
 
-  * *Risky users*. Contains information about which users are at risk, details about detections, history of all risky sign-ins, and risk history.
-  * *Risky sign-ins*. Contains information about a sign-in that might indicate suspicious circumstances. For more information on investigating information from this report, see [Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md).
-  * *Risk detections*. Contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Defender for Cloud Apps.
+  * **Risky users**. Contains information about which users are at risk, details about detections, history of all risky sign-ins, and risk history.
+  * **Risky sign-ins**. Contains information about a sign-in that might indicate suspicious circumstances. For more information on investigating information from this report, see [Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md).
+  * **Risk detections**. Contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Defender for Cloud Apps.
 
-* [Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md). Use to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
+* **[Securing workload identities with Identity Protection Preview](..//identity-protection/concept-workload-identity-risk.md)**. Use to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
 
 Although we discourage the practice, privileged accounts can have standing administration rights. If you choose to use standing privileges, and the account is compromised, it can have a strongly negative effect. We recommend you prioritize monitoring privileged accounts and include the accounts in your Privileged Identity Management (PIM) configuration. For more information on PIM, see [Start using Privileged Identity Management](../privileged-identity-management/pim-getting-started.md). Also, we recommend you validate that admin accounts:
 
@@ -173,14 +173,14 @@ Having privileged accounts that are permanently provisioned with elevated abilit
 
 To monitor for exceptions, you must first create a baseline. Determine the following information for these elements
 
-* Admin accounts
+* **Admin accounts**
 
   * Your privileged account strategy
   * Use of on-premises accounts to administer on-premises resources
   * Use of cloud-based accounts to administer cloud-based resources
   * Approach to separating and monitoring administrative permissions for on-premises and cloud-based resources
 
-* Privileged role protection
+* **Privileged role protection**
 
   * Protection strategy for roles that have administrative privileges
   * Organizational policy for using privileged accounts
@@ -188,9 +188,9 @@ To monitor for exceptions, you must first create a baseline. Determine the follo
 
 The following concepts and information help determine policies:
 
-* Just-in-time admin principles. Use the Azure AD logs to capture information for performing administrative tasks that are common in your environment. Determine the typical amount of time needed to complete the tasks.
-* Just-enough admin principles. Determine the least-privileged role, which might be a custom role, that's needed for administrative tasks. For more information, see [Least privileged roles by task in Azure Active Directory](../roles/delegate-by-task.md).
-* Establish an elevation policy. After you have insight into the type of elevated privilege needed and how long is needed for each task, create policies that reflect elevated privileged usage for your environment. As an example, define a policy to limit Global admin access to one hour.
+* **Just-in-time admin principles**. Use the Azure AD logs to capture information for performing administrative tasks that are common in your environment. Determine the typical amount of time needed to complete the tasks.
+* **Just-enough admin principles**. Determine the least-privileged role, which might be a custom role, that's needed for administrative tasks. For more information, see [Least privileged roles by task in Azure Active Directory](../roles/delegate-by-task.md).
+* **Establish an elevation policy**. After you have insight into the type of elevated privilege needed and how long is needed for each task, create policies that reflect elevated privileged usage for your environment. As an example, define a policy to limit Global admin access to one hour.
 
 After you establish your baseline and set policy, you can configure monitoring to detect and alert usage outside of policy.
 
