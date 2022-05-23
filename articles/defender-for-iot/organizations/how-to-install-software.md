@@ -40,7 +40,7 @@ This section provides generic procedures for installing OT monitoring software o
 
 Select one of the following tabs, depending on which type of software you're installing.
 
-# [OT Sensor](#tab/sensor)
+# [OT sensor](#tab/sensor)
 
 This procedure describes how to install OT sensor software on a physical or virtual appliance.
 
