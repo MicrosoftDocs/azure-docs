@@ -958,7 +958,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Read current blob versions and any blob snapshots
 
-This condition allows a user to read current blob versions and any blob snapshots. The [Version ID](storage-auth-abac-attributes.md#version-id) attribute is available only for storage accounts where hierarchical namespace is not enabled.
+This condition allows a user to read current blob versions and any blob snapshots. The [Version ID](storage-auth-abac-attributes.md#version-id) attribute is available only for storage accounts where hierarchical namespace is not enabled. The [Snapshot](storage-auth-abac-attributes.md#snapshot) attribute is available for storage accounts where hierarchical namespace is not enabled and currently in preview for storage accounts where hierarchical namespace is enabled.
 
 You must add this condition to any role assignments that include the following action.
 
@@ -966,8 +966,29 @@ You must add this condition to any role assignments that include the following a
 > | Action | Notes |
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
 ![Diagram of condition showing read access to current blob versions and any blob snapshots.](./media/storage-auth-abac-examples/version-id-snapshot-blob-read.png)
+
+Storage Blob Data Owner
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
+ )
+ OR 
+ (
+  Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]
+  OR
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion] BoolEquals true
+ )
+)
+```
+
+Storage Blob Data Reader, Storage Blob Data Contributor
 
 ```
 (
@@ -978,9 +999,7 @@ You must add this condition to any role assignments that include the following a
  (
   Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]
   OR
-  NOT Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId]
-  OR
-  @Resource[Microsoft.Storage/storageAccounts:isHnsEnabled] BoolEquals true
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion] BoolEquals true
  )
 )
 ```
@@ -992,20 +1011,14 @@ Here are the settings to add this condition using the Azure portal.
 > [!div class="mx-tableFixed"]
 > | Condition #1 | Setting |
 > | --- | --- |
-> | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
+> | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
 > | Attribute source | Request |
 > | Attribute | [Snapshot](storage-auth-abac-attributes.md#snapshot) |
 > | Exists | [Checked](../../role-based-access-control/conditions-format.md#exists) |
 > | **Expression 2** |  |
 > | Operator | Or |
-> | Attribute source | Request |
-> | Attribute | [Version ID](storage-auth-abac-attributes.md#version-id) |
-> | Exists | [Checked](../../role-based-access-control/conditions-format.md#exists) |
-> | Negate this expression | Checked |
-> | **Expression 3** |  |
-> | Operator | Or |
 > | Attribute source | Resource |
-> | Attribute | [Is hierarchical namespace enabled](storage-auth-abac-attributes.md#is-hierarchical-namespace-enabled) |
+> | Attribute | [Is Current Version](storage-auth-abac-attributes.md#is-current-version) |
 > | Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | Value | True |
 
