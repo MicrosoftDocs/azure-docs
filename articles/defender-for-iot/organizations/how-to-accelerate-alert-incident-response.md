@@ -60,7 +60,7 @@ The alert group will appear in supported partner solutions with the following pr
 
 - **alert_group** for Syslog objects
 
-These fields should be configured in the partner solution to display the alert group name. If there is no alert associated with an alert group, the field in the partner solution will display **NA**.
+These fields should be configured in the partner solution to display the alert group name. If there's no alert associated with an alert group, the field in the partner solution will display **NA**.
 
 ### Default alert groups
 
@@ -97,7 +97,7 @@ Add custom alert rule to pinpoint specific activity as needed for your organizat
 
 For example, you might want to define an alert for an environment running MODBUS to detect any write commands to a memory register, on a specific IP address and ethernet destination. Another example would be an alert for any access to a specific IP address.
 
-Use custom alert rule actions to instruct Defender for IT to take specific action when the alert is triggered, such as allowing users to access PCAP files from the alert, assigning alert severity, or generating an event that shows in the event timeline. Alert messages indicate that the alert was generated from a custom alert rule.
+Use custom alert rule actions to instruct Defender for IT to take specific action when the alert is triggered. This allows users to access PCAP files from the alert, assigning alert severity, or generating an event that shows in the event timeline. Alert messages indicate that the alert was generated from a custom alert rule.
 
 **To create a custom alert rule**:
 
