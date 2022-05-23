@@ -75,6 +75,8 @@
         href: adp-emea-french-hr-portal-tutorial.md  
       - name: ADP Globalview (Deprecated)
         href: adglobalview-tutorial.md
+      - name: Agile Provisioning
+        href: agile-provisioning-tutorial.md
       - name: Agiloft Contract Management Suite
         href: agiloft-tutorial.md
       - name: Aha!
