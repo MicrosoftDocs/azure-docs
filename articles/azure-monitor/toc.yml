@@ -198,7 +198,7 @@ items:
     - name: Overview
       href: alerts/alerts-overview.md
     - name: Alert Types
-      href: alerts/alert-types.md
+      href: alerts/alerts-types.md
   - name: Partner integrations
     href: partners.md
   - name: Security
