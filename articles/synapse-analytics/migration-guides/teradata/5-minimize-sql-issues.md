@@ -309,7 +309,7 @@ Azure Synapse doesn't support the creation of triggers, but you can implement th
 
 Azure Synapse sequences are handled in a similar way to Teradata, using [Identity to create surrogate keys](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-identity) or [managed identity](/azure/data-factory/data-factory-service-identity?tabs=data-factory).
 
-#### Teradata to T-SQL Mapping
+#### Teradata to T-SQL mapping
 
 This table shows the Teradata to T-SQL compliant with Azure Synapse SQL data type mapping:
 
