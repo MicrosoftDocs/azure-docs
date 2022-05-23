@@ -92,9 +92,29 @@ Each SIM policy includes:
 
 You can create multiple SIM policies to offer different QoS policy settings to separate groups of SIMs on the same data network. For example, you may want to create SIM policies with differing sets of services.
 
-## Creating and assigning QoS flows and EPS bearers
+## Designing your policy control configuration
 
-This section describes how the packet core instance uses policy control configuration to create and assign QoS flows and EPS bearers. We describe the steps using 5G terminology for clarity, but the packet core instance takes the same steps in 4G networks. The table below gives the equivalent 4G terminology for reference. 
+Azure Private 5G Core policy control configuration is flexible, allowing you to configure new services and SIM policies whenever you need, based on the changing requirements of your private mobile network.
+
+[Tutorial: Create an example set of policy control configuration](tutorial-create-example-set-of-policy-control-configuration.md) provides a step-by-step guide through configuring some example services for common use cases, and applying these services to new SIM policies. Run through this tutorial to familiarize yourself with the process of building policy control configuration.
+
+When you first come to design the policy control configuration for your own private mobile network, we recommend taking the following approach:
+
+1. Provision your SIMs as described in [Provision SIMs - Azure portal](provision-sims-azure-portal.md). You don't need to assign a SIM policy to these SIMs at this point.
+1. Identify the SDFs your private mobile network will need to handle.
+1. Learn about each of the available options for a service in [Collect the required information for a service](collect-required-information-for-service.md). Compare these options with the requirements of the SDFs to decide on the services you'll need.
+1. Collect the appropriate policy configuration values you'll need for each service, using the information in [Collect the required information for a service](collect-required-information-for-service.md).
+1. Configure each of your services as described in [Configure a service - Azure portal](configure-service-azure-portal.md).
+1. Group your SIMs according to the services they'll require. For each group, configure a SIM policy and assign it to the correct SIMs by carrying out the following procedures:
+
+    1. [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md)
+    1. [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md)
+
+You can also use the example Azure Resource Manager template (ARM template) in [Configure a service and SIM policy using an ARM template](configure-service-sim-policy-arm-template.md) to quickly create a SIM policy with a single associated service. 
+
+## QoS flow and EPS bearer creation and assignment
+
+This section describes how the packet core instance uses policy control configuration to create and assign QoS flows and EPS bearers. We describe the steps using 5G concepts for clarity, but the packet core instance takes the same steps in 4G networks. The table below gives the equivalent 4G concepts for reference. 
 
 |5G  |4G  |
 |---------|---------|
@@ -122,26 +142,6 @@ During PDU session establishment, the packet core instance takes the following s
    - Identifies the QoS flow to which each SDF should be bound.
    - Applies any necessary QoS treatment.
    - Marks packets with the QFI corresponding to the correct QoS flow. The QFI ensures the packets receive the correct QoS handling between the packet core instance and data network without further inspection.
-
-## Designing your policy control configuration
-
-Azure Private 5G Core policy control configuration is flexible, allowing you to configure new services and SIM policies whenever you need, based on the changing requirements of your private mobile network.
-
-[Tutorial: Create an example set of policy control configuration](tutorial-create-example-set-of-policy-control-configuration.md) provides a step-by-step guide through configuring some example services for common use cases, and applying these services to new SIM policies. Run through this tutorial to familiarize yourself with the process of building policy control configuration.
-
-When you first come to design the policy control configuration for your own private mobile network, we recommend taking the following approach:
-
-1. Provision your SIMs as described in [Provision SIMs - Azure portal](provision-sims-azure-portal.md). You don't need to assign a SIM policy to these SIMs at this point.
-1. Identify the SDFs your private mobile network will need to handle.
-1. Learn about each of the available options for a service in [Collect the required information for a service](collect-required-information-for-service.md). Compare these options with the requirements of the SDFs to decide on the services you'll need.
-1. Collect the appropriate policy configuration values you'll need for each service, using the information in [Collect the required information for a service](collect-required-information-for-service.md).
-1. Configure each of your services as described in [Configure a service - Azure portal](configure-service-azure-portal.md).
-1. Group your SIMs according to the services they'll require. For each group, configure a SIM policy and assign it to the correct SIMs by carrying out the following procedures:
-
-    1. [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md)
-    1. [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md)
-
-You can also use the example Azure Resource Manager template (ARM template) in [Configure a service and SIM policy using an ARM template](configure-service-sim-policy-arm-template.md) to quickly create a SIM policy with a single associated service. 
 
 ## Next steps
 
