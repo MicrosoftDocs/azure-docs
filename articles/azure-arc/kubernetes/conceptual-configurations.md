@@ -2,7 +2,7 @@
 title: "Configurations and GitOps - Azure Arc-enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/24/22
+ms.date: 05/24/2022
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
