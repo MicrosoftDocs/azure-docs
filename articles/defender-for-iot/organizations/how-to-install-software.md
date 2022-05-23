@@ -34,7 +34,7 @@ Mount the ISO file using one of the following options:
 
 - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
-## Install Software
+## Install OT Monitoring Software
 
 # [OT Sensor](#tab/sensor)
 
