@@ -78,7 +78,7 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 
 >[!Important]
 > - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in this data source.
-> - Changing a policy does not require a new publish operation. The changes will be picked up with the next pull
+> - Changing a policy does not require a new publish operation. The changes will be picked up with the next pull.
 
 ### Test the policy
 
