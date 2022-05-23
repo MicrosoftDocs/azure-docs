@@ -187,7 +187,7 @@ navigated to the **Create a private endpoint** dialog page.
 
 1. Accept the default value **Yes** to **integrate with private DNS zone**.
 
-  :::image type="content" source="media/managed-identities/v2-fr-private-end-vnet.png" alt-text="Screenshot showing how to configure private endpoint":::
+    :::image type="content" source="media/managed-identities/v2-fr-private-end-vnet.png" alt-text="Screenshot showing how to configure private endpoint":::
 
 1. Accept the remaining defaults and select **Next: Tags**.
 
@@ -209,7 +209,7 @@ Navigate to your **storage account** on the Azure portal.
 
 1. Select **Next: Resource**.
 
-  :::image type="content" source="media/managed-identities/v2-stg-private-end-basics.png" alt-text="Screenshot showing how to create a private endpoint":::
+    :::image type="content" source="media/managed-identities/v2-stg-private-end-basics.png" alt-text="Screenshot showing how to create a private endpoint":::
 
 1. On the resource tab, select **blob** from the **Target sub-resource** list.
 
