@@ -27,7 +27,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 - **Login collector via UTMP**: The Login collector now supports UTMP to catch SSH interactive events, telnet events, and terminal logins, including failed login events. For more information, see [Login collector (event-based collector)](concept-event-aggregation.md#login-collector-event-based-collector).
 
-- **SBoM collector known issue**: The SBOM collector currently only collects the first 500 packages ingested. For more information, see [SBoM (trigger based)](concept-event-aggregation.md#sbom-trigger-based) collection.
+- **SBoM collector known issue**: The SBoM collector currently only collects the first 500 packages ingested. For more information, see [SBoM (trigger based)](concept-event-aggregation.md#sbom-trigger-based) collection.
 
 ## February 2022
 
