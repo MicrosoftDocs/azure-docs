@@ -31,6 +31,8 @@
 - name: How-to guides
   expanded: true
   items:
+    - name: Create Azure Load Testing resources
+      href: how-to-create-manage-test.md
     - name: Create a load test with a JMeter script
       href: how-to-create-and-run-load-test-with-JMeter-script.md 
     - name: Compare test runs
