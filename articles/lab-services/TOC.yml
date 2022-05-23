@@ -21,7 +21,7 @@
       - name: Azure Lab Services website
         href: quick-create-lab-portal.md
       - name: ARM template
-        href: quick-create-lab-arm.md
+        href: quick-create-lab-template.md
       - name: PowerShell
         href: quick-create-lab-powershell.md
 - name: Tutorials

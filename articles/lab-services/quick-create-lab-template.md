@@ -22,7 +22,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 To complete this quick start, make sure that you have:
 
 - Azure subscription.  If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- Lab plan.  If you haven't create a lab plan, see [Quickstart: Create a lab plan using an ARM template](quick-create-lab-plan-arm.md).
+- Lab plan.  If you haven't create a lab plan, see [Quickstart: Create a lab plan using an ARM template](quick-create-lab-plan-template.md).
 
 ## Review the template
 

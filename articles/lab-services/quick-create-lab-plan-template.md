@@ -80,4 +80,4 @@ Write-Host "Press [ENTER] to continue..."
 For a step-by-step tutorial that guides you through the process of creating a lab, see:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a lab using an ARM template](quick-create-lab-arm.md)
+> [Quickstart: Create a lab using an ARM template](quick-create-lab-template.md)
