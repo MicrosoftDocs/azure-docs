@@ -27,11 +27,11 @@ There are two scale properties that apply to all rules in your container app:
 - Individual scale rules are defined in the `rules` array.
 - If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
 - Replicas not processing, but that remain in memory are billed in the "idle charge" category.
-- Changes to scaling rules are a [revision-scope](overview.md) change.
+- Changes to scaling rules are a [revision-scope](revisions.md#revision-scope-changes) change.
 - When using non-HTTP event scale rules, setting the `properties.configuration.activeRevisionsMode` property of the container app to `single` is recommended.
-
-
-
+- Container Apps implements the KEDA ScaledObject with the following default settings.
+  - pollingInterval: 30 seconds
+  - cooldownPeriod: 300 seconds
 
 ## Scale triggers
 
@@ -362,8 +362,7 @@ The following example shows how to create a memory scaling rule.
 - Vertical scaling is not supported.
 
 - Replica quantities are a target amount, not a guarantee.
-  - Even if you set `maxReplicas` to `1`, there is no assurance of thread safety.
-
+ 
 - If you are using [Dapr actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) to manage states, you should keep in mind that scaling to zero is not supported. Dapr uses virtual actors to manage asynchronous calls which means their in-memory representation is not tied to their identity or lifetime.
 
 ## Next steps
