@@ -145,7 +145,7 @@ Most Netezza data types have a direct equivalent in Azure Synapse. The following
 | NUMERIC(p,s)                      | NUMERIC(p,s)                     |
 | REAL                              | REAL                             |
 | SMALLINT                          | SMALLINT                         |
-| ST_GEOMETRY(n)                    | Spatial data types such as `ST_GEOMETRY` aren't currently supported in Azure Synapse Analytics, but the data could be stored as VARCHAR or VARBINARY |
+| ST_GEOMETRY(n)                    | Spatial data types such as ST_GEOMETRY aren't currently supported in Azure Synapse Analytics, but the data could be stored as VARCHAR or VARBINARY |
 | TIME                              | TIME                             |
 | TIME WITH TIME ZONE               | DATETIMEOFFSET                   |
 | TIMESTAMP                         | DATETIME                         |
