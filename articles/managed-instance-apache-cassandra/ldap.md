@@ -94,31 +94,31 @@ In this section, we'll walk through creating a simple LDAP server on a Virtual M
 
 1. Set authentication method to "Ldap" on the cluster, replacing `<resource group>` and `<cluster name>` with the appropriate values:
 
-```azurecli-interactive
-az managed-cassandra cluster update -g <resource group> -c <cluster name> --authentication-method "Ldap"
-```
+    ```azurecli-interactive
+    az managed-cassandra cluster update -g <resource group> -c <cluster name> --authentication-method "Ldap"
+    ```
 
 1. Now set properties at the data center level. Replace `<resource group>` and `<cluster name>` with the appropriate values, and `<dnsname>` with the dns name you created for your LDAP server.
 
-```azurecli-interactive
-ldap_search_base_distinguished_name='dc=example,dc=org'
-ldap_server_certificates='/usr/csuser/clouddrive/ldap.crt'
-ldap_server_hostname='<dnsname>.uksouth.cloudapp.azure.com'
-ldap_service_user_distinguished_name='cn=admin,dc=example,dc=org'
-ldap_service_user_password='admin'
+    ```azurecli-interactive
+    ldap_search_base_distinguished_name='dc=example,dc=org'
+    ldap_server_certificates='/usr/csuser/clouddrive/ldap.crt'
+    ldap_server_hostname='<dnsname>.uksouth.cloudapp.azure.com'
+    ldap_service_user_distinguished_name='cn=admin,dc=example,dc=org'
+    ldap_service_user_password='admin'
+    
+    az managed-cassandra datacenter update -g `<resource group>` -c `<cluster name>` -d datacenter-1 --ldap-search-base-dn $ldap_search_base_distinguished_name --ldap-server-certs $ldap_server_certificates --ldap-server-hostname $ldap_server_hostname --ldap-service-user-dn $ldap_service_user_distinguished_name --ldap-svc-user-pwd $ldap_service_user_password
+    ```
 
-az managed-cassandra datacenter update -g `<resource group>` -c `<cluster name>` -d datacenter-1 --ldap-search-base-dn $ldap_search_base_distinguished_name --ldap-server-certs $ldap_server_certificates --ldap-server-hostname $ldap_server_hostname --ldap-service-user-dn $ldap_service_user_distinguished_name --ldap-svc-user-pwd $ldap_service_user_password
-```
-
-> [!NOTE]
-> The above command is based on the LDAP setup in the earlier section. If you skipped that section because you already have an existing LDAP server, provide the corresponding values for that server instead.
+    > [!NOTE]
+    > The above command is based on the LDAP setup in the earlier section. If you skipped that section because you already have an existing LDAP server, provide the corresponding values for that server instead.
 
 1. Once this command has completed, you should be able to connect to your managed instance data center using the user added in the above step
 
-```shell
-export SSL_VALIDATE=false
-cqlsh --debug --ssl <data-node-ip> -u <user> -p <password>
-```
+    ```shell
+    export SSL_VALIDATE=false
+    cqlsh --debug --ssl <data-node-ip> -u <user> -p <password>
+    ```
 
 ## Next steps
 
