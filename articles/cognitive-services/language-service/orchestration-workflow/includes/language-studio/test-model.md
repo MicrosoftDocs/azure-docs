@@ -11,7 +11,7 @@ ms.author: aahi
 
 To test your model from the Language studio
 
-1. Select **Test model** from the left side menu.
+1. Select **Testing deployments** from the left side menu.
 
 3. Select the model you want to test. You can only test models that are assigned to deployments.
 
