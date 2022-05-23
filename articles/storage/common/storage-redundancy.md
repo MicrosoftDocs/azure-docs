@@ -108,6 +108,7 @@ Premium block blobs are available in a subset of Azure regions:
 - (North America) East US
 - (North America) East US 2
 - (North America) West US 2
+- (North America) South Central US
 - (South America) Brazil South
 
 #### Premium file share accounts
