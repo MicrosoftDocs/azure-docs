@@ -104,7 +104,7 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | ---- | -------------- | ----- |
 | Number of concurrent job executions | 5 | For performance reasons, you shouldn't exceed this limit. |
 
-## Organizations
+## Users, Roles and Organizations
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
