@@ -1,11 +1,12 @@
 ---
 title: Reference - Python server SDK for Azure Web PubSub
-description: This reference describes the Python server SDK for the Azure Web PubSub service.
+description: Learn about the Python server SDK for the Azure Web PubSub service. You can use this library in your app server to manage the WebSocket client connections.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual 
-ms.date: 11/08/2021
+ms.topic: how-to 
+ms.custom: kr2b-contr-experiment
+ms.date: 05/23/2022
 ---
 
 # Azure Web PubSub service client library for Python
@@ -34,7 +35,7 @@ Use this library to:
 ### Prerequisites
 
 - Python 2.7, or 3.6 or later is required to use this package.
-- You need an [Azure subscription][azure_sub] and a [Azure WebPubSub service instance][webpubsubservice_docs] to use this package.
+- You need an [Azure subscription][azure_sub] and an [Azure WebPubSub service instance][webpubsubservice_docs] to use this package.
 - An existing Azure Web PubSub service instance.
 
 ### 1. Install the package
@@ -62,10 +63,10 @@ Or using the service endpoint and the access key:
 >>> service = WebPubSubServiceClient(endpoint='<endpoint>', hub='hub', credential=AzureKeyCredential("<access_key>"))
 ```
 
-Or using [Azure Active Directory][aad_doc]:
+Or using [Azure Active Directory][aad_doc] (Azure AD):
 
 1. [pip][pip] install [`azure-identity`][azure_identity_pip]
-2. Follow the document to [enable AAD authentication on your Webpubsub resource][aad_doc]
+2. Follow the document to [enable Azure AD authentication on your Webpubsub resource][aad_doc]
 3. Update code to use [DefaultAzureCredential][default_azure_credential]
 
     ```python
@@ -116,7 +117,7 @@ The WebSocket client will receive binary text: `b'Hello world'`.
 ### Logging
 
 This SDK uses Python standard logging library.
-You can configure logging print out debugging information to the stdout or anywhere you want.
+You can configure logging to print debugging information to the stdout or anywhere you want.
 
 ```python
 import sys
@@ -159,15 +160,15 @@ you to agree to a Contributor License Agreement (CLA) declaring that you have
 the right to, and actually do, grant us the rights to use your contribution.
 For details, visit https://cla.microsoft.com.
 
-When you submit a pull request, a CLA-bot will automatically determine whether
-you need to provide a CLA and decorate the PR appropriately (e.g., label,
-comment). Simply follow the instructions provided by the bot. You will only
-need to do this once across all repos using our CLA.
+When you submit a pull request, a CLA-bot automatically determines whether
+you need to provide a CLA and decorate the PR appropriately, for example, "label",
+"comment". Follow the instructions provided by the bot. You only
+need to do this action once across all repos using our CLA.
 
 This project has adopted the
 [Microsoft Open Source Code of Conduct][code_of_conduct]. For more information,
 see the Code of Conduct FAQ or contact opencode@microsoft.com with any
-additional questions or comments.
+more questions or comments.
 
 <!-- LINKS -->
 [webpubsubservice_docs]: ./index.yml

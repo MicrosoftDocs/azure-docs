@@ -1,12 +1,14 @@
 ---
-title: Move an Azure SignalR resource to another region | Microsoft Docs
-description: Shows you how to move an Azure SignalR resource to another region.
+title: Move an Azure SignalR resource to another region
+description: Learn how to use an Azure Resource Manager template to export the configuration of an Azure SignalR resource to a different Azure region.
 author: vicancy
 ms.service: signalr
 ms.topic: how-to
-ms.date: 12/22/2021
+ms.date: 05/23/2022
 ms.author: lianwei 
-ms.custom: subject-moving-resources
+ms.custom:
+- subject-moving-resources
+- kr2b-contr-experiment
 ---
 
 # Move an Azure SignalR resource to another region
@@ -15,7 +17,7 @@ There are various scenarios in which you'd want to move your existing SignalR re
 
 ## Prerequisites
 
-- Ensure that the service and features that your are using are supported in the target region.
+- Ensure that the service and features that you're using are supported in the target region.
 
 - Verify that your Azure subscription allows you to create SignalR resource in the target region that's used. Contact support to enable the required quota.
 
@@ -23,7 +25,7 @@ There are various scenarios in which you'd want to move your existing SignalR re
 
 <a id="prepare"></a>
 
-## Prepare and move
+## Prepare and move your SignalR resource
 
 To get started, export, and then modify a Resource Manager template.
 
@@ -33,13 +35,13 @@ The following steps show how to prepare the SignalR resource move using a Resour
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 
-2. Locate the Resource Group that contains the source SignalR resource and click on it.
+2. Locate the Resource Group that contains the source SignalR resource and select it.
 
 3. Select > **Automation** > **Export template**.
 
-4. Choose **Deploy** in the **Export template** blade.
+4. Choose **Deploy** in **Export template**.
 
-5. Click **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
+5. Select **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
 
 6. To edit the parameter of the SignalR resource name, change the **value** property under **parameters**:
 
@@ -57,9 +59,9 @@ The following steps show how to prepare the SignalR resource move using a Resour
 
 7. Change the value in the editor to a name of your choice for the target SignalR resource. Ensure you enclose the name in quotes.
 
-8.  Click **Save** in the editor.
+8. Select **Save** in the editor.
 
-9.  Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor.
+9.  Select **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor.
 
 10. To edit the target region, change the **location** property under **resources** in the online editor:
 
@@ -81,16 +83,15 @@ The following steps show how to prepare the SignalR resource move using a Resour
 
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements.
 
-13. Click **Save** in the online editor.
+13. Select **Save** in the online editor.
 
-14. Click **BASICS** > **Subscription** to choose the subscription where the target resource will be deployed.
+14. Select **BASICS** > **Subscription** to choose the subscription where the target resource will be deployed.
 
-15. Click **BASICS** > **Resource group** to choose the resource group where the target resource will be deployed.  You can click **Create new** to create a new resource group for the target resource.  Ensure the name isn't the same as the source resource group of the existing resource.
+15. Select **BASICS** > **Resource group** to choose the resource group where the target resource will be deployed.  You can select **Create new** to create a new resource group for the target resource.  Ensure the name isn't the same as the source resource group of the existing resource.
 
 16. Verify **BASICS** > **Location** is set to the target location where you wish for the resource to be deployed.
 
-17. Click the **Review + create** button to deploy the target Azure SignalR resource.
-
+17. Select **Review + create** to deploy the target Azure SignalR resource.
 
 ### Export the template and deploy using Azure PowerShell
 
@@ -186,15 +187,15 @@ To export a template by using PowerShell:
     Get-AzSignalR -Name <target-signalr-name> -ResourceGroupName <target-resource-group-name>
     ```
 
-## Discard
+> [!NOTE]
+>
+> After the deployment, if you wish to start over or discard the SignalR resource in the target, delete the resource group that was created in the target and the moved SignalR resource will be deleted. To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page. Alternatively you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
-After the deployment, if you wish to start over or discard the SignalR resource in the target, delete the resource group that was created in the target and the moved SignalR resource will be deleted. To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page. Alternatively you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
+> ```azurepowershell-interactive
+> Remove-AzResourceGroup -Name <target-resource-group-name>
+> ```
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name <target-resource-group-name>
-```
-
-## Clean up
+## Clean up source region
 
 To commit the changes and complete the move of the SignalR resource, delete the source SignalR resource or resource group. To do so, select the SignalR resource or resource group from your dashboard in the portal and select **Delete** at the top of each page.
 
