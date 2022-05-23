@@ -142,14 +142,14 @@ Instead of adding individual intents, you can also use the `AddAllIntents` metho
 
 ## Start recognition
 
-With the recognizer created and the intents added, recognition can begin. The Speech SDK supports both at-start and continuous recognition.
+With the recognizer created and the intents added, recognition can begin. The Speech SDK supports both single-shot and continuous recognition.
 
 | Recognition mode | Methods to call | Result |
 | ---------------- | --------------- | ------ |
-| At-start | `RecognizeOnceAsync()` | Returns the recognized intent, if any, after one utterance. |
+| Single-shot | `RecognizeOnceAsync()` | Returns the recognized intent, if any, after one utterance. |
 | Continuous | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Recognizes multiple utterances; emits events (for example, `IntermediateResultReceived`) when results are available. |
 
-The application uses at-start mode and so calls `RecognizeOnceAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. You extract the LUIS JSON response by using the following expression:
+The application uses single-shot mode and so calls `RecognizeOnceAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. You extract the LUIS JSON response by using the following expression:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)

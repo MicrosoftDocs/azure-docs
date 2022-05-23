@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 02/22/2022
+  ms.date: 03/02/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -69,8 +69,7 @@ sections:
 
       - question: I enabled a lock on the resource group created by Azure Backup Service (for example, `AzureBackupRG_<geo>_<number>`). Will my backups continue to work?
         answer: |
-          If you lock the resource group created by the Azure Backup Service, backups will start to fail as there's a maximum limit of 18 restore points.
-
+          If you lock the resource group created by the Azure Backup Service, backups will start to fail.
           Remove the lock, and clear the restore point collection from that resource group to make the future backups successful. [Follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
       - question: I have a lock at the resource group level that contains all the resources related to my virtual machine. Will my backup work?
@@ -137,6 +136,9 @@ sections:
         answer: |
           Restoring files and folders from encrypted VM backup is currently not supported, you must recover the entire VM to restore files and folders. See, [steps to restore an encrypted Azure Virtual machine](restore-azure-encrypted-virtual-machines.md).
 
+      - question: Can I stop a VM and scale it up during the Transfer data to vault phase?
+        answer: |
+          Yes, you can do this when *Transfer data to vault* phase is in progress.
 
   - name: Restore
     questions:
@@ -200,6 +202,16 @@ sections:
       - question: How do I restore a VM into powered down state?
         answer: |
           To restore a VM in powered down state, you can [create a VM](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) or [restore disks](./backup-azure-arm-restore-vms.md#restore-disks), but you can't replace an existing VM. Learn more about the [available restore options](./backup-azure-arm-restore-vms.md#restore-options).
+
+      - question: Can I restore Azure VM that is in the powered-off state?
+        answer: |
+          Azure VM must be in the powered-off state while you restore. Otherwise, the restore operation would fail in the pre-check stage, with the error code *UserErrorVmNotShutDown*.
+
+          Also, before you swap VM disks, you must power off the VM.
+
+      -  question: Is there a limit to trigger restore in a day?
+         answer: |
+           Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours.
 
   - name: Manage VM backups
     questions:

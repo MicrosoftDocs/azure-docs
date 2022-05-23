@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 01/21/2022
+ms.date: 04/29/2022
 ---
 
 # Common error codes and messages 
@@ -150,7 +150,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Xml-InvalidReferenceResource
 - **Message**: Reference resource in xml data file cannot be resolved.
 - **Cause**: The reference resource in the XML data file cannot be resolved.
-- **Recommendation**: You should check the reference resource in the XML data file.
+- **Recommendation**: Check the reference resource in the XML data file.
 
 ## Error code: DF-Xml-InvalidSchema
 - **Message**: Schema validation failed.
@@ -189,8 +189,8 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Cosmos-PartitionKeyMissed
 - **Message**: Partition key path should be specified for update and delete operations.
-- **Cause**: The partition key path is missed in the Azure Cosmos DB sink.
-- **Recommendation**: Use the providing partition key in the Azure Cosmos DB sink settings.
+- **Cause**: The partition key path is missing in the Azure Cosmos DB sink.
+- **Recommendation**: Provide the partition key in the Azure Cosmos DB sink settings.
 
 ## Error code: DF-Cosmos-InvalidPartitionKey
 - **Message**: Partition key path cannot be empty for update and delete operations.
@@ -204,7 +204,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Cosmos-IdPropertyMissed
 - **Message**: 'id' property should be mapped for delete and update operations.
 - **Cause**: The `id` property is missed for update and delete operations.
-- **Recommendation**: Make sure that the input data has an `id` column in Cosmos DB sink settings. If no, use **select or derive transformation** to generate this column before sink.
+- **Recommendation**: Make sure that the input data has an `id` column in Azure Cosmos DB sink transformation settings. If not, use a select or derived column transformation to generate this column before the sink transformation.
 
 ## Error code: DF-Cosmos-InvalidPartitionKeyContent
 - **Message**: partition key should start with /.
@@ -374,7 +374,7 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Executor-OutOfMemorySparkBroadcastError
 - **Message**: Explicitly broadcasted dataset using left/right option should be small enough to fit in node's memory. You can choose broadcast option 'Off' in join/exists/lookup transformation to avoid this issue or use an integration runtime with higher memory.
-- **Cause**: The size of the broadcasted table far exceeds the limitation of the node memory.
+- **Cause**: The size of the broadcasted table far exceeds the limits of the node memory.
 - **Recommendation**: The broadcast left/right option should be used only for smaller dataset size which can fit into node's memory, so make sure to configure the node size appropriately or turn off the broadcast option.
 
 ## Error code: DF-MSSQL-InvalidFirewallSetting
@@ -426,8 +426,8 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Cosmos-FailToResetThroughput
 - **Message**: Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
-- **Cause**: The throughput scale operation of the Cosmos DB cannot be performed because another scale operation is in progress.
-- **Recommendation**: Please log in your Cosmos account, and manually change its container's throughput to be auto scale or add custom activities after data flows to reset the throughput.
+- **Cause**: The throughput scale operation of the Azure Cosmos DB cannot be performed because another scale operation is in progress.
+- **Recommendation**: Login to Azure Cosmos DB account, and manually change container throughput to be auto scale or add a custom activity after mapping data flows to reset the throughput.
 
 ## Error code: DF-Executor-InvalidPath
 - **Message**: Path does not resolve to any file(s). Please make sure the file/folder exists and is not hidden.
@@ -475,8 +475,8 @@ This article lists common error codes and messages reported by mapping data flow
 - **Recommendation**: Please update AdobeIntegration settings while only privacy 'GDPR' is supported.
 
 ## Error code: DF-Executor-RemoteRPCClientDisassociated
-- **Message**: Remote RPC client disassociated. Likely due to containers exceeding thresholds, or network issues.
-- **Cause**: Data flow activity runs failed because of the transient network issue or because one node in spark cluster runs out of memory.
+- **Message**: Job aborted due to stage failure. Remote RPC client disassociated. Likely due to containers exceeding thresholds, or network issues.
+- **Cause**: Data flow activity run failed because of transient network issues or one node in spark cluster ran out of memory.
 - **Recommendation**: Use the following options to solve this problem:
   - Option-1: Use a powerful cluster (both drive and executor nodes have enough memory to handle big data) to run data flow pipelines with setting "Compute type" to "Memory optimized". The settings are shown in the picture below.
         
@@ -513,12 +513,13 @@ This article lists common error codes and messages reported by mapping data flow
 - **Recommendation**: Check the format and change it to the proper one.
 
 ## Error code: DF-Synapse-InvalidTableDBName
+- **Message**: The table/database name is not a valid name for tables/databases. Valid names only contain alphabet characters, numbers and _.
 - **Cause**: The table/database name is not valid.
 - **Recommendation**: Change a valid name for the table/database. Valid names only contain alphabet characters, numbers and `_`.
 
 ## Error code: DF-Synapse-InvalidOperation
 - **Cause**: The operation is not supported.
-- **Recommendation**: Change the invalid operation.
+- **Recommendation**: Change **Update method** configuration as delete, update and upsert are not supported in Workspace DB.
 
 ## Error code: DF-Synapse-DBNotExist
 - **Cause**: The database does not exist.
@@ -546,7 +547,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Cosmos-ShortTypeNotSupport
 - **Message**: Short data type is not supported in Cosmos DB.
 - **Cause**: The short data type is not supported in the Azure Cosmos DB.
-- **Recommendation**: Add a derived transformation to convert related columns from short to integer before using them in the Cosmos sink.
+- **Recommendation**: Add a derived column transformation to convert related columns from short to integer before using them in the Azure Cosmos DB sink transformation.
 
 ## Error code: DF-Blob-FunctionNotSupport
 - **Message**: This endpoint does not support BlobStorageEvents, SoftDelete or AutomaticSnapshot. Please disable these account features if you would like to use this endpoint.
@@ -557,6 +558,56 @@ This article lists common error codes and messages reported by mapping data flow
 - **Message**: The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used.
 - **Cause**: There is no enough permission to read/write Azure Cosmos DB data.
 - **Recommendation**: Please use the read-write key to access Azure Cosmos DB.
+
+## Error code: DF-Cosmos-ResourceNotFound
+- **Message**: Resource not found.
+- **Cause**: Invalid configuration is provided (for example, the partition key with invalid characters) or the resource does not exist.
+- **Recommendation**: To solve this issue, refer to [Diagnose and troubleshoot Azure Cosmos DB not found exceptions](../cosmos-db/troubleshoot-not-found.md).
+
+## Error code: DF-Snowflake-IncompatibleDataType
+- **Message**: Expression type does not match column data type, expecting VARIANT but got VARCHAR.
+- **Cause**: The column(s) type of input data which is string is different from the related column(s) type in the Snowflake sink transformation which is VARIANT.
+- **Recommendation**: For the snowflake VARIANT, it can only accept data flow value which is struct, map or array type. If the value of your input data column(s) is JSON or XML or other string, use a parse transformation before the Snowflake sink transformation to covert value into struct, map or array type.
+
+## Error code: DF-JSON-WrongDocumentForm
+- **Message**: Malformed records are detected in schema inference. Parse Mode: FAILFAST.
+- **Cause**: Wrong document form is selected to parse JSON file(s).
+- **Recommendation**: Try different **Document form** (**Single document**/**Document per line**/**Array of documents**) in JSON settings. Most cases of parsing errors are caused by wrong configuration.
+
+## Error code: DF-File-InvalidSparkFolder
+- **Message**: Failed to read footer for file 
+- **Cause**: Folder *_spark_metadata* is created by the structured streaming job.
+- **Recommendation**: Delete *_spark_metadata* folder if it exists. For more information, refer to this [article](https://forums.databricks.com/questions/12447/javaioioexception-could-not-read-footer-for-file-f.html).
+
+## Error code: DF-Executor-InternalServerError
+- **Message**: Failed to execute dataflow with internal server error, please retry later. If issue persists, please contact Microsoft support for further assistance
+- **Cause**: The data flow execution is failed because of the system error.
+- **Recommendation**: To solve this issue, refer to [Internal server errors](data-flow-troubleshoot-guide.md#internal-server-errors).
+
+## Error code: DF-Executor-InvalidStageConfiguration
+- **Message**: Storage with user assigned managed identity authentication in staging is not supported 
+- **Cause**: An exception is happened because of invalid staging configuration.
+- **Recommendation**: The user-assigned managed identity authentication is not supported in staging. Use a different authentication to create an Azure Data Lake Storage Gen2 or Azure Blob Storage linked service, then use it as staging in mapping data flows.
+
+## Error code: DF-GEN2-InvalidStorageAccountConfiguration
+- **Message**: Blob operation is not supported on older storage accounts. Creating a new storage account may fix the issue.
+- **Cause**: The storage account is too old.
+- **Recommendation**: Create a new storage account.
+
+## Error code: DF-AzureDataExplorer-InvalidOperation
+- **Message**: Blob operation is not supported on older storage accounts. Creating a new storage account may fix the issue.
+- **Cause**: Operation is not supported.
+- **Recommendation**: Change **Update method** configuration as delete, update and upsert are not supported in Azure Data Explorer.
+
+## Error code: DF-AzureDataExplorer-WriteTimeout
+- **Message**: Operation timeout while writing data.
+- **Cause**: Operation times out while writing data.
+- **Recommendation**: Increase the value in **Timeout** option in sink transformation settings.
+ 
+## Error code: DF-AzureDataExplorer-ReadTimeout
+- **Message**: Operation timeout while reading data.
+- **Cause**: Operation times out while reading data.
+- **Recommendation**: Increase the value in **Timeout** option in source transformation settings.
 
 ## Next steps
 

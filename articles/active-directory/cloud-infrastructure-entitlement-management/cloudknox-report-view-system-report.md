@@ -2,14 +2,14 @@
 title: Generate and view a system report in CloudKnox Permissions Management
 description: How to generate and view a system report in the CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Generate and view a system report
@@ -22,7 +22,7 @@ This article describes how to generate and view a system report in CloudKnox Per
 
 ## Generate a system report  
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems reports** subtab.
+1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
     The **Systems Reports** subtab displays the following options in the **Reports** table:
 
     - **Report Name**: The name of the report.
@@ -34,7 +34,7 @@ This article describes how to generate and view a system report in CloudKnox Per
 
     Or, from the ellipses **(...)** menu, select **Download**.
 
-    The following message displays: **Successfully started to generate on demand report.**
+    The following message displays: **Successfully Started To Generate On Demand Report.**
 
     > [!NOTE]
     > If you select one authorization system, the report includes a summary. If you select more than one authorization system, the report does not include a summary.

@@ -11,6 +11,8 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. Use the [Azure Application Insights](./app-insights-overview.md) core telemetry API to send custom events and metrics, and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## API summary
 
 The core API is uniform across all platforms, apart from a few variations like `GetMetric`(.NET only).
@@ -53,7 +55,7 @@ If you don't have a reference on Application Insights SDK yet:
 
 Get an instance of `TelemetryClient` (except in JavaScript in webpages):
 
-For [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps and [Non HTTP/Worker for .NET/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps, it is recommended to get an instance of `TelemetryClient` from the dependency injection container as explained in their respective documentation.
+For [ASP.NET Core](asp-net-core.md) apps and [Non HTTP/Worker for .NET/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps, it is recommended to get an instance of `TelemetryClient` from the dependency injection container as explained in their respective documentation.
 
 If you use AzureFunctions v2+ or Azure WebJobs v3+ - follow [this document](../../azure-functions/functions-monitoring.md).
 
@@ -154,8 +156,7 @@ To learn how to effectively use the GetMetric() call to capture locally pre-aggr
 ## TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is not the preferred method for sending metrics. Metrics should always be pre-aggregated across a time period before being sent. Use one of the GetMetric(..) overloads to get a metric object for accessing SDK pre-aggregation capabilities. If you are implementing your own pre-aggregation logic, you can 
-use the TrackMetric() method to send the resulting aggregates. If your application requires sending a separate telemetry item at every occasion without aggregation across time, you likely have a use case for event telemetry; see TelemetryClient.TrackEvent 
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is not the preferred method for sending metrics. Metrics should always be pre-aggregated across a time period before being sent. Use one of the GetMetric(..) overloads to get a metric object for accessing SDK pre-aggregation capabilities. If you are implementing your own pre-aggregation logic, you can use the TrackMetric() method to send the resulting aggregates. If your application requires sending a separate telemetry item at every occasion without aggregation across time, you likely have a use case for event telemetry; see TelemetryClient.TrackEvent
 (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
 
 Application Insights can chart metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. With metrics, the individual measurements are of less interest than the variations and trends, and so statistical charts are useful.
@@ -294,7 +295,7 @@ To associate page views to AJAX calls, join with dependencies:
 
 ```kusto
 pageViews
-| join (dependencies) on operation_Id 
+| join (dependencies) on operation_Id
 ```
 
 ## TrackRequest
@@ -484,8 +485,8 @@ telemetry.trackTrace({
 
 ```javascript
 trackTrace({
-    message: string, 
-    properties?: {[string]:string}, 
+    message: string,
+    properties?: {[string]:string},
     severityLevel?: SeverityLevel
 })
 ```
@@ -547,7 +548,7 @@ try
 {
     success = dependency.Call();
 }
-catch(Exception ex) 
+catch(Exception ex)
 {
     success = false;
     telemetry.TrackException(ex);
@@ -630,13 +631,23 @@ dependencies
 
 Normally, the SDK sends data at fixed intervals (typically 30 secs) or whenever buffer is full (typically 500 items). However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
 
-*C#*
+*.NET*
+
+When using Flush(), we recommend this [pattern](./console.md#full-example):
 
 ```csharp
 telemetry.Flush();
 // Allow some time for flushing before shutdown.
 System.Threading.Thread.Sleep(5000);
 ```
+
+When using FlushAsync(), we recommend this pattern:
+
+```csharp
+await telemetryClient.FlushAsync()
+```
+
+We recommend always flushing as part of the application shutdown to guarantee that telemetry is not lost.
 
 *Java*
 
@@ -654,7 +665,8 @@ telemetry.flush();
 
 The function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
-Ideally, flush() method should be used in the shutdown activity of the Application.
+> [!NOTE]
+> The Java and JavaScript SDKs automatically flush on application shutdown.
 
 ## Authenticated users
 
@@ -1053,7 +1065,7 @@ In webpages, you might want to set it from the web server's state, rather than c
 // Standard Application Insights webpage script:
 var appInsights = window.appInsights || function(config){ ...
 // Modify this part:
-}({instrumentationKey:  
+}({instrumentationKey:
     // Generate from server property:
     @Microsoft.ApplicationInsights.Extensibility.
         TelemetryConfiguration.Active.InstrumentationKey;
@@ -1100,14 +1112,13 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 
 ## Reference docs
 
-* [ASP.NET reference](/dotnet/api/overview/azure/insights)
+* [.NET reference](/dotnet/api/overview/azure/insights)
 * [Java reference](/java/api/overview/azure/appinsights)
 * [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## SDK code
 
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server packages](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)

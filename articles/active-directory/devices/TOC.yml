@@ -72,8 +72,6 @@
     href: faq.yml
   - name: Enterprise state roaming
     items:
-    - name: What is enterprise state roaming?
-      href: enterprise-state-roaming-overview.md
     - name: Enable enterprise state roaming
       href: enterprise-state-roaming-enable.md
     - name: Enable enterprise state FAQs

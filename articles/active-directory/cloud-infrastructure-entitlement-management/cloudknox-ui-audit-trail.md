@@ -2,14 +2,14 @@
 title: Use queries to see how users access information in an authorization system in CloudKnox Permissions Management
 description: How to use queries to see how users access information in an authorization system in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Use queries to see how users access information
@@ -32,11 +32,11 @@ This article provides an overview of the components of the **Audit** dashboard.
 1. The following options display at the top of the **Audit** dashboard: 
 
     - A tab for each existing query. Select the tab to see details about the query.
-    - **New query**: Select the tab to create a new query.
-    - **New tab (+)**: Select the tab to add a **New query** tab.
-    - **Saved queries**: Select to view a list of saved queries.
+    - **New Query**: Select the tab to create a new query.
+    - **New tab (+)**: Select the tab to add a **New Query** tab.
+    - **Saved Queries**: Select to view a list of saved queries.
 
-1. To return to the main page, select **Back to Audit**.
+1. To return to the main page, select **Back to Audit Trail**.
 
 
 ## Use a query to view information  
@@ -44,13 +44,13 @@ This article provides an overview of the components of the **Audit** dashboard.
 1. In CloudKnox, select the **Audit** tab.
 1. The **New query** tab displays the following options:
 
-    - **Authorization systems type**: A list of your authorization systems: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
+    - **Authorization Systems Type**: A list of your authorization systems: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), Google Cloud Platform (**GCP**), or Platform (**Platform**).
 
-    - **Authorization system**: A **List** of accounts and **Folders** in the authorization system.
+    - **Authorization System**: A **List** of accounts and **Folders** in the authorization system.
 
         - To display a **List** of accounts and **Folders** in the authorization system, select the down arrow, and then select **Apply**.
 
-1. To add an **Audit condition**, select **Conditions** (the eye icon), select the conditions you want to add, and then select **Close**.
+1. To add an **Audit Trail Condition**, select **Conditions** (the eye icon), select the conditions you want to add, and then select **Close**.
     
 1. To edit existing parameters, select **Edit** (the pencil icon).
 
@@ -62,7 +62,7 @@ This article provides an overview of the components of the **Audit** dashboard.
 
 1. To save your query under a different name, select **Save As** (the ellipses **(...)** icon).
 
-1. To discard your work and start creating a query again, select **Reset query**.
+1. To discard your work and start creating a query again, select **Reset Query**.
 
 1. To delete a query, select the **X** to the right of the query tab.
 

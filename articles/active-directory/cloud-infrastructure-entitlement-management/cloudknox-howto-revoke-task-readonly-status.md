@@ -2,14 +2,14 @@
 title: Revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard in CloudKnox Permissions Management
 description: How to revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Revoke access to high-risk and unused tasks or assign read-only status for Microsoft Azure and Google Cloud Platform (GCP) identities
@@ -27,30 +27,30 @@ This article describes how you can revoke high-risk and unused tasks or assign r
 ## View an identity's permissions
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **Azure** or **GCP**.
-1. From the **Select an authorization system** dropdown, select the accounts you want to access.
-1. From the **Search for** dropdown, select **Group**, **User**, or **APP**.
-1. To search for more parameters, you can make a selection from the **User States**, **Privilege Creep Index**, and **Task usage** dropdowns.
+1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
+1. From the **Authorization System** dropdown, select the accounts you want to access.
+1. From the **Search for** dropdown, select **Group**, **User**, or **APP/Service Account**.
+1. To search for more parameters, you can make a selection from the **User States**, **Permission Creep Index**, and **Task Usage** dropdowns.
 1. Select **Apply**.
 
     CloudKnox displays a list of groups, users, and service accounts that match your criteria.
 1. In **Enter a username**, enter or select a user.
-1. In **Enter a group name**, enter or select a group, then select **Apply**.
+1. In **Enter a Group Name**, enter or select a group, then select **Apply**.
 1. Make a selection from the results list.
 
-    The table displays the **Username** **Domain/Account**, **Source**, **Resource** and **Current role**.
+    The table displays the **Username** **Domain/Account**, **Source**, **Resource** and **Current Role**.
 
 
 ## Revoke an identity's access to unused tasks
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **Azure** or **GCP**.
-1. From the **Select an authorization system** dropdown, select the accounts you want to access.
-1. From the **Search for** dropdown, select **Group**, **User**, or **APP**, and then select **Apply**.
+1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
+1. From the **Authorization System** dropdown, select the accounts you want to access.
+1. From the **Search for** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.
 1. Make a selection from the results list.
 
-1. To revoke an identity's access to tasks they aren't using, select **Revoke unused tasks**.
-1. When the following message displays: **Are you sure you want to change permissions?**, select: 
+1. To revoke an identity's access to tasks they aren't using, select **Revoke Unused Tasks**.
+1. When the following message displays: **Are you sure you want to change permission?**, select: 
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -58,13 +58,13 @@ This article describes how you can revoke high-risk and unused tasks or assign r
 ## Revoke an identity's access to high-risk tasks
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **Azure** or **GCP**.
-1. From the **Select an authorization system** dropdown, select the accounts you want to access.
-1. From the **Search for** dropdown, select **Group**, **User**, or **APP**, and then select **Apply**.
+1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
+1. From the **Authorization System** dropdown, select the accounts you want to access.
+1. From the **Search For** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.
 1. Make a selection from the results list.
 
-1. To revoke an identity's access to high-risk tasks, select **Revoke high-risk tasks**.
-1. When the following message displays: **Are you sure you want to change permissions?**, select: 
+1. To revoke an identity's access to high-risk tasks, select **Revoke High-Risk Tasks**.
+1. When the following message displays: **Are you sure you want to change permission?**, select: 
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -72,13 +72,13 @@ This article describes how you can revoke high-risk and unused tasks or assign r
 ## Revoke an identity's ability to delete tasks
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **Azure** or **GCP**.
-1. From the **Select an authorization system** dropdown, select the accounts you want to access.
-1. From the **Search for** dropdown, select **Group**, **User**, or **APP**, and then select **Apply**.
+1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
+1. From the **Authorization System** dropdown, select the accounts you want to access.
+1. From the **Search For** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.
 1. Make a selection from the results list.
 
-1. To revoke an identity's ability to delete tasks, select **Revoke delete tasks**.
-1. When the following message displays: **Are you sure you want to change permissions?**, select: 
+1. To revoke an identity's ability to delete tasks, select **Revoke Delete Tasks**.
+1. When the following message displays: **Are you sure you want to change permission?**, select: 
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -86,13 +86,13 @@ This article describes how you can revoke high-risk and unused tasks or assign r
 ## Assign read-only status to an identity
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **Azure** or **GCP**.
-1. From the **Select an authorization system** dropdown, select the accounts you want to access.
-1. From the **Search for** dropdown, select **Group**, **User**, or **APP**, and then select **Apply**.
+1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
+1. From the **Authorization System** dropdown, select the accounts you want to access.
+1. From the **Search for** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.
 1. Make a selection from the results list.
 
-1. To assign read-only status to an identity, select **Assign read-only status**.
-1. When the following message displays: **Are you sure you want to change permissions?**, select: 
+1. To assign read-only status to an identity, select **Assign Read-Only Status**.
+1. When the following message displays: **Are you sure you want to change permission?**, select: 
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.

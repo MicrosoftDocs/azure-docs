@@ -154,6 +154,8 @@ The following is a sample JSONL file for image classification:
 Once your data is in JSONL format, you can create a TabularDataset with the following code:
 
 ```python
+ws = Workspace.from_config()
+ds = ws.get_default_datastore()
 from azureml.core import Dataset
 
 training_dataset = Dataset.Tabular.from_json_lines_files(
@@ -164,7 +166,7 @@ training_dataset = training_dataset.register(workspace=ws, name=training_dataset
 
 Automated ML does not impose any constraints on training or validation data size for computer vision tasks. Maximum dataset size is only limited by the storage layer behind the dataset (i.e. blob store). There is no minimum number of images or labels. However, we recommend to start with a minimum of 10-15 samples per label to ensure the output model is sufficiently trained. The higher the total number of labels/classes, the more samples you need per label.
 
-Training data is a required and is passed in using the `training_data` parameter. You can optionally specify another TabularDataset as a validation dataset to be used for your model with the `validation_data` parameter of the AutoMLImageConfig. If no validation dataset is specified, 20% of your training data will be used for validation by default, unless you pass `split_ratio` argument with a different value.
+Training data is a required and is passed in using the `training_data` parameter. You can optionally specify another TabularDataset as a validation dataset to be used for your model with the `validation_data` parameter of the AutoMLImageConfig. If no validation dataset is specified, 20% of your training data will be used for validation by default, unless you pass `validation_size` argument with a different value.
 
 For example:
 

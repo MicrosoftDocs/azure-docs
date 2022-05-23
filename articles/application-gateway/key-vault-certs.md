@@ -2,11 +2,11 @@
 title: TLS termination with Azure Key Vault certificates
 description: Learn how you can integrate Azure Application Gateway with Key Vault for server certificates that are attached to HTTPS-enabled listeners.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 01/31/2022
-ms.author: victorh
+ms.date: 03/04/2022
+ms.author: greglin
 ---
 
 # TLS termination with Key Vault certificates
@@ -40,8 +40,7 @@ Application Gateway uses a secret identifier in Key Vault to reference the certi
 
 The Azure portal supports only Key Vault certificates, not secrets. Application Gateway still supports referencing secrets from Key Vault, but only through non-portal resources like PowerShell, the Azure CLI, APIs, and Azure Resource Manager templates (ARM templates).
 
-> [!WARNING]
-> Azure Application Gateway currently supports only Key Vault accounts in the same subscription as the Application Gateway resource. Choosing a Key Vault under a different subscription than your Application Gateway will result in a failure.
+References to Key Vaults in other Azure subscriptions is supported, but must be configured via ARM Template, Azure PowerShell, CLI, Bicep, etc. Cross-subscription key vault configuration is not supported by Application Gateway via Azure Portal today.
 
 ## Certificate settings in Key Vault
 
@@ -70,7 +69,7 @@ Define access policies to use the user-assigned managed identity with your Key V
 1. Select the Key Vault that contains your certificate.
 1. If you're using the permission model **Vault access policy**: Select **Access Policies**, select **+ Add Access Policy**, select **Get** for **Secret permissions**, and choose your user-assigned managed identity for **Select principal**. Then select **Save**.
    
-   If you're using the permission model **Azure role-based access control**: Select **Access control (IAM)** and [Add a role assignment](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#assign-a-role-to-a-user-assigned-managed-identity) for the user-assigned managed identity to the Azure Key Vault for the role **Key Vault Secrets User**.
+   If you're using **Azure role-based access control** follow the article [Assign a managed identity access to a resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) and assign the user-assigned managed identity the **Key Vault Secrets User** role to the Azure Key Vault.
 
 ### Verify Firewall Permissions to Key Vault
 
@@ -124,7 +123,7 @@ Application Gateway supports certificates referenced in Key Vault via the Role-b
 > [!Note]
 > Specifying Azure Key Vault certificates that are subject to the role-based access control permission model is not supported via the portal.
 
-In this example, we’ll use PowerShell to reference a new Key Vault certificate.
+In this example, we’ll use PowerShell to reference a new Key Vault secret.
 ```
 # Get the Application Gateway we want to modify
 $appgw = Get-AzApplicationGateway -Name MyApplicationGateway -ResourceGroupName MyResourceGroup
@@ -132,25 +131,12 @@ $appgw = Get-AzApplicationGateway -Name MyApplicationGateway -ResourceGroupName 
 Set-AzApplicationGatewayIdentity -ApplicationGateway $appgw -UserAssignedIdentityId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyManagedIdentity"
 # Get the secret ID from Key Vault
 $secret = Get-AzKeyVaultSecret -VaultName "MyKeyVault" -Name "CertificateName"
-$secretId = $secret.Id # https://<keyvaultname>.vault.azure.net/secrets/<hash>
+$secretId = $secret.Id.Replace($secret.Version, "") # Remove the secret version so AppGW will use the latest version in future syncs
 # Specify the secret ID from Key Vault 
 Add-AzApplicationGatewaySslCertificate -KeyVaultSecretId $secretId -ApplicationGateway $appgw -Name $secret.Name
 # Commit the changes to the Application Gateway
 Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
-
-> [!NOTE]
-> If you require Application Gateway to sync the last version of the certificate with the key vault, provide the versionless `secretId` value (no hash). To do this, in the preceding example, replace the following line:
->
-> ```
-> $secretId = $secret.Id # https://<keyvaultname>.vault.azure.net/secrets/<hash>
-> ```
-> 
-> With this line:
->
-> ```
-> $secretId = $secret.Id.Replace($secret.Version, "") # https://<keyvaultname>.vault.azure.net/secrets/
-> ```
 
 Once the commands have been executed, you can navigate to your Application Gateway in the Azure portal and select the Listeners tab.  Click Add Listener (or select an existing) and specify the Protocol to HTTPS.
 
@@ -158,9 +144,26 @@ Under **Choose a certificate** select the certificate named in the previous step
 
 ## Investigating and resolving Key Vault errors
 
-Azure Application Gateway doesn't just poll for the renewed certificate version on Key Vault at every four-hour interval. It also logs any error and is integrated with Azure Advisor to surface any misconfiguration as a recommendation. The recommendation contains details about the problem and the associated Key Vault resource. You can use this information along with the [troubleshooting guide](../application-gateway/application-gateway-key-vault-common-errors.md) to quickly resolve such a configuration error. 
+> [!NOTE]
+> It is important to consider any impact on your Application Gateway resource when making changes or revoking access to your Key Vault resource. In case your application gateway is unable to access the associated key vault or locate the certificate object in it, it will automatically put that listener in a disabled state. 
+>
+> You can identify this user-driven event by viewing the Resource Health for your Application Gateway. [Learn more](../application-gateway/disabled-listeners.md).
+ 
+Azure Application Gateway doesn't just poll for the renewed certificate version on Key Vault at every four-hour interval. It also logs any error and is integrated with Azure Advisor to surface any misconfiguration with a recommendation for its fix.
+ 
+1. Sign-in to your Azure portal
+1. Select Advisor
+1. Select Operational Excellence category from the left menu.
+1. You will find a recommendation titled **Resolve Azure Key Vault issue for your Application Gateway**, if your gateway is experiencing this issue. Ensure the correct Subscription is selected from the drop-down options above.
+1. Select it to view the error details, the associated key vault resource and the  [troubleshooting guide](../application-gateway/application-gateway-key-vault-common-errors.md) to fix your exact issue.
 
-We strongly recommend that you [configure Advisor alerts](../advisor/advisor-alerts-portal.md) to stay updated when a problem is detected. To set an alert for this specific case, use **Resolve Azure Key Vault issue for your Application Gateway** as the recommendation type. 
+By identifying such an event through Azure Advisor or Resource Health, you can quickly resolve any configuration problems with your Key Vault. We strongly recommend you take advantage of [Azure Advisor](../advisor/advisor-alerts-portal.md) and [Resource Health](../service-health/resource-health-alert-monitor-guide.md) alerts to stay informed when a problem is detected.
+ 
+For Advisor alert, use "Resolve Azure Key Vault issue for your Application Gateway" in the recommendation type as shown below.</br>
+![Diagram that shows steps for Advisor alert.](media/key-vault-certs/advisor-alert.png)
+ 
+You can configure the Resource health alert as illustrated below.</br>
+![Diagram that shows steps for Resource health alert.](media/key-vault-certs/resource-health-alert.png)
 
 ## Next steps
 

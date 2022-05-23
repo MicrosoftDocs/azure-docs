@@ -2,14 +2,14 @@
 title: View a list and description of all system reports available in CloudKnox Permissions Management reports
 description: View a list and description of all system reports available in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # View a list and description of system reports
@@ -28,12 +28,12 @@ This article provides you with a list and description of the system reports avai
 
 ## Download a system report
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems reports** subtab.
+1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
 1. In the **Report Name** column, find the report you want, and then select the down arrow to the right of the report name to download the report.
 
     Or, from the ellipses **(...)** menu, select **Download**.
 
-    The following message displays: **Successfully started to generate on demand report.**
+    The following message displays: **Successfully Started To Generate On Demand Report.**
 
 
 ## Summary of available system reports

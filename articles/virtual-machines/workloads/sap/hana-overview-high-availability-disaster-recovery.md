@@ -11,7 +11,7 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 6/8/2021
+ms.date: 03/01/2021
 ms.author: mamccrea
 ms.custom: H1Hack27Feb2017
 
@@ -52,7 +52,7 @@ A dedicated DR setup is where the HANA Large Instance unit in the DR site isn't 
 To learn about storage layout and ethernet details for your architecture, see [HLI supported scenarios](hana-supported-scenario.md).
 
 > [!NOTE]
-> [SAP HANA MCOD deployments](https://launchpad.support.sap.com/#/notes/1681092) (multiple HANA Instances on one unit) as overlaying scenarios work with the HA and DR methods listed in the table. An exception is the use of HANA System Replication with an automatic failover cluster based on Pacemaker. Such a case only supports one HANA instance per unit. For [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) deployments, only non-storage-based HA and DR methods work if more than one tenant is deployed. With one tenant deployed, all methods listed are valid.  
+> Before HANA2.0 SPS4 it was not supported to take database snapshots of multi-tenant database container databases (more than one tenant). With SPS4 and newer SAP is fully supporting this snapshot feature.  
 
 A multipurpose DR setup is where the HANA Large Instance unit on the DR site runs a non-production workload. If there's a disaster, shut down the non-production system, mount the storage-replicated (added) volume sets, and start the production HANA instance. Most customers who use the HANA Large Instance disaster recovery functionality use this configuration. 
 

@@ -69,7 +69,7 @@ spec:
 ```
 
 > [!NOTE]
-> Alternatively you can use [Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) thought this is in Public Preview.  It has a pod (NMI) that runs as a DaemonSet on each node in the AKS cluster. NMI intercepts security token requests to the Azure Instance Metadata Service on each node, redirect them to itself and validates if the pod has access to the identity it's requesting a token for and fetch the token from the Azure AD tenant on behalf of the application.
+> Alternatively you can use [Pod Identity](./use-azure-ad-pod-identity.md) thought this is in Public Preview.  It has a pod (NMI) that runs as a DaemonSet on each node in the AKS cluster. NMI intercepts security token requests to the Azure Instance Metadata Service on each node, redirect them to itself and validates if the pod has access to the identity it's requesting a token for and fetch the token from the Azure AD tenant on behalf of the application.
 >
 
 ## Secure container access to resources

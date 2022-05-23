@@ -2,14 +2,14 @@
 title: Create a role/policy in the Remediation dashboard in CloudKnox Permissions Management 
 description: How to create a role/policy in the Remediation dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Create a role/policy in the Remediation dashboard
@@ -30,20 +30,20 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
 1. Use the dropdown lists to select the **Authorization System Type** and **Authorization System**.
-1. Select **Create policy**.
+1. Select **Create Policy**.
 1. On the **Details** page, the **Authorization System Type** and **Authorization System** are pre-populated from your previous settings.
     - To change the settings, make a selection from the dropdown. 
-1. Under **How would you like to create the policy?**, select the required option:
+1. Under **How Would You Like To Create The Policy**, select the required option:
 
-    - **Activity of user(s)**: Allows you to create a policy based on user activity.
-    - **Activity of group(s)**: Allows you to create a policy based on the aggregated activity of all the users belonging to the group(s).
-    - **Activity of resource(s)**: Allows you to create a policy based on the activity of a resource, for example, an EC2 instance.
-    - **Activity of role**: Allows you to create a policy based on the aggregated activity of all the users that assumed the role.
-    - **Activity of tag(s)**: Allows you to create a policy based on the aggregated activity of all the tags.
-    - **Activity of Lambda function**: Allows you to create a new policy based on the Lambda function.
-    - **From existing policy**: Allows you to create a new policy based on an existing policy.  
-    - **New policy**: Allows you to create a new policy from scratch.
-1. In **Tasks performed in the last**, select the duration: **90 days**, **60 days**, **30 days**, **7 days**, or **1 day**.
+    - **Activity of User(s)**: Allows you to create a policy based on user activity.
+    - **Activity of Group(s)**: Allows you to create a policy based on the aggregated activity of all the users belonging to the group(s).
+    - **Activity of Resource(s)**: Allows you to create a policy based on the activity of a resource, for example, an EC2 instance.
+    - **Activity of Role**: Allows you to create a policy based on the aggregated activity of all the users that assumed the role.
+    - **Activity of Tag(s)**: Allows you to create a policy based on the aggregated activity of all the tags.
+    - **Activity of Lambda Function**: Allows you to create a new policy based on the Lambda function.
+    - **From Existing Policy**: Allows you to create a new policy based on an existing policy.  
+    - **New Policy**: Allows you to create a new policy from scratch.
+1. In **Tasks performed in last**, select the duration: **90 days**, **60 days**, **30 days**, **7 days**, or **1 day**.
 1. Depending on your preference, select or deselect **Include Access Advisor data.**
 1. In **Settings**, from the **Available** column, select the plus sign **(+)** to move the identity into the **Selected** column, and then select **Next**.
 
@@ -56,7 +56,7 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
 1. In **Request Conditions**, select **JSON** .
 1. In **Effect**, select **Allow** or **Deny**, and then select **Next**.
 1. In **Policy name:**, enter a name for your policy.
-1. To add another statement to your policy, select **Add statement**, and then, from the list of **Statements**, select a statement.
+1. To add another statement to your policy, select **Add Statement**, and then, from the list of **Statements**, select a statement.
 1. Review your **Task**, **Resources**, **Request Conditions**, and **Effect** settings, and then select **Next**.
 
 
@@ -64,7 +64,7 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
 1. If your controller isn't enabled, select **Download JSON** or **Download Script** to download the code and run it yourself.
 
     If your controller is enabled, skip this step.
-1. Select **Split policy**, and then select **Submit**.
+1. Select **Split Policy**, and then select **Submit**.
 
     A message confirms that your policy has been submitted for creation
 
@@ -79,21 +79,21 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
 1. Use the dropdown lists to select the **Authorization System Type** and **Authorization System**.
-1. Select **Create role**.
+1. Select **Create Role**.
 1. On the **Details** page, the **Authorization System Type** and **Authorization System** are pre-populated from your previous settings.
     - To change the settings, select the box and make a selection from the dropdown. 
-1. Under **How would you like to create the role?**, select the required option:
+1. Under **How Would You Like To Create The Role?**, select the required option:
 
-    - **Activity of user(s)**: Allows you to create a role based on user activity.
-    - **Activity of group(s)**: Allows you to create a role based on the aggregated activity of all the users belonging to the group(s).
-    - **Activity of app(s)**: Allows you to create a role based on the aggregated activity of all apps.
-    - **From existing role**: Allows you to create a new role based on an existing role.  
-    - **New role**: Allows you to create a new role from scratch.
+    - **Activity of User(s)**: Allows you to create a role based on user activity.
+    - **Activity of Group(s)**: Allows you to create a role based on the aggregated activity of all the users belonging to the group(s).
+    - **Activity of App(s)**: Allows you to create a role based on the aggregated activity of all apps.
+    - **From Existing Role**: Allows you to create a new role based on an existing role.  
+    - **New Role**: Allows you to create a new role from scratch.
 
-1. In **Tasks performed in the last**, select the duration: **90 days**, **60 days**, **30 days**, **7 days**, or **1 day**.
+1. In **Tasks performed in last**, select the duration: **90 days**, **60 days**, **30 days**, **7 days**, or **1 day**.
 1. Depending on your preference: 
-    - Select or deselect **Ignore non-Microsoft read actions**.
-    - Select or deselect **Include read-only tasks**.
+    - Select or deselect **Ignore Non-Microsoft Read Actions**.
+    - Select or deselect **Include Read-Only Tasks**.
 1. In **Settings**, from the **Available** column, select the plus sign **(+)** to move the identity into the **Selected** column, and then select **Next**.
 
 1. On the **Tasks** page, in **Role name:**, enter a name for your role.
@@ -103,7 +103,7 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
 1. Select **Next**.
 
 1. On the **Preview** page, review:
-    - The list of selected **Actions** and **Not actions**.
+    - The list of selected **Actions** and **Not Actions**.
     - The **JSON** or **Script** to confirm it's what you want.
 1. If your controller isn't enabled, select **Download JSON** or **Download Script** to download the code and run it yourself.
 
@@ -122,19 +122,19 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
 1. Use the dropdown lists to select the **Authorization System Type** and **Authorization System**.
-1. Select **Create role**.
+1. Select **Create Role**.
 1. On the **Details** page, the **Authorization System Type** and **Authorization System** are pre-populated from your previous settings.
     - To change the settings, select the box and make a selection from the dropdown. 
-1. Under **How would you like to create the role?**, select the required option:
+1. Under **How Would You Like To Create The Role?**, select the required option:
 
-    - **Activity of user(s)**: Allows you to create a role based on user activity.
-    - **Activity of group(s)**: Allows you to create a role based on the aggregated activity of all the users belonging to the group(s).
-    - **Activity of service account(s)**: Allows you to create a role based on the aggregated activity of all service accounts.
-    - **From existing role**: Allows you to create a new role based on an existing role.  
-     - **New role**: Allows you to create a new role from scratch.
+    - **Activity of User(s)**: Allows you to create a role based on user activity.
+    - **Activity of Group(s)**: Allows you to create a role based on the aggregated activity of all the users belonging to the group(s).
+    - **Activity of Service Account(s)**: Allows you to create a role based on the aggregated activity of all service accounts.
+    - **From Existing Role**: Allows you to create a new role based on an existing role.  
+     - **New Role**: Allows you to create a new role from scratch.
 
-1. In **Tasks performed in the last**, select the duration: **90 days**, **60 days**, **30 days**, **7 days**, or **1 day**.
-1. If you selected **Activity of service account(s)** in the previous step, select or deselect **Collect activity across all GCP authorization systems.**
+1. In **Tasks performed in last**, select the duration: **90 days**, **60 days**, **30 days**, **7 days**, or **1 day**.
+1. If you selected **Activity Of Service Account(s)** in the previous step, select or deselect **Collect activity across all GCP Authorization Systems.**
 1. From the **Available** column, select the plus sign **(+)** to move the identity into the **Selected** column, and then select **Next**.
 
 
@@ -143,10 +143,6 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
     - To add a whole category, select a category.
     - To add individual items from a category, select the down arrow on the left of the category name, and then select individual items.
 1. Select **Next**.
-1. In **Role name:**, enter a name for your role.
-1. To add another statement to your role, select **Add statement**, and then, from the list of **Statements**, select a statement.
-1. Review your **Task**, **Resources**, **Request Conditions**, and **Effect** settings, and then select **Next**.
-
 
 1. On the **Preview** page, review:
     - The list of selected **Actions**.

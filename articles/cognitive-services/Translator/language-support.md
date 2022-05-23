@@ -32,10 +32,11 @@ ms.author: lajanuar
 | Amharic | `am` |✔|✔||||
 | Arabic | `ar` |✔|✔|✔|✔|✔|
 | Armenian | `hy` |✔|✔||✔||
-| Assamese | `as` |✔|✔||||
+| Assamese | `as` |✔|✔|✔|||
 | Azerbaijani | `az` |✔|✔||||
 | Bangla | `bn` |✔|✔|✔||✔|
 | Bashkir | `ba` |✔|||||
+| 🆕Basque | `eu` |✔|||||
 | Bosnian (Latin) | `bs` |✔|✔|✔||✔|
 | Bulgarian | `bg` |✔|✔|✔|✔|✔|
 | Cantonese (Traditional) | `yue` |✔|✔||||
@@ -51,11 +52,13 @@ ms.author: lajanuar
 | Dutch | `nl` |✔|✔|✔|✔|✔|
 | English | `en` |✔|✔|✔|✔|✔|
 | Estonian | `et` |✔|✔|✔|✔||
+| 🆕Faroese | `fo` |✔|||||
 | Fijian | `fj` |✔|✔|✔|||
 | Filipino | `fil` |✔|✔|✔|||
 | Finnish | `fi` |✔|✔|✔|✔|✔|
 | French | `fr` |✔|✔|✔|✔|✔|
 | French (Canada) | `fr-ca` |✔|✔||||
+| 🆕Galician | `gl` |✔|||||
 | Georgian | `ka` |✔|||✔||
 | German | `de` |✔|✔|✔|✔|✔|
 | Greek | `el` |✔|✔|✔|✔|✔|
@@ -67,9 +70,9 @@ ms.author: lajanuar
 | Hungarian | `hu` |✔|✔|✔|✔|✔|
 | Icelandic | `is` |✔|✔|✔|✔|✔|
 | Indonesian | `id` |✔|✔|✔|✔|✔|
-| 🆕 </br> Inuinnaqtun | `ikt` |✔|||||
+| Inuinnaqtun | `ikt` |✔|||||
 | Inuktitut | `iu` |✔|✔|✔|✔||
-| 🆕 </br> Inuktitut (Latin) | `iu-Latn` |✔||||| 
+| Inuktitut (Latin) | `iu-Latn` |✔||||| 
 | Irish | `ga` |✔|✔|✔|✔||
 | Italian | `it` |✔|✔|✔|✔|✔|
 | Japanese | `ja` |✔|✔|✔|✔|✔|
@@ -88,7 +91,7 @@ ms.author: lajanuar
 | Macedonian | `mk` |✔|||✔||
 | Malagasy | `mg` |✔|✔|✔|||
 | Malay | `ms` |✔|✔|✔|✔|✔|
-| Malayalam | `ml` |✔|✔||||
+| Malayalam | `ml` |✔|✔|✔|||
 | Maltese | `mt` |✔|✔|✔|✔|✔|
 | Maori | `mi` |✔|✔|✔|||
 | Marathi | `mr` |✔|✔|✔|||
@@ -97,7 +100,7 @@ ms.author: lajanuar
 | Myanmar | `my` |✔|✔||✔||
 | Nepali | `ne` |✔|✔||||
 | Norwegian | `nb` |✔|✔|✔|✔|✔|
-| Odia | `or` |✔|✔||||
+| Odia | `or` |✔|✔|✔|||
 | Pashto | `ps` |✔|✔||✔||
 | Persian | `fa` |✔|✔|✔|✔|✔|
 | Polish | `pl` |✔|✔|✔|✔|✔|
@@ -112,13 +115,14 @@ ms.author: lajanuar
 | Serbian (Latin) | `sr-Latn` |✔|✔|✔|✔|✔|
 | Slovak | `sk` |✔|✔|✔|✔|✔|
 | Slovenian | `sl` |✔|✔|✔|✔|✔|
+| 🆕Somali | `so` |✔|||✔||
 | Spanish | `es` |✔|✔|✔|✔|✔|
 | Swahili | `sw` |✔|✔|✔|✔|✔|
 | Swedish | `sv` |✔|✔|✔|✔|✔|
 | Tahitian | `ty` |✔| |✔|✔||
-| Tamil | `ta` |✔|✔|||✔|
+| Tamil | `ta` |✔|✔|✔||✔|
 | Tatar | `tt` |✔|||||
-| Telugu | `te` |✔|✔||||
+| Telugu | `te` |✔|✔|✔|||
 | Thai | `th` |✔| |✔|✔|✔|
 | Tibetan | `bo` |✔||||
 | Tigrinya | `ti` |✔|✔||||
@@ -126,13 +130,14 @@ ms.author: lajanuar
 | Turkish | `tr` |✔|✔|✔|✔|✔|
 | Turkmen | `tk` |✔||||
 | Ukrainian | `uk` |✔|✔|✔|✔|✔|
-| 🆕 </br> Upper Sorbian | `hsb` |✔|||||
+| Upper Sorbian | `hsb` |✔|||||
 | Urdu | `ur` |✔|✔|✔|✔|✔|
 | Uyghur | `ug` |✔||||
 | Uzbek (Latin | `uz` |✔|||✔||
 | Vietnamese | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
 | Yucatec Maya | `yua` |✔|✔||✔||
+| 🆕Zulu | `zu` |✔|||||
 
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).

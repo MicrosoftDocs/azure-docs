@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: tamram
 
 ms.author: tamram
-ms.date: 11/01/2021
+ms.date: 02/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -37,11 +37,13 @@ Usage scenarios for the Cool access tier include:
 - Older data sets that are not used frequently, but are expected to be available for immediate access.
 - Large data sets that need to be stored in a cost-effective way while additional data is being gathered for processing.
 
+To learn how to move a blob to the Hot or Cool tier, see [Set a blob's access tier](access-tiers-online-manage.md).
+
 Data in the Cool tier has slightly lower availability, but offers the same high durability, retrieval latency, and throughput characteristics as the Hot tier. For data in the Cool tier, slightly lower availability and higher access costs may be acceptable trade-offs for lower overall storage costs, as compared to the Hot tier. For more information, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 A blob in the Cool tier in a general-purpose v2 accounts is subject to an early deletion penalty if it is deleted or moved to a different tier before 30 days has elapsed. This charge is prorated. For example, if a blob is moved to the Cool tier and then deleted after 21 days, you'll be charged an early deletion fee equivalent to 9 (30 minus 21) days of storing that blob in the Cool tier.
 
-The Hot and Cool tiers support all redundancy configurations. For more information about data redundancy options in Azure Storage, see [Azure Storage redundancy](../common/storage-redundancy.md).  
+The Hot and Cool tiers support all redundancy configurations. For more information about data redundancy options in Azure Storage, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
 ## Archive access tier
 
@@ -50,6 +52,8 @@ The Archive tier is an offline tier for storing data that is rarely accessed. Th
 - Long-term backup, secondary backup, and archival datasets
 - Original (raw) data that must be preserved, even after it has been processed into final usable form
 - Compliance and archival data that needs to be stored for a long time and is hardly ever accessed
+
+To learn how to move a blob to the Archive tier, see [Archive a blob](archive-blob.md).
 
 Data must remain in the Archive tier for at least 180 days or be subject to an early deletion charge. For example, if a blob is moved to the Archive tier and then deleted or moved to the Hot tier after 45 days, you'll be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in the Archive tier.
 
@@ -69,8 +73,11 @@ The following operations are supported for blobs in the Archive tier:
 - [Set Blob Tags](/rest/api/storageservices/set-blob-tags)
 - [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
 
-> [!NOTE]
-> The Archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. Migrating from LRS to GRS is supported as long as no blobs were moved to the Archive tier while the account was set to LRS. An account can be moved back to GRS if the update is performed less than 30 days from the time the account became LRS, and no blobs were moved to the Archive tier while the account was set to LRS.
+Only storage accounts that are configured for LRS, GRS, or RA-GRS support moving blobs to the Archive tier. The Archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. For more information about redundancy configurations for Azure Storage, see [Azure Storage redundancy](../common/storage-redundancy.md).
+
+To change the redundancy configuration for a storage account that contains blobs in the Archive tier, you must first rehydrate all archived blobs to the Hot or Cool tier. Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs if at all possible, because rehydration operations can be costly and time-consuming.
+
+Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the Archive tier while the account was configured for LRS. An account can be moved back to GRS if the update is performed less than 30 days from the time the account became LRS, and no blobs were moved to the Archive tier while the account was set to LRS.
 
 ## Default account access tier setting
 
@@ -190,8 +197,8 @@ This table shows how this feature is supported in your account and the impact on
 
 | Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
 |--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Premium block blobs | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| [Standard general-purpose v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-storage-accounts) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| [Premium block blobs](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-storage-accounts) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
@@ -199,6 +206,6 @@ For information about feature support by region, see [Azure products available b
 
 ## Next steps
 
-- [How to manage the tier of a blob in an Azure Storage account](manage-access-tier.md)
-- [How to manage the default account access tier of an Azure Storage account](../common/manage-account-default-access-tier.md)
-- [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md)
+- [Set a blob's access tier](access-tiers-online-manage.md)
+- [Archive a blob](archive-blob.md)
+- [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)

@@ -1,11 +1,11 @@
 ---
 title: Monitor Azure File Sync | Microsoft Docs
 description: Review how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service, and Windows Server.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/3/2022
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 

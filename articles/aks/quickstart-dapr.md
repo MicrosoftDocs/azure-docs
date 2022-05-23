@@ -219,7 +219,7 @@ After successfully deploying this sample application:
 <!-- INTERNAL -->
 [cluster-extensions]: ./cluster-extensions.md
 [dapr-overview]: ./dapr.md
-[az-group-delete]: /cli/azure/group#az_group_delete
+[az-group-delete]: /cli/azure/group#az-group-delete
 
 <!-- EXTERNAL -->
 [hello-world-gh]: https://github.com/dapr/quickstarts/tree/v1.4.0/hello-kubernetes

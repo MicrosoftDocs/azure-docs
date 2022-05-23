@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Create and deploy custom modules - Machine Learning on Azure IoT Edge'
 description: 'This tutorial shows how to create and deploy IoT Edge modules that process data from leaf devices through a machine learning model and then send the insights to IoT Hub.'
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge

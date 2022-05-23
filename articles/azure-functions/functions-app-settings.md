@@ -2,7 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables.
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 04/27/2022
 ---
 
 # App settings reference for Azure Functions
@@ -82,6 +82,18 @@ In version 2.x and later versions of the Functions runtime, configures app behav
 
 In version 2.x and later versions of the Functions runtime, application settings can override [host.json](functions-host-json.md) settings in the current environment. These overrides are expressed as application settings named `AzureFunctionsJobHost__path__to__setting`. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
 
+## AzureFunctionsWebHost__hostid
+
+Sets the host ID for a given function app, which should be a unique ID. This setting overrides the automatically generated host ID value for your app. Use this setting only when you need to prevent host ID collisions between function apps that share the same storage account. 
+
+A host ID must be between 1 and 32 characters, contain only lowercase letters, numbers, and dashes, not start or end with a dash, and not contain consecutive dashes. An easy way to generate an ID is to take a GUID, remove the dashes, and make it lower case, such as by converting the GUID `1835D7B5-5C98-4790-815D-072CC94C6F71` to the value `1835d7b55c984790815d072cc94c6f71`.
+
+|Key|Sample value|
+|---|------------|
+|AzureFunctionsWebHost__hostid|`myuniquefunctionappname123456789`|
+
+For more information, see [Host ID considerations](storage-considerations.md#host-id-considerations).
+
 ## AzureWebJobsDashboard
 
 Optional storage account connection string for storing logs and displaying them in the **Monitor** tab in the portal. This setting is only valid for apps that target version 1.x of the Azure Functions runtime. The storage account must be a general-purpose one that supports blobs, queues, and tables. To learn more, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
@@ -121,13 +133,90 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 |---|------------|
 |AzureWebJobsFeatureFlags|`feature1,feature2`|
 
-## AzureWebJobsSecretStorageType
+## AzureWebJobsKubernetesSecretName 
 
-Specifies the repository or provider to use for key storage. Currently, the supported repositories are blob storage ("Blob") and the local file system ("Files"). The default is blob in version 2 and file system in version 1.
+Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. Requires that `AzureWebJobsSecretStorageType` be set to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsSecretStorageType|Files|
+|AzureWebJobsKubernetesSecretName|`<SECRETS_RESOURCE>`|
+
+To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+## AzureWebJobsSecretStorageKeyVaultClientId
+
+The client ID of the user-assigned managed identity or the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`.  Supported in version 4.x and later versions of the Functions runtime.
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsSecretStorageKeyVaultClientId|`<CLIENT_ID>`|
+
+To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+## AzureWebJobsSecretStorageKeyVaultClientSecret
+
+The secret for client ID of the user-assigned managed identity or the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`.  Supported in version 4.x and later versions of the Functions runtime.
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsSecretStorageKeyVaultClientSecret|`<CLIENT_SECRET>`|
+
+To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+## AzureWebJobsSecretStorageKeyVaultName
+
+The name of a key vault instance used to store keys. This setting is only supported for version 3.x of the Functions runtime. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`. 
+
+The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsSecretStorageKeyVaultName|`<VAULT_NAME>`|
+
+To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+## AzureWebJobsSecretStorageKeyVaultTenantId
+
+The tenant ID of the app registration used to access the vault where keys are stored. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`. Supported in version 4.x and later versions of the Functions runtime. To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsSecretStorageKeyVaultTenantId|`<TENANT_ID>`|
+
+## AzureWebJobsSecretStorageKeyVaultUri
+
+The URI of a key vault instance used to store keys. Supported in version 4.x and later versions of the Functions runtime. This is the recommended setting for using a key vault instance for key storage. Requires that `AzureWebJobsSecretStorageType` be set to `keyvault`.
+
+The `AzureWebJobsSecretStorageKeyVaultUri` value should be the full value of **Vault URI** displayed in the **Key Vault overview** tab, including `https://`.
+
+The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
+
+|Key|Sample value|
+|---|------------|
+|AzureWebJobsSecretStorageKeyVaultUri|`https://<VAULT_NAME>.vault.azure.net`|
+
+To learn more, see [Use Key Vault references for Azure Functions](../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json).
+
+## AzureWebJobsSecretStorageSas
+
+A Blob Storage SAS URL for a second storage account used for key storage. By default, Functions uses the account set in `AzureWebJobsStorage`. When using this secret storage option, make sure that `AzureWebJobsSecretStorageType` isn't explicitly set or is set to `blob`. To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+
+|Key|Sample value|
+|--|--|
+|AzureWebJobsSecretStorageSas| `<BLOB_SAS_URL>` | 
+
+## AzureWebJobsSecretStorageType
+
+Specifies the repository or provider to use for key storage. Keys are always encrypted before being stored using a secret unique to your function app.
+
+|Key| Value| Description|
+|---|------------|---|
+|AzureWebJobsSecretStorageType|`blob`|Keys are stored in a Blob storage container in the account provided by the `AzureWebJobsStorage` setting. This is the default behavior when `AzureWebJobsSecretStorageType` isn't set.<br/>To specify a different storage account, use the `AzureWebJobsSecretStorageSas` setting to indicate the SAS URL of a second storage account. |
+|AzureWebJobsSecretStorageType  | `files` | Keys are persisted on the file system. This is the default for Functions v1.x.|
+|AzureWebJobsSecretStorageType |`keyvault` | Keys are stored in a key vault instance set by `AzureWebJobsSecretStorageKeyVaultName`. | 
+|Kubernetes Secrets  | `kubernetes` | Supported only when running the Functions runtime in Kubernetes. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.|
+
+To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
 
 ## AzureWebJobsStorage
 
@@ -188,7 +277,7 @@ Requires that [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#function
 
 ## FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
-Specifies the maximum number of language worker processes, with a default value of `1`. The maximum value allowed is `10`. Function invocations are evenly distributed among language worker processes. Language worker processes are spawned every 10 seconds until the count set by FUNCTIONS\_WORKER\_PROCESS\_COUNT is reached. Using multiple language worker processes is not the same as [scaling](functions-scale.md). Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting applies to all non-.NET languages.
+Specifies the maximum number of language worker processes, with a default value of `1`. The maximum value allowed is `10`. Function invocations are evenly distributed among language worker processes. Language worker processes are spawned every 10 seconds until the count set by FUNCTIONS\_WORKER\_PROCESS\_COUNT is reached. Using multiple language worker processes is not the same as [scaling](functions-scale.md). Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting applies to all language runtimes, except for .NET running in process (`dotnet`).
 
 |Key|Sample value|
 |---|------------|
@@ -336,7 +425,7 @@ Connection string for storage account where the function app code and configurat
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-Only used when deploying to a Premium plan or to a Consumption plan running on Windows. Not supported for Consumptions plans running Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+Only used when deploying to a Windows or Linux Premium plan or to a Windows Consumption plan. Not supported for Linux Consumption plans or Windows or Linux Dedicated plans. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 ## WEBSITE\_CONTENTOVERVNET
 
@@ -350,15 +439,34 @@ Supported on [Premium](functions-premium-plan.md) and [Dedicated (App Service) p
 
 ## WEBSITE\_CONTENTSHARE
 
-The file path to the function app code and configuration in an event-driven scaling plan on Windows. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
+The file path to the function app code and configuration in an event-driven scaling plans. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string generated by the runtime that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE_CONTENTSHARE|`functionapp091999e2`|
 
-Only used when deploying to a Premium plan or to a Consumption plan running on Windows. Not supported for Consumptions plans running Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+This setting is used for Consumption and Premium plan apps on both Windows and Linux. It's not used for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
-When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This slot setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
+Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+
+The following considerations apply when using an Azure Resource Manager (ARM) template to create a function app during deployment: 
+
++ When you don't set a `WEBSITE_CONTENTSHARE` value for the main function app or any apps in slots, unique share values are generated for you. This is the recommended approach for an ARM template deployment.
++ There are scenarios where you must set the `WEBSITE_CONTENTSHARE` value to a predefined share, such as when you [use a secured storage account in a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network). In this case, you must set a unique share name for the main function app and the app for each deployment slot.  
++ Don't make `WEBSITE_CONTENTSHARE` a slot setting. 
++ When you specify `WEBSITE_CONTENTSHARE`, the value must follow [this guidance for share names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names). 
+
+To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
+
+## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
+
+The WEBSITE_CONTENTAZUREFILECONNECTIONSTRING and WEBSITE_CONTENTSHARE settings have additional validation checks to ensure that the app can be properly started. Creation of application settings will fail if the Function App cannot properly call out to the downstream Storage Account or Key Vault due to networking constraints or other limiting factors. When WEBSITE_SKIP_CONTENTSHARE_VALIDATION is set to `1`, the validation check is skipped; otherwise the value defaults to `0` and the validation will take place. 
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_SKIP_CONTENTSHARE_VALIDATION|`1`|
+
+If validation is skipped and either the connection string or content share are not valid, the app will be unable to start properly and will only serve HTTP 500 errors.
 
 ## WEBSITE\_DNS\_SERVER
 
@@ -414,6 +522,9 @@ Allows you to set the timezone for your function app.
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
 ## WEBSITE\_VNET\_ROUTE\_ALL
+
+> [!IMPORTANT]
+> WEBSITE_VNET_ROUTE_ALL is a legacy app setting that has been replaced by the [vnetRouteAllEnabled configuration setting](../app-service/configure-vnet-integration-routing.md).
 
 Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need this setting when using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md).
 

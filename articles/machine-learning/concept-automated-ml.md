@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-author: cartacioS
-ms.author: sacartac
-ms.date: 10/21/2021
+author: blackmist
+ms.author: larryfr
+ms.date: 03/15/2022
 ms.custom: automl
 ---
 
@@ -76,11 +76,11 @@ These settings allow you to review and control your experiment runs and its chil
 |**Get guardrails**| ✓|✓|
 |**Pause & resume runs**| ✓| |
 
-## When to use AutoML: classification, regression, forecasting & computer vision
+## When to use AutoML: classification, regression, forecasting, computer vision & NLP
 
 Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. Automated ML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
 
-Data scientists, analysts, and developers across industries can use automated ML to:
+ML professionals and developers across industries can use automated ML to:
 + Implement ML solutions without extensive programming knowledge
 + Save time and resources
 + Leverage data science best practices
@@ -117,14 +117,14 @@ Advanced forecasting configuration includes:
 * rolling window aggregate features
 
 
-See examples of regression and automated machine learning for predictions in these Python notebooks: [Sales Forecasting](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Demand Forecasting](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb), and [Beverage Production Forecast](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
+See examples of regression and automated machine learning for predictions in these Python notebooks: [Sales Forecasting](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Demand Forecasting](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb), and [Forecasting GitHub's Daily Active Users](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-github-dau/auto-ml-forecasting-github-dau.ipynb).
 
 ### Computer vision (preview)
 
 > [!IMPORTANT]
 > This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Automated ML for images (preview) adds support for computer vision tasks, which allows you to easily generate models trained on image data for scenarios like image classification and object detection. 
+Support for computer vision tasks allows you to easily generate models trained on image data for scenarios like image classification and object detection. 
 
 With this capability you can: 
  
@@ -149,6 +149,24 @@ Multi-class image classification | Tasks where an image is classified with only 
 Multi-label image classification | Tasks where an image could have one or more labels from a set of labels - e.g. an image could be labeled with both 'cat' and 'dog'
 Object detection| Tasks to identify objects in an image and locate each object with a bounding box e.g. locate all dogs and cats in an image and draw a bounding box around each.
 Instance segmentation | Tasks to identify objects in an image at the pixel level, drawing a polygon around each object in the image.
+
+<a name="nlp"></a>
+
+### Natural language processing: NLP (preview)
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+Support for natural language processing (NLP) tasks in automated ML allows you to easily generate models trained on text data for text classification and named entity recognition scenarios. Authoring automated ML trained NLP models is supported via the Azure Machine Learning Python SDK. The resulting experimentation runs, models, and outputs can be accessed from the Azure Machine Learning studio UI.
+
+The NLP capability supports:
+
+* End-to-end deep neural network NLP training with the latest pre-trained BERT models
+* Seamless integration with [Azure Machine Learning data labeling](how-to-create-text-labeling-projects.md)
+* Use labeled data for generating NLP models
+* Multi-lingual support with 104 languages
+* Distributed training with Horovod
+
+Learn how to [set up AutoML training for NLP models](how-to-auto-train-nlp-models.md). 
 
 ## How automated ML works
 

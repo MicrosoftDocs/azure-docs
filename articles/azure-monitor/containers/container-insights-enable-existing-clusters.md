@@ -13,7 +13,7 @@ This article describes how to set up Container insights to monitor managed Kuber
 You can enable monitoring of an AKS cluster that's already deployed using one of the supported methods:
 
 * Azure CLI
-* Terraform
+* [Terraform](#enable-using-terraform)
 * [From Azure Monitor](#enable-from-azure-monitor-in-the-portal) or [directly from the AKS cluster](#enable-directly-from-aks-cluster-in-the-portal) in the Azure portal
 * With the [provided Azure Resource Manager template](#enable-using-an-azure-resource-manager-template) by using the Azure PowerShell cmdlet `New-AzResourceGroupDeployment` or with Azure CLI.
 
@@ -71,7 +71,13 @@ If you would rather integrate with an existing workspace, perform the following 
 
     In the output, find the workspace name, and then copy the full resource ID of that Log Analytics workspace under the field **id**.
 
-4. Run the following command to enable the monitoring add-on, replacing the value for the `--workspace-resource-id` parameter. The string value must be within the double quotes:
+4. Switch to the subscription hosting the cluster using the following command:
+
+    ```azurecli
+    az account set -s <subscriptionId of the cluster>
+    ```
+
+5. Run the following command to enable the monitoring add-on, replacing the value for the `--workspace-resource-id` parameter. The string value must be within the double quotes:
 
     ```azurecli
     az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"
@@ -85,7 +91,7 @@ If you would rather integrate with an existing workspace, perform the following 
 
 ## Enable using Terraform
 
-1. Add the **oms_agent** add-on profile to the existing [azurerm_kubernetes_cluster resource](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)
+1. Add the **oms_agent** add-on profile to the existing [azurerm_kubernetes_cluster resource](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/kubernetes_cluster)
 
    ```
    addon_profile {
@@ -96,7 +102,9 @@ If you would rather integrate with an existing workspace, perform the following 
    }
    ```
 
-2. Add the [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) following the steps in the Terraform documentation.
+2. Add the [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) following the steps in the Terraform documentation.
+
+3. The metrics are not collected by default through Terraform, so once onboarded, there is an additional step to assign the monitoring metrics publisher role, which is required to [enable the metrics](./container-insights-update-metrics.md#update-one-cluster-by-using-the-azure-cli). 
 
 ## Enable from Azure Monitor in the portal
 

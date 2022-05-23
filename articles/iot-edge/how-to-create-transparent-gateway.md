@@ -1,9 +1,9 @@
 ---
 title: Create transparent gateway device - Azure IoT Edge | Microsoft Docs
 description: Use an Azure IoT Edge device as a transparent gateway that can process information from downstream devices
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge

@@ -5335,7 +5335,7 @@ Note the following points:
 
 - The **type** property is set to **HDInsightSpark**.
 - The **rootPath** is set to **adfspark\\pyFiles** where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. See Spark Activity properties for details about this property and other properties supported by the Spark Activity.
-- The **entryFilePath** is set to the **test.py**, which is the python file.
+- The **entryFilePath** is set to the **test.py**, which is the Python file.
 - The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).
 
 	> [!IMPORTANT]

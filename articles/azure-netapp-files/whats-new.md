@@ -12,13 +12,29 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 01/28/2022
+ms.date: 04/12/2022
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+## April 2022
+
+* Features that are now generally available (GA)   
+
+    The following features are now GA. You no longer need to register the features before using them.   
+    * [Dynamic change of service level](dynamic-change-volume-service-level.md)
+    * [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users)    
+
+## March 2022
+
+* Features that are now generally available (GA)   
+
+    The following features are now GA. You no longer need to register the features before using them.   
+    * [Backup policy users](create-active-directory-connections.md#backup-policy-users) 
+    * [AES encryption for AD authentication](create-active-directory-connections.md#aes-encryption)
 
 ## January 2022
 
@@ -36,9 +52,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     You might be using the Unix security style with a dual-protocol volume or Lightweight Directory Access Protocol (LDAP) with extended groups features in combination with large LDAP topologies. In this case, you might encounter "access denied" errors on Linux clients when interacting with such Azure NetApp Files volumes. You can now use the  **LDAP Search Scope** option to specify the LDAP search scope to avoid "access denied" errors. 
 
-* [Active Directory Domain Services (ADDS) LDAP user-mapping with NFS extended groups](configure-ldap-extended-groups.md) now generally available (GA)
+* [Active Directory Domain Services (AD DS) LDAP user-mapping with NFS extended groups](configure-ldap-extended-groups.md) now generally available (GA)
 
-    The ADDS LDAP user-mapping with NFS extended groups feature is now generally available. You no longer need to register the feature before using it.
+    The AD DS LDAP user-mapping with NFS extended groups feature is now generally available. You no longer need to register the feature before using it.
 
 ## December 2021
 
@@ -55,7 +71,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     The following features are now GA. You no longer need to register the features before using them.
 
     * [Dual-protocol (NFSv4.1 and SMB) volume](create-volumes-dual-protocol.md)
-    * [ADDS LDAP over TLS](configure-ldap-over-tls.md)
+    * [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
     * [SMB3 Protocol Encryption](azure-netapp-files-create-volumes-smb.md#smb3-encryption)
 
 ## November 2021
@@ -151,9 +167,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports billing tags to help you cross-reference cost with business units or other internal consumers. Billing tags are assigned at the capacity pool level and not volume level, and they appear on the customer invoice.
 
-* [ADDS LDAP over TLS](configure-ldap-over-tls.md) (Preview) 
+* [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) (Preview) 
 
-    By default, LDAP communications between client and server applications are not encrypted. This means that it is possible to use a network-monitoring device or software to view the communications between an LDAP client and server computers. This scenario might be problematic in non-isolated or shared VNets when an LDAP simple bind is used, because the credentials (username and password) used to bind the LDAP client to the LDAP server are passed over the network unencrypted. LDAP over TLS (also known as LDAPS) is a protocol that uses TLS to secure communication between LDAP clients and LDAP servers. Azure NetApp Files now supports the secure communication between an Active Directory Domain Server (ADDS) using LDAP over TLS. Azure NetApp Files can now use LDAP over TLS for setting up authenticated sessions between the Active Directory-integrated LDAP servers. You can enable the LDAP over TLS feature for NFS, SMB, and dual-protocol volumes. By default, LDAP over TLS is disabled on Azure NetApp Files.  
+    By default, LDAP communications between client and server applications are not encrypted. This means that it is possible to use a network-monitoring device or software to view the communications between an LDAP client and server computers. This scenario might be problematic in non-isolated or shared VNets when an LDAP simple bind is used, because the credentials (username and password) used to bind the LDAP client to the LDAP server are passed over the network unencrypted. LDAP over TLS (also known as LDAPS) is a protocol that uses TLS to secure communication between LDAP clients and LDAP servers. Azure NetApp Files now supports the secure communication between an Active Directory Domain Server (AD DS) using LDAP over TLS. Azure NetApp Files can now use LDAP over TLS for setting up authenticated sessions between the Active Directory-integrated LDAP servers. You can enable the LDAP over TLS feature for NFS, SMB, and dual-protocol volumes. By default, LDAP over TLS is disabled on Azure NetApp Files.  
 
 * Support for throughput [metrics](azure-netapp-files-metrics.md)    
 
@@ -194,9 +210,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     You can now enable SMB3 Protocol Encryption on Azure NetApp Files SMB and dual-protocol volumes. This feature enables encryption for in-flight SMB3 data, using the [AES-CCM algorithm on SMB 3.0, and the AES-GCM algorithm on SMB 3.1.1](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) connections. SMB clients not using SMB3 encryption will not be able to access this volume. Data at rest is encrypted regardless of this setting. SMB encryption further enhances security. However, it might impact the client (CPU overhead for encrypting and decrypting messages). It might also impact storage resource utilization (reductions in throughput). You should test the encryption performance impact against your applications before deploying workloads into production.
 
-* [Active Directory Domain Services (ADDS) LDAP user-mapping with NFS extended groups](configure-ldap-extended-groups.md) (Preview)   
+* [Active Directory Domain Services (AD DS) LDAP user-mapping with NFS extended groups](configure-ldap-extended-groups.md) (Preview)   
 
-    By default, Azure NetApp Files supports up to 16 group IDs when handling NFS user credentials, as defined in [RFC 5531](https://tools.ietf.org/html/rfc5531). With this new capability, you can now increase the maximum up to 1,024 if you have users who are members of more than the default number of groups. To support this capability, NFS volumes can now also be added to ADDS LDAP, which enables Active Directory LDAP users with extended groups entries (with up to 1024 groups) to access the volume. 
+    By default, Azure NetApp Files supports up to 16 group IDs when handling NFS user credentials, as defined in [RFC 5531](https://tools.ietf.org/html/rfc5531). With this new capability, you can now increase the maximum up to 1,024 if you have users who are members of more than the default number of groups. To support this capability, NFS volumes can now also be added to AD DS LDAP, which enables Active Directory LDAP users with extended groups entries (with up to 1024 groups) to access the volume. 
 
 ## March 2021
  

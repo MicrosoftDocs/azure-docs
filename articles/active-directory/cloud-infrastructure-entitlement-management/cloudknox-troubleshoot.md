@@ -2,14 +2,14 @@
 title: Troubleshoot issues with CloudKnox Permissions Management 
 description: Troubleshoot issues with CloudKnox Permissions Management
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Troubleshoot issues with CloudKnox Permissions Management
@@ -30,7 +30,7 @@ This section answers troubleshoot issues with CloudKnox Permissions Management (
 
 ### The individual files are generated according to the authorization system (subscription/account/project).
 
-- Select the **Collate** option in the **Custom report** screen in the CloudKnox **Reports** tab.  
+- Select the **Collate** option in the **Custom Report** screen in the CloudKnox **Reports** tab.  
 
 ## Data collection in AWS
 

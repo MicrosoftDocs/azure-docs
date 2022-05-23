@@ -2,14 +2,14 @@
 title: View analytic information about users in CloudKnox Permissions Management
 description: How to view analytic information about users in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # View analytic information about users
@@ -22,10 +22,10 @@ The **Analytics** dashboard in CloudKnox Permissions Management (CloudKnox) coll
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.
-- **Active resources**: Tracks active resources (used in the last 90 days).
-- **Active tasks**: Tracks active tasks (performed in the last 90 days).
-- **Access keys**: Tracks the permission usage of access keys for a given user.
-- **Serverless functions**: Tracks assigned permissions and usage of the serverless functions.
+- **Active Resources**: Tracks active resources (used in the last 90 days).
+- **Active Tasks**: Tracks active tasks (performed in the last 90 days).
+- **Access Keys**: Tracks the permission usage of access keys for a given user.
+- **Serverless Functions**: Tracks assigned permissions and usage of the serverless functions.
 
 This article describes how to view usage analytics about users.
 
@@ -37,9 +37,9 @@ When you select **Users**, the **Analytics** dashboard provides a high-level ove
 
     The following components make up the **Users** dashboard:
 
-    - **Authorization system type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
-    - **Authorization system**: Select from a **List** of accounts and **Folders***.
-    - **Identity type**: Select **All** identity types, **User**, **Role/App/Service a/c** or **Resource**.
+    - **Authorization System Type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
+    - **Authorization System**: Select from a **List** of accounts and **Folders***.
+    - **Identity Type**: Select **All** identity types, **User**, **Role/App/Service a/c** or **Resource**.
     - **Search**: Enter criteria to find specific tasks.
 1. Select **Apply** to display the criteria you've selected.
 
@@ -53,13 +53,13 @@ The **Identities** table displays the results of your query.
 - **Name**: Provides the name of the group. 
     - To view details about the group, select the down arrow. 
 - The **Domain/Account** name.
-- The **Permission creep index (PCI)**: Provides the following information:
+- The **Permission Creep Index (PCI)**: Provides the following information:
     - **Index**: A numeric value assigned to the PCI.
     - **Since**: How many days the PCI value has been at the displayed level.
 - **Tasks**: Displays the number of **Granted** and **Executed** tasks.
 - **Resources**: The number of resources used.
-- **User groups**: The number of users who accessed the group.
-- **Last activity on**: The date the function was last accessed.
+- **User Groups**: The number of users who accessed the group.
+- **Last Activity On**: The date the function was last accessed.
 -  The ellipses **(...)**: Select **Tags** to add a tag.
 
     If you're using AWS, another selection is available from the ellipses menu: **Auto Remediate**. You can use this option to remediate your results automatically.
@@ -67,11 +67,11 @@ The **Identities** table displays the results of your query.
 ## Add a tag to a user
 
 1. Select the ellipses **(...)** and select **Tags**.
-1. From the **Select a tag** dropdown, select a tag.
-1. To create a custom tag select **New custom tag**, add a tag name, and then select **Create**.
+1. From the **Select a Tag** dropdown, select a tag.
+1. To create a custom tag select **New Custom Tag**, add a tag name, and then select **Create**.
 1. In the **Value (Optional)** box, enter a value.
-1. Select the ellipses **(...)** to select **Advanced save** options, and then select **Save**.
-1. To add the tag to the serverless function, select **Add tag**.
+1. Select the ellipses **(...)** to select **Advanced Save** options, and then select **Save**.
+1. To add the tag to the serverless function, select **Add Tag**.
 
 ## Set the auto-remediate option (AWS only)
 
@@ -81,73 +81,73 @@ The **Identities** table displays the results of your query.
 
 ## Apply filters to your query  
 
-There are many filter options within the **Users** screen, including filters by **Authorization system**, **Identity type**, and **Identity state**. 
+There are many filter options within the **Users** screen, including filters by **Authorization System**, **Identity Type**, and **Identity State**. 
 Filters can be applied in one, two, or all three categories depending on the type of information you're looking for. 
 
 ### Apply filters by authorization system type
 
-1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset filter** to discard your changes. 
+    Select **Reset Filter** to discard your changes. 
 
 
 ### Apply filters by authorization system
 
-1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**. 
-1. From the **Authorization system** dropdown, select accounts from a **List** of accounts and **Folders**.
+1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**. 
+1. From the **Authorization System** dropdown, select accounts from a **List** of accounts and **Folders**.
 1. Select **Apply** to run your query and display the information you selected.
 
     Select **Reset filter** to discard your changes. 
 
 ### Apply filters by identity type
 
-1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
-1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Identity type**, select the type of user: **All**, **User**, **Role/App/Service a/c**, or **Resource**.
+1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
+1. From the **Identity Type**, select the type of user: **All**, **User**, **Role/App/Service a/c**, or **Resource**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset filter** to discard your changes.
+    Select **Reset Filter** to discard your changes.
 
 ### Apply filters by identity subtype
 
-1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
-1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Identity subtype**, select the type of user: **All**, **ED**, **Local**, or **Cross-account**.
+1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
+1. From the **Identity Subtype**, select the type of user: **All**, **ED**, **Local**, or **Cross Account**.
 1. Select **Apply** to run your query and display the information you selected.
 
     Select **Reset filter** to discard your changes.
 
 ### Apply filters by identity state
 
-1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
-1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Identity state**, select the type of user: **All**, **Active**, or **Inactive**.
+1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
+1. From the **Identity State**, select the type of user: **All**, **Active**, or **Inactive**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset filter** to discard your changes.
+    Select **Reset Filter** to discard your changes.
 
 
 ### Apply filters by identity filters
 
-1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
-1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Identity type**, select: **Risky** or **Inc. in PCI calculation only**.
+1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
+1. From the **Identity Type**, select: **Risky** or **Incl. in PCI Calculation Only**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset filter** to discard your changes.
+    Select **Reset Filter** to discard your changes.
 
 
 ### Apply filters by task type
 
 You can filter user details by type of user, user role, app, or service used, or by resource.
 
-1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
-1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Task type**, select the type of user: **All** or **High-risk tasks**.
+1. From the **Authorization System Type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
+1. From the **Authorization System** dropdown, select from a **List** of accounts and **Folders**.
+1. From the **Task Type**, select the type of user: **All** or **High Risk Tasks**.
 1. Select **Apply** to run your query and display the information you selected.
 
-    Select **Reset filter** to discard your changes.
+    Select **Reset Filter** to discard your changes.
 
 
 ## Export the results of your query

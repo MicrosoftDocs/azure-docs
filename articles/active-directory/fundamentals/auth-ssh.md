@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 03/01/2022
 ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -48,7 +48,7 @@ SSH with Azure AD
 
 ## Implement SSH with Azure AD 
 
-* [Log in to a Linux® VM with Azure Active Directory credentials - Azure Virtual Machines ](../../virtual-machines/linux/login-using-aad.md) 
+* [Log in to a Linux® VM with Azure Active Directory credentials - Azure Virtual Machines ](../devices/howto-vm-sign-in-azure-ad-linux.md) 
 
 * [OAuth 2.0 device code flow - Microsoft identity platform ](../develop/v2-oauth2-device-code.md)
 

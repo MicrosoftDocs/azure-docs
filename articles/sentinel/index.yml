@@ -6,6 +6,7 @@ summary: This article presents use cases to get started using Microsoft Sentinel
 metadata:
   title: Microsoft Sentinel documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: This article presents use cases and scenarios to get started using Microsoft Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Microsoft Sentinel is your birds-eye view across the enterprise.# Required; article description that is displayed in search results. < 160 chars.
+  ms.service: microsoft-sentinel
   ms.topic: landing-page # Required
   author: yelevin #Required; your GitHub user alias, with correct capitalization.
   ms.author: yelevin #Required; microsoft alias of author; optional team alias.

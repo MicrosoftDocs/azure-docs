@@ -2,14 +2,14 @@
 title: Attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities in the Remediation dashboard in CloudKnox Permissions Management
 description: How to attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities in the Remediation dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Attach and detach policies for Amazon Web Services (AWS) identities 
@@ -27,30 +27,30 @@ This article describes how you can attach and detach permissions for users, role
 ## View permissions
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **AWS**.
-1. From the **Select an authorization system** dropdown, select the accounts you want to access.
+1. From the **Authorization System Type** dropdown, select **AWS**.
+1. From the **Authorization System** dropdown, select the accounts you want to access.
 1. From the **Search For** dropdown, select **Group**, **User**, or **Role**.
-1. To search for more parameters, you can make a selection from the **User States**, **Privilege Creep Index**, and **Task usage** dropdowns.
+1. To search for more parameters, you can make a selection from the **User States**, **Permission Creep Index**, and **Task Usage** dropdowns.
 1. Select **Apply**.
     CloudKnox displays a list of users, roles, or groups that match your criteria.
 1. In **Enter a username**, enter or select a user.
 1. In **Enter a group name**, enter or select a group, then select **Apply**.
 1. Make a selection from the results list.
 
-    The table displays the related **Username** **Domain/Account**, **Source** and **Policy name**.
+    The table displays the related **Username** **Domain/Account**, **Source** and **Policy Name**.
 
 
 ## Attach policies
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **AWS**.
+1. From the **Authorization System Type** dropdown, select **AWS**.
 1. In **Enter a username**, enter or select a user.
-1. In **Enter a group name**, enter or select a group, then select **Apply**.
+1. In **Enter a Group Name**, enter or select a group, then select **Apply**.
 1. Make a selection from the results list.
-1. To attach a policy, select **Attach policies**.
-1. In the **Attach policies** page, from the **Available policies** list, select the plus sign **(+)** to move the policy to the **Selected policies** list. 
+1. To attach a policy, select **Attach Policies**.
+1. In the **Attach Policies** page, from the **Available policies** list, select the plus sign **(+)** to move the policy to the **Selected policies** list. 
 1. When you have finished adding policies, select **Submit**.
-1. When the following message displays: **Are you sure you want to change permissions?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select: 
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -58,14 +58,14 @@ This article describes how you can attach and detach permissions for users, role
 ## Detach policies
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **AWS**.
+1. From the **Authorization System Type** dropdown, select **AWS**.
 1. In **Enter a username**, enter or select a user.
-1. In **Enter a group name**, enter or select a group, then select **Apply**.
+1. In **Enter a Group Name**, enter or select a group, then select **Apply**.
 1. Make a selection from the results list.
-1. To remove a policy, select **Detach policies**.
-1. In the **Detach policies** page, from the **Available policies** list, select the plus sign **(+)** to move the policy to the **Selected policies** list. 
+1. To remove a policy, select **Detach Policies**.
+1. In the **Detach Policies** page, from the **Available policies** list, select the plus sign **(+)** to move the policy to the **Selected policies** list. 
 1. When you have finished selecting policies, select **Submit**.
-1. When the following message displays: **Are you sure you want to change permissions?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select: 
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.

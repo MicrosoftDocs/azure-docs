@@ -1,5 +1,5 @@
 ---
-title: View system test results and deployment - Custom Translator
+title: "Legacy: View system test results and deployment - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: When your training is successful, review system tests to analyze your training results. If you're satisfied with the training results, place a deployment request for the trained model.
 author: laujan
@@ -106,4 +106,4 @@ To update deployment settings:
 ## Next steps
 
 - Start using your deployed custom translation model via [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl).
-- Learn [how to manage settings](how-to-manage-settings.md) to share your workspace, manage subscription key.
+- Learn [how to manage settings](how-to-manage-settings.md) to share your workspace, manage key.

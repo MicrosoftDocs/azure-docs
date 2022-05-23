@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/15/2022
-ms.author: sajagtap
+ms.date: 03/08/2022
+ms.author: lajanuar
 ms.custom: ignite-fall-2021, mode-ui
 ---
 
 # Get started: Form Recognizer Studio | Preview
 
 >[!NOTE]
-> Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities. 
+> Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities.
 
 [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom template models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
 
@@ -26,13 +26,24 @@ ms.custom: ignite-fall-2021, mode-ui
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 * A [**Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**Cognitive Services multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
 
-## Pretrained models
+## Prebuilt models
 
-After you have completed the prerequisites, navigate to the [Form Recognizer Studio General Documents preview](https://formrecognizer.appliedai.azure.com). In the following example, we use the General Documents feature. The steps to use other pre-trained features like [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument), and [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2) models are similar.
+Prebuilt models help you add Form Recognizer features to your apps without having to build, train, and publish your own models. You can choose from several prebuilt models, each of which has its own set of supported data fields. The choice of model to use for the analyze operation depends on the type of document to be analyzed. The following prebuilt models are currently supported by Form Recognizer:
+
+* [🆕 **General document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document): extract text, tables, structure, key-value pairs and named entities.
+* [🆕**W-2**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2): extract text and key information from W-2 tax forms.
+* [🆕 **Read**](https://formrecognizer.appliedai.azure.com/studio/read): extract text lines, words, their locations, detected languages, and handwritten style if detected from documents (PDF, TIFF) and images (JPG, PNG, BMP).
+* [**Layout**](https://formrecognizer.appliedai.azure.com/studio/layout): extract text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP).
+* [**Invoice**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice): extract text, selection marks, tables, key-value pairs, and key information from invoices.
+* [**Receipt**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): extract text and key information from receipts.
+* [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extract text and key information from driver licenses and international passports.
+* [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extract text and key information from business cards.
+
+After you've completed the prerequisites, navigate to the [Form Recognizer Studio General Documents preview](https://formrecognizer.appliedai.azure.com). In the following example, we use the General Documents feature. The steps to use other pre-trained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
 
 1. Select a Form Recognizer service feature from the Studio home page.
 
-1. This is a one-time step unless you have already selected the service resource from prior use. Select your Azure subscription, resource group, and resource. (You can change the resources anytime in "Settings" in the top menu.) Review and confirm your selections.
+1. This is a one-time step unless you've already selected the service resource from prior use. Select your Azure subscription, resource group, and resource. (You can change the resources anytime in "Settings" in the top menu.) Review and confirm your selections.
 
 1. Select the Analyze command to run analysis on the sample document or try your document by using the Add command.
 
@@ -45,25 +56,6 @@ After you have completed the prerequisites, navigate to the [Form Recognizer Stu
 1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
 
 :::image border="true" type="content" source="../media/quickstarts/layout-get-started-v2.gif" alt-text="Form Recognizer Layout example":::
-
-## Prebuilt models
-
-There are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are prebuilt models currently supported by the Form Recognizer service:
-
-* [🆕 **General document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)—Analyze and extract text, tables, structure, key-value pairs and named entities.
-* [**Invoice**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
-* [**Receipt**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): extracts text and key information from receipts.
-* [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extracts text and key information from driver licenses and international passports.
-* [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extracts text and key information from business cards.
-* [**W-2**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2): extracts text and key information from W-2 tax forms.
-
-1. In the output section's Content tab, browse the list of extracted key-value pairs and entities. For other Form Recognizer features, the Content tab will show the corresponding insights extracted.
-
-1. From the results tab, check out the formatted JSON response from the service. Search and browse the JSON response to understand the service results.
-
-1. From the Code tab, copy the code sample to get started on integrating the feature with your application.
-
-:::image border="true" type="content" source="../media/quickstarts/form-recognizer-general-document-demo-v3p2.gif" alt-text="Form Recognizer General Documents demo":::
 
 ## Additional prerequisites for custom projects
 
@@ -78,17 +70,28 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 ### Configure CORS
 
-[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
-
-:::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
+[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you'll need access to the CORS blade of your storage account.
 
 1. Select the CORS blade for the storage account.
-2. Start by creating a new CORS entry in the Blob service.
-3. Set the **Allowed origins** to **https://formrecognizer.appliedai.azure.com**.
-4. Select all the available 8 options for **Allowed methods**.
-5. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
-6. Set the **Max Age** to 120 seconds or any acceptable value.
-7. Click the save button at the top of the page to save the changes.
+
+   :::image type="content" source="../media/quickstarts/cors-setting-menu.png" alt-text="Screenshot of the CORS setting menu in the Azure portal.":::
+
+1. Start by creating a new CORS entry in the Blob service.
+
+1. Set the **Allowed origins** to **<https://formrecognizer.appliedai.azure.com>**.
+
+   :::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
+
+    > [!TIP]
+    > You can use the wildcard character '*' rather than a specified domain to allow all origin domains to make requests via CORS.
+
+1. Select all the available 8 options for **Allowed methods**.
+
+1. Approve all **Allowed headers** and **Exposed headers** by entering an * in each field.
+
+1. Set the **Max Age** to 120 seconds or any acceptable value.
+
+1. Select the save button at the top of the page to save the changes.
 
 CORS should now be configured to use the storage account from Form Recognizer Studio.
 
@@ -125,7 +128,7 @@ To create custom models, you start with configuring your project:
 
 1. Review and submit your settings to create the project.
 
-1. From the labeling view, define the labels and their types that you are interested in extracting.
+1. From the labeling view, define the labels and their types that you're interested in extracting.
 
 1. Select the text in the document and select the label from the drop-down list or the labels pane.
 
@@ -142,7 +145,7 @@ To create custom models, you start with configuring your project:
 > [!NOTE]
 > Tables are currently only supported for custom template models. When training a custom neural model, labeled tables are ignored.
 
-1. Use the Delete command to delete models that are not required.
+1. Use the Delete command to delete models that aren't required.
 
 1. Download model details for offline viewing.
 
@@ -150,7 +153,7 @@ To create custom models, you start with configuring your project:
 
 Using tables as the visual pattern:
 
-For custom form models, while creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
+For custom form models, while creating your custom models, you may need to extract data collections from your documents. Data collections may appear in a couple of formats. Using tables as the visual pattern:
 
 * Dynamic or variable count of values (rows) for a given set of fields (columns)
 
@@ -183,7 +186,7 @@ Use fixed tables to extract specific collection of values for a given set of fie
 ### Signature detection
 
 >[!NOTE]
-> Signature fields are currently only supported for custom template models. When training a custom neural model, labeled signature fields are ignored. 
+> Signature fields are currently only supported for custom template models. When training a custom neural model, labeled signature fields are ignored.
 
 To label for signature detection: (Custom form only)
 

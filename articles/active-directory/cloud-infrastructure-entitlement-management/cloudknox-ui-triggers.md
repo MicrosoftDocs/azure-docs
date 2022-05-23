@@ -2,14 +2,14 @@
 title: View information about activity triggers in CloudKnox Permissions Management
 description: How to view information about activity triggers in the Activity triggers dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # View information about activity triggers
@@ -27,51 +27,51 @@ This article describes how to use the **Activity triggers** dashboard in CloudKn
     The **Activity triggers** dashboard has four tabs:
 
     - **Activity**
-    - **Rule-based anomaly**
-    - **Statistical anomaly**
-    - **Permission analytics**
+    - **Rule-Based Anomaly**
+    - **Statistical Anomaly**
+    - **Permission Analytics**
 
     Each tab has two subtabs:
 
     - **Alerts**
-    - **Alert triggers**
+    - **Alert Triggers**
 
 ## View information about alerts
 
-The **Alerts** subtab in the **Activity**, **Rule-based anomaly**, **Statistical anomaly**, and **Permission analytics** tabs display the following information:
+The **Alerts** subtab in the **Activity**, **Rule-Based Anomaly**, **Statistical Anomaly**, and **Permission Analytics** tabs display the following information:
 
 - **Alert Name**: Select **All** alert names or specific ones.
-- **Date**: Select **Last 24 hours**, **Last 2 Days**, **Last week**, or **Custom range.**
+- **Date**: Select **Last 24 hours**, **Last 2 Days**, **Last Week**, or **Custom Range.**
 
-    - If you select **Custom range**, also enter **From** and **To** duration settings.
+    - If you select **Custom Range**, also enter **From** and **To** duration settings.
 - **Apply**: Select this option to activate your settings.
-- **Reset filter**: Select this option to discard your settings.
+- **Reset Filter**: Select this option to discard your settings.
 - **Reload**: Select this option to refresh the displayed information.  
 - **Create Activity Trigger**: Select this option to [create a new alert trigger](cloudknox-howto-create-alert-trigger.md). 
 - The **Alerts** table displays a list of alerts with the following information:
     - **Alerts**: The name of the alert.
     - **# of users subscribed**: The number of users who have subscribed to the alert.
-    - **Created by**: The name of the user who created the alert.
+    - **Created By**: The name of the user who created the alert.
     - **Modified By**: The name of the user who modified the alert.
 
-The **Rule-based anomaly** tab and the **Statistical anomaly** tab both have one more option:
+The **Rule-Based Anomaly** tab and the **Statistical Anomaly** tab both have one more option:
 
 - **Columns**: Select the columns you want to display: **Task**, **Resource**, and **Identity**.
     - To return to the system default settings, select **Reset to default**.
 
 ## View information about alert triggers
 
-The **Alert triggers** subtab in the **Activity**, **Rule-based anomaly**, **Statistical anomaly**, and **Permission analytics** tab displays the following information:
+The **Alert Triggers** subtab in the **Activity**, **Rule-Based Anomaly**, **Statistical Anomaly**, and **Permission Analytics** tab displays the following information:
 
 - **Status**: Select the alert status you want to display: **All**, **Activated**, or **Deactivated**.
 - **Apply**: Select this option to activate your settings. 
-- **Reset filter**: Select this option to discard your settings.
+- **Reset Filter**: Select this option to discard your settings.
 - **Reload**: Select **Reload** to refresh the displayed information.  
 - **Create Activity Trigger**: Select this option to [create a new alert trigger](cloudknox-howto-create-alert-trigger.md).
 - The **Triggers** table displays a list of triggers with the following information:
     - **Alerts**: The name of the alert.
     - **# of users subscribed**: The number of users who have subscribed to the alert.
-    - **Created by**: The name of the user who created the alert.
+    - **Created By**: The name of the user who created the alert.
     - **Modified By**: The name of the user who modified the alert.
 
 

@@ -2,14 +2,14 @@
 title: View key statistics and data about your authorization system in CloudKnox Permissions Management
 description: How to view statistics and data about your authorization system in the CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 
@@ -27,7 +27,7 @@ The data provided by CloudKnox includes metrics related to avoidable risk. These
 
 You can view the following information in CloudKnox:
 
-- The **Permission creep index (PCI)** heat map on the CloudKnox **Dashboard** identifies:
+- The **Permission Creep Index (PCI)** heat map on the CloudKnox **Dashboard** identifies:
     - The number of users who have been granted high-risk permissions but aren't using them.
     - The number of users who contribute to the permission creep index (PCI) and where they are on the scale.
 
@@ -40,11 +40,11 @@ The CloudKnox **Dashboard** displays the following information:
 
 - **Authorization system types**: A dropdown list of authorization system types you can access: AWS, Azure, and GCP.
  
-- **Authorization system**: Displays a **List** of accounts and **Folders** in the selected authorization system you can access. 
+- **Authorization System**: Displays a **List** of accounts and **Folders** in the selected authorization system you can access. 
 
     - To add or remove accounts and folders, from the **Name** list, select or deselect accounts and folders, and then select **Apply**.
 
-- **Permission creep index (PCI)**: The graph displays the **# of identities contributing to PCI**.
+- **Permission Creep Index (PCI)**: The graph displays the **# of identities contributing to PCI**.
 
     The PCI graph may display one or more bubbles. Each bubble displays the number of identities that are considered high risk. *High-risk* refers to the number of users who have permissions that exceed their normal or required usage.
     - To display a list of the number of identities contributing to the **Low PCI**, **Medium PCI**, and **High PCI**, select the **List** icon in the upper right of the graph.
@@ -79,7 +79,7 @@ The CloudKnox **Dashboard** displays the following information:
 
 ## The PCI heat map
 
-The **Permission creep index**  heat map shows the incurred risk of users with access to high-risk permissions, and provides information about:
+The **Permission Creep Index**  heat map shows the incurred risk of users with access to high-risk permissions, and provides information about:
 
 - Users who were given access to high-risk permissions but aren't actively using them. *High-risk permissions* include the ability to modify or delete information in the authorization system.
 

@@ -2,14 +2,14 @@
 title: Create and view rule-based anomalies and anomaly triggers in CloudKnox Permissions Management 
 description: How to create and view rule-based anomalies and anomaly triggers in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Create and view rule-based anomaly alerts and anomaly triggers 
@@ -23,20 +23,20 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 ## View rule-based anomaly alerts
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
-1. Select **Rule-based anomaly**, and then select the **Alerts** subtab.
+1. Select **Rule-Based Anomaly**, and then select the **Alerts** subtab.
 
     The **Alerts** subtab displays the following information:
 
-      - **Alert name**: Lists the name of the alert.
+      - **Alert Name**: Lists the name of the alert.
     
       - To view the specific identity, resource, and task names that occurred during the alert collection period, select the **Alert Name**.
 
-      - **Anomaly alert rule**: Displays the name of the rule select when creating the alert.
-      - **# of occurrences**: How many times the alert trigger has occurred.
+      - **Anomaly Alert Rule**: Displays the name of the rule select when creating the alert.
+      - **# of Occurrences**: How many times the alert trigger has occurred.
       - **Task**: How many tasks performed are triggered by the alert.
       - **Resources**: How many resources accessed are triggered by the alert.
       - **Identity**: How many identities performing unusual behavior are triggered by the alert.
-      - **Authorization system**: Displays which authorization systems the alert applies to, Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**). 
+      - **Authorization System**: Displays which authorization systems the alert applies to, Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**). 
       - **Date/Time**: Lists the date and time of the alert.
       - **Date/Time (UTC)**: Lists the date and time of the alert in Coordinated Universal Time (UTC).
       
@@ -56,11 +56,11 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 ## Create a rule-based anomaly trigger
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
-1. Select **Rule-based anomaly**, and then select the **Alerts** subtab.
+1. Select **Rule-Based Anomaly**, and then select the **Alerts** subtab.
 1. Select **Create Anomaly Trigger**.
 
 1. In the **Alert Name** box, enter a name for the alert.
-1. Select the **Authorization system**, **AWS**, **Azure**, or **GCP**.
+1. Select the **Authorization System**, **AWS**, **Azure**, or **GCP**.
 1. Select one of the following conditions:
       - **Any Resource Accessed for the First Time**: The identity accesses a resource for the first time during the specified time interval.
       - **Identity Performs a Particular Task for the First Time**: The identity does a specific task for the first time during the specified time interval.
@@ -79,14 +79,14 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 ## View a rule-based anomaly trigger
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
-1. Select **Rule-based anomaly**, and then select the **Alert triggers** subtab.
+1. Select **Rule-Based Anomaly**, and then select the **Alert Triggers** subtab.
  
-    The **Alert triggers** subtab displays the following information:
+    The **Alert Triggers** subtab displays the following information:
 
       - **Alerts**: Displays the name of the alert.
       - **Anomaly Alert Rule**: Displays the name of the selected rule when creating the alert.
-      - **# of users subscribed**: Displays the number of users subscribed to the alert.
-      - **Created by**: Displays the email address of the user who created the alert.
+      - **# of Users Subscribed**: Displays the number of users subscribed to the alert.
+      - **Created By**: Displays the email address of the user who created the alert.
       - **Last Modified By**: Displays the email address of the user who last modified the alert.
       - **Last Modified On**: Displays the date and time the trigger was last modified.
       - **Subscription**: Subscribes you to receive alert emails. Switches between **On** and **Off**. 
@@ -103,12 +103,12 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
     - **Rename**: Enter the new name of the query, and then select **Save.**
     - **Deactivate**: The alert will still be listed, but will no longer send emails to subscribed users.
     - **Activate**: Activate the alert trigger and start sending emails to subscribed users.
-    - **Notification settings**: View the **Email** of users who are subscribed to the alert trigger. 
+    - **Notification Settings**: View the **Email** of users who are subscribed to the alert trigger. 
     - **Delete**: Delete the alert.
 
     If the **Subscription** is **Off**, the following options are available:
     - **View**: View  details of the alert trigger.
-    - **Notification settings**: View the **Email** of users who are subscribed to the alert trigger.
+    - **Notification Settings**: View the **Email** of users who are subscribed to the alert trigger.
     - **Duplicate**: Create a duplicate copy of the selected alert trigger.
 
 1. To filter by **Activated** or **Deactivated**, in the **Status** section, select **All**, **Activated**, or **Deactivated**, and then select **Apply**.

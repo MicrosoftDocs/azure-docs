@@ -2,14 +2,14 @@
 title: View system reports in the Reports dashboard in CloudKnox Permissions Management 
 description: How to view system reports in the Reports dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # View system reports in the Reports dashboard
@@ -26,22 +26,22 @@ CloudKnox Permissions Management (CloudKnox) has various types of system report 
 
 ## Explore the Reports dashboard
 
-The **Reports** dashboard provides a table of information with both system reports and custom reports. The **Reports** dashboard defaults to the **System reports** tab, which has the following details:
+The **Reports** dashboard provides a table of information with both system reports and custom reports. The **Reports** dashboard defaults to the **System Reports** tab, which has the following details:
 
 - **Report Name**: The name of the report.
 - **Category**: The type of report. For example, **Permission**.
-- **Authorization System**: Displays which authorizations the custom report applies to.
+- **Authorization Systems**: Displays which authorizations the custom report applies to.
 - **Format**: Displays the output format the report can be generated in. For example, comma-separated values (CSV) format, portable document format (PDF), or Microsoft Excel Open XML Spreadsheet (XLSX) format.
 
     - To download a report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.
 
-      The following message displays across the top of the screen in green if the download is successful: **Successfully started to generate on demand report**.
+      The following message displays across the top of the screen in green if the download is successful: **Successfully Started To Generate On Demand Report**.
 
 ## Available system reports
 
 CloudKnox offers the following reports for management associated with the authorization systems noted in parenthesis:
 
-- **Access key entitlements and usage**:
+- **Access Key Entitlements And Usage**:
 	- **Summary of report**: Provides information about access key, for example, permissions, usage, and rotation date.
 	- **Applies to**: Amazon Web Services (AWS) and Microsoft Azure
 	- **Report output type**: CSV
@@ -51,7 +51,7 @@ CloudKnox offers the following reports for management associated with the author
 		- The access key age, last rotation date, and last usage date is available in the summary report to help with key rotation.
 		- The granted task and Permissions creep index (PCI) score to take action on the keys.
 
-- **User entitlements and usage**: 
+- **User Entitlements And Usage**: 
 	- **Summary of report**: Provides information about the identities' permissions, for example, entitlement, usage, and PCI.
 	- **Applies to**: AWS, Azure, and Google Cloud Platform (GCP)
 	- **Report output type**: CSV
@@ -60,7 +60,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Use cases**: 
 		 - The data displayed on the **Usage Analytics** screen is downloaded as part of the **Summary** report. The user's detailed permissions usage is listed in the **Detailed** report.
 
-- **Group entitlements and usage**:
+- **Group Entitlements And Usage**:
 	- **Summary of report**: Provides information about the group's permissions, for example, entitlement, usage, and PCI.
 	- **Applies to**: AWS, Azure, and GCP
 	- **Report output type**: CSV
@@ -69,7 +69,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Use cases**: 
 		 - All group level entitlements and permission assignments, PCIs, and the number of members are listed as part of this report. 
 
-- **Identity permissions**:
+- **Identity Permissions**:
 	- **Summary of report**: Report on identities that have specific permissions, for example, identities that have permission to delete any S3 buckets.
 	- **Applies to**: AWS, Azure, and GCP
 	- **Report output type**: CSV
@@ -92,7 +92,7 @@ CloudKnox offers the following reports for management associated with the author
 		- The **Role summary** lists similar details as **Group Summary**. 
 		- The **Delete Task summary** section lists the number of times the **Delete task** has been executed in the given time period. 
 
-- **Permissions analytics report** 
+- **Permissions Analytics Report** 
 	- **Summary of report**: Provides information about the violation of key security best practices.
 	- **Applies to**: AWS, Azure, and GCP
 	- **Report output type**: CSV

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 03/23/2022
 ms.author: eur
 ms.devlang: cpp, csharp, java, javascript, objective-c, python
 ms.custom: "devx-track-js, devx-track-csharp"
@@ -146,7 +146,7 @@ This SSML snippet illustrates how the `<mstts:express-as>` element is used to ch
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-JennyNeural">
         <mstts:express-as style="cheerful">
             That'd be just amazing!
         </mstts:express-as>
@@ -169,9 +169,12 @@ The following table has descriptions of each supported style.
 |`style="disgruntled"`|Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.|
 |`style="embarrassed"`|Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable.|
 |`style="empathetic"`|Expresses a sense of caring and understanding.|
-|`style="envious"`|Express a tone of admiration when you desire something that someone else has.|
+|`style="envious"`|Expresses a tone of admiration when you desire something that someone else has.|
+|`style="excited"`|Expresses an upbeat and hopeful tone. It sounds like something great is happening and the speaker is really happy about that.|
 |`style="fearful"`|Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tension and unease.|
+|`style="friendly"`|Expresses a pleasant, inviting, and warm tone. It sounds sincere and caring.|
 |`style="gentle"`|Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy.|
+|`style="hopeful"`|Expresses a warm and yearning tone. It sounds like something good will happen to the speaker.|
 |`style="lyrical"`|Expresses emotions in a melodic and sentimental way.|
 |`style="narration-professional"`|Expresses a professional, objective tone for content reading.|
 |`style="narration-relaxed"`|Express a soothing and melodious tone for content reading.|
@@ -180,6 +183,10 @@ The following table has descriptions of each supported style.
 |`style="newscast-formal"`|Expresses a formal, confident, and authoritative tone for news delivery.|
 |`style="sad"`|Expresses a sorrowful tone.|
 |`style="serious"`|Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.|
+|`style="shouting"`|Speaks like from a far distant or outside and to make self be clearly heard|
+|`style="whispering"`|Speaks very softly and make a quiet and gentle sound|
+|`style="terrified"`|Expresses a very scared tone, with faster pace and a shakier voice. It sounds like the speaker is in an unsteady and frantic status.|
+|`style="unfriendly"`|Expresses a cold and indifferent tone.|
 
 ### Style degree
 
@@ -256,14 +263,9 @@ The following table has descriptions of each supported role.
 
 ## Adjust speaking languages
 
-You can adjust speaking languages for neural voices at the sentence level and word level.
+By default, all neural voices are fluent in their own language and English without using the `<lang xml:lang>` element. For example, if the input text in English is "I'm excited to try text to speech" and you use the `es-ES-ElviraNeural` voice, the text is spoken in English with a Spanish accent. With most neural voices, setting a specific speaking language with `<lang xml:lang>` element at the sentence or word level is currently not supported.
 
-Enable one voice to speak different languages fluently (like English, Spanish, and Chinese) by using the `<lang xml:lang>` element. This optional element is unique to the Speech service. Without this element, the voice speaks its primary language.
-
-Speaking language adjustments are only supported for the `en-US-JennyMultilingualNeural` neural voice. The preceding changes are applied at the sentence level and word level. If a language isn't supported, the service won't return an audio stream.
-
-> [!NOTE]
-> The `<lang xml:lang>` element is incompatible with the `prosody` and `break` elements. You can't adjust pause and prosody like pitch, contour, rate, or volume in this element.
+You can adjust the speaking language for the `en-US-JennyMultilingualNeural` neural voice at the sentence level and word level by using the `<lang xml:lang>` element. The `en-US-JennyMultilingualNeural` neural voice is multilingual in 14 languages (For example: English, Spanish, and Chinese). The supported languages are provided in a table following the `<lang>` syntax and attribute definitions. 
 
 **Syntax**
 
@@ -275,41 +277,46 @@ Speaking language adjustments are only supported for the `en-US-JennyMultilingua
 
 | Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `lang` | Specifies the speaking languages. Speaking different languages are voice specific. | Required if adjusting the speaking language for a neural voice. If you're using `lang xml:lang`, the locale must be provided. |
+| `lang` | Specifies the language that you want the neural voice to speak. | Required to adjust the speaking language for the neural voice. If you're using `lang xml:lang`, the locale must be provided. |
 
-Use this table to determine which speaking languages are supported for each neural voice. If a language isn't supported, the service won't return an audio stream.
+> [!NOTE]
+> The `<lang xml:lang>` element is incompatible with the `prosody` and `break` elements. You can't adjust pause and prosody like pitch, contour, rate, or volume in this element.
 
-| Voice                            | Locale language           | Description                                                 |
+Use this table to determine which speaking languages are supported for each neural voice. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
+
+| Voice                            | Primary and default locale           | Additional locales  |
 |----------------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | Speak en-US locale, which is the primary locale of this voice |
-|                                  | `lang="en-CA"`            | Speak en-CA locale language                                  |
-|                                  | `lang="en-AU"`            | Speak en-AU locale language                                  |
-|                                  | `lang="en-GB"`            | Speak en-GB locale language                                  |
-|                                  | `lang="de-DE"`            | Speak de-DE locale language                                  |
-|                                  | `lang="fr-FR"`            | Speak fr-FR locale language                                  |
-|                                  | `lang="fr-CA"`            | Speak fr-CA locale language                                  |
-|                                  | `lang="es-ES"`            | Speak es-ES locale language                                  |
-|                                  | `lang="es-MX"`            | Speak es-MX locale language                                  |
-|                                  | `lang="zh-CN"`            | Speak zh-CN locale language                                  |
-|                                  | `lang="ko-KR"`            | Speak ko-KR locale language                                  |
-|                                  | `lang="ja-JP"`            | Speak ja-JP locale language                                  |
-|                                  | `lang="it-IT"`            | Speak it-IT locale language                                  |
-|                                  | `lang="pt-BR"`            | Speak pt-BR locale language                                  |
+| `en-US-JennyMultilingualNeural`  | `en-US` | `de-DE`, `en-AU`, `en-CA`, `en-GB`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `zh-CN`  |
 
 **Example**
 
-This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `en-US`, `es-MX`, and `de-DE`.
+The primary language for `en-US-JennyMultilingualNeural` is `en-US`. You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. This SSML snippet shows how speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-JennyMultilingualNeural">
-        I am looking forward to the exciting things.
-        <lang xml:lang="es-MX">
-            Estoy deseando que lleguen las cosas emocionantes.
-        </lang>
         <lang xml:lang="de-DE">
-            Ich freue mich auf die spannenden Dinge.
+            Wir freuen uns auf die Zusammenarbeit mit Ihnen!
+        </lang>
+    </voice>
+</speak>
+```
+
+Within the `speak` element, you can specify multiple languages including `en-US` for text-to-speech output. For each adjusted language, the text must match the language and be wrapped in a `voice` element. This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `es-MX`, `en-US`, and `fr-FR`. 
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JennyMultilingualNeural">
+        <lang xml:lang="es-MX">
+            ¡Esperamos trabajar con usted! 
+        </lang>
+        <lang xml:lang="en-US">
+           We look forward to working with you!
+        </lang>
+        <lang xml:lang="fr-FR">
+            Nous avons hâte de travailler avec vous!
         </lang>
     </voice>
 </speak>
@@ -577,7 +584,7 @@ After you've published your custom lexicon, you can reference it from your SSML.
 
 When you use this custom lexicon, "BTW" is read as "By the way." "Benigni" is read with the provided IPA "bɛˈniːnji."
 
-It's easy to make mistakes in the custom lexicon, so Microsoft provides a [validation tool for the custom lexicon](https://github.com/jiajzhan/Custom-Lexicon-Validation). It provides detailed error messages that help you find errors. Before you send SSML with the custom lexicon to the Speech service, check your custom lexicon with this tool.
+It's easy to make mistakes in the custom lexicon, so Microsoft provides a [validation tool for the custom lexicon](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomLexiconValidation). It provides detailed error messages that help you find errors. Before you send SSML with the custom lexicon to the Speech service, check your custom lexicon with this tool.
 
 **Limitations**
 
@@ -979,6 +986,30 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 For more information, see [`addBookmarkReachedEventHandler`](/objectivec/cognitive-services/speech/spxspeechsynthesizer).
 
 ---
+
+## Supported MathML elements
+
+The Mathematical Markup Language (MathML) is an XML-compliant markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech. 
+
+> [!NOTE]
+> The MathML elements (tags) are currently supported by all neural voices in the `en-US` and `en-AU` locales. 
+
+**Example**
+
+This SSML snippet demonstrates how the MathML elements are used to output synthesized speech. The text-to-speech output for this example is "a squared plus b squared equals c squared".
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><voice name="en-US-JennyNeural"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math></voice></speak>
+```
+
+The `xmlns` attribute in `<math xmlns="http://www.w3.org/1998/Math/MathML">` is optional.
+
+All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3.0](https://www.w3.org/TR/MathML3/) specifications are supported, except the MathML 3.0 [Elementary Math](https://www.w3.org/TR/MathML3/chapter3.html#presm.elementary) elements. The `semantics`, `annotation`, and `annotation-xml` elements don't output speech, so they are ignored.
+
+> [!NOTE]
+> If an element is not recognized, it will be ignored, and the child elements within it will still be processed.
+
+The MathML entities are not supported by XML syntax, so you must use the their corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
 
 ## Next steps
 

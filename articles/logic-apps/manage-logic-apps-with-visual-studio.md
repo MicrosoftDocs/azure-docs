@@ -1,6 +1,6 @@
 ---
-title: Edit and manage logic apps by using Visual Studio with Cloud Explorer
-description: Edit, update, manage, add to source control, and deploy logic apps by using Visual Studio with Cloud Explorer
+title: Edit and manage logic apps using Visual Studio
+description: Edit, update, manage, add to source control, and deploy logic apps using Visual Studio with Cloud Explorer.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -28,7 +28,7 @@ You can also [manage your logic apps in the Azure portal](manage-logic-apps-with
 
 * Download and install these tools, if you don't have them already:
 
-  * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). This quickstart uses Visual Studio Community 2017, which is free.
+  * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). The Azure Logic Apps extension is currently unavailable for Visual Studio 2022. This quickstart uses Visual Studio Community 2017, which is free.
 
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.

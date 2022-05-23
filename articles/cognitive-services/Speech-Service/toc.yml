@@ -28,6 +28,15 @@ items:
     - name: Speech CLI quickstart
       displayName: cli basics, spx basics, spx help, spx quickstart, spx get started, get started, install
       href: spx-basics.md
+    - name: Configure the datastore
+      displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore, reference
+      href: spx-data-store-configuration.md
+    - name: Configure output options
+      displayName: reference
+      href: spx-output-options.md
+    - name: Run batch operations
+      displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
+      href: spx-batch-operations.md
 - name: Speech SDK
   items:
   - name: Speech SDK overview
@@ -45,55 +54,48 @@ items:
       displayName: stt
     - name: Speech-to-text quickstart
       href: get-started-speech-to-text.md
-    - name: How-to guides
+    - name: How to recognize speech
+      href: how-to-recognize-speech.md
+    - name: Set recognition source language
+      href: how-to-specify-source-language.md
+    - name: Get speech recognition results
+      href: get-speech-recognition-results.md
+    - name: How to use batch transcription
+      href: batch-transcription.md
+    - name: Improve recognition with Custom Speech
       items:
-        - name: How to recognize speech
-          href: how-to-recognize-speech.md
-        - name: Change recognition source language
-          href: how-to-specify-source-language.md
-        - name: How to use the audio input stream
-          href: how-to-use-audio-input-streams.md
-        - name: Support compressed input audio
-          href: how-to-use-codec-compressed-audio-input-streams.md
-          displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
-        - name: Select a specific microphone input device
-          href: how-to-select-audio-input-devices.md
-        - name: Use the batch transcription API
-          href: batch-transcription.md
-        - name: Use Pronunciation Assessment
-          href: how-to-pronunciation-assessment.md
-        - name: Control and monitor connection status
-          href: how-to-control-connections.md
-        - name: Improve accuracy with tenant models
-          href: tutorial-tenant-model.md
-        - name: Migrate from v2.0 to v3.0
-          href: migrate-v2-to-v3.md
-        - name: Customization
+        - name: What is Custom Speech?
+          href: custom-speech-overview.md
+        - name: Create a Custom Speech model 
           items:
-            - name: Custom Speech overview
-              href: custom-speech-overview.md
-            - name: Prepare data for Custom Speech
-              href: how-to-custom-speech-test-and-train.md
-            - name: Inspect Custom Speech data
-              href: how-to-custom-speech-inspect-data.md
-            - name: Evaluate and improve Custom Speech accuracy
-              href: how-to-custom-speech-evaluate-data.md
-            - name: Train and deploy a Custom Speech model
-              href: how-to-custom-speech-train-model.md
-            - name: CI/CD for Custom Speech
-              href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-            - name: Customize Pronunciation
-              href: customize-pronunciation.md
-            - name: Improve recognition with phrase list
-              href: improve-accuracy-phrase-list.md
-            - name: Create human-labeled transcriptions
-              href: how-to-custom-speech-human-labeled-transcriptions.md
-            - name: Model and Endpoint Lifecycle
-              href: how-to-custom-speech-model-and-endpoint-lifecycle.md
-    - name: Ingestion Client
-      href: ingestion-client.md
-    - name: Universal Phone Set
-      href: phone-sets.md
+          - name: Choose a model
+            href: how-to-custom-speech-choose-model.md
+          - name: Upload training and testing datasets
+            href: how-to-custom-speech-upload-data.md
+          - name: Test recognition quality
+            href: how-to-custom-speech-inspect-data.md
+          - name: Test model quantitatively
+            href: how-to-custom-speech-evaluate-data.md
+          - name: Train a model
+            href: how-to-custom-speech-train-model.md
+          - name: Deploy a model
+            href: how-to-custom-speech-deploy-model.md
+        - name: Custom Speech datasets
+          items:
+          - name: Training and testing datasets
+            href: how-to-custom-speech-test-and-train.md
+          - name: Human-labeled transcripts with audio
+            href: how-to-custom-speech-human-labeled-transcriptions.md
+          - name: Structured text phonetic pronunciation
+            href: customize-pronunciation.md
+          - name: Online transcription editor
+            href: how-to-custom-speech-transcription-editor.md
+        - name: Custom Speech model lifecycle
+          href: how-to-custom-speech-model-and-endpoint-lifecycle.md
+        - name: CI/CD for Custom Speech
+          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+    - name: Improve recognition with phrase list
+      href: improve-accuracy-phrase-list.md
     - name: Speech-to-text FAQ
       displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
       href: faq-stt.yml
@@ -106,47 +108,37 @@ items:
       displayName: tts
     - name: Text-to-speech quickstart
       href: get-started-text-to-speech.md
-    - name: How-to guides
-      items:
-        - name: Improve synthesis with SSML
-          href: speech-synthesis-markup.md
-          displayName: ipa, phoneme, phonetic, prosody
-        - name: Lower speech synthesis latency using Speech SDK
-          href: how-to-lower-speech-synthesis-latency.md
-        - name: Synthesize speech with Long Audio API
-          href: long-audio-api.md
-        - name: Get facial pose events for lip-sync
-          href: how-to-speech-synthesis-viseme.md
-          displayName: viseme, phoneme, phonetic
-        - name: Customization
-          items:
-            - name: Custom Neural Voice
-              items:
-                - name: What is custom neural voice?
-                  href: custom-neural-voice.md
-                - name: Get started with custom neural voice
-                  displayName: 'custom voice, neural voice'
-                  href: how-to-custom-voice.md
-                - name: Prepare data for training
-                  href: how-to-custom-voice-prepare-data.md
-                - name: Train your voice model
-                  href: how-to-custom-voice-create-voice.md
-                - name: Deploy and use your voice model
-                  href: how-to-deploy-and-use-endpoint.md
-                - name: How to record voice samples
-                  href: record-custom-voice-samples.md
-            - name: Audio Content Creation
-              href: how-to-audio-content-creation.md 
-        - name: Neural voice migration
-          items:
-            - name: Migration to neural voice
-              href: migration-overview-neural-voice.md
-            - name: Migrate to custom neural voice 
-              href: how-to-migrate-to-custom-neural-voice.md  
-            - name: Migrate to prebuilt neural voice
-              href: how-to-migrate-to-prebuilt-neural-voice.md 
+    - name: How to synthesize speech
+      href: how-to-speech-synthesis.md
+    - name: Synthesize from long-form text
+      href: long-audio-api.md
+    - name: Improve synthesis with SSML
+      href: speech-synthesis-markup.md
     - name: SSML phonetic sets
       href: speech-ssml-phonetic-sets.md
+      displayName: ipa, phoneme, phonetic, prosody
+    - name: Lower speech synthesis latency
+      href: how-to-lower-speech-synthesis-latency.md
+    - name: Get facial pose events for lip-sync
+      href: how-to-speech-synthesis-viseme.md
+      displayName: viseme, phoneme, phonetic
+    - name: Custom Neural Voice
+      items:
+        - name: What is custom neural voice?
+          href: custom-neural-voice.md
+        - name: Get started with custom neural voice
+          displayName: 'custom voice, neural voice'
+          href: how-to-custom-voice.md
+        - name: Prepare data for training
+          href: how-to-custom-voice-prepare-data.md
+        - name: Train your voice model
+          href: how-to-custom-voice-create-voice.md
+        - name: Deploy and use your voice model
+          href: how-to-deploy-and-use-endpoint.md
+        - name: How to record voice samples
+          href: record-custom-voice-samples.md
+    - name: Audio Content Creation
+      href: how-to-audio-content-creation.md 
 - name: Speech translation
   items:
     - name: Speech translation documentation
@@ -155,10 +147,8 @@ items:
       href: speech-translation.md
     - name: Speech translation quickstart
       href: get-started-speech-translation.md
-    - name: How-to guides
-      items:
-        - name: Translate and synthesize text with REST APIs
-          href: /learn/modules/python-flask-build-ai-web-app
+    - name: Translate and synthesize text with REST APIs
+      href: /learn/modules/python-flask-build-ai-web-app
     - name: Speech translation FAQ
       href: https://www.microsoft.com/translator/faq.aspx
 - name: Intent recognition
@@ -169,14 +159,14 @@ items:
       href: intent-recognition.md
     - name: Intent recognition quickstart
       href: get-started-intent-recognition.md
-    - name: Pattern Matching overview
+    - name: Pattern matching overview
       href: pattern-matching-overview.md
-    - name: How-to guides
-      items:
-        - name: 'Recognize speech intents with LUIS'
-          href: how-to-recognize-intents-from-speech-csharp.md
-        - name: 'Recognize speech intents with simple pattern matching'
-          href: how-to-use-simple-language-pattern-matching.md
+    - name: Recognize speech intents with LUIS
+      href: how-to-recognize-intents-from-speech-csharp.md
+    - name: Recognize speech intents with simple pattern matching
+      href: how-to-use-simple-language-pattern-matching.md
+    - name: Recognize speech intents with custom entity pattern matching
+      href: how-to-use-custom-entity-pattern-matching.md
     - name: LUIS developer resources
       href: ../luis/developer-reference-resource.md
     - name: Language support
@@ -197,30 +187,33 @@ items:
       href: keyword-recognition-guidelines.md
 - name: Scenario deep-dives
   items:
-    - name: Conversation scenarios
+    - name: Captioning
       items:
-        - name: Conversation scenarios documentation
-          displayName: meeting, meetings, conversation, call center, transcription, multi-device conversation
-          href: index-conversation-scenarios.yml
-        - name: Conversation transcription
-          items:
-            - name: Conversation Transcription overview
-              href: conversation-transcription.md
-            - name: Real-time Conversation Transcription quickstart
-              href: how-to-use-conversation-transcription.md
-            - name: How-to guides
-              items:
-                - name: Handle call center scenarios
-                  displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
-                  href: call-center-transcription.md
-                - name: Asynchronous Conversation transcription
-                  href: how-to-async-conversation-transcription.md
-        - name: Multi-device conversation
-          items:
-            - name: Multi-device conversation overview
-              href: multi-device-conversation.md
-            - name: Multi-device conversation quickstart
-              href: quickstarts/multi-device-conversation.md
+      - name: Captioning with speech to text
+        href: captioning-concepts.md
+      - name: Captioning quickstart
+        href: captioning-quickstart.md
+    - name: Handle call center scenarios
+      items:
+      - name: Telephony data
+        displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
+        href: call-center-transcription.md
+      - name: Ingestion Client
+        href: ingestion-client.md
+    - name: Conversation transcription
+      items:
+        - name: Conversation Transcription overview
+          href: conversation-transcription.md
+        - name: Real-time Conversation Transcription quickstart
+          href: how-to-use-conversation-transcription.md
+        - name: Asynchronous Conversation transcription
+          href: how-to-async-conversation-transcription.md
+    - name: Multi-device conversation
+      items:
+        - name: Multi-device conversation overview
+          href: multi-device-conversation.md
+        - name: Multi-device conversation quickstart
+          href: quickstarts/multi-device-conversation.md
     - name: Voice assistants
       items:
         - name: Voice assistants documentation
@@ -237,30 +230,28 @@ items:
               href: custom-commands.md
             - name: Custom commands quickstart
               href: quickstart-custom-commands-application.md
-            - name: How-to guides
+            - name: Develop and customize Custom Commands apps
+              href: how-to-develop-custom-commands-application.md
+            - name: Integrate with client applications
               items:
-                - name: Develop and customize Custom Commands apps
-                  href: how-to-develop-custom-commands-application.md
-                - name: Integrate with client applications
-                  items:
-                    - name: Integrate with a client app using Speech SDK
-                      href: how-to-custom-commands-setup-speech-sdk.md
-                    - name: Send activity to client application
-                      href: how-to-custom-commands-send-activity-to-client.md
-                    - name: Set up web endpoints
-                      href: how-to-custom-commands-setup-web-endpoints.md
-                    - name: Update a command from the client app
-                      href: how-to-custom-commands-update-command-from-client.md
-                    - name: Update a command from a web endpoint
-                      href: how-to-custom-commands-update-command-from-web-endpoint.md
-                - name: Continuous Deployment with Azure DevOps
-                  href: how-to-custom-commands-deploy-cicd.md
-                - name: Test Custom Commands applications
-                  href: how-to-custom-commands-developer-flow-test.md
-                - name: Debug app build-time errors
-                  href: how-to-custom-commands-debug-build-time.md
-                - name: Debug app run-time errors
-                  href: how-to-custom-commands-debug-runtime.md
+                - name: Integrate with a client app using Speech SDK
+                  href: how-to-custom-commands-setup-speech-sdk.md
+                - name: Send activity to client application
+                  href: how-to-custom-commands-send-activity-to-client.md
+                - name: Set up web endpoints
+                  href: how-to-custom-commands-setup-web-endpoints.md
+                - name: Update a command from the client app
+                  href: how-to-custom-commands-update-command-from-client.md
+                - name: Update a command from a web endpoint
+                  href: how-to-custom-commands-update-command-from-web-endpoint.md
+            - name: Continuous Deployment with Azure DevOps
+              href: how-to-custom-commands-deploy-cicd.md
+            - name: Test Custom Commands applications
+              href: how-to-custom-commands-developer-flow-test.md
+            - name: Debug app build-time errors
+              href: how-to-custom-commands-debug-build-time.md
+            - name: Debug app run-time errors
+              href: how-to-custom-commands-debug-runtime.md
             - name: Custom Commands concepts
               href: custom-commands-references.md
             - name: Custom Commands Samples (GitHub)
@@ -279,12 +270,10 @@ items:
           items:
             - name: Voice assistants on Windows overview
               href: windows-voice-assistants-overview.md
-            - name: How-to guides
-              items:
-                - name: 'Start developing your assistant with Windows'
-                  href: how-to-windows-voice-assistants-get-started.md
-                - name: 'Enable voice activation'
-                  href: windows-voice-assistants-implementation-guide.md
+            - name: 'Start developing your assistant with Windows'
+              href: how-to-windows-voice-assistants-get-started.md
+            - name: 'Enable voice activation'
+              href: windows-voice-assistants-implementation-guide.md
             - name: 'Privacy requirements and guidelines'
               href: windows-voice-assistants-automatic-enablement-guidelines.md
             - name: 'Best practices for assistant experiences'
@@ -295,8 +284,44 @@ items:
   items:
     - name: Language identification
       href: language-identification.md
-    - name: Role-based access control in Speech Studio
-      href: speech-studio-role-based-access-control.md
+    - name: Use Pronunciation Assessment
+      href: how-to-pronunciation-assessment.md
+    - name: Audio configuration
+      items:
+      - name: How to use the audio input stream
+        href: how-to-use-audio-input-streams.md
+      - name: How to use compressed input audio
+        href: how-to-use-codec-compressed-audio-input-streams.md
+        displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
+      - name: Select a specific microphone input device
+        href: how-to-select-audio-input-devices.md
+    - name: Access control and authentication
+      items:
+      - name: Role-based access with Azure Active Directory 
+        href: role-based-access-control.md
+      - name: Use Azure Active Directory Authentication
+        href: how-to-configure-azure-ad-auth.md
+    - name: Endpoint connections
+      items:
+      - name: Enable private endpoint
+        href: speech-services-private-link.md
+      - name: Enable VNet service endpoint
+        href: speech-service-vnet-service-endpoint.md
+      - name: Control and monitor connection status
+        href: how-to-control-connections.md
+      - name: Configure OpenSSL for Linux
+        displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
+        href: how-to-configure-openssl-linux.md
+      - name: Set up Virtual Networks
+        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
+        displayName: vpn
+    - name: Storage and backup
+      items:
+      - name: Use customer-managed keys
+        href: speech-encryption-of-data-at-rest.md
+        displayName: encrypt, byos
+      - name: How to backup and recover speech customization resources
+        href: resiliency-and-recovery-plan.md
     - name: Logs and diagnostics
       items:
         - name: Enable logs in SDK
@@ -305,22 +330,13 @@ items:
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
           href: how-to-track-speech-sdk-memory-usage.md
-    - name: Enable private endpoint
-      href: speech-services-private-link.md
-    - name: Enable VNet service endpoint
-      href: speech-service-vnet-service-endpoint.md
-    - name: Use Azure Active Directory Authentication
-      href: how-to-configure-azure-ad-auth.md
-    - name: Configure OpenSSL for Linux
-      displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
-      href: how-to-configure-openssl-linux.md
     - name: Configure RHEL/CentOS 7
       href: how-to-configure-rhel-centos-7.md
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
-    - name: Swagger documentation
+    - name: Generate a REST API client library
       href: swagger-documentation.md
       displayName: rest
-    - name: Use containers
+    - name: Speech containers
       items:
         - name: Install and run Speech containers
           displayName: 'containers,install container,run container'
@@ -335,7 +351,6 @@ items:
           href: speech-container-howto-on-premises.md
         - name: Speech containers on Azure container instances
           displayName: 'ACI,azure container instances,container instances,containers'
-          maintainContext: true
           href: ../containers/azure-container-instance-recipe.md
         - name: Use containers in disconnected environments
           href: ../containers/disconnected-containers.md
@@ -343,25 +358,24 @@ items:
           href: speech-container-faq.yml
         - name: Cognitive Services containers documentation
           href: ../containers/index.yml
-          maintainContext: true
     - name: Migration
       items:
+        - name: Neural voice migration
+          items:
+            - name: Migration to neural voice
+              href: migration-overview-neural-voice.md
+            - name: Migrate to custom neural voice 
+              href: how-to-migrate-to-custom-neural-voice.md  
+            - name: Migrate to prebuilt neural voice
+              href: how-to-migrate-to-prebuilt-neural-voice.md 
+        - name: From Speech-to-text v2.0
+          href: migrate-v2-to-v3.md
         - name: From Bing Speech
           href: how-to-migrate-from-bing-speech.md
           displayName: migration, migrate 
         - name: From the Translator Speech API
           href: how-to-migrate-from-translator-speech-api.md
           displayName: migration, migrate
-    - name: Enterprise readiness
-      items:
-      - name: Set up Virtual Networks
-        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
-        displayName: vpn
-      - name: Use customer-managed keys
-        href: speech-encryption-of-data-at-rest.md
-        displayName: encrypt, byos
-      - name: How to backup and recover speech customization resources
-        href: resiliency-and-recovery-plan.md
 - name: Devices
   items:
     - name: Devices overview
@@ -379,15 +393,6 @@ items:
     - name: Release notes
       href: releasenotes.md
       displayName: reference 
-    - name: CLI reference
-      displayName: SPX, command line
-      items:
-        - name: Speech CLI configuration options
-          displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore, reference
-          href: spx-data-store-configuration.md
-        - name: Speech CLI batch operations
-          displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
-          href: spx-batch-operations.md
     - name: SDK reference
       items:
         - name: C++
@@ -416,9 +421,12 @@ items:
         - name: Conversation transcription REST APIs
           href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
           displayName: reference 
-        - name: Speech-to-text REST API
-          href: rest-speech-to-text.md 
-          displayName: reference          
+        - name: Speech-to-text REST API v3.0
+          href: rest-speech-to-text.md
+          displayName: reference 
+        - name: Speech-to-text REST API for short audio
+          href: rest-speech-to-text-short.md    
+          displayName: reference       
         - name: Text-to-speech REST API
           href: rest-text-to-speech.md
           displayName: reference 
@@ -489,12 +497,6 @@ items:
         href: /legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
 - name: Resources
   items:
-    - name: Enterprise readiness
-      items:
-      - name: Region support
-        href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-      - name: Compliance and certification
-        href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Sovereign Clouds
@@ -504,5 +506,9 @@ items:
       href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+    - name: Azure products by region
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Compliance and certification
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Privacy and cookies
       href: https://privacy.microsoft.com/privacystatement

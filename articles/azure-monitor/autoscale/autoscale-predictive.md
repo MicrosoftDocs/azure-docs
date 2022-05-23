@@ -301,7 +301,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 }
 ```
  
-For more information on Azure Resource Manager templates, see [Resource Manager template overview](/azure/azure-resource-manager/templates/overview)
+For more information on Azure Resource Manager templates, see [Resource Manager template overview](../../azure-resource-manager/templates/overview.md)
 
 ## Common questions
 
@@ -327,7 +327,7 @@ You receive the error message as seen below:
 
    *Predictive autoscale is based on the metric percentage CPU of the current resource.  Choose this metric in the scale up trigger rules*. 
 
-:::image type="content" source="media/autoscale-predictive/error-not-enabled-10.png" alt-text="Screenshot of error message predictive autoscale is based on the metric percentage CPU of the current resource":::
+:::image type="content" source="media/autoscale-predictive/error-not-enabled.png" alt-text="Screenshot of error message predictive autoscale is based on the metric percentage CPU of the current resource":::
 
 This message means you attempted to enable predictive autoscale before you enabled standard autoscale and set it up to use the *Percentage CPU* metric with the *Average* aggregation type.
 
@@ -337,7 +337,7 @@ You won't see data on the predictive charts under certain conditions.  This isn'
 
 When predictive autoscale is disabled, you instead receive a message beginning with "No data to show..." and giving you instructions on what to enable so you can see a predictive chart.
   
-   :::image type="content" source="media/autoscale-predictive/message-no-data-to-show-11.png" alt-text="Screenshot of message No data to show":::
+   :::image type="content" source="media/autoscale-predictive/error-no-data-to-show.png" alt-text="Screenshot of message No data to show":::
 
 When you first create a virtual machine scale set and enable forecast only mode, you receive a message telling you "Predictive data is being trained.." and a time to return to see the chart.
   

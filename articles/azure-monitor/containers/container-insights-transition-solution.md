@@ -9,7 +9,7 @@ description: "Learn how to migrate from using the legacy OMS solution to monitor
 
 # Transition from the Container Monitoring Solution to using Container Insights
 
-With both the underlying platform and agent deprecations, on March 1, 2025 the [Container Monitoring Solution](./containers.md) will be retired. If you use the Container Monitoring Solution to ingest data to your Log Analytics workspace, make sure to transition to using [Container Insights](./container-insights-overview.md) prior to that date.
+With both the underlying platform and agent deprecations, on March 31, 2025 the [Container Monitoring Solution](./containers.md) will be retired. If you use the Container Monitoring Solution to ingest data to your Log Analytics workspace, make sure to transition to using [Container Insights](./container-insights-overview.md) prior to that date.
 
 ## Steps to complete the transition
 

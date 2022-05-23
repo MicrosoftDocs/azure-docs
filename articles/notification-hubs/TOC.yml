@@ -92,6 +92,8 @@
   items:
   - name: Availability zones
     href: availability-zones.md
+  - name: Data encryption at rest
+    href: encrypt-at-rest.md
   - name: Transport Layer Security (TLS)
     href: notification-hubs-tls12.md
   - name: Enterprise push architecture guidance

@@ -41,6 +41,47 @@ To create apps on Azure Spring Cloud, follow these steps:
    az spring-cloud app create --name customers-service --instance-count 1 --memory 2Gi
    ```
 
+## Bind apps to Application Configuration Service for Tanzu and Tanzu Service Registry
+
+### [Portal](#tab/azure-portal)
+
+To bind apps to Application Configuration Service for VMware Tanzu®, follow these steps.
+
+1. In the Azure portal, select **Application Configuration Service**.
+1. Select **App binding**, then select **Bind app**.
+1. Choose one app in the dropdown and select **Apply** to bind the application to Application Configuration Service for Tanzu.
+
+   ![Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and 'App binding' section with 'Bind app' dialog showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png)
+
+A list under **App name** shows the apps bound with Application Configuration Service for Tanzu, as shown in the following screenshot:
+
+![Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and 'App binding' section with app list showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
+
+To bind apps to VMware Tanzu® Service Registry, follow these steps.
+
+1. Select **Service Registry**.
+1. Select **App binding**, then select **Bind app**.
+1. Choose one app in the dropdown, and then select **Apply** to bind the application to Tanzu Service Registry.
+
+   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Cloud with Service Registry page and 'Bind app' dialog showing.":::
+
+A list under **App name** shows the apps bound with Tanzu Service Registry, as shown in the following screenshot:
+
+:::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind.png" alt-text="Screenshot of Azure portal Azure Spring Cloud with Service Registry page and 'App binding' section showing.":::
+
+### [Azure CLI](#tab/azure-cli)
+
+To bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry, use the following commands.
+
+```azurecli
+az spring-cloud application-configuration-service bind --app api-gateway
+az spring-cloud application-configuration-service bind --app customers-service
+az spring-cloud service-registry bind --app api-gateway
+az spring-cloud service-registry bind --app customers-service
+```
+
+---
+
 ## Build and deploy applications
 
 The following sections show how to build and deploy applications.
@@ -95,17 +136,16 @@ Access the `api gateway` and `customers service` applications from the browser u
 
 ## Clean up resources
 
-1. Open the [Azure portal](https://ms.portal.azure.com/?AppPlatformExtension=entdf#home), then delete the service instance as in the following screenshot.
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
 
-   ![Delete an instance image](./media/enterprise/getting-started-enterprise/service-instance-delete-instance.png)
-
-1. Run the following command to remove the preview version of the Azure CLI extension.
-
-   ```azurecli
-   az extension remove --name spring-cloud
-   ```
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Set up Tanzu Service Registry](quickstart-setup-service-registry-enterprise.md)
+> [Quickstart: Set up a Log Analytics workspace](quickstart-setup-log-analytics.md)

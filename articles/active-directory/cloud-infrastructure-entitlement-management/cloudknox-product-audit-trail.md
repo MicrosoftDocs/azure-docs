@@ -2,14 +2,14 @@
 title: Filter and query user activity in CloudKnox Permissions Management 
 description: How to filter and query user activity in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Filter and query user activity
@@ -31,9 +31,9 @@ If you have used filters before, the default filter is last filter you selected.
 
 1. To display the **Audit** dashboard, on the CloudKnox home page, select **Audit**.
 
-1. To select your authorization system type, in the **Authorization system type** box, select Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**). 
+1. To select your authorization system type, in the **Authorization System Type** box, select Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), Google Cloud Platform (**GCP**), or Platform (**Platform**). 
 
-1. To select your authorization system, in the **Authorization system** box:
+1. To select your authorization system, in the **Authorization System** box:
 
     - From the **List** subtab, select the accounts you want to use. 
     - From the **Folders** subtab, select the folders you want to use.
@@ -44,11 +44,11 @@ If you have used filters before, the default filter is last filter you selected.
 
 There are several different query parameters you can configure individually or in combination. The query parameters and corresponding instructions are listed in the following sections.
 
-- To create a new query, select **New query**.
+- To create a new query, select **New Query**.
 - To view an existing query, select **View** (the eye icon).
 - To edit an existing query, select **Edit** (the pencil icon).
 - To delete a function line in a query, select **Delete** (the minus sign **-** icon).
-- To create multiple queries at one time, select **Add new tab** to the right of the **Query** tabs that are displayed. 
+- To create multiple queries at one time, select **Add New Tab** to the right of the **Query** tabs that are displayed. 
 
   You can open a maximum number of six query tab pages at the same time. A message will appear when you've reached the maximum.
 
@@ -56,7 +56,7 @@ There are several different query parameters you can configure individually or i
 
 ### Create a query with a date
 
-1. In the **New query** section, the default parameter displayed is **Date In "Last day"**.
+1. In the **New Query** section, the default parameter displayed is **Date In "Last day"**.
 
     The first-line parameter always defaults to **Date** and can't be deleted.
 
@@ -107,7 +107,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. In the **New query** section, select **Add**.
 
-1. From the menu, select **Resource name**.
+1. From the menu, select **Resource Name**.
 
 1. From the **Operator** menu, select the required option.
 
@@ -125,9 +125,9 @@ The **Operator** menu displays the following options depending on the identity y
 
 ### Create a query with a resource type
 
-1. In the **New query** section, select **Add**.
+1. In the **New Query** section, select **Add**.
 
-1. From the menu, select **Resource type**.
+1. From the menu, select **Resource Type**.
 
 1. From the **Operator** menu, select the required option.
 
@@ -146,9 +146,9 @@ The **Operator** menu displays the following options depending on the identity y
 
 ### Create a query with a task name
 
-1. In the **New query** section, select **Add**.
+1. In the **New Query** section, select **Add**.
 
-1. From the menu, select **Task name**.
+1. From the menu, select **Task Name**.
 
 1. From the **Operator** menu, select the required option.
 
@@ -166,17 +166,17 @@ The **Operator** menu displays the following options depending on the identity y
 
 ### Create a query with a state
 
-1. In the **New query** section, select **Add**.
+1. In the **New Query** section, select **Add**.
 
 1. From the menu, select **State**.
 
 1. From the **Operator** menu, select the required option.
 
-    - **Is** / **Is not**: Allows a user to select in the value field and select **Authorization failure**, **Error**, or **Success**.
+    - **Is** / **Is not**: Allows a user to select in the value field and select **Authorization Failure**, **Error**, or **Success**.
 
 1. To add criteria to this section, select **Add**. 
 
-1. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with State **Authorization failure**. 
+1. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with State **Authorization Failure**. 
 
 1. Select the **Add** icon, select **Or** with **Is**, and then select **Success**. 
 
@@ -208,9 +208,9 @@ The **Operator** menu displays the following options depending on the identity y
 
 ### Create a query with a role session name
 
-1. In the **New query** section, select **Add**.
+1. In the **New Query** section, select **Add**.
 
-2. From the menu, select **Role session name**.
+2. From the menu, select **Role Session Name**.
 
 3. From the **Operator** menu, select the required option.
 
@@ -228,7 +228,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 ### Create a query with an access key ID
 
-1. In the **New query** section, select **Add**.
+1. In the **New Query** section, select **Add**.
 
 2. From the menu, select **Access Key ID**.
 
@@ -248,7 +248,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 ### Create a query with a tag key
 
-1. In the **New query** section, select **Add**.
+1. In the **New Query** section, select **Add**.
 
 2. From the menu, select **Tag Key**.
 
@@ -268,7 +268,7 @@ The **Operator** menu displays the following options depending on the identity y
 
 ### Create a query with a tag key value
 
-1. In the **New query** section, select **Add**.
+1. In the **New Query** section, select **Add**.
 
 2. From the menu, select **Tag Key Value**.
 
@@ -294,73 +294,72 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. To sort each column by ascending or descending value, select the up or down arrows next to the column name.
 
-    - **Identity details**: The name of the identity, for example the name of the role session performing the task.
+    - **Identity Details**: The name of the identity, for example the name of the role session performing the task.
 
-        - To view the **Raw events summary**, which displays the full details of the event, next to the **Name** column, select **View**.
+        - To view the **Raw Events Summary**, which displays the full details of the event, next to the **Name** column, select **View**.
 
-    - **Resource name**: The name of the resource on which the task is being performed.
+    - **Resource Name**: The name of the resource on which the task is being performed.
 
         If the column displays **Multiple**, it means multiple resources are listed in the column. 
 
 1. To view a list of all resources, hover over **Multiple**.
 
-    - **Resource type**: Displays the type of resource, for example, *Key* (encryption key) or *Bucket* (storage).
-    - **Task name**: The name of the task that was performed by the identity.
+    - **Resource Type**: Displays the type of resource, for example, *Key* (encryption key) or *Bucket* (storage).
+    - **Task Name**: The name of the task that was performed by the identity.
 
          An exclamation mark (**!**) next to the task name indicates that the task failed.
 
     - **Date**: The date when the task was performed.
 
-    - **IP address**: The IP address from where the user performed the task.
+    - **IP Address**: The IP address from where the user performed the task.
 
-    - **Authorization system**: The authorization system name in which the task was performed.
+    - **Authorization System**: The authorization system name in which the task was performed.
 
 1. To download the results in comma-separated values (CSV) file format, select **Download**.
 
 ## Save a query
 
-1. After you complete your query selections from the **New query** section, select **Save**.
+1. After you complete your query selections from the **New Query** section, select **Save**.
 
-2. In the **Query name** box, enter a name for your query, and then select **Save**.
+2. In the **Query Name** box, enter a name for your query, and then select **Save**.
 
-3. To save a query with a different name, select the ellipses (**...**) next to **Save**, and then select **Save as**. 
+3. To save a query with a different name, select the ellipses (**...**) next to **Save**, and then select **Save As**. 
 
-4. Make your query selections from the **New query** section, select the ellipses (**...**), and then select **Save as**.
+4. Make your query selections from the **New Query** section, select the ellipses (**...**), and then select **Save As**.
 
-5. To save a new query, in the **Save query** box, enter the name for the query, and then select **Save**.  
-
-      The following message displays in green at the top of the screen to indicate the query was saved successfully: **Saved query as XXX**.
+5. To save a new query, in the **Save Query** box, enter the name for the query, and then select **Save**.  
 
 6. To save an existing query you've modified, select the ellipses (**...**). 
 
       - To save a modified query under the same name, select **Save**.
-      - To save a modified query under a different name, select **Save as**.
+      - To save a modified query under a different name, select **Save As**.
 
 ### View a saved query
 
-1. Select **Saved Queries**, and then select **Load queries**.  
+1. Select **Saved Queries**, and then select a query from the **Load Queries** list.  
 
       A message box opens with the following options: **Load with the saved authorization system** or **Load with the currently selected authorization system**. 
 
-1. Select the appropriate option, and then select **Load query**.
+1. Select the appropriate option, and then select **Load Queries**.
 
 1. View the query information:
 
-      - **Query**: Displays the name of the saved query.
-      - **Query type**: Displays whether the query is a *System* query or a *Custom* query.
+      - **Query Name**: Displays the name of the saved query.
+      - **Query Type**: Displays whether the query is a *System* query or a *Custom* query.
       - **Schedule**: Displays how often a report will be generated. You can schedule a one-time report or a monthly report.
-      - **Next on**: Displays the date and time the next report will be generated.
+      - **Next On**: Displays the date and time the next report will be generated.
       - **Format**: Displays the output format for the report, for example, CSV.
+      - **Last Modified On**: Displays the date in which the query was last modified on.
 
-1. To view or set schedule details, select the gear icon, select **Create schedule**, and then set the details.
+1. To view or set schedule details, select the gear icon, select **Create Schedule**, and then set the details.
 
-   If a schedule has already been created, select the gear icon to open the **Edit schedule** box.
+   If a schedule has already been created, select the gear icon to open the **Edit Schedule** box.
 
-      - **Repeats**: Sets how often the report should repeat.
-      - **Date**: Sets the date when you want to receive the report.
-      - **hh:mm**: Sets the specific time when you want to receive the report.
-      - **Report file format**: Select the output type for the file, for example, CSV.
-      - **Share report with people**: The email address of the user who is creating the schedule is displayed in this field. You can add other email addresses.
+      - **Repeat**: Sets how often the report should repeat.
+      - **Start On**: Sets the date when you want to receive the report.
+      - **At**: Sets the specific time when you want to receive the report.
+      - **Report Format**: Select the output type for the file, for example, CSV.
+      - **Share Report With**: The email address of the user who is creating the schedule is displayed in this field. You can add other email addresses.
 
 1. After selecting your options, select **Schedule**.
 
@@ -378,14 +377,14 @@ The **Operator** menu displays the following options depending on the identity y
     - **Rename**: Enter the new name of the query and select **Save**.
     - **Delete**: Delete the saved query.  
 
-        The **Delete query** box opens, asking you to confirm that you want to delete the query. Select **Yes** or **No**.
+        The **Delete Query** box opens, asking you to confirm that you want to delete the query. Select **Yes** or **No**.
 
     - **Duplicate**: Creates a duplicate of the query and names it *Copy of XXX*.
-    - **Delete schedule**: Deletes the schedule details for this query.
+    - **Delete Schedule**: Deletes the schedule details for this query.
 
         This option isn't available if you haven't yet saved a schedule.
 
-        The **Delete schedule** box opens, asking you to confirm that you want to delete the schedule. Select **Yes** or **No**.
+        The **Delete Schedule** box opens, asking you to confirm that you want to delete the schedule. Select **Yes** or **No**.
 
 
 ## Export the results of a query as a report

@@ -7,7 +7,7 @@ ms.topic: how-to
 # Threat intelligence research and packages #
 ## Overview ##
 
-Security teams in Microsoft carry out proprietary ICS threat intelligence and vulnerability research. These teams include MSTIC (Microsoft Threat Intelligence Center), DART (Microsoft Detection and Response Team), DCU (Digital Crimes Unit), and Section 52 (IoT/OT/ICS domain experts that track ICS-specific zero-days, reverse-engineering malware, campaigns, and adversaries)
+Security teams at Microsoft carry out proprietary ICS threat intelligence and vulnerability research. These teams include MSTIC (Microsoft Threat Intelligence Center), DART (Microsoft Detection and Response Team), DCU (Digital Crimes Unit), and Section 52 (IoT/OT/ICS domain experts that track ICS-specific zero-days, reverse-engineering malware, campaigns, and adversaries)
 
 The teams provide security detection, analytics, and response to Microsoft's:
 
@@ -34,7 +34,7 @@ You can also see the most current package delivered from the **Threat intelligen
 
 Three options are available for updating threat intelligence packages to your sensors:
 
-- Automatically push packages to sensors as they are delivered by Defender for IoT.
+- Automatically push packages to sensors as they're delivered by Defender for IoT.
 - Manually push threat intelligence package to sensors as required.
 - Download a package and then upload it to a sensor or multiple sensors.
 
@@ -42,11 +42,11 @@ Users with Defender for IoT Security Reader permissions can automatically and ma
 
 ### Automatically push threat intelligence updates to sensors ###
 
-Threat intelligence packages can be automatically updated to *cloud connected* sensors as they are released by Defender for IoT. Ensure automatic package update by onboarding your cloud connected sensor with the **Automatic Threat Intelligence Updates** option enabled. For more information, see [Onboard a sensor](getting-started.md#onboard-a-sensor).
+Threat intelligence packages can be automatically updated to *cloud connected* sensors as they're released by Defender for IoT. Ensure automatic package update by onboarding your cloud connected sensor with the **Automatic Threat Intelligence Updates** option enabled. For more information, see [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor).
 
 ### Manually push threat intelligence updates to sensors ###
 
-Your *cloud connected* sensors can be automatically updated with threat intelligence packages. However, if you would like to take a more conservative approach, you can push packages from Defender for IoT to sensors only when you feel it is required. This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors.
+Your *cloud connected* sensors can be automatically updated with threat intelligence packages. However, if you would like to take a more conservative approach, you can push packages from Defender for IoT to sensors only when you feel it's required. This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors.
 
 **To manually push packages:**
 
@@ -116,7 +116,7 @@ To review threat intelligence information:
 
 1. Go to the Microsoft Defender for IoT **Sites and Sensors** page.
 1. Review the **Threat Intelligence version** installed on each sensor. Version naming is based on the day the package was built by Defender for IoT.
-1. Review the **Threat Intelligence mode** . *Automatic* indicates that newly available  packages will be automatically installed on sensors as they are released by Defender for IoT. *Manual* indicates that you can push newly available packages directly to sensors as needed.
+1. Review the **Threat Intelligence mode** . *Automatic* indicates that newly available  packages will be automatically installed on sensors as they're released by Defender for IoT. *Manual* indicates that you can push newly available packages directly to sensors as needed.
 1. Review the **Threat Intelligence update status**. The following statuses may be displayed:
 
 - Failed
@@ -126,8 +126,10 @@ To review threat intelligence information:
 
 If cloud connected threat intelligence updates fail, review  connection  information in the **Sensor status** and **Last connected UTC** columns in the **Sites and Sensors** page. 
 
-## See also
+## Next steps
 
-[Onboard a sensor](getting-started.md#onboard-a-sensor)
+For more information, see:
 
-[Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor)
+
+- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)

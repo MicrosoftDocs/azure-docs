@@ -132,6 +132,15 @@ This feature is available on the KPI, LKV, and property tiles. It lets you adjus
 
 :::image type="content" source="media/howto-manage-dashboards/tile-format.png" alt-text="Screenshot that shows the dialog box for tile formatting.":::
 
+## Pin analytics to dashboard
+
+To continuously monitor the analytics queries, you can pin the query to dashboard. To pin a query to the dashboard:
+
+1. Navigate to **Data explorer**  in the left pane and select the query you created.
+1. Select a dashboard from the dropdown menu and select **Pin to dashboard**.
+
+:::image type="content" source="media/howto-manage-dashboards/pin-dashboard.png" alt-text="Select pin to dashboard":::
+
 ## Next steps
 
 Now that you've learned how to create and manage personal dashboards, you can [learn how to manage your application preferences](howto-manage-preferences.md).

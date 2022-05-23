@@ -13,7 +13,10 @@ Workspace-based resources support full integration between Application Insights 
 This also allows for common Azure role-based access control (Azure RBAC) across your resources, and eliminates the need for cross-app/workspace queries.
 
 > [!NOTE]
-> Data ingestion and retention for workspace-based Application Insights resources are billed through the Log Analytics workspace where the data is located. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources.
+> Data ingestion and retention for workspace-based Application Insights resources are billed through the Log Analytics workspace where the data is located. [Learn more](../logs/cost-logs.md) about billing for workspace-based Application Insights resources.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 
 ## New capabilities
 
@@ -22,7 +25,7 @@ Workspace-based Application Insights allows you to take advantage of the latest 
 * [Customer-Managed Keys (CMK)](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys to which only you have access.
 * [Azure Private Link](../logs/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
 * [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
-* [Commitment Tiers](../logs/manage-cost-storage.md#pricing-model) enable you to save as much as 30% compared to the Pay-As-You-Go price. 
+* [Commitment Tiers](../logs/cost-logs.md#commitment-tiers) enable you to save as much as 30% compared to the Pay-As-You-Go price. 
 * Faster data ingestion via Log Analytics streaming ingestion.
 
 ## Create workspace-based resource
@@ -43,7 +46,7 @@ Once your resource is created, you will see the corresponding workspace info in 
 Clicking the blue link text will take you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
 > [!NOTE]
-> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](apm-tables.md) you must first navigate to your Log Analytics workspace. Selecting **Logs (Analytics)** from within the Application Insights panes will give you access to the classic Application Insights query experience.
+> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](convert-classic-resource.md#workspace-based-resource-changes) you must first navigate to your Log Analytics workspace. Selecting **Logs (Analytics)** from within the Application Insights panes will give you access to the classic Application Insights query experience.
 
 ## Copy the connection string
 
@@ -153,7 +156,7 @@ The `New-AzApplicationInsights` PowerShell command does not currently support cr
             "properties": {
                 "ApplicationId": "[parameters('name')]",
                 "Application_Type": "[parameters('type')]",
-                "Flow_Type": "Redfield",
+                "Flow_Type": "Bluefield",
                 "Request_Source": "[parameters('requestSource')]",
                 "WorkspaceResourceId": "[parameters('workspaceResourceId')]"
             }
@@ -203,7 +206,8 @@ From within the Application Insights resource pane, select **Properties** > **Ch
 The legacy continuous export functionality is not supported for workspace-based resources. Instead, select **Diagnostic settings** > **add diagnostic setting** from within your Application Insights resource. You can select all tables, or a subset of tables to archive to a storage account, or to stream to an Azure Event Hub.
 
 > [!NOTE]
-> There are currently no additional charges for the telemetry export. Pricing information for this feature will be available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).  Prior to the start of billing, notifications will be sent. Should you choose to continue using telemetry export after the notice period, you will be billed at the applicable rate. 
+> * Diagnostic settings export may increase costs. ([more information](export-telemetry.md#diagnostic-settings-based-export))
+> * Pricing information for this feature will be available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).  Prior to the start of billing, notifications will be sent. Should you choose to continue using telemetry export after the notice period, you will be billed at the applicable rate. 
 
 ## Next steps
 

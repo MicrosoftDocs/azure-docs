@@ -1,39 +1,36 @@
 ---
-title: IoT connector troubleshooting guides - Azure Healthcare APIs
-description: This article helps users troubleshoot IoT connector error messages and conditions and provides fixes.
+title: MedTech service troubleshooting guides - Azure Health Data Services
+description: This article helps users troubleshoot MedTech service error messages and conditions and provides fixes.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 12/10/2021
+ms.date: 02/16/2022
 ms.author: jasteppe
 ---
-# Troubleshoot IoT connector
+# Troubleshoot MedTech service
+
+This article provides guides and resources to troubleshoot the MedTech service.
 
 > [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
-
-This article provides guides and resources to troubleshoot IoT connector.
-
-> [!IMPORTANT]
-> Having access to IoT connector Metrics is essential for monitoring and troubleshooting.  IoT connector assists you to do these actions through [Metrics](./how-to-display-metrics.md).
+> Having access to the MedTech service Metrics is essential for monitoring and troubleshooting.  The MedTech service assists you to do these actions through [Metrics](./how-to-display-metrics.md).
 
 > [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
 
 > [!NOTE]
-> When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for IoT connector, include [copies of your Device and FHIR destination mappings](./how-to-create-mappings-copies.md) to assist in the troubleshooting process.
+> When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the MedTech service, include [copies of your Device and FHIR destination mappings](./how-to-create-mappings-copies.md) to assist in the troubleshooting process.
 
-## IoT connector troubleshooting guides
+## MedTech service troubleshooting guides
 
 ### Device and FHIR destination mappings
 
-* [Troubleshoot IoT connector Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings](./iot-troubleshoot-mappings.md)
+* [Troubleshoot MedTech service Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings](./iot-troubleshoot-mappings.md)
 
 ### Error messages and conditions
 
-* [Troubleshoot IoT connector error messages and conditions](./iot-troubleshoot-error-messages-and-conditions.md)
+* [Troubleshoot MedTech service error messages and conditions](./iot-troubleshoot-error-messages-and-conditions.md)
 
 ### How-To
 * [How to display Metrics](./how-to-display-metrics.md)
@@ -42,9 +39,9 @@ This article provides guides and resources to troubleshoot IoT connector.
 * [How to create file copies of mappings](./how-to-create-mappings-copies.md)
 
 ## Next steps
-To learn about frequently asked questions (FAQs) about IoT connector, see
+To learn about frequently asked questions (FAQs) about the MedTech service, see
 
 >[!div class="nextstepaction"]
->[Frequently asked questions about IoT connector](iot-connector-faqs.md)
+>[Frequently asked questions about the MedTech service](iot-connector-faqs.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

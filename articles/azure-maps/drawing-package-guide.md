@@ -1,5 +1,6 @@
 ---
-title: Drawing package guide for Microsoft Azure Maps Creator (Preview) 
+title: Drawing package guide for Microsoft Azure Maps Creator
+titleSuffix: Microsoft Azure Maps Creator
 description: Learn how to prepare a Drawing package for the Azure Maps Conversion service
 author: stevemunk
 ms.author: v-munksteve

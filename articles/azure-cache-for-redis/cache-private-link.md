@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 3/31/2021
+ms.date: 02/28/2022
 ---
 
 # Azure Cache for Redis with Azure Private Link
@@ -66,7 +66,7 @@ In this section, you'll create a new Azure Cache for Redis instance with a priva
 
 10. Select the **Review + create** tab or select the **Review + create** button.
 
-11. Verify that all the information is correct and select **Create** to provision the virtual network.
+11. Verify that all the information is correct and select **Create** to create the virtual network.
 
 ### Create an Azure Cache for Redis instance with a private endpoint
 
@@ -124,7 +124,7 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 In this section, you'll add a private endpoint to an existing Azure Cache for Redis instance.
 
-### Create a virtual network for you existing cache
+### Create a virtual network for your existing cache
 
 To create a virtual network, follow these steps.
 
@@ -155,7 +155,7 @@ To create a virtual network, follow these steps.
 
 1. Select the **Review + create** tab or select the **Review + create** button.
 
-1. Verify that all the information is correct and select **Create** to provision the virtual network.
+1. Verify that all the information is correct and select **Create** to create the virtual network.
 
 ### Create a private endpoint
 
@@ -316,6 +316,7 @@ az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyR
 
 ## FAQ
 
+- [How do I connect to my cache with private endpoint?](#how-do-i-connect-to-my-cache-with-private-endpoint)
 - [Why can't I connect to a private endpoint?](#why-cant-i-connect-to-a-private-endpoint)
 - [What features aren't supported with private endpoints?](#what-features-arent-supported-with-private-endpoints)
 - [How do I verify if my private endpoint is configured correctly?](#how-do-i-verify-if-my-private-endpoint-is-configured-correctly)
@@ -325,6 +326,14 @@ az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyR
 - [What happens if I delete all the private endpoints on my cache?](#what-happens-if-i-delete-all-the-private-endpoints-on-my-cache)
 - [Are network security groups (NSG) enabled for private endpoints?](#are-network-security-groups-nsg-enabled-for-private-endpoints)
 - [My private endpoint instance isn't in my VNet, so how is it associated with my VNet?](#my-private-endpoint-instance-isnt-in-my-vnet-so-how-is-it-associated-with-my-vnet)
+
+### How do I connect to my cache with private endpoint?
+
+Your application should connect to `<cachename>.redis.cache.windows.net` on port `6380`. We recommend avoiding the use of `<cachename>.privatelink.redis.cache.windows.net` in configuration or connection string.
+
+A private DNS zone, named `*.privatelink.redis.cache.windows.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint.
+
+For more information, see [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md).
 
 ### Why can't I connect to a private endpoint?
 
@@ -339,7 +348,7 @@ Trying to connect from the Azure portal console is an unsupported scenario where
 
 ### How do I verify if my private endpoint is configured correctly?
 
-You can run a command like `nslookup` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache. The private IP address is found by selecting your **Private endpoint** from your resources. On the resource menu on the left, select **DNS configuration**. In the working pane on the right, you see the IP address for the **Network Interface**.
+ Go to **Overview** in the Resource menu on the portal. You see the **Host name** for your cache in the working pane. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
 
 :::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
 
@@ -374,7 +383,7 @@ Refer to our [migration guide](cache-vnet-migration.md) for different approaches
 
 ### How can I have multiple endpoints in different virtual networks?
 
-To have multiple private endpoints in different virtual networks, the private DNS zone must be manually configured to the multiple virtual networks _before_ creating the private endpoint. For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+To have multiple private endpoints in different virtual networks, the private DNS zone must be manually configured to the multiple virtual networks *before* creating the private endpoint. For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
 ### What happens if I delete all the private endpoints on my cache?
 
@@ -393,4 +402,4 @@ It's only linked to your VNet. Because it's not in your VNet, NSG rules don't ne
 ## Next steps
 
 - To learn more about Azure Private Link, see the [Azure Private Link documentation](../private-link/private-link-overview.md).
-- To compare various network isolation options for your cache instance, see [Azure Cache for Redis network isolation options documentation](cache-network-isolation.md).
+- To compare various network isolation options for your cache, see [Azure Cache for Redis network isolation options documentation](cache-network-isolation.md).

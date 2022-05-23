@@ -25,7 +25,7 @@ This script creates a virtual machine scale set running Ubuntu in a single Avail
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.sh" range="4-32":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.sh" id="FullScript":::
 
 ## Clean up resources
 

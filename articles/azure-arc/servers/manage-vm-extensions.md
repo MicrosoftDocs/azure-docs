@@ -81,7 +81,7 @@ This feature depends on the following Azure resource providers in your subscript
 - **Microsoft.HybridCompute**
 - **Microsoft.GuestConfiguration**
 
-If they aren't already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
+If they aren't already registered, follow the steps under [Register Azure resource providers](prerequisites.md#azure-resource-providers).
 
 Be sure to review the documentation for each VM extension referenced in the previous table to understand if it has any network or system requirements. This can help you avoid experiencing any connectivity issues with an Azure service or feature that relies on that VM extension.
 
@@ -113,11 +113,11 @@ Before you deploy the extension, you need to complete the following:
 
 ### Connected Machine agent
 
-Verify your machine matches the [supported versions](agent-overview.md#supported-operating-systems) of Windows and Linux operating system for the Azure Connected Machine agent.
+Verify your machine matches the [supported versions](prerequisites.md#supported-operating-systems) of Windows and Linux operating system for the Azure Connected Machine agent.
 
 The minimum version of the Connected Machine agent that is supported with this feature on Windows and Linux is the 1.0 release.
 
-To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrading-agent).
+To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrade-the-agent).
 
 ## Next steps
 

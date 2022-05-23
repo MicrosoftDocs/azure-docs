@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.date: 05/16/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -38,7 +38,7 @@ Number matching is available for the following scenarios. When enabled, all scen
 - [NPS extension](howto-mfa-nps-extension.md)
 
 >[!NOTE]
->For passwordless users, enabling number matching has no impact because it's already part of the passwordless experience. 
+>For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
 
 ### Multifactor authentication
 
@@ -49,9 +49,6 @@ When a user responds to an MFA push notification using Microsoft Authenticator, 
 ### SSPR
 
 During self-service password reset, Microsoft Authenticator notification will show a number that the user will need to type in their Authenticator app notification. This number will only be seen to users who have been enabled for number matching.
-
->[!NOTE]
->Number matching for admin roles during SSPR is pending and unavailable for a couple days.
 
 ### Combined registration
 
@@ -86,6 +83,9 @@ To create the registry key that overrides push notifications:
 1. Restart the NPS Service. 
 
 ### Policy schema changes 
+
+>[!NOTE]
+>In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
 
 Identify your single target group for the schema configuration. Then use the following API endpoint to change the numberMatchingRequiredState property to **enabled**:
 
@@ -129,7 +129,7 @@ You will need to change the **numberMatchingRequiredState** from **default** to 
 Note that the value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we will use **any**, but if you do not want to allow passwordless, use **push**. 
 
 >[!NOTE]
->For passwordless users, enabling number matching has no impact because it's already part of the passwordless experience. 
+>For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
 
 You might need to patch the entire includeTarget to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example only shows the update to the **numberMatchingRequiredState**. 
 
@@ -241,7 +241,11 @@ To enable number matching in the Azure AD portal, complete the following steps:
 1. Select the **Authentication mode**, and then for **Require number matching (Preview)**, click **Enable**, and then click **Done**. 
 
    ![Screenshot of enabling number match.](media/howto-authentication-passwordless-phone/enable-number-matching.png)
+   
+>[!NOTE]
+>[Least privilege role in Azure Active Directory - Multi-factor Authentication](https://docs.microsoft.com/azure/active-directory/roles/delegate-by-task#multi-factor-authentication)
 
+Number matching is not supported for Apple Watch notifications. Apple Watch need to use their phone to approve notifications when number matching is enabled.
 
 ## Next steps
 

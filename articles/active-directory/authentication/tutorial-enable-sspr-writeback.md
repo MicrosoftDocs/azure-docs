@@ -10,7 +10,7 @@ ms.date: 11/11/2021
 
 ms.author: justinha
 author: justinha
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
@@ -91,7 +91,7 @@ Password policies in the on-premises AD DS environment may prevent password rese
 If you update the group policy, wait for the updated policy to replicate, or use the `gpupdate /force` command.
 
 > [!Note]
-> For passwords to be changed immediately, *Minimum password age* must be set to 0. However, if users adhere to the on-premises policies, and the *Minimum password age* is set to a value greater than zero, password writeback still works after the on-premises policies are evaluated.
+> If you need to allow users to change or reset passwords more than one time per day, *Minimum password age* must be set to 0. Password writeback will work after on-premises password policies are successfully evaluated.
 
 ## Enable password writeback in Azure AD Connect
 
@@ -146,6 +146,9 @@ If you no longer want to use any password functionality, complete the following 
 1. On the **Optional features** page, deselect the box next to **Password writeback** and select **Next**.
 1. On the **Ready to configure** page, select **Configure** and wait for the process to finish.
 1. When you see the configuration finish, select **Exit**.
+
+> [!IMPORTANT]
+> Enabling password writeback for the first time may trigger password change events 656 and 657, even if a password change has not occurred. This is because all password hashes are re-synchronized after a password hash synchronization cycle has run.
 
 ## Next steps
 

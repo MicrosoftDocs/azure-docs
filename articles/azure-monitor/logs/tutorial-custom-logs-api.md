@@ -1,16 +1,15 @@
 ---
-title: Tutorial - Send custom logs to Azure Monitor Logs using resource manager templates
-description: Tutorial on how to send custom logs to a Log Analytics workspace in Azure Monitor using resource manager templates.
-ms.subservice: logs
+title: Tutorial - Send custom logs to Azure Monitor Logs using Resource Manager templates
+description: Tutorial on how to send custom logs to a Log Analytics workspace in Azure Monitor using Resource Manager templates.
 ms.topic: tutorial
 ms.date: 01/19/2022
 ---
 
-# Tutorial: Send custom logs to Azure Monitor Logs using resource manager templates (preview)
-[Custom logs](custom-logs-overview.md) in Azure Monitor allow you to send custom data to tables in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using resource manager templates.
+# Tutorial: Send custom logs to Azure Monitor Logs using Resource Manager templates (preview)
+[Custom logs](custom-logs-overview.md) in Azure Monitor allow you to send custom data to tables in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using Resource Manager templates.
 
 > [!NOTE]
-> This tutorial uses resource manager templates and REST API to configure custom logs. See [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-custom-logs.md) for a similar tutorial using the Azure portal.
+> This tutorial uses Resource Manager templates and REST API to configure custom logs. See [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-custom-logs.md) for a similar tutorial using the Azure portal.
 
 In this tutorial, you learn to:
 
@@ -22,23 +21,23 @@ In this tutorial, you learn to:
 
 
 > [!NOTE]
-> This tutorial uses PowerShell from Azure Cloud Shell to make REST API calls using the Azure Monitor **Tables** API and the Azure portal to install resource manager templates. You can use any other method to make these calls.
+> This tutorial uses PowerShell from Azure Cloud Shell to make REST API calls using the Azure Monitor **Tables** API and the Azure portal to install Resource Manager templates. You can use any other method to make these calls.
 
 ## Prerequisites
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
-- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 
 ## Collect workspace details
 Start by gathering information that you'll need from your workspace.
 
-1. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure Portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
+1. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
 
     :::image type="content" source="media/tutorial-custom-logs-api/workspace-resource-id.png" lightbox="media/tutorial-custom-logs-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
 
 ## Configure application
-Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) for this tutorial.
+Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) for this tutorial.
 
 1. From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
 
@@ -50,7 +49,7 @@ Start by registering an Azure Active Directory application to authenticate again
 
 3. Once registered, you can view the details of the application. Note the **Application (client) ID** and the **Directory (tenant) ID**. You'll need these values later in the process.
 
-    :::image type="content" source="media/tutorial-custom-logs/new-app-id.png" lightbox="media/tutorial-custom-logs/new-app-id.png" alt-text="Screenshot showing app id.":::
+    :::image type="content" source="media/tutorial-custom-logs/new-app-id.png" lightbox="media/tutorial-custom-logs/new-app-id.png" alt-text="Screenshot showing app ID.":::
 
 4. You now need to generate an application client secret, which is similar to creating a password to use with a username. Select **Certificates & secrets** and then **New client secret**. Give the secret a name to identify its purpose and select an **Expires** duration. *1 year* is selected here although for a production implementation, you would follow best practices for a secret rotation procedure or use a more secure authentication mode such a certificate.
 
@@ -70,9 +69,9 @@ Use the **Tables - Update** API to create the table with the PowerShell code bel
 
 1. Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell":::
+    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell":::
 
-2. Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the cloud shell prompt to run it.
+2. Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it.
 
     ```PowerShell
     $tableParams = @'
@@ -117,9 +116,9 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
     :::image type="content" source="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
 
-3. Paste the resource manager template below into the editor and then click **Save**. You don't need to modify this template since you will provide values for its parameters.
+3. Paste the Resource Manager template below into the editor and then click **Save**. You don't need to modify this template since you will provide values for its parameters.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template.":::
+    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit Resource Manager template.":::
 
 
     ```json
@@ -174,7 +173,7 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 
 5. Click **Review + create** and then **Create** when you review the details. 
 
-6. Once the DCE is created, select it so you can view its properties. Note the **Logs ingestion** URI since you'll need this in a later step.
+6. Once the DCE is created, select it so you can view its properties. Note the **Logs ingestion URI** since you'll need this in a later step.
 
     :::image type="content" source="media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" lightbox="media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" alt-text="Screenshot for data collection endpoint uri.":::
 
@@ -194,9 +193,9 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
 
     :::image type="content" source="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
 
-3. Paste the resource manager template below into the editor and then click **Save**.
+3. Paste the Resource Manager template below into the editor and then click **Save**.
 
-    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template.":::
+    :::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit Resource Manager template.":::
 
     Notice the following details in the DCR defined in this template:
 
@@ -320,7 +319,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
 ## Assign permissions to DCR
 Once the data collection rule has been created, the application needs to be given permission to it. This will allow any application using the correct application ID and application key to send data to the new DCE and DCR.
 
-1. From the DCR in the Azure portal, select **Access Control (IAM)** amd then **Add role assignment**. 
+1. From the DCR in the Azure portal, select **Access Control (IAM)** and then **Add role assignment**. 
 
     :::image type="content" source="media/tutorial-custom-logs/add-role-assignment.png" lightbox="media/tutorial-custom-logs/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR.":::
 
@@ -340,6 +339,15 @@ Once the data collection rule has been created, the application needs to be give
 
 ## Send sample data
 The following PowerShell code sends data to the endpoint using HTTP REST fundamentals. 
+
+> [!NOTE]
+> This tutorial uses commands that require PowerShell v7.0 or later. Please make sure your local installation of PowerShell is up to date, or execute this script using the Azure CloudShell.  
+
+1. Run the following PowerShell command which adds a required assembly for the script.
+
+    ```powershell
+    Add-Type -AssemblyName System.Web
+    ```
 
 1. Replace the parameters in the *step 0* section with values from the resources that you just created. You may also want to replace the sample data in the *step 2* section with your own.  
 
@@ -365,8 +373,6 @@ The following PowerShell code sends data to the endpoint using HTTP REST fundame
     $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
 
     $bearerToken = (Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers).access_token
-    ### If the above line throws an 'Unable to find type [System.Web.HttpUtility].' error, execute the line below separately from the rest of the code
-    # Add-Type -AssemblyName System.Web
 
     ##################
     ### Step 2: Load up some sample data. 
@@ -406,13 +412,13 @@ The following PowerShell code sends data to the endpoint using HTTP REST fundame
     $headers = @{"Authorization"="Bearer $bearerToken";"Content-Type"="application/json"};
     $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/Custom-MyTableRawData?api-version=2021-11-01-preview"
 
-    $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers -TransferEncoding "GZip"
+    $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers
     ```
 
     > [!NOTE]
     > If you receive an `Unable to find type [System.Web.HttpUtility].` error, run the last line in section 1 of the script for a fix and executely. Executing it uncommented as part of the script will not resolve the issue - the command must be executed separately.   
 
-2. After executing this script, you should see a `HTTP - 200 OK` response, and in just a few minutes, the data arrive to your Log Analytics workspace.
+2. After executing this script, you should see a `HTTP - 204` response, and in just a few minutes, the data arrive to your Log Analytics workspace.
 
 ## Troubleshooting
 This section describes different error conditions you may receive and how to correct them.
@@ -427,9 +433,6 @@ The message is too large. The maximum message size is currently 1MB per call.
 API limits have been exceeded. The limits are currently set to 500MB of data/minute for both compressed and uncompressed data, as well as 300,000 requests/minute. Retry after the duration listed in the `Retry-After` header in the response.
 ### Script returns error code 503
 Ensure that you have the correct permissions for your application to the DCR. You may also need to wait up to 30 minutes for permissions to propagate.
-
-### Script returns error `Unable to find type [System.Web.HttpUtility]`
-Run the last line in section 1 of the script for a fix and execute it directly. Executing it uncommented as part of the script will not resolve the issue. The command must be executed separately.
 
 ### You don't receive an error, but data doesn't appear in the workspace
 The data may take some time to be ingested, especially if this is the first time data is being sent to a particular table. It shouldn't take longer than 15 minutes.

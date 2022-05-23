@@ -28,7 +28,7 @@ Use Azure RBAC to create and assign roles within your security operations team t
 
 - [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) can, in addition to the above, create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.
 
-- [Microsoft Sentinel Automation Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) allows Microsoft Sentinel to add playbooks to automation rules. It is not meant for user accounts.
+- [Microsoft Sentinel Automation Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-automation-contributor) allows Microsoft Sentinel to add playbooks to automation rules. It is not meant for user accounts.
 
 > [!NOTE]
 >
@@ -43,6 +43,12 @@ Users with particular job requirements may need to be assigned additional roles 
 - **Working with playbooks to automate responses to threats**
 
     Microsoft Sentinel uses **playbooks** for automated threat response. Playbooks are built on **Azure Logic Apps**, and are a separate Azure resource. You might want to assign to specific members of your security operations team the ability to use Logic Apps for Security Orchestration, Automation, and Response (SOAR) operations. You can use the [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) role to assign explicit permission for using playbooks.
+
+- **Giving Microsoft Sentinel permissions to run playbooks**
+
+    Microsoft Sentinel uses a special service account to run incident-trigger playbooks manually or to call them from automation rules. The use of this account (as opposed to your user account) increases the security level of the service.
+
+    In order for an automation rule to run a playbook, this account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule will be able to run any playbook in that resource group. To grant these permissions to this service account, your account must have **Owner** permissions on the resource groups containing the playbooks.
 
 - **Connecting data sources to Microsoft Sentinel**
 
@@ -76,7 +82,7 @@ The following table summarizes the Microsoft Sentinel roles and their allowed ac
 | Microsoft Sentinel Responder | -- | --[*](#workbooks) | &#10003; | &#10003; |
 | Microsoft Sentinel Contributor | -- | &#10003; | &#10003; | &#10003; |
 | Microsoft Sentinel Contributor + Logic App Contributor | &#10003; | &#10003; | &#10003; | &#10003; |
-| | | | | |
+
 
 <a name=workbooks></a>* Users with these roles can create and delete workbooks with the additional [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) role. For more information, see [Additional roles and permissions](#additional-roles-and-permissions).
 
@@ -106,7 +112,7 @@ After understanding how roles and permissions work in Microsoft Sentinel, you ma
 |**Security engineers**     | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)       |Microsoft Sentinel's resource group         |   View data, incidents, workbooks, and other Microsoft Sentinel resources. <br><br>Manage incidents, such as assigning or dismissing incidents. <br><br>Create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.      |
 |     | [Logic Apps Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Microsoft Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules and run playbooks. <br><br>**Note**: This role also allows users to modify playbooks.         |
 |  **Service Principal**   | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)      |  Microsoft Sentinel's resource group       | Automated configuration for management tasks |
-|     |         |        | |
+
 
 > [!TIP]
 > Additional roles may be required depending on the data you are ingesting or monitoring. For example, Azure AD roles may be required, such as the global admin or security admin roles, to set up data connectors for services in other Microsoft portals.

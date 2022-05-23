@@ -26,7 +26,7 @@ When you run the sample to connect to IoT Central, it uses the Device Provisioni
 
 The `main` method:
 
-* Creates a `client` object and sets the `dtmi:com:example:TemperatureController;2` model ID before it opens the connection. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
+* Creates a `client` object and sets the `dtmi:com:example:TemperatureController;2` model ID before it opens the connection. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template).
 * Creates command handlers for three commands.
 * Starts a loop for each thermostat component to send temperature telemetry every 5 seconds.
 * Starts a loop for the default component to send working set size telemetry every 6 seconds.
@@ -116,7 +116,7 @@ async function main() {
 }
 ```
 
-The `provisionDevice` function shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID that IoT Central uses to [associate the device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template):
+The `provisionDevice` function shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID that IoT Central uses to [Assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template):
 
 ```javascript
 async function provisionDevice(payload) {

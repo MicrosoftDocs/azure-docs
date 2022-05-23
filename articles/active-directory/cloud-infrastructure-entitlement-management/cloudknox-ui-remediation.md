@@ -2,14 +2,14 @@
 title: View existing roles/policies and requests for permission in the Remediation dashboard in CloudKnox Permissions Management
 description: How to view existing roles/policies and requests for permission in the Remediation dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # View roles/policies and requests for permission in the Remediation dashboard
@@ -36,10 +36,10 @@ This article provides an overview of the components of the **Remediation** dashb
 
     - **Roles/Policies**: Use this subtab to perform Create Read Update Delete (CRUD) operations on roles/policies.
     - **Permissions**: Use this subtab to perform Read Update Delete (RUD) on granted permissions.
-    - **Role/Policy template**: Use this subtab to create a template for roles/policies template.
+    - **Role/Policy Template**: Use this subtab to create a template for roles/policies template.
     - **Requests**: Use this subtab to view approved, pending, and processed Permission on Demand (POD) requests.
-    - **My requests**: Use this tab to manage lifecycle of the POD request either created by you or needs your approval. 
-    - **Settings**: Use this subtab to select **Request role/policy filters**, **Request settings**, and **Auto-approve** settings.
+    - **My Requests**: Use this tab to manage lifecycle of the POD request either created by you or needs your approval. 
+    - **Settings**: Use this subtab to select **Request Role/Policy Filters**, **Request Settings**, and **Auto-Approve** settings.
 
 1. Use the dropdown to select the **Authorization System Type** and **Authorization System**, and then select **Apply**.
 
@@ -47,18 +47,18 @@ This article provides an overview of the components of the **Remediation** dashb
 
 The **Role/Policies** subtab provides the following settings that you can use to view and create a role/policy.
 
-- **Authorization system type**: Displays a dropdown with authorization system types you can access, Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
-- **Authorization system**: Displays a list of authorization systems accounts you can access.
-- **Role/Policy type**: A dropdown with available role/policy types. You can select **All**, **Custom**, **System**, or **CloudKnox only**.
-- **Role/Policy status**: A dropdown with available role/policy statuses. You can select **All**, **Assigned**, or **Unassigned**.
-- **Role/Policy usage**: A dropdown with **All** or **Unused** roles/policies.
+- **Authorization System Type**: Displays a dropdown with authorization system types you can access, Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
+- **Authorization System**: Displays a list of authorization systems accounts you can access.
+- **Policy Type**: A dropdown with available role/policy types. You can select **All**, **Custom**, **System**, or **CloudKnox Only**.
+- **Policy Status**: A dropdown with available role/policy statuses. You can select **All**, **Assigned**, or **Unassigned**.
+- **Policy Usage**: A dropdown with **All** or **Unused** roles/policies.
 - **Apply**: Select this option to save the changes you've made.
 - **Reset Filter**: Select this option to discard the changes you've made.
 
-The **Role/Policies list** displays a list of existing roles/policies and the following information about each role/policy.
+The **Policy list** displays a list of existing roles/policies and the following information about each role/policy.
 
-- **Role/Policy name**: The name of the roles/policies available to you.
-- **Role/Policy type**: **Custom**, **System**, or **CloudKnox only**
+- **Policy Name**: The name of the roles/policies available to you.
+- **Policy Type**: **Custom**, **System**, or **CloudKnox Only**
 - **Actions** 
     - Select **Clone** to create a duplicate copy of the role/policy.
     - Select **Modify** to change the existing role/policy.
@@ -69,7 +69,7 @@ Other options available to you:
 - **Reload**: Select this option to refresh the displayed list of roles/policies.
 - **Export CSV**: Select this option to export the displayed list of roles/policies as a comma-separated values (CSV) file. 
 
-    When the file is successfully exported, a message appears: **Exported successfully.**
+    When the file is successfully exported, a message appears: **Exported Successfully.**
 
     - Check your email for a message from the CloudKnox Customer Success Team. This email contains a link to: 
         - The **Role Policy Details** report in CSV format.
@@ -81,19 +81,19 @@ Other options available to you:
 
 The **Permissions** subtab provides the following settings that you can use to add filters to your permissions.
 
-- **Authorization system type**: Displays a dropdown with authorization system types you can access, AWS, Azure, and GCP.
-- **Authorization system**: Displays a list of authorization systems accounts you can access.
-- **Search for**: A dropdown from which you can select **Group**, **User**, or **Role**.
-- **User status**: A dropdown from which you can select **Any**, **Active**, or **Inactive**.
-- **Privilege creep index** (PCI): A dropdown from which you can select a PCI rating of **Any**, **High**, **Medium**, or **Low**.
+- **Authorization System Type**: Displays a dropdown with authorization system types you can access, AWS, Azure, and GCP.
+- **Authorization System**: Displays a list of authorization systems accounts you can access.
+- **Search For**: A dropdown from which you can select **Group**, **User**, or **Role**.
+- **User Status**: A dropdown from which you can select **Any**, **Active**, or **Inactive**.
+- **Privilege Creep Index** (PCI): A dropdown from which you can select a PCI rating of **Any**, **High**, **Medium**, or **Low**.
 - **Task Usage**: A dropdown from which you can select **Any**, **Granted**, **Used**, or **Unused**.
-- **Enter a username**: A dropdown from which you can select a username.
+- **Enter a Username**: A dropdown from which you can select a username.
 - **Enter a Group Name**: A dropdown from which you can select a group name.
 - **Apply**: Select this option to save the changes you've made and run the filter.
 - **Reset Filter**: Select this option to discard the changes you've made.
 - **Export CSV**: Select this option to export the displayed list of roles/policies as a comma-separated values (CSV) file. 
 
-    When the file is successfully exported, a message appears: **Exported successfully.**
+    When the file is successfully exported, a message appears: **Exported Successfully.**
 
     - Check your email for a message from the CloudKnox Customer Success Team. This email contains a link to: 
         - The **Role Policy Details** report in CSV format.
@@ -102,17 +102,17 @@ The **Permissions** subtab provides the following settings that you can use to a
 
 ## Create templates for roles/policies
 
-Use the **Role/Policy template** subtab to create a template for roles/policies.
+Use the **Role/Policy Template** subtab to create a template for roles/policies.
 
 1. Select:
-    - **Authorization system type**: Displays a dropdown with authorization system types you can access, WS, Azure, and GCP.
-    - **Create template**: Select this option to create a template.
+    - **Authorization System Type**: Displays a dropdown with authorization system types you can access, WS, Azure, and GCP.
+    - **Create Template**: Select this option to create a template.
 
 1. In the **Details** page, make the required selections:
-    - **Authorization system type**: Select the authorization system types you want, **AWS**, **Azure**, or **GCP**.
-    - **Template name**: Enter a name for your template, and then select **Next**.
+    - **Authorization System Type**: Select the authorization system types you want, **AWS**, **Azure**, or **GCP**.
+    - **Template Name**: Enter a name for your template, and then select **Next**.
 
-1. In the **Statements** page,  complete the **Tasks**, **Resources**, **Request conditions** and **Effect** sections. Then select **Save** to save your role/policy template.
+1. In the **Statements** page,  complete the **Tasks**, **Resources**, **Request Conditions** and **Effect** sections. Then select **Save** to save your role/policy template.
 
 Other options available to you:
 - **Search**: Select this option to search for a specific role/policy.
@@ -123,22 +123,22 @@ Other options available to you:
 Use the **Requests** tab to view a list of **Pending**, **Approved**, and **Processed** requests for permissions your team members have made.
 
 - Select:
-    - **Authorization system type**: Displays a dropdown with authorization system types you can access, AWS, Azure, and GCP.
-    - **Authorization system**: Displays a list of authorization systems accounts you can access.
+    - **Authorization System Type**: Displays a dropdown with authorization system types you can access, AWS, Azure, and GCP.
+    - **Authorization System**: Displays a list of authorization systems accounts you can access.
 
 Other options available to you:
 
 - **Reload**: Select this option to refresh the displayed list of roles/policies.
 - **Search**: Select this option to search for a specific role/policy.
 - **Columns**: Select one or more of the following to view more information about the request:
-    - **Submitted by**
-    - **On behalf of**
-    - **Authorization system**
-    - **Tasks/scope/policies**
-    - **Request date**
+    - **Submitted By**
+    - **On Behalf Of**
+    - **Authorization System**
+    - **Tasks/Scope/Policies**
+    - **Request Date**
     - **Schedule**
     - **Submitted**
-    - **Reset to default**: Select this option to discard your settings.
+    - **Reset to Default**: Select this option to discard your settings.
 
 ### View pending requests
 
@@ -174,21 +174,21 @@ The **Processed** table displays information about the requests that have been p
 Use the **My Requests** subtab to view a list of **Pending**, **Approved**, and **Processed** requests for permissions your team members have made and you must approve or reject.
 
 - Select:
-    - **Authorization system type**: Displays a dropdown with authorization system types you can access, AWS, Azure, and GCP.
-    - **Authorization system**: Displays a list of authorization systems accounts you can access.
+    - **Authorization System Type**: Displays a dropdown with authorization system types you can access, AWS, Azure, and GCP.
+    - **Authorization System**: Displays a list of authorization systems accounts you can access.
 
 Other options available to you:
 
 - **Reload**: Select this option to refresh the displayed list of roles/policies.
 - **Search**: Select this option to search for a specific role/policy.
 - **Columns**: Select one or more of the following to view more information about the request:
-    - **On behalf of**
-    - **Authorization system**
-    - **Tasks/scope/policies**
-    - **Request date**
+    - **On Behalf Of**
+    - **Authorization System**
+    - **Tasks/Scope/Policies**
+    - **Request Date**
     - **Schedule**
-    - **Reset to default**: Select this option to discard your settings.
-- **New request**: Select this option to create a new request for permissions. For more information, see Create a request for permissions.
+    - **Reset to Default**: Select this option to discard your settings.
+- **New Request**: Select this option to create a new request for permissions. For more information, see Create a request for permissions.
 
 ### View pending requests
 
@@ -218,12 +218,12 @@ The **Processed** table displays information about the requests that have been p
 
 ## Make setting selections for requests and auto-approval
 
-The **Settings** subtab provides the following settings that you can use to make setting selections to **Request role/policy filters**, **Request settings**, and **Auto-approve** requests.
+The **Settings** subtab provides the following settings that you can use to make setting selections to **Request Role/Policy Filters**, **Request Settings**, and **Auto-Approve** requests.
 
-- **Authorization system type**: Displays a dropdown with authorization system types you can access, AWS, Azure, and GCP.
-- **Authorization system**: Displays a list of authorization systems accounts you can access.
+- **Authorization System Type**: Displays a dropdown with authorization system types you can access, AWS, Azure, and GCP.
+- **Authorization System**: Displays a list of authorization systems accounts you can access.
 - **Reload**: Select this option to refresh the displayed list of role/policy filters.
-- **Create filter**: Select this option to create a new filter.
+- **Create Filter**: Select this option to create a new filter.
 
 ## Next steps
 

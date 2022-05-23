@@ -68,7 +68,7 @@ The syntax of the line to add is different for each schema:
 | DNS    | **Name**: `Im_DnsCustom`<br><br> **Line to add**:<br> `_parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)` | **Name**: `ASim_DnsCustom`<br><br> **Line to add**:<br> `_parser_name_` |
 | NetworkSession    | **Name**: `Im_NetworkSessionCustom`<br><br> **Line to add**:<br> `_parser_name_  (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, hostname_has_any, dvcaction, eventresult)` | **Name**: `ASim_NetworkSessionCustom`<br><br> **Line to add**:<br> `_parser_name_` |
 | WebSession    | **Name**: `Im_WebSessionCustom`<br><br> **Line to add**:<br> `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult)` | **Name**: `ASim_WebSessionCustom`<br><br> **Line to add**:<br> `_parser_name_` |
-| | |
+
 
 When adding an additional parser to a unifying custom parser that already references parsers, make sure you add a comma at the end of the previous line. 
 
@@ -98,7 +98,7 @@ For example, to exclude the Azure Firewall DNS parser, add the following records
 | ------------- | ------------- |
 | `Exclude_Im_Dns` | `Exclude_Im_Dns_AzureFirewall` |
 | `Exclude_ASim_Dns` | `Exclude_ASim_Dns_AzureFirewall` | 
-| | |
+
 
 ### Prevent an automated update of a built-in parser
 
@@ -130,7 +130,7 @@ Make sure to add both a filtering custom parser and a parameter-less custom pars
 | **Process Event** | | **Names:**<br> - `imProcess`<br> - `imProcessCreate`<br> - `imProcessTerminate`<br><br>**Line to add:**  `_parser_name_` |
 | **Registry Event** | | **Name:** `imRegistry`<br><br>**Line to add:** `_parser_name_` |
 | **Web Session** | **Name:** `imWebSession`<br><br>**Line to add:**<br> `_parser_name_ parser (starttime, endtime, srcipaddr_has_any, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult)` | **Name:** `ASimWebSession`<br><br>**Line to add:**  `_parser_name_` | 
-| |  |  
+
 
 When adding an additional parser to a unifying parser, make sure you add a comma at the end of the previous line.
 
@@ -189,6 +189,7 @@ Learn more about ASIM parsers:
 - [ASIM parsers overview](normalization-parsers-overview.md)
 - [Use ASIM parsers](normalization-about-parsers.md)
 - [Develop custom ASIM parsers](normalization-develop-parsers.md)
+- [The ASIM parsers list](normalization-parsers-list.md)
 
 Learn more about the ASIM in general: 
 

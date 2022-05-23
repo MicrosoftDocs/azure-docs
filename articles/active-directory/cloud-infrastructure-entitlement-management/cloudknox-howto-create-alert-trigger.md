@@ -2,14 +2,14 @@
 title: Create and view activity alerts and alert triggers in CloudKnox Permissions Management 
 description: How to create and view activity alerts and alert triggers in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Create and view activity alerts and alert triggers
@@ -51,7 +51,7 @@ This article describes how you can create and view activity alerts and alert tri
 1. From the **Alert Name** dropdown, select an alert.
 1. From the **Date** dropdown, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**.
 
-    If you select **Custom range**, select date and time settings, and then select **Apply**.
+    If you select **Custom Range**, select date and time settings, and then select **Apply**.
 1. To view the alert, select **Apply**
 
     The **Alerts** table displays information about your alert.
@@ -61,7 +61,7 @@ This article describes how you can create and view activity alerts and alert tri
 ## View activity alert triggers
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
-1. In the **Activity** tab, select the **Alert triggers** subtab.
+1. In the **Activity** tab, select the **Alert Triggers** subtab.
 1. From the **Status** dropdown, select **All**, **Activated** or **Deactivated**, then select **Apply**.
 
     The **Triggers** table displays the following information:
@@ -71,9 +71,9 @@ This article describes how you can create and view activity alerts and alert tri
 
         - Select a number in this column to view information about the user.
 
-    - **Created by**: The email address of the user who created the alert trigger.
-    - **Modified by**: The email address of the user who last modified the alert trigger.
-    - **Last updated**: The date and time the alert trigger was last updated.
+    - **Created By**: The email address of the user who created the alert trigger.
+    - **Modified By**: The email address of the user who last modified the alert trigger.
+    - **Last Updated**: The date and time the alert trigger was last updated.
     - **Subscription**: A switch that displays if the alert is **On** or **Off**.
 
          - If the column displays **Off**, the current user isn't subscribed to that alert. Switch the toggle to **On** to subscribe to the alert.
@@ -94,12 +94,12 @@ This article describes how you can create and view activity alerts and alert tri
     - **Rename**: Enter the new name of the query, and then select **Save.**
     - **Deactivate**: The alert will still be listed, but will no longer send emails to subscribed users.
     - **Activate**: Activate the alert trigger and start sending emails to subscribed users.
-    - **Notification settings**: View the **Email** of users who are subscribed to the alert trigger and their **User status**. 
+    - **Notification Settings**: View the **Email** of users who are subscribed to the alert trigger and their **User Status**. 
     - **Delete**: Delete the alert.
 
     If the **Subscription** is **Off**, the following options are available:
     - **View**: View  details of the alert trigger.
-    - **Notification settings**: View the **Email** of users who are subscribed to the alert trigger and their **User status**. 
+    - **Notification Settings**: View the **Email** of users who are subscribed to the alert trigger and their **User Status**. 
     - **Duplicate**: Create a duplicate copy of the selected alert trigger.
 
 

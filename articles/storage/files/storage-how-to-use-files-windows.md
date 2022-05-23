@@ -1,11 +1,11 @@
 ---
 title: Mount SMB Azure file share on Windows | Microsoft Docs
 description: Learn to use Azure file shares with Windows and Windows Server. Use Azure file shares with SMB 3.x on Windows installations running on-premises or on Azure VMs.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/10/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 ---

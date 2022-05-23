@@ -2,14 +2,14 @@
 title: View data about the activity in your authorization system in CloudKnox Permissions Management
 description: How to view data about the activity in your authorization system in the CloudKnox Dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 
@@ -26,12 +26,12 @@ The CloudKnox Permissions Management (CloudKnox) **Dashboard** provides an overv
 
 1. In the CloudKnox home page, select **Dashboard**.
 1. From the **Authorization systems type** dropdown, select **AWS**, **Azure**, or **GCP**.
-1. Select the **Authorization system** box to display a **List** of accounts and **Folders** available to you. 
+1. Select the **Authorization System** box to display a **List** of accounts and **Folders** available to you. 
 1. Select the accounts and folders you want, and then select **Apply**. 
 
-   The **Permission creep index (PCI)** chart updates to display information about the accounts and folders you selected. The number of days since the information was last updated displays in the upper right corner.
+   The **Permission Creep Index (PCI)** chart updates to display information about the accounts and folders you selected. The number of days since the information was last updated displays in the upper right corner.
 
-1. In the Permission creep index (PCI) graph, select a bubble.
+1. In the Permission Creep Index (PCI) graph, select a bubble.
 
     The bubble displays the number of identities that are considered high-risk. 
 
@@ -49,7 +49,7 @@ For more information about the CloudKnox **Dashboard**, see [View key statistics
 
 ## View user data on the PCI heat map
 
-The **Permission creep index (PCI)** heat map shows the incurred risk of users with access to high-risk privileges. The distribution graph displays all the users who contribute to the privilege creep. It displays how many users contribute to a particular score. For example, if the score from the PCI chart is 14, the graph shows how many users have a score of 14.
+The **Permission Creep Index (PCI)** heat map shows the incurred risk of users with access to high-risk privileges. The distribution graph displays all the users who contribute to the privilege creep. It displays how many users contribute to a particular score. For example, if the score from the PCI chart is 14, the graph shows how many users have a score of 14.
 
 - To view detailed data about a user, select the number.
 

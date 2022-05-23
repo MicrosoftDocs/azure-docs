@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 02/15/2022
+ms.date: 02/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: tanning
+ms.reviewer: guovivian
 
 ms.collection: M365-identity-device-management
 ---
@@ -75,9 +75,9 @@ Enterprise State Roaming requires the device to be registered with Azure AD. Alt
 
 Under certain conditions, Enterprise State Roaming can fail to sync data if Azure AD Multi-Factor Authentication is configured. For more information on these symptoms, see the support document [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Potential issue**: If your device is configured to require Multi-Factor Authentication on the Azure Active Directory portal, you may fail to sync settings while signing in to a Windows 10 or newer device using a password. This type of Multi-Factor Authentication configuration is intended to protect an Azure administrator account. Admin users may still be able to sync by signing in to their Windows 10 or newer devices with their Microsoft Passport for Work PIN or by completing Multi-Factor Authentication while accessing other Azure services like Microsoft 365.
+**Potential issue**: If your device is configured to require Multi-Factor Authentication on the Azure Active Directory portal, you may fail to sync settings while signing in to a Windows 10 or newer device using a password. This type of Multi-Factor Authentication configuration is intended to protect an Azure administrator account. Admin users may still be able to sync by signing in to their Windows 10 or newer devices with their Windows Hello for Business PIN or by completing Multi-Factor Authentication while accessing other Azure services like Microsoft 365.
 
-**Potential issue**: Sync can fail if the admin configures the Active Directory Federation Services Multi-Factor Authentication Conditional Access policy and the access token on the device expires. Ensure that you sign in and sign out using the Microsoft Passport for Work PIN or complete Multi-Factor Authentication while accessing other Azure services like Microsoft 365.
+**Potential issue**: Sync can fail if the admin configures the Active Directory Federation Services Multi-Factor Authentication Conditional Access policy and the access token on the device expires. Ensure that you sign in and sign out using the Windows Hello for Business PIN or complete Multi-Factor Authentication while accessing other Azure services like Microsoft 365.
 
 ### Event Viewer
 
@@ -94,48 +94,12 @@ Make sure the Windows 10 v1607 client has the August 23, 2016 Cumulative Update 
 
 ---
 
-### Internet Explorer Favorites do not sync
-
-Affects devices running the Windows 10 November Update (Version 1511).
-
-**Recommended action**  
-Make sure the Windows 10 v1511 client has the July 2016 Cumulative Update ([KB3172985](https://support.microsoft.com/kb/3172985) OS Build 10586.494).
-
----
-
-### Theme is not syncing, as well as data protected with Windows Information Protection 
-
-To prevent data leakage, data that is protected with [Windows Information Protection](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) will not sync through Enterprise State Roaming for devices using the Windows 10 Anniversary Update.
-
-**Recommended action**  
-None. Future updates to Windows may resolve this issue.
-
----
-
 ### Date, Time, and Region settings do not sync on domain-joined device 
   
 Devices that are domain-joined will not experience sync for the setting Date, Time, and Region: automatic time. Using automatic time may override the other Date, Time, and Region settings and cause those settings not to sync. 
 
 **Recommended action**  
 None. 
-
----
-
-### UAC Prompts when syncing passwords
-
-Affects devices running the Windows 10 November Update (Version 1511) with a wireless NIC that is configured to sync passwords.
-
-**Recommended action**  
-Make sure the Windows 10 v1511 client has the Cumulative Update ([KB3140743](https://support.microsoft.com/kb/3140743) OS Build 10586.494).
-
----
-
-### Sync does not work on devices that use smart card for login
-
-If you attempt to sign in to your Windows device using a smart card or virtual smart card, settings sync will stop working. 	
-
-**Recommended action**  
-None. Future updates to Windows may resolve this issue.
 
 ---
 

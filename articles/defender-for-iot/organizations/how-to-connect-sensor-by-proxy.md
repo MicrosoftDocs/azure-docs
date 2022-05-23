@@ -1,17 +1,25 @@
 ---
-title: Connect sensors with a proxy
-description: Learn how to configure Microsoft Defender for IoT to communicate with a sensor through a proxy with no direct internet access.
+title: Connect sensors with a proxy (legacy)
+description: Learn how to configure Microsoft Defender for IoT to communicate with a sensor through a proxy with no direct internet access (legacy procedure).
 ms.topic: how-to
 ms.date: 02/06/2022
 ---
 
-# Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy 
+# Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy (legacy)
 
-This article describes how to configure Microsoft Defender for IoT to communicate with a sensor through a proxy with no direct internet access. Connect the sensor with a forwarding proxy that has HTTP tunneling, and uses the HTTP CONNECT command for connectivity. The instructions here are given uses the open-source Squid proxy, any other proxy that supports CONNECT can be used. 
+This article describes how to connect Microsoft Defender for IoT sensors to Defender for IoT via a proxy, with no direct internet access, and is only relevant if you are using a legacy connection method via your own IoT Hub.
 
-The proxy uses an encrypted SSL tunnel to transfer data from the sensors to the service. The proxy doesn't inspect, analyze, or cache any data. 
+Starting with sensor software versions 22.1.x, updated connection methods are supported that don't require customers to have their own IoT Hub. For more information, see [Sensor connection methods](architecture-connections.md) and [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md).
 
-The following diagram shows data going from Microsoft Defender for Cloud to IoT sensor in the OT segment to cloud via a proxy located in the IT network, and industrial DMZ.
+We recommend that you use the procedures in this article only if you are using a legacy sensor version lower than 22.1.x.
+
+## Overview
+
+Connect the sensor with a forwarding proxy that has HTTP tunneling, and uses the HTTP CONNECT command for connectivity. The instructions here are given uses the open-source Squid proxy, any other proxy that supports CONNECT can be used.
+
+The proxy uses an encrypted SSL tunnel to transfer data from the sensors to the service. The proxy doesn't inspect, analyze, or cache any data.
+
+The following diagram shows data going from Microsoft Defender for IoT to the IoT sensor in the OT segment to cloud via a proxy located in the IT network, and industrial DMZ.
 
 :::image type="content" source="media/how-to-connect-sensor-by-proxy/cloud-access.png" alt-text="Connect the sensor to a proxy through the cloud.":::
 
@@ -84,6 +92,6 @@ This section describes how to set up a sensor to use Squid.
 
 1. Select **Save**.
 
-## See also
+## Next steps
 
-[Manage your subscriptions](how-to-manage-subscriptions.md).
+For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).

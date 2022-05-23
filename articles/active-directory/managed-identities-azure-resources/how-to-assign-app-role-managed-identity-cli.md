@@ -103,7 +103,7 @@ In this article, you learn how to assign a managed identity to an application ro
 
     ```azurecli
     roleguid="0566419e-bb95-4d9d-a4f8-ed9a0f147fa6"
-    az rest -m POST -u https://graph.microsoft.com/beta/servicePrincipals/$oidForMI/appRoleAssignments -b "{\"principalId\": \"$oidForMI\", \"resourceId\": \"$serverSPOID\",\"appRoleId\": \"$roleguid\"}"
+    az rest -m POST -u https://graph.microsoft.com/v1.0/servicePrincipals/$oidForMI/appRoleAssignments -b "{\"principalId\": \"$oidForMI\", \"resourceId\": \"$serverSPOID\",\"appRoleId\": \"$roleguid\"}"
     ```
 
 ## Next steps

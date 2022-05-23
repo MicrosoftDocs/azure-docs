@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 05/11/2022
 ---
 
 # Creating indexers in Azure Cognitive Search
@@ -68,7 +68,7 @@ You can also [specify a schedule](search-howto-schedule-indexers.md) or set an [
 
 ### Indexer definition for AI enrichment
 
-Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters apply, but the following properties are specific to AI enrichment: **`skillSetName`**, **`outputFieldMappings`**, **`cache`**. A few other required and similarly named properties are added for context.
+Indexers also drive [AI enrichment](cognitive-search-concept-intro.md). All of the above properties and parameters apply, but the following properties are specific to AI enrichment: **`skillSetName`**, **`outputFieldMappings`**, **`cache`**. A [skillset](cognitive-search-defining-skillset.md) also has **`cognitiveServices`**, and **`knowledgeStore`**. A few other required and similarly named properties are added for context.
 
 ```json
 {
@@ -155,7 +155,7 @@ When you're ready to create an indexer on a remote search service, you'll need a
 
 1. On the search service Overview page, choose from two options: 
 
-   + [**Import data wizard**](search-import-data-portal.md). The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
+   + [**Import data wizard**](search-import-data-portal.md). The wizard is unique in that it creates all of the required elements. Other approaches require a predefined data source and index.
 
    + **New Indexer**, a visual editor for specifying an indexer definition. 
 
@@ -216,25 +216,25 @@ There are several ways to run an indexer:
 
 Scheduled execution is usually implemented when you have a need for incremental indexing so that you can pick up the latest changes. As such, scheduling has a dependency on change detection.
 
-## Change detection and internal state
-
-Change detection logic is a capability that's built into source platforms. If your data source support change detection, an indexer can detect changes in the underlying data and only process new or updated documents on each indexer run, leaving unchanged content as-is. If indexer execution history says that a run was successful with `0/0` documents processed, it means that the indexer didn't find any new or changed rows or blobs in the underlying data source.
-
-How an indexer supports change detection varies by data source:
-
-+ Azure Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. The various indexers use this information to determine which documents to update in the index. Built-in change detection means that an indexer can recognize new and updated documents automatically.
-
-+ Azure SQL and Cosmos DB provide change detection features in their platforms. You can specify the change detection policy in your data source definition.
-
-For large indexing loads, an indexer also keeps track of the last document it processed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer keeps track of where it stopped. When indexing resumes, either through a scheduled run or an on-demand invocation, the indexer references the high water mark so that it can pick up where it left off.
-
-If you need to clear the high water mark to re-index in full, you can use [Reset Indexer](/rest/api/searchservice/reset-indexer). For more selective re-indexing, use [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) or [Reset Documents](/rest/api/searchservice/preview-api/reset-documents). Through the reset APIs, you can clear internal state, and also flush the cache if you enabled [incremental enrichment](search-howto-incremental-index.md). For more background and comparison of each reset option, see [Run or reset indexers, skills, and documents](search-howto-run-reset-indexers.md).
-
 ## Check results
 
 [Monitor indexer status](search-howto-monitor-indexers.md) to check for status. Successful execution can still include warning and notifications. Be sure to check both successful and failed status notifications for details about the job.
 
 For content verification, [run queries](search-query-create.md) on the populated index that return entire documents or selected fields.
+
+## Change detection and internal state
+
+If your data source supports change detection, an indexer can detect underlying changes in the data and process just the new or updated documents on each indexer run, leaving unchanged content as-is. If indexer execution history says that a run was successful with `0/0` documents processed, it means that the indexer didn't find any new or changed rows or blobs in the underlying data source.
+
+Change detection logic is built into the data platforms. How an indexer supports change detection varies by data source:
+
++ Azure Storage has built-in change detection, which means an indexer can recognize new and updated documents automatically. Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. An indexer can use this information to determine which documents to update in the index.
+
++ Azure SQL and Cosmos DB provide optional change detection features in their platforms. You can specify the change detection policy in your data source definition.
+
+For large indexing loads, an indexer also keeps track of the last document it processed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer keeps track of where it stopped. When indexing resumes, either through a scheduled run or an on-demand invocation, the indexer references the high water mark so that it can pick up where it left off.
+
+If you need to clear the high water mark to re-index in full, you can use [Reset Indexer](/rest/api/searchservice/reset-indexer). For more selective re-indexing, use [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) or [Reset Documents](/rest/api/searchservice/preview-api/reset-documents). Through the reset APIs, you can clear internal state, and also flush the cache if you enabled [incremental enrichment](search-howto-incremental-index.md). For more background and comparison of each reset option, see [Run or reset indexers, skills, and documents](search-howto-run-reset-indexers.md).
 
 ## Next steps
 

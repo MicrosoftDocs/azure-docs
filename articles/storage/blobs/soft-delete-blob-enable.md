@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 05/05/2022
 ms.author: tamram
 ms.subservice: blobs  
 ms.custom: devx-track-azurepowershell
@@ -19,7 +19,7 @@ Blob soft delete protects an individual blob and its versions, snapshots, and me
 
 Blob soft delete is part of a comprehensive data protection strategy for blob data. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
-Blob soft delete is disabled by default for a new storage account. You can enable or disable soft delete for a storage account at any time by using the Azure portal, PowerShell, or Azure CLI.
+Blob soft delete is enabled by default for a new storage account. You can enable or disable soft delete for a storage account at any time by using the Azure portal, PowerShell, or Azure CLI.
 
 ## Enable blob soft delete
 
@@ -28,7 +28,7 @@ Blob soft delete is disabled by default for a new storage account. You can enabl
 To enable blob soft delete for your storage account by using the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
-1. Locate the **Data Protection** option under **Blob service**.
+1. Locate the **Data Protection** option under **Data management**.
 1. In the **Recovery** section, select **Turn on soft delete for blobs**.
 1. Specify a retention period between 1 and 365 days. Microsoft recommends a minimum retention period of seven days.
 1. Save your changes.
@@ -58,7 +58,7 @@ $properties.DeleteRetentionPolicy.Days
 
 ### [Azure CLI](#tab/azure-CLI)
 
-To enable blob soft delete with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command, specifying the retention period in days.
+To enable blob soft delete with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command, specifying the retention period in days.
 
 The following example enables blob soft delete and sets the retention period to seven days. Remember to replace the placeholder values in brackets with your own values:
 
@@ -69,7 +69,7 @@ az storage account blob-service-properties update --account-name <storage-accoun
     --delete-retention-days 7
 ```
 
-To check the current settings for blob soft delete, call the [az storage account blob-service-properties show](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_show) command:
+To check the current settings for blob soft delete, call the [az storage account blob-service-properties show](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-show) command:
 
 ```azurecli-interactive
 az storage account blob-service-properties show --account-name <storage-account> \

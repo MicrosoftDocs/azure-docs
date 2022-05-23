@@ -1,13 +1,13 @@
 ---
 title: Create an Azure data factory using REST API
 description: Create an Azure data factory pipeline to copy data from one location in Azure Blob storage to another location.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 05/31/2021
-ms.author: jingwang
+ms.author: jianleishen
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
@@ -166,7 +166,7 @@ $body = @"
     }
 }
 "@
-$response = Invoke-RestMethod -Method PUT -Uri $request -Header $authHeader -Body $body
+$response =  Invoke-AzRestMethod  -Path ${path}  -Method PUT -Payload $body
 $response.content
 ```
 

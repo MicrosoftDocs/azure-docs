@@ -2,14 +2,14 @@
 title: Add an account/ subscription/ project to Microsoft CloudKnox Permissions Management after onboarding is complete
 description: How to add an account/ subscription/ project to Microsoft CloudKnox Permissions Management after onboarding is complete.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Add an account/ subscription/ project after onboarding is complete
@@ -26,11 +26,11 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 1. On the **Data collectors** dashboard, select **AWS**.
 1. Select the ellipses **(...)** at the end of the row, and then select **Edit Configuration**.
 
-    The **M-CIEM Onboarding - Summary** page displays.
+    The **CloudKnox Onboarding - Summary** page displays.
 
 1. Go to **AWS Account IDs**, and then select **Edit** (the pencil icon).
 
-    The **M-CIEM On Boarding - AWS Member Account Details** page displays.
+    The **CloudKnox Onboarding - AWS Member Account Details** page displays.
 
 1. Go to **Enter Your AWS Account IDs**, and then select **Add** (the plus **+** sign).
 1. Copy your account ID from AWS and paste it into the **Enter Account ID** box.
@@ -44,7 +44,7 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 1. Create a new script for the new account and press the **Enter** key.
 1. Paste the script you copied.
 1. Locate the account line, delete the original account ID (the one that was previously added), and then run the script.
-1. Return to CloudKnox, and the new account ID you added will be added to the list of account IDs displayed in the **M-CIEM Onboarding - Summary** page.
+1. Return to CloudKnox, and the new account ID you added will be added to the list of account IDs displayed in the **CloudKnox Onboarding - Summary** page.
 1. Select **Verify now & save**.
 
     When your changes are saved, the following message displays: **Successfully updated configuration.**
@@ -56,7 +56,7 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 1. On the **Data collectors** dashboard, select **Azure**.
 1. Select the ellipses **(...)** at the end of the row, and then select **Edit Configuration**.
 
-    The **M-CIEM Onboarding - Summary** page displays.
+    The **CloudKnox Onboarding - Summary** page displays.
 
 1. Go to **Azure subscription IDs**, and then select **Edit** (the pencil icon).
 1. Go to **Enter your Azure Subscription IDs**, and then select **Add subscription** (the plus **+** sign).
@@ -71,7 +71,7 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 1. Create a new script for the new subscription and press enter.
 1. Paste the script you copied.
 1. Locate the subscription line and delete the original subscription ID (the one that was previously added), and then run the script.
-1. Return to CloudKnox, and the new subscription ID you added will be added to the list of subscription IDs displayed in the **M-CIEM Onboarding - Summary** page.
+1. Return to CloudKnox, and the new subscription ID you added will be added to the list of subscription IDs displayed in the **CloudKnox Onboarding - Summary** page.
 1. Select **Verify now & save**.
 
     When your changes are saved, the following message displays: **Successfully updated configuration.**
@@ -82,7 +82,7 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 1. On the **Data collectors** dashboard, select **GCP**.
 1. Select the ellipses **(...)** at the end of the row, and then select **Edit Configuration**.
 
-    The **M-CIEM Onboarding - Summary** page displays.
+    The **CloudKnox Onboarding - Summary** page displays.
 
 1. Go to **GCP Project IDs**, and then select **Edit** (the pencil icon).
 1. Go to **Enter your GCP Project IDs**, and then select **Add Project ID** (the plus **+** sign).
@@ -97,7 +97,7 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 1. Create a new script for the new project ID and press enter.
 1. Paste the script you copied.
 1. Locate the project ID line and delete the original project ID (the one that was previously added), and then run the script.
-1. Return to CloudKnox, and the new project ID you added will be added to the list of project IDs displayed in the **M-CIEM Onboarding - Summary** page.
+1. Return to CloudKnox, and the new project ID you added will be added to the list of project IDs displayed in the **CloudKnox Onboarding - Summary** page.
 1. Select **Verify now & save**.
 
     When your changes are saved, the following message displays: **Successfully updated configuration.**

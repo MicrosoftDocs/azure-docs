@@ -93,7 +93,7 @@ If you've been using the Azure Cloud Shell up to this point, switch to a local c
 
    Make sure that the command prompt is in the project folder before running the following command.
 
-   ```console
+   ```azurecli
    az spring-cloud app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip
    ```
 
@@ -127,7 +127,7 @@ If you've been using the Azure Cloud Shell up to this point, switch to a local c
 
 1. Deploy to Azure.
 
-   ```console
+   ```azurecli
    az spring-cloud app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip
    ```
 
@@ -415,9 +415,18 @@ Other Spring applications included in this sample can be deployed similarly.
 
 ::: zone-end
 
+## Clean up resources
+
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
+
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
 ## Next steps
 
-In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](./quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
-
 > [!div class="nextstepaction"]
-> [Set up Log Analytics](./quickstart-setup-log-analytics.md)
+> [Quickstart: Set up a Log Analytics workspace](quickstart-setup-log-analytics.md)

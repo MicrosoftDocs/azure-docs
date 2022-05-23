@@ -2,14 +2,14 @@
 title: Create and view statistical anomalies and anomaly triggers in CloudKnox Permissions Management
 description: How to create and view statistical anomalies and anomaly triggers in the Statistical Anomaly tab in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Create and view statistical anomalies and anomaly triggers
@@ -23,7 +23,7 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
 ## View statistical anomalies in an identity's behavior
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
-1. Select **Statistical anomaly**, and then select the **Alerts** subtab.
+1. Select **Statistical Anomaly**, and then select the **Alerts** subtab.
 
     The **Alerts** subtab displays the following information:
 
@@ -46,9 +46,9 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
 ## Create a statistical anomaly trigger
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
-1. Select **Statistical anomaly**, select the **Alerts** subtab, and then select **Create alert trigger**.
+1. Select **Statistical Anomaly**, select the **Alerts** subtab, and then select **Create Alert Trigger**.
 1. Enter a name for the alert in the **Alert Name** box.
-1. Select the **Authorization system**, Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
+1. Select the **Authorization System**, Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
 1. Select one of the following conditions:
 
       - **Identity Performed High Number of Tasks**: The identity performs higher than their usual volume of tasks. For example, an identity typically performs 25 tasks per day, and now it is performing 100 tasks per day.
@@ -65,7 +65,7 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
       - **Identity Performed Tasks with Multiple Unusual Patterns**: The identity has several unusual patterns in the tasks performed by the identity as established by their baseline in the observance period.
 1. Select **Next**.
 
-1. On the **Authorization systems** tab, select the appropriate systems, or, to select all systems, select **All**. 
+1. On the **Authorization Systems** tab, select the appropriate systems, or, to select all systems, select **All**. 
 
     The screen defaults to the **List** view but you can switch to **Folder** view using the menu, and then select the applicable folder instead of individually by system. 
 
@@ -74,21 +74,21 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
      - The **Controller** column displays if the controller is enabled or disabled.
 
 
-1. On the **Configuration** tab, to update the **Time Interval**, from the **Time range** dropdown, select **90 Days**, **60 Days**, or **30 Days**, and then select **Save**.
+1. On the **Configuration** tab, to update the **Time Interval**, from the **Time Range** dropdown, select **90 Days**, **60 Days**, or **30 Days**, and then select **Save**.
 
 ## View statistical anomaly triggers
 
 1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
-1. Select **Statistical anomaly**, and then select the **Alert triggers** subtab.
+1. Select **Statistical Anomaly**, and then select the **Alert Triggers** subtab.
 
-    The **Alert triggers** subtab displays the following information:
+    The **Alert Triggers** subtab displays the following information:
 
       - **Alert**: Displays the name of the alert.
-      - **Anomaly alert rule**: Displays the name of the rule select when creating the alert. 
+      - **Anomaly Alert Rule**: Displays the name of the rule select when creating the alert. 
       - **# of users subscribed**: Displays the number of users subscribed to the alert.
-      - **Created by**: Displays the email address of the user who created the alert.
-      - **Last modified by**: Displays the email address of the user who last modified the alert.
-      - **Last modified on**: Displays the date and time the trigger was last modified.
+      - **Created By**: Displays the email address of the user who created the alert.
+      - **Last Modified By**: Displays the email address of the user who last modified the alert.
+      - **Last Modified On**: Displays the date and time the trigger was last modified.
       - **Subscription**: Subscribes you to receive alert emails. Toggle the button to **On** or **Off**.
 
 1. To filter by **Activated** or **Deactivated**, in the **Status** section, select **All**, **Activated**, or **Deactivated**, and then select **Apply**.
@@ -104,7 +104,7 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
      - **Rename**: Enter the new name of the query, and then select **Save.**
      - **Deactivate**: The alert will still be listed, but will no longer send emails to subscribed users.
      - **Activate**: Activate the alert trigger and start sending emails to subscribed users.
-     - **Notification settings**: View the **Email** of users who are subscribed to the alert trigger.
+     - **Notification Settings**: View the **Email** of users who are subscribed to the alert trigger.
      - **Delete**: Delete the alert.
      
      If the **Subscription** is **Off**, the following options are available:

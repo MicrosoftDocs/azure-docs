@@ -2,14 +2,14 @@
 title: Create, view, and share a custom report a custom report in CloudKnox Permissions Management
 description: How to create, view, and share a custom report in the CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Create, view, and share a custom report
@@ -22,14 +22,14 @@ This article describes how to create, view, and share a custom report in CloudKn
 
 ## Create a custom report 
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom reports** subtab.
+1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 1. Select **New Custom Report**.
 1. In the **Report Name** box, enter a name for your report.
 1. From the **Report Based on** list:
     1. To view which authorization systems the report applies to, hover over each report name.
     1. To view a description of a report, select the report.
 1. Select a report you want to use as the base for your custom report, and then select **Next**.
-1. In the **MyReport** box, select the **Authorization system** you want: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
+1. In the **MyReport** box, select the **Authorization System** you want: Amazon Web Services (**AWS**), Microsoft Azure (**Azure**), or Google Cloud Platform (**GCP**).
 
 1. To add specific accounts, select the **List** subtab, and then select **All** or the account names.
 1. To add specific folders, select the **Folders** subtab, and then select **All** or the folder names.
@@ -48,7 +48,7 @@ The report name appears in the **Reports** table.
 
 ## View a custom report 
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom reports** subtab.
+1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 
     The **Custom Reports** tab displays the following information in the **Reports** table:
 
@@ -63,9 +63,9 @@ The report name appears in the **Reports** table.
 
 ## Share a custom report
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom reports** subtab.
+1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 1. In the **Reports** table, select a report and then select the ellipses (**...**) icon.
-1. In the **Report settings** box, select **Share with**.
+1. In the **Report Settings** box, select **Share with**.
 1. In the **Search Email to add** box, enter the name of other CloudKnox user(s).
 
     You can only share reports with other CloudKnox users.
@@ -73,7 +73,7 @@ The report name appears in the **Reports** table.
 
 ## Search for a custom report 
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom reports** subtab.
+1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 1. On the **Custom Reports** tab, select **Search**.
 1. In the **Search** box, enter the name of the report you want.
 
@@ -85,7 +85,7 @@ The report name appears in the **Reports** table.
 
 ## Modify a saved or scheduled custom report
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom reports** subtab.
+1. In the CloudKnox home page, select the **Reports** tab, and then select the **Custom Reports** subtab.
 1. Hover over the report name on the **Custom Reports** tab.
 
     - To rename the report, select **Edit** (the pencil icon), and enter a new name.

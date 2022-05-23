@@ -316,7 +316,7 @@ When your SAML application makes a request to Azure AD B2C, the SAML AuthN reque
 In the registration manifest, find the `identifierURIs` parameter and add the appropriate value. This value will be the same value that's configured in the SAML AuthN requests for `EntityId` at the application, and the `entityID` value in the application's metadata. You will also need to find the `accessTokenAcceptedVersion` parameter and set the value to `2`.
 
 > [!IMPORTANT]
-> If you do not update the `accessTokenAcceptedVersion` to `2` you will recieve an error message requiring a verified domain.
+> If you do not update the `accessTokenAcceptedVersion` to `2` you will receive an error message requiring a verified domain.
 
 The following example shows the `entityID` value in the SAML metadata:
 

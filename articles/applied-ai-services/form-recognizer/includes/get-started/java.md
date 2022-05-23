@@ -92,7 +92,7 @@ You will create the following directory structure:
 
 :::image type="content" source="../../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
 
-Navigate to the java directory and create a file called *FormRecognizer.java*.  Open it in your preferred editor or IDE and add the following package declaration and  `import` statements:
+Navigate to the Java directory and create a file called *FormRecognizer.java*.  Open it in your preferred editor or IDE and add the following package declaration and `import` statements:
 
 ```java
 import com.azure.ai.formrecognizer.*;
@@ -133,7 +133,7 @@ Update your application's **FormRecognizer** class, with the following code (be 
 
 ```java
 
-static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
+static final String key = "PASTE_YOUR_FORM_RECOGNIZER_KEY_HERE";
 static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
 
 public static void main(String[] args) {FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
@@ -194,7 +194,7 @@ Update your application's **FormRecognizer** class, with the following code (be 
 
 ```java
 
-static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
+static final String key = "PASTE_YOUR_FORM_RECOGNIZER_KEY_HERE";
 static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
 
 public static void main(String[] args) {

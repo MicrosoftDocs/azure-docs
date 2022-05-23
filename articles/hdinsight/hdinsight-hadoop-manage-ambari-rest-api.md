@@ -27,7 +27,7 @@ Apache Ambari simplifies the management and monitoring of Hadoop clusters by pro
 
 * Windows PowerShell.  Or you can use Bash.
 
-## Base Uniform Resource Identifier for Ambari Rest API
+## Base Uniform Resource Identifier for Ambari REST API
 
  The base Uniform Resource Identifier (URI) for the Ambari REST API on HDInsight is `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, where `CLUSTERNAME` is the name of your cluster.  Cluster names in URIs are **case-sensitive**.  While the cluster name in the fully qualified domain name (FQDN) part of the URI (`CLUSTERNAME.azurehdinsight.net`) is case-insensitive, other occurrences in the URI are case-sensitive.
 

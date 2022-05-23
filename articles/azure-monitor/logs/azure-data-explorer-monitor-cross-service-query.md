@@ -1,11 +1,11 @@
 ---
 title: Cross service query between Azure Monitor and Azure Data Explorer
 description: Query Azure Data Explorer data through Azure Log Analytics tools vice versa to join and analyze all your data in one place.
-author: osalzberg
-ms.author: bwren
-ms.reviewer: bwren
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 03/28/2022
+ms.reviewer: osalzberg
 ---
 
 # Cross service query - Azure Monitor and Azure Data Explorer

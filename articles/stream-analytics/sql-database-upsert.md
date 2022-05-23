@@ -242,7 +242,7 @@ You can now test the wiring between the local function and the database by debug
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](../azure-sql/database/network-access-controls-overview.md) in for the live function to reach it.
+The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
 
 The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 
@@ -355,7 +355,7 @@ Update the `sqltext` command building section to match your own schema (notice h
 
 ```C#
     var sqltext =
-    $"MERGE INTO [device03] AS old " +
+    $"MERGE INTO [device_updated] AS old " +
     $"USING (VALUES ({DeviceId},{Value},'{Timestamp}')) AS new (DeviceId, Value, Timestamp) " +
     $"ON new.DeviceId = old.DeviceId " +
     $"WHEN MATCHED THEN UPDATE SET old.Value += new.Value, old.Timestamp = new.Timestamp " +
@@ -368,7 +368,7 @@ You can now test the wiring between the local function and the database by debug
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](../azure-sql/database/network-access-controls-overview.md) in for the live function to reach it.
+The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
 
 The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 
@@ -380,7 +380,28 @@ Outside of Azure Functions, there are multiple ways to achieve the expected resu
 
 A background task will operate once the data is inserted in the database via the standard ASA SQL outputs.
 
-For Azure SQL, `INSTEAD OF` [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current&preserve-view=true) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs.
+For Azure SQL, `INSTEAD OF` [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current&preserve-view=true) can be used to intercept the INSERT commands issued by ASA:
+
+```SQL
+CREATE TRIGGER tr_devices_updated_upsert ON device_updated INSTEAD OF INSERT
+AS
+BEGIN
+	MERGE device_updated AS old
+	
+	-- In case of duplicates on the key below, use a subquery to make the key unique via aggregation or ranking functions
+	USING inserted AS new
+		ON new.DeviceId = old.DeviceId
+
+	WHEN MATCHED THEN 
+		UPDATE SET
+			old.Value += new.Value, 
+			old.Timestamp = new.Timestamp
+
+	WHEN NOT MATCHED THEN
+		INSERT (DeviceId, Value, Timestamp)
+		VALUES (new.DeviceId, new.Value, new.Timestamp);  
+END;
+```
 
 For Synapse SQL, ASA can insert into a [staging table](../synapse-analytics/sql/data-loading-best-practices.md#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table. Finally the [data is moved](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition.md#partition-switching) to the production table.
 

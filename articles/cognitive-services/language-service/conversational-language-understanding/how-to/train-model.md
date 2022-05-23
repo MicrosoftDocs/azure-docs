@@ -8,30 +8,38 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 04/05/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
 
 # Train and evaluate models
 
-After you have completed [tagging your utterances](./tag-utterances.md), you can train your model. Training is the act of converting the current state of your project's training data to build a model that can be used for predictions. Every time you train, you have to name your training instance. 
+After you have completed [tagging your utterances](tag-utterances.md), you can train your model. Training is the process of converting the current state of your project's training data to build a model that can be used for predictions. Every time you train, you must name your training instance.
 
 You can create and train multiple models within the same project. However, if you re-train a specific model it overwrites the last state.
 
-The training times can be anywhere from a few seconds when dealing with orchestration workflow projects, up to a couple of hours when you reach the [maximum limit](../service-limits.md) of utterances. Before training, you will have the option to enable evaluation, which lets you view how your model performs. 
+To train a model, you need to start a training job. The output of a successful training job is your trained model. Training jobs will be automatically deleted after seven days from creation, but the output trained model will not be deleted.
 
-## Train model
+The training times can be anywhere from a few seconds when dealing with orchestration workflow projects, up to a couple of hours when you reach the [maximum limit](../service-limits.md) of utterances. Before training, you will have the option to enable evaluation, which lets you view how your model performs.
 
-Select **Train model** on the left of the screen. Select **Start a training job** from the top menu.
+## Train model 
 
-Enter a new model name or select an existing model from the **Model Name** dropdown. 
+1.	Go to your project page in Language Studio.
+2.	Select **Train** from the left side menu.
+3.	Select **Start a training job** from the top menu.
+4.	To train a new model, select **Train a new model** and type in the model name in the text box below. You can **overwrite an existing model** by selecting this option and select the model you want from the dropdown below.
 
-Select whether you want to evaluate your model by changing the **Run evaluation with training** toggle. If enabled, your tagged utterances will be spilt into 2 parts; 80% for training, 20% for testing. Afterwards, you'll be able to see the model's evaluation results.
+Choose if you want to evaluate and measure your model's performance. The **Run evaluation with training toggle** is enabled by default, meaning you want to measure your model's performance and you will have the option to choose how you want to split your training and testing utterances. You are provided with the two options below:
+
+* **Automatically split the testing set from training data**: A selected stratified sample from all training utterances according to the percentages that you configure in the text box. The default value is set to 80% for training and 20% for testing. Any utterances already assigned to the testing set will be ignored completely if you choose this option.
+
+* **Use a manual split of training and testing data**: The training and testing utterances that you’ve provided and assigned during tagging to create your custom model and measure its performance. Note that this option will only be enabled if you add utterances to the testing set in the tag data page. Otherwise, it will be disabled.
+
 
 :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing the Train model page for Conversational Language Understanding projects." lightbox="../media/train-model.png":::
 
-Click the **Train** button and wait for training to complete. You will see the training status of your model in the view model details page. Only successfully completed tasks will generate models.
+Click the **Train** button and wait for training to complete. You will see the training status of your training job. Only successfully completed jobs will generate models.
 
 ## Evaluate model
 

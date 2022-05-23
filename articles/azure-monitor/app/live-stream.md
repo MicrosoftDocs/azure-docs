@@ -28,6 +28,9 @@ With Live Metrics Stream, you can:
 
 Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions, Java, and Node.js apps.
 
+> [!NOTE]
+>  The number of monitored server instances displayed by Live Metrics Stream may be lower than the actual number of instances allocated for the application. This is because many modern web servers will unload applications that do not receive requests over a period of time in order to conserve resources. Since Live Metrics Stream only counts servers that are currently running the application, servers that have already unloaded the process will not be included in that total.
+
 ## Get started
 
 1. Follow language specific guidelines to enable Live Metrics.
@@ -41,6 +44,11 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open Live Stream.
 
 3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
+
+> [!IMPORTANT]
+> Monitoring ASP.NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) applications require Application Insights version 2.8.0 or above. To enable Application Insights ensure it is both activated in the Azure Portal and that the Application Insights NuGet package is included. Without the NuGet package some telemetry is sent to Application Insights but that telemetry will not show in the Live Metrics Stream.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Enable LiveMetrics using code for any .NET application
 
@@ -115,7 +123,7 @@ While the above sample is for a console app, the same code can be used in any .N
 |**Latency**|Data displayed within one second|Aggregated over minutes|
 |**No retention**|Data persists while it's on the chart, and is then discarded|[Data retained for 90 days](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**On demand**|Data is only streamed while the Live Metrics pane is open |Data is sent whenever the SDK is installed and enabled|
-|**Free**|There is no charge for Live Stream data|Subject to [pricing](./pricing.md)
+|**Free**|There is no charge for Live Stream data|Subject to [pricing](../logs/cost-logs.md#application-insights-billing)
 |**Sampling**|All selected metrics and counters are transmitted. Failures and stack traces are sampled. |Events may be [sampled](./api-filtering-sampling.md)|
 |**Control channel**|Filter control signals are sent to the SDK. We recommend you secure this channel.|Communication is one way, to the portal|
 
@@ -241,9 +249,9 @@ However, if you recognize and trust all the connected servers, you can try the c
 
 | Language                         | Basic Metrics       | Performance metrics | Custom filtering    | Sample telemetry    | CPU split by process |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
-| .NET Framework                   | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+)  |
-| .NET Core (target=.NET Framework)| Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+)  |
-| .NET Core (target=.NET Core)     | Supported (V2.4.1+) | Supported*          | Supported (V2.4.1+) | Supported (V2.4.1+) | **Not Supported**    |
+| .NET Framework                   | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core))  |
+| .NET Core (target=.NET Framework)| Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core))  |
+| .NET Core (target=.NET Core)     | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported*          | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | Supported ([LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)) | **Not Supported**    |
 | Azure Functions v2               | Supported           | Supported           | Supported           | Supported           | **Not Supported**    |
 | Java                             | Supported (V2.0.0+) | Supported (V2.0.0+) | **Not Supported**   | Supported (V3.2.0+) | **Not Supported**    |
 | Node.js                          | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**   | Supported (V1.3.0+) | **Not Supported**    |
@@ -253,14 +261,38 @@ Basic metrics include request, dependency, and exception rate. Performance metri
  \* PerfCounters support varies slightly across versions of .NET Core that do not target the .NET Framework:
 
 - PerfCounters metrics are supported when running in Azure App Service for Windows. (AspNetCore SDK Version 2.4.1 or higher)
-- PerfCounters are supported when app is running in ANY Windows machines (VM or Cloud Service or On-prem etc.) (AspNetCore SDK Version 2.7.1 or higher), but for apps targeting .NET Core 2.0 or higher.
-- PerfCounters are supported when app is running ANYWHERE (Linux, Windows, app service for Linux, containers, etc.) in the latest versions (i.e. AspNetCore SDK Version 2.8.0 or higher), but only for apps targeting .NET Core 2.0 or higher.
+- PerfCounters are supported when app is running in ANY Windows machines (VM or Cloud Service or On-prem etc.) (AspNetCore SDK Version 2.7.1 or higher), but for apps targeting .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or higher.
+- PerfCounters are supported when app is running ANYWHERE (Linux, Windows, app service for Linux, containers, etc.) in the latest versions, but only for apps targeting .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or higher.
 
 ## Troubleshooting
 
 Live Metrics Stream uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall. Also check the [outgoing ports for Live Metrics Stream](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
-As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2 by default. If you are using an older version of TLS , Live Metrics will not display any data. For applications based on .NET Framework 4.5.1 refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version. 
+As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you are using an older version of TLS , Live Metrics will not display any data. For applications based on .NET Framework 4.5.1 refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version.
+
+> [!WARNING]
+> Currently, authenticated channel only supports manual SDK instrumentation. The authenticated channel cannot be configured with auto-instrumentation (used to be known as "codeless attach").
+
+### Missing configuration for .NET
+
+1. Verify you are using the latest version of the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
+2. Edit the `ApplicationInsights.config` file
+    * Verify that the connection string points to the Application Insights resource you are using
+    * Locate the `QuickPulseTelemetryModule` configuration option; if it is not there add it
+    * Locate the `QuickPulseTelemetryProcessor` configuration option; if it is not there add it
+     
+ ```xml
+<TelemetryModules>
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.
+QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector"/>
+</TelemetryModules>
+
+<TelemetryProcessors>
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.
+QuickPulse.QuickPulseTelemetryProcessor, Microsoft.AI.PerfCounterCollector"/>
+<TelemetryProcessors>
+````
+3. Restart the application
 
 ## Next steps
 

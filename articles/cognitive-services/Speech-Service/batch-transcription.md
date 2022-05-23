@@ -30,18 +30,18 @@ You can use batch transcription REST APIs to call the following methods:
 |    Gets the transcription identified by the specified ID.                        |    GET       |    speechtotext/v3.0/transcriptions/{id}       |
 |    Gets the result files of the transcription identified by the specified ID.    |    GET       |    speechtotext/v3.0/transcriptions/{id}/files |
 
-You can review and test the detailed API, which is available as a [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
+For more information, see the [Speech-to-text REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation.
 
 Batch transcription jobs are scheduled on a best-effort basis. You can't estimate when a job will change into the running state, but it should happen within minutes under normal system load. When the job is in the running state, the transcription occurs faster than the audio runtime playback speed.
 
 ## Prerequisites
 
-As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](overview.md#try-the-speech-service-for-free).
+As with all features of the Speech service, you create a Speech resource from the [Azure portal](https://portal.azure.com).
 
 >[!NOTE]
-> To use batch transcription, you need a standard subscription (S0) for Speech service. Free subscription keys (F0) don't work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> To use batch transcription, you need a standard Speech resource (S0) in your subscription. Free resources (F0) aren't supported. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-If you plan to customize models, follow the steps in [Acoustic customization](./how-to-custom-speech-train-model.md) and [Language customization](./how-to-custom-speech-train-model.md). To use the created models in batch transcription, you need their model location. You can retrieve the model location when you inspect the details of the model (the `self` property). A deployed custom endpoint is *not needed* for the batch transcription service.
+If you plan to customize models, follow the steps in [Acoustic customization](./how-to-custom-speech-train-model.md) and [Language customization](./how-to-custom-speech-train-model.md). To use the created models in batch transcription, you need their model location. You can retrieve the model location when you inspect the details of the model (the `self` property). A deployed custom endpoint isn't needed for the batch transcription service.
 
 >[!NOTE]
 > As a part of the REST API, batch transcription has a set of [quotas and limits](speech-services-quotas-and-limits.md#batch-transcription). It's a good idea to review these. To take full advantage of the ability to efficiently transcribe a large number of audio files, send multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe. The service transcribes the files concurrently, which reduces the turnaround time. For more information, see the [Configuration](#configuration) section of this article.
@@ -402,14 +402,14 @@ while (completed < 1)
 }
 ```
 
-For full details about the preceding calls, see our [Swagger document](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). For the full sample shown here, go to [GitHub](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
+For full details about the preceding calls, see the [Speech-to-text REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) reference documentation. For the full sample shown here, go to [GitHub](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
 
 This sample uses an asynchronous setup to post audio and receive transcription status. The `PostTranscriptions` method sends the audio file details, and the `GetTranscriptions` method receives the states. `PostTranscriptions` returns a handle, and `GetTranscriptions` uses it to create a handle to get the transcription status.
 
-This sample code doesn't specify a custom model. The service uses the baseline model for transcribing the file or files. To specify the model, you can pass on the same method the model reference for the custom model.
+This sample code doesn't specify a custom model. The service uses the base model for transcribing the file or files. To specify the model, you can pass on the same method the model reference for the custom model.
 
 > [!NOTE]
-> For baseline transcriptions, you don't need to declare the ID for the baseline model.
+> For baseline transcriptions, you don't need to declare the ID for the base model.
 
 ## Next steps
 

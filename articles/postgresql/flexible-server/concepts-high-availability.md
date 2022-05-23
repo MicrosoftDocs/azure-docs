@@ -1,9 +1,10 @@
 ---
 title: Overview of zone redundant high availability with Azure Database for PostgreSQL - Flexible Server 
 description: Learn about the concepts of zone redundant high availability with Azure Database for PostgreSQL - Flexible Server
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---
@@ -30,7 +31,7 @@ The health of primary and standby servers are continuously monitored and appropr
 
 | **Status** | **Description** |
 | ------- | ------ |
-| <b> Initializing | In the process of creating a new standby server |
+| <b> Initializing | In the process of creating a new standby server. |
 | <b> Replicating Data | After the standby is created, it is catching up with the primary. |
 | <b> Healthy | Replication is in steady state and healthy. |
 | <b> Failing Over | The database server is in the process of failing over to the standby. |
@@ -38,7 +39,7 @@ The health of primary and standby servers are continuously monitored and appropr
 | <b> Not Enabled | Zone redundant high availability is not enabled.  |
 
 >[!NOTE]
-> You can enable high availability during server creation or at a later time as well. If you are enabling or disabling high availability during post-create stage, it is recommended to perform the opreation when the primary server activity is low.
+> You can enable high availability during server creation or at a later time as well. If you are enabling or disabling high availability during post-create stage, it is recommended to perform the operation when the primary server activity is low.
 
 ## Steady-state operations
 
@@ -46,7 +47,7 @@ PostgreSQL client applications are connected to the primary server using the DB 
 
 :::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="zone redundant high availability - steady state"::: 
 
-1. Clients connect to the flexible server and performs write operations.
+1. Clients connect to the flexible server and perform write operations.
 2. Changes are replicated to the standby site.
 3. Primary receives acknowledgment.
 4. Writes/commits are acknowledged.
@@ -65,7 +66,7 @@ For flexible servers configured with high availability, these maintenance activi
 
 ## Failover process - unplanned downtimes
 
-Unplanned outages include software bugs or infrastructure component failures that impact the availability of the database. If the primary server becomes unavailable, it is detected by the monitoring system and initiates a failover process.  The process includes a few seconds of wait time to make sure it is not a false positive. The replication to the standby replica is severed and the standby replica is activated to be the primary database server. That includes the standby to recovery any residual WAL files. Once it is fully recovered, DNS for the same end point is updated with the standby server's IP address. Clients can then retry connecting to the database server using the same connection string and resume their operations. 
+Unplanned outages include software bugs or infrastructure component failures that impact the availability of the database. If the primary server becomes unavailable, it is detected by the monitoring system and initiates a failover process.  The process includes a few seconds of wait time to make sure it is not a false positive. The replication to the standby replica is severed and the standby replica is activated to be the primary database server. That includes the standby to recover any residual WAL files. Once it is fully recovered, DNS for the same end point is updated with the standby server's IP address. Clients can then retry connecting to the database server using the same connection string and resume their operations. 
 
 >[!NOTE]
 > Flexible servers configured with zone-redundant high availability provide a recovery point objective (RPO) of **Zero** (no data loss). The recovery time objective (RTO) is expected to be **less than 120s** in typical cases. However, depending on the activity in the primary database server at the time of the failover, the failover may take longer. 
@@ -77,11 +78,11 @@ After the failover, while a new standby server is being provisioned, application
 1. Primary database server is down and the clients lose database connectivity. 
 2. Standby server is activated to become the new primary server. The client connects to the new primary server using the same connection string. Having the client application in the same zone as the primary database server reduces latency and improves performance.
 3. Standby server is established in the same zone as the old primary server and the streaming replication is initiated. 
-4. Once the steady-state replication is established, the client application commits and writes are acknowledged after the data is persisted on both the sites.
+4. Once the steady-state replication is established, the client application commits and writes are acknowledged after the data is persisted on both sites.
 
 ## On-demand failover
 
-Flexible server provides two methods for you to perform on-demand failover to the standby server. These are useful if you want to test the failover time and downtime impact for your applications and if you want to failover to the preferred availability zone. 
+Flexible server provides two methods for you to perform on-demand failover to the standby server. These are useful if you want to test the failover time and downtime impact for your applications and if you want to fail over to the preferred availability zone. 
 
 ### Forced failover
 
@@ -114,7 +115,7 @@ Application downtime is expected to start after step #1 and persists until step 
 
 You can use this feature for failing over to the standby server with reduced downtime. For example, after an unplanned failover, your primary could be on a different availability zone than the application, and you want to bring the primary server back to the previous zone to colocate with your application.
 
-When executing this feature, the standby server is first prepared to make sure it is caught up with recent transactions allowing the application to continue to perform read/writes. The standby is then promoted and the connections to the primary is severed. Your application can continue to write to the primary while a new standby server is established in the background. The following are the steps involved with planned failover.
+When executing this feature, the standby server is first prepared to make sure it is caught up with recent transactions allowing the application to continue to perform read/writes. The standby is then promoted and the connections to the primary are severed. Your application can continue to write to the primary while a new standby server is established in the background. The following are the steps involved with planned failover.
 
 | **Step** | **Description** | **App downtime expected?** |
   | ------- | ------ | ----- |
@@ -142,10 +143,10 @@ See [this guide](how-to-manage-high-availability-portal.md) for managing high av
 
 ## Point-in-time restore of HA servers
 
-Flexible servers that are configured with high availability, log data is replicated in real time to the standby server. Any user errors on the primary server - such as an accidental drop of a table or incorrect data updates are replicated to the standby replica as well. So, you cannot use standby to recover from such logical errors. To recover from such errors, you have to perform point-in-time restore from the backup.  Using flexible server's point-in-time restore capability, you can restore to the time before the error occurred. For databases configured with high availability, a new database server will be restored as a single zone flexible server with a new user-provided server name. You can use the restored server for few use cases:
+Flexible servers that are configured with high availability, log data is replicated in real time to the standby server. Any user errors on the primary server - such as an accidental drop of a table or incorrect data updates are replicated to the standby replica as well. So, you cannot use standby to recover from such logical errors. To recover from such errors, you have to perform point-in-time restore from the backup. Using flexible server's point-in-time restore capability, you can restore to the time before the error occurred. For databases configured with high availability, a new database server will be restored as a single zone flexible server with a new user-provided server name. You can use the restored server for few use cases:
 
-  1. You can use the restored server for production usage and can optionally enable zone-redundant high availability. 
-  2. If you just want to restore an object, you can then export the object from the restored database server and import it to your production database server. 
+  1. You can use the restored server for production usage and can optionally enable zone-redundant high availability.
+  2. If you just want to restore an object, you can then export the object from the restored database server and import it to your production database server.
   3. If you want to clone your database server for testing and development purposes, or you want to restore for any other purposes, you can perform point-in-time restore.
 
 ## Zone redundant high availability - features
@@ -246,7 +247,7 @@ Here are some failure scenarios that require user action to recover:
 * **Does the zone-redundant HA provides protection from planned and unplanned outages?** <br>
     Yes. The main purpose of HA is to offer higher uptime to mitigate from any outages. In the event of an unplanned outage - including a fault in database, VM, physical node, data center, or at the AZ-level, the monitoring system automatically fails over the server to the standby. Similarly, during planned outages including minor version updates or infrastructure patching that happen during scheduled maintenance window, the updates are applied at the standby first and the service is failed over while the old primary goes through the update process. This reduces the overall downtime. 
 
-* **Can I enable or disable HA any any point of time?** <br>
+* **Can I enable or disable HA at any point of time?** <br>
 
     Yes. You can enable or disable zone-redundant HA at any time except when the server is in certain states like stopped, restarting, or already in the process of failing over. 
 

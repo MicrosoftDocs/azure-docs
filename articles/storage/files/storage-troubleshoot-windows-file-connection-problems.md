@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Files problems in Windows
 description: Troubleshooting Azure Files problems in Windows. See common issues related to Azure Files when you connect from Windows clients, and see possible resolutions. Only for SMB shares
-author: jeffpatt24
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/31/2022
-ms.author: jeffpatt
+ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 ---
@@ -84,8 +84,9 @@ To use the `Test-NetConnection` cmdlet, the Azure PowerShell module must be inst
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
-# This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
+# This command requires you to be logged into your Azure account and set the subscription your storage account is under, run:
+# Connect-AzAccount -SubscriptionId ‘xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx’
+# if you haven't already logged in.
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
 # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
@@ -475,9 +476,9 @@ This error may occur if a domain controller that holds the RID Master FSMO role 
 
 This error is most likely triggered by a syntax error in the Join-AzStorageAccountforAuth command.  Check the command for misspellings or syntax errors and verify that the latest version of the AzFilesHybrid module (https://github.com/Azure-Samples/azure-files-samples/releases) is installed.  
 
-## Azure Files on-premises AD DS Authentication support for AES 256 Kerberos encryption
+## Azure Files on-premises AD DS Authentication support for AES-256 Kerberos encryption
 
-Azure Files supports AES 256 Kerberos encryption support for AD DS authentication with the [AzFilesHybrid module v0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). If you have enabled AD DS authentication with a module version lower than v0.2.2, you will need to download the latest AzFilesHybrid module (v0.2.2+) and run the PowerShell below. If you have not enabled AD DS authentication on your storage account yet, you can follow this [guidance](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) for enablement. 
+Azure Files supports AES-256 Kerberos encryption for AD DS authentication with the [AzFilesHybrid module v0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). AES-256 is the recommended authentication method. If you have enabled AD DS authentication with a module version lower than v0.2.2, you will need to download the latest AzFilesHybrid module (v0.2.2+) and run the PowerShell below. If you have not enabled AD DS authentication on your storage account yet, you can follow this [guidance](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) for enablement. 
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"

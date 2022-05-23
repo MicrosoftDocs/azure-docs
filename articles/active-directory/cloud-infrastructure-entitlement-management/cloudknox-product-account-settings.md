@@ -5,9 +5,9 @@ services: active-directory
 manager: karenh444
 ms.service: active-directory
 ms.topic: overview
-author: Yvonne-deQ
+author: mtillman
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # View personal and organization information
@@ -21,17 +21,17 @@ This information can't be modified because the user information is pulled from A
 
 ## View personal information
 
-1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account settings**.
+1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account Settings**.
 
-    The **Personal information** box displays your **First name**, **Last name**, and the **Email address** that was used to register your account on CloudKnox.
+    The **Personal Information** box displays your **First Name**, **Last Name**, and the **Email Address** that was used to register your account on CloudKnox.
 
 ## View current organization information
 
-1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account settings**.
+1. In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account Settings**.
 
-    The **Current organization information** displays the **Name** of your organization, the **Tenant ID** box, and the **User session timeout (min)**.
+    The **Current Organization Information** displays the **Name** of your organization, the **Tenant ID** box, and the **User Session Timeout (min)**.
 
-1. To change duration of the **User session timeout (min)**, select **Edit** (the pencil icon), and then enter the number of minutes before you want a user session to time out.
+1. To change duration of the **User Session Timeout (min)**, select **Edit** (the pencil icon), and then enter the number of minutes before you want a user session to time out.
 1. Select the check mark to confirm your new setting.
 
 

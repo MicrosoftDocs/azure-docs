@@ -181,7 +181,7 @@ After you save all changes, you can select **Create release** to manually create
 
 In this section, you'll learn how to create GitHub workflows by using GitHub Actions for Azure Synapse workspace deployment.
 
-You can use the [GitHub Action for Azure Resource Manager template](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying an ARM template to Azure for the workspace and compute pools.
+You can use the [GitHub Actions for Azure Resource Manager template](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying an ARM template to Azure for the workspace and compute pools.
 
 ### Workflow file
 

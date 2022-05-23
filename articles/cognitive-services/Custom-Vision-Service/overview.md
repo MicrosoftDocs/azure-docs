@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 08/25/2021
+ms.date: 02/28/2022
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image identifier, image recognition app, custom vision
@@ -18,7 +18,7 @@ keywords: image recognition, image identifier, image recognition app, custom vis
 
 # What is Custom Vision?
 
-Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels (which represent classifications or objects) to images, according to their detected visual characteristics. Unlike the [Computer Vision](../computer-vision/overview.md) service, Custom Vision allows you to specify your own labels and train custom models to detect them.
+Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels to images, according to their detected visual characteristics. Each label represents a classifications or objects. Unlike the [Computer Vision](../computer-vision/overview.md) service, Custom Vision allows you to specify your own labels and train custom models to detect them.
 
 This documentation contains the following types of articles:
 * The [quickstarts](./getting-started-build-a-classifier.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time.
@@ -28,11 +28,11 @@ This documentation contains the following types of articles:
 
 ## What it does
 
-The Custom Vision service uses a machine learning algorithm to analyze images. You, the developer, submit groups of images that feature and lack the characteristics in question. You label the images yourself at the time of submission. Then, the algorithm trains to this data and calculates its own accuracy by testing itself on those same images. Once you've trained the algorithm, you can test, retrain, and eventually use it in your image recognition app to [classify images](getting-started-build-a-classifier.md). You can also [export the model](export-your-model.md) itself for offline use.
+The Custom Vision service uses a machine learning algorithm to analyze images. You, the developer, submit groups of images that have and don't have the characteristics in question. You label the images yourself at the time of submission. Then the algorithm trains to this data and calculates its own accuracy by testing itself on those same images. Once you've trained the algorithm, you can test, retrain, and eventually use it in your image recognition app to [classify images](getting-started-build-a-classifier.md). You can also [export the model](export-your-model.md) itself for offline use.
 
 ### Classification and object detection
 
-Custom Vision functionality can be divided into two features. **[Image classification](getting-started-build-a-classifier.md)** applies one or more labels to an image. **[Object detection](get-started-build-detector.md)** is similar, but it also returns the coordinates in the image where the applied label(s) can be found.
+Custom Vision functionality can be divided into two features. **[Image classification](getting-started-build-a-classifier.md)** applies one or more labels to an entire image. **[Object detection](get-started-build-detector.md)** is similar, but it returns the coordinates in the image where the applied label(s) can be found.
 
 ### Optimization
 
@@ -42,20 +42,29 @@ Additionally, you can choose from several variations of the Custom Vision algori
 
 ## What it includes
 
-The Custom Vision Service is available as a set of native SDKs as well as through a web-based interface on the [Custom Vision website](https://customvision.ai/). You can create, test, and train a model through either interface or use both together.
+The Custom Vision Service is available as a set of native SDKs as well as through a web-based interface on the [Custom Vision portal](https://customvision.ai/). You can create, test, and train a model through either interface or use both together.
 
 ### Supported browsers for Custom Vision web portal
 
-The Custom Vision web interface can be used by the following web browsers:
+The Custom Vision portal can be used by the following web browsers:
 -	Microsoft Edge (latest version)
 -	Google Chrome (latest version)
 
 ![Custom Vision website in a Chrome browser window](media/browser-home.png)
 
+## Backup and disaster recovery
+
+As a part of Azure, Custom Vision Service has components that are maintained across multiple regions. Service zones and regions are used by all of our services to provide continued service to our customers. For more information on zones and regions, see [Azure regions](../../availability-zones/az-overview.md). If you need additional information or have any issues, please [contact support](/answers/topics/azure-custom-vision.html).
+
+
 ## Data privacy and security
 
 As with all of the Cognitive Services, developers using the Custom Vision service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
+## Data residency
+
+Custom Vision primarily doesn't replicate data out of the specified region, except for one region, `NorthCentralUS`, where there is no local Azure Support.
+
 ## Next steps
 
-Follow the [Build a classifier](getting-started-build-a-classifier.md) guide to get started using Custom Vision on the web portal, or complete a [quickstart](quickstarts/image-classification.md) to implement the basic scenarios in code.
+Follow the [Build a classifier](getting-started-build-a-classifier.md) quickstart to get started using Custom Vision on the web portal, or complete an [SDK quickstart](quickstarts/image-classification.md) to implement the basic scenarios in code.

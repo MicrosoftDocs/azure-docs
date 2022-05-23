@@ -82,13 +82,15 @@
   items:
     - name: Architecture
       href: core/concepts-architecture.md
-    - name: Scalability and high availability
-      href: core/concepts-scalability-availability.md
+    - name: Industrial IoT patterns
+      href: core/concepts-iiot-architecture.md
     - name: Device connectivity guide
       href: core/overview-iot-central-developer.md
       items:
-      - name: Device connectivity concepts
-        href: core/concepts-get-connected.md
+      - name: Device implementation and best practices
+        href: core/concepts-device-implementation.md
+      - name: Device authentication
+        href: core/concepts-device-authentication.md
       - name: Device templates
         href: core/concepts-device-templates.md      
       - name: Connect IoT Edge devices
@@ -102,6 +104,10 @@
       href: core/overview-iot-central-solution-builder.md
     - name: Application administration guide
       href: core/overview-iot-central-admin.md
+    - name: Application security guide
+      href: core/overview-iot-central-security.md
+    - name: Network security using private endpoints
+      href: core/concepts-private-endpoints.md
     - name: FAQ
       href: core/howto-faq.yml
       items:
@@ -109,6 +115,8 @@
         href: core/concepts-faq-start-iot-central.md
       - name: How do I extend IoT Central?
         href: core/concepts-faq-extend.md
+      - name: How does IoT Central scale and enable HADR?
+        href: core/concepts-faq-scalability-availability.md
       - name: What are IoT Central's scale limits?
         href: core/concepts-quotas-limits.md
       - name: How do I move between aPaaS and PaaS solutions?
@@ -166,17 +174,27 @@
         - name: Use rules and workflows to integrate with other services
           href: core/howto-configure-rules-advanced.md
         - name: Export data to cloud destinations
-          href: core/howto-export-data.md
-        - name: Export data to cloud destinations (legacy)
-          href: core/howto-export-data-legacy.md
-        - name: Troubleshoot data export
-          href: core/troubleshoot-data-export.md
+          items:
+            - name: Export to Blob Storage
+              href: core/howto-export-to-blob-storage.md
+            - name: Export to Service Bus
+              href: core/howto-export-to-service-bus.md
+            - name: Export to Event Hubs
+              href: core/howto-export-to-event-hubs.md
+            - name: Export to Azure Data Explorer
+              href: core/howto-export-to-azure-data-explorer.md
+            - name: Export to a webhook
+              href: core/howto-export-to-webhook.md
+            - name: Transform data internally for export
+              href: core/howto-transform-data-internally.md
+            - name: Troubleshoot data export
+              href: core/troubleshoot-data-export.md
+            - name: Export data to cloud destinations (legacy)
+              href: core/howto-export-data-legacy.md           
         - name: Export data and visualize with Databricks
           href: core/howto-create-custom-analytics.md
         - name: Transform data internally on ingress
           href: core/howto-map-data.md
-        - name: Transform data internally for export
-          href: core/howto-transform-data-internally.md
         - name: Transform data externally
           href: core/howto-transform-data.md
         - name: Connect other clouds with device bridge
@@ -190,6 +208,8 @@
           href: core/howto-query-with-rest-api.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles-with-rest-api.md
+        - name: Manage organizations
+          href: core/howto-manage-organizations-with-rest-api.md
         - name: Data export
           href: core/howto-manage-data-export-with-rest-api.md
         - name: Manage device templates
@@ -215,8 +235,6 @@
           href: core/howto-create-organizations.md
         - name: Customize application UI
           href: core/howto-customize-ui.md
-        - name: Migrate V2 to V3 application
-          href: core/howto-migrate.md
         - name: Configure and use file uploads
           href: core/howto-configure-file-uploads.md
         - name: Manage and monitor in the Azure portal
@@ -225,7 +243,10 @@
           href: core/howto-manage-iot-central-from-cli.md
         - name: Manage from CSP portal
           href: core/howto-create-and-manage-applications-csp.md
-
+        - name: Create a private endpoint for devices
+          href: core/howto-create-private-endpoint.md
+        - name: Export to a secure VNET
+          href: core/howto-connect-secure-vnet.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -234,14 +255,27 @@
     href: /rest/api/iotcentral/
 - name: Resources
   items:
+  - name: Blog
+    href: https://techcommunity.microsoft.com/t5/internet-of-things/bg-p/IoTBlog/label-name/Azure%20IoT%20Central
   - name: Code samples
     href: /samples/browse/?expanded=azure&products=azure-iot-central
+  - name: Guided learning path
+    href: /learn/paths/develop-iot-solutions-with-azure-iot-central/
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
   - name: Video resources
     href: https://www.youtube.com/playlist?list=PL1ljc761XCiYlm8Rx58jLsUp4gAspw1SG
   - name: IoT Glossary
     href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+
+  - name: Industrial connectivity partners
+    items:
+    - name: CloudRAIL
+      href: https://devices.cloudrail.com/documentation?service=AzureIoTCentral#azureiotcentral1
+    - name: Ignition
+      href: https://docs.chariot.io/display/CLD80/Publishing+Data+to+Azure+IoT+Central
+    - name: Omnio
+      href: https://www.omnio.net/contact
 
   - name: Azure IoT services
     items:
@@ -269,5 +303,3 @@
     href: core/iot-central-customer-data-requests.md
   - name: Supported browsers
     href: core/iot-central-supported-browsers.md
-  - name: Azure IoT Central (legacy templates)
-    href: /previous-versions/azure/iot-central/core/overview-iot-central

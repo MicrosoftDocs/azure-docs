@@ -4,8 +4,8 @@ description: Learn how to use Power Automate and an HTTPS endpoint to manage lea
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: trkeya
-ms.author: trkeya
+author: durior1
+ms.author: uridor
 ms.date: 05/21/2021
 ---
 

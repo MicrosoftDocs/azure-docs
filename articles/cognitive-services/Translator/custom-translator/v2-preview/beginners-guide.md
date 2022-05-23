@@ -6,19 +6,21 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 01/20/2022
-ms.author: moelghaz
+ms.author: lajanuar
+ms.date: 02/25/2022
 ms.topic: overview
 ---
 # Custom Translator for beginners | Preview
 
- [Custom Translator](../overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and does not require any programming skills. The customized translation system seamlessly integrates into your existing applications, workflows, and websites and is available on Azure through the same cloud-based [Microsoft Text Translator API](../../reference/v3-0-translate.md?tabs=curl) service that powers billions of translations every day.
+ [Custom Translator](../overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and doesn't require any programming skills. The customized translation system seamlessly integrates into your existing applications, workflows, and websites and is available on Azure through the same cloud-based [Microsoft Text Translator API](../../reference/v3-0-translate.md?tabs=curl) service that powers billions of translations every day.
+
+The platform enables users to build and publish custom translation systems to and from English. The Custom Translator supports more than three dozen languages that map directly to the languages available for NMT. For a complete list, *see* [Translator language support](../../language-support.md).
 
 ## Is a custom translation model the right choice for me?
 
 A well-trained custom translation model provides more accurate domain-specific translations. This is because it relies on previously translated in-domain documents to learn preferred translations. Translator uses these terms and phrases in context to produce fluent translations in the target language while respecting context-dependent grammar.
 
-Training a full custom translation model requires a substantial amount of data. If you do not have at least 10,000 sentences of previously trained documents, you will not be able to train a full-language translation model. However, you can either train a dictionary-only model or use the high-quality, out-of-the-box translations available with the Text Translator API.
+Training a full custom translation model requires a substantial amount of data. If you don't have at least 10,000 sentences of previously trained documents, you won't be able to train a full-language translation model. However, you can either train a dictionary-only model or use the high-quality, out-of-the-box translations available with the Text Translator API.
 
 :::image type="content" source="media/how-to/for-beginners.png" alt-text="Screenshot illustrating the difference between custom and general models.":::
 
@@ -65,7 +67,7 @@ Finding in-domain quality data is often a challenging task that varies based on 
 | Bilingual training documents | Teaches the system your terminology and style. | **Be liberal**. Any in-domain human translation is better than machine translation. Add and remove documents as you go and try to improve the [BLEU score](../what-is-bleu-score.md?WT.mc_id=aiml-43548-heboelma). |
 | Tuning documents | Trains the Neural Machine Translation parameters. | **Be strict**. Compose them to be optimally representative of what you are going to translation in the future. |
 | Test documents | Calculate the [BLEU score](../what-is-bleu-score.md?WT.mc_id=aiml-43548-heboelma).| **Be strict**. Compose test documents to be optimally representative of what you plan to translate in the future. |
-| Phrase dictionary | Forces the given translation 100% of the time. | **Be restrictive**. A phrase dictionary is case-sensitive and any word or phrase listed is translated in the way you specify. In many cases, it is better to not use a phrase dictionary and let the system learn. |
+| Phrase dictionary | Forces the given translation 100% of the time. | **Be restrictive**. A phrase dictionary is case-sensitive and any word or phrase listed is translated in the way you specify. In many cases, it's better to not use a phrase dictionary and let the system learn. |
 | Sentence dictionary | Forces the given translation 100% of the time. | **Be strict**. A sentence dictionary is case-insensitive and good for common in domain short sentences. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry. If only a portion of the sentence matches, the entry won't match. |
 
 ## What is a BLEU score?
@@ -99,7 +101,7 @@ When you submit documents for training a custom translation system, the document
 
 * ### Extracting tuning and testing data
 
-  Tuning and testing data is optional. If you don't provide it, the system will remove an appropriate percentage from your training documents to use for tuning and testing. The removal happens dynamically as part of the training process. Since this step occurs as part of training, your uploaded documents are not affected. You can see the final used sentence counts for each category of data—training, tuning, testing, and dictionary—on the Model details page after training has succeeded.
+  Tuning and testing data is optional. If you don't provide it, the system will remove an appropriate percentage from your training documents to use for tuning and testing. The removal happens dynamically as part of the training process. Since this step occurs as part of training, your uploaded documents aren't affected. You can see the final used sentence counts for each category of data—training, tuning, testing, and dictionary—on the Model details page after training has succeeded.
 
 * ### Length filter
 
@@ -140,7 +142,7 @@ When you submit documents for training a custom translation system, the document
 * Remove sentences with invalid encoding.
 * Remove Unicode control characters.
 * If feasible, align sentences (source-to-target).
-* Remove source and target sentences that do not match the source and target languages.
+* Remove source and target sentences that don't match the source and target languages.
 * When source and target sentences have mixed languages, ensure that untranslated words are intentional, for example, names of organizations and products.
 * Correct grammatical and typographical errors to prevent teaching these errors to your model.
 * Though our training process handles source and target lines containing multiple sentences, it's better to have one source sentence mapped to one target sentence.

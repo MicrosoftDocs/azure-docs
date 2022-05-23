@@ -51,7 +51,7 @@ The sample app is composed of two Spring apps:
 
 The following diagram illustrates the sample app architecture:
 
-:::image type="content" source="media/spring-cloud-quickstart-sample-app-introduction/sample-app-diagram.png" alt-text="Sample app diagram":::
+:::image type="content" source="media/spring-cloud-quickstart-sample-app-introduction/sample-app-diagram.png" alt-text="Diagram of sample app architecture.":::
 
 > [!NOTE]
 > When the application is hosted in Azure Spring Cloud Enterprise tier, the managed Application Configuration Service for VMware Tanzu® assumes the role of Spring Cloud Config Server and the managed VMware Tanzu® Service Registry assumes the role of Eureka Service Discovery without any code changes to the application. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md) and [Use Tanzu Service Registry](how-to-enterprise-service-registry.md).
@@ -104,7 +104,7 @@ There are several common patterns in distributed systems that support core servi
 
 ## Database configuration
 
-In its default configuration, **Pet Clinic** uses an in-memory database (HSQLDB) which is populated at startup with data. A similar setup is provided for MySql if a persistent database configuration is needed. A dependency for Connector/J, the MySQL JDBC driver, is already included in the pom.xml files.
+In its default configuration, **Pet Clinic** uses an in-memory database (HSQLDB) which is populated at startup with data. A similar setup is provided for MySQL if a persistent database configuration is needed. A dependency for Connector/J, the MySQL JDBC driver, is already included in the pom.xml files.
 
 ## Sample usage of PetClinic
 
@@ -117,11 +117,11 @@ For full implementation details, see our fork of [PetClinic](https://github.com/
 ### [Basic/Standard tier](#tab/basic-standard-tier)
 
 > [!div class="nextstepaction"]
-> [Provision Azure Spring Cloud instance](./quickstart-provision-service-instance.md)
+> [Quickstart: Provision an Azure Spring Cloud service instance](./quickstart-provision-service-instance.md)
 
 ### [Enterprise tier](#tab/enterprise-tier)
 
 > [!div class="nextstepaction"]
-> [Provision Azure Spring Cloud instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise.md)
+> [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](./quickstart-provision-service-instance-enterprise.md)
 
 ---

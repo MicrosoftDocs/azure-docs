@@ -1,10 +1,10 @@
 ---
 title: What's new in Microsoft Sentinel
 description: This article describes new features in Microsoft Sentinel from the past few months.
-author: batamig
-ms.author: bagol
+author: yelevin
+ms.author: yelevin
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 03/01/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -27,11 +27,74 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## May 2022
+
+- [Relate alerts to incidents](#relate-alerts-to-incidents-preview)
+- [Similar incidents](#similar-incidents-preview)
+
+### Relate alerts to incidents (Preview)
+
+You can now add alerts to, or remove alerts from, existing incidents, either manually or automatically, as part of your investigation processes. This allows you to refine the incident scope as the investigation unfolds. For example, relate Microsoft Defender for Cloud alerts, or alerts from third-party products, to incidents synchronized from Microsoft 365 Defender. Use this feature from the investigation graph, the API, or through automation playbooks.
+
+Learn more about [relating alerts to incidents](relate-alerts-to-incidents.md).
+
+### Similar incidents (Preview)
+
+When triaging or investigating an incident, the context of the entirety of incidents in your SOC can be extremely useful. For example, other incidents involving the same entities can represent useful context that will allow you to reach the right decision faster. Now there's a new tab in the incident page that lists other incidents that are similar to the incident you are investigating. Some common use cases for using similar incidents are:
+
+- Finding other incidents that might be part of a larger attack story.
+- Using a similar incident as a reference for incident handling. The way the previous incident was handled can act as a guide for handling the current one.
+- Finding relevant people in your SOC that have handled similar incidents for guidance or consult.
+
+Learn more about [similar incidents](investigate-cases.md#similar-incidents-preview).
+
+## March 2022
+
+- [Automation rules now generally available](#automation-rules-now-generally-available)
+- [Create a large watchlist from file in Azure Storage (public preview)](#create-a-large-watchlist-from-file-in-azure-storage-public-preview)
+
+### Automation rules now generally available
+
+Automation rules are now generally available (GA) in Microsoft Sentinel.
+
+[Automation rules](automate-incident-handling-with-automation-rules.md) allow users to centrally manage the automation of incident handling. They allow you to assign playbooks to incidents, automate responses for multiple analytics rules at once, automatically tag, assign, or close incidents without the need for playbooks, and control the order of actions that are executed. Automation rules streamline automation use in Microsoft Sentinel and enable you to simplify complex workflows for your incident orchestration processes.
+
+### Create a large watchlist from file in Azure Storage (public preview)
+
+Create a watchlist from a large file that's up to 500 MB in size by uploading the file to your Azure Storage account. When you add the watchlist to your workspace, you provide a shared access signature URL. Microsoft Sentinel uses the shared access signature URL to retrieve the watchlist data from Azure Storage.
+
+For more information, see:
+
+- [Use watchlists in Microsoft Sentinel](watchlists.md)
+- [Create watchlists in Microsoft Sentinel](watchlists-create.md)
+
 ## February 2022
 
+- [New custom log ingestion and data transformation at ingestion time (Public preview)](#new-custom-log-ingestion-and-data-transformation-at-ingestion-time-public-preview)
 - [View MITRE support coverage (Public preview)](#view-mitre-support-coverage-public-preview)
-- [View Azure Purview data in Microsoft Sentinel](#view-azure-purview-data-in-microsoft-sentinel-public-preview)
+- [View Microsoft Purview data in Microsoft Sentinel (Public preview)](#view-microsoft-purview-data-in-microsoft-sentinel-public-preview)
 - [Manually run playbooks based on the incident trigger (Public preview)](#manually-run-playbooks-based-on-the-incident-trigger-public-preview)
+- [Search across long time spans in large datasets (public preview)](#search-across-long-time-spans-in-large-datasets-public-preview)
+- [Restore archived logs from search (public preview)](#restore-archived-logs-from-search-public-preview)
+
+### New custom log ingestion and data transformation at ingestion time (Public preview)
+
+Microsoft Sentinel supports two new features for data ingestion and transformation. These features, provided by Log Analytics, act on your data even before it's stored in your workspace.
+
+The first of these features is the [**custom logs API**](../azure-monitor/logs/custom-logs-overview.md). It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You use Log Analytics [**data collection rules (DCRs)**](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
+
+The second feature is [**ingestion-time data transformation**](../azure-monitor/logs/ingestion-time-transformations.md) for standard logs. It uses [**DCRs**](../azure-monitor/essentials/data-collection-rule-overview.md) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
+
+- AMA-based data connectors (based on the new Azure Monitor Agent)
+- MMA-based data connectors (based on the legacy Log Analytics Agent)
+- Data connectors that use Diagnostic settings
+- Service-to-service data connectors
+
+For more information, see:
+
+- [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
+- [Data transformation in Microsoft Sentinel (preview)](data-transformation.md)
+- [Configure ingestion-time data transformation for Microsoft Sentinel (preview)](configure-data-transformation.md).
 
 ### View MITRE support coverage (Public preview)
 
@@ -44,18 +107,16 @@ For example:
 :::image type="content" source="media/whats-new/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
 
 For more information, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md).
-- [Search across long time spans in large datasets (public preview)](#search-across-long-time-spans-in-large-datasets-public-preview)
-- [Restore archived logs from search (public preview)](#restore-archived-logs-from-search-public-preview)
 
-### View Azure Purview data in Microsoft Sentinel (Public Preview)
+### View Microsoft Purview data in Microsoft Sentinel (Public Preview)
 
-Microsoft Sentinel now integrates directly with Azure Purview by providing an out-of-the-box solution.
+Microsoft Sentinel now integrates directly with Microsoft Purview by providing an out-of-the-box solution.
 
-The Azure Purview solution includes the Azure Purview data connector, related analytics rule templates, and a workbook that you can use to visualize sensitivity data detected by Azure Purview, together with other data ingested in Microsoft Sentinel.
+The Microsoft Purview solution includes the Microsoft Purview data connector, related analytics rule templates, and a workbook that you can use to visualize sensitivity data detected by Microsoft Purview, together with other data ingested in Microsoft Sentinel.
 
-:::image type="content" source="media/purview-solution/purview-workbook.png" alt-text="Screenshot of the Azure Purview workbook in Microsoft Sentinel.":::
+:::image type="content" source="media/purview-solution/purview-workbook.png" alt-text="Screenshot of the Microsoft Purview workbook in Microsoft Sentinel.":::
 
-For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](purview-solution.md).
+For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Purview](purview-solution.md).
 
 ### Manually run playbooks based on the incident trigger (Public preview)
 
@@ -519,7 +580,6 @@ For more information, see:
 ## September 2021
 
 - [Data connector health enhancements (Public preview)](#data-connector-health-enhancements-public-preview)
-
 - [New in docs: scaling data connector documentation](#new-in-docs-scaling-data-connector-documentation)
 - [Azure Storage account connector changes](#azure-storage-account-connector-changes)
 
@@ -583,7 +643,7 @@ By default, incident searches run across the **Incident ID**, **Title**, **Tags*
 
 For example:
 
-:::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Screenshot of the Incidents page advanced search options.":::
+:::image type="content" source="media/investigate-cases/advanced-search.png" alt-text="Screenshot of the Incidents page advanced search options.":::
 
 For more information, see [Search for incidents](investigate-cases.md#search-for-incidents).
 
@@ -618,7 +678,7 @@ Watchlist templates currently include:
 - **High Value Assets**. A list of devices, resources, or other assets that have critical value in the organization.
 - **Network Mapping**. A list of IP subnets and their respective organizational contexts.
 
-For more information, see [Create a new watchlist using a template](watchlists-create.md#create-a-watchlist-by-using-a-template-public-preview) and [Built-in watchlist schemas](watchlist-schemas.md).
+For more information, see [Create watchlists in Microsoft Sentinel](watchlists-create.md) and [Built-in watchlist schemas](watchlist-schemas.md).
 
 
 

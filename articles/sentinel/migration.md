@@ -45,7 +45,7 @@ For example, evaluate the following key areas:
 |**Mean time to remediate (MTTR).**     |    Compare the MTTR for incidents investigated by each SIEM, assuming analysts at equivalent skill levels.     |
 |**Hunting speed and agility.**     | Measure how fast teams can hunt, starting from a fully formed hypothesis, to querying the data, to getting the results on each SIEM platform.        |
 |**Capacity growth friction.**     |  Compare the level of difficulty in adding capacity as usage grows. Keep in mind that cloud services and applications tend to generate more log data than traditional on-premises workloads.       |
-|     |         |
+
 
 If you have limited or no investment in an existing on-premises SIEM, moving to Microsoft Sentinel can be a straightforward, direct deployment. However, enterprises that are heavily invested in a legacy SIEM typically require a multi-stage process to accommodate transition tasks.
 
@@ -153,7 +153,7 @@ The following table describes side-by-side configurations that are *not* recomme
 |**Send Microsoft Sentinel logs to your legacy SIEM**     |  With this method, you'll continue to experience the cost and scale challenges of your on-premises SIEM. <br><br>You'll pay for data ingestion in Microsoft Sentinel, along with storage costs in your legacy SIEM, and you can't take advantage of Microsoft Sentinel's SIEM and SOAR detections, analytics, User Entity Behavior Analytics (UEBA), AI, or investigation and automation tools.       |
 |**Send logs from a legacy SIEM to Microsoft Sentinel**     |   While this method provides you with the full functionality of Microsoft Sentinel, your organization still pays for two different data ingestion sources. Besides adding architectural complexity, this model can result in higher costs.     |
 |**Use Microsoft Sentinel and your legacy SIEM as two fully separate solutions**     |  You could use Microsoft Sentinel to analyze some data sources, like your cloud data, and continue to use your on-premises SIEM for other sources. This setup allows for clear boundaries for when to use each solution, and avoids duplication of costs. <br><br>However, cross-correlation becomes difficult, and you can't fully diagnose attacks that cross both sets of data sources. In today's landscape, where threats often move laterally across an organization, such visibility gaps can pose significant security risks.       |
-|     |         |
+
 
 
 
@@ -267,7 +267,7 @@ Use the following checklist to make sure that you're fully migrated to Microsoft
 |**Technology readiness**     | **Check critical data**: Make sure all sources and alerts are available in Microsoft Sentinel. <br><br>**Archive all records**: Save critical past incident and case records, raw data optional, to retain institutional history.   |
 |**Process readiness**     |  **Playbooks**: Update [investigation and hunting processes](investigate-cases.md) to Microsoft Sentinel.<br><br>**Metrics**: Ensure that you can get all key metrics from Microsoft Sentinel.<br><br>**Workbooks**: Create [custom workbooks](monitor-your-data.md) or use built-in workbook templates to quickly gain insights as soon as you [connect to data sources](connect-data-sources.md).<br><br>**Incidents**: Make sure to transfer all current incidents to the new system, including required source data.        |
 |**People readiness**     |  **SOC analysts**: Make sure everyone on your team is trained on Microsoft Sentinel and is comfortable leaving the legacy SIEM.   |
-|     |         |
+
 ## Next steps
 
 After migration, explore Microsoft's Microsoft Sentinel resources to expand your skills and get the most out of Microsoft Sentinel.

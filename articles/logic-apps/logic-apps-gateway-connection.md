@@ -1,10 +1,10 @@
 ---
 title: Access data sources on premises
-description: Connect to on-premises data sources from Azure Logic Apps by creating a data gateway resource in Azure
+description: Connect to on-premises data sources from Azure Logic Apps by creating a data gateway resource in Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, azla
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/14/2021
 ---
 

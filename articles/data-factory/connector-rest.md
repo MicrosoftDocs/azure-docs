@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/21/2022
+ms.date: 04/01/2022
 ms.author: makromer
 ---
 
@@ -29,7 +29,7 @@ You can copy data from a REST source to any supported sink data store. You also 
 Specifically, this generic REST connector supports:
 
 - Copying data from a REST endpoint by using the **GET** or **POST** methods and copying data to a REST endpoint by using the **POST**, **PUT** or **PATCH** methods.
-- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **AAD service principal**, and **managed identities for Azure resources**.
+- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **AAD service principal**, and **user-assigned managed identity**.
 - **[Pagination](#pagination-support)** in the REST APIs.
 - For REST as source, copying the REST JSON response [as-is](#export-json-response-as-is) or parse it by using [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping). Only response payload in **JSON** is supported.
 
@@ -71,6 +71,9 @@ Use the following steps to create a REST linked service in the Azure portal UI.
 The following sections provide details about properties you can use to define Data Factory entities that are specific to the REST connector.
 
 ## Linked service properties
+
+> [!Important]
+> Due to Azure service security and compliance request, system-assigned managed identity authentication is no longer available in REST connector for both Copy and Mapping data flow. You are recommended to migrate existing linked services that use system-managed identity authentication to user-assigned managed identity authentication or other authentication types. Please make sure the migration to be done by **September 15, 2022**. For more detailed steps about how to create, manage user-assigned managed identities, refer to [this](data-factory-service-identity.md#user-assigned-managed-identity). 
 
 The following properties are supported for the REST linked service:
 
@@ -144,34 +147,6 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
                 "type": "SecureString"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-### <a name="managed-identity"></a> Use system-assigned managed identity authentication
-
-Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
-
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
-
-**Example**
-
-```json
-{
-    "name": "RESTLinkedService",
-    "properties": {
-        "type": "RestService",
-        "typeProperties": {
-            "url": "<REST endpoint e.g. https://www.example.com/>",
-            "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
         },
         "connectVia": {
@@ -547,11 +522,11 @@ baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=10000
 
 *Step 1*: Input `sysparm_offset={offset}` either in **Base URL** or **Relative URL** as shown in the following screenshots:
         
-:::image type="content" source="media/connector-rest/pagination-rule-example-1-rest-linked-service-base-url.png" alt-text="Screenshot showing one configuration to send multiple requests whose variables are in QueryParameters.":::  
+:::image type="content" source="media/connector-rest/pagination-rule-example-1-rest-linked-service-base-url.png" alt-text="Screenshot showing one configuration to send multiple requests whose variables are in Query Parameters.":::  
     
 or
 
-:::image type="content" source="media/connector-rest/pagination-rule-example-1-rest-linked-service-relative-url.png" alt-text="Screenshot showing another configuration to send multiple requests whose variables are in QueryParameters."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-1-rest-linked-service-relative-url.png" alt-text="Screenshot showing another configuration to send multiple requests whose variables are in Query Parameters."::: 
         
 *Step 2*: Set **Pagination rules** as either option 1 or option 2：
             
@@ -574,11 +549,11 @@ BaseUrl/api/now/table/t100
 
 *Step 1*: Input `{id}` either in **Base URL** in the linked service configuration page or **Relative URL** in the dataset connection pane.
     
-:::image type="content" source="media/connector-rest/pagination-rule-example-2-rest-linked-service-base-url.png" alt-text="Screenshot showing one configuration to send multiple requests whose variables are in AbsoluteUrl."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-2-rest-linked-service-base-url.png" alt-text="Screenshot showing one configuration to send multiple requests whose variables are in Absolute Url."::: 
 
 or
 
-:::image type="content" source="media/connector-rest/pagination-rule-example-2-rest-linked-service-relative-url.png" alt-text="Screenshot showing another configuration to send multiple requests whose variables are in AbsoluteUrl."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-2-rest-linked-service-relative-url.png" alt-text="Screenshot showing another configuration to send multiple requests whose variables are in Absolute Url."::: 
 
 *Step 2*: Set **Pagination rules** as **"AbsoluteUrl.{id}" :"RANGE:1:100:1"**.
 
@@ -655,7 +630,7 @@ Response 2：
     ```
     Set the end condition rule as **"EndCondition:$.data": "Empty"** to end the pagination when the value of the specific node in response is empty.
 
-    :::image type="content" source="media/connector-rest/pagination-rule-example-4-1.png" alt-text="Screenshot showing the EndCondition setting for Example 4.1."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-1.png" alt-text="Screenshot showing the End Condition setting for Example 4.1."::: 
 
 - **Example 4.2: The pagination ends when the value of the specific node in response dose not exist** 
 
@@ -666,7 +641,7 @@ Response 2：
     ```
     Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response dose not exist.
         
-    :::image type="content" source="media/connector-rest/pagination-rule-example-4-2.png" alt-text="Screenshot showing the EndCondition setting for Example 4.2."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-2.png" alt-text="Screenshot showing the End Condition setting for Example 4.2."::: 
 
 - **Example 4.3: The pagination ends when the value of the specific node in response exists**
     
@@ -685,7 +660,7 @@ Response 2：
     ```
     Set the end condition rule as **"EndCondition:$.Complete": "Exist"** to end the pagination when the value of the specific node in response exists.
 
-    :::image type="content" source="media/connector-rest/pagination-rule-example-4-3.png" alt-text="Screenshot showing the EndCondition setting for Example 4.3."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-3.png" alt-text="Screenshot showing the End Condition setting for Example 4.3."::: 
 
 - **Example 4.4: The pagination ends when the value of the specific node in response is a user-defined const value**
 
@@ -718,7 +693,7 @@ Response 2：
     ```
     Set the end condition rule as **"EndCondition:$.Complete": "Const:true"** to end the pagination when the value of the specific node in response is a user-defined const value.
         
-    :::image type="content" source="media/connector-rest/pagination-rule-example-4-4.png" alt-text="Screenshot showing the EndCondition setting for Example 4.4."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-4.png" alt-text="Screenshot showing the End Condition setting for Example 4.4."::: 
 
 - **Example 4.5: The pagination ends when the value of the header key in response equals to user-defined const value**
 
@@ -730,7 +705,7 @@ Response 2：
         
     Set the end condition rule as **"EndCondition:headers.Complete": "Const:1"** to end the pagination when the value of the header key in response is equal to user-defined const value.
         
-    :::image type="content" source="media/connector-rest/pagination-rule-example-4-5.png" alt-text="Screenshot showing the EndCondition setting for Example 4.5."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-5.png" alt-text="Screenshot showing the End Condition setting for Example 4.5."::: 
 
 - **Example 4.6: The pagination ends when the key exists in the response header**
 
@@ -742,7 +717,7 @@ Response 2：
         
     Set the end condition rule as **"EndCondition:headers.CompleteTime": "Exist"** to end the pagination when the key exists in the response header.
 
-    :::image type="content" source="media/connector-rest/pagination-rule-example-4-6.png" alt-text="Screenshot showing the EndCondition setting for Example 4.6."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-6.png" alt-text="Screenshot showing the End Condition setting for Example 4.6."::: 
 
 #### Example 5：Set end condition to avoid endless requests when range rule is not defined
 
@@ -802,18 +777,18 @@ The last response is:
 
 Set **MaxRequestNumber** to avoid endless request as shown in the following screenshot:
 
-:::image type="content" source="media/connector-rest/pagination-rule-example-6.png" alt-text="Screenshot showing the MaxRequestNumber setting for Example 6."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-6.png" alt-text="Screenshot showing the Max Request Number setting for Example 6."::: 
 
 #### Example 7：The RFC 5988 pagination rule is supported by default
 
 The backend will automatically get the next URL based on the RFC 5988 style links in the header.  
 
-:::image type="content" source="media/connector-rest/pagination-rule-example-7-http-header.png" alt-text="Screenshot showing samples of the http header that complies with RFC 5988."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-7-http-header.png" alt-text="Screenshot showing samples of the http header that complies with R F C 5988."::: 
 
 > [!TIP]
 > If you don't want to enable this default pagination rule, you can set `supportRFC5988` to `false` or just delete it in the script.
 >
-> :::image type="content" source="media/connector-rest/pagination-rule-example-7-disable-rfc5988.png" alt-text="Screenshot showing how to disable RFC 5988 setting for Example 7."::: 
+> :::image type="content" source="media/connector-rest/pagination-rule-example-7-disable-rfc5988.png" alt-text="Screenshot showing how to disable R F C 5988 setting for Example 7."::: 
 
 #### Example 8: The next request URL is from the response body when use pagination in mapping data flows
 
@@ -844,7 +819,7 @@ But if the value of **@odata.nextLink** in the last response body is equal to th
 This example states how to set the pagination rule in mapping data flows when the response format is XML and the next request URL is from the response body. As shown in the following screenshot, the first URL is *https://\<user\>.dfs.core.windows.net/bugfix/test/movie_1.xml*
 
 
-:::image type="content" source="media/connector-rest/pagination-rule-example-9-situation.png" alt-text="Screenshot showing the response format is XML and the next request URL is from the response body."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-9-situation.png" alt-text="Screenshot showing the response format is X M L and the next request U R L is from the response body."::: 
 
 
 The response schema is shown below:

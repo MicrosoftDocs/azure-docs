@@ -28,14 +28,14 @@ This quickstart shows you how to set up Application Configuration Service for VM
 
 ## Use Application Configuration Service for Tanzu
 
-To use Application Configuration Service, follow these steps.
+To use Application Configuration Service for Tanzu, follow these steps.
 
 ### [Portal](#tab/azure-portal)
 
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
 
-   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and Overview section showing.](./media/enterprise/getting-started-enterprise/config-service-overview.png)
+   ![Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and Overview section showing.](./media/enterprise/getting-started-enterprise/config-service-overview.png)
 
 1. Select **Settings** and add a new entry in the **Repositories** section with the following information:
 
@@ -46,36 +46,32 @@ To use Application Configuration Service, follow these steps.
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and Settings section showing.](./media/enterprise/getting-started-enterprise/config-service-settings.png)
-
-1. Select **App binding**, then select **Bind app**.
-1. Choose one app in the dropdown and select **Apply** to bind the application to Application Configuration Service for Tanzu.
-
-   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with 'Bind app' dialog showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png)
-
-A list under **App name** shows the apps bound with Application Configuration Service for Tanzu, as shown in the following screenshot:
-
-![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with app list showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
+   ![Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and Settings section showing.](./media/enterprise/getting-started-enterprise/config-service-settings.png)
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. To set the default repository, use the following command:
+To set the default repository, use the following command:
 
-   ```azurecli
-   az spring-cloud application-configuration-service git repo add \
-       --name default \
-       --patterns api-gateway,customers-service \
-       --uri https://github.com/Azure-Samples/spring-petclinic-microservices-config.git \
-       --label master
-   ```
-
-1. To use Application Configuration Service for Tanzu with applications, use the following command:
-
-   ```azurecli
-   az spring-cloud application-configuration-service bind --app <app-name>
-   ```
+```azurecli
+az spring-cloud application-configuration-service git repo add \
+    --name default \
+    --patterns api-gateway,customers-service \
+    --uri https://github.com/Azure-Samples/spring-petclinic-microservices-config.git \
+    --label master
+```
 
 ---
+
+## Clean up resources
+
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
+
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
 
 ## Next steps
 

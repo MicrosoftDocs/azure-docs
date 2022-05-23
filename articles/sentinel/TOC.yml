@@ -29,7 +29,7 @@
     href: /security/zero-trust/integrate/sentinel-solution
   - name: Integrate with Microsoft Defender for IoT
     href: iot-solution.md
-  - name: Integrate with Azure Purview
+  - name: Integrate with Microsoft Purview
     href: purview-solution.md
 - name: Concepts
   items:
@@ -53,6 +53,8 @@
       href: best-practices-data.md
     - name: Partner integrations
       href: partner-integrations.md
+    - name: Basic Logs
+      href: basic-logs-use-cases.md
   - name: Architecture
     items:
     - name: Roles and permissions
@@ -73,6 +75,8 @@
       href: connect-data-sources.md
     - name: Classifying data with entities
       href: entities.md
+    - name: Ingestion-time data transformation
+      href: data-transformation.md
   - name: Normalization with ASIM
     items:
     - name: ASIM overview
@@ -116,7 +120,11 @@
     - name: Watchlists
       href: watchlists.md
   - name: Threat hunting
-    href: hunting.md
+    items:
+    - name: Overview
+      href: hunting.md
+    - name: Jupyter Notebooks
+      href: notebooks.md
   - name: Investigate
     items:
     - name: Investigate large datasets
@@ -186,16 +194,18 @@
         href: connect-rest-api-template.md
       - name: Azure Functions API connection
         href: connect-azure-functions-template.md
+      - name: Connect using Logstash
+        href: connect-logstash.md
       - name: Custom log sources
         href: connect-custom-logs.md
       - name: Azure Virtual Desktop
         href: connect-azure-virtual-desktop.md
+    - name: Configure ingestion-time transformation
+      href: configure-data-transformation.md
     - name: Deploy a log forwarder
       href: connect-log-forwarder.md
     - name: Troubleshoot CEF/Syslog data collection
       href: troubleshooting-cef-syslog.md
-    - name: Connect using Logstash
-      href: connect-logstash.md
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Create a codeless connector
@@ -208,12 +218,12 @@
       href: store-logs-in-azure-data-explorer.md
   - name: Use ASIM to normalize data
     items:
+    - name: Use ASIM
+      href: normalization-about-parsers.md
     - name: Develop ASIM parsers
       href: normalization-develop-parsers.md
     - name: Manage ASIM parsers
       href: normalization-manage-parsers.md
-    - name: Use ASIM parsers
-      href: normalization-about-parsers.md
     - name: Modify content to use ASIM
       href: normalization-modify-content.md
   - name: Use threat intelligence
@@ -276,8 +286,10 @@
     items:
     - name: Hunt with Jupyter notebooks
       items:
-      - name: Overview
-        href: notebooks.md
+      - name: Launch Jupyter notebook
+        href: notebooks-hunt.md
+      - name: Troubleshoot Jupyter notebook
+        href: notebooks-troubleshoot.md
       - name: Advanced MSTICPy settings for Jupyter notebooks
         href: notebooks-msticpy-advanced.md
       - name: Large-scale security analytics with Azure Synapse
@@ -290,6 +302,8 @@
     items:
     - name: Investigate incidents
       href: investigate-cases.md
+    - name: Relate alerts to incidents
+      href: relate-alerts-to-incidents.md
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
@@ -324,22 +338,50 @@
       href: offboard.md
 - name: Integrate SAP and Microsoft Sentinel
   items:
-    - name: Deploy SAP continuous threat monitoring
-      href: sap-deploy-solution.md
-    - name: Deployment requirements
-      href: sap-solution-detailed-requirements.md
-    - name: SAP solution data reference
-      href: sap-solution-log-reference.md
-    - name: SAP workbook, rules, and watchlists
-      href: sap-solution-security-content.md
-    - name: Use an SNC connection to deploy your SAP data connector
-      href: sap-solution-deploy-snc.md
-    - name: Expert configuration options
-      href: sap-solution-deploy-alternate.md
-    - name: Troubleshooting your SAP solution deployment
-      href: sap-deploy-troubleshoot.md
+    - name: Deployment guide
+      items: 
+      - name: Deployment overview
+        href: sap/deployment-overview.md
+      - name: Deployment prerequisites
+        href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
+      - name: Prepare SAP environment
+        href: sap/preparing-sap.md
+      - name: Deploy data connector agent
+        href: sap/deploy-data-connector-agent-container.md
+      - name: Deploy SAP security content
+        href: sap/deploy-sap-security-content.md
+    - name: Optional deployment steps
+      items: 
+      - name: Configure SAP data connector to use SNC
+        href: sap/configure-snc.md
+      - name: Configure auditing
+        href: sap/configure-audit.md
+      - name: Collect SAP HANA audit logs
+        href: sap/collect-sap-hana-audit-logs.md
+      - name: Deploy SAP connector manually
+        href: sap/sap-solution-deploy-alternate.md
+    - name: Troubleshooting
+      items:
+        - name: Troubleshooting SAP solution deployment
+          href: sap/sap-deploy-troubleshoot.md
+        - name: Configure Transport Management System
+          href: sap/configure-transport.md
+    - name: Reference
+      items:
+      - name: SAP solution data reference
+        href: sap/sap-solution-log-reference.md
+      - name: SAP solution content overview
+        href: sap/sap-solution-security-content.md
+      - name: Kickstart script reference
+        href: sap/reference-kickstart.md
+      - name: Container update script reference
+        href: sap/reference-update.md
+      - name: Systemconfig.ini file reference
+        href: sap/reference-systemconfig.md
 - name: Reference
   items:
+  - name: Service limits
+    href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: Management references
@@ -360,6 +402,10 @@
     items:
       - name: ASIM content
         href: normalization-content.md
+      - name: ASIM parsers
+        href: normalization-parsers-list.md
+      - name: ASIM common fields
+        href: normalization-common-fields.md 
       - name: ASIM schemas
         items:
         - name: ASIM authentication schema

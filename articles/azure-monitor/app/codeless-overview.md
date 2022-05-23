@@ -21,11 +21,11 @@ As we're adding new integrations, the auto-instrumentation capability matrix bec
 
 |Environment/Resource Provider          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | Public Preview  | Public Preview  | Not supported   |
+|Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | Public Preview, Container and Custom Containers are GA  | Public Preview  | Not supported   |
 |Azure App Service on Linux             | N/A             | Public Preview  | GA              | GA              | Not supported   |
 |Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
-|Azure Functions - dependencies         | Not supported   | Not supported   | Public Preview  | Not supported   | Through [extension](monitor-functions.md#distributed-tracing-for-python-function-apps)   |
-|Azure Spring Cloud                     | Not supported   | Not supported   | Public Preview  | Not supported   | Not supported   |
+|Azure Functions - dependencies         | Not supported   | Not supported   | Public Preview  | Not supported   | Through [extension](monitor-functions.md#distributed-tracing-for-python-function-apps)      |
+|Azure Spring Cloud                     | Not supported   | Not supported   | GA              | Not supported   | Not supported   |
 |Azure Kubernetes Service               | N/A             | Not supported   | Through agent   | Not supported   | Not supported   |
 |Azure VMs Windows                      | Public Preview  | Public Preview  | Through agent   | Not supported   | Not supported   |
 |On-Premises VMs Windows                | GA, opt-in      | Public Preview  | Through agent   | Not supported   | Not supported   |
@@ -40,7 +40,7 @@ As we're adding new integrations, the auto-instrumentation capability matrix bec
 Application monitoring on Azure App Service on Windows is available for **[ASP.NET](./azure-web-apps-net.md)** (enabled by default), **[ASP.NET Core](./azure-web-apps-net-core.md)**, **[Java](./azure-web-apps-java.md)** (in public preview), and **[Node.js](./azure-web-apps-nodejs.md)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
 
 > [!NOTE]
-> For Windows, application monitoring is currently available for code-based/managed services on App Service. Monitoring for apps on Windows Containers on App Service is not yet supported through the integration with Application Insights.
+> Application monitoring for apps on Windows Containers on App Service [is in public preview for .NET Core, .NET Framework, and Java](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html).
 
 ### Linux
 You can enable monitoring for **[Java](./azure-web-apps-java.md?)**, **[Node.js](./azure-web-apps-nodejs.md?tabs=linux)**, and **[ASP.NET Core](./azure-web-apps-net-core.md?tabs=linux)(Preview)** apps running on Linux in App Service through the portal. 

@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: In this tutorial, you configure Azure Active Directory B2C with Jumio for automated ID verification, safeguarding customer data.
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
@@ -34,7 +35,7 @@ The Jumio integration includes the following components:
 
 - Jumio: The service that takes the ID details provided by the user and verifies them.
 
-- Intermediate Rest API: The API that implements the integration between Azure AD B2C and the Jumio service.
+- Intermediate REST API: The API that implements the integration between Azure AD B2C and the Jumio service.
 
 - Azure Blob storage: The service that supplies custom UI files to the Azure AD B2C policies.
 
@@ -98,7 +99,7 @@ Use the following PowerShell script to create the string:
 
 ### Configure the API
 
-You can [configure application settings in Azure App Service](../app-service/configure-common.md#configure-app-settings). With this method, you can securely configure settings without checking them into a repository. You'll need to provide the following settings to the Rest API:
+You can [configure application settings in Azure App Service](../app-service/configure-common.md#configure-app-settings). With this method, you can securely configure settings without checking them into a repository. You'll need to provide the following settings to the REST API:
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|

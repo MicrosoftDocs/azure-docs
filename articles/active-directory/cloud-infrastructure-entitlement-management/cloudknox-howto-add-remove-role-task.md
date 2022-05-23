@@ -2,14 +2,14 @@
 title: Add and remove roles and tasks for groups, users, and service accounts for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard in CloudKnox Permissions Management
 description: How to attach and detach permissions for groups, users, and service accounts for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Add and remove roles and tasks for Microsoft Azure and Google Cloud Platform (GCP) identities 
@@ -27,31 +27,31 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 ## View permissions
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **Azure** or **GCP**.
-1. From the **Select an authorization system** dropdown, select the accounts you want to access.
-1. From the **Search for** dropdown, select **Group**, **User**, or **APP**.
-1. To search for more parameters, you can make a selection from the **User States**, **Privilege Creep Index**, and **Task usage** dropdowns.
+1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
+1. From the **Authorization System** dropdown, select the accounts you want to access.
+1. From the **Search For** dropdown, select **Group**, **User**, or **APP**.
+1. To search for more parameters, you can make a selection from the **User States**, **Permission Creep Index**, and **Task Usage** dropdowns.
 1. Select **Apply**.
     CloudKnox displays a list of groups, users, and service accounts that match your criteria.
 1. In **Enter a username**, enter or select a user.
-1. In **Enter a group name**, enter or select a group, then select **Apply**.
+1. In **Enter a Group Name**, enter or select a group, then select **Apply**.
 1. Make a selection from the results list.
 
-    The table displays the **Username** **Domain/Account**, **Source**, **Resource** and **Current role**.
+    The table displays the **Username** **Domain/Account**, **Source**, **Resource** and **Current Role**.
 
 
 ## Add a role
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **Azure** or **GCP**.
-1. From the **Select an authorization system** dropdown, select the accounts you want to access.
-1. From the **Search for** dropdown, select **Group**, **User**, or **APP**, and then select **Apply**.
+1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
+1. From the **Authorization System** dropdown, select the accounts you want to access.
+1. From the **Search For** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.
 1. Make a selection from the results list.
 
 1. To attach a role, select **Add role**.
-1. In the **Add role** page, from the **Available roles** list, select the plus sign **(+)** to move the role to the **Selected roles** list. 
+1. In the **Add Role** page, from the **Available Roles** list, select the plus sign **(+)** to move the role to the **Selected Roles** list. 
 1. When you have finished adding roles, select **Submit**.
-1. When the following message displays: **Are you sure you want to change permissions?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select: 
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -59,15 +59,15 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 ## Remove a role
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **Azure** or **GCP**.
-1. From the **Select an authorization system** dropdown, select the accounts you want to access.
-1. From the **Search for** dropdown, select **Group**, **User**, or **APP**, and then select **Apply**.
+1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
+1. From the **Authorization System** dropdown, select the accounts you want to access.
+1. From the **Search For** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.
 1. Make a selection from the results list.
 
-1. To remove a role, select **Remove role**.
-1. In the **Remove role** page, from the **Available roles** list, select the plus sign **(+)** to move the role to the **Selected roles** list. 
+1. To remove a role, select **Remove Role**.
+1. In the **Remove Role** page, from the **Available Roles** list, select the plus sign **(+)** to move the role to the **Selected Roles** list. 
 1. When you have finished selecting roles, select **Submit**.
-1. When the following message displays: **Are you sure you want to change permissions?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select: 
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -75,15 +75,15 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 ## Add a task
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **Azure** or **GCP**.
-1. From the **Select an authorization system** dropdown, select the accounts you want to access.
-1. From the **Search for** dropdown, select **Group**, **User**, or **APP**, and then select **Apply**.
+1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
+1. From the **Authorization System** dropdown, select the accounts you want to access.
+1. From the **Search For** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.
 1. Make a selection from the results list.
 
-1. To attach a role, select **Add tasks**.
-1. In the **Add tasks** page, from the **Available tasks** list, select the plus sign **(+)** to move the task to the **Selected tasks** list. 
+1. To attach a role, select **Add Tasks**.
+1. In the **Add Tasks** page, from the **Available Tasks** list, select the plus sign **(+)** to move the task to the **Selected Tasks** list. 
 1. When you have finished adding tasks, select **Submit**.
-1. When the following message displays: **Are you sure you want to change permissions?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select: 
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.
@@ -91,15 +91,15 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 ## Remove a task
 
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Permissions** subtab.
-1. From the **Select an authorization system type** dropdown, select **Azure** or **GCP**.
-1. From the **Select an authorization system** dropdown, select the accounts you want to access.
-1. From the **Search for** dropdown, select **Group**, **User**, or **APP**, and then select **Apply**.
+1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
+1. From the **Authorization System** dropdown, select the accounts you want to access.
+1. From the **Search For** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.
 1. Make a selection from the results list.
 
-1. To remove a task, select **Remove tasks**.
-1. In the **Remove tasks** page, from the **Available tasks** list, select the plus sign **(+)** to move the task to the **Selected tasks** list. 
+1. To remove a task, select **Remove Tasks**.
+1. In the **Remove Tasks** page, from the **Available Tasks** list, select the plus sign **(+)** to move the task to the **Selected Tasks** list. 
 1. When you have finished selecting tasks, select **Submit**.
-1. When the following message displays: **Are you sure you want to change permissions?**, select: 
+1. When the following message displays: **Are you sure you want to change permission?**, select: 
     - **Generate Script** to generate a script where you can manually add/remove the permissions you selected.
     - **Execute** to change the permission.
     - **Close** to cancel the action.

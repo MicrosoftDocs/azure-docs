@@ -48,33 +48,47 @@ output of deployment script or reset the password
 * IoT Hub → IoT Edge → \<DEVICE> → Set Modules → OpcPublisher (for standalone OPC Publisher operation only)
 
 
-## Configuration options
+## OPC Publisher 2.8.2 Configuration options for orchestrated mode
 
-|Configuration Option (shorthand/full name)    |    Description   |
-|----------------------------------------------|------------------|
-pf/publishfile |The filename to configure the nodes to publish. If this option is specified, it puts OPC Publisher into standalone mode.
-lf/logfile |The filename of the logfile to use.
-ll/loglevel |The log level to use (allowed: fatal, error, warn, info, debug, verbose).
-me/messageencoding |The messaging encoding for outgoing messages allowed values: Json, Uadp
-mm/messagingmode |The messaging mode for outgoing messages allowed values: PubSub, Samples
-fm/fullfeaturedmessage |The full featured mode for messages (all fields filled in). Default is 'true', for legacy compatibility use 'false'
-aa/autoaccept |The publisher trusted all servers it's a connection to
-bs/batchsize |The number of OPC UA data-change messages to be cached for batching.
-si/iothubsendinterval |The trigger batching interval in seconds.
-ms/iothubmessagesize |The maximum size of the (IoT D2C) message.
-om/maxoutgressmessages |The maximum size of the (IoT D2C) message egress buffer.
-di/diagnosticsinterval |Shows publisher diagnostic info at the specified interval in seconds (need log level info). -1 disables remote diagnostic log and diagnostic output
-lt/logflugtimespan |The timespan in seconds when the logfile should be flushed.
-ih/iothubprotocol |Protocol to use for communication with the hub. Allowed values: AmqpOverTcp, AmqpOverWebsocket, MqttOverTcp, MqttOverWebsocket, Amqp, Mqtt, Tcp, Websocket, Any
-hb/heartbeatinterval |The publisher is using this as default value in seconds for the heartbeat interval setting of nodes without a heartbeat interval setting.
-ot/operationtimeout |The operation timeout of the publisher OPC UA client in ms.
-ol/opcmaxstringlen |The max length of a string opc can transmit/receive.
-oi/opcsamplinginterval |Default value in milliseconds to request the servers to sample values
-op/opcpublishinginterval |Default value in milliseconds for the publishing interval setting of the subscriptions against the OPC UA server.
-ct/createsessiontimeout |The interval the publisher is sending keep alive messages in seconds to the OPC servers on the endpoints it's connected to.
-kt/keepalivethresholt |Specify the number of keep alive packets a server can miss, before the session is disconnected.
-tm/trustmyself |The publisher certificate is put into the trusted store automatically.
-at/appcertstoretype |The own application cert store type (allowed: Directory, X509Store).
+The following OPC Publisher configuration can be applied by Command Line Interface (CLI) options or as environment variable settings. When both the environment variable and the CLI argument are provided, the latest will overrule the env variable.
+
+|Configuration Option     |    Description   |   Default  |
+|----------------------------------------------|------------------|--------------|
+site=VALUE |The site OPC Publisher is assigned to. |Not set
+AutoAcceptUntrustedCertificates=VALUE |OPC UA Client Security Config - auto accept untrusted peer certificates. |false
+BatchSize=VALUE |The number of OPC UA data-change messages to be cached for batching. When BatchSize is 1 or TriggerInterval is set to 0 batching is disabled. |50
+BatchTriggerInterval=VALUE |The trigger batching interval in seconds. When BatchSize is 1 or TriggerInterval is set to 0 batching is disabled. |{00:00:10}
+IoTHubMaxMessageSize=VALUE |The maximum size of the (IoT D2C) telemetry message. |0
+Transport=VALUE |Protocol to use for communication with the hub. Allowed values: AmqpOverTcp, AmqpOverWebsocket, MqttOverTcp, MqttOverWebsocket, Amqp, Mqtt, Tcp, Websocket, Any. |MqttOverTcp
+BypassCertVerification=VALUE |Enables/disables bypass of certificate verification for upstream communication to edgeHub. |false
+EnableMetrics=VALUE |Enables/disables upstream metrics propagation. |true
+OperationTimeout=VALUE |OPC UA Stack Transport Secure Channel - OPC UA Service call operation timeout |120,000 (2 min)
+MaxStringLength=VALUE |OPC UA Stack Transport Secure Channel - Maximum length of a string that can be send/received over the OPC UA Secure channel. |130,816 (128KB - 256)
+DefaultSessionTimeout=VALUE |The interval the OPC Publisher is sending keep alive messages in seconds to the OPC servers on the endpoints it's connected to. |0, meaning not set
+MinSubscriptionLifetime=VALUE | OPC UA Client Application Config - Minimum subscription lifetime as per OPC UA definition. |0, meaning not set
+AddAppCertToTrustedStore=VALUE |OPC UA Client Security Config - automatically copy own certificate's public key to the trusted certificate store |true
+ApplicationName=VALUE |OPC UA Client Application Config - Application name as per OPC UA definition. This is used for authentication during communication init handshake and as part of own certificate validation. |"Microsoft.Azure.IIoT" 
+ApplicationUri=VALUE | OPC UA Client Application Config - Application URI as per OPC UA definition. |$"urn:localhost:{ApplicationName}:microsoft:"
+KeepAliveInterval=VALUE |OPC UA Client Application Config - Keep alive interval as per OPC UA definition. |10,000 (10s)
+MaxKeepAliveCount=VALUE |OPC UA Client Application Config - Maximum count of kee alive events as per OPC UA definition. | 50
+PkiRootPath=VALUE | OPC UA Client Security Config - PKI certificate store root path. |"pki
+ApplicationCertificateStorePath=VALUE |OPC UA Client Security Config - application's own certificate store path. |$"{PkiRootPath}/own"
+ApplicationCertificateStoreType=VALUE |The own application cert store type (allowed: Directory, X509Store). |Directory
+ApplicationCertificateSubjectName=VALUE |OPC UA Client Security Config - the subject name in the application's own certificate. |"CN=Microsoft.Azure.IIoT, C=DE, S=Bav, O=Microsoft, DC=localhost"
+TrustedIssuerCertificatesPath=VALUE |OPC UA Client Security Config - trusted certificate issuer store path. |$"{PkiRootPath}/issuers"
+TrustedIssuerCertificatesType=VALUE | OPC UA Client Security Config - trusted issuer certificates store type. |Directory
+TrustedPeerCertificatesPath=VALUE | OPC UA Client Security Config - trusted peer certificates store path. |$"{PkiRootPath}/trusted"
+TrustedPeerCertificatesType=VALUE | OPC UA Client Security Config - trusted peer certificates store type. |Directory
+RejectedCertificateStorePath=VALUE | OPC UA Client Security Config - rejected certificates store path. |$"{PkiRootPath}/rejected"
+RejectedCertificateStoreType=VALUE | OPC UA Client Security Config - rejected certificates store type. |Directory
+RejectSha1SignedCertificates=VALUE | OPC UA Client Security Config - reject deprecated Sha1 signed certificates. |false
+MinimumCertificateKeySize=VALUE | OPC UA Client Security Config - minimum accepted certificates key size. |1024
+SecurityTokenLifetime=VALUE | OPC UA Stack Transport Secure Channel - Security token lifetime in milliseconds. |3,600,000 (1h)
+ChannelLifetime=VALUE | OPC UA Stack Transport Secure Channel - Channel lifetime in milliseconds. |300,000 (5 min)
+MaxBufferSize=VALUE | OPC UA Stack Transport Secure Channel - Max buffer size. |65,535 (64KB -1)
+MaxMessageSize=VALUE | OPC UA Stack Transport Secure Channel - Max message size. |4,194,304 (4 MB)
+MaxArrayLength=VALUE | OPC UA Stack Transport Secure Channel - Max array length. |65,535 (64KB - 1)
+MaxByteStringLength=VALUE | OPC UA Stack Transport Secure Channel - Max byte string length. |1,048,576 (1MB);
 
 
 ## Next steps

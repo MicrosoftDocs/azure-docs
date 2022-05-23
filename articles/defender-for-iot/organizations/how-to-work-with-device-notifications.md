@@ -43,10 +43,10 @@ You might need to handle several notifications simultaneously. For example:
 
 Respond as follows:
 
-1. In **Discovery Notifications*, choose  **Select All**, and then clear the notifications you don't need. When you choose **Select All**, Defender for IoT displays information about which notifications can be handled or dismissed simultaneously, and which need your input.
+1. In **Discovery Notifications**, choose  **Select All**, and then clear the notifications you don't need. When you choose **Select All**, Defender for IoT displays information about which notifications can be handled or dismissed simultaneously, and which need your input.
 1. You can accept all recommendations, dismiss all recommendations, or handled notifications one at a time. 
 1. For notifications that indicate manual changes are required, such as **New IPs** and **No Subnets**, make the manual modifications as needed. 
-1. 
-## See also
 
-[View alerts](how-to-view-alerts.md)
+## Next steps
+
+For more information, see [View alerts](how-to-view-alerts.md).

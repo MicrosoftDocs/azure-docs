@@ -2,14 +2,14 @@
 title:  Onboard an Amazon Web Services (AWS) account on CloudKnox Permissions Management
 description: How to onboard an Amazon Web Services (AWS) account on CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/24/2022
-ms.author: v-ydequadros
+ms.date: 04/20/2022
+ms.author: mtillman
 ---
 
 # Onboard an Amazon Web Services (AWS) account
@@ -18,18 +18,19 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-> [!Note]
-> Sign up for the CloudKnox Permissions Management public preview by filling [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9AT7gfYe2NPtdIbYxQQX45UNEpIVjY4WUJNSUhMVjcyNzdYOFY2NFhISi4u).
+> [!NOTE] 
+> The CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
+
 
 This article describes how to onboard an Amazon Web Services (AWS) account on CloudKnox Permissions Management (CloudKnox).
 
 > [!NOTE] 
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
 
-## Prerequisites
 
-- To enable the CloudKnox **Feature highlights** tile in the Azure AD portal, [select this link to run the script in your browser](https://aka.ms/ciem-prod).
-- To use the CloudKnox public preview, we encourage you to fill out a consent form that provides other terms and conditions for the public preview product. To open the form, select [CloudKnox Permissions Management Public Preview: Terms and Conditions](https://aka.ms/ciem-terms).
+## View a training video on configuring and onboarding an AWS account
+
+To view a video on how to configure and onboard AWS accounts in CloudKnox, select [Configure and onboard AWS accounts](https://www.youtube.com/watch?v=R6K21wiWYmE).
 
 ## Onboard an AWS account
 
@@ -115,7 +116,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
      You can enter up to 10 account IDs. Click the plus icon next to the text box to add more account IDs.
 
     > [!NOTE]
-    > Perform the next 5 steps for each account ID you add.
+    > Perform the next 6 steps for each account ID you add.
 
 1. Open another browser window and sign in to the AWS console for the member account. 
 

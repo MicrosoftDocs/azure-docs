@@ -2,14 +2,14 @@
 title: Create or approve a request for permissions in the Remediation dashboard in CloudKnox Permissions Management
 description: How to create or approve a request for permissions in the Remediation dashboard.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # Create or approve a request for permissions
@@ -30,24 +30,24 @@ The **Remediation** dashboard has two privilege-on-demand (POD) workflows you ca
 
 ## Create a request for permissions
 
-1. On the CloudKnox home page, select the **Remediation** tab, and then select the **My requests** subtab.
+1. On the CloudKnox home page, select the **Remediation** tab, and then select the **My Requests** subtab.
 
-    The **My requests** subtab displays the following options:
+    The **My Requests** subtab displays the following options:
     - **Pending**: A list of requests you’ve made but haven't yet been reviewed.
     - **Approved**: A list of requests that have been reviewed and approved by the approver. These requests have either already been activated or are in the process of being activated.
     - **Processed**: A summary of the requests you’ve created that have been approved (**Done**), **Rejected**, and requests that have been **Canceled**.
 
-1. To create a request for permissions, select **New request**.
+1. To create a request for permissions, select **New Request**.
 1. In the **Roles/Tasks** page:
-    1. From the **Select an authorization system type** dropdown, select the authorization system type you want to access: **AWS**, **Azure** or **GCP**.
-    1. From the **Select an authorization system** dropdown, select the accounts you want to access.
+    1. From the **Authorization System Type** dropdown, select the authorization system type you want to access: **AWS**, **Azure** or **GCP**.
+    1. From the **Authorization System** dropdown, select the accounts you want to access.
     1. From the **Identity** dropdown, select the identity on whose behalf you’re requesting access.
 
         - If the identity you select is a Security Assertions Markup Language (SAML) user, and since a SAML user accesses the system through assumption of a role, select the user’s role in **Role**.
 
         - If the identity you select is a local user, to select the policies you want:
-            1. Select **Request policy(s)**.
-            1. In **Available policies**, select the policies you want.
+            1. Select **Request Policy(s)**.
+            1. In **Available Policies**, select the policies you want.
             1. To select a specific policy, select the plus sign, and then find and select the policy you want.
 
             The policies you’ve selected appear in the **Selected policies** box.
@@ -64,7 +64,7 @@ The **Remediation** dashboard has two privilege-on-demand (POD) workflows you ca
 
 1. If you selected **AWS**, the **Scope** page appears.
 
-    1. In **Select scope**, select:
+    1. In **Select Scope**, select:
         - **All Resources**
         - **Specific Resources**, and then select the resources you want.
         - **No Resources**
@@ -86,7 +86,7 @@ The **Remediation** dashboard has two privilege-on-demand (POD) workflows you ca
     - **Monthly**
 1. Select **Submit**.
 
-    The following message appears: **Your request has been successfully submitted.**
+    The following message appears: **Your Request Has Been Successfully Submitted.**
 
     The request you submitted is now listed in **Pending Requests**.
 

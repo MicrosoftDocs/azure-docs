@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with iAuditor | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with iAuditor'
 description: Learn how to configure single sign-on between Azure Active Directory and iAuditor.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2021
+ms.date: 03/24/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with iAuditor
+# Tutorial: Azure AD SSO integration with iAuditor
 
 In this tutorial, you'll learn how to integrate iAuditor with Azure Active Directory (Azure AD). When you integrate iAuditor with Azure AD, you can:
 
@@ -28,6 +28,8 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * iAuditor single sign-on (SSO) enabled subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
@@ -75,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `urn:auth0:safetyculture:<CustomerName>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://safetyculture.au.auth0.com/login/callback?connection=<CustomerName>`
+    `https://auth.safetyculture.com/login/callback?connection=<CustomerName>`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -134,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure iAuditor SSO
 
-To configure single sign-on on **iAuditor** side, you need to send the **Certificate (PEM)** to [iAuditor support team](mailto:support@safetyculture.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **iAuditor** side, you need to send the **Certificate (PEM)** and sign in URL to [iAuditor support team](mailto:support@safetyculture.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create iAuditor test user
 

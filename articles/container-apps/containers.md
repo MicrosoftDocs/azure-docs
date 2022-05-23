@@ -5,14 +5,14 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 05/12/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
 
 # Containers in Azure Container Apps Preview
 
-Azure Container Apps manages the details of Kubernetes and container orchestrations for you. Containers in Azure Container Apps can use any runtime, programming language, or development stack of your choice.
+Azure Container Apps manages the details of Kubernetes and container orchestration for you. Containers in Azure Container Apps can use any runtime, programming language, or development stack of your choice.
 
 :::image type="content" source="media/containers/azure-container-apps-containers.png" alt-text="Azure Container Apps: Containers":::
 
@@ -21,10 +21,10 @@ Azure Container Apps supports:
 - Any Linux-based x86-64 (`linux/amd64`) container image
 - Containers from any public or private container registry
 
-Additional features include:
+Features include:
 
-- There is no required base container image.
-- Changes to the `template` ARM configuration section triggers a new [container app revision](application-lifecycle-management.md).
+- There's no required base container image.
+- Changes to the `template` ARM configuration section trigger a new [container app revision](application-lifecycle-management.md).
 - If a container crashes, it automatically restarts.
 
 > [!NOTE]
@@ -32,31 +32,74 @@ Additional features include:
 
 ## Configuration
 
-The following example configuration shows the options available when setting up a container.
+Below is an example of the `containers` array in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section of a container app resource template.  The excerpt shows the available configuration options when setting up a container.
 
 ```json
-{
-  ...
-  "template": {
-    "containers": [
+"containers": [
+  {
+       "name": "main",
+       "image": "[parameters('container_image')]",
+    "env": [
       {
-        "image": "myacr.azurecr.io/myrepo/api-service:v1",
-        "name": "my-container-image",
-        "command": ["/bin/queue"],
-        "args": [],
-        "env": [
-          {
-            "name": "HTTP_PORT",
-            "value": "8080"
-          }
-        ],
-        "resources": {
-            "cpu": 0.75,
-            "memory": "1.5Gi"
-        }
-    }]
+        "name": "HTTP_PORT",
+        "value": "80"
+      },
+      {
+        "name": "SECRET_VAL",
+        "secretRef": "mysecret"
+      }
+    ],
+    "resources": {
+      "cpu": 0.5,
+      "memory": "1Gi"
+    },
+    "volumeMounts": [
+      {
+        "mountPath": "/myfiles",
+        "volumeName": "azure-files-volume"
+      }
+    ]
+    "probes":[
+        {
+            "type":"liveness",
+            "httpGet":{
+            "path":"/health",
+            "port":8080,
+            "httpHeaders":[
+                {
+                    "name":"Custom-Header",
+                    "value":"liveness probe"
+                }]
+            },
+            "initialDelaySeconds":7,
+            "periodSeconds":3
+        },
+        {
+            "type":"readiness",
+            "tcpSocket":
+                {
+                    "port": 8081
+                },
+            "initialDelaySeconds": 10,
+            "periodSeconds": 3
+        },
+        {
+            "type": "startup",
+            "httpGet": {
+                "path": "/startup",
+                "port": 8080,
+                "httpHeaders": [
+                    {
+                        "name": "Custom-Header",
+                        "value": "startup probe"
+                    }]
+            },
+            "initialDelaySeconds": 3,
+            "periodSeconds": 3
+        }]
   }
-}
+],
+
 ```
 
 | Setting | Description | Remarks |
@@ -68,8 +111,11 @@ The following example configuration shows the options available when setting up 
 | `env` | An array of key/value pairs that define environment variables. | Use `secretRef` instead of the `value` field to refer to a secret. |
 | `resources.cpu` | The number of CPUs allocated to the container. | Values must adhere to the following rules: the value must be greater than zero and less than or equal to 2, and can be any decimal number, with a maximum of two decimal places. For example, `1.25` is valid, but `1.555` is invalid. The default is 0.5 CPU per container. |
 | `resources.memory` | The amount of RAM allocated to the container. | This value is up to `4Gi`. The only allowed units are [gibibytes](https://simple.wikipedia.org/wiki/Gibibyte) (`Gi`). Values must adhere to the following rules: the value must be greater than zero and less than or equal to `4Gi`, and can be any decimal number, with a maximum of two decimal places. For example, `1.25Gi` is valid, but `1.555Gi` is invalid. The default is `1Gi` per container.  |
+| `volumeMounts` | An array of volume mount definitions. | You can define a temporary volume or multiple permanent storage volumes for your container.  For more information about storage volumes, see [Use storage mounts in Azure Container Apps](storage-mounts.md).|
+| `probes`| An array of health probes enabled in the container. | This feature is based on Kubernetes health probes. For more information about probes settings, see [Health probes in Azure Container Apps](health-probes.md).|
 
-The total amount of CPUs and memory requested for all the containers in a container app must add up to one of the following combinations.
+
+When allocating resources, the total amount of CPUs and memory requested for all the containers in a container app must add up to one of the following combinations.
 
 | vCPUs (cores) | Memory |
 |---|---|
@@ -82,43 +128,43 @@ The total amount of CPUs and memory requested for all the containers in a contai
 | `1.75` | `3.5Gi` |
 | `2.0` | `4.0Gi` |
 
-- All of the CPU requests in all of your containers must match one of the values in the vCPUs column.
-- All of the memory requests in all your containers must match the memory value in the memory column in the same row of the CPU column.
+- The total of the CPU requests in all of your containers must match one of the values in the vCPUs column.
+- The total of the memory requests in all your containers must match the memory value in the memory column in the same row of the CPU column.
 
 ## Multiple containers
 
-You can define multiple containers in a single container app. Groups of containers are known as [pods](https://kubernetes.io/docs/concepts/workloads/pods). The containers in a pod share hard disk and network resources and experience the same [application lifecycle](application-lifecycle-management.md).
+You can define multiple containers in a single container app. The containers in a container app share hard disk and network resources and experience the same [application lifecycle](application-lifecycle-management.md).
 
-You run multiple containers together by defining more than one container in the configuration's `containers` array.
+To run multiple containers in a container app,  add more than one container in the `containers` array of the container app template.
 
-Reasons to run containers together in a pod include:
+Reasons to run containers together in a container app include:
 
 - Use a container as a sidecar to your primary app.
-- Use of a shared disk space and virtual network.
+- Share disk space and the same virtual network.
 - Share scale rules among containers.
-- Group together multiple containers that need to always run together.
-- Enable direct communication among containers on the same host.
+- Group multiple containers that need to always run together.
+- Enable direct communication among containers.
 
 ## Container registries
 
-You can deploy images hosted on private registries where credentials are provided through the Container Apps configuration.
+You can deploy images hosted on private registries by providing credentials in the Container Apps configuration.
 
-To use a container registry, you first define the required fields to the [configuration's](azure-resource-manager-api-spec.md) `registries` section.
+To use a container registry, you define the required fields in `registries` array in the [`properties.configuration`](azure-resource-manager-api-spec.md) section of the container app resource template.  The `passwordSecretRef` field identifies the name of the secret in the `secrets` array name where you defined the password.
 
 ```json
 {
   ...
-  "registries": {
+  "registries": [{
     "server": "docker.io",
     "username": "my-registry-user-name",
-    "passwordSecretRef": "my-password-secretref-name"
-  }
+    "passwordSecretRef": "my-password-secret-name"
+  }]
 }
 ```
 
-With this set up, the saved credentials can be used when you reference a container image in an `image` in the `containers` array.
+With the registry information setup, the saved credentials can be used to pull a container image from the private registry when your app is deployed.
 
-The following example shows how to deploy an app from the Azure Container Registry.
+The following example shows how to configure Azure Container Registry credentials in a container app.
 
 ```json
 {
@@ -130,6 +176,7 @@ The following example shows how to deploy an app from the Azure Container Regist
               "value": "my-acr-password"
           }
       ],
+...
       "registries": [
           {
               "server": "myacr.azurecr.io",

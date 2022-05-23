@@ -23,14 +23,14 @@ Containers enable you to run the Computer Vision APIs in your own environment. C
 The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md).
 
 ## What's new
-For existing users of the Read containers, a new `3.2-model-2021-09-30-preview` version of the Read container is available with support for 122 languages and general performance and AI enhancements. Please follow the [download instructions](#docker-pull-for-the-read-ocr-container) to get started.
+The `3.2-model-2022-04-30` GA version of the Read container is available with support for [164 languages and other enhancements](./whats-new.md#may-2022). If you are an existing customer, please follow the [download instructions](#docker-pull-for-the-read-ocr-container) to get started.
 
 ## Read 3.2 container
 
-The Read 3.2 OCR container provides:
+The Read 3.2 OCR container latest GA model provides:
 * New models for enhanced accuracy.
 * Support for multiple languages within the same document.
-* Support for a total of 73 languages. See the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr).
+* Support for a total of 164 languages. See the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr).
 * A single operation for both documents and images.
 * Support for larger documents and images.
 * Confidence scores.
@@ -84,29 +84,22 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 Container images for Read are available.
 
-| Container | Container Registry / Repository / Image Name |
-|-----------|------------|
-| Read 3.2 model-2021-09-30-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview` |
-| Read 3.2 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2` |
-| Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
+| Container | Container Registry / Repository / Image Name | Tags |
+|-----------|------------|-----------------------------------------|
+| Read 3.2 GA | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30` | 	latest, 3.2, 3.2-model-2022-04-30 |
+| Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |2.0.019300020-amd64-preview |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 ### Docker pull for the Read OCR container
 
-For the latest preview:
+# [Version 3.2 GA](#tab/version-3-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30
 ```
 
-# [Version 3.2](#tab/version-3-2)
-
-```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
-```
-
-# [Version 2.0-preview](#tab/version-2)
+# [Version 2.0 preview](#tab/version-2)
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
@@ -129,17 +122,11 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
-For the latest preview, replace 3.2 path with:
-
-```
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
-```
-
 # [Version 3.2](#tab/version-3-2)
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -147,19 +134,19 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs the Read OCR container from the container image.
-* Allocates 8 CPU core and 18 gigabytes (GB) of memory.
+* Runs the Read OCR latest GA container from the container image.
+* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 You can alternatively run the container using environment variables:
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 --env Eula=accept \
 --env Billing={ENDPOINT_URI} \
 --env ApiKey={API_KEY} \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30
 ```
 
 # [Version 2.0-preview](#tab/version-2)
@@ -216,23 +203,11 @@ To find your connection string:
 
 The container provides REST-based query prediction endpoint APIs. 
 
-For the latest preview:
-
-Use the same Swagger path as 3.2 but a different port  if you have already deployed 3.2 at the 5000 port.
-
-# [Version 3.2](#tab/version-3-2)
-
-Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v3.2-read/swagger.json`.
-
-# [Version 2.0-preview](#tab/version-2)
-
-Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v2.0-preview-read/swagger.json`.
+Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/`.
 
 ---
 
 ### Asynchronous Read
-
-For the latest preview, everything is the same as 3.2 except for the additional `"modelVersion": "2021-09-30-preview"`.
 
 # [Version 3.2](#tab/version-3-2)
 

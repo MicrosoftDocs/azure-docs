@@ -23,7 +23,7 @@ There are [several ways to authenticate](container-registry-authentication.md) t
 
 ### [Azure CLI](#tab/azure-cli)
 
-The recommended method when working in a command line is with the Azure CLI command [az acr login](/cli/azure/acr#az_acr_login). For example, to log in to a registry named *myregistry*, log into the Azure CLI and then authenticate to your registry:
+The recommended method when working in a command line is with the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login). For example, to log in to a registry named *myregistry*, log into the Azure CLI and then authenticate to your registry:
 
 ```azurecli
 az login
@@ -126,7 +126,7 @@ docker rmi myregistry.azurecr.io/samples/nginx
 
 ### [Azure CLI](#tab/azure-cli)
 
-To remove images from your Azure container registry, you can use the Azure CLI command [az acr repository delete](/cli/azure/acr/repository#az_acr_repository_delete). For example, the following command deletes the manifest referenced by the `samples/nginx:latest` tag, any unique layer data, and all other tags referencing the manifest.
+To remove images from your Azure container registry, you can use the Azure CLI command [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). For example, the following command deletes the manifest referenced by the `samples/nginx:latest` tag, any unique layer data, and all other tags referencing the manifest.
 
 ```azurecli
 az acr repository delete --name myregistry --image samples/nginx:latest

@@ -1,8 +1,8 @@
 ---
 title: Extensions – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Describes the ability to extend the functionality of your database by using extensions in Azure Database for PostgreSQL - Hyperscale (Citus)
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual

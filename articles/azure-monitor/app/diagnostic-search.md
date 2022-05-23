@@ -132,7 +132,7 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 
 ### <a name="limits"></a>How much data is retained?
 
-See the [Limits summary](./pricing.md#limits-summary).
+See the [Limits summary](../service-limits.md#application-insights).
 
 ### How can I see POST data in my server requests?
 

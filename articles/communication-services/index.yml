@@ -67,6 +67,10 @@ landingContent:
             url: concepts/call-flows.md
   - title: UI Library
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with UI Library
+            url: quickstarts/ui-library/get-started-composites.md
       - linkListType: concept
         links:
           - text: UI Library overview

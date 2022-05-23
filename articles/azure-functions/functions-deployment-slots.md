@@ -1,10 +1,10 @@
 ---
 title: Azure Functions deployment slots
 description: Learn to create and use deployment slots with Azure Functions
-author: craigshoemaker
+author: ggailey777
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.author: cshoe
+ms.date: 03/02/2022
+ms.author: glenga
 ---
 # Azure Functions deployment slots
 
@@ -56,7 +56,6 @@ Some configuration settings are slot-specific. The following lists detail which 
 * Custom domain names
 * Non-public certificates and TLS/SSL settings
 * Scale settings
-* WebJobs schedulers
 * IP restrictions
 * Always On
 * Diagnostic settings
@@ -69,7 +68,6 @@ Some configuration settings are slot-specific. The following lists detail which 
 * Connection strings (can be configured to stick to a slot)
 * Handler mappings
 * Public certificates
-* WebJobs content
 * Hybrid connections *
 * Virtual network integration *
 * Service endpoints *
@@ -200,29 +198,13 @@ Use the following steps to change a slot's App Service plan:
 
 1. Select **OK**.
 
-## Limitations
+## Considerations
 
-Azure Functions deployment slots have the following limitations:
+Azure Functions deployment slots have the following considerations:
 
-- The number of slots available to an app depends on the plan. The Consumption plan is only allowed one deployment slot. Additional slots are available for apps running under the App Service plan.
+- The number of slots available to an app depends on the plan. The Consumption plan is only allowed one deployment slot. Additional slots are available for apps running under other plans. For details, see [Service limits](functions-scale.md#service-limits).
 - Swapping a slot resets keys for apps that have an `AzureWebJobsSecretStorageType` app setting equal to `files`.
-- When slots are enabled, your Functions app is set to read-only mode in the portal.
-
-## Support levels
-
-There are two levels of support for deployment slots:
-
-- **General availability (GA)**: Fully supported and approved for production use.
-- **Preview**: Not yet supported, but is expected to reach GA status in the future.
-
-| OS/Hosting plan           | Level of support     |
-| ------------------------- | -------------------- |
-| Windows Consumption       | General availability |
-| Windows Premium           | General availability |
-| Windows Dedicated         | General availability |
-| Linux Consumption         | General availability |
-| Linux Premium             | General availability |
-| Linux Dedicated           | General availability |
+- When slots are enabled, your function app is set to read-only mode in the portal.
 
 ## Next steps
 

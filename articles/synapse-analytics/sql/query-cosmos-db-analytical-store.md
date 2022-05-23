@@ -243,7 +243,7 @@ FROM OPENROWSET(
 
 Do not use `OPENROWSET` without explicitly defined schema because it might impact your performance. Make sure that you use the smallest possible sizes for your columns (for example VARCHAR(100) instead of default VARCHAR(8000)). You should use some UTF-8 collation as default database collation or set it as explicit column collation to avoid [UTF-8 conversion issue](../troubleshoot/reading-utf8-text.md). Collation `Latin1_General_100_BIN2_UTF8` provides best performance when yu filter data using some string columns.
 
-## Query nested objects and arrays
+## Query nested objects
 
 With Azure Cosmos DB, you can represent more complex data models by composing them as nested objects or arrays. The autosync capability of Azure Synapse Link for Azure Cosmos DB manages the schema representation in the analytical store out of the box, which includes handling nested data types that allow for rich querying from the serverless SQL pool.
 
@@ -438,7 +438,7 @@ In this example, the number of cases is stored either as `int32`, `int64`, or `f
 
 ## Troubleshooting
 
-Review the [self-help page](resources-self-help-sql-on-demand.md#cosmos-db) to find the known issues or troubleshooting steps that can help you to resolve potential problems with Cosmos DB queries.
+Review the [self-help page](resources-self-help-sql-on-demand.md#azure-cosmos-db) to find the known issues or troubleshooting steps that can help you to resolve potential problems with Cosmos DB queries.
 
 ## Next steps
 
@@ -447,5 +447,5 @@ For more information, see the following articles:
 - [Use Power BI and serverless SQL pool with Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
 - [Create and use views in a serverless SQL pool](create-use-views.md)
 - [Tutorial on building serverless SQL pool views over Azure Cosmos DB and connecting them to Power BI models via DirectQuery](./tutorial-data-analyst.md)
-- Visit [Synapse link for Cosmos DB self-help page](resources-self-help-sql-on-demand.md#cosmos-db) if you are getting some errors or experiencing performance issues.
+- Visit [Synapse link for Cosmos DB self-help page](resources-self-help-sql-on-demand.md#azure-cosmos-db) if you are getting some errors or experiencing performance issues.
 - Checkout the learn module on how to [Query Azure Cosmos DB with SQL Serverless for Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).

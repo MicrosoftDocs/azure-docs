@@ -29,12 +29,6 @@ The Spatial Analysis container implements the following operations:
 
 All of the above operations are also available in the `.debug` version of the service (for example, `cognitiveservices.vision.spatialanalysis-personcount.debug`). Debug has the capability to visualize video frames as they're being processed. You'll need to run `xhost +` on the host computer to enable the visualization of video frames and events.
 
-Spatial Analysis can also be run with [Live Video Analytics](../../azure-video-analyzer/video-analyzer-docs/overview.md) as the Video AI module. Append `.livevideoanalytics` to the operation (for example, `cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics`).
-
-<!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
-
-
-Live Video Analytics operations are also available in the `.debug` version (for example, you can use `cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics.debug`).
 
 > [!IMPORTANT]
 > The Computer Vision AI models detect and locate human presence in video footage and output a bounding box around the human body. The AI models do not attempt to discover the identities or demographics of individuals.
@@ -244,7 +238,7 @@ The following is an example of a JSON input for the SPACEANALYTICS_CONFIG parame
           "type": "count",
           "config": {
             "trigger": "event",
-            "threshold": 16.00,
+            "threshold": 13.00,
             "focus": "footprint"
           }
         }
@@ -289,7 +283,7 @@ The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` para
                    "type": "linecrossing",
                    "config": {
                        "trigger": "event",
-                       "threshold": 16.00,
+                       "threshold": 13.00,
                        "focus": "footprint"
                    }
                }
@@ -306,7 +300,7 @@ The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` para
 | `line` | list| The definition of the line. This is a directional line allowing you to understand "entry" vs. "exit".|
 | `start` | value pair| x, y coordinates for line's starting point. The float values represent the position of the vertex relative to the top left corner. To calculate the absolute x, y values, you multiply these values with the frame size. |
 | `end` | value pair| x, y coordinates for line's ending point. The float values represent the position of the vertex relative to the top left corner. To calculate the absolute x, y values, you multiply these values with the frame size. |
-| `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 16. This is the recommended value to achieve maximum accuracy. |
+| `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 13. This is the recommended value to achieve maximum accuracy. |
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingline**, this should be `linecrossing`.|
 |`trigger`|string|The type of trigger for sending an event.<br>Supported Values: "event": fire when someone crosses the line.|
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box). The default value is footprint.|
@@ -325,7 +319,7 @@ This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter tha
            "type": "zonecrossing",
            "config":{
                "trigger": "event",
-               "threshold": 48.00,
+               "threshold": 38.00,
                "focus": "footprint"
                }
            }]
@@ -337,7 +331,7 @@ This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter tha
            "type": "zonedwelltime",
            "config":{
                "trigger": "event",
-               "threshold": 16.00,
+               "threshold": 13.00,
                "focus": "footprint"
                }
            }]
@@ -351,7 +345,7 @@ This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter tha
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
 | `target_side` | int| Specifies a side of the zone defined by `polygon` to measure how long people face that side while in the zone. 'dwellTimeForTargetSide' will output that estimated time. Each side is a numbered edge between the two vertices of the polygon that represents your zone. For example, the edge between the first two vertices of the polygon represents the first side, 'side'=1. The value of `target_side` is between `[0,N-1]` where `N` is the number of sides of the `polygon`. This is an optional field.  |
-| `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when the type is `zonecrossing` and 16 when time is `DwellTime`. These are the recommended values to achieve maximum accuracy.  |
+| `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 38 when the type is `zonecrossing` and 13 when time is `DwellTime`. These are the recommended values to achieve maximum accuracy.  |
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingpolygon** this should be `zonecrossing` or `zonedwelltime`.|
 | `trigger`|string|The type of trigger for sending an event<br>Supported Values: "event": fire when someone enters or exits the zone.|
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box). The default value is footprint.|
@@ -373,7 +367,7 @@ This is an example of a JSON input for the `SPACEANALYTICS_CONFIG` parameter tha
            "minimum_distance_threshold":6.0,
            "maximum_distance_threshold":35.0,
            "aggregation_method": "average"
-           "threshold": 16.00,
+           "threshold": 13.00,
            "focus": "footprint"
           }
           }]
@@ -418,7 +412,7 @@ The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` para
           "type": "linecrossing",
           "config": {
             "trigger": "event",
-            "threshold": 16.00,
+            "threshold": 13.00,
             "focus": "footprint"
           }
         }
@@ -437,7 +431,7 @@ The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` para
             "output_frequency": 1,
             "minimum_distance_threshold": 6.0,
             "maximum_distance_threshold": 35.0,
-            "threshold": 16.00,
+            "threshold": 13.00,
             "focus": "footprint"
           }
         },
@@ -446,21 +440,21 @@ The following is an example of a JSON input for the `SPACEANALYTICS_CONFIG` para
           "config": {
             "trigger": "event",
             "output_frequency": 1,
-            "threshold": 16.00,
+            "threshold": 13.00,
             "focus": "footprint"
           }
         },
         {
           "type": "zonecrossing",
           "config": {
-            "threshold": 48.00,
+            "threshold": 38.00,
             "focus": "footprint"
           }
         },
         {
           "type": "zonedwelltime",
           "config": {
-            "threshold": 16.00,
+            "threshold": 13.00,
             "focus": "footprint"
           }
         }

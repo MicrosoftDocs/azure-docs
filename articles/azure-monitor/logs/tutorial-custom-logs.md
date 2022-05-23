@@ -1,7 +1,6 @@
 ---
 title: Tutorial - Send custom logs to Azure Monitor Logs (preview)
 description: Tutorial on how to send custom logs to a Log Analytics workspace in Azure Monitor using the Azure portal.
-ms.subservice: logs
 ms.topic: tutorial
 ms.date: 01/19/2022
 ---
@@ -25,15 +24,15 @@ In this tutorial, you learn to:
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
-- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 
 
 ## Overview of tutorial
-In this tutorial, you'll use a PowerShell script to send sample Apache access logs over HTTP to the API endpoint. This will require a script to convert this data to the JSON format that's required for the Azure Monitor custom logs API. The data will further be converted with a transformation in a data collection rule (DCR) that filters out records that shouldn't be ingested and create the columns required for the table that the table will be sent to. Once the configuration is complete, you'll send sample data from the command line and then inspect the results in Log Analytics.
+In this tutorial, you'll use a PowerShell script to send sample Apache access logs over HTTP to the API endpoint. This will require a script to convert this data to the JSON format that's required for the Azure Monitor custom logs API. The data will further be converted with a transformation in a data collection rule (DCR) that filters out records that shouldn't be ingested and create the columns required for the table that the data will be sent to. Once the configuration is complete, you'll send sample data from the command line and then inspect the results in Log Analytics.
 
 
 ## Configure application
-Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) for this tutorial.
+Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) for this tutorial.
 
 1. From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
 
@@ -74,7 +73,13 @@ A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overvi
 ## Generate sample data
 The following PowerShell script both generates sample data to configure the custom table and sends sample data to the custom logs API to test the configuration. 
 
-1. Update the values of `$tenantId`, `$appId`, and `$appSecret` with the values you noted for **Directory (tenant) ID**, **Application (client) ID**, and secret **Value** and then save with the file name *LogGenerator.ps1*.
+1. Run the following PowerShell command which adds a required assembly for the script.
+
+    ```powershell
+    Add-Type -AssemblyName System.Web
+    ```
+
+2. Update the values of `$tenantId`, `$appId`, and `$appSecret` with the values you noted for **Directory (tenant) ID**, **Application (client) ID**, and secret **Value** and then save with the file name *LogGenerator.ps1*.
 
     ``` PowerShell
     param ([Parameter(Mandatory=$true)] $Log, $Type="file", $Output, $DcrImmutableId, $DceURI, $Table)
@@ -146,8 +151,6 @@ The following PowerShell script both generates sample data to configure the cust
         $headers = @{"Content-Type" = "application/x-www-form-urlencoded" };
         $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
         $bearerToken = (Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers).access_token
-        ## If the above line throws an 'Unable to find type [System.Web.HttpUtility].' error, execute the line below separately from the rest of the code
-        # Add-Type -AssemblyName System.Web
 
         ## Generate and send some data
         foreach ($line in $file_data) {
@@ -174,16 +177,14 @@ The following PowerShell script both generates sample data to configure the cust
     }
     ```
 
-2. Copy the sample log data from [sample data](#sample-data) or copy your own Apache log data into a file called *sample_access.log*. Run the script using the following command to read this data and create a JSON file called *data_sample.json* that you can send to the custom logs API.
+3. Copy the sample log data from [sample data](#sample-data) or copy your own Apache log data into a file called *sample_access.log*. 
 
     ```PowerShell
     .\LogGenerator.ps1 -Log "sample_access.log" -Type "file" -Output "data_sample.json"
     ```
 
-3. Run the script using the following command to read this data and create a JSON file called *data_sample.json* that you can send to the custom logs API.
+4. Run the script using the following command to read this data and create a JSON file called *data_sample.json* that you can send to the custom logs API.
  
-    :::image type="content" source="media/tutorial-custom-logs/new-custom-log.png" lightbox="media/tutorial-custom-logs/new-custom-log.png" alt-text="Screenshot showing new DCR-based custom log.":::
-
 ## Add custom log table
 Before you can send data to the workspace, you need to create the custom table that the data will be sent to.
 
@@ -231,7 +232,7 @@ Instead of directly configuring the schema of the table, the portal allows you t
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData.value with 
+    | parse RawData with 
     ClientIP:string
     ' ' *
     ' ' *
@@ -318,7 +319,7 @@ Allow at least 30 minutes for the configuration to take effect. You may also exp
 1. Run the following command providing the values that you collected for your data collection rule and data collection endpoint. The script will start ingesting data by placing calls to the API at pace of approximately 1 record per second.
 
 ```PowerShell
-.\LogGenerator.ps1 -Log "sample_access.log" -Type "API" -Table "ApacheAccess_CL" -DcrImmutableId <immutable ID> -DceUrl <data collection endpoint URL> 
+.\LogGenerator.ps1 -Log "sample_access.log" -Type "API" -Table "ApacheAccess_CL" -DcrImmutableId <immutable ID> -DceUri <data collection endpoint URL> 
 ```
 
 2. From Log Analytics, query your newly created table to verify that data arrived and if it is transformed properly.
@@ -336,9 +337,6 @@ The message is too large. The maximum message size is currently 1MB per call.
 API limits have been exceeded. The limits are currently set to 500MB of data/minute for both compressed and uncompressed data, as well as 300,000 requests/minute. Retry after the duration listed in the `Retry-After` header in the response.
 ### Script returns error code 503
 Ensure that you have the correct permissions for your application to the DCR. You may also need to wait up to 30 minutes for permissions to propagate.
-
-### Script returns error `Unable to find type [System.Web.HttpUtility]`
-Run the last line in section 1 of the script for a fix and execute it directly. Executing it uncommented as part of the script will not resolve the issue. The command must be executed separately.
 
 ### You don't receive an error, but data doesn't appear in the workspace
 The data may take some time to be ingested, especially if this is the first time data is being sent to a particular table. It shouldn't take longer than 15 minutes.

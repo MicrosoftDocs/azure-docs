@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 02/23/2022
+ms.date: 04/01/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -130,7 +130,11 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 **Possible causes** | Azure Backup triggers an auto-heal Full backup to resolve **UserErrorHANALSNValidationFailure**. While this auto-heal backup is in progress, all the log backups triggered by HANA fail with **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**.<br>Once the auto-heal Full backup is complete, logs and all other backups start working as expected.</br>
 **Recommended action** | Wait for the auto-heal Full backup to complete before you trigger a new Full/delta backup.
 
-### UserErrorHanaPreScriptNotRun
+### Environment pre-registration script run error
+
+#### UserErrorHanaPreScriptNotRun
+
+#### UserErrorPreregistrationScriptNotRun
 
 **Error message** | `Pre-registration script not run.`
 --------- | --------
@@ -172,6 +176,13 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 --------- | -------
 **Possible causes** | System databases restore failed as the **&lt;sid&gt;adm** user environment couldn't find the **HDBsettings.sh** file to trigger restore.
 **Recommended action** | Work with the SAP HANA team to fix this issue.<br><br>If HXE is the SID, ensure that environment variable HOME is set to _/usr/sap/HXE/home_ as **sid-adm** user.
+
+### UserErrorInsufficientSpaceOnSystemDriveForExtensionMetadata
+
+**Error message**      |   `Insufficient space on HANA machine to perform Configure Backup, Backup or Restore activities.`
+-------------------    |   --------------------------
+**Possible causes**    |   The disk space on your HANA machine is almost full or full causing the Configure Backup, Backup, or Restore activitie(s) to fail.
+**Recommended action** |   Check the disk space on your HANA machine to ensure that there is enough space for the Configure Backup, Backup, or Restore activitie(s) to complete successfully.
 
 ### CloudDosAbsoluteLimitReached
 

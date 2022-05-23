@@ -1,107 +1,97 @@
 ---
-title: What is agentless solution architecture
-description: Learn about Microsoft Defender for IoT agentless architecture and information flow.
+title: System architecture for OT monitoring - Microsoft Defender for IoT
+description: Learn about the Microsoft Defender for IoT system architecture and data flow.
 ms.topic: overview
-ms.date: 02/06/2022
+ms.date: 03/24/2022
 ---
 
-# Microsoft Defender for IoT architecture
+# System architecture for OT system monitoring
 
-This article describes the functional system architecture of the Defender for IoT agentless solution. Microsoft Defender for IoT offers two sets of capabilities to fit your environment's needs, agentless solution for organizations, and agent-based solution for device builders. This article provides architectural information about the agentless solution for organizations.
+The Microsoft Defender for IoT system is built to provide broad coverage and visibility from diverse data sources.
 
-## Agentless solution architecture for organizations
-### Defender for IoT components
+The following image shows how data can stream into Defender for IoT from network sensors, Microsoft Defender for Endpoint, and third party sources to provide a unified view of IoT/OT security. Defender for IoT in the Azure portal provides asset inventories, vulnerability assessments, and continuous threat monitoring.
 
-Defender for IoT connects both to the Azure cloud and to on-premises components. The solution is designed for scalability in large and geographically distributed environments with multiple remote locations. This solution enables a multi-layered distributed architecture by country, region, business unit, or zone. 
+:::image type="content" source="media/architecture/system-architecture.png" alt-text="Diagram of the Defender for IoT system architecture." border="false":::
 
-Microsoft Defender for IoT includes the following components: 
+Defender for IoT connects to both cloud and on-premises components, and is built for scalability in large and geographically distributed environments.
 
-**Cloud connected deployments**
+Defender for IoT systems include the following components:
 
-- Microsoft Defender for IoT sensor VM or appliance
-- Azure portal for cloud management and integration to Microsoft Sentinel
-- On-premises management console for local-site management
-- An embedded security agent (optional)
+- The Azure portal, for cloud management and integration to other Microsoft services, such as Microsoft Sentinel.
+- Network sensors, deployed on either a virtual machine or a physical appliance. You can configure your OT sensors as cloud-connected sensors, or fully on-premises sensors.
+- An on-premises management console for cloud-connected or local, air-gapped site management.
+- An embedded security agent (optional).
 
-**Air-gapped (Offline) deployments**
+## Network sensors
 
-- Microsoft Defender for IoT sensor VM or appliance
-- On-premises management console for local site management
+Defender for IoT network sensors discover and continuously monitor network traffic on IoT and OT devices.
 
-:::image type="content" source="./media/architecture/defender-iot-security-architecture-v3.png" alt-text="The architecture for Defender for IoT.":::
+- Purpose-built for IoT and OT networks, sensors connect to a SPAN port or network TAP and can provide visibility into IoT and OT risks within minutes of connecting to the network.
 
-### Microsoft Defender for IoT sensors
+- Sensors use IoT and OT-aware analytics engines and Layer-6 Deep Packet Inspection (DPI) to detect IoT and OT threats, such as fileless malware, based on anomalous or unauthorized activity.
 
-The Defender for IoT sensors discover, and continuously monitor network devices. Sensors collect ICS network traffic using passive (agentless) monitoring on IoT and OT devices. 
- 
-Purpose-built for IoT and OT networks, the agentless technology delivers deep visibility into IoT and OT risk within minutes of being connected to the network. It has zero performance impact on the network and network devices due to its non-invasive, Network Traffic Analysis (NTA) approach. 
- 
-Applying patented, IoT and OT-aware behavioral analytics and Layer-7 Deep Packet Inspection (DPI), it allows you to analyze beyond traditional signature-based solutions to immediately detect advanced IoT and OT threats (such as fileless malware) based on anomalous or unauthorized activity. 
-  
-Defender for IoT sensors connects to a SPAN port or network TAP and immediately begins performing DPI on IoT and OT network traffic. 
- 
-Data collection, processing, analysis, and alerting takes place directly on the sensor. This process makes it ideally suited for locations with low bandwidth or high latency connectivity, because only metadata is transferred to the management console.
+Data collection, processing, analysis, and alerting takes place directly on the sensor. Running processes directly on the sensor can be ideal for locations with low bandwidth or high-latency connectivity because only the metadata is transferred on for management, either to the Azure portal or an on-premises management console.
 
-The sensor includes five analytics detection engines. The engines trigger alerts based on analysis of both real-time and pre-recorded traffic. The following engines are available: 
+### Cloud-connected vs. local sensors
 
-#### Protocol violation detection engine
-The protocol violation detection engine identifies the use of packet structures and field values that violate ICS protocol specifications, for example: Modbus exception, and Initiation of an obsolete function code alerts.
+Cloud-connected sensors are sensors that are connected to Defender for IoT in Azure, and differ from locally managed sensors as follows:
 
-#### Policy violation detection engine
-Using machine learning, the policy violation detection engine alerts users of any deviation from baseline behavior, such as unauthorized use of specific function codes, access to specific objects, or changes to device configuration. For example: DeltaV software version changed, and Unauthorized PLC programming alerts. Specifically, the policy violation engine models the ICS networks as deterministic sequences of states and transitions—using a patented technique called Industrial Finite State Modeling (IFSM). The policy violation detection engine establishes a baseline of the ICS networks, so that the platform requires a shorter learning period to build a baseline of the network than generic mathematical approaches or analytics, which were originally developed for IT rather than OT networks.
+When you have a cloud connected sensor:
 
-#### Industrial malware detection engine
-The industrial malware detection engine identifies behaviors that indicate the presence of known malware, such as Conficker, Black Energy, Havex, WannaCry, NotPetya, and Triton. 
+- All data that the sensor detects is displayed in the sensor console, but alert information is also delivered to Azure, where it can be analyzed and shared with other Azure services.
 
-#### Anomaly detection engine
-The anomaly detection engine detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the platform requires a shorter learning period than generic mathematical approaches or analytics originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives. Anomaly detection engine alerts include Excessive SMB sign in attempts, and PLC Scan Detected alerts.
+- Microsoft threat intelligence packages can also be automatically pushed to cloud-connected sensors.
 
-#### Operational incident detection
-The operational incident detection detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. For example, the device is thought to be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.
+- The sensor name defined during onboarding is the name displayed in the sensor, and is read-only from the sensor console.
 
-### Management consoles
-Managing Microsoft Defender for IoT across hybrid environments is accomplished via three management portals: 
-- Sensor console
-- The on-premises management console
-- The Azure portal
+In contrast, when working with locally managed sensors:
 
-### Sensor console
-Sensor detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, device inventory, and in an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. You can also use the console to view and handle threats detected by sensor engines, forward information to partner systems, manage users, and more.
+- View any data for a specific sensor from the sensor console. For a unified view of all information detected by several sensors, use an on-premises management console. For more information, see [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md).
 
-:::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Defender for IoT sensor console":::
+- You must manually upload any threat intelligence packages
 
-### On-premises management console
-The on-premises management console enables security operations center (SOC) operators to manage and analyze alerts aggregated from multiple sensors into one single dashboard and provides an overall view of the health of the OT networks.
+- Sensor names can be updated in the sensor console.
 
-This architecture provides a comprehensive unified view of the network at a SOC level, optimized alert handling, and the control of operational network security, ensuring that decision-making and risk management remain flawless.
+## Analytics engines
 
-In addition to multi-tenancy, monitoring, data analysis, and centralized sensor remote control, the management console provides extra system maintenance tools (such as alert exclusion) and fully customized reporting features for each of the remote appliances. This architecture supports both local management at a site level, zone level, and global management within the SOC.
+Defender for IoT sensors apply analytics engines on ingested data, triggering alerts based on both real-time and pre-recorded traffic.
 
-The management console can be deployed for high-availability configuration, which provides a backup console that periodically receives backups of all configuration files required for recovery. If the primary console fails, the local site management appliances will automatically fail over to synchronize with the backup console to maintain availability without interruption.
+Analytics engines provide machine learning and profile analytics, risk analysis, a device database and set of insights, threat intelligence, and behavioral analytics.
 
-Tightly integrated with your SOC workflows and run books, it enables easy prioritization of mitigation activities and cross-site correlation of threats.
+For example, for OT networks, the **policy violation detection** engine alerts users of any deviation from baseline behavior, such as unauthorized use of specific function codes, access to specific objects, or changes to device configuration. The policy violation engine models industry control system (ICS) networks as deterministic sequences of states and transitions - using a patented technique called Industrial Finite State Modeling (IFSM). The policy violation detection engine creates a baseline for industrial control system (ICS) networks. Since many detection algorithms were build for IT, rather than OT, networks, an extra baseline for ICS networks helps to shorten the systems learning curve for new detections.
 
-- Holistic - reduce complexity with a single unified platform for device management, risk and vulnerability management, and threat monitoring with incident response.
+Specifically for OT networks, OT network sensors also provide the following analytics engines:
 
-- Aggregation and correlation – display, aggregate, and analyze data and alerts collected from all sites.
+- **Protocol violation detection engine**. Identifies the use of packet structures and field values that violate ICS protocol specifications, for example: Modbus exception, and initiation of an obsolete function code alerts.
 
-- Control all sensors – configure and monitor all sensors from a single location.
+- **Industrial malware detection engine**. Identifies behaviors that indicate the presence of known malware, such as Conficker, Black Energy, Havex, WannaCry, NotPetya, and Triton.
 
-   :::image type="content" source="media/architecture/initial-dashboard.png" alt-text="Screen shot of dashboard." lightbox="media/architecture/initial-dashboard.png":::
+- **Anomaly detection engine**. Detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the platform requires a shorter learning period than generic mathematical approaches or analytics originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives. Anomaly detection engine alerts include Excessive SMB sign-in attempts, and PLC Scan Detected alerts.
 
-### Azure portal
+- **Operational incident detection**. Detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. For example, the device is thought to be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.
 
-Defender for IoT in the Azure portal in Azure is used to help you:
+## Management options
 
-- Purchase solution appliances
+Defender for IoT provides hybrid network support using the following management options:
 
-- Install and update software
+- **The Azure portal**. Use the Azure portal as a single pane of glass to view all data ingested from your devices via network sensors. The Azure portal provides extra value, such as [workbooks](workbooks.md), [connections to Microsoft Sentinel](../../sentinel/iot-solution.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json), and more.
 
-- Onboard sensors to Azure
+    Also use the Azure portal to obtain new appliances and software updates, onboard and maintain your sensors in Defender for IoT, and update threat intelligence packages.
 
-- Update Threat Intelligence packages
+    :::image type="content" source="media/architecture/portal.png" alt-text="Screenshot of the Defender for I O T default view on the Azure portal."lightbox="media/architecture/portal.png":::
+
+- **The sensor console**. You can also view detections for devices connected to a specific sensor from the sensor's console. Use the sensor console to view a network map, an extensive range of reports, forward information to partner systems, and more.
+
+    :::image type="content" source="media/release-notes/new-interface.png" alt-text="Screenshot that shows the updated interface." lightbox="media/release-notes/new-interface.png":::
+
+- **The on-premises management console**. In air-gapped environments, you can get a central view of data from all of your sensors from an on-premises management console. The on-premises management console also provides extra maintenance tools and reporting features.
 
 ## Next steps
 
-[Defender for IoT FAQ](resources-frequently-asked-questions.md)
+For OT environments, understand the supported methods for connecting network sensors to Defender for IoT.
 
+For more information, see:
+
+- [Frequently asked questions](resources-frequently-asked-questions.md)
+- [Sensor connection methods](architecture-connections.md)
+- [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md)

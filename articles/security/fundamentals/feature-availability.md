@@ -51,7 +51,7 @@ The following sections identify when a service has an integration with Microsoft
 
 Azure Information Protection (AIP) is a cloud-based solution that enables organizations to discover, classify, and protect documents and emails by applying labels to content.
 
-AIP is part of the Microsoft Information Protection (MIP) solution, and extends the [labeling](/microsoft-365/compliance/sensitivity-labels) and [classification](/microsoft-365/compliance/data-classification-overview) functionality provided by Microsoft 365.
+AIP is part of the Microsoft Purview Information Protection (MIP) solution, and extends the [labeling](/microsoft-365/compliance/sensitivity-labels) and [classification](/microsoft-365/compliance/data-classification-overview) functionality provided by Microsoft 365.
 
 For more information, see the [Azure Information Protection product documentation](/azure/information-protection/).
 
@@ -126,7 +126,7 @@ For more information, see the [Azure Information Protection product documentatio
 
 <sup><a name="aipnote6"></a>6</sup> Sharing of protected documents and emails from government clouds to users in the commercial cloud is not currently available. Includes Microsoft 365 Apps users in the commercial cloud, non-Microsoft 365 Apps users in the commercial cloud, and users with an RMS for Individuals license.
 
-<sup><a name="aipnote7"></a>7</sup> The number of [Sensitive Information Types](/microsoft-365/compliance/sensitive-information-type-entity-definitions) in your Microsoft 365 Security & Compliance Center may vary based on region.
+<sup><a name="aipnote7"></a>7</sup> The number of [Sensitive Information Types](/microsoft-365/compliance/sensitive-information-type-entity-definitions) in your Microsoft Purview compliance portal may vary based on region.
 
 ## Microsoft Defender for Cloud
 
@@ -225,6 +225,8 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Notebook integration with Azure Synapse](../../sentinel/notebooks-with-synapse.md) | Public Preview | Not Available|
 | **Watchlists** | | |
 |- [Watchlists](../../sentinel/watchlists.md) | GA | GA |
+|- [Large watchlists from Azure Storage](../../sentinel/watchlists.md) | Public Preview | Not Available |
+|- [Watchlist templates](../../sentinel/watchlists.md) | Public Preview | Not Available |
 | **Hunting** | | |
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
 | **Content  and content management** | | |
@@ -260,10 +262,10 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
 | - [Azure ADIP](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) | GA | GA |
 | - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
-| - [Azure Purview](../../sentinel/data-connectors-reference.md#azure-purview) | Public Preview | Not Available |
+| - [Microsoft Purview](../../sentinel/data-connectors-reference.md#microsoft-purview) | Public Preview | Not Available |
 | - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
-| - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | Public Preview | Not Available |
-| - [Microsoft Insider Risk Management](/azure/sentinel/sentinel-solutions-catalog#domain-solutions) | Public Preview | Not Available |
+| - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | GA | GA |
+| - [Microsoft Insider Risk Management](../../sentinel/sentinel-solutions-catalog.md#domain-solutions) | Public Preview | Not Available |
 | - [Azure Firewall ](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
 | - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection-preview) | Public Preview | Not Available |
 | - [Azure Key Vault ](../../sentinel/data-connectors-reference.md#azure-key-vault) | Public Preview | Not Available |
@@ -271,7 +273,6 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Azure SQL Databases](../../sentinel/data-connectors-reference.md#azure-sql-databases) | GA | GA |
 | - [Azure WAF](../../sentinel/data-connectors-reference.md#azure-web-application-firewall-waf) | GA | GA |
 | - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
-| - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | Public Preview | Not Available |
 | - [Microsoft Insider Risk Management](../../sentinel/sentinel-solutions-catalog.md#domain-solutions) | Public Preview | Not Available |
 | **Windows connectors** |  |  |
 | - [Windows Firewall](../../sentinel/data-connectors-reference.md#windows-firewall) | GA | GA |
@@ -359,7 +360,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Rapid7](../../sentinel/sentinel-solutions-catalog.md#rapid7) | Public Preview | Not Available |
 | - [RSA SecurID](../../sentinel/sentinel-solutions-catalog.md#rsa) | Public Preview | Not Available |
 | - [Salesforce Service Cloud](../../sentinel/data-connectors-reference.md#salesforce-service-cloud-preview)                         | Public Preview | Not Available      |
-| - [SAP (Continuous Threat Monitoring for SAP)](../../sentinel/sap-deploy-solution.md) | Public Preview | Not Available |
+| - [SAP (Continuous Threat Monitoring for SAP)](../../sentinel/sap/deployment-overview.md) | Public Preview | Not Available |
 | - [Semperis](../../sentinel/sentinel-solutions-catalog.md#semperis) | Public Preview | Not Available |
 | - [Senserva Pro](../../sentinel/sentinel-solutions-catalog.md#senserva-pro) | Public Preview | Not Available |
 | - [Slack Audit](../../sentinel/sentinel-solutions-catalog.md#slack) | Public Preview | Not Available |
@@ -411,8 +412,8 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 DoD | - | Not Available |
 | **[Microsoft 365 Defender](../../sentinel/connect-microsoft-365-defender.md)** |  |  |
 | - Office 365 GCC | Public Preview | - |
-| - Office 365 GCC High | - | Not Available |
-| - Office 365 DoD | - | Not Available |
+| - Office 365 GCC High | - | Public Preview |
+| - Office 365 DoD | - | Public Preview |
 | **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
@@ -474,12 +475,12 @@ The following table displays the current Microsoft Defender for IoT feature avai
 | **Unify IT, and OT security with SIEM, SOAR and XDR** |  |  |
 | [Active Directory](../../defender-for-iot/organizations/how-to-create-and-manage-users.md#integrate-with-active-directory-servers) | GA | GA |
 | [ArcSight](../../defender-for-iot/organizations/how-to-accelerate-alert-incident-response.md#accelerate-incident-workflows-by-using-alert-groups) | GA | GA |
-| [ClearPass (Alerts & Inventory)](../../defender-for-iot/organizations/how-to-install-software.md#attach-a-span-virtual-interface-to-the-virtual-switch) | GA | GA |
-| [CyberArk PSM](../../defender-for-iot/organizations/concept-key-concepts.md#integrations) | GA | GA |
+| [ClearPass (Alerts & Inventory)](../../defender-for-iot/organizations/tutorial-clearpass.md) | GA | GA |
+| [CyberArk PSM](../../defender-for-iot/organizations/tutorial-cyberark.md) | GA | GA |
 | [Email](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
 | [FortiGate](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
 | [FortiSIEM](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
-| [Microsoft Sentinel](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | Public Preview | Public Preview |
+| [Microsoft Sentinel](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | GA | GA |
 | [NetWitness](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#netwitness-action) | GA | GA |
 | [Palo Alto NGFW](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
 | [Palo Alto Panorama](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
@@ -497,7 +498,7 @@ The following table displays the current Microsoft Defender for IoT feature avai
 | Feature | Azure | Azure Government |
 |--|--|--|
 | [Micro agent for Azure RTOS](../../defender-for-iot/iot-security-azure-rtos.md) | GA | GA |
-| [Configure Sentinel with Microsoft Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Public Preview | Public Preview |
+| [Configure Sentinel with Microsoft Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | GA | GA |
 | **Standalone micro agent for Linux** |  |  |
 | [Standalone agent binary installation](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Public Preview | Public Preview |
 

@@ -2,14 +2,14 @@
 title: View information about roles/ policies in the Remediation dashboard in CloudKnox Permissions Management
 description: How to view and filter information about roles/ policies in the Remediation dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # View information about roles/ policies in the Remediation dashboard
@@ -32,8 +32,8 @@ The **Remediation** dashboard in CloudKnox Permissions Management (CloudKnox) en
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **Role/Policies** subtab.
 
     The **Role/Policies list** displays a list of existing roles/policies and the following information about each role/policy
-        - **Role/Policy name**: The name of the roles/policies available to you.
-        - **Role/Policy type**: **Custom**, **System**, or **CloudKnox only**
+        - **Role/Policy Name**: The name of the roles/policies available to you.
+        - **Role/Policy Type**: **Custom**, **System**, or **CloudKnox Only**
         - **Actions**: The type of action you can perform on the role/policy, **Clone**, **Modify**, or **Delete**
 
 
@@ -42,16 +42,16 @@ The **Remediation** dashboard in CloudKnox Permissions Management (CloudKnox) en
     The **Tasks** list appears, displaying:
     - A list of **Tasks**.
     - **For AWS:** 
-        - The **Users**, **Groups**, and **Roles** the task is **Directly assigned to**.
-        - The **Group members** and **Role identities** the task is **Indirectly assessable by**. 
+        - The **Users**, **Groups**, and **Roles** the task is **Directly Assigned To**.
+        - The **Group Members** and **Role Identities** the task is **Indirectly Accessible By**. 
 
     - **For Azure:** 
-        - The **Users**, **Groups**, **Enterprise applications** and **Managed identities** the task is **Directly assigned to**.
-        - The **Group members** the task is **Indirectly assessable by**.
+        - The **Users**, **Groups**, **Enterprise Applications** and **Managed Identities** the task is **Directly Assigned To**.
+        - The **Group Members** the task is **Indirectly Accessible By**.
 
     - **For GCP:** 
-        - The **Users**, **Groups**, and **Service accounts** the task is **Directly assigned to**.
-        - The **Group members** the task is **Indirectly assessable by**.
+        - The **Users**, **Groups**, and **Service Accounts** the task is **Directly Assigned To**.
+        - The **Group Members** the task is **Indirectly Accessible By**.
 
 1. To close the role/policy details, select the arrow to the left of the role/policy name.
 
@@ -59,7 +59,7 @@ The **Remediation** dashboard in CloudKnox Permissions Management (CloudKnox) en
 
 - **Export CSV**: Select this option to export the displayed list of roles/policies as a comma-separated values (CSV) file. 
 
-    When the file is successfully exported, a message appears: **Exported successfully.**
+    When the file is successfully exported, a message appears: **Exported Successfully.**
 
     - Check your email for a message from the CloudKnox Customer Success Team. This email contains a link to: 
         - The **Role Policy Details** report in CSV format.
@@ -73,20 +73,20 @@ The **Remediation** dashboard in CloudKnox Permissions Management (CloudKnox) en
 1. On the CloudKnox home page, select the **Remediation** dashboard, and then select the **Role/Policies** tab.
 1. To filter the roles/policies, select from the following options:
 
-    - **Authorization system type**: Select **AWS**, **Azure**, or **GCP**.
-    - **Authorization system**: Select the accounts you want.
-    - **Role/Policy type**: Select from the following options:
+    - **Authorization System Type**: Select **AWS**, **Azure**, or **GCP**.
+    - **Authorization System**: Select the accounts you want.
+    - **Role/Policy Type**: Select from the following options:
 
          - **All**: All managed roles/policies.
          - **Custom**: A customer-managed role/policy. 
          - **System**: A cloud service provider-managed role/policy. 
-         - **CloudKnox only**: A role/policy created by CloudKnox.
+         - **CloudKnox Only**: A role/policy created by CloudKnox.
 
-    - **Role/Policy status**: Select **All**, **Assigned**, or **Unassigned**.
-    - **Role/Policy usage**: Select **All** or **Unused**.
+    - **Role/Policy Status**: Select **All**, **Assigned**, or **Unassigned**.
+    - **Role/Policy Usage**: Select **All** or **Unused**.
 1. Select **Apply**.
 
-    To discard your changes, select **Reset filter**.
+    To discard your changes, select **Reset Filter**.
 
 
 ## Next steps

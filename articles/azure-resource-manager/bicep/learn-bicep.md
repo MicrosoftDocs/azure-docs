@@ -9,7 +9,7 @@ ms.date: 12/03/2021
 Ready to see how Bicep can help simplify and accelerate your deployments to Azure? Check out the many hands-on courses on Microsoft Learn.
 
 > [!TIP]
-> Want to learn Bicep live from subject matter experts? [Learn Live with our experts every Tuesday (Pacific time) beginning March 8, 2022.](https://aka.ms/learnlive-iac-and-bicep)
+> Want to learn Bicep live from subject matter experts? [Learn Live with our experts every Tuesday (Pacific time) beginning March 8, 2022.](/events/learntv/learnlive-iac-and-bicep/)
 
 ## Get started
 

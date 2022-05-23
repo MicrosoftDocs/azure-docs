@@ -7,8 +7,8 @@ author: IshanSrivastava
 manager: jlembicz
 ms.author: ishansri
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 02/23/2021
+ms.topic: how-to
+ms.date: 03/23/2022
 ---
 
 # Text normalization for case-insensitive filtering, faceting and sorting
@@ -16,7 +16,17 @@ ms.date: 02/23/2021
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-Searching and retrieving documents from an Azure Cognitive Search index requires matching the query to the contents of the document. The content can be analyzed to produce tokens for matching as is the case when `search` parameter is used, or can be used as-is for strict keyword matching as seen with `$filter`, `facets`, and `$orderby`. This all-or-nothing approach covers most scenarios but falls short where simple pre-processing like casing, accent removal, asciifolding and so forth is required without undergoing through the entire analysis chain.
+In Azure Cognitive Search, a *normalizer* is a component of the search engine responsible for pre-processing text for keyword matching in filters, facets, and sorts. Normalizers behave similar to [analyzers](search-analyzers.md) in how they process text, except they don't tokenize the query. Some of the transformations that can be achieved using normalizers are:
+
++ Convert to lowercase or upper-case
++ Normalize accents and diacritics like ö or ê to ASCII equivalent characters "o" and "e"
++ Map characters like `-` and whitespace into a user-specified character
+
+Normalizers are specified on string fields in the index and are applied during indexing and query execution.
+
+## Benefits of normalizers
+
+Searching and retrieving documents from a search index requires matching the query to the contents of the document. The content can be analyzed to produce tokens for matching as is the case when "search" parameter is used, or can be used as-is for strict keyword matching as seen with "$filter", "facets", and "$orderby". This all-or-nothing approach covers most scenarios but falls short where simple pre-processing like casing, accent removal, asciifolding and so forth is required without undergoing through the entire analysis chain.
 
 Consider the following examples:
 
@@ -26,34 +36,24 @@ Consider the following examples:
 
 + `search=usa&$orderby=City` will return the cities in lexicographical order: "Las Vegas", "Seattle", "las vegas", even if the intent is to order the same cities together irrespective of the case. 
 
-## Normalizers
-
-A *normalizer* is a component of the search engine responsible for pre-processing text for keyword matching. Normalizers are similar to analyzers except they do not tokenize the query. Some of the transformations that can be achieved using normalizers are:
-
-+ Convert to lowercase or upper-case.
-+ Normalize accents and diacritics like ö or ê to ASCII equivalent characters "o" and "e".
-+ Map characters like `-` and whitespace into a user-specified character.
-
-Normalizers can be specified on text fields in the index and is applied both at indexing and query execution.
-
 ## Predefined and custom normalizers 
 
-Azure Cognitive Search supports predefined normalizers for common use-cases along with the capability to customize as required.
+Azure Cognitive Search provides built-in normalizers for common use-cases along with the capability to customize as required.
 
 | Category | Description |
 |----------|-------------|
 | [Predefined normalizers](#predefined-normalizers) | Provided out-of-the-box and can be used without any configuration. |
-|[Custom normalizers](#add-custom-normalizers) | For advanced scenarios. Requires user-defined configuration of a combination of existing elements, consisting of char and token filters.<sup>1</sup>|
+|[Custom normalizers](#add-custom-normalizers) <sup>1</sup> | For advanced scenarios. Requires user-defined configuration of a combination of existing elements, consisting of char and token filters.|
 
-<sup>(1)</sup> Custom normalizers do not specify tokenizers since normalizers always produce a single token.
+<sup>(1)</sup> Custom normalizers don't specify tokenizers since normalizers always produce a single token.
 
 ## How to specify normalizers
 
-Normalizers can be specified per-field on text fields (`Edm.String` and `Collection(Edm.String)`) that have at least one of `filterable`, `sortable`, or `facetable` properties set to true. Setting a normalizer is optional and it's `null` by default. We recommended evaluating predefined normalizers before configuring a custom one for ease of use. Try a different normalizer if results are not expected.
+Normalizers are specified in an index definition, on a per-field basis, on text fields (`Edm.String` and `Collection(Edm.String)`) that have at least one of "filterable", "sortable", or "facetable" properties set to true. Setting a normalizer is optional and it's null by default. We recommend evaluating predefined normalizers before configuring a custom one.
 
-Normalizers can only be specified when a new field is added to the index. It's encouraged to assess the normalization needs upfront and assign normalizers in the initial stages of development when dropping and recreating indexes is routine. Normalizers cannot be specified on a field that has already been created.
+Normalizers can only be specified when a new field is added to the index. Try to assess the normalization needs upfront and assign normalizers in the initial stages of development when dropping and recreating indexes is routine. Normalizers can't be specified on a field that has already been created.
 
-1. When creating a field definition in the [index](/rest/api/searchservice/create-index), set the  **normalizer** property to one of the following: a [predefined normalizer](#predefined-normalizers) such as `lowercase`, or a custom normalizer (defined in the same index schema).  
+1. When creating a field definition in the [index](/rest/api/searchservice/create-index), set the  "normalizer" property to one of the following: a [predefined normalizer](#predefined-normalizers) such as "lowercase", or a custom normalizer (defined in the same index schema).  
  
    ```json
    "fields": [
@@ -69,7 +69,7 @@ Normalizers can only be specified when a new field is added to the index. It's e
     },
    ```
 
-2. Custom normalizers have to be defined in the **[normalizers]** section of the index first, and then be assigned to the field definition as shown in the previous step. For more information, see [Create Index](/rest/api/searchservice/create-index) and also [Add custom normalizers](#add-custom-normalizers).
+1. Custom normalizers are defined in the "normalizers" section of the index first, and then assigned to the field definition as shown in the previous step. For more information, see [Create Index](/rest/api/searchservice/create-index) and also [Add custom normalizers](#add-custom-normalizers).
 
 
    ```json
@@ -83,7 +83,6 @@ Normalizers can only be specified when a new field is added to the index. It's e
       "normalizer": "my_custom_normalizer"
     },
    ```
-
  
 > [!NOTE]
 > To change the normalizer of an existing field, you'll have to rebuild the index entirely (you cannot rebuild individual fields).
@@ -92,13 +91,11 @@ A good workaround for production indexes, where rebuilding indexes is costly, is
 
 ## Add custom normalizers
 
-Custom normalizers are defined within the index schema and can be specified using the field property. The definition of custom normalizer includes a name, a type, one or more char filters and token filters. The char filters and token filters are the building blocks for a custom normalizer and responsible for the processing of the text.These filters are applied from left to right.
+Custom normalizers are [defined within the index schema](/rest/api/searchservice/create-index). The definition includes a name, a type, one or more character filters and token filters. The character filters and token filters are the building blocks for a custom normalizer and responsible for the processing of the text. These filters are applied from left to right.
 
- The `token_filter_name_1` is the name of token filter, and `char_filter_name_1` and `char_filter_name_2` are the names of char filters (see [Supported token filters](#supported-token-filters) and Char filters tables below for valid values).
+ The `token_filter_name_1` is the name of token filter, and `char_filter_name_1` and `char_filter_name_2` are the names of char filters (see [supported token filters](#supported-token-filters) and [supported char filters](#supported-char-filters)tables below for valid values).
 
-The normalizer definition is a part of the larger index. See [Create Index API](/rest/api/searchservice/create-index) for information about the rest of the index.
-
-```
+```json
 "normalizers":(optional)[
    {
       "name":"name of normalizer",
@@ -132,26 +129,30 @@ The normalizer definition is a part of the larger index. See [Create Index API](
 ]
 ```
 
-Custom normalizers can be added during index creation or later by updating an existing one. Adding a custom normalizer to an existing index requires the **allowIndexDowntime** flag to be specified in [Update Index](/rest/api/searchservice/update-index) and will cause the index to be unavailable for a few seconds.
+Custom normalizers can be added during index creation or later by updating an existing one. Adding a custom normalizer to an existing index requires the "allowIndexDowntime" flag to be specified in [Update Index](/rest/api/searchservice/update-index) and will cause the index to be unavailable for a few seconds.
 
 ## Normalizers reference
 
 ### Predefined normalizers
+
 |**Name**|**Description and Options**|  
 |-|-|  
 |standard| Lowercases the text followed by asciifolding.|  
 |lowercase| Transforms characters to lowercase.|
 |uppercase| Transforms characters to uppercase.|
-|asciifolding| Transforms characters that are not in the Basic Latin Unicode block to their ASCII equivalent, if one exists. For example, changing à to a.|
+|asciifolding| Transforms characters that aren't in the Basic Latin Unicode block to their ASCII equivalent, if one exists. For example, changing à to a.|
 |elision| Removes elision from beginning of the tokens.|
 
 ### Supported char filters
-For more details on the char filters, refer to [Char Filters Reference](index-add-custom-analyzers.md#CharFilter).
-+ [mapping](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)  
+
+Normalizers support two character filters that are identical to their counterparts in [custom analyzer character filters](index-add-custom-analyzers.md#CharFilter):
+
++ [mapping](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)
 + [pattern_replace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)
 
 ### Supported token filters
-The list below shows the token filters supported for normalizers and is a subset of the overall token filters involved in the lexical analysis. For more details on the filters, refer to [Token Filters Reference](index-add-custom-analyzers.md#TokenFilters).
+
+The list below shows the token filters supported for normalizers and is a subset of the overall [token filters used in custom analyzers](index-add-custom-analyzers.md#TokenFilters).
 
 + [arabic_normalization](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ar/ArabicNormalizationFilter.html)
 + [asciifolding](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html)
@@ -167,14 +168,15 @@ The list below shows the token filters supported for normalizers and is a subset
 + [lowercase](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html)
 + [uppercase](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/UpperCaseFilter.html)
 
-
 ## Custom normalizer example
 
-The example below illustrates a custom normalizer definition with corresponding char filters and token filters. Custom options for char filters and token filters are specified separately as named constructs, and then referenced in the normalizer definition as illustrated below.
+The example below illustrates a custom normalizer definition with corresponding character filters and token filters. Custom options for character filters and token filters are specified separately as named constructs, and then referenced in the normalizer definition as illustrated below.
 
-* A custom normalizer "my_custom_normalizer" is defined in the `normalizers` section of the index definition.
-* The normalizer is composed of two char filters and three token filters: elision, lowercase,  and customized asciifolding filter "my_asciifolding".
-* The first char filter "map_dash" replaces all dashes with underscores while the second one "remove_whitespace" removes all spaces.
+* A custom normalizer named "my_custom_normalizer" is defined in the "normalizers" section of the index definition.
+
+* The normalizer is composed of two character filters and three token filters: elision, lowercase,  and customized asciifolding filter "my_asciifolding".
+
+* The first character filter "map_dash" replaces all dashes with underscores while the second one "remove_whitespace" removes all spaces.
 
 ```json
   {
@@ -232,6 +234,7 @@ The example below illustrates a custom normalizer definition with corresponding 
 ```
 
 ## See also
+
 + [Analyzers for linguistic and text processing](search-analyzers.md)
 
 + [Search Documents REST API](/rest/api/searchservice/search-documents) 

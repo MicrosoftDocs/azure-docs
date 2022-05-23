@@ -5,7 +5,7 @@ keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoo
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
-ms.date: 04/23/2020
+ms.date: 03/30/2022
 ---
 
 # Set up the PySpark interactive environment for Visual Studio Code

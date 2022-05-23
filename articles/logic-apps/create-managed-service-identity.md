@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/03/2022
+ms.date: 03/16/2022
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, ignite-fall-2021
 ---
 
@@ -47,7 +47,7 @@ The following table lists the operations where you can use either the system-ass
 | Operation type | Supported operations |
 |----------------|----------------------|
 | Built-in | - Azure API Management <br>- Azure App Services <br>- Azure Functions <br>- HTTP <br>- HTTP + Webhook <p>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. However, they don't support the user-assigned managed identity for authenticating the same connections. |
-| Managed connector (**Preview**) | Single-authentication: <br>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <br>- Azure Blob Storage <br>- SQL Server |
+| Managed connector (**Preview**) | Single-authentication: <br>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- SQL Server |
 |||
 
 ### [Standard](#tab/standard)
@@ -57,7 +57,7 @@ The following table lists the operations where you can use both the system-assig
 | Operation type | Supported operations |
 |----------------|----------------------|
 | Built-in | - HTTP <br>- HTTP + Webhook <p>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. |
-| Managed connector (**Preview**) | Single-authentication: <br>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <br>- Azure Blob Storage <br>- SQL Server |
+| Managed connector (**Preview**) | Single-authentication: <br>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- SQL Server |
 |||
 
 ---
@@ -626,7 +626,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
           ![Screenshot showing the connection name page and single managed identity selected in Consumption.](./media/create-managed-service-identity/single-system-identity-consumption.png)
 
-        * **Multi-authentication**: These connectors support more than one authentication type. From the **Authentication type** list, select **Logic Apps Managed Identity** > **Create**, for example:
+        * **Multi-authentication**: These connectors show multiple authentication types, but you still can select only one type. From the **Authentication type** list, select **Logic Apps Managed Identity** > **Create**, for example:
 
           ![Screenshot showing the connection name page and "Logic Apps Managed Identity" selected in Consumption.](./media/create-managed-service-identity/multi-system-identity-consumption.png)
 
@@ -996,17 +996,25 @@ This example shows what the configuration looks like when the logic app enables 
 
 If you use an ARM template to automate deployment, and your workflow includes an *API connection*, which is created by a [managed connector](../connectors/managed.md) such as Office 365 Outlook, Azure Key Vault, and so on that uses a managed identity, you have an extra step to take.
 
-In this scenario, check that the underlying connection resource definition includes the `parameterValueSet` object, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Otherwise, your ARM deployment won't set up the connection to use the managed identity for authentication, and the connection won't work in your workflow. This requirement applies only to [specific managed connector triggers and actions](#triggers-actions-managed-identity) where you selected the [**Connect with managed identity** option](#authenticate-managed-connector-managed-identity).
-
+In an ARM template, the underlying connector resource definition differs based on whether you have a Consumption or Standard logic app and whether the [connector shows single-authentication or multi-authentication options](#managed-connectors-managed-identity).
+     
 ### [Consumption](#tab/consumption)
 
-For example, here's the underlying connection resource definition for an Azure Automation action in a Consumption logic app resource that uses a managed identity where the definition includes the `parameterValueType` property, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Also note that the `apiVersion` property is set to `2018-07-01-preview`:
+The following examples apply to Consumption logic apps and show how the underlying connector resource definition differs between a single-authentication connector, such as Azure Automation, and a multi-authentication connector, such as Azure Blob Storage.
 
+#### Single-authentication
+
+This example shows the underlying connection resource definition for an Azure Automation action in a Consumption logic app that uses a managed identity where the definition includes the attributes:
+
+* The `apiVersion` property is set to `2016-06-01`.
+* The `kind` property is set to `V1` for a Consumption logic app.
+* The `parameterValueType` property is set to `Alternative`.
+     
 ```json
 {
     "type": "Microsoft.Web/connections",
-    "name": "[variables('automationAccountApiConnectionName')]",
-    "apiVersion": "2018-07-01-preview",
+    "name": "[variables('connections_azureautomation_name')]",
+    "apiVersion": "2016-06-01",
     "location": "[parameters('location')]",
     "kind": "V1",
     "properties": {
@@ -1014,7 +1022,34 @@ For example, here's the underlying connection resource definition for an Azure A
             "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureautomation')]"
         },
         "customParameterValues": {},
-        "displayName": "[variables('automationAccountApiConnectionName')]",
+        "displayName": "[variables('connections_azureautomation_name')]",
+        "parameterValueType": "Alternative"
+    }
+},
+```
+
+#### Multi-authentication
+
+This example shows the underlying connection resource definition for an Azure Blob Storage action in a Consumption logic app that uses a managed identity where the definition includes the following attributes:
+
+* The `apiVersion` property is set to `2018-07-01-preview`.
+* The `kind` property is set to `V1` for a Consumption logic app.
+* The `parameterValueSet` object includes a `name` property that's set to `managedIdentityAuth` and a `values` property that's set to an empty object.
+
+```json
+{
+    "type": "Microsoft.Web/connections",
+    "apiVersion": "2018-07-01-preview",
+    "name": "[variables('connections_azureblob_name')]",
+    "location": "[parameters('location')]",
+    "kind": "V1",
+    "properties": {
+        "alternativeParameterValues":{},
+        "api": {
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
+        },
+        "customParameterValues": {},
+        "displayName": "[variables('connections_azureblob_name')]",
         "parameterValueSet":{
             "name": "managedIdentityAuth",
             "values": {}
@@ -1024,24 +1059,59 @@ For example, here's the underlying connection resource definition for an Azure A
 
 ### [Standard](#tab/standard)
 
-For example, here's the underlying connection resource definition for an Azure Automation action in a Standard logic app resource that uses a managed identity where the definition includes the `parameterValueType` property, which is set to `Alternative`.
+The following examples apply to Standard logic apps and show how the underlying connector resource definition differs between a single-authentication connector, such as Azure Automation, and a multi-authentication connector, such as Azure Blob Storage.
 
-> [!NOTE]
-> For Standard, the `kind` property is set to `V2`, and the `apiVersion` property is set to `2016-06-01`:
+#### Single-authentication
+     
+This example shows the underlying connection resource definition for an Azure Automation action in a Standard logic app that uses a managed identity where the definition includes the following attributes:
+
+* The `apiVersion` property is set to `2016-06-01`.
+* The `kind` property is set to `V2` for a Standard logic app.
+* The `parameterValueType` property is set to `Alternative`.
+     
+```json
+{
+    "type": "Microsoft.Web/connections",
+    "name": "[variables('connections_azureautomation_name')]",
+    "apiVersion": "2016-06-01",
+    "location": "[parameters('location')]",
+    "kind": "V2",
+    "properties": {
+        "api": {
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureautomation')]"
+        },
+        "customParameterValues": {},
+        "displayName": "[variables('connections_azureautomation_name')]",
+        "parameterValueType": "Alternative"
+    }
+},
+```
+
+#### Multi-authentication
+
+This example shows the underlying connection resource definition for an Azure Blob Storage action in a Standard logic app that uses a managed identity where the definition includes the following attributes:
+
+* The `apiVersion` property is set to `2018-07-01-preview`.
+* The `kind` property is set to `V2` for a Standard logic app.
+* The `parameterValueSet` object includes a `name` property that's set to `managedIdentityAuth` and a `values` property that's set to an empty object.
 
 ```json
 {
     "type": "Microsoft.Web/connections",
-    "apiVersion": "2016-06-01",
-    "name": "[variables('automationAccountApiConnectionName')]",
+    "apiVersion": "2018-07-01-preview",
+    "name": "[variables('connections_azureblob_name')]",
     "location": "[parameters('location')]",
     "kind": "V2",
     "properties": {
-        "displayName": "[variables('automationAccountApiConnectionName')]",
-        "parameterValueType": "Alternative",
+        "alternativeParameterValues":{},
         "api": {
-            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureautomation')]"
-        }
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
+        },
+        "customParameterValues": {},
+        "displayName": "[variables('connections_azureblob_name')]",
+        "parameterValueSet":{
+            "name": "managedIdentityAuth",
+            "values": {}
     }
 },
 ```
@@ -1050,7 +1120,7 @@ Following this `Microsoft.Web/connections` resource definition, make sure that y
 
 | Parameter | Description |
 |-----------|-------------|
-| <*connection-name*> | The name for your API connection, for example, `office365` |
+| <*connection-name*> | The name for your API connection, for example, `azureblob` |
 | <*object-ID*> | The object ID for your Azure AD identity, previously saved from your app registration |
 | <*tenant-ID*> | The tenant ID for your Azure AD identity, previously saved from your app registration |
 |||
@@ -1059,7 +1129,7 @@ Following this `Microsoft.Web/connections` resource definition, make sure that y
 {
    "type": "Microsoft.Web/connections/accessPolicies",
    "apiVersion": "2016-06-01",
-   "name": "[concat('<connection-name>'),'/','<object-ID>')]",
+   "name": "[concat('<connection-name>','/','<object-ID>')]",
    "location": "<location>",
    "dependsOn": [
       "[resourceId('Microsoft.Web/connections', parameters('connection_name'))]"

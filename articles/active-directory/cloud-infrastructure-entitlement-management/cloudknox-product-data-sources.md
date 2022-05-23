@@ -2,14 +2,14 @@
 title: View and configure settings for data collection from your authorization system in CloudKnox Permissions Management
 description: How to view and configure settings for collecting data from your authorization system in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: mtillman
 ---
 
 # View and configure settings for data collection 
@@ -62,7 +62,7 @@ You can use the **Data Collectors** dashboard in CloudKnox Permissions Managemen
 1. Select the ellipses **(...)** at the end of the row in the table.
 1. Select **Edit Configuration**. 
 
-    The **M-CIEM Onboarding - Summary** box displays.
+    The **CloudKnox Onboarding - Summary** box displays.
 
 1. Select **Edit** (the pencil icon) for each field you want to change. 
 1. Select **Verify now & save**.
@@ -76,7 +76,7 @@ You can use the **Data Collectors** dashboard in CloudKnox Permissions Managemen
 1. Select the ellipses **(...)** at the end of the row in the table.
 1. Select **Delete Configuration**. 
 
-    The **M-CIEM Onboarding - Summary** box displays.
+    The **CloudKnox Onboarding - Summary** box displays.
 1. Select **Delete**.
 1. Check your email for a one time password (OTP) code, and enter it in **Enter OTP**. 
 

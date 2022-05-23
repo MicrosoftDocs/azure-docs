@@ -6,6 +6,7 @@ ms.author: xupzhou
 ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
+ms.custom: references_regions
 ms.date: 01/21/2022
 ---
 
@@ -20,6 +21,71 @@ The Azure Data Factory service is improved on an ongoing basis. To stay up to da
 - Plans for changes
 
 This page is updated monthly, so revisit it regularly. 
+
+## April 2022
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+
+<tr><td rowspan=3><b>Data Flow</b></td><td>Data Preview and Debug Improvements in Mapping Data Flows</td><td>Debug sessions using the AutoResolve Azure IR will now startup in under 10 seconds. New updates to the data preview panel in mapping data flows: You can now sort the rows inside the data preview view by clicking on column headers, move columns around interactively, save the data preview results as a CSV using Export CSV.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-preview-and-debug-improvements-in-mapping-data-flows/ba-p/3268254">Learn more</a></td></tr>
+
+<tr><td>Dataverse Connector is available for Mapping data flows</td><td>Dataverse Connector is available as source and sink for Mapping data flows.<br><a href="connector-dynamics-crm-office-365.md">Learn more</a></td></tr> 
+ 
+<tr><td>Support for user db schemas for staging with the Azure Synapse and PostgreSQL connectors in data flow sink</td><td>Data flow sink now supports using a user db schema for staging in both the Azure Synapse and PostgreSQL connectors.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-flow-sink-supports-user-db-schema-for-staging-in-azure/ba-p/3299210">Learn more</a></td></tr> 
+ 
+<tr><td><b>Monitoring</b></td><td>Multiple updates to ADF monitoring experiences</td><td>New updates to the monitoring experience in Azure Data Factory including the ability to export results to a CSV, clear all filters, open a run in a new tab, and improved caching of columns and results.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-monitoring-improvements/ba-p/3295531">Learn more</a></td></tr>
+ 
+<tr><td><b>User Interface</b></td><td>New Regional format support</td><td>Choose your language and the regional format that will influence how data such as dates and times appear in the Azure Data Factory Studio monitoring. These language and regional settings affect only the Azure Data Factory Studio user interface and do not change/modify your actual data.</td></tr>
+ 
+</table>
+
+## March 2022
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+
+<tr><td rowspan=5><b>Data Flow</b></td><td>ScriptLines and Parameterized Linked Service support added mapping data flows</td><td>It is now super-easy to detect changes to your data flow script in Git with ScriptLines in your data flow JSON definition. Parameterized Linked Services can now also be used inside your data flows for flexible generic connection patterns.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-mapping-data-flows-adds-scriptlines-and-link-service/ba-p/3249929#M589">Learn more</a></td></tr>
+
+<tr><td>Flowlets General Availability (GA)</td><td>Flowlets is now generally available to create reusable portions of data flow logic that you can share in other pipelines as inline transformations. Flowlets enable ETL jobs to be composed of custom or common logic components.<br><a href="concepts-data-flow-flowlet.md">Learn more</a></td></tr> 
+ 
+<tr><td>Change Feed connectors are available in 5 data flow source transformations</td><td>Change Feed connectors are available in data flow source transformations for Cosmos DB, Blob store, ADLS Gen1, ADLS Gen2, and CDM.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/flowlets-and-change-feed-now-ga-in-azure-data-factory/ba-p/3267450">Learn more</a></td></tr> 
+ 
+<tr><td>Data Preview and Debug Improvements in Mapping Data Flows</td><td>A few new exciting features were added to data preview and the debug experience in Mapping Data Flows.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-preview-and-debug-improvements-in-mapping-data-flows/ba-p/3268254">Learn more</a></td></tr> 
+ 
+<tr><td>SFTP connector for Mapping Data Flow</td><td>SFTP connector is available for Mapping Data Flow as both source and sink.<br><a href="connector-sftp.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr> 
+ 
+<tr><td><b>Data Movement</b></td><td>Support Always Encrypted for SQL related connectors in Lookup Activity under Managed VNET</td><td>Always Encrypted is supported for SQL Server, Azure SQL DB, Azure SQL MI, Azure Synapse Analytics in Lookup Activity under Managed VNET.<br><a href="control-flow-lookup-activity.md">Learn more</a></td></tr>
+ 
+<tr><td><b>Integration Runtime</b></td><td>New UI layout in Azure integration runtime creation and edit page</td><td>The UI layout of the integration runtime creation/edit page has been changed to tab style including Settings, Virtual Network and Data flow runtime.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/new-ui-layout-in-azure-integration-runtime-creation-and-edit/ba-p/3248237">Learn more</a></td></tr>
+ 
+<tr><td rowspan=2><b>Orchestration</b></td><td>Transform data using the Script activity</td><td>You can use a Script activity to invoke a SQL script in Azure SQL Database, Azure Synapse Analytics, SQL Server Database, Oracle, or Snowflake.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/execute-sql-statements-using-the-new-script-activity-in-azure/ba-p/3239969">Learn more</a></td></tr>
+ 
+<tr><td>Web activity timeout improvement</td><td>You can configure response timeout in a Web activity to prevent it from timing out if the response period is more than 1 minute, especially in the case of synchronous APIs.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/web-activity-response-timeout-improvement/ba-p/3260307">Learn more</a></td></tr> 
+
+</table>
+
+## February 2022
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+
+<tr><td rowspan=4><b>Data Flow</b></td><td>Parameterized linked services supported in mapping data flows</td><td>You can now use your parameterized linked services in mapping data flows to make your data flow pipelines generic and flexible.<br><a href="parameterize-linked-services.md?tabs=data-factory">Learn more</a></td></tr>
+
+<tr><td>Azure SQL DB incremental source extract available in data flow (Public Preview)</td><td>A new option has been added on mapping data flow Azure SQL DB sources called <i>Enable incremental extract (preview)</i>. Now you can automatically pull only the rows that have changed on your SQL DB sources using data flows.<br><a href="connector-azure-sql-database.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr> 
+ 
+<tr><td>Four new connectors available for mapping data flows (Public Preview)</td><td>Azure Data Factory now supports the four following new connectors (Public Preview) for mapping data flows: Quickbase Connector, Smartsheet Connector, TeamDesk Connector, and Zendesk Connector.<br><a href="connector-overview.md?tabs=data-factory">Learn more</a></td></tr> 
+ 
+<tr><td>Azure Cosmos DB (SQL API) for mapping data flow now supports inline mode</td><td>Azure Cosmos DB (SQL API) for mapping data flow can now use inline datasets.<br><a href="connector-azure-cosmos-db.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr> 
+ 
+<tr><td rowspan=2><b>Data Movement</b></td><td>Get metadata driven data ingestion pipelines on ADF Copy Data Tool within 10 minutes (GA)</td><td>You can build large-scale data copy pipelines with metadata-driven approach on copy data tool (GA) within 10 minutes.<br><a href="copy-data-tool-metadata-driven.md">Learn more</a></td></tr>
+
+<tr><td>Azure Data Factory Google AdWords Connector API Upgrade Available</td><td>The Azure Data Factory Google AdWords connector now supports the new AdWords API version. No action is required for the new connector user as it is enabled by default.<br><a href="connector-troubleshoot-google-adwords.md#migrate-to-the-new-version-of-google-ads-api">Learn more</a></td></tr>
+ 
+<tr><td><b>Region Expansion</b></td><td>Azure Data Factory is now available in West US3 and Jio India West</td><td>Azure Data Factory is now available in two new regions: West US3 and Jio India West. You can co-locate your ETL workflow in these new regions if you are utilizing these regions for storing and managing your modern data warehouse. You can also use these regions for BCDR purposes in case you need to failover from another region within the geo.<br><a href="https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all">Learn more</a></td></tr>
+ 
+<tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Azure Active Directory tenant</td><td>You can connect your Azure Data Factory to an Azure DevOps Account in a different Azure Active Directory tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr> 
+</table>
+
 
 ## January 2022
 <br>
@@ -103,19 +169,15 @@ This page is updated monthly, so revisit it regularly.
 <tr><td>New Stringify data transformation in mapping data flows</td><td>Mapping data flows adds a new data transformation called Stringify to make it easy to convert complex data types like structs and arrays into string form that can be sent to structured output destinations.<br><a href="data-flow-stringify.md">Learn more</a></td></tr>
   
 <tr>
-  <td rowspan=2><b>Integration Runtime</b></td>
-  <td>Azure Data Factory Managed vNet goes GA</td>
-  <td>You can now provision the Azure Integration Runtime as part of a managed Virtual Network and leverage Private Endpoints to securely connect to supported data stores. Data traffic goes through Azure Private Links which provide secured connectivity to the data source. In addition, it prevents data exfiltration to the public internet.<br><a href="managed-virtual-network-private-endpoint.md">Learn more</a></td>
- </tr>
- <tr>
-   <td>Express VNet injection for SSIS integration runtime (Public Preview)</td>
-   <td>The SSIS integration runtime now supports express VNet injection.<br>
-     Learn more:<br>
-     <a href="join-azure-ssis-integration-runtime-virtual-network.md">Overview of VNet injection for SSIS integration runtime</a><br>
-     <a href="azure-ssis-integration-runtime-virtual-network-configuration.md">Standard vs. express VNet injection for SSIS integration runtime</a><br>
-     <a href="azure-ssis-integration-runtime-express-virtual-network-injection.md">Express VNet injection for SSIS integration runtime</a>
-   </td>
- </tr>
+ <td><b>Integration Runtime</b></td>
+  <td>Express VNet injection for SSIS integration runtime (Public Preview)</td>
+  <td>The SSIS integration runtime now supports express VNet injection.<br>
+    Learn more:<br>
+    <a href="join-azure-ssis-integration-runtime-virtual-network.md">Overview of VNet injection for SSIS integration runtime</a><br>
+    <a href="azure-ssis-integration-runtime-virtual-network-configuration.md">Standard vs. express VNet injection for SSIS integration runtime</a><br>
+    <a href="azure-ssis-integration-runtime-express-virtual-network-injection.md">Express VNet injection for SSIS integration runtime</a>
+  </td>
+</tr>
 
 <tr><td rowspan=2><b>Security</b></td><td>Azure Key Vault integration improvement</td><td>We have improved Azure Key Vault integration by adding user selectable drop-downs to select the secret values in the linked service, increasing productivity and not requiring users to type in the secrets, which could result in human error.</td></tr>
 <tr><td>Support for user-assigned managed identity in Azure Data Factory</td><td>Credential safety is crucial for any enterprise. With that in mind, the Azure Data Factory (ADF) team is committed to making the data engineering process secure yet simple for data engineers. We are excited to announce the support for user-assigned managed identity (Preview) in all connectors/ linked services that support Azure Active Directory (Azure AD) based authentication.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/support-for-user-assigned-managed-identity-in-azure-data-factory/ba-p/2841013">Learn more</a></td></tr>
@@ -155,7 +217,7 @@ This page is updated monthly, so revisit it regularly.
 <tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 <tr><td><b>Data Movement</b></td><td>Get metadata driven data ingestion pipelines on ADF Copy Data Tool within 10 minutes (Public Preview)</td><td>With this, you can build large-scale data copy pipelines with metadata-driven approach on copy data tool(Public Preview) within 10 minutes.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/get-metadata-driven-data-ingestion-pipelines-on-adf-within-10/ba-p/2528219">Learn more</a></td></tr>
 <tr><td><b>Data Flow</b></td><td>New map functions added in data flow transformation functions</td><td>A new set of data flow transformation functions has been added to enable data engineers to easily generate, read, and update map data types and complex map structures.<br><a href="data-flow-map-functions.md">Learn more</a></td></tr>
-<tr><td><b>Integration Runtime</b></td><td>5 new regions available in Azure Data Factory Managed VNET (Public Preview)</td><td>These 5 new regions(China East2, China North2, US Gov Arizona, US Gov Texas, US Gov Virginia) are available in Azure Data Factory managed virtual network (Public Preview).<br><a href="managed-virtual-network-private-endpoint.md#azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions">Learn more</a></td></tr>
+<tr><td><b>Integration Runtime</b></td><td>5 new regions available in Azure Data Factory Managed VNET (Public Preview)</td><td>These 5 new regions(China East2, China North2, US Gov Arizona, US Gov Texas, US Gov Virginia) are available in Azure Data Factory managed virtual network (Public Preview).<br></td></tr>
 <tr><td rowspan=2><b>Developer Productivity</b></td><td>ADF homepage improvements</td><td>The Data Factory home page has been redesigned with better contrast and reflow capabilities. Additionally, a few sections have been introduced on the homepage to help you improve productivity in your data integration journey.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/the-new-and-refreshing-data-factory-home-page/ba-p/2515076">Learn more</a></td></tr>
 <tr><td>New landing page for Azure Data Factory Studio</td><td>The landing page for Data Factory blade in the Azure portal.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/the-new-and-refreshing-data-factory-home-page/ba-p/2515076">Learn more</a></td></tr>
 </table>

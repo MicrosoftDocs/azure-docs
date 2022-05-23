@@ -6,7 +6,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 1/31/2022
+ms.date: 3/25/2022
 ms.subservice: hybrid
 ms.author: rodejo
 ms.custom: has-adal-ref
@@ -76,6 +76,15 @@ Auto-upgrade is meant to push all important updates and critical fixes to you. I
 If you want all the latest features and updates, check this page and install what you need.
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
+
+## 2.1.1.0
+
+### Release status
+3/24/2022: Released for download only, not available for auto upgrade
+
+### Bug fixes
+ - Fixed an issue where some sync rule functions were not parsing surrogate pairs properly.
+ - Fixed an issue where, under certain circumstances, the sync service would not start due to a model db corruption. You can read more about the model db corruption issue in [this article](/troubleshoot/azure/active-directory/resolve-model-database-corruption-sqllocaldb)
 
 ## 2.0.91.0
 

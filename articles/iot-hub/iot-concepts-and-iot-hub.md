@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 02/23/2022
 ms.custom: contperf-fy22q3
 #Customer intent: As a developer new to IoT Hub, learn the basic concepts.
@@ -89,6 +89,9 @@ An example of a command is rebooting a device. IoT Hub implements commands by al
 ## Act on device data
 
 IoT Hub gives you the ability to unlock the value of your device data with other Azure services so you can shift to predictive problem-solving rather than reactive management. Connect your IoT hub with other Azure services to do machine learning, analytics, and AI to act on real-time data, optimize processing, and gain deeper insights.
+
+>[!NOTE]
+>Azure IoT Hub doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
 
 ### Built-in endpoint collects device data by default
 

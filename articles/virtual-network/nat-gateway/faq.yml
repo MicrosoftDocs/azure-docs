@@ -20,8 +20,12 @@ sections:
           The Virtual Network NAT gateway resource can use up to 16 public IP addresses. The Virtual Network NAT can use any combination of public IP addresses and public IP address prefixes totaling to 16 addresses. The maximum prefix size that can be used by Virtual Network NAT is /28 (16 addresses). Other public IP prefix sizes that can be used by VNet NAT gateway include:
           /29 (8 addresses), 
           /30 (4 addresses), 
-          /31 (2 addresses)  
+          /31 (2 addresses).  
 
+      - question: How can I use custom IP prefixes (BYOIP) with Virtual Network NAT gateway?
+        answer: |
+          You can use public IP prefixes and addresses derived from custom IP prefixes (BYOIP) with your NAT gateway resource. See [Custom IP address prefix (BYOIP)](/azure/virtual-network/ip-services/custom-ip-address-prefix) to learn more. 
+      
       - question: Can a zone-redundant public IP address be attached to a NAT gateway? 
         answer: |
           A zone-redundant public IP address can be attached to a non-zonal NAT gateway only. A NAT gateway designated to a specific zone must be attached to a public IP address from the same zone.      
@@ -48,7 +52,7 @@ sections:
       
       - question: Are basic SKU resources (Basic Load Balancer and Basic public IP addresses) compatible with VNet NAT gateway?
         answer: |
-          No. VNet NAT gateway can only be used with standard SKU resources. Learn more from [VNet NAT basics](./nat-overview.md#vnet-nat-basics)
+          No. VNet NAT gateway can only be used with standard SKU resources. Learn more from [VNet NAT basics](./nat-overview.md#virtual-network-nat-basics)
           You can upgrade your basic Load Balancer and basic public IP address to standard in order to work with VNet NAT gateway.
           
           To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
@@ -86,7 +90,7 @@ sections:
       
       - question: How can I obtain logs for my Virtual Network NAT gateway resource?  
         answer: |
-          Network security groups (NSG) can be used to monitor traffic flow from a resource in a subnet/virtual network using NAT gateway to go outbound.
+          Network security groups (NSG) flow logs can be used to monitor traffic flow from a resource in a subnet/virtual network using NAT gateway to go outbound.
           
           Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
       
@@ -106,9 +110,9 @@ sections:
         answer: |
           Yes. NAT gateway can be used with Azure Firewall unless Azure Firewall is zone-redundant. Because NAT gateway is a zonal resource, it cannot be associated with an Azure Firewall that spans multiple zones. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md).
 
-      - question: Can I use Virtual Network NAT gateway with Virtual Network service endpoints?
+      - question: Can I use Virtual Network NAT gateway with Virtual Network service endpoints or Private Link?
         answer: | 
-           Yes. The addition of a Virtual Network NAT Gateway to a subnet with service endpoints does not affect the endpoints. [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md) enable a more specific route for the destination Azure service traffic they represent. Traffic for the service endpoint will continue to be routed toward the service and won't go via the NAT Gateway.
+           Yes. The addition of a Virtual Network NAT Gateway to a subnet with service endpoints does not affect the endpoints. [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md) enable a more specific route for the destination Azure service traffic they represent. Traffic for the service endpoint will continue to be routed toward the service and won't go via the NAT Gateway. Private Link is recommended over service endpoints when connecting to Azure PaaS services directly from your Azure network.
 
 additionalContent: |
 
