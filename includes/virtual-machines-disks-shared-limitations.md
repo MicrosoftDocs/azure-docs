@@ -23,6 +23,10 @@ When sharing ultra disks, they have the following additional limitations:
 
 Shared ultra disks are available in all regions that support ultra disks by default, and don't require you to sign up for access to use them.
 
+#### Ultra pricing
+
+Ultra shared disks are priced based on provisioned capacity, total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and total provisioned Throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). There is no extra charge for each additional VM mount. For example, an ultra shared disk with the following configuration (diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) is charged with 1024 GiB, 10100 IOPS, and 601 MBps regardless of whether it is mounted to two VMs or five VMs.
+
 ### Premium SSDs
 
 - Can only be enabled on data disks, not OS disks.
