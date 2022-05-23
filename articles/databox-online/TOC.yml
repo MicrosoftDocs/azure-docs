@@ -429,15 +429,15 @@
     - name: What is GPU sharing?
       href: azure-stack-edge-gpu-sharing.md 
     - name: Understand data residency
-      href: azure-stack-edge-gpu-data-residency.md 
+      href: azure-stack-edge-gpu-data-residency.md
+    - name: Understand data resiliency
+      href: azure-stack-edge-gpu-data-resiliency.md 
     - name: View key vault integration 
       href: azure-stack-edge-gpu-activation-key-vault.md
     - name: Understand disconnected use
       href: azure-stack-edge-gpu-disconnected-scenario.md
-    - name: Operational guidelines
+    - name: FAQ - Operational guidelines
       href: azure-stack-edge-operational-guidelines-faq.yml
-    - name: Understand data resiliency
-      href: azure-stack-edge-gpu-data-resiliency.md
       
   - name: Shared security
     items:
