@@ -378,6 +378,6 @@
   - name: Azure Virtual Desktop roadmap
     href: https://aka.ms/avdroadmap
   - name: Azure Resource Manager templates
-    href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
+    href: https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
