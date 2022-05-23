@@ -6,7 +6,7 @@ ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/09/2022
-ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli, devdivchpfy22, event-tier1-build-2022
+ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli, devdivchpfy22, event-tier1-build-2022
 ---
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
