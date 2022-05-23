@@ -17,7 +17,7 @@ ms.date: 05/21/2022
 ## Overview
 
 > [!TIP]
-> 'More than just a database'&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
+> More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
 
 Existing users of Teradata data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, or PaaS, and to delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
