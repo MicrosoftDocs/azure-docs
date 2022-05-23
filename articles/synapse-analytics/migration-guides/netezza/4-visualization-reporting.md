@@ -97,7 +97,7 @@ There's a lot to think about here, so let's look at all this in more detail.
 > [!TIP]
 > Data virtualization allows you to shield business users from structural changes during migration so that they remain unaware of changes.
 
-The temptation during data warehouse migration to the cloud is to take the opportunity to make changes during the migration to fulfill long-term requirements, such as opening business requests, missing data, new features, and more. However, if you're going to do that, it can affect BI tool business users and applications accessing your data warehouse, especially if it involves structural changes in your data model. Even if there were no new data structures because of new requirements, but you're considering adopting a different data modeling technique1 (like Data Vault) in your migrated data warehouse, you're likely to cause structural changes that impact BI reports and dashboards. One way in which you can minimize the impact of things like schema changes on BI tools, users, and the reports they produce, is to introduce data virtualization between BI tools and your data warehouse and data marts. The following diagram shows how data virtualization can hide the migration from users.
+The temptation during data warehouse migration to the cloud is to take the opportunity to make changes during the migration to fulfill long-term requirements, such as opening business requests, missing data, new features, and more. However, if you're going to do that, it can affect BI tool business users and applications accessing your data warehouse, especially if it involves structural changes in your data model. Even if there were no new data structures because of new requirements, but you're considering adopting a different data modeling technique (like Data Vault) in your migrated data warehouse, you're likely to cause structural changes that impact BI reports and dashboards. If you want to adopt an agile data modeling technique, do so after migration. One way in which you can minimize the impact of things like schema changes on BI tools, users, and the reports they produce, is to introduce data virtualization between BI tools and your data warehouse and data marts. The following diagram shows how data virtualization can hide the migration from users.
 
 :::image type="content" source="../media/4-visualization-reporting/migration-data-virtualization.png" border="true" alt-text="Diagram showing how to hide the migration from users through data virtualization.":::
 
@@ -107,8 +107,6 @@ This breaks the dependency between business users utilizing self-service BI tool
 > Schema alterations to tune your data model for Azure Synapse can be hidden from users.
 
 By introducing data virtualization, any schema alternations made during data warehouse and data mart migration to Azure Synapse (to optimize performance, for example) can be hidden from business users because they only access virtual tables in the data virtualization layer. If structural changes are needed, only the mappings between the data warehouse or data marts, and any virtual tables would need to be changed so that users remain unaware of those changes and unaware of the migration. [Microsoft partners](/azure/synapse-analytics/partner/data-integration) provides a useful data virtualization software.
-
-<sup>1</sup> If you want to adopt an agile data modeling technique, do so after migration.
 
 ## Identifying high priority reports to migrate first
 
