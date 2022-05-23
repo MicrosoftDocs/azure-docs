@@ -1479,7 +1479,7 @@ items:
       - name: Data lake exploration with serverless SQL pool
         href: ./guidance/proof-of-concept-playbook-serverless-sql-pool.md
       - name: Big data analytics with Apache Spark pool
-        href: ./guidance/proof-of-concept-playbook-apache-spark-pool.md
+        href: ./guidance/proof-of-concept-playbook-spark-pool.md
     - name: Synapse implementation success methodology
       items:
       - name: Overview
