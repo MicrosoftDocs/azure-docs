@@ -69,11 +69,11 @@ One possible reason for the client delaying sending requests is that there are a
 
 Also check whether the client is performing multiple retries, and investigate the reason if it is. To determine whether the client is performing multiple retries, you can:
 
-- Examine logs. If multiple retries are happening, you will see multiple operations with the same client request ID but with different server request IDs.
+- Examine logs. If multiple retries are happening, you will see multiple operations with the same client request IDs.
 
 - Examine the client logs. Verbose logging will indicate that a retry has occurred.
 
-- Debug your code, and check the properties of the **OperationContext** object associated with the request. If the operation has retried, the **RequestResults** property will include multiple unique server request IDs. You can also check the start and end times for each request.
+- Debug your code, and check the properties of the **OperationContext** object associated with the request. If the operation has retried, the **RequestResults** property will include multiple unique requests. You can also check the start and end times for each request.
 
 If there are no issues in the client, you should investigate potential network issues such as packet loss. You can use tools such as Wireshark to investigate network issues.
 
