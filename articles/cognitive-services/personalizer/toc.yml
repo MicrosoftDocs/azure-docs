@@ -22,10 +22,12 @@
   items:
   - name: Ethics & responsible use
     href: ethics-responsible-use.md
-  - name: Use cases for Personalizer
-    href: responsible-use-cases.md
-  - name: Characteristics and limitations of Personalizer
-    href: responsible-characteristics-and-limitations.md
+  - name: Transparency notes
+    items:
+    - name: Use cases for Personalizer
+      href: responsible-use-cases.md
+    - name: Characteristics and limitations of Personalizer
+      href: responsible-characteristics-and-limitations.md
   - name: Data and privacy for Personalizer
     href: responsible-data-and-privacy.md
   - name: Guidance for integration and responsible use of Personalizer
