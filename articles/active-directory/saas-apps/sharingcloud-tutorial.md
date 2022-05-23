@@ -79,7 +79,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://auth.sharingcloud.net/auth/realms/<COMPANY_NAME>/broker/saml/endpoint`
 
-    c. In the **Sign-on URL** text box, type a URL using the following pattern:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.factset.com/services/saml2/`
 
     > [!NOTE]
