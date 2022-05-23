@@ -22,25 +22,22 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 * Conversation summarization (preview)
 * PII detection for conversations.
 
-### custom text classification, custom Named Entity Recognition (NER), conversational language understanding, and orchestration workflow
-
 * The following features are now Generally Available (GA):
     * Custom text classification
     * Custom Named Entity Recognition (NER)
 
-* The following features for custom text classification, custom Named Entity Recognition (NER), conversational language understanding, and orchestration workflow:
+* The following updates for custom text classification, custom Named Entity Recognition (NER), conversational language understanding, and orchestration workflow:
     * Data splitting controls.
     * Ability to cancel training jobs.
     * Custom deployments can be named. You can have up to 10 deployments.
     * Ability to swap deployments.
-
-* Auto tagging (preview) for custom named entity recognition
-* Enterprise readiness support
-* Training modes for conversational language understanding
-* Updated service limits
-* Ability to use free (F0) tier for Language resources
-* Expanded regional availability
-* Updated model life cycle to add training configuration versions
+    * Auto tagging (preview) for custom named entity recognition
+    * Enterprise readiness support
+    * Training modes for conversational language understanding
+    * Updated service limits
+    * Ability to use free (F0) tier for Language resources
+    * Expanded regional availability
+    * Updated model life cycle to add training configuration versions
 
 
 ## April 2022
