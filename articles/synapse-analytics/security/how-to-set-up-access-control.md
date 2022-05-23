@@ -2,25 +2,25 @@
 title: How to set up access control for your Azure Synapse workspace
 description: This article will teach you how to control access to an Azure Synapse workspace using Azure roles, Synapse roles, SQL permissions, and Git permissions.
 services: synapse-analytics 
-author: meenalsri
+author: Rick Xu
 ms.service: synapse-analytics 
 ms.topic: how-to 
 ms.subservice: security 
-ms.date: 3/07/2022
+ms.date: 5/23/2022
 ms.author: ronytho
 ms.reviewer: sngun, wiassaf
-ms.custom: subject-rbac-steps
+ms.custom: kr2b-contr-experiment
 ---
 
 # How to set up access control for your Azure Synapse workspace 
 
-This article will teach you how to control access to a Microsoft Azure Synapse workspace using Azure roles, Azure Synapse roles, SQL permissions, and Git permissions.   
+This article will teach you how to control access to a Microsoft Azure Synapse workspace using Azure roles, Azure Synapse roles, SQL permissions, and Git permissions.
 
 In this guide, you'll set up a workspace and configure a basic access control system suitable for many Azure Synapse projects.  It then describes more advanced options for finer-grained control should you need it.  
 
 Azure Synapse access control can be simplified by using security groups that are aligned with the roles and personas in your organization.  You only need to add and remove users from security groups to manage access.
 
-Before you start this walkthrough, read the [Azure Synapse access control overview](./synapse-workspace-access-control-overview.md) to familiarize yourself with the access control mechanisms used by Azure Synapse Analytics.   
+Before you start this walkthrough, read the [Azure Synapse access control overview](./synapse-workspace-access-control-overview.md) to familiarize yourself with the access control mechanisms used by Azure Synapse Analytics.
 
 ## Access control mechanisms
 
@@ -49,7 +49,7 @@ This document uses standard names to simplify the instructions. Replace them wit
 
 ## STEP 1: Set up security groups
 
->[!Note] 
+>[!Note]
 >During the preview, it was recommended to create security groups mapped to the Azure Synapse **Synapse SQL Administrator** and **Synapse Apache Spark Administrator** roles.  With the introduction of new finer-grained Synapse RBAC roles and scopes, it is now recommended that you use these new capabilities to control access to your workspace.  These new roles and scopes provide more configuration flexibility and recognize that developers often use a mix of SQL and Spark in creating analytics applications and may need to be granted access to specific resources rather than the entire workspace. [Learn more](./synapse-workspace-synapse-rbac.md) about Synapse RBAC.
 
 Create the following security groups for your workspace:
