@@ -88,7 +88,7 @@ Each SIM policy includes:
 - A *network scope*, which defines how SIMs assigned to this SIM policy will connect to the data network. You can use the network scope to determine the following settings:
 
   - The services (as described in [Services](#services)) offered to SIMs on this data network.
-  - A set of QoS characteristics that will be used to form the default QoS flow or EPS bearer for PDU sessions or PDN connections involving assigned SIMs on this data network.
+  - A set of QoS characteristics that will be used to form the default QoS flow for PDU sessions (or EPS bearer for PDN connections in 4G networks).
 
 You can create multiple SIM policies to offer different QoS policy settings to separate groups of SIMs on the same data network. For example, you may want to create SIM policies with differing sets of services.
 
