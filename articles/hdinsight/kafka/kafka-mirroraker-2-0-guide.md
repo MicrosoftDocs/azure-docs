@@ -149,7 +149,7 @@ destination.sasl.mechanism=GSSAPI
 
 **How will the consumers behave on migration, if that the destination cluster may have a different offset mapping to data points?**
 
-    Mirrormaker2’s MirrorCheckpointConnector automatically stores consumer group offset checkpoints for consumer groups on the source cluster. Each checkpoint  contains a mapping of the last committed offset for each group in the source cluster to the equivalent offset in destination cluster. So on migration the consumers that start consuming from same topic on the destination cluster will be able to resume receiving messages from the last offset they committed on the source cluster. 
+  Mirrormaker2’s MirrorCheckpointConnector automatically stores consumer group offset checkpoints for consumer groups on the source cluster. Each checkpoint  contains a mapping of the last committed offset for each group in the source cluster to the equivalent offset in destination cluster. So on migration the consumers that start consuming from same topic on the destination cluster will be able to resume receiving messages from the last offset they committed on the source cluster. 
 
 **How can we retain the exact topic name in destination cluster, as the source alias is prefixed with all the topics replicated?**
 
