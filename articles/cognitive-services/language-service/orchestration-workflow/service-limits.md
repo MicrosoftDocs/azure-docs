@@ -26,7 +26,10 @@ Use this article to learn about the data and service limits when using orchestra
   |Tier|Description|Limit|
   |--|--|--|
   |F0 |Free tier|You are only allowed one Language resource with the F0 tier per subscription.|
-  |S|Paid tier| You can have unlimited Language resources per subscription| 
+  |S |Paid tier|You can have up to 100 Language resources in the S tier per region.| 
+
+
+See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) for more information.
 
 * You can have up to **500** projects per resource.
 
