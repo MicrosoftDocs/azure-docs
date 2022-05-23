@@ -94,25 +94,34 @@ You can create multiple SIM policies to offer different QoS policy settings to s
 
 ## Creating and assigning QoS flows and EPS bearers
 
-During PDU session or PDN connection establishment, the packet core instance takes the following steps:
+This section describes how the packet core instance uses policy control configuration to create and assign QoS flows and EPS bearers. We describe the steps using 5G terminology for clarity, but the packet core instance takes the same steps in 4G networks. The table below gives the equivalent 4G terminology for reference. 
 
-1. Identifies the SIM resource representing the UE involved in the PDU session or PDN connection and its associated SIM policy (as described in [SIM policies](#sim-policies)).
-1. Creates a default QoS flow or EPS bearer for the PDU session or PDN connection using the configured values on the SIM policy.
-1. Identifies whether the SIM policy has any associated services (as described in [Services](#services)). If it does, the packet core instance creates extra QoS flows or EPS bearers using the QoS characteristics defined on these services.
-1. Signals the QoS flows or EPS bearers and any non-default characteristics to the gNodeB or eNodeB.
+|5G  |4G  |
+|---------|---------|
+|PDU session | PDN connection |
+|QoS flow | EPS bearer |
+| gNodeB | eNodeB |
+| QFI | EBI |
+
+During PDU session establishment, the packet core instance takes the following steps:
+
+1. Identifies the SIM resource representing the UE involved in the PDU session and its associated SIM policy (as described in [SIM policies](#sim-policies)).
+1. Creates a default QoS flow for the PDU session using the configured values on the SIM policy.
+1. Identifies whether the SIM policy has any associated services (as described in [Services](#services)). If it does, the packet core instance creates extra QoS flows using the QoS characteristics defined on these services.
+1. Signals the QoS flows and any non-default characteristics to the gNodeB.
 1. Sends a set of QoS rules (including SDF definitions taken from associated services) to the UE. The UE uses these rules to take the following steps:
 
    - Checks uplink packets against the SDFs.
    - Applies any necessary traffic control.
-   - Identifies the QoS flow or EPS bearer to which each SDF should be bound.
-   - Marks packets with the appropriate QFI or EBI. The QFI or EBI ensures packets receive the correct QoS handling between the UE and the packet core instance without further inspection.
+   - Identifies the QoS flow to which each SDF should be bound.
+   - Marks packets with the appropriate QFI. The QFI ensures packets receive the correct QoS handling between the UE and the packet core instance without further inspection.
 
 1. Inspects downlink packets to check their properties against the data flow templates of the associated services, and then takes the following steps based on this matching:
 
    - Applies any necessary traffic control.
    - Identifies the QoS flow to which each SDF should be bound.
    - Applies any necessary QoS treatment.
-   - Marks packets with the QFI or EBI corresponding to the correct QoS flow or EPS bearer. The QFI or EBI ensures the packets receive the correct QoS handling between the packet core instance and data network without further inspection.
+   - Marks packets with the QFI corresponding to the correct QoS flow. The QFI ensures the packets receive the correct QoS handling between the packet core instance and data network without further inspection.
 
 ## Designing your policy control configuration
 
