@@ -46,7 +46,7 @@ These triggers to Logic Apps are controlled in a new tab within access package p
 
 1. In the left menu, select **Catalogs**. 
 
-1. In the left menu, select **Custom Extensions (Preview)**. 
+1. Select the catalog for which you want to add Custom Extension and then in the left menu, select **Custom Extensions (Preview)**. 
 
 1. In the header navigation bar, select **Add a Custom Extension**.  
 
