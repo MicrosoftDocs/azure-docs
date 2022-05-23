@@ -244,11 +244,11 @@ Be aware of these differences in SQL Data Manipulation Language (DML) syntax bet
   ) WHERE rn = 1;
   ```
 
-- Date Arithmetic&mdash;Azure Synapse has operators such as `DATEADD` and `DATEDIFF` which can be used on `DATE` or `DATETIME` fields. Teradata supports direct subtraction on dates such as 'SELECT DATE1&mdash;DATE2 FROM...'
+- Date Arithmetic&mdash;Azure Synapse has operators such as `DATEADD` and `DATEDIFF` which can be used on `DATE` or `DATETIME` fields. Teradata supports direct subtraction on dates such as `SELECT DATE1&mdash;DATE2 FROM...`.
 
 - In Group by ordinal, explicitly provide the T-SQL column name.
 
-- LIKE ANY&mdash;Teradata supports LIKE ANY syntax such as:
+- `LIKE ANY`&mdash;Teradata supports `LIKE ANY` syntax such as:
 
   ```
   SELECT \* FROM CUSTOMER
