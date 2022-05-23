@@ -201,6 +201,7 @@ Post-installation validation must include the following tests:
 
 - **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
 
+For more information, see [Check system health](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health).
 
 ## Access sensors from the on-premises management console
 
@@ -220,4 +221,7 @@ You can enhance system security by preventing direct user access to the sensor. 
 
 ## Next steps
 
-For more information, see [Set up your network](how-to-set-up-your-network.md).
+For more information, see:
+
+- [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
+- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
