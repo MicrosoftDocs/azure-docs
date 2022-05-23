@@ -660,10 +660,8 @@ items:
       href: data-explorer/functions-library/toc.yml
 - name: Apache Spark
   items:
-  - name: Overview
-    items:
-    - name: Apache Spark overview
-      href: ./spark/apache-spark-overview.md
+  - name: Apache Spark overview
+    href: ./spark/apache-spark-overview.md
   - name: Quickstarts
     items:
     - name: Create a notebook
