@@ -179,13 +179,13 @@ Once the database tables to be migrated have been created in Azure Synapse, you 
 
 - **File Extract**&mdash;Extract the data from the Teradata tables to flat files, normally in CSV format, via BTEQ, Fast Export, or Teradata Parallel Transporter (TPT). Use TPT whenever possible since it's the most efficient in terms of data throughput.
 
-This approach requires space to land the extracted data files. The space could be local to the Teradata source database (if sufficient storage is available), or remote in Azure Blob Storage. The best performance is achieved when a file is written locally, since that avoids network overhead.
+  This approach requires space to land the extracted data files. The space could be local to the Teradata source database (if sufficient storage is available), or remote in Azure Blob Storage. The best performance is achieved when a file is written locally, since that avoids network overhead.
 
-To minimize the storage and network transfer requirements, it's good practice to compress the extracted data files using a utility like gzip.
+  To minimize the storage and network transfer requirements, it's good practice to compress the extracted data files using a utility like gzip.
 
-Once extracted, the flat files can either be moved into Azure Blob Storage (collocated with the target Azure Synapse instance) or loaded directly into Azure Synapse using PolyBase or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql). The method for physically moving data from local on-premises storage to the Azure cloud environment depends on the amount of data and the available network bandwidth.
+  Once extracted, the flat files can either be moved into Azure Blob Storage (collocated with the target Azure Synapse instance) or loaded directly into Azure Synapse using PolyBase or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql). The method for physically moving data from local on-premises storage to the Azure cloud environment depends on the amount of data and the available network bandwidth.
 
-Microsoft provides different options to move large volumes of data, including AZCopy for moving files across the network into Azure Storage, Azure ExpressRoute for moving bulk data over a private network connection, and Azure Data Box where the files are moved to a physical storage device that's then shipped to an Azure data center for loading. For more information, see [data transfer](/azure/architecture/data-guide/scenarios/data-transfer).
+  Microsoft provides different options to move large volumes of data, including AZCopy for moving files across the network into Azure Storage, Azure ExpressRoute for moving bulk data over a private network connection, and Azure Data Box where the files are moved to a physical storage device that's then shipped to an Azure data center for loading. For more information, see [data transfer](/azure/architecture/data-guide/scenarios/data-transfer).
 
 - **Direct extract and load across network**&mdash;The target Azure environment sends a data extract request, normally via a SQL command, to the legacy Teradata system to extract the data. The results are sent across the network and loaded directly into Azure Synapse, with no need to 'land' the data into intermediate files. The limiting factor in this scenario is normally the bandwidth of the network connection between the Teradata database and the Azure environment. For very large data volumes this approach may not be practical.
 
