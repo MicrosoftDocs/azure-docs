@@ -101,7 +101,7 @@ For more information, see [Purdue reference model and Defender for IoT](../plan-
 
 1. Select **OK**.
 
-1. Connect to the sensor, and verify that mirroring works.
+1. Connect to the sensor, and verify that mirroring works.correction"c
 
 ## Next steps
 

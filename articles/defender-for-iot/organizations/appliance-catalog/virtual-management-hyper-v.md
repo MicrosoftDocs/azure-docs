@@ -16,11 +16,11 @@ This article describes an on-premises management console deployment on a virtual
 |**Physical specifications** | Virtual Machine |
 |**Status** | Supported |
 
-## Prerequisites
+## Prerequisites 
 
 Before you begin the installation, make sure you have the following items:
 
-- Microsoft Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational
+- Microsoft Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational. For more information, see [Introduction to Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/about).
 
 - Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
