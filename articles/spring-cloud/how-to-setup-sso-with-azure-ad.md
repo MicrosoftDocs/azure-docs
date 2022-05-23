@@ -52,7 +52,7 @@ Register your application to establish a trust relationship between your app and
 1. In *Redirect URI (optional)* select **Web**, then enter the URL from the above section in the text box. The redirect URI is the location where Azure AD redirects your client and sends security tokens after authentication.
 1. Select **Register** to finish registering the application.
 
-:::image type="content" source="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-create-app-registration.jpg" alt-text="Example of how to fill out the Add App Registration screen" lightbox="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-create-app-registration.jpg":::
+:::image type="content" source="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-create-app-registration.png" alt-text="Example of how to fill out the Add App Registration screen" lightbox="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-create-app-registration.png":::
 
 When registration finishes, you'll see the *Application (client) ID* on the **Overview** screen of the *App registrations** page.
 
@@ -64,11 +64,11 @@ You can also add redirect URIs after app registration by following these steps:
 1. Select **Web**, then select **Add URI** under *Redirect URIs*.
 1. Add a new redirect URI, then select **Save**.
 
-![Add Redirect Uri screen](./media/enterprise/how-to-setup-sso-with-azure-ad/sso-redirect-uri.jpg)
+:::image type="content" source="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-redirect-uri.png" alt-text="Example of adding redirect URI to the authentication" lightbox="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-redirect-uri.png":::
 
 For more information on Application Registration, see [Quickstart: Register an app in the Microsoft identity platform ](../active-directory/develop/quickstart-register-app.md#quickstart-register-an-application-with-the-microsoft-identity-platform).
 
-## Add a Client Secret
+## Add a client secret
 
 The application uses a client secret to authenticate itself in SSO workflow. You can add a client secret using the following steps:
 
@@ -80,13 +80,13 @@ The application uses a client secret to authenticate itself in SSO workflow. You
 > [!WARNING]
 > Remember to save the client secret in a secure place. You can't retrieve it after you leave this page. The client secret should be provided with the client ID when you sign in as the application.
 
-## Configure Scope
+## Configure scope
 
 The `scope` property of SSO is a list of scopes to be included in JWT identity tokens. They're often referred to permissions. Identity platform supports several [OpenID Connect scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes), such as `openid`, `email` and `profile`.
 
-## Configure Issuer URI
+## Configure issuer URI
 
-The Issuer URI is the URI that is asserted as its Issuer Identifier. For example, if the issuer-uri provided is `https://example.com`, then an OpenID Provider Configuration Request will be made to `https://example.com/.well-known/openid-configuration`.
+The issuer URI is the URI that is asserted as its Issuer Identifier. For example, if the issuer-uri provided is `https://example.com`, then an OpenID Provider Configuration Request will be made to `https://example.com/.well-known/openid-configuration`.
 
 The issuer URI of Azure AD is like `<authentication-endpoint>/<Your-TenantID>/v2.0`. Replace `<authentication-endpoint>` with the authentication endpoint for your cloud environment (for example, `https://login.microsoftonline.com` for global Azure), and replace `<Your-TenantID>` with the Directory (tenant) ID where the application was registered.
 
@@ -101,5 +101,5 @@ After configuring your Azure AD application, you can set up the SSO properties o
 > [!NOTE]
 > After configuring SSO properties, remember to enable SSO for the Spring Cloud Gateway routes by setting `ssoEnabled=true`. For more information, see [route configuration](./how-to-use-enterprise-spring-cloud-gateway.md#configure-routes).
 
-## Next Steps
+## Next steps
 - [Configure routes](./how-to-use-enterprise-spring-cloud-gateway.md#configure-routes)
