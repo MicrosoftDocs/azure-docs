@@ -177,14 +177,14 @@ The following PowerShell script both generates sample data to configure the cust
     }
     ```
 
-3. Copy the sample log data from [sample data](#sample-data) or copy your own Apache log data into a file called *sample_access.log*. 
+3. Copy the sample log data from [sample data](#sample-data) or copy your own Apache log data into a file called `sample_access.log`. 
+
+4. To read the data in the file and create a JSON file called `data_sample.json` that you can send to the custom logs API, run:
 
     ```PowerShell
     .\LogGenerator.ps1 -Log "sample_access.log" -Type "file" -Output "data_sample.json"
     ```
 
-4. Run the script using the following command to read this data and create a JSON file called *data_sample.json* that you can send to the custom logs API.
- 
 ## Add custom log table
 Before you can send data to the workspace, you need to create the custom table that the data will be sent to.
 
