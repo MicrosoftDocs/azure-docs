@@ -9,7 +9,7 @@ ms.date: 05/10/2022
 
 # Quickstart: Create a lab using an ARM template
 
-This quickstart shows you, as the admin, how to use an Azure Resource Manager (ARM) template to create a lab.  This quickstart shows you how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md#add-and-manage-lab-users), and [publishes the lab](tutorial-setup-lab.md#publish-a-lab).  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
+This quickstart shows you, as the educator or admin, how to use an Azure Resource Manager (ARM) template to create a lab.  This quickstart shows you how to create a lab with Windows 11 Pro image.  Once a lab is created, an educator [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md#add-and-manage-lab-users), and [publishes the lab](tutorial-setup-lab.md#publish-a-lab).  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,7 +34,7 @@ One Azure resource is defined in the template:
 
 - **[Microsoft.LabServices/labs](/azure/templates/microsoft.labservices/labs)**: resource type description.
 
-More Azure Lab Services template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.LabServices&pageNumber=1&sort=Popular).
+More Azure Lab Services template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Labservices&pageNumber=1&sort=Popular).  For more information how to create a lab without a lab plan using automation, see [Create Azure LabServices lab template](https://azure.microsoft.com/resources/templates/lab/).
 
 ## Deploy the template
 
@@ -72,7 +72,7 @@ Get-AzLabServicesLab -Name $lab
 Write-Host "Press [ENTER] to continue..."
 ```
 
-To verify educators can use the lab, navigate to the Azure Lab Services website: [https://labs.azure.com](https://labs.azure.com).  For more information about managing labs, see [[View all labs](/azure/lab-services/how-to-manage-labs.md#).](how-to-manage-labs.md#view-all-labs).
+To verify educators can use the lab, navigate to the Azure Lab Services website: [https://labs.azure.com](https://labs.azure.com).  For more information about managing labs, see [View all labs](/azure/lab-services/how-to-manage-labs.md#)](how-to-manage-labs.md#view-all-labs).
 
 ## Clean up resources
 
@@ -80,9 +80,10 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 ), which deletes the lab and other resources in the same group.
 
 ```azurepowershell-interactive
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Remove-AzResourceGroup -Name $resourceGroupName
-    Write-Host "Press [ENTER] to continue..."
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+
+Write-Host "Press [ENTER] to continue..."
 ```
 
 Alternately, an educator may delete a lab from the Azure Lab Services website: [https://labs.azure.com](https://labs.azure.com).  For more information about deleting labs, see [Delete a lab](how-to-manage-labs.md#delete-a-lab).

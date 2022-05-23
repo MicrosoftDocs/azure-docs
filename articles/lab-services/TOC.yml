@@ -12,10 +12,10 @@
       items:
       - name: Azure portal
         href: quick-create-lab-plan-portal.md
-      - name: PowerShell
-        href: quick-create-lab-plan-powershell.md
       - name: ARM template
         href: quick-create-lab-plan-arm.md
+      - name: PowerShell
+        href: quick-create-lab-plan-powershell.md
     - name: Create a lab (educator)
       items:
       - name: Azure Lab Services website

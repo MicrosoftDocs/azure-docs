@@ -69,9 +69,10 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 ), which deletes the lab plan.
 
 ```azurepowershell-interactive
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Remove-AzResourceGroup -Name $resourceGroupName
-    Write-Host "Press [ENTER] to continue..."
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+
+Write-Host "Press [ENTER] to continue..."
 ```
 
 ## Next steps
@@ -79,4 +80,4 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 For a step-by-step tutorial that guides you through the process of creating a lab, see:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a lab plan using an ARM template](quick-create-lab-plan-arm.md)
+> [Quickstart: Create a lab using an ARM template](quick-create-lab-arm.md)
