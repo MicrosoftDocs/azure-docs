@@ -4,7 +4,7 @@ description: Use Azure Monitor to create, view, and manage log alert rules
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 05/23/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Create, view, and manage log alerts using Azure Monitor
