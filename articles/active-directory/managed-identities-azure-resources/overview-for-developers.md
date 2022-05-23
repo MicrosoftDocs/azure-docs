@@ -208,6 +208,7 @@ SecretClient secretClient = new SecretClientBuilder()
     
 KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
 ```
+---
 
 ### Accessing a Blob in Azure Storage
 ```csharp
