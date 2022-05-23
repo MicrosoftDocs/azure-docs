@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/13/2022
+ms.date: 05/23/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -22,6 +22,10 @@ VMs in the cluster can read or write to their attached disk based on the reserva
 Shared managed disks offer shared block storage that can be accessed from multiple VMs, these are exposed as logical unit numbers (LUNs). LUNs are then presented to an initiator (VM) from a target (disk). These LUNs look like direct-attached-storage (DAS) or a local drive to the VM.
 
 Shared managed disks do not natively offer a fully managed file system that can be accessed using SMB/NFS. You need to use a cluster manager, like Windows Server Failover Cluster (WSFC) or Pacemaker, that handles cluster node communication and write locking.
+
+### Billing implications
+
+When a shared disk is attached to multiple VMs, the disk's IOPS/MBps is reserved from each VM the disk is attached to. So if an ultra shared disk with 100 IOPS is attached to three disks, you would be billed for 300 IOPS.
 
 ## Limitations
 
