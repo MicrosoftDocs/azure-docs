@@ -37,11 +37,11 @@ This tutorial will explain how to integrate your own conversational language und
 
 4. Once the project is loaded, click on **Training** on the left. Press on Start a training job, provide the model name **v1** and press Train. All other settings such as **Standard Training** and the evaluation settings can be left as is.
     
-    :::image type="content" source="../media/train-model-tutorial.png" alt-text="A screenshot of the training page in CLU." lightbox="../media/train-model-tutorial.png":::
+    :::image type="content" source="../media/train-model-tutorial.png" alt-text="A screenshot of the training page in C L U." lightbox="../media/train-model-tutorial.png":::
     
 5. Once training is complete, click to **Deployments** on the left. Click on Add Deployment and create a new deployment with the name **Testing**, and assign model **v1** to the deployment.
     
-    :::image type="content" source="../media/deploy-model-tutorial.png" alt-text="A screenshot of the deployment page within the deploy model screen in CLU." lightbox="../media/deploy-model-tutorial.png":::
+    :::image type="content" source="../media/deploy-model-tutorial.png" alt-text="A screenshot of the deployment page within the deploy model screen in C L U." lightbox="../media/deploy-model-tutorial.png":::
     
 ## Update the settings file
 
