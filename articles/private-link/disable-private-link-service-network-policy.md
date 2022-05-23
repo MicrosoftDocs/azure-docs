@@ -25,11 +25,11 @@ In the code, replace "default" with the name of the virtual subnet.
 
 ```azurepowershell
 $virtualSubnetName = "default"
-$virtualNetwork= Get-AzVirtualNetwork `
-  -Name "myVirtualNetwork" ` 
+$virtualNetwork = Get-AzVirtualNetwork `
+  -Name "myVirtualNetwork" `
   -ResourceGroupName "myResourceGroup"
    
-($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq $virtualSubnetName} ).privateLinkServiceNetworkPolicies = "Disabled"  
+($virtualNetwork | Select-Object -ExpandProperty subnets | Where-Object  {$_.Name -eq $virtualSubnetName} ).privateLinkServiceNetworkPolicies = "Disabled"  
  
 $virtualNetwork | Set-AzVirtualNetwork 
 ```
