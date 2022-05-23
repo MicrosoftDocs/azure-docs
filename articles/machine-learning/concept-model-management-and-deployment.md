@@ -150,9 +150,9 @@ Machine Learning gives you the capability to track the end-to-end audit trail of
 - Machine Learning [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository, branch, and commit your code came from.
 - [Machine Learning datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
 - [Interpretability](how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for specific input.
-- Machine Learning Run history stores a snapshot of the code, data, and computes used to train a model.
+- Machine Learning Job history stores a snapshot of the code, data, and computes used to train a model.
 - The Machine Learning Model Registry captures all the metadata associated with your model. For example, metadata includes which experiment trained it, where it's being deployed, and if its deployments are healthy.
-- [Integration with Azure](how-to-use-event-grid.md) allows you to act on events in the machine learning lifecycle. Examples are model registration, deployment, data drift, and training (run) events.
+- [Integration with Azure](how-to-use-event-grid.md) allows you to act on events in the machine learning lifecycle. Examples are model registration, deployment, data drift, and training (job) events.
 
 > [!TIP]
 > While some information on models and datasets is automatically captured, you can add more information by using _tags_. When you look for registered models and datasets in your workspace, you can use tags as a filter.
@@ -190,7 +190,7 @@ A theme of the preceding steps is that your retraining should be automated, not 
 
 ## Automate the machine learning lifecycle
 
-You can use GitHub and Azure Pipelines to create a continuous integration process that trains a model. In a typical scenario, when a data scientist checks a change into the Git repo for a project, Azure Pipelines starts a training run. The results of the run can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
+You can use GitHub and Azure Pipelines to create a continuous integration process that trains a model. In a typical scenario, when a data scientist checks a change into the Git repo for a project, Azure Pipelines starts a training job. The results of the job can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
 
 The [Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) makes it easier to work with Azure Pipelines. It provides the following enhancements to Azure Pipelines:
 

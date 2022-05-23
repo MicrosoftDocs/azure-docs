@@ -13,7 +13,7 @@ ms.date: 09/23/2021
 
 # What are Azure Machine Learning environments?
 
-Azure Machine Learning environments are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, environment variables, and software settings around your training and scoring scripts. They also specify run times (Python, Spark, or Docker). The environments are managed and versioned entities within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across a variety of compute targets.
+Azure Machine Learning environments are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, environment variables, and software settings around your training and scoring scripts. They also specify job times (Python, Spark, or Docker). The environments are managed and versioned entities within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across a variety of compute targets.
 
 You can use an `Environment` object on your local compute to:
 * Develop your training script.
@@ -21,11 +21,11 @@ You can use an `Environment` object on your local compute to:
 * Deploy your model with that same environment.
 * Revisit the environment in which an existing model was trained.
 
-The following diagram illustrates how you can use a single `Environment` object in both your run configuration (for training) and your inference and deployment configuration (for web service deployments).
+The following diagram illustrates how you can use a single `Environment` object in both your job configuration (for training) and your inference and deployment configuration (for web service deployments).
 
 ![Diagram of an environment in machine learning workflow](./media/concept-environments/ml-environment.png)
 
-The environment, compute target and training script together form the run configuration: the full specification of a training run.
+The environment, compute target and training script together form the job configuration: the full specification of a training job.
 
 ## Types of environments
 
@@ -57,13 +57,13 @@ For code samples, see the "Manage environments" section of [How to use environme
 
 ## Environment building, caching, and reuse
 
-Azure Machine Learning builds environment definitions into Docker images and conda environments. It also caches the environments so they can be reused in subsequent training runs and service endpoint deployments. Running a training script remotely requires the creation of a Docker image, but a local run can use a conda environment directly. 
+Azure Machine Learning builds environment definitions into Docker images and conda environments. It also caches the environments so they can be reused in subsequent training jobs and service endpoint deployments. Running a training script remotely requires the creation of a Docker image, but a local job can use a conda environment directly. 
 
-### Submitting a run using an environment
+### Submitting a job using an environment
 
-When you first submit a remote run using an environment, the Azure Machine Learning service invokes an [ACR Build Task](../container-registry/container-registry-tasks-overview.md) on the Azure Container Registry (ACR) associated with the Workspace. The built Docker image is then cached on the Workspace ACR. Curated environments are backed by Docker images that are cached in Global ACR. At the start of the run execution, the image is retrieved by the compute target from the relevant ACR.
+When you first submit a remote job using an environment, the Azure Machine Learning service invokes an [ACR Build Task](../container-registry/container-registry-tasks-overview.md) on the Azure Container Registry (ACR) associated with the Workspace. The built Docker image is then cached on the Workspace ACR. Curated environments are backed by Docker images that are cached in Global ACR. At the start of the job execution, the image is retrieved by the compute target from the relevant ACR.
 
-For local runs, a Docker or conda environment is created based on the environment definition. The scripts are then executed on the target compute - a local runtime environment or local Docker engine.
+For local jobs, a Docker or conda environment is created based on the environment definition. The scripts are then executed on the target compute - a local runtime environment or local Docker engine.
 
 ### Building environments as Docker images
 
@@ -76,7 +76,7 @@ The second step is omitted if you specify [user-managed dependencies](/python/ap
 
 ### Image caching and reuse
 
-If you use the same environment definition for another run, Azure Machine Learning reuses the cached image from the Workspace ACR to save time.
+If you use the same environment definition for another job, Azure Machine Learning reuses the cached image from the Workspace ACR to save time.
 
 To view the details of a cached image, check the Environments page in Azure Machine Learning studio or use the [`Environment.get_image_details`](/python/api/azureml-core/azureml.core.environment.environment#get-image-details-workspace-) method.
 
@@ -92,7 +92,7 @@ The hash isn't affected by the environment name or version. If you rename your e
 > [!NOTE]
 > You will not be able to submit any local changes to a curated environment without changing the name of the environment. The prefixes "AzureML-" and "Microsoft" are reserved exclusively for curated environments, and your job submission will fail if the name starts with either of them.
 
-The environment's computed hash value is compared with those in the Workspace and global ACR, or on the compute target (local runs only). If there is a match then the cached image is pulled and used, otherwise an image build is triggered.
+The environment's computed hash value is compared with those in the Workspace and global ACR, or on the compute target (local jobs only). If there is a match then the cached image is pulled and used, otherwise an image build is triggered.
 
 The following diagram shows three environment definitions. Two of them have different names and versions but identical base images and Python packages, which results in the same hash and corresponding cached image. The third environment has different Python packages and versions, leading to a different hash and cached image.
 

@@ -26,7 +26,7 @@ Azure Machine Learning only uses MLflow Tracking for metric logging and artifact
 > [!NOTE]
 > Unlike the Azure Machine Learning SDK v1, there is no logging functionality in the SDK v2 (preview), and it is recommended to use MLflow for logging and tracking.
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the lifecycle of your machine learning experiments.  MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) is a component of MLflow that logs and tracks your training run metrics and model artifacts, no matter your experiment's environment--locally on your computer, on a remote compute target, a virtual machine or an Azure Machine Learning compute instance.
+[MLflow](https://www.mlflow.org) is an open-source library for managing the lifecycle of your machine learning experiments.  MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) is a component of MLflow that logs and tracks your training job metrics and model artifacts, no matter your experiment's environment--locally on your computer, on a remote compute target, a virtual machine or an Azure Machine Learning compute instance.
 
 ## Track experiments
 
@@ -44,7 +44,7 @@ You can [Deploy MLflow models to an online endpoint](how-to-deploy-mlflow-models
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-You can use MLflow's tracking URI and logging API, collectively known as MLflow Tracking, to submit training jobs with [MLflow Projects](https://www.mlflow.org/docs/latest/projects.html) and Azure Machine Learning backend support (preview). You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud like via an [Azure Machine Learning Compute](./how-to-create-attach-compute-cluster.md).
+You can use MLflow's tracking URI and logging API, collectively known as MLflow Tracking, to submit training jobs with [MLflow Projects](https://www.mlflow.org/docs/latest/projects.html) and Azure Machine Learning backend support (preview). You can submit jobs locally with Azure Machine Learning tracking or migrate your jobs to the cloud like via an [Azure Machine Learning Compute](./how-to-create-attach-compute-cluster.md).
 
 Learn more at [Train ML models with MLflow projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
 
