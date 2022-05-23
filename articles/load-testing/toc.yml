@@ -30,53 +30,39 @@
       href: concept-load-testing-concepts.md
 - name: How-to guides
   expanded: true
-  items: 
-    - name: Configure load tests
-      expanded: true
-      items:
-        - name: Configure server-side monitoring
-          href: how-to-monitor-server-side-metrics.md
-        - name: Configure for high scale loads
-          href: how-to-high-scale-load.md
-        - name: Define test criteria
-          href: how-to-define-test-criteria.md
-        - name: Parameterize load tests
-          href: how-to-parameterize-load-tests.md
-        - name: Use JMeter user properties
-          href: how-to-configure-user-properties.md
-        - name: Read data from a CSV file
-          href: how-to-read-csv-data.md
-    - name: Analyze test results
-      expanded: true
-      items:
-        - name: Compare test runs
-          href: how-to-compare-multiple-test-runs.md
-        - name: Get insights from App Service Diagnostics
-          href: how-to-appservice-insights.md
-        - name: Export test results
-          href: how-to-export-test-results.md
-        - name: Troubleshoot test execution errors
-          href: how-to-find-download-logs.md
-    - name: Security
-      expanded: true
-      items:
-        - name: Manage users and roles
-          href: how-to-assign-roles.md
-        - name: Use a managed identity
-          href: how-to-use-a-managed-identity.md
-        - name: Configure customer-managed keys
-          href: how-to-configure-customer-managed-keys.md
-    - name: Manage resources
-      expanded: true
-      items:
-        - name: Move between regions
-          href: how-to-move-between-regions.md
-    - name: Monitor
-      expanded: true
-      items:
-        - name: Monitor Azure Load Testing
-          href: monitor-load-testing.md
-
+  items:
+    - name: Create a load test with a JMeter script
+      href: how-to-create-and-run-load-test-with-JMeter-script.md 
+    - name: Compare test runs
+      href: how-to-compare-multiple-test-runs.md
+    - name: Configure server-side monitoring
+      href: how-to-monitor-server-side-metrics.md
+    - name: Configure for high scale loads
+      href: how-to-high-scale-load.md
+    - name: Troubleshoot with load test logs
+      href: how-to-find-download-logs.md
+    - name: Define test criteria
+      href: how-to-define-test-criteria.md
+    - name: Parameterize load tests
+      href: how-to-parameterize-load-tests.md
+    - name: Use JMeter user properties
+      href: how-to-configure-user-properties.md
+    - name: Read data from a CSV file
+      href: how-to-read-csv-data.md
+    - name: Get insights from App Service Diagnostics
+      href: how-to-appservice-insights.md
+    - name: Export test results
+      href: how-to-export-test-results.md
+    - name: Manage users and roles
+      href: how-to-assign-roles.md
+    - name: Use a managed identity
+      href: how-to-use-a-managed-identity.md
+    - name: Configure customer-managed keys
+      href: how-to-configure-customer-managed-keys.md
+    - name: Move between regions
+      href: how-to-move-between-regions.md
+    - name: Monitor Azure Load Testing
+      href: monitor-load-testing.md
 - name: Reference
   items:
     - name: Test configuration YAML
