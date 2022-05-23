@@ -19,7 +19,6 @@ Orchestration workflow allows you to create projects that connect your applicati
 * Custom Language Understanding
 * Question Answering
 * LUIS
-* QnA maker
 
 ## Sign in to Language Studio
 
