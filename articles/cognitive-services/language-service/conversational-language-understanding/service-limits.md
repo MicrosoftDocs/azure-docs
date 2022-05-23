@@ -76,7 +76,7 @@ The following limits are observed for the conversational language understanding.
 |Count of entities per project | 1 | 500|
 |Count of list synonyms per entity| 0 | 20,000 |
 |Count of prebuilt components per entity| 0 | 7 |
-|Count of trained models per project| 0 | 50 |
+|Count of trained models per project| 0 | 10 |
 |Count of deployments per project| 0 | 10 |
 
 ## Naming limits
