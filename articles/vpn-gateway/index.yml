@@ -67,7 +67,7 @@ landingContent:
           - text: Multiple authentication types
             url: howto-point-to-site-multi-auth.md
           - text: OpenVPN tunnel type
-            url: vpn-gateway-howto-openvpn.md
+            url: ikev2-openvpn-from-sstp.md
 
   # Card
   - title: Site-to-site VPNs
