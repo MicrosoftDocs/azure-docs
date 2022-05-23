@@ -21,7 +21,7 @@ Before you read this article, it's helpful to understand some background informa
 
 ## Select features for Personalizer
 
-Personalizing content depends on having useful information about the content and the user. For some applications and industries, some user features can be directly or indirectly considered discriminatory and potentially illegal. See the [Personalizer integration and responsible use guidelines for guidelines](responsible-guidance-integration.md) on assessing features to use with Personalizer.
+Personalizing content depends on having useful information about the content and the user. For some applications and industries, some user features can be directly or indirectly considered discriminatory and potentially illegal. See the [Personalizer integration and responsible use guidelines](responsible-guidance-integration.md) on assessing features to use with Personalizer.
 
 
 ## Computing rewards for Personalizer
