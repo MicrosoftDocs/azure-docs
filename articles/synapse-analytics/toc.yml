@@ -1498,7 +1498,7 @@ items:
       href: migration-guides/teradata/5-minimize-sql-issues.md
     - name: Tools for Teradata data warehouse migration to Azure Synapse Analytics
       href: migration-guides/teradata/6-microsoft-third-party-migration-tools.md
-    - name: Beyond Teradata migration&mdash;implementing a modern data warehouse in Microsoft Azure
+    - name: Beyond Teradata migration, implementing a modern data warehouse in Microsoft Azure
       href: migration-guides/teradata/7-beyond-data-warehouse-migration.md
   - name: Security white paper
     items:
