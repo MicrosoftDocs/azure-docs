@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/04/2022
+ms.date: 05/24/2022
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -25,10 +25,27 @@ This release is published May 24, 2022.
 `v1.7.0_2022-05-24`
 
 For complete release version information, see [Version log](version-log.md).
+### Data controller
+
+Reminders and warnings are implemented in Azure Portal and in custom resource status when billing data has not been uploaded or exported recently.
 
 ### SQL Managed Instance
 
-Azure SQL Managed Instance Business Critical tier is generally available.
+General Availability of Business Critical service tier.  Instances of Arc enabled SQL Managed Instance that have a version greater than or equal to v1.7.0 will be charged through Azure billing meters.
+
+### User experience improvements
+
+#### Azure portal
+
+Added ability to create AD Connectors from Azure Portal.
+
+Preview expected costs for Azure Arc-enabled SQL Managed Instance Business Critical tier when you create new instances.
+
+#### Azure Data Studio
+
+Added ability to upgrade Azure Arc-enabled SQL Managed Instances from Azure Data Studio in the indirect and direct connectivity modes.
+
+Preview expected costs for Azure Arc-enabled SQL Managed Instance Business Critical tier when you create new instances.
 
 ## May 4, 2022
 
