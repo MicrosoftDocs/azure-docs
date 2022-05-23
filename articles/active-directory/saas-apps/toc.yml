@@ -1938,6 +1938,8 @@
         href: screensteps-tutorial.md
       - name: Scuba Analytics
         href: scuba-analytics-tutorial.md  
+      - name: S4 - Digitsec
+        href: s4-digitsec-tutorial.md
       - name: SD Elements
         href: sd-elements-tutorial.md
       - name: SDS & Chemical Information Management
