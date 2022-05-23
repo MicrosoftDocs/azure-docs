@@ -37,7 +37,7 @@ Use this article to learn which natural languages are supported by the PII featu
 | Portuguese (Portugal) | `pt-PT`       | 2021-01-15                      | `pt` also accepted |
 | Spanish               | `es`          | 2020-04-01                      |                    |
 
-# [PII for conversations](#tab/conversations)
+# [PII for conversations (preview)](#tab/conversations)
 
 ## PII language support
 
