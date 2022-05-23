@@ -101,9 +101,9 @@ For more information, see [Purdue reference model and Defender for IoT](../plan-
 
 1. Select **OK**.
 
-1. Connect to the sensor, and verify that mirroring works.correction"c
+1. Connect to the sensor, and verify that mirroring works.
 
-## Next steps
+## Next steps 
 
 Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) and [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
