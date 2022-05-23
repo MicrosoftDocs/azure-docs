@@ -9,11 +9,11 @@ ms.date: 05/05/2022
 ms.author: cherylmc
 
 ---
-# Configure OpenVPN clients for Azure VPN Gateway
+# Configure an OpenVPN client for Azure VPN Gateway P2S connections
 
-This article helps you configure **OpenVPN &reg; Protocol** clients for Azure VPN Gateway point-to-site configurations that use OpenVPN.
+This article helps you configure the **OpenVPN &reg; Protocol** client for Azure VPN Gateway point-to-site configurations. This article pertains specifically to OpenVPN clients, not the Azure VPN Client or native VPN clients.
 
-This article contains general instructions. For the following point-to-site authentication types, see the associated articles instead:
+For these authentication types, see the following articles instead:
 
 * Azure AD authentication
   * [Windows clients](openvpn-azure-ad-client.md)

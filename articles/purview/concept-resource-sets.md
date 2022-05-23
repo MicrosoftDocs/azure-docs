@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 05/09/2022
 ---
 
 # Understanding resource sets
@@ -45,20 +45,17 @@ When Microsoft Purview detects resources that it thinks are part of a resource s
 
 ## Advanced resource sets
 
-By default, Microsoft Purview determines the schema and classifications for resource sets based upon the [resource set file sampling rules](sources-and-scans.md#resource-set-file-sampling). Microsoft Purview can customize and further enrich your resource set assets through the **Advanced Resource Sets** capability. When Advanced Resource Sets are enabled, Microsoft Purview run extra aggregations to compute the following information about resource set assets:
+Microsoft Purview can customize and further enrich your resource set assets through the **Advanced Resource Sets** capability. Advanced resource sets allows Microsoft Purview to understand the underlying partitions of data ingested and enables the creation of [resource set pattern rules](how-to-resource-set-pattern-rules.md) that customize how Microsoft Purview groups resource sets during scanning. 
+ 
+When Advanced Resource Sets are enabled, Microsoft Purview run extra aggregations to compute the following information about resource set assets:
 
-- Most up-to-date schema and classifications to accurately reflect schema drift from changing metadata.
 - A sample path from a file that comprises the resource set.
 - A partition count that shows how many files make up the resource set. 
-- A schema count that shows how many unique schemas were found. This value is either a number between 1–5, or for values greater than 5, 5+.
-- A list of partition types when more than a single partition type is included in the resource set. For example, an IoT sensor might output both XML and JSON files, although both are logically part of the same resource set.
 - The total size of all files that comprise the resource set. 
 
 These properties can be found on the asset details page of the resource set.
 
 :::image type="content" source="media/concept-resource-sets/resource-set-properties.png" alt-text="The properties computed when advanced resource sets is on" border="true":::
-
-Enabling advanced resource sets also allows for the creation of [resource set pattern rules](how-to-resource-set-pattern-rules.md) that customize how Microsoft Purview groups resource sets during scanning. 
 
 ### Turning on advanced resource sets
 
@@ -123,6 +120,11 @@ When scanning a storage account, Microsoft Purview uses a set of defined pattern
 - Incorrectly marking an asset as not being a resource set
 
 To customize or override how Microsoft Purview detects which assets are grouped as resource sets and how they are displayed within the catalog, you can define pattern rules in the management center. For step-by-step instructions and syntax, please see [resource set pattern rules](how-to-resource-set-pattern-rules.md).
+
+## Known limitations with resource sets
+
+- By default, resource set assets will only be deleted by a scan if [Advanced Resource sets](#advanced-resource-sets) are enabled. If this capability is off, resource set assets can only be deleted manually or via API.
+- Currently, resource set assets will apply the first schema and classification discovered by the scan. Subsequent scans won't update the schema. 
 
 ## Next steps
 

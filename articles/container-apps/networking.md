@@ -46,7 +46,7 @@ https://docs.microsoft.com/azure/azure-functions/functions-networking-options
 https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-virtual-network-integration/ba-p/3096932
 -->
 
-### HTTP edge proxy behavior
+## HTTP edge proxy behavior
 
 Azure Container Apps uses [Envoy proxy](https://www.envoyproxy.io/) as an edge HTTP proxy. TLS is terminated on the edge and requests are routed based on their traffic split rules and routes traffic to the correct application.
 

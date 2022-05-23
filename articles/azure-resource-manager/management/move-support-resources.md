@@ -52,6 +52,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.ClassicSubscription](#microsoftclassicsubscription)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
+> - [Microsoft.Communication](#microsoftcommunication)
 > - [Microsoft.Compute](#microsoftcompute)
 > - [Microsoft.Confluent](#microsoftconfluent)
 > - [Microsoft.Consumption](#microsoftconsumption)
@@ -593,6 +594,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | ratecard | No | No | No |
 > | usageaggregates | No | No | No |
+
+## Microsoft.Communication
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | communicationservices | Yes | Yes | No |
 
 ## Microsoft.Compute
 
@@ -1445,7 +1453,7 @@ Jump to a resource provider namespace:
 > | networkintentpolicies | Yes | Yes | No |
 > | networkinterfaces | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move NICs. |
 > | networkprofiles | No | No | No |
-> | networksecuritygroups | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NGSs). |
+> | networksecuritygroups | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NSGs). |
 > | networkwatchers | No | No | No |
 > | networkwatchers / connectionmonitors | Yes | No | No |
 > | networkwatchers / flowlogs | Yes | No | No |

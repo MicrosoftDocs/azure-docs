@@ -20,7 +20,7 @@ This how-to guide describes how to access, view, and filter Microsoft Purview Gl
 In this how-to guide, you'll learn how to:
 
 > [!div class="checklist"]
-> - Go to Insights from your Microsoft Purview account
+> - Go to Data Estate Insights from your Microsoft Purview account
 > - Get a bird's eye view of your data
 
 ## Prerequisites
@@ -66,9 +66,9 @@ In Microsoft Purview, you can create glossary terms and attach them to assets. L
 
    :::image type="content" source="./media/glossary-insights/glossary-view-more.png" alt-text="Snapshot of terms with and without assets":::  
 
-4. When you select "View more" for ***Approved terms with assets***, Insights allow you to navigate to the **Glossary** term detail page, from where you can further navigate to the list of assets with the attached terms. 
+4. When you select "View more" for ***Approved terms with assets***, Data Estate Insights allow you to navigate to the **Glossary** term detail page, from where you can further navigate to the list of assets with the attached terms. 
 
-   :::image type="content" source="./media/glossary-insights/navigate-to-glossary-detail.png" alt-text="Insights to glossary"::: 
+   :::image type="content" source="./media/glossary-insights/navigate-to-glossary-detail.png" alt-text="Data Estate Insights to glossary"::: 
 
 4. In Glossary insights page, view a distribution of **Incomplete terms** by type of information missing. The graph shows count of terms with ***Missing definition***, ***Missing expert***, ***Missing steward*** and ***Missing multiple*** fields.
 

@@ -4,6 +4,7 @@ description: This topic provides guidelines for configuring server parameters in
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/10/2020
 ---

@@ -4,6 +4,7 @@ description: This article describes how to configure and access metric alerts fo
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 05/06/2022
 ms.custom: kr2b-contr-experiment

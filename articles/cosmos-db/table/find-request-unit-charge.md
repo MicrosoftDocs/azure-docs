@@ -21,7 +21,7 @@ This article presents the different ways you can find the [request unit](../requ
 
 ## Use the .NET SDK
 
-Currently, the only SDK that returns the RU charge for table operations is the legacy [Microsoft.Azure.Cosmos.Table .NET Standard SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). The `TableResult` object exposes a `RequestCharge` property that is populated by the SDK when you use it against the Azure Cosmos DB Table API:
+Currently, the only SDK that returns the RU charge for table operations is the [.NET Standard SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). The `TableResult` object exposes a `RequestCharge` property that is populated by the SDK when you use it against the Azure Cosmos DB Table API:
 
 ```csharp
 CloudTable tableReference = client.GetTableReference("table");

@@ -80,7 +80,7 @@ items:
         href: concept-best-practices-scanning.md
       - name: Security best practices
         href: concept-best-practices-security.md  
-  - name: Microsoft Purview permissions
+  - name: Permissions and access
     href: catalog-permissions.md
   - name: Data map
     items:
@@ -273,7 +273,7 @@ items:
       href: how-to-automatically-label-your-content.md
     - name: Sensitivity labels FAQ
       href: sensitivity-labels-frequently-asked-questions.yml
-  - name: Insights
+  - name: Data Estate Insights
     items:
     - name: View asset insights
       href: asset-insights.md

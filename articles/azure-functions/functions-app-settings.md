@@ -203,7 +203,7 @@ A Blob Storage SAS URL for a second storage account used for key storage. By def
 
 |Key|Sample value|
 |--|--|
-|AzureWebJobsSecretStorageSa| `<BLOB_SAS_URL>` | 
+|AzureWebJobsSecretStorageSas| `<BLOB_SAS_URL>` | 
 
 ## AzureWebJobsSecretStorageType
 

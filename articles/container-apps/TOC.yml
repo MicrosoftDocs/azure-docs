@@ -30,6 +30,8 @@
           href: deploy-visual-studio.md
         - name: Visual Studio Code
           href: deploy-visual-studio-code.md
+      - name: With code on your local machine
+        href: quickstart-code-to-cloud.md
 - name: Concepts
   items:
     - name: Environment
@@ -54,10 +56,10 @@
         href: firewall-integration.md
     - name: Observability
       href: observability.md
-    - name: Health probes
-      href: health-probes.md
     - name: Authentication
       href: authentication.md
+    - name: Dapr integration
+      href: dapr-overview.md
 - name: How-to guides
   items:
     - name: Scale an app
@@ -72,12 +74,16 @@
       href: revisions-manage.md
     - name: Set up HTTPS ingress
       href: ingress.md
+    - name: Set up custom domains and certificates
+      href: custom-domains-certificates.md
     - name: Connect multiple apps
       href: connect-apps.md
     - name: Publish revisions with GitHub Actions
       href: github-actions-cli.md
     - name: Use a custom VNET
       href: vnet-custom.md
+    - name: Use health probes
+      href: health-probes.md
     - name: Enable authentication
       items:
       - name: Azure Active Directory
@@ -92,8 +98,14 @@
         href: authentication-twitter.md
       - name: Custom OpenID Connect
         href: authentication-openid.md
+    - name: Use storage mounts
+      href: storage-mounts.md
+    - name: Plan for disaster recovery
+      href: disaster-recovery.md
 - name: Tutorials
   items:
+    - name: Communicate between microservices
+      href: communicate-between-microservices.md
     - name: Microservices with Dapr using the CLI
       href: microservices-dapr.md
     - name: Microservices with Dapr using ARM or Bicep
@@ -108,6 +120,8 @@
       href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
 - name: Resources
   items:
+    - name: Samples
+      href: samples.md
     - name: Billing
       href: billing.md
     - name: Quotas
