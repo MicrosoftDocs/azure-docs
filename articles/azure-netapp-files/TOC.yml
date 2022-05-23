@@ -273,7 +273,7 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
-      - name: Re-establish deleted volume replication relationships
+      - name: Re-establish volume replication relationships
         href: reestablish-deleted-volume-relationships.md
   - name: Develop
     items:
