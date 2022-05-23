@@ -1486,6 +1486,20 @@ items:
     items:
     - name: Migrate to a dedicated SQL pool
       href: migration-guides/migrate-to-synapse-analytics-guide.md
+    - name: Design and performance for Netezza migrations
+      href: migration-guides/netezza/1-design-performance-migration.md
+    - name: Data migration, ETL, and load for Netezza migrations
+      href: migration-guides/netezza/2-etl-load-migration-considerations.md
+    - name: Security, access, and operations for Netezza migrations
+      href: migration-guides/netezza/3-security-access-operations.md
+    - name: Visualization and reporting for Netezza migrations
+      href: migration-guides/netezza/4-visualization-reporting.md
+    - name: Minimizing SQL issues for Netezza migrations
+      href: migration-guides/netezza/5-minimize-sql-issues.md
+    - name: Tools for Netezza data warehouse migration to Azure Synapse Analytics
+      href: migration-guides/netezza/6-microsoft-third-party-migration-tools.md
+    - name: Beyond Netezza migration&mdash;implementing a modern data warehouse in Microsoft Azure
+      href: migration-guides/netezza/7-beyond-data-warehouse-migration.md
   - name: Security white paper
     items:
     - name: Introduction
