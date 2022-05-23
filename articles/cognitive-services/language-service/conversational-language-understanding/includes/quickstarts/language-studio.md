@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/12/2022
+ms.date: 05/16/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -44,7 +44,7 @@ Generally after training a model you would review its evaluation details. In thi
 
 ## Test model
 
-After your model is deployed, you can start using it to make predictions through the [prediction API](https://aka.ms/clu-apis). For this quickstart, you will use the [Language Studio](https://aka.ms/LanguageStudio) to submit an utterance, get predictions and visualize the results.
+After your model is deployed, you can start using it to make predictions through [Prediction API](https://aka.ms/clu-apis). For this quickstart, you will use the [Language Studio](https://aka.ms/LanguageStudio) to submit an utterance, get predictions and visualize the results.
 
 
 [!INCLUDE [Test model](../language-studio/test-model.md)]
