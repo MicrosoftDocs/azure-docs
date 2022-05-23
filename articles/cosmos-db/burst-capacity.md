@@ -45,9 +45,9 @@ To enroll in the preview, your Cosmos account must meet all the following criter
     - Azure Functions
     - Azure Search
 
-### SDK requirements (SQL API only)
-
-Burst capacity is supported only in the latest version of the .NET v3 SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. There are no driver or SDK requirements to use burst capacity with other APIs.
+### SDK requirements (SQL and Table API only)
+#### SQL API
+For SQL API accounts, burst capacity is supported only in the latest version of the .NET v3 SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. There are no driver or SDK requirements to use burst capacity with Gremlin API, Cassandra API, or API for MongoDB.
 
 Find the latest version of the supported SDK:
 
@@ -55,10 +55,20 @@ Find the latest version of the supported SDK:
 | --- | --- | --- |
 | **.NET SDK v3** | *>= 3.27.0* | <https://www.nuget.org/packages/Microsoft.Azure.Cosmos/> |
 
-Support for other SDKs is planned for the future.
+Support for other SQL API SDKs is planned for the future.
 
 > [!TIP]
 > You should ensure that your application has been updated to use a compatible SDK version prior to enrolling in the preview. If you're using the legacy .NET V2 SDK, follow the [.NET SDK v3 migration guide](sql/migrate-dotnet-v3.md). 
+
+#### Table  API
+For Table API accounts, burst capacity is supported only when using the latest version of the Tables SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. The legacy SDK with namespace `Microsoft.Azure.Cosmos.Table` is not supported. Follow the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/MigrationGuide.md) to upgrade to the latest SDK.
+
+| SDK | Supported versions | Package manager link |
+| --- | --- | --- |
+| **Azure Tables client library for .NET** | *>= 12.0.0* | <https://www.nuget.org/packages/Azure.Data.Tables/> |
+| **Azure Tables client library for Java** | *>= 12.0.0* | <https://mvnrepository.com/artifact/com.azure/azure-data-tables> |
+| **Azure Tables client library for JavaScript** | *>= 12.0.0* | <https://www.npmjs.com/package/@azure/data-tables> |
+| **Azure Tables client library for Python** | *>= 12.0.0* | <https://pypi.org/project/azure-data-tables/> |
 
 ### Unsupported connectors
 
