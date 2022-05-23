@@ -3,7 +3,7 @@ title: Grant access to Azure resources on a Service Fabric cluster
 description: Learn how to grant a managed-identity-enabled Service Fabric application access to other Azure resources that support Azure Active Directory authentication.
 ms.custom: kr2b-contr-experiment
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 05/24/2022
 ---
 
 # Grant a Service Fabric application access to Azure resources on a Service Fabric cluster
@@ -14,14 +14,14 @@ The exact sequence of steps depends on the type of Azure resource being accessed
 
 ## Grant access to Azure Storage
 
-You can use the Service Fabric application's managed identity, which is user-assigned in this case, to get the data from an Azure storage blob. Grant the identity the required permissions in the Azure portal by using the following steps:
+You can use the Service Fabric application's managed identity, which is user-assigned in this case, to get the data from an Azure storage blob. Grant the identity the required permissions in the [Azure portal](https://portal.azure.com/) by using the following steps:
 
 1. Navigate to the storage account.
 1. Select the Access Control (IAM) link in the left panel.
-1. (optional) Check existing access: select System- or User-assigned managed identity in the **Find** control. Select the appropriate identity from the ensuing result list.
-1. Select **+ Add** > **Add role assignment** on top of the page to add a new role assignment for the application's identity.
+1. (Optional) Check existing access: select **System-assigned** or **User-assigned** managed identity in the **Find** control. Select the appropriate identity from the ensuing result list.
+1. Select **Add** > **Add role assignment** on top of the page to add a new role assignment for the application's identity.
 1. Under **Role**, from the dropdown list, select **Storage Blob Data Reader**.
-1. In the next dropdown list, under Assign access to, choose **User assigned managed identity**.
+1. In the next dropdown list, under **Assign access to**, choose **User assigned managed identity**.
 1. Next, ensure the proper subscription is listed in **Subscription** dropdown list and then set **Resource Group** to **All resource groups**.
 1. Under **Select**, choose the UAI corresponding to the Service Fabric application and then select **Save**.
 
@@ -29,7 +29,7 @@ Support for system-assigned Service Fabric managed identities doesn't include in
 
 ## Grant access to Azure Key Vault
 
-Similarly with accessing storage, you can use the managed identity of a Service Fabric application to access an Azure Key Vault. The steps for granting access in the Azure portal are similar to the steps listed above. Refer to the image below for differences.
+Similarly to accessing storage, you can use the managed identity of a Service Fabric application to access an Azure Key Vault. The steps for granting access in the Azure portal are similar to the steps listed above. Refer to the image below for differences.
 
 ![Screenshot shows the Key Vault with Access policies selected.](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
