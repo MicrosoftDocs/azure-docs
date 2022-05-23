@@ -85,6 +85,14 @@ items:
     - name: Accepted data tag formats
       href: custom-classification/concepts/data-formats.md
       displayName: Data representation
+    - name: Enterprise readiness
+      items: 
+      - name: Virtual networks
+        href: ../cognitive-services-virtual-networks.md
+      - name: Cognitive Services security
+        href: ../cognitive-services-security.md
+      - name: Encryption of data at rest
+        href: ../cognitive-services-security.md
   - name: Tutorials
     items:
     - name: Enrich a Cognitive Search index 
@@ -164,6 +172,14 @@ items:
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
       - name: Accepted data tag formats
         href: custom-named-entity-recognition/concepts/data-formats.md
+      - name: Enterprise readiness
+        items: 
+        - name: Virtual networks
+          href: ../cognitive-services-virtual-networks.md
+        - name: Cognitive Services security
+          href: ../cognitive-services-security.md
+        - name: Encryption of data at rest
+          href: ../cognitive-services-security.md
   - name: Reference
     items:
     - name: Glossary
@@ -242,6 +258,14 @@ items:
         href: conversational-language-understanding/concepts/none-intent.md
       - name: Using multiple languages
         href: conversational-language-understanding/concepts/multiple-languages.md
+      - name: Enterprise readiness
+        items: 
+        - name: Virtual networks
+          href: ../cognitive-services-virtual-networks.md
+        - name: Cognitive Services security
+          href: ../cognitive-services-security.md
+        - name: Encryption of data at rest
+          href: ../cognitive-services-security.md
   - name: Tutorials
     items:
       - name: Use Bot Framework
