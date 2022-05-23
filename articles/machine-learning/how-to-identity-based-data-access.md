@@ -62,7 +62,6 @@ Certain machine learning scenarios involve training models with private data. In
     - [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md)
     - [Azure Data Lake Storage Gen1](../data-lake-store/index.yml)
     - [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
-    - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
 
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install).
 
@@ -123,22 +122,6 @@ adls2_dstore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                        account_name='myadls2')
 ```
 
-### Azure SQL database
-
-For an Azure SQL database, use [register_azure_sql_database()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none--subscription-id-none--resource-group-none--grant-workspace-access-false----kwargs-) to register a datastore that connects to an Azure SQL database storage.
-
-The following code creates and registers the `credentialless_sqldb` datastore to the `ws` workspace and assigns it to the variable, `sqldb_dstore`. This datastore accesses the database `mydb` in the `myserver` SQL DB server.  
-
-```python
-# Create a sqldatabase datastore without credentials
-                                                       
-sqldb_dstore = Datastore.register_azure_sql_database(workspace=ws,
-                                                       datastore_name='credentialless_sqldb',
-                                                       server_name='myserver',
-                                                       database_name='mydb')                                                       
-                                                   
-```
-
 
 ## Storage access permissions
 
@@ -151,7 +134,6 @@ Identity-based data access supports connections to **only** the following storag
 * Azure Blob Storage
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Azure SQL Database
 
 To access these storage services, you must have at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md). 
 
