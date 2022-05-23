@@ -1,34 +1,26 @@
 ---
-title: Network data access in studio
+title: How to administrate data: authentication
 titleSuffix: Azure Machine Learning
-description: Learn how data access works with Azure Machine Learning studio when your workspace or storage is in a virtual network.
+description: Learn how to manage data access and how to anthenticate in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.topic: conceptual
-ms.author: jhirono
-author: jhirono
+ms.topic: how-do
+ms.author: xunwan
+author: xunwan
 ms.reviewer: larryfr
-ms.date: 11/19/2021
+ms.date: 05/19/2022
+
+# Customer intent: As an administrator, I need to administrate data access and set up authentication method for data scientists.
 ---
 
-
-# Network data access with Azure Machine Learning studio
-
-Data access is complex and it's important to recognize that there are many pieces to it. For example, accessing data from Azure Machine Learning studio is different than using the SDK. When using the SDK on your local development environment, you're directly accessing data in the cloud. When using studio, you aren't always directly accessing the data store from your client. Studio relies on the workspace to access data on your behalf.
+# Data access
+Learn how to manage data access and how to anthenticate in Azure Machine Learning
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 > [!IMPORTANT]
 > The information in this article is intended for Azure administrators who are creating the infrastructure required for an Azure Machine Learning solution.
-
-> [!TIP]
-> Studio only supports reading data from the following datastore types in a VNet:
->
-> * Azure Storage Account (blob & file)
-> * Azure Data Lake Storage Gen1
-> * Azure Data Lake Storage Gen2
-> * Azure SQL Database
-
-## Data access
 
 In general, data access from studio involves the following checks:
 
@@ -56,7 +48,7 @@ The following diagram shows the general flow of a data access call. In this exam
 
 :::image type="content" source="./media/concept-network-data-access/data-access-flow.svg" alt-text="Diagram of the logic flow when accessing data":::
 
-### Scenarios and identities
+## Scenarios and identities
 
 The following table lists what identities should be used for specific scenarios:
 
@@ -66,6 +58,9 @@ The following table lists what identities should be used for specific scenarios:
 | Access from UI | No | User's Identity |
 | Access from Job | Yes/No | Compute MSI |
 | Access from Notebook | Yes/No | User's identity |
+
+
+Data access is complex and it's important to recognize that there are many pieces to it. For example, accessing data from Azure Machine Learning studio is different than using the SDK. When using the SDK on your local development environment, you're directly accessing data in the cloud. When using studio, you aren't always directly accessing the data store from your client. Studio relies on the workspace to access data on your behalf.
 
 > [!TIP]
 > If you need to access data from outside Azure Machine Learning, such as using Azure Storage Explorer, _user_ identity is probably what is used. Consult the documentation for the tool or service you are using for specific information. For more information on how Azure Machine Learning works with data, see [Identity-based data access to storage services on Azure](how-to-identity-based-data-access.md).
@@ -108,31 +103,6 @@ When using Azure Data Lake Storage Gen2 as a datastore, you can use both Azure R
 
 **To use ACLs**, the managed identity of the workspace can be assigned access just like any other security principal. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-## Azure SQL Database
-
-To access data stored in an Azure SQL Database with a managed identity, you must create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities).
-
-After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
-
-### Secure communication with Azure SQL Database
-
-To secure communication between Azure Machine Learning and Azure SQL Database, there are two options:
-
-> [!IMPORTANT]
-> Both options allow the possibility of services outside your subscription connecting to your SQL Database. Make sure that your SQL login and user permissions limit access to authorized users only.
-
-* __Allow Azure services and resources to access the Azure SQL Database server__. Enabling this setting _allows all connections from Azure_, including __connections from the subscriptions of other customers__, to your database server.
-
-    For information on enabling this setting, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
-
-* __Allow the IP address range of the Azure Machine Learning service in Firewalls and virtual networks__ for the Azure SQL Database. Allowing the IP addresses through the firewall limits __connections to the Azure Machine Learning service for a region__.
-
-    > [!WARNING]
-    > The IP ranges for the Azure Machine Learning service may change over time. There is no built-in way to automatically update the firewall rules when the IPs change.
-
-    To get a list of the IP addresses for Azure Machine Learning, download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `AzureMachineLearning.<region>`, where `<region>` is the Azure region that contains your Azure Machine Learning workspace.
-
-    To add the IP addresses to your Azure SQL Database, see [IP firewall rules - Azure SQL Database and Synapse Analytics](/azure/azure-sql/database/firewall-configure).
 
 ## Next steps
 
