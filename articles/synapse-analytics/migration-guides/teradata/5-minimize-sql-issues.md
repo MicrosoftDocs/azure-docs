@@ -121,7 +121,7 @@ Most Teradata data types have a direct equivalent in Azure Synapse. This table s
 | DH | INTERVAL DAY TO HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | DM | INTERVAL DAY TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | DS | INTERVAL DAY TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| DT | DATASET | DATASET data type is supported in Azure Synapse. |
+| DT | DATASET | DATASET data type is supported in Azure Synapse |
 | DY | INTERVAL DAY | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | F  | FLOAT | FLOAT |
 | HM | INTERVAL HOUR TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
