@@ -14,6 +14,8 @@
         href: quick-create-lab-plan-portal.md
       - name: PowerShell
         href: quick-create-lab-plan-powershell.md
+      - name: Bicep
+        href: quick-create-lab-plan-bicep.md
     - name: Create a lab (educator)
       items:
       - name: Azure Lab Services website
