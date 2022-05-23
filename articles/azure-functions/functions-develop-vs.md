@@ -1,6 +1,6 @@
 ---
 title: Develop Azure Functions using Visual Studio  
-description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
+description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2022.
 ms.devlang: csharp
 ms.custom: "vs-azure, devx-track-csharp"
 ms.topic: conceptual
@@ -21,7 +21,7 @@ Visual Studio provides the following benefits when you develop your functions:
 
 This article provides details about how to use Visual Studio to develop C# class library functions and publish them to Azure. Before you read this article, consider completing the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
-Unless otherwise noted, procedures and examples shown are for Visual Studio 2019. 
+Unless otherwise noted, procedures and examples shown are for Visual Studio 2022. 
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Unless otherwise noted, procedures and examples shown are for Visual Studio 2019
 > [!NOTE]
 > In Visual Studio 2017, the Azure development workload installs Azure Functions Tools as a separate extension. When you update your Visual Studio 2017 installation, make sure that you're using the [most recent version](#check-your-tools-version) of the Azure Functions tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017. 
 >
-> Skip these sections if you're using Visual Studio 2019.
+> Skip these sections if you're using Visual Studio 2022.
 
 ### <a name="check-your-tools-version"></a>Check your tools version in Visual Studio 2017
 
@@ -88,9 +88,9 @@ The Functions runtime uses an Azure Storage account internally. For all trigger 
 
 To set the storage account connection string:
 
-1. In Visual Studio, select **View** > **Cloud Explorer**.
+1. In the Azure portal, navigate to your storage account
 
-2. In **Cloud Explorer**, expand **Storage Accounts**, and then select your storage account. In the **Properties** tab, copy the **Primary Connection String** value.
+2. In the **Access keys** tab, below **Security + networking**, copy the **Connection string** of **key1**
 
 2. In your project, open the local.settings.json file and set the value of the `AzureWebJobsStorage` key to the connection string you copied.
 
@@ -104,11 +104,13 @@ In C# class library functions, the bindings used by the function are defined by 
 
 2. Select **Azure Function**, enter a **Name** for the class, and then select **Add**.
 
-3. Choose your trigger, set the binding properties, and then select **OK**. The following example shows the settings for creating a Queue storage trigger function. 
+3. Choose your trigger, set the binding properties, and then select **Add**. The following example shows the settings for creating a Queue storage trigger function. 
 
     ![Create a Queue storage trigger function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    This trigger example uses a connection string with a key named `QueueStorage`. Define this connection string setting in the [local.settings.json file](functions-develop-local.md#local-settings-file).
+    You will then be prompted to choose between two Azure storage emulators or referencing a provisioned Azure storage account.
+
+    This trigger example uses a connection string with a key named `QueueStorage`. This key, stored in the [local.settings.json file](functions-develop-local.md#local-settings-file), either references the Azure storage emulators or an Azure storage account.
 
 4. Examine the newly added class. You see a static `Run()` method that's attributed with the `FunctionName` attribute. This attribute indicates that the method is the entry point for the function.
 
@@ -218,7 +220,7 @@ Use the following steps to publish your project to a function app in Azure.
 
 Because Visual Studio doesn't upload these settings automatically when you publish the project, any settings you add in the local.settings.json you must also add to the function app in Azure.
 
-The easiest way to upload the required settings to your function app in Azure is to select the **Manage Azure App Service settings** link that appears after you successfully publish your project.
+The easiest way to upload the required settings to your function app in Azure is to expand the three dots next to the **Hosting** section and select the **Manage Azure App Service settings** link that appears after you successfully publish your project.
 
 :::image type="content" source="./media/functions-develop-vs/functions-vstools-app-settings.png" alt-text="Settings in Publish window":::
 
@@ -256,7 +258,7 @@ To set up your environment, create a function and test the app. The following st
 1. [Create a new Functions app](functions-get-started.md) and name it **Functions**
 2. [Create an HTTP function from the template](functions-get-started.md) and name it **MyHttpTrigger**.
 3. [Create a timer function from the template](functions-create-scheduled-function.md) and name it **MyTimerTrigger**.
-4. [Create an xUnit Test app](https://xunit.net/docs/getting-started/netcore/cmdline) in the solution and name it **Functions.Tests**.
+4. [Create an xUnit Test app](https://xunit.net/docs/getting-started/netcore/cmdline) in the solution and name it **Functions.Tests**. Remove the default test files.
 5. Use NuGet to add a reference from the test app to [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Reference the *Functions* app](/visualstudio/ide/managing-references-in-a-project) from *Functions.Tests* app.
 
@@ -452,7 +454,7 @@ namespace Functions.Tests
         public void Timer_should_log_message()
         {
             var logger = (ListLogger)TestFactory.CreateLogger(LoggerTypes.List);
-            MyTimerTrigger.Run(null, logger);
+            new MyTimerTrigger().Run(null, logger);
             var msg = logger.Logs[0];
             Assert.Contains("C# Timer trigger function executed at", msg);
         }
@@ -472,7 +474,7 @@ If you want to access application settings in your tests, you can [inject](funct
 
 ### Run tests
 
-To run the tests, navigate to the **Test Explorer** and click **Run all**.
+To run the tests, navigate to the **Test Explorer** and click **Run All Tests in View**.
 
 ![Testing Azure Functions with C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
