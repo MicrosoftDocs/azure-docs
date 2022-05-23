@@ -98,12 +98,23 @@ Here is an example of a logged request in WAF log:
 
 The following example query returns AccessLogs entries:
 
+::: zone pivot="front-door-classic"
+``` AccessLogQuery
+AzureDiagnostics
+| where ResourceType == "FRONTDOORS" and Category == "FrontdoorAccessLog"
+
+```
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+
 ``` AccessLogQuery
 
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.CDN" and Category == "FrontDoorAccessLog"
 
 ```
+::: zone-end
 
 Here is an example of a logged request in Access log:
 
