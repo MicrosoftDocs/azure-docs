@@ -2,7 +2,7 @@
 title: "Design and performance for Netezza migrations"
 description: Learn how Netezza and Azure Synapse SQL databases differ in their approach to high query performance on exceptionally large data volumes.
 ms.service: synapse-analytics
-ms.subservice:
+ms.subservice: sql-dw
 ms.custom:
 ms.devlang:
 ms.topic: conceptual
@@ -327,3 +327,7 @@ PolyBase is the most efficient method for loading large amounts of data into the
 #### Use Workload management
 
 Use [Workload management](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management?context=/azure/synapse-analytics/context/context) instead of resource classes. ETL would be in its own workgroup and should be configured to have more resources per query (less concurrency by more resources). For more information, see [What is dedicated SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is).
+
+## Next steps
+
+To learn more about ETL and load for Netezza migration, see the next article in this series: [Data migration, ETL, and load for Netezza migration](2-etl-load-migration-considerations.md)].

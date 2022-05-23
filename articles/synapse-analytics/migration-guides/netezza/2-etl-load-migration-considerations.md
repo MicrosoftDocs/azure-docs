@@ -1,8 +1,8 @@
 ---
-title: "Data migration, ETL, and load for Netezza migrations"
+title: "Data migration, ETL, and load for Netezza migration"
 description: Learn how to plan your data migration from Netezza to Azure Synapse to minimize the risk and impact on users. 
 ms.service: synapse-analytics
-ms.subservice:
+ms.subservice: sql-dw
 ms.custom:
 ms.devlang:
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.reviewer: wiassaf
 ms.date: 05/24/2022
 ---
 
-# Data migration, ETL, and load for Netezza migrations
+# Data migration, ETL, and load for Netezza migration
 
 ## Data migration considerations
 
@@ -301,3 +301,7 @@ To summarize, our recommendations for migrating data and associated ETL processe
 - Identify and understand the most efficient tools for data extract and load in both Netezza and Azure environments. Use the appropriate tools in each phase in the process.
 
 - Use Azure facilities, such as [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=b6e99db9cfda11ecbaba18ca59d5c95c) or [Azure Data Factory](/azure/data-factory/introduction?msclkid=2ccc66eccfde11ecaa58877e9d228779), to orchestrate and automate the migration process while minimizing impact on the Netezza system.
+
+## Next steps
+
+To learn more about security access operations, see the next article in this series: [Security, access, and operations for Netezza migrations](3-security-access-operations.md)].

@@ -2,7 +2,7 @@
 title: "Tools for Netezza data warehouse migration to Azure Synapse Analytics"
 description: Learn about Microsoft and third-party data and database migration tools that can help you migrate from Netezza to Azure Synapse. 
 ms.service: synapse-analytics
-ms.subservice:
+ms.subservice: sql-dw
 ms.custom:
 ms.devlang:
 ms.topic: conceptual
@@ -126,3 +126,7 @@ There are some limitations in PolyBase. Rows to be loaded must be less than 1 MB
 ## Microsoft partners to help you migrate your data warehouse to Azure Synapse Analytics
 
 In addition to tools that can help you with various aspects of data warehouse migration, there are several practiced [Microsoft partners](/azure/synapse-analytics/partner/data-integration) that can bring their expertise to help you move your legacy on-premises data warehouse platform to Azure Synapse.
+
+## Next steps
+
+To learn more about implementing modern data warehouses, see the next article in this series: [Beyond Netezza migration, implementing a modern data warehouse in Microsoft Azure](7-beyond-data-warehouse-migration.md)].

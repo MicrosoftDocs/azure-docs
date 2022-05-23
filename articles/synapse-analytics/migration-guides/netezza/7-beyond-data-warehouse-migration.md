@@ -2,7 +2,7 @@
 title: "Beyond Netezza migration, implementing a modern data warehouse in Microsoft Azure"
 description: Learn how a Netezza migration to Azure Synapse lets you integrate your data warehouse with the Microsoft Azure analytical ecosystem.
 ms.service: synapse-analytics
-ms.subservice:
+ms.subservice: sql-dw
 ms.custom:
 ms.devlang:
 ms.topic: conceptual
@@ -368,3 +368,7 @@ Once you migrate your data warehouse to Azure Synapse, you can leverage other te
 Broaden your ETL processing to ingest data of any type into Azure Data Lake Storage. Prepare and integrate it at scale using Azure Data Factory to produce trusted, commonly understood data assets that can be consumed by your data warehouse and accessed by data scientists and other applications. Build real-time and batch-oriented analytical pipelines and create machine learning models to run in batch, in-real-time on streaming data and on-demand as a service.
 
 Leverage PolyBase and `COPY INTO` to go beyond your data warehouse. Simplify access to insights from multiple underlying analytical platforms on Azure by creating holistic integrated views in a logical data warehouse. Easily access streaming, big data, and traditional data warehouse insights from BI tools and applications to drive new value in your business.
+
+## Next steps
+
+To learn more about migrating to a dedicated SQL pool, see [Migrate a data warehouse to a dedicated SQL pool in Azure Synapse Analytics](../migrate-to-synapse-analytics-guide.md)].
