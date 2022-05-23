@@ -74,8 +74,6 @@
       href: configure-alerts-for-azure-vmware-solution.md
     - name: Attach disk pools to Azure VMware Solution hosts
       href: attach-disk-pools-to-azure-vmware-solution-hosts.md
-    - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
-      href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
     - name: Backup with Azure Backup Server
       items:
       - name: Set up Backup Server
