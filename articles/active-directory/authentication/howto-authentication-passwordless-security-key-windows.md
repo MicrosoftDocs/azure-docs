@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 05/04/2022
 
 ms.author: justinha
 author: justinha
@@ -99,7 +99,7 @@ To target specific device groups to enable the credential provider, use the foll
 
 ### Enable with a provisioning package
 
-For devices not managed by Intune, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22). Complete the following steps to create a provisioning package:
+For devices not managed by Microsoft Endpoint Manager, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22). Complete the following steps to create a provisioning package:
 
 1. Launch the Windows Configuration Designer.
 1. Select **File** > **New project**.

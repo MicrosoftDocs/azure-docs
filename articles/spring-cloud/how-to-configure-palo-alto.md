@@ -1,8 +1,8 @@
 ---
 title: How to configure Palo Alto for Azure Spring Cloud
 description: How to configure Palo Alto for Azure Spring Cloud
-author: barbkess
-ms.author: barbkess
+author: KarlErickson
+ms.author: karler
 ms.topic: how-to
 ms.service: spring-cloud
 ms.date: 09/17/2021

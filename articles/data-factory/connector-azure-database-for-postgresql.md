@@ -336,6 +336,13 @@ The below table lists the properties supported by Azure Database for PostgreSQL 
 > 1. It's recommended to break single batch scripts with multiple commands into multiple batches.
 > 2. Only Data Definition Language (DDL) and Data Manipulation Language (DML) statements that return a simple update count can be run as part of a batch. Learn more from [Performing batch operations](/sql/connect/jdbc/performing-batch-operations)
 
+
+* Enable incremental extract: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.
+
+* Incremental date column: When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table.
+
+* Start reading from beginning: Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on.
+
 #### Azure Database for PostgreSQL sink script example
 
 When you use Azure Database for PostgreSQL as sink type, the associated data flow script is:

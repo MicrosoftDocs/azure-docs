@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/31/2022
+ms.date: 05/09/2022
 
 ms.author: mimart
 author: msmimart
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # B2B collaboration overview
 
-Azure Active Directory (Azure AD) B2B collaboration is a feature within External Identities that lets you invite guest users to collaborate with your organization. With B2B collaboration, you can securely share your company's applications and services with guest users from any other organization, while maintaining control over your own corporate data. Work safely and securely with external partners, large or small, even if they don't have Azure AD or an IT department.
+Azure Active Directory (Azure AD) B2B collaboration is a feature within External Identities that lets you invite guest users to collaborate with your organization. With B2B collaboration, you can securely share your company's applications and services with external users, while maintaining control over your own corporate data. Work safely and securely with external partners, large or small, even if they don't have Azure AD or an IT department.
 
 ![Diagram illustrating B2B collaboration](media/what-is-b2b/b2b-collaboration-overview.png)
 

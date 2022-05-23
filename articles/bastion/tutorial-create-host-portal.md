@@ -5,7 +5,7 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 04/13/2022
+ms.date: 05/05/2022
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
@@ -31,15 +31,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * A [virtual network](../virtual-network/quick-create-portal.md). This will be the VNet to which you deploy Bastion.
 * A virtual machine in the virtual network. This VM isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later in this tutorial via Bastion. If you don't have a VM, create one using [Quickstart: Create a VM](../virtual-machines/windows/quick-create-portal.md).
-* The following required roles for your resources.
-
-  * Required VM roles:
-
+* **Required VM roles:**
     * Reader role on the virtual machine.
     * Reader role on the NIC with private IP of the virtual machine.
 
-  * Required inbound ports:
-
+* **Required inbound ports:**
     * For Windows VMS - RDP (3389)
     * For Linux VMs - SSH (22)
 
@@ -88,9 +84,9 @@ This section helps you deploy Bastion to your VNet. Once Bastion is deployed, yo
 
 1. Go to your VNet.
 
-1. Click **Bastion** in the left pane to open the **Bastion** page.
+1. Select **Bastion** in the left pane to open the **Bastion** page.
 
-1. On the Bastion page, click **Configure manually**. This lets you configure specific additional settings before deploying Bastion to your VNet.
+1. On the Bastion page, select **Configure manually**. This lets you configure specific additional settings before deploying Bastion to your VNet.
    :::image type="content" source="./media/tutorial-create-host-portal/configure-manually.png" alt-text="Screenshot of Bastion page showing configure manually button." lightbox="./media/tutorial-create-host-portal/configure-manually.png":::
 
 1. On the **Create a Bastion** page, configure the settings for your bastion host. Project details are populated from your virtual network values. Configure the **Instance details** values.
@@ -105,9 +101,9 @@ This section helps you deploy Bastion to your VNet. Once Bastion is deployed, yo
 
    :::image type="content" source="./media/tutorial-create-host-portal/instance-values.png" alt-text="Screenshot of Bastion page instance values." lightbox="./media/tutorial-create-host-portal/instance-values.png":::
 
-1. Configure the **virtual networks** settings. Select the VNet from the dropdown. If you don't see your VNet in the dropdown list, make sure you selected the correct Resource Group and Region in the previous settings on this page.
+1. Configure the **virtual networks** settings. Select the VNet from the dropdown. If you don't see your VNet in the dropdown list, make sure you selected the correct Region in the previous settings on this page.
 
-1. To configure the AzureBastionSubnet, click **Manage subnet configuration**.
+1. To configure the AzureBastionSubnet, select **Manage subnet configuration**.
 
    :::image type="content" source="./media/tutorial-create-host-portal/select-vnet.png" alt-text="Screenshot of configure virtual networks section." lightbox="./media/tutorial-create-host-portal/select-vnet.png":::
 
@@ -118,9 +114,9 @@ This section helps you deploy Bastion to your VNet. Once Bastion is deployed, yo
    * The subnet name must be **AzureBastionSubnet**.
    * The subnet must be at least **/26 or larger** (/26, /25, /24 etc.) to accommodate features available with the Standard SKU.
 
-   Click **Save** at the bottom of the page to save your values.
+   Select **Save** at the bottom of the page to save your values.
 
-1. At the top of the **Subnets** page, click **Create a Bastion** to return to the Bastion configuration page.
+1. At the top of the **Subnets** page, select **Create a Bastion** to return to the Bastion configuration page.
 
    :::image type="content" source="./media/tutorial-create-host-portal/create-a-bastion.png" alt-text="Screenshot of Create a Bastion."lightbox="./media/tutorial-create-host-portal/create-a-bastion.png":::
 
@@ -128,7 +124,7 @@ This section helps you deploy Bastion to your VNet. Once Bastion is deployed, yo
 
 1. When you finish specifying the settings, select **Review + Create**. This validates the values.
 
-1. Once validation passes, you can deploy Bastion. Click **Create**.  You'll see a message letting you know that your deployment is process. Status will display on this page as the resources are created. It takes about 10 minutes for the Bastion resource to be created and deployed.
+1. Once validation passes, you can deploy Bastion. Select **Create**.  You'll see a message letting you know that your deployment is in process. Status will display on this page as the resources are created. It takes about 10 minutes for the Bastion resource to be created and deployed.
 
 ## <a name="connect"></a>Connect to a VM
 

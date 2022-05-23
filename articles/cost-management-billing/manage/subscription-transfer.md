@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/21/2022
+ms.date: 05/04/2022
 ms.author: banders
 ms.custom:
 ---
@@ -90,7 +90,7 @@ Dev/Test products aren't shown in the following table. Transfers for Dev/Test pr
 | MPA | MPA | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Self-service reservation transfers are supported.  |
 | MOSP (PAYG) | MOSP (PAYG) | <ul><li> If you're changing the billing owner of the subscription, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md). <li> Reservations don't automatically transfer so you must open a [billing support ticket](https://azure.microsoft.com/support/create-ticket/) to transfer them.  |
 | MOSP (PAYG) | MCA - individual | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Self-service reservation transfers are supported. |
-| MOSP (PAYG) | EA | For details, see [Transfer a subscription to an EA](mosp-ea-transfer.md#transfer-the-subscription-to-the-ea). |
+| MOSP (PAYG) | EA | <ul><li>If you're transferring the subscription to the EA enrollment, see [Transfer a subscription to an EA](mosp-ea-transfer.md#transfer-the-subscription-to-the-ea). <li> If you're changing billing ownership, see [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership). |
 | MOSP (PAYG) | MCA - Enterprise | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Self-service reservation transfers are supported. |
 
 ## Perform resource transfers

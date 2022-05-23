@@ -43,7 +43,7 @@ Base All-Core Frequency: 2.8 GHz<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Trusted Launch](trusted-launch.md): Coming Soon<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported for DCdsv3-series<br>
 [Dedicated Host](dedicated-hosts.md): Coming Soon<br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 

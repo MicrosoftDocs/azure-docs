@@ -9,9 +9,9 @@
     href: whats-new-docs.md
 - name: Quickstarts
   items:
-  - name: Add guest users in the portal
+  - name: Add a guest and send an invitation
     href: b2b-quickstart-add-guest-users-portal.md
-  - name: Add guest users with PowerShell
+  - name: Add and invite guests with PowerShell
     href: b2b-quickstart-invite-powershell.md
 - name: Tutorials
   items:
