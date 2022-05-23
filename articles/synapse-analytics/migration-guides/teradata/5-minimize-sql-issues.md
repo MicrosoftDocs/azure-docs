@@ -266,14 +266,12 @@ Be aware of these differences in SQL Data Manipulation Language (DML) syntax bet
 
 - Depending on system settings, character comparisons in Teradata may be case insensitive by default. In Azure Synapse, character comparisons are always case sensitive.
 
-### Use [EXPLAIN](/sql/t-sql/queries/explain-transact-sql?msclkid=91233fc1cff011ec9dff597671b7ae97) to validate legacy SQL
+### Use EXPLAIN to validate legacy SQL
 
 > [!TIP]
 > Use real queries from the existing system query logs to find potential migration issues.
 
-One way of testing legacy Teradata SQL for compatibility with Azure Synapse is to capture some representative SQL statements from the legacy system query logs,
-
-prefix those queries with 'EXPLAIN', and (assuming a 'like for like' migrated data model in Azure Synapse with the same table and column names) run those EXPLAIN statements in Azure Synapse. Any incompatible SQL will throw an error&mdash;use this information to determine the scale of the recoding task. This approach doesn't require that data is loaded into the Azure environment, only that the relevant tables and views have been created.
+One way of testing legacy Teradata SQL for compatibility with Azure Synapse is to capture some representative SQL statements from the legacy system query logs, prefix those queries with [EXPLAIN](/sql/t-sql/queries/explain-transact-sql?msclkid=91233fc1cff011ec9dff597671b7ae97), and (assuming a 'like for like' migrated data model in Azure Synapse with the same table and column names) run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will throw an error&mdash;use this information to determine the scale of the recoding task. This approach doesn't require that data is loaded into the Azure environment, only that the relevant tables and views have been created.
 
 ### Functions, stored procedures, triggers, and sequences
 
