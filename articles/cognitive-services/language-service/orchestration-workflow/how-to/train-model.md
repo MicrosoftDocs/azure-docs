@@ -27,7 +27,7 @@ Select **Train model** on the left of the screen. Select **Start a training job*
 
 Enter a new model name or select an existing model from the **Model Name** dropdown. 
 
-:::image type="content" source="../media/train-orchestration.png" alt-text="A screenshot showing the Train model page for Orchestration workflow projects." lightbox="../media/train-orchestration.png":::
+:::image type="content" source="../media/train-model.png" alt-text="A screenshot showing the Train model page for Orchestration workflow projects." lightbox="../media/train-model.png":::
 
 Click the **Train** button and wait for training to complete. You will see the training status of your model in the view model details page. Only successfully completed jobs will generate models.
 
