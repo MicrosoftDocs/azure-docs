@@ -81,7 +81,7 @@ Follow the steps below to create your GCP cloud connector.
 
     :::image type="content" source="media/quickstart-onboard-gcp/create-connector.png" alt-text="Screenshot of the Create GCP connector page where you need to enter all relevant information.":::
 
-   (Optional) If you select Organization (Preview), a management project and an organization custom role will be created on your GCP project for the onboarding process. Auto-provisioning will be enabled for the onboarding of new projects.
+   (Optional) If you select **Organization (Preview)**, a management project and an organization custom role will be created on your GCP project for the onboarding process. Auto-provisioning will be enabled for the onboarding of new projects.
 
 1. Select the **Next: Select Plans**.
 
