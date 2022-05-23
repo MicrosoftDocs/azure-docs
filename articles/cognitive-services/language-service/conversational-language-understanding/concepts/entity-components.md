@@ -31,6 +31,8 @@ The learned component uses the entity tags you label your utterances with to tra
 
 The list component represents a fixed, closed set of related words along with their synonyms. The component performs an exact text match against the list of values you provide as synonyms. Each synonym belongs to a "list key", which can be used as the normalized, standard value for the synonym that will return in the output if the list component is matched. List keys are **not** used for matching.
 
+In multilingual projects, you can specify a different set of synonyms for each language. While using the prediction API, you can specify the language in the input request, which will only match the synonyms associated to that language.
+
 
 :::image type="content" source="../media/list-component.png" alt-text="A screenshot showing an example of list components for entities." lightbox="../media/list-component.png":::
 
@@ -46,7 +48,7 @@ The prebuilt component allows you to select from a library of common types such 
 
 When multiple components are defined for an entity, their predictions may overlap. When an overlap occurs, each entity's final prediction is determined by one of the following options.
 
-### Combine option
+### Combine components
 
 Combine components as one entity when they overlap by taking the union of all the components.
 
@@ -56,22 +58,22 @@ Use this to combine all components when they overlap. When components are combin
 
 Suppose you have an entity called Software that has a list component, which contains “Proseware OS” as an entry. In your utterance data, you have “I want to buy Proseware OS 9” with “Proseware OS 9” tagged as Software:
 
-:::image type="content" source="../media/require-exact-overlap-example-1.svg" alt-text="A screenshot showing an example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-1.svg":::
+:::image type="content" source="../media/unionOverlapExample1.svg" alt-text="A screenshot showing different component predictions." lightbox="../media/unionOverlapExample1.svg":::
 
 By using combine components, the entity will return with the full context as “Proseware OS 9” along with the key from the list component:
 
-:::image type="content" source="../media/require-exact-overlap-example-1.svg" alt-text="A screenshot showing an example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-1.svg":::
+:::image type="content" source="../media/unionOverlapExample1Part2.svg" alt-text="A screenshot showing an example of a predicted entity from the previous components." lightbox="../media/unionOverlapExample1Part2.svg":::
 
 Suppose you had the same utterance but only “OS 9” was predicted by the learned component:
 
-:::image type="content" source="../media/require-exact-overlap-example-1.svg" alt-text="A screenshot showing an example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-1.svg":::
+:::image type="content" source="../media/unionOverlapExample2.svg" alt-text="A screenshot showing different component predictions." lightbox="../media/unionOverlapExample2.svg":::
 
 With combine components, the entity will still return as “Proseware OS 9” with the key from the list component:
 
-:::image type="content" source="../media/require-exact-overlap-example-1.svg" alt-text="A screenshot showing an example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-1.svg":::
+:::image type="content" source="../media/unionOverlapExample2Part2.svg" alt-text="A screenshot showing an example of a predicted entity from the previous components." lightbox="../media/unionOverlapExample2Part2.svg":::
 
 
-### Do not combine option
+### Do not combine components
 
 Each overlapping component will return as a separate instance of the entity. Apply your own logic after prediction with this option.
 
@@ -79,11 +81,25 @@ Each overlapping component will return as a separate instance of the entity. App
 
 Suppose you have an entity called Software that has a list component, which contains “Proseware Desktop” as an entry. In your utterance data, you have “I want to buy Proseware Desktop Pro” with “Proseware Desktop Pro” tagged as Software:
 
-:::image type="content" source="../media/require-exact-overlap-example-1.svg" alt-text="A screenshot showing an example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-1.svg":::
+:::image type="content" source="../media/separatedOverlapExample1.svg" alt-text="A screenshot showing different component predictions." lightbox="../media/separatedOverlapExample1.svg":::
 
 When you do not combine components, the entity will return twice:
 
-:::image type="content" source="../media/require-exact-overlap-example-1.svg" alt-text="A screenshot showing an example of exact overlap results for components." lightbox="../media/require-exact-overlap-example-1.svg":::
+:::image type="content" source="../media/separatedOverlapExample1Part2.svg" alt-text="A screenshot showing an example of a predicted entity from the previous components." lightbox="../media/separatedOverlapExample1Part2.svg":::
+
+
+> [!NOTE]
+> During public preview of the service, there were 4 available options: **Longest overlap**, **Exact overlap**, **Union overlap**, and **Return all separately**. **Longest overlap** and **exact overlap** are deprecated and will only be supported for projects that previously had those options selected. **Union overlap** has been renamed to **Combine components**, while **Return all separately** has been renamed to **Do not combine components**.
+
+## How to use components and options
+
+Components give you the flexibility to define your entity in more than one way. When you combine components, you make sure that each component is represented and you reduce the number of entities returned in your predictions. 
+
+A common practice is to extend a prebuilt component with a list of values that the prebuilt might not support. For example, if you have an **Organization** entity, which has a _General.Organization_ prebuilt component added to it, the entity may not predict all the organizations specific to your domain. You can use a list component to extend the values of the Organization entity and thereby extending the prebuilt with your own organizations.
+
+Other times you may be interested in extracting an entity through context such as a **Product** in a retail project. You would label for the learned component of the product to learn _where_ a product is based on its position within the sentence. You may also have a list of products that you already know before hand that you'd like to always extract. Combining both components in one entity allows you to get both options for the entity.
+
+When you do not combine components, you simply allow every component to act as an independent entity extractor. One way of using this option is to separate the entities extracted from a list to the ones extracted through the learned or prebuilt components to handle and treat them differently.
 
 
 ## Next steps
