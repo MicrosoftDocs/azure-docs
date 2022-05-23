@@ -197,14 +197,8 @@
         href: migration-export-ingest.md
     - name: Convert dashboards to workbooks
       href: migration-convert-dashboards.md
-    - name: Update SOC operations
-      items:
-      - name: Update SOC operations
-        href: migration-soc-overview.md        
-      - name: Incident triage
-        href: migration-incident-triage.md
-      - name: Analyst workflow
-        href: migration-analyst-workflow.md
+    - name: Update SOC processes      
+      href: migration-analyst-workflow.md
   - name: Use Microsoft Sentinel side-by-side with other SIEM
     href: migration-legacy.md
   - name: Understand MITRE ATT&CK coverage
