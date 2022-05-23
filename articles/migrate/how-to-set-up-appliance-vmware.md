@@ -187,7 +187,7 @@ If validation fails, you can select a **Failed** status to see the validation er
 
 > [!NOTE]
 > Ensure that the following special characters are not passed in any credentials as they are not supported for SSO passwords:
->  - Non-ASCII characters
+>  - Non-ASCII characters. [Learn more](https://en.wikipedia.org/wiki/ASCII).
 >  - Ampersand (&)
 >  - Semicolon (;)
 >  - Double quotation mark (")

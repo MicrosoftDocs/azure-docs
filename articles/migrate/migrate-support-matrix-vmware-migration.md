@@ -67,7 +67,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 
 > [!NOTE]
 > Ensure that the following special characters are not passed in any credentials as they are not supported for SSO passwords:
->  - Non-ASCII characters
+>  - Non-ASCII characters. [Learn more](https://en.wikipedia.org/wiki/ASCII).
 >  - Ampersand (&)
 >  - Semicolon (;)
 >  - Double quotation mark (")
