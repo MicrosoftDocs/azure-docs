@@ -38,6 +38,8 @@ To protect your GCP-based resources, you can connect an account in two different
 |Required roles and permissions:| **Contributor** on the relevant Azure Subscription <br> **Owner** on the GCP organization or project 
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 
+> [!NOTE]
+   > To discover GCP resources, and for the authentication process, the following APIs must be enabled: iam.googleapis.com, sts.googleapis.com, cloudresourcemanager.googleapis.com, iamcredentials.googleapis.com, compute.googleapis.com. If these APIs are not enabled, we'll enable them during the onboarding process by running the GCloud script.
 
 ## Remove 'classic' connectors
 
@@ -79,7 +81,7 @@ Follow the steps below to create your GCP cloud connector.
 
     :::image type="content" source="media/quickstart-onboard-gcp/create-connector.png" alt-text="Screenshot of the Create GCP connector page where you need to enter all relevant information.":::
 
-1. Choose whether to onboard a single project or an entire organization. When choosing an organization, we'll create a management project and organization custom role on GCP side, for the onboarding process. Auto-provisioning for the onboarding of new projects will be enabled.
+   (Optional) If you select Organization (Preview), a management project and an organization custom role will be created on your GCP project for the onboarding process. Auto-provisioning will be enabled for the onboarding of new projects.
 
 1. Select the **Next: Select Plans**.
 
@@ -168,9 +170,6 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
     > [!NOTE]
     > Defender for Servers assigns tags to your GCP resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:
     **Cloud**, **InstanceName**, **MDFCSecurityConnector**, **MachineId**, **ProjectId**, **ProjectNumber**
-
-   > [!NOTE]
-   > To discover GCP resources, and for the authentication process, the following APIs must be enabled: iam.googleapis.com, sts.googleapis.com, cloudresourcemanager.googleapis.com, iamcredentials.googleapis.com, compute.googleapis.com. If these APIs are not enabled, we'll enable them during the onboarding process by running the GCloud script.
 
 **To configure the Servers plan**:
 

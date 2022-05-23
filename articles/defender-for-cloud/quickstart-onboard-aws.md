@@ -115,9 +115,11 @@ If you have any existing connectors created with the classic cloud connectors ex
 
 1. Enter the details of the AWS account, including the location where you'll store the connector resource.
 
-1. Choose whether to onboard a single account or an entire organization by selecting the 'Management account'. When choosing a management account, a connector will be created for the management account, and additional connectors will be created for each member account discovered under it. Auto-provisioning will be enabled for the onboarding of new accounts.
-
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Step 1 of the add AWS account wizard: Enter the account details.":::
+ 
+(Optional) Select Management account to create a connector to a management account. Connectors will be created for each member account discovered under the provided management account. Auto-provisioning will be enabled for all of the newly onboarded accounts.
+
+
 
 1. Select **Next: Select plans**.
 
