@@ -7,6 +7,7 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 03/21/2022
 ms.author: victorh
+zone_pivot_groups: front-door-tiers
 ---
 
 # Azure Web Application Firewall monitoring and logging
@@ -47,13 +48,22 @@ WAF with Front Door provides detailed reporting on each threat it detects. Loggi
 
 The following query example returns WAF logs on blocked requests:
 
+::: zone pivot="front-door-classic"
 ``` WAFlogQuery
+AzureDiagnostics
+| where ResourceType == "FRONTDOORS" and Category == "FrontdoorWebApplicationFirewallLog"
+| where action_s == "Block"
+```
+::: zone-end
 
+::: zone pivot="front-door-standard-premium"
+``` WAFlogQuery
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.CDN" and Category == "FrontDoorWebApplicationFirewallLog" 
 | where action_s == "Block" 
 
 ```
+::: zone-end
 
 Here is an example of a logged request in WAF log:
 
