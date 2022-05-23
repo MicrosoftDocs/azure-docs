@@ -145,7 +145,7 @@ If you created your VM using a Red Hat Enterprise Linux Bring Your Own Subscript
 
 ### [Windows](#tab/windows)
 
-Use the following steps to deploy...
+Use the following steps to deploy the template `addGPUextensiontoVM.json`. This template deploys the extension to an existing VM.
 
 1. If you are not using a Windows 2016 VHD, skip to Step 2. For Windows 2016 VHD, run this command inside the VHD to enable TLS1.2:
 
@@ -153,34 +153,36 @@ Use the following steps to deploy...
    sp hklm:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 SchUseStrongCrypto 1
    ```
 
-1. Deploy the template `addGPUextensiontoVM.json`. This template deploys extension to an existing VM. Run the following command:
+1. Deploy the template `addGPUextensiontoVM.json` to install the extension on an existing VM.
 
-```powershell
-$templateFile = "<Path to addGPUextensiontoVM.json>" 
-$templateParameterFile = "<Path to addGPUExtWindowsVM.parameters.json>" 
-$RGName = "<Name of your resource group>"
-New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
-```
-> [!NOTE]
-> The extension deployment is a long running job and takes about 10 minutes to complete.
+   Run the following command:
 
-Here is a sample output:
+   ```powershell
+   $templateFile = "<Path to addGPUextensiontoVM.json>" 
+   $templateParameterFile = "<Path to addGPUExtWindowsVM.parameters.json>" 
+   RGName = "<Name of your resource group>"
+   New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
+   ```
+   > [!NOTE]
+   > The extension deployment is a long running job and takes about 10 minutes to complete.
 
-```powershell
-PS C:\WINDOWS\system32> "C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json"
-C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json
-PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json"
-PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\ExtensionTemplates\addGPUExtWindowsVM.parameters.json"
-PS C:\WINDOWS\system32> $RGName = "myasegpuvm1"
-PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "deployment3"
+   Here is a sample output:
 
-DeploymentName          : deployment3
-ResourceGroupName       : myasegpuvm1
-ProvisioningState       : Succeeded
-Timestamp               : 12/16/2020 12:18:50 AM
-Mode                    : Incremental
-TemplateLink            :
-Parameters              :
+   ```powershell
+   PS C:\WINDOWS\system32> "C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json"
+   C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json
+   PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json"
+   PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\ExtensionTemplates\addGPUExtWindowsVM.parameters.json"
+   PS C:\WINDOWS\system32> $RGName = "myasegpuvm1"
+   PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "deployment3"
+
+   DeploymentName          : deployment3
+   ResourceGroupName       : myasegpuvm1
+   ProvisioningState       : Succeeded
+   Timestamp               : 12/16/2020 12:18:50 AM
+   Mode                    : Incremental
+   TemplateLink            :
+   Parameters              :
                           Name             Type                       Value
                           ===============  =========================  ==========
                           vmName           String                     VM2
@@ -194,14 +196,14 @@ Parameters              :
                             "DriverType": "CUDA"
                           }
 
-Outputs                 :
-DeploymentDebugLogLevel :
-PS C:\WINDOWS\system32>
-```
+   Outputs                 :
+   DeploymentDebugLogLevel :
+   PS C:\WINDOWS\system32>
+   ```
 
 ### [Linux](#tab/linux)
 
-Deploy the template `addGPUextensiontoVM.json`. This template deploys extension to an existing VM. Run the following command:
+Deploy the template `addGPUextensiontoVM.json`. This template deploys the extension to an existing VM. Run the following command:
 
 ```powershell
 $templateFile = "Path to addGPUextensiontoVM.json" 
@@ -250,13 +252,30 @@ Outputs                 :
 DeploymentDebugLogLevel :
 PS C:\WINDOWS\system32>
 ```
-If you are on RHEL 7, you must manually install an Nvidia driver.
+**RHEL 7**
+
+If you are on RHEL 7, you must manually install the Nvidia driver.
 
 To manually install the driver:
 
-1. Resolve certificate rotation issue..
+1. To resolve the certificate rotation issue, run the following command:
 
-1. Install an Nvidia driver lower than version 510...
+```powershell
+$ sudo yum-config-manager --add-repo  https://developer.download.nvidia.com/compute/cuda/repos/rhel7/$arch/cuda-rhel7.repo
+```
+ 
+To Install an Nvidia driver lower than version 510, use the following settings when deploying the ARM extension: 
+ 
+```powershell
+settings": { 
+"isCustomInstall": true, 
+"InstallMethod": 0, 
+"DRIVER_URL": "  https://developer.download.nvidia.com/compute/cuda/11.4.4/local_installers/cuda-repo-rhel7-11-4-local-11.4.4_470.82.01-1.x86_64.rpm", 
+"DKMS_URL" : "  https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm", 
+"LIS_URL": "  https://aka.ms/lis", 
+"LIS_RHEL_ver": "3.10.0-1062.9.1.el7" 
+} 
+```
 
 ---
 
