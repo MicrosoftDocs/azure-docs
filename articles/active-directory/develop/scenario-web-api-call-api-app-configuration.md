@@ -42,17 +42,16 @@ In the following example, the `GraphBeta` section specifies these settings.
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
-    "TenantId": "common"
-
-   // To call an API
-   "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
-   "ClientCertificates": [
-  ]
- },
- "GraphBeta": {
+    "TenantId": "common",
+    
+    // To call an API
+    "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
+    "ClientCertificates": []
+  },
+  "GraphBeta": {
     "BaseUrl": "https://graph.microsoft.com/beta",
     "Scopes": "user.read"
-    }
+  }
 }
 ```
 
@@ -63,16 +62,16 @@ Instead of a client secret, you can provide a client certificate. The following 
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
-    "TenantId": "common"
-
-   // To call an API
-   "ClientCertificates": [
+    "TenantId": "common",
+    
+    // To call an API
+    "ClientCertificates": [
       {
         "SourceType": "KeyVault",
         "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
         "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
       }
-   ]
+    ]
   },
   "GraphBeta": {
     "BaseUrl": "https://graph.microsoft.com/beta",
@@ -92,17 +91,17 @@ using Microsoft.Identity.Web;
 
 public class Startup
 {
-  // ...
-  public void ConfigureServices(IServiceCollection services)
-  {
-  // ...
-  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-          .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
-            .EnableTokenAcquisitionToCallDownstreamApi()
-            .AddInMemoryTokenCaches();
-   // ...
-  }
-  // ...
+    // ...
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // ...
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+                .EnableTokenAcquisitionToCallDownstreamApi()
+                .AddInMemoryTokenCaches();
+        // ...
+    }
+    // ...
 }
 ```
 
@@ -120,18 +119,18 @@ using Microsoft.Identity.Web;
 
 public class Startup
 {
-  // ...
-  public void ConfigureServices(IServiceCollection services)
-  {
-  // ...
-  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-          .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
-            .EnableTokenAcquisitionToCallDownstreamApi()
-               .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
-            .AddInMemoryTokenCaches();
-   // ...
-  }
-  // ...
+    // ...
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // ...
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+                .EnableTokenAcquisitionToCallDownstreamApi()
+                .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
+                .AddInMemoryTokenCaches();
+        // ...
+    }
+    // ...
 }
 ```
 
@@ -144,18 +143,18 @@ using Microsoft.Identity.Web;
 
 public class Startup
 {
-  // ...
-  public void ConfigureServices(IServiceCollection services)
-  {
-  // ...
-  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-          .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
-            .EnableTokenAcquisitionToCallDownstreamApi()
-               .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
-            .AddInMemoryTokenCaches();
-   // ...
-  }
-  // ...
+    // ...
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // ...
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
+                .EnableTokenAcquisitionToCallDownstreamApi()
+                .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+                .AddInMemoryTokenCaches();
+        // ...
+    }
+    // ...
 }
 ```
 
