@@ -61,5 +61,5 @@ In the **view model details** page, you'll be able to see all your models, with 
 
 ## Next steps
 
-* As you review your how your model performs, learn about the [evaluation metrics](../concepts/evaluation-metrics.md) that are used.
+* As you review how your model performs, learn about the [evaluation metrics](../concepts/evaluation-metrics.md) that are used.
 * If you're happy with your model performance, you can [deploy your model](deploy-model.md)
