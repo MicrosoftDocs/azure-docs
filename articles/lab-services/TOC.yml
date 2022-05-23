@@ -20,6 +20,8 @@
         href: quick-create-lab-portal.md
       - name: PowerShell
         href: quick-create-lab-powershell.md
+      - name: Bicep
+        href: quick-create-lab-bicep.md
 - name: Tutorials
   items:
   - name: Set up a lab plan (admin)
