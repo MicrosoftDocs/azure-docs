@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/20/2022
+ms.date: 05/23/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install GPU extension on GPU virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
@@ -250,6 +250,14 @@ Outputs                 :
 DeploymentDebugLogLevel :
 PS C:\WINDOWS\system32>
 ```
+If you are on RHEL 7, you must manually install an Nvidia driver.
+
+To manually install the driver:
+
+1. Resolve certificate rotation issue..
+
+1. Install an Nvidia driver lower than version 510...
+
 ---
 
 ## Track deployment

@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/20/2022
+ms.date: 05/23/2022
 ms.author: alkohli
 ---
 # Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU
@@ -20,7 +20,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 ## Linux GPU extension installs old signing keys: signature and/or required key missing
 
-**Error description:** The Linux GPU extension installs old signing keys, preventing download of the the required GPU driver. In this case, you will see the following error in the syslog of the Linux VM:
+**Error description:** The Linux GPU extension installs old signing keys, preventing download of the required GPU driver. In this case, you will see the following error in the syslog of the Linux VM:
  
    ```powershell
    /var/log/syslog and /var/log/waagent.log 
