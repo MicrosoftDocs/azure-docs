@@ -131,7 +131,7 @@ If you have any existing connectors created with the classic cloud connectors ex
     
     - (Optional) Select **Configure**, to edit the configuration as required. 
 
-1. By default the **Containers** plan is set to **On**. This is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure you have fulfilled the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-eks#network-requirements) for the Defender for Containers plan.
+1. By default the **Containers** plan is set to **On**. This is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure you have fulfilled the  [network requirements](https://docs.microsoft.com/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks&source=docs#network-requirements) for the Defender for Containers plan.
 
     > [!Note] 
     > Azure Arc-enabled Kubernetes, the Defender Arc extension, and the Azure Policy Arc extension should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Arc, if necessary) as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).

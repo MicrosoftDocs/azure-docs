@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, ignite-fall-2021
 
 # Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks
 
-**Applies to:** :heavy_check_mark: Windows VMs 
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer-managed keys, and other managed disk encryption types, see the [Customer-managed keys](../disk-encryption.md#customer-managed-keys) section of our disk encryption article.
 
@@ -114,7 +114,9 @@ $diskEncryptionSet = Get-AzDiskEncryptionSet -ResourceGroupName $rgName -Name $d
 New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEncryptionSetId $diskEncryptionSet.Id | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
 ```
 
-### Encrypt an existing virtual machine scale set with SSE and customer-managed keys 
+### Encrypt an existing virtual machine scale set (uniform orchestration mode) with SSE and customer-managed keys 
+
+This script will work for scale sets in uniform orchestration mode only. For scale sets in flexible orchestration mode, follow the Encrypt existing managed disks for each VM.
 
 Copy the script, replace all the example values with your own parameters, and then run it:
 
