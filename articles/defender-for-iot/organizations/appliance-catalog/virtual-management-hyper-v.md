@@ -16,7 +16,7 @@ This article describes an on-premises management console deployment on a virtual
 |**Physical specifications** | Virtual Machine |
 |**Status** | Supported |
 
-## Prerequisites 
+## Prerequisites
 
 Before you begin the installation, make sure you have the following items:
 
