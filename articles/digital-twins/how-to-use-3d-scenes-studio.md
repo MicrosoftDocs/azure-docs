@@ -47,15 +47,15 @@ In this section, you'll set the environment in *3D Scenes Studio* and customize 
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/studio-edit-environment-1.png" alt-text="Screenshot of 3D Scenes Studio highlighting the edit environment icon, which looks like a pencil." lightbox="media/how-to-use-3d-scenes-studio/studio-edit-environment-1.png":::
 
-    1. The **Environment URL** should start with *https://*, followed by the *host name* of your instance from the [Prerequisites](#prerequisites) section.
+    1. The **Azure Digital Twins instance URL** should start with *https://*, followed by the *host name* of your instance from the [Prerequisites](#prerequisites) section.
     
-    1. For the **Container URL**, enter the URL of your storage container from the [Prerequisites](#prerequisites) section.
+    1. For the **Azure storage container URL**, enter the URL of your storage container from the [Prerequisites](#prerequisites) section.
     
     1. Select **Save**.
     
     :::image type="content" source="media/how-to-use-3d-scenes-studio/studio-edit-environment-2.png" alt-text="Screenshot of 3D Scenes Studio highlighting the Save button for the environment." lightbox="media/how-to-use-3d-scenes-studio/studio-edit-environment-2.png":::
 
-## Create and view scenes 
+## Create, edit, and view scenes 
 
 The 3D representation of an environment in 3D Scenes Studio is called a *scene*. A scene consists of a 3D file and a configuration file that's created for you automatically.
 
@@ -68,12 +68,22 @@ You can use 3D Scenes Studio with a 3D file that's already present in your stora
 
 1. From the home page of 3D Scenes Studio, select the **Add 3D scene** button to start creating a new scene. 
 
-1. Enter a **Name** for the scene, and select one of the following tabs for the file upload option:
-    1. **From container** to enter the URL of a 3D file that's already in your storage container
+1. Enter a **Name** and **Description** for the scene.
+1. If you want the scene to show up in [globe view](#view-scenes-in-globe-view), toggle **Show on globe** to **On**. Enter **Latitude** and **Longitude** values for the scene.
+1. Select one of the following tabs in the **Link 3D file** section:
+    1. **Choose file** to enter the URL of a 3D file that's already in your storage container
     1. **Upload file** to upload a 3D file from your computer
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/add-scene.png" alt-text="Screenshot of 3D Scenes Studio, Create new scene dialog." lightbox="media/how-to-use-3d-scenes-studio/add-scene.png":::
 1. Select **Create**.
+ 
+### Edit scenes
+
+To edit or delete a scene after it's been created, use the **Actions** icons next to the scene in the 3D Scenes Studio home page.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/edit-delete-scene.png" alt-text="Screenshot of 3D Scenes Studio, highlighting actions for a scene." lightbox="media/how-to-use-3d-scenes-studio/edit-delete-scene.png":::
+
+Editing a scene will reopen all of the scene properties you set while creating it, allowing you to change them and update the scene.
 
 ### View scenes in globe view
 
@@ -96,6 +106,16 @@ You can select an individual scene from the home page to open it in **Build** mo
 You can switch to **View** mode to enable filtering on specific elements and visualization of element behaviors that you've created.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/scene-view.png" alt-text="Screenshot of 3D Scenes Studio, showing a scene in the viewer." lightbox="media/how-to-use-3d-scenes-studio/scene-view.png":::
+
+### Embed scenes in custom applications
+
+The viewer component can also be embedded into custom applications outside of 3D Scenes Studio, and can work in conjunction with 3rd party components.
+
+Here's an example of what the embedded viewer might look like in an independent application:
+
+:::image type="content" source="media/concepts-3d-scenes-studio/embedded-view.png" alt-text="Screenshot of 3D Scenes Studio in embedded view." lightbox="media/concepts-3d-scenes-studio/embedded-view.png":::
+
+The 3D visualization components are available in GitHub, in the [iot-cardboard-js](https://github.com/microsoft/iot-cardboard-js) repository. For instructions on how to use the components to embed 3D experiences into custom applications, see the repository's wiki, [Embedding 3D Scenes](https://github.com/microsoft/iot-cardboard-js/wiki/Embedding-3D-Scenes).
 
 ## Add elements
 
@@ -136,22 +156,21 @@ If you started element creation by selecting a mesh in the visualization, that m
 
 ### Behaviors
 
-A *behavior* is a scenario for your scene. You can select **Add behavior** from this tab to enter the **New behavior** flow.
-
+A *behavior* is a scenario for your scene. Select **Add behavior** on this tab. From there, you can either select an existing behavior to add it to this element, or select **New behavior** to enter the flow for creating a new behavior.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-behaviors.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Behaviors tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-behaviors.png":::
 
 For more details on creating new behaviors, see [Add behaviors](#add-behaviors).
 
-### Aliased twins
+### Other twins
 
-An *aliased twin* is a secondary digital twin data source for an element. You can add aliased twins to an element if the data on the primary twin won't be enough to define all the behaviors you want for the element, so you need access to the data of additional twins.
+On the **other twins** tab, you can add secondary digital twin data sources for an element. You can add other twins to an element if the data on the primary twin won't be enough to define all the behaviors you want for the element, so you need access to the data of additional twins.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-aliased-twins.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Aliased twins tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-aliased-twins.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-other-twins.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Other twins tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-other-twins.png":::
 
-You can't add aliased twins during new element creation. For instructions on adding aliased twins, see [Twins](#twins) as a behavior option.
+You can't add other twins during new element creation. For instructions on adding other twins, see [Twins](#twins) as a behavior option.
 
-Once there are aliased twins added to the element, you'll be able to view and modify them on this tab.
+Once there are other twins added to the element, you'll be able to view and modify them on this tab.
 
 ## Add behaviors
 
@@ -162,8 +181,6 @@ One way to create a new behavior is to select **New behavior** from the **Behavi
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-start-button.png" alt-text="Screenshot of 3D Scenes Studio in the builder for a scene. The New behavior button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-start-button.png":::
 
 Alternatively, you can select an element from the **Elements** tab, and create a new behavior from [that element's Behaviors tab](#behaviors).
-
-:::image type="content" source="media/how-to-use-3d-scenes-studio/modify-element-behaviors.png" alt-text="Screenshot of the Modify element options in 3D Scenes Studio. The Behaviors tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/modify-element-behaviors.png":::
 
 This will open the **New behavior** panel where you can fill in behavior information.
 
@@ -188,17 +205,17 @@ If you started the behavior creation process from a specific element, that eleme
 
 ### Twins
 
-On the **Twins** tab, you can modify the set of twins whose data is available to this behavior. This includes the targeted elements' primary twins, and any aliased twins.
+On the **Twins** tab, you can modify the set of twins whose data is available to this behavior. This includes the targeted elements' primary twins, and any additional twins.
 
-An *aliased twin* is a secondary digital twin data source for an element. After configuring an aliased twin, you'll be able to use properties from that twin in your behavior expressions for this element. You should only add aliased twins when there are additional twins with data beyond your primary twin that you want to leverage in your [status](#status), [alerts](#alerts), and [widgets](#widgets) for this behavior.
+You can add secondary digital twin data sources for an element. After configuring other twins, you'll be able to use properties from those twins in your behavior expressions for this element. You should only add other twins when there are additional twins with data beyond your primary twin that you want to leverage in your [status](#status), [alerts](#alerts), and [widgets](#widgets) for this behavior.
 
-To create a new alias, select **Add twin alias** and **Create twin alias**.
+To add a new twin data source, select **Add twin** and **Create twin**.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-twins.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Twins tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-twins.png":::
 
-This will open a **New twin alias** panel where you can name the alias and select a twin to map.
+This will open a **New twin** panel where you can name the additional twin and select a twin from your Azure Digital Twins instance to map.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-twins-new-alias.png" alt-text="Screenshot of the New twin alias panel in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-twins-new-alias.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-twins-new-twin.png" alt-text="Screenshot of the New twin panel in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-twins-new-twin.png":::
 
 >[!TIP]
 >[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) can help you see twins that might be related to the primary twin for this element. You can query your graph using `SELECT * FROM digitaltwins WHERE $dtId="<primary-twin-id>`, and then use the [double-click expansion feature](how-to-use-azure-digital-twins-explorer.md#control-twin-graph-expansion) to explore related twins.
@@ -219,7 +236,7 @@ In the **Alerts** tab, you can set conditional notifications to help you quickly
 
 First, enter a **Trigger expression**. This is a JavaScript expression involving one or more properties of *PrimaryTwin* that yields a boolean result. This expression will generate an alert badge in the visualization when it evaluates to true. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
-Then, customize your alert badge with a **Badge icon**, **Badge color**, and a string for **Notification text**. 
+Then, customize your alert badge with an **Icon** and **Color**, and a string for **Scenario Description**. 
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-alerts.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Alerts tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-alerts.png":::
 
@@ -241,7 +258,7 @@ Here are the types of widget that you can create:
  
 * **Gauge**: For representing numerical data points visually
 
-    Enter a **Label** and **Unit of measure**, then choose whether the gauge reflects a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The expression should have a numeric outcome. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
+    Enter a **Display name** and **Unit of measure**, then choose whether the gauge reflects a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The expression should have a numeric outcome. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
     Once you've defined your property expression, set value ranges to appear in certain colors on the gauge. The min of each value range is inclusive, and the max is exclusive.
 
@@ -312,28 +329,45 @@ When looking at your scene in the viewer, you can use the **Select layers** butt
 
 ## Modify theme 
 
-In the **Build** view for a scene, you can use the **Theme** button to change the style, object colors, and background color of the display.
+In either the builder or viewer for a scene, select the **Theme** icon to change the style, object colors, and background color of the display.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/theme.png" alt-text="Screenshot of 3D Scenes Studio builder for a scene. The Theme button is highlighted." lightbox="media/how-to-use-3d-scenes-studio/theme.png":::
 
 ## Share your environment
 
-A *3D Scenes Studio environment* is formed from a unique pairing of an **Azure Digital Twins instance** and an **Azure storage container**. 
+A *3D Scenes Studio environment* is formed from a unique pairing of an **Azure Digital Twins instance** and an **Azure storage container**. You can share your entire environment with someone, including all of your scenes, or share a specific scene.
 
-To share your environment with someone else, they need to have these permissions to your resources:
+To share your environment with someone else, start by giving them the following permissions to your resources:
 * *Azure Digital Twins Data Reader* access (or greater) on the Azure Digital Twins instance
 * *Storage Blob Data Reader* access (or greater) to the storage container
     * *Storage Blob Data Reader* will allow them to view your scenes.
     * *Storage Blob Data Owner* or *Storage Blob Data Contributor* will allow them to edit your scenes.
 
-Once someone has the required permissions, there are two ways to give them access to your environment. You can do either of the following things:
+Then, follow the instructions in the rest of this section to share either your [entire environment](#share-general-environment) or a [specific scene](#share-a-specific-scene).
+
+### Share general environment 
+
+Once someone has the required permissions, there are two ways to give them access to your entire environment. You can do either of the following things:
 * Use the Share button on the 3D Scenes Studio homepage to copy the **URL of your 3D Scenes Studio environment**. (The URL includes the URLs of both your Azure Digital Twins instance and your storage container.)
-    :::image type="content" source="media/how-to-use-3d-scenes-studio/copy-url.png" alt-text="Screenshot of the Share button in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/copy-url.png":::
+    :::image type="content" source="media/how-to-use-3d-scenes-studio/copy-url.png" alt-text="Screenshot of the Share environment button in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/copy-url.png":::
 
     Share it with the recipient, who can paste this URL directly into their browser to connect to your environment.
 * Share the **URL of your Azure Digital Twins instance** and the **URL of your Azure storage container** that you used when [initializing your 3D Scenes Studio environment](#initialize-your-3d-scenes-studio-environment). The recipient can access [3D Scenes Studio](https://dev.explorer.azuredigitaltwins-test.net/3dscenes) and initialize it with these same URL values to connect to your same environment.
 
 After this, the recipient can view and interact with your scenes in the studio.
+
+### Share a specific scene
+
+You can also share your environment with a link directly to a specific scene. To share a specific scene, open the scene in **View** mode.
+
+Use the **Share scene** icon to generate a link to your scene. You can choose whether you want to link to preserve your current layer and element selections.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/share-scene.png" alt-text="Screenshot of the Share scene button in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/share-scene.png":::
+
+When the recipient pastes this URL into their browser, the specified scene will open in the viewer, with any chosen layers or elements selected.
+
+>[!NOTE]
+>When a scene is shared with someone in this way, the recipient will also be able to leave this scene and view other scenes in your environment if they choose.
 
 ## Next steps 
 

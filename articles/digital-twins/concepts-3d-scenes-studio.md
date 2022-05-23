@@ -61,7 +61,7 @@ To work with 3D Scenes Studio, you'll need the following required resources:
 
 Then, you can access 3D Scenes Studio at this link: [3D Scenes Studio](https://dev.explorer.azuredigitaltwins-test.net/3dscenes).
 
-Once there, you'll link your 3D environment to your storage resources, and configure your first scene. For detailed instructions on how to perform these actions, see [Initialize your 3D Scenes Studio environment](how-to-use-3d-scenes-studio.md#initialize-your-3d-scenes-studio-environment) and [Create and view scenes](how-to-use-3d-scenes-studio.md#create-and-view-scenes).
+Once there, you'll link your 3D environment to your storage resources, and configure your first scene. For detailed instructions on how to perform these actions, see [Initialize your 3D Scenes Studio environment](how-to-use-3d-scenes-studio.md#initialize-your-3d-scenes-studio-environment) and [Create, edit, and view scenes](how-to-use-3d-scenes-studio.md#create-edit-and-view-scenes).
 
 ## Builder
 
@@ -83,7 +83,7 @@ When creating an element in the builder, you'll define the following components:
 * **Name**: Each element needs a name. You might want to make it match the `$dtId` of its primary twin.
 * **Meshes**: Identify which components of the 3D model represent this element.
 * **Behaviors**: [Behaviors](#behaviors) describe how elements appear in the visualization. You can assign behaviors to this element here.
-* **Aliased twins**: If you want, you can add secondary digital twin data sources for an element. You should only add aliased twins when there are additional twins with data beyond your primary twin that you want to leverage in your behaviors. After configuring an aliased twin, you'll be able to use properties from that twin when defining behaviors for that element.
+* **Other twins**: If you want, you can add secondary digital twin data sources for an element. You should only add other twins when there are additional twins with data beyond your primary twin that you want to leverage in your behaviors. After configuring another twin, you'll be able to use properties from that twin when defining behaviors for that element.
 
 ### Behaviors
 
@@ -92,7 +92,7 @@ When creating an element in the builder, you'll define the following components:
 When creating a behavior for an element, you'll define the following components:
 
 * **Elements**: Behaviors describe the visuals that are applied to each [element](#elements) in the visualization. You can choose which elements this behavior applies to.
-* **Twins**: Identify the set of twins whose data is available to this behavior. This includes the targeted elements' primary twins, and any aliased twins.
+* **Twins**: Identify the set of twins whose data is available to this behavior. This includes the targeted elements' primary twins, and any other twins.
 * **Status**: States are data-driven overlays on your elements to indicate the health or status of the element. 
 * **Alerts**: Alerts are conditional notifications to help you quickly see when an element requires attention.
 * **Widgets**: Widgets are data-driven visuals that provide additional data to help you diagnose and investigate the scenario that the behavior represents. Configuring widgets will help you make sure the right data is discoverable when an alert or status is active.
@@ -116,6 +116,8 @@ You can use the **Elements** list to explore all the elements and active alerts 
 Here's an example of what the embedded viewer might look like in an independent application:
 
 :::image type="content" source="media/concepts-3d-scenes-studio/embedded-view.png" alt-text="Screenshot of 3D Scenes Studio in embedded view." lightbox="media/concepts-3d-scenes-studio/embedded-view.png":::
+
+The 3D visualization components are available in GitHub, in the [iot-cardboard-js](https://github.com/microsoft/iot-cardboard-js) repository. For instructions on how to use the components to embed 3D experiences into custom applications, see the repository's wiki, [Embedding 3D Scenes](https://github.com/microsoft/iot-cardboard-js/wiki/Embedding-3D-Scenes).
 
 ## Recommended limits
 
