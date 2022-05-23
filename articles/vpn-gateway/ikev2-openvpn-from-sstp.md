@@ -55,7 +55,7 @@ You can enable OpenVPN along side with IKEv2 if you desire. OpenVPN is TLS-based
 
 Once the gateway has been configured, existing clients won't be able to connect until you [deploy and configure the OpenVPN clients](./vpn-gateway-howto-openvpn-clients.md).
 
-If you're using Windows 10, you can also use the [Azure VPN Client for Windows](./openvpn-azure-ad-client.md#download)
+If you're using Windows 10 or later, you can also use the [Azure VPN Client for Windows](./openvpn-azure-ad-client.md#download)
 
 ## <a name="faq"></a>Frequently asked questions
 
