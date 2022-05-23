@@ -86,6 +86,9 @@ To ensure people outside of your organization can request access packages and ge
 - For more information about Azure AD B2B external collaboration settings, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
 
     ![Azure AD external collaboration settings](./media/entitlement-management-external-users/collaboration-settings.png)
+    
+    > [!NOTE]
+    > If you create a connected organization for a cross-cloud AAD tenant, you also need to configure cross-tenant access settings appropriately. For more information on how to configure these settings, see [Configure cross-tenant access settings](../external-identities/cross-tenant-access-settings-b2b-collaboration.md).
 
 ### Review your Conditional Access policies
 
