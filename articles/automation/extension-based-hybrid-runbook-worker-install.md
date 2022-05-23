@@ -67,6 +67,7 @@ If you use a proxy server for communication between Azure Automation and machine
 > [!NOTE]
 > You can set up the proxy settings by PowerShell cmdlets or API.
 
+
 1. Get the automation account details using the below API call.
 
    ```http
@@ -96,11 +97,15 @@ $protectedsettings = @{
 ```
 **Azure VMs**
 
-```Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForWindows> -TypeHandlerVersion 0.1 -Settings $settings```
+```powershell
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForWindows> -TypeHandlerVersion 0.1 -Settings $settings
+```
 
 **Azure Arc-enabled VMs**
 
-```New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForWindows> -TypeHandlerVersion 0.1 -Settings $settings -NoWait```
+```powershell
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForWindows> -TypeHandlerVersion 0.1 -Settings $settings -NoWait
+```
 
 # [Linux](#tab/linux)
 
@@ -114,11 +119,15 @@ $settings = @{
 ```
 **Azure VMs**
 
-```Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForLinux> -TypeHandlerVersion 0.1 -Settings $settings```
+```powershell
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForLinux> -TypeHandlerVersion 0.1 -Settings $settings
+```
 
 **Azure Arc-enabled VMs**
 
-```New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForLinux> -TypeHandlerVersion 0.1 -Settings $settings -NoWait```
+```powershell
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForLinux> -TypeHandlerVersion 0.1 -Settings $settings -NoWait
+```
 
 ---
 
