@@ -83,7 +83,7 @@ In legacy Teradata data warehouse environments, it's common practice to create s
 
 You can use separate data marts for individual business units within an organization to implement robust data security regimes, by only allowing users to access specific data marts that are relevant to them, and eliminating, obfuscating, or anonymizing sensitive data.
 
-If these data marts are implemented as physical tables, they'll require additional storage resources to store them, and additional processing to build and refresh them on a regular basis. Also, the data in the mart will only be as up to date as the last refresh operation, and so may be unsuitable for highly volatile data dashboards.
+If these data marts are implemented as physical tables, they'll require additional storage resources to store them, and additional processing to build and refresh them regularly. Also, the data in the mart will only be as up to date as the last refresh operation, and so may be unsuitable for highly volatile data dashboards.
 
 > [!TIP]
 > The performance and scalability of Azure Synapse enables virtualization without sacrificing performance.
@@ -131,62 +131,62 @@ Most Teradata data types have a direct equivalent in Azure Synapse. The followin
 | CV | VARCHAR | VARCHAR |
 | D | DECIMAL | DECIMAL |
 | DA | DATE | DATE |
-| DH | INTERVAL DAY TO HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| DM | INTERVAL DAY TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| DS | INTERVAL DAY TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
+| DH | INTERVAL DAY TO HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| DM | INTERVAL DAY TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| DS | INTERVAL DAY TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | DT | DATASET | DATASET data type is supported in Azure Synapse. |
-| **DY** | INTERVAL DAY | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
+| **DY** | INTERVAL DAY | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | **F** | FLOAT | FLOAT |
-| **HM** | INTERVAL HOUR TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| **HR** | INTERVAL HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| **HS** | INTERVAL HOUR TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
+| **HM** | INTERVAL HOUR TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| **HR** | INTERVAL HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| **HS** | INTERVAL HOUR TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | **I1** | BYTEINT | TINYINT |
 | **I2** | SMALLINT | SMALLINT |
 | **I8** | BIGINT | BIGINT |
 | **I** | INTEGER | INT |
-| **JN** | JSON | JSON data type is not currently directly supported within Azure Synapse, but JSON data can be stored in a VARCHAR field |
-| **MI** | INTERVAL MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| **MO** | INTERVAL MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| **MS** | INTERVAL MINUTE TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
+| **JN** | JSON | JSON data type isn't currently directly supported within Azure Synapse, but JSON data can be stored in a VARCHAR field |
+| **MI** | INTERVAL MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| **MO** | INTERVAL MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| **MS** | INTERVAL MINUTE TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | **N** | NUMBER | NUMERIC |
 | **PD** | PERIOD(DATE) | Can be converted to VARCHAR or split into two separate dates |
 | **PM** | PERIOD (TIMESTAMP WITH TIME ZONE) | Can be converted to VARCHAR or split into two separate timestamps (DATETIMEOFFSET). |
 | **PS** | PERIOD( TIMESTAMP) | Can be converted to VARCHAR or split into two separate timestamps (DATETIMEOFFSET). |
 | **PT** | PERIOD(TIME) | Can be converted to VARCHAR or split into two separate times. |
 | **PZ** | PERIOD (TIME WITH TIME ZONE) | Can be converted to VARCHAR or split into two separate times but WITH TIME ZONE isn\'t supported for TIME. |
-| **SC** | INTERVAL SECOND | INTERVAL data types aren\'t supported in Azure Synapse, but date calculations can be done with the date comparison  functions (e.g., DATEDIFF and DATEADD) |
+| **SC** | INTERVAL SECOND | INTERVAL data types aren\'t supported in Azure Synapse, but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
 | **SZ** | TIMESTAMP WITH  TIME ZONE | DATETIMEOFFSET |
 | **TS** | TIMESTAMP | DATETIME or DATETIME2 |
 | **TZ** | TIME WITH TIME ZONE | TIME WITH TIME ZONE isn\'t supported because TIME is stored using \"wall clock\" time only without a time zone offset |
-| **XM** | XML | XML data type is not currently directly supported within Azure Synapse, but XML data can be stored in a VARCHAR field |
-| **YM** | INTERVAL YEAR TO MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| **YR** | INTERVAL YEAR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| **DY** | INTERVAL DAY | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
+| **XM** | XML | XML data type isn't currently directly supported within Azure Synapse, but XML data can be stored in a VARCHAR field |
+| **YM** | INTERVAL YEAR TO MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| **YR** | INTERVAL YEAR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| **DY** | INTERVAL DAY | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | **F** | FLOAT | FLOAT |
-| **HM** | INTERVAL HOUR TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| **HR** | INTERVAL HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| **HS** | INTERVAL HOUR TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (e.g., DATEDIFF and DATEADD) |
+| **HM** | INTERVAL HOUR TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| **HR** | INTERVAL HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| **HS** | INTERVAL HOUR TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
 | **I1** | BYTEINT | TINYINT |
 | **I2** | SMALLINT | SMALLINT |
 | **I8** | BIGINT | BIGINT |
 | **I** | INTEGER | INT |
-| **JN** | JSON | JSON data type is not currently directly supported within Azure Synapse, but JSON data can be stored in a VARCHAR field |
-| **MI** | INTERVAL MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (e.g., DATEDIFF and DATEADD) |
-| **MO** | INTERVAL MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (e.g., DATEDIFF and DATEADD) |
-| **MS** | INTERVAL MINUTE TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (e.g., DATEDIFF and DATEADD) |
+| **JN** | JSON | JSON data type isn't currently directly supported within Azure Synapse, but JSON data can be stored in a VARCHAR field |
+| **MI** | INTERVAL MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
+| **MO** | INTERVAL MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
+| **MS** | INTERVAL MINUTE TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
 | **N** | NUMBER | NUMERIC |
 | **PD** | PERIOD(DATE) | Can be converted to VARCHAR or  split into two separate dates |
 | **PM** | PERIOD (TIMESTAMP WITH TIME ZONE) | Can be converted to VARCHAR or split  into two separate timestamps (DATETIMEOFFSET). |
 | **PS** | PERIOD( TIMESTAMP) | Can be converted to VARCHAR or split into two separate timestamps  (DATETIMEOFFSET). |
 | **PT** | PERIOD(TIME) | Can be converted to VARCHAR or split into two separate times. |
 | **PZ** | PERIOD (TIME WITH TIME ZONE) | Can be converted to VARCHAR or split into two separate times but WITH TIME ZONE isn\'t supported for TIME. |
-| **SC** | INTERVAL SECOND | INTERVAL data types aren\'t supported in Azure Synapse, but date calculations can be done with the date comparison  functions (e.g., DATEDIFF and DATEADD) |
+| **SC** | INTERVAL SECOND | INTERVAL data types aren\'t supported in Azure Synapse, but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
 | **SZ** | TIMESTAMP WITH  TIME ZONE | DATETIMEOFFSET |
 | **TS** | TIMESTAMP | DATETIME or DATETIME2 |
 | **TZ** | TIME WITH TIME ZONE | TIME WITH TIME ZONE isn't supported because TIME is stored using "wall clock" time only without a time zone offset |
-| **XM** | XML | XML data type is not directly supported within Azure Synapse, but XML data can be stored in a VARCHAR field |
-| **YM** | INTERVAL YEAR TO MONTH | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| **YR** | INTERVAL YEAR | INTERVAL data types aren't supported in Azure Synapse but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
+| **XM** | XML | XML data type isn't directly supported within Azure Synapse, but XML data can be stored in a VARCHAR field |
+| **YM** | INTERVAL YEAR TO MONTH | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| **YR** | INTERVAL YEAR | INTERVAL data types aren't supported in Azure Synapse but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 
 Use the metadata from the Teradata catalog tables to determine whether any of these data types need to be migrated, and allow for this in your migration plan. For example, use a SQL query like this one to find all occurrences of unsupported data types:
 
@@ -252,7 +252,7 @@ In the Teradata environment, some or all ETL processing may be performed by cust
 > [!TIP]
 > Leverage investment in existing third-party tools where to reduce cost and risk.
 
-If a third-party ETL tool is already in use, and especially if there is a large investment in skills or several existing workflows and schedules use that tool, then decision 3 is whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include 'native' connectors that can leverage Azure facilities like PolyBase or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql), for most efficient data loading. There's a way to call an external process, such as PolyBase or `COPY INTO`, and pass in the appropriate parameters. In this case, leverage existing skills and workflows, with Azure Synapse as the new target environment.
+If a third-party ETL tool is already in use, and especially if there's a large investment in skills or several existing workflows and schedules use that tool, then decision 3 is whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include 'native' connectors that can leverage Azure facilities like PolyBase or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql), for most efficient data loading. There's a way to call an external process, such as PolyBase or `COPY INTO`, and pass in the appropriate parameters. In this case, leverage existing skills and workflows, with Azure Synapse as the new target environment.
 
 If you decide to retain an existing third-party ETL tool, there may be benefits to running that tool within the Azure environment (rather than on an existing on-premises ETL server) and having Azure Data Factory handle the overall orchestration of the existing workflows. One particular benefit is that less data needs to be downloaded from Azure, processed, and then uploaded back into Azure. So, decision 4 is whether to leave the existing tool running as-is or move it into the Azure environment to achieve cost, performance, and scalability benefits.
 
