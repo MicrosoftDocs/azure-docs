@@ -13,7 +13,12 @@ services: storage
 
 # Troubleshoot availability issues in Azure Storage accounts
 
-This article helps you investigate changes in the availability (such as number of failed requests). These changes in availability can often be identified by monitoring storage metrics in Azure Monitor. 
+This article helps you investigate changes in the availability (such as number of failed requests). These changes in availability can often be identified by monitoring storage metrics in Azure Monitor. For general information about using metrics and logs in Azure Monitor, see
+
+- [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md)
+- [Monitoring Azure Files](../files/storage-files-monitoring.md)
+- [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md)
+- [Monitoring Azure Table storage](../tables/monitor-table-storage.md)
 
 ## Monitoring availability
 
@@ -73,12 +78,6 @@ The most common cause of this error is a client disconnecting before a timeout e
 
 ## See also
 
-| Guide | Description |
-|---|---|
-| [Troubleshoot performance issues](../common/troubleshoot-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| Common performance issues and guidance about how to troubleshoot them. |
-| [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| Common issues with connecting clients and how to troubleshoot them.|
-| [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md) |
-| [Monitoring Azure Files](../files/storage-files-monitoring.md) |
-| [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md) |
-| [Monitoring Azure Table storage](../tables/monitor-table-storage.md) |
-| [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/) | Troubleshoot storage account issues (contains step-by-step guidance). |
+- [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Troubleshoot performance issues](../common/troubleshoot-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/)

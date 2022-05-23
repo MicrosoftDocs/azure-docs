@@ -13,11 +13,16 @@ services: storage
 
 # Troubleshoot performance in Azure Storage accounts
 
-This article helps you investigate unexpected changes in behavior (such as slower than usual response times). These changes in behavior can often be identified by monitoring storage metrics in Azure Monitor. 
+This article helps you investigate unexpected changes in behavior (such as slower than usual response times). These changes in behavior can often be identified by monitoring storage metrics in Azure Monitor. For general information about using metrics and logs in Azure Monitor, see
+
+- [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md)
+- [Monitoring Azure Files](../files/storage-files-monitoring.md)
+- [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md)
+- [Monitoring Azure Table storage](../tables/monitor-table-storage.md)
 
 ## Monitoring performance
 
-To monitor the performance of the storage services, you can use the following metrics from the hourly and minute metrics tables.
+To monitor the performance of the storage services, you can use the following metrics.
 
 - The **SuccessE2ELatency** and **SuccessServerLatency** metrics show the average time the storage service or API operation type is taking to process requests. **SuccessE2ELatency** is a measure of end-to-end latency that includes the time taken to read the request and send the response in addition to the time taken to process the request (therefore includes network latency once the request reaches the storage service); **SuccessServerLatency** is a measure of just the processing time and therefore excludes any network latency related to communicating with the client. 
 
@@ -25,9 +30,9 @@ To monitor the performance of the storage services, you can use the following me
 
 - The **Transactions** metric shows the total number of requests that the storage service of API operation is receiving. **Transactions** is the total number of requests that the storage service receives.
 
-Typically, you will monitor for unexpected changes in any of these values as an indicator that you have an issue that requires investigation.
+You can monitor for unexpected changes in any of these values. These changes could indicate an issue that requires further investigation.
 
-In the [Azure portal](https://portal.azure.com), you can add alert rules to notify you if any of the performance metrics for this service fall below or exceed a threshold that you specify.
+In the [Azure portal](https://portal.azure.com), you can add alert rules which notify you when any of the performance metrics for this service fall below or exceed a threshold that you specify.
 
 ## Diagnose performance issues
 
@@ -68,7 +73,7 @@ Also check whether the client is performing multiple retries, and investigate th
 
 - Examine the client logs. Verbose logging will indicate that a retry has occurred.
 
-- Debug your code, and check the properties of the **OperationContext** object associated with the request. If the operation has retried, the **RequestResults** property will include multiple unique server request IDs. You can also check the start and end times for each request. For more information, see the code sample in the section [Server request ID].
+- Debug your code, and check the properties of the **OperationContext** object associated with the request. If the operation has retried, the **RequestResults** property will include multiple unique server request IDs. You can also check the start and end times for each request.
 
 If there are no issues in the client, you should investigate potential network issues such as packet loss. You can use tools such as Wireshark to investigate network issues.
 
@@ -99,12 +104,6 @@ If you are experiencing a delay between the time an application adds a message t
 
 ## See also
 
-| Guide | Description |
-|---|---|
-| [Troubleshoot availability issues](../common/troubleshoot-storage-availability.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| Common availability issues and guidance about how to troubleshoot them.|
-| [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| Common issues with connecting clients and how to troubleshoot them.|
-| [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md) |
-| [Monitoring Azure Files](../files/storage-files-monitoring.md) |
-| [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md) |
-| [Monitoring Azure Table storage](../tables/monitor-table-storage.md) |
-| [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/) | Troubleshoot storage account issues (contains step-by-step guidance). |
+- [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Troubleshoot availability issues](../common/troubleshoot-storage-availability.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/)
