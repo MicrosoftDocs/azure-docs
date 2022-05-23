@@ -152,7 +152,7 @@ AppPlatformLogsforSpring
 | project TimeGenerated, AppName, Log
 ```
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/all-app-logs-in-log-analytics.jpg" alt-text="Example output from all application logs query":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/all-app-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from all application logs query.":::
 
 Type and run the following Kusto query to see `catalog-service` application logs:
 
@@ -164,7 +164,7 @@ AppPlatformLogsforSpring
 | project TimeGenerated, AppName, Log
 ```
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/catalog-app-logs-in-log-analytics.jpg" alt-text="Example output from catalog service logs":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/catalog-app-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from catalog service logs.":::
 
 Type and run the following Kusto query  to see errors and exceptions thrown by each app:
 
@@ -177,7 +177,7 @@ AppPlatformLogsforSpring
 | render piechart
 ```
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/ingress-logs-in-log-analytics.jpg" alt-text="An example output from the Ingress Logs":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/ingress-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from the Ingress Logs.":::
 
 Type and run the following Kusto query to see all in the inbound calls into Azure Spring Apps:
 
@@ -196,7 +196,7 @@ AppPlatformSystemLogs
 | project TimeGenerated,Log
 ```
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/spring-cloud-gateway-logs-in-log-analytics.jpg" alt-text="An example out from the Spring Cloud Gateway Logs":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/spring-cloud-gateway-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from the Spring Cloud Gateway Logs.":::
 
 Type and run the following Kusto query to see all the logs from the managed Spring Cloud
 Service Registry managed by Azure Spring Apps:
@@ -207,7 +207,7 @@ AppPlatformSystemLogs
 | project TimeGenerated, Log
 ```
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/service-registry-logs-in-log-analytics.jpg" alt-text="An example output from service registry logs":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/service-registry-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from service registry logs.":::
 
 ## Tracing
 
@@ -215,34 +215,34 @@ Open the Application Insights created by Azure Spring Apps and start monitoring 
 
 Navigate to the `Application Map` blade:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-application-map.jpg" alt-text="An image showing the Application Map of Azure Application Insights":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-application-map.jpg" alt-text="Screenshot of Azure portal showing the Application Map of Azure Application Insights.":::
 
 Navigate to the `Peforamnce` blade:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/performance.jpg" alt-text="An image showing the Performance Blade of Azure Application Insights":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/performance.jpg" alt-text="Screenshot of Azure portal showing the Performance pane of Azure Application Insights.":::
 
 Navigate to the `Performance/Dependenices` blade - you can see the performance number for dependencies,
 particularly SQL calls:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/performance_dependencies.jpg" alt-text="An image showing the Dependencies section of the Performance Blade of Azure Application Insights":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/performance_dependencies.jpg" alt-text="Screenshot of Azure portal showing the Dependencies section of the Performance pane of Azure Application Insights.":::
 
 Navigate to the `Performance/Roles` blade - you can see the performance metrics for individual instances or roles:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-roles-in-performance-blade.jpg" alt-text="An image showing the Roles section of the Performance Blade of Azure Application Insights":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-roles-in-performance-blade.jpg" alt-text="Screenshot of Azure portal showing the Roles section of the Performance pane of Azure Application Insights.":::
 
 Click on a SQL call to see the end-to-end transaction in context:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-end-to-end-transaction-details.jpg" alt-text="An image showing the end-to-end transaction of a SQL call":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-end-to-end-transaction-details.jpg" alt-text="Screenshot of Azure portal showing the end-to-end transaction of an S Q L call.":::
 
 Navigate to the `Failures/Exceptions` blade - you can see a collection of exceptions:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-exceptions.jpg" alt-text="An image showing application failures graphed":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-exceptions.jpg" alt-text="Screenshot of Azure portal showing application failures graphed.":::
 
 ## Metrics
 
 Navigate to the `Metrics` blade - you can see metrics contributed by Spring Boot apps, Spring Cloud modules, and dependencies. The chart below shows `http_server_requests` and `Heap Memory Used`:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/metrics.jpg" alt-text="An image showing metrics over time":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/metrics.jpg" alt-text="Screenshot of Azure portal showing metrics over time graph.":::
 
 Spring Boot registers a lot number of core metrics: JVM, CPU, Tomcat, Logback, etc.
 The Spring Boot auto-configuration enables the instrumentation of requests handled by Spring MVC.

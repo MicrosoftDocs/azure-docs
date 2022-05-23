@@ -84,11 +84,11 @@ The command should output a JSON object:
 
 This example uses the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) sample on GitHub.  Fork the sample, open GitHub repository page, and select the **Settings** tab. Open **Secrets** menu, and select **Add a new secret**:
 
-:::image type="content" source="./media/github-actions/actions1.png" alt-text="Screenshot showing GitHub Settings Add new secret":::
+:::image type="content" source="media/github-actions/actions1.png" alt-text="Screenshot showing GitHub Settings Add new secret.":::
 
 Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that you found under the heading *Set up your GitHub repository and authenticate*.
 
-:::image type="content" source="./media/github-actions/actions2.png" alt-text="Set secret data":::
+:::image type="content" source="media/github-actions/actions2.png" alt-text="Screenshot showing GitHub Settings Set secret data.":::
 
 In addition to `AZURE_CREDENTIALS`, add the following secrets to GitHub Actions:
 
@@ -112,15 +112,15 @@ key                  = "dev.terraform.tfstate"
 
 Now you can run GitHub Actions in your repository. The [provision workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/provision.yml) provisions all resources necessary to run the example application. An example run is seen below:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-github-actions/provision.png" alt-text="Output from the provision workflow":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-github-actions/provision.png" alt-text="Screenshot of GitHub showing output from the provision workflow.":::
 
 Each application has a [deploy workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/catalog.yml) that will redeploy the application when changes are made to that application. An example output from the catalog service is seen below:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-github-actions/deploy-catalog.png" alt-text="Output from the Deploy Catalog workflow":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-github-actions/deploy-catalog.png" alt-text="Screenshot of GitHub showing output from the Deploy Catalog workflow.":::
 
 The [cleanup workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/cleanup.yml) can be manually run to delete all resources created by the `provision` workflow. The output can be seen below:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-github-actions/cleanup.png" alt-text="Output from the cleanup workflow":::
+:::image type="content" source="media/spring-cloud-enterprise-quickstart-github-actions/cleanup.png" alt-text="Screenshot of GitHub showing output from the cleanup workflow.":::
 
 ## Clean up resources
 
