@@ -9,7 +9,7 @@ ms.author: sagopal
 author: saachigopal
 ms.date: 08/11/2021
 ms.topic: how-to
-ms.custom: sdkv1
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Train a model by using a custom Docker image

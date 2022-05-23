@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: karler
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Metrics for Azure Spring Apps

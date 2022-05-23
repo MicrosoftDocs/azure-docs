@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.date: 05/10/2022
-ms.custom:
+ms.custom: event-tier1-build-2022
 ---
 
 # Resource group and subscription access provisioning by data owner (preview)

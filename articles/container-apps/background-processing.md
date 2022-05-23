@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Tutorial: Deploy a background processing application with Azure Container Apps

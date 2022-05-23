@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 03/15/2022
 ms.author: aahi
 ms.devlang: csharp, python
-ms.custom: language-service-clu, ignite-fall-2021
+ms.custom: language-service-clu, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Deploy and test a conversational language understanding model

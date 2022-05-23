@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/14/2020
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, sdkv1
+ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Migrating from Estimators to ScriptRunConfig

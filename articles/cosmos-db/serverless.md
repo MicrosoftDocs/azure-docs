@@ -4,6 +4,7 @@ description: Learn more about Azure Cosmos DB's consumption-based serverless off
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 05/09/2022
 ms.reviewer: thweiss

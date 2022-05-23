@@ -4,6 +4,7 @@ description: Learn how to redistribute throughput across partitions (preview)
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.reviewer: dech
 ms.date: 05/09/2022

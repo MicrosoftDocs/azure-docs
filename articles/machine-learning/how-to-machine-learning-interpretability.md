@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.custom: responsible-ml, mktng-kw-nov2021
+ms.custom: responsible-ml, mktng-kw-nov2021, event-tier1-build-2022
 ms.date: 05/10/2022
 ---
 

@@ -4,6 +4,7 @@ description: Use the KEDA add-on to deploy a managed KEDA instance on Azure Kube
 services: container-service
 author: jahabibi
 ms.topic: article
+ms.custom: event-tier1-build-2022
 ms.date: 05/13/2021
 ms.author: jahabibi
 ---

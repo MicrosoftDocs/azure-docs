@@ -10,6 +10,7 @@ ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 ---
 
 # High Availability with Azure Arc-enabled SQL Managed Instance
@@ -341,4 +342,3 @@ Azure Arc-enabled SQL Managed Instance availability groups has the same limitati
 ## Next steps
 
 Learn more about [Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)
-

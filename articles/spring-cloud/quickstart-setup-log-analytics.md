@@ -6,7 +6,7 @@ ms.author: felixsong
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 12/09/2021
-ms.custom: devx-track-java, fasttrack-edit, mode-other, devx-track-azurecli 
+ms.custom: devx-track-java, fasttrack-edit, mode-other, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 

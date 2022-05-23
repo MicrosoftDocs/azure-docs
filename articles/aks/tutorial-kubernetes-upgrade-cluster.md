@@ -4,9 +4,7 @@ description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to u
 services: container-service
 ms.topic: tutorial
 ms.date: 05/24/2021
-
-ms.custom: mvc, devx-track-azurepowershell
-
+ms.custom: mvc, devx-track-azurepowershell, event-tier1-build-2022
 #Customer intent: As a developer or IT pro, I want to learn how to upgrade an Azure Kubernetes Service (AKS) cluster so that I can use the latest version of Kubernetes and features.
 ---
 

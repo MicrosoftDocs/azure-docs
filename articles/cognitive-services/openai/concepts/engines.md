@@ -5,7 +5,7 @@ description: Learn about the different AI models or engines that are available.
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 05/24/2022
-ms.custom: 
+ms.custom: event-tier1-build-2022
 manager: nitinme
 keywords: 
 ---

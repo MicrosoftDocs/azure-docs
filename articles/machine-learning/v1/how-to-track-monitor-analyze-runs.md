@@ -10,7 +10,7 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.date: 04/25/2022
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, cliv1
+ms.custom: devx-track-python, devx-track-azurecli, cliv1, event-tier1-build-2022
 ---
 
 # Start, monitor, and track run history

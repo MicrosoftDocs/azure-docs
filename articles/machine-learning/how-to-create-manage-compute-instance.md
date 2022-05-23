@@ -5,6 +5,7 @@ description: Learn how to create and manage an Azure Machine Learning compute in
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 author: swatig007
 ms.author: swatig

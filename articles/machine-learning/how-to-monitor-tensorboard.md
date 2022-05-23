@@ -9,7 +9,7 @@ author: blackmist
 ms.author: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: sdkv1
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning

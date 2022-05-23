@@ -3,7 +3,7 @@ title: Resource governance with application groups
 description: This article describes how to enable resource governance using application groups.
 ms.topic: article
 ms.date: 05/24/2022
-ms.custom: build-2022
+ms.custom: build-2022, event-tier1-build-2022
 ---
 
 # Resource governance with application groups (preview)
@@ -60,4 +60,3 @@ When an application group is disabled, client applications of that application g
 
 ## Next steps
 For instructions on how to create and manage application groups, see [Resource governance for client applications using Azure portal](resource-governance-with-app-groups.md)
-

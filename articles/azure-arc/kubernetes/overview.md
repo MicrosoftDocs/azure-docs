@@ -2,6 +2,7 @@
 title: "Overview of Azure Arc-enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
+ms.custom: event-tier1-build-2022
 author: shashankbarsin
 ms.author: shasb
 ms.date: 05/03/2022

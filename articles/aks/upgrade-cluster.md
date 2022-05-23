@@ -3,8 +3,8 @@ title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 services: container-service
 ms.topic: article
+ms.custom: event-tier1-build-2022
 ms.date: 12/17/2020
-
 ---
 
 # Upgrade an Azure Kubernetes Service (AKS) cluster

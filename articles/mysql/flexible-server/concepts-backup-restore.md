@@ -5,6 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 05/24/2022 
 ---

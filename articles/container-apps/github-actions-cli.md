@@ -4,6 +4,7 @@ description: Learn to automatically create new revisions using GitHub Actions in
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 12/30/2021
 ms.author: cshoe

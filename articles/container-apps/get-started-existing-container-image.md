@@ -4,6 +4,7 @@ description: Deploy an existing container image to Azure Container Apps with the
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: quickstart
 ms.date: 03/21/2022
 ms.author: cshoe

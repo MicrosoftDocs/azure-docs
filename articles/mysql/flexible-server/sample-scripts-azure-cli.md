@@ -7,7 +7,7 @@ ms.service: mysql
 ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 # Azure CLI samples for Azure Database for MySQL - Flexible Server
@@ -36,4 +36,3 @@ The following table includes links to sample Azure CLI scripts for Azure Databas
 |**Configure logs**||
 | [Configure audit logs](scripts/sample-cli-audit-logs.md) | Configures audit logs on a single Azure Database for MySQL - Flexible Server. |
 | [Configure slow-query logs](scripts/sample-cli-slow-query-logs.md) | Configures slow-query logs on a single Azure Database for MySQL - Flexible Server. |
-

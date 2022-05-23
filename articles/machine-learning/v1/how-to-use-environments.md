@@ -9,11 +9,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/19/2022
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, cliv1
+ms.custom: devx-track-python, devx-track-azurecli, cliv1, event-tier1-build-2022
 ms.devlang: azurecli
-
-## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
-
 ---
 
 # Create & use software environments in Azure Machine Learning with CLI v1

@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: include
 ms.date: 05/06/2022
 ms.author: aahi
-ms.custom: language-service-custom-classification, ignite-fall-2021
+ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
 
 Use the following steps to set the required roles for your Language resource and storage account.

@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Tutorial: Monitor Spring app resources using alerts and action groups

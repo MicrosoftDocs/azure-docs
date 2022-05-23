@@ -9,7 +9,7 @@ ms.author: keli19
 author: likebupt
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: deploy, studio, designer
+ms.custom: deploy, studio, designer, event-tier1-build-2022
 ---
 
 # Use the studio to deploy models trained in the designer

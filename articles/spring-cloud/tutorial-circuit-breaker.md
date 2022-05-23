@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Tutorial: Use Circuit Breaker Dashboard with Azure Spring Apps

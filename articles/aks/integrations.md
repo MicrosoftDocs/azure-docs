@@ -3,6 +3,7 @@ title: Add-ons, extensions, and other integrations with Azure Kubernetes Service
 description: Learn about the add-ons, extensions, and open-source integrations you can use with Azure Kubernetes Service.
 services: container-service
 ms.topic: overview
+ms.custom: event-tier1-build-2022
 ms.date: 02/22/2022
 ---
 

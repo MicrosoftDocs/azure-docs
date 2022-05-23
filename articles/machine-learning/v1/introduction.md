@@ -11,7 +11,7 @@ ms.reviewer: larryfr
 ms.author: larryfr
 author: BlackMist
 ms.date: 05/10/2022
-ms.custom: cliv1
+ms.custom: cliv1, event-tier1-build-2022
 ---
 
 # Azure Machine Learning SDK & CLI v1 

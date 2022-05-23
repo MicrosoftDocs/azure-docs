@@ -2,7 +2,7 @@
 title: Govern resources for client applications with application groups
 description: Learn how to use application groups to govern resources for client applications that connect with Event Hubs. 
 ms.topic: how-to
-ms.custom: subject-monitoring
+ms.custom: subject-monitoring, event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 

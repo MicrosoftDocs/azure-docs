@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 05/11/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Revisions in Azure Container Apps
@@ -153,4 +153,3 @@ You aren't charged for the inactive revisions. You can have a maximum of 100 rev
 
 > [!div class="nextstepaction"]
 > [Application lifecycle management](application-lifecycle-management.md)
-

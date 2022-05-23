@@ -6,7 +6,7 @@ ms.author: yinglzh
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/21/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Apps

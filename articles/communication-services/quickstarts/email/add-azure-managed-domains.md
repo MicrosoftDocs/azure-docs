@@ -9,7 +9,7 @@ ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: private_preview
+ms.custom: private_preview, event-tier1-build-2022
 ---
 # Quickstart: How to add Azure Managed Domains to Email Communication Service
 

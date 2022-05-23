@@ -4,6 +4,7 @@ description: Firewall settings to secure a custom VNET in Azure Container Apps
 services: container-apps
 author: JennyLawrance
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic:  reference
 ms.date: 4/15/2022
 ms.author: jennylaw

@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: overview
-ms.custom: mvc
+ms.custom: mvc, event-tier1-build-2022
 ms.date: 05/10/2022
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: include file
 description: Send email.net sdk include file
-services: azure-communication-services
 author: bashan-git
 manager: sphenry
 services: azure-communication-services
@@ -9,7 +8,7 @@ ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: include
 ms.service: azure-communication-services
-ms.custom: private_preview
+ms.custom: private_preview, event-tier1-build-2022
 ---
 
 Get started with Azure Communication Services by using the Communication Services C# Email client library to send Email messages.

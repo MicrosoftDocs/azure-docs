@@ -9,7 +9,7 @@ ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: private_preview
+ms.custom: private_preview, event-tier1-build-2022
 ---
 # Prepare Email Communication resource for Azure Communication Service 
 
@@ -58,5 +58,3 @@ The following documents may be interesting to you:
 - Familiarize yourself with the [Email client library](../email/sdk-features.md)
 - How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
 - How to send emails with Azure Managed Domains?[Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)
-
-

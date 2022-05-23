@@ -9,7 +9,7 @@ ms.topic:  how-to
 ms.author: lagayhar
 author: lgayhardt
 ms.date: 05/10/2022
-ms.custom: responsible-ml
+ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
 # Generate Responsible AI dashboard with YAML and Python (preview)

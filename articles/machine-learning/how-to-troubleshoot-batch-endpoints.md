@@ -6,13 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: troubleshooting
-ms.custom: troubleshooting, devplatv2, cliv2
+ms.custom: troubleshooting, devplatv2, cliv2, event-tier1-build-2022
 ms.reviewer: laobri
 ms.author: larryfr
 author: blackmist
 ms.date: 03/31/2022
 #Customer intent: As an ML Deployment Pro, I want to figure out why my batch endpoint doesn't run so that I can fix it.
-
 ---
 # Troubleshooting batch endpoints
 

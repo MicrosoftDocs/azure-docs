@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: conceptual
 ms.date: 05/03/2022
-ms.custom: references_regions
+ms.custom: references_regions, event-tier1-build-2022
 ---
 
 # Service Connector region support
@@ -47,4 +47,3 @@ Your compute service instance might be created in a region where Service Connect
 ## Regions not supported
 
 In regions where Service Connector isn't supported, you'll still find Service Connector CLI commands and the portal node, but you won't be able to create or manage service connections. The product team is working actively to enable more regions.
-

@@ -9,7 +9,7 @@ author: saachigopal
 ms.author:  sagopal
 ms.date: 03/01/2022
 ms.topic: troubleshooting
-ms.custom: devx-track-python
+ms.custom: devx-track-python, event-tier1-build-2022
 ---
 # Troubleshoot environment image builds
 

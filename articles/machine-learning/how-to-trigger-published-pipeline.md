@@ -9,9 +9,8 @@ ms.author: larryfr
 author: blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1
-
-# Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data. 
+ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+#Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data.
 ---
 
 # Trigger machine learning pipelines

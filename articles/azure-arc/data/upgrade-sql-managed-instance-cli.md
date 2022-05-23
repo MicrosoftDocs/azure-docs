@@ -4,6 +4,7 @@ description: Article describes how to upgrade an indirectly connected Azure Arc-
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray

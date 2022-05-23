@@ -5,6 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 05/24/2022
 ---
@@ -66,4 +67,3 @@ You can manage the creation, deletion, server parameter configuration (my.cnf), 
 
 -   Learn about [Create Server](./quickstart-create-server-portal.md)
 -   Learn about [Monitoring and Alerts](./how-to-alert-on-metric.md)
-

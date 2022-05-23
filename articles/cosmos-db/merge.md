@@ -4,6 +4,7 @@ description: Learn more about the merge partitions capability in Azure Cosmos DB
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.reviewer: dech
 ms.date: 05/09/2022

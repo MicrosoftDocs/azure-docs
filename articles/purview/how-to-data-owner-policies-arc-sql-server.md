@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.date: 05/16/2022
-ms.custom: references_regions
+ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
 
@@ -166,4 +166,3 @@ Check blog, demo and related how-to guides
 * Blog: [Private preview: controlling access to Azure SQL at scale with policies in Purview](https://techcommunity.microsoft.com/t5/azure-sql-blog/private-preview-controlling-access-to-azure-sql-at-scale-with/ba-p/2945491)
 * [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
 * [Enable Microsoft Purview data owner policies on an Azure SQL DB](./how-to-data-owner-policies-azure-sql-db.md)
-

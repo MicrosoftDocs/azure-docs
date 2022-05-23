@@ -5,7 +5,7 @@ author: hjtoland3
 ms.service: mysql
 ms.subservice: flexible-server
 ms.author: jtoland
-ms.custom: mvc, references_regions
+ms.custom: mvc, references_regions, event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 05/24/2022
 ---

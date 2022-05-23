@@ -4,6 +4,7 @@ description: Use managed identity to invoke Azure Functions from an Azure Spring
 author: karlerickson
 ms.author: margard
 ms.service: spring-cloud
+ms.custom: event-tier1-build-2022
 ms.topic: tutorial
 ms.date: 07/10/2020
 ---

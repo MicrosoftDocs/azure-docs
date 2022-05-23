@@ -4,6 +4,7 @@ description: Quickstart showing how to create a service connection in Spring Clo
 author: shizn
 ms.author: xshi
 ms.service: service-connector
+ms.custom: event-tier1-build-2022
 ms.topic: overview
 ms.date: 05/03/2022
 ---

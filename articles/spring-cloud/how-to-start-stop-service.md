@@ -6,7 +6,7 @@ ms.author: wepa
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/04/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Start or stop your Azure Spring Apps service instance

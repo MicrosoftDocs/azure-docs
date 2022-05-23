@@ -5,6 +5,7 @@ description: 'Securely use Azure Machine Learning: authentication, authorization
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: aashishb
 author: aashishb

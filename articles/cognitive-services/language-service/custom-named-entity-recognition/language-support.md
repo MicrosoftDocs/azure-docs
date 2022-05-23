@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 05/06/2022
-ms.custom: language-service-custom-ner
+ms.custom: language-service-custom-ner, event-tier1-build-2022
 ms.author: aahi
 ---
 

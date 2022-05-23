@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.custom: references_regions
+ms.custom: references_regions, event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 

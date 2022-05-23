@@ -4,6 +4,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
+ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 05/05/2022
 ms.author: aahi
@@ -65,4 +66,3 @@ Once you send your API request, you’ll receive a `202` response indicating tha
 ``` 
 
 `{JOB-ID}` is used to identify your request, since this operation is asynchronous. You can use this URL to get the training status.  
-

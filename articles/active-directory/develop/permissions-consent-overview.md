@@ -8,12 +8,12 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
+ms.custom: event-tier1-build-2022
 ms.topic: overview
 ms.date: 05/10/2022
 ms.author: jomondi
 ms.reviewer: jawoods, ludwignick, phsignor
-
-#customer intent: As and a developer or admin in the Microsoft identity platform, I want to understand the basic concept about managing how applications access resources through the permissions and consent framework.
+#Customer intent: As and a developer or admin in the Microsoft identity platform, I want to understand the basic concept about managing how applications access resources through the permissions and consent framework.
 ---
 # Introduction to permissions and consent
 

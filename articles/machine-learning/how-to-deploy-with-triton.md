@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: ssambare
 author: shivanissambare
-ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2
+ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 

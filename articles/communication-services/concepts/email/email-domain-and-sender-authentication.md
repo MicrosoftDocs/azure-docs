@@ -9,7 +9,7 @@ ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: private_preview
+ms.custom: private_preview, event-tier1-build-2022
 ---
 # Email domains and sender authentication for Azure Communication Services
 

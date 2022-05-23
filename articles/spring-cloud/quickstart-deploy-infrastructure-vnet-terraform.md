@@ -4,7 +4,7 @@ description: This quickstart shows you how to use Terraform to deploy an Azure S
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.custom: devx-track-java, mode-other
+ms.custom: devx-track-java, mode-other, event-tier1-build-2022
 ms.author: ariel
 ms.date: 11/12/2021
 ---

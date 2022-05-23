@@ -8,12 +8,12 @@ metadata:
   description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure. # Required; article description that is displayed in search results. < 160 chars.
   services: spring-cloud
   ms.service: spring-cloud #Required; service per approved list. service slug assigned to your service.
+  ms.custom: event-tier1-build-2022
   ms.topic: landing-page # Required
   ms.collection: collection
   author: karlerickson #Required; your GitHub user alias, with correct capitalization.
   ms.author: karler  #Required; microsoft alias of author; optional team alias.
   ms.date: 09/26/2019 #Required; mm/dd/yyyy format.
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:

@@ -5,6 +5,7 @@ author: Stralle
 reviewer: vvasic-msft, jovanpop-msft, WilliamDAssafMSFT 
 ms.service: synapse-analytics
 ms.subservice: sql
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 12/30/2021
 ms.author: strrodic

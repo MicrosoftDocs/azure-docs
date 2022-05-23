@@ -9,7 +9,7 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/10/2022
-ms.custom: devx-track-python, sdkv2, cliv2
+ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 ---
 
 # How to do hyperparameter tuning in pipeline (V2) (preview)

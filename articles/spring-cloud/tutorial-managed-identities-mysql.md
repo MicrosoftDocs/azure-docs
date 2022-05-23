@@ -6,7 +6,7 @@ ms.author: xiading
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/30/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Tutorial: Use a managed identity to connect an Azure Database for MySQL to an app in Azure Spring Apps

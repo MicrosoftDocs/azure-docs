@@ -5,6 +5,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
+ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 05/10/2022
 ms.author: aahi
@@ -21,4 +22,3 @@ ms.author: aahi
 5. You can also retrieve your primary resource key from this page.
 
     :::image type="content" source="../../../custom-text-classification/media/project-details.png" alt-text="A screenshot of the project settings page." lightbox="../../../custom-text-classification/media/project-details.png":::
-

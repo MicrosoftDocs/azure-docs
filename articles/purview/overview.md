@@ -4,6 +4,7 @@ description: This article provides an overview of Microsoft Purview, including i
 author: hophanms
 ms.author: hophan
 ms.service: purview
+ms.custom: event-tier1-build-2022
 ms.topic: overview
 ms.date: 05/16/2022
 ---

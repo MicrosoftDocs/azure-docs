@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 04/25/2022
 ms.author: aahi
-ms.custom: language-service-custom-ner
+ms.custom: language-service-custom-ner, event-tier1-build-2022
 ---
 
 # Back up and recover your custom NER models

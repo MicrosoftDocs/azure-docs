@@ -3,6 +3,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
+ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 04/22/2022
 ms.author: aahi

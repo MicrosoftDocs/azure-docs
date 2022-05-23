@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, event-tier1-build-2022
 ---
 
 # Supported Kubernetes versions in Azure Kubernetes Service (AKS)

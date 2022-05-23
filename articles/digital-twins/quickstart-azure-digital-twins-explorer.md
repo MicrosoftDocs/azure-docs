@@ -7,7 +7,7 @@ ms.author: baanders
 ms.date: 02/25/2022
 ms.topic: quickstart
 ms.service: digital-twins
-ms.custom: mode-other
+ms.custom: mode-other, event-tier1-build-2022
 ---
 
 # Quickstart - Get started with a sample scenario in Azure Digital Twins Explorer

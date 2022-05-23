@@ -4,9 +4,10 @@ description: Quickstart showing how to create a service connection in Azure Cont
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
+ms.custom: event-tier1-build-2022
 ms.topic: quickstart
 ms.date: 05/23/2022
-# Customer intent: As an app developer, I want to connect a containerized app to a storage account in the Azure portal using Service Connector.
+#Customer intent: As an app developer, I want to connect a containerized app to a storage account in the Azure portal using Service Connector.
 ---
 
 # Quickstart: Create a service connection in Container Apps from the Azure portal

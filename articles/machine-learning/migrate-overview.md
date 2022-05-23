@@ -4,6 +4,7 @@ description: Migrate from Studio (classic) to Azure Machine Learning for a moder
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 
 author: xiaoharper

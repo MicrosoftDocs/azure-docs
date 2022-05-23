@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: how-to
 ms.date: 04/27/2022
 ms.author: aahi
-ms.custom: language-service-summarization, ignite-fall-2021
+ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # How to use conversation summarization (preview)

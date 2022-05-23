@@ -10,7 +10,7 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 12/21/2021
-ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q, sdkv1
+ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q, sdkv1, event-tier1-build-2022
 ---
 
 # Tutorial: Train your first machine learning model (part 2 of 3)

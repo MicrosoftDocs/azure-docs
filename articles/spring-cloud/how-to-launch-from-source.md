@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/12/2021
 ms.author: karler
-ms.custom: devx-track-java, devx-track-azurecli, mode-api
+ms.custom: devx-track-java, devx-track-azurecli, mode-api, event-tier1-build-2022
 ---
 
 # How to Deploy Spring Boot applications from Azure CLI

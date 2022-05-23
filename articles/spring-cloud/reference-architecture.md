@@ -5,6 +5,7 @@ author: karlerickson
 title: Azure Spring Apps reference architecture
 ms.author: akaleshian
 ms.service: spring-cloud
+ms.custom: event-tier1-build-2022
 description: This reference architecture is a foundation using a typical enterprise hub and spoke design for the use of Azure Spring Apps.
 ---
 

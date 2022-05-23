@@ -9,7 +9,7 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: seramasu
 author: rsethur
-ms.custom: devplatv2
+ms.custom: devplatv2, event-tier1-build-2022
 ms.date: 04/11/2022
 ---
 
@@ -33,5 +33,3 @@ This table shows the VM SKUs that are supported for Azure Machine Learning manag
 | Medium | DS4 v2 | F8s v2 | E8s v3 | NC12s v2 <br/> NC12s v3 <br/> NC16as_T4_v3 |
 | Large | DS5 v2 | F16s v2 | E16s v3 | NC24s v2 <br/> NC24s v3 <br/> NC64as_T4_v3 |
 | X-Large| - | F32s v2 <br/> F48s v2 <br/> F64s v2 <br/> F72s v2 | E32s v3 <br/> E48s v3 <br/> E64s v3 | - |
-
-

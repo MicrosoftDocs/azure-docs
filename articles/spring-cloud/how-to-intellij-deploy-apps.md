@@ -7,7 +7,7 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/03/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Deploy Spring Boot applications using IntelliJ

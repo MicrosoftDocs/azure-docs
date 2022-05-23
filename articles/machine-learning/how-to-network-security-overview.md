@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 02/02/2022
 ms.topic: how-to
-ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
+ms.custom: devx-track-python, references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022
 ---
 
 <!-- # Virtual network isolation and privacy overview -->

@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/07/2021
 ms.author: karler
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Analyze logs with Elastic (ELK) using diagnostics settings

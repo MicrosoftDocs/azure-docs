@@ -3,6 +3,7 @@ title: Azure SQL bindings for Functions
 description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
+ms.custom: event-tier1-build-2022
 ms.date: 5/24/2022
 ms.author: drskwier
 ms.reviewer: glenga
@@ -171,4 +172,3 @@ Support for Python durable functions with SQL bindings isn't yet available.
 [core tools]: ./functions-run-local.md
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
-

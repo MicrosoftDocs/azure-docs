@@ -8,6 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 05/24/2022
 ms.author: lajanuar

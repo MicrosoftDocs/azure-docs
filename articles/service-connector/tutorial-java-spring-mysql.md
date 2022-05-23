@@ -6,7 +6,7 @@ ms.author: xshi
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 05/03/2022
-ms.custom: devx-track-azurecli 
+ms.custom: devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 

@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 04/25/2022
 ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021, mode-other
+ms.custom: language-service-custom-ner, ignite-fall-2021, mode-other, event-tier1-build-2022
 zone_pivot_groups: usage-custom-language-features
 ---
 

@@ -7,7 +7,7 @@ ms.subservice: language-service
 ms.topic: include
 ms.date: 04/22/2022
 ms.author: aahi
-ms.custom: language-service-custom-classification
+ms.custom: language-service-custom-classification, event-tier1-build-2022
 ---
 
 To start training your model from within the [Language Studio](https://aka.ms/LanguageStudio):

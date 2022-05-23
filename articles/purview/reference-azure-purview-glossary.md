@@ -4,6 +4,7 @@ description: A glossary defining the terminology used throughout Microsoft Purvi
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 04/14/2022
 ---
