@@ -77,6 +77,18 @@ Entra supports user identities (for example, employees, customers, external part
 
 Entra is currently not GDPR compliant.--->
 
+## What is the regional availability for Entra?
+
+|Region code   |Region |
+|----------|-----------|
+|AS     |Asian region scope       |
+|OC|Oceania region scope   |
+|AF|Africa region scope   |
+|AN|Antarctica region scope|
+|WW|Worldwide region scope|
+|NA|North American region scope|
+|SA|South American region scope|
+
 ## Is Entra available in Government Cloud?
 
 No, Entra is currently not available in Government clouds.
