@@ -90,7 +90,7 @@ To enroll in the preview, your Cosmos account must meet all the following criter
   * [Customer-managed keys](how-to-setup-cmk.md)
   * [Analytical store](analytical-store-introduction.md)
 * Your Cosmos account uses bounded staleness, session, consistent prefix, or eventual consistency (merge is not currently supported for strong consistency).
-* If you are using SQL API, your application must use the Azure Cosmos DB .NET V3 SDK, version 3.27.0 or higher. When merge preview enabled on your account, all requests sent from non .NET SDKs or older .NET SDK versions won't be accepted.
+* If you're using SQL API, your application must use the Azure Cosmos DB .NET V3 SDK, version 3.27.0 or higher. When merge preview enabled on your account, all requests sent from non .NET SDKs or older .NET SDK versions won't be accepted.
     * There are no SDK or driver requirements to use the feature with API for MongoDB.
 * Your Cosmos account does not use any currently unsupported connectors:
     * Azure Data Factory
@@ -114,7 +114,7 @@ To enroll in the preview, your Cosmos account must meet all the following criter
 
 Accounts with the merge feature enabled are supported only when you use the latest version of the .NET v3 SDK. When the feature is enabled on your account (regardless of whether you run the merge), you must only use the supported SDK using the account. Requests sent from other SDKs or earlier versions won't be accepted. As long as you're using the supported SDK, your application can continue to run while a merge is ongoing. 
 
-Find the latest version the supported SDK:
+Find the latest version of the supported SDK:
 
 | SDK | Supported versions | Package manager link |
 | --- | --- | --- |
