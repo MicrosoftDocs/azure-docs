@@ -230,7 +230,7 @@ if (blobClient1.Exists())
 ```
 
 #### [Java](#tab/java)
-_pom/xml_
+_pom.xml_
 ```
 <dependency>
     <groupId>com.azure</groupId>
