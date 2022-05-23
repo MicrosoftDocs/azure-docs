@@ -1,5 +1,5 @@
 ---
-title: "Beyond Netezza migration&mdash;implementing a modern data warehouse in Microsoft Azure"
+title: "Beyond Netezza migration, implementing a modern data warehouse in Microsoft Azure"
 description: Learn how a Netezza migration to Azure Synapse lets you integrate your data warehouse with the Microsoft Azure analytical ecosystem.
 ms.service: synapse-analytics
 ms.subservice: sql
@@ -12,7 +12,7 @@ ms.reviewer: ajagadish
 ms.date: 05/21/2022
 ---
 
-# Beyond Netezza migration&mdash;implementing a modern data warehouse in Microsoft Azure
+# Beyond Netezza migration, implementing a modern data warehouse in Microsoft Azure
 
 ## Beyond data warehouse migration to Azure
 

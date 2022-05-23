@@ -1498,7 +1498,7 @@ items:
       href: migration-guides/netezza/5-minimize-sql-issues.md
     - name: Tools for Netezza data warehouse migration to Azure Synapse Analytics
       href: migration-guides/netezza/6-microsoft-third-party-migration-tools.md
-    - name: Beyond Netezza migration&mdash;implementing a modern data warehouse in Microsoft Azure
+    - name: Beyond Netezza migration, implementing a modern data warehouse in Microsoft Azure
       href: migration-guides/netezza/7-beyond-data-warehouse-migration.md
   - name: Security white paper
     items:
