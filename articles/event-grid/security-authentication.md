@@ -19,7 +19,7 @@ Managed System Identity <br/>&<br/> Role-based access control | <p>Event Hubs</p
 Client secret as a query parameter | Webhook | See the [Using client secret as a query parameter](#using-client-secret-as-a-query-parameter) section for details. |
 
 > [!NOTE]
-> If you protect your Azure function with an Azure Active Directory app, you'll have to take the generic webhook approach using the HTTP trigger. 
+> If you protect your Azure function with an Azure Active Directory app, you'll have to take the generic webhook approach using the HTTP trigger. Use the Azure function endpoint as a webhook URL when adding the subscription.
 
 ## Use system-assigned identities for event delivery
 You can enable a system-assigned managed identity for a topic or domain and use the identity to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
