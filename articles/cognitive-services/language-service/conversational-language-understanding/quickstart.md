@@ -14,7 +14,7 @@ ms.custom: language-service-clu, ignite-fall-2021, mode-other
 zone_pivot_groups: usage-custom-language-features
 ---
 
-# Quickstart: Conversational language understanding (preview)
+# Quickstart: Conversational language understanding 
 
 Use this article to get started with Custom text classification using Language Studio and the REST API. Follow these steps to try out an example.
 
