@@ -23,7 +23,7 @@ There are three types of certificates used in a typical deployment:
 
 - **Server Certificate (Website certificate)**
 
-   A certificate associated with to specific domain name. If a website has a valid certificate, it means that a certificate authority has taken steps to verify that the web address actually belongs to that organization. When you type a URL or follow a link to a secure website, your browser checks the certificate for the following characteristics:
+   A certificate associated with a specific domain name. If a website has a valid certificate, it means that a certificate authority has taken steps to verify that the web address actually belongs to that organization. When you type a URL or follow a link to a secure website, your browser checks the certificate for the following characteristics:
    - The website address matches the address on the certificate.
    - The certificate is signed by a certificate authority that the browser recognizes as a *trusted* authority.
    
