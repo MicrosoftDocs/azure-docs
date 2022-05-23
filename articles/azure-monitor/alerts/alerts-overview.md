@@ -100,6 +100,6 @@ When the alert is considered resolved, the alert rule sends out a resolved notif
 
 - [Learn more about Smart Groups](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Learn about action groups](../alerts/action-groups.md)
-- [Managing your alert instances in Azure](./alerts-managing-alert-instances.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+- [Viewing your alert instances](./alerts-page.md)
 - [Managing Smart Groups](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Learn more about Azure alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)

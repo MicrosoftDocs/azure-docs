@@ -1,6 +1,6 @@
 ---
 title: Types of Azure Monitor Alerts
-description: This article explains the different types of Azure Monitor alerts and when you would use each type. 
+description: This article explains the different types of Azure Monitor alerts and when to use each type. 
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
@@ -30,7 +30,7 @@ Metric alert rules include these features:
 - You can use multiple conditions on an alert rule for a single resource.
 - You can add granularity by [monitoring multiple metric dimensions](#splitting-by-dimensions). 
 - You can use [Dynamic thresholds](#dynamic-thresholds) driven by machine learning. 
-- You can configure if metric alerts are [stateful or stateless](alerts-overview-new.md#alerts-and-state). Metric alerts are stateful by default.
+- You can configure if metric alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). Metric alerts are stateful by default.
 
 The target of the metric alert rule can be:
 - A single resource, such as a VM. See this article for supported resource types.
@@ -110,7 +110,7 @@ Log alerts can measure two different things which can be used for different moni
 - Table rows: The number of rows returned can be used to work with events such as Windows event logs, syslog, application exceptions.
 - Calculation of a numeric column: Calculations based on any numeric column can be used to include any number of resources. For example, CPU percentage.
 
-You can configure if log alerts are [stateful or stateless](alerts-overview-new.md#alerts-and-state) (currently in preview).
+You can configure if log alerts are [stateful or stateless](alerts-overview.md#alerts-and-state) (currently in preview).
 
 > [!NOTE]
 > Log alerts work best when you are trying to detect specific data in the logs, as opposed to when you are trying to detect a **lack** of data in the logs. Since logs are semi-structured data, they are inherently more latent than metric data on information like a VM heartbeat. To avoid misfires when you are trying to detect a lack of data in the logs, consider using [metric alerts](#metric-alerts). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
@@ -152,5 +152,5 @@ While metric alerts tell you there might be a problem, Smart Detection starts th
 Smart detection works for any web app, hosted in the cloud or on your own servers, that generate application request or dependency data.
 ## Next steps
 - Get an [overview of alerts](alerts-overview.md).
-- [Create an alert rule](contribute-how-to-write-concept.md).
+- [Create an alert rule](alerts-log.md).
 - Learn more about [Smart Detection](../app/proactive-failure-diagnostics.md).
