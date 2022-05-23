@@ -105,8 +105,8 @@ For more information, see [Purdue reference model and Defender for IoT](../plan-
 
 ## Next steps
 
-Continue understanding system  with virtual appliances](../ot-virtual-appliances.md).
-requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) and [OT monitoring
+Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md) and [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
+
 Then, use any of the following procedures to continue:
 
 - [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
