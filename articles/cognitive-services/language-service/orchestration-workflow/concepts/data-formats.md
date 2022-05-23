@@ -24,34 +24,32 @@ If you upload a tags file, it should follow this format.
 
 ```json
 {
-  "api-version": "{API-VERSION}",
+  "projectFileVersion": "{API-VERSION}",
   "stringIndexType": "Utf16CodeUnit",
   "metadata": {
-    "projectKind": "orchestration",
-    "settings": {
-      "confidenceThreshold": 0.5
-    },
+    "projectKind": "Orchestration",
     "projectName": "{PROJECT-NAME}",
     "multilingual": false,
-    "description": "Project description",
+    "description": "This is a description",
     "language": "{LANGUAGE-CODE}"
   },
   "assets": {
+    "projectKind": "Orchestration",
     "intents": [
       {
-        "category": "string",
+        "category": "{INTENT1}",
         "orchestration": {
-          "kind": "luis",
+          "targetProjectKind": "Luis|Conversation|QuestionAnswering",
           "luisOrchestration": {
-            "appId": "{LUIS-APP-ID}",
-            "appVersion": "{LUIS-APP-VERSION}",
-            "slotName": "{SLOT-NAME}"
+            "appId": "{APP-ID}",
+            "appVersion": "0.1",
+            "slotName": "production"
           },
-          "cluOrchestration": {
+          "conversationOrchestration": {
             "projectName": "{PROJECT-NAME}",
             "deploymentName": "{DEPLOYMENT-NAME}"
           },
-          "qnaOrchestration": {
+          "questionAnsweringOrchestration": {
             "projectName": "{PROJECT-NAME}"
           }
         }
@@ -59,15 +57,14 @@ If you upload a tags file, it should follow this format.
     ],
     "utterances": [
       {
-        "text": "{Utterance-Text}",
+        "text": "utterance 1",
         "language": "{LANGUAGE-CODE}",
-        "intent": "{INTENT-NAME}"
+        "dataset": "{DATASET}",
+        "intent": "intent1"
       }
     ]
   }
 }
-
-
 ```
 
 |Key  |Placeholder  |Value  | Example |
