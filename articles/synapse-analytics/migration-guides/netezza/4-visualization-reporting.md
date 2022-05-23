@@ -77,7 +77,7 @@ If BI tools are querying views in the underlying data warehouse or data mart dat
 Other issues like the behavior of nulls or data type variations across DBMS platforms need to be tested, in case they cause slightly different calculation results. Obviously, you want to minimize these issues and take all necessary steps to shield business users from any kind of impact. Depending on your legacy data warehouse system (such as Netezza), there are [tools](/azure/synapse-analytics/partner/data-integration) that can help hide these differences so that BI tools and applications are kept unaware of them and can run unchanged.
 
 > [!TIP]
-> Use repeatable tests to ensure reports, dashboards, and other visualizations migrate successfully,.
+> Use repeatable tests to ensure reports, dashboards, and other visualizations migrate successfully.
 
 Testing is critical to visualization and report migration. You need a test suite and agreed-on test data to run and rerun tests in both environments. A test harness is also useful, and a few are mentioned later in this guide. In addition, it's also important to have significant business involvement in this area of migration to keep confidence high and to keep them engaged and part of the project.
 
