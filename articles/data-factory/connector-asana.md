@@ -90,7 +90,7 @@ The below table lists the properties supported by Asana source. You can edit the
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Workspace | The ID of the workspace in Asana. | Yes  | String | workspaceId |
 | Entity | The ID of the entity in Asana.| Yes | String | entityId |
-| Entity Type | The type of the entity in Asana. | Yes  | `workspaces`<br>`teams`<br>`portfolios`<br>`projects` | entityType |
+| Entity Type | The type of the entity in Asana. | Yes  | `teams`<br>`portfolios`<br>`projects` | entityType |
 
 
 #### Asana source script examples 
