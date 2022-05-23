@@ -2,14 +2,14 @@
 title: "Tools for Teradata data warehouse migration to Azure Synapse Analytics"
 description: Learn about Microsoft and third-party data and database migration tools that can help you migrate from Teradata to Azure Synapse. 
 ms.service: synapse-analytics
-ms.subservice: sql
-ms.custom: 
-ms.devlang: 
+ms.subservice:
+ms.custom:
+ms.devlang:
 ms.topic: conceptual
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: ajagadish
-ms.date: 05/21/2022
+author: ajagadish-24
+ms.author: ajagadish
+ms.reviewer: wiassaf
+ms.date: 05/24/2022
 ---
 
 # Tools for Teradata data warehouse migration to Azure Synapse Analytics

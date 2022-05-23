@@ -2,14 +2,14 @@
 title: "Visualization and reporting for Teradata migrations"
 description: Learn about Microsoft and third-party BI tools for reports and visualizations in Azure Synapse compared to Teradata.
 ms.service: synapse-analytics
-ms.subservice: sql
-ms.custom: 
-ms.devlang: 
+ms.subservice:
+ms.custom:
+ms.devlang:
 ms.topic: conceptual
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: ajagadish
-ms.date: 05/21/2022
+author: ajagadish-24
+ms.author: ajagadish
+ms.reviewer: wiassaf
+ms.date: 05/24/2022
 ---
 
 # Visualization and reporting for Teradata migrations
