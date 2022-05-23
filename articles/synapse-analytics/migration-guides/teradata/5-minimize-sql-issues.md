@@ -104,7 +104,7 @@ The Azure environment also includes specific features for complex analytics on t
 
 Most Teradata data types have a direct equivalent in Azure Synapse. This table shows these data types together with the recommended approach for handling them. In the table, Teradata column type is the type that's stored within the system catalog&mdash;for example, in DBC.ColumnsV.
 
-| Teradata column type | Teradata data type | ASDW data type |
+| Teradata column type | Teradata data type | Azure Synapse data type |
 |----------------------|--------------------|----------------|
 | ++ | TD_ANYTYPE | Not supported in Azure Synapse |
 | A1 | ARRAY | Not supported in Azure Synapse |

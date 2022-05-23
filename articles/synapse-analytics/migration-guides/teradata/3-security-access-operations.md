@@ -141,7 +141,7 @@ Modify these example `SELECT` statements to produce a result set which is a seri
 
 Use the table `AccessRightsAbbv` to look up the full text of the access right, as the join key is an abbreviated 'type' field. See the following table for a list of Teradata access rights and their equivalent in Azure Synapse.
 
-| **Teradata permission name** | Teradata type | ASDW equivalent |
+| **Teradata permission name** | Teradata type | Azure Synapse equivalent |
 |------------------------------|---------------|-----------------|
 | **ABORT SESSION** | AS | KILL DATABASE CONNECTION |
 | **ALTER EXTERNAL PROCEDURE** | AE | \*\*\*\* |
