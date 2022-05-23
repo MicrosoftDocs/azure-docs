@@ -37,7 +37,7 @@ The CD pipeline is automatically triggered by successful CI builds. It uses the 
 ### GitOps repo
 The GitOps repo represents the current desired state of all environments across clusters. Any change to this repo is picked up by the Flux service in each cluster and deployed. PRs are created with changes to the desired state, reviewed, and merged. These PRs contain changes to both deployment templates and the resulting rendered Kubernetes manifests. Low-level rendered manifests allow more careful inspection of changes typically unseen at the template-level.
 ### Kubernetes clusters
-At least one Azure Arc-enabled Kubernetes clusters serves the different environments needed by the application. For example, a single cluster can serve both a dev and QA environment through different namespaces. A second cluster can provide easier separation of environments and more fine-grained control.
+At least one Azure Arc-enabled Kubernetes cluster serves the different environments needed by the application. For example, a single cluster can serve both a dev and QA environment through different namespaces. A second cluster can provide easier separation of environments and more fine-grained control.
 ## Example workflow
 As an application developer, Alice:
 * Writes application code.
