@@ -28,7 +28,7 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 - Can only be enabled on data disks, not OS disks.
 - Host caching isn't available for premium SSDs with `maxShares>1`.
 - Disk bursting isn't available for premium SSDs with `maxShares>1`.
-- When using Availability sets and virtual machine scale sets with Azure shared disks, [storage fault domain alignment](../articles/virtual-machines/availability.md) with virtual machine fault domain isn't enforced for the shared data disk.
+- When using Availability sets or virtual machine scale sets with Azure shared disks, [storage fault domain alignment](../articles/virtual-machines/availability.md) with virtual machine fault domain isn't enforced for the shared data disk.
 - When using [proximity placement groups (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md), all virtual machines sharing a disk must be part of the same PPG.
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](/windows-server/failover-clustering/clustering-requirements).
 - Azure Site Recovery support isn't yet available.

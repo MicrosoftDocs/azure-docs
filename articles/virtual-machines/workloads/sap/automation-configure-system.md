@@ -298,6 +298,32 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
 > | `azure_files_storage_account_id`   | If provided the Azure resource ID of the storage account for Azure Files | Optional    |
 
+### Azure NetApp Files Support
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                           | Description                                                            | Type         | Notes  |
+> | ---------------------------------- | -----------------------------------------------------------------------| -----------  | ------ |
+> | `ANF_use_for_HANA_data`            | Create Azure NetApp Files volume for HANA data                         | Optional     |        |
+> | `ANF_use_existing_data_volume`     | Use existing Azure NetApp Files volume for HANA data                   | Optional     | Use for pre-created volumes       |
+> | `ANF_data_volume_name`             | Azure NetApp Files volume name for HANA data                           | Optional     |        |
+> | `ANF_HANA_data_volume_size`        | Azure NetApp Files volume size in GB for HANA data                     | Optional     | default size 256      |
+> | `ANF_use_for_HANA_log`             | Create Azure NetApp Files volume for HANA data                         | Optional     |        |
+> | `ANF_use_existing_log_volume`      | Use existing Azure NetApp Files volume for HANA data                   | Optional     | Use for pre-created volumes       |
+> | `ANF_log_volume_name`              | Azure NetApp Files volume name for HANA data                           | Optional     |        |
+> | `ANF_HANA_log_volume_size`         | Azure NetApp Files volume size in GB for HANA data                     | Optional     | default size 128      |
+
+
+## Oracle parameters
+
+When deploying Oracle based systems these parameters need to be updated in the sap-parameters.yaml file.
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                           | Description                                                            | Type         | Notes  |
+> | ---------------------------------- | -----------------------------------------------------------------------| -----------  | ------ |
+> | `ora_release`                      | Release of Oracle, e.g. 19                                             | Mandatory    |        |
+> | `ora_version`                      | Version of Oracle, e.g. 19.0.0                                         | Mandatory    |        |
+> | `oracle_sbp_patch`                 | Oracle SBP patch file name, e.g. SAP19P_2202-70004508.ZIP              | Mandatory    | Must be part of the Bill of Materials       |
+
 ## Terraform parameters
 
 The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts.
