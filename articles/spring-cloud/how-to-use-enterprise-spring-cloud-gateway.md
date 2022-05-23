@@ -19,7 +19,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article shows you how to use Spring Cloud Gateway for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
 
-[Spring Cloud Gateway for Tanzu](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as Single Sign-On (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
+[Spring Cloud Gateway for Tanzu](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as Single Sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
 Spring Cloud Gateway for Tanzu also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials.
 
@@ -82,9 +82,9 @@ Cross-origin resource sharing (CORS) allows restricted resources on a web page t
 > [!NOTE]
 > Be sure you have the correct CORS configuration if you want to integrate with the [API portal](./how-to-use-enterprise-api-portal.md). For an example, see the [Create an example application](#create-an-example-application) section.
 
-### Configure single sign-on (SSO)
+### Configure single Sign-on (SSO)
 
-Spring Cloud Gateway for Tanzu supports authentication and authorization using Single Sign-On (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol.
+Spring Cloud Gateway for Tanzu supports authentication and authorization using Single Sign-on (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol.
 
 | Property | Required? | Description |
 | - | - | - |
@@ -93,7 +93,7 @@ Spring Cloud Gateway for Tanzu supports authentication and authorization using S
 | clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
 | scope | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
 
-To setup SSO with Azure AD, see [How to set up Single Sign-On with Azure AD for Spring Cloud Gateway and API Portal for Tanzu](./how-to-setup-sso-with-azure-ad.md).
+To set up SSO with Azure AD, see [How to set up Single Sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu](./how-to-set up-sso-with-azure-ad.md).
 
 > [!NOTE]
 > Only authorization servers supporting OpenID Connect Discovery protocol are supported. Also, be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
@@ -117,7 +117,7 @@ This section describes how to add, update, and manage API routes for apps that u
 
 The route definition includes the following parts:
 
-- appResourceId: The full app resource id to route traffic to
+- appResourceId: The full app resource ID to route traffic to
 - routes: A list of route rules about how the traffic goes to one app
 
 The following tables list the route definitions. All the properties are optional.
@@ -127,14 +127,14 @@ The following tables list the route definitions. All the properties are optional
 | title | A title, will be applied to methods in the generated OpenAPI documentation |
 | description | A description, will be applied to methods in the generated OpenAPI documentation  |
 | uri | Full uri, will override `appResourceId` |
-| ssoEnabled | Enable SSO validation. See "Using Single Sign-On" |
+| ssoEnabled | Enable SSO validation. See "Using Single Sign-on" |
 | tokenRelay | Pass currently authenticated user's identity token to application service |
 | predicates | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-predicates.html)|
 | filters | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html)|
 | order | Route processing order, same as Spring Cloud Gateway for Tanzu |
 | tags | Classification tags, will be applied to methods in the generated OpenAPI documentation |
 
-Not all the filters/predicates are supported in Azure Spring Apps because of security/compatible reasons. The following are not supported:
+Not all the filters/predicates are supported in Azure Spring Apps because of security/compatible reasons. The following aren't supported:
 
 - BasicAuth
 - JWTKey
