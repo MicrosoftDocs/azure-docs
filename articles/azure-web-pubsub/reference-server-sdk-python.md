@@ -155,8 +155,7 @@ For more samples, see [Azure Web PubSub service client library for Python Sample
 
 ## Contributing
 
-This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have
-the right to, and actually do, grant us the rights to use your contribution. For more information, see [Contributor License Agreement](https://cla.microsoft.com).
+This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For more information, see [Contributor License Agreement](https://cla.microsoft.com).
 
 When you submit a pull request, a CLA-bot automatically determines whether you need to provide a CLA and decorate the PR appropriately, for example, "label", "comment". Follow the instructions provided by the bot. You only need to do this action once across all repos using our CLA.
 
