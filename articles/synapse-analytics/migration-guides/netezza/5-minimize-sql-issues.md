@@ -14,8 +14,9 @@ ms.date: 05/24/2022
 
 # Minimizing SQL issues for Netezza migrations
 
-## Overview
+This article is part five of a seven part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. This article provides best practices for minimizing SQL issues.
 
+## Overview
 
 ### Characteristics of Netezza environments
 

@@ -14,6 +14,8 @@ ms.date: 05/24/2022
 
 # Beyond Netezza migration, implementing a modern data warehouse in Microsoft Azure
 
+This article is part seven of a seven part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. This article provides best practices for implementing modern data warehouses.
+
 ## Beyond data warehouse migration to Azure
 
 One of the key reasons to migrate your existing data warehouse to Azure Synapse is to utilize a globally secure, scalable, low-cost, cloud-native, pay-as-you-use analytical database. Azure Synapse also lets you integrate your migrated data warehouse with the complete Microsoft Azure analytical ecosystem to take advantage of, and integrate with, other Microsoft technologies that help you modernize your migrated data warehouse. This includes integrating with technologies like:

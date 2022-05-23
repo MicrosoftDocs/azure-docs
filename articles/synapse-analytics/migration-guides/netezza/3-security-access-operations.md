@@ -14,6 +14,8 @@ ms.date: 05/24/2022
 
 # Security, access, and operations for Netezza migrations
 
+This article is part three of a seven part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. This article provides best practices for security access operations.
+
 ## Security considerations
 
 This article discusses the methods of connection for existing legacy Teradata environments and how they can be migrated to Azure Synapse with minimal risk and user impact.

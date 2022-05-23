@@ -14,6 +14,8 @@ ms.date: 05/24/2022
 
 # Tools for Netezza data warehouse migration to Azure Synapse Analytics
 
+This article is part six of a seven part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. This article provides best practices for Microsoft and third-party tools.
+
 ## Data warehouse migration tools
 
 Migrating your existing data warehouse to Azure Synapse enables you to utilize:
