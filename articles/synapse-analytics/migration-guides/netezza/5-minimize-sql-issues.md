@@ -111,8 +111,7 @@ Most Netezza data types have a direct equivalent in the Azure Synapse. The follo
 | INTEGER                        | INT                                 |
 | INTERVAL                       | INTERVAL data types aren't currently directly supported in Azure Synapse but can be calculated using temporal functions such as DATEDIFF |
 | MONEY                          | MONEY                               |
-| NATIONAL CHARACTER             | NVARCHAR(n)                         |
-|   VARYING(n)                   |                                     |
+| NATIONAL CHARACTER VARYING(n)  | NVARCHAR(n)                         |
 | NATIONAL CHARACTER(n)          | NCHAR(n)                            |
 | NUMERIC(p,s)                   | NUMERIC(p,s)                        |
 | REAL                           | REAL                                |
@@ -173,7 +172,7 @@ There may be facilities in the Azure environment that replace the functionality 
 > [!TIP]
 > Third-party products and services can automate migration of non-data elements.
 
-[Microsoft partners](/azure/synapse-analytics/partner/data-integration) offer tools and services that can automate the migration.
+[Microsoft partners](/azure/synapse-analytics/partner/data-integration) offer tools and services that can automate the migration, including the mapping of data types. Also, third-party ETL tools, such as Informatica or Talend, that are already in use in the IBM Netezza environment can implement any required data transformations.
 
 See the following sections for more information on each of these elements.
 
@@ -200,7 +199,7 @@ In Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled using [Ide
 
 Capture some representative SQL statements from the legacy query history logs to evaluate legacy Netezza SQL for compatibility with Azure Synapse. Then prefix those queries with `EXPLAIN` and&mdash;assuming a 'like for like' migrated data model in Azure Synapse with the same table and column names&mdash;run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will return an error. Use this information to determine the scale of the recoding task. This approach doesn't require data to be loaded into the Azure environment, only that the relevant tables and views have been created.
 
-#### IBM Netezza to T-SQL Mapping
+#### IBM Netezza to T-SQL mapping
 
 The IBM Netezza to T-SQL compliant with Azure Synapse SQL data type mapping is in this table:
 
@@ -266,4 +265,4 @@ To minimize the task of migrating the actual SQL code, follow these recommendati
 
 ## Next steps
 
-To learn more about Microsoft and third-party tools, see the next article in this series: [Tools for Netezza data warehouse migration to Azure Synapse Analytics](6-microsoft-third-party-migration-tools.md)].
+To learn more about Microsoft and third-party tools, see the next article in this series: [Tools for Netezza data warehouse migration to Azure Synapse Analytics](6-microsoft-third-party-migration-tools.md).
