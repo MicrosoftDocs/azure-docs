@@ -22,24 +22,26 @@ Learn how to configure your load test in Azure Load Testing Preview by using [YA
 
 A test configuration uses the following keys:
 
-| Key | Type | Description | 
-| ----- | ----- | ----- | 
-| `version` | string | Version of the YAML configuration file that the service uses. Currently, the only valid value is `v0.1`. |
-| `testName` | string | *Required*. Name of the test to run. The results of various test runs will be collected under this test name in the Azure portal. |
-| `testPlan` | string | *Required*. Relative path to the Apache JMeter test script to run. |
-| `engineInstances` | integer | *Required*. Number of parallel instances of the test engine to execute the provided test plan. You can update this property to increase the amount of load that the service can generate. |
-| `configurationFiles` | array | List of relevant configuration files or other files that you reference in the Apache JMeter script. For example, a CSV data set file, images, or any other data file. These files will be uploaded to the Azure Load Testing resource alongside the test script. If the files are in a subfolder on your local machine, use file paths that are relative to the location of the test script. <BR><BR>Azure Load Testing currently doesn't support the use of file paths in the JMX file. When you reference an external file in the test script, make sure to only specify the file name. |
-| `description` | string | Short description of the test run. |
-| `failureCriteria` | object | Criteria that indicate failure of the test. Each criterion is in the form of:<BR>`[Aggregate_function] ([client_metric]) > [value]`<BR><BR>- `[Aggregate function] ([client_metric])` is either `avg(response_time_ms)` or `percentage(error).`<BR>- `value` is an integer number. |
-| `properties` | object | List of properties to configure the load test. |
-| `properties.userPropertyFile` | string | File to use as an Apache JMeter [user properties file](https://jmeter.apache.org/usermanual/test_plan.html#properties). The file will be uploaded to the Azure Load Testing resource alongside the JMeter test script and other configuration files. If the file is in a subfolder on your local machine, use a path relative to the location of the test script. |
-| `secrets` | object | List of secrets that the Apache JMeter script references. |
-| `secrets.name` | string | Name of the secret. This name should match the secret name that you use in the Apache JMeter script. |
-| `secrets.value` | string | URI for the Azure Key Vault secret. |
-| `env` | object | List of environment variables that the Apache JMeter script references. |
-| `env.name` | string | Name of the environment variable. This name should match the secret name that you use in the Apache JMeter script. |
-| `env.value` | string | Value of the environment variable. |
-| `keyVaultReferenceIdentity` | string | Resource ID of the user-assigned managed identity for accessing the secrets from your Azure Key Vault. If you use a system-managed identity, this information isn't needed. Make sure to grant this user-assigned identity access to your Azure key vault. |
+| Key | Type | Default value | Description | 
+| ----- | ----- | ----- | ---- |
+| `version` | string |  | Version of the YAML configuration file that the service uses. Currently, the only valid value is `v0.1`. |
+| `testName` | string |  | *Required*. Name of the test to run. The results of various test runs will be collected under this test name in the Azure portal. |
+| `testPlan` | string |  | *Required*. Relative path to the Apache JMeter test script to run. |
+| `engineInstances` | integer |  | *Required*. Number of parallel instances of the test engine to execute the provided test plan. You can update this property to increase the amount of load that the service can generate. |
+| `configurationFiles` | array |  | List of relevant configuration files or other files that you reference in the Apache JMeter script. For example, a CSV data set file, images, or any other data file. These files will be uploaded to the Azure Load Testing resource alongside the test script. If the files are in a subfolder on your local machine, use file paths that are relative to the location of the test script. <BR><BR>Azure Load Testing currently doesn't support the use of file paths in the JMX file. When you reference an external file in the test script, make sure to only specify the file name. |
+| `description` | string |  | Short description of the test run. |
+| `failureCriteria` | object |  | Criteria that indicate failure of the test. Each criterion is in the form of:<BR>`[Aggregate_function] ([client_metric]) > [value]`<BR><BR>- `[Aggregate function] ([client_metric])` is either `avg(response_time_ms)` or `percentage(error).`<BR>- `value` is an integer number. |
+| `properties` | object |  | List of properties to configure the load test. |
+| `properties.userPropertyFile` | string |  | File to use as an Apache JMeter [user properties file](https://jmeter.apache.org/usermanual/test_plan.html#properties). The file will be uploaded to the Azure Load Testing resource alongside the JMeter test script and other configuration files. If the file is in a subfolder on your local machine, use a path relative to the location of the test script. |
+| `options` | object |  | List of load test options. |
+| `options.splitCsv` | boolean | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
+| `secrets` | object |  | List of secrets that the Apache JMeter script references. |
+| `secrets.name` | string |  | Name of the secret. This name should match the secret name that you use in the Apache JMeter script. |
+| `secrets.value` | string |  | URI for the Azure Key Vault secret. |
+| `env` | object |  | List of environment variables that the Apache JMeter script references. |
+| `env.name` | string |  | Name of the environment variable. This name should match the secret name that you use in the Apache JMeter script. |
+| `env.value` | string |  | Value of the environment variable. |
+| `keyVaultReferenceIdentity` | string |  | Resource ID of the user-assigned managed identity for accessing the secrets from your Azure Key Vault. If you use a system-managed identity, this information isn't needed. Make sure to grant this user-assigned identity access to your Azure key vault. |
 
 The following YAML snippet contains an example load test configuration:
 
@@ -56,6 +58,8 @@ configurationFiles:
 failureCriteria:
   - avg(response_time_ms) > 300
   - percentage(error) > 50
+options:
+  - splitCsv: False
 env:
   - name: my-variable
     value: my-value
