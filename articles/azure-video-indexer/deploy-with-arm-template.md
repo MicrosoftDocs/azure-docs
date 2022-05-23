@@ -2,7 +2,7 @@
 title:  Deploy Azure Video Indexer with ARM template
 description: In this tutorial you will create an Azure Video Indexer account by using Azure Resource Manager (ARM) template.
 ms.topic: tutorial
-ms.date: 12/01/2021
+ms.date: 05/23/2022
 ms.author: juliako
 ---
 
@@ -34,7 +34,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
 ### Option 2 : Deploy using PowerShell Script
 
-1. Open The [template file](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ARM-Samples/Create-Account/avam.template.json) file and inspect its content.
+1. Open The [template file](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ARM-Quick-Start/avam.template.json) file and inspect its content.
 2. Fill in the required parameters (see below)
 3. Run the Following PowerShell commands:
 
