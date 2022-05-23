@@ -125,7 +125,7 @@ Get an accurate number for the volume of data to be migrated for a given table b
 Most Netezza data types have a direct equivalent in Azure Synapse. The following table shows these data types, together with the recommended approach for mapping them.
 
 
-| Netezza data type                 | ASDW data type                   |
+| Netezza data type                 | Azure Synapse data type                   |
 |-----------------------------------|----------------------------------|
 | BIGINT                            | BIGINT                           |
 | BINARY VARYING(n)                 | VARBINARY(n)                     |

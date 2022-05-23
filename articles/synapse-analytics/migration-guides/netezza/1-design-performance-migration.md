@@ -167,7 +167,7 @@ Netezza implements some database objects that aren't directly supported in Azure
 
 Most Netezza data types have a direct equivalent in Azure Synapse. This table shows these data types together with the recommended approach for handling them.
 
-| Netezza Data Type              | ASDW Data Type                      |
+| Netezza Data Type              | Azure Synapse Data Type                      |
 |--------------------------------|-------------------------------------|
 | BIGINT                         | BIGINT                              |
 | BINARY VARYING(n)              | VARBINARY(n)                        |
@@ -180,7 +180,7 @@ Most Netezza data types have a direct equivalent in Azure Synapse. This table sh
 | DOUBLE PRECISION               | FLOAT                               |
 | FLOAT(n)                       | FLOAT(n)                            |
 | INTEGER                        | INT                                 |
-| INTERVAL                       | INTERVAL data types aren't currently directly supported in ASDW but can be calculated using temporal functions such as DATEDIFF |
+| INTERVAL                       | INTERVAL data types aren't currently directly supported in Azure Synapse but can be calculated using temporal functions such as DATEDIFF |
 | MONEY                          | MONEY                               |
 | NATIONAL CHARACTER             | NVARCHAR(n)                         |
 |   VARYING(n)                   |                                     |
@@ -188,7 +188,7 @@ Most Netezza data types have a direct equivalent in Azure Synapse. This table sh
 | NUMERIC(p,s)                   | NUMERIC(p,s)                        |
 | REAL                           | REAL                                |
 | SMALLINT                       | SMALLINT                            |
-| ST_GEOMETRY(n)                 | Spatial data types such as ST_GEOMETRY aren't currently supported in ASDW, but the data could be stored as VARCHAR or VARBINARY |
+| ST_GEOMETRY(n)                 | Spatial data types such as ST_GEOMETRY aren't currently supported in Azure Synapse, but the data could be stored as VARCHAR or VARBINARY |
 | TIME                           | TIME                                |
 | TIME WITH TIME ZONE            | DATETIMEOFFSET                      |
 | TIMESTAMP                      | DATETIME                            |

@@ -118,7 +118,7 @@ The output file can be modified to produce a script that is a series of `GRANT` 
 
 Netezza supports two classes of access rights,&mdash;Admin and Object. See the following table for a list of Netezza access rights and their equivalent in Azure Synapse.
 
-| Admin Privilege            | Description | ASDW Equivalent |
+| Admin Privilege            | Description | Azure Synapse Equivalent |
 |----------------------------|-------------|-----------------|
 | Backup                     | Allows user to create backups. The user can run backups. The user can run the command nzbackup. | \* |
 | [Create] Aggregate         | Allows the user to create user-defined aggregates (UDAs). Permission to operate on existing UDAs is controlled by object privileges. | CREATE FUNCTION \*\*\* |
@@ -143,7 +143,7 @@ Netezza supports two classes of access rights,&mdash;Admin and Object. See the f
 | Restore                    | Allows the user to restore the system. The user can run the nzrestore command. | \*\* |
 | Unfence                    | Allows the user to create or alter a user-defined function or aggregate to run in unfenced mode. | \* |
 
-| Object Privilege Abort     | Description | ASDW Equivalent |
+| Object Privilege Abort     | Description | Azure Synapse Equivalent |
 |----------------------------|-------------|-----------------|
 | Abort                      | Allows the user to abort sessions. Applies to groups and users. | KILL DATABASE CONNECTION |
 | Alter                      | Allows the user to modify object attributes. Applies to all objects. | ALTER |
