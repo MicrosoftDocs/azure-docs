@@ -53,7 +53,7 @@ Azure Synapse supports two basic options for connection and authorization:
 
 - **SQL authentication**: SQL authentication is via a database connection that includes a database identifier, user ID, and password plus other optional parameters. This is functionally equivalent to Teradata TD1, TD2 and default connections.
 
-- **Azure Active Directory (AAD) authentication**: With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. AAD can also support connections to LDAP and Kerberos services&mdash;for example, AAD can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
+- **Azure Active Directory (Azure AD) authentication**: With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. Azure AD can also support connections to LDAP and Kerberos services&mdash;for example, Azure AD can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
 
 ### Users, roles, and permissions
 
