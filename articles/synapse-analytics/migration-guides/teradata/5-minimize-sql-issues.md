@@ -148,32 +148,6 @@ Most Teradata data types have a direct equivalent in Azure Synapse. This table s
 | XM | XML | XML data type isn't currently directly supported within Azure Synapse, but XML data can be stored in a VARCHAR field |
 | YM | INTERVAL YEAR TO MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | YR | INTERVAL YEAR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| DY | INTERVAL DAY | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| F  | FLOAT | FLOAT |
-| HM | INTERVAL HOUR TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| HR | INTERVAL HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| HS | INTERVAL HOUR TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
-| I1 | BYTEINT | TINYINT |
-| I2 | SMALLINT | SMALLINT |
-| I8 | BIGINT | BIGINT |
-| I  | INTEGER | INT |
-| JN | JSON | JSON data type isn't currently directly supported within Azure Synapse, but JSON data can be stored in a VARCHAR field |
-| MI | INTERVAL MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
-| MO | INTERVAL MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
-| MS | INTERVAL MINUTE TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
-| N  | NUMBER | NUMERIC |
-| PD | PERIOD(DATE) | Can be converted to VARCHAR or  split into two separate dates |
-| PM | PERIOD (TIMESTAMP WITH TIME ZONE) | Can be converted to VARCHAR or split  into two separate timestamps (DATETIMEOFFSET). |
-| PS | PERIOD(TIMESTAMP) | Can be converted to VARCHAR or split into two separate timestamps  (DATETIMEOFFSET). |
-| PT | PERIOD(TIME) | Can be converted to VARCHAR or split into two separate times. |
-| PZ | PERIOD (TIME WITH TIME ZONE) | Can be converted to VARCHAR or split into two separate times but WITH TIME ZONE isn\'t supported for TIME. |
-| SC | INTERVAL SECOND | INTERVAL data types aren\'t supported in Azure Synapse, but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
-| SZ | TIMESTAMP WITH  TIME ZONE | DATETIMEOFFSET |
-| TS | TIMESTAMP | DATETIME or DATETIME2 |
-| TZ | TIME WITH TIME ZONE | TIME WITH TIME ZONE isn't supported because TIME is stored using "wall clock" time only without a time zone offset |
-| XM | XML | XML data type isn't directly supported within Azure Synapse, but XML data can be stored in a VARCHAR field |
-| YM | INTERVAL YEAR TO MONTH | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| YR | INTERVAL YEAR | INTERVAL data types aren't supported in Azure Synapse but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 
 Use the metadata from the Teradata catalog tables to determine whether any of these data types are to be migrated and allow for this in the migration plan. For example, use a SQL query like this one to find any occurrences of unsupported data types that need attention.
 
