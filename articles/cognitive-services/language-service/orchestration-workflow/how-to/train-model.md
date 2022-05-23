@@ -48,4 +48,5 @@ You can view the [confusion matrix](../concepts/evaluation-metrics.md) for inten
 
 ## Next steps
 * [Model evaluation metrics](../concepts/evaluation-metrics.md)
-* [Deploy and query the model](./deploy-query-model.md)
+* [Deploy and query the model](./deploy-model.md)
+* [Query the model](./call-api.md)

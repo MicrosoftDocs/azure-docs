@@ -76,6 +76,8 @@ items:
     href: healthcare-apis-faqs.md
   - name: GitHub projects
     href: github-projects.md
+  - name: Known issues
+    href: known-issues.md
   - name: Release notes
     href: release-notes.md 
    
