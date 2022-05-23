@@ -4,7 +4,7 @@ description: Use features like storage analytics, client-side logging, and other
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 10/08/2020
+ms.date: 05/23/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common

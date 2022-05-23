@@ -4,7 +4,7 @@ description: Identify and troubleshoot availability issues in Azure Storage acco
 author: normesta
 ms.topic: troubleshooting
 ms.author: normesta
-ms.date: 05/19/2022
+ms.date: 05/23/2022
 ms.service: storage
 ms.subservice: common
 services: storage
