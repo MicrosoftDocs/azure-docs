@@ -56,7 +56,13 @@ An easy way to generate the required client ID and password is using the **Try I
    az account show --query id -o tsv
    ````
 
-1. Paste in the following command. After replacing placeholder values with valid values, press Enter to run it. Notice that the security principal needs "owner" permissions. This role allows you to create or update an Azure resource in the specified subscription.
+1. Create a resource group for your security principal:
+
+   ```azurecli
+   az group create -l 'westus2' -n 'MyResourceGroup'
+   ```
+
+1. Paste in the following command. Replace the placeholder values with valid values: a descriptive security principal name, subscription ID, resource group name. Press Enter to run the command. Notice that the security principal has "owner" permissions, necessary for creating or updating an Azure resource.
 
     ```azurecli
     az ad sp create-for-rbac --name mySecurityPrincipalName \
@@ -70,10 +76,9 @@ An easy way to generate the required client ID and password is using the **Try I
 
    You'll use "appId", "password", and "tenantId" for the variables "clientId", "clientSecret", and "tenantId" in the next section..
 
-
 ## Set up Postman
 
-As with the previous section, the following steps are from [this blog post](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) if you need more detail.
+The following steps are from [this blog post](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) if you need more detail.
 
 1. Start a new Postman collection and edit its properties. In the Variables tab, create the following variables:
 
@@ -130,7 +135,7 @@ As with the previous section, the following steps are from [this blog post](http
 
 1. Save the collection.
 
-Now that Postman is set up, you can send REST calls similar to the ones described in this article. You'll update the endpoint, and request body where applicable.
+Now that Postman is set up, you can send REST calls similar to those described in this article. You'll update the endpoint, and request body where applicable.
 
 ## List search services
 
@@ -163,7 +168,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
 
 ## (preview) Enable Azure role-based authentication for data plane
 
-If you want to use Azure role-based access control (Azure RBAC), set "authOptions" to "aadOrApiKey" and then send the request.
+To use Azure role-based access control (Azure RBAC), set "authOptions" to "aadOrApiKey" and then send the request.
 
 If you want to use Azure RBAC exclusively, [turn off API key authentication](search-security-rbac.md#disable-api-key-authentication) by following up a second request, this time setting "disableLocalAuth" to "false".
 
@@ -196,7 +201,6 @@ If you're using [customer-managed encryption](search-security-manage-encryption-
 
 When this policy is enabled, calls that create objects with sensitive data, such as the connection string within a data source, will fail if an encryption key isn't provided: `"Error creating Data Source: "CannotCreateNonEncryptedResource: The creation of non-encrypted DataSources is not allowed when encryption policy is enforced."`
 
-
 ```rest
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
 {
@@ -220,7 +224,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
 
 ## (preview) Disable semantic search
 
-Although you have to [enable semantic search](semantic-search-overview.md#enable-semantic-search) before you can use it, you can also lock it down at the service level.
+Although [semantic search is not enabled](semantic-search-overview.md#enable-semantic-search) by default, you could lock down the feature at the service level.
 
 ```rest
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
