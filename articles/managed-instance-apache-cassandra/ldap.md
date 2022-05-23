@@ -10,7 +10,7 @@ ms.date: 05/23/2022
 
 # How to enable LDAP authentication in Azure Managed Instance for Apache Cassandra
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra data centers. This article discusses how to enable authentication using LDAP
+Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra data centers. This article discusses how to enable LDAP authentication to your clusters and data centers. 
 
 > [!IMPORTANT]
 > LDAP authentication is in public preview.
