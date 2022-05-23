@@ -15,7 +15,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 ## May 2022
 
-**Version 4.2.1**
+**Version 4.2.3**
 
 - **Proxy connection updates**: Now you can connect your micro-agent to an IoT Hub via a proxy. For more information, see [Connect via a proxy](tutorial-standalone-agent-binary-installation.md#connect-via-a-proxy).
 
@@ -27,7 +27,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 - **Login collector via UTMP**: The Login collector now supports UTMP to catch SSH interactive events, telnet events, and terminal logins, including failed login events. For more information, see [Login collector (event-based collector)](concept-event-aggregation.md#login-collector-event-based-collector).
 
-- **SBoM collector known issue**: The SBOM collector currently only collects the first 1,000 packages ingested. For more information, see [SBoM (trigger based)](concept-event-aggregation.md#sbom-trigger-based) collection.
+- **SBoM collector known issue**: The SBOM collector currently only collects the first 500 packages ingested. For more information, see [SBoM (trigger based)](concept-event-aggregation.md#sbom-trigger-based) collection.
 
 ## February 2022
 
@@ -77,7 +77,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 - **[Login collector](concept-event-aggregation.md#login-collector-event-based-collector)** - The login collectors gather user logins, logouts, and failed login attempts. Such as SSH & telnet.
 
-- **[System information collector](concept-event-aggregation.md#system-information-trigger-based-collector)** - The system information collector gatherers information related to the device’s operating system and hardware details.
+- **[System information collector](concept-event-aggregation.md#system-information-trigger-based-collector)** - The system information collector gathers information related to the device’s operating system and hardware details.
 
 - **[Event aggregation](concept-event-aggregation.md#how-does-event-aggregation-work)** - The Defender for IoT agent aggregates events such as process, login, network events that reduce the number of messages sent and costs, all while maintaining your device's security.  
 

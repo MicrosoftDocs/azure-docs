@@ -36,7 +36,7 @@ For more information, see [Configure Microsoft Defender for IoT agent-based solu
 
 For example:
 
-:::image type="content" source="media/how-to-investigate-cis-benchmark/log-analytics.png" alt-text="Screenshot of the Log Analytics workspace with a Defender for IoT alert query." lightbox="media/how-to-investigate-cis-benchmark/log-analytics.png":::
+:::image type="content" source="media/how-to-investigate-cis-benchmark/log-analytics.png" alt-text="Screenshot of the Log Analytics workspace with a Defender for I o T alert query." lightbox="media/how-to-investigate-cis-benchmark/log-analytics.png":::
 
 > [!NOTE]
 > In addition to alerts, you can also use this same procedure to query for recommendations or raw event data.
