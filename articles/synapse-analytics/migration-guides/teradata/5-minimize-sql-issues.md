@@ -82,7 +82,7 @@ The following sections discuss Teradata-specific options to consider during a mi
 > [!TIP]
 > Use existing indexes to give an indication of candidates for indexing in the migrated warehouse.
 
-When migrating tables between different technologies, only the raw data and its descriptive metadata gets physically moved between the two environments. Other database elements from the source system, such as indexes and log files, aren't directly migrated as these may not be needed or may be implemented differently within the new target environment. For example, there's no equivalent of the MULTISET option within Teradata's CREATE TABLE syntax.
+When migrating tables between different technologies, only the raw data and its descriptive metadata gets physically moved between the two environments. Other database elements from the source system, such as indexes and log files, aren't directly migrated as these may not be needed or may be implemented differently within the new target environment. For example, there's no equivalent of the `MULTISET` option within Teradata's `CREATE TABLE` syntax.
 
 It's important to understand where performance optimizations&mdash;such as indexes&mdash;were used in the source environment. This indicates where performance optimization can be added in the new target environment. For example, if a NUSI has been created in the source Teradata environment, this might indicate that a non-clustered index should be created in the migrated Azure Synapse. Other native performance optimization techniques, such as table replication, may be more applicable than a straight 'like for like' index creation.
 
