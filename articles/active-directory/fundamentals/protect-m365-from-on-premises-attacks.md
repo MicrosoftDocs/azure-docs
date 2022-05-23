@@ -38,11 +38,11 @@ Hybrid deployments can connect on-premises infrastructure to Microsoft 365. In s
 
 The two primary threat vectors are *federation trust relationships* and *account synchronization.* Both vectors can grant an attacker administrative access to your cloud.
 
-- Federated trust relationships, such as Security Assertions Markup Language (SAML) authentication, are used to authenticate to Microsoft 365 through your on-premises identity infrastructure. If a SAML token-signing certificate is compromised, federation allows anyone who has that certificate to impersonate any user in your cloud.
+- **Federated trust relationships**, such as Security Assertions Markup Language (SAML) authentication, are used to authenticate to Microsoft 365 through your on-premises identity infrastructure. If a SAML token-signing certificate is compromised, federation allows anyone who has that certificate to impersonate any user in your cloud.
 
   We recommend that you disable federation trust relationships for authentication to Microsoft 365 when possible.
 
-- Account synchronization can be used to modify privileged users, including their credentials, or groups that have administrative privileges in Microsoft 365.
+- **Account synchronization** can be used to modify privileged users, including their credentials, or groups that have administrative privileges in Microsoft 365.
 
   We recommend that you ensure that synchronized objects hold no privileges beyond a user in Microsoft 365. You can control privileges either directly or through inclusion in trusted roles or groups. Ensure these objects have no direct or nested assignment in trusted cloud roles or groups.
 
@@ -97,7 +97,7 @@ For more information, see [Securing privileged access](/security/compass/overvie
 
 Credentials are a primary attack vector. Implement the following practices to make credentials more secure:
 
-- Deploy passwordless authentication. Reduce the use of passwords as much as possible by deploying passwordless credentials. These credentials are managed and validated natively in the cloud. For more information, see [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md).
+- **Deploy passwordless authentication**. Reduce the use of passwords as much as possible by deploying passwordless credentials. These credentials are managed and validated natively in the cloud. For more information, see [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md).
 
   Choose from these authentication methods:
 
@@ -105,7 +105,7 @@ Credentials are a primary attack vector. Implement the following practices to ma
   - [The Microsoft Authenticator app](../authentication/howto-authentication-passwordless-phone.md)
   - [FIDO2 security keys](../authentication/howto-authentication-passwordless-security-key-windows.md)
 
-- [Deploy multifactor authentication]. For more information, see [Plan an Azure Active Directory Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+- **Deploy multifactor authentication**. For more information, see [Plan an Azure Active Directory Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
   Provision multiple strong credentials by using Azure AD multifactor authentication. That way, access to cloud resources requires an Azure AD managed credential in addition to an on-premises password. For more information, see [Build resilience with credential management](../fundamentals/resilience-in-credentials.md) and [Create a resilient access control management strategy by using Azure AD](./resilience-overview.md).
 
@@ -154,7 +154,7 @@ Use Azure AD capabilities to securely manage devices.
 
 Deploy Azure AD joined Windows 10 workstations with mobile device management policies. Enable Windows Autopilot for a fully automated provisioning experience. See [Plan your Azure AD join implementation](../devices/azureadjoin-plan.md) and [Windows Autopilot](/mem/autopilot/windows-autopilot).
 
-- **Use Windows 10 workstations**
+- **Use Windows 10 workstations**.
   - Deprecate machines that run Windows 8.1 and earlier.
   - Don't deploy computers that have server operating systems as workstations.
 - **Use Microsoft Endpoint Manager as the authority for all device management workloads.** See [Microsoft Endpoint Manager](https://www.microsoft.com/security/business/microsoft-endpoint-manager).
@@ -174,7 +174,7 @@ Deploy Azure AD joined Windows 10 workstations with mobile device management pol
 
   You can enable authentication, authorization, and remote access to legacy applications that don't support modern authentication. Use [Azure AD Application Proxy](../app-proxy/application-proxy.md). Or, enable them through a network or application delivery controller solution by using secure hybrid access partner integrations. See [Secure legacy apps with Azure Active Directory](../manage-apps/secure-hybrid-access.md).
 
-   Choose a VPN vendor that supports modern authentication. Integrate its authentication with Azure AD. In an on-premises compromise, you can use Azure AD to disable or block access by disabling the VPN.
+  Choose a VPN vendor that supports modern authentication. Integrate its authentication with Azure AD. In an on-premises compromise, you can use Azure AD to disable or block access by disabling the VPN.
 
 - **Application and workload servers**
 

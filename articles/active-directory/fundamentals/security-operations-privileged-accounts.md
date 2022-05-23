@@ -43,7 +43,7 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM. Enables Azure AD logs to be pushed to other SIEMs such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Azure Active Directory logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)**. Enables you to discover and manage apps, govern across apps and resources, and check your cloud apps' compliance.
 * **Microsoft Graph**. Enables you to export data and use Microsoft Graph to do more analysis. For more information, see [Microsoft Graph PowerShell SDK and Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md).
-* [Identity Protection](../identity-protection/overview-identity-protection.md). Generates three key reports you can use to help with your investigation:
+* **[Identity Protection](../identity-protection/overview-identity-protection.md)**. Generates three key reports you can use to help with your investigation:
 
   * **Risky users**. Contains information about which users are at risk, details about detections, history of all risky sign-ins, and risk history.
   * **Risky sign-ins**. Contains information about a sign-in that might indicate suspicious circumstances. For more information on investigating information from this report, see [Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md).
