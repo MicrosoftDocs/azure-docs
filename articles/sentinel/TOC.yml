@@ -176,7 +176,7 @@
       - name: Migrate detection rules
         href: migration-splunk-detection-rules.md
       - name: Migrate SOAR automation
-        href: migration-splunk.md
+        href: migration-splunk-automation.md
       - name: Export historical data
         href: migration-splunk-historical-data.md
     - name: Migrate from QRadar      
@@ -184,7 +184,7 @@
       - name: Migrate detection rules
         href: migration-qradar-detection-rules.md
       - name: Migrate SOAR automation
-        href: migration-qradar.md
+        href: migration-qradar-automation.md
       - name: Export historical data
         href: migration-qradar-historical-data.md
     - name: Ingest historical data

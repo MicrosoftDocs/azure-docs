@@ -1,15 +1,15 @@
 ---
-title: Migrate Splunk SOAR automation to Microsoft Sentinel | Microsoft Docs
-description: Learn how to identify SOAR use cases, and how to migrate your Splunk SOAR automation to Microsoft Sentinel.
+title: Migrate QRadar SOAR automation to Microsoft Sentinel | Microsoft Docs
+description: Learn how to identify SOAR use cases, and how to migrate your QRadar SOAR automation to Microsoft Sentinel.
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
 ms.date: 05/03/2022
 ---
 
-# Migrate Splunk SOAR automation to Microsoft Sentinel
+# Migrate QRadar SOAR automation to Microsoft Sentinel
 
-Microsoft Sentinel provides Security Orchestration, Automation, and Response (SOAR) capabilities with [automation rules](automate-incident-handling-with-automation-rules.md) to automate incident handling and response, and [playbooks](tutorial-respond-threats-playbook.md) to run predetermined sequences of actions to response and remediate threats. This article discusses how to identify SOAR use cases, and how to migrate your Splunk SOAR automation to Microsoft Sentinel.
+Microsoft Sentinel provides Security Orchestration, Automation, and Response (SOAR) capabilities with [automation rules](automate-incident-handling-with-automation-rules.md) to automate incident handling and response, and [playbooks](tutorial-respond-threats-playbook.md) to run predetermined sequences of actions to response and remediate threats. This article discusses how to identify SOAR use cases, and how to migrate your QRadar SOAR automation to Microsoft Sentinel.
 
 Automation rules simplify complex workflows for your incident orchestration processes, and allow you to centrally manage your incident handling automation. 
 
@@ -30,36 +30,31 @@ Here’s what you need to think about when migrating SOAR use cases from your or
 
 ## Migrate SOAR workflow
 
-This section shows how key SOAR concepts in Splunk translate to Microsoft Sentinel components, and provides general guidelines for how to migrate each step or component in the SOAR workflow.
+This section shows how key SOAR concepts in QRadar translate to Microsoft Sentinel components, and provides general guidelines for how to migrate each step or component in the SOAR workflow.
 
-:::image type="content" source="media/migration-splunk-automation/splunk-sentinel-soar-workflow.png" alt-text="Diagram displaying the Splunk and Microsoft Sentinel SOAR workflows." lightbox="media/migration-splunk-automation/splunk-sentinel-soar-workflow.png":::
+:::image type="content" source="media/migration-qradar-automation/qradar-sentinel-soar-workflow.png" alt-text="Diagram displaying the QRadar and Microsoft Sentinel SOAR workflows." lightbox="media/migration-qradar-automation/qradar-sentinel-soar-workflow.png":::
 
-|Splunk  |Microsoft Sentinel |
+|QRadar  |Microsoft Sentinel |
 |---------|---------|
-|Ingest events into main indexer.     |Ingest events into the Log Analytics workspace.     |
+|Define rules and conditions.     |Ingest events via data connectors.     |
 |Create containers.     |Tag alerts using the [custom details feature](surface-custom-details-in-alerts.md).   |
 |Create cases. |Microsoft Sentinel can automatically group alerts according to user-defined criteria, such as shared entities or severity. These alerts then generate incidents.  |
-|Create playbooks. |Azure Logic Apps uses several connectors to orchestrate activities across Microsoft Sentinel, Azure, third party and hybrid cloud environments. |
-|Create workbooks. |Microsoft Sentinel executes playbooks either in isolation or as part of an ordered automation rule. You can also execute playbooks manually against alerts or incidents, according to a predefined Security Operations Center (SOC) procedure. |
+|Create playbooks. |Use [a playbook integrated with Microsoft Teams](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/automate-incident-assignment-with-shifts-for-teams/ba-p/2297549) and attach the playbook to an automation rule to assign incidents. |
+|Create workbooks. |Microsoft Sentinel executes playbooks either in isolation or as part of an ordered automation rule. |
 
 ## Map SOAR components 
 
-Review which Microsoft Sentinel or Azure Logic Apps features map to the main Splunk SOAR components.
+Review which Microsoft Sentinel or Azure Logic Apps features map to the main QRadar SOAR components.
 
-|Splunk  |Microsoft Sentinel/Azure Logic Apps  |
+|QRadar  |Microsoft Sentinel/Azure Logic Apps  |
 |---------|---------|
-|Playbook editor |[Logic App designer](../logic-apps/logic-apps-overview.md) |
-|Trigger     |[Trigger](../logic-apps/logic-apps-overview.md)         |
-|• Connectors<br>• App<br>• Automation broker |• [Connector](tutorial-respond-threats-playbook.md)<br>• [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) |
-|Action blocks |[Action](../logic-apps/logic-apps-overview.md) |
-|Connectivity broker |[Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) |
-|Community |• [Automation > Templates tab](use-playbook-templates.md)<br>• [Content hub catalog](sentinel-solutions-catalog.md)<br>• [GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-OnPremADUser) | 
-|Decision |[Conditional control](../logic-apps/logic-apps-control-flow-conditional-statement.md) |
-|Code |[Azure Function connector](../logic-apps/logic-apps-azure-functions.md) |
-|Prompt |[Send approval email](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md) |
-|Format |[Data operations](../logic-apps/logic-apps-perform-data-operations.md) |
-|Input playbooks |Obtain variable inputs from results of previously executed steps or explicitly declared [variables](../logic-apps/logic-apps-create-variables-store-values.md) |
-|Set parameters with Utility block API utility |Manage Incidents with the [API](/rest/api/securityinsights/stable/incidents/get) |
+|Rules |[Analytics rules](detect-threats-built-in#use-built-in-analytics-rules.md) attached to playbooks or automation rules |
+|Gateway |[Condition control](../logic-apps/logic-apps-control-flow-conditional-statement.md) |
+|Scripts |[Inline code](../logic-apps/logic-apps-add-run-inline-code.md) |
+|Custom action processers |[Custom API calls](../logic-apps/logic-apps-create-api-app.md) in Azure Logic Apps or third party connectors. |
+|Functions |[Azure Function connector](../logic-apps/logic-apps-azure-functions.md) |
+|Message destinations |[Azure Logic Apps with Azure Service Bus](../connectors/connectors-create-api-servicebus.md) |
+|IBM X-Force Exchange |• [Automation > Templates tab](use-playbook-templates.md)<br>• [Content hub catalog](sentinel-solutions-catalog.md)<br>• [GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-OnPremADUser) |
 
 ## SOAR post migration best practices
 
