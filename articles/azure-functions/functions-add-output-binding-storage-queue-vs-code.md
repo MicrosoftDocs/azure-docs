@@ -13,9 +13,9 @@ zone_pivot_groups: programming-languages-set-functions
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-In this article, you'll learn how to use Visual Studio Code to connect Azure Storage to the function you created in the previous quickstart article. The output binding that you add to this function writes data from the HTTP request to a message in an Azure Queue storage queue.
+In this article, you learn how to use Visual Studio Code to connect Azure Storage to the function you created in the previous quickstart article. The output binding that you add to this function writes data from the HTTP request to a message in an Azure Queue storage queue.
 
-Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you'll use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
+Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
 ## Configure your local environment
 
@@ -54,7 +54,7 @@ This article assumes that you're already signed in to your Azure subscription fr
 
 ## Download the function app settings
 
-In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in the app settings in Azure. In this article, you'll write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the *local.settings.json* file.
+In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in the app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the *local.settings.json* file.
 
 1. Press <kbd>F1</kbd> to open the command palette, then search for and run the command `Azure Functions: Download Remote Settings....`.
 
@@ -63,7 +63,7 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
     > [!IMPORTANT]  
     > As the *local.settings.json* file contains secrets, it never gets published, and is excluded from the source control.
 
-1. Copy the value `AzureWebJobsStorage`, which is the key for the Storage account connection string value. You'll use this connection to verify that the output binding works as expected.
+1. Copy the value `AzureWebJobsStorage`, which is the key for the Storage account connection string value. You use this connection to verify that the output binding works as expected.
 
 ## Register binding extensions
 
@@ -164,7 +164,7 @@ After the binding is defined, you can use the `name` of the binding to access it
 
     :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Screenshot of executing function from Visual Studio Code.":::
 
-1. In the **Enter request body**, you'll see the request message body value of `{ "name": "Azure" }`. Press <kbd>Enter</kbd> to send this request message to your function.  
+1. In the **Enter request body**, you see the request message body value of `{ "name": "Azure" }`. Press <kbd>Enter</kbd> to send this request message to your function.  
 
 1. After a response is returned, press <kbd>Ctrl + C</kbd> to stop Core Tools.
 
@@ -184,7 +184,7 @@ Skip this section if you have already installed Azure Storage Explorer and conne
 
     :::image type="content" source="./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-connect-azure-account.png" alt-text="Screenshot of the sign-in to your Azure account window.":::
 
-After you successfully sign in to your account, you'll see all of the Azure subscriptions associated with your account.
+After you successfully sign in to your account, you see all of the Azure subscriptions associated with your account.
 
 ### Examine the output queue
 
@@ -196,7 +196,7 @@ After you successfully sign in to your account, you'll see all of the Azure subs
 
     :::image type="content" source="./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png" alt-text="Screenshot of the queue message shown in Azure Storage Explorer.":::
 
-1. Run the function again, send another request, and you'll see a new message in the queue.  
+1. Run the function again, send another request, and you see a new message in the queue.  
 
 Now, it's time to republish the updated function app to Azure.
 

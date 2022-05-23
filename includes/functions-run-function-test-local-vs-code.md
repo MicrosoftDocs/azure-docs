@@ -21,7 +21,7 @@ Visual Studio Code integrates with [Azure Functions Core tools](../articles/azur
 
     :::image type="content" source="media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Screenshot of the execute function now window from Visual Studio Code.":::
 
-1. In the **Enter request body**, you'll see the request message body value as `{ "name": "Azure" }`. Press <kbd>Enter</kbd> to send this request message to your function.
+1. In the **Enter request body**, you see the request message body value as `{ "name": "Azure" }`. Press <kbd>Enter</kbd> to send this request message to your function.
 
 1. When the function executes locally and returns a response, a notification is raised in Visual Studio Code. Information about the function execution is shown in the **Terminal** panel.
 

@@ -15,7 +15,7 @@ adobe-target-content: ./create-first-function-cli-python-uiex
 
 [!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
 
-In this article, you'll use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you'll deploy it to the serverless environment of Azure Functions.
+In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -109,7 +109,7 @@ You run all subsequent commands in this activated virtual environment.
 
 ## Create a local function project
 
-In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you'll create a function project that contains a single function.
+In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
 1. Run the `func init` command as follows to create a functions project in a folder named *LocalFunctionProj* with the specified runtime.
 

@@ -9,7 +9,7 @@ ms.custom: devdivchpfy22
 
 ## Publish the project to Azure
 
-In this section, you'll create a function app and related resources in your Azure subscription and then deploy your code.
+In this section, you create a function app and related resources in your Azure subscription and then deploy your code.
 
 > [!IMPORTANT]
 > Publishing to an existing function app overwrites the content of that app in Azure.

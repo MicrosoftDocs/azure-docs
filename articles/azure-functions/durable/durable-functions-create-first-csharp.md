@@ -16,7 +16,7 @@ Durable Functions is an extension of [Azure Functions](../functions-overview.md)
 
 ::: zone pivot="code-editor-vscode"
 
-In this article, you'll learn how to use Visual Studio Code to locally create and test a "hello world" durable function. This function orchestrates and chains together calls to other functions. You can then publish the function code to Azure. These tools are available as part of the Visual Studio Code [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
+In this article, you learn how to use Visual Studio Code to locally create and test a "hello world" durable function. This function orchestrates and chains together calls to other functions. You can then publish the function code to Azure. These tools are available as part of the Visual Studio Code [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
 :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vscode-complete.png" alt-text="Screenshot of Visual Studio Code window with a durable function.":::
 
@@ -40,7 +40,7 @@ To complete this tutorial:
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project 
 
-In this section, you'll use Visual Studio Code to create a local Azure Functions project.
+In this section, you use Visual Studio Code to create a local Azure Functions project.
 
 1. In Visual Studio Code, press <kbd>F1</kbd> (or <kbd>Ctrl/Cmd+Shift+P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
@@ -160,7 +160,7 @@ You have used Visual Studio Code to create and publish a C# durable function app
 
 ::: zone pivot="code-editor-visualstudio"
 
-In this article, you'll learn how to use Visual Studio 2019 to locally create and test a "hello world" durable function. This function orchestrates and chains together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2019.
+In this article, you learn how to use Visual Studio 2019 to locally create and test a "hello world" durable function. This function orchestrates and chains together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2019.
 
 :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-complete.png" alt-text="Screenshot of Visual Studio 2019 window with a durable function.":::
 

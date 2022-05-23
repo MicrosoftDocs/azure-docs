@@ -13,7 +13,7 @@ ms.custom: mode-api, devdivchpfy22
 
 Durable Functions is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
-In this article, you'll learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function. This function will orchestrate and chains together calls to other functions. You can then publish the function code to Azure.
+In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function. This function will orchestrate and chains together calls to other functions. You can then publish the function code to Azure.
 
 :::image type="content" source="./media/quickstart-python-vscode/functions-vs-code-complete.png" alt-text="Screenshot of the running durable function in Azure.":::
 
@@ -35,7 +35,7 @@ To complete this tutorial:
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
-In this section, you'll use Visual Studio Code to create a local Azure Functions project.
+In this section, you use Visual Studio Code to create a local Azure Functions project.
 
 1. In Visual Studio Code, press <kbd>F1</kbd> (or <kbd>Ctrl/Cmd+Shift+P</kbd>) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
@@ -48,7 +48,7 @@ In this section, you'll use Visual Studio Code to create a local Azure Functions
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | Python | Create a local Python Functions project. |
-    | Select a version | Azure Functions v3 | You'll only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
+    | Select a version | Azure Functions v3 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
     | Python version | Python 3.6, 3.7, or 3.8 | Visual Studio Code will create a virtual environment with the version you select. |
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
@@ -107,7 +107,7 @@ A basic Durable Functions app contains three functions:
 
 ### Orchestrator function
 
-You'll use a template to create the durable function code in your project.
+You use a template to create the durable function code in your project.
 
 1. In the command palette, search for and select `Azure Functions: Create Function...`.
 
