@@ -182,8 +182,7 @@ Most Netezza data types have a direct equivalent in Azure Synapse. This table sh
 | INTEGER                        | INT                                 |
 | INTERVAL                       | INTERVAL data types aren't currently directly supported in Azure Synapse but can be calculated using temporal functions such as DATEDIFF |
 | MONEY                          | MONEY                               |
-| NATIONAL CHARACTER             | NVARCHAR(n)                         |
-|   VARYING(n)                   |                                     |
+| NATIONAL CHARACTER VARYING(n)  | NVARCHAR(n)                         |
 | NATIONAL CHARACTER(n)          | NCHAR(n)                            |
 | NUMERIC(p,s)                   | NUMERIC(p,s)                        |
 | REAL                           | REAL                                |
