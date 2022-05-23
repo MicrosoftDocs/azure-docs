@@ -13,7 +13,7 @@ ms.date: 01/02/2022
 ![Alert Management icon](media/alert-management-solution/icon.png)
 
 > [!CAUTION]
-> This solution is no longer in active development and may not work as expected.  We suggest you try using [Azure Resource Graph to query Azure Monitor alerts](../alerts/alerts-overview.md#manage-your-alert-instances-programmatically).
+> This solution is no longer in active development and may not work as expected.  We suggest you try using [Azure Resource Graph to query Azure Monitor alerts](../alerts/alerts-overview.md#manage-your-alerts-programmatically).
 
 The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](../alerts/alerts-types.md#log-alerts) or [imported from Nagios or Zabbix](../vm/monitor-virtual-machine.md). The solution also imports alerts from any [connected System Center Operations Manager management groups](../agents/om-agents.md).
 

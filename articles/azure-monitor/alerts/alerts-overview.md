@@ -7,8 +7,6 @@ ms.topic: overview
 ms.date: 04/26/2022
 ms.custom: template-overview 
 ---
-<a name="overview">
-
 # What are Azure Monitor Alerts?
 
 This article explains Azure Monitor alerts, alert rules, alert processing rules and action groups, and how they work together to monitor your system and notify you if something is wrong. 
