@@ -268,7 +268,7 @@ curl -i -X POST https://your-language-endpoint-here/language/analyze-conversatio
 
 Get the `operation-location` from the response header. The value will look similar to the following URL:
 
-```http
+```rest
 https://your-language-endpoint/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
 ```
 
