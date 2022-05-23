@@ -13,9 +13,9 @@ ms.author: aahi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 * Create one of the following projects to use orchestration:
-  * [Conversation Language Understanding](../../../conversational-language-understanding/quickstart.md)
+  * [Conversation Language Understanding](../../../conversational-language-understanding/overview.md)
   * [Question Answering](../../../question-answering/overview.md)
-  * [LUIS](../../../../LUIS/how-to/sign-in.md)
+  * [LUIS](../../../../LUIS/what-is-luis.md)
 
 ## Sign in to Language Studio
 
