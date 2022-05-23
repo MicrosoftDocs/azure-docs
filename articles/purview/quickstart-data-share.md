@@ -5,126 +5,166 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: quickstart
-ms.date: 11/05/2021
+ms.custom: references_regions
+ms.date: 05/20/2022
 ---
-# Quick start: Share and receive data with Purview Data share (preview)
+# Quickstart: Share and receive Azure Storage data in-place with Microsoft Purview Data Sharing (preview)
 
-This article provides a quick start guide on how to share and receive data from Azure Data Lake Storage Gen2 (ADLS Gen2) or Blob storage account.
+This article provides a quick start guide on how to share data and receive share from Azure Data Lake Storage (ADLS Gen2) or Blob storage account. For an overview of how data sharing works, watch this short [demo](https://aka.ms/purview-data-share/overview-demo)
 
-## Supported Purview accounts
-
-Purview Data Share feature is currently available in Purview account in the following Azure regions: East US 2, Canada Central, West Europe, UK South, and Australia East.
-
-## Supported storage accounts
-
-In-place data sharing is currently supported for ADLS Gen2 and Blob storage accounts with the following configurations:
-
-* Azure regions: Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Japan East, Korea South, and South Africa North 
-* Performance: Standard
-* Redundancy options: LRS, GRS, RA-GRS
-* Tiers: Hot, Cool
-
-Storage accounts with VNET and private endpoints aren't supported.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Prerequisites
 
-* [A Purview account](create-catalog-portal.md) in the supported Azure region. You can also use two Purview accounts, one for data provider and one for data consumer. If you're getting an error related to *quota* when creating a Purview account, open a support ticket to increase the service limit. 
-* **Data Source Admin** and **Data Share Contributor** roles to a Purview collection. If you created the Purview account, you're automatically assigned these roles to the root collection. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Purview collection and roles.
-* A source storage account in the supported regions with files and folders you like to share. 
-* **Owner** or **Blob Storage Data Owner** role to the source storage account. 
-* A target storage account, which you'll use to access shared data. The target storage account must be in the same region as the source storage account. Both source and target need to be of the same type. If the source is ADLS Gen2, then target must be ADLS Gen2. If the source is Blob storage, then target must be Blob storage. 
-* **Contributor**, **Owner**, **Blob Storage Data Contributor**, or **Blob Storage Data Owner** role to the target storage account.
-* If the storage account is in a different Azure subscription than the one for Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types.md) in the Azure subscription where the storage account is located.
-* Your recipient's Azure sign-in email address, which you can use to send the invitation to. The recipient's email alias won't work.
+### Microsoft Purview prerequisites
+
+* [A Microsoft Purview account](create-catalog-portal.md). You can also use two Microsoft Purview accounts, one for data provider and one for data consumer. 
+* Your recipient's Azure sign-in email address which you can use to send the invitation to. The recipient's email alias won't work.
+
+### Azure Storage account prerequisites
+
+* Your Azure subscription must be registered for the **AllowDataSharing** preview feature. Follow the below steps using Azure portal or PowerShell. 
+
+    # [Portal](#tab/azure-portal)
+    1. In Azure portal, select your Azure subscription which you will use to create the source and target storage account.
+    1. From the left menu, select **Preview features** under *Settings*.
+    1. Select **AllowDataSharing** and *Register*. 
+    1. Refresh the *Preview features* screen to verify the *State* is **Registered**. It could take 15 minutes to 1 hour for registration to complete. 
+
+    For additional details, refer to [Register preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
+
+    # [PowerShell](#tab/powershell)
+    ```azurepowershell
+    Set-AzContext -SubscriptionId [Your Azure subscription ID]
+    ```
+    ```azurepowershell
+    Register-AzProviderFeature -FeatureName "AllowDataSharing" -ProviderNamespace "Microsoft.Storage"​
+    ```
+    ```azurepowershell
+    Get-AzProviderFeature -FeatureName "AllowDataSharing" -ProviderNamespace "Microsoft.Storage"   
+    ```
+    The *RegistrationState* should be **Registered**. It could take 15 minutes to 1 hour for registration to complete. For additional details, refer to [Register preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
+
+* Source and target storage accounts created after the registration step is completed. 
+* Both storage accounts must be in the same Azure region. Your storage accounts can be in a different Azure region from your Microsoft Purview account.
+    > [!NOTE]
+    > The following are supported storage account configurations:
+    >
+    > - Azure regions: Canada Central, Canada East, UK South, UK West, Australia East, Japan East, Korea South, and South Africa North 
+    > - Performance: Standard
+    > - Redundancy options: LRS, GRS, RA-GRS
+
+* If the storage accounts are in an Azure subscription different than Microsoft Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types.md) in the Azure subscription where the storage accounts are located.
+* Latest version of the storage SDK, PowerShell, CLI and Azure Storage Explorer. Storage REST API version must be February 2020 or later. 
+
+### Required roles
+Below are required roles for sharing data and receiving shares.
+
+| | Azure Storage Account Roles | Microsoft Purview Collection Roles |
+|:--- |:--- |:--- |
+| **Data Provider** |Owner OR Blob Storage Data Owner|Data Share Contributor|
+| **Data Consumer** |Contributor OR Owner OR Blob Storage Data Contributor OR Blob Storage Data Owner|Data Share Contributor|
+
+Note: If you created the Microsoft Purview account, you are automatically assigned all the roles to the root collection. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Microsoft Purview collection and roles.
 
 ## Create a share
-1. Within the Microsoft Purview governance portal, select **Data Share** icon from the left navigation, and then **Create a new share**.
+1. Within Microsoft Purview governance portal, select **Data Share** icon from the left navigation, and then **Create a new share**.
 
-   :::image type="content" source="./media/how-to-share-data/create-share.png" alt-text="Screenshot showing the data share overview.":::
+    ![Screenshot showing the data share overview.](./media/how-to-share-data/create-share.png "Data share overview.") 
 
-1. Provide the details for your share. Specify a name, share type, description of share contents (optional), terms of use (optional), and collection. Then select **Continue**.
+1. Provide the details for your share. Specify a name, share type, description of share contents (optional), and collection. Then select **Continue**.
 
-    Note: If you don't see a collection from the drop-down list, it means you don't have Data Share Contributor role access to any Purview collection to share data. Contact your Collection Admin to grant you access. 
+    Note: If you don't see a collection from the drop-down list, it means you don't have Data Share Contributor role access to any Microsoft Purview collection to share data. Contact your Collection Admin to grant you access. 
 
-    <img src="./media/how-to-share-data/create-share-details.png" alt="Create share and enter details" width=500/>
+    ![Screenshot showing create share and enter details.](./media/how-to-share-data/create-share-details.png "Create share and enter details.") 
 
 1. To add assets to your share, select **Add Assets**. 
 
-    <img src="./media/how-to-share-data/create-share-add-asset.png" alt="Add assets" width=500/>
+    ![Screenshot showing add assets.](./media/how-to-share-data/create-share-add-asset.png "Add assets.") 
 
-1. Select an asset type, and a data source that has already been registered with Purview. Select **Continue**. 
+1. Select an asset type, and a storage account that has already been registered with Microsoft Purview. Select **Continue**. 
 
-    Note: If you don't see a data source from the drop-down list, select on the **Register a new source to share from** link below to register your data source. Azure resource needs to be registered with Purview before you can share data from that resource. Your data source needs to be registered in the same collection as the share. If you don't see the collection from the drop-down list when registering your data source, it means you don't have Data Source Admin role access to the collection. Contact your Collection Admin to grant you access.
+    If you do not see a storage account from the drop down list, click on the **Register a new source to share from** link below to register your storage account. Azure resource needs to be registered with Microsoft Purview before you can share data from that resource. Your storage account needs to be registered in the same collection as the share. 
 
-    <img src="./media/how-to-share-data/create-share-select-source.png" alt="Select source" width=500/> 
+    ![Screenshot showing select source.](./media/how-to-share-data/create-share-select-source.png "Select source.")  
 
-1. Browse your data source hierarchy and select (check) the objects you want to share. Then select **Add**. When sharing from storage account, only files and folders are currently supported. Sharing from container isn't currently supported. 
+1. Browse your storage account hierarchy and select (check) the objects you want to share. Then select **Add**. 
 
-    <img src="./media/how-to-share-data/create-share-select-contents.png" alt="Select objects to share" width=500/> 
+    > [!NOTE]
+    > When sharing from a storage account, only files and folders are currently supported. Sharing from container isn't currently supported. 
+
+    ![Screenshot showing select objects to share.](./media/how-to-share-data/create-share-select-contents.png "Select objects to share.")   
 
 1. Review the assets selected. Optionally, edit **Name** and **Display name** which the recipient will see. Select **Continue**.
 
-    <img src="./media/how-to-share-data/create-share-edit-asset-name.png" alt="Edit asset name and display name" width=500/>   
+    ![Screenshot showing edit asset name and display name.](./media/how-to-share-data/create-share-edit-asset-name.png "Edit asset name and display name.")     
 
-1. Select **Add Recipient**. Enter the Azure login email address of who you want to share data with. Select **Create and Share**. 
+1. Select **Add Recipient**. Enter the Azure login email address of who you want to share data with. Optionally, specify an expiration date for when to terminate the share. Select **Create and Share**. 
     
-    Note you can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
+    You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
 
-    <img src="./media/how-to-share-data/create-share-add-recipient.png" alt="Add recipients" width=500/>   
+    ![Screenshot showing add recipients.](./media/how-to-share-data/create-share-add-recipient.png "Add recipients.")   
 
-You've now created your Azure data share. The recipients of your share will receive an invitation and they can view the pending share in their Purview account.
+You have now created your share. The recipients of your share will receive an invitation and they can view the pending share in their Microsoft Purview account.
 
 ## Receive share
 
-1. You can view pending share in any Purview account. Select a Purview account you want to use to receive the share, and open the Microsoft Purview governance portal. If you received an email invitation, you can select on the **View pending share** link in the email to select a Purview account. 
-
-1. In the Microsoft Purview governance portal, select **Data Share** icon from the left navigation. Then select **pending received share**.
+1. You can view pending share in any Microsoft Purview account. Select a Microsoft Purview account you want to use to receive the share, and open Microsoft Purview governance portal. Select **Data Share** icon from the left navigation. Then select **pending received share**. If you received an email invitation, you can click on the **View pending share** link in the email to select a Microsoft Purview account. 
 
     If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant prior to viewing pending received share for the first time. Once verified, it's valid for 12 months.
 
-   ![Screenshot showing pending received share.](./media/how-to-receive-share/receive-share-invitation.png "Pending receive share.") 
+    ![Screenshot showing pending received share.](./media/how-to-receive-share/receive-share-invitation.png "Pending receive share.") 
 
 1. Select name of the pending share you want to view. 
 
-   ![Screenshot showing how to select pending received share.](./media/how-to-receive-share/receive-share-select-invitation.png "Select pending receive share.") 
+    ![Screenshot showing how to select pending received share.](./media/how-to-receive-share/receive-share-select-invitation.png "Select pending receive share.") 
 
-1. Specify a **Received share name** and a collection. Review all the fields, including the **Terms of use**. If you agree to the terms, select the check box. Select **Accept and configure**. If you don't want to accept the invitation, select *Reject*.
 
-    <img src="./media/how-to-receive-share/receive-share-accept.png" alt="Accept pending share" width=500/>   
+1. Specify a **Received share name** and a collection. Select **Accept and configure**. If you do not want to accept the invitation, select *Reject*.
+ 
+    ![Screenshot showing accept pending share.](./media/how-to-receive-share/receive-share-accept.png "Accept pending share.") 
 
-1. Continue to map assets. Select **Map** next to each asset to specify a target data store to receive or access shared data. 
+1. Continue to map asset. Select **Map** next to the asset to specify a target data store to receive or access shared data. 
 
-    <img src="./media/how-to-receive-share/receive-share-map.png" alt="Map asset" width=500/>   
+    ![Screenshot showing map asset.](./media/how-to-receive-share/receive-share-map.png "Map asset.")   
 
-1. For in-place sharing, target type and locations are determined by the data provider's source type and location. Select a data store with the same type and location. 
+1. For in-place sharing, target type and locations are determined by the data provider's source type and location. Select a storage account with the same type and location as the source. 
 
-    Enter additional information required to map assets. This could be different depending on the asset types. Select **Map to target**.
+    If you do not see a storage account from the drop down list, click on the **Register a new data store to map assets** link below to register your storage account. Azure resource needs to be registered with Microsoft Purview before you can receive data into that resource. Your storage account needs to be registered in the same collection as the received share.
 
-    <img src="./media/how-to-receive-share/receive-share-map-target.png" alt="Map asset to target" width=500/>   
+    Enter additional information required to map asset. Select **Map to target**.
 
-    Note: If you don't see a data source from the drop-down list, select on the **Register a new data store to map assets** link below to register your data store. Azure resource needs to be registered with Purview before you can share data from that resource. Your data store needs to be registered in the same collection as the received share. If you don't see the collection from the drop-down list when registering your data store, it means you don't have Data Source Admin role access to the collection. Contact your Collection Admin to grant you access.
+    > [!NOTE] 
+    > The container where shared data is mapped to is read-only. You cannot write to the container. You can map multiple shares into the same container.
+ 
+    ![Screenshot showing map asset to target.](./media/how-to-receive-share/receive-share-map-target.png "Map asset to target.")   
 
-1. The screen will show *Mapping* in progress. Asset mapping can take a few minutes. Map all the assets and select **Close**. 
+1. The screen will show *Mapping* in progress. Asset mapping can take a few minutes. Select **Close**. 
 
-    Note: You can select "Close" after you configured all the asset mapping. You don't need to wait for the mapping to complete.
+    You can select "Close" after you configured all the asset mapping. You don't need to wait for the mapping to complete.
+ 
+    ![Screenshot showing map asset to target in progress.](./media/how-to-receive-share/receive-share-map-inprogress.png "Map asset to target in progress.")   
 
-    <img src="./media/how-to-receive-share/receive-share-map-inprogress.png" alt="Map asset to target in progress" width=500/>  
-
-1. Select **Assets** tab to monitor mapping status. Once mapping is completed, you'll get a notification in the screen. The status will change from *Mapping* to *Mapped*. You can now access the data in the target data store. 
+1. Select **Assets** tab to monitor mapping status. Once mapping is completed, you'll get a notification in the screen. The status will change from *Mapping* to *Mapped*. 
 
    ![Screenshot showing mapping complete.](./media/how-to-receive-share/receive-share-asset-mapped.png "Map asset complete.") 
+
+    You can now access the data in the target storage account. 
+    > [!NOTE] 
+    > Storage REST API version should be February 2020 or later. Ensure you are using the latest version of the storage SDK, PowerShell, CLI and Azure Storage Explorer.
 
 ## Clean up resources
 
 To clean up the resources created for the quick start, follow the steps below: 
 
-1. Within Purview, delete the sent share and received share.
-1. Once shares are successfully deleted, delete the target folder Purview created in the target storage account. 
+1. Within Microsoft Purview governance portal, delete the sent share and received share.
+1. Once shares are successfully deleted, delete the target container and folder Microsoft Purview created in the target storage account. 
 
 ## Troubleshoot
 To troubleshoot issues with sharing data, refer to the [Troubleshoot section of How to share data](how-to-share-data.md#troubleshoot). To troubleshoot issues with receiving share, refer to the [Troubleshoot section of How to receive shared data](how-to-receive-share.md#troubleshoot).
 
 ## Next steps
-* [How to share data](how-to-share-data.md)
-* [How to Receive Shared Data](how-to-receive-share.md)
+* [FAQ for Data Sharing](how-to-data-share-faq.md)
+* [How to Share Data](how-to-share-data.md)
+* [How to Receive Share](how-to-receive-share.md)
 * [REST API reference](/rest/api/purview/)

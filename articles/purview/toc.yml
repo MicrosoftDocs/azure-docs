@@ -104,7 +104,7 @@ items:
       href: concept-asset-normalization.md
     - name: Workflows
       href: concept-workflow.md
-  - name: Data Share
+  - name: Data Sharing
     href: concept-data-share.md
   - name: Data policies
     items:
@@ -277,13 +277,15 @@ items:
       href: how-to-automatically-label-your-content.md
     - name: Sensitivity labels FAQ
       href: sensitivity-labels-frequently-asked-questions.yml
-  - name: Data Share
+  - name: Data Sharing
     items:
     - name: Share data
       href: how-to-share-data.md
-    - name: Receive shared data
+    - name: Receive share
       href: how-to-receive-share.md
-  - name: Data Estate Insights
+    - name: Data sharing FAQ
+      href: how-to-data-share-faq.md
+  - name: Insights
     items:
     - name: View asset insights
       href: asset-insights.md

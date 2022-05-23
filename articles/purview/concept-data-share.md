@@ -5,69 +5,49 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: conceptual
-ms.date: 11/05/2021
+ms.date: 05/20/2022
 ---
 
-# Understand Purview Data share (preview)
+# Azure Storage in-place data share with Microsoft Purview Data Sharing (preview)
 
-This article provides an overview of the Data Share feature in Microsoft Purview. 
+Seamless data sharing between organizations eliminates data silos, facilitates data-empowered decisions and unlocks tremendous competitive advantages. Traditionally, organizations have shared data with internal teams or external partners by generating data feeds requiring investment in data copy and refresh pipelines. The result is higher cost for data storage and movement, data proliferation (i.e. multiple copies of data) and delay in access to time-sensitive data. Near-real time access to data is the key to harnessing the true power and scale of big data in enterprise data lakes to effectively realize consistent and reliable data driven decisions.
 
-In today's digital world, organizations have increasing needs to make data accessible to drive business decisions. Seamlessly sharing data for inter-departmental and inter-organizational collaboration can unlock tremendous competitive advantage. Traditionally, data is shared via FTP or API, which are often expensive to provision and maintain. Other adhoc data sharing methods such as e-mail or USBs are hard to scale and keep track of. 
-
-Purview Data Share enables organizations to easily and securely share data both within the organization or cross organizations with business partners and customers. You can share or receive data with just a few clicks. Data providers can centrally manage and monitor data sharing relationships, and revoke sharing at any time. Data consumers can access received data with their own analytics tools and turn data into insights within minutes.
+With Microsoft Purview Data Sharing, data providers can now share data in-place from ADLS Gen2 and Blob storage accounts, both within and across organizations without data duplication, and centrally manage sharing activities within Microsoft Purview, a unified data governance solution. Data consumers can now have near real-time access to shared data. They can also use this shared data for any of their processing and insights needs and gain value at cloud scale faster than ever before. Storage data access and transactions are charged to the data consumers based on what they use, and at no additional cost to the data providers.
 
 ## Data sharing scenarios
 
-Purview Data Share can help with a variety of data sharing scenarios, including:
+Microsoft Purview Data Sharing can help with a variety of data sharing scenarios, including:
 
-* Collaborate with external partners across supply chain to optimize operational efficiency, improve agility and customer satisfaction 
+* Collaborate with external business partners to enable richer data insights, optimize operational efficiency and improve agility 
 * Outsource data transformation and processing to third party ISVs or data aggregators by sharing raw data and receiving normalized data and analytics results back
-* Automate sharing of big data (e.g. IoT data, scientific data, satellite and surveillance images or videos, financial market data) in near real time and without data duplication. 
+* Automate sharing of big data (for example: IoT data, scientific data, satellite and surveillance images or videos, financial market data) in near real time and without data duplication. 
 * Share data between different departments within the organization to improve data-driven decisions  
-
-
-## How data share works
-
-Purview Data Share currently supports sharing of files and folders in-place from Azure Data Lake Storage Gen2 (ADLS Gen2) and Blob storage accounts. A data provider creates a share by specifying what data to share, who to share them with (one or more data consumers), and the terms of use for accessing shared data. Microsoft Purview sends an invitation to each data consumer, who accepts the invitation and specifies the target storage account in their own Azure subscription to access the shared data. This establishes a sharing relationship between the provider and consumer storage accounts. This sharing relationship provides data consumer read-only access to shared data through the consumer target storage account. Any change to the data in the provider source storage account is reflected in near real-time in the consumer target storage account. The data provider pays for data storage, while the data consumer pays for their own data access transactions and compute.  Provider and consumer storage accounts must be in the same Azure region. Data can be shared from ADLS Gen2 to ADLS Gen2, and Blob to Blob storage accounts.
-
-<br/>
-
-<img src="./media/concept-data-share/data-share-flow.png" alt="Data share flow" width=500/>
 
 ## Key capabilities
 
-Purview Data Share enables data providers to:
-
-* Share data within the organization or with partners and customers outside of the organization
-* Share data from a list of [supported data stores](purview-connector-overview.md) 
-* Share data in-place without data duplication
+* Share data within the organization or with partners and customers outside of the organization (within the same Azure tenant or across different Azure tenants)
+* Share data in-place without data duplication from ADLS Gen2 or Blob storage
 * Share data with multiple recipients
-* Associate terms of use with the shared data
-* Centrally manage sharing relationships and keep track of what data is shared with who
-
-Purview Data Share enables data consumers to: 
-
-* Receive an invitation to share data
-* View description and terms of use for the shared data  
-* Accept or reject a share
-* Accept shared data into a [supported data stores](purview-connector-overview.md)
 * Access shared data in near real time
+* Centrally manage sharing relationships and keep track of who the data is shared with/from
+* Revoke or terminate share access at any time
+* Flexible experience through Microsoft Purview governance portal or via REST APIs
 
-All key capabilities listed above are supported through the Microsoft Purview governance portal or via REST APIs. For more details on using Azure Data Share through REST APIs, check out our reference documentation. 
+## How in-place data sharing works
 
-## Supported regions
+Microsoft Purview enables sharing of files and folders in-place from ADLS Gen2 and Blob storage accounts. A data provider creates a share by specifying files and folders to be shared, and who to share them with (one or more data consumers). Microsoft Purview sends an invitation to each data consumer, who accepts the invitation and specifies the target storage account in their own Azure subscription to access the shared data. This establishes a sharing relationship between the provider and consumer storage accounts. This sharing relationship provides data consumer read-only access to shared data through the consumer’s target storage account. Any changes to the data in the provider’s source storage account is reflected in near real-time in the consumer’s target storage account. The data provider pays for data storage and their own data access, while the data consumer pays for their own data access transactions.  Data provider can revoke access to the share or set a share expiration time for time-bound access to data. Data consumer can also terminate access to the share at any time.
 
-Purview Data Share feature supports sharing data from ADLS Gen2 and Blob storage accounts. It is currently available in the following Azure regions.
+![Screenshot showing data share flow.](./media/concept-data-share/data-share-flow.png "Data share flow.") 
 
-* Purview accounts in East US 2, Canada Central, West Europe, UK South, and Australia East
-* ADLS Gen2 and Blob Storage accounts in Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Japan East, Korea South, and South Africa North 
+## Where data is stored
 
-Purview Data Share only stores metadata about your share. It does not store a copy of the shared data itself. The data is stored in the underlying data store that is being shared. You can have your data stored in a different Azure region than your Purview account. For example, you can have your Purview account located in East US 2 and your storage account which stores the data located in South Africa North.
+Microsoft Purview Data Sharing only stores metadata about your share. It does not store a copy of the shared data itself. The data is stored in the underlying source storage account that is being shared. You can have your storage accounts in a different Azure region than your Microsoft Purview account. 
 
 ## Get started
 
-Get started with Purview Data Share by following the [Data Share Quick Start](quickstart-data-share.md) to share and receive data stored in Azure Data Lake Storage Gen2 or Blob Storage.
+Get started with Microsoft Purview in-place data sharing for Azure Storage by watching a [demo](https://aka.ms/purview-data-share/overview-demo) and following the [Data Sharing Quickstart](quickstart-data-share.md).
 
 ## Additional resources
+* [FAQ for Data Sharing](how-to-data-share-faq.md)
 * [How to Share Data](how-to-share-data.md)
-* [How to Receive Shared Data](how-to-receive-share.md)
+* [How to Receive Share](how-to-receive-share.md)

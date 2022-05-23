@@ -5,8 +5,8 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 01/24/2022
-ms.custom: template-how-to, ignite-fall-2021
+ms.date: 05/20/2022
+ms.custom: template-how-to, ignite-fall-2021, references_regions
 ---
 
 # Connect to Azure Blob storage in Microsoft Purview
@@ -291,7 +291,16 @@ Scans can be managed or run again on completion
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-full-inc-scan.png" alt-text="full or incremental scan":::
 
 ## Data sharing
-Purview Data share enables sharing of data in-place from Azure Blob storage account to Azure Blob storage account. This section provides details about the Azure Blob storage account specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive shared data](how-to-receive-share.md) for step by step guide on how to use Purview Data share.
+Microsoft Purview Data Sharing (preview) enables sharing of data in-place from Azure Blob storage account to Azure Blob storage account. This section provides details about the Azure Blob storage account specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive share](how-to-receive-share.md) for step by step guide on how to use data share.
+
+### Storage accounts supported for in-place data sharing
+The following storage accounts are supported for in-place data sharing:
+
+* Regions: Canada Central, Canada East, UK South, UK West, Australia East, Japan East, Korea South, and South Africa North
+* Redundancy options: LRS, GRS, RA-GRS
+* Tiers: Hot, Cool
+
+Only use storage account without production workload for the preview.
 
 ### Storage account permissions required to share data
 To add or update a storage account asset to a share, you need ONE of the following permissions:
@@ -305,25 +314,11 @@ To map a storage account asset in a received share, you need ONE of the followin
 * **Microsoft.Storage/storageAccounts/write** - This permission is  available in the *Contributor* and *Owner* role.
 * **Microsoft.Storage/storageAccounts/blobServices/containers/write** - This permission is available in the *Contributor*, *Owner*, *Storage Blob Data Contributor* and *Storage Blob Data Owner* role.
 
-### Storage accounts supported for in-place data sharing
-The following storage accounts are supported for in-place data sharing:
-
-* Regions: Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Japan East, Korea South, and South Africa North
-* Redundancy options: LRS, GRS, RA-GRS
-* Tiers: Hot, Cool
-* Storage accounts with VNET and private endpoints are not supported
-
 ### Update shared data in source storage account
 Updates you make to shared files or data in the shared folder from source storage account will be made available to recipient in target storage account in near real time. When you delete subfolder or files within the shared folder, they will disappear for recipient. To delete the shared folder, file or parent folders or containers, you need to first revoke access to all your shares from the source storage account.
 
 ### Access shared data in target storage account
 The target storage account enables recipient to access the shared data read-only in near real time. You can connect analytics tools such as Synapse Workspace and Databricks to the shared data to perform analytics. Cost of accessing the shared data is charged to the target storage account. 
-
-The folder receiving shared data has the following properties.
-
-* Data is read only in the receiving folder. You cannot edit the shared data or write other data into the receiving folder. You can not re-share shared data. You cannot delete the container and receiving folder when share is still active. 
-* Event grid will not show events for changes to the shared data.
-* AZCopy is not supported for shared data in the receiving folder.
 
 ### Service limit
 Source storage account can support up to 20 targets, and target storage account can support up to 100 sources. If you require an increase in limit, please contact Support.

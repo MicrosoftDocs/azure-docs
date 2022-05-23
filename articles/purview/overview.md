@@ -5,7 +5,7 @@ author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.topic: overview
-ms.date: 12/06/2021
+ms.date: 05/10/2022
 ---
 
 # What is Microsoft Purview?
@@ -49,7 +49,7 @@ For more information, see our [introduction to Data Estate Insights](concept-ins
 
 ## Data Share
 
-Microsoft Purview Data Share enables organizations to securely share data both within your organization, or cross organizations with business partners and customers. You can share or receive data with just a few clicks. Data providers can centrally manage and monitor data sharing relationships, and revoke sharing at any time. Data consumers can access received data with their own analytics tools and turn data into insights.
+Microsoft Purview Data Sharing enables organizations to securely share data both within your organization, or cross organizations with business partners and customers. You can share or receive data with just a few clicks. Data providers can centrally manage and monitor data sharing relationships, and revoke sharing at any time. Data consumers can access received data with their own analytics tools and turn data into insights.
 
 For more information, see our [introduction to Data Share](concept-data-share.md).
 
