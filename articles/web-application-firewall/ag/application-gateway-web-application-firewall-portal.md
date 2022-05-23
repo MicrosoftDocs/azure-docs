@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 05/20/2022
+ms.date: 05/23/2022
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
 ---
@@ -123,11 +123,11 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 5. For the **Backend settings**, select **Add new** to create a new Backend setting. This setting determines the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *myBackendSetting* for the **Backend settings name**. Accept the default values for the other settings in the window, then select **Add** to return to the **Add a routing rule** window. 
 
-     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backendsetting.png" alt-text="Screenshot showing Create new application gateway, Backend setting." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backendsetting.png":::
+     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backend-setting.png" alt-text="Screenshot showing Create new application gateway, Backend setting." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backend-setting.png":::
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
-     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends.png" alt-text="Screenshot showing Create new application gateway: routing rule" lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends.png":::
+     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends.png" alt-text="Screenshot showing Create new application gateway: routing rule." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends.png":::
 
 7. Select **Next: Tags** and then **Next: Review + create**.
 
