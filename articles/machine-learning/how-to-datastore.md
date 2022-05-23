@@ -422,4 +422,4 @@ ml_client.create_or_update(store)
 
 ## Next steps
 
-* [Register and Consume your data](how-to-data.md)
+* [Register and Consume your data](how-to-create-register-data-assets.md)
