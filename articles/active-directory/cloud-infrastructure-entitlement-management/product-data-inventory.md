@@ -53,4 +53,4 @@ You can use the **Inventory** dashboard in Entra Permissions Management (Entra) 
 
 ## Next steps
 
-- For information about viewing and configuring settings for collecting data from your authorization system and its associated accounts, see [View and configure settings for data collection](cloudknox-product-data-sources.md).
+- For information about viewing and configuring settings for collecting data from your authorization system and its associated accounts, see [View and configure settings for data collection](product-data-sources.md).

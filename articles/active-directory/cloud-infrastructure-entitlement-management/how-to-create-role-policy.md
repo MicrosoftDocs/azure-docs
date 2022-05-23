@@ -68,7 +68,7 @@ This article describes how you can use the **Remediation** dashboard in Entra Pe
 
     A message confirms that your policy has been submitted for creation
 
-1. The [**Entra Tasks**](cloudknox-ui-tasks.md) pane appears on the right.
+1. The [**Entra Tasks**](ui-tasks.md) pane appears on the right.
     - The **Active** tab displays a list of the policies Entra is currently processing.
     - The **Completed** tab displays a list of the policies Entra has completed.
 1. Refresh the **Role/Policies** tab to see the policy you created.
@@ -113,7 +113,7 @@ This article describes how you can use the **Remediation** dashboard in Entra Pe
 
     A message confirms that your role has been submitted for creation
 
-1. The [**Entra Tasks**](cloudknox-ui-tasks.md) pane appears on the right.
+1. The [**Entra Tasks**](ui-tasks.md) pane appears on the right.
     - The **Active** tab displays a list of the policies Entra is currently processing.
     - The **Completed** tab displays a list of the policies Entra has completed.
 1. Refresh the **Role/Policies** tab to see the role you created.
@@ -151,7 +151,7 @@ This article describes how you can use the **Remediation** dashboard in Entra Pe
 1. Select **Submit**.
     A message confirms that your role has been submitted for creation
 
-1. The [**Entra Tasks**](cloudknox-ui-tasks.md) pane appears on the right.
+1. The [**Entra Tasks**](ui-tasks.md) pane appears on the right.
 
     - The **Active** tab displays a list of the policies Entra is currently processing.
     - The **Completed** tab displays a list of the policies Entra has completed.
@@ -160,12 +160,12 @@ This article describes how you can use the **Remediation** dashboard in Entra Pe
 
 ## Next steps
 
-- For information on how to view existing roles/policies, requests, and permissions, see [View roles/policies, requests, and permission in the Remediation dashboard](cloudknox-ui-remediation.md).
-- For information on how to modify a role/policy, see [Modify a role/policy](cloudknox-howto-modify-role-policy.md).
-- For information on how to clone a role/policy, see [Clone a role/policy](cloudknox-howto-clone-role-policy.md).
-- For information on how to delete a role/policy, see [Delete a role/policy](cloudknox-howto-delete-role-policy.md).
-- To view information about roles/policies, see [View information about roles/policies](cloudknox-howto-view-role-policy.md).
-- For information on how to attach and detach permissions for AWS identities, see [Attach and detach policies for AWS identities](cloudknox-howto-attach-detach-permissions.md).
-- For information on how to revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities, see [Revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities](cloudknox-howto-revoke-task-readonly-status.md)
-- For information on how to create or approve a request for permissions, see [Create or approve a request for permissions](cloudknox-howto-create-approve-privilege-request.md).
-- For information on how to view information about roles/policies, see [View information about roles/policies](cloudknox-howto-view-role-policy.md)
+- For information on how to view existing roles/policies, requests, and permissions, see [View roles/policies, requests, and permission in the Remediation dashboard](ui-remediation.md).
+- For information on how to modify a role/policy, see [Modify a role/policy](how-to-modify-role-policy.md).
+- For information on how to clone a role/policy, see [Clone a role/policy](how-to-clone-role-policy.md).
+- For information on how to delete a role/policy, see [Delete a role/policy](how-to-delete-role-policy.md).
+- To view information about roles/policies, see [View information about roles/policies](how-to-view-role-policy.md).
+- For information on how to attach and detach permissions for AWS identities, see [Attach and detach policies for AWS identities](how-to-attach-detach-permissions.md).
+- For information on how to revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities, see [Revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities](how-to-revoke-task-readonly-status.md)
+- For information on how to create or approve a request for permissions, see [Create or approve a request for permissions](how-to-create-approve-privilege-request.md).
+- For information on how to view information about roles/policies, see [View information about roles/policies](how-to-view-role-policy.md)

@@ -66,6 +66,6 @@ This article describes how to create a rule in the Entra Permissions Management 
 
 ## Next steps
 
-- For more information about viewing rules, see [View roles in the Autopilot dashboard](cloudknox-ui-autopilot.md).
-- For information about generating, viewing, and applying rule recommendations for rules, see [Generate, view, and apply rule recommendations for rules](cloudknox-howto-recommendations-rule.md).
-- For information about notification settings for rules, see [View notification settings for a rule](cloudknox-howto-notifications-rule.md).
+- For more information about viewing rules, see [View roles in the Autopilot dashboard](ui-autopilot.md).
+- For information about generating, viewing, and applying rule recommendations for rules, see [Generate, view, and apply rule recommendations for rules](how-to-recommendations-rule.md).
+- For information about notification settings for rules, see [View notification settings for a rule](how-to-notifications-rule.md).

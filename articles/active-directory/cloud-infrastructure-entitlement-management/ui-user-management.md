@@ -78,12 +78,12 @@ You can also select the following options:
 - **Reload**: Select this option to refresh the information displayed in the **User** table.
 - **Search**: Enter a name or email address to search for a specific user.
 - **Filters**: Select the authorization systems and accounts you want to display.
-- **Create Permission**: Create a group and set up its permissions. For more information, see [Create group-based permissions](cloudknox-howto-create-group-based-permissions.md)
+- **Create Permission**: Create a group and set up its permissions. For more information, see [Create group-based permissions](how-to-create-group-based-permissions.md)
 
 
 
 ## Next steps
 
-- For information about how to view information about active and completed tasks, see [View information about active and completed tasks](cloudknox-ui-tasks.md).
-- For information about how to view personal and organization information, see [View personal and organization information](cloudknox-product-account-settings.md).
-- For information about how to select group-based permissions settings, see [Select group-based permissions settings](cloudknox-howto-create-group-based-permissions.md).
+- For information about how to view information about active and completed tasks, see [View information about active and completed tasks](ui-tasks.md).
+- For information about how to view personal and organization information, see [View personal and organization information](product-account-settings.md).
+- For information about how to select group-based permissions settings, see [Select group-based permissions settings](how-to-create-group-based-permissions.md).

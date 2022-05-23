@@ -132,8 +132,8 @@ Filters can be applied in one, two, or all three categories depending on the typ
 
 ## Next steps
 
-- To view active tasks, see [View usage analytics about active tasks](cloudknox-usage-analytics-active-tasks.md).
-- To view assigned permissions and usage by users, see [View usage analytics about users](cloudknox-usage-analytics-users.md).
-- To view assigned permissions and usage of the group and the group members, see [View usage analytics about groups](cloudknox-usage-analytics-groups.md).
-- To view active resources, see [View usage analytics about active resources](cloudknox-usage-analytics-active-resources.md).
-- To view assigned permissions and usage of the serverless functions, see [View usage analytics about serverless functions](cloudknox-usage-analytics-serverless-functions.md).
+- To view active tasks, see [View usage analytics about active tasks](usage-analytics-active-tasks.md).
+- To view assigned permissions and usage by users, see [View usage analytics about users](usage-analytics-users.md).
+- To view assigned permissions and usage of the group and the group members, see [View usage analytics about groups](usage-analytics-groups.md).
+- To view active resources, see [View usage analytics about active resources](usage-analytics-active-resources.md).
+- To view assigned permissions and usage of the serverless functions, see [View usage analytics about serverless functions](usage-analytics-serverless-functions.md).

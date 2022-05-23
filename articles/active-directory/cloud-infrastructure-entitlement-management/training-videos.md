@@ -36,6 +36,6 @@ To view a video on how to configure and onboard Google Cloud Platform (GCP) acco
 
 ## Next steps
 
-- For an overview of Entra, see [What's Entra Permissions Management?](cloudknox-overview.md)
-- For a list of frequently asked questions (FAQs) about Entra, see [FAQs](cloudknox-faqs.md).
-- For information on how to start viewing information about your authorization system in Entra, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
+- For an overview of Entra, see [What's Entra Permissions Management?](overview.md)
+- For a list of frequently asked questions (FAQs) about Entra, see [FAQs](faqs.md).
+- For information on how to start viewing information about your authorization system in Entra, see [View key statistics and data about your authorization system](ui-dashboard.md).

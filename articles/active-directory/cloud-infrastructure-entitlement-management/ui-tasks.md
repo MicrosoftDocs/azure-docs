@@ -35,4 +35,4 @@ This article describes the usage of the **Entra Tasks** pane in Entra Permission
 
 ## Next steps
 
-- For information on how to create a role/policy in the **Remediation** dashboard, see [Create a role/policy](cloudknox-howto-create-role-policy.md).
+- For information on how to create a role/policy in the **Remediation** dashboard, see [Create a role/policy](how-to-create-role-policy.md).

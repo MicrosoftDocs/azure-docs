@@ -101,7 +101,7 @@ Entra offers the following reports for management associated with the authorizat
     - **Use cases**:
          - This report lists the different key findings in the selected auth systems. The key findings include super identities, inactive identities, over provisioned active identities, storage bucket hygiene, and access key age (for AWS only). The report helps administrators to visualize the findings across the organization.
 
-    For more information about this report, see [Permissions analytics report](cloudknox-product-permissions-analytics-reports.md).
+    For more information about this report, see [Permissions analytics report](product-permissions-analytics-reports.md).
 
 - **Role/Policy Details**
     - **Summary of report**: Provides information about roles and policies.
@@ -135,7 +135,7 @@ Entra offers the following reports for management associated with the authorizat
 
 ## Next steps
 
-- For a detailed overview of available system reports, see [View a list and description of system reports](cloudknox-all-reports.md).
-- For information about how to create, view, and share a system report, see [Create, view, and share a custom report](cloudknox-report-view-system-report.md).
-- For information about how to create and view a custom report, see [Generate and view a custom report](cloudknox-report-create-custom-report.md).
-- For information about how to create and view the Permissions analytics report, see [Generate and download the Permissions analytics report](cloudknox-product-permissions-analytics-reports.md).
+- For a detailed overview of available system reports, see [View a list and description of system reports](all-reports.md).
+- For information about how to create, view, and share a system report, see [Create, view, and share a custom report](report-view-system-report.md).
+- For information about how to create and view a custom report, see [Generate and view a custom report](report-create-custom-report.md).
+- For information about how to create and view the Permissions analytics report, see [Generate and download the Permissions analytics report](product-permissions-analytics-reports.md).

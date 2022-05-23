@@ -74,7 +74,7 @@ Other options available to you:
     - Check your email for a message from the Entra Customer Success Team. This email contains a link to:
         - The **Role Policy Details** report in CSV format.
         - The **Reports** dashboard where you can configure how and when you can automatically receive reports.
-- **Create Role/Policy**: Select this option to create a new role/policy. For more information, see [Create a role/policy](cloudknox-howto-create-role-policy.md).
+- **Create Role/Policy**: Select this option to create a new role/policy. For more information, see [Create a role/policy](how-to-create-role-policy.md).
 
 
 ## Add filters to permissions
@@ -228,13 +228,13 @@ The **Settings** subtab provides the following settings that you can use to make
 ## Next steps
 
 
-- For information on how to view existing roles/policies, requests, and permissions, see [View roles/policies, requests, and permission in the Remediation dashboard](cloudknox-ui-remediation.md).
-- For information on how to create a role/policy, see [Create a role/policy](cloudknox-howto-create-role-policy.md).
-- For information on how to clone a role/policy, see [Clone a role/policy](cloudknox-howto-clone-role-policy.md).
-- For information on how to delete a role/policy, see [Delete a role/policy](cloudknox-howto-delete-role-policy.md).
-- For information on how to modify a role/policy, see Modify a role/policy](cloudknox-howto-modify-role-policy.md).
-- To view information about roles/policies, see [View information about roles/policies](cloudknox-howto-view-role-policy.md).
-- For information on how to attach and detach permissions for AWS identities, see [Attach and detach policies for AWS identities](cloudknox-howto-attach-detach-permissions.md).
-- For information on how to revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities, see [Revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities](cloudknox-howto-revoke-task-readonly-status.md)
-- For information on how to create or approve a request for permissions, see [Create or approve a request for permissions](cloudknox-howto-create-approve-privilege-request.md).
-- For information on how to view information about roles/policies, see [View information about roles/policies](cloudknox-howto-view-role-policy.md)
+- For information on how to view existing roles/policies, requests, and permissions, see [View roles/policies, requests, and permission in the Remediation dashboard](ui-remediation.md).
+- For information on how to create a role/policy, see [Create a role/policy](how-to-create-role-policy.md).
+- For information on how to clone a role/policy, see [Clone a role/policy](how-to-clone-role-policy.md).
+- For information on how to delete a role/policy, see [Delete a role/policy](how-to-delete-role-policy.md).
+- For information on how to modify a role/policy, see Modify a role/policy](how-to-modify-role-policy.md).
+- To view information about roles/policies, see [View information about roles/policies](how-to-view-role-policy.md).
+- For information on how to attach and detach permissions for AWS identities, see [Attach and detach policies for AWS identities](how-to-attach-detach-permissions.md).
+- For information on how to revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities, see [Revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities](how-to-revoke-task-readonly-status.md)
+- For information on how to create or approve a request for permissions, see [Create or approve a request for permissions](how-to-create-approve-privilege-request.md).
+- For information on how to view information about roles/policies, see [View information about roles/policies](how-to-view-role-policy.md)

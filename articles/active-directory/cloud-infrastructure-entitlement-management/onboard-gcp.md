@@ -26,7 +26,7 @@ ms.author: mtillman
 This article describes how to onboard a Google Cloud Platform (GCP) project on Entra Permissions Management (Entra).
 
 > [!NOTE]
-> A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Entra on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
+> A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Entra on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
 ## View a training video on configuring and onboarding a GCP account
 
@@ -66,7 +66,7 @@ To view a video on how to configure and onboard GCP accounts in Entra, select [C
 
     Optionally, specify **G-Suite IDP Secret Name** and **G-Suite IDP User Email** to enable G-Suite integration.
 
-    You can either download and run the script at this point or you can do it in the Google Cloud Shell, as described [later in this article](cloudknox-onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
+    You can either download and run the script at this point or you can do it in the Google Cloud Shell, as described [later in this article](onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
 1. Select **Next**.
 
 ### 3. Set up GCP member projects.
@@ -75,7 +75,7 @@ To view a video on how to configure and onboard GCP accounts in Entra, select [C
 
     You can enter up to 10 GCP project IDs. Select the plus icon next to the text box to insert more project IDs.
 
-1. You can choose to download and run the script at this point, or you can do it via Google Cloud Shell, as described in the [next step](cloudknox-onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
+1. You can choose to download and run the script at this point, or you can do it via Google Cloud Shell, as described in the [next step](onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
 
 ### 4. Run scripts in Cloud Shell. (Optional if not already executed)
 
@@ -128,7 +128,7 @@ To view a video on how to configure and onboard GCP accounts in Entra, select [C
 
 ## Next steps
 
-- For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an Amazon Web Services (AWS) account](cloudknox-onboard-aws.md).
-- For information on how to onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](cloudknox-onboard-azure.md).
-- For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](cloudknox-onboard-enable-controller-after-onboarding.md).
-- For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md).
+- For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an Amazon Web Services (AWS) account](onboard-aws.md).
+- For information on how to onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](onboard-azure.md).
+- For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](onboard-enable-controller-after-onboarding.md).
+- For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](onboard-add-account-after-onboarding.md).

@@ -119,8 +119,8 @@ You can filter user details by type of user, user role, app, or service used, or
 
 ## Next steps
 
-- To track active tasks, see [View usage analytics about active tasks](cloudknox-usage-analytics-active-tasks.md).
-- To track assigned permissions and usage of users, see [View usage analytics about users](cloudknox-usage-analytics-users.md).
-- To track assigned permissions and usage of the group and the group members, see [View usage analytics about groups](cloudknox-usage-analytics-groups.md).
-- To track the permission usage of access keys for a given user, see [View usage analytics about access keys](cloudknox-usage-analytics-access-keys.md).
-- To track assigned permissions and usage of the serverless functions, see [View usage analytics about serverless functions](cloudknox-usage-analytics-serverless-functions.md).
+- To track active tasks, see [View usage analytics about active tasks](usage-analytics-active-tasks.md).
+- To track assigned permissions and usage of users, see [View usage analytics about users](usage-analytics-users.md).
+- To track assigned permissions and usage of the group and the group members, see [View usage analytics about groups](usage-analytics-groups.md).
+- To track the permission usage of access keys for a given user, see [View usage analytics about access keys](usage-analytics-access-keys.md).
+- To track assigned permissions and usage of the serverless functions, see [View usage analytics about serverless functions](usage-analytics-serverless-functions.md).

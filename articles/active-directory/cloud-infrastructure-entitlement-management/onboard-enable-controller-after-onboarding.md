@@ -96,7 +96,7 @@ This article also describes how to enable the controller in Amazon Web Services 
 
 ## Next steps
 
-- For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an AWS account](cloudknox-onboard-aws.md).
-- For information on how to onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](cloudknox-onboard-azure.md).
-- For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a GCP project](cloudknox-onboard-gcp.md).
-- For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md).
+- For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an AWS account](onboard-aws.md).
+- For information on how to onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](onboard-azure.md).
+- For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a GCP project](onboard-gcp.md).
+- For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](onboard-add-account-after-onboarding.md).

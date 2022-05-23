@@ -120,7 +120,7 @@ Yes, Entra has various types of system report available that capture specific da
 - Analyze usage trends and system/user performance.
 - Identify high-risk areas.
 
-For information about permissions usage reports, see [Generate and download the Permissions analytics report](cloudknox-product-permissions-analytics-reports.md).
+For information about permissions usage reports, see [Generate and download the Permissions analytics report](product-permissions-analytics-reports.md).
 
 ## Does Entra integrate with third-party ITSM (Information Technology Security Management) tools?
 
@@ -156,5 +156,5 @@ You can read our blog and visit our web page. You can also get in touch with you
 
 ## Next steps
 
-- For an overview of Entra, see [What's Entra Permissions Management?](cloudknox-overview.md).
-- For information on how to onboard Entra in your organization, see [Enable Entra in your organization](cloudknox-onboard-enable-tenant.md).
+- For an overview of Entra, see [What's Entra Permissions Management?](overview.md).
+- For information on how to onboard Entra in your organization, see [Enable Entra in your organization](onboard-enable-tenant.md).

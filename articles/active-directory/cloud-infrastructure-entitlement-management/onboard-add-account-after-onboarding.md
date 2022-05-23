@@ -106,7 +106,7 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 
 ## Next steps
 
-- For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an AWS account](cloudknox-onboard-aws.md).
- - For information on how to onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](cloudknox-onboard-azure.md).
-- For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a GCP project](cloudknox-onboard-gcp.md).
-- For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](cloudknox-onboard-enable-controller-after-onboarding.md).
+- For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an AWS account](onboard-aws.md).
+ - For information on how to onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](onboard-azure.md).
+- For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a GCP project](onboard-gcp.md).
+- For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](onboard-enable-controller-after-onboarding.md).

@@ -37,6 +37,6 @@ This information can't be modified because the user information is pulled from A
 
 ## Next steps
 
-- For information about how to manage user information, see [Manage users and groups with the User management dashboard](cloudknox-ui-user-management.md).
-- For information about how to view information about active and completed tasks, see [View information about active and completed tasks](cloudknox-ui-tasks.md).
-- For information about how to select group-based permissions settings, see [Select group-based permissions settings](cloudknox-howto-create-group-based-permissions.md).
+- For information about how to manage user information, see [Manage users and groups with the User management dashboard](ui-user-management.md).
+- For information about how to view information about active and completed tasks, see [View information about active and completed tasks](ui-tasks.md).
+- For information about how to select group-based permissions settings, see [Select group-based permissions settings](how-to-create-group-based-permissions.md).

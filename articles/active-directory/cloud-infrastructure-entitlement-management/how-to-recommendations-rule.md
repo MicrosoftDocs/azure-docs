@@ -83,6 +83,6 @@ This article describes how to generate and view rule recommendations in the Entr
 
 ## Next steps
 
-- For more information about viewing rules, see [View roles in the Autopilot dashboard](cloudknox-ui-autopilot.md).
-- For information about creating rules, see [Create a rule](cloudknox-howto-create-rule.md).
-- For information about notification settings for rules, see [View notification settings for a rule](cloudknox-howto-notifications-rule.md).
+- For more information about viewing rules, see [View roles in the Autopilot dashboard](ui-autopilot.md).
+- For information about creating rules, see [Create a rule](how-to-create-rule.md).
+- For information about notification settings for rules, see [View notification settings for a rule](how-to-notifications-rule.md).

@@ -31,7 +31,7 @@ You can view the following information in Entra:
     - The number of users who have been granted high-risk permissions but aren't using them.
     - The number of users who contribute to the permission creep index (PCI) and where they are on the scale.
 
-- The [**Analytics** dashboard](cloudknox-usage-analytics-home.md) provides a snapshot of permission metrics within the last 90 days.
+- The [**Analytics** dashboard](usage-analytics-home.md) provides a snapshot of permission metrics within the last 90 days.
 
 
 ## Components of the Entra Dashboard
@@ -116,7 +116,7 @@ The **Permission Creep Index**  heat map shows the incurred risk of users with a
 
 ## The Analytics summary
 
-You can also view a summary of users and activities section on the [Analytics dashboard](cloudknox-usage-analytics-home.md). This dashboard provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
+You can also view a summary of users and activities section on the [Analytics dashboard](usage-analytics-home.md). This dashboard provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
 
 - **Users with access to high-risk tasks**: Displays the total number of users with access to a high risk task (**Total**), how many users have access but haven't used the task (**Inactive**), and how many users are actively using the task (**Active**).
 
@@ -134,5 +134,5 @@ You can also view a summary of users and activities section on the [Analytics da
 
 ## Next steps
 
-- For information on how to view authorization system and account activity data on the Entra Dashboard, see [View data about the activity in your authorization system](cloudknox-product-dashboard.md).
-- For an overview of the Analytics dashboard, see [An overview of the Analytics  dashboard](cloudknox-usage-analytics-home.md).
+- For information on how to view authorization system and account activity data on the Entra Dashboard, see [View data about the activity in your authorization system](product-dashboard.md).
+- For an overview of the Analytics dashboard, see [An overview of the Analytics  dashboard](usage-analytics-home.md).

@@ -39,6 +39,6 @@ This article describes how to view notification settings for a rule in the Entra
 
 ## Next steps
 
-- For more information about viewing rules, see [View roles in the Autopilot dashboard](cloudknox-ui-autopilot.md).
-- For information about creating rules, see [Create a rule](cloudknox-howto-create-rule.md).
-- For information about generating, viewing, and applying rule recommendations for rules, see [Generate, view, and apply rule recommendations for rules](cloudknox-howto-recommendations-rule.md).
+- For more information about viewing rules, see [View roles in the Autopilot dashboard](ui-autopilot.md).
+- For information about creating rules, see [Create a rule](how-to-create-rule.md).
+- For information about generating, viewing, and applying rule recommendations for rules, see [Generate, view, and apply rule recommendations for rules](how-to-recommendations-rule.md).

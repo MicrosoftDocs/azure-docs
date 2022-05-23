@@ -101,12 +101,12 @@ Use the **Data Collectors** dashboard in Entra to configure data collection sett
 
 1. For information on how to onboard an AWS account, Azure subscription, or GCP project into Entra, select one of the following articles and follow the instructions:
 
-    - [Onboard an AWS account](cloudknox-onboard-aws.md)
-    - [Onboard an Azure subscription](cloudknox-onboard-azure.md)
-    - [Onboard a GCP project](cloudknox-onboard-gcp.md)
+    - [Onboard an AWS account](onboard-aws.md)
+    - [Onboard an Azure subscription](onboard-azure.md)
+    - [Onboard a GCP project](onboard-gcp.md)
 
 ## Next steps
 
-- For an overview of Entra, see [What's Entra Permissions Management?](cloudknox-overview.md)
-- For a list of frequently asked questions (FAQs) about Entra, see [FAQs](cloudknox-faqs.md).
-- For information on how to start viewing information about your authorization system in Entra, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
+- For an overview of Entra, see [What's Entra Permissions Management?](overview.md)
+- For a list of frequently asked questions (FAQs) about Entra, see [FAQs](faqs.md).
+- For information on how to start viewing information about your authorization system in Entra, see [View key statistics and data about your authorization system](ui-dashboard.md).

@@ -272,5 +272,5 @@ Creating a permission directly in Entra allows system administrators to assign p
 
 ## Next steps
 
-- For information about how to view user management information, see [Manage users with the User management dashboard](cloudknox-ui-user-management.md).
-- For information about how to create group-based permissions, see [Create group-based permissions](cloudknox-howto-create-group-based-permissions.md).
+- For information about how to view user management information, see [Manage users with the User management dashboard](ui-user-management.md).
+- For information about how to create group-based permissions, see [Create group-based permissions](how-to-create-group-based-permissions.md).

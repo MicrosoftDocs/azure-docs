@@ -60,6 +60,6 @@ This article describes how you can generate an on-demand report from a query in 
 
 ## Next steps
 
-- For information on how to view how users access information, see [Use queries to see how users access information](cloudknox-ui-audit-trail.md).
-- For information on how to filter and view user activity, see [Filter and query user activity](cloudknox-product-audit-trail.md).
-- For information on how to create a query,see [Create a custom query](cloudknox-howto-create-custom-queries.md).
+- For information on how to view how users access information, see [Use queries to see how users access information](ui-audit-trail.md).
+- For information on how to filter and view user activity, see [Filter and query user activity](product-audit-trail.md).
+- For information on how to create a query,see [Create a custom query](how-to-create-custom-queries.md).

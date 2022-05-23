@@ -74,5 +74,5 @@ Entra  deepens Zero Trust security strategies by augmenting the least privilege 
 
 ## Next steps
 
-- For information on how to onboard Entra for your organization, see [Enable Entra in your organization](cloudknox-onboard-enable-tenant.md).
-- For a list of frequently asked questions (FAQs) about Entra, see [FAQs](cloudknox-faqs.md).
+- For information on how to onboard Entra for your organization, see [Enable Entra in your organization](onboard-enable-tenant.md).
+- For a list of frequently asked questions (FAQs) about Entra, see [FAQs](faqs.md).

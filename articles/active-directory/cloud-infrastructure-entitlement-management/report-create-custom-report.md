@@ -122,7 +122,7 @@ The report name appears in the **Reports** table.
 
 ## Next steps
 
-- For information on how to view system reports in the **Reports** dashboard, see [View system reports in the Reports dashboard](cloudknox-product-reports.md).
-- For a detailed overview of available system reports, see [View a list and description of system reports](cloudknox-all-reports.md).
-- For information about how to generate and view a system report, see [Generate and view a system report](cloudknox-report-view-system-report.md).
-- For information about how to create and view the Permissions analytics report, see [Generate and download the Permissions analytics report](cloudknox-product-permissions-analytics-reports.md).
+- For information on how to view system reports in the **Reports** dashboard, see [View system reports in the Reports dashboard](product-reports.md).
+- For a detailed overview of available system reports, see [View a list and description of system reports](all-reports.md).
+- For information about how to generate and view a system report, see [Generate and view a system report](report-view-system-report.md).
+- For information about how to create and view the Permissions analytics report, see [Generate and download the Permissions analytics report](product-permissions-analytics-reports.md).

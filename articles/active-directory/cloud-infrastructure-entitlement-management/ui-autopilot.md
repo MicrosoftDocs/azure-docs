@@ -60,12 +60,12 @@ You can also select:
 - **Search**: Select to search for a specific role/policy.
 - **Columns**: From the dropdown list, select the columns you want to display.
     - Select **Reset to default** to return to the system defaults.
-- **New Rule**: Select to create a new rule. For more information, see [Create a rule](cloudknox-howto-create-rule.md).
+- **New Rule**: Select to create a new rule. For more information, see [Create a rule](how-to-create-rule.md).
 
 
 
 ## Next steps
 
-- For information about creating rules, see [Create a rule](cloudknox-howto-create-rule.md).
-- For information about generating, viewing, and applying rule recommendations for rules, see [Generate, view, and apply rule recommendations for rules](cloudknox-howto-recommendations-rule.md).
-- For information about notification settings for rules, see [View notification settings for a rule](cloudknox-howto-notifications-rule.md).
+- For information about creating rules, see [Create a rule](how-to-create-rule.md).
+- For information about generating, viewing, and applying rule recommendations for rules, see [Generate, view, and apply rule recommendations for rules](how-to-recommendations-rule.md).
+- For information about notification settings for rules, see [View notification settings for a rule](how-to-notifications-rule.md).

@@ -116,6 +116,6 @@ This article describes how you can use the **Audit** dashboard in Entra Permissi
 
 ## Next steps
 
-- For information on how to view how users access information, see [Use queries to see how users access information](cloudknox-ui-audit-trail.md).
-- For information on how to filter and view user activity, see [Filter and query user activity](cloudknox-product-audit-trail.md).
-- For information on how to generate an on-demand report from a query, see [Generate an on-demand report from a query](cloudknox-howto-audit-trail-results.md).
+- For information on how to view how users access information, see [Use queries to see how users access information](ui-audit-trail.md).
+- For information on how to filter and view user activity, see [Filter and query user activity](product-audit-trail.md).
+- For information on how to generate an on-demand report from a query, see [Generate an on-demand report from a query](how-to-audit-trail-results.md).

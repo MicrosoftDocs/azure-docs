@@ -100,6 +100,6 @@ The **Integrations** dashboard displays the authorization systems available to y
 
 <!---## Next steps--->
 
-<!---View integrated authorization systems](cloudknox-product-integrations)--->
-<!---[Installation overview](cloudknox-installation.md)--->
-<!---[Sign up and deploy FortSentry registration](cloudknox-fortsentry-registration.md)--->
+<!---View integrated authorization systems](product-integrations)--->
+<!---[Installation overview](installation.md)--->
+<!---[Sign up and deploy FortSentry registration](fortsentry-registration.md)--->

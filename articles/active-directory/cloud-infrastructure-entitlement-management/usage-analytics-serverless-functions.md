@@ -105,8 +105,8 @@ You can filter the **Serverless Functions** results by **Authorization System Ty
 
 ## Next steps
 
-- To view active tasks, see [View usage analytics about active tasks](cloudknox-usage-analytics-active-tasks.md).
-- To view assigned permissions and usage by users, see [View analytic information about users](cloudknox-usage-analytics-users.md).
-- To view assigned permissions and usage of the group and the group members, see [View analytic information about groups](cloudknox-usage-analytics-groups.md).
-- To view active resources, see [View analytic information about active resources](cloudknox-usage-analytics-active-resources.md).
-- To view the permission usage of access keys for a given user, see [View analytic information about access keys](cloudknox-usage-analytics-access-keys.md).
+- To view active tasks, see [View usage analytics about active tasks](usage-analytics-active-tasks.md).
+- To view assigned permissions and usage by users, see [View analytic information about users](usage-analytics-users.md).
+- To view assigned permissions and usage of the group and the group members, see [View analytic information about groups](usage-analytics-groups.md).
+- To view active resources, see [View analytic information about active resources](usage-analytics-active-resources.md).
+- To view the permission usage of access keys for a given user, see [View analytic information about access keys](usage-analytics-access-keys.md).

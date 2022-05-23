@@ -46,6 +46,6 @@ The following authorization systems may be listed in the **Integrations** dashbo
 
 <!---## Next steps--->
 
-<!---[Installation overview](Entra-installation.md)--->
-<!---[Configure integration with the Entra API](Entra-integration-api.md)--->
-<!---[Sign up and deploy FortSentry in your organization](Entra-fortsentry-registration.md)--->
+<!---[Installation overview](installation.md)--->
+<!---[Configure integration with the Entra API](integration-api.md)--->
+<!---[Sign up and deploy FortSentry in your organization](fortsentry-registration.md)--->

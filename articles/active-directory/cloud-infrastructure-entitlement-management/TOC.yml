@@ -65,25 +65,25 @@
       - name: View roles/policies and requests for permission in the Remediation dashboard
         href: ui-remediation.md
       - name: View information about roles/policies
-        href: howto-view-role-policy.md
+        href: how-to-view-role-policy.md
       - name: View information about active and completed tasks
         href: ui-tasks.md
       - name: Create a role/policy
-        href: howto-create-role-policy.md
+        href: how-to-create-role-policy.md
       - name: Clone a role/policy
-        href: howto-clone-role-policy.md
+        href: how-to-clone-role-policy.md
       - name: Modify a role/policy
-        href: howto-modify-role-policy.md
+        href: how-to-modify-role-policy.md
       - name: Delete a role/policy
-        href: howto-delete-role-policy.md
+        href: how-to-delete-role-policy.md
       - name: Attach and detach policies for AWS identities
-        href: howto-attach-detach-permissions.md
+        href: how-to-attach-detach-permissions.md
       - name: Add and remove roles and tasks for Azure and GCP identities
-        href: howto-add-remove-role-task.md
+        href: how-to-add-remove-role-task.md
       - name: Revoke access to high-risk and unused tasks or assign read-only status
-        href: howto-revoke-task-readonly-status.md
+        href: how-to-revoke-task-readonly-status.md
       - name: Create or approve a request for permissions 
-        href: howto-create-approve-privilege-request.md
+        href: how-to-create-approve-privilege-request.md
     - name: Manage users, roles, and their access levels
       expanded: false
       items:
@@ -92,16 +92,16 @@
       # - name: Define and manage users, roles, and access levels
         # href: product-define-permission-levels.md
       - name: Select group-based permissions settings
-        href: howto-create-group-based-permissions.md
+        href: how-to-create-group-based-permissions.md
     - name: Use queries to view information about user access
       expanded: false
       items:
       - name: Use queries to see how users access information 
         href: ui-audit-trail.md
       - name: Create a custom query
-        href: howto-create-custom-queries.md
+        href: how-to-create-custom-queries.md
       - name: Generate an on-demand report from a query
-        href: howto-audit-trail-results.md
+        href: how-to-audit-trail-results.md
       - name: Filter and query user activity
         href: product-audit-trail.md
     - name: Set activity alerts and triggers 
@@ -110,7 +110,7 @@
       - name: View information about activity triggers
         href: ui-triggers.md
       - name: Create and view activity alerts and alert triggers
-        href: howto-create-alert-trigger.md
+        href: how-to-create-alert-trigger.md
       - name: Create and view rule-based anomalies and anomaly triggers
         href: product-rule-based-anomalies.md
       - name: Create and view statistical anomalies and anomaly triggers
@@ -123,11 +123,11 @@
       - name: View rules in the Autopilot dashboard
         href: ui-autopilot.md
       - name: Create a rule
-        href: howto-create-rule.md 
+        href: how-to-create-rule.md 
       - name: Generate, view, and apply rule recommendations
-        href: howto-recommendations-rule.md 
+        href: how-to-recommendations-rule.md 
       - name: View notification settings for a rule
-        href: howto-notifications-rule.md
+        href: how-to-notifications-rule.md
     - name: Create and view reports 
       expanded: false
       items: 

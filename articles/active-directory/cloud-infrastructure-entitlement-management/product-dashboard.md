@@ -45,7 +45,7 @@ The Entra Permissions Management (Entra) **Dashboard** provides an overview of t
 
 1. To return to the PCI graph, select the **Graph** icon in the upper right of the list box.
 
-For more information about the Entra **Dashboard**, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
+For more information about the Entra **Dashboard**, see [View key statistics and data about your authorization system](ui-dashboard.md).
 
 ## View user data on the PCI heat map
 
@@ -79,4 +79,4 @@ The **Resource** section below the heat map on the right side of the page shows 
 
 ## Next steps
 
-- For more information about how to view key statistics and data in the Dashboard, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
+- For more information about how to view key statistics and data in the Dashboard, see [View key statistics and data about your authorization system](ui-dashboard.md).

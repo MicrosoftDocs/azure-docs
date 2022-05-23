@@ -70,6 +70,6 @@ This article provides an overview of the components of the **Audit** dashboard.
 
 ## Next steps
 
-- For information on how to filter and view user activity, see [Filter and query user activity](cloudknox-product-audit-trail.md).
-- For information on how to create a query,see [Create a custom query](cloudknox-howto-create-custom-queries.md).
-- For information on how to generate an on-demand report from a query, see [Generate an on-demand report from a query](cloudknox-howto-audit-trail-results.md).
+- For information on how to filter and view user activity, see [Filter and query user activity](product-audit-trail.md).
+- For information on how to create a query,see [Create a custom query](how-to-create-custom-queries.md).
+- For information on how to generate an on-demand report from a query, see [Generate an on-demand report from a query](how-to-audit-trail-results.md).

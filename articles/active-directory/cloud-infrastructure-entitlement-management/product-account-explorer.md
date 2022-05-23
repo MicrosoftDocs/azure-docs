@@ -75,4 +75,4 @@ To export the data in comma-separated values (CSV) file format, select **Export*
 
 1. The **Info** tab displays the **Privilege creep index** and **Service control policy (SCP)** information about the account.
 
-For more information about the **Privilege creep index** and SCP information, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
+For more information about the **Privilege creep index** and SCP information, see [View key statistics and data about your authorization system](ui-dashboard.md).

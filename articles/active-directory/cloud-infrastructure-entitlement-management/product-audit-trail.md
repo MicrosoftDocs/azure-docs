@@ -396,6 +396,6 @@ The **Operator** menu displays the following options depending on the identity y
 
 ## Next steps
 
-- For information on how to view how users access information, see [Use queries to see how users access information](cloudknox-ui-audit-trail.md).
-- For information on how to create a query, see [Create a custom query](cloudknox-howto-create-custom-queries.md).
-- For information on how to generate an on-demand report from a query, see [Generate an on-demand report from a query](cloudknox-howto-audit-trail-results.md).
+- For information on how to view how users access information, see [Use queries to see how users access information](ui-audit-trail.md).
+- For information on how to create a query, see [Create a custom query](how-to-create-custom-queries.md).
+- For information on how to generate an on-demand report from a query, see [Generate an on-demand report from a query](how-to-audit-trail-results.md).

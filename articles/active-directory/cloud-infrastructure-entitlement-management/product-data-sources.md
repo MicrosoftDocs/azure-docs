@@ -104,4 +104,4 @@ You can use the **Data Collectors** dashboard in Entra Permissions Management (E
 
 ## Next steps
 
-- For information about viewing an inventory of created resources and licensing information for your authorization system, see [Display an inventory of  created resources and licenses for your authorization system](cloudknox-product-data-inventory.md)
+- For information about viewing an inventory of created resources and licensing information for your authorization system, see [Display an inventory of  created resources and licenses for your authorization system](product-data-inventory.md)

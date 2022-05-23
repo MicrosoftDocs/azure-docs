@@ -24,7 +24,7 @@ ms.author: mtillman
 This article describes how to onboard a Microsoft Azure subscription or subscriptions on Entra Permissions Management (Entra). Onboarding a subscription creates a new authorization system to represent the Azure subscription in Entra.
 
 > [!NOTE]
-> A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Entra on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
+> A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Entra on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
 ## Prerequisites
 
@@ -91,9 +91,9 @@ To view a video on how to enable Entra in your Azure AD tenant, select [Enable E
 
 ## Next steps
 
-- For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an Amazon Web Services (AWS) account](cloudknox-onboard-aws.md).
-- For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a Google Cloud Platform (GCP) project](cloudknox-onboard-gcp.md).
-- For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](cloudknox-onboard-enable-controller-after-onboarding.md).
-- For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md).
-- For an overview on Entra, see [What's Entra Permissions Management?](cloudknox-overview.md).
-- For information on how to start viewing information about your authorization system in Entra, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
+- For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an Amazon Web Services (AWS) account](onboard-aws.md).
+- For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a Google Cloud Platform (GCP) project](onboard-gcp.md).
+- For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](onboard-enable-controller-after-onboarding.md).
+- For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](onboard-add-account-after-onboarding.md).
+- For an overview on Entra, see [What's Entra Permissions Management?](overview.md).
+- For information on how to start viewing information about your authorization system in Entra, see [View key statistics and data about your authorization system](ui-dashboard.md).

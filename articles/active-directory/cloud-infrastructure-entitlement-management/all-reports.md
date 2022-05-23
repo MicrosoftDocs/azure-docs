@@ -55,7 +55,7 @@ This article provides you with a list and description of the system reports avai
 
 ## Next steps
 
-- For information on how to view system reports in the **Reports** dashboard, see [View system reports in the Reports dashboard](cloudknox-product-reports.md).
-- For information about how to create, view, and share a system report, see [Create, view, and share a custom report](cloudknox-report-view-system-report.md).
-- For information about how to create and view a custom report, see [Generate and view a custom report](cloudknox-report-create-custom-report.md).
-- For information about how to create and view the Permissions analytics report, see [Generate and download the Permissions analytics report](cloudknox-product-permissions-analytics-reports.md).
+- For information on how to view system reports in the **Reports** dashboard, see [View system reports in the Reports dashboard](product-reports.md).
+- For information about how to create, view, and share a system report, see [Create, view, and share a custom report](report-view-system-report.md).
+- For information about how to create and view a custom report, see [Generate and view a custom report](report-create-custom-report.md).
+- For information about how to create and view the Permissions analytics report, see [Generate and download the Permissions analytics report](product-permissions-analytics-reports.md).
