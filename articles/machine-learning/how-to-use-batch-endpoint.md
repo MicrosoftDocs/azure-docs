@@ -204,11 +204,9 @@ There are several options to specify the data inputs in CLI `invoke`.
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job" :::
 
-* __Option 1-2: Registered dataset__
+* __Option 1-2: Registered data asset__
 
-    Use `--input` to pass in an Azure Machine Learning registered V2 data assets for `uri_file`/`url_folder`. You do not need to specify `--input-type` in this option. The syntax for this option is `azureml:<dataset-name>:<dataset-version>`.
-
-    You can optionally pass an Azure ML registered V1 `FileDataset` only if the existing endpoint is created with older CLIv2.
+    Use `--input` to pass in an Azure Machine Learning registered V2 data assets (with the type of either `uri_file` or `url_folder`). You do not need to specify `--input-type` in this option. The syntax for this option is `azureml:<dataset-name>:<dataset-version>`.
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:<dataset-name>:<dataset-version>
@@ -223,7 +221,7 @@ There are several options to specify the data inputs in CLI `invoke`.
     ```
 
 > [!NOTE]
-> If you are using existing V1 FileDataset for batch endpoint, we recommend migrating them to V2 data assets for `uri_folder`/`uri_file` and refer to them directly when invoking batch endpoints. You can also extract the URI or path on datastore extracted from V1 FileDataset and use that information for invoke. While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
+> If you are using existing V1 FileDataset for batch endpoint, we recommend migrating them to V2 data assets and refer to them directly when invoking batch endpoints. Currently only data assets of type `uri_folder` or `uri_file` are supported. You can also extract the URI or path on datastore extracted from V1 FileDataset by using `az ml dataset show` command with `--query` parameter and use that information for invoke. While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
 
 #### Configure the output location and overwrite settings
 
