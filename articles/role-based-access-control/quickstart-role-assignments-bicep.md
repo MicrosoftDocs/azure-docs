@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
 ms.workload: identity
-ms.date: 05/20/2022
+ms.date: 05/23/2022
 ms.author: v-eschaffer
 #Customer intent: As a new user, I want to see how to grant access to resources using Bicep so that I can start automating role assignment processes.
 ---
@@ -45,20 +45,20 @@ The resource defined in the Bicep file is:
 
     ```azurecli
     az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters roleDefinitionID=<role-id> principalId=<principal-id>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters roleDefinitionID=9980e02c-c2be-4d73-94e8-173b1dc7cf3c principalId=<principal-id>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -roleDefinitionID "<role-id>" -principalId "<principal-id>"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -roleDefinitionID "9980e02c-c2be-4d73-94e8-173b1dc7cf3c" -principalId "<principal-id>"
     ```
 
     ---
 
 > [!NOTE]
-> Replace **\<role-id\>** with the role definition ID used in the role assignment. Replace **\<principal-id\>** with the principal ID assigned to the role.
+> Replace **\<principal-id\>** with the principal ID assigned to the role.
 
  When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -69,20 +69,36 @@ Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resour
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az resource list --resource-group exampleRG
+az role assignment list --resource-group exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName exampleRG
+Get-AzRoleAssignment -ResourceGroupName exampleRG
 ```
 
 ---
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to remove the role assignment.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az role assignment delete 
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Remove-AzRoleAssignment 
+```
+
+---
+
+If you no longer need the resource group, use the Azure portal, Azure CLI, or Azure PowerShell to delete it.
 
 # [CLI](#tab/CLI)
 
