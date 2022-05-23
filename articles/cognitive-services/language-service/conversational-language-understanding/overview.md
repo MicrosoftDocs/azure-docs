@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
 
-# What is conversational language understanding ?
+# What is conversational language understanding?
 
 Conversational language understanding is one of the custom features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build natural language understanding component to be used in an end-to-end conversational application. 
 
