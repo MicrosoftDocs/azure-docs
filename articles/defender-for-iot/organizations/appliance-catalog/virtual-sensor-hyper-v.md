@@ -96,7 +96,7 @@ For more information, see [Purdue reference model and Defender for IoT](../plan-
 
 Before you start:
 
-- Ensure that there is no instance of a virtual appliance running.
+- Ensure that there's no instance of a virtual appliance running.
 
 - Enable Ensure SPAN on the data port, and not the management port.
 
@@ -146,7 +146,7 @@ You are able to attach a SPAN Virtual Interface to the Virtual Switch through Wi
 
 1. Select **OK**.
 
-These commands set the name of the newly added adapter hardware to be `Monitor`. If you are using Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
+These commands set the name of the newly added adapter hardware to be `Monitor`. If you're using Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
 
 **To attach a SPAN Virtual Interface to the virtual switch with Hyper-V Manager**:
 
