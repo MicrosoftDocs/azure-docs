@@ -295,9 +295,6 @@ Purge these tables when the associated removable media is expired and overwritte
 
 - `DBC.RCMedia`: VolSerial for Archive/recovery
 
-> [!TIP]
-> Housekeeping tasks can be automated and monitored in Azure Synapse.
-
 Azure Synapse has an option to automatically create statistics so that they can be used as needed. Perform defragmentation of indexes and data blocks manually, on a scheduled basis, or automatically. Leveraging native built-in Azure capabilities can reduce the effort required in a migration exercise.
 
 ### Monitoring and auditing
@@ -321,9 +318,9 @@ The portal also enables integration with other Azure monitoring services such as
 
 Resource utilization statistics for the Azure Synapse are automatically logged within the system. The metrics include usage statistics for CPU, memory, cache, I/O and temporary workspace for each query as well as connectivity information (such as failed connection attempts).
 
-Azure Synapse provides a set of [Dynamic Management Views](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor?msclkid=3e6eefbccfe211ec82d019ada29b1834) (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload. For more information.
+Azure Synapse provides a set of [Dynamic Management Views](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor?msclkid=3e6eefbccfe211ec82d019ada29b1834) (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
 
-See [Azure Synapse operations and management options](/azure/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance) for more information.
+For more information, see [Azure Synapse operations and management options](/azure/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance).
 
 ### High Availability (HA) and Disaster Recovery (DR)
 
@@ -380,4 +377,4 @@ Adding more compute nodes adds more compute power and ability to leverage more p
 
 ## Next steps
 
-To learn more about visualization and reporting, see the next article in this series: [Visualization and reporting for Teradata migrations](4-visualization-reporting.md)].
+To learn more about visualization and reporting, see the next article in this series: [Visualization and reporting for Teradata migrations](4-visualization-reporting.md).
