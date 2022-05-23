@@ -35,16 +35,16 @@
     href: get-started.md
   - name: 2. Enable the enhanced security features
     href: enable-enhanced-security.md
-  - name: 3. Connect hybrid and multi-cloud machines
+  - name: 3. Connect hybrid and multicloud machines
     items:
     - name: Connect non-Azure machines
       displayName: azure stack, ash, windows, linux, hybrid, arc
       href: quickstart-onboard-machines.md
     - name: Connect AWS accounts
-      displayName: hybrid, multicloud, multi-cloud, amazon, arc
+      displayName: hybrid, multicloud, multicloud, amazon, arc
       href: quickstart-onboard-aws.md
     - name: Connect GCP projects
-      displayName: hybrid, multicloud, multi-cloud, google
+      displayName: hybrid, multicloud, multicloud, google
       href: quickstart-onboard-gcp.md
   - name: 4. Configure auto provisioning
     href: enable-data-collection.md
