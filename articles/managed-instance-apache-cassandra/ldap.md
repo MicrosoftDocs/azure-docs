@@ -103,7 +103,7 @@ az managed-cassandra cluster update -g <resource group> -c <cluster name> --auth
 ```azurecli-interactive
 ldap_search_base_distinguished_name='dc=example,dc=org'
 ldap_server_certificates='/usr/csuser/clouddrive/ldap.crt'
-ldap_server_hostname='myldapserver.uksouth.cloudapp.azure.com'
+ldap_server_hostname='<dnsname>.uksouth.cloudapp.azure.com'
 ldap_service_user_distinguished_name='cn=admin,dc=example,dc=org'
 ldap_service_user_password='admin'
 
