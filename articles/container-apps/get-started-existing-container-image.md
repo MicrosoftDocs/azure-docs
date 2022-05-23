@@ -188,8 +188,9 @@ az monitor log-analytics query \
 ```powershell
 $LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
 
-$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5"
-$queryResults.Results
+az monitor log-analytics query \
+  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated" `
   --out table
 ```
 
@@ -209,7 +210,8 @@ az group delete \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+az group delete `
+  --name $RESOURCE_GROUP
 ```
 
 ---
