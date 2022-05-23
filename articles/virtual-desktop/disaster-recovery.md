@@ -118,7 +118,7 @@ Another option you can use is Storage Spaces Direct. Since Storage Spaces Direct
 
 ### Network drives (VM with extra drives)
 
-You can use VMs with extra drives for disaster recovery, too. If you replicate the network storage VMs using Azure Site Recovery like the session host VMs, then the recovery keeps the same path, which means you don't need to reconfigure FSlogix.
+You can use VMs with extra drives for disaster recovery, too. If you replicate the network storage VMs using Azure Site Recovery like the session host VMs, then the recovery keeps the same path, which means you don't need to reconfigure FSLogix.
 
 ### Azure Files
 
@@ -159,26 +159,21 @@ We recommend you configure the FSLogix agent VHDLocation registry setting with b
 
 For example, let's say your primary session host VMs are in the Central US region, and the profile container is also in the Central US region for performance reasons. In this case, you'd configure the FSLogix agent with a path to the storage in the Central US region listed first. Next, you'd configure the storage service you used in the previous example to replicate to the West US region. Once the path to Central US fails, the agent will try to load the profile in West US instead.
 
->[!NOTE]
->VHDLocations offers some business continuity. However, VHDLocations isn't designed to be a complete high availability or disaster recovery solution. What it does offer is the ability for users to have user sessions during a disaster.
->
->Here's how VHDLocations works, as well as some things you should consider if you plan to make VHDLocations part of your disaster recovery strategy:
->
->- If the primary storage is unavailable for whatever reason and a user signs in, the FSLogix agent won't be able to access the existing user profile from that primary share. The user can still sign in, but FSLogix will create a new profile on the secondary share. Because the user is now using a new profile, they'll lose their saved data from their user profile until the primary storage is available again.
->- Once the primary storage is available again, you won't be able to merge this new, temporary profile back into the main profile. When a user signs in after the primary share is available again, their user profile will be restored to how it was before the disaster. They'll lose any changes they made in the temporary secondary profile during the disaster once their original profile is restored.
+### VHDLocations
 
-VHDLocations contributes to business continuity, but this setting was only designed to be part of a complete high availability or disaster recovery solution. The VHDLocations setting enables users to use a replicated or new profile in the event of a disaster, so they can keep being productive even in the event of an outage.
+VHDLocations contributes to business continuity, but this setting was only designed to be one part of a complete high availability or disaster recovery solution. The VHDLocations setting enables users to use a replicated or new profile in the event of a disaster, keeping users productive even in the event of an outage.
 
 Here's how VHDLocations works, as well as some things you should consider if you plan to make VHDLocations part of your disaster recovery strategy:
 
-If the primary storage is unavailable for whatever reason and a user signs in, the FSLogix agent won't be able to access the existing user profile from that primary share. The user can still sign in, but FSLogix will either use the profile it finds in the secondary storage location if you've already replicated it using storage replication or it will create a new profile on the secondary share. Because the user is now using a different profile or a brand new profile, they won’t be using their original profile and will now be making updates to the secondary profile or they will be using a new one and lose their previous persona until the primary storage becomes available and the user signs in again.
-Once the primary storage is available again, you also won't be able to merge this secondary or new profile back into the original profile. When a user signs in after the primary share is available again, they will return to using their original profile how it was before the disaster. They'll also lose any changes they made in the secondary profile during the disaster once they are using the original profile again.
+- If the primary storage is unavailable for whatever reason and a user signs in, the FSLogix agent won't be able to access the existing user profile from that primary share. The user can still sign in, but FSLogix will either use the profile it finds in the secondary storage location (if you've already replicated it with storage replication) or it'll create a new profile on the secondary share. Because the user is now using either a replicated or new profile, they won’t be using their original profile. When they use this secondary profile, any updates they make will apply only to the secondary profile. They won't be able to access their original profile until the primary storage becomes available again and they sign back in.
 
-### FSlogix Cloud Cache
+- Once the primary storage is available again, the user won't be able to merge changes they made in the secondary or new profile back into the original profile. When a user signs in after the primary share is available again, they will return to using their original profile as it was before the disaster. Any changes they made in the secondary or new profile during the disaster will be lost.
 
-FSlogix supports replicating user and Office containers from the agent running on the session host itself. While you'll need to deploy multiple storage providers in multiple regions to store the replicated profiles, you won't need to configure the storage service's replication capabilities with multiple entries like you did with the VHDLocations settings in the previous section. However, before you start configuring FSLogix Cloud cache, you should be aware this method requires extra processing and storage space on the session host itself. Make sure you review [Cloud Cache to create resiliency and availability](/fslogix/cloud-cache-resiliency-availability-cncpt) before you get started.
+### FSLogix Cloud cache
 
-You can configure FSlogix Cloud Cache directly in the registry based on the VHDLocations example in the previous section. However, we recommend you configure the cloud cache using a group policy instead. To create or edit a group policy object, go to **Computer Configuration** > **Administrative Templates** > **FSLogix** > **Profiles Containers (and Office 365 Containers, if necessary) > Cloud Cache - Cloud Cache Locations**. Once you've created or edited your policy object, you'll need to enable it, then list all storage provider locations you want the FSLogix to replicate it to, as shown in the following image. 
+FSLogix supports replicating user and Office containers from the agent running on the session host itself. While you'll need to deploy multiple storage providers in multiple regions to store the replicated profiles, you won't need to configure the storage service's replication capabilities with multiple entries like you did with the VHDLocations settings in the previous section. However, before you start configuring FSLogix Cloud cache, you should be aware this method requires extra processing and storage space on the session host itself. Make sure you review [Cloud Cache to create resiliency and availability](/fslogix/cloud-cache-resiliency-availability-cncpt) before you get started.
+
+You can configure FSLogix Cloud Cache directly in the registry based on the VHDLocations example in the previous section. However, we recommend you configure the cloud cache using a group policy instead. To create or edit a group policy object, go to **Computer Configuration** > **Administrative Templates** > **FSLogix** > **Profiles Containers (and Office 365 Containers, if necessary) > Cloud Cache - Cloud Cache Locations**. Once you've created or edited your policy object, you'll need to enable it, then list all storage provider locations you want the FSLogix to replicate it to, as shown in the following image. 
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot of the FSLogix Cloud Cache Group Policy Cloud Cache Locations is selected.](media/fslogix-locations.png)
