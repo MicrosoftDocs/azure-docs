@@ -71,7 +71,7 @@ Active discovery scans allow for faster deployments, enriching your existing dev
 > [!IMPORTANT]
 > Active discovery scans run detection activity directly in your network and may cause some downtime. Take care when configuring your active discovery scan so that you only scan necessary resources.
 
-View scanning data from active discovery scans from your sensor console only. For more information, see [Run active discovery scans from your OT sensor](active-discovery.md).
+View scanning data from active discovery scans from your sensor console only. For more information, see [Configure active discovery scans](configure-active-discovery-scans.md) and [Active and passive OT monitoring in Defender for IoT](best-practices/passive-active-monitoring.md).
 
 ### Sensor management from the Azure portal (public preview)
 
