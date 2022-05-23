@@ -48,7 +48,7 @@ To address this requirement, Microsoft Sentinel offers multiple-workspace capabi
 
 This model offers significant advantages over a fully centralized model in which all data is copied to a single workspace:
 
-- Flexible role assignment to the global and local SOCs, or to the MSSP customers.
+- Flexible role assignment to the global and local SOCs, or to the MSSP and its customers.
 
 - Fewer challenges regarding data ownership, data privacy and regulatory compliance.
 
