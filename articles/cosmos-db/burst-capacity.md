@@ -61,7 +61,7 @@ Support for other SQL API SDKs is planned for the future.
 > You should ensure that your application has been updated to use a compatible SDK version prior to enrolling in the preview. If you're using the legacy .NET V2 SDK, follow the [.NET SDK v3 migration guide](sql/migrate-dotnet-v3.md). 
 
 #### Table  API
-For Table API accounts, burst capacity is supported only when using the latest version of the Tables SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. The legacy SDK with namespace `Microsoft.Azure.Cosmos.Table` is not supported. Follow the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/MigrationGuide.md) to upgrade to the latest SDK.
+For Table API accounts, burst capacity is supported only when using the latest version of the Tables SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. The legacy SDK with namespace `Microsoft.Azure.CosmosDB.Table` is not supported. Follow the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/MigrationGuide.md) to upgrade to the latest SDK.
 
 | SDK | Supported versions | Package manager link |
 | --- | --- | --- |
