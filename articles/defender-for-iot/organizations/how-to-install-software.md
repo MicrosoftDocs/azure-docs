@@ -34,7 +34,11 @@ Mount the ISO file using one of the following options:
 
 - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
-## Install OT Monitoring Software
+## Install OT monitoring software
+
+This section provides generic procedures for installing OT monitoring software on sensors or an on-premises management console.
+
+Select one of the following tabs, depending on which type of software you're installing.
 
 # [OT Sensor](#tab/sensor)
 
