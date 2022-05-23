@@ -30,7 +30,7 @@ With this capability, you:
 4.	Select **Connect using SNAT** and select **Save**.  
     :::image type="content" source="media/public-ip-usage/private-cloud-save-snat-internet-connectivity.png" alt-text="Screenshot Internet connect using SNAT Internet connectivity in Azure VMware Solution.":::
 
-You have successfully enabled outbound internet access for your Azure VMware Solution Private Cloud using our Managed SNAT service.  
+You have successfully enabled outbound Internet access for your Azure VMware Solution private cloud using our Managed SNAT service.  
 
 ## Next Steps 
 [Internet connectivity design considerations](concepts-design-avs-public-internet-access.md)<br>
