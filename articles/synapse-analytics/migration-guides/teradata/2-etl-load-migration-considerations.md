@@ -42,7 +42,7 @@ Here's an example query on dbc.tables that provides the date of last access and 
 ```
 Select TableName, CreatorName, CreateTimeStamp, LastAlterName,
 LastAlterTimeStamp, AccessCount, LastAccessTimeStamp from DBC.Tables t
-Where DataBaseName = \'databasename\'
+Where DataBaseName = 'databasename'
 ```
 
 If logging is enabled and the log history is accessible, other information, such as SQL query text, is available in table DBQLogTbl and associated logging tables. For more information, see [Teradata log history](https://docs.teradata.com/reader/wada1XMYPkZVTqPKz2CNaw/PuQUxpyeCx4jvP8XCiEeGA).
