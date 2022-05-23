@@ -189,11 +189,11 @@ This command will cause the light on the port to flash for the specified time pe
 
 ## Post-installation validation
 
-To validate the installation of a physical appliance, you need to perform many tests. The same validation process applies to all the appliance types.
+After you've finished installing OT monitoring software on your appliance, test your system to make sure that processes are running correctly. The same validation process applies to all appliance types.
 
-Perform the validation by using the GUI or the CLI. The validation is available to both the **Support** and **CyberX** users.
+System health validations are supported via the sensor or on-premises management console UI or CLI, and is available for both the **Support** and **CyberX** users.
 
-Post-installation validation must include the following tests:
+After installing OT monitoring software, make sure to run the following tests:
 
 - **Sanity test**: Verify that the system is running.
 
@@ -201,7 +201,7 @@ Post-installation validation must include the following tests:
 
 - **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
 
-For more information, see [Check system health](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health).
+For more information, see [Check system health](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health) in our sensor and on-premises management console troubleshooting article.
 
 ## Access sensors from the on-premises management console
 
