@@ -65,7 +65,7 @@ Microsoft Azure Data Factory is a fully managed, pay-as-you-use, hybrid data int
 
 Data Factory is also an orchestration tool. It's the best Microsoft tool to automate the end-to-end migration process to reduce risk and make the migration process easily repeatable. The following diagram shows a Data Factory mapping data flow.
 
-:::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-mapping-dataflows.png" border="true" alt-text="Screenshot showing an example of an Azure Data Factory mapping dataflow.":::
+:::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-mapping-dataflows.png" border="true" alt-text="Screenshot showing an example of an Azure Data Factory mapping dataflow." lightbox="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-mapping-dataflows-lrg.png":::
 
 The next screenshot shows a Data Factory wrangling data flow.
 
