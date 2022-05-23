@@ -12,13 +12,20 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 04/12/2022
+ms.date: 05/23/2022
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+## May 2022
+
+* [LDAP signing](create-active-directory-connections.md#ldap-signing) now generally available (GA)   
+
+    The LDAP signing feature is now generally available. You no longer need to register the feature before using it.
+
 
 ## April 2022
 
