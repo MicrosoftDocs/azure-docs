@@ -22,6 +22,7 @@ The following client operating systems are supported:
 * Windows Server 2012 (64-bit only)
 * Windows Server 2012 R2 (64-bit only)
 * Windows 10
+* Windows 11
 
 ### Can I use any software VPN client that supports SSTP for Point-to-Site?
 

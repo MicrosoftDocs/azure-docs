@@ -1,13 +1,11 @@
 ---
  title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
  ms.date: 2/10/2022
  ms.author: cherylmc
- ms.custom: include file, devx-track-azurepowershell
+ ms.custom: devx-track-azurepowershell
 ---
 ### How many VPN client endpoints can I have in my Point-to-Site configuration?
 

@@ -1,13 +1,10 @@
 ---
  title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
  ms.date: 05/26/2021
  ms.author: cherylmc
- ms.custom: include file
 
 # This include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---
@@ -16,7 +13,7 @@
 
 Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificate. For additional parameter information, see [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate).
 
-1. From a computer running Windows 10 or Windows Server 2016, open a Windows PowerShell console with elevated privileges. These examples do not work in the Azure Cloud Shell "Try It". You must run these examples locally.
+1. From a computer running Windows 10 or later, or Windows Server 2016, open a Windows PowerShell console with elevated privileges. These examples do not work in the Azure Cloud Shell "Try It". You must run these examples locally.
 1. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*, or *Manage User Certificates*.
 
    Run the following example with any necessary modifications.
