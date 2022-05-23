@@ -6,7 +6,7 @@ ms.author: yuwzho
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/09/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # View Azure Spring Apps Enterprise Tier offering in Azure Marketplace

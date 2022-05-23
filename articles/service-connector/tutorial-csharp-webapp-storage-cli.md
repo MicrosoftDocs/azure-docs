@@ -7,6 +7,7 @@ ms.service: service-connector
 ms.topic: tutorial
 ms.date: 05/03/2022
 ms.devlang: azurecli
+ms.custom: event-tier1-build-2022
 ---
 
 # Tutorial: Deploy a web application connected to Azure Blob Storage with Service Connector

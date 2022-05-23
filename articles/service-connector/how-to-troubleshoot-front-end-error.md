@@ -4,6 +4,7 @@ description: Error list and suggested actions of Service Connector
 author: shizn
 ms.author: xshi
 ms.service: service-connector
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 05/03/2022
 ---

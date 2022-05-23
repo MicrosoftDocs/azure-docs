@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 05/09/2022
 ms.author: aahi
 ms.devlang: csharp, python
-ms.custom: language-service-custom-ner
+ms.custom: language-service-custom-ner, event-tier1-build-2022
 ---
 
 # Query deployment to extract entities
@@ -81,6 +81,3 @@ First you will need to get your resource key and endpoint:
 ## Next steps
 
 * [Custom NER overview](../overview.md)
-
-
-

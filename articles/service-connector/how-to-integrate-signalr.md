@@ -6,7 +6,7 @@ ms.author: xshi
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 10/29/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Integrate Azure SignalR Service with Service Connector

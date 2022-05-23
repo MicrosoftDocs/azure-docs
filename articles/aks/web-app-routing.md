@@ -4,6 +4,7 @@ description: Use the Web Application  Routing add-on to securely access applicat
 services: container-service
 author: jahabibi
 ms.topic: article
+ms.custom: event-tier1-build-2022
 ms.date: 05/13/2021
 ms.author: jahabibi
 ---

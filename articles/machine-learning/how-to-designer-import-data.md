@@ -9,7 +9,7 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: designer
+ms.custom: designer, event-tier1-build-2022
 ---
 
 # Import data into Azure Machine Learning designer

@@ -7,7 +7,7 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.custom: devx-track-java, subject-rbac-steps
+ms.custom: devx-track-java, subject-rbac-steps, event-tier1-build-2022
 ---
 
 # Access Config Server and Service Registry

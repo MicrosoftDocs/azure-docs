@@ -5,6 +5,7 @@ author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-insights
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 05/16/2022
 ---

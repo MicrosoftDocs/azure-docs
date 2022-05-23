@@ -6,7 +6,7 @@ ms.topic: sample
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
-ms.custom: subject-policy-compliancecontrols
+ms.custom: subject-policy-compliancecontrols, event-tier1-build-2022
 ---
 # Azure Policy Regulatory Compliance controls for Azure Spring Apps
 

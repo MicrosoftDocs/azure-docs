@@ -5,6 +5,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
+ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 05/06/2022
 ms.author: aahi
@@ -30,6 +31,3 @@ Create a Language resource with following details.
 > * Read and confirm Responsible AI notice
 
 To use custom named entity recognition, you'll need to [create an Azure storage account](../../../../../storage/common/storage-account-create.md) if you don't have one already. 
-
-
-

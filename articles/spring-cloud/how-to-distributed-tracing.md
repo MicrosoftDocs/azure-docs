@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: karler
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 

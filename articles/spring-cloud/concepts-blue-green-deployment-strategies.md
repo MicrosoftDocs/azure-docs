@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/12/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Blue-green deployment strategies in Azure Spring Apps

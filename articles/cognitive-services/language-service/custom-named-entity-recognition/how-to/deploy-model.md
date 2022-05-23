@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: how-to
 ms.date: 05/09/2022
 ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021
+ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Deploy a model and extract entities from text using the runtime API

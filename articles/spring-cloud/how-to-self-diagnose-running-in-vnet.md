@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/25/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Self-diagnose running Azure Spring Apps in VNET

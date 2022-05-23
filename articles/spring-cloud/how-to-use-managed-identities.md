@@ -7,7 +7,7 @@ ms.author: jiec
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/15/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: spring-cloud-tier-selection
 ---
 

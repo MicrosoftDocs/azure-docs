@@ -5,10 +5,10 @@ metadata:
   author: seesharprun
   ms.author: sidandrews
   ms.service: cosmos-db
+  ms.custom: event-tier1-build-2022
   ms.topic: faq
   ms.reviewer: dech
   ms.date: 05/09/2022
-  
 title: Frequently asked questions on distributing throughput across partitions in Azure Cosmos DB (preview)
 summary: |
   [!INCLUDE[appliesto-sql-mongodb-api](../includes/appliesto-sql-mongodb-api.md)]

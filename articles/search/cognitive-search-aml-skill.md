@@ -7,6 +7,7 @@ manager: nitinme
 author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 06/12/2020
 ---

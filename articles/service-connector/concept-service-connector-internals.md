@@ -4,6 +4,7 @@ description: Learn about Service Connector internals, the architecture, the conn
 author: shizn
 ms.author: xshi
 ms.service: service-connector
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 05/03/2022
 ---

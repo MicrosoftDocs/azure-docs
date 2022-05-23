@@ -5,7 +5,7 @@ ms.author: nickoman
 ms.service: container-service
 ms.topic: article
 ms.date: 05/03/2022
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Dapr

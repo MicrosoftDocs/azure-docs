@@ -4,6 +4,7 @@ description: Integrate Azure Table Storage into your application with Service Co
 author: shizn
 ms.author: xshi
 ms.service: service-connector
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 05/03/2022
 ---

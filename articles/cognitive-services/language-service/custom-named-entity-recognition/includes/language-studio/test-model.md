@@ -7,7 +7,7 @@ ms.subservice: language-service
 ms.topic: include
 ms.date: 05/05/2022
 ms.author: aahi
-ms.custom: language-service-custom-classification
+ms.custom: language-service-custom-classification, event-tier1-build-2022
 ---
 
 To test your deployed models from within the [Language Studio](https://aka.ms/LanguageStudio):

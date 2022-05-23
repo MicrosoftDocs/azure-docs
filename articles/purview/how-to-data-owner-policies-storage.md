@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.custom: references_regions
+ms.custom: references_regions, event-tier1-build-2022
 ms.date: 05/12/2022
 ---
 

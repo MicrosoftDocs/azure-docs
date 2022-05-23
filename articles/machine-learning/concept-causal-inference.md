@@ -9,7 +9,7 @@ ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
 ms.date: 05/10/2022
-ms.custom: responsible-ml
+ms.custom: responsible-ml, event-tier1-build-2022
 ---
 
 # Make data-driven policies and influence decision making (preview)

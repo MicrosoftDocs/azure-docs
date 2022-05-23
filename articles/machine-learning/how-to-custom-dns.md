@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 03/01/2022
 ms.topic: how-to
-ms.custom: contperf-fy21q3, devx-track-azurepowershell
+ms.custom: contperf-fy21q3, devx-track-azurepowershell, event-tier1-build-2022
 ---
 
 # How to use your workspace with a custom DNS server

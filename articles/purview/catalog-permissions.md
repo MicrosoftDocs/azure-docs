@@ -4,6 +4,7 @@ description: This article gives an overview permission, access control, and coll
 author: viseshag
 ms.author: viseshag
 ms.service: purview
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 05/16/2022
 ---

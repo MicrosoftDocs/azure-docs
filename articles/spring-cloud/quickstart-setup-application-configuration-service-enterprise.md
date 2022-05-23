@@ -6,7 +6,7 @@ ms.author: caiqing
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/09/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Quickstart: Set up Application Configuration Service for Tanzu

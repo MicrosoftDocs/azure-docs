@@ -6,7 +6,7 @@ ms.subservice: language-service
 ms.topic: include
 ms.date: 04/22/2022
 ms.author: aahi
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
 1. Sign into the [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select your Language resource. 

@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 02/24/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: event-tier1-build-2022
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated

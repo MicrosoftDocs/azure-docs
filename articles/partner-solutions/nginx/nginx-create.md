@@ -6,8 +6,7 @@ ms.service: partner-services
 author: flang-msft
 ms.author: franlanglois
 ms.date: 05/12/2022
-ms.custom: references_regions
-
+ms.custom: references_regions, event-tier1-build-2022
 ---
 
 # QuickStart: Get started with NGINX

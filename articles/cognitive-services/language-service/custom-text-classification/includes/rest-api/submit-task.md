@@ -3,6 +3,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
+ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 05/04/2022
 ms.author: aahi
@@ -123,4 +124,3 @@ You will receive a 202 response indicating success. In the response **headers**,
  `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
 
 You can use this URL to query the task completion status and get the results when task is completed.
-

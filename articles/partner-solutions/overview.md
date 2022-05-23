@@ -2,6 +2,7 @@
 title: Offerings from partners - Azure partner solutions
 description: Learn about solutions offered by partners on Azure.
 ms.topic: conceptual
+ms.custom: event-tier1-build-2022
 ms.date: 05/12/2022
 ---
 

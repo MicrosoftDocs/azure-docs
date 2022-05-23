@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: overview
 author: savjani
 ms.author: pariks
-ms.custom: mvc, references_regions
+ms.custom: mvc, references_regions, event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 

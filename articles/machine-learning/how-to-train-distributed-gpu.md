@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 10/21/2021
-ms.custom: sdkv1
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Distributed GPU training guide

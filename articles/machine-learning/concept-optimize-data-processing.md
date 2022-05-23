@@ -10,8 +10,8 @@ ms.subservice: mldata
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 10/21/2021
-ms.custom: data4ml
-# Customer intent: As a data scientist I want to optimize data processing speeds at scale
+ms.custom: data4ml, event-tier1-build-2022
+#Customer intent: As a data scientist I want to optimize data processing speeds at scale
 ---
 
 # Optimize data processing with Azure Machine Learning

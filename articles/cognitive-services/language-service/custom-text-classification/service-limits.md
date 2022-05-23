@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.author: aahi
-ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
+ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Custom text classification limits

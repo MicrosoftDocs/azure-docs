@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.author: karler
 author: karlerickson
 ms.date: 10/06/2019
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Scale an application in Azure Spring Apps

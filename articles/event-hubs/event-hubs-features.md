@@ -2,6 +2,7 @@
 title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
 ms.topic: overview
+ms.custom: event-tier1-build-2022
 ms.date: 05/11/2022
 ---
 

@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: karler
-ms.custom: devx-track-javamicro
+ms.custom: devx-track-javamicro, event-tier1-build-2022
 ---
 
 # Azure Spring Apps disaster recovery

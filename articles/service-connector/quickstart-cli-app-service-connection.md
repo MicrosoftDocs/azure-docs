@@ -7,6 +7,7 @@ ms.service: service-connector
 ms.topic: quickstart
 ms.date: 05/03/2022
 ms.devlang: azurecli
+ms.custom: event-tier1-build-2022
 ---
 
 # Quickstart: Create a service connection in App Service with the Azure CLI

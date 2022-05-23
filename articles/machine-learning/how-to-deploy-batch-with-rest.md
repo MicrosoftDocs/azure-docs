@@ -10,7 +10,7 @@ author: dem108
 ms.author: sehan
 ms.date: 04/29/2022
 ms.reviewer: nibaccam
-ms.custom: devplatv2
+ms.custom: devplatv2, event-tier1-build-2022
 ---
 
 # Deploy models with REST (preview) for batch scoring 

@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/23/2021
 ms.topic: how-to
-ms.custom: build-spring-2022, cliv2, sdkv2
+ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---
 
 # Azure Machine Learning anywhere with Kubernetes (preview)

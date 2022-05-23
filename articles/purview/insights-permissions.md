@@ -5,6 +5,7 @@ author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-insights
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 05/16/2022
 ---
@@ -45,4 +46,3 @@ Learn how to use Data Estate Insights with sources below:
 * [Learn how to use Classification insights](classification-insights.md)
 * [Learn how to use Glossary insights](glossary-insights.md)
 * [Learn how to use Label insights](sensitivity-insights.md)
-

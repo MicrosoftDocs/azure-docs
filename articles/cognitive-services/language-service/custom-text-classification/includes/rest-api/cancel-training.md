@@ -3,6 +3,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
+ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 05/05/2022
 ms.author: aahi
@@ -35,4 +36,3 @@ Use the following header to authenticate your request.
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
  
 Once you send your API request, you will receive a 204 response indicating success, which means your training job has been canceled.
-

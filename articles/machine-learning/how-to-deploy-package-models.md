@@ -10,7 +10,7 @@ ms.topic: how-to
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: larryfr
-ms.custom: deploy
+ms.custom: deploy, event-tier1-build-2022
 ---
 
 # How to package a registered model with Docker

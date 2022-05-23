@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: how-to
 ms.date: 05/05/2022
 ms.author: aahi
-ms.custom: language-service-custom-classification, ignite-fall-2021
+ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Label text data for training your model 

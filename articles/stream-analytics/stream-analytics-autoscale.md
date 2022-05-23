@@ -4,6 +4,7 @@ description: This article explains how you can use different scaling methods for
 author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 05/10/2022
 ---

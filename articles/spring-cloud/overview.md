@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: overview
 ms.date: 03/09/2021
 ms.author: karler
-ms.custom: devx-track-java, contperf-fy21q2
+ms.custom: devx-track-java, contperf-fy21q2, event-tier1-build-2022
 #Customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring applications.
 ---
 

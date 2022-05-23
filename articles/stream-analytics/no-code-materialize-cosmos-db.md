@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, event-tier1-build-2022
 ms.date: 05/12/2022
 ---
 # Materialize data in Azure Cosmos DB using the Stream Analytics no code editor

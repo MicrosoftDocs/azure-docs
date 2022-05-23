@@ -8,7 +8,7 @@ ms.subservice: sql
 ms.date: 05/10/2022
 ms.author: jovanpop
 ms.reviewer: sidandrews, wiassaf
-ms.custom: cosmos-db
+ms.custom: cosmos-db, event-tier1-build-2022
 ---
 
 # Query Azure Cosmos DB data with a serverless SQL pool in Azure Synapse Link

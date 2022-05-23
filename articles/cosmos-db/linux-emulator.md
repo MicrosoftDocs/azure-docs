@@ -2,6 +2,7 @@
 title: Run the Azure Cosmos DB Emulator on Docker for Linux
 description: Learn how to run and use the Azure Cosmos DB Linux Emulator on Linux, and macOS. Using the emulator you can develop and test your application locally for free, without an Azure subscription.
 ms.service: cosmos-db
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo

@@ -4,6 +4,7 @@ description: Tutorial showing how to create a service connection and store secre
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
+ms.custom: event-tier1-build-2022
 ms.topic: tutorial
 ms.date: 05/23/2022
 ---

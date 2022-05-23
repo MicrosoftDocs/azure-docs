@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 author: rsethur
 ms.date: 04/29/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, cliv2
+ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022
 ---
 
 # Safe rollout for online endpoints

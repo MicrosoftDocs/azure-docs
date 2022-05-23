@@ -7,6 +7,7 @@ ms.author: jovanpop
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
+ms.custom: event-tier1-build-2022
 ms.date: 03/24/2022
 ms.reviewer: sngun, wiassaf
 ---

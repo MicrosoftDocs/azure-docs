@@ -2,6 +2,7 @@
 title: Customize the node configuration for Azure Kubernetes Service (AKS) node pools
 description: Learn how to customize the configuration on Azure Kubernetes Service (AKS) cluster nodes and node pools.
 ms.service: container-service
+ms.custom: event-tier1-build-2022
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma

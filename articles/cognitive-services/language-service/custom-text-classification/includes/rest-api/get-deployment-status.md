@@ -7,7 +7,7 @@ ms.subservice: language-service
 ms.topic: include
 ms.date: 05/04/2022
 ms.author: aahi
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
 Use the following **GET** request to query the status of the deployment job. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 

@@ -3,10 +3,10 @@ title: Manage an NGINX resource through the Azure portal
 description: This article describes management functions for NGINX on the Azure portal. 
 ms.topic: conceptual
 ms.service: partner-services
+ms.custom: event-tier1-build-2022
 author: flang-msft
 ms.author: franlanglois
 ms.date: 05/12/2022
-
 ---
 
 # Manage your NGINX for Azure (preview) integration through the portal

@@ -7,7 +7,7 @@ ms.author: jiec
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/19/2021
-ms.custom: devx-track-java, devx-track-azurecli 
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 

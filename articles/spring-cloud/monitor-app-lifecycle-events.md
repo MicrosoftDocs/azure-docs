@@ -6,7 +6,7 @@ ms.author: shiqiu
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/19/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Monitor app lifecycle events using Azure Activity log and Azure Service Health

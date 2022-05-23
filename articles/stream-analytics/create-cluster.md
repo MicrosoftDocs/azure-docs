@@ -5,7 +5,7 @@ ms.service: stream-analytics
 author: sidramadoss
 ms.author: sidram
 ms.topic: quickstart
-ms.custom: mvc, mode-ui
+ms.custom: mvc, mode-ui, event-tier1-build-2022
 ms.date: 05/10/2022
 ---
 

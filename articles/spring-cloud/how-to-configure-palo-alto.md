@@ -6,7 +6,7 @@ ms.author: karler
 ms.topic: how-to
 ms.service: spring-cloud
 ms.date: 09/17/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # How to configure Palo Alto for Azure Spring Apps

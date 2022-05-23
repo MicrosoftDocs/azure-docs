@@ -9,7 +9,7 @@ author: blackmist
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: conceptual
-ms.custom: how-to, devplatv2
+ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
 
 # Monitor managed online endpoints

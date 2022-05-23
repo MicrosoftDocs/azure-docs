@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/15/2021
-ms.custom: devx-track-java, devx-track-azurecli, mode-other
+ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
 ---
 
 # Quickstart: Integrate Azure Spring Apps with Azure Database for MySQL

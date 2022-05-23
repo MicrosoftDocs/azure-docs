@@ -3,10 +3,10 @@ title: What is NGINX for Azure
 description: Learn about using the NGINX Cloud-Native Observability Platform in the Azure Marketplace.
 ms.topic: conceptual
 ms.service: partner-services    
+ms.custom: event-tier1-build-2022
 author: flang-msft
 ms.author: franlanglois
 ms.date: 05/12/2022
-
 ---
 
 # What is NGINX for Azure (preview)?

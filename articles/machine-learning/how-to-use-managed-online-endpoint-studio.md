@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.custom: how-to, managed online endpoints, devplatv2, studio
+ms.custom: how-to, managed online endpoints, devplatv2, studio, event-tier1-build-2022
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: laobri

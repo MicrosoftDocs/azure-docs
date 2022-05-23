@@ -4,9 +4,10 @@ description: Quickstart showing how to create a service connection in App Servic
 author: shizn
 ms.author: xshi
 ms.service: service-connector
+ms.custom: event-tier1-build-2022
 ms.topic: quickstart
 ms.date: 05/03/2022
-# Customer intent: As an app developer, I want to connect several services together so that I can ensure I have the right connectivity to access my Azure resources.
+#Customer intent: As an app developer, I want to connect several services together so that I can ensure I have the right connectivity to access my Azure resources.
 ---
 
 # Quickstart: Create a service connection in App Service from the Azure portal

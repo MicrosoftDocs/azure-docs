@@ -2,8 +2,8 @@
 title: Configure Basic Logs in Azure Monitor (Preview)
 description: Configure a table for Basic Logs in Azure Monitor.
 ms.topic: conceptual
+ms.custom: event-tier1-build-2022
 ms.date: 05/15/2022
-
 ---
 
 # Configure Basic Logs in Azure Monitor (Preview)

@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl,contperf-fy21q2, sdkv1
+ms.custom: automl, contperf-fy21q2, sdkv1, event-tier1-build-2022
 ms.date: 01/24/2022
 ---
 

@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 11/03/2021
 ms.author: jehollan
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-other, event-tier1-build-2022
 ---
 
 # Comparing Container Apps with other Azure container options

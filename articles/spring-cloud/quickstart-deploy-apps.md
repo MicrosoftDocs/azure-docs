@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/15/2021
-ms.custom: devx-track-java, devx-track-azurecli, mode-other
+ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 

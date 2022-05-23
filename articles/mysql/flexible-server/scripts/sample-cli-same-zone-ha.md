@@ -7,7 +7,7 @@ ms.service: mysql
 ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 
