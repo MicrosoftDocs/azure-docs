@@ -14,7 +14,7 @@ ms.reviewer: pimorano
 
 Continuous integration (CI) is the process of automating the build and testing of code every time a team member commits a change to version control. Continuous delivery (CD) is the process of building, testing, configuring, and deploying from multiple testing or staging environments to a production environment.
 
-In an Azure Synapse Analytics workspace, CI/CD moves all entities from one environment (development, test, production) to another environment. Promoting your workspace to another workspace is a two-part process. First, use an [Azure Resource Manager template (ARM template)](../../azure-resource-manager/templates/overview.md) to create or update workspace resources (pools and workspace). Then, migrate artifacts like SQL scripts and notebooks, Spark job definitions, pipelines, datasets, and data flows by using Azure Synapse CI/CD tools in Azure DevOps or on GitHub. 
+In an Azure Synapse Analytics workspace, CI/CD moves all entities from one environment (development, test, production) to another environment. Promoting your workspace to another workspace is a two-part process. First, use an [Azure Resource Manager template (ARM template)](../../azure-resource-manager/templates/overview.md) to create or update workspace resources (pools and workspace). Then, migrate artifacts like SQL scripts and notebooks, Spark job definitions, pipelines, datasets, and other artifacts by using **Synapse Workspace Deployment** tools in Azure DevOps or on GitHub. 
 
 This article outlines how to use an Azure DevOps release pipeline and GitHub Actions to automate the deployment of an Azure Synapse workspace to multiple environments.
 
@@ -97,7 +97,7 @@ In this section, you'll learn how to deploy an Azure Synapse workspace in Azure 
 
     :::image type="content" source="media/release-creation-arm-template-branch.png" lightbox="media/release-creation-arm-template-branch.png" alt-text="Screenshot that shows setting the resource ARM template branch.":::
 
-1. For the artifacts **Default branch**, select the repository [publish branch](source-control.md#configure-publishing-settings). By default, the publish branch is `workspace_publish`. For the **Default version**, select **Latest from default branch**.
+1. For the artifacts **Default branch**, select the repository [publish branch](source-control.md#configure-publishing-settings) or other non-publish branches which include Synapse artifacts. By default, the publish branch is `workspace_publish`. For the **Default version**, select **Latest from default branch**.
 
     :::image type="content" source="media/release-creation-publish-branch.png" alt-text="Screenshot that shows setting the artifacts branch.":::
 
@@ -134,7 +134,9 @@ If you have an ARM template that deploys a resource, such as an Azure Synapse wo
 
 ### Set up a stage task for Azure Synapse artifacts deployment 
 
-Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) extension to deploy other items in your Azure Synapse workspace. Items that you can deploy include datasets, SQL scripts and notebooks, a Spark job definition, a data flow, a pipeline, a linked service, credentials, and an integration runtime.  
+Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) extension to deploy other items in your Azure Synapse workspace. Items that you can deploy include datasets, SQL scripts and notebooks, spark job definitions, integration runtime, data flow, credentials, and other artifacts in workspace . The extension supports 3 types of operation, publish branch based deployment , deployment from non-publish branches. 
+
+#### Install and add deployment extension 
 
 1. Search for and get the extension from [Visual Studio Marketplace](https://marketplace.visualstudio.com/azuredevops).
 
@@ -149,6 +151,22 @@ Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/item
 1. To create a new task, search for **Synapse workspace deployment**, and then select **Add**.
 
     :::image type="content" source="media/add-extension-task.png" alt-text="Screenshot that shows searching for Synapse workspace deployment to create a task.":::
+
+#### Configure the deployment task 
+
+The deployment task supports 3 types of operations,  validate only, deploy and validate and deploy.
+
+**Validate** is to validate the Synapse artifacts in non-publish branch with the task and generate the workspace template and parameter template file. The validation operation only works in the YAML pipeline.
+
+**Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It is same as the version 1.x. 
+
+**Validate and deploy** can be used to directly deploy the workspace from non-publish branch with the artifact root folder. 
+
+You can choose the operation types based on the use case. Following part is an example of the deploy.
+
+1. In the task, select the operation type as **Deploy**.
+
+    :::image type="content" source="media/operation-deploy.png" lightbox="media/operation-deploy.png" alt-text="Screenshot that shows the selection of operation deploy.":::
 
 1. In the task, next to **Template**, select **…** to choose the template file.
 
@@ -427,3 +445,4 @@ In Azure Synapse, unlike in Data Factory, some artifacts aren't Resource Manager
 ### Unexpected token error in release
 
 If your parameter file has parameter values that aren't escaped, the release pipeline fails to parse the file and generates an `unexpected token` error. We suggest that you override parameters or use Key Vault to retrieve parameter values. You also can use double escape characters to resolve the issue.
+ 
