@@ -1488,7 +1488,7 @@ items:
       href: migration-guides/migrate-to-synapse-analytics-guide.md
     - name: From Netezza
       items:
-      - name: 1 Design performance for migration
+      - name: 1 Design performance for Netezza migration
         href: migration-guides/netezza/1-design-performance-migration.md
       - name: 2 ETL and load migration considerations
         href: migration-guides/netezza/2-etl-load-migration-considerations.md
