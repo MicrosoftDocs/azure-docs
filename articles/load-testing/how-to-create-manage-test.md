@@ -15,6 +15,9 @@ ms.topic: how-to
 
 Learn how to create and manage [tests](./concept-load-testing-concepts.md#test) in your Azure Load Testing Preview resource.
 
+> [!IMPORTANT]
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -31,15 +34,23 @@ There are two options to create a load test for Azure Load Testing resource in t
 
 ### Create a quick test by using a URL
 
-To load test a single web endpoint, use the quick test experience in the Azure portal. Specify the application endpoint URL and basic load parameters to create and run a load test.
+To load test a single web endpoint, use the quick test experience in the Azure portal. Specify the application endpoint URL and basic load parameters to create and run a load test. For more information, see our [quickstart for creating and running a test by using a URL](./quickstart-create-and-run-load-test.md).
 
-:::image type="content" source="media/how-to-create-manage-test/create-quick-test.png" alt-text="Screenshot that shows the page for creating a quick test in the Azure portal.":::
+1. In the [Azure portal](https://portal.azure.com), and go to your Azure Load Testing resource.
 
-Azure Load Testing automatically generates a JMeter test script, and configures your test to scale across multiple test engines, based on your load parameters.
+1. Select **Quick test** on the **Overview** page.
 
-You can edit the test configuration at time after creating it. For example to [monitor server-side metrics](./how-to-monitor-server-side-metrics.md), [configure high scale load](./how-to-high-scale-load.md), or to edit the generated JMX file.
+    Alternately, select **Tests** in the left pane, select **+ Create**, and then select **Create a quick test**.
 
-For more information, see our [quickstart for creating and running a test by using a URL](./quickstart-create-and-run-load-test.md).
+1. Enter the URL and load parameters.
+
+    :::image type="content" source="media/how-to-create-manage-test/create-quick-test.png" alt-text="Screenshot that shows the page for creating a quick test in the Azure portal.":::
+
+1. Select **Run test** to start the load test.
+
+    Azure Load Testing automatically generates a JMeter test script, and configures your test to scale across multiple test engines, based on your load parameters.
+    
+    You can edit the test configuration at time after creating it. For example to [monitor server-side metrics](./how-to-monitor-server-side-metrics.md), [configure high scale load](./how-to-high-scale-load.md), or to edit the generated JMX file.
 
 ### Create a test by using a JMeter script
 
@@ -47,7 +58,9 @@ To reuse an existing JMeter test script, or for more advanced test scenarios, cr
 
 1. In the [Azure portal](https://portal.azure.com), and go to your Azure Load Testing resource.
 
-1. Select **Create** on the **Overview** page. Alternately, select **Tests** in the left pane, select **+ Create**, and then select **Upload a JMeter script**.
+1. Select **Create** on the **Overview** page. 
+    
+    Alternately, select **Tests** in the left pane, select **+ Create**, and then select **Upload a JMeter script**.
 
 1. On the **Basics** page, enter the basic test information.
 
