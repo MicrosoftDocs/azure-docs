@@ -32,17 +32,17 @@ This tutorial will explain how to integrate your own conversational language und
 1. Copy the [FlightBooking.json](https://aka.ms/clu-botframework-json) file in the **Core Bot** for CLU sample.
 2. Sign into the [Language Studio](https://language.cognitive.azure.com/) and select your Language resource. 
 3. Navigate to [Conversational Language Understanding](https://language.cognitive.azure.com/clu/projects) and click on the service. This will route you the projects page. Click the Import button next to the Create New Project button. Import the FlightBooking.json file with the project name as **FlightBooking**. This will automatically import the CLU project with all the intents, entities, and utterances. 
-
-:::image type="content" source="../media/import.png" alt-text="A screenshot showing where to import a JSON in CLU." lightbox="../media/import.png":::
+    
+    :::image type="content" source="../media/import.png" alt-text="A screenshot showing where to import a J son file." lightbox="../media/import.png":::
 
 4. Once the project is loaded, click on **Training** on the left. Press on Start a training job, provide the model name **v1** and press Train. All other settings such as **Standard Training** and the evaluation settings can be left as is.
-
-:::image type="content" source="../media/train-model-tutorial.png" alt-text="A screenshot of the training page in CLU." lightbox="../media/train-model-tutorial.png":::
-
+    
+    :::image type="content" source="../media/train-model-tutorial.png" alt-text="A screenshot of the training page in CLU." lightbox="../media/train-model-tutorial.png":::
+    
 5. Once training is complete, click to **Deployments** on the left. Click on Add Deployment and create a new deployment with the name **Testing**, and assign model **v1** to the deployment.
-
-:::image type="content" source="../media/deploy-model-tutorial.png" alt-text="A screenshot of the deployment page within the deploy model screen in CLU." lightbox="../media/deploy-model-tutorial.png":::
-
+    
+    :::image type="content" source="../media/deploy-model-tutorial.png" alt-text="A screenshot of the deployment page within the deploy model screen in CLU." lightbox="../media/deploy-model-tutorial.png":::
+    
 ## Update the settings file
 
 Now that your CLU project is deployed and ready, update the settings that will connect to the deployment. 
@@ -169,8 +169,8 @@ dotnet run
 
 If the top intent returned from CLU resolves to "_Book flight_". Your bot will ask additional questions until it has enough information stored to create a travel booking. At that point it will return this booking information back to your user.
 
-## Next Steps
+## Next steps
 
-- Learn more about the [Bot Framework SDK](/azure/bot-service/bot-service-overview).
+Learn more about the [Bot Framework SDK](/azure/bot-service/bot-service-overview).
 
 

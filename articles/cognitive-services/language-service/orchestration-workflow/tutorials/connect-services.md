@@ -35,9 +35,9 @@ This tutorial will include creating a **chit chat** knowledge base and **email c
 2. Find and select the [custom question answering](https://language.cognitive.azure.com/questionAnswering/projects/) card in the homepage.
 3. Click on **Create new project** and add the name **chitchat** with the language _English_ before clicking on **Create project**.
 4. When the project loads, click on **Add source** and select _Chit chat_. Select the professional personality for chit chat before
-
-:::image type="content" source="../media/chitchat.png" alt-text="A screenshot of the chit chat popup." lightbox="../media/chitchat.png":::
-
+    
+    :::image type="content" source="../media/chit-chat.png" alt-text="A screenshot of the chit chat popup." lightbox="../media/chit-chat.png":::
+    
 5. Go to **Deploy knowledge base** from the left navigation menu and click on **Deploy** and confirm the popup that shows up.
 
 You are now done with deploying your knowledge base for chit chat. You can explore the type of questions and answers to expect in the **Edit knowledge base** tab.
@@ -47,17 +47,17 @@ You are now done with deploying your knowledge base for chit chat. You can explo
 1. In Language Studio, go to the [conversational language understanding](https://language.cognitive.azure.com/clu/projects) service. 
 2. Download the **EmailProject.json** sample file [here](https://aka.ms/clu-sample-json).
 3. Click on the arrow next to **Create new project** and select **Import**. Browse to the downloaded EmailProject.json file you downloaded and press Done. 
-
-:::image type="content" source="../media/import.png" alt-text="A screenshot showing where to import a JSON in CLU." lightbox="../media/import.png":::
-
+    
+    :::image type="content" source="../media/import.png" alt-text="A screenshot showing where to import a J son file." lightbox="../media/import.png":::
+    
 4. Once the project is loaded, click on **Training** on the left. Press on Start a training job, provide the model name **v1** and press Train. All other settings such as **Standard Training** and the evaluation settings can be left as is.
-
-:::image type="content" source="../media/train-model-tutorial.png" alt-text="A screenshot of the training page in CLU." lightbox="../media/train-model-tutorial.png":::
-
+    
+    :::image type="content" source="../media/train-model-tutorial.png" alt-text="A screenshot of the training page." lightbox="../media/train-model-tutorial.png":::
+    
 5. Once training is complete, click to **Deployments** on the left. Click on Add Deployment and create a new deployment with the name **Testing**, and assign model **v1** to the deployment.
-
-:::image type="content" source="../media/deploy-model-tutorial.png" alt-text="A screenshot of the deploy model add deployment page in CLU." lightbox="../media/deploy-model-tutorial.png":::
-
+    
+    :::image type="content" source="../media/deploy-model-tutorial.png" alt-text="A screenshot showing the model deployment page." lightbox="../media/deploy-model-tutorial.png":::
+    
 You are now done with deploying a conversational language understanding project for email commands. You can explore the different commands in the **Utterances** page.
 
 ## Create an orchestration workflow project 
@@ -110,6 +110,9 @@ ConversationsProject orchestrationProject = new ConversationsProject("Orchestrat
 
 You can now connect other projects to your orchestrator and begin building complex architectures with various different projects.
 
+## Next steps
 
+- Learn more about [conversational language understanding](./../../conversational-language-understanding/overview.md).
+- Learn more about [custom question answering](./../../question-answering/overview.md).
 
 

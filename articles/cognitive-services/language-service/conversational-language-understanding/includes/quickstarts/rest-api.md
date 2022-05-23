@@ -29,7 +29,7 @@ ms.custom: ignite-fall-2021
 
 Once you have a Language resource created, create a conversational language understanding project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
-For this quickstart, you can download [this sample project]() and import it. This project can predict the intended commands from user input, such as: reading emails, deleting emails, and attaching a document to an email. 
+For this quickstart, you can download [this sample project](https://go.microsoft.com/fwlink/?linkid=2196152) and import it. This project can predict the intended commands from user input, such as: reading emails, deleting emails, and attaching a document to an email. 
 
 ### Trigger import project job 
 
