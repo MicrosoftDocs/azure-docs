@@ -106,13 +106,13 @@ To add a CSV file to your load test by using the Azure portal:
   
 ::: zone-end
 
-<!-- ### Add a CSV file to the test configuration YAML file -->
-
 ::: zone pivot="experience-pipelines,experience-ghactions"
 
 If you run a load test within your CI/CD workflow, you can add a CSV file to the test configuration YAML file. For more information about running a load test in a CI/CD workflow, see the [Automated regression testing tutorial](./tutorial-cicd-azure-pipelines.md).
 
-To add a CSV file in the test configuration YAML file:
+To add a CSV file to your load test:
+
+  1. Commit the CSV file to the source control repository that contains the JMX file and YAML test configuration file.
 
   1. Open your YAML test configuration file in Visual Studio Code or your editor of choice.
 
