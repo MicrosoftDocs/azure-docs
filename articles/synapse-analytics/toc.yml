@@ -1486,20 +1486,22 @@ items:
     items:
     - name: Migrate to a dedicated SQL pool
       href: migration-guides/migrate-to-synapse-analytics-guide.md
-    - name: Design and performance for Teradata migrations
-      href: migration-guides/teradata/1-design-performance-migration.md
-    - name: Data migration, ETL, and load for Teradata migrations
-      href: migration-guides/teradata/2-etl-load-migration-considerations.md
-    - name: Security, access, and operations for Teradata migrations
-      href: migration-guides/teradata/3-security-access-operations.md
-    - name: Visualization and reporting for Teradata migrations
-      href: migration-guides/teradata/4-visualization-reporting.md
-    - name: Minimizing SQL issues for Teradata migrations
-      href: migration-guides/teradata/5-minimize-sql-issues.md
-    - name: Tools for Teradata data warehouse migration to Azure Synapse Analytics
-      href: migration-guides/teradata/6-microsoft-third-party-migration-tools.md
-    - name: Beyond Teradata migration, implementing a modern data warehouse in Microsoft Azure
-      href: migration-guides/teradata/7-beyond-data-warehouse-migration.md
+    - name: Teradata
+      items:
+      - name: Design and performance for migrations
+        href: migration-guides/teradata/1-design-performance-migration.md
+      - name: Data migration, ETL, and load for migrations
+        href: migration-guides/teradata/2-etl-load-migration-considerations.md
+      - name: Security, access, and operations for migrations
+        href: migration-guides/teradata/3-security-access-operations.md
+      - name: Visualization and reporting for migrations
+        href: migration-guides/teradata/4-visualization-reporting.md
+      - name: Minimizing SQL issues for migrations
+        href: migration-guides/teradata/5-minimize-sql-issues.md
+      - name: Tools for data warehouse migration to Azure Synapse Analytics
+        href: migration-guides/teradata/6-microsoft-third-party-migration-tools.md
+      - name: Beyond migration, implementing a modern data warehouse in Microsoft Azure
+        href: migration-guides/teradata/7-beyond-data-warehouse-migration.md
   - name: Security white paper
     items:
     - name: Introduction
