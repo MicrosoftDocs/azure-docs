@@ -38,7 +38,7 @@ This table describes the key stages in the analyst workflow, and highlights the 
 
 |Assign  |Triage  |Investigate  |Respond  |
 |---------|---------|---------|---------|
-|**[Assign incidents](#assign)**:<br>• Manually, in the **Incidents** page <br>• Automatically, using playbooks or automation rules  |**[Triage incidents](#triage)**<br>• In the Incident Detail page<br>• In the Entity page<br>• Using Sentinel Notebooks.     |**[Investigate incidents](#investigate)**:<br>• The investigation graph<br>• Workbooks<br>• The Log Analytics query window.      |**[Responds to incidents](#respond)**:<br>• Playbooks and automation rules.<br>• Microsoft Teams War Room.  |
+|**[Assign incidents](#assign)**:<br>• Manually, in the **Incidents** page <br>• Automatically, using playbooks or automation rules  |**[Triage incidents](#triage)** using:<br>• The incident details in the **Incident** page<br>• Entity information in the **Incident page**, under the **Entities** tab<br>• Jupyter Notebooks     |**[Investigate incidents](#investigate)** using:<br>• The investigation graph<br>• Microsoft Sentinel Workbooks<br>• The Log Analytics query window      |**[Responds to incidents](#respond)** using:<br>• Playbooks and automation rules<br>• Microsoft Teams War Room  |
 
 The next sections map both the terminology and end-to-end analyst workflow to specific Microsoft Sentinel features.
 
