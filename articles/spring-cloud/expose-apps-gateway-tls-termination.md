@@ -170,15 +170,15 @@ Create an application gateway using the following steps to enable SSL terminatio
 1. Fill in the required fields for creating the application gateway. Leave the default values as they are.
 1. After you provide a value for the **Virtual network** field, the **Subnet** field appears. Create a separate subnet for the application gateway in the VNET, as shown in the following screenshot.
 
-   :::image type="content" source="media/expose-apps-gateway-tls-termination/create-application-gateway-basics.png" alt-text="Azure portal screenshot of 'Create application gateway' page.":::
+   :::image type="content" source="media/expose-apps-gateway-tls-termination/create-application-gateway-basics.png" alt-text="Screenshot of Azure portal 'Create application gateway' page.":::
 
 1. Create a public IP address and assign it to the frontend of the application gateway, as shown in the following screenshot.
 
-   :::image type="content" source="media/expose-apps-gateway-tls-termination/create-frontend-ip.png" alt-text="Azure portal screenshot showing Frontends tab of 'Create application gateway' page.":::
+   :::image type="content" source="media/expose-apps-gateway-tls-termination/create-frontend-ip.png" alt-text="Screenshot of Azure portal showing Frontends tab of 'Create application gateway' page.":::
 
 1. Create a backend pool for the application gateway. Select **Target** as your FQDN of the application deployed in Azure Spring Cloud.
 
-   :::image type="content" source="media/expose-apps-gateway-tls-termination/create-backend-pool.png" alt-text="Azure portal screenshot of 'Add a backend pool' page.":::
+   :::image type="content" source="media/expose-apps-gateway-tls-termination/create-backend-pool.png" alt-text="Screenshot of Azure portal 'Add a backend pool' page.":::
 
 1. Create a routing rule with HTTP listener.
    1. Select the public IP that you created earlier.
@@ -187,11 +187,11 @@ Create an application gateway using the following steps to enable SSL terminatio
       1. Select the managed identity you created earlier.
       1. Select the right key vault and certificate, which were added to the key vault earlier.
 
-         :::image type="content" source="media/expose-apps-gateway-tls-termination/create-routingrule-with-http-listener.png" alt-text="Azure portal screenshot of 'Add a routing rule' page.":::
+         :::image type="content" source="media/expose-apps-gateway-tls-termination/create-routingrule-with-http-listener.png" alt-text="Screenshot of Azure portal 'Add a routing rule' page.":::
 
    1. Select the **Backend targets** tab.
 
-      :::image type="content" source="media/expose-apps-gateway-tls-termination/create-backend-http-settings.png" alt-text="Azure portal screenshot of 'Add a HTTP setting' page.":::
+      :::image type="content" source="media/expose-apps-gateway-tls-termination/create-backend-http-settings.png" alt-text="Screenshot of Azure portal 'Add a H T T P setting' page.":::
 
 1. Select **Review and Create** to create the application gateway.
 

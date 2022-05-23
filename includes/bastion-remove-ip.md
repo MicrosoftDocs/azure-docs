@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 03/02/2022
+ms.date: 05/05/2022
 ms.service: bastion
 ms.topic: include
 
@@ -17,10 +17,14 @@ When you connect to a VM using Azure Bastion, you don't need a public IP address
 
    :::image type="content" source="./media/bastion-remove-ip/disassociate.png" alt-text="Screenshot of public IP address for the VM." lightbox="./media/bastion-remove-ip/disassociate.png":::
 
-1. Select **Yes** to disassociated the IP address from the network interface.
+1. Select **Yes** to disassociate the IP address from the network interface.
 
    :::image type="content" source="./media/bastion-remove-ip/disassociate-yes.png" alt-text="Screenshot of Disassociate public IP address.":::
 
-1. After you disassociate the IP address, you can delete the public IP address resource. To delete the public IP address resource, go to the resource group and locate the IP address resource you want to delete. Then, select **Delete** to delete the resource.
+1. After you disassociate the IP address, you can delete the public IP address resource. On the **Public IP address** page for the VM, select **Delete**.
 
    :::image type="content" source="./media/bastion-remove-ip/delete-resource.png" alt-text="Screenshot of delete the public IP address resource." lightbox="./media/bastion-remove-ip/delete-resource.png":::
+
+1. Select **Yes** to delete the IP address resource.
+
+   :::image type="content" source="./media/bastion-remove-ip/delete-yes.png" alt-text="Screenshot of Delete public IP address resource confirmation." lightbox="./media/bastion-remove-ip/delete-yes.png":::

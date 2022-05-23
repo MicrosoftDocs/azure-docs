@@ -218,12 +218,12 @@
       href: store-logs-in-azure-data-explorer.md
   - name: Use ASIM to normalize data
     items:
+    - name: Use ASIM
+      href: normalization-about-parsers.md
     - name: Develop ASIM parsers
       href: normalization-develop-parsers.md
     - name: Manage ASIM parsers
       href: normalization-manage-parsers.md
-    - name: Use ASIM parsers
-      href: normalization-about-parsers.md
     - name: Modify content to use ASIM
       href: normalization-modify-content.md
   - name: Use threat intelligence
@@ -302,6 +302,8 @@
     items:
     - name: Investigate incidents
       href: investigate-cases.md
+    - name: Relate alerts to incidents
+      href: relate-alerts-to-incidents.md
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
@@ -400,7 +402,9 @@
     items:
       - name: ASIM content
         href: normalization-content.md
-      - name: ASIM Common fields
+      - name: ASIM parsers
+        href: normalization-parsers-list.md
+      - name: ASIM common fields
         href: normalization-common-fields.md 
       - name: ASIM schemas
         items:

@@ -75,7 +75,7 @@ The following steps show the process for configuring the Transport Management Sy
 Now that you've configured the Transport Management System, you'll be able to successfully complete the `STMS_IMPORT` transaction and you can continue [preparing your SAP environment](preparing-sap.md) for deploying the Continuous Threat Monitoring solution for SAP in Microsoft Sentinel.
 
 > [!div class="nextstepaction"]
-> [Deploy SAP Change Requests and configure authorization](preparing-sap.md#set-up-the-applications)
+> [Deploy SAP Change Requests and configure authorization](preparing-sap.md#import-the-crs)
 
 Learn more about the Microsoft Sentinel SAP solutions:
 

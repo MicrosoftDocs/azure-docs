@@ -864,8 +864,6 @@ items:
   #   items:
   # - name: Quickstarts
   #   items:
-  # - name: Tutorials
-  #   items:  
   - name: Quickstarts
     items:
     - name: Load data into SQL pools using copy activity

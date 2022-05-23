@@ -102,13 +102,7 @@ The `az ml online-deployment` commands can be used for managing Azure Machine Le
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online). Several are shown below.
-
-## YAML: sample deployments
-
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/amlarc/blue-deployment.yml":::
-
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/amlarc/green-deployment.yml":::
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online).
 
 ## Next steps
 
