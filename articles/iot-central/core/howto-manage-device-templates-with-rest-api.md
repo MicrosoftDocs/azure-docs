@@ -18,6 +18,8 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
+[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
+
 ## Device templates
 
 A device template contains a device model, cloud property definitions, customizations, and view definitions. The REST API lets you manage the device model, cloud property definitions, and customizations. Use the UI to create and manage views.

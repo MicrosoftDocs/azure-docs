@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 04/28/2022
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperf-fy21q2
 
@@ -58,6 +58,8 @@ Each replica set contains one primary replica and three secondaries. Write opera
 :::image type="content" source="./media/performance-tips/sdk-direct-mode.png" alt-text="Diagram that shows how S D Ks in direct mode fetch the container and routing information from Gateway before opening the T C P connections to the backend nodes" border="false":::
 
 Because the container and routing information don't change often, it's cached locally on the SDKs so subsequent operations can benefit from this information. The TCP connections already established are also reused across operations. Unless otherwise configured through the SDKs options, connections are permanently maintained during the lifetime of the SDK instance.
+
+As with any distributed architecture, the machines holding replicas might undergo upgrades or maintenance. The service will ensure the replica set maintains consistency but any replica movement would cause existing TCP addresses to change. In these cases, the SDKs need to refresh the routing information and re-connect to the new addresses through new Gateway requests. These events should not affect the overall P99 SLA.
 
 ### Volume of connections
 

@@ -16,7 +16,7 @@ ms.date: 10/05/2021
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with DMS
 
-Use the Azure SQL migration extension in Azure Data Studio to migrate database(s) from a SQL Server instance to an [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) with minimal downtime. For methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide).
+Use the Azure SQL migration extension in Azure Data Studio to migrate database(s) from a SQL Server instance to an [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) with minimal downtime. For methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide).
 
 In this tutorial, you migrate the **AdventureWorks** database from an on-premises instance of SQL Server to Azure SQL Managed Instance with minimal downtime by using Azure Data Studio with Azure Database Migration Service (DMS). This tutorial focuses on the online migration mode where application downtime is limited to a short cutover at the end of the migration.
 
@@ -49,6 +49,7 @@ To complete this tutorial, you need to:
     - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
     - Reader role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
     - Owner or Contributor role for the Azure subscription (required if creating a new DMS service).
+    - As an alternative to using the above built-in roles you can assign a custom role as defined in [this article.](resource-custom-roles-sql-db-managed-instance-ads.md)
     > [!IMPORTANT]
     > Azure account is only required when configuring the migration steps and is not required for assessment or Azure recommendation steps in the migration wizard.
 * Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).

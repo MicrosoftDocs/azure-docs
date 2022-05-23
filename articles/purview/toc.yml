@@ -80,7 +80,7 @@ items:
         href: concept-best-practices-scanning.md
       - name: Security best practices
         href: concept-best-practices-security.md  
-  - name: Microsoft Purview permissions
+  - name: Permissions and access
     href: catalog-permissions.md
   - name: Data map
     items:
@@ -108,7 +108,7 @@ items:
       href: concept-data-owner-policies.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
-  - name: Data insights
+  - name: Data Estate Insights
     href: concept-insights.md
 - name: How-to guides
   items:
@@ -189,8 +189,14 @@ items:
       href: register-scan-oracle-source.md
     - name: PostgreSQL
       href: register-scan-postgresql.md
-    - name: Power BI tenant - Portal
-      href: register-scan-power-bi-tenant.md
+    - name: Power BI tenant
+      items:
+      - name: Power BI same-tenant
+        href: register-scan-power-bi-tenant.md
+      - name: Power BI cross-tenant
+        href: register-scan-power-bi-tenant-cross-tenant.md
+      - name: Troubleshoot Power BI scans
+        href: register-scan-power-bi-tenant-troubleshoot.md
     - name: Salesforce
       href: register-scan-salesforce.md
     - name: SAP Business Warehouse
@@ -267,7 +273,7 @@ items:
       href: how-to-automatically-label-your-content.md
     - name: Sensitivity labels FAQ
       href: sensitivity-labels-frequently-asked-questions.yml
-  - name: Insights
+  - name: Data Estate Insights
     items:
     - name: View asset insights
       href: asset-insights.md
@@ -293,7 +299,7 @@ items:
         href: catalog-private-link-name-resolution.md
       - name: Troubleshoot private endpoints
         href: catalog-private-link-troubleshoot.md                     
-      - name: Private endpoint FAQ
+      - name: Private endpoint and Managed VNets FAQ
         href: catalog-private-link-faqs.md
     - name: Microsoft Purview deployment exceptions
       href: create-azure-purview-portal-faq.md

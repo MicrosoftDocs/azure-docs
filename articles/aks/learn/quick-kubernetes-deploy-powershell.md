@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an AKS cluster by using PowerShell'
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 04/28/2022
+ms.date: 04/29/2022
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
@@ -25,16 +25,16 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 - If you're running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell].
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
-
 - The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
-```azurepowershell-interactive
-Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
-```
+    ```azurepowershell-interactive
+    Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+    ```
+
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
 
@@ -110,7 +110,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.15.10
     ```
 
-## Run the application
+## Deploy the application
 
 A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
 

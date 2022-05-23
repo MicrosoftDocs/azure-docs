@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an AKS cluster by using Azure CLI'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: quickstart
-ms.date: 04/28/2022
+ms.date: 04/29/2022
 ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
@@ -123,7 +123,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
     ```
 
-## Run the application
+## Deploy the application
 
 A [Kubernetes manifest file][kubernetes-deployment] defines a cluster's desired state, such as which container images to run.
 

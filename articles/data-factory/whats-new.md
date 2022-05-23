@@ -22,6 +22,23 @@ The Azure Data Factory service is improved on an ongoing basis. To stay up to da
 
 This page is updated monthly, so revisit it regularly. 
 
+## April 2022
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+
+<tr><td rowspan=3><b>Data Flow</b></td><td>Data Preview and Debug Improvements in Mapping Data Flows</td><td>Debug sessions using the AutoResolve Azure IR will now startup in under 10 seconds. New updates to the data preview panel in mapping data flows: You can now sort the rows inside the data preview view by clicking on column headers, move columns around interactively, save the data preview results as a CSV using Export CSV.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-preview-and-debug-improvements-in-mapping-data-flows/ba-p/3268254">Learn more</a></td></tr>
+
+<tr><td>Dataverse Connector is available for Mapping data flows</td><td>Dataverse Connector is available as source and sink for Mapping data flows.<br><a href="connector-dynamics-crm-office-365.md">Learn more</a></td></tr> 
+ 
+<tr><td>Support for user db schemas for staging with the Azure Synapse and PostgreSQL connectors in data flow sink</td><td>Data flow sink now supports using a user db schema for staging in both the Azure Synapse and PostgreSQL connectors.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-flow-sink-supports-user-db-schema-for-staging-in-azure/ba-p/3299210">Learn more</a></td></tr> 
+ 
+<tr><td><b>Monitoring</b></td><td>Multiple updates to ADF monitoring experiences</td><td>New updates to the monitoring experience in Azure Data Factory including the ability to export results to a CSV, clear all filters, open a run in a new tab, and improved caching of columns and results.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-monitoring-improvements/ba-p/3295531">Learn more</a></td></tr>
+ 
+<tr><td><b>User Interface</b></td><td>New Regional format support</td><td>Choose your language and the regional format that will influence how data such as dates and times appear in the Azure Data Factory Studio monitoring. These language and regional settings affect only the Azure Data Factory Studio user interface and do not change/modify your actual data.</td></tr>
+ 
+</table>
+
 ## March 2022
 <br>
 <table>

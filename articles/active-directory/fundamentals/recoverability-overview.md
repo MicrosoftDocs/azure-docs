@@ -203,7 +203,7 @@ There are several Azure Monitor workbooks that can help you to monitor configura
 - Directory role and group membership updates for service principals
 - Modified federation settings
 
-The [Cross-tenant access activity workbook ](../reports-monitoring/workbook-cross-tenant-access-activity.md)can help you monitor which applications in external tenants your users are accessing, and which applications I your tenant external users are accessing. Use this workbook to look for anomalous changes in either inbound or outbound application access across tenants.
+The [Cross-tenant access activity workbook ](../reports-monitoring/workbook-cross-tenant-access-activity.md)can help you monitor which applications in external tenants your users are accessing, and which applications in your tenant external users are accessing. Use this workbook to look for anomalous changes in either inbound or outbound application access across tenants.
 
 ## Operational security 
 

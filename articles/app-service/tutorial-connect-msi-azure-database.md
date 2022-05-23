@@ -12,7 +12,7 @@ ms.custom: "mvc, devx-track-azurecli"
 
 [App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to Azure databases, including: 
 
-- [Azure SQL Database](/azure/sql-database/)
+- [Azure SQL Database](/azure/azure-sql/database/)
 - [Azure Database for MySQL](/azure/mysql/)
 - [Azure Database for PostgreSQL](/azure/postgresql/)
 
@@ -50,7 +50,7 @@ Prepare your environment for the Azure CLI.
 First, enable Azure Active Directory authentication to the Azure database by assigning an Azure AD user as the administrator of the server. For the scenario in the tutorial, you'll use this user to connect to your Azure database from the local development environment. Later, you set up the managed identity for your App Service app to connect from within Azure.
 
 > [!NOTE]
-> This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
+> This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#azure-ad-features-and-limitations).
 
 1. If your Azure AD tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
@@ -68,7 +68,7 @@ First, enable Azure Active Directory authentication to the Azure database by ass
     az sql server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name ADMIN --object-id $azureaduser
     ```
 
-    For more information on adding an Active Directory administrator, see [Provision an Azure Active Directory administrator for your server](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)
+    For more information on adding an Active Directory administrator, see [Provision an Azure Active Directory administrator for your server](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance)
 
 # [Azure Database for MySQL](#tab/mysql)
 
@@ -550,7 +550,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     connection.connect();
     ```
 
-    The [tedious](https://tediousjs.github.io/tedious/) library also has an authentication type `azure-active-directory-msi-app-service`, which doesn't require you to retrieve the token yourself, but the use of `DefaultAzureCredential` in this example works both in App Service and in your local development environment. For more information, see [Quickstart: Use Node.js to query a database in Azure SQL Database or Azure SQL Managed Instance](../azure-sql/database/connect-query-nodejs.md)
+    The [tedious](https://tediousjs.github.io/tedious/) library also has an authentication type `azure-active-directory-msi-app-service`, which doesn't require you to retrieve the token yourself, but the use of `DefaultAzureCredential` in this example works both in App Service and in your local development environment. For more information, see [Quickstart: Use Node.js to query a database in Azure SQL Database or Azure SQL Managed Instance](/azure/azure-sql/database/connect-query-nodejs)
 
     # [Azure Database for MySQL](#tab/mysql)
     

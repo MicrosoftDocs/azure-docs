@@ -370,6 +370,8 @@ You can view your search results in the individual **Jobs**, **Models**, **Compo
 
 If you've used this feature in a previous update, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
 
+> [!IMPORTANT]	
+> Search results may be unexpected for multiword terms in other languages (ex. Chinese characters). 	
 
 ## Delete a workspace
 

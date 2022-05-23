@@ -11,6 +11,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 Certain customer scenarios require that video be analyzed with multiple AI models. Such models can be either [augmenting each other](../ai-composition-overview.md#sequential-ai-composition) or [working independently in parallel](../ai-composition-overview.md#parallel-ai-composition) on the [same video stream or a combination](../ai-composition-overview.md#combined-ai-composition) of such augmented and independently parallel models can be acting on the same video stream to derive actionable insights.
 
 Azure Video Analyzer supports such scenarios via a feature called [AI Composition](../ai-composition-overview.md). This guide shows you how you can apply multiple models in an augmented fashion on the same video stream. It uses a Tiny(Light) YOLO and a regular YOLO  model in parallel, to detect an object of interest. The Tiny YOLO model is computationally lighter but less accurate than the YOLO model and is called first. If the object detected passes a specific confidence threshold, then the sequentially staged regular YOLO model is not invoked, thus utilizing the underlying resources efficiently.

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emerb19
 ms.author: emerb
-ms.date: 04/06/2022
+ms.date: 04/28/2022
 ---
 
 # ISV to CSP partner private offers
@@ -184,8 +184,12 @@ The payout amount and agency fee that Microsoft charges is based on the price af
 
 ## Next steps
 
+**Further reading**
+
 - [Frequently Asked Questions](./isv-csp-faq.yml) about configuring ISV to CSP partner private offers
-- Video series (YouTube):
-  - [Private Offers for CSP Partners Overview](https://youtu.be/UYOsdTPiPnQ)
-  - [Private Offer Creation by ISVs for CSP Partners](https://youtu.be/rwp8eDfmYb8)
-  - [The CSP Partner Private Offer Purchase Process](https://youtu.be/_Zqphs6ZG6A)
+
+**Video tutorials (YouTube)**
+
+- [Private Offers for CSP Partners Overview](https://www.youtube.com/watch?v=FWfpAZsPyzg)
+- [Private Offer Creation by ISVs for CSP Partners](https://www.youtube.com/watch?v=B0ZPXrE_aio)
+- [The CSP Partner Private Offer Purchase Process](https://www.youtube.com/watch?v=1GM_YrUHVT4)

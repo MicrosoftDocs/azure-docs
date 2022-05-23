@@ -1,7 +1,7 @@
 ---
 title: Connect machines at scale using group policy
 description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using group policy. 
-ms.date: 04/26/2022
+ms.date: 04/29/2022
 ms.topic: conceptual
 ms.custom: template-how-to
 ---
@@ -24,7 +24,7 @@ The Group Policy to onboard Azure Arc-enabled servers requires a remote share wi
 
 1. Download the latest version of the [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center and save it to the remote share. 
 
-## Generate an onboarding script and configuration file from Azure Portal
+## Generate an onboarding script and configuration file from Azure portal
 
 Before you can run the script to connect your machines, you'll need to do the following:
 
@@ -135,7 +135,7 @@ In the **General** tab, set the following parameters under **Security Options**:
 
 1. In the field **Configure for**, select **Windows Vista or Window 2008**. 
 
-:::image type="content" source="media/onboard-group-policy/st-general.png" alt-text="Screenshot of the Azure Arc agent Deployment and Configuration properties window." :::
+:::image type="content" source="media/onboard-group-policy/general-properties.png" alt-text="Screenshot of the Azure Arc agent Deployment and Configuration properties window." :::
 
 ### Assign trigger parameters for the task
 
@@ -173,7 +173,7 @@ In the **Actions** tab, select **New**, then enter the follow parameters in the 
 
 On the Group Policy Management Console, right-click on the desired Organizational Unit and select the option to link an existent GPO. Choose the Group Policy Object defined in the Scheduled Task. After 10 or 20 minutes, the Group Policy Object will be replicated to the respective domain controllers. Learn more about [creating and managing group policy in Azure AD Domain Services](../../active-directory-domain-services/manage-group-policy.md). 
 
-After you have successfully installed the agent and configure it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the servers in your Organizational Unit have successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal). 
+After you have successfully installed the agent and configured it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the servers in your Organizational Unit have successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal). 
 
 ## Next steps
 

@@ -241,6 +241,8 @@ In this section, you create a Node.js console app that receives file upload noti
       }
     });
     ```
+    > [!NOTE]
+    > If you want to receive disconnect notifications while you are listening to file upload notifications, you need to register `'error'` by using `receiver.on`. To continue to receive file upload notifications, you need to reconect to IoT Hub by using the `serviceClient.open` method.
 
 1. Save and close the **FileUploadNotification.js** file.
 

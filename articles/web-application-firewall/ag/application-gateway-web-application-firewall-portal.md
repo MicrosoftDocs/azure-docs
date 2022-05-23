@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 05/19/2021
+ms.date: 04/26/2022
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
 ---
@@ -49,8 +49,10 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
    - **Tier**: select **WAF V2**.
+   - **WAF Policy**: Select **Create new**, type a name for the new policy, and then select **OK**.
+     This creates a basic WAF policy with a managed Core Rule Set (CRS).
 
-     ![Create new application gateway: Basics](../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png)
+     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png" alt-text="Screenshot of Create new application gateway: Basics tab." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png":::
 
 2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
@@ -172,7 +174,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
     ![Install custom extension](../media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-2. Set the location parameter for you environment, and then run the following command to install IIS on the virtual machine: 
+2. Set the location parameter for your environment, and then run the following command to install IIS on the virtual machine: 
 
     ```azurepowershell-interactive
     Set-AzVMExtension `
@@ -207,34 +209,6 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 6. Select **Save**.
 
 7. Wait for the deployment to complete before proceeding to the next step.
-
-   
-## Create and link a Web Application Firewall policy
-
-All of the WAF customizations and settings are in a separate object, called a WAF Policy. The policy must be associated with your Application Gateway. 
-
-Create a basic WAF policy with a managed Default Rule Set (DRS).
-
-1. On the upper left side of the portal, select **Create a resource**. Search for **WAF**, select **Web Application Firewall**, then select **Create**.
-2. On **Create a WAF policy** page, **Basics** tab, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
-
-   |Setting  |Value  |
-   |---------|---------|
-   |Policy for     |Regional WAF (Application Gateway)|
-   |Subscription     |Select your subscription name|
-   |Resource group     |Select **myResourceGroupAG**|
-   |Policy name     |Type a unique name for your WAF policy.|
-1. Select **Next : Managed rules**.
-1. Accept the defaults and then select **Next : Policy settings**.
-1. Accept the default, and then select **Next : Custom rules**.
-1. Select **Next : Association**.
-1. Select **Add association** and then select **Application Gateway**.
-1. Select the checkbox for **Apply the Web Application Firewall policy configuration even if it is different from the current configuration**.
-1. Select **Add**.
-
-   > [!NOTE]
-   > If you assign a policy to your Application Gateway (or listener) that already has a policy in place, the original policy is overwritten and replaced by the new policy.
-4. Select **Review + create**, then select **Create**.
 
 ## Test the application gateway
 

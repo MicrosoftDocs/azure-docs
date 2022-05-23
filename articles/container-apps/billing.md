@@ -25,7 +25,7 @@ The following resources are free during each calendar month, per subscription:
 This article describes how to calculate the cost of running your container app. For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
 > [!NOTE]
-> If you use Container Apps with [your own virtual network](vnet-custom.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
+> If you use Container Apps with [your own virtual network](networking.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
 
 ## Resource consumption charges
 

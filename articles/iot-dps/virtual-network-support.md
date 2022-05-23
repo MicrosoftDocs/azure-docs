@@ -27,7 +27,7 @@ For several reasons, customers may wish to restrict connectivity to Azure resour
 * Enabling a private connectivity experience from your on-premises network assets ensuring that your data and traffic 
 is transmitted directly to Azure backbone network.
 
-* Preventing exfiltration attacks from sensitive on-premises networks. 
+* Preventing exfiltration attacks from sensitive on-premises networks.
 
 * Following established Azure-wide connectivity patterns using [private endpoints](../private-link/private-endpoint-overview.md).
 
@@ -60,6 +60,8 @@ Note the following current limitations for DPS when using private endpoints:
 * The lowest latency allocation policy is used to assign a device to the IoT hub with the lowest latency. This allocation policy is not reliable in a virtual network environment.
 
 * Enabling one or more private endpoints typically involves [disabling public access](public-network-access.md) to your DPS instance. This means that you can no longer use the Azure portal to manage enrollments. Instead you can manage enrollments using the Azure CLI, PowerShell, or service APIs from machines inside the VNET(s)/private endpoint(s) configured on the DPS instance.
+
+* When using private endpoints, we recommend deploying DPS in one of the regions that support [Availability Zones](iot-dps-ha-dr.md). Otherwise, DPS instances with private endpoints enabled may see reduced availability in the event of outages.
 
 >[!NOTE]
 >**Data residency consideration:**
@@ -114,11 +116,11 @@ To set up a private endpoint, follow these steps:
 
 ## Use private endpoints with devices
 
-To use private endpoints with device provisioning code, your provisioning code must use the specific **Service endpoint** for your DPS resource as shown on the overview page of your DPS resource in the [Azure portal](https://portal.azure.com). The service endpoint has the following form.
+To use private endpoints with device provisioning code, your provisioning code must use the specific **Service endpoint** for your DPS instance as shown on the overview page of your DPS instance in the [Azure portal](https://portal.azure.com). The service endpoint has the following form.
 
 `<Your DPS Tenant Name>.azure-devices-provisioning.net`
 
-Most sample code demonstrated in our documentation and SDKs, use the **Global device endpoint** (`global.azure-devices-provisioning.net`) and **ID Scope** to resolve a particular DPS resource. Use the service endpoint in place of the global device endpoint when connecting to a DPS resource using private endpoints to provision your devices.
+Most sample code demonstrated in our documentation and SDKs, use the **Global device endpoint** (`global.azure-devices-provisioning.net`) and **ID Scope** to resolve a particular DPS instance. Use the service endpoint in place of the global device endpoint when connecting to a DPS instance using private endpoints to provision your devices.
 
 For example, the provisioning device client sample ([pro_dev_client_sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/prov_dev_client_sample)) in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) is designed to use the **Global device endpoint** as the global provisioning URI (`global_prov_uri`) in [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)
 
@@ -146,7 +148,7 @@ static const char* id_scope = "[ID Scope]";
 
 ## Request a private endpoint
 
-You can request a private endpoint to a DPS resource by resource ID. In order to make this request, you need the resource owner to supply you with the resource ID. 
+You can request a private endpoint to a DPS instance by resource ID. In order to make this request, you need the resource owner to supply you with the resource ID. 
 
 1. The resource ID is provided on to the properties tab for DPS resource as shown below.
 
