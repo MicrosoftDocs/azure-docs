@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 05/18/2022
+ms.date: 05/23/2022
 ms.author: kgremban
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using CLI and the Azure Portal.
@@ -41,7 +41,13 @@ In this tutorial, you perform the following tasks:
 
 * Optionally, install [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer). This tool helps you observe the messages as they arrive at your IoT hub.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+# [Azure portal](#tab/portal)
+
+There are no additional prerequisites for the Azure portal.
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Register a device and send messages to IoT Hub
 
@@ -68,7 +74,7 @@ Register a new device in your IoT hub.
 # [Azure CLI](#tab/cli)
 
 >[!TIP]
->Many of the CLI commands used throughout this tutorial use the same parameters. For your convenience, we have you define local variables that can be called as needed. Be sure to run all the commands in the same session, or else you will have to redefine the variables with your values.
+>Many of the CLI commands used throughout this tutorial use the same parameters. For your convenience, we have you define local variables that can be called as needed. Be sure to run all the commands in the same session, or else you will have to redefine the variables.
 
 1. Define variables for your IoT hub and device.
 
@@ -77,27 +83,17 @@ Register a new device in your IoT hub.
    *DEVICE_NAME*: Replace this placeholder with any name you want to use for the device in this tutorial.
 
    ```azurecli-interactive
-   iotHubName=IOTHUB_NAME
-   iotDeviceName=DEVICE_NAME
+   hubName=IOTHUB_NAME
+   deviceName=DEVICE_NAME
    ```
 
 1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in your CLI shell. This creates the device identity.
 
    ```azurecli-interactive
-   az iot hub device-identity create \
-     --device-id $iotDeviceName \
-     --hub-name $iotHubName 
+   az iot hub device-identity create --device-id $deviceName --hub-name $hubName 
    ```
 
-1. Run the [az iot hub device-identity show](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-show) command.
-
-   ```azurecli-interactive
-   az iot hub device-identity show \
-     --device-id $iotDeviceName \
-     --hub-name $iotHubName
-   ```
-
-1. From the device-identity output, copy the **primaryKey** value and save it. You'll use this value to configure the sample code that generates simulated device telemetry messages.
+1. From the device-identity output, copy the **primaryKey** value without the surrounding quotation marks and save it. You'll use this value to configure the sample code that generates simulated device telemetry messages.
 
 ---
 
@@ -154,10 +150,10 @@ First, retrieve the connection string for your IoT hub.
 1. Run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command:
 
    ```azurecli-interactive
-   az iot hub connection-string show --hub-name $iotHubName
+   az iot hub connection-string show --hub-name $hubName
    ```
 
-2. Copy the connection string without the surrounding quotation characters.
+2. Copy the connection string without the surrounding quotation marks.
 
 ---
 
@@ -180,13 +176,15 @@ Now, use that connection string to configure IoT Explorer for your IoT hub.
 
    ![View messages arriving at IoT hub on the built-in endpoint.](./media/tutorial-routing/iot-explorer-view-messages.png)
 
+Watch the incoming messages for a few moments to verify that you see three different types of messages: normal, storage, and critical.
+
 These messages are all arriving at the default built-in endpoint for your IoT hub. In the next sections we're going to create a custom endpoint and route some of these messages to storage based on the message properties. Those messages will stop appearing in IoT Explorer because messages only go to the built-in endpoint when they don't match any other routes in IoT hub.
 
 ## Set up message routing
 
 You are going to route messages to different resources based on properties attached to the message by the simulated device. Messages that are not custom routed are sent to the default endpoint (messages/events).
 
-The sample app for this tutorial assigns a **level** to each message it sends to IoT hub. Each message is randomly assigned a level of **normal**, **storage**, or **critical**.
+The sample app for this tutorial assigns a **level** property to each message it sends to IoT hub. Each message is randomly assigned a level of **normal**, **storage**, or **critical**.
 
 The first step is to set up the endpoint to which the data will be routed. The second step is to set up the message route that uses that endpoint. After setting up the routing, you can view endpoints and message routes in the portal.
 
@@ -237,25 +235,20 @@ Create an Azure Storage account and a container within that account which will h
 
    ```azurecli-interactive
    resourceGroup=GROUP_NAME
-   storageAccountName=STORAGE_NAME
-   storageContainerName=CONTAINER_NAME
+   storageName=STORAGE_NAME
+   containerName=CONTAINER_NAME
    ```
 
 1. Use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command to create a standard general-purpose v2 storage account.
 
    ```azurecli-interactive
-   az storage account create \
-     --name $storageAccountName \
-     --resource-group $resourceGroup
+   az storage account create --name $storageName --resource-group $resourceGroup
    ```
 
 1. Use the [az storage container create](/cli/azure/storage/container#az-storage-container-create) to add a container to your storage account.
 
    ```azurecli-interactive
-   az storage container create \
-     --auth-mode login \
-     --account-name $storageAccountName \
-     --name $storageContainerName
+   az storage container create --auth-mode login --account-name $storageName --name $containerName
    ```
 
 ---
@@ -322,12 +315,12 @@ Now set up the routing for the storage account. In this section you define a new
 
    ```azurecli-interactive
    az iot hub routing-endpoint create \
-     --connection-string $(az storage account show-connection-string --name $storageAccountName --query connectionString -o tsv) \
+     --connection-string $(az storage account show-connection-string --name $storageName --query connectionString -o tsv) \
      --endpoint-name $endpointName \
      --endpoint-resource-group $resourceGroup \
      --endpoint-subscription-id $(az account show --query id -o tsv) \
      --endpoint-type azurestoragecontainer
-     --hub-name $iotHubName \
+     --hub-name $hubName \
      --container $containerName \
      --resource-group $resourceGroup \
      --encoding json
@@ -338,7 +331,7 @@ Now set up the routing for the storage account. In this section you define a new
    ```azurecli-interactive
    az iot hub route create \
      --name $routeName \
-     --hub-name $iotHubName \
+     --hub-name $hubName \
      --resource-group $resourceGroup \
      --source devicemessages \
      --endpoint-name $endpointName \
@@ -388,9 +381,7 @@ If you want to remove all of the Azure resources you used for this tutorial, del
 1. Use the [az resource list](/cli/azure/resource#az-resource-list) command to view all the resources in your resource group.
 
    ```azurecli-interactive
-   az resource list \
-     --resource-group $resourceGroup \
-     --output table
+   az resource list --resource-group $resourceGroup --output table
    ```
 
 1. Review all the resources that are in the resource group to determine which ones you want to clean up.
@@ -398,16 +389,13 @@ If you want to remove all of the Azure resources you used for this tutorial, del
    * If you want to delete all the resources, use the [az group delete](/cli/azure/groupt#az-group-delete) command.
 
      ```azurecli-interactive
-     az group delete \
-       --name $resourceGroup
+     az group delete --name $resourceGroup
      ```
 
    * If you only want to delete certain resources, use the [az resource delete](/cli/azure/resource#az-resource-delete) command. For example:
 
      ```azurecli-interactive
-     az resource delete \
-       --resource-group $resourceGroup \
-       --name $storageAccountName
+     az resource delete --resource-group $resourceGroup --name $storageName
      ```
 
 ---
