@@ -39,7 +39,7 @@ Azure Load Testing automatically generates a JMeter test script, and configures 
 
 You can edit the test configuration at time after creating it. For example to [monitor server-side metrics](./how-to-monitor-server-side-metrics.md), [configure high scale load](./how-to-high-scale-load.md), or to edit the generated JMX file.
 
-See our [quickstart for creating and running a test by using a URL](./quickstart-create-and-run-load-test.md) for more details.
+For more information, see our [quickstart for creating and running a test by using a URL](./quickstart-create-and-run-load-test.md).
 
 ### Create a test by using a JMeter script
 
@@ -57,7 +57,7 @@ To reuse an existing JMeter test script, or for more advanced test scenarios, cr
 
 ## Test plan
 
-The test plan contains all files that are needed for running your load test. At a minimum, the test plan should contain one `*.jmx` JMeter script. Azure Load Testing only supports 1 JMX file per load test. In addition, you can include a user property file, configuration files, or input data files.
+The test plan contains all files that are needed for running your load test. At a minimum, the test plan should contain one `*.jmx` JMeter script. Azure Load Testing only supports one JMX file per load test. In addition, you can include a user property file, configuration files, or input data files.
 
 1. Go to the **Test plan**.
 1. Select all files from your local machine, and upload them to Azure.
@@ -128,9 +128,9 @@ You can use the following client metrics:
 
 ## Monitoring
 
-For Azure-hosted applications, Azure Load Testing can capture detailed resource metrics for the Azure app components. This enables you to [analyze application performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md).
+For Azure-hosted applications, Azure Load Testing can capture detailed resource metrics for the Azure app components. These metrics enable you to [analyze application performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md).
 
-When you edit a load test, you can select the Azure app component that you want to monitor. Azure Load Testing selects a the most relevant resource metrics. You can add or remove resource metrics for each of the app components at any time.
+When you edit a load test, you can select the Azure app component that you want to monitor. Azure Load Testing selects the most relevant resource metrics. You can add or remove resource metrics for each of the app components at any time.
 
 :::image type="content" source="media/how-to-create-manage-test/configure-monitoring.png" alt-text="Screenshot that shows how to configure the Azure app components to monitor when creating a test in the Azure portal.":::
 
@@ -155,10 +155,10 @@ You can perform the following actions:
 - Start a new test run. The run uses the current test configuration settings.
 - Delete the load test. All test runs for the load test are also deleted.
 - Configure the test configuration:
-    - Configure the test plan. You can add or remove any of the files for the load test. If you want update a file, first remove it and then add the updated version.
+    - Configure the test plan. You can add or remove any of the files for the load test. If you want to update a file, first remove it and then add the updated version.
     - Add or remove Azure app components.
-    - Configure resource metrics for the app components. Azure Load Testing automatically select the relevant resource metrics for each app component. Add or remove metrics for any of the app components in the load test.
-- [Compare test runs](./how-to-compare-multiple-test-runs.md). Select 2 or more test runs in the list to visually compare them in the results dashboard.
+    - Configure resource metrics for the app components. Azure Load Testing automatically selects the relevant resource metrics for each app component. Add or remove metrics for any of the app components in the load test.
+- [Compare test runs](./how-to-compare-multiple-test-runs.md). Select two or more test runs in the list to visually compare them in the results dashboard.
 
 ## Next steps
 
