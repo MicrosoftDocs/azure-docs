@@ -148,6 +148,9 @@ You can read more about the Azure Identity library below:
 * [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
 
 ### Accessing a secret stored in Azure Key Vault
+
+#### [.NET core](#tab/netcore)
+
 ```csharp
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
@@ -167,6 +170,43 @@ var options = new SecretClientOptions
 var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential(), options);
 KeyVaultSecret secret = client.GetSecret("<my secret>");
 string secretValue = secret.Value;
+```
+
+#### [Java](#tab/java)
+_pom.xml_
+```
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-secrets</artifactId>
+    <version>4.2.3</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+    <version>1.2.0</version>
+</dependency>
+```
+
+```java
+import com.azure.core.util.polling.SyncPoller;
+import com.azure.identity.DefaultAzureCredentialBuilder;
+
+import com.azure.security.keyvault.secrets.SecretClient;
+import com.azure.security.keyvault.secrets.SecretClientBuilder;
+import com.azure.security.keyvault.secrets.models.DeletedSecret;
+import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
+
+String keyVaultName = "mykeyvault";
+String keyVaultUri = "https://" + keyVaultName + ".vault.azure.net";
+String secretName = "mysecret";
+
+SecretClient secretClient = new SecretClientBuilder()
+    .vaultUrl(keyVaultUri)
+    .credential(new DefaultAzureCredentialBuilder().build())
+    .buildClient();
+    
+KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
 ```
 
 ### Accessing a Blob in Azure Storage
