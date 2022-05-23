@@ -314,3 +314,7 @@ To summarize, our recommendations for migrating data and associated ETL processe
 - Identify and understand the most efficient tools for data extraction and loading in both Teradata and Azure environments. Use the appropriate tools at each phase in the process.
 
 - Use Azure facilities such as [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=b6e99db9cfda11ecbaba18ca59d5c95c) or [Azure Data Factory](/azure/data-factory/introduction?msclkid=2ccc66eccfde11ecaa58877e9d228779) to orchestrate and automate the migration process while minimizing impact on the Teradata system.
+
+## Next steps
+
+To learn more about security access operations, see the next article in this series: [Security, access, and operations for Teradata migrations](3-security-access-operations.md)].

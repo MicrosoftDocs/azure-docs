@@ -375,3 +375,7 @@ The architecture of Azure Synapse separates storage and compute, allowing each t
 Compute resources can be scaled up or scaled back by adjusting the data warehouse units setting for the data warehouse. Loading and query performance will increase linearly as you add more data warehouse units.
 
 Adding more compute nodes adds more compute power and ability to leverage more parallel processing. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power and parallel processing for queries. Similarly, decreasing data warehouse units reduces the number of compute nodes, which reduces the compute resources for queries.
+
+## Next steps
+
+To learn more about visualization and reporting, see the next article in this series: [Visualization and reporting for Teradata migrations](4-visualization-reporting.md)].

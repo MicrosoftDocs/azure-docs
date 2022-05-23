@@ -310,3 +310,7 @@ You can't rely on documentation to find out where the issues are likely to be. M
 Don't migrate reports that you no longer use. BI tool usage data can help determine which ones aren't in use. For the visualizations and reports that you do want to migrate, migrate all users, user groups, roles, and privileges, and associate these reports with strategic business objectives and priorities to help you identify report insight contribution to specific objectives. This is useful if you're using business value to drive your report migration strategy. If you're migrating by data store,&mdash;data mart by data mart&mdash;then metadata will also help you identify which reports are dependent on which tables and views, so that you can focus on migrating to these first.
 
 Finally, consider data virtualization to shield BI tools and applications from structural changes to the data warehouse and/or the data mart data model that may occur during migration. You can also use a common vocabulary with data virtualization to define a common semantic layer that guarantees consistent common data names, definitions, metrics, hierarchies, joins, and more across all BI tools and applications in a migrated Azure Synapse environment.
+
+## Next steps
+
+To learn more about minimizing SQL issues, see the next article in this series: [Minimizing SQL issues for Teradata migrations](5-minimize-sql-issues.md)].

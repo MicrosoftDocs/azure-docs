@@ -424,3 +424,7 @@ PolyBase is the most efficient method for loading large amounts of data into the
 #### Use Workload management
 
 Use [Workload management](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management?context=/azure/synapse-analytics/context/context) instead of resource classes. ETL would be in its own workgroup and should be configured to have more resources per query (less concurrency by more resources). For more information, see [What is dedicated SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is).
+
+## Next steps
+
+To learn more about ETL and load for Teradata migration, see the next article in this series: [Data migration, ETL, and load for Teradata migration](2-etl-load-migration-considerations.md)].
