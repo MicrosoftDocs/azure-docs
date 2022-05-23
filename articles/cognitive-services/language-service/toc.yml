@@ -242,6 +242,10 @@ items:
         href: conversational-language-understanding/concepts/none-intent.md
       - name: Using multiple languages
         href: conversational-language-understanding/concepts/multiple-languages.md
+  - name: Tutorials
+    items:
+      - name: Use Bot Framework
+        href: conversational-language-understanding/tutorials/bot-framework.md
   - name: Reference
     items:
     - name: Prebuilt component reference
@@ -547,6 +551,10 @@ items:
         href: orchestration-workflow/concepts/none-intent.md
       - name: Data formats
         href: orchestration-workflow/concepts/data-formats.md
+  - name: Tutorials
+    items:
+      - name: Connect conversational language understanding and custom question answering
+        href: orchestration-workflow/tutorials/connect-services.md
   - name: Reference
     items:
     - name: Service limits
