@@ -119,7 +119,7 @@ The following table lists deployment recommendations for host pool disaster reco
 
 ## Disaster recovery for personal host pools
 
-For personal host pools, your disaster recovery strategy should involve replicating your resources to a secondary region using Azure Site Recovery Services Vault. If your primary region goes down during a disaster, Azure Site Recovery can failover and turn on the resources in your secondary region.
+For personal host pools, your disaster recovery strategy should involve replicating your resources to a secondary region using Azure Site Recovery Services Vault. If your primary region goes down during a disaster, Azure Site Recovery can fail over and turn on the resources in your secondary region.
 
 For example, let's say we have a deployment with a primary region in the West US and a secondary region in the East US. The primary region has a personal host pool with two session hosts each. Each session host has their own local disk containing the user profile data and their own VNET that's not paired with anything. If there's a disaster, you can use Azure Site Recovery to fail over to the secondary region in East US (or to a different availability zone in the same region). Unlike the primary region, the secondary region doesn't have local machines or disks. During the failover, Azure Site Recovery takes the replicated data from the Azure Site Recovery Vault and uses it to create two new VMs that are copies of the original session hosts, including the local disk and user profile data. The secondary region has its own independent VNET, so the VNET going offline in the primary region won't affect functionality.
 
