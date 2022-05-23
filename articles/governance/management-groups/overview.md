@@ -1,7 +1,7 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 05/02/2022
+ms.date: 05/12/2022
 ms.topic: overview
 author: timwarner-msft
 ms.author: timwarner
@@ -39,7 +39,7 @@ under those subscriptions. This security policy cannot be altered by the resourc
 owner allowing for improved governance.
 
 > [!NOTE]
-> Management groups aren't currently supported for Microsoft Customer Agreement subscriptions.
+> Management groups aren't currently supported in Cost Management features for Microsoft Customer Agreement (MCA) subscriptions.
 
 Another scenario where you would use management groups is to provide user access to multiple
 subscriptions. By moving multiple subscriptions under that management group, you can create one

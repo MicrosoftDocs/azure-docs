@@ -3,7 +3,7 @@ author: ElazarK
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 05/10/2022
+ms.date: 05/12/2022
 ---
 
 ## FAQ
@@ -15,7 +15,7 @@ ms.date: 05/10/2022
 
 ### How can I use my existing Log Analytics workspace?
 
-You can use your existing Log Analytics workspace by following the steps in the Assign a custom workspace section of this article.
+You can use your existing Log Analytics workspace by following the steps in the [Assign a custom workspace](https://docs.microsoft.com/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks#assign-a-custom-workspace) workspace section of this article.
 
 ### Can I delete the default workspaces created by Defender for Cloud? 
 

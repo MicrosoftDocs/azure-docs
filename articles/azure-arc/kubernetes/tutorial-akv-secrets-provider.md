@@ -377,6 +377,12 @@ Some common issues and troubleshooting steps for Azure Key Vault secrets provide
 
 Additional troubleshooting steps that are specific to the Secrets Store CSI Driver Interface can be referenced [here](https://secrets-store-csi-driver.sigs.k8s.io/troubleshooting.html).
 
+## Frequently asked questions
+
+### Is the extension of Azure Key Vault Secrets Provider zone redundant?
+
+Yes, all components of Azure Key Vault Secrets Provider are deployed on availability zones and are hence zone redundant.
+
 ## Next steps
 
 > **Just want to try things out?**  
