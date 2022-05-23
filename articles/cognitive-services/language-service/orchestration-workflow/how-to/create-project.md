@@ -62,13 +62,11 @@ Once you have a Language resource created, create an orchestration workflow proj
 
 You can export an orchestration workflow project as a JSON file at any time by going to the orchestration workflow projects page, selecting a project, and from the top menu, clicking on **Export**.
 
-:::image type="content" source="../media/export.png" alt-text="A screenshot showing the Conversational Language Understanding export button." lightbox="../media/export.png":::
-
 That project can be reimported as a new project. If you import a project with the exact same name, it replaces the project's data with the newly imported project's data.
 
 To import a project, click on the arrow button next to **Create a new project** and select **Import**, then select the JSON file.
 
-:::image type="content" source="../media/import.png" alt-text="A screenshot showing the Conversational Language Understanding import button." lightbox="../media/import.png":::
+:::image type="content" source="../media/import-export.png" alt-text="A screenshot showing the Conversational Language Understanding import button." lightbox="../media/import-export.png":::
 
 ### [REST APIs](#tab/rest-api)
 

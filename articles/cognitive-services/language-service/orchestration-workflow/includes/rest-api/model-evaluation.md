@@ -9,7 +9,7 @@ ms.date: 05/20/2022
 ms.author: aahi
 ---
 
-Create a **GET** request using the following URL, headers, and JSON body to get trained moodel evaluation summary.
+Create a **GET** request using the following URL, headers, and JSON body to get trained model evaluation summary.
 
 
 ### Request URL
@@ -23,7 +23,7 @@ Create a **GET** request using the following URL, headers, and JSON body to get 
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `myProject` |
 |`{trainedModelLabel}`     | The name for your trained model. This value is case-sensitive.   | `Model1` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#api-versions)  | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-03-01-preview` |
 
 
 ### Headers

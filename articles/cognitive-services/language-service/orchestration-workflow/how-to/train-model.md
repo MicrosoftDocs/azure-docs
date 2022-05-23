@@ -1,5 +1,6 @@
 ---
 title: How to train and evaluate models in orchestration workflow
+description: Learn how to train a model for orchestration workflow projects.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -71,7 +72,7 @@ Orchestration workflow supports two methods for data splitting:
 
 Click on the Training Job ID from the list, a side pane will appear where you can check the **Training progress**, **Job status**, and other details for this job.
 
-:::image type="content" source="../../../media/train-pane.png" alt-text="A screenshot showing the training job details." lightbox="../../../media/train-pane.png":::
+<!--:::image type="content" source="../../../media/train-pane.png" alt-text="A screenshot showing the training job details." lightbox="../../../media/train-pane.png":::-->
 
 
 #### [REST APIs](#tab/rest-api)

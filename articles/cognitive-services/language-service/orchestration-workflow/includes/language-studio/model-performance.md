@@ -13,7 +13,7 @@ ms.author: aahi
 
 2. Select **View model details** from the menu on the left side of the screen.
 
-3. In this page you can only view the successfully trained models, F1 score for each model and [model expiry date](../../../concepts/model-lifecycle.md#custom-features).
+3. In this page you can only view the successfully trained models, F1 score for each model and [model expiration date](../../../concepts/model-lifecycle.md#expiration-timeline).
 You can click on the model name for more details about its performance.
 
 4. You can find the *model-level evaluation metrics* under **Overview**, and the *intent-level* evaluation metrics. See [Evaluation metrics](../../concepts/evaluation-metrics.md) for more information.
@@ -22,7 +22,7 @@ You can click on the model name for more details about its performance.
     
 5. The [confusion matrix](../../concepts/evaluation-metrics.md#confusion-matrix) for the model is located under **Test set confusion matrix**. You can see the confusion matrix for intents.
 
-    :::image type="content" source="../../media/model-details.png" alt-text="A screenshot of the model performance metrics in Language Studio." lightbox="../../media/model-details.png":::
+     
+    > [!NOTE] 
+    > If you don't see any of the intents you have in your model displayed here, it is because they weren't in any of the utterances that were used for the test set.
     
-> [!NOTE] 
-> If you don't see any of the intents you have in your model displayed here, it is because they weren't in any of the utterances that were used for the test set.
