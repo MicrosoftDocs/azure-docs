@@ -34,7 +34,7 @@ As an example, if your chat bot receives the text "How do I get to the Human Res
 
 Orchestration helps you connect more than one project and service together. Each connection in the orchestration is represented by a type and relevant data. The intent needs to have a name, a project type (LUIS, question answering, or conversational language understanding, and a project you want to connect to by name.
 
-You can use conversational language understanding to create a new orchestration project, See the [conversational language understanding documentation](../../language-service/orchestration-workflow/how-to/create-project.md).
+You can use orchestration workflow to create a new orchestration projects, See [orchestration workflow](../../language-service/orchestration-workflow/how-to/create-project.md).
 
 ## Set up orchestration between Cognitive Services features
 
