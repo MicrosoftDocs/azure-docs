@@ -737,6 +737,8 @@
         href: envimmis-tutorial.md
       - name: Envoy
         href: envoy-tutorial.md
+      - name: E2open LSP
+        href: e2open-lsp-tutorial.md
       - name: EPHOTO DAM
         href: ephoto-dam-tutorial.md
       - name: ePlatform
