@@ -87,7 +87,7 @@ This section describes how to install OT sensor software on the HPE ProLiant DL3
 During this procedure, you'll configure the iLO port. We recommend that you also change the default password provided for the administrative user.
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a         preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
 >
 
 ### Enable remote access and update the password
