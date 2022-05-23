@@ -220,6 +220,8 @@ items:
       href: how-to-enable-ingress-to-app-tls.md
     - name: Access Config Server and Service Registry
       href: how-to-access-data-plane-azure-ad-rbac.md
+    - name: Configure single sign on
+      href: how-to-setup-sso-with-azure-ad.md
   - name: Automate
     items:
     - name: CI/CD with Azure DevOps

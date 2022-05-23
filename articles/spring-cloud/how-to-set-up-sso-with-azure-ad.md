@@ -1,7 +1,7 @@
 ---
-title: How to set up Single Sign-On with Azure AD for Spring Cloud Gateway and API Portal for Tanzu
+title: How to set up Single Sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu
 titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to set up Single Sign-On with Azure Active Directory for Spring Cloud Gateway and API Portal for Tanzu with Azure Spring Apps Enterprise Tier.
+description: How to set up Single Sign-on with Azure Active Directory for Spring Cloud Gateway and API Portal for Tanzu with Azure Spring Apps Enterprise Tier.
 author: karlerickson
 ms.author: ninpan
 ms.service: spring-cloud
@@ -10,15 +10,15 @@ ms.date: 05/20/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Set up Single Sign-On using Azure Active Directory for Spring Cloud Gateway and API Portal
+# Set up Single Sign-on using Azure Active Directory for Spring Cloud Gateway and API Portal
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to configure Single Sign-On (SSO) for Spring Cloud Gateway or API Portal using the Azure Active Directory (Azure AD) as an OpenID identify provider.
+This article shows you how to configure Single Sign-on (SSO) for Spring Cloud Gateway or API Portal using the Azure Active Directory (Azure AD) as an OpenID identify provider.
 
 ## Prerequisites
 
-- A provisioned Enterprise tier instance with Spring Cloud Gateway or API portal enabled. For more information, see [Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- An Enterprise tier instance with Spring Cloud Gateway or API portal enabled. For more information, see [Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 - Sufficient permissions to manage Azure AD applications.
 
 
@@ -52,7 +52,7 @@ Register your application to establish a trust relationship between your app and
 1. In *Redirect URI (optional)* select **Web**, then enter the URL from the above section in the text box. The redirect URI is the location where Azure AD redirects your client and sends security tokens after authentication.
 1. Select **Register** to finish registering the application.
 
-:::image type="content" source="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-create-app-registration.png" alt-text="Example of how to fill out the Add App Registration screen" lightbox="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-create-app-registration.png":::
+:::image type="content" source="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-create-app-registration.png" alt-text="Screenshot of how to fill out the Add App Registration screen." lightbox="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-create-app-registration.png":::
 
 When registration finishes, you'll see the *Application (client) ID* on the **Overview** screen of the *App registrations** page.
 
@@ -64,7 +64,7 @@ You can also add redirect URIs after app registration by following these steps:
 1. Select **Web**, then select **Add URI** under *Redirect URIs*.
 1. Add a new redirect URI, then select **Save**.
 
-:::image type="content" source="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-redirect-uri.png" alt-text="Example of adding redirect URI to the authentication" lightbox="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-redirect-uri.png":::
+:::image type="content" source="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-redirect-uri.png" alt-text="Screenshot of adding a redirect U R I to the authentication screen." lightbox="./media/enterprise/how-to-setup-sso-with-azure-ad/sso-redirect-uri.png":::
 
 For more information on Application Registration, see [Quickstart: Register an app in the Microsoft identity platform ](../active-directory/develop/quickstart-register-app.md#quickstart-register-an-application-with-the-microsoft-identity-platform).
 
