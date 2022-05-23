@@ -1,19 +1,11 @@
 ---
-title: Azure Monitor data platform | Microsoft Docs
+title: Data collection in Azure Monitor
 description: Monitoring data collected by Azure Monitor is separated into metrics that are lightweight and capable of supporting near real-time scenarios and logs that are used for advanced analysis.
-documentationcenter: ''
-author: bwren
-manager: carmonm
-
-
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 04/05/2022
-ms.author: bwren
 ---
 
-# Azure Monitor data platform
+# Data collection in Azure Monitor
 
 Enabling observability across today's complex computing environments running distributed applications that rely on both cloud and on-premises services, requires collection of operational data from every layer and every component of the distributed system. You need to be able to perform deep insights on this data and consolidate it into a single pane of glass with different perspectives to support the multitude of stakeholders in your organization.
 
@@ -80,6 +72,9 @@ See [Metrics in Azure Monitor](essentials/data-platform-metrics.md) and [Logs in
 ## Stream data to external systems
 In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a security information and event management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](../event-hubs/index.yml). Some sources can be configured to send data directly to an event hub while you can use another process such as a Logic App to retrieve the required data. See [Stream Azure monitoring data to an event hub for consumption by an external tool](essentials/stream-monitoring-data-event-hubs.md) for details.
 
+
+## Data flow
+Azure Monitor is in the process of implementing a new data flow pipeline for collecting data.
 
 
 ## Next steps

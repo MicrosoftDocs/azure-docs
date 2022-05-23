@@ -133,15 +133,6 @@ items:
     href: continuous-monitoring.md
   - name: Data sources
     href: agents/data-sources.md
-  - name: Data platform
-    items:
-    - name: Overview
-      href: data-platform.md
-    - name: Metrics
-      href: essentials/data-platform-metrics.md
-    - name: Logs
-      displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
-      href: logs/data-platform-logs.md
   - name: Workspaces
     items:
     - name: Overview
@@ -157,8 +148,6 @@ items:
     - name: Log data ingestion time
       displayName: latency
       href: logs/data-ingestion-time.md
-  - name: Data collection rules
-    href: essentials/data-collection-rule-overview.md
   - name: Usage and cost
     items:
     - name: View and estimate charges
@@ -254,6 +243,9 @@ items:
       href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
   - name: Azure Monitor Metrics
     items:
+    - name: Overview
+      displayname: Metrics, Azure Monitor Metrics
+      href: essentials/data-platform-metrics.md
     - name: Metrics explorer
       items:
       - name: Getting started with Metrics Explorer
@@ -276,6 +268,9 @@ items:
         href: essentials/metrics-store-custom-rest-api.md
   - name: Azure Monitor Logs
     items:
+    - name: Overview
+      displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
+      href: logs/data-platform-logs.md    
     - name: Workspaces
       items:
       - name: Overview
@@ -446,8 +441,14 @@ items:
         href: essentials/diagnostic-settings-policy.md
   - name: Data collection
     items:
+    - name: Overview
+      displayName: Data collection, Data platform
+      href: data-platform.md
     - name: Data collection rules
       items:
+      - name: Overview
+        displayname: Data collection rules
+        href: essentials/data-collection-rule-overview.md
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
