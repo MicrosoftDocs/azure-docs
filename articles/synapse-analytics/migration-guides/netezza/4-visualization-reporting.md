@@ -223,7 +223,7 @@ A key element in data warehouse migration is the testing of reports and dashboar
 
 - Ensure that data and ETL migration is complete and error free.
 
-- Ensure data privacy is upheld. For example, GDPR compliance.
+- Ensure data privacy is upheld.
 
 - Test performance and scalability.
 
