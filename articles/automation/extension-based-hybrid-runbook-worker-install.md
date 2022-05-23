@@ -67,6 +67,18 @@ If you use a proxy server for communication between Azure Automation and machine
 > [!NOTE]
 > You can set up the proxy settings by PowerShell cmdlets or API.
 
+1. Get the automation account details using the below API call.
+
+   ```http
+   GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}?api-version=2021-06-22
+
+   ```
+
+   The API call will provide the value with the key: `AutomationHybridServiceUrl`. Use the URL in the next step to enable extension on the VM.
+
+1. Install the Hybrid Worker Extension on the VM by running the following PowerShell cmdlet (Required module: Az.Compute). Use the `properties.automationHybridServiceUrl` provided by the above API call  
+  
+
 **Proxy server settings**
 # [Windows](#tab/windows)
 
@@ -82,6 +94,13 @@ $protectedsettings = @{
 "ProxyPassword" = "password";
 };
 ```
+**Azure VMs**
+
+```Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForWindows> -TypeHandlerVersion 0.1 -Settings $settings```
+
+**Azure Arc-enabled VMs**
+
+```New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForWindows> -TypeHandlerVersion 0.1 -Settings $settings -NoWait```
 
 # [Linux](#tab/linux)
 
@@ -93,6 +112,14 @@ $settings = @{
     "AutomationAccountURL"  = "<registration-url>/<subscription-id>";    
 };
 ```
+**Azure VMs**
+
+```Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForLinux> -TypeHandlerVersion 0.1 -Settings $settings```
+
+**Azure Arc-enabled VMs**
+
+```New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType <HybridWorkerForLinux> -TypeHandlerVersion 0.1 -Settings $settings -NoWait```
+
 ---
 
 ### Firewall use
