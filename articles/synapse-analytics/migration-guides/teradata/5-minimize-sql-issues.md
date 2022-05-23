@@ -113,7 +113,7 @@ Most Teradata data types have a direct equivalent in Azure Synapse. This table s
 | BF | BYTE | BINARY |
 | BO | BLOB | BLOB data type isn\'t directly supported but can be replaced with BINARY |
 | BV | VARBYTE | BINARY |
-| CF | CHAR | CHAR |
+| CF | VARCHAR | CHAR |
 | CO | CLOB | CLOB data type isn\'t directly supported but can be replaced with VARCHAR |
 | CV | VARCHAR | VARCHAR |
 | D  | DECIMAL | DECIMAL |
