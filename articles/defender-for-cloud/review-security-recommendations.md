@@ -1,10 +1,10 @@
 ---
-title: Security recommendations in Microsoft Defender for Cloud
-description: This document walks you through how recommendations in Microsoft Defender for Cloud help you protect your Azure resources and stay in compliance with security policies.
-ms.topic: conceptual
-ms.date: 05/11/2022
+title: Improving your security posture with recommendations in Microsoft Defender for Cloud
+description: This document walks you through how to identify security recommendations that will help you improve your security posture.
+ms.topic: how-to
+ms.date: 05/23/2022
 ---
-# Review your security recommendations
+# Find recommendations that can improve your security posture
 
 This article explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your multicloud resources.
 
@@ -20,7 +20,7 @@ Defender for Cloud analyzes the security state of your resources to identify pot
 
     :::image type="content" source="media/review-security-recommendations/recommendations-view.png" alt-text="Screenshot of the recommendations page.":::
 
-    Here you'll see the recommendations applicable to your environment(s). Recommendations are grouped into security controls.
+    Here you'll see the recommendations applicable to your environment. Recommendations are grouped into security controls.
 
 1. Select **Secure score recommendations**.
 
@@ -31,7 +31,7 @@ Defender for Cloud analyzes the security state of your resources to identify pot
 
     Secure score recommendations affect the secure score and are mapped to the various security controls. The All recommendations tab, allows you to see all of the recommendations including recommendations that are part of different regulatory compliance standards.
 
-1.  (Optional) Select a relevant environment(s).
+1. (Optional) Select cloud providers to filter the recommendations.
 
     :::image type="content" source="media/review-security-recommendations/environment-filter.png" alt-text="Screenshot of the environment filter, to select your filters.":::
 
