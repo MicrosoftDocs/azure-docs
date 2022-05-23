@@ -139,6 +139,20 @@ If you've already installed Visual Studio 2022:
 
 :::zone-end
 
+:::zone target="docs" pivot="development-environment-azure-portal"
+
+### [.NET 6.0](#tab/net60)
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An GitHub account [Create an account for free](http://github.com/).
+
+### [.NET Framework 4.8](#tab/netframework48)
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An GitHub account [Create an account for free](http://github.com/).
+    
+:::zone-end
+
 ## Create an ASP.NET web app
 
 :::zone target="docs" pivot="development-environment-vs"
@@ -284,6 +298,26 @@ If you've already installed Visual Studio 2022:
     
     ---
 
+:::zone-end
+
+:::zone target="docs" pivot="development-environment-azure-portal"
+
+In this step we will fork a demo project to deploy.
+
+### [.NET 6.0](#tab/net60)
+
+- Go to the [.NET 6.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world).
+- Select the **Fork** button in the upper right on the GitHub page.
+- Select the **Owner** and leave the default **Repository name**.
+- Select **Create fork**.
+
+### [.NET Framework 4.8](#tab/netframework48)
+
+- Go to the [.NET Framework 4.8 sample app](https://github.com/Azure-Samples/app-service-web-dotnet-get-started).
+- Select the **Fork** button in the upper right on the GitHub page.
+- Select the **Owner** and leave the default **Repository name**.
+- Select **Create fork**.
+    
 :::zone-end
 
 ## Publish your web app
@@ -543,6 +577,95 @@ Follow these steps to create your App Service resources and publish your project
 
 :::zone-end
 
+:::zone target="docs" pivot="development-environment-azure-portal"
+
+1. Type **app services** in the search. Under **Services**, select **App Services**.
+
+     :::image type="content" source="./media/quickstart-dotnet/portal-search.png?text=Azure portal search details" alt-text="Screenshot of portal search":::
+
+1. In the **App Services** page, select **+ Create**.
+
+1. In the **Basics** tab, under **Project details**, ensure the correct subscription is selected and then select to **Create new** resource group. Type *myResourceGroup* for the name.
+
+    :::image type="content" source="./media/quickstart-dotnet/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app":::
+
+1. Under **Instance details**:
+
+    ### [.NET 6.0](#tab/net60)
+    
+    - Under **Name**, type a globally unique name for your web app.
+    - Under **Publish**, select *Code*.
+    - Under **Runtime stack** select *.NET 6 (LTS)*.
+    - Select an **Operating System**, and a **Region** you want to serve your app from.
+    
+    :::image type="content" source="media/quickstart-dotnet/app-service-dotnet60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="App Service Instance Details":::
+        
+    ### [.NET Framework 4.8](#tab/netframework48)
+    
+    - Under **Name**, type a globally unique name for your web app.
+    - Under **Publish**, select *Code*.
+    - Under **Runtime stack** select *ASP.NET V4.8*.
+    - Select an **Operating System**, and a **Region** you want to serve your app from.
+
+    
+    :::image type="content" source="media/quickstart-dotnet/app-service-dotnet48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="aaa":::
+    
+    -----
+
+1. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change to the Free tier, select **Change size**, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
+
+    :::image type="content" source="./media/quickstart-dotnet/app-service-plan-details.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password":::
+
+1. Select the **Next: Deployment >** button at the bottom of the page.
+
+1. In the **Deployment** tab, under **GitHub Actions settings** make sure **Continuous deployment** is *Enable*.
+
+1. Under **GitHub Actions details**, authenticate with your GitHub account, and select the following options:
+
+    ### [.NET 6.0](#tab/net60)
+    
+    - For **Organization** select the organization where you have forked the demo project.
+    - For **Repository** select the *dotnetcore-docs-hello-world* project.
+    - For **Branch** select *master*.
+
+    :::image type="content" source="media/quickstart-dotnet/app-service-deploy60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot showing the deployment options":::
+        
+    ### [.NET Framework 4.8](#tab/netframework48)
+    
+    - For **Organization** select the organization where you have forked the demo project.
+    - For **Repository** select the *app-service-web-dotnet-get-started* project.
+    - For **Branch** select *master*.
+    
+    :::image type="content" source="media/quickstart-dotnet/app-service-deploy48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="aaa":::
+    
+    -----
+
+1. Select the **Review + create** button at the bottom of the page.
+
+    :::image type="content" source="./media/quickstart-dotnet/review-create.png" alt-text="Screenshot showing the Review and create button at the bottom of the page":::
+
+1. After validation runs, select the **Create** button at the bottom of the page.
+
+1. After deployment is complete, select **Go to resource**.
+
+    :::image type="content" source="./media/quickstart-dotnet/next-steps.png" alt-text="Screenshot showing the next step of going to the resource":::
+
+1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
+
+    ### [.NET 6.0](#tab/net60)
+    
+    :::image type="content" source="media/quickstart-dotnet/browse-dotnet60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot showing the deployed sample app":::
+        
+    ### [.NET Framework 4.8](#tab/netframework48)
+       
+    :::image type="content" source="media/quickstart-dotnet/browse-dotnet48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot showing the deployed sample app":::
+    
+    -----
+
+:::zone-end
+
+
+
 ## Update the app and redeploy
 
 Follow these steps to update and redeploy your web app:
@@ -772,6 +895,13 @@ The **Overview** page for your web app, contains options for basic management li
 <!-- markdownlint-enable MD044 -->
 [!INCLUDE [Clean-up PowerShell resources](../../includes/powershell-samples-clean-up.md)]
 :::zone-end
+<!-- markdownlint-enable MD044 -->
+
+:::zone target="docs" pivot="development-environment-azure-portal"
+<!-- markdownlint-enable MD044 -->
+[!INCLUDE [Clean-up Portal web app resources](../../includes/clean-up-section-portal-web-app.md)]
+:::zone-end
+<!-- markdownlint-enable MD044 -->
 
 ## Next steps
 
