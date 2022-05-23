@@ -4,7 +4,7 @@
     expanded: true
     items:
       - name: What's Entra Permissions Management?
-        href: entra-overview.md       
+        href: overview.md       
   - name: How-to guides
     expanded: true
     items:
@@ -12,150 +12,150 @@
       expanded: true
       items:
       - name: Enable Entra in your organization 
-        href: entra-onboard-enable-tenant.md
+        href: onboard-enable-tenant.md
       - name: Onboard an AWS account
-        href: entra-onboard-aws.md
+        href: onboard-aws.md
       - name: Onboard an Azure subscription
-        href: entra-onboard-azure.MD
+        href: onboard-azure.MD
       - name: Onboard a GCP project
-        href: entra-onboard-gcp.md
+        href: onboard-gcp.md
       - name: Enable or disable the controller after onboarding is complete
-        href: entra-onboard-enable-controller-after-onboarding.md
+        href: onboard-enable-controller-after-onboarding.md
       - name: Add an account/ subscription/ project after onboarding is complete
-        href: entra-onboard-add-account-after-onboarding.md
+        href: onboard-add-account-after-onboarding.md
     - name: View risk metrics in your authorization system
       expanded: false
       items:
       - name: View key statistics and data about your authorization system
-        href: entra-ui-dashboard.md
+        href: ui-dashboard.md
       - name: View data about the activity in your authorization system
-        href: entra-product-dashboard.md
+        href: product-dashboard.md
     - name: Configure settings for data collection
       expanded: false
       items:
       - name: View and configure settings for data collection
-        href: entra-product-data-sources.md
+        href: product-data-sources.md
       - name: Display an inventory of created resources and licenses 
-        href: entra-product-data-inventory.md
+        href: product-data-inventory.md
     - name: Manage organizational and personal information
       expanded: false
       items:
       - name: View personal and organization information
-        href: entra-product-account-settings.md
+        href: product-account-settings.md
     - name: View information about identities, resources, and tasks
       expanded: false
       items:
       - name: View analytic information with the Analytics dashboard
-        href: entra-usage-analytics-home.md
+        href: usage-analytics-home.md
       - name: View analytic information about users
-        href: entra-usage-analytics-users.md
+        href: usage-analytics-users.md
       - name: View analytic information about groups
-        href: entra-usage-analytics-groups.md
+        href: usage-analytics-groups.md
       - name: View analytic information about active resources
-        href: entra-usage-analytics-active-resources.md
+        href: usage-analytics-active-resources.md
       - name: View analytic information about active tasks
-        href: entra-usage-analytics-active-tasks.md
+        href: usage-analytics-active-tasks.md
       - name: View analytic information about access keys
-        href: entra-usage-analytics-access-keys.md
+        href: usage-analytics-access-keys.md
       - name: View analytic information about serverless functions
-        href: entra-usage-analytics-serverless-functions.md
+        href: usage-analytics-serverless-functions.md
     - name: Manage roles/policies and permission requests
       expanded: false
       items:
       - name: View roles/policies and requests for permission in the Remediation dashboard
-        href: entra-ui-remediation.md
+        href: ui-remediation.md
       - name: View information about roles/policies
-        href: entra-howto-view-role-policy.md
+        href: howto-view-role-policy.md
       - name: View information about active and completed tasks
-        href: entra-ui-tasks.md
+        href: ui-tasks.md
       - name: Create a role/policy
-        href: entra-howto-create-role-policy.md
+        href: howto-create-role-policy.md
       - name: Clone a role/policy
-        href: entra-howto-clone-role-policy.md
+        href: howto-clone-role-policy.md
       - name: Modify a role/policy
-        href: entra-howto-modify-role-policy.md
+        href: howto-modify-role-policy.md
       - name: Delete a role/policy
-        href: entra-howto-delete-role-policy.md
+        href: howto-delete-role-policy.md
       - name: Attach and detach policies for AWS identities
-        href: entra-howto-attach-detach-permissions.md
+        href: howto-attach-detach-permissions.md
       - name: Add and remove roles and tasks for Azure and GCP identities
-        href: entra-howto-add-remove-role-task.md
+        href: howto-add-remove-role-task.md
       - name: Revoke access to high-risk and unused tasks or assign read-only status
-        href: entra-howto-revoke-task-readonly-status.md
+        href: howto-revoke-task-readonly-status.md
       - name: Create or approve a request for permissions 
-        href: entra-howto-create-approve-privilege-request.md
+        href: howto-create-approve-privilege-request.md
     - name: Manage users, roles, and their access levels
       expanded: false
       items:
       - name: Manage users and groups
-        href: entra-ui-user-management.md
+        href: ui-user-management.md
       # - name: Define and manage users, roles, and access levels
-        # href: entra-product-define-permission-levels.md
+        # href: product-define-permission-levels.md
       - name: Select group-based permissions settings
-        href: entra-howto-create-group-based-permissions.md
+        href: howto-create-group-based-permissions.md
     - name: Use queries to view information about user access
       expanded: false
       items:
       - name: Use queries to see how users access information 
-        href: entra-ui-audit-trail.md
+        href: ui-audit-trail.md
       - name: Create a custom query
-        href: entra-howto-create-custom-queries.md
+        href: howto-create-custom-queries.md
       - name: Generate an on-demand report from a query
-        href: entra-howto-audit-trail-results.md
+        href: howto-audit-trail-results.md
       - name: Filter and query user activity
-        href: entra-product-audit-trail.md
+        href: product-audit-trail.md
     - name: Set activity alerts and triggers 
       expanded: false
       items: 
       - name: View information about activity triggers
-        href: entra-ui-triggers.md
+        href: ui-triggers.md
       - name: Create and view activity alerts and alert triggers
-        href: entra-howto-create-alert-trigger.md
+        href: howto-create-alert-trigger.md
       - name: Create and view rule-based anomalies and anomaly triggers
-        href: entra-product-rule-based-anomalies.md
+        href: product-rule-based-anomalies.md
       - name: Create and view statistical anomalies and anomaly triggers
-        href: entra-product-statistical-anomalies.md
+        href: product-statistical-anomalies.md
       - name: Create and view permission analytics triggers
-        href: entra-product-permission-analytics.md
+        href: product-permission-analytics.md
     - name: Manage rules for authorization systems
       expanded: false
       items:
       - name: View rules in the Autopilot dashboard
-        href: entra-ui-autopilot.md
+        href: ui-autopilot.md
       - name: Create a rule
-        href: entra-howto-create-rule.md 
+        href: howto-create-rule.md 
       - name: Generate, view, and apply rule recommendations
-        href: entra-howto-recommendations-rule.md 
+        href: howto-recommendations-rule.md 
       - name: View notification settings for a rule
-        href: entra-howto-notifications-rule.md
+        href: howto-notifications-rule.md
     - name: Create and view reports 
       expanded: false
       items: 
       - name: View system reports in the Reports dashboard
-        href: entra-product-reports.md
+        href: product-reports.md
       - name: View a list and description of system reports
-        href: entra-all-reports.md
+        href: all-reports.md
       - name: Generate and view a system report
-        href: entra-report-view-system-report.md
+        href: report-view-system-report.md
       - name: Create, view, and share a custom report
-        href: entra-report-create-custom-report.md
+        href: report-create-custom-report.md
       - name: Generate and download the Permissions analytics report
-        href: entra-product-permissions-analytics-reports.md
+        href: product-permissions-analytics-reports.md
   - name: Troubleshoot
     expanded: false
     items:
     - name: Troubleshoot issues
-      href: entra-troubleshoot.md
+      href: troubleshoot.md
   - name: Training videos
     expanded: false
     items:
     - name: Get started with Entra training videos
-      href: entra-training-videos.md
+      href: training-videos.md
   - name: Reference
     expanded: false
     items:
     - name: FAQs
-      href: entra-faqs.md
+      href: faqs.md
     - name: Glossary
-      href: entra-multi-cloud-glossary.md
+      href: multi-cloud-glossary.md
 
