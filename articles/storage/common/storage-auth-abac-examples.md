@@ -816,14 +816,33 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/Alp
 
 This condition allows a user to only read current blob versions. The user cannot read other blob versions.
 
-You must add this condition to any role assignments that include the following action.
+You must add this condition to any role assignments that include the following actions.
 
 > [!div class="mx-tableFixed"]
 > | Action | Notes |
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
 ![Diagram of condition showing read access to current blob version only.](./media/storage-auth-abac-examples/current-version-read-only.png)
+
+Storage Blob Data Owner
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion] BoolEquals true
+ )
+)
+```
+
+Storage Blob Data Reader, Storage Blob Data Contributor
 
 ```
 (
@@ -844,18 +863,15 @@ Here are the settings to add this condition using the Azure portal.
 > [!div class="mx-tableFixed"]
 > | Condition #1 | Setting |
 > | --- | --- |
-> | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
+> | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
 > | Attribute source | Resource |
 > | Attribute | [Is Current Version](storage-auth-abac-attributes.md#is-current-version) |
 > | Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | Value | True |
 
-### Example: Read current blob versions and a specific blob version (Option 1)
+### Example: Read current blob versions and a specific blob version
 
-This condition allows a user to read current blob versions as well as read blobs with a version ID of 2022-06-01T23:38:32.8883645Z. The user cannot read other blob versions.
-
-> [!NOTE]
-> The condition includes a `NOT Exists` expression for the version ID attribute. This expression is included so that the Azure portal can list the current version of the blob.
+This condition allows a user to read current blob versions as well as read blobs with a version ID of 2022-06-01T23:38:32.8883645Z. The user cannot read other blob versions. The [Version ID](storage-auth-abac-attributes.md#version-id) attribute is available only for storage accounts where hierarchical namespace is not enabled.
 
 You must add this condition to any role assignments that include the following action.
 
@@ -864,53 +880,7 @@ You must add this condition to any role assignments that include the following a
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 
-![Diagram of condition showing read access to a specific blob version (Option 1).](./media/storage-auth-abac-examples/version-id-specific-blob-read.png)
-
-```
-(
- (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
- )
- OR 
- (
-  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T23:38:32.8883645Z'
-  OR
-  NOT Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId]
- )
-)
-```
-
-#### Azure portal
-
-Here are the settings to add this condition using the Azure portal.
-
-> [!div class="mx-tableFixed"]
-> | Condition #1 | Setting |
-> | --- | --- |
-> | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
-> | Attribute source | Request |
-> | Attribute | [Version ID](storage-auth-abac-attributes.md#version-id) |
-> | Operator | [DateTimeEquals](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
-> | Value | &lt;blobVersionId&gt; |
-> | **Expression 2** |  |
-> | Operator | Or |
-> | Attribute source | Request |
-> | Attribute | [Version ID](storage-auth-abac-attributes.md#version-id) |
-> | Exists | [Checked](../../role-based-access-control/conditions-format.md#exists) |
-> | Negate this expression | Checked |
-
-### Example: Read current blob versions and a specific blob version (Option 2)
-
-This condition allows a user to read current blob versions as well as read blobs with a version ID of 2022-06-01T23:38:32.8883645Z. The user cannot read other blob versions.
-
-You must add this condition to any role assignments that include the following action.
-
-> [!div class="mx-tableFixed"]
-> | Action | Notes |
-> | --- | --- |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
-
-![Diagram of condition showing read access to a specific blob version (Option 2).](./media/storage-auth-abac-examples/version-id-specific-blob-read.png)
+![Diagram of condition showing read access to a specific blob version.](./media/storage-auth-abac-examples/version-id-specific-blob-read.png)
 
 ```
 (
@@ -947,7 +917,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Delete old blob versions
 
-This condition allows a user to delete versions of a blob that are older than 06/01/2022 to perform clean up.
+This condition allows a user to delete versions of a blob that are older than 06/01/2022 to perform clean up. The [Version ID](storage-auth-abac-attributes.md#version-id) attribute is available only for storage accounts where hierarchical namespace is not enabled.
 
 You must add this condition to any role assignments that include the following actions.
 
@@ -988,7 +958,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Read current blob versions and any blob snapshots
 
-This condition allows a user to read current blob versions and any blob snapshots.
+This condition allows a user to read current blob versions and any blob snapshots. The [Version ID](storage-auth-abac-attributes.md#version-id) attribute is available only for storage accounts where hierarchical namespace is not enabled.
 
 You must add this condition to any role assignments that include the following action.
 

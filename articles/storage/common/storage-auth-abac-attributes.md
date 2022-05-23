@@ -481,7 +481,7 @@ This section lists the Azure Blob storage attributes you can use in your conditi
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion` |
 > | **Attribute source** | Resource |
 > | **Attribute type** | Boolean |
-> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion] BoolEquals true`<br/>[Example: Read only current blob versions](storage-auth-abac-examples.md#example-read-only-current-blob-versions)<br/>[Example: Read current blob versions and a specific blob version (Option 2)](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version-option-2) |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion] BoolEquals true`<br/>[Example: Read only current blob versions](storage-auth-abac-examples.md#example-read-only-current-blob-versions)<br/>[Example: Read current blob versions and a specific blob version](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version) |
 
 ### Is hierarchical namespace enabled
 
@@ -523,7 +523,7 @@ This section lists the Azure Blob storage attributes you can use in your conditi
 > | **Attribute type** | DateTime |
 > | **Exists support** | True |
 > | **Hierarchical namespace support** | False |
-> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T23:38:32.8883645Z'`<br/>[Example: Read current blob versions and a specific blob version (Option 1)](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version-option-1)<br/>[Example: Read current blob versions and a specific blob version (Option 2)](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version-option-2) |
+> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T23:38:32.8883645Z'`<br/>[Example: Read current blob versions and a specific blob version](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version) |
 > | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
 
 ## Azure Queue storage attributes
