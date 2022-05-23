@@ -76,7 +76,7 @@ You can work with CLI [commands](references-work-with-defender-for-iot-cli-comma
 
 ## How do I check the sanity of my deployment
 
-After installing the software for your sensor, or on-premises management console, you will want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation).
+After installing the software for your sensor or on-premises management console, you will want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation).
 
 You can also use our [UI and CLI tools](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health) to check system health and review your overall system statistics.
 
