@@ -125,9 +125,18 @@ The recommended method is to use the Azure Identity library, which is available 
 
 ## Using the Azure Identity library in your development environment.
 
-The Azure Identity library will automatically attempt to authenticate via multiple mechanisms, including environment variables or an interactive login. This means that it can be used in your development using your own credentials, and your production environment using a Managed identity with no changes required when you deploy your code.
+The Azure Identity library will automatically attempt to authenticate via multiple mechanisms, including environment variables or an interactive login. This means that it can be used in your development using your own credentials, and your Azure environment using a Managed identity with no changes required when you deploy your application.
 
-You can also explicitly specify that you wish to use a certain Managed identity, by passing in the identity's client ID. You can retrieve this client ID by browsing to the identity in the Portal.
+The library will attempt to authenticate via the following mechanisms in order:
+
+1. Environment - The DefaultAzureCredential will read account information specified via environment variables and use it to authenticate.
+2. Managed Identity - If the application is deployed to an Azure host with Managed Identity enabled, the DefaultAzureCredential will authenticate with that account.
+2. IntelliJ - If the developer has authenticated via Azure Toolkit for IntelliJ, the DefaultAzureCredential will authenticate with that account.
+3. Visual Studio Code - If the developer has authenticated via the Visual Studio Code Azure Account extension (version 0.9.11 or earlier), the DefaultAzureCredential will authenticate with that account. To track progress toward supporting newer extension versions, see this [GitHub issue](https://github.com/Azure/azure-sdk-for-net/issues/27263).
+4. Azure CLI - If the developer has authenticated an account via the Azure CLI az login command, the DefaultAzureCredential will authenticate with that account.
+5. Azure PowerShell - If the developer has authenticated an account via the Azure PowerShell Connect-AzAccount command, the DefaultAzureCredential will authenticate with that account.
+
+You can also explicitly specify that the Managed identity you wish to authenticate with by passing in the identity's client ID. You can retrieve this client ID by browsing to the identity in the Portal.
 
 :::image type="content" source="media/overview-for-developers/IdentityClientID.png" alt-text="Client ID for the identity":::
 
@@ -211,7 +220,7 @@ To avoid storing credentials in your code or your application configuration, you
 In some scenarios, you may want to acquire tokens for Managed identities manually instead of using a built-in method to connect to the target resource. This may be because there's no client library for the programming language that you're using or for the target resource you're connecting to. When acquiring tokens manually, we provide the following guidelines:
 
 ### Cache the tokens you acquire
-For performance and reliability, we recommend that your application caches tokens. As Managed identity tokens are valid for 24 hours, there's no benefit in requesting new tokens regularly, as a cached one will be returned from the token issuing endpoint. If you exceed the request limits, you'll be rate limited and receive an HTTP 429 error. _link to limits_
+For performance and reliability, we recommend that your application caches tokens. As Managed identity tokens are valid for 24 hours, there's no benefit in requesting new tokens regularly, as a cached one will be returned from the token issuing endpoint. If you exceed the request limits, you'll be rate limited and receive an HTTP 429 error.
 
 ### Token inspection
 Your application shouldn't rely on the contents of a token. The token's content is intended only for the audience (target endpoint) that is being accessed, not the client that's requesting the token. The token content may change or be encrypted in the future.
@@ -220,7 +229,7 @@ Your application shouldn't rely on the contents of a token. The token's content 
 _Something about retrying_
 
 ### Don't expose tokens
-Tokens are like credentials - don't expose them in your application. _Something about client side requests?_
+Tokens should be treated like credentials - don't expose them in your application. _Something about client side requests?_
 
 ## Next steps
 
