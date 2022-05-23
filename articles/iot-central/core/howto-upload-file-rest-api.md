@@ -17,6 +17,13 @@ IoT Central lets you upload media and other files from connected devices to clou
 * Use the REST API to configure the file upload capability in your IoT Central application.
 * Test the file upload by running some sample device code.
 
+The IoT Central REST API lets you:
+
+* Add a file upload storage account configuration
+* Update a file upload storage account configuration
+* Get the file upload storage account configuration
+* Delete the file upload storage configuration
+
 Every Azure Storage REST API call requires an authorization header. To learn more, see [How to Use use OAuth access tokens for authentication](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
@@ -27,32 +34,26 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 ## Prerequisites
 
+To test the file upload, install the following prerequisites in your local development environment:
+
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
-## Upload storage account configuration REST API
-
-The IoT Central REST API lets you:
-
-* Add a file upload storage account configuration
-* Update a file upload storage account configuration
-* Get the file upload storage account configuration
-* Delete the file upload storage configuration
-
 ## Add a file upload storage account configuration
 
-### Create a Blob Storage account
+### Create a storage account
 
-Use the following request to create a Blob Storage account
+If you don't have a storage account for your blobs, you can use the following request to create one in your subscription:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2021-09-01
+
 ```
 
 The request headers has the following fields:
 
 * `subscriptionId` : The ID of the target subscription.
-* `resourceGroupName`: The name of the resource group within the user's subscription. The name is case insensitive.
+* `resourceGroupName`:  The name of the resource group in your subscription. The name is case insensitive.
 * `accountName` : The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 
 The request body has the following required fields:
@@ -69,15 +70,15 @@ The request body has the following required fields:
 }
 ```
 
-### Create a Blob Container
+### Create a container
 
-Use the following request to create a Blob container
+Use the following request to create a container called `fileuploads` in your storage account for your blobs:
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}?api-version=2021-09-01
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/fileuploads?api-version=2021-09-01
 ```
 
-* `conatinerName` : The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+* `containerName` : The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 
 The request body looks like the following example:
 
@@ -90,13 +91,13 @@ The response to this request looks like the following example:
 
 ```json
 {
-  "id": "/subscriptions/747f1067-0b7c-4fe4-b054-9deaa894152f/resourceGroups/yourResourceGroupName/providers/Microsoft.Storage/storageAccounts/yourAccountName/blobServices/default/containers/yourContainerName",
-  "name": "yourContainerName",
+  "id": "/subscriptions/your-subscription-id/resourceGroups/yourResourceGroupName/providers/Microsoft.Storage/storageAccounts/yourAccountName/blobServices/default/containers/fileuploads",
+  "name": "fileuploads",
   "type": "Microsoft.Storage/storageAccounts/blobServices/containers"
 }
 ```
 
-### Storage Accounts - List Keys
+### Storage accounts - list keys
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listKeys?api-version=2021-09-01
@@ -123,7 +124,7 @@ The response to this request looks like the following example:
 }
 ```
 
-Use the following request to create a file upload Blob Storage account configuration
+Use the following request to create a file upload blob storage account configuration in your IoT Central application:
 
 ```http
 PUT https://{subdomain}.{baseDomain}/api/fileUploads?api-version=1.2-preview
@@ -132,8 +133,8 @@ PUT https://{subdomain}.{baseDomain}/api/fileUploads?api-version=1.2-preview
 The request body has the following fields:
 
 * `account`: The storage account name where to upload the file to.
-* `connectionString`: The connection string used to configure the storage account. The `value` in the above response is used as the `AccountKey` value.
-* `container`: The name of the container inside the storage account.
+* `connectionString`: The connection string to connect to the storage account. Use one of the `value` values from the previous `listKeys` request as the `AccountKey` value.
+* `container`: The name of the container inside the storage account. The following example uses the name `fileuploads`.
 * `etag`: ETag to prevent conflict with multiple uploads
 * `sasTtl`: ISO 8601 duration standard, The amount of time the device’s request to upload a file is valid before it expires.
 
@@ -141,7 +142,7 @@ The request body has the following fields:
 {
   "account": "yourAccountName",
   "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/",
-  "container": "yourContainerName",
+  "container": "fileuploads",
   "sasTtl": "PT1H"
 }
 ```
@@ -152,7 +153,7 @@ The response to this request looks like the following example:
 {
   "account": "yourAccountName",
   "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/",
-  "container": "yourContainerName",
+  "container": "fileuploads",
   "sasTtl": "PT1H",
   "state": "pending",
   "etag": "\"7502ac89-0000-0300-0000-627eaf100000\""
@@ -163,7 +164,8 @@ The response to this request looks like the following example:
 
 ## Get the file upload storage account configuration
 
-Use the following request to retrieve details of a storage account configuration:
+Use the following request to retrieve details of a file upload blob storage account configuration in your IoT Central application:
+
 
 ```http
 GET https://{subdomain}.{baseDomain}/api/fileUploads?api-version=1.2-preview
@@ -183,6 +185,8 @@ The response to this request looks like the following example:
 ```
 
 ## Update the file upload storage account configuration
+
+Use the following request to update a file upload blob storage account configuration in your IoT Central application:
 
 ```http
 PATCH https://{subdomain}.{baseDomain}/api/fileUploads?api-version=1.2-preview
@@ -219,19 +223,17 @@ Use the following request to delete a  storage account configuration:
 DELETE https://{subdomain}.{baseDomain}/api/fileUploads?api-version=1.2-preview
 ```
 
-## Test File Upload
+## Test file upload
 
-If you haven't already cloned the repository, use the following command to clone it to a suitable location on your local machine and install the dependent packages:
+After you [configure file uploads](#add-a-file-upload-storage-account-configuration) in your IoT Central application, you can test it with the sample code. If you haven't already cloned the file upload sample repository, use the following commands to clone it to a suitable location on your local machine and install the dependent packages:
 
 ```
-git clone https://github.com/iot-for-all/iotc-file-upload-device
+git clone https://github.com/azure-Samples/iot-central-file-upload-device
 cd iotc-file-upload-device
 npm i
 ```
 
 ### Create the device template and import the model
-
-Now you've configured the file upload configuration in the previous section, use the sample from GitHub to test it.
 
 To test the file upload you run a sample device application. Create a device template for the sample device to use.
 
@@ -239,31 +241,15 @@ To test the file upload you run a sample device application. Create a device tem
 
 1. Navigate to the **Device Templates** tab in the left pane, select **+ New**:
 
-1. Choose **IoT Device** as the template type.
+1. Choose **IoT device** as the template type.
 
 1. On the **Customize** page of the wizard, enter a name such as *File Upload Device Sample* for the device template.
 
 1. On the **Review** page, select **Create**.
 
-1. Select **Import a model** and upload the *FileUploadDeviceDcm.json* manifest file from the repository you downloaded previously.
+1. Select **Import a model** and upload the *FileUploadDeviceDcm.json* manifest file from the folder `iotc-file-upload-device\setup` in the repository you downloaded previously.
 
-### Add views
-
-1. Go to your device template you just created, and select **Views**.
-1. Select **Visualizing the Device**.
-1. Enter a name for your view in **View name**.
-1. Select **Start with a device** under add tiles and Select the `System Heartbeat` telemetry and select **Add tile**. This telemetry is a heartbeat signal that shows that your device is alive and running. This signal will be charted on a graph.
-1. Select the `Upload Image` telemetry and select **Add tile**. This telemetry is an event that will indicated when a file upload has occurred.
-1. Select **Save**.
-
-### Forms
-
-1. Select the **Views** node, and then select the **Editing device and cloud data** tile to add a new view.
-1. Change the form name to **Upload options**.
-1. Select the `Filename Suffix` property and then select **Add section**.
-1. Select **Save**.
-
-Now select **Publish** to publish the device template.
+1. Select **Publish** to publish the device template.
 
 ### Add a device
 
@@ -281,7 +267,7 @@ Copy the values for `ID scope`, `Device ID`, and `Primary key`. You'll use these
 
 ### Run the sample code
 
-Create an ".env" file at the root of your project and add the values you copied above. The file should look like the sample below with your own values.
+Open the git repository you downloaded in VS code. Create an ".env" file at the root of your project and add the values you copied above. The file should look like the sample below with the values you made a note of previously.
 
 ```
 scopeId=<YOUR_SCOPE_ID>
@@ -316,11 +302,12 @@ The sample project comes with a sample file named *datafile.json*. This is the f
 
 To test this open your application and select the device you created. Select the **Command** tab and you see a button named **Run**. When you select that button the IoT Central app calls a direct method on your device to upload the file. You can see this direct method in the sample code in the /device.ts file. The method is named *uploadFileCommand*.
 
-The *uploadFileCommand* calls a method named *uploadFile*. This method gets the device setting for the filename suffix to use. By default, the built-in file upload feature automatically creates a folder with the same name as your *deviceId*. This device setting demonstrates how to communicate property changes to your device from IoT Central. After getting the file name and some information about file to upload, the code calls the built-in IoT Hub method *deviceClient.uploadToBlob* on the device client interface. This uses the IoT Hub file upload feature to stream the file to the associated Azure Blob storage.
-
 Select the **Raw data** tab to verify the file upload status.
 
 :::image type="content" source="media/howto-upload-file-rest-api/raw-data.png" alt-text=" Verify file upload on UI" border="false":::
+
+You can also make a [REST API](/rest/api/storageservices/list-blobs)
+ call to verify thr file upload status.
 
 ## Next steps
 
