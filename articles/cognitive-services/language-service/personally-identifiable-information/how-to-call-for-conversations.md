@@ -25,9 +25,13 @@ For transcripts, the API also enables redaction of audio segments, which contain
 
 By default, this feature will use the latest available AI model on your input. You can also configure your API requests to use a specific [model version](../concepts/model-lifecycle.md).
 
-### Input languages
+### Language support
 
-Currently the conversational PII preview API only supports English language and is available in the following three regions East US, North Europe and UK south.
+Currently the conversational PII preview API only supports English language.
+
+### Region support
+
+Currently the conversational PII preview API supports the following regions: East US, North Europe and UK south.
 
 ## Submitting data
 
