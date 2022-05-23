@@ -529,6 +529,8 @@ items:
         href: orchestration-workflow/how-to/tag-utterances.md
       - name: Train a model
         href: orchestration-workflow/how-to/train-model.md
+      - name: View model evaluation
+        href: orchestration-workflow/how-to/view-model-evaluation.md
       - name: Deploy a model
         href: orchestration-workflow/how-to/deploy-model.md
       - name: Get predictions by calling the API

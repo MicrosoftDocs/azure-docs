@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/17/2022
+ms.date: 05/20/2022
 ms.author: aahi
 ---
 
