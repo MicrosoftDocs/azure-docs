@@ -4,7 +4,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 04/18/2022
+ms.date: 05/23/2022
 ms.custom:
 ---
 
