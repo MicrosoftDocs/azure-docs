@@ -211,6 +211,9 @@ KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
 ---
 
 ### Accessing a Blob in Azure Storage
+
+#### [.NET core](#tab/netcore)
+
 ```csharp
 var credentialOptions = new DefaultAzureCredentialOptions { ManagedIdentityClientId = "<Client ID of User-assigned identity>" };
 var msiCredential = new DefaultAzureCredential(credentialOptions);                        
@@ -226,7 +229,35 @@ if (blobClient1.Exists())
 }
 ```
 
+#### [Java](#tab/java)
+_pom/xml_
+```
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-storage-blob</artifactId>
+    <version>12.13.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+    <version>1.2.0</version>
+</dependency>
+```
+
+```java
+BlobServiceClient blobStorageClient = new BlobServiceClientBuilder()
+    .endpoint("<URI of Storage account>")
+    .credential(new DefaultAzureCredentialBuilder().build())
+    .buildClient();
+    
+    //??
+```    
+---
+
 ### Accessing Azure SQL Database
+
+#### [.Net core](#tab/net)
+
 ```csharp
 using Azure.Identity;
 using Microsoft.Data.SqlClient;
@@ -249,6 +280,38 @@ while(dr.HasRows)
 }
 connection.Close();	
 ```
+
+#### [Java](#tab/java)
+```java
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+
+public class Connect_to_Azure_SQL {
+    public static void main(String[] args) throws Exception {
+
+        SQLServerDataSource ds = new SQLServerDataSource();
+        ds.setServerName("<your-database-server-name>.database.windows.net");
+        ds.setDatabaseName("<your database name>");
+        ds.setAuthentication("ActiveDirectoryMSI");
+        // Optional
+        ds.setMSIClientId("<your-user-assigned-identity-client-id>");
+        
+        String rowValue;
+
+        try (Connection connection = ds.getConnection();
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery("select top 1 ColumnName from TableName")) {
+            if (rs.next()) {
+                rowValue = rs.getString(1);
+            }
+        }
+    }
+}
+```
+---
 
 ## Connecting to resources that don't support Azure Active Directory or token based authentication in libraries
 
