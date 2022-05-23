@@ -95,7 +95,7 @@ For more information, see [Purdue reference model and Defender for IoT](../plan-
 
 1. Select **OK**, and then select **Close** to close the vSwitch properties.
 
-1. Open the **XSense VM** properties.
+1. Open the **OT Sensor VM** properties.
 
 1. For **Network Adapter 2**, select the **SPAN** network.
 
