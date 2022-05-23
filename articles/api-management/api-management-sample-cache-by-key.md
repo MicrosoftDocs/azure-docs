@@ -5,7 +5,7 @@ services: api-management
 documentationcenter: ''
 author: dlepow
 editor: ''
-
+ms.topic: how-to
 ms.service: api-management
 ms.date: 05/19/2022
 ms.author: danlep
