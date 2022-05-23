@@ -31,11 +31,11 @@ This quickstart shows you how to provision and prepare an Azure Database for Pos
 
 ## Provision services
 
-To add persistence to the application, you must create an Azure Cache for Redis and a Azure Database for PostgreSQL Flexible Server. This guide provides instructions to [Provision Services using the Azure CLI](#provision-services-by-using-the-azure-cli) or to [Provision Services with an Arm Template](#provision-services-by-using-arm-templates).
+To add persistence to the application, you must create an Azure Cache for Redis and a Azure Database for PostgreSQL Flexible Server.
 
-### Provision services by using the Azure CLI
+### [Azure CLI](#tab/azure-cli)
 
-The following steps describe how to provision an Azure Cache for Redis instance and a Azure Database for PostgreSQL Flexible Server using the Azure CLI. To provision these resources using an ARM Template, continue on to [Provision Services with ARM Template](#provision-services-by-using-arm-templates).
+The following steps describe how to provision an Azure Cache for Redis instance and a Azure Database for PostgreSQL Flexible Server using the Azure CLI.
 
 1. Create an instance of Azure Cache for Redis using the following command:
 
@@ -48,8 +48,8 @@ The following steps describe how to provision an Azure Cache for Redis instance 
        --vm-size c0
    ```
 
-> [!NOTE]
-> Redis Cache creation takes approximately 20 minutes
+   > [!NOTE]
+   > Redis Cache creation takes approximately 20 minutes
 
 1. Create an Azure Database for PostgreSQL Flexible Server instance using the following command:
 
@@ -102,9 +102,9 @@ The following steps describe how to provision an Azure Cache for Redis instance 
        --database-name acmefit_catalog
    ```
 
-### Provision services by using ARM templates
+### [ARM template](#tab/arm-template)
 
-The following instructions describe how to provision an Azure Cache for Redis and a Azure Database for PostgreSQL Flexible Server using an Azure Resource Manager template (ARM template). Continue  on to [Create Service Connectors](#create-service-connectors) if these resource have already been provisioned using the Azure CLI.
+The following instructions describe how to provision an Azure Cache for Redis and a Azure Database for PostgreSQL Flexible Server using an Azure Resource Manager template (ARM template).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -126,6 +126,8 @@ To deploy this template, follow these steps:
    - **tags:** Enter any custom tags.
 
 1. Select **Review + Create** and then **Create**.
+
+---
 
 ## Create service connectors
 

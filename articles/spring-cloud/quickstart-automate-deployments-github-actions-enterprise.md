@@ -94,10 +94,10 @@ In addition to `AZURE_CREDENTIALS`, add the following secrets to GitHub Actions:
 
 - `TF_PROJECT_NAME` - with the value of your choosing. This will be the name of your Terraform Project
 - `AZURE_LOCATION` - this is the Azure Region your resources will be created in.
-- `OIDC_JWK_SET_URI` - use the `JWK_SET_URI` defined in [Configuring Single Sign-On](quickstart-configure-single-sign-on-enterprise.md)
-- `OIDC_CLIENT_ID` - use the `CLIENT_ID` defined in [Configuring Single Sign-On](quickstart-configure-single-sign-on-enterprise.md)
-- `OIDC_CLIENT_SECRET` - use the `CLIENT_SECRET` defined in [Configuring Single Sign-On](quickstart-configure-single-sign-on-enterprise.md)
-- `OIDC_ISSUER_URI` - use the `ISSUER_URI` defined in [Configuring Single Sign-On](quickstart-configure-single-sign-on-enterprise.md)
+- `OIDC_JWK_SET_URI` - use the `JWK_SET_URI` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md)
+- `OIDC_CLIENT_ID` - use the `CLIENT_ID` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md)
+- `OIDC_CLIENT_SECRET` - use the `CLIENT_SECRET` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md)
+- `OIDC_ISSUER_URI` - use the `ISSUER_URI` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md)
 
 Add the secret `TF_BACKEND_CONFIG` to GitHub Actions with the value:
 

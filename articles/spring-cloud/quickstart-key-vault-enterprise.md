@@ -18,6 +18,8 @@ ms.custom: devx-track-java
 
 This quickstart shows you how to securely load secrets using Azure Key Vault for apps running Azure Spring Apps Enterprise tier.
 
+Every application has properties that connect it to its environment and supporting services. These services include resources like databases, logging and monitoring tools, messaging platforms, and so on. Each resource requires a way to locate and access it, often in the form of URLs and credentials. This information is often protected by law, and must be kept secret in order to protect customer data. In Azure Spring Apps, you can configure applications to directly load these secrets into memory from Key Vault using managed identities and Azure role-based access control.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -104,7 +106,7 @@ The following instructions describe how to create a Key Vault and to securely sa
        --value "rediss://:${REDIS_PRIMARY_KEY}@${REDIS_HOST}:${REDIS_PORT}/0"
    ```
 
-1. If [Single Sign-On](quickstart-configure-single-sign-on-enterprise.md) is configured, store the JSON Web Key (JWK) URI in Key Vault using the following command:
+1. If [single sign-on](quickstart-configure-single-sign-on-enterprise.md) is configured, store the JSON Web Key (JWK) URI in Key Vault using the following command:
 
    ```azurecli
    az keyvault secret set \
@@ -113,9 +115,9 @@ The following instructions describe how to create a Key Vault and to securely sa
        --value <jwk-uri>
    ```
 
-## Enable access to secrets in Key Vault
+## Grant applications access to secrets in Key Vault
 
-The following instructions describe how to allow access to Key Vault secrets to applications deployed to Azure Spring Apps Enterprise tier.
+The following instructions describe how to grant access to Key Vault secrets to applications deployed to Azure Spring Apps Enterprise tier.
 
 1. Enable a System Assigned Identity for the Cart Service Application using the following command:
 
@@ -186,7 +188,7 @@ The following instructions describe how to allow access to Key Vault secrets to 
        --secret-permissions get list
    ```
 
-1. If [Single Sign-On](quickstart-configure-single-sign-on-enterprise.md) is configured, enable a System Assigned Identity for the Identity Service Application using the following command:
+1. If [single sign-on](quickstart-configure-single-sign-on-enterprise.md) is configured, enable a System Assigned Identity for the Identity Service Application using the following command:
 
    ```azurecli
    az spring app identity assign \
@@ -209,7 +211,7 @@ The following instructions describe how to allow access to Key Vault secrets to 
        --secret-permissions get list
    ```
 
-## Update applications to use secrets
+## Update applications to load Key Vault secrets
 
 After granting access to read secrets from Key Vault, the applications must be updated to use the new secret values in their configurations. The following instructions describe how to do this.
 

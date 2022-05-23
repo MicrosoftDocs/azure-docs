@@ -18,6 +18,9 @@ ms.custom: devx-track-java
 
 This quickstart shows you how monitor apps running Azure Spring Apps Enterprise tier using Application Insights and Log Analytics.
 
+> [!NOTE]
+> You can monitor your Spring workloads end-to-end using any tool and platform of your choice, including App Insights, Log Analytics, New Relic, Dynatrace, AppDynamics, Elastic, or Splunk. For more information, see [Working with other monitoring tools](#working-with-other-monitoring-tools) later in this article.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -96,13 +99,13 @@ The Application Insights connection string must be provided manually to the Orde
 
    For the Java and NodeJS applications, this will allow the new sampling rate to take effect. For the non-java applications, this will allow them to access the newly added Instrumentation Key from the Key Vault.
 
-## Logs
+## View logs
 
 There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-time logs per app instance or **Log Analytics** for aggregated logs with advanced query capability
 
-### Log Streaming
+### Use log streaming
 
-Generate traffic in the Application by moving through the application, viewing the catalog, and placing orders. The following commands can be used to continuously generate traffic (until canceled):
+Generate traffic in the Application by moving through the application, viewing the catalog, and placing orders. Use the following commands to generate traffic continuously, until canceled:
 
 ```azurecli
 GATEWAY_URL=$(az spring gateway show \
@@ -123,7 +126,7 @@ az spring app logs \
     --lines 100
 ```
 
-By adding the `--follow` option you can get real-time log streaming from an app. Try log streaming for the Catalog Service using the following command:
+By adding the `--follow` option, you can get real-time log streaming from an app. Try log streaming for the Catalog Service by using the following command:
 
 ```azurecli
 az spring app logs \
@@ -136,11 +139,11 @@ az spring app logs \
 > [!TIP]
 > You can use az spring app logs `--help` to explore more parameters and log stream functionalities.
 
-### Log Analytics
+### Use Log Analytics
 
 Open the Log Analytics that you created - you can find the Log Analytics in the same Resource Group where you created an Azure Spring Apps service instance.
 
-In the Log Analytics page, selects `Logs` blade and run any of the sample queries supplied below for Azure Spring Apps.
+In the Log Analytics page, select the **Logs** pane and run any of the sample queries supplied below for Azure Spring Apps.
 
 Type and run the following Kusto query to see application logs:
 
@@ -152,7 +155,7 @@ AppPlatformLogsforSpring
 | project TimeGenerated, AppName, Log
 ```
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/all-app-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from all application logs query.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/all-app-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from all application logs query.":::
 
 Type and run the following Kusto query to see `catalog-service` application logs:
 
@@ -164,7 +167,7 @@ AppPlatformLogsforSpring
 | project TimeGenerated, AppName, Log
 ```
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/catalog-app-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from catalog service logs.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/catalog-app-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from catalog service logs.":::
 
 Type and run the following Kusto query  to see errors and exceptions thrown by each app:
 
@@ -177,7 +180,7 @@ AppPlatformLogsforSpring
 | render piechart
 ```
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/ingress-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from the Ingress Logs.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/ingress-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from the Ingress Logs.":::
 
 Type and run the following Kusto query to see all in the inbound calls into Azure Spring Apps:
 
@@ -196,7 +199,7 @@ AppPlatformSystemLogs
 | project TimeGenerated,Log
 ```
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/spring-cloud-gateway-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from the Spring Cloud Gateway Logs.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/spring-cloud-gateway-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from the Spring Cloud Gateway Logs.":::
 
 Type and run the following Kusto query to see all the logs from the managed Spring Cloud
 Service Registry managed by Azure Spring Apps:
@@ -207,42 +210,41 @@ AppPlatformSystemLogs
 | project TimeGenerated, Log
 ```
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/service-registry-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from service registry logs.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/service-registry-logs-in-log-analytics.jpg" alt-text="Screenshot of Azure portal showing example output from service registry logs.":::
 
-## Tracing
+## Use tracing
 
 Open the Application Insights created by Azure Spring Apps and start monitoring Spring Boot applications. You can find the Application Insights in the same Resource Group where you created an Azure Spring Apps service instance.
 
-Navigate to the `Application Map` blade:
+Navigate to the **Application Map** pane:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-application-map.jpg" alt-text="Screenshot of Azure portal showing the Application Map of Azure Application Insights.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-application-map.jpg" alt-text="Screenshot of Azure portal showing the Application Map of Azure Application Insights.":::
 
-Navigate to the `Peforamnce` blade:
+Navigate to the **Peformance** pane:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/performance.jpg" alt-text="Screenshot of Azure portal showing the Performance pane of Azure Application Insights.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/performance.jpg" alt-text="Screenshot of Azure portal showing the Performance pane of Azure Application Insights.":::
 
-Navigate to the `Performance/Dependenices` blade - you can see the performance number for dependencies,
-particularly SQL calls:
+Navigate to the **Performance/Dependencies** pane. Here you can see the performance number for dependencies, particularly SQL calls, as shown in the following screenshot:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/performance_dependencies.jpg" alt-text="Screenshot of Azure portal showing the Dependencies section of the Performance pane of Azure Application Insights.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/performance_dependencies.jpg" alt-text="Screenshot of Azure portal showing the Dependencies section of the Performance pane of Azure Application Insights.":::
 
-Navigate to the `Performance/Roles` blade - you can see the performance metrics for individual instances or roles:
+Navigate to the **Performance/Roles** pane. Here you can see the performance metrics for individual instances or roles, as shown in the following screenshot:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-roles-in-performance-blade.jpg" alt-text="Screenshot of Azure portal showing the Roles section of the Performance pane of Azure Application Insights.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-roles-in-performance-blade.jpg" alt-text="Screenshot of Azure portal showing the Roles section of the Performance pane of Azure Application Insights.":::
 
-Click on a SQL call to see the end-to-end transaction in context:
+Select a SQL call to see the end-to-end transaction in context, as shown in the following screenshot:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-end-to-end-transaction-details.jpg" alt-text="Screenshot of Azure portal showing the end-to-end transaction of an S Q L call.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-end-to-end-transaction-details.jpg" alt-text="Screenshot of Azure portal showing the end-to-end transaction of an S Q L call.":::
 
-Navigate to the `Failures/Exceptions` blade - you can see a collection of exceptions:
+Navigate to the **Failures/Exceptions** pane. Here you can see a collection of exceptions, as shown in the following screenshot:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-exceptions.jpg" alt-text="Screenshot of Azure portal showing application failures graphed.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-exceptions.jpg" alt-text="Screenshot of Azure portal showing application failures graphed.":::
 
-## Metrics
+## View metrics
 
-Navigate to the `Metrics` blade - you can see metrics contributed by Spring Boot apps, Spring Cloud modules, and dependencies. The chart below shows `http_server_requests` and `Heap Memory Used`:
+Navigate to the **Metrics** pane. Here you can see metrics contributed by Spring Boot apps, Spring Cloud modules, and dependencies. The chart in the following screenshot shows **http_server_requests** and **Heap Memory Used**:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/metrics.jpg" alt-text="Screenshot of Azure portal showing metrics over time graph.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/metrics.jpg" alt-text="Screenshot of Azure portal showing metrics over time graph.":::
 
 Spring Boot registers a lot number of core metrics: JVM, CPU, Tomcat, Logback, etc.
 The Spring Boot auto-configuration enables the instrumentation of requests handled by Spring MVC.
@@ -253,13 +255,13 @@ The REST controllers `ProductController`, and `PaymentController` have been inst
 - `acem-payment` application has the following custom metrics enabled:
   - @Timed: `store.payment`
 
-You can see these custom metrics in the `Metrics` blade:
+You can see these custom metrics in the **Metrics** pane:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/fitness-store-custom-metrics-with-payments-2.jpg" alt-text="Screenshot showing custom metrics instrumented by Micrometer.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-custom-metrics-with-payments-2.jpg" alt-text="Screenshot showing custom metrics instrumented by Micrometer.":::
 
-Navigate to the `Live Metrics` blade - you can see live metrics on screen with low latencies < 1 second:
+Navigate to the **Live Metrics** pane. Here you can see live metrics on screen with low latencies < 1 second, as shown in the following screenshot:
 
-:::image type="content" source="media/spring-cloud-enterprise-quickstart-monitor/live-metrics.jpg" alt-text="Screenshot showing the live metrics of all applications.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/live-metrics.jpg" alt-text="Screenshot showing the live metrics of all applications.":::
 
 ## Working with other monitoring tools
 
@@ -271,7 +273,7 @@ In addition to Application Insights, Azure Spring Apps enterprise tier supports 
 - ElasticAPM
 - NewRelic
 
-Additional bindings can be added to a builder in Tanzu Build Service using the following command:
+You can add additional bindings to a builder in Tanzu Build Service by using the following command:
 
 ```azurecli
 az spring build-service builder buildpack-binding create \

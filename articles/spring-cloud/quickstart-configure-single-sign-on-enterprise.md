@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Configure Single Sign-On for Applications Using Azure Spring Apps Enterprise tier"
+title: "Quickstart - Configure single sign-on for Applications Using Azure Spring Apps Enterprise tier"
 description: Describes single sign-on configuration for Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
@@ -9,14 +9,14 @@ ms.date: 05/31/2022
 ms.custom: devx-track-java
 ---
 
-# Quickstart: Configure Single Sign-On for applications using Azure Spring Apps Enterprise tier
+# Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to configure Single Sign-On for applications running on Azure Spring Apps Enterprise tier.
+This quickstart shows you how to configure single sign-on for applications running on Azure Spring Apps Enterprise tier.
 
 ## Prerequisites
 
@@ -29,15 +29,15 @@ This quickstart shows you how to configure Single Sign-On for applications runni
 - Complete the previous quickstart in this series:
   - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
-## Prepare Single Sign-On credentials
+## Prepare single sign-on credentials
 
-To configure Single Sign-On for the application, you will need to prepare credentials. The following sections describe steps for an existing provider or provisioning an Application Registration with Azure Active Directory.
+To configure single sign-on for the application, you will need to prepare credentials. The following sections describe steps for an existing provider or provisioning an Application Registration with Azure Active Directory.
 
 ### Use an existing provider
 
-Follow these steps to configure Single Sign-On using an existing Identity Provider. If you're provisioning an Azure Active Directory App Registration, continue on to [Register with Azure Active Directory](#create-and-configure-an-application-registration-with-azure-active-directory).
+Follow these steps to configure single sign-on using an existing Identity Provider. If you're provisioning an Azure Active Directory App Registration, continue on to [Register with Azure Active Directory](#create-and-configure-an-application-registration-with-azure-active-directory).
 
-1. Your existing identity provider must be configured to allow redirects back to Spring Cloud Gateway and API Portal. Spring Cloud Gateway has a single URI to allow re-entry to the gateway. API Portal has two URIs for supporting the user interface and underlying API. Retrieve these URIs using the following commands and add them to your Single Sign-On Provider's configuration:
+1. Your existing identity provider must be configured to allow redirects back to Spring Cloud Gateway and API Portal. Spring Cloud Gateway has a single URI to allow re-entry to the gateway. API Portal has two URIs for supporting the user interface and underlying API. Retrieve these URIs using the following commands and add them to your single sign-on provider's configuration:
 
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
@@ -60,7 +60,7 @@ Follow these steps to configure Single Sign-On using an existing Identity Provid
 > [!NOTE]
 > Only authorization servers supporting OpenID Connect Discovery protocol can be used.
 
-1. The Identity Service application will uses the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by your Single Sign-On Identity Provider's authorization server. Obtain the `JWK URI` for your identity provider for use later. The `JWK URI` typically takes the form `${ISSUER_URI}/keys` or `${ISSUER_URI}/<version>/keys`.
+1. The Identity Service application will uses the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by your single sign-on identity provider's authorization server. Obtain the `JWK URI` for your identity provider for use later. The `JWK URI` typically takes the form `${ISSUER_URI}/keys` or `${ISSUER_URI}/<version>/keys`.
 
 ### Create and configure an application registration with Azure Active Directory
 
@@ -131,7 +131,7 @@ To register the application with Azure Active Directory, follow these steps. If 
 
 ## Deploy the Identity Service application
 
-To complete the Single Sign-On experience, deploy the Identity Service application. The Identity Service application provides a single route to aid in identifying the user. For these steps make sure that the terminal is in the project folder before running any commands.
+To complete the single sign-on experience, deploy the Identity Service application. The Identity Service application provides a single route to aid in identifying the user. For these steps make sure that the terminal is in the project folder before running any commands.
 
 1. Create the `identity-service` application using the following command:
 
@@ -183,11 +183,11 @@ To complete the Single Sign-On experience, deploy the Identity Service applicati
        --routes-file azure/routes/identity-service.json
    ```
 
-## Configure Single Sign-On for Spring Cloud Gateway
+## Configure single sign-on for Spring Cloud Gateway
 
-Spring Cloud Gateway can be configured to authenticate requests via Single Sign-On. To configure Spring Cloud Gateway to use Single Sign-On follow these steps.
+Spring Cloud Gateway can be configured to authenticate requests via single sign-on. To configure Spring Cloud Gateway to use single sign-on follow these steps.
 
-1. Configure Spring Cloud Gateway to use Single Sign-On using the following command:
+1. Configure Spring Cloud Gateway to use single sign-on using the following command:
 
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
@@ -238,9 +238,9 @@ Spring Cloud Gateway can be configured to authenticate requests via Single Sign-
 
    :::image type="content" source="media/spring-cloud-enterprise-quickstart-configure-single-sign-on/login_success.png" alt-text="Screenshot of ACME Fitness Store app showing a logged in user.":::
 
-## Configure Single Sign-On for API Portal
+## Configure single sign-on for API Portal
 
-API Portal can be configured to use Single Sign-On to require authentication before exploring APIs. Use the following commands to configure Single Sign-On for API Portal:
+API Portal can be configured to use single sign-on to require authentication before exploring APIs. Use the following commands to configure single sign-on for API Portal:
 
    ```azurecli
    PORTAL_URL=$(az spring api-portal show \
