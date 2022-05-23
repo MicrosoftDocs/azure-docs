@@ -85,22 +85,28 @@ Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
 Arcdata Control Plane would be upgraded to: <version-tag>
 ```
 
-Upgrade the data controller by running an upgrade on the Arc data controller extension first. This can be donw as follows:
-```code
+Upgrade the data controller by running an upgrade on the Arc data controller extension first. This can be done as follows:
+
+```azurecli
 az k8s-extension update --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters --name <name of extension> --version <extension version> --release-train stable --config systemDefaultValues.image="<registry>/<repository>/arc-bootstrapper:<imageTag>"
 ```
-You can retrieve the name of your extension and its version, by browsing to the Oveview blade of your Arc enabled kubernetes cluster and select Extensions tab on the left. You can also retrieve the name of your extension and its version running ```az``` CLI As follows:
+You can retrieve the name of your extension and its version, by browsing to the Overview blade of your Arc enabled kubernetes cluster and select Extensions tab on the left. You can also retrieve the name of your extension and its version running `az` CLI As follows:
 
-```az k8s-extension list --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters```
+```azurecli
+az k8s-extension list --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters
+```
 
 For example:
 
-```az k8s-extension list --resource-group myresource-group --cluster-name myconnected-cluster --cluster-type connectedClusters```
+```azurecli
+az k8s-extension list --resource-group myresource-group --cluster-name myconnected-cluster --cluster-type connectedClusters
+```
 
 After retrieving the Arc data controller extension name and its version, the extension can be upgraded as follows:
 
 For example:
-```code
+
+```azurecli
 az k8s-extension update --resource-group myresource-group --cluster-name myconnected-cluster --cluster-type connectedClusters --name arcdc-ext --version 1.2.19481002 --release-train stable --config systemDefaultValues.image="mcr.microsoft.com/arcdata/arc-bootstrapper:v1.6.0_2022-05-02"
 ```
 
@@ -113,7 +119,7 @@ az arcdata dc upgrade --resource-group <resource group> --name <data controller 
 In example above, you can include `--desired-version <version>` to specify a version if you do not want the latest version. 
 
 > [!NOTE]
-> Currently upgrade is only supported to the next immediate version. Hence, if you are more than one version behind, it is recommended to specify the ```--desired-version``` to avoid compatibility issues.
+> Currently upgrade is only supported to the next immediate version. Hence, if you are more than one version behind, specify the `--desired-version` to avoid compatibility issues.
 
 
 ## Monitor the upgrade status
