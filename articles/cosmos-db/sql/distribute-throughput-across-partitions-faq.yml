@@ -47,7 +47,7 @@ sections:
               |P1: 4000 RU/s      |  P1: 1000 RU/s       |   2/3      |
               |P2: 1000 RU/s      |  P2: 500 RU/s       |       1/6  |
 
-          - If you increase your RU/s, each physical partition will have RU/s = `MIN(current throughput fraction * new RU/s, 10,000 RU/s)`.
+          - If you increase your RU/s, each physical partition will have RU/s = `MIN(current throughput fraction * new RU/s, 10,000 RU/s)`. The RU/s on a physical partition can never exceed 10,000 RU/s.
 
               For example, suppose you have a collection with 6000 RU/s and 3 physical partitions. You scale it up to 12,000 RU/s:
 
