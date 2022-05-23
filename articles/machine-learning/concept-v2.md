@@ -112,7 +112,7 @@ The Azure Machine Learning Python SDK v1 doesn't have a planned deprecation date
 * You want to use new features like - reusable components, managed inferencing
 * You're starting a new workflow or pipeline - all new features and future investments will be introduced in v2
 * You want to take advantage of the improved usability of the Python SDK v2 - ability to compose jobs and pipelines using Python functions, easy evolution from simple to complex tasks etc.
-* You don't need features like AutoML in pipelines, Parallel Run Steps, Scheduling Pipelines and Spark Jobs. These features are not yet available in SDK v2.
+* You don't need features like AutoML in pipelines, Parallel Job Steps, Scheduling Pipelines and Spark Jobs. These features are not yet available in SDK v2.
 
 ## Next steps
 

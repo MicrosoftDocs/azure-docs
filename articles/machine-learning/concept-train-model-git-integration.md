@@ -1,7 +1,7 @@
 ---
 title: Git integration for Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning integrates with a local Git repository to track repository, branch, and current commit information as part of a training run.
+description: Learn how Azure Machine Learning integrates with a local Git repository to track repository, branch, and current commit information as part of a training job.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -124,19 +124,19 @@ SSH displays this fingerprint when it connects to an unknown host to protect you
 
 ## Track code that comes from Git repositories
 
-When you submit a training run from the Python SDK or Machine Learning CLI, the files needed to train the model are uploaded to your workspace. If the `git` command is available on your development environment, the upload process uses it to check if the files are stored in a git repository. If so, then information from your git repository is also uploaded as part of the training run. This information is stored in the following properties for the training run:
+When you submit a training job from the Python SDK or Machine Learning CLI, the files needed to train the model are uploaded to your workspace. If the `git` command is available on your development environment, the upload process uses it to check if the files are stored in a git repository. If so, then information from your git repository is also uploaded as part of the training job. This information is stored in the following properties for the training job:
 
 | Property | Git command used to get the value | Description |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | The URI that your repository was cloned from. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | The URI that your repository was cloned from. |
-| `azureml.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the run was submitted. |
-| `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the run was submitted. |
-| `azureml.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the run. |
-| `mlflow.source.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the run. |
+| `azureml.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the job was submitted. |
+| `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the job was submitted. |
+| `azureml.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the job. |
+| `mlflow.source.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the job. |
 | `azureml.git.dirty` | `git status --porcelain .` | `True`, if the branch/commit is dirty; otherwise, `false`. |
 
-This information is sent for runs that use an estimator, machine learning pipeline, or script run.
+This information is sent for jobs that use an estimator, machine learning pipeline, or script job.
 
 If your training files are not located in a git repository on your development environment, or the `git` command is not available, then no git-related information is tracked.
 
@@ -151,13 +151,13 @@ If your training files are not located in a git repository on your development e
 
 ## View the logged information
 
-The git information is stored in the properties for a training run. You can view this information using the Azure portal or Python SDK.
+The git information is stored in the properties for a training job. You can view this information using the Azure portal or Python SDK.
 
 ### Azure portal
 
 1. From the [studio portal](https://ml.azure.com), select your workspace.
 1. Select __Experiments__, and then select one of your experiments.
-1. Select one of the runs from the __RUN NUMBER__ column.
+1. Select one of the jobs from the __RUN NUMBER__ column.
 1. Select __Outputs + logs__, and then expand the __logs__ and __azureml__ entries. Select the link that begins with __###\_azure__.
 
 The logged information contains text similar to the following JSON:
