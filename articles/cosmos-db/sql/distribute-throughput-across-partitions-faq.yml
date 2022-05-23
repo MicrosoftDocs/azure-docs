@@ -59,7 +59,7 @@ sections:
       - question: |
           Why am I seeing a discrepancy between the overall RU/s on my container and the sum of the RU/s across all physical partitions?
         answer: |
-          - This can happen when you scale up your overall RU/s such that for any single partition, `(current RU/s per partition * new container RU/s)/(old container RU/s)` is greater than 10,000 RU/s. This can happen when you trigger a partition split by increasing RU/s beyond `currentNumberOfPartitions * 10,000 RU/s` or increase RU/s below without triggering a partition split.
+          - This can happen when you scale up your overall RU/s such that for any single partition, `(current RU/s per partition * new container RU/s)/(old container RU/s)` is greater than 10,000 RU/s. This can happen when you trigger a partition split by increasing RU/s beyond `currentNumberOfPartitions * 10,000 RU/s` or increase RU/s without triggering a partition split.
           - It is recommended to redistribute your throughput equally after the scale-up. Otherwise, it is possible that you will not be able to use all the RU/s you've provisioned (and are being billed for).
           - To check if this scenario applies to your resource use Azure Monitor metrics. Compare the value of the **ProvisionedThroughput** (when using manual throughput) or **AutoscaleMaxThroughput** (when using autoscale) metric to the value of the **PhysicalPartitionThroughput** metric. If the value of **PhysicalPartitionThroughput** is less than the respective **ProvisionedThroughput** or **AutoscaleMaxThroughput**, then reset your RU/s to an even distribution before redistributing, or lower your resource's throughput to the value of **PhysicalPartitionThroughput**. 
 
