@@ -58,19 +58,19 @@ Use this to combine all components when they overlap. When components are combin
 
 Suppose you have an entity called Software that has a list component, which contains “Proseware OS” as an entry. In your utterance data, you have “I want to buy Proseware OS 9” with “Proseware OS 9” tagged as Software:
 
-:::image type="content" source="../media/unionOverlapExample1.svg" alt-text="A screenshot showing different component predictions." lightbox="../media/unionOverlapExample1.svg":::
+:::image type="content" source="../media/union-overlap-example-1.svg" alt-text="A screenshot showing a learned and list entity overlapped." lightbox="../media/union-d\overlap-example1.svg":::
 
 By using combine components, the entity will return with the full context as “Proseware OS 9” along with the key from the list component:
 
-:::image type="content" source="../media/unionOverlapExample1Part2.svg" alt-text="A screenshot showing an example of a predicted entity from the previous components." lightbox="../media/unionOverlapExample1Part2.svg":::
+:::image type="content" source="../media/union-overlap-example-1-part-2.svg" alt-text="A screenshot showing the result of a combined component." lightbox="../media/union-overlap-example-1-part-2.svg":::
 
 Suppose you had the same utterance but only “OS 9” was predicted by the learned component:
 
-:::image type="content" source="../media/unionOverlapExample2.svg" alt-text="A screenshot showing different component predictions." lightbox="../media/unionOverlapExample2.svg":::
+:::image type="content" source="../media/union-overlap-example-2.svg" alt-text="A screenshot showing an utterance with O S 9 predicted by th learned component." lightbox="../media/union-overlap-example-2.svg":::
 
 With combine components, the entity will still return as “Proseware OS 9” with the key from the list component:
 
-:::image type="content" source="../media/unionOverlapExample2Part2.svg" alt-text="A screenshot showing an example of a predicted entity from the previous components." lightbox="../media/unionOverlapExample2Part2.svg":::
+:::image type="content" source="../media/union-overlap-example-2-part-2.svg" alt-text="A screenshot showing the returned software entity." lightbox="../media/unionOverlapExample2Part2.svg":::
 
 
 ### Do not combine components
@@ -81,11 +81,11 @@ Each overlapping component will return as a separate instance of the entity. App
 
 Suppose you have an entity called Software that has a list component, which contains “Proseware Desktop” as an entry. In your utterance data, you have “I want to buy Proseware Desktop Pro” with “Proseware Desktop Pro” tagged as Software:
 
-:::image type="content" source="../media/separatedOverlapExample1.svg" alt-text="A screenshot showing different component predictions." lightbox="../media/separatedOverlapExample1.svg":::
+:::image type="content" source="../media/separated-overlap-example-1.svg" alt-text="A screenshot showing an example of a learned and list entity overlapped." lightbox="../media/separated-overlap-example-1.svg":::
 
 When you do not combine components, the entity will return twice:
 
-:::image type="content" source="../media/separatedOverlapExample1Part2.svg" alt-text="A screenshot showing an example of a predicted entity from the previous components." lightbox="../media/separatedOverlapExample1Part2.svg":::
+:::image type="content" source="../media/separated-overlap-example-1-part-2.svg" alt-text="A screenshot showing the entity returned twice." lightbox="../media/separated-overlap-example-1-part-2.svg":::
 
 
 > [!NOTE]
