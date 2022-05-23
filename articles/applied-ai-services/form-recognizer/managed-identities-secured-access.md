@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/20/2022
+ms.date: 05/23/2022
 ms.author: vikurpad
 ---
 
@@ -23,7 +23,7 @@ This how-to guide will walk you through the process of enabling secure connectio
 
 You'll be setting up your environment to secure the resources:
 
-  :::image type="content" source="media/managed-identities/secure-config.png" alt-text="Secure configuration with managed identity and private endpoints.":::
+  :::image type="content" source="media/managed-identities/secure-config.png" alt-text="Screenshot of secure configuration with managed identity and private endpoints.":::
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ Configure each of the resources to ensure that the resources can communicate wit
 
 You now have a working implementation of all the components needed to build a Form Recognizer solution with the default security model:
 
-  :::image type="content" source="media/managed-identities/default-config.png" alt-text="Default security configuration.":::
+  :::image type="content" source="media/managed-identities/default-config.png" alt-text="Screenshot of default security configuration.":::
 
 Next, you'll complete the following steps:
 
@@ -79,7 +79,7 @@ Next, you'll complete the following steps:
 
 Navigate to the Form Recognizer resource in the Azure portal and select the **Identity** tab. Toggle the **System assigned** managed identity to **On** and save the changes:
 
-  :::image type="content" source="media/managed-identities/v2-fr-mi.png" alt-text="Configure managed identity.":::
+  :::image type="content" source="media/managed-identities/v2-fr-mi.png" alt-text="Screenshot of configure managed identity.":::
 
 ## Secure the Storage account to limit traffic
 
@@ -91,7 +91,7 @@ Start configuring secure communications by navigating to the **Networking** tab 
 
 1. **Save** your changes.
 
-  :::image type="content" source="media/managed-identities/v2-stg-firewall.png" alt-text="Configure storage firewall.":::
+  :::image type="content" source="media/managed-identities/v2-stg-firewall.png" alt-text="Screenshot of configure storage firewall.":::
 
 > [!NOTE]
 >
@@ -111,7 +111,7 @@ To ensure that the Form Recognizer resource can access the training dataset, you
 
 1. On the **Role** tab, search for and select the**Storage Blob Reader** permission and select **Next**.
 
-    :::image type="content" source="media/managed-identities/v2-stg-role-assignment.png" alt-text="Screenshot of role tab.":::
+    :::image type="content" source="media/managed-identities/v2-stg-role-assignment.png" alt-text="Screenshot of choose a role tab.":::
 
 1. On the **Members** tab, select the **Managed identity** option and choose **+ Select members**
 
@@ -142,6 +142,8 @@ When you connect to resources from a virtual network, adding private endpoints w
 
 Next, you'll configure the virtual network to ensure only resources within the virtual network or traffic router through the network will have access to the Form Recognizer resource and the storage account.
 
+### Enable your virtual network and private endpoints
+
 1. In the Azure portal, navigate to your Form Recognizer resource.
 
 1. Select the **Networking** tab from the left navigation bar.
@@ -153,6 +155,8 @@ Next, you'll configure the virtual network to ensure only resources within the v
 >If you try accessing any of the Form Recognizer Studio features, you'll see an access denied message. To enable access from the Studio on your machine, select the **client IP address checkbox** and **Save** to restore access.
 
   :::image type="content" source="media/managed-identities/v2-fr-network.png" alt-text="Screenshot showing how to disable public access to Form Recognizer.":::
+
+### Configure your private endpoint
 
 1. Navigate to the **Private endpoint connections** tab and select the **+ Private endpoint**. You'll be
 navigated to the **Create a private endpoint** dialog page.
@@ -170,6 +174,8 @@ navigated to the **Create a private endpoint** dialog page.
     * Select **Next: Resource**.
 
     :::image type="content" source="media/managed-identities/v2-fr-private-end-basics.png" alt-text="Screenshot showing how to set-up a private endpoint":::
+
+### Configure your virtual network
 
 1. On the **Resource** tab, accept the default values and select **Next: Virtual Network**.
 
@@ -244,29 +250,29 @@ That's it! You can now configure secure access for your Form Recognizer resource
 
 * **Failed to access Blob container**:
 
-   :::image type="content" source="media/managed-identities/cors-error.png" alt-text="Error message when CORS config is required":::
+   :::image type="content" source="media/managed-identities/cors-error.png" alt-text="Screenshot of error message when CORS config is required":::
 
   **Resolution**: [Configure CORS](quickstarts/try-v3-form-recognizer-studio.md#prerequisites-for-new-users).
 
 * **AuthorizationFailure**:
 
-  :::image type="content" source="media/managed-identities/auth-failure.png" alt-text="Authorization failure":::
+  :::image type="content" source="media/managed-identities/auth-failure.png" alt-text="Screenshot of authorization failure error.":::
 
   **Resolution**: Ensure that there's a network line-of-sight between the computer accessing the form recognizer studio and the storage account. For example, you may need  to add the client IP address in the storage account's networking tab.
 
 * **ContentSourceNotAccessible**:
 
-   :::image type="content" source="media/managed-identities/content-source-error.png" alt-text="Content Source Not Accessible":::
+   :::image type="content" source="media/managed-identities/content-source-error.png" alt-text="Screenshot of content source not accessible error.":::
 
     **Resolution**: Make sure you've given your Form Recognizer managed identity the role of **Storage Blob Data Reader** and enabled **Trusted services** access or **Resource instance** rules on the networking tab.
 
 * **AccessDenied**:
 
-  :::image type="content" source="media/managed-identities/access-denied.png" alt-text="AccessDenied":::
+  :::image type="content" source="media/managed-identities/access-denied.png" alt-text="Screenshot of a access denied error.":::
 
   **Resolution**: Check to make sure there's connectivity between the computer accessing the form recognizer studio and the form recognizer service. For example, you may need to add the client IP address to the Form Recognizer service's networking tab.
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Access Azure Storage from a web app using managed identities](../../app-service/scenario-secure-app-access-storage.md?bc=%2fazure%2fapplied-ai-services%2fform-recognizer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fapplied-ai-services%2fform-recognizer%2ftoc.json)

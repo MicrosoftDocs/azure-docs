@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/22/2022
+ms.date: 05/23/2022
 ms.author: lajanuar
 ---
 
@@ -131,3 +131,8 @@ This example presents the approach we recommend following to mitigate possible r
 If you find that you're being throttled on the number of POST requests for documents being submitted, consider adding a delay between the requests. If your workload requires a higher degree of concurrent processing, you'll then need to create a support request to increase your service limits on transactions per second.
 
 Generally, it's highly recommended to test the workload and the workload patterns before going to production.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn about error codes and troubleshooting](preview-error-guide.md)
