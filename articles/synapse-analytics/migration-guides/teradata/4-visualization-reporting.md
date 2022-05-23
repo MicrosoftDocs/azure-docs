@@ -14,6 +14,8 @@ ms.date: 05/24/2022
 
 # Visualization and reporting for Teradata migrations
 
+This article is part four of a seven part series that provides guidance on how to migrate from Teradata to Azure Synapse Analytics. This article provides best practices for visualization and reporting.
+
 ## Accessing Azure Synapse Analytics using Microsoft and third-party BI tools
 
 Almost every organization accesses data warehouses and data marts by using a range of BI tools and applications, such as:

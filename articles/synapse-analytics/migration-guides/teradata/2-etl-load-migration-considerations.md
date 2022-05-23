@@ -14,6 +14,8 @@ ms.date: 05/24/2022
 
 # Data migration, ETL, and load for Teradata migrations
 
+This article is part two of a seven part series that provides guidance on how to migrate from Teradata to Azure Synapse Analytics. This article provides best practices for ETL and load migration.
+
 ## Data migration considerations
 
 ### Initial decisions for data migration from Teradata

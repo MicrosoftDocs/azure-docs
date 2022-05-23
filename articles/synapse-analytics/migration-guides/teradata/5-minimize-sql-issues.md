@@ -14,6 +14,8 @@ ms.date: 05/24/2022
 
 # Minimizing SQL issues for Teradata migrations
 
+This article is part five of a seven part series that provides guidance on how to migrate from Teradata to Azure Synapse Analytics. This article provides best practices for minimizing SQL issues.
+
 ## Overview
 
 ### Characteristics of Teradata environments
