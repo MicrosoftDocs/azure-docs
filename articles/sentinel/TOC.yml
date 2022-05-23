@@ -168,7 +168,7 @@
       - name: Migrate detection rules
         href: migration-arcsight-detection-rules.md
       - name: Migrate SOAR automation
-        href: migration-arcsight.md
+        href: migration-arcsight-automation.md
       - name: Export historical data
         href: migration-arcsight-historical-data.md           
     - name: Migrate from Splunk
