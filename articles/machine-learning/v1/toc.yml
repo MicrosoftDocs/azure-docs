@@ -117,7 +117,7 @@
         href: how-to-create-register-datasets.md
       - name: Connect to data (UI)
         displayName: blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set
-        href: ../how-to-connect-data-ui.md        
+        href: ../how-to-connect-data-ui.md
     - name: Manage & consume data
       items:
       - name: Train with datasets
@@ -161,7 +161,15 @@
         href: ../how-to-cicd-data-ingestion.md
       - name: Import data in the designer
         displayName: designer, data, import, dataset, datastore
-        href: ../how-to-designer-import-data.md      
+        href: ../how-to-designer-import-data.md
+    - name: Compliance
+      items: 
+      - name: Preserve data privacy
+        displayName: data,privacy,differential privacy
+        href: ../how-to-differential-privacy.md
+      - name: Export and delete data
+        displayName: GDPR
+        href: ../how-to-export-delete-data.md
 - name: Train models
     items: 
     - name: Train with SDK v1
