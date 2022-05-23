@@ -22,13 +22,13 @@
   items:
   - name: Transparency notes
     items:
-    - name: Use cases for Personalizer
+    - name: Use cases
       href: responsible-use-cases.md
-    - name: Characteristics and limitations of Personalizer
+    - name: Characteristics and limitations
       href: responsible-characteristics-and-limitations.md
-  - name: Data and privacy for Personalizer
+  - name: Data and privacy
     href: responsible-data-and-privacy.md
-  - name: Guidance for integration and responsible use of Personalizer
+  - name: Guidance for integration and responsible use
     href: responsible-guidance-integration.md
 - name: How-to guides
   items:
