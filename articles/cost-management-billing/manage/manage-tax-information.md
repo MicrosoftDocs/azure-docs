@@ -17,8 +17,8 @@ When you buy Azure products and services, the taxes that you pay are determined 
 
 This article helps you review and update  sold to,  ship to/service usage address and tax IDs for your Azure billing account. The instructions to update vary by the billing account type. To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md). An Azure billing account is separate from your Azure user account and [Microsoft account](https://account.microsoft.com/).
 
- > [!IMPORTANT]
-    > When you update sold to, ship to and Tax IDs in the Azure portal, the updated values are only used for invoices that are generated in the future. To make changes to an existing invoice, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+> [!NOTE]
+> When you update sold to, ship to and Tax IDs in the Azure portal, the updated values are only used for invoices that are generated in the future. To make changes to an existing invoice, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Update sold to address
 
@@ -29,8 +29,8 @@ This article helps you review and update  sold to,  ship to/service usage addres
     ![Screenshot that shows the properties for an MCA billing account where users can modify the sold-to address](./media/manage-tax-information/update-sold-to.png)
 1. Enter the new address and select **Save**.  
 
- > [!IMPORTANT]
-    > Some accounts require additional verification before their sold-to can be updated. If your account requires manual approval, you would be asked to contact Azure support.
+> [!NOTE]
+> Some accounts require additional verification before their sold-to can be updated. If your account requires manual approval, you would be asked to contact Azure support.
 
 ## Update ship to/service usage address for an MCA billing account
 
@@ -38,7 +38,6 @@ Customers in Canada, Puerto Rico and United States can set ship to address for t
 
 1. Sign in to the Azure portal using the email address, which has an owner or a contributor role on a billing account or a billing profile for an MCA.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows where to search in the Azure portal](./media/manage-tax-information/search-cmb.png)
 1. Select **Billing profiles** from the left-hand side.
 1. Select a billing profile to update the ship to address.  
     ![Screenshot that shows the Billing profiles page where you select a billing profile](./media/manage-tax-information/select-billing-profile.png)
@@ -53,7 +52,7 @@ Customers with a Microsoft Online Service Program (MOSP) account can set ship to
 
 1. Sign in to the Azure portal using the email address, which has the account administrator permission on the account.
 1. Search for **Subscriptions**.  
-   ![Screenshot that shows where to search in the Azure portal](./media/manage-tax-information/search-subscriptions.png)
+   ![Screenshot that shows where to search for Subscriptions in the Azure portal](./media/manage-tax-information/search-subscriptions.png)
 1. Select a subscription from the list.
 1. Select **Properties** from the left-hand side.  
 1. Select **Update Address**.
@@ -108,14 +107,14 @@ Customers in the following countries can add their Tax IDs:
 
 1. Sign in to the Azure portal using the email address, which has an owner or a contributor role on the billing account for a Microsoft Customer Agreement (MCA) or an account administrator role for a MOSP billing account.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows where to search in the Azure portal](./media/manage-tax-information/search-cmb.png)
+    ![Screenshot that shows where to search for Cost Management + Billing in the Azure portal](./media/manage-tax-information/search-cmb.png)
 1. Select **Properties** from the left-hand side.  
 1. Select **Manage Tax IDs**.
     ![Screenshot that shows where to update Tax IDs](./media/manage-tax-information/update-taxID.png)
 1. Enter new tax IDs and then select **Save**.  
 
- > [!IMPORTANT]
-    > If you don't see the Tax IDs section, Tax IDs are not yet collected for your region or updating Tax IDs in the Azure portal is not supported for your account.
+> [!NOTE]
+> If you don't see the Tax IDs section, Tax IDs are not yet collected for your region or updating Tax IDs in the Azure portal is not supported for your account.
 
 *Follow the instructions in the next section to add your GSTIN
 
@@ -123,13 +122,12 @@ Customers in the following countries can add their Tax IDs:
 
 1. Sign in to the Azure portal using the email address, which has the account administrator permission on the account.
 1. Search for **Subscriptions**.  
-   ![Screenshot that shows where to search in the Azure portal](./media/manage-tax-information/search-subscriptions.png)
 1. Select a subscription from the list.
 1. Select **Properties** from the left-hand side.  
 1. Select **Update Address**.
-    ![Screenshot that shows where to update address for the MOSP billing account](./media/manage-tax-information/update-address-IN.png)
+    ![Screenshot that shows where to update tax ID for a MOSP billing account](./media/manage-tax-information/update-address-IN.png)
 1. Enter the new GSTIN and then select **Save**.  
-    ![Screenshot that shows where to update address GSTIN](./media/manage-tax-information/update-taxID-IN.png)
+    ![Screenshot that shows where to update GSTIN](./media/manage-tax-information/update-taxID-IN.png)
     
 ## Need help? Contact us.
 
