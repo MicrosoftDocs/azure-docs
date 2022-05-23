@@ -108,7 +108,7 @@ Rate Limits for SMS:
 
 ## Carrier Fees 
 ### What are the carrier fees for SMS?
-US and CA carriers charge an added fee for SMS messages sent and/or received from toll-free numbers and short codes. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages. Azure Communication Services charges a standard carrier fee per message segment. Carrier fees are subject to change by mobile carriers. Please refer to [SMS pricing](../sms-pricing.md) for more details. 
+In July 2021, US carriers started charging an added fee for SMS messages sent and/or received from toll-free numbers and short codes. Carrier fees for SMS are charged per message segment based on the destination. Azure Communication Services charges a standard carrier fee per message segment. Carrier fees are subject to change by mobile carriers. Please refer to [SMS pricing](../sms-pricing.md) for more details. 
 
 ### When will we come to know of changes to these surcharges?
 As with similar Azure services, customers will be notified at least 30 days prior to the implementation of any price changes. These charges will be reflected on our SMS pricing page along with the effective dates. 
