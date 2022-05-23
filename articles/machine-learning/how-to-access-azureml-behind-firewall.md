@@ -321,7 +321,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Compute cluster/instance | graph.chinacloudapi.cn | TCP | 443 |
 | Compute instance |  \*.instances.azureml.cn | TCP | 443 |
 | Compute instance | \*.instances.azureml.ms | TCP | 443, 8787, 18881 |
-| Microsoft storage access | \*blob.core.chinacloudapi.cn | TCP | 443 |
+| Microsoft storage access | \*.blob.core.chinacloudapi.cn | TCP | 443 |
 | Microsoft storage access | \*.table.core.chinacloudapi.cn | TCP | 443 |
 | Microsoft storage access | \*.queue.core.chinacloudapi.cn | TCP | 443 |
 | Your storage account | \<storage\>.file.core.chinacloudapi.cn | TCP | 443, 445 |
