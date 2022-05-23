@@ -109,10 +109,8 @@ AzureDiagnostics
 ::: zone pivot="front-door-standard-premium"
 
 ``` AccessLogQuery
-
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.CDN" and Category == "FrontDoorAccessLog"
-
 ```
 ::: zone-end
 
