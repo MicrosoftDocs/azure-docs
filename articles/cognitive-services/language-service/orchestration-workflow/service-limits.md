@@ -44,9 +44,7 @@ Orchestration workflow is only available in some Azure regions. To use orchestra
 * West Europe
 * North Europe
 * UK south
-* South east Asia
-* Australia East
-* Sweden Central 
+* Australia East 
 
 ## API limits
 
@@ -82,9 +80,9 @@ The following limits are observed for orchestration workflow.
 | Attribute | Limits |
 |--|--|
 | Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. Maximum allowed length is 50 characters. |
-| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
-| Deployment name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
-| Intent name| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
+| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
+| Deployment name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
+| Intent name| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
 
 
 ## Next steps
