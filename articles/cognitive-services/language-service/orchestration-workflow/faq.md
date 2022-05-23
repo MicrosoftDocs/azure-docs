@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 01/10/2022
+ms.date: 05/23/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, mode-other
 ---
@@ -65,7 +65,7 @@ Yes, only for predictions, and [samples are available](https://aka.ms/cluSampleC
 ## Are there APIs for this feature?
 
 Yes, all the APIs are available.
-* [Autoring APIs](https://aka.ms/clu-authoring-apis)
+* [Authoring APIs](https://aka.ms/clu-authoring-apis)
 * [Prediction API](https://aka.ms/clu-runtime-api)
 
 ## Next steps
