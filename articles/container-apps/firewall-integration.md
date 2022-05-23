@@ -26,8 +26,7 @@ The following tables describe how to configure a collection of NSG allow rules.
 
 | Protocol | Port | ServiceTag | Description |
 |--|--|--|--|
-| Any | \* | Control plane subnet address space | Allow communication between IPs in the control plane subnet. This address is passed to as a parameter when you create an environment. For example, `10.0.0.0/21`. |
-| Any | \* | App subnet address space | Allow communication between nodes in the app subnet. This address is passed as a parameter when you create an environment. For example, `10.0.8.0/21`. |
+| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed to as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 ### Outbound with ServiceTags
 
@@ -45,8 +44,7 @@ As the following rules require allowing all IPs, use a Firewall solution to lock
 |--|--|--|--|
 | TCP | `443` | \* | Allow all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. |
 | UDP | `123` | \* | NTP server. If using firewall, allowlist `ntp.ubuntu.com:123`. |
-| Any | \* | Control plane subnet address space | Allow communication between IPs in the control plane subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
-| Any | \* | App subnet address space | Allow communication between nodes in the App subnet. This address is passed as a parameter when you create an environment. For example, `10.0.8.0/21`. |
+| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 ## Firewall configuration
 
