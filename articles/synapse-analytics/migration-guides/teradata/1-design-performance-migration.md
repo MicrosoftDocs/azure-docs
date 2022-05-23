@@ -115,7 +115,7 @@ When migrating from an on-premises Teradata environment, you can leverage the Az
 
 With this approach, standard Teradata utilities such as Teradata Parallel Data Transporter can efficiently move the subset of Teradata tables being migrated onto the VM instance. Then, all migration tasks can take place within the Azure environment. This approach has several benefits:
 
-- After the initial replication of data, the source system is not impacted by the migration tasks
+- After the initial replication of data, the source system isn't impacted by the migration tasks
 
 - The familiar Teradata interfaces, tools, and utilities are available within the Azure environment
 
@@ -153,26 +153,26 @@ Querying within the Azure Synapse environment is limited to a single database. S
 > [!TIP]
 > Use existing indexes to indicate candidates for indexing in the migrated warehouse.
 
-When migrating tables between different technologies, only the raw data and the metadata that describes it gets physically moved between the two environments. Other database elements from the source system&mdash;such as indexes&mdash;are not migrated, as these may not be needed or may be implemented differently within the new target environment.
+When migrating tables between different technologies, only the raw data and the metadata that describes it gets physically moved between the two environments. Other database elements from the source system&mdash;such as indexes&mdash;aren't migrated, as these may not be needed or may be implemented differently within the new target environment.
 
-However, it is important to understand where performance optimizations such as indexes have been used in the source environment, as this can indicate where to add performance optimization in the new target environment. For example, if a NUSI (Non-unique secondary index) has been created within the source Teradata environment, it may indicate that a non-clustered index should be created within the migrated Azure Synapse. Other native performance optimization techniques, such as table replication, may be more applicable than a straight 'like for like' index creation.
+However, it's important to understand where performance optimizations such as indexes have been used in the source environment, as this can indicate where to add performance optimization in the new target environment. For example, if a NUSI (Non-unique secondary index) has been created within the source Teradata environment, it may indicate that a non-clustered index should be created within the migrated Azure Synapse. Other native performance optimization techniques, such as table replication, may be more applicable than a straight 'like for like' index creation.
 
 #### High availability for the database
 
-Teradata supports data replication across nodes via the FALLBACK option, where table rows which reside physically on a given node are replicated to another node within the system. This approach guarantees that data will not be lost if there is a node failure and provides the basis for failover scenarios.
+Teradata supports data replication across nodes via the FALLBACK option, where table rows that reside physically on a given node are replicated to another node within the system. This approach guarantees that data won't be lost if there's a node failure and provides the basis for failover scenarios.
 
 The goal of the high availability architecture in Azure SQL Database is to guarantee that your database is up and running 99.9% of time, without worrying about the impact of maintenance operations and outages. Azure automatically handles critical servicing tasks such as patching, backups, and Windows and SQL upgrades, as well as unplanned events such as underlying hardware, software, or network failures.
 
-Data storage in Azure Synapse is automatically [backed up](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore) with snapshots. These snapshots are a built-in feature of the service that creates restore points. You do not have to enable this capability. Users cannot currently delete automatic restore points where the service uses these restore points to maintain SLAs for recovery.
+Data storage in Azure Synapse is automatically [backed up](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore) with snapshots. These snapshots are a built-in feature of the service that creates restore points. You don't have to enable this capability. Users can't currently delete automatic restore points where the service uses these restore points to maintain SLAs for recovery.
 
-Azure Synapse Dedicated SQL pool takes snapshots of the data warehouse throughout the day creating restore points that are available for seven days. This retention period cannot be changed. SQL Data Warehouse supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days. If you require more granular backups, other user-defined options are available.
+Azure Synapse Dedicated SQL pool takes snapshots of the data warehouse throughout the day creating restore points that are available for seven days. This retention period can't be changed. SQL Data Warehouse supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days. If you require more granular backups, other user-defined options are available.
 
 #### Unsupported Teradata table types
 
 > [!TIP]
 > Standard tables in Azure Synapse can support migrated Teradata time series and temporal data.
 
-Teradata supports special table types for time series and temporal data. The syntax and some of the functions for these table types are not directly supported in Azure Synapse, but the data can be migrated into a standard table with appropriate data types and indexing or partitioning on the date/time column.
+Teradata supports special table types for time series and temporal data. The syntax and some of the functions for these table types aren't directly supported in Azure Synapse, but the data can be migrated into a standard table with appropriate data types and indexing or partitioning on the date/time column.
 
 Teradata implements the temporal query functionality via query rewriting to add additional filters within a temporal query to limit the applicable date range. If this functionality is currently used in the source Teradata environment and is to be migrated, add this additional filtering into the relevant temporal queries.
 
@@ -196,62 +196,62 @@ Most Teradata data types have a direct equivalent in Azure Synapse. This table s
 | CV | VARCHAR | VARCHAR |
 | D  | DECIMAL | DECIMAL |
 | DA | DATE | DATE |
-| DH | INTERVAL DAY TO HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| DM | INTERVAL DAY TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| DS | INTERVAL DAY TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
+| DH | INTERVAL DAY TO HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| DM | INTERVAL DAY TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| DS | INTERVAL DAY TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | DT | DATASET | DATASET data type is supported in Azure Synapse. |
-| DY | INTERVAL DAY | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
+| DY | INTERVAL DAY | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | F  | FLOAT | FLOAT |
-| HM | INTERVAL HOUR TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| HR | INTERVAL HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| HS | INTERVAL HOUR TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
+| HM | INTERVAL HOUR TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| HR | INTERVAL HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| HS | INTERVAL HOUR TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | I1 | BYTEINT | TINYINT |
 | I2 | SMALLINT | SMALLINT |
 | I8 | BIGINT | BIGINT |
 | I  | INTEGER | INT |
-| JN | JSON | JSON data type is not currently directly supported within Azure Synapse, but JSON data can be stored in a VARCHAR field |
-| MI | INTERVAL MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| MO | INTERVAL MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| MS | INTERVAL MINUTE TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
+| JN | JSON | JSON data type isn't currently directly supported within Azure Synapse, but JSON data can be stored in a VARCHAR field |
+| MI | INTERVAL MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| MO | INTERVAL MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| MS | INTERVAL MINUTE TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | N  | NUMBER | NUMERIC |
 | PD | PERIOD(DATE) | Can be converted to VARCHAR or split into two separate dates |
 | PM | PERIOD (TIMESTAMP WITH TIME ZONE) | Can be converted to VARCHAR or split into two separate timestamps (DATETIMEOFFSET). |
-| PS | PERIOD( TIMESTAMP) | Can be converted to VARCHAR or split into two separate timestamps (DATETIMEOFFSET). |
+| PS | PERIOD(TIMESTAMP) | Can be converted to VARCHAR or split into two separate timestamps (DATETIMEOFFSET). |
 | PT | PERIOD(TIME) | Can be converted to VARCHAR or split into two separate times. |
 | PZ | PERIOD (TIME WITH TIME ZONE) | Can be converted to VARCHAR or split into two separate times but WITH TIME ZONE isn\'t supported for TIME. |
-| SC | INTERVAL SECOND | INTERVAL data types aren\'t supported in Azure Synapse, but date calculations can be done with the date comparison  functions (e.g., DATEDIFF and DATEADD) |
+| SC | INTERVAL SECOND | INTERVAL data types aren\'t supported in Azure Synapse, but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
 | SZ | TIMESTAMP WITH  TIME ZONE | DATETIMEOFFSET |
 | TS | TIMESTAMP | DATETIME or DATETIME2 |
 | TZ | TIME WITH TIME ZONE | TIME WITH TIME ZONE isn\'t supported because TIME is stored using \"wall clock\" time only without a time zone offset |
-| XM | XML | XML data type is not currently directly supported within Azure Synapse, but XML data can be stored in a VARCHAR field |
-| YM | INTERVAL YEAR TO MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| YR | INTERVAL YEAR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| DY | INTERVAL DAY | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
+| XM | XML | XML data type isn't currently directly supported within Azure Synapse, but XML data can be stored in a VARCHAR field |
+| YM | INTERVAL YEAR TO MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| YR | INTERVAL YEAR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| DY | INTERVAL DAY | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 | F  | FLOAT | FLOAT |
-| HM | INTERVAL HOUR TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| HR | INTERVAL HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| HS | INTERVAL HOUR TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (e.g., DATEDIFF and DATEADD) |
+| HM | INTERVAL HOUR TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| HR | INTERVAL HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| HS | INTERVAL HOUR TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
 | I1 | BYTEINT | TINYINT |
 | I2 | SMALLINT | SMALLINT |
 | I8 | BIGINT | BIGINT |
 | I  | INTEGER | INT |
-| JN | JSON | JSON data type is not currently directly supported within Azure Synapse, but JSON data can be stored in a VARCHAR field |
-| MI | INTERVAL MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (e.g., DATEDIFF and DATEADD) |
-| MO | INTERVAL MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (e.g., DATEDIFF and DATEADD) |
-| MS | INTERVAL MINUTE TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (e.g., DATEDIFF and DATEADD) |
+| JN | JSON | JSON data type isn't currently directly supported within Azure Synapse, but JSON data can be stored in a VARCHAR field |
+| MI | INTERVAL MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
+| MO | INTERVAL MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
+| MS | INTERVAL MINUTE TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
 | N  | NUMBER | NUMERIC |
 | PD | PERIOD(DATE) | Can be converted to VARCHAR or  split into two separate dates |
 | PM | PERIOD (TIMESTAMP WITH TIME ZONE) | Can be converted to VARCHAR or split  into two separate timestamps (DATETIMEOFFSET). |
 | PS | PERIOD( TIMESTAMP) | Can be converted to VARCHAR or split into two separate timestamps  (DATETIMEOFFSET). |
 | PT | PERIOD(TIME) | Can be converted to VARCHAR or split into two separate times. |
 | PZ | PERIOD (TIME WITH TIME ZONE) | Can be converted to VARCHAR or split into two separate times but WITH TIME ZONE isn\'t supported for TIME. |
-| SC | INTERVAL SECOND | INTERVAL data types aren\'t supported in Azure Synapse, but date calculations can be done with the date comparison  functions (e.g., DATEDIFF and DATEADD) |
+| SC | INTERVAL SECOND | INTERVAL data types aren\'t supported in Azure Synapse, but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
 | SZ | TIMESTAMP WITH  TIME ZONE | DATETIMEOFFSET |
 | TS | TIMESTAMP | DATETIME or DATETIME2 |
 | TZ | TIME WITH TIME ZONE | TIME WITH TIME ZONE isn't supported because TIME is stored using "wall clock" time only without a time zone offset |
-| XM | XML | XML data type is not directly supported within Azure Synapse, but XML data can be stored in a VARCHAR field |
-| YM | INTERVAL YEAR TO MONTH | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
-| YR | INTERVAL YEAR | INTERVAL data types aren't supported in Azure Synapse but date calculations can be done with the date comparison functions (e.g., DATEDIFF and DATEADD) |
+| XM | XML | XML data type isn't directly supported within Azure Synapse, but XML data can be stored in a VARCHAR field |
+| YM | INTERVAL YEAR TO MONTH | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| YR | INTERVAL YEAR | INTERVAL data types aren't supported in Azure Synapse but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
 
 Use the metadata from the Teradata catalog tables to determine whether any of these data types are to be migrated and allow for this in the migration plan. For example, use a SQL query like this one to find any occurrences of unsupported data types that need attention.
 
@@ -372,7 +372,7 @@ Azure Synapse Analytics from Azure SQL Data Warehouse also supports stored proce
 
 ##### Triggers
 
-Azure Synapse does not support trigger creation, but trigger creation can be implemented with Azure Data Factory.
+Azure Synapse doesn't support trigger creation, but trigger creation can be implemented with Azure Data Factory.
 
 ##### Sequences
 
@@ -419,11 +419,11 @@ This section highlights lower-level implementation differences between Teradata 
 
 #### Data distribution options
 
-Azure enables the specification of data distribution methods for individual tables. The aim is to reduce the amount of data which must be moved between processing nodes when executing a query.
+Azure enables the specification of data distribution methods for individual tables. The aim is to reduce the amount of data that must be moved between processing nodes when executing a query.
 
 For large table-large table joins, hash distributing one or, ideally, both tables on one of the join columns&mdash;which has a wide range of values to help ensure an even distribution. Perform join processing locally, as the data rows to be joined will already be collocated on the same processing node.
 
-Another way to achieve local joins for small table-large table joins&mdash;typically dimension table to fact table in a star schema model&mdash;is to replicate the smaller dimension table across all nodes. This ensures that any value of the join key of the larger table will have a matching dimension row locally available. The overhead of replicating the dimension tables is relatively low, provided the tables are not very large (see [Design guidance for replicated tables](/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables))&mdash;in which case, the hash distribution approach as described above is more appropriate. For more information, see [Distributed tables design](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute).
+Another way to achieve local joins for small table-large table joins&mdash;typically dimension table to fact table in a star schema model&mdash;is to replicate the smaller dimension table across all nodes. This ensures that any value of the join key of the larger table will have a matching dimension row locally available. The overhead of replicating the dimension tables is relatively low, provided the tables aren't very large (see [Design guidance for replicated tables](/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables))&mdash;in which case, the hash distribution approach as described above is more appropriate. For more information, see [Distributed tables design](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute).
 
 #### Data Indexing
 
