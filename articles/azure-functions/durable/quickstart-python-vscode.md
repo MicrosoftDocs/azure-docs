@@ -70,21 +70,26 @@ When you've created the project, the Azure Functions Visual Studio Code extensio
 
 1. Open the editor's integrated terminal in the current folder (<kbd>Ctrl+Shift+`</kbd>).
 
-1. In the integrated terminal, activate the virtual environment in the current folder:
+1. In the integrated terminal, activate the virtual environment in the current folder, depending on your operating system:
 
-    **Linux or macOS**
+    # [Linux](#tab/linux)
+
+    ```bash
+    source .venv/bin/activate
+    ```
+    # [MacOS](#tab/macos)
 
     ```bash
     source .venv/bin/activate
     ```
 
-    **Windows**
+    # [Windows](#tab/windows)
 
     ```powershell
     .venv\scripts\activate
     ```
-
-    :::image type="content" source="media/quickstart-python-vscode/activate-venv.png" alt-text="Screenshot of how to activate virtual environment.":::
+    
+    ---
 
 1. In the integrated terminal where the virtual environment is activated, use pip to install the packages you defined.
 
