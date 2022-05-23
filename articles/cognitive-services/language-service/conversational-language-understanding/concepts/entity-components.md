@@ -58,7 +58,7 @@ Use this to combine all components when they overlap. When components are combin
 
 Suppose you have an entity called Software that has a list component, which contains “Proseware OS” as an entry. In your utterance data, you have “I want to buy Proseware OS 9” with “Proseware OS 9” tagged as Software:
 
-:::image type="content" source="../media/union-overlap-example-1.svg" alt-text="A screenshot showing a learned and list entity overlapped." lightbox="../media/union-overlap-example1.svg":::
+:::image type="content" source="../media/union-overlap-example-1.svg" alt-text="A screenshot showing a learned and list entity overlapped." lightbox="../media/union-overlap-example-1.svg":::
 
 By using combine components, the entity will return with the full context as “Proseware OS 9” along with the key from the list component:
 
