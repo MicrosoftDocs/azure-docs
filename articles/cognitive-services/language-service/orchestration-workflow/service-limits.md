@@ -75,7 +75,7 @@ The following limits are observed for orchestration workflow.
 |Count of utterances per project | 1 | 15,000|
 |Utterance length in characters | 1 | 500 |
 |Count of intents per project | 1 | 500|
-|Count of trained models per project| 0 | 50 |
+|Count of trained models per project| 0 | 10 |
 |Count of deployments per project| 0 | 10 |
 
 ## Naming limits
