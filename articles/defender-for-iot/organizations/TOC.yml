@@ -26,7 +26,17 @@
     - name: System architecture
       href: architecture.md
     - name: OT network monitoring best practices
-      href: plan-network-monitoring.md
+      items:
+      - name: Understand your network architecture
+        href: best-practices/understand-network-architecture.md
+      - name: Plan your network connections
+        href: best-practices/plan-network-monitoring.md
+      - name: Traffic mirroring methods
+        href: best-practices/traffic-mirroring-methods.md
+      - name: Sample connectivity models
+        href: best-practices/sample-connectivity-models.md
+      - name: Passive vs active monitoring
+        href: best-practices/passive-active-monitoring.md
     - name: OT threat monitoring in enterprise SOCs
       href: concept-sentinel-integration.md
     - name: OT security system architecture
@@ -51,8 +61,6 @@
       href: how-to-manage-device-inventory-for-organizations.md
     - name: View OT assets from a sensor console
       href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-    - name: Run active OT discovery scans from a sensor console
-      href: active-discovery.md
     - name: View OT assets on a sensor device map
       href: how-to-work-with-the-sensor-device-map.md
     - name: View OT assets on a sensor per zone
@@ -152,6 +160,16 @@
           displayName: upgrade
         - name: Control OT traffic monitoring
           href: how-to-control-what-traffic-is-monitored.md
+        - name: Configure active monitoring
+          items:
+          - name: Planning and prerequisites
+            href: configure-active-monitoring.md
+          - name: Configure active discovery scans
+            href: configure-active-discovery-scans.md
+          - name: Configure Windows Endpoint Monitoring
+            href: configure-windows-endpoint-monitoring.md
+          - name: Configure reverse DNS lookup
+            href: configure-reverse-dns-lookup.md
         - name: Manage sensors from the on-premises management console
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
       - name: Manage OT sensor users

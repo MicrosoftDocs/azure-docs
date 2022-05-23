@@ -155,7 +155,7 @@ In addition to learning OT devices, you can discover Microsoft Windows workstati
 
 Two options are available for retrieving this information:
 
-- Active polling by using scheduled WMI scans. For more information, see [Configure Windows endpoint monitoring (WMI)](how-to-configure-windows-endpoint-monitoring.md) and [Configure Windows Endpoint Monitoring](how-to-control-what-traffic-is-monitored.md#configure-windows-endpoint-monitoring)
+- Active polling with scheduled WMI scans. For more information, see [Configure Windows Endpoint monitoring](configure-windows-endpoint-monitoring.md).
 
 - Local surveying by distributing and running a script on the device. Working with local scripts bypasses the risks of running WMI polling on an endpoint. It's also useful for regulated networks with waterfalls and one-way elements.
 

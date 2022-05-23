@@ -23,7 +23,7 @@ Before performing the procedures in this article, make sure that you understand 
 
 - [Microsoft Defender for IoT system architecture](architecture.md)
 - [Sensor connection methods](architecture-connections.md)
-- [Best practices for planning your OT network monitoring](plan-network-monitoring.md)
+- [Best practices for planning your OT network monitoring](best-practices/plan-network-monitoring.md)
 
 ## On-site deployment tasks
 

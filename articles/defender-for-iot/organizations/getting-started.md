@@ -61,7 +61,7 @@ Microsoft Defender for IoT supports both physical and virtual deployments. For p
 
 For more information, see:
 
-- [Best practices for planning your OT network monitoring](plan-network-monitoring.md)
+- [Best practices for planning your OT network monitoring](best-practices/plan-network-monitoring.md)
 - [Sensor connection methods](architecture-connections.md)
 - [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
 - [Predeployment checklist](pre-deployment-checklist.md)
