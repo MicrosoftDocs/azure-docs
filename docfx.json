@@ -223,7 +223,6 @@
         "articles/app-service-mobile/**/*.md": "elamalani",
         "articles/automanage/*md": "daberry",
         "articles/automation/**/*.md": "sgsneha",
-        "articles/update-center/**/*.md": "sgsneha",
         "articles/azure-arc/**/*.md": "JnHs",
         "articles/azure-arc/servers/**/*.md": "johnmarco",
         "articles/azure-functions/**/*.md": "ggailey777",
