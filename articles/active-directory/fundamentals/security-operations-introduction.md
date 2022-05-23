@@ -169,7 +169,7 @@ As part of an Azure cloud-based environment, the following items should be basel
 
 * **Azure AD Connect Health**. Service Health provides you with a customizable dashboard that tracks the health of your Azure services in the regions where you use them. For more information, see [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md).
 
-* **Azure AD multifactor authentication**. Multifactor authentication requires a user to provide more than one form of proof for authentication. This approach can provide a proactive first step to securing your environment. For more information, see [Azure AD mulitfactor authentication](../authentication/concept-mfa-howitworks.md).
+* **Azure AD multifactor authentication**. Multifactor authentication requires a user to provide more than one form of proof for authentication. This approach can provide a proactive first step to securing your environment. For more information, see [Azure AD multi-factor authentication](../authentication/concept-mfa-howitworks.md).
 
 * **Dynamic groups**. Dynamic configuration of security group membership for Azure AD Administrators can set rules to populate groups that are created in Azure AD based on user attributes. For more information, see [Dynamic groups and Azure Active Directory B2B collaboration](../external-identities/use-dynamic-groups.md).
 
