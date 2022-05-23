@@ -32,7 +32,7 @@ If you need to apply security admin rules on virtual networks with services that
 
 ## Security admin fields
 
-When defining security admin rules, there are required and optional fields. 
+When you define a security admin rule, there are required and optional fields. 
 
 ### Required fields
 
