@@ -100,22 +100,22 @@ Now your App service has a managed identity, you'll need to give the identity th
 
 1. Locate the resource you want to connect to using the search bar at the top of the Portal
 2. Select the "Access Control (IAM)" link in the left hand navigation.
-:::image type="content" source="media/overview-for-developers/KeyVault-Summary-Screen.png" alt-text="Key Vault Summary screen":::
+:::image type="content" source="media/overview-for-developers/resource-summary-screen.png" alt-text="Resource Summary screen":::
 3. Select the "Add" button near the top of the screen and select "Add role assignment".
-:::image type="content" source="media/overview-for-developers/KeyVault-Add-Role-Assignment-Dropdown.png" alt-text="Add Role assignment navigation":::
+:::image type="content" source="media/overview-for-developers/resource-add-role-assignment-dropdown.png" alt-text="Add Role assignment navigation":::
 4. A list of Roles will be displayed. You can see the specific permissions that a role has by selecting the "View" link. Select the role that you want to grant to the identity and select the "Next" button.
-:::image type="content" source="media/overview-for-developers/KeyVault-Select-Role.png" alt-text="Select a Role":::
+:::image type="content" source="media/overview-for-developers/resource-select-role.png" alt-text="Select a Role":::
 5. You'll be prompted to select who the role should be granted to. Select the "Managed identity" option and then the "Add members" link.
-:::image type="content" source="media/overview-for-developers/KeyVault-SelectMember.png" alt-text="Select the identity type":::
+:::image type="content" source="media/overview-for-developers/resource-selectmember.png" alt-text="Select the identity type":::
 6. A context pane will appear on the right where you can search by the type of the managed identity. Select "User-assigned managed identity" from the "Managed identity" option.
-:::image type="content" source="media/overview-for-developers/KeyVault-SelectIdentity.png" alt-text="Select the managed identity":::
+:::image type="content" source="media/overview-for-developers/resource-selectidentity.png" alt-text="Select the managed identity":::
 7. Select the identity that you created earlier and the "Select" button. The context pane will close, and the identity will be added to the list.
-:::image type="content" source="media/overview-for-developers/KeyVault-IdentityAdded.png" alt-text="Identity added to resource":::
+:::image type="content" source="media/overview-for-developers/resource-identityadded.png" alt-text="Identity added to resource":::
 8. Select the "Review + assign" button to view the summary of the role assignment, and then once more to confirm.
-9. A list of the role assignments for the Key Vault will be displayed.
-:::image type="content" source="media/overview-for-developers/KeyVault-Role-Assignment-Added.png" alt-text="Role assignment added":::
+9. Select the "Role assignments" option, and a list of the role assignments for the resource will be displayed.
+:::image type="content" source="media/overview-for-developers/resource-role-assignment-added.png" alt-text="Role assignment added":::
 
-Your managed identity now has the correct permissions to read a secret from the Key Vault. [Read more about Azure Role Based Access Control](../../role-based-access-control/overview.md).
+Your managed identity now has the correct permissions to access the Azure resource. [Read more about Azure Role Based Access Control](../../role-based-access-control/overview.md).
 
 ## Using the identity in your code
 
