@@ -43,7 +43,7 @@ These steps illustrate the high-level process to manage ISV app licenses:
 
 ### Step 1: Create an offer
 
-| Transactable offer | Licensable-only offers |
+| Transactable offers | Licensable-only offers |
 | ------------ | ------------- |
 | The ISV [creates an offer in Partner Center](dynamics-365-customer-engage-offer-setup.md) and chooses to transact through Microsoft’s commerce system and enable Microsoft to manage the licenses of these add-ons. The ISV also defines at least one plan and configures pricing information and availability. The ISV can optionally define a private plan which only specific customers can see and purchase on [Microsoft AppSource](https://appsource.microsoft.com/). | The ISV [creates an offer in Partner Center](dynamics-365-customer-engage-offer-setup.md) and chooses to manage licenses for this offer through Microsoft. This includes defining one or more licensing plans for the offer. |
 
@@ -53,15 +53,15 @@ The ISV creates a solution package for the offer that includes license plan info
 
 ### Step 3: Purchase subscription to ISV products
 
-| Transactable offer | Licensable-only offers |
+| Transactable offers | Licensable-only offers |
 | ------------ | ------------- |
 | Customers discover the ISV’s offer in AppSource, purchase a subscription to the offer from AppSource, and get licenses for the ISV app. | - Customers discover the ISV’s offer in AppSource or directly on the ISV’s website. Customers purchase licenses for the plans they want directly from the ISV.<br>- The ISV registers the purchase with Microsoft in Partner Center. As part of [deal registration](/partner-center/csp-commercial-marketplace-licensing#register-isv-connect-deal-in-deal-registration), the ISV will specify the type and quantity of each licensing plan purchased by the customer. |
 
 ### Step 4: Manage subscription
 
-| Transactable offer | Licensable-only offers |
+| Transactable offers | Licensable-only offers |
 | ------------ | ------------- |
-| ISVs activate the subscription. | Customers can manage the subscriptions of these add-ons and offers in [Microsoft 365 admin center](https://admin.microsoft.com/), just like they normally do for any of their other subscriptions, such as Microsoft Office or Dynamics. |
+| Customers can manage subscriptions for the Apps they purchased in [Microsoft 365 admin center](https://admin.microsoft.com/), just like they normally do for any of their Microsoft Office or Dynamics subscriptions. | ISVs activate and manage deals in Partner Center ([deal registration portal(https://partner.microsoft.com/)]) |
 
 ### Step 5: Assign licenses
 
