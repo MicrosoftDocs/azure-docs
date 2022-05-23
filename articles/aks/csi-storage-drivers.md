@@ -3,7 +3,7 @@ title: Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AK
 description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure disks and Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/17/2022
+ms.date: 05/23/2022
 author: palma21
 
 ---
@@ -15,15 +15,15 @@ The Container Storage Interface (CSI) is a standard for exposing arbitrary block
 The CSI storage driver support on AKS allows you to natively use:
 
 - [**Azure disks**](azure-disk-csi.md) can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium Storage, backed by high-performance SSDs, or Azure Standard Storage, backed by regular HDDs or Standard SSDs. For most production and development workloads, use Premium Storage. Azure disks are mounted as *ReadWriteOnce* and are only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
-
-   [Azure Disk CSI Driver v2](azure-disk-csi-v2.md) (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes, and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover.
-
 - [**Azure Files**](azure-files-csi.md) can be used to mount an SMB 3.0/3.1 share backed by an Azure storage account to pods. With Azure Files, you can share data across multiple nodes and pods. Azure Files can use Azure Standard storage backed by regular HDDs or Azure Premium storage backed by high-performance SSDs.
 
 > [!IMPORTANT]
 > Starting with Kubernetes version 1.21, AKS only uses CSI drivers by default and CSI migration is enabled. Existing in-tree persistent volumes will continue to function. However, internally Kubernetes hands control of all storage management operations (previously targeting in-tree drivers) to CSI drivers.
 >
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code opposed to the new CSI drivers, which are plug-ins.
+
+> [!NOTE]
+> Azure disk CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure disk CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, get started by requesting access here: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview).
 
 ## Migrate custom in-tree storage classes to CSI
 

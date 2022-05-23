@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Disk in Azure Kube
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/20/2022
+ms.date: 05/23/2022
 author: palma21
 
 ---
@@ -14,7 +14,10 @@ The Azure disk Container Storage Interface (CSI) driver is a [CSI specification]
 
 The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
 
-To create an AKS cluster with CSI driver support, see [Enable CSI driver on AKS](csi-storage-drivers.md). This article describes how to use the Azure disk CSI driver version 1 and version 2 (preview). To learn more about Azure disk CSI driver v2, see the following [overview](azure-disk-csi-v2.md).
+To create an AKS cluster with CSI driver support, see [Enable CSI driver on AKS](csi-storage-drivers.md). This article describes how to use the Azure disk CSI driver version 1.
+
+> [!NOTE]
+> Azure disk CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure disk CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, get started by requesting access here: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview).
 
 > [!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
