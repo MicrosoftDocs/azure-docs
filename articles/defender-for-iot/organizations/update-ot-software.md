@@ -13,9 +13,11 @@ You can purchase preconfigured appliances for your sensors and on-premises manag
 
 For more information, see [Which appliances do I need?](ot-appliance-sizing.md), [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md), and [What's new in Microsoft Defender for IoT?](release-notes.md).
 
-> [!NOTE]
-> Updates from legacy versions may require a series of software updates. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version.
->
+## Legacy version updates vs. recent version updates
+
+- Updates from legacy versions may require a series of software updates. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version.
+
+- When downloading your update files from the Azure portal, you'll see the option to download different files for different types of updates. For example, update files differ, depending on if you're updating from version 10.x to version 22.x, or updating between 22.x versions. Make sure to download the right file for the update you're performing.
 
 ## Verify network requirements
 
@@ -44,6 +46,8 @@ In such cases, make sure to update your on-premises management consoles *before*
 1. Scroll down to the **On-premises management console** section, and select **Download** for the software update. Save your `management-secured-patcher-<version>.tar` file locally. For example:
 
     :::image type="content" source="media/update-ot-software/on-premises-download.png" alt-text="Screenshot of the Download option for the on-premises management console." lightbox="media/update-ot-software/on-premises-download.png":::
+
+    Make sure to select the version for the update you're performing. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
 
 1. On your on-premises management console, select **System Settings** > **Version Update**.
 
@@ -81,7 +85,9 @@ This procedure describes how to download the new sensor software version and the
 
 1. Select one or more sensors to update, and then select **Update (Preview)** > **Download package**. For a specific sensor, you can also access the **Download package** option from the **...** options menu to the right of the sensor row.
 
-1. In the **Download package** pane that appears on the right, check to make sure that you're downloading the correct software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
+1. In the **Download package** pane that appears on the right, check to make sure that you're downloading the correct software to the sensor you want to update. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
+
+    To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
     When you're ready, select **Download package**. The software download to your sensor machine is started, and you can see the progress in the **Sensor version** column. Hover over the status bar to see details about your upgrade versions.
 
@@ -107,6 +113,8 @@ This procedure describes how to manually download the new sensor software versio
 1. From the **Sensors** section, select **Download** for the sensor update, and save your `<legacy/upstream>-sensor-secured-patcher-<version number>.tar` file locally. For example:
 
    :::image type="content" source="media/how-to-manage-individual-sensors/updates-page.png" alt-text="Screenshot of the Updates page of Defender for IoT." lightbox="media/how-to-manage-individual-sensors/updates-page.png":::
+
+    Make sure you're downloading the correct file for the update you're performing. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
 
 1. On your sensor console, select **System Settings** > **Sensor management** > **Software Update**.
 
@@ -135,6 +143,8 @@ The sensor update process won't succeed if you don't update the on-premises mana
 1. On the Azure portal, go to **Defender for IoT** > **Updates**. Under **Sensors**, select **Download** and save the file.
 
    :::image type="content" source="media/how-to-manage-individual-sensors/updates-page.png" alt-text="Screenshot of the Updates page of Defender for IoT." lightbox="media/how-to-manage-individual-sensors/updates-page.png":::
+
+    Make sure you're downloading the correct file for the update you're performing. For more information, see [Legacy version updates vs. recent version updates](#legacy-version-updates-vs-recent-version-updates).
 
 1. On your on-premises management console, select **System Settings**, and identify the sensors that you want to update.
 
