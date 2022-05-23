@@ -17,7 +17,7 @@ ms.date: 05/21/2022
 ## Overview
 
 > [!TIP]
-> 'More than just a database'&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
+> More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
 
 Due to end of support from IBM, existing users of Netezza data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, and PaaS, and to delegate things like infrastructure maintenance and platform development to the cloud provider.
 
