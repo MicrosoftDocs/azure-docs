@@ -4,23 +4,22 @@ description: "This tutorial shows how to use GitOps with Flux v2 to manage confi
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 04/11/2022
+ms.date: 05/24/2022
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
-# Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or AKS clusters (preview)
+# Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or AKS clusters
 
 GitOps with Flux v2 can be enabled in Azure Kubernetes Service (AKS) managed clusters or Azure Arc-enabled Kubernetes connected clusters as a cluster extension. After the `microsoft.flux` cluster extension is installed, you can create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.
 
+> [!NOTE]
+> Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
+
 This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
-General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both AKS and Azure Arc-enabled Kubernetes. Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
-
 >[!IMPORTANT]
->GitOps with Flux v2 is in preview. In preparation for general availability, features are still being added to the preview. One recently-released feature, multi-tenancy, could affect some users.  To understand how to work with multi-tenancy, [please review these details](#multi-tenancy).
->
->The `microsoft.flux` extension released major version 1.0.0. This includes the multi-tenancy feature. If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension you can upgrade to the latest extension manually using the Azure CLI: "az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>" (use "-t connectedClusters" for Arc clusters and "-t managedClusters" for AKS clusters).
+> The `microsoft.flux` extension released major version 1.0.0. This includes the [multi-tenancy feature](#multi-tenancy). If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension you can upgrade to the latest extension manually using the Azure CLI: "az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>" (use "-t connectedClusters" for Arc clusters and "-t managedClusters" for AKS clusters).
 
 ## Prerequisites
 
@@ -998,6 +997,11 @@ For usage details, see the following documents:
 * [Manage Helm releases](https://fluxcd.io/docs/guides/helmreleases/)
 * [Migrate to Flux v2 Helm from Flux v1 Helm](https://fluxcd.io/docs/migration/helm-operator-migration/)
 * [Flux Helm controller](https://fluxcd.io/docs/components/helm/)
+
+> [!TIP]
+> Because of how Helm handles index files, processing helm charts is an expensive operation and can have very high memory footprint. As a result, helm chart reconciliation, when occurring in parallel can cause memory spikes and OOMKilled if you are reconciling a large number of helm charts at a given time. By default, the source-controller sets its memory limit at 1Gi and its memory requests at 64Mi. If you need to increase this limit and requests due to a high number of large helm chart reconciliations, you can do so by running the following command after Microsoft.Flux extension installation.
+>
+> `az k8s-extension update -g <resource-group> -c <cluster-name> -n flux -t connectedClusters --config source-controller.resources.limits.memory=2Gi source-controller.resources.requests.memory=300Mi`
 
 ### Use the GitRepository source for Helm charts
 
