@@ -31,7 +31,7 @@ To understand more about what information you typically use with Personalizer, s
 
 The following diagram illustrates how your data is processed.
 
-![Diagram that shows how Personalizer processes data.](https://docs.microsoft.com/azure/cognitive-services/personalizer/media/how-personalizer-works/personalization-how-it-works.png)
+![Diagram that shows how Personalizer processes data.](media/how-personalizer-works/personalization-how-it-works.png)
 
 Personalizer processes data as follows:
 
