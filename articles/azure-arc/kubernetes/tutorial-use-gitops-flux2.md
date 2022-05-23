@@ -75,7 +75,7 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 ### Supported regions
 
-GitOps is currently supported in all regions that Azure Arc-enabled Kubernetes supports. [See the supported regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). GitOps (preview) is currently supported in a subset of the regions that AKS supports. The GitOps service is adding new supported regions on a regular cadence.
+GitOps is currently supported in all regions that Azure Arc-enabled Kubernetes supports. [See the supported regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). GitOps is currently supported in a subset of the regions that AKS supports. The GitOps service is adding new supported regions on a regular cadence.
 
 ### Network requirements
 
@@ -900,8 +900,6 @@ az k8s-configuration flux kustomization -h
 Group
     az k8s-configuration flux kustomization : Commands to manage Kustomizations associated with Flux
     v2 Kubernetes configurations.
-        Command group 'k8s-configuration flux' is in preview and under development. Reference
-        and support levels: https://aka.ms/CLI_refstatus
 
 Commands:
     create : Create a Kustomization associated with a Flux v2 Kubernetes configuration.

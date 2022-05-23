@@ -93,8 +93,6 @@ Import an [application repository](./conceptual-gitops-ci-cd.md#application-repo
 * **arc-cicd-demo-src** application repository
    * URL: https://github.com/Azure/arc-cicd-demo-src
    * Contains the example Azure Vote App that you will deploy using GitOps.
-> [!NOTE]
-> Until Flux V2 integration is in Public Preview, work with [FluxV2 branch](https://github.com/Azure/arc-cicd-demo-src/tree/FluxV2) of the application repository. Once Flux V2 integration is in Public Preview, FluxV2 branch will be merged into the default branch.
 
 * **arc-cicd-demo-gitops** GitOps repository
    * URL: https://github.com/Azure/arc-cicd-demo-gitops
@@ -405,8 +403,6 @@ Fork an [application repository](./conceptual-gitops-ci-cd.md#application-repo) 
 * **arc-cicd-demo-src** application repository
    * URL: https://github.com/Azure/arc-cicd-demo-src
    * Contains the example Azure Vote App that you will deploy using GitOps.
-> [!NOTE]
-> Until Flux V2 integration is in Public Preview, work with [FluxV2 branch](https://github.com/Azure/arc-cicd-demo-src/tree/FluxV2) of the application repository. Once Flux V2 integration is in Public Preview, FluxV2 branch will be merged into the default branch.
 
 * **arc-cicd-demo-gitops** GitOps repository
    * URL: https://github.com/Azure/arc-cicd-demo-gitops
