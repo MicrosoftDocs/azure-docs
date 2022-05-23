@@ -143,27 +143,27 @@ destination.sasl.mechanism=GSSAPI
 
 ### Frequently asked questions
 
-* Why do we see a difference in the last offset on source and destination cluster post replication of a topic?
+**Why do we see a difference in the last offset on source and destination cluster post replication of a topic?**
 
   It's possible that the source topic’s data points might have been purged due to which the actual record count would be less than the last offset value. This results in the difference between last offset on source and destination cluster post replication, as the replication will always start from offset-0 of the destination cluster.
 
-* How will the consumers behave on migration, if that the destination cluster may have a different offset mapping to data points?
+**How will the consumers behave on migration, if that the destination cluster may have a different offset mapping to data points?**
 
     Mirrormaker2’s MirrorCheckpointConnector automatically stores consumer group offset checkpoints for consumer groups on the source cluster. Each checkpoint  contains a mapping of the last committed offset for each group in the source cluster to the equivalent offset in destination cluster. So on migration the consumers that start consuming from same topic on the destination cluster will be able to resume receiving messages from the last offset they committed on the source cluster. 
 
-* How can we retain the exact topic name in destination cluster, as the source alias is prefixed with all the topics replicated?
+**How can we retain the exact topic name in destination cluster, as the source alias is prefixed with all the topics replicated?**
 
   This is the default behavior in Mirrormaker2.0 to avoid data overriding in complex mirroring topologies. Customization of this needd to be done carefully in terms of replication flow design and topic management to avoid data loss. This can be done by using a custom replication policy class against “replication.policy.class”.
 
-* Why do we see new internal topics created in my source and destination Kafka?
+**Why do we see new internal topics created in my source and destination Kafka?**
 
   Mirrormaker2 internal topics are created by the Connectors to keep track of the replication process, monitoring, offset mapping and checkpointing.
 
-* Why does the mirrormaker creates only two replicas of the topic in the destination cluster while the source has more?
+**Why does the mirrormaker creates only two replicas of the topic in the destination cluster while the source has more?**
 
   Mirrormaker2 doesn’t replicate the replication factor of topics to target clusters. This can be controlled from MM2 config, by specifying the required number of “replication.factor”. The default value for the same is two.
 
-* How to use custom replication policy in Mirrormaker2?
+**How to use custom replication policy in Mirrormaker2?**
 
   Custom Replication Policy can be created by implementing the interface below.
 
