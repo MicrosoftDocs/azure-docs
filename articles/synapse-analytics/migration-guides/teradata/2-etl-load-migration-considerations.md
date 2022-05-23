@@ -199,7 +199,7 @@ Other benefits of this approach include reduced impact on the Teradata system du
 
 #### Which tools can be used?
 
-The task of data transformation and movement is the basic function of all ETL products. If one of these products is already in use in the existing Teradata environment, then using the existing ETL tool may simplify data migration data from Teradata to Azure Synapse. This approach assumes that the ETL tool supports Azure Synapse as a target environment. For more information on tools that support Azure Synapse, see [Data Integration partners].
+The task of data transformation and movement is the basic function of all ETL products. If one of these products is already in use in the existing Teradata environment, then using the existing ETL tool may simplify data migration data from Teradata to Azure Synapse. This approach assumes that the ETL tool supports Azure Synapse as a target environment. For more information on tools that support Azure Synapse, see [Data integration partners](/azure/sql-data-warehouse/sql-data-warehouse-partner-data-integration).
 
 If you're using an ETL tool, consider running that tool within the Azure environment to benefit from Azure cloud performance, scalability, and cost, and free up resources in the Teradata data center. Another benefit is reduced data movement between the cloud and on-premises environments.
 
