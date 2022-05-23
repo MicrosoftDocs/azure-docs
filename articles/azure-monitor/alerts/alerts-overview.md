@@ -7,6 +7,8 @@ ms.topic: overview
 ms.date: 04/26/2022
 ms.custom: template-overview 
 ---
+<a name="overview">
+
 # What are Azure Monitor Alerts?
 
 This article explains Azure Monitor alerts, alert rules, alert processing rules and action groups, and how they work together to monitor your system and notify you if something is wrong. 
@@ -45,6 +47,7 @@ You can see all all alert instances in all your Azure resources generated in the
 
 Learn how to create an alert rule [here](alerts-log.md).
 ## Types of alerts
+
 There are four types of alerts:
 
 |Alert type|Description|
@@ -59,19 +62,14 @@ There are four types of alerts:
 This table can help you decide when to use each alert type:
 
 
-|Alert Type  |When to Use |Pricing  |
+|Alert Type  |When to Use |
 |---------|---------|---------|
-|Row1     |         |         |
-|Row2     |         |         |
-|Row3     |         |         |
-	
-Metric alert	Metric data is stored in the system already pre-computed. Metric alerts are useful when you want to be alerted about data that requires little or no manipulation. Metric alerts are less expensive than log alerts, so if the data you want to monitor is available in metric data, you would want to use this.
-Log alert	Log alerts allow you to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of KQL for data manipulation using log alerts. Log alerts are more expensive than metric alerts.
-Activity Log alert	Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts if you want to be alerted when a specific event happens to a resource, for example, a restart, a shutdown, or the creation or deletion of a resource.
-
-
+|Metric alert    | Metric data is stored in the system already pre-computed. Metric alerts are useful when you want to be alerted about data that requires little or no manipulation. Metric alerts are less expensive than log alerts, so if the data you want to monitor is available in metric data, you would want to use this.        |
+|Log alert     |  Log alerts allow you to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of KQL for data manipulation using log alerts. Log alerts are more expensive than metric alerts.       |  
+|Activity Log alert     |    Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts if you want to be alerted when a specific event happens to a resource, for example, a restart, a shutdown, or the creation or deletion of a resource.     |
 
 ## Out-of-the-box alert rules
+
 If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview).
 
 The system compiles a list of recommended alert rules based on:
@@ -81,6 +79,7 @@ The system compiles a list of recommended alert rules based on:
 > [!NOTE]
 > The alert rule recommendations feature is currently in preview and is only enabled for VMs.
 ## Alerts and State
+
 You can configure whether log or metric alerts are stateful or stateless. Activity log alerts are stateless. 
 - Stateless alerts fire each time the condition is met, even if fired previously.
 - Stateful alerts fire when the condition is met and then do not fire again or trigger any more actions until the conditions are resolved.  
@@ -93,6 +92,13 @@ For stateful alerts, the alert is considered resolved when:
 
 When the alert is considered resolved, the alert rule sends out a resolved notification using webhooks or email and the monitor state in the Azure portal is set to resolved.
 
+## Manage your alerts programmatically
+
+You can programmatically query for alerts using:
+ - PowerShell (link)
+ - CLI (link)
+ - The Alert Management REST API (link) 
+You can also use Resource Graphs (link). Resource graphs are good for managing alerts across multiple subscriptions. 
 
 ## Pricing
 <!-- add your content here -->
