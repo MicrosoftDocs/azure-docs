@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SharingCloud | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with SharingCloud |'
 description: Learn how to configure single sign-on between Azure Active Directory and Instant Suite.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 05/19/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with SharingCloud
+# Tutorial: Azure AD SSO integration with SharingCloud
 
 In this tutorial, you'll learn how to integrate SharingCloud with Azure Active Directory (Azure AD). When you integrate SharingCloud with Azure AD, you can:
 
@@ -33,8 +33,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* SharingCloud supports **SP and IDP** initiated SSO
-* SharingCloud supports **Just In Time** user provisioning
+* SharingCloud supports **SP and IDP** initiated SSO.
+* SharingCloud supports **Just In Time** user provisioning.
 
 ## Adding SharingCloud from the gallery
 
@@ -71,15 +71,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Set up single sign-on with SAML** page, perform the following steps:
 
-	Upload the metadata file with XML file provided by SharingCloud. Contact the [SharingCloud Client support team](mailto:support@sharingcloud.com) to get the file.
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://auth.sharingcloud.net/auth/realms/<COMPANY_NAME>`
 
-	![Screenshot of the Basic SAML Configuration user interface with the **Upload metadata file** link highlighted.](common/upload-metadata.png)
-	
-	Select the metadata file provided and click on **Upload**.
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://auth.sharingcloud.net/auth/realms/<COMPANY_NAME>/broker/saml/endpoint`
 
-	![Screenshot of the metadata file provided user interface, with the select file icon and **Upload** button highlighted.](common/browse-upload-metadata.png)
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.factset.com/services/saml2/`
+
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact the [SharingCloud support team](mailto:support@sharingcloud.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. 
 
 1. SharingCloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
