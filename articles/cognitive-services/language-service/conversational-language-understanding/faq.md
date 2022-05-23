@@ -65,9 +65,15 @@ No, the service only supports JSON format. You can go to LUIS, import the `.LU` 
 
 Yes, only for predictions, and [samples are available](https://aka.ms/cluSampleCode). There is currently no authoring support for the SDK.
 
+## Can I connect to Orchestration workflow projects?
+
+Yes, you can connect your CLU project in orchestration workflow. All you need is to make sure that both projects are under the same Language resource
+
 ## Are there APIs for this feature?
 
-Yes, all the APIs [are available](https://aka.ms/clu-apis).
+Yes, all the APIs are available.
+* [Autoring APIs](https://aka.ms/clu-authoring-apis)
+* [Prediction API](https://aka.ms/clu-runtime-api)
 
 ## Next steps
 

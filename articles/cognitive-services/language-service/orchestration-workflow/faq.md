@@ -29,6 +29,10 @@ See [How to create projects and build schemas](./how-to/create-project.md) for i
 
 LUIS applications that use the Language resource as their authoring resource will be available for connection. You can only connect to LUIS applications that are owned by the same resource. This option will only be available for resources in West Europe, as it's the only common available region between LUIS and CLU.
 
+## Which Question answering project can I connect to in orchestration workflow projects?
+
+Question answering projects that use the Language resource will be available for connection. You can only connect to question answering projects that are in the same Language resource.
+
 ## Training is taking a long time, is this expected?
 
 For orchestration projects, long training times are expected. Based on the number of examples you have your training times may vary from 5 minutes to 1 hour or more. 
@@ -60,7 +64,9 @@ Yes, only for predictions, and [samples are available](https://aka.ms/cluSampleC
 
 ## Are there APIs for this feature?
 
-Yes, all the APIs [are available](https://aka.ms/clu-apis).
+Yes, all the APIs are available.
+* [Autoring APIs](https://aka.ms/clu-authoring-apis)
+* [Prediction API](https://aka.ms/clu-runtime-api)
 
 ## Next steps
 

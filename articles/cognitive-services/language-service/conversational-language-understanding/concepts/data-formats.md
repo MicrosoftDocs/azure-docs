@@ -24,52 +24,61 @@ If you're [importing a project](../how-to/create-project.md#import-project) into
 
 ```json
 {
-  "api-version":"{API-VERSION}" ,
-    "stringIndexType": "Utf16CodeUnit",
-    "metadata": {
-        "projectKind": "conversation",
-        "settings": {
-            "confidenceThreshold": "{CONFIDENCE-THRESHOLD}"
-        },
-        "projectName": "{PROJECT-NAME}",
-        "multilingual": true,
-        "description": "Trying out CLU",
-        "language": "{LANGUAGE-CODE}"
-    },
+  "projectFileVersion": "2022-05-01",
+  "stringIndexType": "Utf16CodeUnit",
+  "metadata": {
+    "projectKind": "Conversation",
+    "projectName": "{PROJECT-NAME}",
+    "multilingual": true,
+    "description": "DESCRIPTION",
+    "language": "{LANGUAGE-CODE}"
+  },
   "assets": {
+    "projectKind": "Conversation",
     "intents": [
       {
         "category": "intent1"
-      },
-      {
-        "category": "intent2"
       }
     ],
     "entities": [
       {
-        "category": "entity1"
+        "category": "entity1",
+        "compositionSetting": "requireExactOverlap",
+        "list": {
+          "sublists": [
+            {
+              "listKey": "list1",
+              "synonyms": [
+                {
+                  "language": "{LANGUAGE-CODE}",
+                  "values": [
+                    "{VALUES-FOR-LIST}"
+                  ]
+                }
+              ]
+            }            
+          ]
+        },
+        "prebuilts": [
+          {
+            "category": "PREBUILT1"
+          }
+        ]
       }
     ],
     "utterances": [
       {
-        "text": "{Utterance-Text}",
+        "text": "utterance1",
+        "intent": "intent1",
         "language": "{LANGUAGE-CODE}",
         "dataset": "{DATASET}",
-        "intent": "intent1",
         "entities": [
           {
-            "category": "entity1",
-            "offset": 5,
-            "length": 5
+            "category": "ENTITY1",
+            "offset": 6,
+            "length": 4
           }
         ]
-      },
-      {
-        "text": "{Utterance-Text}",
-        "language": "{LANGUAGE-CODE}",
-        "dataset": "{DATASET}",
-        "intent": "intent2",
-        "entities": []
       }
     ]
   }
@@ -83,6 +92,8 @@ If you're [importing a project](../how-to/create-project.md#import-project) into
 |`confidenceThreshold`|`{CONFIDENCE-THRESHOLD}`|This is the threshold score below which the intent will be predicted as [none intent](none-intent.md)|`0.7`|
 | `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `EmailApp` |
 | `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. See [Language support](../language-support.md#multi-lingual-option) for more information about supported language codes.  | `true`|
+|`sublists`|`[]`|Array containing a sublists|`[]`|
+|`synonyms`|`[]`|Array containing all the synonyms|synonym|
 | `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the utterances used in your project. If your project is a  multilingual project, choose the [language code](../language-support.md) of the majority of the utterances. |`en-us`|
 | `intents` | `[]` | Array containing all the intents you have in the project. These are the intent types that will be extracted from your utterances.| `[]` |
 | `entities` | `[]` | Array containing all the entities in your project. These are the entities that will be extracted from your utterances.| `[]` |

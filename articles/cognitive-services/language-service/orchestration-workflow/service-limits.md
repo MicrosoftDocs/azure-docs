@@ -26,7 +26,10 @@ Use this article to learn about the data and service limits when using orchestra
   |Tier|Description|Limit|
   |--|--|--|
   |F0 |Free tier|You are only allowed one Language resource with the F0 tier per subscription.|
-  |S|Paid tier| You can have unlimited Language resources per subscription| 
+  |S |Paid tier|You can have up to 100 Language resources in the S tier per region.| 
+
+
+See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) for more information.
 
 * You can have up to **500** projects per resource.
 
@@ -44,9 +47,7 @@ Orchestration workflow is only available in some Azure regions. To use orchestra
 * West Europe
 * North Europe
 * UK south
-* South east Asia
-* Australia East
-* Sweden Central 
+* Australia East 
 
 ## API limits
 
@@ -74,7 +75,7 @@ The following limits are observed for orchestration workflow.
 |Count of utterances per project | 1 | 15,000|
 |Utterance length in characters | 1 | 500 |
 |Count of intents per project | 1 | 500|
-|Count of trained models per project| 0 | 50 |
+|Count of trained models per project| 0 | 10 |
 |Count of deployments per project| 0 | 10 |
 
 ## Naming limits
@@ -82,9 +83,9 @@ The following limits are observed for orchestration workflow.
 | Attribute | Limits |
 |--|--|
 | Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. Maximum allowed length is 50 characters. |
-| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
-| Deployment name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
-| Intent name| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
+| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
+| Deployment name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
+| Intent name| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
 
 
 ## Next steps

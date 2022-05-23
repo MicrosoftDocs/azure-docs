@@ -24,7 +24,10 @@ Use this article to learn about the data and service limits when using conversat
   |Tier|Description|Limit|
   |--|--|--|
   |F0|Free tier|You are only allowed **One** Language resource **per subscription**.|
-  |S|Paid tier|This pricing tier, you can have unlimited Language resources **per subscription**| 
+  |S |Paid tier|You can have up to 100 Language resources in the S tier per region.| 
+
+
+See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) for more information.
 
 * You can have up to **500** projects per resource.
 
@@ -41,9 +44,7 @@ Conversational language understanding is only available in some Azure regions. T
 * West Europe
 * North Europe
 * UK south
-* Southeast Asia
 * Australia East
-* Sweden Central
 
 
 ## API limits
@@ -75,7 +76,7 @@ The following limits are observed for the conversational language understanding.
 |Count of entities per project | 1 | 500|
 |Count of list synonyms per entity| 0 | 20,000 |
 |Count of prebuilt components per entity| 0 | 7 |
-|Count of trained models per project| 0 | 50 |
+|Count of trained models per project| 0 | 10 |
 |Count of deployments per project| 0 | 10 |
 
 ## Naming limits
@@ -83,10 +84,10 @@ The following limits are observed for the conversational language understanding.
 | Item | Limits |
 |--|--|
 | Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. Maximum allowed length is 50 characters. |
-| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
-| Deployment name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
-| Intent name | You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
-| Entity name | You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]`. Maximum allowed length is 50 characters.  |
+| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
+| Deployment name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
+| Intent name | You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
+| Entity name | You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `_ . -`. Maximum allowed length is 50 characters.  |
 
 ## Next steps
 

@@ -53,7 +53,7 @@ Follow these steps to get the most out of your model:
 
 4. **View model evaluation details**: View the evaluation details for your model to determine how well it performs when introduced to new data.
 
-5. **Deploy model**: Deploying a model makes it available for use via the [Runtime API](https://aka.ms/clu-apis).
+5. **Deploy model**: Deploying a model makes it available for use via the [prediction API](https://aka.ms/clu-runtime-api).
 
 6. **Predict intents**: Use your custom model to predict intents from user's utterances.
 
@@ -64,7 +64,7 @@ As you use orchestration workflow, see the following reference documentation and
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|
 |REST APIs (Authoring)   | [REST API documentation](https://aka.ms/clu-authoring-apis)        |         |
-|REST APIs (Runtime)    | [REST API documentation](https://aka.ms/clu-apis)        |         |
+|REST APIs (Prediction)    | [REST API documentation](https://aka.ms/clu-runtime-api)        |         |
 |C#     | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples)        |
 |Python | [Python documentation](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-conversations/samples) |
 
