@@ -5,7 +5,7 @@ author: csand-msft
 ms.author: csand
 ms.service: azure-arc
 ms.topic: tutorial 
-ms.date: 05/24/2021
+ms.date: 05/24/2022
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
