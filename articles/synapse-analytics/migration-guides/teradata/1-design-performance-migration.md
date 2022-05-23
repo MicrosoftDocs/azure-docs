@@ -315,11 +315,9 @@ Existing indexes within the source Teradata environment can however provide a us
 
 #### Data partitioning
 
-In an enterprise data warehouse, fact tables can contain many billions of rows. Partitioning optimizes the maintenance and querying of these tables by splitting them into separate parts to reduce the amount of data processed. The `CREATE TABLE` statement defines the partitioning specification for a table.
+In an enterprise data warehouse, fact tables can contain many billions of rows. Partitioning optimizes the maintenance and querying of these tables by splitting them into separate parts to reduce the amount of data processed. The `CREATE TABLE` statement defines the partitioning specification for a table. Partitioning should only be done on very large tables where each partition will contain at least 60 million rows.
 
-Note: This should only be done on very large tables where each partition will contain at least 60 million rows.
-
-Only one field per table can be used for partitioning. This is frequently a date field since many queries are filtered by date or a date range. It's possible to change the partitioning of a table after initial load by recreating the table with the new distribution using the `CREATE TABLE AS` (or CTAS) statement. See [table partitions](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) for a detailed discussion of partitioning in Azure Synapse.
+Only one field per table can be used for partitioning. That field is frequently a date field since many queries are filtered by date or a date range. It's possible to change the partitioning of a table after initial load by recreating the table with the new distribution using the `CREATE TABLE AS` (or CTAS) statement. See [table partitions](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) for a detailed discussion of partitioning in Azure Synapse.
 
 #### Data table statistics
 

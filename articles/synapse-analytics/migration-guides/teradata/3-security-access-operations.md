@@ -310,7 +310,7 @@ Teradata provides several tools to monitor the operation including Teradata View
 Database administrators can use Teradata Viewpoint to determine system status, trends, and individual query status. By observing trends in system usage, system administrators are better able to plan project implementations, batch jobs, and maintenance to avoid peak periods of use. Business users can use Teradata Viewpoint to quickly access the status of reports and queries and drill down into details.
 
 > [!TIP]
-> Azure Portal provides a GUI to manage monitoring and auditing tasks for all Azure data and processes.
+> Azure portal provides a UI to manage monitoring and auditing tasks for all Azure data and processes.
 
 Similarly, Azure Synapse provides a rich monitoring experience within the Azure Portal to provide insights into your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse as it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
