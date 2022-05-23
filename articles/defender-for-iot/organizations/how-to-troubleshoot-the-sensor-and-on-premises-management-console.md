@@ -33,21 +33,21 @@ System health checks include the following:
 |Name  |Description  |
 |---------|---------|
 |**Sanity**     |         |
-|Appliance     | Runs the appliance sanity check. You can perform the same check by using the CLI command `system-sanity`.        |
-|Version     | Displays the appliance version.        |
-|Network Properties     | Displays the sensor network parameters.        |
+|- Appliance     | Runs the appliance sanity check. You can perform the same check by using the CLI command `system-sanity`.        |
+|- Version     | Displays the appliance version.        |
+|- Network Properties     | Displays the sensor network parameters.        |
 |**Redis**     |         |
-|Memory     |   Provides the overall picture of memory usage, such as how much memory was used and how much remained.      |
-|Longest Key     | Displays the longest keys that might cause extensive memory usage.        |
+|- Memory     |   Provides the overall picture of memory usage, such as how much memory was used and how much remained.      |
+|- Longest Key     | Displays the longest keys that might cause extensive memory usage.        |
 |**System**     |         |
-|Core Log     | Provides the last 500 rows of the core log, so that you can view the recent log rows without exporting the entire system log.        |
-|Task Manager     |  Translates the tasks that appear in the table of processes to the following layers: <br><br>  - Persistent layer (Redis)<br>  - Cash layer (SQL) |
-|Network Statistics     | Displays your network statistics.        |
-|TOP     |    Shows the table of processes. It's a Linux command that provides a dynamic real-time view of the running system.     |
-|Backup Memory Check     | Provides the status of the backup memory, checking the following:<br><br> - The location of the backup folder<br>  - The size of the backup folder<br>  - The limitations of the backup folder<br>  - When the last backup happened<br>  - How much space there are for the extra backup files        |
-|ifconfig     | Displays the parameters for the appliance's physical interfaces.        |
-|CyberX nload     | Displays network traffic and bandwidth by using the six-second tests.        |
-|Errors from Core, log     |  Displays errors from the core log file.       |
+|- Core Log     | Provides the last 500 rows of the core log, so that you can view the recent log rows without exporting the entire system log.        |
+|- Task Manager     |  Translates the tasks that appear in the table of processes to the following layers: <br><br>  - Persistent layer (Redis)<br>  - Cash layer (SQL) |
+|- Network Statistics     | Displays your network statistics.        |
+|- TOP     |    Shows the table of processes. It's a Linux command that provides a dynamic real-time view of the running system.     |
+|- Backup Memory Check     | Provides the status of the backup memory, checking the following:<br><br> - The location of the backup folder<br>  - The size of the backup folder<br>  - The limitations of the backup folder<br>  - When the last backup happened<br>  - How much space there are for the extra backup files        |
+|- ifconfig     | Displays the parameters for the appliance's physical interfaces.        |
+|- CyberX nload     | Displays network traffic and bandwidth by using the six-second tests.        |
+|- Errors from Core, log     |  Displays errors from the core log file.       |
 
 ### Check system health by using the CLI
 
