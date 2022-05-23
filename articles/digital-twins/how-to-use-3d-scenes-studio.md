@@ -26,9 +26,9 @@ To use 3D Scenes Studio, you'll need the following resources:
     * Obtain *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance. For instructions, see [Set up user access permissions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
     * Take note of the *host name* of your instance to use later.
 * An Azure storage account. For instructions, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
-    * Obtain *Storage Blob Data Owner* access to the storage account. For instructions, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 * A private container in the storage account. For instructions, see [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
     * Take note of the *URL* of your storage container to use later.
+* *Storage Blob Data Owner* or *Storage Blob Data Contributor* access to your storage resources. You can grant required roles at either the storage account level or the container level. For instructions instructions and more information about permissions to Azure storage, see [Assign an Azure role](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal#assign-an-azure-role).
 
 You should also configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. You can use the following [Azure CLI](/cli/azure/what-is-azure-cli) command to set the minimum required methods, origins, and headers. The command contains one placeholder for the name of your storage account.
 
@@ -324,7 +324,7 @@ To share your environment with someone else, they need to have these permissions
 * *Azure Digital Twins Data Reader* access (or greater) on the Azure Digital Twins instance
 * *Storage Blob Data Reader* access (or greater) to the storage container
     * *Storage Blob Data Reader* will allow them to view your scenes.
-    * *Storage Blob Data Owner* will allow them to edit your scenes.
+    * *Storage Blob Data Owner* or *Storage Blob Data Contributor* will allow them to edit your scenes.
 
 Once someone has the required permissions, there are two ways to give them access to your environment. You can do either of the following things:
 * Use the Share button on the 3D Scenes Studio homepage to copy the **URL of your 3D Scenes Studio environment**. (The URL includes the URLs of both your Azure Digital Twins instance and your storage container.)
