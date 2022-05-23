@@ -20,7 +20,10 @@ We recommend that you use the first approach (Event Grid trigger) as it has the 
 -	Event Grid automatically adjusts the rate at which events are delivered to a function triggered by an Event Grid event based on the perceived rate at which the function can process events. This rate match feature averts delivery errors that stem from the inability of a function to process events as the function’s event processing rate can vary over time. To improve efficiency at high throughput, enable batching on the event subscription. For more information, see [Enable batching](#enable-batching).
 
 > [!NOTE]
-> Event Grid uses a client secret to deliver events to Azure Functions. When you add an event subscription, behind the scenes, Event Grid fetches the client secret for the target function. If you protect your Azure function with an Azure Active Directory application, you'll have to take the generic webhook approach using the HTTP trigger. 
+> - When you add an event subscription using an Azure function, Event Grid fetches the access key for the target function using Event Grid service principal's credentials. Access keys are fetched using Event Grid service principal's credentials. The permissions are granted to Event Grid when you register the Event Grid resource provider in their Azure subscription. 
+> - If you protect your Azure function with an **Azure Active Directory** application, you'll have to take the generic webhook approach using the HTTP trigger. 
+
+
 
 ## Tutorials
 
