@@ -71,10 +71,11 @@ In this article, the example logic app workflow triggers when a new email arrive
 
    ![Screenshot showing the Azure portal, trigger, and "New step" command.](./media/logic-apps-add-run-inline-code/add-new-step.png)
 
-1. In the search box, enter **inline code**. From the actions list, select the action named **Execute JavaScript Code**.
+1. In the **Choose an operation** search box, enter **inline code**. From the actions list, select the action named **Execute JavaScript Code**.
 
    > [!NOTE]
-   > In a Standard logic app workflow, the Inline Code connector is named **Inline Code Operations** and has [updated limits](logic-apps-limits-and-config.md).
+   >
+   > In a Standard logic app workflow, the Inline Code connector is named **Inline Code Operations** and has [different limits](logic-apps-limits-and-config.md#inline-code-action-limits).
 
    ![Screenshot showing the "Execute JavaScript Code" action under the trigger.](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
 
