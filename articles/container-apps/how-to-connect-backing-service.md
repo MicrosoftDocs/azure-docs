@@ -36,9 +36,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ### [Azure CLI](#tab/azure-cli)
 
-To use the CLI, you must have the [Azure CLI](/cli/azure/install-azure-cli) installed on your machine.
-
-Sign in to the Azure portal using the `az login` command.
+Sign in to the Azure portal using the `az login` command in the [Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 az login
@@ -105,7 +103,7 @@ Go through the steps below to create a service connection using an access key or
     az containerapp connection create storage-blob --system-identity
     ```
     > [!IMPORTANT]
-    > Using Managed Identity requires a permission to manage [Azure Active Directory role assignments](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
+    > To use Managed Identity, you must have the permission to manage [Azure Active Directory role assignments](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
 
     > [!NOTE]
     > If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --secret` to provision a new one.
@@ -143,8 +141,6 @@ az containerapp connection list -g "<your-container-app-resource-group>" --name 
 ---
 
 ## Next steps
-
-Follow the tutorials listed below to start building your own application with Service Connector:
 
 > [!div class="nextstepaction"]
 > [Environments in Azure Container Apps](environment.md)
