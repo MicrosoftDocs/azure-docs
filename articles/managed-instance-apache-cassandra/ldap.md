@@ -23,7 +23,7 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 - An Azure Managed Instance for Apache Cassandra cluster. Review how to [create an Azure Managed Instance for Apache Cassandra cluster from the Azure portal](create-cluster-portal.md)
 
 ## Deploy an LDAP Server in Azure
-In this section, we'll walk through creating a simple LDAP server on a Virtual Machine in Azure. If you already have an LDAP Server running, you can skip this section and review how to enable LDAP authentication on an existing managed instance cluster below.
+In this section, we'll walk through creating a simple LDAP server on a Virtual Machine in Azure. If you already have an LDAP Server running, you can skip this section and review [how to enable LDAP authentication](ldap.md#enable-ldap-authentication). 
 
 1. Deploy a Virtual Machine in Azure using Ubuntu Server 18.04 LTS. You can follow instructions [here](visualize-prometheus-grafana.md#deploy-an-ubuntu-server)
 
