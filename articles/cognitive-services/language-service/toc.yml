@@ -88,11 +88,11 @@ items:
     - name: Enterprise readiness
       items: 
       - name: Virtual networks
-        href: ../cognitive-services-virtual-networks.md
+        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
       - name: Cognitive Services security
-        href: ../cognitive-services-security.md
+        href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
       - name: Encryption of data at rest
-        href: ../cognitive-services-security.md
+        href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
   - name: Tutorials
     items:
     - name: Enrich a Cognitive Search index 
@@ -175,11 +175,11 @@ items:
       - name: Enterprise readiness
         items: 
         - name: Virtual networks
-          href: ../cognitive-services-virtual-networks.md
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
         - name: Cognitive Services security
-          href: ../cognitive-services-security.md
+          href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
         - name: Encryption of data at rest
-          href: ../cognitive-services-security.md
+          href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
   - name: Reference
     items:
     - name: Glossary
@@ -261,11 +261,11 @@ items:
       - name: Enterprise readiness
         items: 
         - name: Virtual networks
-          href: ../cognitive-services-virtual-networks.md
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
         - name: Cognitive Services security
-          href: ../cognitive-services-security.md
+          href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
         - name: Encryption of data at rest
-          href: ../cognitive-services-security.md
+          href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
   - name: Tutorials
     items:
       - name: Use Bot Framework
