@@ -161,7 +161,7 @@ For example, let's say your primary session host VMs are in the Central US regio
 
 ### VHDLocations
 
-VHDLocations contributes to business continuity, but this setting was only designed to be one part of a complete high availability or disaster recovery solution. The VHDLocations setting enables users to use a replicated or new profile in the event of a disaster, keeping users productive even in the event of an outage.
+VHDLocations contributes to business continuity, but this setting wasn't only designed to be one part of a complete high availability or disaster recovery solution. The VHDLocations setting enables users to use a replicated or new profile in the event of a disaster, keeping users productive even in the event of an outage.
 
 Here's how VHDLocations works, as well as some things you should consider if you plan to make VHDLocations part of your disaster recovery strategy:
 
