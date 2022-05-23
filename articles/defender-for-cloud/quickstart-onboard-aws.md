@@ -117,7 +117,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Step 1 of the add AWS account wizard: Enter the account details.":::
  
-(Optional) Select Management account to create a connector to a management account. Connectors will be created for each member account discovered under the provided management account. Auto-provisioning will be enabled for all of the newly onboarded accounts.
+(Optional) Select **Management account** to create a connector to a management account. Connectors will be created for each member account discovered under the provided management account. Auto-provisioning will be enabled for all of the newly onboarded accounts.
 
 
 
