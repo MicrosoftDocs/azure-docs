@@ -35,57 +35,57 @@ In this section, we'll walk through creating a simple LDAP server on a Virtual M
 
 1. In the home directory, copy and paste the following text and hit enter. This command will create a file containing a test LDAP user account.
 
-```shell
-mkdir ldap-user && cd ldap-user && cat >> user.ldif <<EOL
-dn: uid=admin,dc=example,dc=org
-uid: admin
-cn: admin
-sn: 3
-objectClass: top
-objectClass: posixAccount
-objectClass: inetOrgPerson
-loginShell: /bin/bash
-homeDirectory: /home/admin
-uidNumber: 14583102
-gidNumber: 14564100
-userPassword: admin
-mail: admin@example.com
-gecos: admin
-EOL 
-```
+    ```shell
+    mkdir ldap-user && cd ldap-user && cat >> user.ldif <<EOL
+    dn: uid=admin,dc=example,dc=org
+    uid: admin
+    cn: admin
+    sn: 3
+    objectClass: top
+    objectClass: posixAccount
+    objectClass: inetOrgPerson
+    loginShell: /bin/bash
+    homeDirectory: /home/admin
+    uidNumber: 14583102
+    gidNumber: 14564100
+    userPassword: admin
+    mail: admin@example.com
+    gecos: admin
+    EOL 
+    ```
 
 1. Navigate back up to home directory
 
-```shell
-cd ..
-```
+    ```shell
+    cd ..
+    ```
 
 1. Run the below command, replacing `<dnsname>` with the dns name you created for your LDAP server earlier. This command will deploy an LDAP server with TLS enabled to a Docker container, and will also copy the user file you created earlier to the container.  
-
-```shell
-sudo docker run --hostname <dnsname>.uksouth.cloudapp.azure.com --name <dnsname> -v $(pwd)/ldap-user:/container/service/slapd/assets/test --detach osixia/openldap:1.5.0
-```
+    
+    ```shell
+    sudo docker run --hostname <dnsname>.uksouth.cloudapp.azure.com --name <dnsname> -v $(pwd)/ldap-user:/container/service/slapd/assets/test --detach osixia/openldap:1.5.0
+    ```
 
 1. Now copy out the certificates folder from the container (replace `<dnsname>` with the dns name you created for your LDAP server):
 
-```shell
-sudo docker cp <dnsname>:/container/service/slapd/assets/certs certs
-```
+    ```shell
+    sudo docker cp <dnsname>:/container/service/slapd/assets/certs certs
+    ```
 
 1. Verify that dns name is correct
 
-```shell
-openssl x509 -in certs/ldap.crt -text
-```
+    ```shell
+        openssl x509 -in certs/ldap.crt -text
+    ```
    :::image type="content" source="./media/ldap/dns-verify.jpg" alt-text="Verofy dns name in ldap cert" lightbox="./media/ldap/dns-verify.jpg" border="true":::
 
 1. Open the `ldap.crt` file and copy the certificate part - from the start of "-----BEGIN CERTIFICATE-----" to the end of "-----END CERTIFICATE-----") to a file ready to provide to your Azure Managed Instance for Apache Cassandra cluster. 
 
 1. Add the user to the ldap (replace `<dnsname>` with the dns name you created for your LDAP server):
 
-```shell
-sudo docker container exec <dnsname> ldapadd -H ldap://<dnsname>.uksouth.cloudapp.azure.com -D "cn=admin,dc=example,dc=org" -w admin -f /container/service/slapd/assets/test/user.ldif
-```
+    ```shell
+    sudo docker container exec <dnsname> ldapadd -H ldap://<dnsname>.uksouth.cloudapp.azure.com -D "cn=admin,dc=example,dc=org" -w admin -f /container/service/slapd/assets/test/user.ldif
+    ```
 
 ## Enable LDAP authentication
 
