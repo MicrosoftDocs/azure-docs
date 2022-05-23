@@ -198,6 +198,6 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this article, you learned how to get started with the ClearPass integration. Continue on to learn about our [CyberArk](./tutorial-cyberark.md). 
+In this article, you learned how to get started with the ClearPass integration. Continue on to learn about our [CyberArk integration](./tutorial-cyberark.md). 
 
 
