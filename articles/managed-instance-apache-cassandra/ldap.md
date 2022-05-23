@@ -23,7 +23,7 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 - An Azure Managed Instance for Apache Cassandra cluster. Review how to [create an Azure Managed Instance for Apache Cassandra cluster from the Azure portal](create-cluster-portal.md)
 
 ## Deploy an LDAP Server in Azure
-In this section we'll walk through creating a simple LDAP server on a Virtual Machine in Azure. If you already have an LDAP Server running, you can skip this section and review how to enable LDAP authentication on an existing managed instance cluster below.
+In this section, we'll walk through creating a simple LDAP server on a Virtual Machine in Azure. If you already have an LDAP Server running, you can skip this section and review how to enable LDAP authentication on an existing managed instance cluster below.
 
 1. Deploy a Virtual Machine in Azure using Ubuntu Server 18.04 LTS. You can follow instructions [here](visualize-prometheus-grafana.md#deploy-an-ubuntu-server)
 
@@ -33,7 +33,7 @@ In this section we'll walk through creating a simple LDAP server on a Virtual Ma
 
 1. Install Docker on the virtual machine. We recommend [this](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04) tutorial.
 
-1. In the home directory, copy and paste the following text and hit enter. This will be our file containing a test LDAP user account.
+1. In the home directory, copy and paste the following text and hit enter. This command will create a file containing a test LDAP user account.
 
 ```shell
 mkdir ldap-user && cd ldap-user && cat >> user.ldif <<EOL
@@ -60,13 +60,13 @@ EOL
 cd ..
 ```
 
-1. Run the below command, replacing `<dnsname>` with the dns name you created for your ldap server earlier. This will deploy an ldap server with TLS enabled to a dockr container, and will also copy the user file you created earlier to the container.  
+1. Run the below command, replacing `<dnsname>` with the dns name you created for your LDAP server earlier. This command will deploy an LDAP server with TLS enabled to a Docker container, and will also copy the user file you created earlier to the container.  
 
 ```shell
 sudo docker run --hostname <dnsname>.uksouth.cloudapp.azure.com --name <dnsname> -v $(pwd)/ldap-user:/container/service/slapd/assets/test --detach osixia/openldap:1.5.0
 ```
 
-1. Now copy out the certificates folder from the container (replace `<dnsname>` with the dns name you created for your ldap server):
+1. Now copy out the certificates folder from the container (replace `<dnsname>` with the dns name you created for your LDAP server):
 
 ```shell
 sudo docker cp <dnsname>:/container/service/slapd/assets/certs certs
@@ -81,7 +81,7 @@ openssl x509 -in certs/ldap.crt -text
 
 1. Open the `ldap.crt` file and copy the certificate part - from the start of "-----BEGIN CERTIFICATE-----" to the end of "-----END CERTIFICATE-----") to a file ready to provide to your Azure Managed Instance for Apache Cassandra cluster. 
 
-1. Add the user to the ldap (replace `<dnsname>` with the dns name you created for your ldap server):
+1. Add the user to the ldap (replace `<dnsname>` with the dns name you created for your LDAP server):
 
 ```shell
 sudo docker container exec <dnsname> ldapadd -H ldap://<dnsname>.uksouth.cloudapp.azure.com -D "cn=admin,dc=example,dc=org" -w admin -f /container/service/slapd/assets/test/user.ldif
@@ -98,7 +98,7 @@ sudo docker container exec <dnsname> ldapadd -H ldap://<dnsname>.uksouth.cloudap
 az managed-cassandra cluster update -g <resource group> -c <cluster name> --authentication-method "Ldap"
 ```
 
-1. Now set properties at the data center level. Replace `<resource group>` and `<cluster name>` with the appropriate values, and `<dnsname>` with the dns name you created for your ldap server.
+1. Now set properties at the data center level. Replace `<resource group>` and `<cluster name>` with the appropriate values, and `<dnsname>` with the dns name you created for your LDAP server.
 
 ```azurecli-interactive
 ldap_search_base_distinguished_name='dc=example,dc=org'
@@ -113,7 +113,7 @@ az managed-cassandra datacenter update -g `<resource group>` -c `<cluster name>`
 > [!NOTE]
 > The above command is based on the LDAP setup in the earlier section. If you skipped that section because you already have an existing LDAP server, provide the corresponding values for that server instead.
 
-1. Once this has updated, you should be able to connect to your managed instance data center using the user added in the above step
+1. Once this command has completed, you should be able to connect to your managed instance data center using the user added in the above step
 
 ```shell
 export SSL_VALIDATE=false
