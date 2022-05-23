@@ -16,9 +16,6 @@ ms.custom: language-service-orchestration
 # Terms and definitions used in orchestration workflow 
 Use this article to learn about some of the definitions and terms you may encounter when using orchestration workflow. 
 
-## Entity
-Entities are words in utterances that describe information used to fulfill or identify an intent. 
-
 ## F1 score
 The F1 score is a function of Precision and Recall. It's needed when you seek a balance between [precision](#precision) and [recall](#recall).
 
@@ -44,7 +41,7 @@ A project is a work area for building your custom ML models based on your data. 
 Measures the model's ability to predict actual positive classes. It's the ratio between the predicted true positives and what was actually tagged. The recall metric reveals how many of the predicted classes are correct.
 
 ## Schema
-Schema is defined as the combination of intents and entities within your project. Schema design is a crucial part of your project's success. When creating a schema, you want think about which intents and entities should be included in your project
+Schema is defined as the combination of intents within your project. Schema design is a crucial part of your project's success. When creating a schema, you want think about which intents should be included in your project
 
 ## Training data
 Training data is the set of information that is needed to train a model.
