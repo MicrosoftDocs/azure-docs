@@ -255,8 +255,12 @@
     href: /rest/api/iotcentral/
 - name: Resources
   items:
+  - name: Blog
+    href: https://techcommunity.microsoft.com/t5/internet-of-things/bg-p/IoTBlog/label-name/Azure%20IoT%20Central
   - name: Code samples
     href: /samples/browse/?expanded=azure&products=azure-iot-central
+  - name: Guided learning path
+    href: /learn/paths/develop-iot-solutions-with-azure-iot-central/
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
   - name: Video resources
@@ -272,6 +276,7 @@
       href: https://docs.chariot.io/display/CLD80/Publishing+Data+to+Azure+IoT+Central
     - name: Omnio
       href: https://www.omnio.net/contact
+
   - name: Azure IoT services
     items:
     - name: IoT Hub

@@ -6,7 +6,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 04/14/2022
+ms.date: 05/13/2022
 ms.custom: references_regions
 ms.author: mikaelw
 ---
@@ -15,6 +15,23 @@ ms.author: mikaelw
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+
+## April 2022
+
+### **Enhancements**
+
+|Enhancements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Related information |
+| :----------------------------------- | ---------------: |
+|FHIRPath Patch |FHIRPath Patch was added as a feature to both the Azure API for FHIR. This implements FHIRPath Patch as defined on the [HL7](http://hl7.org/fhir/fhirpatch.html) website. |
+|Move Bundle notification to Core |With the introduction of the Resource.Bundle namespace to Core, the Resource references to the string resources file had to be made more explicit. For more information, see [PR #2478](https://github.com/microsoft/fhir-server/pull/2478). |
+|Handles invalid header on versioned update |When the versioning policy is set to "versioned-update", we required that the most recent version of the resource is provided in the request's if-match header on an update. The specified version must be in ETag format. Previously, a 500 would be returned if the version was invalid or in an incorrect format. This update now returns a 400 Bad Request. For more information, see [PR #2467](https://github.com/microsoft/fhir-server/pull/2467). |
+
+### **Bug fixes**
+
+|Bug fixes |Related information |
+| :----------------------------------- | ---------------: |
+|Adds core to resource path |Part of the path to a string resource was accidentally removed in the versioning policy. This fix adds it back in. For more information, see [PR #2470](https://github.com/microsoft/fhir-server/pull/2470). |
+|SQL timeout is returning a 500 error |Fixed a bug when a SQL request hits a timeout and the request returns a 500. In the logs, this is a timeout from SQL compared to getting a 429 error from front end. For more information, see [PR #2497](https://github.com/microsoft/fhir-server/pull/2497). |
 
 ## March 2022
 
@@ -38,8 +55,8 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 |Enhancements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Related information |
 | :----------------------------------- | ---------------: |
-|Added 429 retry and logging in BundleHandler |We sometimes encounter 429 errors when processing a bundle. If the FHIR service receives a 429 at the BundleHandler layer, we abort processing of the bundle and skip the remaining resources. We've added an additional retry (in addition to the retry present in the data store layer) that will execute one time per resource that encounters a 429. For more about this feature enhancement, see [PR #2400](https://github.com/microsoft/fhir-server/pull/2400).|
-|Billing for $convert-data and $de-id |Azure API for FHIR's data conversion and de-identified export features are now Generally Available. Billing for $convert-data and $de-id operations in Azure API for FHIR has been enabled. Billing meters were turned on March 1, 2022. |
+|Added 429 retry and logging in BundleHandler |We sometimes encounter 429 errors when processing a bundle. If the FHIR service receives a 429 at the BundleHandler layer, we abort processing of the bundle and skip the remaining resources. We've added another retry (in addition to the retry present in the data store layer) that will execute one time per resource that encounters a 429. For more about this feature enhancement, see [PR #2400](https://github.com/microsoft/fhir-server/pull/2400).|
+|Billing for `$convert-data` and `$de-id` |Azure API for FHIR's data conversion and de-identified export features are now Generally Available. Billing for `$convert-data` and `$de-id` operations in Azure API for FHIR has been enabled. Billing meters were turned on March 1, 2022. |
 
 ### **Bug fixes**
 
