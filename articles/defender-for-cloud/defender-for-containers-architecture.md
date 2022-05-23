@@ -19,7 +19,7 @@ Defender for Containers is designed differently for each container environment w
 - **An unmanaged Kubernetes distribution** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS.
 
 > [!NOTE]
-> Defender for Containers' support for Arc-enabled Kubernetes clusters (AWS EKS, and GCP GKE) is a preview feature.
+> Defender for Containers support for Arc-enabled Kubernetes clusters (AWS EKS, and GCP GKE) is a preview feature.
 
 To protect your Kubernetes containers, Defender for Containers receives and analyzes:
 
@@ -39,7 +39,7 @@ The **Defender profile (preview)** deployed to each node provides the runtime pr
 The **Azure Policy add-on for Kubernetes** collects cluster and workload configuration for admission control policies as explained in [Protect your Kubernetes workloads](kubernetes-workload-protections.md).
 
 > [!NOTE]
-> Defender for Containers' **Defender profile** is a preview feature.
+> Defender for Containers **Defender profile** is a preview feature.
 
 :::image type="content" source="./media/defender-for-containers/architecture-aks-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, and Azure Policy." lightbox="./media/defender-for-containers/architecture-aks-cluster.png":::
 
@@ -49,7 +49,7 @@ The **Azure Policy add-on for Kubernetes** collects cluster and workload configu
 |--|--|--|--|--|--|--|
 | azuredefender-collector-ds-* | kube-system | [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | A set of containers that focus on collecting inventory and security events from the Kubernetes environment. | SYS_ADMIN, <br>SYS_RESOURCE, <br>SYS_PTRACE | memory: 64Mi<br> <br> cpu: 60m | No |
 | azuredefender-collector-misc-* | kube-system | [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) | A set of containers that focus on collecting inventory and security events from the Kubernetes environment that aren't bounded to a specific node. | N/A | memory: 64Mi <br> <br>cpu: 60m | No |
-| azuredefender-publisher-ds-* | kube-system | [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | Publish the collected data to Microsoft Defender for Containers' backend service where the data will be processed for and analyzed. | N/A | memory: 200Mi  <br> <br> cpu: 60m | Https 443 <br> <br> Learn more about the [outbound access prerequisites](../aks/limit-egress-traffic.md#microsoft-defender-for-containers) |
+| azuredefender-publisher-ds-* | kube-system | [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | Publish the collected data to Microsoft Defender for Containers backend service where the data will be processed for and analyzed. | N/A | memory: 200Mi  <br> <br> cpu: 60m | Https 443 <br> <br> Learn more about the [outbound access prerequisites](../aks/limit-egress-traffic.md#microsoft-defender-for-containers) |
 
 \* resource limits aren't configurable
 
@@ -64,7 +64,7 @@ When a non-Azure container is connected to Azure with Arc, the [Arc extension](.
 Workload configuration information is collected by an Azure Policy add-on. As explained in [this Azure Policy for Kubernetes page](../governance/policy/concepts/policy-for-kubernetes.md), the add-on extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). Kubernetes admission controllers are plugins that enforce how your clusters are used. The add-on registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner.
 
 > [!NOTE]
-> Defender for Containers' support for Arc-enabled Kubernetes clusters is a preview feature.
+> Defender for Containers support for Arc-enabled Kubernetes clusters is a preview feature.
 
 :::image type="content" source="./media/defender-for-containers/architecture-arc-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-arc-cluster.png":::
 
@@ -83,7 +83,7 @@ These components are required in order to receive the full protection offered by
 - **The Azure Policy extension** - The workload's configuration information is collected by the Azure Policy add-on. The Azure Policy add-on extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). The extension registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. For more information, see [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md).
 
 > [!NOTE]
-> Defender for Containers' support for AWS EKS clusters is a preview feature.
+> Defender for Containers support for AWS EKS clusters is a preview feature.
 
 :::image type="content" source="./media/defender-for-containers/architecture-eks-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Amazon Web Services' EKS clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-eks-cluster.png":::
 
@@ -102,7 +102,7 @@ These components are required in order to receive the full protection offered by
 - **The Azure Policy extension** - The workload's configuration information is collected by the Azure Policy add-on. The Azure Policy add-on extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). The extension registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. For more information, see [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md).
 
 > [!NOTE]
-> Defender for Containers' support for GCP GKE clusters is a preview feature.
+> Defender for Containers support for GCP GKE clusters is a preview feature.
 
 :::image type="content" source="./media/defender-for-containers/architecture-gke.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Google GKE clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-gke.png":::
 
