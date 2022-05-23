@@ -196,6 +196,7 @@ If validation fails, you can select a **Failed** status to see the validation er
 >  - Backslash (\)
 >  - Percentage (%)
 >  - Angle brackets (<,>)
+>  - Pound (£)
 
 ### Start discovery
 

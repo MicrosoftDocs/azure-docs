@@ -76,6 +76,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 >  - Backslash (\)
 >  - Percentage (%)
 >  - Angle brackets (<,>)
+>  - Pound (£)
 
 > [!Note]
 > In addition to the Internet connectivity, for Linux VMs, ensure that the following packages are installed for successful installation of Microsoft Azure Linux agent (waagent):
