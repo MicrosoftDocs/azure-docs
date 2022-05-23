@@ -25,7 +25,7 @@ Shared managed disks do not natively offer a fully managed file system that can 
 
 ### Billing implications
 
-When a shared disk is attached to multiple VMs, the disk's IOPS/MBps is reserved from each VM the disk is attached to. So if an ultra shared disk with 100 IOPS is attached to three disks, you would be billed for 300 IOPS.
+When a shared disk is attached to multiple VMs, the disk's IOPS/MBps is reserved from each VM the disk is attached to. So if a shared disk with 100 IOPS is attached to three disks, you would be billed for 300 IOPS.
 
 ## Limitations
 
