@@ -19,7 +19,7 @@ This article provides details about which systems and components are supported b
 
 If you experience problems while using the Azure IoT Edge service, there are several ways to seek support. Try one of the following channels for support:
 
-**Reporting bugs** – The majority of development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the project. Bugs related to Azure IoT Edge for Linux on Windows can be reported on the [iotedge-eflow issues page](https://github.com/azure/iotedge-eflow/issues). Fixes rapidly make their way from the projects in to product updates.
+**Reporting bugs** – Most development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the project. Bugs related to Azure IoT Edge for Linux on Windows can be reported on the [iotedge-eflow issues page](https://github.com/azure/iotedge-eflow/issues). Fixes rapidly make their way from the projects in to product updates.
 
 **Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
@@ -83,13 +83,14 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 :::moniker range="iotedge-2018-06"
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
+| Debian 11 (Bullseye) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  |
 | Raspberry Pi OS Stretch |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/support/green-check.png) |  |
 | Ubuntu Server 20.04 | ![Ubuntu Server 20.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 20.04 + ARM64](./media/support/green-check.png) |
 | Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 18.04 + ARM64](./media/support/green-check.png) |
-| Windows 10 Pro | ![Windows 10 Pro + AMD64](./media/support/green-check.png) |  |  |
-| Windows 10 Enterprise | ![Windows 10 Enterprise + AMD64](./media/support/green-check.png) |  |  |
-| Windows 10 IoT Enterprise | ![Windows 10 IoT Enterprise + AMD64](./media/support/green-check.png) |  |  |
-| Windows Server 2019 | ![Windows Server 2019 + AMD64](./media/support/green-check.png) |  |  |
+| Windows 10/11 Pro | ![Windows 10/11 Pro + AMD64](./media/support/green-check.png) |  |  |
+| Windows 10/11 Enterprise | ![Windows 10/11 Enterprise + AMD64](./media/support/green-check.png) |  |  |
+| Windows 10/11 IoT Enterprise | ![Windows 10/11 IoT Enterprise + AMD64](./media/support/green-check.png) |  |  |
+| Windows Server 2019/2022 | ![Windows Server 2019/2022 + AMD64](./media/support/green-check.png) |  |  |
 :::moniker-end
 <!-- end 1.1 -->
 
@@ -97,19 +98,20 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 :::moniker range=">=iotedge-2020-11"
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
+| Debian 11 (Bullseye) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  |
 | Raspberry Pi OS Stretch |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/support/green-check.png) |  |
 | Ubuntu Server 20.04 | ![Ubuntu Server 20.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 20.04 + ARM64](./media/support/green-check.png) |
 | Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 18.04 + ARM64](./media/support/green-check.png) |
-| Windows 10 Pro | ![Windows 10 Pro + AMD64](./media/support/green-check.png) |  | ![Win 10 Pro + ARM64](./media/support/green-check.png)<sup>1</sup> |
-| Windows 10 Enterprise | ![Windows 10 Enterprise + AMD64](./media/support/green-check.png) |  | ![Win 10 Enterprise + ARM64](./media/support/green-check.png)<sup>1</sup> |
-| Windows 10 IoT Enterprise | ![Windows 10 IoT Enterprise + AMD64](./media/support/green-check.png) |  | ![Win 10 IoT Enterprise + ARM64](./media/support/green-check.png)<sup>1</sup> |
-| Windows Server 2019 | ![Windows Server 2019 + AMD64](./media/support/green-check.png) |  |  |
+| Windows 10/11 Pro | ![Windows 10/11 Pro + AMD64](./media/support/green-check.png) |  | ![Win 10 Pro + ARM64](./media/support/green-check.png)<sup>1</sup> |
+| Windows 10/11 Enterprise | ![Windows 10/11 Enterprise + AMD64](./media/support/green-check.png) |  | ![Win 10 Enterprise + ARM64](./media/support/green-check.png)<sup>1</sup> |
+| Windows 10/11 IoT Enterprise | ![Windows 10/11 IoT Enterprise + AMD64](./media/support/green-check.png) |  | ![Win 10 IoT Enterprise + ARM64](./media/support/green-check.png)<sup>1</sup> |
+| Windows Server 2019/2022 | ![Windows Server 2019/2022 + AMD64](./media/support/green-check.png) |  |  |
 
 <sup>1</sup> Support for this platform using IoT Edge for Linux on Windows is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 :::moniker-end
 <!-- end 1.2 -->
 
-All Windows operating systems must be version 1809 (build 17763) or later.
+All Windows operating systems must be minimum build 17763 with all current cumulative updates installed.
 
 >[!NOTE]
 >Ubuntu Server 16.04 support ended with the release of IoT Edge version 1.1.
@@ -138,7 +140,7 @@ All Windows operating systems must be version 1809 (build 17763). The specific b
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
-IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers are not supported.
+IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers aren't supported.
 
 For information about supported operating systems for Windows containers, refer to the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
 
@@ -147,14 +149,14 @@ For information about supported operating systems for Windows containers, refer 
 
 ### Tier 2
 
-The systems listed in the following table are considered compatible with Azure IoT Edge, but are not actively tested or maintained by Microsoft.
+The systems listed in the following table are considered compatible with Azure IoT Edge, but aren't actively tested or maintained by Microsoft.
 
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | [CentOS-7](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7) | ![CentOS + AMD64](./media/support/green-check.png) | ![CentOS + ARM32v7](./media/support/green-check.png) | ![CentOS + ARM64](./media/support/green-check.png) |
 | [Debian 9](https://www.debian.org/releases/stretch/) | ![Debian 9 + AMD64](./media/support/green-check.png) | ![Debian 9 + ARM32v7](./media/support/green-check.png) | ![Debian 9 + ARM64](./media/support/green-check.png) |
 | [Debian 10](https://www.debian.org/releases/buster/) | ![Debian 10 + AMD64](./media/support/green-check.png) | ![Debian 10 + ARM32v7](./media/support/green-check.png) | ![Debian 10 + ARM64](./media/support/green-check.png) |
-| [Debian 11](https://www.debian.org/releases/bullseye/) | ![Debian 11 + AMD64](./media/support/green-check.png) | ![Debian 11 + ARM32v7](./media/support/green-check.png) | ![Debian 11 + ARM64](./media/support/green-check.png) |
+| [Debian 11](https://www.debian.org/releases/bullseye/) | ![Debian 11 + AMD64](./media/support/green-check.png) |  | ![Debian 11 + ARM64](./media/support/green-check.png) |
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/support/green-check.png) |
 | [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/support/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/support/green-check.png) |
 | [RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7) | ![RHEL 7 + AMD64](./media/support/green-check.png) | ![RHEL 7 + ARM32v7](./media/support/green-check.png) | ![RHEL 7 + ARM64](./media/support/green-check.png) |

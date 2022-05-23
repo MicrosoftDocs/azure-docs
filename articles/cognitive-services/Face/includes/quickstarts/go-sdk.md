@@ -1,6 +1,6 @@
 ---
 title: "Face Go client library quickstart"
-description: Use the Face client library for Go to detect faces, find similar (face search by image), identify faces (facial recognition search) and migrate your face data.
+description: Use the Face client library for Go to detect and identify faces (facial recognition search).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -17,13 +17,12 @@ Use the Face service client library for Go to:
 * [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
-* [Find similar faces](#find-similar-faces)
 
 [Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [SDK download](https://github.com/Azure/azure-sdk-for-go)
 
 ## Prerequisites
 
-* The latest version of [Go](https://golang.org/dl/)
+* The latest version of [Go](https://go.dev/dl/)
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
@@ -49,7 +48,7 @@ Your workspace will contain three folders:
 * **bin** - This directory will contain the binary executable files that are created when you run `go install`.
 
 > [!TIP]
-> To learn more about the structure of a Go workspace, see the [Go language documentation](https://golang.org/doc/code.html#Workspaces). This guide includes information for setting `$GOPATH` and `$GOROOT`.
+> To learn more about the structure of a Go workspace, see the [Go language documentation](https://go.dev/doc/code.html#Workspaces). This guide includes information for setting `$GOPATH` and `$GOROOT`.
 
 ### Install the client library for Go
 
@@ -102,7 +101,6 @@ These code samples show you how to complete basic tasks using the Face service c
 * [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
-* [Find similar faces](#find-similar-faces)
 
 ## Authenticate the client
 
@@ -224,32 +222,6 @@ The following code detects faces in the source and target images and saves them 
 The following code compares each of the source images to the target image and prints a message indicating whether they belong to the same person.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver)]
-
-## Find similar faces
-
-The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
-
-### Detect faces for comparison
-
-First, save a reference to the face you detected in the [Detect and analyze](#detect-and-analyze-faces) section. This face will be the source.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_single_ref)]
-
-Then enter the following code to detect a set of faces in a different image. These faces will be the target.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_multiple_ref)]
-
-### Find matches
-
-The following code uses the **[FindSimilar](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.FindSimilar)** method to find all of the target faces that match the source face.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar)]
-
-### Print matches
-
-The following code prints the match details to the console.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_print)]
 
 
 ## Run the application

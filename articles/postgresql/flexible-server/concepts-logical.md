@@ -1,8 +1,8 @@
 ---
 title: Logical replication and logical decoding - Azure Database for PostgreSQL - Flexible Server
 description: Learn about using logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -44,7 +44,7 @@ Logical decoding:
 
 1. Go to server parameters page on the portal.
 2. Set the server parameter `wal_level` to `logical`.
-3. If you want to use pglogical extension, search for the `shared_preload_libraries` parameter, and select `pglogical` from the drop-down box.
+3. If you want to use pglogical extension, search for the `shared_preload_libraries` and `azure.extensions` parameters, and select `pglogical` from the drop-down box.
 4. Update `max_worker_processes` parameter value to at least 16. Otherwise, you may run into issues like `WARNING: out of background worker slots`.
 5. Save the changes and restart the server to apply the `wal_level` change.
 6. Confirm that your PostgreSQL instance allows network traffic from your connecting resource.

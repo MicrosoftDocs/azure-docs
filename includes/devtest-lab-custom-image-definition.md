@@ -1,9 +1,10 @@
 ---
-author: spelluru
 ms.service: devtest-lab
 ms.topic: include
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 10/20/2021
-ms.author: spelluru
+
 ---
 In Azure DevTest Labs, you can use custom images to:
 

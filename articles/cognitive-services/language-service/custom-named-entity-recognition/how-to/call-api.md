@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 04/06/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -30,11 +30,18 @@ See the [application development lifecycle](../overview.md#application-developme
 
 ## Deploy your model
 
-Go to your project in [Language studio](https://aka.ms/custom-extraction).
+Deploying a model hosts it, and makes it available for predictions through an endpoint.
+
+When a model is deployed, you will be able to test the model directly in the portal or by calling the API associated with it.
+
+> [!NOTE]
+> You can only have ten deployment names
 
 [!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
+   
+### Delete deployment
 
-If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
+To delete a deployment, select the deployment you want to delete and select **Delete deployment**
 
 > [!TIP]
 > You can test your model in Language Studio by sending samples of text for it to classify. 
@@ -76,9 +83,7 @@ If you deploy your model through the Language Studio, your `deployment-name` is 
 
 2. Replace `<OPERATION_ID>` with the `jobId` from the previous step. 
 
-3. Submit the `GET` cURL request in your terminal or command prompt. You'll receive a 202 response and JSON similar to the below, if the request was successful.
-
-[!INCLUDE [JSON result for entity recognition](../includes/recognition-result-json.md)]
+3. Submit the `GET` cURL request in your terminal or command prompt. You'll receive a 202 response with the API results if the request was successful.
 
 
 # [Using the REST API](#tab/rest-api)
@@ -95,52 +100,11 @@ First you will need to get your resource key and endpoint
 
 ### Submit custom NER task
 
-1. Start constructing a POST request by updating the following URL with your endpoint.
-    
-    `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
+[!INCLUDE [Submit a custom NER task](../includes/rest-api/submit-task.md)]
 
-2. In the header for the request, add your key to the `Ocp-Apim-Subscription-Key` header.
+### Get the task results
 
-3. In the JSON body of your request, you will specify The documents you're inputting for analysis, and the parameters for the custom entity recognition task. `project-name` is case-sensitive.
- 
-    > [!tip]
-    > See the [quickstart article](../quickstart.md?pivots=rest-api#submit-custom-ner-task) and [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze) for more information about the JSON syntax.
-
-    ```json
-        {
-        "displayName": "MyJobName",
-        "analysisInput": {
-            "documents": [
-                {
-                    "id": "doc1", 
-                    "text": "This is a document."
-                }
-            ]
-        },
-        "tasks": {
-            "customEntityRecognitionTasks": [      
-                {
-                    "parameters": {
-                          "project-name": "MyProject",
-                          "deployment-name": "MyDeploymentName"
-                          "stringIndexType": "TextElements_v8"
-                    }
-                }
-            ]
-        }
-    }
-    ```
-
-4. You will receive a 202 response indicating success. In the response headers, extract `operation-location`.
-`operation-location` is formatted like this:
-
-    `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
-
-    You will use this endpoint in the next step to get the custom recognition task results.
-
-5. Use the URL from the previous step to create a **GET** request to query the status/results of the custom recognition task. Add your key to the `Ocp-Apim-Subscription-Key` header for the request.
-
-[!INCLUDE [JSON result for entity recognition](../includes/recognition-result-json.md)]
+[!INCLUDE [Get the results of a custom NER task](../includes/rest-api/submit-task.md)]
 
 # [Using the client libraries (Azure SDK)](#tab/client)
 

@@ -12,7 +12,7 @@ The API supports setting some request options using the `Prefer` header. This se
 
 ## Visualization information
 
-In the query language, you can specify different [render options](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator). By default, the API does not return information about the type of visualization. To include a specific visualization, include this header:
+In the query language, you can specify different render options. By default, the API does not return information about the type of visualization. To include a specific visualization, include this header:
 
 ```
     Prefer: include-render=true

@@ -3,11 +3,11 @@ title: How to respond to Microsoft Defender for Resource Manager alerts
 description: Learn about the steps necessary for responding to alerts from Microsoft Defender for Resource Manager
 ms.date: 11/09/2021
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ---
 
 # Respond to Microsoft Defender for Resource Manager alerts
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 When you receive an alert from Microsoft Defender for Resource Manager, we recommend you investigate and respond to the alert as described below. Microsoft Defender for Resource Manager protects all connected resources, so even if you're familiar with the application or user that triggered the alert, it's important to verify the situation surrounding every alert.  
 

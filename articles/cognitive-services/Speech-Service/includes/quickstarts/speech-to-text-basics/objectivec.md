@@ -24,7 +24,7 @@ The Speech SDK for Objective-C is distributed as a framework bundle. The framewo
 The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded directly [here](https://aka.ms/csspeech/macosbinary) and linked manually. This guide uses a CocoaPod. Install the CocoaPod dependency manager as described in its [installation instructions](https://guides.cocoapods.org/using/getting-started.html).
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OBJECTIVEC&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OBJECTIVEC&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 
 ## Recognize speech from a microphone
@@ -44,8 +44,6 @@ Follow these steps to recognize speech in a macOS application.
         NSString *speechKey = @"YourSubscriptionKey";
         NSString *serviceRegion = @"YourServiceRegion";
     
-        //To recognize speech from an audio file, use `initWithWavFileInput` instead of `initWithMicrophone`:
-        //SPXAudioConfiguration *audioConfig = [[SPXAudioConfiguration alloc] initWithWavFileInput:YourAudioFile];
         SPXAudioConfiguration *audioConfig = [[SPXAudioConfiguration alloc] initWithMicrophone:nil];
         SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:speechKey region:serviceRegion];
         SPXSpeechRecognizer *speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig language:@"en-US" audioConfiguration:audioConfig];
@@ -57,7 +55,7 @@ Follow these steps to recognize speech in a macOS application.
         // Checks result.
         if (SPXResultReason_Canceled == speechResult.reason) {
             SPXCancellationDetails *details = [[SPXCancellationDetails alloc] initFromCanceledRecognitionResult:speechResult];
-            NSLog(@"Speech recognition was canceled: %@. Did you pass the correct key/region combination?", details.errorDetails);
+            NSLog(@"Speech recognition was canceled: %@. Did you set the speech resource key and region values?", details.errorDetails);
             [self.label setStringValue:([NSString stringWithFormat:@"Canceled: %@", details.errorDetails])];
         } else if (SPXResultReason_RecognizedSpeech == speechResult.reason) {
             NSLog(@"Speech recognition result received: %@", speechResult.text);
@@ -76,11 +74,16 @@ Follow these steps to recognize speech in a macOS application.
 
 After you select the button in the app and say a few words, you should see the text you have spoken on the lower part of the screen. When you run the app for the first time, you should be prompted to give the app access to your computer's microphone.
 
-This example uses the `recognizeOnce` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
-
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OBJECTIVEC&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OBJECTIVEC&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
+Here are some additional considerations:
+
+- This example uses the `recognizeOnce` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+- To recognize speech from an audio file, use `initWithWavFileInput` instead of `initWithMicrophone`:
+    ```ObjectiveC
+    SPXAudioConfiguration *audioConfig = [[SPXAudioConfiguration alloc] initWithWavFileInput:YourAudioFile];
+    ```
 
 ## Clean up resources
 

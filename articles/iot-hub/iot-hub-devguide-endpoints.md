@@ -58,8 +58,6 @@ The following list describes the endpoints:
   * *Receive file notifications*. This messaging endpoint allows you to receive notifications of when your devices successfully upload a file. 
   
   * *Direct method invocation*. This endpoint allows a back-end service to invoke a [direct method](iot-hub-devguide-direct-methods.md) on a device.
-  
-  * *Receive operations monitoring events*. This endpoint allows you to receive operations monitoring events if your IoT hub has been configured to emit them. For more information, see [IoT Hub operations monitoring](iot-hub-operations-monitoring.md).
 
 The [Azure IoT SDKs](iot-hub-devguide-sdks.md) article describes the various ways to access these endpoints.
 

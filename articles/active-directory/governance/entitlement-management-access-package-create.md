@@ -28,9 +28,10 @@ An access package enables you to do a one-time setup of resources and policies t
 
 All access packages must be put in a container called a catalog. A catalog defines what resources you can add to your access package. If you don't specify a catalog, your access package will be put into the General catalog. Currently, you can't move an existing access package to a different catalog.
 
+An access package can be used to assign access to roles of multiple resources that are in the catalog. If you're an administrator or catalog owner, you can add resources to the catalog while creating an access package.
 If you are an access package manager, you cannot add resources you own to a catalog. You are restricted to using the resources available in the catalog. If you need to add resources to a catalog, you can ask the catalog owner.
 
-All access packages must have at least one policy. Policies specify who can request the access package and also approval and lifecycle settings. When you create a new access package, you can create an initial policy for users in your directory, for users not in your directory, for administrator direct assignments only, or you can choose to create the policy later.
+All access packages must have at least one policy for users to be assigned to the access package. Policies specify who can request the access package and also approval and lifecycle settings. When you create a new access package, you can create an initial policy for users in your directory, for users not in your directory, for administrator direct assignments only, or you can choose to create the policy later.
 
 ![Create an access package](./media/entitlement-management-access-package-create/access-package-create.png)
 
@@ -40,11 +41,9 @@ Here are the high-level steps to create a new access package.
 
 1. Select the catalog you want to create the access package in.
 
-1. Add resources from catalog to your access package.
+1. Add resource roles from resources in the catalog to your access package.
 
-1. Assign resource roles for each resource.
-
-1. Specify users that can request access.
+1. Specify an initial policy for users that can request access.
 
 1. Specify any approval settings.
 
@@ -76,15 +75,17 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
     ![Access package - Basics](./media/entitlement-management-access-package-create/basics.png)
 
-    If you are a Global administrator, an Identity Governance administrator, a User administrator, or catalog creator and you would like to create your access package in a new catalog that's not listed, click **Create new catalog**. Enter the Catalog name and description and then click **Create**.
+    If you are a Global administrator, an Identity Governance administrator, a User administrator, or catalog creator and you would like to create your access package in a new catalog that's not listed, click **Create new catalog**. Enter the Catalog name and description and then click **Create**. 
 
-    The access package you are creating and any resources included in it will be added to the new catalog. You can also  add additional catalog owners later.
+    The access package you are creating and any resources included in it will be added to the new catalog. You can also add additional catalog owners later and add attributes to the resources you put in the catalog. Read [Add resource attributes in the catalog](entitlement-management-catalog-create.md#add-resource-attributes-in-the-catalog) to learn more about how to edit the attributes list for a specific catalog resource and the prerequisite roles. 
 
 1. Click **Next**.
 
 ## Resource roles
 
-On the **Resource roles** tab, you select the resources to include in the access package. Users who request and receive the access package will receive all the resource roles in the access package.
+On the **Resource roles** tab, you select the resources to include in the access package. Users who request and receive the access package will receive all the resource roles, such as group membership, in the access package.
+
+If you're not sure which resource roles to include, you can skip adding resource roles while creating the access package, and then [add resource roles](entitlement-management-access-package-resources.md) after you've created the access package.
 
 1. Click the resource type you want to add (**Groups and Teams**, **Applications**, or **SharePoint sites**).
 
@@ -98,7 +99,7 @@ On the **Resource roles** tab, you select the resources to include in the access
 
     If you are a Global administrator, a User administrator, or catalog owner, you have the additional option of selecting resources you own that are not yet in the catalog. If you select resources not currently in the selected catalog, these resources will also be added to the catalog for other catalog administrators to build access packages with. To see all the resources that can be added to the catalog, check the **See all** check box at the top of the Select pane. If you only want to select resources that are currently in the selected catalog, leave the check box **See all** unchecked (default state).
 
-1. Once you have selected the resources, in the **Role** list, select the role you want users to be assigned for the resource.
+1. Once you've selected the resources, in the **Role** list, select the role you want users to be assigned for the resource.  For more information on selecting the appropriate roles for a resource, read [add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
 
     ![Access package - Resource role selection](./media/entitlement-management-access-package-create/resource-roles-role.png)
 

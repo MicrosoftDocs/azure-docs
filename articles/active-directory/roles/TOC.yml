@@ -82,6 +82,8 @@
       href: admin-units-members-list.md
     - name: Remove members
       href: admin-units-members-remove.md
+    - name: Manage members with dynamic membership rules
+      href: admin-units-members-dynamic.md
     - name: Assign roles with scope
       href: admin-units-assign-roles.md
   - name: Delegate
@@ -114,6 +116,8 @@
       href: custom-enterprise-app-permissions.md
     - name: App consent permissions
       href: custom-consent-permissions.md
+    - name: Device management permissions
+      href: custom-device-permissions.md
     - name: Group management permissions
       href: custom-group-permissions.md
   - name: Azure AD service limits

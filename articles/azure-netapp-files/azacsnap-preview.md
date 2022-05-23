@@ -1290,13 +1290,13 @@ the same name with a prefix of `all-volumes` and a maximum of five snapshots wit
 
 The processing is handled in the order outlined as follows:
 
-1. `data` Volume Snapshot (same as the normal `--volume data` option)
+1. **data** Volume Snapshot (same as the normal `--volume data` option)
    1. put the database into *backup-mode*.
-   1. take snapshots of the Volume listed in the configuration file's `"dataVolume"` stanza.
+   1. take snapshots of the Volume(s) listed in the configuration file's `"dataVolume"` stanza.
    1. take the database out of *backup-mode*.
    1. perform snapshot management.
-1. `other Volume Snapshot (same as the normal `--volume other` option)
-   1. take snapshots of the Volumes listed in the configuration file's `"otherVolume"` stanza.
+1. **other** Volume Snapshot (same as the normal `--volume other` option)
+   1. take snapshots of the Volume(s) listed in the configuration file's `"otherVolume"` stanza.
    1. perform snapshot management.
 
 

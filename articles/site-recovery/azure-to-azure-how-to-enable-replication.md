@@ -70,6 +70,8 @@ Enable replication. This procedure assumes that the primary Azure region is East
 
      ![Screenshot that displays the enable replication parameters.](./media/azure-to-azure-how-to-enable-replication/enabled-rwizard-3.PNG)
 
+5.  After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**. The time taken for initial replication depends on various factors such as the disk size, used storage on the disks, etc. Data transfer happens at ~23% of the disk throughput. Initial replication creates snapshot of disk and transfer that snapshot.
+
 ### Enable replication for added disks
 
 If you add disks to an Azure VM for which replication is enabled, the following occurs:
@@ -116,10 +118,13 @@ You can modify the default target settings used by Site Recovery.
     - If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened according to guidance for the specific Linux version.
 ![Screenshot that shows the Multi-VM consistency settings.](./media/azure-to-azure-how-to-enable-replication/multi-vm-settings.PNG)
 
-5. Click **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings.
+5. Click **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings. On triggering Failover, the new VM will be created in the assigned Capacity Reservation Group.
+
+    Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group, or use an existing one. For more information on how capacity reservation works, [read here](../virtual-machines/capacity-reservation-overview.md).
+
    ![Screenshot that shows the Capacity Reservation settings.](./media/azure-to-azure-how-to-enable-replication/capacity-reservation-edit-button.png)
-6. Click **Create target resource** > **Enable Replication**.
-7. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
+1. Click **Create target resource** > **Enable Replication**.
+1. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
 
 >[!NOTE]
 >

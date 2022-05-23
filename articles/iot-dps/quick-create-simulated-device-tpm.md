@@ -44,7 +44,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 * A TPM 2.0 hardware security module on your Windows-based machine.
 
-* Install [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET Core SDK 6.0](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
@@ -732,7 +732,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-2. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py** (replace `{globalServiceEndpoint}` and `{idScope}` to the values that you previously copied). Also, make sure *SECURITY\_DEVICE\_TYPE* is set to `ProvisioningSecurityDeviceType.TPM`.
+2. Using your Python IDE, edit the Python script named **provisioning\_device\_client\_sample.py** (replace `{globalServiceEndpoint}` and `{idScope}` to the values that you previously copied). Also, make sure *SECURITY\_DEVICE\_TYPE* is set to `ProvisioningSecurityDeviceType.TPM`.
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"
@@ -781,7 +781,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
     :::zone pivot="programming-language-csharp"
 
-      ![Device is registered with the IoT hub for CSharp](./media/quick-create-simulated-device-tpm/hub-registration-csharp.png)
+      ![Device is registered with the IoT hub for C#](./media/quick-create-simulated-device-tpm/hub-registration-csharp.png)
 
     ::: zone-end
 

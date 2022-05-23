@@ -62,8 +62,6 @@ You can access Container insights two ways, from Azure Monitor or directly from 
 
 ![Overview of methods to access Container insights](./media/container-insights-overview/azmon-containers-experience.png)
 
-If you are interested in monitoring and managing your Docker and Windows container hosts running outside of AKS to view configuration, audit, and resource utilization, see the [Container Monitoring solution](./containers.md).
-
 ## Next steps
 
 To begin monitoring your Kubernetes cluster, review [How to enable Container insights](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring.

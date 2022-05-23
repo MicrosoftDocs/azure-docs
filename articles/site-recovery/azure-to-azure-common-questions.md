@@ -3,7 +3,7 @@ title: Common questions about Azure VM disaster recovery with Azure Site Recover
 description: This article answers common questions about Azure VM disaster recovery when you use Azure Site Recovery.
 author: sideeksh
 manager: rochakm
-ms.date: 07/25/2021
+ms.date: 04/28/2022
 ms.topic: conceptual
 
 ---
@@ -48,7 +48,7 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 - Site Recovery supports:
     - ADE version 0.1, which has a schema that requires Azure Active Directory (Azure AD).
     - ADE version 1.1, which doesn't require Azure AD. For version 1.1, Windows Azure VMs must have managed disks.
-    - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema). about the extension schemas.
+    - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema) about the extension schemas.
 
 [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
 
@@ -56,7 +56,7 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 
 When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account.
 
-Currently, in the portal, you can only select an automation account in the same resource group as the vault. You can select an automation account from a different resource group using PowerShell. [Learn more](azure-to-azure-autoupdate.md#enable-automatic-updates).
+Currently, in the portal, you can only select an automation account in the same resource group as the vault. You can select an automation account from a different resource group using PowerShell. [Learn more](azure-to-azure-autoupdate.md#enable-automatic-updates) about enabling automatic updates.
 
 ### If I use a customer automation account that's not in the vault resource group, can I delete the default runbook?
 
@@ -80,7 +80,7 @@ Support for this is limited to a few regions. [Learn more](azure-to-azure-how-to
 
 ### Can I exclude disks from replication?
 
-Yes, you can exclude disks when you set up replication, using PowerShell. [Learn more](azure-to-azure-exclude-disks.md).
+Yes, you can exclude disks when you set up replication, using PowerShell. [Learn more](azure-to-azure-exclude-disks.md) about excluding disks.
 
 ### Can I replicate new disks added to replicated VMs?
 
@@ -94,7 +94,7 @@ Site Recovery doesn't support "hot remove" of disks from a replicated VM. If you
 
 ### How often can I replicate to Azure?
 
-Replication is continuous when replicating Azure VMs to another Azure region. [Learn more](./azure-to-azure-architecture.md#replication-process) about how replication works.
+Replication is continuous when replicating Azure VMs to another Azure region. [Learn more](./azure-to-azure-architecture.md#replication-process) about the replication process.
 
 ### Can I replicate virtual machines within a region?
 
@@ -327,11 +327,11 @@ The Site Recovery team and Azure capacity management team plan for sufficient in
 
 ### Does Site Recovery work with Capacity Reservation?
 
-Yes, you can create a Capacity Reservation for your VM SKU in the disaster recovery region and/or zone, and configure it in the Compute properties of the Target VM. Once done, site recovery will use the earmarked capacity for the failover. [Learn more](https://aka.ms/on-demand-capacity-reservations-docs).
+Yes, you can create a Capacity Reservation for your VM SKU in the disaster recovery region and/or zone, and configure it in the Compute properties of the Target VM. Once done, site recovery will use the earmarked capacity for the failover. [Learn more](../virtual-machines/capacity-reservation-overview.md).
 
 ### Why should I reserve capacity using Capacity Reservation at the destination location?
 
-While Site Recovery makes a best effort to ensure that capacity is available in the recovery region, it does not guarantee the same. Site Recovery's best effort is backed by a 2-hour RTO SLA. But if you require further assurance and _guaranteed compute capacity,_ then we recommend you to purchase [Capacity Reservations](https://aka.ms/on-demand-ca.pacity-reservations-docs)  
+While Site Recovery makes a best effort to ensure that capacity is available in the recovery region, it does not guarantee the same. Site Recovery's best effort is backed by a 2-hour RTO SLA. But if you require further assurance and _guaranteed compute capacity,_ then we recommend you to purchase [Capacity Reservations](https://aka.ms/on-demand-capacity-reservations-docs)  
 
 ### Does Site Recovery work with reserved instances?
 

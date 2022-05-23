@@ -12,6 +12,8 @@ ms.subservice: azure-arc-data
 ---
 
 # az sql mi-arc endpoint
+
+View and manage SQL endpoints.
 ## Commands
 | Command | Description|
 | --- | --- |

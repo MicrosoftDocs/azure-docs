@@ -5,11 +5,30 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: reference
-ms.date: 02/25/2022
+ms.date: 04/22/2022
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## April 2022
+
+### New metrics for connection creation rate
+
+These two new metrics can help identify whether Azure Cache for Redis clients are frequently disconnecting and reconnecting, which can cause higher CPU usage and **Redis Server Load**.
+
+- Connections Created Per Second
+- Connections Closed Per Second
+
+For more information, see [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+
+### Default cache change
+
+On May 15, 2022, all new Azure Cache for Redis instances will use Redis 6 by default. You can still create a Redis 4 instance by explicitly selecting the version when you create an Azure Cache for Redis instance.
+
+This change doesn't affect any existing instances. The change is only applicable to new instances created after May 15, 2022.
+
+The default version of Redis that is used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
 
 ## February 2022
 
@@ -17,7 +36,7 @@ ms.date: 02/25/2022
 
 As of May 2022, Azure Cache for Redis rolls over to TLS certificates issued by DigiCert Global G2 CA Root. The current Baltimore CyberTrust Root expires in May 2025, requiring this change.
 
-We expect that most Azure Cache for Redis customers won't be affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), which is known as *certificate pinning*.
+We expect that most Azure Cache for Redis customers won't be affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), known as *certificate pinning*.
 
 For more information, read this blog that contains instructions on [how to check whether your client application is affected](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-cache-for-redis-tls-upcoming-migration-to-digicert-global/ba-p/3171086). We recommend taking the actions recommended in the blog to avoid cache connectivity loss.
 
@@ -70,10 +89,10 @@ Active geo-replication public preview now supports:
 
 ### Azure TLS Certificate Change
 
-Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates don't comply with one of the CA/Browser Forum Baseline requirements. For full details, see [Azure TLS Certificate Changes](/azure/security/fundamentals/tls-certificate-changes).
+Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates don't comply with one of the CA/Browser Forum Baseline requirements. For full details, see [Azure TLS Certificate Changes](../security/fundamentals/tls-certificate-changes.md).
 
 For more information on the effect to Azure Cache for Redis, see [Azure TLS Certificate Change](cache-best-practices-development.md#azure-tls-certificate-change).
 
 ## Next steps
 
-If you have more questions, contact us through [support](https://azure.microsoft.com/support/options/).  
+If you have more questions, contact us through [support](https://azure.microsoft.com/support/options/).

@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Spring Cloud
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Spring Cloud. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 02/15/2022
+ms.date: 05/10/2022
 ms.topic: sample
 author: karlerickson
 ms.author: karler

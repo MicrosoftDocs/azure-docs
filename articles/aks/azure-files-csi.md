@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) drivers for Azure Files on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 12/10/2021
+ms.date: 04/01/2021
 author: palma21
 
 ---
@@ -39,6 +39,7 @@ A storage class is used to define how an Azure Files share is created. A storage
 * **Standard_GRS**: Standard geo-redundant storage
 * **Standard_ZRS**: Standard zone-redundant storage
 * **Standard_RAGRS**: Standard read-access geo-redundant storage
+* **Standard_RAGZRS**: Standard read-access geo-zone-redundant storage
 * **Premium_LRS**: Premium locally redundant storage
 * **Premium_ZRS**: Premium zone-redundant storage
 
@@ -111,6 +112,9 @@ storageclass.storage.k8s.io/my-azurefile created
 ```
 
 The Azure Files CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares.
+
+> [!NOTE]
+> This driver only supports snapshot creation, restore from snapshot is not supported by this driver, snapshot could be restored from Azure portal or CLI. To get the snapshot created, you can go to Azure Portal -> access the Storage Account -> File shares -> access the file share associated -> Snapshots. There you can click on it and restore. 
 
 Create a [volume snapshot class](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml) with the [kubectl apply][kubectl-apply] command:
 
@@ -276,8 +280,11 @@ kind: StorageClass
 metadata:
   name: azurefile-csi-nfs
 provisioner: file.csi.azure.com
+allowVolumeExpansion: true
 parameters:
   protocol: nfs
+mountOptions:
+  - nconnect=8
 ```
 
 After editing and saving the file, create the storage class with the [kubectl apply][kubectl-apply] command:
@@ -315,7 +322,7 @@ accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-55660
 
 ## Windows containers
 
-The Azure Files CSI driver also supports Windows nodes and containers. If you want to use Windows containers, follow the [Windows containers tutorial](windows-container-cli.md) to add a Windows node pool.
+The Azure Files CSI driver also supports Windows nodes and containers. If you want to use Windows containers, follow the [Windows containers quickstart](./learn/quick-windows-container-deploy-cli.md) to add a Windows node pool.
 
 After you have a Windows node pool, use the built-in storage classes like `azurefile-csi` or create custom ones. You can deploy an example [Windows-based stateful set](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into a file `data.txt` by deploying the following command with the [kubectl apply][kubectl-apply] command:
 
@@ -336,10 +343,6 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 2020-08-27 22:11:04Z
 (...)
 ```
-
-## Using Azure tags
-
-For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Next steps
 
@@ -363,8 +366,9 @@ For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Se
 [az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
 [az-disk-create]: /cli/azure/disk#az_disk_create
 [az-disk-show]: /cli/azure/disk#az_disk_show
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md

@@ -27,13 +27,13 @@ You can get these recommendations on the **Operational Excellence** tab of the A
 
 We have identified API calls from an outdated Azure Spring Cloud SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update your outdated Azure Spring Cloud SDK to the latest version)](/azure/spring-cloud).
+Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update your outdated Azure Spring Cloud SDK to the latest version)](../spring-cloud/index.yml).
 
 ### Update Azure Spring Cloud API Version
 
 We have identified API calls from outdated Azure Spring Cloud API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
 
-Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Cloud API Version)](/azure/spring-cloud).
+Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Cloud API Version)](../spring-cloud/index.yml).
 
 ## Automation
 
@@ -41,7 +41,7 @@ Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azur
 
 This new version of Start/Stop VMs v2 (preview) provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version available with Azure Automation, but it is designed to take advantage of newer technology in Azure.
 
-Learn more about [Automation account - SSV1_Upgrade (Upgrade to Start/Stop VMs v2)](https://aka.ms/startstopv2docs).
+Learn more about [Automation account - SSV1_Upgrade (Upgrade to Start/Stop VMs v2)](../azure-functions/start-stop-vms/overview.md).
 
 ## Batch
 
@@ -49,19 +49,19 @@ Learn more about [Automation account - SSV1_Upgrade (Upgrade to Start/Stop VMs v
 
 Your pool has an old node agent. Consider recreating your pool to get the latest node agent updates and bug fixes.
 
-Learn more about [Batch account - OldPool (Recreate your pool to get the latest node agent features and fixes)](https://aka.ms/batch_oldpool_learnmore).
+Learn more about [Batch account - OldPool (Recreate your pool to get the latest node agent features and fixes)](../batch/best-practices.md#pool-lifetime-and-billing).
 
 ### Delete and recreate your pool to remove a deprecated internal component
 
 Your pool is using a deprecated internal component. Please delete and recreate your pool for improved stability and performance.
 
-Learn more about [Batch account - RecreatePool (Delete and recreate your pool to remove a deprecated internal component)](https://aka.ms/batch_deprecatedcomponent_learnmore).
+Learn more about [Batch account - RecreatePool (Delete and recreate your pool to remove a deprecated internal component)](/azure/batch/best-practices#pool-lifetime-and-billing)
 
 ### Upgrade to the latest API version to ensure your Batch account remains operational.
 
 In the past 14 days, you have invoked a Batch management or service API version that is scheduled for deprecation. Upgrade to the latest API version to ensure your Batch account remains operational.
 
-Learn more about [Batch account - UpgradeAPI (Upgrade to the latest API version to ensure your Batch account remains operational.)](https://aka.ms/batch_deprecatedapi_learnmore).
+Learn more about [Batch account - UpgradeAPI (Upgrade to the latest API version to ensure your Batch account remains operational.)](/rest/api/batchservice/batch-api-status#rest-api-deprecation-status-and-upgrade-instructions).
 
 ### Delete and recreate your pool using a VM size that will soon be retired
 
@@ -73,7 +73,7 @@ Learn more about [Batch account - RemoveA8_A11Pools (Delete and recreate your po
 
 Your pool is using an image with an imminent expiration date. Please recreate the pool with a new image to avoid potential interruptions. A list of newer images is available via the ListSupportedImages API.
 
-Learn more about [Batch account - EolImage (Recreate your pool with a new image)](https://aka.ms/batch_expiring_image_learn_more).
+Learn more about [Batch account - EolImage (Recreate your pool with a new image)](/azure/batch/batch-pool-vm-sizes#supported-vm-images).
 
 ## Cognitive Service
 
@@ -81,7 +81,7 @@ Learn more about [Batch account - EolImage (Recreate your pool with a new image)
 
 We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
 
-Learn more about [Cognitive Service - ImmersiveReaderSDKRecommendation (Upgrade to the latest version of the Immersive Reader SDK)](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+Learn more about [Cognitive Service - ImmersiveReaderSDKRecommendation (Upgrade to the latest version of the Immersive Reader SDK)](../applied-ai-services/immersive-reader/index.yml).
 
 ## Compute
 
@@ -89,7 +89,7 @@ Learn more about [Cognitive Service - ImmersiveReaderSDKRecommendation (Upgrade 
 
 If quota limits are exceeded, new VM deployments will be blocked until quota is increased. Increase your quota now to enable deployment of more resources. Learn More
 
-Learn more about [Virtual machine - IncreaseQuotaExperiment (Increase the number of compute resources you can deploy by 10 vCPU)](https://aka.ms/SubscriptionServiceLimits).
+Learn more about [Virtual machine - IncreaseQuotaExperiment (Increase the number of compute resources you can deploy by 10 vCPU)](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ### Add Azure Monitor to your virtual machine (VM) labeled as production
 
@@ -119,7 +119,7 @@ Learn more about [Virtual machine - GetF5vulnK03009991 (The iControl REST interf
 
 Desired state for Accelerated Networking is set to ‘true’ for one or more interfaces on this VM, but actual state for accelerated networking is not enabled.
 
-Learn more about [Virtual machine - GetVmListANDisabled (NVA Accelerated Networking enabled but potentially not working.)](/azure/virtual-network/create-vm-accelerated-networking-cli).
+Learn more about [Virtual machine - GetVmListANDisabled (NVA Accelerated Networking enabled but potentially not working.)](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 ### Upgrade Citrix load balancers to avoid connectivity issues during NIC maintenance operations.
 
@@ -133,13 +133,13 @@ Learn more about [Virtual machine - GetCitrixVFRevokeError (Upgrade Citrix load 
 
 This cluster's service principal is expired and the cluster will not be healthy until the service principal is updated
 
-Learn more about [Kubernetes service - UpdateServicePrincipal (Update cluster's service principal)](/azure/aks/update-credentials).
+Learn more about [Kubernetes service - UpdateServicePrincipal (Update cluster's service principal)](../aks/update-credentials.md).
 
 ### Monitoring addon workspace is deleted
 
 Monitoring addon workspace is deleted. Correct issues to setup monitoring addon.
 
-Learn more about [Kubernetes service - MonitoringAddonWorkspaceIsDeleted (Monitoring addon workspace is deleted)](https://aka.ms/aks-disable-monitoring-addon).
+Learn more about [Kubernetes service - MonitoringAddonWorkspaceIsDeleted (Monitoring addon workspace is deleted)](/azure/azure-monitor/containers/container-insights-optout#azure-cli).
 
 ### Deprecated Kubernetes API in 1.16 is found
 
@@ -151,13 +151,13 @@ Learn more about [Kubernetes service - DeprecatedKubernetesAPIIn116IsFound (Depr
 
 This cluster has not enabled AKS Cluster Autoscaler, and it will not adapt to changing load conditions unless you have other ways to autoscale your cluster
 
-Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Cluster Autoscaler)](/azure/aks/cluster-autoscaler).
+Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Cluster Autoscaler)](../aks/cluster-autoscaler.md).
 
 ### The AKS node pool subnet is full
 
 Some of the subnets for this cluster's node pools are full and cannot take any more worker nodes. Using the Azure CNI plugin requires to reserve IP addresses for each node and all the pods for the node at node provisioning time. If there is not enough IP address space in the subnet, no worker nodes can be deployed. Additionally, the AKS cluster cannot be upgraded if the node subnet is full.
 
-Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](/azure/aks/use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet-preview).
+Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet).
 
 ### Disable the Application Routing Addon
 
@@ -169,13 +169,13 @@ Learn more about [Kubernetes service - UseAzurePolicyForKubernetes (Disable the 
 
 This cluster is not using ephemeral OS disks which can provide lower read/write latency, along with faster node scaling and cluster upgrades
 
-Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](/azure/aks/cluster-configuration#ephemeral-os).
+Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/cluster-configuration.md#ephemeral-os).
 
 ### Use Uptime SLA
 
 This cluster has not enabled Uptime SLA, and it limited to an SLO of 99.5%
 
-Learn more about [Kubernetes service - UseUptimeSLA (Use Uptime SLA)](/azure/aks/uptime-sla).
+Learn more about [Kubernetes service - UseUptimeSLA (Use Uptime SLA)](../aks/uptime-sla.md).
 
 ### Deprecated Kubernetes API in 1.22 has been found
 
@@ -193,15 +193,15 @@ Learn more about [Host Pool - AVDStartVMonConnect (Permissions missing for start
 
 ### No validation environment enabled
 
-We have determined that you do not have a validation environment enabled in current subscription. When creating your host pools, you have selected "No" for "Validation environment" in the properties tab. Having at least one host pool with a validation environment enabled ensures the business continuity through Windows Virtual Desktop service deployments with early detection of potential issues.
+We have determined that you do not have a validation environment enabled in current subscription. When creating your host pools, you have selected "No" for "Validation environment" in the properties tab. Having at least one host pool with a validation environment enabled ensures the business continuity through Azure Virtual Desktop service deployments with early detection of potential issues.
 
-Learn more about [Host Pool - ValidationEnvHostPools (No validation environment enabled)](/azure/virtual-desktop/create-validation-host-pool).
+Learn more about [Host Pool - ValidationEnvHostPools (No validation environment enabled)](../virtual-desktop/create-validation-host-pool.md).
 
 ### Not enough production environments enabled
 
-We have determined that too many of your host pools have Validation Environment enabled. In order for Validation Environments to best serve their purpose, you should have at least one, but never more than half of your host pools in Validation Environment. By having a healthy balance between your host pools with Validation Environment enabled and those with it disabled, you will best be able to utilize the benefits of the multistage deployments that Windows Virtual Desktop offers with certain updates. To fix this issue, open your host pool's properties and select "No" next to the "Validation Environment" setting.
+We have determined that too many of your host pools have Validation Environment enabled. In order for Validation Environments to best serve their purpose, you should have at least one, but never more than half of your host pools in Validation Environment. By having a healthy balance between your host pools with Validation Environment enabled and those with it disabled, you will best be able to utilize the benefits of the multistage deployments that Azure Virtual Desktop offers with certain updates. To fix this issue, open your host pool's properties and select "No" next to the "Validation Environment" setting.
 
-Learn more about [Host Pool - ProductionEnvHostPools (Not enough production environments enabled)](/azure/virtual-desktop/create-host-pools-powershell).
+Learn more about [Host Pool - ProductionEnvHostPools (Not enough production environments enabled)](../virtual-desktop/create-host-pools-powershell.md).
 
 ## Cosmos DB
 
@@ -209,13 +209,13 @@ Learn more about [Host Pool - ProductionEnvHostPools (Not enough production envi
 
 We noticed that your Azure Cosmos collection is using the legacy attachments feature. We recommend migrating attachments to Azure Blob Storage to improve the resiliency and scalability of your blob data.
 
-Learn more about [Cosmos DB account - CosmosDBAttachments (Migrate Azure Cosmos DB attachments to Azure Blob Storage)](/azure/cosmos-db/attachments#migrating-attachments-to-azure-blob-storage).
+Learn more about [Cosmos DB account - CosmosDBAttachments (Migrate Azure Cosmos DB attachments to Azure Blob Storage)](../cosmos-db/attachments.md#migrating-attachments-to-azure-blob-storage).
 
 ### Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup
 
 Your Azure Cosmos DB accounts are configured with periodic backup. Continuous backup with point-in-time restore is now available on these accounts. With continuous backup, you can restore your data to any point in time within the past 30 days. Continuous backup may also be more cost-effective as a single copy of your data is retained.
 
-Learn more about [Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](/azure/cosmos-db/continuous-backup-restore-introduction).
+Learn more about [Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](../cosmos-db/continuous-backup-restore-introduction.md).
 
 ## Insights
 
@@ -223,13 +223,13 @@ Learn more about [Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve
 
 We have detected that one or more of your alert rules have invalid queries specified in their condition section. Log alert rules are created in Azure Monitor and are used to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries may become invalid overtime due to changes in referenced resources, tables, or commands. We recommend that you correct the query in the alert rule to prevent it from getting auto-disabled and ensure monitoring coverage of your resources in Azure.
 
-Learn more about [Alert Rule - ScheduledQueryRulesLogAlert (Repair your log alert rule)](https://aka.ms/aa_logalerts_queryrepair).
+Learn more about [Alert Rule - ScheduledQueryRulesLogAlert (Repair your log alert rule)](/azure/azure-monitor/alerts/alerts-troubleshoot-log#query-used-in-a-log-alert-is-not-valid).
 
 ### Log alert rule was disabled
 
 The alert rule was disabled by Azure Monitor as it was causing service issues. To enable the alert rule, contact support.
 
-Learn more about [Alert Rule - ScheduledQueryRulesRp (Log alert rule was disabled)](https://aka.ms/aa_logalerts_queryrepair).
+Learn more about [Alert Rule - ScheduledQueryRulesRp (Log alert rule was disabled)](/azure/azure-monitor/alerts/alerts-troubleshoot-log#query-used-in-a-log-alert-is-not-valid).
 
 ## Key Vault
 
@@ -237,7 +237,7 @@ Learn more about [Alert Rule - ScheduledQueryRulesRp (Log alert rule was disable
 
 Create a periodic HSM backup to prevent data loss and have ability to recover the HSM in case of a disaster.
 
-Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](/azure/key-vault/managed-hsm/best-practices#backup).
+Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](../key-vault/managed-hsm/best-practices.md#backup).
 
 ## Data Explorer
 
@@ -245,7 +245,7 @@ Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)
 
 Reduce the table cache policy to match the usage patterns (query lookback period)
 
-Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTablesOperationalExcellence (Reduce the cache policy on your Data Explorer tables)](https://aka.ms/adxcachepolicy).
+Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTablesOperationalExcellence (Reduce the cache policy on your Data Explorer tables)](/azure/data-explorer/kusto/management/cachepolicy).
 
 ## Networking
 
@@ -253,19 +253,19 @@ Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTables
 
 We've detected that one or more of your Application Gateways has been misconfigured to obtain their listener certificate(s) from Key Vault, which may result in operational issues. You should fix this misconfiguration immediately to avoid operational issues for your Application Gateway.
 
-Learn more about [Application gateway - AppGwAdvisorRecommendationForKeyVaultErrors (Resolve Azure Key Vault issue for your Application Gateway)](https://aka.ms/agkverror).
+Learn more about [Application gateway - AppGwAdvisorRecommendationForKeyVaultErrors (Resolve Azure Key Vault issue for your Application Gateway)](../application-gateway/application-gateway-key-vault-common-errors.md).
 
 ### Application Gateway does not have enough capacity to scale out
 
 We've detected that your Application Gateway subnet does not have enough capacity for allowing scale out during high traffic conditions, which can cause downtime.
 
-Learn more about [Application gateway - AppgwRestrictedSubnetSpace (Application Gateway does not have enough capacity to scale out)](https://aka.ms/application-gateway-faq).
+Learn more about [Application gateway - AppgwRestrictedSubnetSpace (Application Gateway does not have enough capacity to scale out)](../application-gateway/application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway).
 
 ### Enable Traffic Analytics to view insights into traffic patterns across Azure resources
 
 Traffic Analytics is a cloud-based solution that provides visibility into user and application activity in Azure. Traffic analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow. With traffic analytics, you can view top talkers across Azure and non Azure deployments, investigate open ports, protocols and malicious flows in your environment and optimize your network deployment for performance. You can process flow logs at 10 mins and 60 mins processing intervals, giving you faster analytics on your traffic.
 
-Learn more about [Network Security Group - NSGFlowLogsenableTA (Enable Traffic Analytics to view insights into traffic patterns across Azure resources)](https://aka.ms/aa_enableta_learnmore).
+Learn more about [Network Security Group - NSGFlowLogsenableTA (Enable Traffic Analytics to view insights into traffic patterns across Azure resources)](../network-watcher/traffic-analytics.md).
 
 ## SQL Virtual Machine
 
@@ -281,7 +281,7 @@ Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent should
 
 A region can support a maximum of 250 storage accounts per subscription. You have either already reached or are about to reach that limit. If you reach that limit, you will be unable to create any more storage accounts in that subscription/region combination. Please evaluate the recommended action below to avoid hitting the limit.
 
-Learn more about [Storage Account - StorageAccountScaleTarget (Prevent hitting subscription limit for maximum storage accounts)](https://aka.ms/subscalelimit).
+Learn more about [Storage Account - StorageAccountScaleTarget (Prevent hitting subscription limit for maximum storage accounts)](/azure/storage/blobs/storage-performance-checklist#what-to-do-when-approaching-a-scalability-target).
 
 ### Update to newer releases of the Storage Java v12 SDK for better reliability.
 
@@ -295,43 +295,43 @@ Learn more about [Storage Account - UpdateStorageJavaSDK (Update to newer releas
 
 Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
 
-Learn more about [Subscription - AzureApplicationService (Set up staging environments in Azure App Service)](/azure/app-service/deploy-staging-slots).
+Learn more about [Subscription - AzureApplicationService (Set up staging environments in Azure App Service)](../app-service/deploy-staging-slots.md).
 
 ### Enforce 'Add or replace a tag on resources' using Azure Policy
 
 Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy adds or replaces the specified tag and value when any resource is created or updated. Existing resources can be remediated by triggering a remediation task. Does not modify tags on resource groups.
 
-Learn more about [Subscription - AddTagPolicy (Enforce 'Add or replace a tag on resources' using Azure Policy)](/azure/governance/policy/overview).
+Learn more about [Subscription - AddTagPolicy (Enforce 'Add or replace a tag on resources' using Azure Policy)](../governance/policy/overview.md).
 
 ### Enforce 'Allowed locations' using Azure Policy
 
 Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.
 
-Learn more about [Subscription - AllowedLocationsPolicy (Enforce 'Allowed locations' using Azure Policy)](/azure/governance/policy/overview).
+Learn more about [Subscription - AllowedLocationsPolicy (Enforce 'Allowed locations' using Azure Policy)](../governance/policy/overview.md).
 
 ### Enforce 'Audit VMs that do not use managed disks' using Azure Policy
 
 Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy audits VMs that do not use managed disks.
 
-Learn more about [Subscription - AuditForManagedDisksPolicy (Enforce 'Audit VMs that do not use managed disks' using Azure Policy)](/azure/governance/policy/overview).
+Learn more about [Subscription - AuditForManagedDisksPolicy (Enforce 'Audit VMs that do not use managed disks' using Azure Policy)](../governance/policy/overview.md).
 
 ### Enforce 'Allowed virtual machine SKUs' using Azure Policy
 
 Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy enables you to specify a set of virtual machine SKUs that your organization can deploy.
 
-Learn more about [Subscription - AllowedVirtualMachineSkuPolicy (Enforce 'Allowed virtual machine SKUs' using Azure Policy)](/azure/governance/policy/overview).
+Learn more about [Subscription - AllowedVirtualMachineSkuPolicy (Enforce 'Allowed virtual machine SKUs' using Azure Policy)](../governance/policy/overview.md).
 
 ### Enforce 'Inherit a tag from the resource group' using Azure Policy
 
 Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. This policy adds or replaces the specified tag and value from the parent resource group when any resource is created or updated. Existing resources can be remediated by triggering a remediation task.
 
-Learn more about [Subscription - InheritTagPolicy (Enforce 'Inherit a tag from the resource group' using Azure Policy)](/azure/governance/policy/overview).
+Learn more about [Subscription - InheritTagPolicy (Enforce 'Inherit a tag from the resource group' using Azure Policy)](../governance/policy/overview.md).
 
 ### Use Azure Lighthouse to simply and securely manage customer subscriptions at scale
 
 Using Azure Lighthouse improves security and reduces unnecessary access to your customer tenants by enabling more granular permissions for your users. It also allows for greater scalability, as your users can work across multiple customer subscriptions using a single login in your tenant.
 
-Learn more about [Subscription - OnboardCSPSubscriptionsToLighthouse (Use Azure Lighthouse to simply and securely manage customer subscriptions at scale)](/azure/lighthouse/concepts/cloud-solution-provider).
+Learn more about [Subscription - OnboardCSPSubscriptionsToLighthouse (Use Azure Lighthouse to simply and securely manage customer subscriptions at scale)](../lighthouse/concepts/cloud-solution-provider.md).
 
 ## Web
 
@@ -339,7 +339,7 @@ Learn more about [Subscription - OnboardCSPSubscriptionsToLighthouse (Use Azure 
 
 Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, no requests are dropped because of swap operations.
 
-Learn more about [App service - AzureAppService-StagingEnv (Set up staging environments in Azure App Service)](/azure/app-service/deploy-staging-slots).
+Learn more about [App service - AzureAppService-StagingEnv (Set up staging environments in Azure App Service)](../app-service/deploy-staging-slots.md).
 
 
 ## Next steps

@@ -80,7 +80,7 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 | [**Diagnostic settings-based connections**](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections) | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors |
 | **Built-in, service-to-service data connectors**, such as:<li>[Microsoft Office 365](connect-azure-windows-microsoft-services.md#api-based-connections)<li>[Azure Active Directory](connect-azure-active-directory.md)<li>[Amazon S3](connect-aws.md) | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors |
 | **Built-in, API-based data connectors**, such as: <li>[Codeless data connectors](create-codeless-connector.md)<li>[Azure Functions-based data connectors](connect-azure-functions-template.md) | Not currently supported |
-|         |         |
+
 
 ## Data transformation support for custom data connectors
 

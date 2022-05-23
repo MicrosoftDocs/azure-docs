@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 03/07/2022
+ms.date: 04/29/2022
 ---
 
 # Compare Azure Government and global Azure
@@ -27,7 +27,7 @@ Azure Government services operate the same way as the corresponding services in 
 
 You can use AzureCLI or PowerShell to obtain Azure Government endpoints for services you provisioned:
 
-- Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az_cloud_show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example,
+- Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az-cloud-show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example,
 
   ```azurecli
   az cloud show --name AzureUSGovernment
@@ -35,10 +35,10 @@ You can use AzureCLI or PowerShell to obtain Azure Government endpoints for serv
 
   should get you different endpoints for Azure Government.
 
-- Use a **PowerShell** cmdlet such as [Get-AzureEnvironment](/powershell/module/servicemanagement/azure.service/get-azureenvironment) to get endpoints and metadata for an instance of Azure service. For example,
+- Use a **PowerShell** cmdlet such as [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) to get endpoints and metadata for an instance of Azure service. For example,
 
   ```powershell
-  Get-AzureEnvironment -Name AzureUSGovernment
+  Get-AzEnvironment -Name AzureUSGovernment
   ```
 
   should get you properties for Azure Government. This cmdlet gets environments from your subscription data file.
@@ -58,7 +58,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)||
 ||Personalizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||Speech service|See [STT API docs](../cognitive-services/speech-service/rest-speech-to-text.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../cognitive-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
+||Speech service|See [STT API docs](../cognitive-services/speech-service/rest-speech-to-text-short.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../cognitive-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
 ||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Translator|See [Translator API docs](../cognitive-services/translator/reference/v3-0-reference.md#base-urls)|cognitiveservices.azure.us||
 |**Analytics**|Azure HDInsight|azurehdinsight.net|azurehdinsight.us||
@@ -88,11 +88,12 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |||portal.loganalytics.io|portal.loganalytics.us||
 |||api.loganalytics.io|api.loganalytics.us||
 |||docs.loganalytics.io|docs.loganalytics.us||
+|||adx.monitor.azure.com|adx.monitor.azure.us|[Data Explorer queries](/azure/data-explorer/query-monitor-data)|
 ||Azure Resource Manager|management.azure.com|management.usgovcloudapi.net||
 ||Gallery URL|gallery.azure.com|gallery.azure.us||
 ||Microsoft Azure portal|portal.azure.com|portal.azure.us||
 ||Microsoft Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
-|||manage.microsoft.com|\manage.microsoft.us|Enterprise enrollment|
+|||manage.microsoft.com|manage.microsoft.us|Enterprise enrollment|
 |**Migration**|Azure Site Recovery|hypervrecoverymanager.windowsazure.com|hypervrecoverymanager.windowsazure.us|Site Recovery service|
 |||backup.windowsazure.com|backup.windowsazure.us|Protection service|
 |||blob.core.windows.net|blob.core.usgovcloudapi.net|Storing VM snapshots|
@@ -121,7 +122,7 @@ In general, service availability in Azure Government implies that all correspond
 
 ## AI + machine learning
 
-This section outlines variations and considerations when using **Azure Bot Service**, **Azure Machine Learning**, and **Cognitive Services** in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service,bot-service,cognitive-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).  
+This section outlines variations and considerations when using **Azure Bot Service**, **Azure Machine Learning**, and **Cognitive Services** in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service,bot-service,cognitive-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
 ### [Azure Bot Service](/azure/bot-service/)
 
@@ -207,12 +208,12 @@ The following Azure Database for MySQL **features are not currently available** 
 
 The following Azure Database for PostgreSQL **features are not currently available** in Azure Government:
 
-- Hyperscale (Citus) and Flexible server deployment options
+- Hyperscale (Citus) deployment option
 - The following features of the Single server deployment option
   - Advanced Threat Protection
   - Backup with long-term retention
 
-### [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
+### [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
 
 The following Azure SQL Managed Instance **features are not currently available** in Azure Government:
 
@@ -261,8 +262,8 @@ The following Azure Advisor recommendation **features are not currently availabl
   - (Preview) Consider App Service stamp fee reserved capacity to save over your on-demand costs.
   - (Preview) Consider Azure Data Explorer reserved capacity to save over your pay-as-you-go costs.
   - (Preview) Consider Azure Synapse Analytics (formerly SQL DW) reserved capacity to save over your pay-as-you-go costs.
-  - (Preview) Consider Blob storage reserved capacity to save on Blob v2 and and Data Lake Storage Gen2 costs.
-  - (Preview) Consider Blob storage reserved instance to save on Blob v2 and and Data Lake Storage Gen2 costs.
+  - (Preview) Consider Blob storage reserved capacity to save on Blob v2 and Data Lake Storage Gen2 costs.
+  - (Preview) Consider Blob storage reserved instance to save on Blob v2 and Data Lake Storage Gen2 costs.
   - (Preview) Consider Cache for Redis reserved capacity to save over your pay-as-you-go costs.
   - (Preview) Consider Cosmos DB reserved capacity to save over your pay-as-you-go costs.
   - (Preview) Consider Database for MariaDB reserved capacity to save over your pay-as-you-go costs.
@@ -328,12 +329,6 @@ The calculation for recommending that you should right-size or shut down underut
 
 If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
-### [Azure Cost Management and Billing](../cost-management-billing/index.yml)
-
-The following Azure Cost Management + Billing **features are not currently available** in Azure Government:
-
-- Cost Management + Billing for cloud solution providers (CSPs)
-
 ### [Azure Lighthouse](../lighthouse/index.yml)
 
 The following Azure Lighthouse **features are not currently available** in Azure Government:
@@ -381,13 +376,19 @@ You need to open some **outgoing ports** in your server's firewall to allow the 
 |-------|---|----------|-----|
 |Telemetry|dc.applicationinsights.us|23.97.4.113|443|
 
+### [Cost Management and Billing](../cost-management-billing/index.yml)
+
+The following Azure Cost Management + Billing **features are not currently available** in Azure Government:
+
+- Cost Management + Billing for cloud solution providers (CSPs)
+
 ## Media
 
 This section outlines variations and considerations when using Media services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=cdn,media-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
-### [Media Services](../media-services/index.yml)
+### [Media Services](/azure/media-services/)
 
-For Azure Media Services v3 feature variations in Azure Government, see [Azure Media Services v3 clouds and regions availability](../media-services/latest/azure-clouds-regions.md#us-government-cloud).
+For Azure Media Services v3 feature variations in Azure Government, see [Azure Media Services v3 clouds and regions availability](/azure/media-services/latest/azure-clouds-regions#us-government-cloud).
 
 ## Migration
 

@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 2/23/2022
 
 ---
-
 # Manage alert instances with unified alerts
 
-With the [unified alerts experience](./alerts-overview.md) in Azure Monitor, you can see all your different types of alerts across Azure. This spans multiple subscriptions, in a single pane. This article shows how you can view your alert instances, and how to find specific alert instances for troubleshooting.
+With the [unified alerts experience](./alerts-overview.md) in Azure Monitor, you can see all your different types of alerts across Azure. Unified alerts span multiple subscriptions in a single pane. This article shows how you can view your alert instances, and how to find specific alert instances for troubleshooting.
 
 > [!NOTE]
 > You can only access alerts generated in the last 30 days.
@@ -25,28 +24,26 @@ You can go to the alerts page in any of the following ways:
 
      ![Screenshot of resource Monitoring Alerts](media/alerts-managing-alert-instances/alert-resource.JPG)
 
-- Use the context of a specific resource group. Open a resource group, go to the **Monitoring** section, and choose **Alerts**. The landing page is pre-filtered for alerts on that specific resource group.    
+## The alerts page
 
-     ![Screenshot of resource group Monitoring Alerts](media/alerts-managing-alert-instances/alert-rg.JPG)
+The **Alerts** page summarizes all your alert instances across Azure.
+### Alert Recommendations (preview)
+> [!NOTE]
+> The alert rule recommendations feature is currently in preview and is only enabled for VMs.
 
-## Find alert instances
+If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or [enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview). 
 
-The **Alerts Summary** page gives you an overview of all your alert instances across Azure. You can modify the summary view by selecting **multiple subscriptions** (up to a maximum of 5), or by filtering across **resource groups**, specific **resources**, or **time ranges**. Select **Total Alerts**, or any of the severity bands, to go to the list view for your alerts.     
+:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
+### Alerts summary pane
+If you have alerts configured for this resource, the alerts summary pane summarizes the alerts fired in the last 24 hours. You can modify the list of alert instances by selecting filters such as **time range**, **subscription**, **alert condition**, **severity**, and more. Select an alert instance.
 
-![Screenshot of Alerts Summary page](media/alerts-managing-alert-instances/alerts-summary.jpg)
+To see more details about a specific alert instance, select the alerts instance to open the **Alert Details** page. 
+> [!NOTE]
+> If you navigated to the alerts page by selecting a specific alert severity, the list is pre-filtered for that severity.   
+
+:::image type="content" source="media/alerts-managing-alert-instances/alerts-page.png" alt-text="Screenshot of alerts page.":::
  
-On the **All Alerts** page, all the alert instances across Azure are listed. If you’re coming to the portal from an alert notification, you can use the filters available to narrow in on that specific alert instance.
+## The alerts details page
+ The **Alerts details** page provides details about the selected alert. Select **Change user response** to change the user response to the alert. You can see all closed alerts in the **History** tab.  
 
-> [!NOTE]
-> If you came to the page by selecting any of the severity bands, the list is pre-filtered for that severity.
-
-Apart from the filters available on the previous page, you can also filter on the basis of monitor service (for example, platform for metrics), monitor condition (fired or resolved), severity, alert state (new/acknowledged/closed), or the smart group ID.
-
-![Screenshot of All Alerts page](media/alerts-managing-alert-instances/all-alerts.jpg)
-
-> [!NOTE]
-> If you came to the page by selecting any of the severity bands, the list is pre-filtered for that severity.
-
-Selecting any alert instance opens the **Alert Details** page, allowing you to see more details about that specific alert instance.   
-
-![Screenshot of Alert Details page](media/alerts-managing-alert-instances/alert-details.jpg)
+:::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot of alerts details page.":::

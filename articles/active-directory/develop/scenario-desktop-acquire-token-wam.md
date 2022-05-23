@@ -3,7 +3,7 @@ title: Acquire a token to call a web API using web account manager (desktop app)
 titleSuffix: Microsoft identity platform
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using web account manager
 services: active-directory
-author: maliksahil
+author: CelesteDG
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/25/2021
-ms.author: sahmalik
+ms.author: celested
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -35,7 +35,7 @@ Using an authentication broker such as WAM has numerous benefits.
 - Enhanced security (your app does not have to manage the powerful refresh token)
 - Better support for Windows Hello, Conditional Access and FIDO keys
 - Integration with Windows' "Email and Accounts" view
-- Better Single Sing-On (users don't have to reenter passwords)
+- Better Single Sign-On (users don't have to reenter passwords)
 - Most bug fixes and enhancements will be shipped with Windows
 
 ## WAM limitations

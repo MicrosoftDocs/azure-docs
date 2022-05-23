@@ -15,6 +15,8 @@ ms.custom: devx-track-javai
 
 This article explains the basics of Azure Service Fabric Reliable Services and walks you through creating and deploying a simple Reliable Service application written in Java. 
 
+[Check this page for a training video that shows you how to create a stateless Reliable service:](/shows/building-microservices-applications-on-azure-service-fabric/creating-a-stateless-reliable-service)
+
 ## Installation and setup
 Before you start, make sure you have the Service Fabric development environment set up on your machine.
 If you need to set it up, go to [getting started on Mac](service-fabric-get-started-mac.md) or [getting started on Linux](service-fabric-get-started-linux.md).

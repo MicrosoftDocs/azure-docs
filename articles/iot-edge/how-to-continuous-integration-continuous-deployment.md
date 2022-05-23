@@ -143,6 +143,5 @@ Continue to the next section to build the release pipeline.
 
 ## Next steps
 
-* IoT Edge DevOps sample in [Azure DevOps Starter for IoT Edge](how-to-devops-starter.md)
 * Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
 * Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).

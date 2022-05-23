@@ -1,6 +1,171 @@
 {
   "redirections": [
     {
+      "source_path": "articles/germany/germany-developer-guide.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-developer-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-get-started-connect-with-cli.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-get-started-connect-with-portal.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-get-started-connect-with-ps.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-get-started-connect-with-vs.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-get-started-connect-with-vs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-howto-deploy-webandmobile.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-howto-deploy-webandmobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-image-gallery.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-image-gallery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-manage-subscriptions.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-manage-subscriptions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-analytics.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-compute.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-databases.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-databases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-identity.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-integration.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-iot.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-iot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-main.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-main",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-management-tools.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-management-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-media.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-media",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-networking.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-security.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-storage.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-migration-web.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-migration-web",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-overview-data-trustee.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-overview-data-trustee",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-compute.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-database.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-database",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-iot.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-iot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-networking.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-securityandidentity.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-securityandidentity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-storage.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services-webandmobile.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services-webandmobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-services.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/germany/germany-welcome.md",
+      "redirect_url": "/previous-versions/azure/germany/germany-welcome",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/confidential-ledger/register-ledger-service-principal.md",
+      "redirect_url": "/azure/confidential-ledger/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-ios-how-to-use-blob-storage.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-ios-how-to-use-blob-storage",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/login-using-aad.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/login-using-aad",
       "redirect_document_id": false
@@ -251,6 +416,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/static-web-apps/publish-devops.md",
+      "redirect_url": "/azure/static-web-apps/get-started-portal?pivots=azure-devops",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/static-web-apps/github-actions-workflow.md",
       "redirect_url": "/azure/static-web-apps/build-configuration",
       "redirect_document_id": true
@@ -258,6 +428,11 @@
     {
       "source_path": "articles/service-fabric/how-to-enable-managed-cluster-disk-encryption.md",
       "redirect_url": "/azure/service-fabric/how-to-managed-cluster-enable-disk-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app",
       "redirect_document_id": false
     },
     {
@@ -451,6 +626,16 @@
     {
       "source_path": "articles/azure-arc/kubernetes/connect-cluster.md",
       "redirect_url": "/azure/azure-arc/kubernetes/quickstart-connect-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/kubernetes/deploy-azure-iot-edge-workloads.md",
+      "redirect_url": "/azure/azure-arc/kubernetes/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/kubernetes/conceptual-agent-architecture.md",
+      "redirect_url": "/azure/azure-arc/kubernetes/conceptual-agent-overview",
       "redirect_document_id": false
     },
     {
@@ -684,8 +869,83 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/frontdoor/concept-rules-set-action.md",
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-actions.md",
       "redirect_url": "/azure/frontdoor/front-door-rules-engine-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rules-set.md",
+      "redirect_url": "/azure/frontdoor/front-door-rules-engine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-caching.md",
+      "redirect_url": "/azure/frontdoor/front-door-caching",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-route.md",
+      "redirect_url": "/azure/frontdoor/front-door-route-matching",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-backend-pool.md",
+      "redirect_url": "/azure/frontdoor/origin",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-origin.md",
+      "redirect_url": "/azure/frontdoor/origin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-private-link.md",
+      "redirect_url": "/azure/frontdoor/private-link",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-end-to-end-tls.md",
+      "redirect_url": "/azure/frontdoor/end-to-end-tls",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-routing-methods.md",
+      "redirect_url": "/azure/frontdoor/routing-methods",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-health-probes.md",
+      "redirect_url": "/azure/frontdoor/health-probes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/create-front-door-portal.md",
+      "redirect_url": "/azure/frontdoor/create-front-door-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/concept-rule-set-url-redirect-and-rewrite.md",
+      "redirect_url": "/azure/frontdoor/front-door-url-redirect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/index.yml",
+      "redirect_url": "/azure/frontdoor/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-lb-with-azure-app-delivery-suite.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/load-balancing-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/overview.md",
+      "redirect_url": "/azure/frontdoor/front-door-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-configure-endpoint-manager.md",
+      "redirect_url": "/azure/frontdoor/how-to-configure-endpoints",
       "redirect_document_id": false
     },
     {
@@ -2244,6 +2504,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/kubernetes-walkthrough-portal.md",
+      "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/kubernetes-walkthrough.md",
+      "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/kubernetes-walkthrough-powershell.md",
+      "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/kubernetes-walkthrough-rm-template.md",
+      "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-rm-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/windows-container-cli.md",
+      "redirect_url": "/azure/aks/learn/quick-windows-container-deploy-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/windows-container-powershell.md",
+      "redirect_url": "/azure/aks/learn/quick-windows-container-deploy-powershell",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/aks/integrate-azure.md",
       "redirect_url": "/azure/aks/",
       "redirect_document_id": false
@@ -2894,6 +3184,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/application-gateway/create-web-app.md",
+      "redirect_url": "/azure/application-gateway/configure-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-gateway/configure-web-app-portal.md",
+      "redirect_url": "/azure/application-gateway/configure-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-gateway/application-gateway-web-app-overview.md",
+      "redirect_url": "/azure/application-gateway/configure-web-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/application-insights/app-insights-developer-analytics.md",
       "redirect_url": "/azure/application-insights/",
       "redirect_document_id": false
@@ -2969,6 +3274,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/scenario-secure-app-clean-up-resources.md",
+      "redirect_url": "/azure/app-service/scenario-secure-app-access-storage#clean-up-resources",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/quickstart-nodejs-uiex.md",
       "redirect_url": "/azure/app-service/quickstart-nodejs",
       "redirect_document_id": false
@@ -2991,6 +3301,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-node_uiex.md",
       "redirect_url": "/azure/azure-functions/create-first-function-vs-code-node",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-function-app-vsts-continuous.md",
+      "redirect_url": "/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous",
       "redirect_document_id": false
     },
     {
@@ -3710,52 +4025,77 @@
     },
     {
       "source_path_from_root": "/articles/app-service/containers/app-service-linux-faq.md",
-      "redirect_url": "/azure/app-service/faq-app-service-linux",
+      "redirect_url": "/troubleshoot/azure/general/faqs-app-service-linux",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-linux-faq.md",
-      "redirect_url": "/azure/app-service/faq-app-service-linux",
+      "redirect_url": "/troubleshoot/azure/general/faqs-app-service-linux",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-availability-performance-application-issues-faq.md",
-      "redirect_url": "/azure/app-service/faq-availability-performance-application-issues",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-performance-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-availability-performance-application-issues-faq.md",
-      "redirect_url": "/azure/app-service/faq-availability-performance-application-issues",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-performance-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-configuration-and-management-faq.md",
-      "redirect_url": "/azure/app-service/faq-configuration-and-management",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-configuration-and-management-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-configuration-and-management-faq.md",
-      "redirect_url": "/azure/app-service/faq-configuration-and-management",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-configuration-and-management-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-app-service-linux.yml",
+      "redirect_url": "/troubleshoot/azure/general/faqs-app-service-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-availability-performance-application-issues.yml",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-performance-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-configuration-and-management.yml",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-configuration-and-management-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-deployment.yml",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-deployment-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/faq-open-source-technologies.yml",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-open-source-technologies-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-deployment-faq.md",
-      "redirect_url": "/azure/app-service/faq-deployment",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-deployment-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-deployment-faq.md",
-      "redirect_url": "/azure/app-service/faq-deployment",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-deployment-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-open-source-technologies-faq.md",
-      "redirect_url": "/azure/app-service/faq-open-source-technologies",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-open-source-technologies-faqs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-web-open-source-technologies-faq.md",
-      "redirect_url": "/azure/app-service/faq-open-source-technologies",
+      "redirect_url": "/troubleshoot/azure/general/web-apps-open-source-technologies-faqs",
       "redirect_document_id": false
     },
     {
@@ -4250,17 +4590,32 @@
     },
     {
       "source_path_from_root": "/articles/app-service/scripts/app-service-cli-backup-onetime.md",
-      "redirect_url": "/azure/app-service/scripts/cli-backup-onetime",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-onetime.md",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/scripts/app-service-cli-backup-restore.md",
-      "redirect_url": "/azure/app-service/scripts/cli-backup-restore",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-restore.md",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/scripts/app-service-cli-backup-scheduled.md",
-      "redirect_url": "/azure/app-service/scripts/cli-backup-scheduled",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-scheduled.md",
+      "redirect_url": "/azure/app-service/scripts/cli-backup-schedule-restore",
       "redirect_document_id": false
     },
     {
@@ -5957,11 +6312,21 @@
       "source_path_from_root": "/articles/azure-functions/functions-test-a-function.md",
       "redirect_url": "/azure/azure-functions/supported-languages",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/deploy-byok-active-directory-connector.md",
+      "redirect_url": "/azure/azure-arc/data/deploy-customer-managed-keytab-active-directory-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/reference/reference-az-sql-mi-arc-dag.md",
+      "redirect_url": "/azure/azure-arc/data/reference/reference-az-sql-instance-failover-group-arc",
+      "redirect_document_id":true
     },
     {
       "source_path_from_root": "/articles/azure-arc/data/retrieve-the-username-password-for-data-controller.md",
@@ -6269,28 +6634,53 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/cache-keys-ports.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/redis-cache/scripts/cache-keys-ports.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/cache-keys-ports",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/create-cache.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/create-cache.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-cache",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/create-premium-cache-cluster.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-premium-cache-cluster",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/create-premium-cache-cluster.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-premium-cache-cluster",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-premium-cache-cluster",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/delete-cache.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/delete-cache",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/delete-cache.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/redis-cache/scripts/show-cache.md",
-      "redirect_url": "/azure/azure-cache-for-redis/scripts/show-cache",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/scripts/show-cache.md",
+      "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
       "redirect_document_id": false
     },
     {
@@ -6846,6 +7236,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/functions-runtime-install.md",
       "redirect_url": "/azure/azure-functions/functions-kubernetes-keda",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-bindings-event-iot-output.md",
+      "redirect_url": "/azure/azure-functions/functions-bindings-event-hubs-output",
       "redirect_document_id": false
     },
     {
@@ -7757,7 +8152,7 @@
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-tutorial-review-endpoint-utterances.md",
       "redirect_url": "/azure/cognitive-services/LUIS/how-to/improve-application",
       "redirect_document_id": false
-    }, 
+    },
     {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-enterprise.md",
       "redirect_url": "/azure/cognitive-services/LUIS/how-to/improve-application",
@@ -9114,8 +9509,18 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-resource-manager/managed-application-createuidefinition-overview.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/create-uidefinition-overview",
+      "source_path": "articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-create-application.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/scripts/managed-application-define-create-cli-sample",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-create-definition.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/scripts/managed-application-define-create-cli-sample",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-get-managed-group-resize-vm.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/update-managed-resources",
       "redirect_document_id": false
     },
     {
@@ -10181,6 +10586,11 @@
     {
       "source_path_from_root": "/articles/azure-preview-portal-supported-browsers-devices.md",
       "redirect_url": "/azure/azure-portal/azure-portal-supported-browsers-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/original-preferences.md",
+      "redirect_url": "/azure/azure-portal/set-preferences",
       "redirect_document_id": true
     },
     {
@@ -12048,7 +12458,6 @@
       "redirect_url": "/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions",
       "redirect_document_id": true
     },
-
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/build-training-data-set.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/build-training-data-set",
@@ -12173,241 +12582,6 @@
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/index.yml",
       "redirect_url": "/azure/applied-ai-services/form-recognizer",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/linux/sql/sql-server-linux-faq.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/linux/frequently-asked-questions-faq",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/linux/sql/sql-server-linux-rhel-ha-listener-tutorial.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/linux/rhel-high-availability-listener-tutorial",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/linux/sql/sql-server-linux-rhel-ha-stonith-tutorial.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/linux/rhel-high-availability-stonith-tutorial",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/linux/sql/provision-sql-server-linux-virtual-machine.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-vm-create-portal-quickstart",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/application-patterns-development-strategies",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/automated-backup",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/automated-backup-sql-2014",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-patching.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/automated-patching",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-availability-group-cli.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-az-cli-configure",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-azure-marketplace-template-configure",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-workgroup-availability-group.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-clusterless-workgroup-configure",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-multiple-regions",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-prereq.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-availability-group-quickstart-template.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-quickstart-template-configure",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-keyvault.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/backup-restore",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-change-edition.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/change-sql-server-edition",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/create-sql-vm-powershell",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-dedicated-host.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/dedicated-host",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-release-notes.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-faq.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-manage-portal.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/manage-sql-vm-portal",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-move-different-region.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/move-sql-vm-different-region",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/pricing-guidance",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-security.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/security-considerations-best-practices",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-2008-extend-end-of-support",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/quickstart-sql-vm-create-powershell.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-bulk-register-with-resource-provider.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-bulk-register",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-storage-configuration.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/storage-configuration",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/sql-database-edge/index.yml",
@@ -14105,6 +14279,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-load.md",
+      "redirect_url": "/azure/storage/common/storage-ref-azcopy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-ref-azcopy-load-avere-cloud-file-system.md",
+      "redirect_url": "/azure/storage/common/storage-ref-azcopy",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/common/storage-import-export-contact-microsoft-support.md",
       "redirect_url": "/azure/import-export/storage-import-export-contact-microsoft-support",
       "redirect_document_id": false
@@ -14629,7 +14813,7 @@
       "redirect_url": "/azure/data-explorer/manage-cluster-vertical-scaling",
       "redirect_document_id": false
     },
-        {
+    {
       "source_path_from_root": "/articles/postgresql/howto-manage-firewall-using-cli.md",
       "redirect_url": "/azure/postgresql/quickstart-create-server-database-azure-cli#configure-a-server-based-firewall-rule",
       "redirect_document_id": true
@@ -15148,7 +15332,7 @@
       "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-azure-rtos-security-module.md",
       "redirect_url": "/azure/defender-for-iot/device-builders/how-to-quickstart-azure-rtos-security-module",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-cisco-ise-pxgrid.md",
       "redirect_url": "/azure/defender-for-iot/organizations/integration-forescout",
@@ -16277,6 +16461,11 @@
     {
       "source_path_from_root": "/articles/devtest-labs/devtest-lab-configure-use-public-environments.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-create-environment-from-arm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-troubleshoot-artifact-failure.md",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-troubleshoot-apply-artifacts",
       "redirect_document_id": false
     },
     {
@@ -17661,7 +17850,7 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/classroom-labs-overview.md",
-      "redirect_url": "/azure/lab-services/get-started-manage-labs",
+      "redirect_url": "/azure/lab-services/lab-services-overview",
       "redirect_document_id": false
     },
     {
@@ -17693,7 +17882,7 @@
       "source_path_from_root": "/articles/lab-services/class-type-ethical-hacking-virtualbox.md",
       "redirect_url": "/azure/lab-services/class-types",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/class-type-jupyter-notebook.md",
       "redirect_url": "/azure/lab-services/class-type-jupyter-notebook",
@@ -17911,7 +18100,7 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md",
-      "redirect_url": "/azure/lab-services/tutorial-connect-virtual-machine-classroom-lab",
+      "redirect_url": "/azure/lab-services/tutorial-connect-lab-virtual-machine",
       "redirect_document_id": true
     },
     {
@@ -19515,6 +19704,36 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/event-grid/cli-samples.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-azure-subscription.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-create-custom-topic.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group-filter.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-blob.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/concept-ml-pipelines.md",
       "redirect_url": "/azure/machine-learning/concept-ml-pipelines",
       "redirect_document_id": true
@@ -20870,11 +21089,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/machine-learning/service/reference-pipeline-yaml.md",
-      "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md",
       "redirect_url": "/azure/machine-learning/tutorial-pipeline-python-sdk",
       "redirect_document_id": false
@@ -20883,1136 +21097,6 @@
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",
       "redirect_url": "/azure/cognitive-services/language/custom-question-answering/concepts/precise-answering",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-configure-tricaster-live-encoder.md",
-      "redirect_url": "/azure/media-services",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-develop-video-players.md",
-      "redirect_url": "/azure/media-services",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-upload-files-with-aspera.md",
-      "redirect_url": "/azure/media-services",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
-      "redirect_url": "/azure/media-services/live-video-analytics-edge/grpc-extension-protocol",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/analyze-with-ai-your-choice-how-to.md",
-      "redirect_url": "/azure/media-services/live-video-analytics-edge/http-data-contract",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/http-data-contract.md",
-      "redirect_url": "/azure/media-services/live-video-analytics-edge/http-extension-protocol",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-connect-programmatically.md",
-      "redirect_url": "/azure/media-services/media-services-use-aad-auth-to-access-ams-api",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-connect-programmatically.md",
-      "redirect_url": "/azure/media-services/media-services-use-aad-auth-to-access-ams-api",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/hybrid-design-drm-sybsystem.md",
-      "redirect_url": "/azure/media-services/previous/hybrid-design-drm-sybsystem",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/indexer-task-preset.md",
-      "redirect_url": "/azure/media-services/previous/indexer-task-preset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-analytics-overview.md",
-      "redirect_url": "/azure/media-services/previous/legacy-components",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-content-moderation.md",
-      "redirect_url": "/azure/media-services/previous/legacy-components",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-face-and-emotion-detection.md",
-      "redirect_url": "/azure/media-services/previous/legacy-components",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-motion-detection.md",
-      "redirect_url": "/azure/media-services/previous/legacy-components",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-portal-analyze.md",
-      "redirect_url": "/azure/media-services/previous/legacy-components",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-process-content-with-indexer2.md",
-      "redirect_url": "/azure/media-services/previous/legacy-components",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-video-optical-character-recognition.md",
-      "redirect_url": "/azure/media-services/previous/legacy-components",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-video-summarization.md",
-      "redirect_url": "/azure/media-services/previous/legacy-components",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/meda-services-managing-multiple-storage-accounts.md",
-      "redirect_url": "/azure/media-services/previous/meda-services-managing-multiple-storage-accounts",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-rest-apis-with-postman.md",
-      "redirect_url": "/azure/media-services/previous/media-rest-apis-with-postman",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-advanced-encoding-with-mes.md",
-      "redirect_url": "/azure/media-services/previous/media-services-advanced-encoding-with-mes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-analytics-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-analytics-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-hyperlapse-content.md",
-      "redirect_url": "/azure/media-services/previous/media-services-analytics-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-autogen-bitrate-ladder-with-mes.md",
-      "redirect_url": "/azure/media-services/previous/media-services-autogen-bitrate-ladder-with-mes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-axinom-integration.md",
-      "redirect_url": "/azure/media-services/previous/media-services-axinom-integration",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-azure-media-clipper-getting-started.md",
-      "redirect_url": "/azure/media-services/previous/media-services-azure-media-clipper-getting-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-azure-media-clipper-keyboard-shortcuts.md",
-      "redirect_url": "/azure/media-services/previous/media-services-azure-media-clipper-keyboard-shortcuts",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-azure-media-clipper-load-assets.md",
-      "redirect_url": "/azure/media-services/previous/media-services-azure-media-clipper-load-assets",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-azure-media-clipper-localization.md",
-      "redirect_url": "/azure/media-services/previous/media-services-azure-media-clipper-localization",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-azure-media-clipper-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-azure-media-clipper-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-azure-media-clipper-portal.md",
-      "redirect_url": "/azure/media-services/previous/media-services-azure-media-clipper-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-azure-media-clipper-submit-job.md",
-      "redirect_url": "/azure/media-services/previous/media-services-azure-media-clipper-submit-job",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-build-smooth-streaming-apps.md",
-      "redirect_url": "/azure/media-services/previous/media-services-build-smooth-streaming-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-castlabs-integration.md",
-      "redirect_url": "/azure/media-services/previous/media-services-castlabs-integration",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-cenc-with-multidrm-access-control.md",
-      "redirect_url": "/azure/media-services/previous/media-services-cenc-with-multidrm-access-control",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-check-job-progress.md",
-      "redirect_url": "/azure/media-services/previous/media-services-check-job-progress",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-cli-create-and-configure-aad-app.md",
-      "redirect_url": "/azure/media-services/previous/media-services-cli-create-and-configure-aad-app",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-community.md",
-      "redirect_url": "/azure/media-services/previous/media-services-community",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-compare-encoders.md",
-      "redirect_url": "/azure/media-services/previous/media-services-compare-encoders",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-concepts.md",
-      "redirect_url": "/azure/media-services/previous/media-services-concepts",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-configure-elemental-live-encoder.md",
-      "redirect_url": "/azure/media-services/previous/media-services-configure-elemental-live-encoder",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-configure-fmle-live-encoder.md",
-      "redirect_url": "/azure/media-services/previous/media-services-configure-fmle-live-encoder",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-configure-kb-live-encoder.md",
-      "redirect_url": "/azure/media-services/previous/media-services-configure-kb-live-encoder",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-configure-tricaster-live-encoder.md",
-      "redirect_url": "/azure/media-services/previous/media-services-configure-tricaster-live-encoder",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-configure-wirecast-live-encoder.md",
-      "redirect_url": "/azure/media-services/previous/media-services-configure-wirecast-live-encoder",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-configure-fmle-live-encoder.md",
-      "redirect_url": "/azure/media-services/previous/media-services-configure-wirecast-live-encoder/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-content-moderation.md",
-      "redirect_url": "/azure/media-services/previous/media-services-content-moderation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-content-protection-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-content-protection-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-licenses-partner-integration.md",
-      "redirect_url": "/azure/media-services/previous/media-services-content-protection-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-copying-existing-blob.md",
-      "redirect_url": "/azure/media-services/previous/media-services-copying-existing-blob",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-crop-video.md",
-      "redirect_url": "/azure/media-services/previous/media-services-crop-video",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-custom-mes-presets-with-dotnet.md",
-      "redirect_url": "/azure/media-services/previous/media-services-custom-mes-presets-with-dotnet",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-deliver-asset-download.md",
-      "redirect_url": "/azure/media-services/previous/media-services-deliver-asset-download",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-deliver-content-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-deliver-content-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-deliver-keys-and-licenses.md",
-      "redirect_url": "/azure/media-services/previous/media-services-deliver-keys-and-licenses",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-deliver-streaming-content.md",
-      "redirect_url": "/azure/media-services/previous/media-services-deliver-streaming-content",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-develop-video-players.md",
-      "redirect_url": "/azure/media-services/previous/media-services-develop-video-players",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-check-job-progress-with-queues.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-check-job-progress-with-queues",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-check-job-progress-with-webhooks.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-check-job-progress-with-webhooks",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-configure-asset-delivery-policy.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-configure-asset-delivery-policy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-configure-content-key-auth-policy.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-configure-content-key-auth-policy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-create-contentkey.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-create-contentkey",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-creating-live-encoder-enabled-channel.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-creating-live-encoder-enabled-channel",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-dynamic-manifest.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-dynamic-manifest",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-encode-with-media-encoder-standard.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-encode-with-media-encoder-standard",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-encoding-units.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-encoding-units",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-generate-thumbnail-with-mes.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-generate-thumbnail-with-mes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-get-started.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-get-started-with-aad.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-get-started-with-aad",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-how-to-use.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-how-to-use",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-how-to-use-azure-functions.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-how-to-use-azure-functions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-live-encode-with-onpremises-encoders.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-live-encode-with-onpremises-encoders",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-long-operations.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-long-operations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-manage-entities.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-manage-entities",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-manage-streaming-endpoints.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-manage-streaming-endpoints",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-telemetry.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-telemetry",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dotnet-upload-files.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dotnet-upload-files",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dynamic-manifest-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dynamic-manifest-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-dynamic-packaging-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-dynamic-packaging-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-embed-mpeg-dash-in-html5.md",
-      "redirect_url": "/azure/media-services/previous/media-services-embed-mpeg-dash-in-html5",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-encode-asset.md",
-      "redirect_url": "/azure/media-services/previous/media-services-encode-asset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-media-encoder-premium-workflow-multiplefilesinput.md",
-      "redirect_url": "/azure/media-services/previous/media-services-encode-asset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-media-encoder-premium-workflow-tutorials.md",
-      "redirect_url": "/azure/media-services/previous/media-services-encode-asset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-premium-workflow-encoder-formats.md",
-      "redirect_url": "/azure/media-services/previous/media-services-encode-asset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-encode-with-premium-workflow.md",
-      "redirect_url": "/azure/media-services/previous/media-services-encode-with-premium-workflow",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-encoding-error-codes.md",
-      "redirect_url": "/azure/media-services/previous/media-services-encoding-error-codes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-error-codes.md",
-      "redirect_url": "/azure/media-services/previous/media-services-error-codes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-face-and-emotion-detection.md",
-      "redirect_url": "/azure/media-services/previous/media-services-face-and-emotion-detection",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-face-redaction.md",
-      "redirect_url": "/azure/media-services/previous/media-services-face-redaction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-frequently-asked-questions.md",
-      "redirect_url": "/azure/media-services/previous/media-services-frequently-asked-questions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-generate-fmp4-chunks.md",
-      "redirect_url": "/azure/media-services/previous/media-services-generate-fmp4-chunks",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-get-media-processor.md",
-      "redirect_url": "/azure/media-services/previous/media-services-get-media-processor",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-hyperlapse-content.md",
-      "redirect_url": "/azure/media-services/previous/media-services-hyperlapse-content",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-implement-failover.md",
-      "redirect_url": "/azure/media-services/previous/media-services-implement-failover",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-index-content.md",
-      "redirect_url": "/azure/media-services/previous/media-services-index-content",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-input-metadata-schema.md",
-      "redirect_url": "/azure/media-services/previous/media-services-input-metadata-schema",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-inserting-ads-on-client-side.md",
-      "redirect_url": "/azure/media-services/previous/media-services-inserting-ads-on-client-side",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-java-how-to-use.md",
-      "redirect_url": "/azure/media-services/previous/media-services-java-how-to-use",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-live-encoders-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-live-encoders-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-live-streaming-with-onprem-encoders.md",
-      "redirect_url": "/azure/media-services/previous/media-services-live-streaming-with-onprem-encoders",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-manage-channels-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-manage-channels-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-manage-encoding-speed.md",
-      "redirect_url": "/azure/media-services/previous/media-services-manage-encoding-speed",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-manage-live-encoder-enabled-channels.md",
-      "redirect_url": "/azure/media-services/previous/media-services-manage-live-encoder-enabled-channels",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/meda-services-managing-multiple-storage-accounts.md",
-      "redirect_url": "/azure/media-services/previous/media-services-managing-multiple-storage-accounts",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-media-encoder-premium-workflow-multiplefilesinput.md",
-      "redirect_url": "/azure/media-services/previous/media-services-media-encoder-premium-workflow-multiplefilesinput",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-media-encoder-premium-workflow-tutorials.md",
-      "redirect_url": "/azure/media-services/previous/media-services-media-encoder-premium-workflow-tutorials",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-media-encoder-standard-formats.md",
-      "redirect_url": "/azure/media-services/previous/media-services-media-encoder-standard-formats",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-compare-encoders.md",
-      "redirect_url": "/azure/media-services/previous/media-services-media-encoder-standard-formats",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-1080p.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-1080p",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-4K.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-4K",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-720p.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-720p",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-1080p.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-1080p",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-16x9-SD",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-4K.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-4K",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-4x3-SD",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-720p.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-720p",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-720p-for-Android",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-presets-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-presets-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-mes-schema.md",
-      "redirect_url": "/azure/media-services/previous/media-services-mes-schema",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-motion-detection.md",
-      "redirect_url": "/azure/media-services/previous/media-services-motion-detection",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-output-metadata-schema.md",
-      "redirect_url": "/azure/media-services/previous/media-services-output-metadata-schema",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/previous/media-services-configure-elemental-live-encoder.md",
-      "redirect_url": "/azure/media-services/previous/media-services-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-pass-authentication-tokens.md",
-      "redirect_url": "/azure/media-services/previous/media-services-pass-authentication-tokens",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-playback-content-with-existing-players.md",
-      "redirect_url": "/azure/media-services/previous/media-services-playback-content-with-existing-players",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-playready-license-template-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-playready-license-template-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-analyze.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-analyze",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-check-job-progress.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-check-job-progress",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-configure-content-key-auth-policy.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-configure-content-key-auth-policy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-create-account.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-create-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-creating-live-encoder-enabled-channel.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-creating-live-encoder-enabled-channel",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-encode.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-encode",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-get-started-with-aad.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-get-started-with-aad",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-live-passthrough-get-started.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-live-passthrough-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-manage-streaming-endpoints.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-manage-streaming-endpoints",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-protect-content.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-protect-content",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-publish.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-publish",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-scale-media-processing.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-scale-media-processing",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-scale-streaming-endpoints.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-scale-streaming-endpoints",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-upload-files.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-upload-files",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-portal-vod-get-started.md",
-      "redirect_url": "/azure/media-services/previous/media-services-portal-vod-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-powershell-create-and-configure-aad-app.md",
-      "redirect_url": "/azure/media-services/previous/media-services-powershell-create-and-configure-aad-app",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-premium-workflow-encoder-formats.md",
-      "redirect_url": "/azure/media-services/previous/media-services-premium-workflow-encoder-formats",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-process-content-with-indexer2.md",
-      "redirect_url": "/azure/media-services/previous/media-services-process-content-with-indexer2",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-protect-hls-with-fairplay.md",
-      "redirect_url": "/azure/media-services/previous/media-services-protect-hls-with-fairplay",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-protect-hls-with-offline-fairplay.md",
-      "redirect_url": "/azure/media-services/previous/media-services-protect-hls-with-offline-fairplay",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-protect-with-aes128.md",
-      "redirect_url": "/azure/media-services/previous/media-services-protect-with-aes128",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-protect-with-playready-widevine.md",
-      "redirect_url": "/azure/media-services/previous/media-services-protect-with-playready-widevine",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-quotas-and-limitations.md",
-      "redirect_url": "/azure/media-services/previous/media-services-quotas-and-limitations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-recommended-encoders.md",
-      "redirect_url": "/azure/media-services/previous/media-services-recommended-encoders",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-redactor-walkthrough.md",
-      "redirect_url": "/azure/media-services/previous/media-services-redactor-walkthrough",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-release-notes.md",
-      "redirect_url": "/azure/media-services/previous/media-services-release-notes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-check-job-progress.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-check-job-progress",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-configure-asset-delivery-policy.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-configure-asset-delivery-policy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-configure-content-key-auth-policy.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-configure-content-key-auth-policy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-connect-with-aad.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-connect-with-aad",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-create-contentkey.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-create-contentkey",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-deliver-streaming-content.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-deliver-streaming-content",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-dynamic-manifest.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-dynamic-manifest",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-encode-asset.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-encode-asset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-get-media-processor.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-get-media-processor",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-get-started.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-how-to-use.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-how-to-use",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-manage-entities.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-manage-entities",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-storage-encryption.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-storage-encryption",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-telemetry.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-telemetry",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-rest-upload-files.md",
-      "redirect_url": "/azure/media-services/previous/media-services-rest-upload-files",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-retry-logic-in-dotnet-sdk.md",
-      "redirect_url": "/azure/media-services/previous/media-services-retry-logic-in-dotnet-sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-roll-storage-access-keys.md",
-      "redirect_url": "/azure/media-services/previous/media-services-roll-storage-access-keys",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-scale-media-processing-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-scale-media-processing-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-set-up-computer.md",
-      "redirect_url": "/azure/media-services/previous/media-services-set-up-computer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-sspk.md",
-      "redirect_url": "/azure/media-services/previous/media-services-sspk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-static-packaging.md",
-      "redirect_url": "/azure/media-services/previous/media-services-static-packaging",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-streaming-endpoints-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-streaming-endpoints-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-telemetry-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-telemetry-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-troubleshooting-live-streaming.md",
-      "redirect_url": "/azure/media-services/previous/media-services-troubleshooting-live-streaming",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-upload-files-from-storsimple.md",
-      "redirect_url": "/azure/media-services/previous/media-services-upload-files-from-storsimple",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-upload-files-with-aspera.md",
-      "redirect_url": "/azure/media-services/previous/media-services-upload-files-with-aspera",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-use-aad-auth-to-access-ams-api.md",
-      "redirect_url": "/azure/media-services/previous/media-services-use-aad-auth-to-access-ams-api",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-use-osmf-smooth-streaming-client-plugin.md",
-      "redirect_url": "/azure/media-services/previous/media-services-use-osmf-smooth-streaming-client-plugin",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-video-optical-character-recognition.md",
-      "redirect_url": "/azure/media-services/previous/media-services-video-optical-character-recognition",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-video-summarization.md",
-      "redirect_url": "/azure/media-services/previous/media-services-video-summarization",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-widevine-license-template-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-widevine-license-template-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/media-services-workflow-designer.md",
-      "redirect_url": "/azure/media-services/previous/media-services-workflow-designer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/offline-widevine-for-android.md",
-      "redirect_url": "/azure/media-services/previous/offline-widevine-for-android",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/postman-collection.md",
-      "redirect_url": "/azure/media-services/previous/postman-collection",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/postman-environment.md",
-      "redirect_url": "/azure/media-services/previous/postman-environment",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/postman-live-streaming-collection.md",
-      "redirect_url": "/azure/media-services/previous/postman-live-streaming-collection",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/scenarios-and-availability.md",
-      "redirect_url": "/azure/media-services/previous/scenarios-and-availability",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/connect-to-azure.md",
-      "redirect_url": "/azure/media-services/video-indexer/connect-to-azure",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/manage-account-connected-to-azure.md",
-      "redirect_url": "/azure/media-services/video-indexer/manage-account-connected-to-azure",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/migrate-from-v1-to-v2.md",
-      "redirect_url": "/azure/media-services/video-indexer/migrate-from-v1-to-v2",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/upload-index-videos.md",
-      "redirect_url": "/azure/media-services/video-indexer/upload-index-videos",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/media-services/video-indexer/video-indexer-create-new.md",
-      "redirect_url": "/azure/media-services/video-indexer/use-editor-create-project",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-concepts.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-concepts",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-create-new.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-create-new",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-embed-widgets.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-embed-widgets",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-get-started.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-get-started",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-output-json-v2.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-output-json-v2",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/Video/GetStarted.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/Video/Glossary.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/Video/Home.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/Video/How-To/HowtoAnalyzeVideo_Video.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/Video/How-To/HowtoCallVideoAPIs.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-overview.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/media-services/video-indexer/migrate-from-v1-to-v2.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/video-indexer/video-indexer-concepts.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-search.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-search",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-use-apis.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-use-apis",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-view-edit.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-view-edit",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/operations-management-suite/index.md",
@@ -24301,7 +23385,7 @@
     },
     {
       "source_path_from_root": "/articles/app-service-web/sendgrid-dotnet-how-to-send-email.md",
-      "redirect_url": "/azure/sendgrid-dotnet-how-to-send-email",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
       "redirect_document_id": false
     },
     {
@@ -24770,6 +23854,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/sap-deploy-solution.md",
+      "redirect_url": "/azure/sentinel/sap/deployment-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/sap-solution-detailed-requirements.md",
+      "redirect_url": "/azure/sentinel/sap/prerequisites-for-deploying-sap-continuous-threat-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/sap-solution-security-content.md",
+      "redirect_url": "/azure/sentinel/sap/sap-solution-security-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/sap-solution-deploy-alternate.md",
+      "redirect_url": "/azure/sentinel/sap/sap-solution-deploy-alternate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/sap-solution-deploy-snc.md",
+      "redirect_url": "/azure/sentinel/sap/configure-snc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/sap-solution-log-reference.md",
+      "redirect_url": "/azure/sentinel/sap/sap-solution-log-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-bus/index.md",
       "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false
@@ -25120,81 +24234,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md",
-      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-pool-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md",
-      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-database-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/sql-database-restore-database-cli.md",
-      "redirect_url": "/azure/azure-sql/database/scripts/restore-database-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/sql-database-import-from-bacpac-cli.md",
-      "redirect_url": "/azure/azure-sql/database/scripts/import-from-bacpac-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/auditing-and-threat-detection-cli.md",
-      "redirect_url": "/azure/azure-sql/database/scripts/auditing-threat-detection-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/setup-geodr-and-failover-database-cli.md",
-      "redirect_url": "/azure/azure-sql/database/scripts/setup-geodr-failover-database-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/sql-database-create-managed-instance-to-failover-group-cli.md",
-      "redirect_url": "/azure/azure-sql/database/az-cli-script-samples-content-guide",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md",
-      "redirect_url": "/azure/azure-sql/managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-restore-geo-backup-cli.md",
-      "redirect_url": "/azure/azure-sql/managed-instance/scripts/restore-geo-backup-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/sql-database-create-configure-managed-instance-cli.md",
-      "redirect_url": "/azure/azure-sql/managed-instance/scripts/create-configure-managed-instance-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/sql-database-copy-database-to-new-server-cli.md",
-      "redirect_url": "/azure/azure-sql/database/scripts/copy-database-to-new-server-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/sql-database-backup-database-cli.md",
-      "redirect_url": "/azure/azure-sql/database/scripts/backup-database-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md",
-      "redirect_url": "/azure/azure-sql/database/az-cli-script-samples-content-guide",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md",
-      "redirect_url": "/azure/azure-sql/database/scripts/auditing-threat-detection-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md",
-      "redirect_url": "/azure/azure-sql/database/scripts/add-elastic-pool-to-failover-group-cli",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md",
       "redirect_url": "/azure/sql-database/scripts/sql-database-add-single-db-to-failover-group-powershell",
       "redirect_document_id": false
@@ -25217,6 +24256,16 @@
     {
       "source_path_from_root": "/articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
       "redirect_url": "/azure/sql-database/sql-database-threat-detection-overview",
+      "redirect_document_id": false
+    },
+    {
+       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial.md",
+       "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-multi-subnet",
+       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
       "redirect_document_id": false
     },
     {
@@ -25998,12 +25047,12 @@
       "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md",
       "redirect_url": "/azure/storage/blobs/quickstart-blobs-javascript-browser",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-nodejs-legacy.md",
       "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
       "redirect_document_id": false
-    },        
+    },
     {
       "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-nodejs-v10.md",
       "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
@@ -26162,6 +25211,11 @@
     {
       "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-storage-explorer.md",
       "redirect_url": "/azure/vs-azure-tools-storage-explorer-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-files-how-to-create-nfs-shares.md",
+      "redirect_url": "/azure/storage/files/storage-files-quick-create-use-linux",
       "redirect_document_id": false
     },
     {
@@ -27440,6 +26494,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/private-5g-core/activate-sims.md",
+      "redirect_url": "/azure/private-5g-core/provision-sims-azure-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-template-lock.md",
       "redirect_url": "/azure/templates/microsoft.authorization/locks",
       "redirect_document_id": false
@@ -28060,6 +27119,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-radius.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-configuration-radius-certificate",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-point-to-site-gateway-public-ca.md",
       "redirect_url": "/azure/vpn-gateway/point-to-site-about",
       "redirect_document_id": false
@@ -28207,6 +27271,11 @@
     {
       "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-enable-private-link.md",
       "redirect_url": "/azure/frontdoor/standard-premium/how-to-enable-private-link-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-tutorial-geo-filtering.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-tutorial-geo-filtering",
       "redirect_document_id": false
     },
     {
@@ -32490,11 +31559,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-reportviewer.md",
       "redirect_url": "/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started",
       "redirect_document_id": false
@@ -33259,7 +32323,7 @@
       "redirect_url": "https://azure.microsoft.com/services/cognitive-services/",
       "redirect_document_id": false
     },
-        {
+    {
       "source_path_from_root": "/articles/machine-learning/studio/whats-new.md",
       "redirect_url": "https://azure.microsoft.com/updates/?product=machine-learning-studio",
       "redirect_document_id": false
@@ -36250,6 +35314,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/Tutorials/CSharpTutorial.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/overview-image-analysis",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
@@ -37976,12 +37045,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-customize-speech-models.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-speech-deploy-model.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-choose-model",
       "redirect_document_id": false
     },
     {
@@ -38635,6 +37699,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-studio-role-based-access-control.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/role-based-access-control",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/voice-first-virtual-assistants.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/voice-assistants",
       "redirect_document_id": true
@@ -38685,6 +37754,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-conversation-scenarios.yml",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/call-center-transcription.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/keyword-recognition-region-support.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/regions",
       "redirect_document_id": true
@@ -38698,6 +37772,11 @@
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/phone-sets.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/customize-pronunciation",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/tutorial-tenant-model.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/custom-speech-overview",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
@@ -39077,7 +38156,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-output-json.md",
       "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/index.md",
@@ -39412,6 +38491,11 @@
     {
       "source_path": "articles/aks/open-service-mesh-deploy-existing-application.md",
       "redirect_url": "/azure/aks/open-service-mesh-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/security-hardened-vm-host-image.md",
+      "redirect_url": "/azure/aks/cis-ubuntu",
       "redirect_document_id": false
     },
     {
@@ -41845,191 +40929,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/media-services/video-indexer/animated-characters-recognition-how-to.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/animated-characters-recognition-how-to",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/animated-characters-recognition.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/animated-characters-recognition",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/compare-video-indexer-with-media-services-presets.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/concepts-overview.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/concepts-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/connect-to-azure.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/connect-to-azure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/considerations-when-use-at-scale.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/considerations-when-use-at-scale",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/customize-brands-model-overview.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-brands-model-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/customize-brands-model-with-api.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-brands-model-with-api",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/customize-brands-model-with-website.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-brands-model-with-website",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/customize-content-models-overview.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-content-models-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/customize-language-model-overview.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-language-model-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/customize-language-model-with-api.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-language-model-with-api",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/customize-language-model-with-website.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-language-model-with-website",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/customize-person-model-overview.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-person-model-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/customize-person-model-with-api.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-person-model-with-api",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/customize-person-model-with-website.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-person-model-with-website",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/faq.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/faq",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/invite-users.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/invite-users",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/language-identification-model.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/language-identification-model",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/live-stream-analysis.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/live-stream-analysis",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/logic-apps-connector-tutorial.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/logic-apps-connector-tutorial",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/manage-account-connected-to-azure.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/manage-account-connected-to-azure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/manage-multiple-tenants.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/manage-multiple-tenants",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/multi-language-identification-transcription.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/multi-language-identification-transcription",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/regions.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/regions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/release-notes.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/release-notes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/scenes-shots-keyframes.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/scenes-shots-keyframes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/upload-index-videos.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/upload-index-videos",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/use-editor-create-project.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/use-editor-create-project",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/video-indexer-disaster-recovery.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-disaster-recovery",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/video-indexer-embed-widgets.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-embed-widgets",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/video-indexer-get-started.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/video-indexer-output-json-v2.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-output-json-v2",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/video-indexer-overview.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/video-indexer-search.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-search",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/video-indexer-use-apis.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-use-apis",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/video-indexer/video-indexer-view-edit.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-view-edit",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/virtual-desktop/rd-gateway-role.md",
       "redirect_url": "/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role",
       "redirect_document_id": false
@@ -42172,7 +41071,7 @@
     {
       "source_path_from_root": "/articles/storage/files/storage-files-compare-protocols.md",
       "redirect_url": "/azure/storage/files/files-nfs-protocol",
-      "redireect_document_id": false
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-develop/quickstart-device-development.md",
@@ -43161,7 +42060,17 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/reference-online-endpoint-yaml.md",
-      "redirect_url": "reference-yaml-endpoint-managed-online",
+      "redirect_url": "reference-yaml-endpoint-online",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-job-component.md",
+      "redirect_url": "reference-yaml-job-command",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-dataset.md",
+      "redirect_url": "reference-yaml-data",
       "redirect_document_id": true
     },
     {
@@ -43676,7 +42585,12 @@
     },
     {
       "source_path_from_root": "/articles/aks/open-service-mesh-open-source-observability.md",
-      "redirect_url": "/azure/aks/open-service-mesh-azure-monitor",
+      "redirect_url": "/azure/aks/open-service-mesh-integrations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-azure-monitor.md",
+      "redirect_url": "/azure/aks/open-service-mesh-integrations",
       "redirect_document_id": false
     },
     {
@@ -43885,6 +42799,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/lab-services/how-to-use-classroom-lab.md",
+      "redirect_url": "/azure/lab-services/how-to-use-lab",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/tutorial-setup-classroom-lab.md",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/tutorial-connect-virtual-machine-lab.md",
+      "redirect_url": "/azure/lab-services/tutorial-connect-lab-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/how-to-use-remote-desktop-linux-student.md",
+      "redirect_url": "/azure/lab-services/connect-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/get-started-manage-labs.md",
+      "redirect_url": "/azure/lab-services/quick-create-lab-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure/cognitive-services/translator/custom-translator/v2-preview/project-overview.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/v2-preview/beginners-guide",
       "redirect_document_id": true
@@ -43915,34 +42854,204 @@
       "redirect_document_id": false
     },
     {
-    "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
-    "redirect_url": "/azure/advisor/advisor-overview",
-    "redirect_document_id": false
+      "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
+      "redirect_url": "/azure/advisor/advisor-overview",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-wpf-translation-csharp.md",
       "redirect_url": "/ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
       "redirect_document_id": false
-      },
-      {
-        "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis.md",
-        "redirect_url": "/learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
-        "redirect_document_id": false
-      },
-      {
-        "source_path": "articles/machine-learning/classic/deploy-with-resource-manager-template.md",
-        "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-with-resource-manager-template",
-        "redirect_document_id": false
-      },
-      {
-        "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-group-policy.md",
-        "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
-        "redirect_document_id": false
-      },
-      {
-        "source_path_from_root": "/articles/virtual-desktop/compare-virtual-desktop-windows-365.md",
-        "redirect_url": "/azure/virtual-desktop/overview",
-        "redirect_document_id": false
-      }
+    },
+    {
+      "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis.md",
+      "redirect_url": "/learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/deploy-with-resource-manager-template.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-with-resource-manager-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-group-policy.md",
+      "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-desktop/compare-virtual-desktop-windows-365.md",
+      "redirect_url": "/azure/virtual-desktop/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/cis-azure-1-1-0.md",
+      "redirect_url": "/azure/governance/policy/samples/cis-azure-1-1-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/cis-azure-1-3-0.md",
+      "redirect_url": "/azure/governance/policy/samples/cis-azure-1-3-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/cmmc-l3.md",
+      "redirect_url": "/azure/governance/policy/samples/cmmc-l3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/hipaa-hitrust-9-2.md",
+      "redirect_url": "/azure/governance/policy/samples/hipaa-hitrust-9-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/irs-1075-sept2016",
+      "redirect_url": "/azure/governance/policy/samples/irs-1075-sept2016",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/nist-sp-800-171-r2",
+      "redirect_url": "/azure/governance/policy/samples/nist-sp-800-171-r2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/media/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/media/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/media/index.md",
+      "redirect_url": "/azure/governance/policy/samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/pci-dss-3.2.1/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/pci-dss-3.2.1/index.md",
+      "redirect_url": "/azure/governance/policy/samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/custom-question-answering.md",
+      "redirect_url": "/azure/cognitive-services/language-service/question-answering/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/openshift/howto-secure-openshift-with-front-door-feb-22.md",
+      "redirect_url": "/azure/openshift/howto-secure-openshift-with-front-door",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/connect-to-azure.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/connect-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/manage-account-connected-to-azure.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/manage-account-connected-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/migrate-from-v1-to-v2.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/upload-index-videos.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/upload-index-videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-concepts.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-create-new.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-embed-widgets.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-embed-widgets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-get-started.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-output-json-v2.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-output-json-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Video/GetStarted.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Video/Glossary.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Video/Home.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Video/How-To/HowtoAnalyzeVideo_Video.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Video/How-To/HowtoCallVideoAPIs.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-search.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-use-apis.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-use-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-view-edit.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-view-edit",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/translator-how-to-signup.md",
+      "redirect_url": "/azure/cognitive-services/translator/how-to-create-translator-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/terminology.md",
+      "redirect_url": "/azure/cognitive-services/translator/custom-translator/key-terms",
+      "redirect_document_id": false
+    }
   ]
 }

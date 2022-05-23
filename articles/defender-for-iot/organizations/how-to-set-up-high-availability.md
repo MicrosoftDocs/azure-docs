@@ -14,7 +14,7 @@ This deployment is implemented with an on-premises management console pair that 
 
 When a primary and secondary on-premises management console is paired:
 
-- An on-premises management console SLL certificate is applied to create a secure connection between the primary and secondary appliances. The SLL may be the self-signed certificate installed by default or a certificate installed by the customer.
+- An on-premises management console SSL certificate is applied to create a secure connection between the primary and secondary appliances. The SSL may be the self-signed certificate installed by default or a certificate installed by the customer.
 
     When validation is `ON`, the appliance should be able to establish connection to the CRL server defined by the certificate.
 

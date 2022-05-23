@@ -98,6 +98,7 @@ The following services support data loss prevention configuration:
 - Content Moderator
 - Custom Vision
 - Face
+- Form Recognizer
 - Speech Service
 - QnA Maker
 

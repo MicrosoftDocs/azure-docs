@@ -1,6 +1,6 @@
 ---
-title: Associate a virtual machine scale set to a Capacity Reservation group (preview)
-description: Learn how to associate a new or existing virtual machine scale set to a Capacity Reservation group.
+title: Associate a virtual machine scale set with uniform orchestration to a Capacity Reservation group
+description: Learn how to associate a new or existing virtual machine scale with uniform orchestration set to a Capacity Reservation group.
 author: bdeforeest
 ms.author: bidefore
 ms.service: virtual-machines #Required
@@ -10,19 +10,18 @@ ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Associate a virtual machine scale set to a Capacity Reservation group (preview)
+# Associate a virtual machine scale set with uniform orchestration to a Capacity Reservation group
+
+**Applies to:** :heavy_check_mark: Uniform scale set
 
 Virtual Machine Scale Sets have two modes: 
 
 - **Uniform Orchestration Mode:** In this mode, virtual machine scale sets use a VM profile or a template to scale up to the desired capacity. While there is some ability to manage or customize individual VM instances, Uniform uses identical VM instances. These instances are exposed through the virtual machine scale sets VM APIs and are not compatible with the standard Azure IaaS VM API commands. Since the scale set performs all the actual VM operations, reservations are associated with the virtual machine scale set directly. Once the scale set is associated with the reservation, all the subsequent VM allocations will be done against the reservation. 
-- **Flexible Orchestration Mode:** In this mode, you get more flexibility managing the individual virtual machine scale set VM instances as they can use the standard Azure IaaS VM APIs instead of using the scale set interface. This mode will not work with Capacity Reservation during public preview.
+- **Flexible Orchestration Mode:** In this mode, you get more flexibility managing the individual virtual machine scale set VM instances as they can use the standard Azure IaaS VM APIs instead of using the scale set interface. To use reservations with flexible orchestration mode, define both the virtual machine scale set property and the capacity reservation property on each virtual machine.
 
-To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md). The rest of this article will cover how to associate a Uniform virtual machine scale set to a Capacity Reservation group. 
+To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md). 
 
-> [!IMPORTANT]
-> Capacity Reservation is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This content applies to the uniform orchestration mode. For flexible orchestration mode, go to [Associate a virtual machine scale set with flexible orchestration to a Capacity Reservation group](capacity-reservation-associate-virtual-machine-scale-set-flex.md)
 
 
 ## Limitations of scale sets in Uniform Orchestration 
@@ -125,13 +124,20 @@ If your environment meets the prerequisites and you are familiar with using ARM 
 
 ## Associate an existing virtual machine scale set to Capacity Reservation group 
 
-During public preview, you are first required to deallocate your scale set. Then you can associate the existing Uniform virtual machine scale set to the Capacity Reservation group at the time of reallocation. This ensures that all the scale set VMs consume Capacity Reservation at the time of reallocation.
+To add an existing Capacity Reservation Group to an existing Uniform Scale Set:
+
+- Stop the Scale Set to deallocate the VM instances
+- Update the Scale Set to use a matching Capacity Reservation Group
+- Start the Scale Set
+
+This process ensures the placement for the Capacity Reservations and Scale Set in the region are compatible.
+
 
 ### Important notes on Upgrade Policies 
 
 - **Automatic Upgrade** – In this mode, the scale set VM instances are automatically associated with the Capacity Reservation group without any further action from you. When the scale set VMs are reallocated, they start consuming the reserved capacity.
 - **Rolling Upgrade** – In this mode, scale set VM instances are associated with the Capacity Reservation group without any further action from you. However, they are updated in batches with an optional pause time between them. When the scale set VMs are reallocated, they start consuming the reserved capacity.
-- **Manual Upgrade** – In this mode, nothing happens to the scale set VM instances when the virtual machine scale set is attached to a Capacity Reservation group. You will need to do individual updates to each scale set VM by [upgrading it with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+- **Manual Upgrade** – In this mode, nothing happens to the scale set VM instances when the virtual machine scale set is attached to a Capacity Reservation group. You will need to update to each scale set VM by [upgrading it with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ### [API](#tab/api2)
 

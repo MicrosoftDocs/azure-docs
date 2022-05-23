@@ -16,11 +16,13 @@
     href: upcoming-changes.md
   - name: Availability
     items:
-    - name: Supported platforms
+    - name: Supported platforms for servers
       displayName: coverage
       href: os-coverage.md
-    - name: Coverage by OS, machine type, and cloud
-      href: supported-machines-endpoint-solutions-clouds.md
+    - name: Servers coverage by OS, machine type, and cloud
+      href: supported-machines-endpoint-solutions-clouds-servers.md
+    - name: Defender for Containers feature availability
+      href: supported-machines-endpoint-solutions-clouds-containers.md
     - name: Feature coverage for Azure PaaS resources
       href: features-paas.md
     - name: User roles and permissions
@@ -81,7 +83,7 @@
     items:
     - name: Policies, initiatives, and recommendations
       href: security-policy-concept.md
-    - name: Secure score and security controls
+    - name: Security posture
       href: secure-score-security-controls.md
     - name: Reference list of recommendations
       href: recommendations-reference.md
@@ -134,7 +136,7 @@
   - name: Protect your machines
     displayName: hybrid, arc, Azure Defender for machines
     items:
-    - name: Overview of Defender for servers
+    - name: Overview of Defender for Servers
       displayName: VM
       href: defender-for-servers-introduction.md
     - name: Apply Azure security baselines
@@ -235,11 +237,11 @@
       href: defender-for-containers-enable.md
     - name: Vulnerability assessment
       displayName: ACR, registry, images, qualys
-      href: defender-for-container-registries-usage.md
+      href: defender-for-containers-usage.md
     - name: Scan images in your CI/CD workflows
       displayName: ACR, registry, images, trevi, vulnerabilities, scanner
-      href: defender-for-container-registries-cicd.md
-    - name: Protect your Kubernetes workloads
+      href: defender-for-containers-cicd.md
+    - name: Kubernetes data plane hardening
       displayName: k8s, containers, aks
       href: kubernetes-workload-protections.md
     - name: Defender for Kubernetes (deprecated)
@@ -318,6 +320,8 @@
       - name: Export to a SIEM, SOAR, or ITSM
         displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,
         href: export-to-siem.md
+      - name: Prepare Azure resources for exporting to Splunk and QRadar
+        href: export-to-splunk-or-qradar.md
       - name: Export to a Log Analytics workspace or Azure Event Hubs
         displayName: continuous
         href: continuous-export.md
@@ -373,7 +377,7 @@
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?term=securityS
+    href: /learn/browse/?term=defender%20for%20cloud
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

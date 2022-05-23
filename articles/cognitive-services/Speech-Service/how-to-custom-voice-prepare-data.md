@@ -64,16 +64,16 @@ To produce a good voice model, create the recordings in a quiet room with a high
 
 ### Audio files
 
-Each audio file should contain a single utterance (a single sentence or a single turn of a dialog system), less than 15 seconds long. All files must be in the same spoken language. Multi-language custom Text-to-Speech voices aren't supported, with the exception of the Chinese-English bi-lingual. Each audio file must have a unique numeric filename with the filename extension .wav.
+Each audio file should contain a single utterance (a single sentence or a single turn of a dialog system), less than 15 seconds long. All files must be in the same spoken language. Multi-language custom Text-to-Speech voices aren't supported, with the exception of the Chinese-English bi-lingual. Each audio file must have a unique filename with the filename extension .wav.
 
 Follow these guidelines when preparing audio.
 
 | Property | Value |
 | -------- | ----- |
 | File format | RIFF (.wav), grouped into a .zip file |
-| File name | Numeric, with .wav extension. No duplicate file names allowed. |
+| File name | File name characters supported by Windows OS, with .wav extension.<br>The characters \ / : * ? " < > \| aren't allowed. <br>It can't start or end with a space, and can't start with a dot. <br>No duplicate file names allowed. |
 | Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
-| Sample format | PCM, 16-bit |
+| Sample format | PCM, at least 16-bit |
 | Audio length | Shorter than 15 seconds |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |
@@ -114,9 +114,10 @@ Follow these guidelines when preparing audio for segmentation.
 
 | Property | Value |
 | -------- | ----- |
-| File format | RIFF (.wav) with a sampling rate of at least 16 khz-16-bit in PCM or .mp3 with a bit rate of at least 256 KBps, grouped into a .zip file |
-| File name	| ASCII and Unicode characters supported. No duplicate names allowed. |
+| File format | RIFF (.wav) or .mp3, grouped into a .zip file |
+| File name	|  File name characters supported by Windows OS, with .wav extension. <br>The characters \ / : * ? " < > \| aren't allowed. <br>It can't start or end with a space, and can't start with a dot. <br>No duplicate file names allowed. |
 | Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
+| Sample format |RIFF(.wav): PCM, at least 16-bit<br>mp3: at least 256 KBps bit rate|
 | Audio length | Longer than 20 seconds |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |
@@ -153,9 +154,10 @@ Follow these guidelines when preparing audio.
 
 | Property | Value |
 | -------- | ----- |
-| File format | RIFF (.wav) with a sampling rate of at least 16 khz-16-bit in PCM or .mp3 with a bit rate of at least 256 KBps, grouped into a .zip file |
-| File name | ASCII and Unicode characters supported. No duplicate name allowed. |
+| File format | RIFF (.wav) or .mp3, grouped into a .zip file |
+| File name |  File name characters supported by Windows OS, with .wav extension. <br>The characters \ / : * ? " < > \| aren't allowed. <br>It can't start or end with a space, and can't start with a dot. <br>No duplicate file names allowed. |
 | Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
+| Sample format |RIFF(.wav): PCM, at least 16-bit<br>mp3: at least 256 KBps bit rate|
 | Audio length | No limit |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |

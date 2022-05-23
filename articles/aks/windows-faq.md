@@ -115,7 +115,7 @@ Yes, an ingress controller that supports Windows Server containers can run on Wi
 
 ## Can my Windows Server containers use gMSA?
 
-Group-managed service account (gMSA) support is currently unavailable in AKS.
+Group-managed service account (gMSA) support is currently available in preview. See [Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster (Preview)](use-group-managed-service-accounts.md)
 
 ## Can I use Azure Monitor for containers with Windows nodes and containers?
 
@@ -215,7 +215,7 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[windows-node-cli]: windows-container-cli.md
+[windows-node-cli]: ./learn/quick-windows-container-deploy-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [upgrade-cluster]: upgrade-cluster.md

@@ -77,7 +77,9 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Database for MariaDB | Microsoft.DBforMariaDB/servers | mariadbServer |
 | Azure Database for MySQL | Microsoft.DBforMySQL/servers | mysqlServer |
 | Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
+| Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure IoT Hub | Microsoft.Devices/IotHubs | iotHub |
+| Azure IoT Central | Microsoft.IoTCentral/IoTApps | IoTApps |
 | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | digitaltwinsinstance |
 | Azure Event Grid | Microsoft.EventGrid/domains | domain |
 | Azure Event Grid | Microsoft.EventGrid/topics  | topic |
@@ -91,8 +93,8 @@ A private-link resource is the destination target of a specified private endpoin
 | Application Gateway | Microsoft.Network/applicationgateways | application gateway |
 | Private Link service (your own service) |  Microsoft.Network/privateLinkServices | empty |
 | Power BI | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
-| Azure Purview | Microsoft.Purview/accounts | account |
-| Azure Purview | Microsoft.Purview/accounts | portal |
+| Microsoft Purview | Microsoft.Purview/accounts | account |
+| Microsoft Purview | Microsoft.Purview/accounts | portal |
 | Azure Backup | Microsoft.RecoveryServices/vaults | vault |
 | Azure Relay | Microsoft.Relay/namespaces | namespace |
 | Azure Cognitive Search | Microsoft.Search/searchServices | search service |
@@ -106,16 +108,16 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Synapse Analytics | Microsoft.Synapse/workspaces | SQL, SqlOnDemand, Dev | 
 | Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
 | Azure App Service | Microsoft.Web/sites | sites |
-| Azure App Service | Microsoft.Web/staticSites | staticSite |
+| Azure Static Web Apps | Microsoft.Web/staticSites | staticSites |
 
 > [!NOTE]
 > You can create private endpoints only on a General Purpose v2 (GPv2) storage account.
  
 ## Network security of private endpoints 
 
-When you use private endpoints, traffic is secured to a private-link resource. The platform does an access control to validate network connections that reach only the specified private-link resource. To access more resources within the same Azure service, you need additional private endpoints. 
- 
-You can completely lock down your workloads to prevent them from accessing public endpoints to connect to a supported Azure service. This control provides an extra network security layer to your resources, and this security provides protection that helps prevent access to other resources that are hosted on the same Azure service. 
+When you use private endpoints, traffic is secured to a private-link resource. The platform validates network connections, allowing only those that reach the specified private-link resource. To access additional sub-resources within the same Azure service, additional private endpoints with corresponding targets are required. In the case of Azure Storage, for instance, you would need separate private endpoints to access the _file_ and _blob_ sub-resources.
+
+Private endpoints provide a privately accessible IP address for the Azure service, but do not necessarily restrict public network access to it. [Azure App Service](tutorial-private-endpoint-webapp-portal.md) and [Azure Functions](../azure-functions/functions-create-vnet.md) become inaccessible publicly when they are associated with a private endpoint. All other Azure services require additional [access controls](../event-hubs/event-hubs-ip-filtering.md), however. These controls provide an extra network security layer to your resources, providing protection that helps prevent access to the Azure service associated with the private-link resource. 
  
 ## Access to a private-link resource using approval workflow 
 
@@ -151,7 +153,7 @@ The consumers can request a connection to a private-link service by using either
 
 ## DNS configuration
 
-The DNS settings that you use to connect to a private-link resource are important. Ensure that your DNS settings are correct when you use the fully qualified domain name (FQDN) for the connection. The settings must resolve to the private IP address of the private endpoint. Existing Azure services might already have a DNS configuration you can use when you're connecting over a public endpoint. This configuration must be overwritten so that you can connect by using your private endpoint. 
+The DNS settings that you use to connect to a private-link resource are important. Existing Azure services might already have a DNS configuration you can use when you're connecting over a public endpoint. To connect to the same service over private endpoint, separate DNS settings, often configured via private DNS zones, are required. Ensure that your DNS settings are correct when you use the fully qualified domain name (FQDN) for the connection. The settings must resolve to the private IP address of the private endpoint. 
  
 The network interface associated with the private endpoint contains the information that's required to configure your DNS. The information includes the FQDN and private IP address for a private-link resource. 
 

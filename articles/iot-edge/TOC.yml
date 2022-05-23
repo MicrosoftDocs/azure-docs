@@ -23,6 +23,8 @@
     items:
     - name: Develop with Linux containers
       href: tutorial-develop-for-linux.md
+    - name: Develop with IoT Edge for Linux on Windows
+      href: tutorial-develop-for-linux-on-windows.md
     - name: Develop with Windows containers
       href: tutorial-develop-for-windows.md
   - name: Develop custom code modules
@@ -83,6 +85,18 @@
       href: iot-edge-modules.md
     - name: IoT Edge agent and hub properties
       href: module-edgeagent-edgehub.md
+  - name: IoT Edge for Linux on Windows
+    items:
+    - name: Benefits
+      href: iot-edge-for-linux-on-windows-benefits.md
+    - name: Updates
+      href: iot-edge-for-linux-on-windows-updates.md
+    - name: Security
+      href: iot-edge-for-linux-on-windows-security.md
+    - name: Networking 
+      href: iot-edge-for-linux-on-windows-networking.md
+    - name: Platform support
+      href: iot-edge-for-linux-on-windows-support.md
   - name: Development
     items:
     - name: Develop modules
@@ -153,12 +167,6 @@
           href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
         - name: Symmetric key attestation
           href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
-      - name: Configure nested virtualization for Windows VMs
-        href: nested-virtualization.md
-      - name: Create virtual switch
-        href: how-to-create-virtual-switch.md
-      - name: Configure GPU acceleration
-        href: gpu-acceleration.md
     - name: Windows containers on Windows hosts
       items:
       - name: Provision a single device
@@ -183,12 +191,40 @@
       href: how-to-install-iot-edge-kubernetes.md
     - name: Deploy IoT Edge VM using an ARM template
       href: how-to-install-iot-edge-ubuntuvm.md
+  - name: IoT Edge for Linux on Windows
+    items:
+    - name : Install and provision
+      items:
+      - name: Provision a single device
+        items:
+        - name: X.509 certificate attestation
+          href: how-to-provision-single-device-linux-on-windows-x509.md
+        - name: Symmetric key attestation
+          href: how-to-provision-single-device-linux-on-windows-symmetric.md
+      - name: Provision devices at scale
+        items:
+        - name: X.509 certificate attestation
+          href: how-to-provision-devices-at-scale-linux-on-windows-x509.md
+        - name: TPM attestation
+          href: how-to-provision-devices-at-scale-linux-on-windows-tpm.md
+        - name: Symmetric key attestation
+          href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
+    - name: Configure nested virtualization for Windows VMs
+      href: nested-virtualization.md
+    - name: Create virtual switch
+      href: how-to-create-virtual-switch.md
+    - name: Configure GPU acceleration
+      href: gpu-acceleration.md
+    - name: Configure networking
+      href: how-to-configure-iot-edge-for-linux-on-windows-networking.md
   - name: Develop custom modules
     items:
     - name: Develop with Visual Studio 2019
       href: how-to-visual-studio-develop-module.md
     - name: Develop with Visual Studio Code
       href: how-to-vs-code-develop-module.md
+    - name: Configure module build options
+      href: how-to-configure-module-build-options.md
     - name: Configure module createOptions
       items:
         - name: Understand and use createOptions
@@ -219,6 +255,8 @@
         href: how-to-monitor-iot-edge-deployments.md
       - name: Monitor module twins
         href: how-to-monitor-module-twins.md
+      - name: End-to-end observability for IoT Edge
+        href: how-to-observability.md
       - name: Use edgeAgent direct methods
         href: how-to-edgeagent-direct-method.md
       - name: Retrieve logs with direct methods
@@ -273,8 +311,6 @@
       href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Manage with DevOps tools
     items:
-    - name: Azure DevOps Starter
-      href: how-to-devops-starter.md
     - name: Azure DevOps
       items:
       - name: YAML

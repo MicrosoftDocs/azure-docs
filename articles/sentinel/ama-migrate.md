@@ -14,7 +14,7 @@ This article describes the migration process to the Azure Monitor Agent (AMA) wh
 > The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA.
 
 ## Prerequisites
-Start with the [Azure Monitor documentation](/azure/azure-monitor/agents/azure-monitor-agent-migration) which provides an agent comparison and general information for this migration process. 
+Start with the [Azure Monitor documentation](../azure-monitor/agents/azure-monitor-agent-migration.md) which provides an agent comparison and general information for this migration process. 
 
 This article provides specific details and differences for Microsoft Sentinel.
 
@@ -42,7 +42,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Application and service logs**     |    -      |    Collection only     |
 |**Sysmon**     |    Collection only      |      Collection only   |
 |**DNS logs**     |   -       | Collection only        |
-| | | |
+
 
 ### Linux logs
 
@@ -53,7 +53,7 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Sysmon**     |   Collection only    |  Collection only      |
 |**Custom logs**     |   -       |  Collection only       |
 |**Multi-homing**     |   Collection only      |     -     |
-| | | |
+
 
 ## Recommended migration plan
 
@@ -61,7 +61,7 @@ Each organization will have different metrics of success and internal migration 
 
 **Include the following steps in your migration process**:
 
-1. Make sure that you've considered your environmental requirements and understand the gaps between the different agents. For more information, see [Plan your migration](../azure-monitor/agents/azure-monitor-agent-migration.md#plan-your-migration) in the Azure Monitor documentation.
+1. Make sure that you've considered your environmental requirements and understand the gaps between the different agents. For more information, see [When should I migrate](../azure-monitor/agents/azure-monitor-agent-migration.md#when-should-i-migrate-to-the-azure-monitor-agent) in the Azure Monitor documentation.
 
 1. Run a proof of concept to test how the AMA sends data to Microsoft Sentinel, ideally in a development or sandbox environment.
 
@@ -99,7 +99,7 @@ Each organization will have different metrics of success and internal migration 
 
 5. Check your Microsoft Sentinel workspace to make sure that all your data streams have been replaced using the new AMA-based connectors.
 
-6. Uninstall the legacy agent. For more information, see [Manage the Azure Log Analytics agent ](/azure/azure-monitor/agents/agent-manage#uninstall-agent).
+6. Uninstall the legacy agent. For more information, see [Manage the Azure Log Analytics agent ](../azure-monitor/agents/agent-manage.md#uninstall-agent).
 
 ## FAQs
 The following FAQs address issues specific to AMA migration with Microsoft Sentinel. For more information, see also the [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent) in the Azure Monitor documentation.
@@ -123,8 +123,8 @@ While you can run the MMA and AMA simultaneously, you may want to migrate each c
 For more information, see:
 
 - [Frequently asked questions for AMA migration](/azure/azure-monitor/faq#azure-monitor-agent)
-- [Overview of the Azure Monitor agents](/azure/azure-monitor/agents/agents-overview)
-- [Migrate from Log Analytics agents](/azure/azure-monitor/agents/azure-monitor-agent-migration)
+- [Overview of the Azure Monitor agents](../azure-monitor/agents/agents-overview.md)
+- [Migrate from Log Analytics agents](../azure-monitor/agents/azure-monitor-agent-migration.md)
 - [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)
 - [Security events via Legacy Agent (Windows)](data-connectors-reference.md#security-events-via-legacy-agent-windows)
 - [Windows agent-based connections](connect-azure-windows-microsoft-services.md#windows-agent-based-connections)

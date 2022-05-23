@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with FortiWeb Web Application Firewall | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with FortiWeb Web Application Firewall'
 description: Learn how to configure single sign-on between Azure Active Directory and FortiWeb Web Application Firewall.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 03/11/2020
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with FortiWeb Web Application Firewall
+# Tutorial: Azure AD SSO integration with FortiWeb Web Application Firewall
 
 In this tutorial, you'll learn how to integrate FortiWeb Web Application Firewall with Azure Active Directory (Azure AD). When you integrate FortiWeb Web Application Firewall with Azure AD, you can:
 
@@ -28,6 +28,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * FortiWeb Web Application Firewall single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 

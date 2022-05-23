@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: larryfr
 author: blackmist
 ms.date: 10/21/2021
-ms.custom: deploy
+ms.custom: deploy, cliv1
 ---
 
 # Update a deployed web service
@@ -18,7 +18,15 @@ In this article, you learn how to update a web service that was deployed with Az
 
 ## Prerequisites
 
-This tutorial assumes you have already deployed a web service with Azure Machine Learning. If you need to learn how to deploy a web service, [follow these steps](how-to-deploy-and-where.md).
+- This article assumes you have already deployed a web service with Azure Machine Learning. If you need to learn how to deploy a web service, [follow these steps](how-to-deploy-and-where.md).
+- The code snippets in this article assume that the `ws` variable has already been initialized to your workspace by using the [Workflow()](/python/api/azureml-core/azureml.core.workspace.workspace#constructor) constructor or loading a saved configuration with [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#azureml-core-workspace-workspace-from-config). The following snippet demonstrates how to use the constructor:
+
+    ```python
+    from azureml.core import Workspace
+    ws = Workspace(subscription_id="mysubscriptionid",
+                   resource_group="myresourcegroup",
+                   workspace_name="myworkspace")
+    ```
 
 ## Update web service
 
@@ -91,7 +99,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > To update the service to use a new entry script or environment, create an [inference configuration file](./reference-azure-machine-learning-cli.md#inference-configuration-schema) and specify it with the `ic` parameter.
 
-For more information, see the [az ml service update](/cli/azure/ml(v1)/service#az_ml_v1__service_update) documentation.
+For more information, see the [az ml service update](/cli/azure/ml(v1)/service#az-ml-v1--service-update) documentation.
 
 ## Next steps
 

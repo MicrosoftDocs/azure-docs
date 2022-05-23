@@ -5,8 +5,8 @@ description: Learn how to set up AutoML training runs without a single line of c
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.author: nibaccam
-author: cartacioS
+ms.author: larryfr
+author: blackmist
 ms.reviewer: nibaccam
 ms.date: 11/15/2021
 ms.topic: how-to
@@ -111,7 +111,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
     Select **Next**.
 
-1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting--computer-vision) for more information.
+1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp) for more information.
 
     1. For **classification**, you can also enable deep learning.
     

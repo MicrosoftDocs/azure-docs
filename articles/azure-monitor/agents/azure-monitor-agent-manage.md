@@ -4,7 +4,7 @@ description: Options for managing the Azure Monitor agent (AMA) on Azure virtual
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/27/2022
+ms.date: 05/10/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -19,23 +19,10 @@ The Azure Monitor agent is implemented as an [Azure VM extension](../../virtual-
 |:---|:---|:---|
 | Publisher | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
+| TypeHandlerVersion  | 1.2 | 1.15 |
 
 ## Extension versions
-We strongly recommended to update to generally available versions listed as follows instead of using preview or intermediate versions.  
-
-| Release Date | Release notes | Windows | Linux |  
-|:---|:---|:---|:---|  
-| June 2021 | General availability announced. <ul><li>All features except metrics destination now generally available</li><li>Production quality, security and compliance</li><li>Availability in all public regions</li><li>Performance and scale improvements for higher EPS</li></ul> [Learn more](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |  
-| July 2021 | <ul><li>Support for direct proxies</li><li>Support for Log Analytics gateway</li></ul> [Learn more](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |  
-| August 2021 | Fixed issue allowing Azure Monitor Metrics as the only destination | 1.1.2.0 | 1.10.9.0<sup>Hotfix</sup> |  
-| September 2021 | <ul><li>Fixed issue causing data loss on restarting the agent</li><li>Fixed issue for Arc Windows servers</li></ul> | 1.1.3.2<sup>Hotfix</sup> | 1.12.2.0 <sup>1</sup> |   
-| December 2021 | <ul><li>Fixed issues impacting Linux Arc-enabled servers</li><li>'Heartbeat' table > 'Category' column reports "Azure Monitor Agent" in Log Analytics for Windows</li></ul>  | 1.1.4.0 | 1.14.7.0<sup>2</sup> |  
-| January 2022 | <ul><li>Syslog RFC compliance for Linux</li><li>Fixed issue for Linux perf counters not flowing on restart</li><li>Fixed installation failure on Windows Server 2008 R2 SP1</li></ul> | 1.1.5.1<sup>Hotfix</sup> | 1.15.2.0<sup>Hotfix</sup> |  
-
-<sup>Hotfix</sup> Do not use AMA Linux versions v1.10.7, v1.15.1 and AMA Windows v1.1.3.1, v1.1.5.0. Please use hotfixed versions listed above.   
-<sup>1</sup> Known issue: No data collected from Linux Arc-enabled servers  
-<sup>2</sup> Known issue: Linux performance counters data stops flowing on restarting/rebooting the machine(s)
+[View Azure Monitor Agent extension versions](./azure-monitor-agent-extension-versions.md).
 
 
 ## Prerequisites
@@ -45,9 +32,9 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
 
 | Built-in Role | Scope(s) | Reason |  
 |:---|:---|:---|  
-| <ul><li>[Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)</li><li>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Arc-enabled servers</li></ul> | To deploy the agent |  
+| <ul><li>[Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)</li><li>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, scale sets</li><li>Arc-enabled servers</li></ul> | To deploy the agent |  
 | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li></ul> | To deploy ARM templates |  
-- For installing the agent on physical servers and virtual machines hosted *outside* of Azure (i.e. on-premises), you must [install the Azure Arc agent](../../azure-arc/servers/agent-overview.md#installation-and-configuration) first (at no added cost)
+- For installing the agent on physical servers and virtual machines hosted *outside* of Azure (i.e. on-premises), you must [install the Azure Arc Connected Machine agent](../../azure-arc/servers/agent-overview.md) first (at no added cost)
 - [Managed system identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) must be enabled on Azure virtual machines. This is not required for Azure Arc-enabled servers. The system identity will be enabled automatically if the agent is installed via [creating and assigning a data collection rule using the Azure portal](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal).
 - The [AzureResourceManager service tag](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine.
 - The virtual machine must have access to the following HTTPS endpoints:

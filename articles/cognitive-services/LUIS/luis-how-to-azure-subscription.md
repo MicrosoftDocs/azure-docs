@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 03/21/2022
 ms.custom: contperf-fy21q4, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -90,7 +90,7 @@ Use the [Azure CLI](/cli/azure/install-azure-cli) to create each resource indivi
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-3. Create a LUIS prediction endpoint resource of kind `LUIS`, named `my-luis-prediction-resource`. Create it in the _existing_ resource group named `my-resource-group` for the `westus` region. If you want higher throughput than the free tier provides, change `F0` to `S0`. [Learn more about pricing tiers and throughput.](luis-limits.md#key-limits)
+3. Create a LUIS prediction endpoint resource of kind `LUIS`, named `my-luis-prediction-resource`. Create it in the _existing_ resource group named `my-resource-group` for the `westus` region. If you want higher throughput than the free tier provides, change `F0` to `S0`. [Learn more about pricing tiers and throughput.](luis-limits.md#resource-usage-and-limits)
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
@@ -229,7 +229,7 @@ To change the ownership of a resource, you can take one of these actions:
 
 You can create as many as 10 authoring keys per region, per subscription. Publishing regions are different from authoring regions. Make sure you create an app in the authoring region that corresponds to the publishing region where you want your client application to be located. For information on how authoring regions map to publishing regions, see [Authoring and publishing regions](luis-reference-regions.md). 
 
-For more information on key limits, see [key limits](luis-limits.md#key-limits).
+See [resource limits](luis-limits.md#resource-usage-and-limits) for more information.
 
 ### Errors for key usage limits
 

@@ -2,14 +2,14 @@
 title: What's CloudKnox Permissions Management?
 description: An introduction to CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
+author: mtillman
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.date: 04/20/2022
+ms.author: mtillman
 ---
 
 # What's CloudKnox Permissions Management?
@@ -19,8 +19,8 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-> [!Note]
-> Sign up for the CloudKnox Permissions Management public preview by filling [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9AT7gfYe2NPtdIbYxQQX45UNEpIVjY4WUJNSUhMVjcyNzdYOFY2NFhISi4u).
+> [!NOTE] 
+> The CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 ## Overview
 

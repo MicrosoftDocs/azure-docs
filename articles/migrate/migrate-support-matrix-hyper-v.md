@@ -67,7 +67,7 @@ In addition to discovering servers, Azure Migrate: Discovery and assessment can 
 Support | Details
 --- | ---
 **Supported servers** | You can perform software inventory on up to 5,000 servers running across Hyper-V host(s)/cluster(s) added to each Azure Migrate appliance.
-**Operating systems** | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/about/supported-guest-os.md) enabled.
+**Operating systems** | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/about/supported-guest-os) enabled.
 **Server requirements** | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.<br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers to pull the application data: list, tail, awk, grep, locate, head, sed, ps, print, sort, uniq. Based on OS type and the type of package manager being used, here are some additional commands: rpm/snap/dpkg, yum/apt-cache, mssql-server.
 **Server access** | You can add multiple domain and non-domain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-`sudo` access) for all Linux servers.
 **Port access** | For Windows server, need access on port 5985 (HTTP) and for Linux servers, need access on port 22(TCP).
@@ -80,7 +80,7 @@ Support | Details
 Support | Details
 --- | ---
 **Supported servers** | You can enable agentless dependency analysis on up to 1000 servers (across multiple Hyper-V hosts/clusters), discovered per appliance.
-**Operating systems** | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/about/supported-guest-os.md) enabled.
+**Operating systems** | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/about/supported-guest-os) enabled.
 **Server requirements** | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date.
 **Windows server access** |  A user account (local or domain) with administrator permissions on servers.
 **Linux server access** | A root user account, or an account that has these permissions on /bin/netstat and /bin/ls files: <br />CAP_DAC_READ_SEARCH<br /> CAP_SYS_PTRACE<br /><br /> Set these capabilities by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>

@@ -76,13 +76,13 @@ For more information, see [Use SSH keys with Windows on Azure](../virtual-machin
 5. Set the permission role of your service principal as a Contributor.
 
     ```azurecli
-    az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"
+    az role assignment create --assignee "{enter-your-homepage}" --role "Contributor" --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
     ```
 
     Or you also can use
 
     ```azurecli
-    az role assignment create --assignee {service-principal-name} --role "Contributor"
+    az role assignment create --assignee {service-principal-name} --role "Contributor" --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
     ```
 
     ![Service principal role assignment](media/deploy/svc-princ.png )

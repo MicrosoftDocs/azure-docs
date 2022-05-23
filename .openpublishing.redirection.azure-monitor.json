@@ -6,14 +6,14 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/essentials/activity-logs-insights.md",
+            "redirect_url": "/azure/azure-monitor/essentials/activity-log",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/application-insights/app-insights-performance-counters.md",
             "redirect_url": "/azure/azure-monitor/app/performance-counters",
             "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/application-insights/cloudservices.md",
-            "redirect_url": "/azure/azure-monitor/app/azure-web-apps-net",
-            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/insights/service-bus-insights.md",
@@ -23,6 +23,66 @@
         {
             "source_path_from_root": "/articles/azure-monitor/agents/data-collection-rule-overview.md",
             "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/change-analysis-visualizations.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis-visualizations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/azure-monitor-app-hub.yml",
+            "redirect_url": "/azure/azure-monitor/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/troubleshoot-portal-connectivity.md",
+            "redirect_url": "https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-portal-connectivity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/auto-instrumentation-troubleshoot.md",
+            "redirect_url": "https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/auto-instrumentation-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/change-analysis-troubleshoot.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/pricing.md",
+            "redirect_url": "/azure/azure-monitor/logs/cost-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/manage-cost-storage.md",
+            "redirect_url": "/azure/azure-monitor/logs/cost-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/apm-tables.md",
+            "redirect_url": "/azure/azure-monitor/app/convert-classic-resource#workspace-based-resource-changes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/data-ingestion-from-file.md",
+            "redirect_url": "/azure/azure-monitor/agents/data-sources-custom-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-service-manager-script.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-scsm.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections.md",
             "redirect_document_id": false
         }
     ]

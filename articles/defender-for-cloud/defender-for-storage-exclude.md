@@ -3,6 +3,8 @@ title: Microsoft Defender for Storage - excluding a storage account
 description: Excluding a specific storage account from a subscription with Microsoft Defender for Storage enabled.
 ms.date: 02/06/2022
 ms.topic: how-to
+ms.author: benmansheim
+author: bmansheim
 ---
 # Exclude a storage account from Microsoft Defender for Storage protections
 

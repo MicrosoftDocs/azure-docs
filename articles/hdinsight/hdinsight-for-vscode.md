@@ -208,7 +208,7 @@ Using the PySpark interactive command to submit the queries, follow these steps:
 
    :::image type="content" source="./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png" alt-text="select interpreter to start jupyter server":::
 
-8. Select the python option below.
+8. Select the Python option below.
 
    :::image type="content" source="./media/hdinsight-for-vscode/choose-the-below-option.png" alt-text="choose the below option":::
     

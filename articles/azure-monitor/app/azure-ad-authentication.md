@@ -25,6 +25,8 @@ Below are SDKs/scenarios not supported in the Public Preview:
 - [Availability tests](availability-overview.md).
 - [Profiler](profiler-overview.md).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## Prerequisites to enable Azure AD authentication ingestion
 
 - Familiarity with:
@@ -54,7 +56,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 
 1. Follow the configuration guidance per language below.
 
-### [ASP.NET and .NET](#tab/net)
+### [.NET](#tab/net)
 
 > [!NOTE]
 > Support for Azure AD in the Application Insights .NET SDK is included starting with [version 2.18-Beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.18.0-beta3).
@@ -80,7 +82,7 @@ config.SetAzureTokenCredential(credential);
 
 ```
 
-Below is an example of configuring the `TelemetryConfiguration` using ASP.NET Core:
+Below is an example of configuring the `TelemetryConfiguration` using .NET Core:
 ```csharp
 services.Configure<TelemetryConfiguration>(config =>
 {
@@ -426,7 +428,7 @@ Next steps should be to review the Application Insights resource's access contro
 
 ### Language specific troubleshooting
 
-### [ASP.NET and .NET](#tab/net)
+### [.NET](#tab/net)
 
 #### Event Source
 

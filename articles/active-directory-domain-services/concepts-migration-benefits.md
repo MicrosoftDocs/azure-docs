@@ -38,7 +38,7 @@ After migration, Azure AD DS provides many features that are only available for 
 * [Email notifications for alerts on your managed domain][email-alerts].
 * [Use Azure Workbooks and Azure monitor to view audit logs and sign-in activity][workbooks].
 * In supported regions, [Azure Availability Zones][availability-zones].
-* Integrations with other Azure products such as [Azure Files][azure-files], [HD Insights][hd-insights], and [Windows Virtual Desktop][wvd].
+* Integrations with other Azure products such as [Azure Files][azure-files], [HD Insights][hd-insights], and [Azure Virtual Desktop][avd].
 * Support has access to more telemetry and can help troubleshoot more effectively.
 * Encryption at rest using [Azure Managed Disks][managed-disks] for the data on the managed domain controllers.
 
@@ -55,7 +55,7 @@ To get started, see [Migrate Azure AD Domain Services from the Classic virtual n
 [workbooks]: use-azure-monitor-workbooks.md
 [azure-files]: ../storage/files/storage-files-identity-auth-active-directory-domain-service-enable.md
 [hd-insights]: ../hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds.md
-[wvd]: ../virtual-desktop/overview.md
+[avd]: ../virtual-desktop/overview.md
 [availability-zones]: ../availability-zones/az-overview.md
 [howto-migrate]: migrate-from-classic-vnet.md
 [attributes]: synchronization.md#attribute-synchronization-and-mapping-to-azure-ad-ds

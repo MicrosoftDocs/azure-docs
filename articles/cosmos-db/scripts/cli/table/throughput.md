@@ -27,7 +27,7 @@ The script in this article creates a Table API table then updates the throughput
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/throughput.sh" range="4-57":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/throughput.sh" id="FullScript":::
 
 ## Clean up resources
 
@@ -43,12 +43,12 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Creates an Azure Cosmos DB account. |
-| [az cosmosdb table create](/cli/azure/cosmosdb/table#az_cosmosdb_table_create) | Creates an Azure Cosmos Table API table. |
-| [az cosmosdb table throughput update](/cli/azure/cosmosdb/table/throughput#az_cosmosdb_table_throughput_update) | Update throughput for an Azure Cosmos Table API table. |
-| [az cosmosdb table throughput migrate](/cli/azure/cosmosdb/table/throughput#az_cosmosdb_table_throughput_migrate) | Migrate throughput for an Azure Cosmos Table API table. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
+| [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) | Creates an Azure Cosmos Table API table. |
+| [az cosmosdb table throughput update](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-update) | Update throughput for an Azure Cosmos Table API table. |
+| [az cosmosdb table throughput migrate](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-migrate) | Migrate throughput for an Azure Cosmos Table API table. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

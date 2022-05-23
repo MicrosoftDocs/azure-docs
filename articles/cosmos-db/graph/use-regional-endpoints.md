@@ -77,7 +77,7 @@ foreach (string gremlinAccountRegion in gremlinAccountRegions)
 
 ## SDK endpoint discovery
 
-Application can use [Azure Cosmos DB SDK](../sql-api-sdk-dotnet.md) to discover read and write locations for Graph account. These locations can change at any time through manual reconfiguration on the server side or automatic failover.
+Application can use [Azure Cosmos DB SDK](../sql-api-sdk-dotnet.md) to discover read and write locations for Graph account. These locations can change at any time through manual reconfiguration on the server side or service-managed failover.
 
 TinkerPop Gremlin SDK doesn't have an API to discover Cosmos DB Graph database account regions. Applications that need runtime endpoint discovery need to host 2 separate SDKs in the process space.
 

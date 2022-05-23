@@ -42,10 +42,8 @@ Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [G
  
 Key Features:    
 - [Premium Storage](premium-storage-performance.md)             
-- [Premium Storage caching](premium-storage-performance.md)      
-- [Ultra Disks](disks-types.md#ultra-disks)                      
+- [Premium Storage caching](premium-storage-performance.md)                       
 - [VM Generation 2](generation-2.md)   
-- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) 
 - [Ephemeral OS Disks](ephemeral-os-disks.md)  
 - NVIDIA NVLink Interconnect  
 
@@ -58,9 +56,9 @@ These features are not supported:[Live Migration](maintenance-and-updates.md), [
 
 | Size | vCPU | Memory: GiB | Temp Storage (with NVMe): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_NC24ads_A100_v4   | 24  | 220 | 1123  | 1 | 80 | 12 | 20000/200 | 4/20,000  |
-| Standard_NC48ads_A100_v4   | 48 | 440 | 2246 | 2 | 160 | 24 | 40000/400 | 8/40,000  | 
-| Standard_NC96ads_A100_v4   | 96 | 880 | 4492 | 4 | 320 | 32 | 80000/800 | 8/80,000  |
+| Standard_NC24ads_A100_v4   | 24  | 220 | 1123  | 1 | 80 | 12 | 30000/1000 | 2/20,000  |
+| Standard_NC48ads_A100_v4   | 48 | 440 | 2246 | 2 | 160 | 24 | 60000/2000 | 4/40,000  | 
+| Standard_NC96ads_A100_v4   | 96 | 880 | 4492 | 4 | 320 | 32 | 120000/4000 | 8/80,000  |
 
 1 GPU = one A100 card
 

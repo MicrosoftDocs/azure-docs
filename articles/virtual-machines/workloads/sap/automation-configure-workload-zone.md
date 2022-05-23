@@ -149,7 +149,7 @@ The table below defines the parameters used for defining the Key Vault informati
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                             | Type        |
 > | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
-> | `NFS_Provider`                     | Defines what NFS backend to use, the options are 'AFS' for Azure Files NFS or 'ANF' for Azure NetApp files, 'NONE' for NFS from the SCS server or 'NFS' for an external NFS solution.  | Optional |
+> | `NFS_provider`                     | Defines what NFS backend to use, the options are 'AFS' for Azure Files NFS or 'ANF' for Azure NetApp files, 'NONE' for NFS from the SCS server or 'NFS' for an external NFS solution.  | Optional |
 > | `transport_volume_size`               | Defines the size (in GB) for the 'transport' volume                        | Optional    |
 
 ### Azure Files NFS Support
@@ -171,11 +171,9 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `anf_subnet_name`                  | The name of the ANF subnet                                             | Optional     | |
 > | `anf_subnet_arm_id`                | The Azure resource identifier for the `ANF` subnet                     | Required     | For existing environment deployments |
 > | `anf_subnet_address_prefix`        | The address range for the `ANF` subnet                                 | Required     | For new environment deployments  |
-> | `transport_volume_size`        | Defines the size (in GB) for the 'saptransport' volume                 | Optional     |
 
 
 ## Other Parameters
-
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                             | Description                                                            | Type     | Notes                                 |

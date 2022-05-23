@@ -16,7 +16,7 @@ To simplify the management of resources, you can use an Azure Resource Manager t
 To deploy templates at the subscription level, use Azure CLI, PowerShell, REST API, or the portal.
 
 > [!TIP]
-> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [subscription deployments](../bicep/deploy-to-subscription.md).
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [subscription deployments](../bicep/deploy-to-subscription.md).
 
 ## Supported resources
 

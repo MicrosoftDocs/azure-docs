@@ -1,7 +1,7 @@
 ---
 title: 'How to: Deploy Fluid applications using Azure Static Web Apps'
 description: Detailed explanation about how Fluid applications can be hosted on Azure Static Web Apps
-author: sdeshpande3
+author: sonalivdeshpande
 ms.author: sdeshpande
 ms.date: 08/19/2021
 ms.topic: article
@@ -139,7 +139,7 @@ Run the `npm run build` command from the root directory to rebuild the app. This
 
     :::image type="content" source="../../static-web-apps/media/getting-started/extension-browse-site.png" alt-text="An image of the menu that is shown when right-clicking on a static web app. The Browse Site option is highlighted.":::
 
-1. The location of your application code, Azure Function, and build output is part of the `azure-static-web-apps-xxx-xxx-xxx.yml` workflow file located in the `/.github/workflows` directory. This file is automatically created when create the Static Web app. It defines a GitHub Action to build and deploy your Static Web app.
+1. The location of your application code, Azure Function, and build output is part of the `azure-static-web-apps-xxx-xxx-xxx.yml` workflow file located in the `/.github/workflows` directory. This file is automatically created when create the Static Web app. It defines a GitHub Actions to build and deploy your Static Web app.
 
 
 ## Clean up resources

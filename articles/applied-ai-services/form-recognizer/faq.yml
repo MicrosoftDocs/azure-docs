@@ -1,15 +1,13 @@
 ### YamlMime:FAQ
 metadata:
   title: Form Recognizer frequently asked questions (FAQ)
-  titleSuffix: Azure Cognitive Services
   description: Frequently asked questions about Form Recognizer service.
-  services: cognitive-services
   author: laujan
   manager: nitinme
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: faq
-  ms.date: 02/15/2022
+  ms.date: 05/05/2022
   ms.author: lajanuar
 
 title: Form Recognizer frequently asked questions
@@ -22,9 +20,9 @@ sections:
           What is Form Recognizer?
         answer: |
 
-          Azure Form Recognizer is a cloud-based [Azure Applied AI Service](/azure/applied-ai-services) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
+          Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
 
-          Form Recognizer use cases include automating your data processing in applications and workflows, enhancing data-driven strategies, and enriching document search capabilities.
+          Form Recognizer use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
 
           Learn more about [Form Recognizer use case](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context#example-use-cases-for-form-recognizer) scenarios.
 
@@ -43,7 +41,7 @@ sections:
         answer: |
 
            Form Recognizer's deep-learning-based universal models support many languages that can extract multi-lingual text from your images and documents, including text lines with mixed languages.
-         
+
            Language support varies by Form Recognizer service functionality. See [language support](language-support.md) for a complete list of the handwritten and printed text supported by Form Recognizer.
 
       - question: |
@@ -62,7 +60,7 @@ sections:
 
           - [AI Builder workflows](/ai-builder/create-form-processing-model?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json)
 
-          - [Azure Cognitive Search](/azure/search/cognitive-search-custom-skill-form)
+          - [Azure Cognitive Search](../../search/cognitive-search-custom-skill-form.md)
 
           - [Azure Functions](tutorial-azure-function.md)
 
@@ -78,13 +76,13 @@ sections:
 
           Form Recognizer uses OCR to detect and extract information from forms and documents supported by AI to provide more structure and information to the text extraction.
 
-          Learn more about [Form Recognizer and Applied AI Services](/azure/applied-ai-services/what-are-applied-ai-services).
+          Learn more about [Form Recognizer and Applied AI Services](../what-are-applied-ai-services.md).
 
       - question: |
            What is the accuracy score and how is it calculated?
-        answer: |   
-           The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document. 
-           
+        answer: |
+           The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document.
+
            Accuracy is measured within a percentage value range between 0% (low) and 100% (high).
 
            See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#accuracy-scores)
@@ -92,7 +90,7 @@ sections:
       - question: |
           How can I improve accuracy scores?
         answer: |
-          The accuracy of a model is influenced by variances in the visual structure of your documents. 
+          The accuracy of a model is influenced by variances in the visual structure of your documents.
 
           - Ensure that all variations of a document are included in the training dataset. Variations include different formats, for example, digital versus scanned PDFs.
 
@@ -112,7 +110,7 @@ sections:
 
            The confidence value range is a percentage between 0% (low) and 100% (high).
 
-           It's best to target a score of 80% or higher. For more sensitive cases, like financial or medical records, a score of close to 100% is recommended and you may also require human review.
+           It's best to target a score of 80% or higher. For more sensitive cases, like financial or medical records, a score of close to 100% is recommended. You may also require human review.
 
            See [Interpret and improve accuracy and confidence scores](concept-accuracy-confidence.md#confidence-scores)
 
@@ -177,7 +175,7 @@ sections:
             | Supported Language | Azure SDK client-library|API reference |Supported API version|
             | ----------- | --------|--------|:---------------------: |
             | C#/.NET| [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.3/index.html)|[.NET SDK](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
-            | Java | [4.0.0-beta.4](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.4/index.html)|[Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true )|2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
+            | Java | [4.0.0-beta.4](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.4/index.html)|[Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)|2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
             | JavaScript| [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.3/index.html)|[JavaScript SDK](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
             | Python | [3.2.0b3](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b3/index.html) |[Python SDK](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
 
@@ -185,30 +183,36 @@ sections:
            What is the difference between Form Recognizer v3.0 and v2.1 and how do I migrate to the latest version?
         answer:  |
 
-          For improved usability, Form Recognizer v3.0 introduces a fully redesigned client library. To successfully use the latest Form Recognizer API features—version 2021-09-30-preview and newer—the most recent SDK is required and your application code must be updated to use the new clients.
+          For improved usability, Form Recognizer v3.0 introduces a fully redesigned client library. To successfully use the latest Form Recognizer API features—version 2021-09-30-preview and newer, the most recent SDK is required and your application code must be updated to use the new clients.
 
           This table provides links to detailed instructions for migrating to the newest version of Form Recognizer:
 
             | Language / API | Migration guide|
             | ----------- | ----------------  |
             | REST API    | [v3](v3-migration-guide.md)|
-            | C#/.NET| [4.0.0-beta.2](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)|
-            | Java | [4.0.0-beta.3](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)|
-            | JavaScript| [4.0.0-beta.2](https://github.com/azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)|
-            | Python | [3.2.0b2](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)|
+            | C#/.NET| [4.0.0-beta.3](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)|
+            | Java | [4.0.0-beta.4](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)|
+            | JavaScript| [4.0.0-beta.3](https://github.com/azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)|
+            | Python | [3.2.0b3](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)|
 
       - question: |
             Which file formats does Form Recognizer support? Are there size limitations for input documents?
         answer:  |
 
-            - Form Recognizer extracts data from form and document images and returns a structured output from JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned) file formats.
+            - Form Recognizer extracts data from document images JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned) formats and returns a structured output.
             - For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-            - Your file size must be less than 50 MB.
+            - Your file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
             - Image dimensions must be between 50 x 50 pixels and 10000 x 10,000 pixels.
             - PDF dimensions can be a maximum of 17 x 17 inches (corresponding to Legal or A3 paper size) or smaller.
             - The total allowable size of training data is 500 pages or less.
 
             To ensure the best results, see [input requirements](concept-model-overview.md#input-requirements).
+
+      - question: |
+            How can I specify a specific range of pages to be analyzed in a document? 
+        answer:  |
+
+            There's a parameter `pages` supported in both v2.1 and v3.0 REST API that you can specify for multi-page PDF and TIFF documents. Accepted input includes single pages (for example,'1, 2' -> pages 1 and 2 will be processed), finite (for example '2-5' -> pages 2 to 5 will be processed) and open-ended ranges (for example '5-' -> all the pages from page 5 will be processed & for example, '-10' -> pages 1 to 10 will be processed). These parameters can be mixed together and ranges are allowed to overlap (for example, '-5, 1, 3, 5-10' - pages 1 to 10 will be processed). The service will accept the request if it can process at least one page of the document (for example, using '5-100' on a five page document is a valid input where page 5 will be processed). If no page range is provided, the entire document will be processed.
 
       - question: |
             Both Form Recognizer Studio and the FOTT sample labeling tool are available. Which one should I use?
@@ -250,8 +254,17 @@ sections:
           - If you find that you’re being throttled on the number of POST requests, consider adding a delay between the requests.
 
           - Increase the workload gradually. Avoid sharp changes.
+          
+          - [Create a support request](service-limits.md#create-and-submit-support-request) to increase transactions per second(TPS) limit.
 
           Learn more about Form Recognizer [service quotas and limits](service-limits.md)
+
+      - question: |
+         How long will it take to analyze a document?
+        answer: |
+          Form Recognizer is a multi-tenanted service where latency for similar documents is comparable but not always identical. The time to analyze a document depends on the size (for example, number of pages) and associated content on each page.
+          
+          Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. Occasional variability in latency and performance is inherent in any micro-service-based, stateless, asynchronous service that processes images and large documents at scale. While we're continuously scaling up the hardware and capacity and scaling capabilities, you may still see latency issues at run time.
 
   - name: Custom models
     questions:
@@ -262,7 +275,7 @@ sections:
 
             - Use text-based instead of image-based PDFs when possible. One way to identify an image-based PDF is to try selecting specific text in the document. If you can only select the entire image of the text, the document is image-based, not text-based.
 
-            - Organize your training documents by using a subfolder for each format (JPG, PNG, BMP, PDF, or TIFF).
+            - Organize your training documents by using a subfolder for each format (JPEG/JPG, PNG, BMP, PDF, or TIFF).
 
             - Use forms that have all of the available fields completed.
 
@@ -279,7 +292,7 @@ sections:
 
           - Determine if you need to use a single model or multiple models composed into a single model.
 
-          - Since model accuracy can decrease when you have different formats analyzed with a single model, plan on segmenting your dataset into folders, where each folder is a unique template. Train one model per folder and compose the resulting models into a single endpoint.
+          - Model accuracy can decrease when you have different formats analyzed with a single model. Plan on segmenting your dataset into folders, where each folder is a unique template. Train one model per folder and compose the resulting models into a single endpoint.
 
           - Custom forms rely on a consistent visual template. If your form has variations with formats and page breaks, consider segmenting your dataset to train multiple models.
 
@@ -300,11 +313,20 @@ sections:
         answer: |
            With the [Model Compose](compose-custom-models.md#create-a-composed-model) operation, you can assign up to 100 models to a single model ID.
 
-           - When you make the Analyze request with a composed model ID, Form Recognizer first classifies the form you submitted, chooses the best matching model, and then returns the results.
+           - When you make the Analyze request with a composed modelID, Form Recognizer classifies the submitted form, chooses the best model, and returns the results.
 
            - Model Compose is currently available only for custom models trained with labels.
 
            Learn more about [composed models](concept-custom.md).
+
+      - question: |
+          If the number of models I want to compose exceeds the upper limit of composed model, what are the alternatives?
+        answer: |
+           You can classify the documents before calling the custom model or consider [Custom neural model](concept-custom-neural.md):
+           
+           - Use [Read model](concept-read.md) and build a classification based on the extracted text from the documents and certain phrases using code, regular expressions, search etc.
+
+           - If you want to extract the same fields from various structured, semi-structured, and unstructured documents. Consider using the deep learning [custom neural model](concept-custom-neural.md). Learn more about the [differences between custom template model and custom neural model](concept-custom.md#compare-model-features).
 
       - question: |
           How do I refine a model beyond the initial training?
@@ -340,6 +362,11 @@ sections:
              - Do your tables span across multiple pages? If so, to avoid having to label all of the pages, split the PDF into pages prior to sending it to Form Recognizer. Following the analysis, post-process the pages to a single table.
 
              - If you’re creating custom models, refer to [Labeling as tables](quickstarts/try-v3-form-recognizer-studio.md#labeling-as-tables). Dynamic tables have a variable number of rows for each given column. Fixed tables have a constant number of rows for each given column.
+        
+      - question: |
+            How can I move my trained models from one environment (like beta) to another (like production)?
+        answer: |
+            The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. Follow [this document](disaster-recovery.md) for detailed instructions.
 
   - name: Storage account
     questions:
@@ -354,11 +381,27 @@ sections:
       - question: |
            If my storage account is behind a VNet or firewall, how do I give Form Recognizer access to my storage account data?
         answer: |
-            If you have an Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer can’t directly access your storage account. However, Private Azure storage account access and authentication are supported by [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
+            If you have an Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer can’t directly access your storage account. However, Private Azure storage account access and authentication are supported by [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
 
             If you intend to analyze your private storage account data with FOTT, the tool must be deployed behind the VNet or firewall.
 
             Learn how to [create and use a managed identity for your Form Recognizer resource](managed-identities.md)
+
+  - name: Form Recognizer Studio
+    questions:
+      - question: |
+          I have multiple pages in a document. Why are there only two pages analyzed in Form Recognizer Studio?
+        answer: |
+
+          For free (F0) tier resources, only the first two pages are analyzed no matter you're using Form Recognizer Studio, REST API or SDKs. In Form Recognizer Studio, select the top right gear button (Settings), choose the Resources tab and check the Price Tier you're using to analyze the documents. Change to an S0 paid resource if you want to analyze all pages in a document.
+
+      - question: |
+          How can I change directories or subscriptions to use in Form Recognizer Studio?
+        answer: |
+
+          - In Form Recognizer Studio, you can select the top right gear button (Settings), under Directory, search and select the directory from the list and select on Switch Directory. You'll be prompted to sign in again after switching directory.
+          
+          - Switching subscriptions or resources can be done under Settings -> Resource tab.
 
   - name: Containers
     questions:
@@ -367,7 +410,27 @@ sections:
         answer: |
 
           Yes, Form Recognizer containers require internet connectivity to send [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure.
-          Learn more about [Azure container security](/azure/container-instances/container-instances-image-security#security-recommendations-for-azure-container-instances).
+          Learn more about [Azure container security](../../container-instances/container-instances-image-security.md#security-recommendations-for-azure-container-instances).
+
+      - question: |
+          What's the difference between disconnected and connected container?
+        answer: |
+
+          - Form Recognizer connected containers send billing information to Azure using a Form Recognizer resource on your Azure account. With connected containers, internet connectivity is required to send [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure.
+
+          - [Disconnected containers](../../cognitive-services/containers/disconnected-containers.md) enable you to use APIs disconnected from the internet. [Billing information](../../cognitive-services/containers/disconnected-container-faq.yml#how-does-billing-work) isn't sent via the internet, instead you're charged based upon a purchased commitment tier. Currently, disconnected container usage is available for Form Recognizer custom and invoice models. The model capabilities provided in connected and disconnected containers are the same and supported by Form Recognizer v2.1.
+
+      - question: |
+          What data do connected containers send to the cloud?
+        answer: |
+
+          Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. Connected containers don't send customer data, such as the image or text that's being analyzed, to Microsoft. See the [Cognitive Services container FAQ](../../cognitive-services/containers/disconnected-container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
+
+      - question: |
+          Can I use local storage for the Form Recognizer Sample Labeling Tool (FOTT) container?
+        answer: |
+
+          FOTT has a version that uses local storage. The version needs to be installed on a Windows machine. You can install it from [this location](https://github.com/microsoft/OCR-Form-Tools/releases/download/v2.1-ga/oflt-2.1.3-win32.exe). On the project page, specify the Label folder URI as /shared or /shared/sub-dir if your labeling files are in a sub directory. All other Form Recognizer Sample Labeling Tool behavior is the same as the hosted service.
 
   - name: Security and Privacy
     questions:
@@ -376,11 +439,11 @@ sections:
         answer: |
           Each request to an Azure service must include an authentication header. You can authenticate a request with several methods:
 
-          - [Authenticate](create-a-form-recognizer-resource.md?#get-endpoint-url-and-api-keys) with a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) subscription key.
+          - [Authenticate](create-a-form-recognizer-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
 
-          - [Authenticate](/azure/cognitive-services/authentication?context=%2Fazure%2Fapplied-ai-services%2Fform-recognizer%2Fcontext%2Fcontext&tabs=powershell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
+          - [Authenticate](../../cognitive-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
 
-          - [Enable](/azure/applied-ai-services/form-recognizer/encrypt-data-at-rest#enable-customer-managed-keys-for-your-resource) customer-managed keys.
+          - [Enable](./encrypt-data-at-rest.md#enable-customer-managed-keys-for-your-resource) customer-managed keys.
 
           - [Authorize](managed-identities.md#enable-a-system-assigned-managed-identity) managed identities.
 
@@ -391,14 +454,19 @@ sections:
 
           Learn more about [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context).
 
+      - question: |
+          How are my trained custom models stored and utilized in Form Recognizer?
+        answer: |
+          The Custom model feature allows customers to build custom models from training data stored in customer’s Azure blob storage locations. The interim outputs after analysis and labeling are stored in the same location. The trained custom models are stored in Azure storage in the same region and logically isolated with their Azure subscription and API credentials.
+
   - name: More help and support
     questions:
       - question: |
             Where can I find more solutions to my Azure Form Recognizer questions?
         answer: |
-             [Microsoft Q & A](https://docs.microsoft.com/answers/topics/azure-form-recognizer.html) is the home for technical questions and answers at Microsoft. You can filter queries specifically related to Form Recognizer.
+             [Microsoft Q & A](/answers/topics/azure-form-recognizer.html) is the home for technical questions and answers at Microsoft. You can filter queries specific to Form Recognizer.
 
       - question: |
             What should I do if specific text isn’t recognized or recognized incorrectly when labeling documents?
         answer: |
-            We continually update and improve the Form Recognizer OCR model. Please reach out to the Form Recognizer team: [formrecog_contact@microsoft.com](mailto:formrecog_contact@microsoft.com). If possible, share a sample document with the issue highlighted.
+            We continually update and improve the Form Recognizer OCR model. You can reach out to the Form Recognizer team: [formrecog_contact@microsoft.com](mailto:formrecog_contact@microsoft.com). If possible, share a sample document with the issue highlighted.

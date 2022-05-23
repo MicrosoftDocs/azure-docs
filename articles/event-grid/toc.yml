@@ -51,7 +51,11 @@
   - name: Email when VM changes
     href: monitor-virtual-machine-changes-event-grid-logic-app.md
   - name: Resize uploaded images
-    href: resize-images-on-storage-blob-upload-event.md
+    items:
+    - name: Upload image data in the cloud with Azure Storage
+      href: storage-upload-process-images.md
+    - name: Automate resizing uploaded images using Event Grid
+      href: resize-images-on-storage-blob-upload-event.md
   - name: Trigger Automation runbook
     href: ensure-tags-exists-on-new-virtual-machines.md
   - name: Email when IoT Hub device disconnects
@@ -65,26 +69,13 @@
   - name: Stream data from Event Hubs
     href: event-grid-event-hubs-integration.md
   - name: Route Media Services events
-    href: ../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    href: /azure/media-services/latest/monitoring/job-state-events-cli-how-to
   - name: Route to Hybrid Connection
     href: custom-event-to-hybrid-connection.md
 - name: Samples
   items:
   - name: Azure CLI
-    href: cli-samples.md
-    items:
-    - name: Create custom topic
-      href: scripts/event-grid-cli-create-custom-topic.md
-    - name: Subscribe to Azure subscription
-      href: scripts/event-grid-cli-azure-subscription.md
-    - name: Subscribe to Blob storage
-      href: scripts/event-grid-cli-blob.md
-    - name: Subscribe to custom topic
-      href: scripts/event-grid-cli-subscribe-custom-topic.md
-    - name: Subscribe to resource group
-      href: scripts/event-grid-cli-resource-group.md
-    - name: Subscribe and filter events for resource group
-      href: scripts/event-grid-cli-resource-group-filter.md
+    href: scripts/event-grid-cli-subscribe-custom-topic.md
   - name: Azure PowerShell
     href: powershell-samples.md
     items:
@@ -148,6 +139,8 @@
         href: event-schema-event-hubs.md
       - name: Azure FarmBeats
         href: event-schema-farmbeats.md
+      - name: Azure Health Data Services
+        href: event-schema-azure-health-data-services.md
       - name: Azure IoT Hub
         href: event-schema-iot-hub.md
       - name: Azure Key Vault
@@ -172,14 +165,14 @@
         href: event-schema-subscriptions.md
   - name: Partner Events
     items:
-    - name: Overview of Partner Events
+    - name: Partner Events overview (customers)
       href: partner-events-overview.md
+    - name: Partner Events overview (partners)
+      href: partner-events-overview-for-partners.md     
     - name: Event sources (publishers)
       items:
       - name: Auth0
         href: auth0-overview.md
-    - name: Partner onboarding overview 
-      href: partner-onboarding-overview.md
   - name: Event Domains
     href: event-domains.md
   - name: Event schema formats
@@ -265,8 +258,12 @@
     items:
     - name: Onboard as a partner
       href: onboard-partner.md
+    - name: Subscribe to partner events
+      href: subscribe-to-partner-events.md
     - name: Subscribe to Auth0 events
       href: auth0-how-to.md
+    - name: Deliver events to partner destinations
+      href: deliver-events-to-partner-destinations.md
   - name: Get access keys for topics or domains
     href: get-access-keys.md
   - name: Publish events custom topics using access keys
@@ -352,7 +349,7 @@
   - name: Python
     href: /python/api/overview/azure/event-grid
   - name: Node.js
-    href: /javascript/api/overview/azure/eventgrid  
+    href: /javascript/api/overview/azure/event-grid  
   - name: Quotas and limits
     href: quotas-limits.md
   - name: Subscription schema

@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 This article describes how to scope your deployment to a resource group. You use an Azure Resource Manager template (ARM template) for the deployment. The article also shows how to expand the scope beyond the resource group in the deployment operation.
 
 > [!TIP]
-> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [resource group deployments](../bicep/deploy-to-resource-group.md).
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [resource group deployments](../bicep/deploy-to-resource-group.md).
 
 ## Supported resources
 

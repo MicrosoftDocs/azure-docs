@@ -5,8 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 11/12/2021
-ms.custom: mvc
+ms.date: 04/27/2022
+ms.custom: mvc, subject-rbac-steps
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 ---
 
@@ -55,24 +55,29 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Screenshot of search box to search for the Azure subscription.](./media/tutorial-discover-physical/search-subscription.png)
 
-2. In the **Subscriptions** page, select the subscription in which you want to create the project.
-3. In the subscription, select **Access control (IAM)** > **Check access**.
-4. In **Check access**, search for the relevant user account.
-5. In **Add a role assignment**, click **Add**.
+1. Select **Access control (IAM)**.
 
-    ![Screenshot of searching for a user account to check access and assign a role.](./media/tutorial-discover-physical/azure-account-access.png)
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-6. In **Add role assignment**, select the Contributor or Owner role, and select the account (azmigrateuser in our example). Then click **Save**.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-    ![Screenshot of the Add Role assignment page to assign a role to the account.](./media/tutorial-discover-physical/assign-role.png)
+    | Setting | Value |
+    | --- | --- |
+    | Role | Contributor or Owner |
+    | Assign access to | User |
+    | Members | azmigrateuser |
+
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 1. To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps.**
+
 1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+
 1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
     ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-physical/register-apps.png)
 
-9. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Prepare physical servers
 
@@ -175,7 +180,7 @@ To set up the appliance, you:
 
 ### 1. Generate the project key
 
-1. In **Migration Goals** > **Servers** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of physical or virtual servers. The name should be alphanumeric with 14 characters or fewer.
 1. Click on **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
@@ -200,7 +205,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 7745817a5320628022719f24203ec0fbf56a0e0f02b4e7713386cbc003f0053c
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud with public or private endpoint connectivity.
@@ -249,28 +254,37 @@ Set up the appliance for the first time.
 
    Alternately, you can open the app from the desktop by clicking the app shortcut.
 1. Accept the **license terms**, and read the third-party information.
-1. In the web app > **Set up prerequisites**, do the following:
-   - **Connectivity**: The app checks that the server has internet access. If the server uses a proxy:
-     - Click on **Set up proxy** to and specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
-     - Specify credentials if the proxy needs authentication.
-     - Only HTTP proxy is supported.
-     - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
-   - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for server discovery to work properly.
-   - **Install updates**: Azure Migrate: Discovery and assessment checks that the appliance has the latest updates installed. After the check completes, you can click on **View appliance services** to see the status and versions of the components running on the appliance.
 
-### Register the appliance with Azure Migrate
+#### Set up prerequisites and register the appliance
 
-1. Paste the **project key** copied from the portal. If you do not have the key, go to **Azure Migrate: Discovery and assessment** > **Discover** > **Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
-1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
+In the configuration manager, select **Set up prerequisites**, and then complete these steps:
+1. **Connectivity**: The appliance checks that the server has internet access. If the server uses a proxy:
+    - Select **Setup proxy** to specify the proxy address (in the form `http://ProxyIPAddress` or `http://ProxyFQDN`, where *FQDN* refers to a *fully qualified domain name*) and listening port.
+    - Enter credentials if the proxy needs authentication.
+    - If you have added proxy details or disabled the proxy or authentication, select **Save** to trigger connectivity and check connectivity again.
+    
+        Only HTTP proxy is supported.
+1. **Time sync**: Check that the time on the appliance is in sync with internet time for discovery to work properly.
+1. **Install updates and register appliance**: To run auto-update and register the appliance, follow these steps:
 
-    :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code.":::
+    :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 
-1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, paste the device code and sign-in using your Azure username and password. Sign-in with a PIN isn't supported.
-1. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
-1. After you have successfully logged in, go back to the previous tab with the appliance configuration manager.
-1. If the Azure user account used for logging has the right permissions on the Azure resources created during key generation, the appliance registration will be initiated.
-1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
+    > [!NOTE]
+    > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
+
+    1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
+	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
+    3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
+    
+        :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
+    4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
+	    > [!NOTE]
+        > If you close the login tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
+	5. After you successfully log in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to log in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
+
+        After the appliance is successfully registered, to see the registration details, select **View details**.
+
+You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites.
 
 ## Start continuous discovery
 
@@ -284,6 +298,7 @@ Now, connect from the appliance to the physical servers to be discovered, and st
     - Azure Migrate supports the SSH private key generated by ssh-keygen command using RSA, DSA, ECDSA, and ed25519 algorithms.
     - Currently Azure Migrate does not support passphrase-based SSH key. Use an SSH key without a passphrase.
     - Currently Azure Migrate does not support SSH private key file generated by PuTTY.
+    - The SSH key file supports CRLF to mark a line break in the text file that you upload. SSH keys created on Linux systems most commonly have LF as their newline character so you can convert them to CRLF by opening the file in vim, typing `:set textmode` and saving the file.
     - Azure Migrate supports OpenSSH format of the SSH private key file as shown below:
     
     ![Screenshot of SSH private key supported format.](./media/tutorial-discover-physical/key-format.png)

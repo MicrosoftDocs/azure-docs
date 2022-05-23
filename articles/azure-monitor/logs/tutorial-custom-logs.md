@@ -24,15 +24,15 @@ In this tutorial, you learn to:
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
-- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 
 
 ## Overview of tutorial
-In this tutorial, you'll use a PowerShell script to send sample Apache access logs over HTTP to the API endpoint. This will require a script to convert this data to the JSON format that's required for the Azure Monitor custom logs API. The data will further be converted with a transformation in a data collection rule (DCR) that filters out records that shouldn't be ingested and create the columns required for the table that the table will be sent to. Once the configuration is complete, you'll send sample data from the command line and then inspect the results in Log Analytics.
+In this tutorial, you'll use a PowerShell script to send sample Apache access logs over HTTP to the API endpoint. This will require a script to convert this data to the JSON format that's required for the Azure Monitor custom logs API. The data will further be converted with a transformation in a data collection rule (DCR) that filters out records that shouldn't be ingested and create the columns required for the table that the data will be sent to. Once the configuration is complete, you'll send sample data from the command line and then inspect the results in Log Analytics.
 
 
 ## Configure application
-Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) for this tutorial.
+Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) for this tutorial.
 
 1. From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
 
@@ -232,7 +232,7 @@ Instead of directly configuring the schema of the table, the portal allows you t
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData.value with 
+    | parse RawData with 
     ClientIP:string
     ' ' *
     ' ' *

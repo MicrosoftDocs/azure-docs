@@ -82,7 +82,7 @@ To upload another set of images, return to the top of this section and repeat th
 
 ## Train the detector
 
-To train the detector model, select the **Train** button. The detector uses all of the current images and their tags to create a model that identifies each tagged object.
+To train the detector model, select the **Train** button. The detector uses all of the current images and their tags to create a model that identifies each tagged object. This process can take several minutes.
 
 ![The train button in the top right of the web page's header toolbar](./media/getting-started-build-a-classifier/train01.png)
 

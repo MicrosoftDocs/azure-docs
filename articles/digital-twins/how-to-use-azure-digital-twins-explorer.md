@@ -41,7 +41,7 @@ Doing so will bring up the **Azure Digital Twins URL modal**, where you can ente
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Azure Digital Twins URL modal displays an editable box containing https:// and a host name." lightbox="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png":::
 
 >[!NOTE]
->At this time, the ability to switch contexts within the app isn't available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the chosen instance in the Azure portal, or may connect to a certain instance through a [direct link to the environment](#link-to-your-environment).
+>At this time, the ability to switch contexts within the app isn't available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the chosen instance in the Azure portal, or may connect to a certain instance through a [direct link to the environment](#link-to-your-environment-and-specific-query).
 
 
 ## Query your digital twin graph
@@ -50,7 +50,9 @@ You can use the **Query Explorer** panel to run [queries](concepts-query-languag
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/query-explorer-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Query Explorer panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/query-explorer-panel.png":::
 
-Enter the query you want to run and select the **Run Query** button. Doing so will load the query results in the **Twin Graph** panel.
+Enter the query you want to run. If you want to enter a query in multiple lines, you can use SHIFT + ENTER to add a new line to the query box. 
+
+Select the **Run Query** button to display query results in the **Twin Graph** panel.
 
 >[!NOTE]
 > Query results containing relationships can only be rendered in the **Twin Graph** panel if the results include at least one twin as well. While queries that return only relationships are possible in Azure Digital Twins, you can only view them in Azure Digital Twins Explorer by using the [Output panel](#accessibility-and-advanced-settings).
@@ -254,7 +256,7 @@ Once the two twins are simultaneously selected, right-click the target twin to b
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA and Consumer twins are selected, and a menu shows the option to Add relationships." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png":::
 
-Doing so will bring up the **Create Relationship** dialog, which shows the source twin and target twin of the relationship, followed by a **Relationship** dropdown menu that contains the types of relationship that the source twin can have (defined in its DTDL model). Select an option for the relationship type, and **Save** the new relationship.
+Doing so will bring up the **Create Relationship** dialog, populated with the source twin and target twin of the relationship (you can also use the **Swap Relationship** icon to switch them). There is a **Relationship** dropdown menu that contains the types of relationship that the source twin can have, according to its DTDL model. Select an option for the relationship type, and **Save** the new relationship.
 
 ### Edit twin and relationship properties
 
@@ -528,11 +530,11 @@ This action enables a **Download** link in the Twin Graph box. Select it to down
 >[!TIP]
 >This file can be edited and/or re-uploaded to Azure Digital Twins through the [import](#import-graph) feature.
 
-## Link to your environment
+## Link to your environment and specific query
 
 You can share your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to send your Azure Digital Twins Explorer environment to someone else and verify they have the permissions to access it.
 
-To share your environment, you can send a link to the recipient that will open an Azure Digital Twins Explorer window connected to your instance. Use the link below and replace the placeholders for your *tenant ID* and the *host name* of your Azure Digital Twins instance. 
+To share your environment in general , you can send a link to the recipient that will open an Azure Digital Twins Explorer window connected to your instance. Use the link below and replace the placeholders for your *tenant ID* and the *host name* of your Azure Digital Twins instance. 
 
 `https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-host-name>`
 
@@ -545,7 +547,7 @@ Here's an example of a URL with the placeholder values filled in:
 
 For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
 
-### Link with a query
+### Link to a specific query
 
 You may want to share an environment and specify a query to execute upon landing, to highlight a subgraph or custom view for a teammate. To do so, start with the URL for the environment and add the query text to the URL as a querystring parameter:
 

@@ -7,7 +7,7 @@ ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: [mvc, iot-central-frontdoor]
 
 # This article applies to solution builders.
 ---
@@ -54,7 +54,7 @@ Built-in features of IoT Central you can use to extract business value include:
   
   - To learn more about dashboards, see [Create and manage multiple dashboards](howto-manage-dashboards.md) and [Configure the application dashboard](howto-manage-dashboards.md).
   
-  - When a device connects to an IoT Central, the device is associated with a device template for the device type. A device template has customizable views that an operator uses to manage individual devices. You can create and customize the available views for each device type. To learn more, see [Add views](howto-set-up-template.md#views).
+  - When a device connects to an IoT Central, the device is assigned to a device template for the device type. A device template has customizable views that an operator uses to manage individual devices. You can create and customize the available views for each device type. To learn more, see [Add views](howto-set-up-template.md#views).
 
 - Use built-in rules and analytics:
 
@@ -95,7 +95,7 @@ To learn more, see [Transform data for IoT Central](howto-transform-data.md). Fo
 
 You can use the data export and rules capabilities in IoT Central to integrate with other service. To learn more, see:
 
-- [Export IoT data to cloud destinations using data export](howto-export-data.md)
+- [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 - [Transform data for IoT Central](howto-transform-data.md)
 - [Use workflows to integrate your Azure IoT Central application with other cloud services](howto-configure-rules-advanced.md)
 - [Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid](howto-create-custom-rules.md)

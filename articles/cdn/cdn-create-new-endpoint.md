@@ -5,13 +5,13 @@ author: duongau
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
 ms.topic: quickstart
-ms.date: 04/30/2020
+ms.date: 04/06/2022
 ms.author: duau
 ms.custom: mvc, mode-other
 ---
 # Quickstart: Create an Azure CDN profile and endpoint
 
-In this quickstart, you enable Azure Content Delivery Network (CDN) by creating a new CDN profile, which is a collection of one or more CDN endpoints. After you have created a profile and an endpoint, you can start delivering content to your customers.
+In this quickstart, you enable Azure Content Delivery Network (CDN) by creating a new CDN profile, which is a collection of one or more CDN endpoints. After you've created a profile and an endpoint, you can start delivering content to your customers.
 
 ## Prerequisites
 
@@ -31,8 +31,8 @@ After you've created a CDN profile, you use it to create an endpoint.
 1. In the Azure portal, select in your dashboard the CDN profile that you created. If you can't find it, you can either open the resource group in which you created it, or use the search bar at the top of the portal, enter the profile name, and select the profile from the results.
    
 1. On the CDN profile page, select **+ Endpoint**.
-   
-    ![CDN profile](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
+    
+    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-select-endpoint.png" alt-text="Create CDN endpoint.":::
    
     The **Add an endpoint** pane appears.
 
@@ -49,16 +49,17 @@ After you've created a CDN profile, you use it to create an endpoint.
     | **Origin port** | Leave the default port values. | 
     | **Optimized for** | Leave the default selection, **General web delivery**. |
 
-    ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-add-endpoint.png" alt-text="Add endpoint pane.":::
+ 
 
 3. Select **Add** to create the new endpoint. After the endpoint is created, it appears in the list of endpoints for the profile.
-    
-   ![CDN endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
+
+    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-endpoint-success.png" alt-text="View added endpoint.":::
     
    The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Akamai** usually completes within one minute, **Standard Microsoft** in 10 minutes, and **Standard Verizon** and **Premium Verizon** in up to 30 minutes.
 
 > [!NOTE]
-> For *Verizon CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Verizon supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make those configuration changes again.
+> For *Verizon CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Verizon supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make the configuration change again.
 
 ## Clean up resources
 
@@ -66,7 +67,7 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 
 1. From the left-hand menu in the Azure portal, select **Resource groups** and then select **CDNQuickstart-rg**.
 
-2. On the **Resource group** page, select **Delete resource group**, enter *CDNQuickstart-rg* in the text box, then select **Delete**. This action delete the resource group, profile, and endpoint that you created in this quickstart.
+2. On the **Resource group** page, select **Delete resource group**, enter *CDNQuickstart-rg* in the text box, then select **Delete**. This action deletes the resource group, profile, and endpoint that you created in this quickstart.
 
 ## Next steps
 

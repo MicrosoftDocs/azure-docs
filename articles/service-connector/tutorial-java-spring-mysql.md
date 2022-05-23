@@ -85,7 +85,7 @@ version | 5.7 | The MySQL major version.
 
 
 > [!NOTE]
-> For more information about the `az mysql up` command and its additional parameters, see the [Azure CLI documentation](/cli/azure/mysql#az_mysql_up).
+> For more information about the `az mysql up` command and its additional parameters, see the [Azure CLI documentation](/cli/azure/mysql#az-mysql-up).
 
 Once your server is created, it comes with the following settings:
 

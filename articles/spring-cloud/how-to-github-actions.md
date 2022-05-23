@@ -225,7 +225,7 @@ jobs:
     runs-on: ubuntu-latest
     name: deploy to production with artifact
     steps:
-      - name: Checkout Github Action
+      - name: Checkout GitHub Action
         uses: actions/checkout@v2
         
       - name: Set up JDK 1.8
@@ -267,7 +267,7 @@ jobs:
     runs-on: ubuntu-latest
     name: deploy to production with soruce code
     steps:
-      - name: Checkout Github Action
+      - name: Checkout GitHub Action
         uses: actions/checkout@v2
 
       - name: Login via Azure CLI
@@ -405,5 +405,5 @@ If your action runs in error, for example, if you haven't set the Azure credenti
 ## Next steps
 
 * [Key Vault for Spring Cloud GitHub actions](./github-actions-key-vault.md)
-* [Azure Active Directory service principals](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
+* [Azure Active Directory service principals](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)

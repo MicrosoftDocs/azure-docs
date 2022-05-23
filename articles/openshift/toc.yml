@@ -1,4 +1,4 @@
-- name: Azure Red Hat OpenShift
+- name: Azure Red Hat OpenShift 
   href: index.yml
 - name: Overview
   expanded: true
@@ -18,6 +18,8 @@
   items:
     - name: Deploy an ARO cluster with Azure portal 
       href: quickstart-portal.md
+    - name: Deploy an Azure Red Hat OpenShift cluster with an ARM template or Bicep
+      href: quickstart-openshift-arm-bicep-template.md
 - name: How-to guides
   items:
     - name: Cluster operations
@@ -44,12 +46,14 @@
           href: howto-create-a-storageclass.md
         - name: Use the built-in container registry
           href: built-in-container-registry.md
-        - name: Use Azure Container registry
+        - name: Use Azure Container registry 
           href: howto-use-acr-with-aro.md
-    - name: Security and authentication
+    - name: Security and authentication 
       items:
-        - name: Configure Azure Active Directory authentication (CLI)
-          href: configure-azure-ad-cli.md
+        - name: Secure OpenShift with Azure Front Door
+          href: howto-secure-openshift-with-front-door.md
+        - name: Create and use a service principal
+          href: howto-create-service-principal.md
         - name: Configure Azure Active Directory authentication (Portal)
           href: configure-azure-ad-ui.md
         - name: Update pull secret for an ARO cluster
@@ -117,10 +121,11 @@
   items:
     - name: Networking
       href: concepts-networking.md
+      items:
+      - name: Overview of egress lockdown
+        href: concepts-egress-lockdown.md
     - name: Migrate from ARO 3.11 to ARO 4
       href: migration.md
-    - name: Overview of egress lockdown
-      href: concepts-egress-lockdown.md
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI
@@ -133,7 +138,7 @@
   items:
     - name: Frequently asked questions
       href: openshift-faq.yml
-    - name: Azure Red Hat Openshift service definition
+    - name: Azure Red Hat OpenShift service definition
       href: openshift-service-definitions.md
     - name: Troubleshooting
       href: troubleshoot.md

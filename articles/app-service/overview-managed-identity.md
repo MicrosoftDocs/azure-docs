@@ -144,6 +144,9 @@ First, you'll need to create a user-assigned identity resource.
 1. Search for the identity you created earlier and select it. Click **Add**.
 
     ![Managed identity in App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
+    
+> [!IMPORTANT]
+> If you select **Add** after you select a user-assigned identity to add, your application will restart.
 
 # [Azure CLI](#tab/cli)
 
@@ -291,7 +294,9 @@ This response is the same as the [response for the Azure AD service-to-service a
 > [!NOTE]
 > When connecting to Azure SQL data sources with [Entity Framework Core](/ef/core/), consider [using Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication), which provides special connection strings for managed identity connectivity. For an example, see [Tutorial: Secure Azure SQL Database connection from App Service using a managed identity](tutorial-connect-msi-sql-database.md).
 
-For .NET apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme?). See the respective documentation headings of the client library for information:
+For .NET apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme?). For detailed guidance, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
+
+See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/dotnet/api/overview/azure/identity-readme#getting-started)
 - [Access Azure service with a system-assigned identity](/dotnet/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
@@ -301,7 +306,9 @@ The linked examples use [`DefaultAzureCredential`](/dotnet/api/overview/azure/id
 
 # [JavaScript](#tab/javascript)
 
-For Node.js apps and JavaScript functions, the simplest way to work with a managed identity is through the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?). See the respective documentation headings of the client library for information:
+For Node.js apps and JavaScript functions, the simplest way to work with a managed identity is through the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?). For detailed guidance, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
+
+See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/javascript/api/overview/azure/identity-readme#install-the-package)
 - [Access Azure service with a system-assigned identity](/javascript/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
@@ -313,7 +320,9 @@ For more code examples of the Azure Identity client library for JavaScript, see 
 
 # [Python](#tab/python)
 
-For Python apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme). See the respective documentation headings of the client library for information:
+For Python apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme). For detailed guidance, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
+
+See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/python/api/overview/azure/identity-readme#getting-started)
 - [Access Azure service with a system-assigned identity](/python/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
@@ -323,7 +332,9 @@ The linked examples use [`DefaultAzureCredential`](/python/api/overview/azure/id
 
 # [Java](#tab/java)
 
-For Java apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Java](/java/api/overview/azure/identity-readme). See the respective documentation headings of the client library for information:
+For Java apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Java](/java/api/overview/azure/identity-readme). For detailed guidance, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
+
+See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/java/api/overview/azure/identity-readme#include-the-package)
 - [Access Azure service with a system-assigned identity](/java/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
@@ -411,9 +422,6 @@ To remove all identities in an ARM template:
 > There is also an application setting that can be set, WEBSITE_DISABLE_MSI, which just disables the local token service. However, it leaves the identity in place, and tooling will still show the managed identity as "on" or "enabled." As a result, use of this setting is not recommended.
 
 ## REST endpoint reference
-
-> [!NOTE]
-> An older version of this endpoint, using the "2017-09-01" API version, used the `secret` header instead of `X-IDENTITY-HEADER` and only accepted the `clientid` property for user-assigned. It also returned the `expires_on` in a timestamp format. `MSI_ENDPOINT` can be used as an alias for `IDENTITY_ENDPOINT`, and `MSI_SECRET` can be used as an alias for `IDENTITY_HEADER`. This version of the protocol is currently required for Linux Consumption hosting plans.
 
 An app with a managed identity makes this endpoint available by defining two environment variables:
 

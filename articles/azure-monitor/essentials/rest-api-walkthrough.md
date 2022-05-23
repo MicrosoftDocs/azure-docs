@@ -2,13 +2,12 @@
 title: Azure Monitoring REST API walkthrough
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 05/09/2022
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
 
 # Azure Monitoring REST API walkthrough
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 This article shows you how to perform authentication so your code can use the [Microsoft Azure Monitor REST API Reference](/rest/api/monitor/).
 
@@ -48,7 +47,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to obtain the authentication token.
+To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) to obtain the authentication token.
 
 ```powershell
 $ClientID           = "{client_id}"

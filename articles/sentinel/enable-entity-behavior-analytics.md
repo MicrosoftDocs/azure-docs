@@ -33,7 +33,8 @@ To enable or disable this feature (these prerequisites are not required to use t
 - Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md).
 
 > [!NOTE]
-> No special license is required to add UEBA functionality to Microsoft Sentinel, but **additional charges** may apply.
+> - No special license is required to add UEBA functionality to Microsoft Sentinel, and there's no additional cost for using it.
+> - However, since UEBA generates new data and stores it in new tables that UEBA creates in your Log Analytics workspace, **additional data storage charges** will apply. 
 
 ## How to enable User and Entity Behavior Analytics
 

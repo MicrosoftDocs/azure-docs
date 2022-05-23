@@ -2,8 +2,8 @@
 title: Quickstart - Add VOIP calling to a web app using Azure Communication Services
 description: In this tutorial, you learn how to use the Azure Communication Services Calling SDK for JavaScript
 author: ddematheu
-ms.author: nimag
-ms.date: 03/10/2021
+ms.author: dademath
+ms.date: 03/21/2022
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -17,13 +17,13 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
+- [Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 - An active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../access-tokens.md).
 
 [!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
-Here's the code:
+Here's the html:
 
 ```html
 <!DOCTYPE html>
@@ -59,12 +59,12 @@ Here's the code:
         Hang Up
       </button>
     </div>
-    <script src="./bundle.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
 ```
 
-Create a file in the root directory of your project called **client.js** to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements so we can attach our business logic. 
+Create a file in the root directory of your project called **app.js** to contain the application logic for this quickstart. Add the following code to import the calling client and get references to the DOM elements so we can attach our business logic. 
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
@@ -94,7 +94,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` which will enable us to make and receive calls. 
 
-Add the following code to **client.js**:
+Add the following code to **app.js**:
 
 ```javascript
 submitToken.addEventListener("click", async () => {
@@ -119,8 +119,9 @@ Add an event handler to initiate a call when the `callButton` is clicked:
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
-    // To call an ACS communication user, use {communicationUserId: 'ACS_USER_ID'}.
-    // To call echobot, use {id: '8:echo123'}.
+
+    // To call an Azure Communication Services communication user, use {communicationUserId: 'ACS_USER_ID'}.
+    // To call echo bot, use {id: '8:echo123'}.
     call = callAgent.startCall(
         [{ communicationUserId: userToCall }],
         {}
@@ -151,17 +152,13 @@ The `forEveryone` property ends the call for all call participants.
 
 ## Run the code
 
-Use the `webpack-dev-server` to build and run your app. Run the following command to bundle application host in on a local webserver:
+Use the command `npx parcel index.html` to run your application.
 
-```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
-```
-
-Open your browser and navigate to http://localhost:8080/. You should see the following:
+Open your browser and navigate to http://localhost:1234/. You should see the following:
 
 :::image type="content" source="../../media/javascript/calling-javascript-app-2.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
 You can make an outbound VOIP call by providing a valid user access token and user ID in the corresponding text fields and clicking the **Start Call** button.
 
 Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working. Pass `{id: '8:echo123'}` to the CallAgent.startCall() API to call echobot.
-To call an ACS communication user, pass `{communicationUserId: 'ACS_USER_ID'}` to the `CallAgent.startCall()` API.
+To call an Azure Communication Services communication user, pass `{communicationUserId: 'ACS_USER_ID'}` to the `CallAgent.startCall()` API.
