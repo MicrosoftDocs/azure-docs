@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 4/29/2022
+ms.date: 5/23/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -114,7 +114,7 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 
 After updating all dependent resources with your new IPs and properly delegating your subnet, you should continue with migration as soon as possible.
 
-During migration, which takes up to three hours, the following events will occur:
+During migration, which requires up to a three hour service window, the following events will occur:
 
 - The existing App Service Environment is shut down and replaced by the new App Service Environment v3.
 - All App Service plans in the App Service Environment are converted from Isolated to Isolated v2.
@@ -137,7 +137,7 @@ There's no cost to migrate your App Service Environment. You'll stop being charg
 - **What if migrating my App Service Environment is not currently supported?**  
   You won't be able migrate using the migration feature at this time. If you have an unsupported environment and want to migrate immediately, see the [manual migration options](migration-alternatives.md). This doc will be updated as additional regions and supported scenarios become available.
 - **Will I experience downtime during the migration?**  
-  Yes, you should expect about one hour of downtime during the migration step so plan accordingly. If downtime isn't an option for you, see the [manual migration options](migration-alternatives.md).
+  Yes, you should expect about one hour of downtime during the three hour service window during the migration step so plan accordingly. If downtime isn't an option for you, see the [manual migration options](migration-alternatives.md).
 - **Will I need to do anything to my apps after the migration to get them running on the new App Service Environment?**  
   No, all of your apps running on the old environment will be automatically migrated to the new environment and run like before. No user input is needed.
 - **What if my App Service Environment has a custom domain suffix?**  
