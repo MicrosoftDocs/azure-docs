@@ -76,6 +76,8 @@
       href: ingress.md
     - name: Set up custom domains and certificates
       href: custom-domains-certificates.md
+    - name: Connect to a backing service
+      href: how-to-connect-backing-service.md
     - name: Connect multiple apps
       href: connect-apps.md
     - name: Publish revisions with GitHub Actions
