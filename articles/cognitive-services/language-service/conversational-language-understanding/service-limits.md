@@ -24,7 +24,10 @@ Use this article to learn about the data and service limits when using conversat
   |Tier|Description|Limit|
   |--|--|--|
   |F0|Free tier|You are only allowed **One** Language resource **per subscription**.|
-  |S|Paid tier|This pricing tier, you can have unlimited Language resources **per subscription**| 
+  |S |Paid tier|You can have up to 100 Language resources in the S tier per region.| 
+
+
+See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) for more information.
 
 * You can have up to **500** projects per resource.
 
