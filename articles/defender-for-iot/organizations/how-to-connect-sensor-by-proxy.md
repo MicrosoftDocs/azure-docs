@@ -7,7 +7,11 @@ ms.date: 02/06/2022
 
 # Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy (legacy)
 
+<<<<<<< HEAD
 This article describes how to connect Microsoft Defender for IoT sensors to Defender for IoT via a proxy, with no direct internet access. This is only relevant if you are using a legacy connection method via your own IoT Hub.
+=======
+This article describes how to connect Microsoft Defender for IoT sensors to Defender for IoT via a proxy, with no direct internet access. This article is only relevant if you are using a legacy connection method via your own IoT Hub.
+>>>>>>> d393b4c3d937089d2ef31ae626ad27c505da6416
 
 Starting with sensor software versions 22.1.x, updated connection methods are supported that don't require customers to have their own IoT Hub. For more information, see [Sensor connection methods](architecture-connections.md) and [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md).
 
