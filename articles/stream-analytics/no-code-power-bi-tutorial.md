@@ -44,7 +44,7 @@ Before you start, make sure you've completed the following steps:
 1. Locate the Resource Group in which the TollApp event generator was deployed. 
 2. Select the Azure Event Hubs namespace. And then under the Event Hubs section, select **entrystream** instance.
 3. Go to **Process data** under Features section and then click **start** on the **Start with blank canvas** template.
-[![Screenshot of real time dashboard.](./media/stream-analytics-no-code/real-time-dashboard-power-bi.png)](./media/stream-analytics-no-code/real-time-dashboard-power-bi.png#lightbox)
+[![Screenshot of real time dashboard template in no code editor.](./media/stream-analytics-no-code/real-time-dashboard-power-bi.png)](./media/stream-analytics-no-code/real-time-dashboard-power-bi.png#lightbox)
 4. Name your job **carsummary** and select **Create**.
 5. Configure your event hub input by specifying 
     * Consumer Group: Default
@@ -68,10 +68,10 @@ Before you start, make sure you've completed the following steps:
     * Username and password to authenticate
     * Table name as **carsummary**
     * Click **Connect**. You'll see sample results that will be written to your Synapse SQL table.
-    [![Screenshot of synapse output.](./media/stream-analytics-no-code/synapse-output.png)](./media/stream-analytics-no-code/synapse-output.png#lightbox)
+    [![Screenshot of synapse output in no code editor.](./media/stream-analytics-no-code/synapse-output.png)](./media/stream-analytics-no-code/synapse-output.png#lightbox)
 8. Select **Save** in the top ribbon to save your job and then select **Start**. Set Streaming Unit count to 3 and then click **Start** to run your job. Specify the storage account that will be used by Synapse SQL to load data into your data warehouse.
 9. You'll then see a list of all Stream Analytics jobs created using the no code editor. And within two minutes, your job will go to a **Running** state.
-[![Screenshot of job in running state.](./media/stream-analytics-no-code/cosmos-db-running-state.png)](./media/stream-analytics-no-code/cosmos-db-running-state.png#lightbox)
+[![Screenshot of job in running state in no code editor.](./media/stream-analytics-no-code/cosmos-db-running-state.png)](./media/stream-analytics-no-code/cosmos-db-running-state.png#lightbox)
 
 ## Create a Power BI visualization
 1. Download the latest version of [Power BI desktop](https://powerbi.microsoft.com/desktop).
@@ -87,7 +87,7 @@ Before you start, make sure you've completed the following steps:
     * Y-axis as CarCount
     * Legend as Make
     You'll then see a chart that can be published. You can configure [automatic page refresh](/power-bi/create-reports/desktop-automatic-page-refresh#authoring-reports-with-automatic-page-refresh-in-power-bi-desktop) and set it to 3 minutes to get a near-real time view.
-[![Screenshot of Power BI dashboard.](./media/stream-analytics-no-code/no-code-power-bi-real-time-dashboard.png)](./media/stream-analytics-no-code/no-code-power-bi-real-time-dashboard.png#lightbox)
+[![Screenshot of Power BI dashboard showing car summary data.](./media/stream-analytics-no-code/no-code-power-bi-real-time-dashboard.png)](./media/stream-analytics-no-code/no-code-power-bi-real-time-dashboard.png#lightbox)
 
 ## Clean up resources
 1. Locate your Event Hubs instance and see the list of Stream Analytics jobs under **Process Data** section. Stop any jobs that are running.
