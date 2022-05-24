@@ -21,7 +21,7 @@ A container app has access to different types of storage. A single app can take 
 | [Azure Files](#azure-files) | Permanent storage | Writing files to a file share to make data accessible by other systems. |
 
 > [!NOTE]
-> The volume mounting features in Azure Container Apps is in preview.
+> The volume mounting features in Azure Container Apps are in preview.
 
 ## Container file system
 
