@@ -143,10 +143,11 @@ az apim nv delete --resource-group apim-hello-word-resource-group \
 The examples in this section use the named values shown in the following table.
 
 | Name               | Value                      | Secret | 
-|--------------------|----------------------------|--------|---------|
+|--------------------|----------------------------|--------| 
 | ContosoHeader      | `TrackingId`                 | False  | 
 | ContosoHeaderValue | ••••••••••••••••••••••     | True   | 
 | ExpressionProperty | `@(DateTime.Now.ToString())` | False  | 
+| ContosoHeaderValue2 | `This is a header value.` | False | 
 
 To use a named value in a policy, place its display name inside a double pair of braces like `{{ContosoHeader}}`, as shown in the following example:
 
@@ -181,6 +182,16 @@ You can test this in the Azure portal or the [developer portal](api-management-h
 If you look at the outbound [API trace](api-management-howto-api-inspector.md) for a call that includes the two previous sample policies with named values, you can see the two `set-header` policies with the named values inserted as well as the policy expression evaluation for the named value that contained the policy expression.
 
 :::image type="content" source="media/api-management-howto-properties/api-management-api-inspector-trace.png" alt-text="API Inspector trace":::
+
+String interpolation can also be used with named values.
+
+```xml
+<set-header name="CustomHeader" exists-action="override">
+    <value>@($"The url-encoded value is {System.Net.WebUtility.UrlEncode("{{ContosoHeaderValue2}}")}")</value>
+</set-header>
+```
+
+The value for `CustomHeader` will be `The URL encoded value is This+is+a+header+value.`.
 
 > [!CAUTION]
 > If a policy references a secret in Azure Key Vault, the value from the key vault will be visible to users who have access to subscriptions enabled for [API request tracing](api-management-howto-api-inspector.md).
