@@ -17834,6 +17834,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-dps/tutorial-net-provision-device-to-hub.md",
+      "redirect_url": "/azure/iot-dps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-provision-device-to-hub.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-set-up-cloud.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-set-up-device.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security/fundamentals/iot-overview.md",
       "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
       "redirect_document_id": false
@@ -21202,6 +21222,16 @@
     {
       "source_path_from_root": "/articles/machine-learning/reference-pipeline-yaml.md",
       "redirect_url": "/azure/machine-learning/v1/reference-pipeline-yaml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-create-register-datasets.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-register-data-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-access-data.md",
+      "redirect_url": "/azure/machine-learning/how-to-datastore",
       "redirect_document_id": false
     },
     {
@@ -42775,6 +42805,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/spark-job.md",
+      "redirect_url": "/azure/aks/integrations#open-source-and-third-party-integrations",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-csharp.md",
       "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
       "redirect_document_id": false
@@ -43253,6 +43288,26 @@
       "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/quickstart.md",
       "redirect_url": "/azure/cognitive-services/language-service/summarization/quickstart",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-powershell.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/aks/web-app-routing.md",
+      "redirect_url": "/azure/aks/intro-kubernetes",
+      "redirect_document_id":false
     }
   ]
 }

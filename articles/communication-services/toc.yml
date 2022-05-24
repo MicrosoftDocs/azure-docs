@@ -96,6 +96,8 @@ items:
   items:
   - name: Virtual visit scenarios
     href: tutorials/virtual-visits.md
+  - name: Virtual event scenarios
+    href: tutorials/events-playbook.md
   - name: Use Postman to send SMS messages
     href: tutorials/postman-tutorial.md
   - name: Sign an HTTP request with HMAC using C#
@@ -105,7 +107,7 @@ items:
   - name: Prepare a Node.js web app for Calling
     href: tutorials/building-app-start.md
   - name: Export SDK telemetry to Application Insights
-    href: quickstarts/telemetry-application-insights.md  
+    href: quickstarts/telemetry-application-insights.md
   - name: Add file sharing to your application with UI Library
     href: tutorials/file-sharing-tutorial.md
 - name: Concepts

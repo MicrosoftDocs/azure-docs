@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 04/14/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -37,7 +37,7 @@ Once your resource and storage container are configured, create a new custom tex
 
 ## Train your model
 
-Typically after you create a project, you go ahead and start [tagging the documents](../../how-to/tag-data.md) you have in the container connected to your project. For this quickstart, you have imported a sample tagged dataset and initialized your project with the sample JSON tags file.
+Typically after you create a project, you go ahead and start [labeling the documents](../../how-to/tag-data.md) you have in the container connected to your project. For this quickstart, you have imported a sample labeled dataset and initialized your project with the sample JSON labels file.
 
 [!INCLUDE [Train a model using Language Studio](../language-studio/train-model.md)]
 

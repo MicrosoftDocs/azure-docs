@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/04/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ---
 
-Submit a **POST** request using the following URL, headers, and JSON body to import your tags file. Make sure that your tags file follow the [accepted tags file format](../../concepts/data-formats.md).
+Submit a **POST** request using the following URL, headers, and JSON body to import your labels file. Make sure that your labels file follow the [accepted format](../../concepts/data-formats.md).
 
 
 ```rest
@@ -39,52 +39,54 @@ Use the following JSON in your request. Replace the placeholder values below wit
 
 ```json
 {
-    "api-version": "{API-VERSION}",
-    "stringIndexType": "Utf16CodeUnit",
-    "metadata": {
-        "projectName": "{PROJECT-NAME}",
-        "projectKind": "customMultiLabelClassification",
-        "description": "Trying out custom multi label text classification",
+  "api-version": "{API-VERSION}",
+  "stringIndexType": "Utf16CodeUnit",
+  "metadata": {
+    "projectName": "{PROJECT-NAME}",
+    "projectKind": "customMultiLabelClassification",
+    "description": "Trying out custom multi label text classification",
+    "language": "{LANGUAGE-CODE}",
+    "multilingual": true,
+    "storageInputContainerName": "{CONTAINER-NAME}",
+    "settings": {}
+  },
+  "assets": {
+    "classes": [
+      {
+        "category": "Class1"
+      },
+      {
+        "category": "Class2"
+      }
+    ],
+    "documents": [
+      {
+        "location": "{DOCUMENT-NAME}",
         "language": "{LANGUAGE-CODE}",
-        "multilingual": true,  
-        "storageInputContainerName": "{CONTAINER-NAME}",
-        "settings": {}
-    },
-    "assets": {
+        "dataset": "{DATASET}",
         "classes": [
-            {
-                "category": "Class1"
-            }, 
-            {
-                "category": "Class2"
-            }
-        ],
-        "documents": [
-            {
-                "location": "{DOCUMENT-NAME}",
-                "language": "{LANGUAGE-CODE}",
-                "dataset": "{DATASET}",
-                "classes": [
-                    {
-                        "category": "Class1"
-                    }, 
-                    {
-                        "category": "Class2"
-                    }
-                ]
-            },
-            {
-                "location": "{DOCUMENT-NAME}",
-                "language": "{LANGUAGE-CODE}",
-                "dataset": "{DATASET}",
-                "classes": [
-                    {
-                        "category": "Class2"
-                    }
-                ]
-            }
-    }
+          {
+            "category": "Class1"
+          },
+          {
+            "category": "Class2"
+          }
+        ]
+      },
+      {
+        "location": "{DOCUMENT-NAME}",
+        "language": "{LANGUAGE-CODE}",
+        "dataset": "{DATASET}",
+        "classes": [
+          {
+            "category": "Class2"
+          }
+        ]
+      }
+    ]
+  }
 }
+
 ```
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
@@ -97,7 +99,7 @@ Use the following JSON in your request. Replace the placeholder values below wit
 | classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
 | documents | [] | Array containing all the documents in your project and what the classes labeled for this document. | [] |
 | location | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
-| dataset | `{DATASET}` |  The test set to which this file will go to when split before training. See [How to train a model](../../how-to/train-model.md#data-splitting) for more information on data splitting. Possible values for this field are `Train` and `Test`.      |`Train`|
+| dataset | `{DATASET}` |  The test set to which this document will go to when split before training. See [How to train a model](../../how-to/train-model.md#data-splitting) for more information on data splitting. Possible values for this field are `Train` and `Test`.      |`Train`|
 
 
 # [Single label classification](#tab/single-classification)
@@ -156,7 +158,7 @@ Use the following JSON in your request. Replace the placeholder values below wit
 | classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
 | documents | [] | Array containing all the documents in your project and which class this document belongs to. | [] |
 | location | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
-| dataset | `{DATASET}` |  The test set to which this file will go to when split before training. See [How to train a model](../../how-to/train-model.md#data-splitting) to learn more about data splitting. Possible values for this field are `Train` and `Test`.      |`Train`|
+| dataset | `{DATASET}` |  The test set to which this document will go to when split before training. See [How to train a model](../../how-to/train-model.md#data-splitting) to learn more about data splitting. Possible values for this field are `Train` and `Test`.      |`Train`|
 
 ---
 
