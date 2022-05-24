@@ -491,21 +491,8 @@
           items: 
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
-            - name: Security
-              items:
-                - name: Authenticate to endpoints
-                  href: how-to-authenticate-online-endpoint.md
-                - name: Network isolation with managed online endpoints
-                  displayName: network, vnet, secure
-                  href: how-to-secure-online-endpoint.md
-                - name: Managed online endpoints VM SKU list
-                  href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-managed-endpoints.md
-            - name: Autoscale managed online endpoints
-              href: how-to-autoscale-endpoints.md
-            - name: Access Azure resources from online endpoints
-              href: how-to-access-resources-from-endpoints-managed-identities.md
             - name: Deployment scenarios
               items: 
                 - name: Deploy a MLflow model with an online endpoint
@@ -521,6 +508,19 @@
                   href: how-to-deploy-with-rest.md
                 - name: Deploy an AutoML model with an online endpoint
                   href: how-to-deploy-automl-endpoint.md
+            - name: Security
+              items:
+                - name: Authenticate to endpoints
+                  href: how-to-authenticate-online-endpoint.md
+                - name: Network isolation with managed online endpoints
+                  displayName: network, vnet, secure
+                  href: how-to-secure-online-endpoint.md
+                - name: Access Azure resources from online endpoints
+                  href: how-to-access-resources-from-endpoints-managed-identities.md
+            - name: Autoscale managed online endpoints
+              href: how-to-autoscale-endpoints.md
+            - name: Managed online endpoints VM SKU list
+              href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
             - name: Monitoring managed online endpoints
