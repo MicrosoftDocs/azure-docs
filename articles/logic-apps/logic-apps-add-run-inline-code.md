@@ -101,23 +101,27 @@ The following diagram shows the highlights from example workflow:
 
    ![Screenshot showing the Consumption workflow, Inline Code action, and keyword autocomplete list.](./media/logic-apps-add-run-inline-code/auto-complete-consumption.png)
 
-   The following example code snippet first creates a variable named **myResult** that stores a *regular expression*, which specifies a pattern to match in input text. The code then creates a variable named **email** that stores the email body data from the trigger outputs.
+   The following example code snippet first creates a variable named **myResult** that stores a *regular expression*, which specifies a pattern to match in input text. The code then creates a variable named **email** that stores the email message's body content from the trigger outputs.
 
    ![Screenshot showing the Consumption workflow, Inline Code action, and example code that creates variables.](./media/logic-apps-add-run-inline-code/save-email-body-variable-consumption.png)
 
-1. With your cursor still in the **Code** box, from the open dynamic content list, find the **When a new email arrives** section, and select the **Body** token.
+1. With your cursor still in the **Code** box, from the open dynamic content list, find the **When a new email arrives** section, and select the **Body** property, which references the email message's body.
 
-   The dynamic content list shows the outputs from the trigger and any preceding actions where those outputs match the input format for the edit box that's currently in focus. This list makes these outputs easier to use and reference from your workflow. For this example, the list shows the outputs from the Outlook trigger, including the **Body** token, which you can now select.
+   ![Screenshot showing the Consumption workflow, Inline Code action, dynamic content list, and email message's "Body" property selected.](./media/logic-apps-add-run-inline-code/select-output-consumption.png)
 
-   ![Screenshot showing the Consumption workflow, Inline Code action, dynamic content list, and trigger body output selected.](./media/logic-apps-add-run-inline-code/select-output-consumption.png)
+   The dynamic content list shows the outputs from the trigger and any preceding actions where those outputs match the input format for the edit box that's currently in focus. This list makes these outputs easier to use and reference from your workflow. For this example, the list shows the outputs from the Outlook trigger, including the email message's **Body** property.
 
-   After you select the **Body** token, the Inline Code action resolves the token to a read-only `workflowContext` object, which your snippet can use as input. The `workflowContext` object includes properties that give your code access to the outputs from the trigger and preceding actions in your workflow, such as the reference to the trigger's `body` property value. For more information, see [Reference trigger and action outputs in your code](#workflowcontext) later in this article.
+   After you select the **Body** property, the Inline Code action resolves the token to a read-only `workflowContext` object, which your snippet can use as input. The `workflowContext` object includes properties that give your code access to the outputs from the trigger and preceding actions in your workflow, such as the trigger's `body` property, which differs from the email message's **Body** property. For more information, see [Reference trigger and action outputs in your code](#workflowcontext) later in this article.
 
-1. To differentiate the trigger's `body` property from other `body` properties, rename `body` to `Body`. Add the closing semicolon (**;**) at the end to finish the code statement.
+1. To differentiate the email message's **Body** property that you selected from the trigger's `body` property, rename the second `body` property to `Body` instead. Add the closing semicolon (**;**) at the end to finish the code statement.
 
-   The Inline Code action doesn't require a `return` statement, but the results from a `return` statement are available for reference in later actions through the **Result** token. For example, the code snippet returns the result by calling the `match()` function, which finds matches in the email body against the regular expression. The **Create HTML table** action uses the **Result** token to reference the results from the Inline Code action and creates a single result.
+   ![Screenshot showing the Consumption logic app workflow, Inline Code action, and renamed "Body" property with closing semicolon.](./media/logic-apps-add-run-inline-code/rename-body-property-consumption.png)
 
-   ![Screenshot showing the finished logic app workflow.](./media/logic-apps-add-run-inline-code/inline-code-complete-example-consumption.png)
+   The Inline Code action doesn't syntactically require a `return` statement. However, by including the `return` statement, you can more easily reference the action results later in your workflow by using the **Result** token in later actions.
+
+   In this example, the code snippet returns the result by calling the `match()` function, which finds any matches in the email message body to the specified regular expression. The **Create HTML table** action then uses the **Result** token to reference the results from the Inline Code action and creates a single result.
+
+   ![Screenshot showing the finished Consumption logic app workflow.](./media/logic-apps-add-run-inline-code/inline-code-complete-example-consumption.png)
 
 1. When you're done, save your workflow.
 
@@ -146,23 +150,31 @@ The following diagram shows the highlights from example workflow:
 
    ![Screenshot showing the Standard workflow, Inline Code action, and keyword autocomplete list.](./media/logic-apps-add-run-inline-code/auto-complete-standard.png)
 
-   The following example code snippet first creates a variable named **myResult** that stores a *regular expression*, which specifies a pattern to match in input text. The code then creates a variable named **email** that stores the email body data from the trigger outputs.
+   The following example code snippet first creates a variable named **myResult** that stores a *regular expression*, which specifies a pattern to match in input text. The code then creates a variable named **email** that stores the email message's body content from the trigger outputs.
 
    ![Screenshot showing the Standard workflow, Inline Code action, and example code that creates variables.](./media/logic-apps-add-run-inline-code/save-email-body-variable-standard.png)
 
-1. With your cursor still in the **code** box, from the open dynamic content list, find the **When a new email arrives** section, and select the **Body** token.
+1. With your cursor still in the **code** box, from the open dynamic content list, find the **When a new email arrives** section, and select the **Body** token, which references the email's message body.
 
-   The dynamic content list shows the outputs from the trigger and any preceding actions where those outputs match the input format for the edit box that's currently in focus. This list makes these outputs easier to use and reference from your workflow. For this example, the list shows the outputs from the Outlook trigger, including the **Body** token, which you can now select.
+   ![Screenshot showing the Standard workflow, Inline Code action, dynamic content list, and email message's "Body" property selected.](./media/logic-apps-add-run-inline-code/select-output-standard.png)
 
-   ![Screenshot showing the Standard workflow, Inline Code action, dynamic content list, and trigger body output selected.](./media/logic-apps-add-run-inline-code/select-output-standard.png)
+   The dynamic content list shows the outputs from the trigger and any preceding actions where those outputs match the input format for the edit box that's currently in focus. This list makes these outputs easier to use and reference from your workflow. For this example, the list shows the outputs from the Outlook trigger, including the email message's **Body** property.
 
-   After you select the **Body** token, the Inline Code action resolves the token to a read-only `workflowContext` object, which your snippet can use as input. The `workflowContext` object includes properties that give your code access to the outputs from the trigger and preceding actions in your workflow, such as the reference to the trigger's `body` property value. For more information, see [Reference trigger and action outputs in your code](#workflowcontext) later in this article.
+   After you select the **Body** property, the Inline Code action resolves the token to a read-only `workflowContext` object, which your snippet can use as input. The `workflowContext` object includes properties that give your code access to the outputs from the trigger and preceding actions in your workflow, such as the trigger's `body` property, which differs from the email message's **Body** property. For more information, see [Reference trigger and action outputs in your code](#workflowcontext) later in this article.
 
-1. To differentiate the trigger's `body` property from other `body` properties, rename `body` to `Body`. Add the closing semicolon (**;**) at the end to finish the code statement.
+1. To differentiate the email message's **Body** property that you selected from the trigger's `body` property, rename the second `body` property to `Body` instead. Add the closing semicolon (**;**) at the end to finish the code statement.
 
-   1. The Inline Code action doesn't require a `return` statement, but the results from a `return` statement are available for reference in later actions through the **Result** token. For example, the code snippet returns the result by calling the `match()` function, which finds matches in the email body against the regular expression. The **Create HTML table** action uses the **Result** token to reference the results from the Inline Code action and creates a single result.
+   ![Screenshot showing the Standard logic app workflow, Inline Code action, and renamed "Body" property with closing semicolon.](./media/logic-apps-add-run-inline-code/rename-body-property-standard.png)
 
-   ![Screenshot showing the finished logic app workflow.](./media/logic-apps-add-run-inline-code/inline-code-complete-example-consumption.png)
+   The Inline Code action doesn't syntactically require a `return` statement. However, by including the `return` statement, you can reference the action results later in your workflow by using the **Outputs** token in later actions.
+
+   In this example, the code snippet returns the result by calling the `match()` function, which finds any matches in the email message body to the specified regular expression.
+
+   ![Screenshot showing the Standard logic app workflow and Inline Code action with "return" statement.](./media/logic-apps-add-run-inline-code/return-statement-standard.png)
+
+   The **Create HTML table** action then uses the **Outputs** token to reference the results from the Inline Code action and creates a single result.
+
+   ![Screenshot showing the finished Standard logic app workflow.](./media/logic-apps-add-run-inline-code/inline-code-complete-example-standard.png)
 
 1. When you're done, save your workflow.
 
