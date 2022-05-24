@@ -41,7 +41,7 @@ If enabled, Netezza query history tables contain information that can determine 
 
 Here's an example query that looks for the usage of a specific table within a given time window:
 
-```
+```sql
 SELECT FORMAT_TABLE_ACCESS (usage),
   hq.submittime
 FROM "$v_hist_queries" hq
@@ -59,7 +59,9 @@ AND
   OR instr(FORMAT_TABLE_ACCESS(usage),'del') > 0
 )
 AND status=0;
+```
 
+```output
 | FORMAT_TABLE_ACCESS | SUBMITTIME
 ----------------------+---------------------------
 ins                   | 2015-06-16 18:32:25.728042
@@ -162,7 +164,7 @@ Use the metadata from the Netezza catalog tables to determine whether any of the
 
 For example, this Netezza SQL query shows columns and column types:
 
-```
+```sql
 SELECT
 tablename,
   attname AS COL_NAME,
@@ -174,7 +176,9 @@ FROM _v_table a
 WHERE a.tablename = 'ATT_TEST'
 AND a.schema = 'ADMIN'
 ORDER BY attnum;
+```
 
+```output
 TABLENAME | COL_NAME    | COL_TYPE             | COL_NUM
 ----------+-------------+----------------------+--------
 ATT_TEST  | COL_INT     | INTEGER              | 1
@@ -255,7 +259,7 @@ Once the database tables to be migrated have been created in Azure Synapse, you 
 
 - **File Extract**&mdash;Extract the data from the Netezza tables to flat files, normally in CSV format, via nzsql with the -o option or via the `CREATE EXTERNAL TABLE` statement. Use an external table whenever possible since it's the most efficient in terms of data throughput. The following SQL example, creates a CSV file via an external table:
 
-  ```
+  ```sql
   CREATE EXTERNAL TABLE '/data/export.csv' USING (delimiter ',')
   AS SELECT col1, col2, expr1, expr2, col3, col1 || col2 FROM your table;
   ```

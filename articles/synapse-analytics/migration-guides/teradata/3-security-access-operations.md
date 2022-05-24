@@ -80,12 +80,12 @@ After data extraction, use Teradata system catalog tables to generate equivalent
 
 The information about current users and roles in a Teradata system is found in the system catalog tables `DBC.USERS` (or `DBC.DATABASES`) and `DBC.ROLEMEMBERS`. Query these tables (if the user has `SELECT` access to those tables) to obtain current lists of users and roles defined within the system. The following are examples of queries to do this for individual users:
 
-```
-/\*\*\*SQL to find all users\*\*\*/
+```sql
+/***SQL to find all users***/
 SELECT
 DatabaseName AS UserName
-From dbc.databases
-Where dbkind = 'u';
+FROM DBC.Databases
+WHERE dbkind = 'u';
 
 /***SQL to find all roles***/
 SELECT A.ROLENAME, A.GRANTEE, A.GRANTOR,
@@ -114,7 +114,7 @@ There's no way to retrieve existing passwords, so you need to implement a scheme
 
 In a Teradata system, the system tables `DBC.ALLRIGHTS` and `DBC.ALLROLERIGHTS` hold the access rights for users and roles. Query these tables (if the user has `SELECT` access to those tables) to obtain current lists of access rights defined within the system. The following are examples of queries for individual users:
 
-```
+```sql
 /**SQL for AccessRights held by a USER***/
 SELECT UserName, DatabaseName,TableName,ColumnName,
 CASE WHEN Abbv.AccessRight IS NOT NULL THEN Abbv.Description ELSE 
@@ -255,7 +255,7 @@ Teradata Database contains many log tables in the Data Dictionary that accumulat
 
 #### Dictionary tables to maintain
 
-Reset accumulators and peak values using the DBC.AMPUsage view and the ClearPeakDisk macro provided with the software:
+Reset accumulators and peak values using the `DBC.AMPUsage` view and the `ClearPeakDisk` macro provided with the software:
 
 - `DBC.Acctg`: resource usage by account/user
 

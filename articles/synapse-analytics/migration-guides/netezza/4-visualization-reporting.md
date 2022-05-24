@@ -170,9 +170,9 @@ When it comes to migrating to Azure Synapse, there are several things that can i
 
 BI tool reports and dashboards, and other visualizations, are produced by issuing SQL queries that access physical tables and/or views in your data warehouse or data mart. When it comes to migrating your data warehouse or data mart schema to Azure Synapse, there may be incompatibilities that can impact reports and dashboards, such as:
 
-- Non-standard table types supported in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse (like the Teradata time-series tables)
+- Non-standard table types supported in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse.
 
-- Data types supported in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse. For example, Teradata Geospatial or Interval data types.
+- Data types supported in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse.  
 
 In many cases, where there are incompatibilities, there may be ways around them. For example, the data in unsupported table types can be migrated into a standard table with appropriate data types and indexed or partitioned on a date/time column. Similarly, it may be able to represent unsupported data types in another type of column and perform calculations in Azure Synapse to achieve the same. Either way, it will need refactoring.
 

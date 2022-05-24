@@ -39,12 +39,13 @@ It makes sense to only migrate tables that are in use in the existing system. Ta
 
 If enabled, Teradata system catalog tables and logs contain information that can determine when a given table was last accessed&mdash;which can in turn be used to decide whether a table is a candidate for migration.
 
-Here's an example query on dbc.tables that provides the date of last access and last modification:
+Here's an example query on `DBC.Tables` that provides the date of last access and last modification:
 
-```
-Select TableName, CreatorName, CreateTimeStamp, LastAlterName,
-LastAlterTimeStamp, AccessCount, LastAccessTimeStamp from DBC.Tables t
-Where DataBaseName = 'databasename'
+```sql
+SELECT TableName, CreatorName, CreateTimeStamp, LastAlterName,
+LastAlterTimeStamp, AccessCount, LastAccessTimeStamp 
+FROM DBC.Tables t
+WHERE DataBaseName = 'databasename'
 ```
 
 If logging is enabled and the log history is accessible, other information, such as SQL query text, is available in table DBQLogTbl and associated logging tables. For more information, see [Teradata log history](https://docs.teradata.com/reader/wada1XMYPkZVTqPKz2CNaw/PuQUxpyeCx4jvP8XCiEeGA).
@@ -76,7 +77,7 @@ With this approach, standard Teradata utilities, such as Teradata Parallel Data 
 
 - The migration process is orchestrated and controlled entirely within the Azure environment.
 
-#### Migrating data marts&mdash;stay physical or go virtual?
+#### Migrating data marts - stay physical or go virtual?
 
 > [!TIP]
 > Virtualizing data marts can save on storage and processing resources.
@@ -129,7 +130,7 @@ The first step is always to build an inventory of ETL/ELT processes that need to
 
 In the preceding flowchart, decision 1 relates to a high-level decision about whether to migrate to a totally Azure-native environment. If you're moving to a totally Azure-native environment, we recommend that you re-engineer the ETL processing using [Pipelines and activities in Azure Data Factory](/azure/data-factory/concepts-pipelines-activities?msclkid=b6ea2be4cfda11ec929ac33e6e00db98&tabs=data-factory) or [Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=b6e99db9cfda11ecbaba18ca59d5c95c). If you're not moving to a totally Azure-native environment, then decision 2 is whether an existing third-party ETL tool is already in use.
 
-In the Teradata environment, some or all ETL processing may be performed by custom scripts using Teradata-specific utilities like BTEQ and TPT. In this case, your approach should be to reengineer using Data Factory.
+In the Teradata environment, some or all ETL processing may be performed by custom scripts using Teradata-specific utilities like BTEQ and TPT. In this case, your approach should be to re-engineer using Data Factory.
 
 > [!TIP]
 > Leverage investment in existing third-party tools to reduce cost and risk.

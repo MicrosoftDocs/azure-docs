@@ -153,7 +153,7 @@ Netezza implements some database objects that aren't directly supported in Azure
   - Temporal columns. For instance, `DATE`, `TIME`, and `TIMESTAMP`.
   - `CHAR` columns, if these are part of a materialized view and mentioned in the `ORDER BY` clause.
 
-  You can find out which columns have zone maps by using the nz_zonemap utility, which is part of the NZ Toolkit. Azure Synapse doesn't include zone maps, but you can achieve similar results by using other user-defined index types and/or partitioning.
+  You can find out which columns have zone maps by using the `nz_zonemap` utility, which is part of the NZ Toolkit. Azure Synapse doesn't include zone maps, but you can achieve similar results by using other user-defined index types and/or partitioning.
 
 - Clustered Base tables (CBT)&mdash;In Netezza, CBTs are commonly used for fact tables, which can have billions of records. Scanning such a huge table requires a lot of processing time, since a full table scan might be needed to get relevant records. Organizing records on restrictive CBT via allows Netezza to group records in same or nearby extents. This process also creates zone maps that improve the performance by reducing the amount of data to be scanned.
 
@@ -251,7 +251,7 @@ You can edit existing Netezza CREATE TABLE and CREATE VIEW scripts to create the
 
 However, all the information that specifies the current definitions of tables and views within the existing Netezza environment is maintained within system catalog tables. These tables are the best source of this information, as it's guaranteed to be up to date and complete. User-maintained documentation may not be in sync with the current table definitions.
 
-Access the information in these tables via utilities such as nz_ddl_table and generate the `CREATE TABLE DDL` statements for the equivalent tables in Azure Synapse.
+Access the information in these tables via utilities such as `nz_ddl_table` and generate the `CREATE TABLE DDL` statements for the equivalent tables in Azure Synapse.
 
 Third-party migration and ETL tools also use the catalog information to achieve the same result.
 
@@ -263,7 +263,7 @@ During a migration exercise, extract the data as efficiently as possible. Use th
 
 This is a simple example of an external table extract:
 
-```
+```sql
 CREATE EXTERNAL TABLE '/tmp/export_tab1.csv' USING (DELIM ',') AS SELECT * from <TABLENAME>;
 ```
 
