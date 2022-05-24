@@ -810,14 +810,15 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  |
-> | serverfarms | resource group | 1-40 | Alphanumerics and hyphens. |
-> | sites | global or per domain. See note below. | 2-60 | Contains alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
-> | sites / slots | site | 2-59 | Alphanumerics and hyphens. |
+> | serverfarms | resource group | 1-40 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
+> | sites / functions / slots | global or per domain. See note below. | 2-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode<br><br>Can't start or end with hyphen. |
 
 > [!NOTE]
 > A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](../../app-service/environment/using-an-ase.md#app-access). For both cases, the URL of the site is globally unique.
 >
 > Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. When generating the host ID, the function app name is truncated to 32 characters. This can cause host ID collision when a shared storage account is used. For more information, see [Host ID considerations](../../azure-functions/storage-considerations.md#host-id-considerations). 
+>
+> Unicode characters are parsed to Punycode using the following method: https://docs.microsoft.com/dotnet/api/system.globalization.idnmapping.getascii
 
 ## Next steps
 
