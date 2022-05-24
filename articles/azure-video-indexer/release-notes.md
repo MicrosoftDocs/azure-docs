@@ -1,9 +1,9 @@
 ---
-title: Azure Video Indexer (formerly Azure Video Analyzer for Media) release notes | Microsoft Docs
-description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer (formerly Azure Video Analyzer for Media).
+title: Azure Video Indexer release notes | Microsoft Docs
+description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 05/12/2022
+ms.date: 05/16/2022
 ms.author: juliako
 ---
 
@@ -11,7 +11,7 @@ ms.author: juliako
 
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
 
-To stay up-to-date with the most recent Azure Video Indexer (formerly Azure Video Analyzer for Media) developments, this article provides you with information about:
+To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
 * [Important notice](#upcoming-critical-changes) about planned changes
 * The latest releases
@@ -51,7 +51,7 @@ Improved line break logic to better split transcript into sentences. New editing
  
 Azure Video Indexer now supports Diagnostics settings for Audit events. Logs of Audit events can now be exported through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
 
-The additions enable easier access to analyze the data, monitor resource operation, and create automatically flows to act on an event. For more information, see [Monitor Azure Video Indexer]().
+The additions enable easier access to analyze the data, monitor resource operation, and create automatically flows to act on an event. For more information, see [Monitor Azure Video Indexer](monitor-video-indexer.md).
 
 ### Video Insights improvements
 
@@ -65,7 +65,7 @@ Azure Video Indexer is now part of [Network Service Tags](network-security.md). 
 
 You can now enable or disable the celebrity recognition model on the account level (on classic account only). To turn on or off the model, go to the account settings > and toggle on/off the model. Once you disable the model, Video Indexer insights will not include the output of celebrity model and will not run the celebrity model pipeline. 
 
-### Azure Video Indexer repository Name 
+### Azure Video Indexer repository name 
 
 As of May 1st, our new updated repository of Azure Video Indexer widget was renamed. Use https://www.npmjs.com/package/@azure/video-indexer-widgets instead
 
@@ -182,7 +182,7 @@ Fixed bugs related to CSS, theming and accessibility:
 
 ### Automatic Scaling of Media Reserved Units
 
-Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](/azure/azure/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/azure/azure/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
+Starting August 1st 2021, Azure Video Indexer enabled [Media Reserved Units (MRUs)](/azure/azure/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/azure/azure/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Indexer. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
 
 ## June 2021
 

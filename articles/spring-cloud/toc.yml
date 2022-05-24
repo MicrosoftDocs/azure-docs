@@ -1,11 +1,11 @@
 items:
-- name: Azure Spring Cloud documentation
+- name: Azure Spring Apps documentation
   href: index.yml
-  displayName: Azure Spring Cloud
+  displayName: Azure Spring Apps
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Spring Cloud?
+  - name: What is Azure Spring Apps?
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -118,9 +118,9 @@ items:
       href: how-to-intellij-deploy-apps.md
     - name: Use VS Code to deploy apps
       href: https://code.visualstudio.com/docs/java/java-spring-cloud
-    - name: Deploy Azure Spring Cloud with Maven
+    - name: Deploy Spring apps with Maven
       href: how-to-maven-deploy-apps.md 
-    - name: Deploy Azure Spring Cloud with Azure PowerShell
+    - name: Deploy Spring apps with Azure PowerShell
       href: how-to-deploy-powershell.md
     - name: Deploy non-Java enterprise applications
       href: how-to-enterprise-deploy-non-java-apps.md
@@ -190,7 +190,7 @@ items:
       href: how-to-elastic-diagnostic-settings.md
   - name: Network
     items:
-    - name: Deploy Azure Spring Cloud in a virtual network
+    - name: Deploy Azure Spring Apps in a virtual network
       href: how-to-deploy-in-azure-virtual-network.md
     - name: Access your application in a private network
       href: access-app-virtual-network.md
@@ -200,13 +200,13 @@ items:
       href: expose-apps-gateway-end-to-end-tls.md
     - name: Configure Palo Alto
       href: how-to-configure-palo-alto.md
-    - name: Customer responsibilities running Azure Spring Cloud in VNET
+    - name: Customer responsibilities running Azure Spring Apps in VNET
       href: vnet-customer-responsibilities.md
-    - name: Troubleshooting Azure Spring Cloud in virtual networks
+    - name: Troubleshooting Azure Spring Apps in virtual networks
       href: troubleshooting-vnet.md
   - name: Secure
     items:
-    - name: Use managed identities for applications in Azure Spring Cloud
+    - name: Use managed identities for applications in Azure Spring Apps
       href: how-to-use-managed-identities.md
     - name: Enable system-assigned managed identity
       href: how-to-enable-system-assigned-managed-identity.md
@@ -263,7 +263,7 @@ items:
 - name: Reference
   items:
   - name: Azure CLI plugin
-    href: /cli/azure/spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+    href: /cli/azure/spring?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure PowerShell
     href: /powershell/module/az.springcloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure Pipelines task

@@ -6,6 +6,8 @@
     href: dns-overview.md
   - name: What is Azure Private DNS?
     href: private-dns-overview.md
+  - name: What is Azure DNS Private Resolver?
+    href: dns-private-resolver-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -31,6 +33,12 @@
       href: private-dns-getstarted-cli.md
     - name: Create a private zone - PowerShell
       href: private-dns-getstarted-powershell.md
+  - name: Private resolver
+    items:
+    - name: Create a private resolver - portal
+      href: dns-private-resolver-get-started-portal.md
+    - name: Create a private resolver - PowerShell
+      href: dns-private-resolver-get-started-powershell.md
 - name: Tutorials
   items:
   - name: Public DNS
@@ -177,6 +185,22 @@
       href: /dotnet/api/overview/azure/privatedns/management
     - name: REST
       href: /rest/api/dns/privatedns/privatezones
+  - name: Private resolver
+    items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.dnsresolver
+    - name: .NET
+      href: /dotnet/api/azure.resourcemanager.dnsresolver
+    - name: Java
+      href: /java/api/com.azure.resourcemanager.dnsresolver
+    - name: Python
+      href: https://pypi.org/project/azure-mgmt-dnsresolver
+    - name: REST
+      href: /rest/api/dns/dnsresolver/dns-resolvers
+    - name: Typescript/Javascript
+      href: https://www.npmjs.com/package/@azure/arm-dnsresolver
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/dnsresolver/armdnsresolver
 - name: Resources
   items:
   - name: Azure Roadmap
