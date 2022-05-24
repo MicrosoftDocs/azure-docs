@@ -44,8 +44,8 @@ To build a project schema within [Language Studio](https://aka.ms/languageStudio
   
    :::image type="content" source="../media/build-schema-page.png" alt-text="A screenshot showing the schema creation page in Language Studio." lightbox="../media/build-schema-page.png":::
    
-> [!HINT]
-> Use connected intents to connect to other projects ( CLU, LUIS and Question answering)
+> [!TIP]
+> Use connected intents to connect to other projects (conversational language understanding, LUIS, and question answering)
    
 5. Click on **Add intent** to add your intent.
  
