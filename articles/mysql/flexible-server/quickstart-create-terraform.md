@@ -39,7 +39,7 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
-## 2. Implement the Terraform code
+## Implement the Terraform code
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
@@ -63,21 +63,21 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 
     [!code-terraform[master](../../../terraform_samples/quickstart/201-mysql-fs-db/output.tf)]
 
-## 3. Initialize Terraform
+## Initialize Terraform
 
 [!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
 
-## 4. Create a Terraform execution plan
+## Create a Terraform execution plan
 
 [!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
 
-## 5. Apply a Terraform execution plan
+## Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
 
-## 6. Verify the results
+## Verify the results
 
-## 7. Clean up resources
+## Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
 
