@@ -119,7 +119,7 @@ In this section, we'll walk through creating a simple LDAP server on a Virtual M
     az managed-cassandra datacenter update -g `<resource group>` -c `<cluster name>` -d datacenter-1 --ldap-search-base-dn $ldap_search_base_distinguished_name --ldap-server-certs $ldap_server_certificates --ldap-server-hostname $ldap_server_hostname --ldap-service-user-dn $ldap_service_user_distinguished_name --ldap-svc-user-pwd $ldap_service_user_password
     ```
 
-1. Once this command has completed, you should be able to connect to your managed instance data center with the user added in the above step:
+1. Once this command has completed, you should be able to use [CQLSH](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html) (see below) or any Apache Cassandra open-source client driver to connect to your managed instance data center with the user added in the above step:
 
     ```shell
     export SSL_VALIDATE=false
