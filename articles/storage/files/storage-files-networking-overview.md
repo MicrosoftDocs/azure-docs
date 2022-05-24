@@ -164,7 +164,7 @@ Windows Server 2022 Azure Edition supports a new transport protocol called QUIC 
 
 At this time, Azure Files doesn't directly support SMB over QUIC. However, you can get access to Azure file shares via Azure File Sync running on Windows Server as in the diagram below. This also gives you the option to have Azure File Sync caches both on-premises or in different Azure datacenters to provide local caches for a distributed workforce. To learn more about this option, see [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md) and [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic).
 
-:::image type="content" source="media/storage-files-networking-overview/smb-over-quic.png" alt-text="Screenshot showing an architecture diagram for creating a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync." border="false":::
+:::image type="content" source="media/storage-files-networking-overview/smb-over-quic.png" alt-text="Diagram for creating a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition V M using Azure File Sync." border="false":::
 
 ## See also
 - [Azure Files overview](storage-files-introduction.md)
