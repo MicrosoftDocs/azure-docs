@@ -80,7 +80,6 @@ A default administrative user is provided. We recommend that you change the pass
 > Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
 >
 
-
 ### Enable remote access
 
 1. Enter the iSM IP Address into your web browser.

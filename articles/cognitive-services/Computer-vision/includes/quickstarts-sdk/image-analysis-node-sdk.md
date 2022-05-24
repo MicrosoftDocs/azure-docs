@@ -67,7 +67,7 @@ Use the Image Analysis client library for JavaScript to analyze a remote image f
 
     Create a new file, *index.js*. 
 
-1. Find the subscription key and endpoint.
+1. Find the key and endpoint.
 
     [!INCLUDE [find key and endpoint](../find-key.md)]
 
@@ -76,7 +76,7 @@ Use the Image Analysis client library for JavaScript to analyze a remote image f
    [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ImageAnalysisQuickstart-single.js?name=snippet_single)]
 
 
-1. Paste your subscription key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
+1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
    > [!IMPORTANT]
    > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
