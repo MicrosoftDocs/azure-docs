@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure virtual machine scale set using Az
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 05/24/2022
 ms.author: cherylmc
 
 ---
@@ -35,9 +35,9 @@ This section shows you the basic steps to connect to your virtual machine scale 
 
 1. On the **Bastion** page, fill in the required settings. The settings you can select depend on the virtual machine to which you're connecting, and the [Bastion SKU](configuration-settings.md#skus) tier that you're using. The Standard SKU gives you more connection options than the Basic SKU. For more information about settings, see [Bastion configuration settings](configuration-settings.md).
 
-   :::image type="content" source="./media/bastion-connect-vm-scale-set/connection-settings.png" alt-text="Screenshot shows connection settings." lightbox="./media/bastion-connect-vm-scale-set/connection-settings.png":::
+   :::image type="content" source="./media/bastion-connect-vm-scale-set/connection-settings.png" alt-text="Screenshot shows connection settings options with Open in new browser tab selected." lightbox="./media/bastion-connect-vm-scale-set/connection-settings.png":::
 
-1. After filling in the values on the Bastion page, select **Connect**.
+1. After filling in the values on the Bastion page, select **Connect** to connect to the instance.
 
 ## Next steps
 
