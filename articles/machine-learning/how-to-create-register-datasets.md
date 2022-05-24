@@ -271,7 +271,7 @@ ml_client.data.create_or_update(my_data)
 ```
 
 > [!TIP]
-> Whilst the above example shows a local file. Remember that path supports cloud storage (https, abfss, wasbs protocols). Therefore, if you want to register data in a > cloud location just specify the path with any of the supported protocols.
+> While the above example shows a local file. Remember that path supports cloud storage (https, abfss, wasbs protocols). Therefore, if you want to register data in a > cloud location just specify the path with any of the supported protocols.
    
 You can also use CLI and following YAML that describes an MLTable to register MLTable Data.
 ```cli
