@@ -79,7 +79,7 @@ In this section, we'll walk through creating a simple LDAP server on a Virtual M
     ```
    :::image type="content" source="./media/ldap/dns-verify.jpg" alt-text="Verofy dns name in ldap cert" lightbox="./media/ldap/dns-verify.jpg" border="true":::
 
-1. Copy the `ldap.crt` file to [clouddrive](../azure/cloud-shell/persisting-shell-storage.md) in Azure CLI for use later. 
+1. Copy the `ldap.crt` file to [clouddrive](../cloud-shell/persisting-shell-storage.md) in Azure CLI for use later. 
 
 1. Add the user to the ldap (replace `<dnsname>` with the dns name you created for your LDAP server):
 
