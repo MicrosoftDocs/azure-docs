@@ -23,6 +23,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | May 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | June 2022 |
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
+| [Deprecating the "API App should only be accessible over HTTPS" policy](#deprecating-the-api-app-should-only-be-accessible-over-https-policy)|June 2022| 
 
 ### Changes to recommendations for managing endpoint protection solutions
 
@@ -116,6 +117,14 @@ The following table lists the alerts that will be deprecated during June 2022.
 | **SSH server is running inside a container** <br>(VM_ContainerSSH) | Machine logs indicate that an SSH server is running inside a Docker container. While this behavior can be intentional, it frequently indicates that a container is misconfigured or breached. | 	Execution | Medium |
 
 These alerts are used to notify a user about suspicious activity connected to a Kubernetes cluster. The alerts will be replaced with matching alerts that are part of the Microsoft Defender for Cloud Container alerts (`K8S.NODE_ImageBuildOnNode`, `K8S.NODE_ KubernetesAPI` and `K8S.NODE_ ContainerSSH`) which will provide improved fidelity and comprehensive context to investigate and act on the alerts. Learn more about alerts for [Kubernetes Clusters](alerts-reference.md).
+
+### Deprecating the "API App should only be accessible over HTTPS" policy
+
+**Estimated date for change:** June 2022
+
+The policy `API App should only be accessible over HTTPS` is set to be deprecated. This policy will be replaced with `Web Application should only be accessible over HTTPS`, which will be renamed to `App Service apps should only be accessible over HTTPS`. 
+
+To learn more about policy definitions for Azure App Service, see [Azure Policy built-in definitions for Azure App Service](../azure-app-configuration/policy-reference.md)
 
 ## Next steps
 
