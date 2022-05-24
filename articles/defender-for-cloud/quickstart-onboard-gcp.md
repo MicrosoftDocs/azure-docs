@@ -38,9 +38,6 @@ To protect your GCP-based resources, you can connect an account in two different
 |Required roles and permissions:| **Contributor** on the relevant Azure Subscription <br> **Owner** on the GCP organization or project 
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 
-> [!NOTE]
-   > To discover GCP resources, and for the authentication process, the following APIs must be enabled: iam.googleapis.com, sts.googleapis.com, cloudresourcemanager.googleapis.com, iamcredentials.googleapis.com, compute.googleapis.com. If these APIs are not enabled, we'll enable them during the onboarding process by running the GCloud script.
-
 ## Remove 'classic' connectors
 
 If you have any existing connectors created with the classic cloud connectors experience, remove them first:
@@ -94,6 +91,9 @@ Follow the steps below to create your GCP cloud connector.
 1. Select **Copy**.
 
     :::image type="content" source="media/quickstart-onboard-gcp/copy-button.png" alt-text="Screenshot showing the location of the copy button.":::
+
+> [!NOTE]
+   > To discover GCP resources, and for the authentication process, the following APIs must be enabled: iam.googleapis.com, sts.googleapis.com, cloudresourcemanager.googleapis.com, iamcredentials.googleapis.com, compute.googleapis.com. If these APIs are not enabled, we'll enable them during the onboarding process by running the GCloud script.
 
 1. Select the **GCP Cloud Shell >**.
 
