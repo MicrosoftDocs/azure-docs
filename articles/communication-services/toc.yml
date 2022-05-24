@@ -106,6 +106,8 @@ items:
     href: tutorials/building-app-start.md
   - name: Export SDK telemetry to Application Insights
     href: quickstarts/telemetry-application-insights.md  
+  - name: Add file sharing to your application with UI Library
+    href: tutorials/file-sharing-tutorial.md
 - name: Concepts
   expanded: false
   items:
