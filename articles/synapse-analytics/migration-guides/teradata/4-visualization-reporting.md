@@ -108,7 +108,7 @@ This breaks the dependency between business users utilizing self-service BI tool
 
 By introducing data virtualization, any schema alternations made during data warehouse and data mart migration to Azure Synapse (to optimize performance, for example) can be hidden from business users because they only access virtual tables in the data virtualization layer. If structural changes are needed, only the mappings between the data warehouse or data marts, and any virtual tables would need to be changed so that users remain unaware of those changes and unaware of the migration. [Microsoft partners](/azure/synapse-analytics/partner/data-integration) provides a useful data virtualization software.
 
-## Identifye high priority reports to migrate first
+## Identify high priority reports to migrate first
 
 A key question when migrating your existing reports and dashboards to Azure Synapse is which ones to migrate first. Several factors can drive the decision. For example:
 
