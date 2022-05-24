@@ -157,6 +157,9 @@
     - name: Create Redis cache - ARM template
       displayName: Resource Manager
       href: cache-redis-cache-arm-provision.md
+    - name: Create Web App with Redis cache - Bicep
+      displayName: ARM, Resource Manager, Template
+      href: cache-web-app-bicep-with-redis-cache-provision.md
     - name: Create Web App with Redis cache - ARM template
       displayName: Resource Manager
       href: cache-web-app-arm-with-redis-cache-provision.md
