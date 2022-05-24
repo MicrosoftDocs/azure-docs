@@ -98,6 +98,8 @@
         href: entitlement-management-access-package-approval-policy.md
       - name: Change lifecycle settings
         href: entitlement-management-access-package-lifecycle-policy.md
+      - name: Configure automatic assignment
+        href: entitlement-management-access-package-auto-assignment-policy.md
       - name: Configure separation of duties
         href: entitlement-management-access-package-incompatible.md
       - name: View and remove requests
