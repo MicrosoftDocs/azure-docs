@@ -61,10 +61,10 @@ service configuration values. These values can be found in the "Access Key" sect
 ```javascript
 const serviceConfig = {
     connection: {
-        tenantId: LOCAL_MODE_TENANT_ID, // REPLACE WITH YOUR TENANT ID
+        type: "remote",
+        tenantId: "", // REPLACE WITH YOUR TENANT ID
         tokenProvider: new InsecureTokenProvider("" /* REPLACE WITH YOUR PRIMARY KEY */, { id: "userId" }),
-        orderer: "http://localhost:7070", // REPLACE WITH YOUR ORDERER ENDPOINT
-        storage: "http://localhost:7070", // REPLACE WITH YOUR STORAGE ENDPOINT
+        endpoint: "", // REPLACE WITH YOUR DISCOVERY ENDPOINT URL
     }
 };
 ```
