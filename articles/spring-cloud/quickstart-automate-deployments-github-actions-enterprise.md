@@ -86,7 +86,7 @@ This example uses the [ACME Fitness Store](https://github.com/Azure-Samples/acme
 
 :::image type="content" source="media/github-actions/actions1.png" alt-text="Screenshot showing GitHub Settings Add new secret.":::
 
-Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that you found under the heading *Set up your GitHub repository and authenticate*.
+Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that you found under the heading **Set up your GitHub repository and authenticate**.
 
 :::image type="content" source="media/github-actions/actions2.png" alt-text="Screenshot showing GitHub Settings Set secret data.":::
 

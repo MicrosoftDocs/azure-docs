@@ -54,12 +54,12 @@ Follow these steps to configure single sign-on using an existing Identity Provid
 
 1. Obtain the `Client ID` and `Client Secret` for your identity provider.
 
-1. Obtain the `Issuer URI` for your identity provider. The provider needs to be configured with an issuer URI which is the URI that the it asserts as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response.
+1. Obtain the `Issuer URI` for your identity provider. The provider needs to be configured with an issuer URI which is the URI that it asserts as its Issuer Identifier. For example, if the `issuer-uri` provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response.
 
 > [!NOTE]
 > Only authorization servers supporting OpenID Connect Discovery protocol can be used.
 
-1. The Identity Service application will uses the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by your single sign-on identity provider's authorization server. Obtain the `JWK URI` for your identity provider for use later. The `JWK URI` typically takes the form `${ISSUER_URI}/keys` or `${ISSUER_URI}/<version>/keys`.
+1. The Identity Service application will use the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by your single sign-on identity provider's authorization server. Obtain the `JWK URI` for your identity provider for use later. The `JWK URI` typically takes the form `${ISSUER_URI}/keys` or `${ISSUER_URI}/<version>/keys`.
 
 ### Create and configure an application registration with Azure Active Directory
 
@@ -121,7 +121,7 @@ To register the application with Azure Active Directory, follow these steps. If 
    echo "https://login.microsoftonline.com/${TENANT_ID}/v2.0"
    ```
 
-1. The Identity Service application will uses the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by Active Directory. Retrieve the `JWK URI` from the output of the following command:
+1. The Identity Service application will use the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by Active Directory. Retrieve the `JWK URI` from the output of the following command:
 
    ```bash
    TENANT_ID=$(cat sso.json | jq -r '.tenant')

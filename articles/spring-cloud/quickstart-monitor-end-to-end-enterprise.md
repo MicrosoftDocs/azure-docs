@@ -220,7 +220,7 @@ Navigate to the **Application Map** pane:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-application-map.png" alt-text="Screenshot of Azure portal showing the Application Map of Azure Application Insights.":::
 
-Navigate to the **Peformance** pane:
+Navigate to the **Performance** pane:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/performance.png" alt-text="Screenshot of Azure portal showing the Performance pane of Azure Application Insights.":::
 

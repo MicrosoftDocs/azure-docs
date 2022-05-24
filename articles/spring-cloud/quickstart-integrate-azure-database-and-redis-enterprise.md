@@ -32,11 +32,11 @@ This article uses these services for demonstration purposes, but you can connect
 
 ## Provision services
 
-To add persistence to the application, you must create an Azure Cache for Redis and a Azure Database for PostgreSQL Flexible Server.
+To add persistence to the application, you must create an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server.
 
 ### [Azure CLI](#tab/azure-cli)
 
-The following steps describe how to provision an Azure Cache for Redis instance and a Azure Database for PostgreSQL Flexible Server using the Azure CLI.
+The following steps describe how to provision an Azure Cache for Redis instance and an Azure Database for PostgreSQL Flexible Server using the Azure CLI.
 
 1. Create an instance of Azure Cache for Redis using the following command:
 
@@ -105,7 +105,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
 ### [ARM template](#tab/arm-template)
 
-The following instructions describe how to provision an Azure Cache for Redis and a Azure Database for PostgreSQL Flexible Server using an Azure Resource Manager template (ARM template).
+The following instructions describe how to provision an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server using an Azure Resource Manager template (ARM template).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -113,7 +113,7 @@ The template used in this quickstart can be found in the [ACME Fitness Store Git
 
 To deploy this template, follow these steps:
 
-1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cache for Redis and a Azure Database for PostgreSQL Flexible Server.
+1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server.
 
    :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Facme-fitness-store%2FAzure%2Fazure%2Ftemplates%2Fazuredeploy.json":::
 
