@@ -118,4 +118,4 @@ The previous section showed you how to add a default condition for the autoscale
 
 ## Next steps
 
-For more information about managing autoscale from the Azure CLI, see [**az monitor autoscale**](../monitor/autoscale.md?view=azure-cli-latest).
+For more information about managing autoscale from the Azure CLI, see [**az monitor autoscale**](/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true).
