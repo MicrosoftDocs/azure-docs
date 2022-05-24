@@ -156,7 +156,28 @@ Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/item
 
 The deployment task supports 3 types of operations,  validate only, deploy and validate and deploy.
 
-**Validate** is to validate the Synapse artifacts in non-publish branch with the task and generate the workspace template and parameter template file. The validation operation only works in the YAML pipeline.
+**Validate** is to validate the Synapse artifacts in non-publish branch with the task and generate the workspace template and parameter template file. The validation operation only works in the YAML pipeline. The sample YAML file is as below: 
+
+ ```yaml
+    pool:
+      vmImage: ubuntu-latest
+
+    resources:
+      repositories:
+      - repository: <repository name>
+        type: git
+        name: <name>
+        ref: <user/collaboration branch>
+
+    steps:
+      - checkout: <name>
+      - task: Synapse workspace deployment@2
+        continueOnError: true    
+        inputs:
+          operation: 'validate'
+          ArtifactsFolder: '$(System.DefaultWorkingDirectory)/ArtifactFolder'
+          TargetWorkspaceName: '<target workspace name>'    
+``` 
 
 **Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It is same as the version 1.x. 
 
