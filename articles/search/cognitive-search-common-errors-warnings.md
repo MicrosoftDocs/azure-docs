@@ -75,7 +75,6 @@ Indexer read the document from the data source, but there was an issue convertin
 <a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"></a>
 
 ## Error: Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'
-
 The output mapping might have failed because the output data is in the wrong format for the mapping function you are using. For example, applying Base64Encode mapping function on binary data would generate this error. To resolve the issue, either rerun indexer without specifying mapping function or ensure that the mapping function is compatible with the output field data type. See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
 
 <a name="could-not-execute-skill"></a>
@@ -105,6 +104,9 @@ Skill execution failed because the call to the Web API returned an invalid respo
 
 ## Error: Skill did not execute within the time limit
 There are two cases under which you may encounter this error message, each of which should be treated differently. Please follow the instructions below depending on what skill returned this error for you.
+
+## Error: Type of value has a mismatch with column type. Couldn't store in DocumentContent column.  Expected type is JToken.
+If your data source has a field with a different data type than the field you are trying to map in your index, you may encounter this error. Check your data source field data types and make sure they are [mapped correctly to your index data types](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search).
 
 ### Built-in Cognitive Service skills
 Many of the built-in cognitive skills, such as language detection, entity recognition, or OCR, are backed by a Cognitive Service API endpoint. Sometimes there are transient issues with these endpoints and a request will time out. For transient issues, there is no remedy except to wait and try again. As a mitigation, consider setting your indexer to [run on a schedule](search-howto-schedule-indexers.md). Scheduled indexing picks up where it left off. Assuming transient issues are resolved, indexing and cognitive skill processing should be able to continue on the next scheduled run.
