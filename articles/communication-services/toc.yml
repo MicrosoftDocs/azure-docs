@@ -106,6 +106,8 @@ items:
     href: tutorials/building-app-start.md
   - name: Export SDK telemetry to Application Insights
     href: quickstarts/telemetry-application-insights.md  
+  - name: Add file sharing to your application with UI Library
+    href: tutorials/file-sharing-tutorial.md
 - name: Concepts
   expanded: false
   items:
@@ -292,6 +294,10 @@ items:
     items: 
     - name: Setup Localization
       href: how-tos/ui-library-sdk/localization.md
+    - name: Setup Theming
+      href: how-tos/ui-library-sdk/theming.md
+    - name: Custom Data Model Injection 
+      href: how-tos/ui-library-sdk/data-model.md
 - name: Samples
   items:
   - name: Overview

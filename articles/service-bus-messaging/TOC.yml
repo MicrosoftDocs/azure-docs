@@ -34,6 +34,8 @@
         href: service-bus-python-how-to-use-queues.md
       - name: JavaScript (@azure/service-bus)
         href: service-bus-nodejs-how-to-use-queues.md
+      - name: Go (azservicebus)
+        href: service-bus-go-how-to-use-queues.md
   - name: Services Bus topics and subscriptions
     items:
     - name: Create topics and subscriptions

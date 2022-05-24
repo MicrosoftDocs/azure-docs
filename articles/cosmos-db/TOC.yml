@@ -911,6 +911,8 @@
               href: sql/how-to-migrate-from-bulk-executor-library.md
             - name: Bulk executor - Java library
               href: sql/bulk-executor-java.md
+            - name: Migrate from bulk executor to Java SDK
+              href: sql/how-to-migrate-from-bulk-executor-library-java.md              
         - name: Visualize Cosmos DB data
           items:
             - name: Use Power BI
@@ -1017,6 +1019,8 @@
           href: sql/sql-api-sdk-node.md
         - name: Python
           href: sql/sql-api-sdk-python.md
+        - name: Go
+          href: sql/sql-api-sdk-go.md
         - name: REST (Data plane)
           href: /rest/api/cosmos-db/
         - name: REST (Management plane)

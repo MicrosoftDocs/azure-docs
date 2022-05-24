@@ -47,6 +47,17 @@ Set-AzContext $context
 
 Set-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME" -AssignIdentity
 ```
+You will also need to enable external policy based authorization on the server.
+
+```powershell
+$server = Get-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME"
+
+#Initiate the call to the REST API to set externalPolicyBasedAuthorization to true
+Invoke-AzRestMethod -Method PUT -Path "$($server.ResourceId)/externalPolicyBasedAuthorizations/MicrosoftPurview?api-version=2021-11-01-preview" -Payload '{"properties":{"externalPolicyBasedAuthorization":true}}'
+
+#Verify that the propery has been set
+Invoke-AzRestMethod -Method GET -Path "$($server.ResourceId)/externalPolicyBasedAuthorizations/MicrosoftPurview?api-version=2021-11-01-preview"
+```
 
 ### Register the data sources in Microsoft Purview
 The Azure SQL DB resources need to be registered first with Microsoft Purview to later define access policies. You can follow these guides:
@@ -78,8 +89,7 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 
 >[!Important]
 > - Publish is a background operation. It can take up to **4 minutes** for the changes to be reflected in this data source.
-> - There is no need to publish a policy again for it to take effect if the data resource continues to be the same.
-> - Changing a policy does not require a new publish operation. The changes will be picked up with the next pull
+> - Changing a policy does not require a new publish operation. The changes will be picked up with the next pull.
 
 ### Test the policy
 
