@@ -2,11 +2,11 @@
 title: Frequently asked questions about Azure Virtual Network Manager
 description: Find answers to frequently asked questions about Azure Virtual Network Manager.
 services: virtual-network-manager
-author: duongau
+author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: article
 ms.date: 4/18/2022
-ms.author: duau
+ms.author: mbender
 ms.custom: references_regions, ignite-fall-2021
 ---
 
@@ -135,7 +135,7 @@ No, an Azure Virtual WAN hub can't be in a network group at this time.
 
 ## Can an Azure Virtual WAN be used as the hub in AVNM's hub and spoke topology configuration? 
 
-No, Azure Virtual WAN isn't supported as the hub in a hub and spoke topology at this time.
+No, an Azure Virtual WAN hub isn't supported as the hub in a hub and spoke topology at this time.
 
 
 ## Limits
