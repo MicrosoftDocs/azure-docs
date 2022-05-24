@@ -170,7 +170,7 @@
       - name: Export and delete data
         displayName: GDPR
         href: ../how-to-export-delete-data.md
-- name: Train models
+  - name: Train models
     items: 
     - name: Train with SDK v1
       href: how-to-attach-compute-targets.md

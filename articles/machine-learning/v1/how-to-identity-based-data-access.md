@@ -175,12 +175,12 @@ If your storage account has virtual network settings, that dictates what identit
 
 ## Use data in storage
 
-We recommend that you use [Azure Machine Learning datasets](./v1/how-to-create-register-datasets.md) when you interact with your data in storage with Azure Machine Learning.  
+We recommend that you use [Azure Machine Learning datasets](how-to-create-register-datasets.md) when you interact with your data in storage with Azure Machine Learning.  
 
 > [!IMPORTANT]
-> Datasets using identity-based data access are not supported for [automated ML experiments](how-to-configure-auto-train.md).
+> Datasets using identity-based data access are not supported for [automated ML experiments](../how-to-configure-auto-train.md).
 
-Datasets package your data into a lazily evaluated consumable object for machine learning tasks like training. Also, with datasets you can [download or mount](how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like Azure Blob Storage and Azure Data Lake Storage to a compute target.
+Datasets package your data into a lazily evaluated consumable object for machine learning tasks like training. Also, with datasets you can [download or mount](../how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like Azure Blob Storage and Azure Data Lake Storage to a compute target.
 
 To create a dataset, you can reference paths from datastores that also use identity-based data access . 
 
@@ -213,7 +213,7 @@ This authentication mode allows you to:
 
 > [!WARNING] 
 > This functionality has the following limitations
-> * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI](how-to-configure-cli.md)
+> * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI](../how-to-configure-cli.md)
 > * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported 
 > * User identity and compute managed identity cannot be used for authentication within same job.
 
@@ -245,6 +245,6 @@ identity:
 
 ## Next steps
 
-* [Create an Azure Machine Learning dataset](./v1/how-to-create-register-datasets.md)
-* [Train with datasets](how-to-train-with-datasets.md)
+* [Create an Azure Machine Learning dataset](how-to-create-register-datasets.md)
+* [Train with datasets](..how-to-train-with-datasets.md)
 * [Create a datastore with key-based data access](how-to-access-data.md)
