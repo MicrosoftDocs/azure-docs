@@ -34,7 +34,10 @@ $destinationContainer = ""
 Create a job to copy a container within an Azure Cosmos DB SQL API account:
 
 ```azurecli-interactive
-az cosmosdb dts copy --resource-group $resourceGroup --job-name $jobName --account-name $accountName \
+az cosmosdb dts copy \
+    --resource-group $resourceGroup \ 
+    --job-name $jobName \
+    --account-name $accountName \
     --source-sql-container database=$sourceDatabase container=$sourceContainer \
     --dest-sql-container database=$destinationDatabase container=$destinationContainer
 ```
@@ -44,7 +47,10 @@ az cosmosdb dts copy --resource-group $resourceGroup --job-name $jobName --accou
 Create a job to copy a container within an Azure Cosmos DB Cassandra API account:
 
 ```azurecli-interactive
-az cosmosdb dts copy --resource-group $resourceGroup --job-name $jobName --account-name $accountName \
+az cosmosdb dts copy \
+    --resource-group $resourceGroup \
+    --job-name $jobName \
+    --account-name $accountName \
     --source-cassandra-table keyspace=$sourceKeySpace table=$sourceTable \
     --dest-cassandra-table keyspace=$destinationKeySpace table=$destinationTable
 ```
@@ -54,7 +60,10 @@ az cosmosdb dts copy --resource-group $resourceGroup --job-name $jobName --accou
 View the progress and status of a copy job:
 
 ```azurecli-interactive
-az cosmosdb dts show --account-name $accountName --resource-group $resourceGroup --job-name $jobName
+az cosmosdb dts show \
+    --account-name $accountName \
+    --resource-group $resourceGroup \
+    --job-name $jobName
 ```
 
 ## List all the container copy jobs created in an account
@@ -62,7 +71,9 @@ az cosmosdb dts show --account-name $accountName --resource-group $resourceGroup
 To list all the container copy jobs created in an account:
 
 ```azurecli-interactive
-az cosmosdb dts list --account-name $accountName --resource-group $resourceGroup
+az cosmosdb dts list \
+    --account-name $accountName \
+    --resource-group $resourceGroup
 ```
 
 ## Pause a container copy job
@@ -70,7 +81,10 @@ az cosmosdb dts list --account-name $accountName --resource-group $resourceGroup
 In order to pause an ongoing container copy job, you may use the command:
 
 ```azurecli-interactive
-az cosmosdb dts pause --account-name $accountName --resource-group $resourceGroup --job-name $jobName
+az cosmosdb dts pause \
+    --account-name $accountName \
+    --resource-group $resourceGroup \
+    --job-name $jobName
 ```
 
 ## Resume a container copy job
@@ -78,7 +92,10 @@ az cosmosdb dts pause --account-name $accountName --resource-group $resourceGrou
 In order to resume an ongoing container copy job, you may use the command:
 
 ```azurecli-interactive
-az cosmosdb dts resume --account-name $accountName --resource-group $resourceGroup --job-name $jobName
+az cosmosdb dts resume \
+    --account-name $accountName \
+    --resource-group $resourceGroup \
+    --job-name $jobName
 ```
 
 ## Next steps
