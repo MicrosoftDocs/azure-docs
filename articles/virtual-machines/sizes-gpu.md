@@ -7,7 +7,7 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jushiman
+ms.author: vikancha
 ---
 
 # GPU optimized virtual machine sizes
