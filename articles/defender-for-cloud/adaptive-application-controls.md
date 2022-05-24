@@ -9,7 +9,7 @@ ms.date: 11/09/2021
 ---
 # Use adaptive application controls to reduce your machines' attack surfaces
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 
 Learn about the benefits of Microsoft Defender for Cloud's adaptive application controls and how you can enhance your security with this data-driven, intelligent feature.
 

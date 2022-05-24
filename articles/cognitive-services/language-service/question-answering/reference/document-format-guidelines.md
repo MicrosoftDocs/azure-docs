@@ -3,8 +3,8 @@ title: Import document format guidelines - question answering
 description: Use these guidelines for importing documents to get the best results for your content with question answering.
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: jboback
+author: jboback
 ms.topic: reference
 ms.date: 01/23/2022
 ---
@@ -61,7 +61,8 @@ Below is an example of an unstructured PDF document:
 > [!div class="mx-imgBorder"]
 > ![Unstructured  document example for a knowledge base](../../../qnamaker/media/qnamaker-concepts-datasources/unstructured-qna-pdf.png)
 
- Currently this functionality is available only via document upload and only for PDF and DOC file formats.
+> [!NOTE]
+> QnA pairs are not extracted in the "Edit sources" tab for unstructured sources.
 
 > [!IMPORTANT]
 > Support for unstructured file/content is available only in question answering.

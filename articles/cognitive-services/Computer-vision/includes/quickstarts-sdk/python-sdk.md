@@ -30,32 +30,29 @@ Use the OCR client library to read printed and handwritten text from a remote im
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting up
-
-### Install the client library
-
-You can install the client library with:
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-computervision
-```
-
-Also install the Pillow library.
-
-```console
-pip install pillow
-```
-
-### Create a new Python application
-
-Create a new Python file&mdash;*quickstart-file.py*, for example. Then open it in your preferred editor or IDE.
-
-### Find the subscription key and endpoint
-
-[!INCLUDE [find key and endpoint](../find-key.md)]
-
-
 ## Read printed and handwritten text
+
+1. Install the client library.
+
+    You can install the client library with:
+
+    ```console
+    pip install --upgrade azure-cognitiveservices-vision-computervision
+    ```
+
+    Also install the Pillow library.
+
+    ```console
+    pip install pillow
+    ```
+
+1. Create a new Python application
+
+    Create a new Python file&mdash;*quickstart-file.py*, for example. Then open it in your preferred editor or IDE.
+
+1. Find the subscription key and endpoint.
+
+    [!INCLUDE [find key and endpoint](../find-key.md)]
 
 1. Replace the contents of *quickstart-file.py* with the following code.
 
@@ -66,11 +63,11 @@ Create a new Python file&mdash;*quickstart-file.py*, for example. Then open it i
    > [!IMPORTANT]
    > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
-1. As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) for the model version parameter values you can use. The most recent model includes any enhancements to the previous GA and preview models. For example, to use the model version `2022-01-30-preview`, edit the `read` statement as shown:
+1. As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional). For example, to explicitly specify the latest GA model, edit the `read` statement as shown. Skipping the parameter or using `"latest"` automatically uses the most recent GA model.
 
    ```python
       # Call API with URL and raw response (allows you to get the operation location)
-      read_response = computervision_client.read(read_image_url,  raw=True, model_version="2022-01-30-preview")
+      read_response = computervision_client.read(read_image_url,  raw=True, model_version="2022-04-30")
    ```
 
 1. Run the application with the `python` command on your quickstart file.
@@ -78,6 +75,20 @@ Create a new Python file&mdash;*quickstart-file.py*, for example. Then open it i
    ```console
    python quickstart-file.py
    ```
+
+## Output
+
+```console
+===== Read File - remote =====
+The quick brown fox jumps
+[38.0, 650.0, 2572.0, 699.0, 2570.0, 854.0, 37.0, 815.0]
+Over
+[184.0, 1053.0, 508.0, 1044.0, 510.0, 1123.0, 184.0, 1128.0]
+the lazy dog!
+[639.0, 1011.0, 1976.0, 1026.0, 1974.0, 1158.0, 637.0, 1141.0]
+
+End of Computer Vision quickstart.
+```
 
 ## Clean up resources
 

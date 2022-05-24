@@ -73,7 +73,7 @@ For examples, see [Configure an app to trust a GitHub repo](workload-identity-fe
 
 Run the following command to configure a federated identity credential on an app and create a trust relationship with a Kubernetes service account.  Specify the following parameters:
 
-- *issuer* is your service account issuer URL (the [OIDC issuer URL](/azure/aks/cluster-configuration#oidc-issuer-preview) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster).  
+- *issuer* is your service account issuer URL (the [OIDC issuer URL](../../aks/cluster-configuration.md#oidc-issuer-preview) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster).  
 - *subject* is the subject name in the tokens issued to the service account. Kubernetes uses the following format for subject names: `system:serviceaccount:<SERVICE_ACCOUNT_NAMESPACE>:<SERVICE_ACCOUNT_NAME>`.
 - *name* is the name of the federated credential, which cannot be changed later.
 - *audiences* lists the audiences that can appear in the 'aud' claim of the external token. This field is mandatory, and defaults to "api://AzureADTokenExchange".
@@ -105,7 +105,7 @@ Select the **Kubernetes accessing Azure resources** scenario from the dropdown m
 
 Fill in the **Cluster issuer URL**, **Namespace**, **Service account name**, and **Name** fields:
 
-- **Cluster issuer URL** is the [OIDC issuer URL](/azure/aks/cluster-configuration#oidc-issuer-preview) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
+- **Cluster issuer URL** is the [OIDC issuer URL](../../aks/cluster-configuration.md#oidc-issuer-preview) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster.
 - **Service account name** is the name of the Kubernetes service account, which provides an identity for processes that run in a Pod. 
 - **Namespace** is the service account namespace.
 - **Name** is the name of the federated credential, which cannot be changed later.

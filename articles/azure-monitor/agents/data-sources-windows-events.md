@@ -24,7 +24,7 @@ As you type the name of an event log, Azure Monitor provides suggestions of comm
 [![Configure Windows events](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
 > [!IMPORTANT]
-> You can't configure collection of security events from the workspace. You must use [Microsoft Defender for Cloud](../../security-center/security-center-enable-data-collection.md) or [Microsoft Sentinel](../../sentinel/connect-windows-security-events.md) to collect security events.
+> You can't configure collection of security events from the workspace using Log Analytics agent. You must use [Microsoft Defender for Cloud](../../security-center/security-center-enable-data-collection.md) or [Microsoft Sentinel](../../sentinel/connect-windows-security-events.md) to collect security events. [Azure Monitor agent](azure-monitor-agent-overview.md) can also be used to collect security events.
 
 
 > [!NOTE]

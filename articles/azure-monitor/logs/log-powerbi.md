@@ -53,7 +53,7 @@ A dataflow is a type of "cloud ETL" designed to help you collect and prep your d
 
 ## Incremental refresh 
 
-Both Power BI datasets and Power BI dataflows have an incremental refresh option. Power BI dataflows and Power BI datasets support this feature, but you need Power BI Premium to use it.  
+Both Power BI datasets and Power BI dataflows have an incremental refresh option. Power BI dataflows and Power BI datasets support this feature. To use incremental refresh on dataflows, you need Power BI Premium.  
 
 
 Incremental refresh runs small queries and updates smaller amounts of data per run instead of ingesting all of the data again and again when you run the query. You have the option to save large amounts of data, but add a new increment of data every time the query is run. This behavior is ideal for longer running reports.

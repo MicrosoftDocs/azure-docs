@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 04/15/2022
 
 ms.author: justinha
 author: justinha
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 If your organization is federated with Azure Active Directory, use Azure AD Multi-Factor Authentication or Active Directory Federation Services (AD FS) to secure resources that are accessed by Azure AD. Use the following procedures to secure Azure Active Directory resources with either Azure AD Multi-Factor Authentication or Active Directory Federation Services.
 
 >[!NOTE]
->To secure your Azure AD resource, it is recommended to require MFA through a [Conditional Access policy](../conditional-access/howto-conditional-access-policy-all-users-mfa.md), set the domain setting SupportsMfa to $True and [emit the multipleauthn claim](#secure-azure-ad-resources-using-ad-fs) when a user performs two-step verification successfully.
+>Set the domain setting [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values) to `enforceMfaByFederatedIdp` (recommended) or **SupportsMFA** to `$True`. The **federatedIdpMfaBehavior** setting overrides **SupportsMFA** when both are set.
 
 ## Secure Azure AD resources using AD FS
 
@@ -50,7 +50,7 @@ To secure your cloud resource, set up a claims rule so that Active Directory Fed
 
 ## Trusted IPs for federated users
 
-Trusted IPs allow administrators to by-pass two-step verification for specific IP addresses, or for federated users that have requests originating from within their own intranet. The following sections describe how to configure Azure AD Multi-Factor Authentication Trusted IPs with federated users and by-pass two-step verification when a request originates from within a federated users intranet. This is achieved by configuring AD FS to use a pass-through or filter an incoming claim template with the Inside Corporate Network claim type.
+Trusted IPs allow administrators to bypass two-step verification for specific IP addresses, or for federated users who have requests originating from within their own intranet. The following sections describe how to configure the bypass using Trusted IPs. This is achieved by configuring AD FS to use a pass-through or filter an incoming claim template with the Inside Corporate Network claim type.
 
 This example uses Microsoft 365 for our Relying Party Trusts.
 

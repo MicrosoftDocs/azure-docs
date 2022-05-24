@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2
 
-author: mx-iao
-ms.author: minxia
+author: blackmist
+ms.author: larryfr
 ms.date: 03/31/2022
 ms.reviewer: nibaccam
 ---
@@ -49,7 +49,7 @@ To reference an Azure ML resource (such as compute), you can use either of the f
 * Shorthand syntax: `azureml:<resource_name>`
 * Longhand syntax, which includes the ARM resource ID of the resource:
 ```
-azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/compute/<compute-name>
+azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/computes/<compute-name>
 ```
 
 ## Azure ML data reference URI

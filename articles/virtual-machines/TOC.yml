@@ -148,7 +148,7 @@
   - name: Azure Confidential Compute
     href: ../confidential-computing/overview.md
   - name: SQL on Virtual Machines
-    href: ../azure-sql/virtual-machines/index.yml
+    href: /azure/azure-sql/virtual-machines/index
   - name: High Performance Computing (HPC)
     href: /azure/architecture/topics/high-performance-computing/
 - name: Instances
@@ -371,8 +371,7 @@
   - name: Azure Compute Gallery
     items:
     - name: Overview
-      displayName: Shared Image Gallery, SIG, sig, gallery, image
-      href: ./shared-image-galleries.md
+      href: azure-compute-gallery.md
     - name: Create a gallery
       displayName: Shared Image Gallery, SIG, sig, gallery, image
       href: create-gallery.md
@@ -380,6 +379,9 @@
       href: share-gallery.md
     - name: Images
       items:
+      - name: Images in a gallery
+        displayName: Shared Image Gallery, SIG, sig, gallery, image
+        href: ./shared-image-galleries.md
       - name: Capture a VM in the portal
         href: capture-image-portal.md
       - name: Create an image
@@ -602,6 +604,9 @@
       - name: Store scripts
         displayName: Image builder, images, building, scripts
         href: ./linux/image-builder-user-assigned-identity.md
+      - name: What's new in Azure Image Builder
+        displayName: Image builder, images, building, api, features, updates, change log
+        href: image-builder-api-update-release-notes.md
       - name: Troubleshoot
         displayName: Image builder, images, building
         href: ./linux/image-builder-troubleshoot.md
@@ -763,6 +768,8 @@
     items:
     - name: Linux
       items:
+      - name: Connect to a Linux VM
+        href: linux-vm-connect.md
       - name: Create and manage SSH keys locally
         href: ./linux/create-ssh-keys-detailed.md
       - name: Create and manage SSH keys in the portal
@@ -1258,6 +1265,8 @@
     items:
     - name: Enable incremental snapshots
       href: disks-incremental-snapshots.md
+    - name: Copy incremental snapshots across regions
+      href: disks-copy-incremental-snapshot-across-regions.md
     - name: Azure Disk Backup
       items:
       - name: Overview
@@ -1717,20 +1726,20 @@
       - name: PowerShell
         displayName: Maintenance notifications
         href: maintenance-notifications-powershell.md
-    - name: Maintenance control
+    - name: Maintenance configurations
       items:
       - name: Overview
-        displayName: Maintenance control
-        href: maintenance-control.md
+        displayName: Maintenance configurations
+        href: maintenance-configurations.md
       - name: CLI
-        displayName: Maintenance control
-        href: maintenance-control-cli.md
+        displayName: Maintenance configurations
+        href: maintenance-configurations-cli.md
       - name: PowerShell
-        displayName: Maintenance control
-        href: maintenance-control-powershell.md
+        displayName: Maintenance configurations
+        href: maintenance-configurations-powershell.md
       - name: Portal
-        displayName: Maintenance control
-        href: maintenance-control-portal.md
+        displayName: Maintenance configurations
+        href: maintenance-configurations-portal.md
     - name: Scheduled events
       items:
       - name: Linux
@@ -2026,7 +2035,7 @@
     href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
   - name: Microsoft Q&A
     href: /answers/topics/azure-virtual-machines.html
-  - name: Azure Quickstart templates
+  - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/#Linux

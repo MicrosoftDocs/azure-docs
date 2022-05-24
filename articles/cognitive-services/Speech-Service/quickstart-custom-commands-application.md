@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/19/2022
 ms.author: eur
-ms.custom: references_regions
+ms.custom: cogserv-non-critical-speech, references_regions
 ---
 
 # Quickstart: Create a voice assistant with Custom Commands
@@ -18,17 +18,7 @@ ms.custom: references_regions
 In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app.
 
 ## Region Availability
-At this time, Custom Commands supports speech subscriptions created in these regions:
-* West US
-* West US2
-* East US
-* East US2
-* West Central US
-* North Europe
-* West Europe
-* East Asia
-* Southeast Asia
-* Central India
+At this time, Custom Commands supports speech subscriptions created in regions that have [voice assistant capabilities](./regions.md#voice-assistants).
 
 ## Prerequisites
 

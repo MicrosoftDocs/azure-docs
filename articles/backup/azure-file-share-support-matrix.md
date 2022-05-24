@@ -18,7 +18,7 @@ You can use the [Azure Backup service](./backup-overview.md) to back up Azure fi
 
 ## Supported regions
 
-Azure file shares backup is available in all regions, **except** for Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China East 2, China North, China North 2, and US Gov Iowa.
+Azure file shares backup is available in all regions, **except** for Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China East 2, China North, China North 2, France South and US Gov Iowa.
 
 ## Supported storage accounts
 
@@ -59,7 +59,7 @@ Azure file shares backup is available in all regions, **except** for Germany Cen
 | Setting                                                      | Limit   |
 | ------------------------------------------------------------ | ------- |
 | Maximum number of restores per day                           | 10      |
-| Maximum  number of files per restore                         | 99      |
+| Maximum  number of individual files or folders per restore, in case of ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large file shares | 15  TiB |
 
 ## Retention limits

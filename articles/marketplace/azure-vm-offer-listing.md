@@ -91,6 +91,9 @@ If applicable, provide the **Name**, **Email**, and **Phone** of the contact for
 
 Provide logos, screenshots, and videos to use with your offer. These will appear on the search results and detail pages in the Azure Marketplace. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
+
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
 

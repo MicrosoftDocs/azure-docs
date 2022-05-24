@@ -211,7 +211,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; |
 | [Site Recovery](../../site-recovery/index.yml) | &#x2705; | &#x2705; |
 | [Spring Cloud](../../spring-cloud/index.yml) | &#x2705; | &#x2705; |
-| [SQL Database](../../azure-sql/database/sql-database-paas-overview.md) | &#x2705; | &#x2705; |
+| [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) | &#x2705; | &#x2705; |
 | [SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates) | &#x2705; | &#x2705; |
 | [SQL Server Stretch Database](../../sql-server-stretch-database/index.yml) | &#x2705; | &#x2705; |
 | [Storage: Archive](../../storage/blobs/access-tiers-overview.md) | &#x2705; | &#x2705; |
@@ -227,7 +227,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Synapse Analytics](../../synapse-analytics/index.yml) | &#x2705; | &#x2705; |
 | [Time Series Insights](../../time-series-insights/index.yml) | &#x2705; | &#x2705; |
 | [Traffic Manager](../../traffic-manager/index.yml) | &#x2705; | &#x2705; |
-| [Video Analyzer for Media](../../azure-video-analyzer/video-analyzer-for-media-docs/index.yml) (formerly Video Indexer) | &#x2705; | &#x2705; |
+| [Video Analyzer for Media](../../azure-video-indexer/index.yml) (formerly Video Indexer) | &#x2705; | &#x2705; |
 | [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) | &#x2705; | &#x2705; |
 | [Virtual Machines](../../virtual-machines/index.yml) (incl. [Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)) | &#x2705; | &#x2705; |
 | [Virtual Network](../../virtual-network/index.yml) | &#x2705; | &#x2705; |
@@ -408,7 +408,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Service Health](../../service-health/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Site Recovery](../../site-recovery/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [SQL Database](../../azure-sql/database/sql-database-paas-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [SQL Server Stretch Database](../../sql-server-stretch-database/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Storage: Archive](../../storage/blobs/access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Storage: Blobs](../../storage/blobs/index.yml) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

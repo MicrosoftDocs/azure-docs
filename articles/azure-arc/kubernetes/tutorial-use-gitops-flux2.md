@@ -4,21 +4,23 @@ description: "This tutorial shows how to use GitOps with Flux v2 to manage confi
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 03/09/2022
+ms.date: 04/11/2022
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
-# Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or AKS clusters (public preview)
+# Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or AKS clusters (preview)
 
 GitOps with Flux v2 can be enabled in Azure Kubernetes Service (AKS) managed clusters or Azure Arc-enabled Kubernetes connected clusters as a cluster extension. After the `microsoft.flux` cluster extension is installed, you can create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.
 
 This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
-General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both AKS and Azure Arc-enabled Kubernetes. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
+General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both AKS and Azure Arc-enabled Kubernetes. Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
 
 >[!IMPORTANT]
->GitOps with Flux v2 is in public preview. In preparation for general availability, features are still being added to the preview. One important feature, multi-tenancy, could affect some users when it is released.  To prepare yourself for the release of multi-tenancy, [please review these details](#multi-tenancy).
+>GitOps with Flux v2 is in preview. In preparation for general availability, features are still being added to the preview. One recently-released feature, multi-tenancy, could affect some users.  To understand how to work with multi-tenancy, [please review these details](#multi-tenancy).
+>
+>The `microsoft.flux` extension released major version 1.0.0. This includes the multi-tenancy feature. If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension you can upgrade to the latest extension manually using the Azure CLI: "az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>" (use "-t connectedClusters" for Arc clusters and "-t managedClusters" for AKS clusters).
 
 ## Prerequisites
 
@@ -74,11 +76,11 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 ### Supported regions
 
-GitOps is currently supported in the regions that Azure Arc-enabled Kubernetes supports. These regions are a subset of the regions that AKS supports. GitOps is currently not supported in all AKS regions.  [See the supported regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). The GitOps service is adding new supported regions on a regular cadence.
+GitOps is currently supported in all regions that Azure Arc-enabled Kubernetes supports. [See the supported regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). GitOps (preview) is currently supported in a subset of the regions that AKS supports. The GitOps service is adding new supported regions on a regular cadence.
 
 ### Network requirements
 
-The GitOps agents require TCP on port 443 (`https://:443`) to function. The agents also require the following outbound URLs:
+The GitOps agents require outbound (egress) TCP to the repo source on either port 22 (SSH) or port 443 (HTTPS) to function. The agents also require the following outbound URLs:
 
 | Endpoint (DNS) | Description |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
@@ -90,7 +92,7 @@ The GitOps agents require TCP on port 443 (`https://:443`) to function. The agen
 ## Enable CLI extensions
 
 >[!NOTE]
->The `k8s-configuration` CLI extension has been upgraded to manage either Flux v2 or Flux v1 configurations. Flux v2 is an important upgrade to Flux v1, and eventually Azure will stop supporting GitOps with Flux v1. Begin using Flux v2 as soon as possible.
+>The `k8s-configuration` CLI extension manages either Flux v2 or Flux v1 configurations. Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
 
 Install the latest `k8s-configuration` and `k8s-extension` CLI extension packages:
 
@@ -125,6 +127,9 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 
 Use the `k8s-configuration` Azure CLI extension (or the Azure portal) to enable GitOps in an AKS or Arc-enabled Kubernetes cluster. For a demonstration, use the public [gitops-flux2-kustomize-helm-mt](https://github.com/Azure/gitops-flux2-kustomize-helm-mt) repository. 
 
+>[!IMPORTANT]
+>The demonstration repo is designed to simplify your use of this tutorial and illustrate some key principles. To keep up to date, the repo can get breaking changes occasionally from version upgrades. These changes won't affect your new application of this tutorial, only previous tutorial applications that have not been deleted. To learn how to handle these changes please see the [breaking change disclaimer](https://github.com/Azure/gitops-flux2-kustomize-helm-mt#breaking-change-disclaimer-%EF%B8%8F).
+
 In the following example:
 
 * The resource group that contains the cluster is `flux-demo-rg`.
@@ -134,7 +139,7 @@ In the following example:
 * The namespace for configuration installation is `cluster-config`.
 * The URL for the public Git repository is `https://github.com/Azure/gitops-flux2-kustomize-helm-mt`.
 * The Git repository branch is `main`.
-* The scope of the configuration is `cluster`. It gives the operators permissions to make changes throughout cluster.
+* The scope of the configuration is `cluster`. This gives the operators permissions to make changes throughout cluster. To use `namespace` scope with this tutorial, [see the changes needed](#multi-tenancy).
 * Two kustomizations are specified with names `infra` and `apps`. Each is associated with a path in the repository.
 * The `apps` kustomization depends on the `infra` kustomization. (The `infra` kustomization must finish before the `apps` kustomization runs.)
 * Set `prune=true` on both kustomizations. This setting assures that the objects that Flux deployed to the cluster will be cleaned up if they're removed from the repository or if the Flux configuration or kustomizations are deleted.
@@ -969,7 +974,7 @@ The Azure portal is useful for managing GitOps configurations and the Flux exten
 
 The portal provides the overall compliance state of the cluster. The Flux objects that have been deployed to the cluster are also shown, along with their installation parameters, compliance state, and any errors.
 
-You can also use the portal to create and delete GitOps configurations.
+You can also use the portal to create, update, and delete GitOps configurations.
 
 ## Manage cluster configuration by using the Flux Kustomize controller
 
@@ -1015,10 +1020,10 @@ By using this annotation, the HelmRelease that is deployed will be patched with 
 
 ## Multi-tenancy
 
-Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability will be integrated into Azure GitOps with Flux v2 prior to general availability.
+Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability has been integrated into Azure GitOps with Flux v2.
 
 >[!NOTE]
->You need to prepare for the multi-tenancy feature release if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects, or [if you use a Kubernetes version less than 1.20.6](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). To prepare, take these actions:
+>For the multi-tenancy feature you need to know if your manifests contain any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects, or [if you use a Kubernetes version less than 1.20.6](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). To prepare, take these actions:
 >
 > * Upgrade to Kubernetes version 1.20.6 or greater.
 > * In your Kubernetes manifests assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
@@ -1111,7 +1116,7 @@ spec:
 
 ### Opt out of multi-tenancy
 
-Multi-tenancy will be enabled by default to assure security by default in your clusters.  However, if you need to disable multi-tenancy, you can opt out by creating or updating the `microsoft.flux` extension in your clusters with "--configuration-settings multiTenancy.enforce=false".
+When the `microsoft.flux` extension is installed, multi-tenancy is enabled by default to assure security by default in your clusters.  However, if you need to disable multi-tenancy, you can opt out by creating or updating the `microsoft.flux` extension in your clusters with "--configuration-settings multiTenancy.enforce=false".
 
 ```console
 az k8s-extension create --extension-type microsoft.flux --configuration-settings multiTenancy.enforce=false -c CLUSTER_NAME -g RESOURCE_GROUP -n flux -t <managedClusters or connectedClusters>
@@ -1123,7 +1128,7 @@ az k8s-extension update --configuration-settings multiTenancy.enforce=false -c C
 
 ## Migrate from Flux v1
 
-If you've been using Flux v1 in Azure Arc-enabled Kubernetes or AKS clusters and want to migrate to using Flux v2 in the same clusters, you first need to delete the Flux v1 `sourceControlConfigurations` from the clusters.  The `microsoft.flux` cluster extension won't be installed if there are `sourceControlConfigurations` resources installed in the cluster.
+If you've been using Flux v1 in Azure Arc-enabled Kubernetes or AKS clusters and want to migrate to using Flux v2 in the same clusters, you first need to delete the Flux v1 `sourceControlConfigurations` from the clusters.  The `microsoft.flux` cluster extension won't install if there are Flux v1 `sourceControlConfigurations` resources installed in the cluster.
 
 Use these az CLI commands to find and then delete existing `sourceControlConfigurations` in a cluster:
 

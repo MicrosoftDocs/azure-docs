@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 04/13/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 # Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory
 
-As an application developer, you can use the System for Cross-Domain Identity Management (SCIM) user management API to enable automatic provisioning of users and groups between your application and Azure AD (AAD). This article describes how to build a SCIM endpoint and integrate with the AAD provisioning service. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
+As an application developer, you can use the System for Cross-Domain Identity Management (SCIM) user management API to enable automatic provisioning of users and groups between your application and Azure AD. This article describes how to build a SCIM endpoint and integrate with the Azure AD provisioning service. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
 
 ![Provisioning from Azure AD to an app with SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
@@ -26,21 +26,21 @@ To automate provisioning to an application will require building and integrating
     
 1. Design your user and group schema
 
-   Identify the application's objects and attributes to determine how they map to the user and group schema supported by the AAD SCIM implementation.
+   Identify the application's objects and attributes to determine how they map to the user and group schema supported by the Azure AD SCIM implementation.
 
-1. Understand the AAD SCIM implementation
+1. Understand the Azure AD SCIM implementation
 
-   Understand how the AAD SCIM client is implemented to model your SCIM protocol request handling and responses.
+   Understand how the Azure AD SCIM client is implemented to model your SCIM protocol request handling and responses.
 
 1. Build a SCIM endpoint
 
-   An endpoint must be SCIM 2.0-compatible to integrate with the AAD provisioning service. As an option, use Microsoft Common Language Infrastructure (CLI) libraries and code samples to build your endpoint. These samples are for reference and testing only; we recommend against using them as dependencies in your production app.
+   An endpoint must be SCIM 2.0-compatible to integrate with the Azure AD provisioning service. As an option, use Microsoft Common Language Infrastructure (CLI) libraries and code samples to build your endpoint. These samples are for reference and testing only; we recommend against using them as dependencies in your production app.
 
-1. Integrate your SCIM endpoint with the AAD SCIM client 
+1. Integrate your SCIM endpoint with the Azure AD SCIM client 
 
-   If your organization uses a third-party application to implement a profile of SCIM 2.0 that AAD supports, you can quickly automate both provisioning and deprovisioning of users and groups.
+   If your organization uses a third-party application to implement a profile of SCIM 2.0 that Azure AD supports, you can quickly automate both provisioning and deprovisioning of users and groups.
 
-1. Publish your application to the AAD application gallery 
+1. Publish your application to the Azure AD application gallery 
 
    Make it easy for customers to discover your application and easily configure provisioning. 
 
@@ -168,9 +168,9 @@ There are several endpoints defined in the SCIM RFC. You can start with the `/Us
 > [!NOTE]
 > Use the `/Schemas` endpoint to support custom attributes or if your schema changes frequently as it enables a client to retrieve the most up-to-date schema automatically. Use the `/Bulk` endpoint to support groups.
 
-## Understand the AAD SCIM implementation
+## Understand the Azure AD SCIM implementation
 
-To support a SCIM 2.0 user management API, this section describes how the AAD SCIM client is implemented and shows how to model your SCIM protocol request handling and responses.
+To support a SCIM 2.0 user management API, this section describes how the Azure AD SCIM client is implemented and shows how to model your SCIM protocol request handling and responses.
 
 > [!IMPORTANT]
 > The behavior of the Azure AD SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](application-provisioning-config-problem-scim-compatibility.md).
@@ -184,25 +184,26 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 |Retrieve a known resource for a user or group created earlier|[section 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)|
 |Query users or groups|[section 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved by their `id` and queried by their `username` and `externalId`, and groups are queried by `displayName`.|
 |The filter [excludedAttributes=members](#get-group) when querying the group resource|section 3.4.2.5|
-|Accept a single bearer token for authentication and authorization of AAD to your application.||
+|Accept a single bearer token for authentication and authorization of Azure AD to your application.||
 |Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user should not be returned is when it is hard deleted from the application.|
 |Support the /Schemas endpoint|[section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint will be used to discover additional attributes.|
+|Support listing users and paginating|[section 3.4.2.4](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.4).|
 
-Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with AAD:
+Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with Azure AD:
 
 ##### General: 
 * `id` is a required property for all resources. Every response that returns a resource should ensure each resource has this property, except for `ListResponse` with zero members.
-* Values sent should be stored in the same format as what the were sent in. Invalid values should be rejected with a descriptive, actionable error message. Transformations of data should not happen between data being sent by Azure AD and data being stored in the SCIM application. (e.g. A phone number sent as 55555555555 should not be saved/returned as +5 (555) 555-5555)
+* Values sent should be stored in the same format as what they were sent in. Invalid values should be rejected with a descriptive, actionable error message. Transformations of data should not happen between data being sent by Azure AD and data being stored in the SCIM application. (e.g. A phone number sent as 55555555555 should not be saved/returned as +5 (555) 555-5555)
 * It isn't necessary to include the entire resource in the **PATCH** response.
-* Don't require a case-sensitive match on structural elements in SCIM, in particular **PATCH** `op` operation values, as defined in [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). AAD emits the values of `op` as **Add**, **Replace**, and **Remove**.
-* Microsoft AAD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
+* Don't require a case-sensitive match on structural elements in SCIM, in particular **PATCH** `op` operation values, as defined in [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Azure AD emits the values of `op` as **Add**, **Replace**, and **Remove**.
+* Microsoft Azure AD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
 * Support HTTPS on your SCIM endpoint.
-* Custom complex and multivalued attributes are supported but AAD does not have many complex data structures to pull data from in these cases. Simple paired name/value type complex attributes can be mapped to easily, but flowing data to complex attributes with three or more subattributes are not well supported at this time.
-* The "type" sub-attribute values of multivalued complex attributes must be unique. For example, there can not be two different email addresses with the "work" sub-type. 
+* Custom complex and multivalued attributes are supported but Azure AD does not have many complex data structures to pull data from in these cases. Simple paired name/value type complex attributes can be mapped to easily, but flowing data to complex attributes with three or more subattributes are not well supported at this time.
+* The "type" sub-attribute values of multivalued complex attributes must be unique. For example, there cannot be two different email addresses with the "work" sub-type. 
 
 ##### Retrieving Resources:
 * Response to a query/filter request should always be a `ListResponse`.
-* Microsoft AAD only uses the following operators: `eq`, `and`
+* Microsoft Azure AD only uses the following operators: `eq`, `and`
 * The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com), see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
 
 ##### /Users:
@@ -220,19 +221,19 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 * If a value is not present, do not send null values.
 * Property values should be camel cased (e.g. readWrite).
 * Must return a list response.
-* The /schemas request will be made by the Azure AD SCIM client every time someone saves the provisioning configuration in the Azure Portal or every time  a user lands on the edit provisioning page in the Azure Portal. Any additional attributes discovered will be surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to additional target attributes being added. It will not result in attributes being removed. 
+* The /schemas request will be made by the Azure AD SCIM client every time someone saves the provisioning configuration in the Azure portal or every time  a user lands on the edit provisioning page in the Azure portal. Any additional attributes discovered will be surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to additional target attributes being added. It will not result in attributes being removed. 
 
   
 ### User provisioning and deprovisioning
 
-The following illustration shows the messages that AAD sends to a SCIM service to manage the lifecycle of a user in your application's identity store.  
+The following illustration shows the messages that Azure AD sends to a SCIM service to manage the lifecycle of a user in your application's identity store.  
 
 ![Shows the user provisioning and deprovisioning sequence](media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
 *User provisioning and deprovisioning sequence*
 
 ### Group provisioning and deprovisioning
 
-Group provisioning and deprovisioning are optional. When implemented and enabled, the following illustration shows the messages that AAD sends to a SCIM service to manage the lifecycle of a group in your application's identity store. Those messages differ from the messages about users in two ways:
+Group provisioning and deprovisioning are optional. When implemented and enabled, the following illustration shows the messages that Azure AD sends to a SCIM service to manage the lifecycle of a group in your application's identity store. Those messages differ from the messages about users in two ways:
 
 * Requests to retrieve groups specify that the members attribute is to be excluded from any resource provided in response to the request.  
 * Requests to determine whether a reference attribute has a certain value are requests about the members attribute.  
@@ -241,10 +242,10 @@ Group provisioning and deprovisioning are optional. When implemented and enabled
 *Group provisioning and deprovisioning sequence*
 
 ### SCIM protocol requests and responses
-This section provides example SCIM requests emitted by the AAD SCIM client and example expected responses. For best results, you should code your app to handle these requests in this format and emit the expected responses.
+This section provides example SCIM requests emitted by the Azure AD SCIM client and example expected responses. For best results, you should code your app to handle these requests in this format and emit the expected responses.
 
 > [!IMPORTANT]
-> To understand how and when the AAD user provisioning service emits the operations described below, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
+> To understand how and when the Azure AD user provisioning service emits the operations described below, see the section [Provisioning cycles: Initial and incremental](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) in [How provisioning works](how-provisioning-works.md).
 
 [User Operations](#user-operations)
   - [Create User](#create-user) ([Request](#request) / [Response](#response))
@@ -893,7 +894,7 @@ TLS 1.2 Cipher Suites minimum bar:
 ### IP Ranges
 The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. Note that you will need to review the IP range list carefully for computed addresses. An address such as '40.126.25.32' could be represented in the IP range list as  '40.126.0.0/18'. You can also programmatically retrieve the IP range list using the following [API](/rest/api/virtualnetwork/servicetags/list).
 
-Azure AD also supports an agent based solution to provide connectivity to applications in private networks (on-premises, hosted in Azure, hosted in AWS, etc.). Customers can deploy a lightweight agent, which provides connectivity to Azure AD without opening an inbound ports, on a server in their private network. Learn more [here](./on-premises-scim-provisioning.md).
+Azure AD also supports an agent based solution to provide connectivity to applications in private networks (on-premises, hosted in Azure, hosted in AWS, etc.). Customers can deploy a lightweight agent, which provides connectivity to Azure AD without opening any inbound ports, on a server in their private network. Learn more [here](./on-premises-scim-provisioning.md).
 
 ## Build a SCIM endpoint
 
@@ -1064,10 +1065,10 @@ private string GenerateJSONWebToken()
 
 ***Example 1. Query the service for a matching user***
 
-Azure Active Directory (AAD) queries the service for a user with an `externalId` attribute value matching the mailNickname attribute value of a user in AAD. The query is expressed as a Hypertext Transfer Protocol (HTTP) request such as this example, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory.
+Azure Active Directory queries the service for a user with an `externalId` attribute value matching the mailNickname attribute value of a user in Azure AD. The query is expressed as a Hypertext Transfer Protocol (HTTP) request such as this example, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory.
 
 >[!NOTE]
-> This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Also, the attribute used for matching (which in this case is `externalId`) is configurable in the [AAD attribute mappings](customize-application-attributes.md).
+> This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Also, the attribute used for matching (which in this case is `externalId`) is configurable in the [Azure AD attribute mappings](customize-application-attributes.md).
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -1097,7 +1098,7 @@ In the sample query, for a user with a given value for the `externalId` attribut
 
 ***Example 2. Provision a user***
 
-If the response to a query to the web service for a user with an `externalId` attribute value that matches the mailNickname attribute value of a user doesn't return any users, then AAD requests that the service provision a user corresponding to the one in AAD.  Here is an example of such a request: 
+If the response to a query to the web service for a user with an `externalId` attribute value that matches the mailNickname attribute value of a user doesn't return any users, then Azure AD requests that the service provision a user corresponding to the one in Azure AD.  Here is an example of such a request: 
 
 ```
 POST https://.../scim/Users HTTP/1.1
@@ -1240,7 +1241,7 @@ In the example of a request to update a user, the object provided as the value o
 
 ***Example 6. Deprovision a user***
 
-To deprovision a user from an identity store fronted by an SCIM service, AAD sends a request such as:
+To deprovision a user from an identity store fronted by an SCIM service, Azure AD sends a request such as:
 
 ```
 DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
@@ -1264,9 +1265,9 @@ The object provided as the value of the resourceIdentifier argument has these pr
 * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-## Integrate your SCIM endpoint with the AAD SCIM client
+## Integrate your SCIM endpoint with the Azure AD SCIM client
 
-Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Understand the Azure AD SCIM implementation](#understand-the-aad-scim-implementation).
+Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Understand the Azure AD SCIM implementation](#understand-the-azure-ad-scim-implementation).
 
 Check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
 
@@ -1279,7 +1280,7 @@ Applications that support the SCIM profile described in this article can be conn
 
 **To connect an application that supports SCIM:**
 
-1. Sign in to the [AAD portal](https://aad.portal.azure.com). Note that you can get access a free trial for Azure Active Directory with P2 licenses by signing up for the [developer program](https://developer.microsoft.com/office/dev-program)
+1. Sign in to the [Azure AD portal](https://aad.portal.azure.com). Note that you can get access a free trial for Azure Active Directory with P2 licenses by signing up for the [developer program](https://developer.microsoft.com/office/dev-program)
 1. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
 1. Select **+ New application** > **+ Create your own application**.
 1. Enter a name for your application, choose the option "*integrate any other application you don't find in the gallery*" and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
@@ -1324,14 +1325,14 @@ Once the initial cycle has started, you can select **Provisioning logs** in the 
 > [!NOTE]
 > The initial cycle takes longer to perform than later syncs, which occur approximately every 40 minutes as long as the service is running.
 
-## Publish your application to the AAD application gallery
+## Publish your application to the Azure AD application gallery
 
 If you're building an application that will be used by more than one tenant, you can make it available in the Azure AD application gallery. This will make it easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](../manage-apps/v2-howto-app-gallery-listing.md). Microsoft will work with you to integrate your application into our gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers to use.
 
 ### Gallery onboarding checklist
 Use the checklist to onboard your application quickly and customers have a smooth deployment experience. The information will be gathered from you when onboarding to the gallery. 
 > [!div class="checklist"]
-> * Support a [SCIM 2.0](#understand-the-aad-scim-implementation) user and group endpoint (Only one is required but both are recommended)
+> * Support a [SCIM 2.0](#understand-the-azure-ad-scim-implementation) user and group endpoint (Only one is required but both are recommended)
 > * Support at least 25 requests per second per tenant to ensure that users and groups are provisioned and deprovisioned without delay (Required)
 > * Establish engineering and support contacts to guide customers post gallery onboarding (Required)
 > * 3 Non-expiring test credentials for your application (Required)
@@ -1352,7 +1353,7 @@ The SCIM spec doesn't define a SCIM-specific scheme for authentication and autho
 |OAuth client credentials grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have. Both the authorization code grant and the client credentials grant create the same type of access token, so moving between these methods is transparent to the API.  Provisioning can be completely automated, and new tokens can be silently requested without user interaction. ||Not supported for gallery and non-gallery apps. Support is in our backlog.|
 
 > [!NOTE]
-> It's not recommended to leave the token field blank in the AAD provisioning configuration custom app UI. The token generated is primarily available for testing purposes.
+> It's not recommended to leave the token field blank in the Azure AD provisioning configuration custom app UI. The token generated is primarily available for testing purposes.
 
 ### OAuth code grant flow
 
@@ -1391,7 +1392,7 @@ Best practices (recommended, but not required):
 1. When the provisioning cycle begins, the service checks if the current access token is valid and exchanges it for a new token if needed. The access token is provided in each request made to the app and the validity of the request is checked before each request.
 
 > [!NOTE]
-> While it's not possible to setup OAuth on the non-gallery applications, you can manually generate an access token from your authorization server and input it as the secret token to a non-gallery application. This allows you to verify compatibility of your SCIM server with the AAD SCIM client before onboarding to the app gallery, which does support the OAuth code grant.  
+> While it's not possible to setup OAuth on the non-gallery applications, you can manually generate an access token from your authorization server and input it as the secret token to a non-gallery application. This allows you to verify compatibility of your SCIM server with the Azure AD SCIM client before onboarding to the app gallery, which does support the OAuth code grant.  
 
 **Long-lived OAuth bearer tokens:** If your application doesn't support the OAuth authorization code grant flow, instead generate a long lived OAuth bearer token that an administrator can use to setup the provisioning integration. The token should be perpetual, or else the provisioning job will be [quarantined](application-provisioning-quarantine-status.md) when the token expires.
 

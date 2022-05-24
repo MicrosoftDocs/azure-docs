@@ -2,7 +2,7 @@
 title: 'Tutorial: Migrate event data to Azure Synapse Analytics - Azure Event Hubs'
 description: Describes how to use Azure Event Grid and Functions to migrate Event Hubs captured data to Azure Synapse Analytics.
 services: event-hubs
-ms.date: 03/08/2022
+ms.date: 04/29/2022
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ---

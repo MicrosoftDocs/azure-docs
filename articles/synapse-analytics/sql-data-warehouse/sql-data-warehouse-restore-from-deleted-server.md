@@ -24,18 +24,24 @@ In this article, you learn how to restore a dedicated SQL pool (formerly SQL DW)
 ## Restore the SQL pool from the deleted server
 
 1. Open PowerShell
+
 2. Connect to your Azure account.
+
 3. Set the context to the subscription that contains the server that was dropped.
+
 4. Specify the approximate datetime the server was dropped.
+
 5. Construct the resource ID for the database you wish to recover from the dropped server.
+
 6. Restore the database from the dropped server
+
 7. Verify the status of the recovered database as 'online'.
 
 
 ```powershell
 $SubscriptionID="<YourSubscriptionID>"
 $ResourceGroupName="<YourResourceGroupName>"
-$ServereName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
+$ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
 $DatabaseName="<YourDatabaseName>"
 $TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
 $TargetDatabaseName="<YourDatabaseName>"

@@ -66,7 +66,7 @@ Get-AzManagedServicesAssignment -Scope "/subscriptions/{delegatedSubscriptionId}
 
 # Delete the registration assignment
 
-Remove-AzManagedServicesAssignment -ResourceId "/subscriptions/{delegatedSubscriptionId}/providers/Microsoft.ManagedServices/registrationAssignments/{assignmentGuid}"
+Remove-AzManagedServicesAssignment -Name "<Assignmentname>" -Scope "/subscriptions/{delegatedSubscriptionId}"
 ```
 
 ### Azure CLI

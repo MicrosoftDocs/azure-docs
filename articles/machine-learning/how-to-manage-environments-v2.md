@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: mx-iao
-ms.author: minxia
+author: blackmist
+ms.author: larryfr
 ms.date: 03/31/2022
 ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2

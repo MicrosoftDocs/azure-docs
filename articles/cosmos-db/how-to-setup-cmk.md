@@ -4,7 +4,7 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/25/2022
+ms.date: 05/05/2022
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -35,7 +35,7 @@ You must store customer-managed keys in [Azure Key Vault](../key-vault/general/o
 ## Configure your Azure Key Vault instance
 
 > [!IMPORTANT]
-> Your Azure Key Vault instance must be accessible through public network access. An instance that is only accessible through [private endpoints](../key-vault/general/private-link-service.md) cannot be used to host your customer-managed keys.
+> Your Azure Key Vault instance must be accessible through public network access or allow trusted Microsoft services to bypass its firewall. An instance that is exclusively accessible through [private endpoints](../key-vault/general/private-link-service.md) cannot be used to host your customer-managed keys.
 
 Using customer-managed keys with Azure Cosmos DB requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys: **Soft Delete** and **Purge Protection**.
 
@@ -273,9 +273,6 @@ Because a system-assigned managed identity can only be retrieved after the creat
 
 ### To use a user-assigned managed identity
 
-> [!IMPORTANT]
-> When using a user-assigned managed identity, firewall rules on the Azure Key Vault account aren't currently supported. You must keep your Azure Key Vault account accessible from all networks.
-
 1.	When creating the new access policy in your Azure Key Vault account as described [above](#add-access-policy), use the `Object ID` of the managed identity you wish to use instead of Azure Cosmos DB's first-party identity.
 
 1.	When creating your Azure Cosmos DB account, you must enable the user-assigned managed identity and specify that you want to use this identity when accessing your encryption keys in Azure Key Vault. You can do this:
@@ -366,7 +363,19 @@ When you create a new Azure Cosmos account through an Azure Resource Manager tem
     }
 }
 ```
-    
+
+## Customer-managed keys and double encryption
+
+When using customer-managed keys, the data you store in your Azure Cosmos DB account ends up being encrypted twice:
+
+- Once through the default encryption performed with Microsoft-managed keys.
+- Once through the additional encryption performed with customer-managed keys.
+
+Note that **this only applies to the main Azure Cosmos DB transactional storage**. Some features involve internal replication of your data to a second tier of storage where double encryption isn't provided, even when using customer-managed keys. These features include:
+
+- [Synapse Link](./synapse-link.md)
+- [Continuous backups with point-in-time restore](./continuous-backup-restore-introduction.md)
+ 
 ## Key rotation
 
 Rotating the customer-managed key used by your Azure Cosmos account can be done in two ways.

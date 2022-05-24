@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/08/2022
+ms.date: 04/12/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -51,6 +51,11 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 |            |< 1.2.0 | 1.12.4 |
 
 ## Self-asserted page (selfasserted)
+
+**2.1.10**
+
+- Correcting to the tab index
+- Fixing WCAG 2.1 accessibility and screen reader issues   
 
 **2.1.9**
 

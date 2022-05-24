@@ -48,6 +48,8 @@ Actions can be defined to run when the conditions (see above) are met. You can d
 
 Also, you can define an action to [**run a playbook**](tutorial-respond-threats-playbook.md), in order to take more complex response actions, including any that involve external systems. **Only** playbooks activated by the [**incident trigger**](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts) are available to be used in automation rules. You can define an action to include multiple playbooks, or combinations of playbooks and other actions, and the order in which they will run.
 
+Playbooks using [either version of Logic Apps (Standard or Consumption)](automate-responses-with-playbooks.md#two-types-of-logic-apps) will be available to run from automation rules.
+
 ### Expiration date
 
 You can define an expiration date on an automation rule. The rule will be disabled after that date. This is useful for handling (that is, closing) "noise" incidents caused by planned, time-limited activities such as penetration testing.
@@ -121,7 +123,7 @@ When a Microsoft Sentinel automation rule runs a playbook, it uses a special Mic
 
 In order for an automation rule to run a playbook, this account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule will be able to run any playbook in that resource group.
 
-When you're configuring an automation rule and adding a **run playbook** action, a drop-down list of playbooks will appear. Playbooks to which Microsoft Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant Microsoft Sentinel permission to the playbooks' resource groups on the spot by selecting the **Manage playbook permissions** link.
+When you're configuring an automation rule and adding a **run playbook** action, a drop-down list of playbooks will appear. Playbooks to which Microsoft Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant Microsoft Sentinel permission to the playbooks' resource groups on the spot by selecting the **Manage playbook permissions** link. To grant those permissions, you'll need **Owner** permissions on those resource groups. [See the full permissions requirements](tutorial-respond-threats-playbook.md#respond-to-incidents).
 
 #### Permissions in a multi-tenant architecture
 

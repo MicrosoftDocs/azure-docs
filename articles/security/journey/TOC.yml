@@ -157,9 +157,9 @@
     - name: Database security
       items:
       - name: Overview
-        href: ../../azure-sql/database/security-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /azure/azure-sql/database/security-overview?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Best practices
-        href: ../../azure-sql/database/security-best-practice.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /azure/azure-sql/database/security-best-practice?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Security checklist
         href: ../fundamentals/database-security-checklist.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Storage security guide

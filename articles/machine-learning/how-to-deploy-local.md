@@ -98,7 +98,7 @@ The easiest way to replicate the environment used by Azure Machine Learning is t
 The following code shows these steps:
 
 ```python
-from azureml.core.webservice import Webservice
+from azureml.core.webservice import LocalWebservice
 from azureml.core.model import InferenceConfig
 from azureml.core.environment import Environment
 from azureml.core import Workspace

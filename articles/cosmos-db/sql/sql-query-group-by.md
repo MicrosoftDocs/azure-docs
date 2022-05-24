@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 05/12/2022
 ms.author: tisande
 
 ---
@@ -41,7 +41,7 @@ The GROUP BY clause divides the query's results according to the values of one o
   
   When a query uses a GROUP BY clause, the SELECT clause can only contain the subset of properties and system functions included in the GROUP BY clause. One exception is [aggregate functions](sql-query-aggregate-functions.md), which can appear in the SELECT clause without being included in the GROUP BY clause. You can also always include literal values in the SELECT clause.
 
-  The GROUP BY clause must be after the SELECT, FROM, and WHERE clause and before the OFFSET LIMIT clause. You currently cannot use GROUP BY with an ORDER BY clause but this is planned.
+  The GROUP BY clause must be after the SELECT, FROM, and WHERE clause and before the OFFSET LIMIT clause. You cannot use GROUP BY with an ORDER BY clause.
   
   The GROUP BY clause does not allow any of the following:
   

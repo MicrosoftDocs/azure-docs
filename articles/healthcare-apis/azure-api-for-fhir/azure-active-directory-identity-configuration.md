@@ -2,13 +2,13 @@
 title: Azure Active Directory identity configuration for Azure API for FHIR
 description: Learn the principles of identity, authentication, and authorization for Azure FHIR servers.
 services: healthcare-apis
-author: caitlinv39
+author: mikaelweave
 ms.reviewer: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/15/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ---
 
 # Azure Active Directory identity configuration for Azure API for FHIR

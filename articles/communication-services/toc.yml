@@ -67,12 +67,16 @@ items:
       href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
       href: quickstarts/voice-video-calling/call-recording-sample.md
+    - name: Handle calling events
+      href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Raw media access
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
   - name: UI Library
     items:
     - name: Get started with UI Library
       href: quickstarts/ui-library/get-started-composites.md
+    - name: Design with UI Library Design Kit
+      href: quickstarts/ui-library/get-started-ui-kit.md
   - name: Access TURN relays
     href: quickstarts/relay-token.md    
 - name: Tutorials
@@ -345,3 +349,5 @@ items:
   items:
   - name: Release notes
     href: https://github.com/Azure/Communication/blob/master/releasenotes
+  - name: Learn modules
+    href: resources/learn-modules.md
