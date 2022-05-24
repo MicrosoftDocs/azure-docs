@@ -52,7 +52,7 @@ To run the application locally:
 1. Install the dependencies:
 
     ```Console
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
     ```
 
 1. Run the app:
@@ -82,13 +82,13 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 1. Install the dependencies:
 
     ```Console
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
     ```
 
 1. Run the app:
 
     ```Console
-    python manage.py runserver
+    python3 manage.py runserver
     ```
 
 1. Browse to the sample application at `http://localhost:8000` in a web browser.
@@ -101,7 +101,7 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## 2 - Create a web app in Azure
 
-To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), [VS Code](https://code.visualstudio.com/) using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
+To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using [Azure portal](https://portal.azure.com/), [VS Code](https://code.visualstudio.com/), [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
