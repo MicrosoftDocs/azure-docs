@@ -73,7 +73,9 @@ A service principal must be created in each tenant where the application is used
 
 ### Consequences of modifying and deleting applications
 
-Any changes that you make to your application object are also reflected in its service principal object in the application's home tenant only (the tenant where it was registered). This means that deleting an application object will also delete its home tenant service principal object. However, restoring that application object will not restore its corresponding service principal. For multi-tenant applications, changes to the application object are not reflected in any consumer tenants' service principal objects until the access is removed through the [Application Access Panel](https://myapps.microsoft.com) and granted again.
+Any changes that you make to your application object are also reflected in its service principal object in the application's home tenant only (the tenant where it was registered). This means that deleting an application object will also delete its home tenant service principal object. However, restoring that application object will not restore its corresponding service principal. 
+
+For multi-tenant applications, changes to the application object are not reflected in any consumer tenants' service principal objects until the access is removed through the [Application Access Panel](https://myapps.microsoft.com) and granted again. For more information on deletion and recovery of applications and their service principal objects, see [delete and recover applications and service principal objects](../manage-apps/recover-deleted-apps-faq.md)
 
 ## Example
 

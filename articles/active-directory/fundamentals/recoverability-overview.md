@@ -179,8 +179,10 @@ A Delete event for applications, users, and Microsoft 365 Groups is a soft delet
 
 | Object Type | Activity in log| Result |
 | - | - | - |
-| Application| Delete application| Soft deleted |
-| Application| Hard delete application| Hard deleted |
+| Application| Delete application and service principal| Soft deleted |
+| Application| Hard delete application and service principal| Hard deleted |
+| Service principal| Delete service principal| Soft deleted |
+| Service principal| Hard delete service principal| Hard deleted |
 | User| Delete user| Soft deleted |
 | User| Hard delete user| Hard deleted |
 | Microsoft 365 Groups| Delete group| Soft deleted |
