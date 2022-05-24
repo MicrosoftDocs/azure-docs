@@ -618,15 +618,15 @@ How to use the `validate` property to validate Windows images
           "inline": [
             "<command to run inline>"
           ],
-	  "validExitCodes": "<exit code>",
-	  "runElevated": <true or false> 
+          "validExitCodes": "<exit code>",
+          "runElevated": <true or false> 
         },
         {
           "type": "PowerShell",
           "name": "<name>",
           "scriptUri": "<path to script>",
 	  "runElevated": <true false>,
-	  "sha256Checksum": "<sha256 checksum>" 
+          "sha256Checksum": "<sha256 checksum>" 
         }
       ]
     },
