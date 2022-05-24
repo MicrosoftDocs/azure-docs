@@ -293,7 +293,7 @@ The "Until" loop stops execution based on these properties, so make sure that yo
 
 * **Count**: This value is the highest number of loops that run before the loop exits. For the default and maximum limits on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-* **Timeout**: This value is the most amount of time that the "Until" action (including all the loops) runs before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). For the default and maximum limits on the **Timeout** value, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* **Timeout**: This value is the most amount of time that the "Until" action, including all the loops, runs before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). For the default and maximum limits on the **Timeout** value, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
   The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met.
 
