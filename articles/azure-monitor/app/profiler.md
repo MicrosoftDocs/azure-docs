@@ -47,7 +47,9 @@ To enable Profiler on Linux, walk through the [ASP.NET Core Azure Linux web apps
    :::image type="content" source="./media/profiler/enable-app-insights.png" alt-text="Screenshot of enabling App Insights on your app.":::
 
 1. Scroll down and select the **.NET** or **.NET Core** tab, depending on your app.
+1. Verify **Collection Level** > **Recommended** is selected.
 1. Under **Profiler**, select **On**. 
+   - If you chose the **Basic** collection level earlier, the Profiler setting is disabled. 
 1. Select **Apply**, then **Yes** to confirm.
 
    :::image type="content" source="./media/profiler/enable-profiler.png" alt-text="Screenshot of enabling Profiler on your app.":::
