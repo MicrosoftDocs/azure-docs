@@ -19,7 +19,7 @@ This article demonstrates how to cache the authentication token in order to impr
 
 ## Using ASP.NET
 
-Import the **Microsoft.Identity.Client** NuGet package, which is used to acquire a token. Next, use the following code to acquire an `AuthenticationResult`, using the authentication values you got when you [created the Immersive Reader resource](./how-to-create-immersive-reader.md).
+Import the **Microsoft.Identity.Client** NuGet package, which is used to acquire a token.
 
 Create a confidential client application property.
 
@@ -39,6 +39,8 @@ private IConfidentialClientApplication ConfidentialClientApplication
     }
 }
 ```
+
+Next, use the following code to acquire an `AuthenticationResult`, using the authentication values you got when you [created the Immersive Reader resource](./how-to-create-immersive-reader.md).
 
 ```csharp
 public async Task<string> GetTokenAsync()
