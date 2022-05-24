@@ -22,7 +22,7 @@ ms.author: aahi
 
 5. The [confusion matrix](../../concepts/evaluation-metrics.md#confusion-matrix) for the model is located under **Test set confusion matrix**.
 
-    :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of the model performance metrics in Language Studio." lightbox="../../media/confusion-matrix.png":::
+    :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of a confusion matrix in Language Studio." lightbox="../../media/confusion-matrix.png":::
     
 > [!NOTE]
 > Entities that are neither labeled nor predicted in the test set will not be part of the displayed results.
