@@ -27,9 +27,9 @@ sections:
         answer: |
           There is no way to cancel a training once it has been started.
       - question: |
-          Where is my subscription key?
+          Where is my key?
         answer: |
-          You can find your subscription key in the Azure portal, under the **key and endpoint** tab.
+          You can find your key in the Azure portal, under the **key and endpoint** tab.
       - question: |
           Where is my prediction resource ID?
         answer: |
