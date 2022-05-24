@@ -38,13 +38,13 @@ You can create rules using these metrics:
 
 Metric alert rules include these features:
 - You can use multiple conditions on an alert rule for a single resource.
-- You can add granularity by [monitoring multiple metric dimensions](#narrow-your-metric-alert-target-with-dimensions). 
+- You can add granularity by [monitoring multiple metric dimensions](#narrow-the-target-using-dimensions). 
 - You can use [Dynamic thresholds](#dynamic-thresholds) driven by machine learning. 
 - You can configure if metric alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). Metric alerts are stateful by default.
 
 The target of the metric alert rule can be:
 - A single resource, such as a VM. See this article for supported resource types.
-- [Multiple resources](#monitoring-multiple-resources) of the same type in the same Azure region, such as a resource group.
+- [Multiple resources](#monitor-multiple-resources) of the same type in the same Azure region, such as a resource group.
 
 ### Multiple conditions
 
@@ -141,7 +141,7 @@ Manage new rules in your workspaces using the [ScheduledQueryRules](/rest/api/mo
 Log Alerts are listed under resource provider microsoft.insights/scheduledqueryrules with:
 - Log Alerts on Application Insights shown with exact resource name along with resource group and alert properties.
 - Log Alerts on Log Analytics shown with exact resource name along with resource group and alert properties; when created using scheduledQueryRules API.
-- Log alerts created from legacy Log Analytics API aren't tracked Azure Resources and don't have enforced unique resource names. These alerts are still created on microsoft.insights/scheduledqueryrules as hidden resources, which have this resource naming structure <WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>. Log Alerts on legacy API are shown with above hidden resource name along with resource group and alert properties.
+- Log alerts created from [legacy Log Analytics API](./api-alerts.md) aren't tracked [Azure Resources](../../azure-resource-manager/management/overview.md) and don't have enforced unique resource names. These alerts are still created on `microsoft.insights/scheduledqueryrules` as hidden resources, which have this resource naming structure `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Log Alerts on legacy API are shown with above hidden resource name along with resource group and alert properties.
 > [!Note]
 > Unsupported resource characters such as <, >, %, &, \, ?, / are replaced with _ in the hidden resource names and this will also reflect in the billing information.
 ## Activity log alerts

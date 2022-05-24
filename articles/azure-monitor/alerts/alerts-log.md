@@ -75,11 +75,11 @@ You can also [create log alert rules using Azure Resource Manager templates](../
    
     Select values for these fields under **Number of violations to trigger the alert**:
     
-       |Field  |Description  |
-       |---------|---------|
-       |Number of violations|The number of violations that have to occur to trigger the alert.|
-       |Evaluation period|The amount of time within which those violations have to occur. |
-       |Override query time range| Enter a value for this field if the alert evaluation period is different than the query time range.| 
+    |Field  |Description  |
+    |---------|---------|
+    |Number of violations|The number of violations that have to occur to trigger the alert.|
+    |Evaluation period|The amount of time within which those violations have to occur. |
+    |Override query time range| Enter a value for this field if the alert evaluation period is different than the query time range.| 
 
     :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
 
