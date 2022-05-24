@@ -30,6 +30,12 @@
           href: global-dist-under-the-hood.md
     - name: Partitioning and horizontal scaling
       href: partitioning-overview.md
+    - name: Hierarchical partition keys (preview)
+      items:
+        - name: Hierarchical partition keys overview
+          href: hierarchical-partition-keys.md
+        - name: Hierarchical partition keys FAQ
+          href: hierarchical-partition-keys-faq.yml
     - name: Capacity
       items:
         - name: Request units
@@ -53,7 +59,15 @@
         - name: Choose between provisioned throughput and serverless
           href: throughput-serverless.md
         - name: Best practices for scaling provisioned throughput
-          href: scaling-provisioned-throughput-best-practices.md
+          href: scaling-provisioned-throughput-best-practices.md        
+        - name: Burst capacity (preview)
+          items:
+            - name: Burst capacity overview
+              href: burst-capacity.md
+            - name: Burst capacity FAQ
+              href: burst-capacity-faq.yml
+        - name: Merge (preview)
+          href: merge.md
     - name: Security
       items:
         - name: Security overview
@@ -716,7 +730,14 @@
                   href: sql/how-to-provision-database-throughput.md
                 - name: Provision autoscale throughput - database or container
                   displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
-                  href: sql/how-to-provision-autoscale-throughput.md
+                  href: sql/how-to-provision-autoscale-throughput.md                
+                - name: Distribute throughput across partitions (preview) - container
+                  displayName: request units, RUs, RU, collection levels
+                  items:
+                    - name: Distribute throughput across partitions overview        
+                      href: sql/distribute-throughput-across-partitions.md
+                    - name: Distribute throughput across partitions FAQ        
+                      href: sql/distribute-throughput-across-partitions-faq.yml
                 - name: Estimate RU/s with capacity planner
                   displayName: request units, RUs, RU, capacity
                   href: sql/estimate-ru-with-capacity-planner.md

@@ -1279,6 +1279,8 @@ items:
         href: containers/container-insights-agent-config.md
       - name: Update to enable metrics
         href: containers/container-insights-update-metrics.md
+      - name: Enable ContainerLogv2 (preview)
+        href: containers/container-insights-logging-v2.md
       - name: Migration from Azure Red Hat OpenShift v4.x to Azure Arc enabled cluster
         href: containers/container-insights-transition-hybrid.md
     - name: Monitor
