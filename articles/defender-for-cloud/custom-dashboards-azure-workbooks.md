@@ -92,7 +92,7 @@ Learn more about using these scanners:
 
 - [Find vulnerabilities with Microsoft threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
 - [Find vulnerabilities with the integrated Qualys scanner](deploy-vulnerability-assessment-vm.md)
-- [Scan your registry images for vulnerabilities](defender-for-container-registries-usage.md)
+- [Scan your registry images for vulnerabilities](defender-for-containers-usage.md)
 - [Scan your SQL resources for vulnerabilities](defender-for-sql-on-machines-vulnerability-assessment.md)
 
 Findings for each resource type are reported in separate recommendations:

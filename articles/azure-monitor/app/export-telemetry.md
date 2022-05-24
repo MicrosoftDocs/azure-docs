@@ -10,13 +10,9 @@ ms.custom: references_regions
 Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this purpose. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there, you can download your data and write whatever code you need to process it.  
 
 > [!IMPORTANT]
-> Continuous export has been deprecated. When [migrating to a workspace-based Application Insights resource](convert-classic-resource.md), you must use [diagnostic settings](#diagnostic-settings-based-export) for exporting telemetry.
-
-> [!NOTE]
-> Continuous export is only supported for classic Application Insights resources. [Workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
->
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+> * Continuous export has been deprecated and is only supported for classic Application Insights resources.
+> * When [migrating to a workspace-based Application Insights resource](convert-classic-resource.md), you must use [diagnostic settings](#diagnostic-settings-based-export) for exporting telemetry. All [workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
+> * Diagnostic settings export may increase costs. ([more information](export-telemetry.md#diagnostic-settings-based-export))
 
 Before you set up continuous export, there are some alternatives you might want to consider:
 
@@ -146,6 +142,8 @@ When you open your blob store, you'll see a container with a set of blob files. 
 
 ![Inspect the blob store with a suitable tool](./media/export-telemetry/04-data.png)
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 The date and time are UTC and are when the telemetry was deposited in the store - not the time it was generated. So if you write code to download the data, it can move linearly through the data.
 
 Here's the form of the path:
@@ -252,10 +250,16 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 
 ## Diagnostic settings based export
 
-Diagnostic settings based export uses a different schema than continuous export. It also supports features that continuous export doesn't like:
+Diagnostic settings export is preferred because it provides additional features.
+ > [!div class="checklist"]
+ > * Azure storage accounts with virtual networks, firewalls, and private links
+ > * Export to Event Hubs
 
-* Azure storage accounts with virtual networks, firewalls, and private links.
-* Export to Event Hubs.
+Diagnostic settings export further differs from continuous export in the following ways:
+* Updated schema.
+* Telemetry data is sent as it arrives instead of in batched uploads.
+ > [!IMPORTANT]
+ > Additional costs may be incurred due to an increase in calls to the destination, such as a storage account.
 
 To migrate to diagnostic settings-based export:
 

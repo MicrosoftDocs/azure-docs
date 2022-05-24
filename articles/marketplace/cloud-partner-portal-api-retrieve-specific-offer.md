@@ -39,7 +39,6 @@ You can also retrieve a particular version of the offer, or retrieve the offer i
 | version     | Version of the offer being retrieved. By default, the latest offer version is retrieved. | Integer       |
 | slotId      | The slot from which the offer is to be retrieved, can be one of:      <br/>  - `Draft` (default) retrieves the offer version currently in draft.  <br/>  -  `Preview` retrieves the offer version currently in preview.     <br/>  -  `Production` retrieves the offer version currently in production.          |      enum |
 | api-version | Latest version of API                                                                    | Date          |
-|  |  |  |
 
 ## Header
 
@@ -47,7 +46,6 @@ You can also retrieve a particular version of the offer, or retrieve the offer i
 |  ---------------   |  --------------        |
 |  Content-Type      | `application/json`     |
 |  Authorization     | `Bearer YOUR_TOKEN`    |
-|  |  |
 
 ## Body example
 
@@ -175,7 +173,6 @@ You can also retrieve a particular version of the offer, or retrieve the offer i
 |  version        | Current version of the offer. The version property cannot be modified by the client. It's incremented after each publishing.    |
 |  definition     | Actual definition of the workload                                                                                               |
 |  changedTime    | UTC datetime when the offer was last modified                                                                                   |
-|  |  |
 
 ### Response status codes
 
@@ -185,7 +182,6 @@ You can also retrieve a particular version of the offer, or retrieve the offer i
 |  400      | `Bad/Malformed request` - The error response body may contain more information.                                                 |
 |  403      | `Forbidden` - The client doesn't have access to the specified namespace.                                                        |
 |  404      | `Not found` - The specified entity doesn't exist. Client should check the publisherId, offerId, and version (if specified).      |
-|  |  |
 
 ### Offer status
 
@@ -198,4 +194,3 @@ You can also retrieve a particular version of the offer, or retrieve the offer i
 |  Succeeded                  | Offer submission has completed processing.    |
 |  Canceled                   | Offer submission was canceled.                |
 |  Failed                     | Offer submission failed.                      |
-|  |  |

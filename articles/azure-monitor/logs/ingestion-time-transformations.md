@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 01/19/2022
 ---
 
-# Tutorial: Ingestion-time transformations in Azure Monitor Logs (preview)
-[Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction, and control the structure of the data that gets ingested.in
+# Ingestion-time transformations in Azure Monitor Logs (preview)
+[Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction, and control the structure of the data that gets ingested.
 
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
