@@ -18,7 +18,7 @@ The instructions in this article will tell you how to deploy the UI by using an 
 
 Since the app requires consent to interact with Azure Virtual Desktop, this tool doesn't support Business-to-Business (B2B) scenarios. Each Azure Active Directory (AAD) tenant's subscription will need its own separate deployment of the management tool.
 
-This management tool is a sample. Microsoft will provide important security and quality updates. The [source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Microsoft support is not handling issues for the management tool. If you come across any issues follow the directions in Azure Resource Manager templates for Remote Desktop Services to report them on [GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). 
+This management tool is a sample. Microsoft will provide important security and quality updates. The [source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Microsoft Support is not handling issues for the management tool. If you come across any issues, follow the directions in Azure Resource Manager templates for Remote Desktop Services to report them on [GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). 
 
 Customers and partners are encouraged to customize the tool to fit their business needs.
 
