@@ -13,7 +13,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/02/2022
+ms.date: 05/24/2022
 ms.author: mametcal
 
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
@@ -68,7 +68,7 @@ In this tutorial, you learn how to:
 1. Set up [Maven App Service Deployment](../app-service/quickstart-java.md?tabs=javase) so the application can be deployed to Azure App Service via Maven.
 
    ```console
-   mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
+   mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
    ```
 
 1. Open bootstrap.properties and configure Azure App Configuration Push Refresh and Azure Service Bus
@@ -90,7 +90,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 > [!NOTE]
 > The Primary token name should be stored in App Configuration as a key, and then the Primary token secret should be stores as an App Configuration Key Vault Reference for added security.
 
-## Build and run the app locally
+## Build and run the app in app service
 
 Event Grid Web Hooks require validation on creation. You can validate by following this [guide](../event-grid/webhook-event-delivery.md) or by starting your application with Azure App Configuration Spring Web Library already configured, which will register your application for you. To use an event subscription, follow the steps in the next two sections.
 
@@ -114,6 +114,14 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
     export AppConfigurationConnectionString = <connection-string-of-your-app-configuration-store>
     ```
 
+1. Update your `pom.xml` under the `azure-webapp-maven-plugin`'s `configuration` add
+
+```xml
+<appSettings>
+  <AppConfigurationConnectionString>${AppConfigurationConnectionString}</AppConfigurationConnectionString>
+</appSettings>
+```
+
 1. Run the following command to build the console app:
 
    ```shell
@@ -123,7 +131,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 1. After the build successfully completes, run the following command to run the app locally:
 
     ```shell
-    mvn spring-boot:deploy
+    mvn azure-webapp:deploy
     ```
 
 ## Set up an event subscription
@@ -156,7 +164,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 1. After your application is running, use *curl* to test your application, for example:
 
    ```cmd
-   curl -X GET http://localhost:8080
+   curl -X GET https://my-azure-webapp.azurewebsites.net
    ```
 
 1. Open the **Azure Portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and update the values of the following keys:
