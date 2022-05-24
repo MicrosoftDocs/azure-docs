@@ -316,6 +316,8 @@ The number of tasks per each job or stage help you to identify the parallel leve
 
 You can specify the timeout duration, the number, and the size of executors to give to the current Spark session in **Configure session**. Restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
 
+You can also create a configuration from the Apache Spark configuration or select an existing configuration. For details, please refer to [Apache Spark Configuration Management](../../synapse-analytics/spark/apache-spark-azure-create-spark-configuration.md).
+
 [![Screenshot of session-management](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png#lightbox)
 
 #### Spark session configuration magic command
@@ -383,7 +385,7 @@ Notebook will use default value if run a notebook in interactive mode directly o
 During the pipeline run mode, you can configure pipeline Notebook activity settings as below:
 ![Screenshot of parameterized session configuration](./media/apache-spark-development-using-notebooks/parameterized-session-config.png)
 
-If you want to change the session configuration, pipeline Notebook activity parameters name should be same as activityParameterName in the notebook. When run this pipeline, in this example driverCores in %%configure will be replaced by 8 and livy.rsc.sql.num-rows will be replaced by 4000.
+If you want to change the session configuration, pipeline Notebook activity parameters name should be same as activityParameterName in the notebook. When running this pipeline, in this example driverCores in %%configure will be replaced by 8 and livy.rsc.sql.num-rows will be replaced by 4000.
 
 > [!NOTE]
 >  If run pipeline failed because of using this new %%configure magic, you can check more error information by running %%configure magic cell in the interactive mode of the notebook. 
@@ -453,7 +455,7 @@ Widgets are eventful python objects that have a representation in the browser, o
    ```python
    import ipywidgets as widgets
    ```
-2. You can use top-level `display` function to render a widget, or leave a expression of **widget** type at the last line of code cell.
+2. You can use top-level `display` function to render a widget, or leave an expression of **widget** type at the last line of code cell.
    ```python
    slider = widgets.IntSlider()
    display(slider)
