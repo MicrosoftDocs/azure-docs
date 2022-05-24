@@ -107,7 +107,7 @@ In this section, we'll walk through creating a simple LDAP server on a Virtual M
 1. Now set properties at the data center level. Replace `<resource group>` and `<cluster name>` with the appropriate values, and `<dnsname>` with the dns name you created for your LDAP server.
 
     > [!NOTE]
-    > The below command is based on the LDAP setup in the earlier section. If you skipped that section because you already have an existing LDAP server, provide the corresponding values for that server instead. Ensure you have uploaded a certificate file like `ldap.crt` to your [clouddrive](../azure/cloud-shell/persisting-shell-storage.md) in Azure CLI.
+    > The below command is based on the LDAP setup in the earlier section. If you skipped that section because you already have an existing LDAP server, provide the corresponding values for that server instead. Ensure you have uploaded a certificate file like `ldap.crt` to your [clouddrive](../cloud-shell/persisting-shell-storage.md) in Azure CLI.
 
     ```azurecli-interactive
     ldap_search_base_distinguished_name='dc=example,dc=org'
