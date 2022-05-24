@@ -37,6 +37,16 @@ Updates in the UI include a reflection of the selected pricing tier and the requ
 
 :::image type="content" source="media/release-notes/auto-provision.png" alt-text="Screenshot of the auto-provision page with the multi-cloud connector enabled.":::
 
+### Changes to vulnerability assessment
+
+Defender for Containers now displays vulnerabilities that have medium and low severities that are not patchable.
+
+As part of this update, vulnerabilities that have medium and low severities are now shown, whether or not patches are available. This update provides maximum visibility, but still allows you to filter out undesired vulnerabilities by using the provided Disable rule.
+
+:::image type="content" source="media/release-notes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
+
+Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.md)
+
 ### JIT (Just-in-time) access for VMs is now available for AWS EC2 instances (Preview)
 
 When you [connect AWS accounts](quickstart-onboard-aws.md), JIT will automatically evaluate the network configuration of your instances, security groups and recommend which instances need protection for their exposed management ports. This is similar to how JIT works with Azure. When you onboard unprotected EC2 instances, JIT will block public access to the management ports and only open them with authorized requests for a limited time frame.
