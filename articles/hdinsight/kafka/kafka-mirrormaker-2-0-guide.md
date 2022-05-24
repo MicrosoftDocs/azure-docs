@@ -42,8 +42,8 @@ The summary of the broker setup process is as follows:
 
 **MirrorCheckpointConnector:**
 
-   1.Consumes offset-syncsr.
-   1.Emits checkpoints to enable failover points.
+   1. Consumes offset-syncsr.
+   1. Emits checkpoints to enable failover points.
   
 **MirrorHeartBeatConnector:**
 
