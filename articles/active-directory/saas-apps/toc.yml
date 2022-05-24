@@ -2326,6 +2326,8 @@
         href: usertesting-tutorial.md  
       - name: UserVoice
         href: uservoice-tutorial.md
+      - name: UserZoom
+        href: userzoom-tutorial.md
       - name: ValidSign
         href: validsign-tutorial.md
       - name: Vault Platform
