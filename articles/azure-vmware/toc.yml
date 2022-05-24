@@ -45,7 +45,7 @@
   - name: Hub and spoke
     href: concepts-hub-and-spoke.md
   - name: Internet connectivity design considerations
-    href: concepts-design-avs-public-internet-access.md
+    href: concepts-design-public-internet-access.md
   - name: Network design considerations
     href: concepts-network-design-considerations.md
   - name: Networking and interconnectivity
@@ -80,9 +80,9 @@
       items:
       - name: Set up Backup Server
         href: set-up-backup-server-for-azure-vmware-solution.md
-      - name: Back up private cloud VMs with Backup Server
-        href: backup-azure-vmware-solution-virtual-machines.md
-    - name: Disaster recovery using Azure Site Recovery
+    - name: Back up private cloud VMs with Backup Server
+      href: backup-azure-vmware-solution-virtual-machines.md
+  - name: Disaster recovery using Azure Site Recovery
       items:
       - name: Prepare Azure
         href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
@@ -98,24 +98,24 @@
         href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Fail back from Azure
         href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-    - name: Create an Azure VMware Solution assessment
-      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-    - name: Create a placement policy
-      href: create-placement-policy.md
-    - name: Configure external identity source for vCenter 
-      href: configure-identity-source-vcenter.md
-  - name: Configure GitHub Enterprise Server
-    href: configure-github-enterprise-server.md
+      - name: Create an Azure VMware Solution assessment
+        href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Create a placement policy
+        href: create-placement-policy.md
+      - name: Configure external identity source for vCenter 
+        href: configure-identity-source-vcenter.md
+      - name: Configure GitHub Enterprise Server
+        href: configure-github-enterprise-server.md
   - name: Configure Internet connectivity
     items:
     - name: Enable Managed SNAT for Azure VMware Solution Workloads
-      href: enable-managed-snat-for-avs-workloads.md
+      href: enable-managed-snat-workloads.md
     - name: Enable Public IP to the NSX Edge for Azure VMware Solution
       href: enable-public-ip-to-the-nsx-edge.md
     - name: Disable Internet access or enable a default route
       href: disable-internet-access.md
-    - name: Configure networking
-      items:
+  - name: Configure networking
+    items:
     - name: Configure DHCP server or relay
       href: configure-dhcp-azure-vmware-solution.md
     - name: Configure DHCP on L2 stretched networks
