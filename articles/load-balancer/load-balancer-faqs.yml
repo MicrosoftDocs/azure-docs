@@ -77,7 +77,7 @@ sections:
       - question: |
           Does Azure Load Balancer support TLS/SSL termination?
         answer: |
-          No, Azure Load Balancer doesn't currently support termination as it is a pass through network load balancer. Application Gateway could be a potential solution if your application requires this.
+          No, Azure Load Balancer doesn't currently support termination as it is a pass through network load balancer. [Application Gateway](../application-gateway/ssl-overview.md) could be a potential solution if your application requires this.
 
       - question: |
           How do I configure my Load Balancer with an Azure Firewall?
