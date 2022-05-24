@@ -13,13 +13,6 @@ ms.date: 01/19/2022
 ## Basic operation
 The transformation is a [KQL query](../essentials/data-collection-rule-transformations.md) that runs against the incoming data and modifies it before it's stored in the workspace. Transformations are defined separately for each table in the workspace. This article provides an overview of this feature and guidance for further details and samples. Configuration for ingestion-time transformation is stored in a workspace transformation DCR. You can either [create this DCR directly](tutorial-ingestion-time-transformations-api.md) or configure transformation [through the Azure portal](tutorial-ingestion-time-transformations.md). 
 
-## When to use ingestion-time transformations
-Use ingestion-time transformation for the following scenarios:
-
-**Reduce data ingestion cost.** You can create a transformation to filter data that you don't require from a particular workflow. You may also remove data that you don't require from specific columns, resulting in a lower amount of the data that you need to ingest and store. For example, you might have a diagnostic setting to collect resource logs from a particular resource but not require all of the log entries that it generates. Create a transformation that filters out records that match a certain criteria. 
-
-**Simplify query requirements.** You may have a table with valuable data buried in a particular column or data that needs some type of conversion each time it's queried. Create a transformation that parses this data into a custom column so that queries don't need to parse it. Remove extra data from the column that isn't required to decrease ingestion and retention costs.
-
 ## Supported workflows
 Ingestion-time transformation is applied to any workflow that doesn't currently use a [data collection rule](../essentials/data-collection-rule-overview.md) to send data to a [supported table](tables-feature-support.md). Any transformation on a workspace will be ignored for these workflows.
 
