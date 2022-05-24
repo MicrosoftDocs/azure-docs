@@ -109,9 +109,9 @@
   - name: Configure Internet connectivity
     items:
     - name: Enable Managed SNAT for Azure VMware Solution Workloads
-      href: enable-managed-snat-workloads.md
+      href: enable-managed-snat-for-workloads.md
     - name: Enable Public IP to the NSX Edge for Azure VMware Solution
-      href: enable-public-ip-to-the-nsx-edge.md
+      href: enable-public-ip-nsx-edge.md
     - name: Disable Internet access or enable a default route
       href: disable-internet-access.md
   - name: Configure networking
