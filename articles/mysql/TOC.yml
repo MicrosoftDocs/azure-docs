@@ -40,6 +40,8 @@
           - name: ARM template
             displayName: Resource Manager
             href: flexible-server/quickstart-create-arm-template.md
+          - name: Terraform
+            href: flexible-server/quickstart-create-terraform.md
       - name: Create and manage databases
         href: flexible-server/how-to-create-manage-databases.md
       - name: Connect and query
