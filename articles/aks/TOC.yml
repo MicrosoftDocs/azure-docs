@@ -181,7 +181,7 @@
           href: upgrade-cluster.md
         - name: Use Uptime SLA
           href: uptime-sla.md
-        - name: Use Draft
+        - name: Use Draft (preview)
           href: draft.md
         - name: Use proximity placement groups
           href: reduce-latency-ppg.md
@@ -280,6 +280,8 @@
               href: manage-azure-rbac.md
             - name: Use Kubernetes RBAC with Azure AD integration
               href: azure-ad-rbac.md
+            - name: Use custom certificate authorities (preview)
+              href: custom-certificate-authority.md
             - name: Rotate certificates
               href: certificate-rotation.md
             - name: Use Azure Policy
@@ -425,8 +427,6 @@
           href: kubernetes-helm.md
         - name: Use OpenFaaS
           href: openfaas.md
-        - name: Run Spark jobs
-          href: spark-job.md
         - name: Use GPUs
           href: gpu-cluster.md
         - name: Build Django app with PostgreSQL
@@ -465,10 +465,10 @@
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on
           href: open-service-mesh-uninstall-add-on.md
+    - name: Track releases and region availability
+      href: release-tracker.md
     - name: Kubernetes Event-driven Autoscaler add-on (preview)
       href: keda.md
-    - name: Web Application Routing (preview)
-      href: web-app-routing.md
     - name: Use cluster extensions
       href: cluster-extensions.md
     - name: DevOps
