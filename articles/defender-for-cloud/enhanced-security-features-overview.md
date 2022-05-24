@@ -2,7 +2,7 @@
 title: Understand the enhanced security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/16/2022
+ms.date: 05/24/2022
 ms.custom: references_regions
 ---
 
@@ -103,13 +103,13 @@ No. When you enable [Microsoft Defender for Servers](defender-for-servers-introd
 
 When you enable the Servers plan on the subscription level, Defender for Cloud will enable your default workspace(s) automatically. 
 
-However, if you're using a custom workspace in place of the default workspace, you'll need to enable the Servers plan on all of your custom workspaces. 
+However, if you're using a custom workspace in place of the default workspace, you'll need to enable the Servers plan on all of your custom workspaces that do not have it enabled. 
 
-If you're using a custom workspace and enable the plan on the subscription level only, the `Microsoft Defender for servers should be enabled on workspaces` recommendation, on the recommendations page. This recommendation will advise you to enable the servers plan on the workspace level as well. Until the workspace has the Servers plan enabled, it will not benefit from the full security coverage (Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more) offered by the Defender for Cloud, but will still incur the cost.
+If you're using a custom workspace and enable the plan on the subscription level only, the `Microsoft Defender for servers should be enabled on workspaces` recommendation will appear on the Recommendations page. This recommendation will give you the option to enable the servers plan on the workspace level with the Fix button. Until the workspace has the Servers plan enabled, any connected VM will not benefit from the full security coverage (Microsoft Defender for Endpoint, VA solution (TVM/Qualys), just-in-time VM access, and more) offered by the Defender for Cloud, but will still incur the cost.
 
-You will not be charged twice, when you enable the Servers plan on both the workspace and subscription level. The system compares the VM UUID, if they match they'll be treated as one and billed as one.
+Enabling the Servers plan on both the subscription and its connected workspaces, will not incur a double charge. The system will identify each unique VM.
 
-You may not want to enable the Servers plan on singular workspaces that are connected to cross enabled subscriptions with multiple solutions attached to them that may have multiple VMs connected to them. If you do connect a workspace with multiple attached VMs, that is cross enabled, you'll be billed for each VM that is attached. Therefore you may only want to enable the Servers plan on the workspaces that it will be relevant to.
+If you enable the Servers plan on cross-subscription workspaces, all connected VMs, even those from subscriptions that it was not enabled on, will be billed.
 
 ### Will I be charged for machines without the Log Analytics agent installed?
 
