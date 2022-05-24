@@ -4,13 +4,13 @@ description: Learn how to replicate your Azure Cache for Redis Premium instances
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 05/24/2022
 ms.author: franlanglois
 ---
 
 # Configure geo-replication for Premium Azure Cache for Redis instances
 
-In this article, you'll learn how to configure a geo-replicated Azure Cache using the Azure portal.
+In this article, you learn how to configure a geo-replicated Azure Cache using the Azure portal.
 
 Geo-replication links together two Premium Azure Cache for Redis instances and creates a data replication relationship. These cache instances are typically located in different Azure regions, though that isn't required. One instance acts as the primary, and the other as the secondary. The primary handles read and write requests and propagate changes to the secondary. This process continues until the link between the two instances is removed.
 
@@ -154,6 +154,8 @@ Yes, geo-replication of caches in VNets is supported with caveats:
 - Geo-replication between caches in different VNets is also supported.
   - If the VNets are in the same region, you can connect them using [VNet peering](../virtual-network/virtual-network-peering-overview.md) or a [VPN Gateway VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
   - If the VNets are in different regions, geo-replication using VNet peering is supported. A client VM in VNet 1 (region 1) isn't able to access the cache in VNet 2 (region 2) using its DNS name because of a constraint with Basic internal load balancers. For more information about VNet peering constraints, see [Virtual Network - Peering - Requirements and constraints](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). We recommend using a VPN Gateway VNet-to-VNet connection.
+
+To configure your VNet effectively and avoid geo-replication issues, you must configure both the inbound and outbound ports correctly. For more information on avoiding the most common VNet misconfiguration issues, see [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements) and [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements).
   
 Using [this Azure template](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/), you can quickly deploy two geo-replicated caches into a VNet connected with a VPN Gateway VNet-to-VNet connection.
 
