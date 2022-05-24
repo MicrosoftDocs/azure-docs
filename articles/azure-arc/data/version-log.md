@@ -7,9 +7,10 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 ms.date: 5/04/2022
 ms.topic: conceptual
-# Customer intent: As a data professional, I want to understand what versions of components align with specific releases.
+#Customer intent: As a data professional, I want to understand what versions of components align with specific releases.
 ---
 
 # Version log

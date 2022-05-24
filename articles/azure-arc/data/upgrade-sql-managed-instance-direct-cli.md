@@ -4,8 +4,9 @@ description: Article describes how to upgrade a directly connected Azure Arc-ena
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: dnethi
-ms.author: dinethi
+ms.custom: event-tier1-build-2022
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
 ms.date: 05/21/2022
 ms.topic: how-to

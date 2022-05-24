@@ -4,6 +4,7 @@ description: Explains Azure Arc-enabled data services storage configuration opti
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mikeray

@@ -4,6 +4,7 @@ description: Learn how to buy Azure Arc-enabled SQL Managed Instance reserved ca
 services: sql-database
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 author: anosov1960 
 ms.author: sashan
