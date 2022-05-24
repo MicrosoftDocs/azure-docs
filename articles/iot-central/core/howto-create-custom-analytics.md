@@ -40,90 +40,52 @@ location=eastus
 authrule=ListenSend
 ```
 
-## Create a resource group
+* `iotcentralapplicationname`: A unique name for the IoT Central application.
+* `eventhubnamespace`: A unique name for the Event Hubs namespace.
+* `databricksworkspace`: A unique name for the Databricks workspace.
 
-Create a resource group for the IoT Central application. For example:
+## Run the Script
+
+The below script will create an IoT Central application, Event Hubs namespace, and Databricks workspace in a resource group called `eventhubsrg`
+
 
 ```azurecli-interactive
+
+#Create a resource group for the IoT Central application.
 RESOURCE_GROUP=$(az group create --name $resourcegroup --location $location)
-```
 
-This command creates a resource group in the east US region for the application. 
-
-### IoT Central application
-
-Use the [az iot central app create](/cli/azure/iot/central/app#az-iot-central-app-create) command to create an IoT Central application in your Azure subscription. For example:
-
-```azurecli-interactive
 # Create an IoT Central application
 IOT_CENTRAL=$(az iot central app create -n $iotcentralapplicationname -g $resourcegroup -s $iotcentralapplicationname -l $location --mi-system-assigned)
-```
 
-The following table describes the parameters used with the **az iot central app create** command:
 
-| Parameter         | Description |
-| ----------------- | ----------- |
-| resource-group    | The resource group that contains the application. This resource group must already exist in your subscription. |
-| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia East**, **Canada Central**, **Central US**, **East US**, **East US 2**, **Japan East**, **North Europe**, **South Central US**, **Southeast Asia**, **UK South**, **West Europe**, and **West US**. |
-| name              | The name of the application in the Azure portal. Avoid special characters - instead, use lower case letters (a-z), numbers (0-9), and dashes (-).|
-| subdomain         | The subdomain in the URL of the application. In the example, the application URL is `https://mysubdomain.azureiotcentral.com`. |
-| sku               | Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
-| template          | The application template to use. For more information, see the following table. |
-| display-name      | The name of the application as displayed in the UI. |
-
-## Event Hubs namespace
-
-An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. To create a namespace in your resource group, run the following command:
-
-```azurecli-interactive
+# Create an Event Hubs namespace.
 az eventhubs namespace create --name $eventhubnamespace --resource-group $resourcegroup -l $location
-```
 
-## Azure Databricks workspace
-
-Create an Azure Databricks workspace for accessing all of your Azure Databricks assets. The workspace organizes objects (notebooks, libraries, and experiments) into folders, and provides access to data and computational resources such as clusters and jobs.
-
-```azurecli-interactive
+# Create an Azure Databricks workspace 
 DATABRICKS_JSON=$(az databricks workspace create --resource-group $resourcegroupname --name $databricksworkspace --location $location --sku standard)
-```
 
-## Create an event hub
 
-Azure Event Hubs is a big data streaming platform and event ingestion service.
-
-Run the following command to create an event hub:
-
-```azurecli-interactive
+# Create an Event Hub
 az eventhubs eventhub create --name $eventhub --resource-group $resourcegroupname --namespace-name $eventhubnamespace
-```
 
-## Configure managed identity 
 
-```azurecli-interactive
+# Configure the managed identity for your IoT Central application
+# with permissions to send data to an event hub in the resource group.
 MANAGED_IDENTITY=$(az iot central app identity show --name $iotcentralapplicationname \
     --resource-group $resourcegroup)
-```
-
-Create a role with permissions to send data to an event hub in the resource group.
-
-```azurecli-interactive
 az role assignment create --assignee $(jq -r .principalId <<< $MANAGED_IDENTITY) --role 'Azure Event Hubs Data Sender' --scope $(jq -r .id <<< $RESOURCE_GROUP)
 
-```
 
-## Create a connection string to use in Databricks notebook
-
-```azurecli-interactive
+# Create a connection string to use in Databricks notebook
 az eventhubs eventhub authorization-rule create --eventhub-name $eh  --namespace-name $ehns --resource-group $rg --name $authrule --rights Listen Send
 EHAUTH_JSON=$(az eventhubs eventhub authorization-rule keys list --resource-group $rg --namespace-name $ehns --eventhub-name $eh --name $authrule)
-```
 
-Run the following commands to get details of your IoT Central application, databricks workspace, and event hub connection string
+# Details of your IoT Central application, databricks workspace, and event hub connection string
 
-```azurecli-interactive
 echo "Your IoT Central app: https://$iotcentralapplicationname.azureiotcentral.com/"
 echo "Your Databricks workspace: https://$(jq -r .workspaceUrl <<< $DATABRICKS_JSON)"
 echo "Your event hub connection string is: $(jq -r .primaryConnectionString <<< EHAUTH_JSON)"
+
 ```
 
 ## Configure export in IoT Central
@@ -140,9 +102,9 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
     | ----- | ----- |
     | Destination name | Telemetry event hub |
     | Destination type | Azure Event Hubs |
-    | Connection string | The event hub connection string you made a note of previously |
-
-    The **Event Hub** shows as **centralexport**.
+    | Authorization | System-assigned managed identity |
+    | Host name | The event hub namespace host name |
+    | Event Hub | The event hub name |
 
     :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot showing data export destination.":::
 
@@ -216,7 +178,9 @@ The following steps show you how to import the library your sample needs into th
 
 Use the following steps to import a Databricks notebook that contains the Python code to analyze and visualize your IoT Central telemetry:
 
-1. Navigate to the **Workspace** page in your Databricks environment. Select the dropdown next to your account name and then choose **Import**.
+1. Navigate to the **Workspace** page in your Databricks environment. Select the dropdown from the workspace and then choose **Import**.
+
+:::image type="content" source="media/howto-create-custom-analytics/databricks-import.png" alt-text="Screenshot of data bricks import.":::
 
 1. Choose to import from a URL and enter the following address: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
