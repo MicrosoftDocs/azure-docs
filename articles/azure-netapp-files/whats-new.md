@@ -20,6 +20,13 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+<!-- Date TBD -->
+
+* [Manage availability zone volume placement](manage-availability-zone-volume-placement.md) (Preview) 
+
+    
+
+
 ## April 2022
 
 * Features that are now generally available (GA)   
