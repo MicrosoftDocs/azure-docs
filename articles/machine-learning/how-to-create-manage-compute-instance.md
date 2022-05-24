@@ -343,6 +343,9 @@ You can set up other applications, such as RStudio, when creating a compute inst
 1.	Select **Add application** under the **Custom application setup (RStudio Workbench, etc.)** section
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
+
+> [!NOTE]
+> Custom applications are currently not supported in private link workspaces.
  
 ### Setup RStudio Workbench
 
@@ -350,9 +353,15 @@ RStudio is one of the most popular IDEs among R developers for ML and data scien
 
 1.	Follow the steps listed above to **Add application** when creating your compute instance.
 1.	Select **RStudio Workbench (bring your own license)** in the **Application** dropdown and enter your RStudio Workbench license key in the **License key** field. You can get your RStudio Workbench license or trial license [from RStudio](https://www.rstudio.com/). 
-1. Select **Create** to add RStudio Workbench application to your compute instance.
+1. Select **Add application** to add RStudio Workbench application to your compute instance.
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows RStudio settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
+
+> [!NOTE]
+> * Support for accessing your workspace file store from RStudio is not yet available.
+> * When accessing multiple instances of RStudio, if you see a "400 Bad Request. Request Header Or Cookie Too Large" error, use a new browser or access from a browser in incognito mode.
+> * Shiny applications are not currently supported on RStudio Workbench.
+
  
 ### Setup RStudio open source
 
@@ -364,7 +373,7 @@ To use RStudio open source, set up a custom application as follows:
 1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port. 
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
 1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
-1. Select **Create** to set up RStudio as a custom application on your compute instance.
+1. Select **Add application** to set up RStudio as a custom application on your compute instance.
 
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
@@ -377,7 +386,7 @@ Set up other custom applications on your compute instance by providing the appli
 1.	Select **Custom Application** on the **Application** dropdown. 
 1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application.
 1. Optionally, add **Environment variables** and **Bind mounts** you wish to use for your application.
-1. Select **Create** to set up the custom application on your compute instance.
+1. Select **Add application** to set up the custom application on your compute instance.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service.png" alt-text="Screenshot show custom application settings." lightbox="media/how-to-create-manage-compute-instance/custom-service.png":::
 
@@ -389,6 +398,8 @@ Access the custom applications that you set up in studio:
 1. On the **Compute instance** tab, see your applications under the **Applications** column.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-access.png" alt-text="Screenshot shows studio access for your custom applications.":::
+> [!NOTE]
+> It might take a few minutes after setting up a custom application until you can access it via the links above. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
 
 ## Manage
 
