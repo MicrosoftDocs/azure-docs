@@ -56,7 +56,7 @@ The account provisioning type determines whether you deploy a customer-managed k
    - **DNS replicas**: Optional. The number of replicas to deploy for the DNS proxy service. Defaults to `1`. 
    - **Prefer Kubernetes DNS for PTR lookups**: Optional. Check to set Kubernetes DNS for IP address lookup. Clear to use Active Directory DNS. 
 
-   ![Add CMK AD connector](media/active-directory-deployment/add-ad-cmk-connector-portal.png)
+   ![Screenshot of the portal interface to add customer managed keytab.](media/active-directory-deployment/add-ad-customer-managed-keytab-connector-portal.png)
 
 1. Click **Add Connector** to create a new customer-managed keytab AD connector.
 
@@ -76,7 +76,7 @@ The account provisioning type determines whether you deploy a customer-managed k
    - **DNS replicas (Optional)** The number of replicas to deploy for the DNS proxy service. Defaults to `1`. 
    - **Prefer Kubernetes DNS for PTR lookups**: Optional. Check to set Kubernetes DNS for IP address lookup. Clear to use Active Directory DNS.
 
-   ![Add SMK AD connector](media/active-directory-deployment/add-ad-smk-connector-portal.png)
+   ![Screenshot of the portal interface to add system managed keytab.](media/active-directory-deployment/add-ad-system-managed-keytab-connector-portal.png)
 
 1. Click **Add Connector** to create a new system-managed keytab AD connector.
 

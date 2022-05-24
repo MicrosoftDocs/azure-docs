@@ -32,13 +32,13 @@ Reminders and warnings are implemented in Azure portal, custom resource status, 
 
 ### SQL Managed Instance
 
-General Availability of Business Critical service tier.  Instances of Arc enabled SQL Managed Instance that have a version greater than or equal to v1.7.0 will be charged through Azure billing meters.
+General Availability of Business Critical service tier.  Azure Arc-enabled SQL Managed Instance instances that have a version greater than or equal to v1.7.0 will be charged through Azure billing meters.
 
 ### User experience improvements
 
 #### Azure portal
 
-Added ability to create AD Connectors from Azure Portal.
+Added ability to create AD Connectors from Azure portal.
 
 Preview expected costs for Azure Arc-enabled SQL Managed Instance Business Critical tier when you create new instances.
 
@@ -81,7 +81,7 @@ Separated the availability group and failover group status into two different se
 
 Updated SQL engine binaries to the latest version.
 
-Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Only available through Kubernetes yaml/json file create/edit currently.  No Azure CLI, Azure Portal, or Azure Data Studio user experience yet.
+Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Only available through Kubernetes yaml/json file create/edit currently.  No Azure CLI, Azure portal, or Azure Data Studio user experience yet.
 
 Add support for specifying labels and annotations on the secondary service endpoint. `REQUIRED_SECONDARIES_TO_COMMIT` is now a function of the number of replicas.  
 
@@ -92,7 +92,7 @@ In this release, the default value of the readable secondary service is `Cluster
 
 ### User experience improvements
 
-Notifications added in Azure Portal if billing data has not been uploaded to Azure recently.
+Notifications added in Azure portal if billing data has not been uploaded to Azure recently.
 
 #### Azure Data Studio
 
