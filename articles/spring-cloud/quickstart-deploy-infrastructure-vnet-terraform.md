@@ -4,12 +4,15 @@ description: This quickstart shows you how to use Terraform to deploy a Spring A
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.custom: devx-track-java, mode-other
+ms.custom: devx-track-java, mode-other, event-tier1-build-2022
 ms.author: ariel
 ms.date: 05/13/2022
 ---
 
 # Quickstart: Provision Azure Spring Apps using Terraform
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✘ Basic Tier ✔️ Standard tier ✔️ Enterprise tier
 
@@ -43,7 +46,6 @@ For more customization including custom domain support, see the [Azure Spring Te
 ```azurecli
 az provider register --namespace Microsoft.SaaS
 az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
-```
 
 ## Review the Terraform Plan
 
@@ -69,7 +71,7 @@ To apply the Terraform Plan, follow these steps:
 
    * The subscription ID of the Azure account you'll be deploying to
 
-   * A deployment location from the regions where Azure Spring Apps is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all). You'll need the short form of the location name. To get this value, use the following command to generate a list of Azure locations, then look up the **Name** value for the region you selected
+   * A deployment location from the regions where Azure Spring Apps is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all). You'll need the short form of the location name. To get this value, use the following command to generate a list of Azure locations, then look up the **Name** value for the region you selected.
 
    ```azurecli
    az account list-locations --output table

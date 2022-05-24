@@ -30,7 +30,7 @@ You can scope a reservation to a subscription or resource groups. Setting the sc
 
 ### Reservation scoping options
 
-You have three options to scope a reservation, depending on your needs:
+You have four options to scope a reservation, depending on your needs:
 
 - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
 - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.

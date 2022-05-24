@@ -42,7 +42,7 @@ Virtual Network NAT is a software defined networking service. A NAT gateway won'
 
 ## Virtual Network NAT basics
 
-* A NAT gateway can be created in a specific availability zone. Redundancy is built in within the specified zone. Virtual Network NAT is non-zonal by default. A non-zonal Virtual Network NAT isn't associated to a specific zone and is assigned to a specific zone by Azure. A NAT gateway can be isolated in a specific zone when you create [availability zones](../../availability-zones/az-overview.md) scenarios. This deployment is called a zonal deployment.
+* A NAT gateway can be created in a specific availability zone or placed in 'no zone'. Virtual Network NAT is placed in no zone by default. A non-zonal NAT gateway is placed in a zone for you by Azure and does not give a guarantee of redundancy. A NAT gateway can be isolated in a specific zone when you create [availability zones](../../availability-zones/az-overview.md) scenarios. This deployment is called a zonal deployment. After NAT gateway is deployed, the zone selection cannot be changed.
 
 * Outbound connectivity can be defined for each subnet with a NAT gateway. Multiple subnets within the same virtual network can have different NAT gateways associated. Multiple subnets within the same virtual network can use the same NAT gateway. A subnet is configured by specifying which NAT gateway resource to use. All outbound traffic for the subnet is processed by the NAT gateway without any customer configuration. A NAT gateway takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
 
@@ -56,7 +56,7 @@ Virtual Network NAT is a software defined networking service. A NAT gateway won'
 
   * Public IP prefixes
 
-  * Custom IP prefixes (BYOIP), to learn more, see [Custom IP address prefix (BYOIP)](/azure/virtual-network/ip-services/custom-ip-address-prefix)
+  * Public IP addresses and prefixes derived from custom IP prefixes (BYOIP), to learn more, see [Custom IP address prefix (BYOIP)](/azure/virtual-network/ip-services/custom-ip-address-prefix)
 
 * Virtual Network NAT is compatible with standard SKU public IP addresses or public IP prefix resources or a combination of both. You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. The NAT gateway will groom all traffic to the range of IP addresses of the prefix. 
 

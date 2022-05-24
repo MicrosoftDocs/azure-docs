@@ -1,21 +1,24 @@
 ---
-title: Metrics for Azure Spring Cloud
-description: Learn how to review metrics in Azure Spring Cloud
+title: Metrics for Azure Spring Apps
+description: Learn how to review metrics in Azure Spring Apps
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: karler
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# Metrics for Azure Spring Cloud
+# Metrics for Azure Spring Apps
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 Azure Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources.
 
-In Azure Spring Cloud, there are two viewpoints for metrics.
+In Azure Spring Apps, there are two viewpoints for metrics.
 * Charts in each application overview page
 * Common metrics page
 
@@ -33,7 +36,7 @@ Each application's **Application Overview** page presents a metrics chart that a
 
 ![Application Metrics Overview](media/metrics/metrics-3.png)
 
-Azure Spring Cloud provides these five charts with metrics that are updated every minute:
+Azure Spring Apps provides these five charts with metrics that are updated every minute:
 
 * **Http Server Errors**: Error count for HTTP requests to your app
 * **Data In**: Bytes received by your app
@@ -67,7 +70,7 @@ The time range can also be adjusted from last 30 minutes to last 30 days or a cu
 
 ![Metric Modification](media/metrics/metrics-6.png)
 
-The default view includes all of an Azure Spring Cloud service's application's metrics together. Metrics of one app or instance can be filtered in the display. Select **Add filter**, set the property to **App**, and select the target application you want to monitor in the **Values** text box.
+The default view includes all of an Azure Spring Apps service's application's metrics together. Metrics of one app or instance can be filtered in the display. Select **Add filter**, set the property to **App**, and select the target application you want to monitor in the **Values** text box.
 
 You can use two kinds of filters (properties):
 
@@ -180,19 +183,19 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 >[!div class="mx-tdCol2BreakAll"]
 >| Display Name             | Azure Metric Name        | Unit           | Details                                                                                                                                                                          |
 >|--------------------------|--------------------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
->| Bytes Received           | IngressBytesReceived     | Bytes          | Count of bytes received by Azure Spring Cloud from the clients                                                                                                                   |
->| Bytes Sent               | IngressBytesSent         | Bytes          | Count of bytes sent by Azure Spring Cloud to the clients                                                                                                                         |
->| Requests                 | IngressRequests          | Count          | Count of requests by Azure Spring Cloud from the clients                                                                                                                         |
->| Failed Requests          | IngressFailedRequests    | Count          | Count of failed requests by Azure Spring Cloud from the clients                                                                                                                  |
->| Response Status          | IngressResponseStatus    | Count          | HTTP response status returned by Azure Spring Cloud. The response status   code distribution can be further categorized to show responses in 2xx, 3xx,   4xx, and 5xx categories |
->| Response Time            | IngressResponseTime      | Seconds        | Http response time return by Azure Spring Cloud                                                                                                                                  |
->| Throughput In (bytes/s)  | IngressBytesReceivedRate | BytesPerSecond | Bytes received per second by Azure Spring Cloud from the clients                                                                                                                 |
->| Throughput Out (bytes/s) | IngressBytesSentRate     | BytesPerSecond | Bytes sent per second by Azure Spring Cloud to the clients                                                                                                                       |
+>| Bytes Received           | IngressBytesReceived     | Bytes          | Count of bytes received by Azure Spring Apps from the clients                                                                                                                   |
+>| Bytes Sent               | IngressBytesSent         | Bytes          | Count of bytes sent by Azure Spring Apps to the clients                                                                                                                         |
+>| Requests                 | IngressRequests          | Count          | Count of requests by Azure Spring Apps from the clients                                                                                                                         |
+>| Failed Requests          | IngressFailedRequests    | Count          | Count of failed requests by Azure Spring Apps from the clients                                                                                                                  |
+>| Response Status          | IngressResponseStatus    | Count          | HTTP response status returned by Azure Spring Apps. The response status   code distribution can be further categorized to show responses in 2xx, 3xx,   4xx, and 5xx categories |
+>| Response Time            | IngressResponseTime      | Seconds        | Http response time return by Azure Spring Apps                                                                                                                                  |
+>| Throughput In (bytes/s)  | IngressBytesReceivedRate | BytesPerSecond | Bytes received per second by Azure Spring Apps from the clients                                                                                                                 |
+>| Throughput Out (bytes/s) | IngressBytesSentRate     | BytesPerSecond | Bytes sent per second by Azure Spring Apps to the clients                                                                                                                       |
 
 ## Next steps
 
-* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
+* [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 * [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
 * [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
-* [Tutorial: Monitor Spring Cloud resources using alerts and action groups](./tutorial-alerts-action-groups.md)
-* [Quotas and Service Plans for Azure Spring Cloud](./quotas.md)
+* [Tutorial: Monitor Spring app resources using alerts and action groups](./tutorial-alerts-action-groups.md)
+* [Quotas and Service Plans for Azure Spring Apps](./quotas.md)

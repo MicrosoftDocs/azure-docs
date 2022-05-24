@@ -5,12 +5,15 @@ services: azure-resource-manager
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-java, mode-arm
+ms.custom: subject-armqs, devx-track-java, mode-arm, event-tier1-build-2022
 ms.author: rhudson
 ms.date: 05/13/2022
 ---
 
 # Quickstart: Provision Azure Spring Apps using an ARM template
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✘ Basic Tier ✔️ Standard tier ✔️ Enterprise tier
 
@@ -33,6 +36,7 @@ The Enterprise Tier deployment plan includes the following Tanzu Components:
 * Two dedicated subnets for the Azure Spring Apps cluster, one for the service runtime and another for the Spring applications. For subnet and virtual network requirements, see the [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * An existing Log Analytics workspace for Azure Spring Apps diagnostics settings and a workspace-based Application Insights resource. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md) and [Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md).
 * Three internal Classless Inter-Domain Routing (CIDR) ranges (at least */16* each) that you've identified for use by the Azure Spring Apps cluster. These CIDR ranges won't be directly routable and will be used only internally by the Azure Spring Apps cluster. Clusters may not use *169.254.0.0/16*, *172.30.0.0/16*, *172.31.0.0/16*, or *192.0.2.0/24* for the internal Spring Apps CIDR ranges, or any IP ranges included within the cluster virtual network address range.
+=======
 * Service permission granted to the virtual network. The Azure Spring Apps Resource Provider requires Owner permission to your virtual network in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance. For instructions and more information, see the [Grant service permission to the virtual network](how-to-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * If you're using Azure Firewall or a Network Virtual Appliance (NVA), you'll also need to satisfy the following prerequisites:
 
@@ -49,6 +53,8 @@ az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-
 The templates used in this quickstart are from the [Azure Spring Apps Reference Architecture](reference-architecture.md).
 
 # [Azure Spring Standard](#tab/azure-spring-standard)
+
+The template used in this quickstart is from the [Azure Spring Apps reference architecture](reference-architecture.md).
 
 :::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploySpringStandard.json":::
 
@@ -122,7 +128,7 @@ You can either use the Azure portal to check the deployed resources, or use Azur
 
 If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI or Azure PowerShell, use the following commands:
 
-# [CLI](#tab/azure-cli)
+### [CLI](#tab/azure-cli)
 
 ```azurecli
 echo "Enter the Resource Group name:" &&
@@ -131,7 +137,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
