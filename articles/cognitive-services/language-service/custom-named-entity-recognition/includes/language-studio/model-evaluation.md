@@ -12,7 +12,7 @@ ms.author: aahi
 
 1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
 
-2. Select **View model details** from the menu on the left side of the screen.
+2. Select **Model performance** from the menu on the left side of the screen.
     
 3. In this page you can only view the successfully trained models, F1 score of each model and [model expiry date](../../../concepts/model-lifecycle.md#custom-features). You can click on the model name for more details about its performance.
 
@@ -22,7 +22,7 @@ ms.author: aahi
 
 5. The [confusion matrix](../../concepts/evaluation-metrics.md#confusion-matrix) for the model is located under **Test set confusion matrix**.
 
-    :::image type="content" source="../../media/model-details.png" alt-text="A screenshot of the model performance metrics in Language Studio." lightbox="../../media/model-details.png":::
+    :::image type="content" source="../../media/confusion-matrix.png" alt-text="A screenshot of the model performance metrics in Language Studio." lightbox="../../media/confusion-matrix.png":::
     
 > [!NOTE]
-> Entities that are neither tagged nor predicted in the test set will not be part of the displayed results.
+> Entities that are neither labeled nor predicted in the test set will not be part of the displayed results.
