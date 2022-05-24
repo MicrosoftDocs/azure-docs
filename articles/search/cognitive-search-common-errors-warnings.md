@@ -102,11 +102,12 @@ Skill execution failed because the call to the Web API returned an invalid respo
 
 <a name="skill-did-not-execute-within-the-time-limit"></a>
 
-## Error: Skill did not execute within the time limit
-There are two cases under which you may encounter this error message, each of which should be treated differently. Please follow the instructions below depending on what skill returned this error for you.
-
 ## Error: Type of value has a mismatch with column type. Couldn't store in '`xyz`' column.  Expected type is '`abc`'
 If your data source has a field with a different data type than the field you are trying to map in your index, you may encounter this error. Check your data source field data types and make sure they are [mapped correctly to your index data types](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search).
+
+
+## Error: Skill did not execute within the time limit
+There are two cases under which you may encounter this error message, each of which should be treated differently. Please follow the instructions below depending on what skill returned this error for you.
 
 ### Built-in Cognitive Service skills
 Many of the built-in cognitive skills, such as language detection, entity recognition, or OCR, are backed by a Cognitive Service API endpoint. Sometimes there are transient issues with these endpoints and a request will time out. For transient issues, there is no remedy except to wait and try again. As a mitigation, consider setting your indexer to [run on a schedule](search-howto-schedule-indexers.md). Scheduled indexing picks up where it left off. Assuming transient issues are resolved, indexing and cognitive skill processing should be able to continue on the next scheduled run.
