@@ -26,10 +26,6 @@ The AI models used by the API are provided by the service, you just have to send
 
 The conversation summarization API uses natural language processing techniques to locate key issues and resolutions in text-based chat logs. Conversation summarization will return issues and resolutions found from the text input.
 
-Each returned summary contains:
-* A numerical ID for identifying the summary.
-* A participant ID (such as *Agent* or *Customer*) for determining which participant of the chat log was associated with the summary.
-
 There is another feature in Azure Cognitive Service for Language, [document summarization](../overview.md?tabs=document-summarization), that can summarize sentences from large documents. When deciding between document summarization and conversation summarization, consider the following:
 * Extractive summarization returns sentences that collectively represent the most important or relevant information within the original content.
 * Conversation summarization returns summaries based on full chat logs including a reason for the chat (a problem), and the resolution. For example, a chat log between a customer and a customer service agent.
