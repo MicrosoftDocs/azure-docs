@@ -100,7 +100,7 @@ The primary drivers for choosing a virtual data mart implementation over a physi
 
 - Lower total cost of ownership&mdash;a virtualized implementation requires fewer data stores and copies of data.
 
-- Elimination of ETL jobs to migrate and simplify DW architecture in a virtualized environment.
+- Elimination of ETL jobs to migrate and simplify data warehouse architecture in a virtualized environment.
 
 - Performance&mdash;although physical data marts have historically been more performant, virtualization products now implement intelligent caching techniques to mitigate.
 

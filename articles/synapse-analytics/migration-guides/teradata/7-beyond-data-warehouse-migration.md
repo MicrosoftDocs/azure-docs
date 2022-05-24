@@ -20,7 +20,7 @@ This article is part seven of a seven part series that provides guidance on how 
 
 One of the key reasons to migrate your existing data warehouse to Azure Synapse is to utilize a globally secure, scalable, low-cost, cloud-native, pay-as-you-use analytical database. Azure Synapse also lets you integrate your migrated data warehouse with the complete Microsoft Azure analytical ecosystem to take advantage of, and integrate with, other Microsoft technologies that help you modernize your migrated data warehouse. This includes integrating with technologies like:
 
-- Azure Data Lake Storage&mdash;for cost effective data ingestion, staging, cleansing and transformation to free up DW capacity occupied by fast growing staging tables
+- Azure Data Lake Storage&mdash;for cost effective data ingestion, staging, cleansing and transformation to free up data warehouse capacity occupied by fast growing staging tables
 
 - Azure Data Factory&mdash;for collaborative IT and self-service data integration [with connectors](/azure/data-factory/connector-overview) to cloud and on-premises data sources and streaming data
 

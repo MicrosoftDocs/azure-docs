@@ -92,7 +92,7 @@ There's a lot to think about here, so let's look at all this in more detail.
 > [!TIP]
 > A lift and shift data warehouse migration are likely to minimize any disruption to reports, dashboards, and other visualizations.
 
-## Minimizing the impact of DW migration on BI tools and reports using data virtualization
+## Minimizing the impact of data warehouse migration on BI tools and reports using data virtualization
 
 > [!TIP]
 > Data virtualization allows you to shield business users from structural changes during migration so that they remain unaware of changes.
