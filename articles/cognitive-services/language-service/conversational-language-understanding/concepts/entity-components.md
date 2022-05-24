@@ -66,7 +66,7 @@ By using combine components, the entity will return with the full context as “
 
 Suppose you had the same utterance but only “OS 9” was predicted by the learned component:
 
-:::image type="content" source="../media/union-overlap-example-2.svg" alt-text="A screenshot showing an utterance with O S 9 predicted by th learned component." lightbox="../media/union-overlap-example-2.svg":::
+:::image type="content" source="../media/union-overlap-example-2.svg" alt-text="A screenshot showing an utterance with O S 9 predicted by the learned component." lightbox="../media/union-overlap-example-2.svg":::
 
 With combine components, the entity will still return as “Proseware OS 9” with the key from the list component:
 
