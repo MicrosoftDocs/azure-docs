@@ -236,6 +236,8 @@
                   href: api-management-debug-policies.md
                 - name: Policy expressions
                   href: api-management-policy-expressions.md
+                - name: Reuse policy configurations
+                  href: policy-fragments.md
                 - name: Error handling
                   href: api-management-error-handling-policies.md
                 - name: Advanced monitoring
