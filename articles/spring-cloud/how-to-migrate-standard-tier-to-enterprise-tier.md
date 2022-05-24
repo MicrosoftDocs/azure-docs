@@ -1,7 +1,7 @@
 ---
-title: How to migrate an Azure Spring Cloud Basic or Standard tier instance to Enterprise tier
-titleSuffix: Azure Spring Cloud Enterprise tier
-description: How to migrate an Azure Spring Cloud Basic or Standard tier instance to Enterprise tier
+title: How to migrate an Azure Spring Apps Basic or Standard tier instance to Enterprise tier
+titleSuffix: Azure Spring Apps Enterprise tier
+description: How to migrate an Azure Spring Apps Basic or Standard tier instance to Enterprise tier
 author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
@@ -10,7 +10,7 @@ ms.date: 05/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Migrate an Azure Spring Cloud Basic or Standard tier instance to Enterprise tier
+# Migrate an Azure Spring Apps Basic or Standard tier instance to Enterprise tier
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
@@ -27,38 +27,38 @@ This article will use the Pet Clinic sample apps as examples of how to migrate.
 In Enterprise Tier, VMware Tanzu components will replace the OSS Spring Cloud components to provide more feature support. Tanzu components are enabled on demand according to your needs. You can select the components you need before creating the service instance.
 
 > [!NOTE]
-> To use Tanzu Components, you must enable them when you provision your Azure Spring Cloud service instance. You can't enable them after provisioning at this time.
+> To use Tanzu Components, you must enable them when you provision your Azure Spring Apps service instance. You can't enable them after provisioning at this time.
 
-Use the following steps to provision an Azure Spring Cloud service instance:
+Use the following steps to provision an Azure Spring Apps service instance:
 
 ### [Portal](#tab/azure-portal)
 
 1. Open the [Azure portal](https://ms.portal.azure.com/).
 
-1. In the top search box, search for *Azure Spring Cloud*.
+1. In the top search box, search for *Azure Spring Apps*.
 
-1. Select **Azure Spring Cloud** from the results, then select **Create**.
+1. Select **Azure Spring Apps** from the results, then select **Create**.
 
 1. Select **Change** next to the **Pricing** option, then select **Enterprise**.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png" alt-text="Screenshot of Azure portal Azure Spring Cloud creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png":::
 
    Select the **Terms** checkbox to agree to the legal terms and privacy statements of the Enterprise tier offering in the Azure Marketplace.
 
 1. To configure VMware Tanzu components, select **Next: VMware Tanzu settings**.
 
    > [!NOTE]
-   > All Tanzu components are enabled by default. Carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Cloud instance, you can't enable or disable Tanzu components.
+   > All Tanzu components are enabled by default. Carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Apps instance, you can't enable or disable Tanzu components.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png" alt-text="Screenshot of Azure portal Azure Spring Cloud creation page with V M ware Tanzu Settings section showing." lightbox="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with V M ware Tanzu Settings section showing." lightbox="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png":::
 
-1. Select the **Application Insights** section, then select **Enable Application Insights**. You can also enable Application Insights after you provision the Azure Spring Cloud instance.
+1. Select the **Application Insights** section, then select **Enable Application Insights**. You can also enable Application Insights after you provision the Azure Spring Apps instance.
 
    - Choose an existing Application Insights instance or create a new Application Insights instance.
    - Enter a **Sampling Rate** in the range of 0-100, or use the default value 10.
 
    > [!NOTE]
-   > You'll pay for the usage of Application Insights when integrated with Azure Spring Cloud. For more information about Application Insights pricing, see [Application Insights billing](../azure-monitor/logs/cost-logs.md#application-insights-billing).
+   > You'll pay for the usage of Application Insights when integrated with Azure Spring Apps. For more information about Application Insights pricing, see [Application Insights billing](../azure-monitor/logs/cost-logs.md#application-insights-billing).
 
 1. Select **Review and create** and wait for validation to complete, then select **Create** to start provisioning the service instance.
 
@@ -66,7 +66,7 @@ It takes about 5 minutes to finish the resource provisioning.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Update Azure CLI with the Azure Spring Cloud extension by using the following command:
+1. Update Azure CLI with the Azure Spring Apps extension by using the following command:
 
    ```azurecli
    az extension update --name spring-cloud
@@ -80,16 +80,16 @@ It takes about 5 minutes to finish the resource provisioning.
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to accept the legal terms and privacy statements for the Enterprise tier. This step is only necessary if your subscription has never been used to create an Enterprise tier instance of Azure Spring Cloud before.
+1. Use the following command to accept the legal terms and privacy statements for the Enterprise tier. This step is only necessary if your subscription has never been used to create an Enterprise tier instance of Azure Spring Apps before.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
    az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
    ```
 
-1. Enter a name for your Azure Spring Cloud service instance. The name must be between 4 and 32 characters long and can  only contain lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+1. Enter a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can  only contain lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
-1. Create a resource group and an Azure Spring Cloud service instance using the following the command:
+1. Create a resource group and an Azure Spring Apps service instance using the following the command:
 
    ```azurecli
    az group create --name <resource-group-name>
@@ -144,7 +144,7 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
 
-   :::image type="content" source="./media/enterprise/getting-started-enterprise/config-service-overview.png" alt-text="Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and Overview section showing." lightbox="./media/enterprise/getting-started-enterprise/config-service-overview.png":::
+   :::image type="content" source="./media/enterprise/getting-started-enterprise/config-service-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and Overview section showing." lightbox="./media/enterprise/getting-started-enterprise/config-service-overview.png":::
 
 1. Select **Settings**, then add a new entry in the **Repositories** section with the following information:
 
@@ -157,7 +157,7 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
 
 1. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   :::image type="content" source="./media/enterprise/getting-started-enterprise/config-service-settings.png" alt-text="Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and Settings section showing." lightbox="./media/enterprise/getting-started-enterprise/config-service-settings.png":::
+   :::image type="content" source="./media/enterprise/getting-started-enterprise/config-service-settings.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and Settings section showing." lightbox="./media/enterprise/getting-started-enterprise/config-service-settings.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -222,7 +222,7 @@ To bind apps to Application Configuration Service for VMware Tanzu®, follow the
 
 1. Choose one app in the dropdown, and then select **Apply** to bind the application to Tanzu Service Registry.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Cloud with Service Registry page and 'Bind app' dialog showing." lightbox="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Service Registry page and 'Bind app' dialog showing." lightbox="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png":::
 
 The list under **App name** shows the apps bound with Tanzu Service Registry.
 
@@ -309,7 +309,7 @@ To check or update the current settings in Application Insights, use the followi
 1. Select **Application Insights**.
 1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Azure Spring Cloud instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
+   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
 
 1. Edit the binding settings, then select **Save**.
 
@@ -372,12 +372,12 @@ az spring-cloud build-service builder buildpack-binding delete \
     --builder-name <your-builder-name> \
 ```
 
-For more information, see [Use Application Insights Java In-Process Agent in Azure Spring Cloud](./how-to-application-insights.md).
+For more information, see [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
 
 ---
 
 ## Next steps
 
-- [Azure Spring Cloud](index.yml)
+- [Azure Spring Apps](index.yml)
 - [Use API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md)
 - [Use Spring Cloud Gateway for Tanzu](./how-to-use-enterprise-spring-cloud-gateway.md)
