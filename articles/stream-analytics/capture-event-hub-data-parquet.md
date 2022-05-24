@@ -47,9 +47,19 @@ Use the following steps to configure a Stream Analytics job to capture data in A
     1. In the **Choose Output data error handling** list, select the behavior you want when the output of the job fails due to data error. Select **Retry** to have the job retry until it writes successfully or select another option.  
         :::image type="content" source="./media/capture-event-hub-data-parquet/start-job.png" alt-text="Screenshot showing the Start Stream Analytics job window where you set the output start time, streaming units, and error handling." lightbox="./media/capture-event-hub-data-parquet/start-job.png" :::
 
+## Verify output
+Verify that the Parquet files are generated in the Azure Data Lake Storage container. 
+
+:::image type="content" source="./media/capture-event-hub-data-parquet/verify-captured-data.png" alt-text="Screenshot showing the generated Parquet files in the ADLS container." lightbox="./media/capture-event-hub-data-parquet/verify-captured-data.png.png" :::
+
+
 The new job is shown on the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it. 
 
 :::image type="content" source="./media/capture-event-hub-data-parquet/open-metrics-link.png" alt-text="Screenshot showing Open Metrics link selected." lightbox="./media/capture-event-hub-data-parquet/open-metrics-link.png" :::
+
+Here's an example screnshot of metrics showing input and output events. 
+
+:::image type="content" source="./media/capture-event-hub-data-parquet/job-metrics.png" alt-text="Screenshot showing metrics of the Stream Analytics job." lightbox="./media/capture-event-hub-data-parquet/job-metrics.png" :::
 
 ## Next steps
 
