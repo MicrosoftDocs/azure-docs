@@ -10526,7 +10526,7 @@ Lets you push assessments to Microsoft Defender for Cloud
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you push assessments to Security Center",
+  "description": "Lets you push assessments to Microsoft Defender for Cloud",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/612c2aa1-cb24-443b-ac28-3ab7272de6f5",
   "name": "612c2aa1-cb24-443b-ac28-3ab7272de6f5",
   "permissions": [

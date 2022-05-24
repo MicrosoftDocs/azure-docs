@@ -3,7 +3,7 @@ title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Azu
 description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. In this tutorial, you learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
