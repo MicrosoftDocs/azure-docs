@@ -4,7 +4,7 @@ description: Guidance for troubleshooting issues on Windows virtual machines, sc
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 5/3/2022
+ms.date: 5/10/2022
 ms.custom: references_region
 
 ---
@@ -13,7 +13,7 @@ ms.custom: references_region
 
 [!INCLUDE [azure-monitor-agent-architecture](../../../includes/azure-monitor-agent/azure-monitor-agent-architecture-include.md)]
 
-## Basic troubleshooting steps
+## Basic troubleshooting steps (installation, agent not running, configuration issues)
 Follow the steps below to troubleshoot the latest version of the Azure Monitor agent running on your Windows virtual machine:
 
 1. **Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).**  

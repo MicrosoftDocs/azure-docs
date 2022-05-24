@@ -4,8 +4,9 @@ description: Learn more about using Dapr on your Azure Container App service to 
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 05/10/2022
 ---
 
 # Dapr integration with Azure Container Apps
@@ -71,10 +72,12 @@ Based on your needs, you can "plug in" certain Dapr component types like state s
 
 # [YAML](#tab/yaml)
 
-When defining a Dapr component via YAML, you will pass your component manifest into the Azure CLI. For example, deploy a `pubsub.yaml` component using the following command:
+When defining a Dapr component via YAML, you will pass your component manifest into the Azure CLI.  When configuring multiple components, you will need to create a separate YAML file and run the Azure CLI command for each component.
+
+For example, deploy a `pubsub.yaml` component using the following command:
 
 ```azurecli
-az containerapp env dapr-component set --name ENVIRONMENT_NAME --resource-group RESOURCE_GROUP_NAME --dapr-component-name pubsub--yaml "./pubsub.yaml"
+az containerapp env dapr-component set --name ENVIRONMENT_NAME --resource-group RESOURCE_GROUP_NAME --dapr-component-name pubsub --yaml "./pubsub.yaml"
 ```
 
 The `pubsub.yaml` spec will be scoped to the dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`.
@@ -98,10 +101,12 @@ The `pubsub.yaml` spec will be scoped to the dapr-enabled container apps with ap
 
 # [Bicep](#tab/bicep)
 
-This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr component is defined as a child resource of your Container Apps environment. The `dapr-pubsub` component is scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
+This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr component is defined as a child resource of your Container Apps environment. To define multiple components, you can add a `daprComponent` resource for each Dapr component.
+
+The `dapr-pubsub` component is scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
 
 ```bicep
-resource daprComponent 'daprComponents@2022-01-01-preview' = {
+resource daprComponent 'daprComponents@2022-03-01' = {
   name: 'dapr-pubsub'
   properties: {
     componentType: 'pubsub.azure.servicebus'
@@ -129,7 +134,9 @@ resource daprComponent 'daprComponents@2022-01-01-preview' = {
 
 # [ARM](#tab/arm)
 
-This resource defines a Dapr component called `dapr-pubsub` via ARM. The Dapr component is defined as a child resource of your Container Apps environment. The `dapr-pubsub` component will be scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
+A Dapr component is defined as a child resource of your Container Apps environment. To define multiple components, you can add a `daprComponent` resource for each Dapr component.
+
+This resource defines a Dapr component called `dapr-pubsub` via ARM. The `dapr-pubsub` component will be scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
 
 ```json
 {
@@ -184,21 +191,14 @@ scopes:
 - subscriber-app
 ```
 
-## Current supported Dapr version
-
-Azure Container Apps supports Dapr version 1.4.2. 
-
-Version upgrades are handled transparently by Azure Container Apps. You can find the current version via the Azure portal and the CLI. See [known limitations](#limitations) around versioning.
-
 ## Limitations
 
 ### Unsupported Dapr capabilities
 
 - **Dapr Secrets Management API**: Use [Container Apps secret mechanism][aca-secrets] as an alternative.
 - **Custom configuration for Dapr Observability**: Instrument your environment with Application Insights to visualize distributed tracing.
-- **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec, which includes preview features.
+- **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
 - **Advanced Dapr sidecar configurations**: Container Apps allows you to specify sidecar settings including `app-protocol`, `app-port`, and `app-id`. For a list of unsupported configuration options, see [the Dapr documentation](https://docs.dapr.io/reference/arguments-annotations-overview/).
-- **Dapr APIs in Preview state**
 
 ### Known limitations
 

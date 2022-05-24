@@ -1,10 +1,8 @@
 ---
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
-author: bmansheim
-ms.author: benmansheim
 ms.topic: overview
-ms.date: 04/28/2022
+ms.date: 05/15/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -67,7 +65,7 @@ Defender for Containers includes an integrated vulnerability scanner for scannin
 - When you import the image to your Azure Container Registry
 - Continuously in specific situations
 
-Learn more in [Vulnerability assessment](defender-for-container-registries-usage.md).
+Learn more in [Vulnerability assessment](defender-for-containers-usage.md).
 
 :::image type="content" source="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in Azure Container Registry (ACR) hosted images." lightbox="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png":::
 
@@ -95,16 +93,13 @@ The architecture of the various elements involved in the full range of protectio
 
 Defender for Containers protects your clusters whether they're running in:
 
-- **Azure Kubernetes Service (AKS)** - Microsoft's managed service for developing, deploying, and managing containerized applications.
+- **Azure Kubernetes Service (AKS) (Preview)** - Microsoft's managed service for developing, deploying, and managing containerized applications.
 
-- **Amazon Elastic Kubernetes Service (EKS) in a connected Amazon Web Services (AWS) account** - Amazon's managed service for running Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
+- **Amazon Elastic Kubernetes Service (EKS) in a connected Amazon Web Services (AWS) account (Preview)** - Amazon's managed service for running Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
 
-- **Google Kubernetes Engine (GKE) in a connected Google Cloud Platform (GCP) project** - Google’s managed environment for deploying, managing, and scaling applications using GCP infrastructure.
+- **Google Kubernetes Engine (GKE) in a connected Google Cloud Platform (GCP) project (Preview)** - Google’s managed environment for deploying, managing, and scaling applications using GCP infrastructure.
 
 - **An unmanaged Kubernetes distribution** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS.
-
-> [!NOTE]
-> Defender for Containers' support for Arc-enabled Kubernetes clusters (AWS EKS, and GCP GKE) is a preview feature.
 
 For high-level diagrams of each scenario, see the relevant tabs below. 
 

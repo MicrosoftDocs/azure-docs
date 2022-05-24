@@ -8,16 +8,18 @@ ms.subservice: core
 ms.topic: how-to
 author: dem108
 ms.author: sehan
-ms.date: 04/29/2022
+ms.date: 05/24/2022
 ms.reviewer: nibaccam
-ms.custom: devplatv2
+ms.custom: devplatv2, event-tier1-build-2022
 ---
 
 # Deploy models with REST for batch scoring 
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 Learn how to use the Azure Machine Learning REST API to deploy models for batch scoring.
 
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
 
 The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure makes it a good choice in scripting environments and for MLOps automation.
 

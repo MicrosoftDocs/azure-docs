@@ -1,15 +1,16 @@
 ---
-title: Observability in Azure Container Apps Preview
-description: Monitor your running app in Azure Container Apps Preview
+title: Observability in Azure Container Apps
+description: Monitor your running app in Azure Container Apps
 services: container-apps
 author: cebundy
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 05/02/2022
 ms.author: v-bcatherine
 ---
 
-# Observability in Azure Container Apps Preview
+# Observability in Azure Container Apps
 
 Azure Container Apps provides several built-in observability features that give you a holistic view of your container app’s health throughout its application lifecycle.  These features help you monitor and diagnosis the state of your app to improve performance and respond to critical problems.
 
@@ -72,7 +73,7 @@ Use the `az containerapp revision list` command to get the revision, replica, an
 ```azurecli
 az containerapp revision list \
   --name album-api \
-  --resource-group album-api-rg \
+  --resource-group album-api-rg
 ```
 
 # [PowerShell](#tab/powershell)
@@ -90,7 +91,8 @@ Show the streaming container logs:
 # [Bash](#tab/bash)
 
 ```azurecli
-az containerapp logs show --name album-api \
+az containerapp logs show \
+  --name album-api \
   --resource-group album-api-rg \
   --revision album-api--v2 \
   --replica album-api--v2-5fdd5b4ff5-6mblw \
@@ -101,7 +103,8 @@ az containerapp logs show --name album-api \
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az containerapp logs show --name album-api `
+az containerapp logs show  `
+  --name album-api `
   --resource-group album-api-rg `
   --revision album-api--v2 `
   --replica album-api--v2-5fdd5b4ff5-6mblw `
@@ -132,17 +135,17 @@ For example, you can connect to a container console in a container app with a si
 # [Bash](#tab/bash)
 
 ```azurecli
-az containerapp exec 
+az containerapp exec \
   --name album-api \
-  --resource-group album-api-rg \
+  --resource-group album-api-rg
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az containerapp exec 
+az containerapp exec `
   --name album-api `
-  --resource-group album-api-rg `
+  --resource-group album-api-rg
 ```
 
 ---
@@ -156,7 +159,7 @@ Use the `az containerapp revision list` command to get the revision, replica and
 ```azurecli
 az containerapp revision list \
   --name album-api \
-  --resource-group album-api-rg \
+  --resource-group album-api-rg
 ```
 
 # [PowerShell](#tab/powershell)
@@ -164,7 +167,7 @@ az containerapp revision list \
 ```azurecli
 az containerapp revision list `
   --name album-api `
-  --resource-group album-api-rg `
+  --resource-group album-api-rg
 ```
 
 ---
@@ -174,7 +177,8 @@ Connect to the container console.
 # [Bash](#tab/bash)
 
 ```azurecli
-az containerapp exec --name album-api \
+az containerapp exec \
+  --name album-api \
   --resource-group album-api-rg \
   --revision album-api--v2 \
   --replica album-api--v2-5fdd5b4ff5-6mblw \
@@ -184,7 +188,8 @@ az containerapp exec --name album-api \
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az containerapp exec --name album-api `
+az containerapp exec `
+  --name album-api `
   --resource-group album-api-rg `
   --revision album-api--v2 `
   --replica album-api--v2-5fdd5b4ff5-6mblw `
@@ -389,5 +394,5 @@ Container Apps manages updates to your container app by creating [revisions](rev
 
 ## Next steps
 
-- [Monitor an app in Azure Container Apps Preview](monitor.md)
+- [Monitor an app in Azure Container Apps](monitor.md)
 - [Health probes in Azure Container Apps](health-probes.md)

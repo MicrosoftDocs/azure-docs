@@ -10,9 +10,14 @@ author: dem108
 ms.author: sehan
 ms.reviewer: larryfr
 ms.date: 04/26/2022
+<<<<<<< HEAD
 ms.custom: how-to, devplatv2
 
 # Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
+=======
+ms.custom: how-to, devplatv2, event-tier1-build-2022
+#Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
+>>>>>>> 0129ef009e25c15aafd490699d1e4ceaec0f385b
 ---
 
 # Use batch endpoints for batch scoring
@@ -189,10 +194,13 @@ Invoke a batch endpoint triggers a batch scoring job. A job `name` will be retur
 #### Invoke the batch endpoint with different input options
 
 You can either use CLI or REST to `invoke` the endpoint. For REST experience, see [Use batch endpoints with REST](how-to-deploy-batch-with-rest.md)
+<<<<<<< HEAD
 
 There are several options to specify the data inputs in CLI `invoke`.
 
 * __Option 1-1: Data in the cloud__
+=======
+>>>>>>> 0129ef009e25c15aafd490699d1e4ceaec0f385b
 
     Use `--input` and `--input-type` to specify a file or folder on an Azure Machine Learning registered datastore or a publicly accessible path. When you are specifying a single file, use `--input-type uri_file`, and when you are specifying a folder, use `--input-type uri_folder`). 
 
@@ -206,10 +214,20 @@ There are several options to specify the data inputs in CLI `invoke`.
 
 * __Option 1-2: Registered data asset__
 
+<<<<<<< HEAD
     Use `--input` to pass in an Azure Machine Learning registered V2 data asset (with the type of either `uri_file` or `url_folder`). You do not need to specify `--input-type` in this option. The syntax for this option is `azureml:<dataset-name>:<dataset-version>`.
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:<dataset-name>:<dataset-version>
+=======
+    Use `--input-data` to pass in an Azure Machine Learning registered V1 `FileDataset`. While full backward compatibility is provided, if your intention with your V1 `FileDataset` assets was to have a single path to a file or folder with no loading transforms (sample, take, filter, etc.), then we recommend that you re-create them as a `uri_file`/`uri_folder` using the CLI v2 and use `--input-path` parameter to use with batch endpoint. V1 `TabularDataset` is not supported.
+
+    > [!NOTE]
+    > For more information on V2 data assets, see [Work with data using SDK v2 preview](how-to-use-data.md). As we enable the abstraction for tabular data called `mltable` for batch endpoint in the future, migration from V1 data assets (specifically `FileDataset`) to V2 data assets (`mltable`) will be required. 
+
+    ```azurecli
+    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-data azureml:<dataset-name>:<dataset-version>
+>>>>>>> 0129ef009e25c15aafd490699d1e4ceaec0f385b
     ```
 
 * __Option 2: Data stored locally__
