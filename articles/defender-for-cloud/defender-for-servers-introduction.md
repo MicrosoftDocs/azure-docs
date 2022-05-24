@@ -10,7 +10,7 @@ author: bmansheim
 
 Microsoft Defender for Servers is one of the enhanced security features of Microsoft Defender for Cloud. Use it to add threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, AWS, GCP, and on-premises environment.
 
-To protect machines in hybrid and multi-cloud environments, Defender for Cloud uses [Azure Arc](../azure-arc/index.yml). Connect your hybrid and multi-cloud machines as explained in the relevant quickstart:
+To protect machines in hybrid and multicloud environments, Defender for Cloud uses [Azure Arc](../azure-arc/index.yml). Connect your hybrid and multicloud machines as explained in the relevant quickstart:
 - [Connect your non-Azure machines to Microsoft Defender for Cloud](quickstart-onboard-machines.md)
 - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 
@@ -54,7 +54,7 @@ The following table describes what's included in each plan at a high level.
 | Adaptive application controls | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | File integrity monitoring | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Just-in time VM access | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Adaptive Network Hardening | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Adaptive network hardening | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 <!-- | Future – TVM P2 | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Future – disk scanning insights | | :::image type="icon" source="./media/icons/yes-icon.png"::: | -->
 
@@ -86,7 +86,7 @@ The threat detection and protection capabilities provided with Microsoft Defende
 
 - **Adaptive network hardening (ANH)** - Applying network security groups (NSG) to filter traffic to and from resources, improves your network security posture. However, there can still be some cases in which the actual traffic flowing through the NSG is a subset of the NSG rules defined. In these cases, further improving the security posture can be achieved by hardening the NSG rules, based on the actual traffic patterns.
 
-    Adaptive Network Hardening provides recommendations to further harden the NSG rules. It uses a machine learning algorithm that factors in actual traffic, known trusted configuration, threat intelligence, and other indicators of compromise. ANH then provides recommendations to allow traffic only from specific IP and port tuples. For more information, see [Improve your network security posture with adaptive network hardening](adaptive-network-hardening.md).
+    Adaptive network hardening provides recommendations to further harden the NSG rules. It uses a machine learning algorithm that factors in actual traffic, known trusted configuration, threat intelligence, and other indicators of compromise. ANH then provides recommendations to allow traffic only from specific IP and port tuples. For more information, see [Improve your network security posture with adaptive network hardening](adaptive-network-hardening.md).
 
 
 - **Docker host hardening** -  Microsoft Defender for Cloud identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Defender for Cloud continuously assesses the configurations of these containers. It then compares them with the Center for Internet Security (CIS) Docker Benchmark. Defender for Cloud includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. For more information, see [Harden your Docker hosts](harden-docker-hosts.md).
@@ -117,7 +117,7 @@ For Windows, Microsoft Defender for Cloud integrates with Azure services to moni
 
 For Linux, Defender for Cloud collects audit records from Linux machines by using auditd, one of the most common Linux auditing frameworks.
 
-For hybrid and multi-cloud scenarios, Defender for Cloud integrates with [Azure Arc](../azure-arc/index.yml) to ensure these non-Azure machines are seen as Azure resources. 
+For hybrid and multicloud scenarios, Defender for Cloud integrates with [Azure Arc](../azure-arc/index.yml) to ensure these non-Azure machines are seen as Azure resources. 
 
 
 ## Simulating alerts

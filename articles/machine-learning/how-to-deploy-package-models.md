@@ -10,7 +10,7 @@ ms.topic: how-to
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: larryfr
-ms.custom: deploy
+ms.custom: deploy, event-tier1-build-2022
 ---
 
 # How to package a registered model with Docker
@@ -158,7 +158,7 @@ docker kill mycontainer
 ## Next steps
 
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
-* [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
+* [Deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)
 * [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)

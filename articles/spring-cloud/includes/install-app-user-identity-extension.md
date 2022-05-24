@@ -2,6 +2,7 @@
 author: jiec
 ms.author: jiec
 ms.service: spring-cloud
+ms.custom: event-tier1-build-2022
 ms.topic: include
 ms.date: 04/02/2022
 ---
@@ -13,9 +14,9 @@ Use the following line at the end of the Prerequisites section, where relevant. 
 
 -->
 
-The Azure Spring Cloud extension supports app user-assigned managed identity (3.1.2 or later). Use the following command to remove previous versions and install the latest extension:
+The Azure Spring Apps extension supports app user-assigned managed identity (3.1.2 or later). Use the following command to remove previous versions and install the latest extension:
 
    ```azurecli
-   az extension remove --name spring-cloud
-   az extension add --name spring-cloud
+   az extension remove --name spring
+   az extension add --name spring
    ```

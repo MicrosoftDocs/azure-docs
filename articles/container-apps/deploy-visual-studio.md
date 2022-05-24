@@ -7,12 +7,12 @@ ms.author: alexwolf
 ms.service: container-apps
 ms.topic: tutorial
 ms.date: 3/04/2022
-ms.custom: mode-ui
+ms.custom: mode-ui, event-tier1-build-2022
 ---
 
 # Tutorial: Deploy to Azure Container Apps using Visual Studio
 
-Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
 In this tutorial, you'll deploy a containerized ASP.NET Core 6.0 application to Azure Container Apps using Visual Studio.  The steps below also apply to earlier versions of ASP.NET Core.
 
@@ -63,7 +63,7 @@ The Visual Studio publish dialogs will help you choose existing Azure resources,
 
    :::image type="content" source="media/visual-studio/container-apps-deploy-azure.png" alt-text="A screenshot showing to publish to Azure.":::
 
-3) On the **Specific target** screen, choose **Azure Container Apps Preview (Linux)**, and then select **Next** again.
+3) On the **Specific target** screen, choose **Azure Container Apps (Linux)**, and then select **Next** again.
 
    :::image type="content" source="media/visual-studio/container-apps-publish-azure.png" alt-text="A screenshot showing Container Apps selected.":::
 
