@@ -5,8 +5,9 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 05/24/2022
 ---
 
 # Read replicas in Azure Database for MySQL - Flexible Server
@@ -22,7 +23,7 @@ The read replica feature allows you to replicate data from an Azure Database for
 Replicas are new servers that you manage similar to your source Azure Database for MySQL flexible servers. You will incur billing charges for each read replica based on the provisioned compute in vCores and storage in GB/ month. For more information, see [pricing](./concepts-compute-storage.md#pricing).
 
 > [!NOTE]
-> The read replica feature is only available for Azure Database for MySQL - Flexible servers in the General Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing tiers.
+> The read replica feature is only available for Azure Database for MySQL - Flexible servers in the General Purpose or Business Critical pricing tiers. Ensure the source server is in one of these pricing tiers.
 
 To learn more about MySQL replication features and issues, see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
