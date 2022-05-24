@@ -10,7 +10,7 @@ ms.subservice: msi
 ms.topic: how-to
 ms.workload: identity
 ms.date: 05/23/2022
-ms.author: vakarand
+ms.author: karavar
 ms.collection: M365-identity-device-management
 ---
 
