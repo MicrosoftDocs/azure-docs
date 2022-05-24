@@ -61,5 +61,5 @@ To ingest your historical data into Microsoft Sentinel Basic Logs (option 2 in t
 To ingest your historical data into Azure Data Explorer (ADX) (option 3 in the [diagram above](#export-data-from-the-legacy-siem): 
 
 1. [Install and configure AzCopy](../storage/common/storage-use-azcopy-v10.md) on the same system where the logs are exported, or install AzCopy on another system that has access to the exported logs.  
-1. [Create an Azure Blob Storage account](../storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal.md) and copy the authorized Azure Active Directory credentials or Shared Access Signature token.   
+1. [Create an Azure Blob Storage account](../storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal.md) and copy the authorized [Azure Active Directory](../storage/common/storage-use-azcopy-v10.md#option-1-use-azure-active-directory) credentials or [Shared Access Signature](../storage/common/storage-use-azcopy-v10.md#option-2-use-a-sas-token) token.   
 1. [Run AzCopy](../storage/common/storage-use-azcopy-v10?toc=/azure/storage/blobs/toc.json#run-azcopy.md) with the folder path that includes the exported logs as the source, and the Azure Blob Storage connection string as the output.

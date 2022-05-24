@@ -20,9 +20,9 @@ Before you ingest data to Azure Monitor Basic logs, for lower ingestion prices, 
 
 Review the following sections to select your data ingestion tool.
 
-#### Customlogs 
+#### Azure Monitor custom log ingestion tool 
 
-[Customlogs](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/CustomLogsIngestion-DCE-DCR) is a PowerShell script that sends data to an Azure Monitor Logs workspace. You can point the script to the folder where all your log files reside, and the script pushes the files to that folder. The script accepts either CSV or JSON for log files. 
+The [custom log ingestion tool](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/CustomLogsIngestion-DCE-DCR) is a PowerShell script that sends custom data to an Azure Monitor Logs workspace. You can point the script to the folder where all your log files reside, and the script pushes the files to that folder. The script accepts either CSV or JSON for log files. 
 
 #### Direct API 
 
@@ -45,7 +45,7 @@ This section reviews two methods that are better tailored to the data migration 
 
 #### LightIngest
 
-ADX has developed the [LightIngest utility](https://docs.microsoft.com/azure/data-explorer/lightingest) specifically for the historical data migration use case. You can copy data to LightIngest using the local filesystem or Azure Blob Storage.
+ADX has developed the [LightIngest utility](https://docs.microsoft.com/azure/data-explorer/lightingest) specifically for the historical data migration use case. You can use LightIngest to copy data from a local file system or Azure Blob Storage to ADX.
 
 Here are a few main benefits and capabilities of LightIngest:
 
@@ -76,8 +76,7 @@ You can ingest data to Azure Blob Storage in several ways.
 - [Python](/azure/storage/blobs/storage-quickstart-blobs-python)
 - [SSIS](/azure/architecture/data-science-process/move-data-to-azure-blob-using-ssis)
 
-This section reviews two methods that are better tailored to the data migration use case:
-- Azure Data Factory (ADF) or Azure Synapse
+This section focuses on Azure Data Factory (ADF) and Azure Synapse, which are better tailored to the data migration use case.
 
 ##### Azure Data Factory (ADF) or Azure Synapse
 
@@ -123,15 +122,14 @@ In addition to selecting an ingestion tool, your team needs to invest time in se
 
 To use the SIEM data migration accelerator:
 
-1. [Download the deployment wizard](http://aka.ms/siemdatamigration).
-1. Click **Deploy to Azure** and authenticate.
+1. From the [SIEM data migration accelerator page](http://aka.ms/siemdatamigration), click **Deploy to Azure** at the bottom of the page, and authenticate.
 1. Select **Basics**, select your resource group and location, and select **Next**.
 1. Select **Migration VM**, and do the following: 
     - Type the VM name, username and password.
     - Select an existing vNet or create a new vNet for the VM connection.
     - Select the VM size.
-1. Select **Target platform** and do the following:
-    - (Optional) Select which target platform to create.
+1. Select **Target platform** and do one of the following:
+    - Skip this step.
     - Provide the ADX cluster and database name, SKU, and number of nodes.
     - For Azure Blob Storage accounts, select an existing account. If you do not have an account, provide a new account name, type, and redundancy.
     - For Azure Monitor Logs, type the name of the new workspace.

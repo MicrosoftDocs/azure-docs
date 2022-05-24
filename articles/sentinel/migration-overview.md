@@ -26,7 +26,7 @@ In this section, you learn how to migrate your legacy SIEM to Microsoft Sentinel
 |Migrate from QRadar     |• [Migrate detection rules](migration-qradar-detection-rules.md)<br>• [Migrate SOAR automation](migration-qradar-automation.md)<br>• [Export historical data](migration-qradar-historical-data.md)          |
 |Ingest historical data |• [Select a target Azure platform to host the exported historical data](migration-ingestion-target-platform.md)<br>• [Select a data ingestion tool](migration-ingestion-tool.md)<br>• [Ingest historical data into your target platform](migration-export-ingest.md) |
 |Convert dashboards to workbooks |[Convert dashboards to Azure Workbooks](migration-convert-dashboards.md) |
-|Update SOC processes |[Update SOC processes](migration-analyst-workflow.md) |
+|Update SOC processes |[Update SOC processes](migration-soc-processes.md) |
 
 ## What is Microsoft Sentinel?
 
@@ -61,7 +61,7 @@ Review these key considerations for each phase.
 
 |Phase  |Consideration  |
 |---------|---------|
-|Discover     |[Identify use cases](#identify-use-cases) and your [migration priorities](#identify-your-migration-priorities) as part of this phase.        |
+|Discover     |[Identify use cases](#identify-use-cases) and [migration priorities](#identify-your-migration-priorities) as part of this phase.        |
 |Design     |Define a detailed design and architecture for your Microsoft Sentinel implementation. You will use this information to get approval from the relevant stakeholders before you start the implementation phase.         |
 |Implement     |As you implement Microsoft Sentinel components according to the design phase, and before you convert your entire infrastructure, consider whether you can use Microsoft Sentinel out-of-the-box content instead of migrating all components. You can begin using Microsoft Sentinel gradually, starting with a minimum viable product (MVP) for several use cases. As you add more use cases, you can use this Microsoft Sentinel instance as a user acceptance testing (UAT) environment to validate the use cases.         |
 |Operationalize     |You migrate your content and SOC processes to ensure that the existing analyst experience is not disrupted.         |

@@ -1,6 +1,6 @@
 ---
-title: Export historical data from QRadar to Microsoft Sentinel | Microsoft Docs
-description: Learn how to export your historical data from QRadar to Microsoft Sentinel.
+title: Export historical data from QRadar | Microsoft Docs
+description: Learn how to export your historical data from QRadar.
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
@@ -8,11 +8,13 @@ ms.date: 05/03/2022
 ms.custom: ignite-fall-2021
 ---
 
-# Export historical data from QRadar to Microsoft Sentinel
+# Export historical data from QRadar
 
-This article describes how to export your historical data from QRadar to Microsoft Sentinel. When you finish exporting the data, you ingest the data. Learn how to [select a target Azure platform to host the exported data](migration-ingestion-target-platform.md) and then [select an ingestion tool](migration-ingestion-tool.md).
+This article describes how to export your historical data from QRadar. After you complete the steps in this article, you can [select a target platform](migration-ingestion-target-platform.md) to host the exported data, and then [select an ingestion tool](migration-ingestion-tool.md) to migrate the data.
 
-Follow the steps in these sections to export your historical data to Microsoft Sentinel with [QRadar forwarding destination](https://www.ibm.com/docs/en/qsip/7.5?topic=administration-forward-data-other-systems).
+:::image type="content" source="media/migration-export-ingest/export-data.png" alt-text="Diagram illustrating steps involved in export and ingestion." lightbox="media/migration-export-ingest/export-data.png":::
+
+Follow the steps in these sections to export your historical data using [QRadar forwarding destination](https://www.ibm.com/docs/en/qsip/7.5?topic=administration-forward-data-other-systems).
 
 ## Configure QRadar forwarding destination
 
@@ -36,4 +38,10 @@ Configure routing rules:
 1. Select **Add Filter** to add filter criteria for data that needs to be exported. For example, use the **Log Source Time** field to set a timestamp range.
 1. Select **Forward** and select the forwarding destination created when you [configured the QRadar forwarding destination](#configure-qradar-forwarding-destination) in step 2.
 1. [Enable the routing rule configuration](https://www.ibm.com/docs/en/qsip/7.5?topic=systems-viewing-managing-routing-rules).
-1. Repeat steps 1-7 for each event processor from which you need to export data.  
+1. Repeat steps 1-7 for each event processor from which you need to export data. 
+
+## Next steps
+
+- [Select a target Azure platform to host the exported historical data](migration-ingestion-target-platform.md)
+- [Select a data ingestion tool](migration-ingestion-tool.md)
+- [Ingest historical data into your target platform](migration-export-ingest.md) 
