@@ -41,7 +41,7 @@ The following table summarizes the differences between the plans.
 | Category | Analytics Logs | Basic Logs |
 |:---|:---|:---|
 | Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
-| Log queries | No additional cost. Full query capabilities. | Additional cost. [Subset of query capabilities](basic-logs-query.md#limitations). |
+| Log queries | No additional cost. Full query capabilities. | Additional cost.<br>[Subset of query capabilities](basic-logs-query.md#limitations). |
 | Retention |  Configure retention from 30 days to 730 days. | Retention fixed at 8 days. |
 | Alerts | Supported. | Not supported. |
 
