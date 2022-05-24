@@ -491,22 +491,6 @@ You can use PowerShell commands to add or remove resource network rules.
 > [!IMPORTANT]
 > Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or network rules have no effect.
 
-#### Install the preview module
-
-Install the latest version of the PowershellGet module. Then, close and reopen the PowerShell console.
-
-```powershell
-install-Module PowerShellGet –Repository PSGallery –Force  
-```
-
-Install **Az. Storage** preview module.
-
-```powershell
-Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
-```
-
-For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
-
 #### Grant access
 
 Add a network rule that grants access from a resource instance.
@@ -570,24 +554,6 @@ $rule.ResourceAccessRules
 ### [Azure CLI](#tab/azure-cli)
 
 You can use Azure CLI commands to add or remove resource network rules.
-
-#### Install the preview extension
-
-1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
-
-2. Then, verify that the version of Azure CLI that you have installed is `2.13.0` or higher by using the following command.
-
-   ```azurecli
-   az --version
-   ```
-
-   If your version of Azure CLI is lower than `2.13.0`, then install a later version. See [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-3. Type the following command to install the preview extension.
-
-   ```azurecli
-   az extension add -n storage-preview
-   ```
 
 #### Grant access
 
