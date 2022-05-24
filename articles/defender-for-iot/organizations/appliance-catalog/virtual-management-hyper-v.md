@@ -78,7 +78,7 @@ This procedure describes how to create a virtual machine for your on-premises ma
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing on-premises management console software](../how-to-install-software.md#install-on-premises-management-console-software).
+1. Continue with the [generic procedure for installing on-premises management console software](../how-to-install-software.md#install-ot-monitoring-software).
 
 ## Next steps
 
