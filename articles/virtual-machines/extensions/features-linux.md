@@ -493,7 +493,7 @@ To remove an extension, use [Remove-AzVMExtension](/powershell/module/az.compute
 Remove-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name customScript
 ```
 
-To forces the command to run without asking for user confirmation specify the `-Force` switch parameter.
+To force the command to run without asking for user confirmation specify the `-Force` switch parameter.
 
 ---
 
