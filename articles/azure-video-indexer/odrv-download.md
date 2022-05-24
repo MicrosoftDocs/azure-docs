@@ -1,6 +1,6 @@
 ---
 title: Index videos stored on OneDrive - Azure Video Indexer
-description: Learn how to index videos stored on OneDrive by using Azure Video Indexer (formerly Azure Video Analyzer for Media).
+description: Learn how to index videos stored on OneDrive by using Azure Video Indexer.
 ms.topic: article
 ms.date: 12/17/2021
 ---
