@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: SimranArora904
 ms.author: siarora
-ms.date: 04/08/2022
+ms.date: 05/24/2022
 ms.topic: how-to
 ms.custom: troubleshooting, contperf-fy20q4, contperf-fy21q2, event-tier1-build-2022
 ---
@@ -101,8 +101,6 @@ The following table shows additional limits in the platform. Please reach out to
 
 Azure Machine Learning managed online endpoints have limits described in the following table. 
 
-To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#view-metrics). To request an exception from the Azure Machine Learning product team, please open a technical support ticket.
-
 | **Resource** | **Limit** |
 | --- | --- |
 | Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> |
@@ -122,6 +120,25 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 <sup>2</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you will receive an error.
 
 <sup>3</sup> If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
+
+To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#view-metrics). 
+
+To request an exception from the Azure Machine Learning product team, usee the steps in the [Request quota increases](#request-quota-increases) section and provide the following information:
+
+1. Provide the Azure __subscriptions__ and __regions__ where you want to increase the quota.
+1. Provide the __tenant ID__ and __customer name__.
+1. Provide the __quota type__ and __new limit__. Use the following table as a guide:
+
+  | Quota Type	| New Limit |
+  | ----- | ----- |
+  | MaxEndpointsPerSub (Number of endpoints per subscription) |	? |
+  | MaxDeploymentsPerSub (Number of deployments per subscription) | ? |
+  | MaxDeploymentsPerEndpoint (Number of deployments per endpoint) | ? |
+  | MaxInstancesPerDeployment (Number of instances per deployment) | ? |
+  | EndpointRequestRateLimitPerSec (Total requests per second at endpoint level for all deployments) | ? |
+  | EndpointConnectionRateLimitPerSec (Total connections per second at endpoint level for all deployments) | ? |
+  | EndpointConnectionLimit (Total connections active at endpoint level for all deployments) | ? |
+  | EndpointBandwidthLimitKBps (Total bandwidth at endpoint level for all deployments (MBPS)) | ? |
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
