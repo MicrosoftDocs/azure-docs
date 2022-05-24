@@ -24,29 +24,29 @@ Learn how to manage data access and how to authenticate in Azure Machine Learnin
 
 In general, data access from studio involves the following checks:
 
-1. Who is accessing?
+* Who is accessing?
     - There are multiple different types of authentication depending on the storage type. For example, account key, token, service principal, managed identity, and user identity.
     - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage. Learn more about [identity-based data access](how-to-identity-based-data-access.md).
-2. Do they have permission?
+* Do they have permission?
     - Are the credentials correct? If so, does the service principal, managed identity, etc., have the necessary permissions on the storage? Permissions are granted using Azure role-based access controls (Azure RBAC).
     - [Reader](../role-based-access-control/built-in-roles.md#reader) of the storage account reads metadata of the storage.
     - [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) reads data within a blob container.
     - [Contributor](../role-based-access-control/built-in-roles.md#contributor) allows write access to a storage account.
     - More roles may be required depending on the type of storage.
-3. Where is access from?
+* Where is access from?
     - User: Is the client IP address in the VNet/subnet range?
     - Workspace: Is the workspace public or does it have a private endpoint in a VNet/subnet?
     - Storage: Does the storage allow public access, or does it restrict access through a service endpoint or a private endpoint?
-4. What operation is being performed?
+* What operation is being performed?
     - Create, read, update, and delete (CRUD) operations on a data store/dataset are handled by Azure Machine Learning.
     - Data Access calls (such as preview or schema) go to the underlying storage and need extra permissions.
-5. Where is this operation being run; compute resources in your Azure subscription or resources hosted in a Microsoft subscription?
+* Where is this operation being run; compute resources in your Azure subscription or resources hosted in a Microsoft subscription?
     - All calls to dataset and datastore services (except the "Generate Profile" option) use resources hosted in a __Microsoft subscription__ to run the operations.
     - Jobs, including the "Generate Profile" option for datasets, run on a compute resource in __your subscription__, and access the data from there. So the compute identity needs permission to the storage rather than the identity of the user submitting the job.
 
 The following diagram shows the general flow of a data access call. In this example, a user is trying to make a data access call through a machine learning workspace, without using any compute resource.
 
-:::image type="content" source="./media/concept-network-data-access/data-access-flow.svg" alt-text="Diagram of the logic flow when accessing data":::
+:::image type="content" source="./media/concept-network-data-access/data-access-flow.svg" alt-text="Diagram of the logic flow when accessing data.":::
 
 ## Scenarios and identities
 

@@ -201,7 +201,7 @@
       items: 
         - name: Datastores
           href: concept-datastore.md
-        - name: Access Data
+        - name: Access data
           href: concept-data.md
     - name: Collect data
       items:
@@ -370,7 +370,7 @@
         - name: Register a data asset
           displayName: data, data asset
           href: how-to-create-register-data-assets.md
-        - name: Reading/Writing Data
+        - name: Reading & writing data
           displayName: read and write data
           href: how-to-read-write-data-v2.md
         - name: Administrate data authentication

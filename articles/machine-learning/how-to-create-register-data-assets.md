@@ -285,7 +285,7 @@ ml_client.data.create_or_update(my_data)
 ```
 
 > [!TIP]
-> Whilst the above example shows a local file. Remember that path supports cloud storage (https, abfss, wasbs protocols). Therefore, if you want to register data in a > cloud location just specify the path with any of the supported protocols.
+> Although the above example shows a local file. Remember that path supports cloud storage (https, abfss, wasbs protocols). Therefore, if you want to register data in a > cloud location just specify the path with any of the supported protocols.
 
 # [CLI](#tab/CLI)
 You can also use CLI and following YAML that describes an MLTable to register MLTable Data.
@@ -367,6 +367,7 @@ command: |
       "
 ```
 
+> [!NOTE]
 > **For local files and folders**, only relative paths are supported. To be explicit, we will **not** support absolute paths as that would require us to change the MLTable file that is residing on disk before we move it to cloud storage.
 
 You can put MLTable file and underlying data in the *same folder* but in a cloud object store. You can specify `mltable:` in their job that points to a location on a datastore that contains the MLTable file:
@@ -530,7 +531,7 @@ Below are the supported transformations that are specific for json lines:
 - `invalid_lines` How to handle lines that are invalid JSON. Supported values are `error` and `drop`. Defaults to `error`.
 - `encoding` Specify the file encoding. Supported encodings are `utf8`, `iso88591`, `latin1`, `ascii`, `utf16`, `utf32`, `utf8bom` and `windows1252`. Default is `utf8`.
 
-## Global Transforms
+## Global transforms
 
 MLTable-artifacts provide transformations specific to the delimited text, parquet, Delta. There are other transforms that mltable-artifact files support:
 
@@ -539,7 +540,7 @@ MLTable-artifacts provide transformations specific to the delimited text, parque
 - `skip`: This skips the first *n* records of the table
 - `drop_columns`: Drops the specified columns from the table. This transform supports regex so that users can drop columns matching a particular pattern.
 - `keep_columns`: Keeps only the specified columns in the table. This transform supports regex so that users can keep columns matching a particular pattern.
-- `filter`: Filter the data, leaving only the records that match the specified expression. **NOTE: This will come post-GA as we need to define the filter query language**.
+- `filter`: Filter the data, leaving only the records that match the specified expression.
 - `extract_partition_format_into_columns`: Specify the partition format of path. Defaults to None. The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type. The format should start from the position of first partition key until the end of file path. For example, given the path '../Accounts/2019/01/01/data.csv' where the partition is by department name and time, partition_format='/{Department}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'Department' with the value 'Accounts' and a datetime column 'PartitionDate' with the value '2019-01-01'.
 Our principle here's to support transforms *specific to data delivery* and not to get into wider feature engineering transforms.
 
