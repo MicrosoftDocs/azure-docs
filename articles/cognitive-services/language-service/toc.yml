@@ -94,7 +94,7 @@ items:
       - name: Cognitive Services security
         href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
       - name: Encryption of data at rest
-        href: concepts/encryption-data-at-rest.md
+        href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
   - name: Tutorials
     items:
     - name: Enrich a Cognitive Search index 
@@ -175,7 +175,7 @@ items:
         - name: Cognitive Services security
           href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
         - name: Encryption of data at rest
-          href: concepts/encryption-data-at-rest.md
+          href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
   - name: Reference
     items:
     - name: Glossary
@@ -237,7 +237,7 @@ items:
         - name: Cognitive Services security
           href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
         - name: Encryption of data at rest
-          href: concepts/encryption-data-at-rest.md
+          href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
   - name: Tutorials
     items:
       - name: Use Bot Framework
