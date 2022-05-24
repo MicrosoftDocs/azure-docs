@@ -189,6 +189,8 @@
       items:
       - name: Create a dual-protocol volume 
         href: create-volumes-dual-protocol.md
+    - name: Manage availability zone volume placement
+      href: manage-availability-zone-volume-placement.md
     - name: Manage volume access and encryption 
       items:
       - name: Configure export policy for NFS or dual protocol
