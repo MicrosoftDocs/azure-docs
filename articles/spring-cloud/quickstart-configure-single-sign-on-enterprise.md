@@ -30,7 +30,7 @@ This quickstart shows you how to configure single sign-on for applications runni
 
 ## Prepare single sign-on credentials
 
-To configure single sign-on for the application, you will need to prepare credentials. The following sections describe steps for an existing provider or provisioning an Application Registration with Azure Active Directory.
+To configure single sign-on for the application, you'll need to prepare credentials. The following sections describe steps for an existing provider or provisioning an Application Registration with Azure Active Directory.
 
 ### Use an existing provider
 
@@ -265,7 +265,7 @@ Retrieve the URL for API Portal using the following commands:
    echo "https://${PORTAL_URL}"
    ```
 
-The above URL can be opened in a browser, use this to explore the application APIs. This time you will be directed to sign on before exploring APIs.
+The above URL can be opened in a browser, use this to explore the application APIs. This time, you'll be directed to sign on before exploring APIs.
 
 ---
 

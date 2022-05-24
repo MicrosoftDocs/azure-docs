@@ -32,14 +32,14 @@ Rate limiting enables you to avoid problems that arise with spikes in traffic. W
 
 ## Set request rate limits
 
-Spring Cloud Gateway includes route filters from the Open Source version as well as several additional route filters. One of these additional filters is the [RateLimit: Limiting user requests filter](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.1/scg-k8s/GUID-route-filters.html#ratelimit-limiting-user-requests-filter). The RateLimit filter limits the number of requests allowed per route during a time window.
+Spring Cloud Gateway includes route filters from the Open Source version and several more route filters. One of these filters is the [RateLimit: Limiting user requests filter](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.1/scg-k8s/GUID-route-filters.html#ratelimit-limiting-user-requests-filter). The RateLimit filter limits the number of requests allowed per route during a time window.
 
-When defining a Route, you can add the RateLimit filter by including it in the list of filters for the route. The filter accepts 4 options:
+When defining a Route, you can add the RateLimit filter by including it in the list of filters for the route. The filter accepts four options:
 
 - Number of requests accepted during the window.
 - Duration of the window: by default milliseconds, but you can use s, m or h suffix to specify it in seconds, minutes or hours.
 - (Optional) User partition key: it's also possible to apply rate limiting per user, that is, different users can have its own throughput allowed based on an identifier found in the request. Set whether the key is in a JWT claim or HTTP header with '' or '' syntax.
-- (Optional) It is possible to rate limit by IP addresses. Note, this cannot be combined with the rate limiting per user.
+- (Optional) It's possible to rate limit by IP addresses, although not in combination with rate limiting per user.
 
 The following example would limit all users to two requests every 5 seconds to the `/products` route:
 
@@ -79,7 +79,7 @@ GATEWAY_URL=$(az spring gateway show \
 echo "https://${GATEWAY_URL}/products"
 ```
 
-Make several requests to the URL for `/products` within a five second period to see requests fail with a status `429 Too Many Requests`.
+Make several requests to the URL for `/products` within a five-second period to see requests fail with a status `429 Too Many Requests`.
 
 ## Clean up resources
 

@@ -130,7 +130,7 @@ items:
     - name: Use VS Code to deploy apps
       href: https://code.visualstudio.com/docs/java/java-spring-cloud
     - name: Deploy Azure Spring Cloud with Maven
-      href: how-to-maven-deploy-apps.md 
+      href: how-to-maven-deploy-apps.md
     - name: Deploy Azure Spring Cloud with Azure PowerShell
       href: how-to-deploy-powershell.md
     - name: Deploy non-Java enterprise applications

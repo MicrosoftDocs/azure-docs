@@ -16,7 +16,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-In this quickstart, we use the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) application that will show how to deploy polyglot applications to Azure Spring Apps Enterprise tier. You will see how polyglot applications are built and deployed using Azure Spring Apps Enterprise tier capabilities including Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
+In this quickstart, we use the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) application that will show how to deploy polyglot applications to Azure Spring Apps Enterprise tier. You'll see how polyglot applications are built and deployed using Azure Spring Apps Enterprise tier capabilities including Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
 
 The following diagram shows a common application architecture:
 
@@ -26,18 +26,18 @@ This architecture shows an application composed of smaller applications with a g
 
 This quickstart applies this architecture to a Fitness Store application. This application is composed of several services split up by domain:
 
-- 3 Java Spring Boot applications:
+- Three Java Spring Boot applications:
   - **Catalog Service**: contains an API for fetching available products
   - **Payment Service**: Validates and processes payments for users' orders
   - **Identity Service**: Provides reference to the authenticated user
 
-- 1 Python application:
+- One Python application:
   - **Cart Service**: Manages users' items that have been selected for purchase
 
-- 1 ASP.NET Core application:
+- One ASP.NET Core application:
   - **Order Service**: Places orders to buy products that are in the users' carts
 
-- 1 NodeJS and static HTML Application
+- One NodeJS and static HTML Application
   - **Frontend**: shopping application that depends on other services
 
 The following picture shows the ACME Fitness Store home page.

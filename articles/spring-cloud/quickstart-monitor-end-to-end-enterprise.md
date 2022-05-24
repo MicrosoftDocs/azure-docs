@@ -143,7 +143,7 @@ az spring app logs \
 
 Open the Log Analytics that you created - you can find the Log Analytics in the same Resource Group where you created an Azure Spring Apps service instance.
 
-In the Log Analytics page, select the **Logs** pane and run any of the sample queries supplied below for Azure Spring Apps.
+In the Log Analytics page, select the **Logs** pane and run any of the following sample queries for Azure Spring Apps.
 
 Type and run the following Kusto query to see application logs:
 
@@ -169,7 +169,7 @@ AppPlatformLogsforSpring
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/catalog-app-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from catalog service logs.":::
 
-Type and run the following Kusto query  to see errors and exceptions thrown by each app:
+Type and run the following Kusto query to see errors and exceptions thrown by each app:
 
 ```kusto
 AppPlatformLogsforSpring
@@ -273,7 +273,7 @@ In addition to Application Insights, Azure Spring Apps enterprise tier supports 
 - ElasticAPM
 - NewRelic
 
-You can add additional bindings to a builder in Tanzu Build Service by using the following command:
+You can add more bindings to a builder in Tanzu Build Service by using the following command:
 
 ```azurecli
 az spring build-service builder buildpack-binding create \

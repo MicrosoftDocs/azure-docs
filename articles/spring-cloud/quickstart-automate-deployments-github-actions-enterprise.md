@@ -82,7 +82,7 @@ The command should output a JSON object:
 }
 ```
 
-This example uses the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) sample on GitHub.  Fork the sample, open GitHub repository page, and select the **Settings** tab. Open **Secrets** menu, and select **Add a new secret**:
+This example uses the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) sample on GitHub. Fork the sample, open GitHub repository page, and select the **Settings** tab. Open **Secrets** menu, and select **Add a new secret**:
 
 :::image type="content" source="media/github-actions/actions1.png" alt-text="Screenshot showing GitHub Settings Add new secret.":::
 
@@ -110,15 +110,15 @@ key                  = "dev.terraform.tfstate"
 
 ## Automate with GitHub Actions
 
-Now you can run GitHub Actions in your repository. The [provision workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/provision.yml) provisions all resources necessary to run the example application. An example run is seen below:
+Now you can run GitHub Actions in your repository. The [provision workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/provision.yml) provisions all resources necessary to run the example application. The following screenshot shows an example run:
 
-:::image type="content" source="media/e/provision.png" alt-text="Screenshot of GitHub showing output from the provision workflow.":::
+:::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/provision.png" alt-text="Screenshot of GitHub showing output from the provision workflow.":::
 
-Each application has a [deploy workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/catalog.yml) that will redeploy the application when changes are made to that application. An example output from the catalog service is seen below:
+Each application has a [deploy workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/catalog.yml) that will redeploy the application when changes are made to that application. The following screenshot shows some example output from the catalog service:
 
 :::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/deploy-catalog.png" alt-text="Screenshot of GitHub showing output from the Deploy Catalog workflow.":::
 
-The [cleanup workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/cleanup.yml) can be manually run to delete all resources created by the `provision` workflow. The output can be seen below:
+The [cleanup workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/cleanup.yml) can be manually run to delete all resources created by the `provision` workflow. The following screenshot shows the output:
 
 :::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/cleanup.png" alt-text="Screenshot of GitHub showing output from the cleanup workflow.":::
 

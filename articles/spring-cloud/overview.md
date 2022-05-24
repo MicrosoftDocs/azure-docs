@@ -131,7 +131,7 @@ The following quickstarts will help you get started using the Enterprise tier:
 * [View Enterprise Tier offering](how-to-enterprise-marketplace-offer.md)
 * [Introduction to Fitness Store sample](quickstart-sample-app-acme-fitness-store-introduction.md)
 * [Build and deploy apps](quickstart-deploy-apps-enterprise.md)
-* [Configure Single Sign-On](quickstart-configure-single-sign-on-enterprise.md)
+* [Configure single sign-on](quickstart-configure-single-sign-on-enterprise.md)
 * [Integrate Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
 * [Securely load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
 * [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
