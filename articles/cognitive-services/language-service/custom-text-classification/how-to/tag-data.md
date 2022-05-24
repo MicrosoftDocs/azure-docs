@@ -58,8 +58,6 @@ Use the following steps to label your data:
 
 4. In the right side pane, **Add class** to your project so you can start labeling your data with them.
 
-    :::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing the data tagging screen" lightbox="../media/tag-1.png":::
-
 5. Start labeling your files.
 
     # [Multi label classification](#tab/multi-classification)
