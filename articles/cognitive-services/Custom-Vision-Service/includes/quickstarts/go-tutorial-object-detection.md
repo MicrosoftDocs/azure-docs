@@ -51,7 +51,7 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 Create a new file called *sample.go* in your preferred project directory, and open it in your preferred code editor.
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
+Add the following code to your script to create a new Custom Vision service project. Insert your keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
 
 See the [CreateProject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).
 
@@ -177,18 +177,20 @@ var fork_images []training.ImageFileCreateEntry
 for file, region := range forkImageRegions {
     imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "fork", file))
 
-    imageRegion := training.Region { 
-        TagID:forkTag.ID,
-        Left:&region[0],
-        Top:&region[1],
-        Width:&region[2],
-        Height:&region[3],
+    regiontest := forkImageRegions[file]
+    imageRegion := training.Region{
+        TagID:  forkTag.ID,
+        Left:   &regiontest[0],
+        Top:    &regiontest[1],
+        Width:  &regiontest[2],
+        Height: &regiontest[3],
     }
+    var fileName string = file
 
-    fork_images = append(fork_images, training.ImageFileCreateEntry {
-        Name: &file,
+    fork_images = append(fork_images, training.ImageFileCreateEntry{
+        Name:     &fileName,
         Contents: &imageFile,
-        Regions: &[]training.Region{ imageRegion },
+        Regions:  &[]training.Region{imageRegion}
     })
 }
     

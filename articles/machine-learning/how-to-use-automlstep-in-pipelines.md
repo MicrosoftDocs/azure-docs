@@ -10,12 +10,12 @@ author: blackmist
 manager: cgronlun
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, automl
-
+ms.custom: devx-track-python, automl, sdkv1, event-tier1-build-2022
 ---
 
 # Use automated ML in an Azure Machine Learning pipeline in Python
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Azure Machine Learning's automated ML capability helps you discover high-performing models without you reimplementing every possible approach. Combined with Azure Machine Learning pipelines, you can create deployable workflows that can quickly discover the algorithm that works best for your data. This article will show you how to efficiently join a data preparation step to an automated ML step. Automated ML can quickly discover the algorithm that works best for your data, while putting you on the road to MLOps and model lifecycle operationalization with pipelines.
 
@@ -45,7 +45,7 @@ To make things concrete, this article creates a simple pipeline for a classifica
 
 ### Retrieve initial dataset
 
-Often, an ML workflow starts with pre-existing baseline data. This is a good scenario for a registered dataset. Datasets are visible across the workspace, support versioning, and can be interactively explored. There are many ways to create and populate a dataset, as discussed in [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). Since we'll be using the Python SDK to create our pipeline, use the SDK to download baseline data and register it with the name 'titanic_ds'.
+Often, an ML workflow starts with pre-existing baseline data. This is a good scenario for a registered dataset. Datasets are visible across the workspace, support versioning, and can be interactively explored. There are many ways to create and populate a dataset, as discussed in [Create Azure Machine Learning datasets](./v1/how-to-create-register-datasets.md). Since we'll be using the Python SDK to create our pipeline, use the SDK to download baseline data and register it with the name 'titanic_ds'.
 
 ```python
 from azureml.core import Workspace, Dataset

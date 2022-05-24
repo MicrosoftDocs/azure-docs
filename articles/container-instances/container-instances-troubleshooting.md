@@ -92,6 +92,10 @@ This error indicates that due to heavy load in the region in which you are attem
 * Deploy at a later time
 
 ## Issues during container group runtime
+### Container had an isolated restart without explicit user input
+
+There are two broad categories for why a container group may restart without explicit user input. First, containers may experience restarts caused by an application process crash. The ACI service recommends leveraging observability solutions such as Application Insights SDK, container group metrics, and container group logs to determine why the application experienced issues. Second, customers may experience restarts initiated by the ACI infrastructure due to maintenance events. To increase the availability of your application, run multiple container groups behind an ingress component such as an Application Gateway or Traffic Manager.
+
 ### Container continually exits and restarts (no long-running process)
 
 Container groups default to a [restart policy](container-instances-restart-policy.md) of **Always**, so containers in the container group always restart after they run to completion. You may need to change this to **OnFailure** or **Never** if you intend to run task-based containers. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
