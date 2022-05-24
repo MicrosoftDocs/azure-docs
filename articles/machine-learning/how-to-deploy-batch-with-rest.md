@@ -186,11 +186,11 @@ Now, let's look at other options for invoking the batch endpoint. When it comes 
 
 - An `InputData` property has `JobInputType` and `Uri` keys. When you are specifying a single file, use `"JobInputType": "UriFile"`, and when you are specifying a folder, use `'JobInputType": "UriFolder"`.
 
-- When the file or folder is on Azure ML registered datastore, the syntax for the `Uri` is  `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/` for folder, and `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>` for a specific file. You can also use the longer form to represent the same path, such as `azureml://subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/datastores/<datastore-name>/paths/<path-on-datastore>/`.
+- When the file or folder is on Azure ML registered datastore, the syntax for the `Uri` is  `azureml://datastores/<datastore-name>/paths/<path-on-datastore>` for folder, and `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>` for a specific file. You can also use the longer form to represent the same path, such as `azureml://subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/datastores/<datastore-name>/paths/<path-on-datastore>/`.
 
 - When the file or folder is registered as V2 data asset as `uri_folder` or `uri_file`, the syntax for the `Uri` is `\"azureml://data/<data-name>/versions/<data-version>/\"` (short form) or `\"azureml://subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/data/<data-name>/versions/<data-version>/\"` (long form).
 
-- When the file or folder is a publicly accessible path, the syntax for the URI is `https://<public-path>/` for folder, `https://<public-path>/<file-name>` for a specific file.
+- When the file or folder is a publicly accessible path, the syntax for the URI is `https://<public-path>` for folder, `https://<public-path>/<file-name>` for a specific file.
 
 > [!NOTE]
 > For more information about data URI, see [Azure Machine Learning data reference URI](reference-yaml-core-syntax.md#azure-ml-data-reference-uri).
@@ -241,7 +241,7 @@ Below are some examples using different types of input data.
     JOB_ID_SUFFIX=$(echo ${JOB_ID##/*/})
     ```
 
-- If you want to manage your data as Azure ML registered V2 data asset as `uri_folder`, you can follow the two steps:
+- If you want to manage your data as Azure ML registered V2 data asset as `uri_folder`, you can follow the two steps below:
 
     1. Create the V2 data asset:
 
@@ -249,13 +249,13 @@ Below are some examples using different types of input data.
     DATA_NAME="mnist"
     DATA_VERSION=$RANDOM
     
-    response=$(curl --location --request PUT https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/datasets/$DATA_NAME/versions/$DATA_VERSION?api-version=$API_VERSION \
+    response=$(curl --location --request PUT https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/data/$DATA_NAME/versions/$DATA_VERSION?api-version=$API_VERSION \
     --header "Content-Type: application/json" \
     --header "Authorization: Bearer $TOKEN" \
     --data-raw "{
         \"properties\": {
             \"dataType\": \"uri_folder\",
-      \"dataUri\": \https://pipelinedata.blob.core.windows.net/sampledata/mnist\,
+      \"dataUri\": \"https://pipelinedata.blob.core.windows.net/sampledata/mnist\",
       \"description\": \"Mnist data asset\"
         }
     }")
@@ -306,7 +306,9 @@ Below are some examples using different types of input data.
 > [!NOTE]
 > We strongly recommend using the latest REST API version for batch scoring.
 > - If you want to use local data, you can upload it to Azure Machine Learning registered datastore and use REST API for Cloud data.
-> - If you are using existing V1 FileDataset for batch endpoint, we recommend migrating them to V2 data assets and refer to them directly when invoking batch endpoints. Currently only data assets of type `uri_folder` or `uri_file` are supported. You can also extract the URI or path on datastore extracted from V1 FileDataset by using `az ml dataset show` command with `--query` parameter and use that information for invoke. While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
+> - If you are using existing V1 FileDataset for batch endpoint, we recommend migrating them to V2 data assets and refer to them directly when invoking batch endpoints. Currently only data assets of type `uri_folder` or `uri_file` are supported. Batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 Dataset.
+> - You can also extract the URI or path on datastore extracted from V1 FileDataset by using `az ml dataset show` command with `--query` parameter and use that information for invoke.
+> - While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
 
 #### Configure the output location and overwrite settings
 
