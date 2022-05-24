@@ -27,7 +27,7 @@ This section discusses the permissions needed to:
 #### Permissions to make a data resource available for *Data Use Management*
 To enable the *Data Use Management* (DUM) toggle for a data source, resource group, or subscription, the same user needs to have both certain IAM privileges on the resource and certain Microsoft Purview privileges. 
 
-1) User needs to have **either one of the following** IAM role combinations on the resource:
+1) User needs to have **either one of the following** IAM role combinations on the resource's ARM path or any parent of it (using inheritance).
    - IAM *Owner*
    - Both IAM *Contributor* + IAM *User Access Administrator*
 
