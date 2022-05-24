@@ -6,19 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: blackmist
-ms.author: larryfr
-ms.date: 03/31/2022
+author: dem108
+ms.author: sehan
+ms.date: 04/29/2022
 ms.reviewer: nibaccam
-ms.custom: devplatv2
+ms.custom: devplatv2, event-tier1-build-2022
 ---
 
 # Deploy models with REST (preview) for batch scoring 
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 Learn how to use the Azure Machine Learning REST API to deploy models for batch scoring (preview).
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
 
 The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure makes it a good choice in scripting environments and for MLOps automation.
 
@@ -52,7 +53,7 @@ In this article, you learn how to use the new REST APIs to:
 
 ## Azure Machine Learning batch endpoints
 
-[Batch endpoints (preview)](concept-endpoints.md#what-are-batch-endpoints-preview) simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. In this article, you'll create a batch endpoint and deployment, and invoking it to start a batch scoring job. But first you'll have to register the assets needed for deployment, including model, code, and environment.
+[Batch endpoints](concept-endpoints.md#what-are-batch-endpoints) simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. In this article, you'll create a batch endpoint and deployment, and invoking it to start a batch scoring job. But first you'll have to register the assets needed for deployment, including model, code, and environment.
 
 There are many ways to create an Azure Machine Learning batch endpoint, [including the Azure CLI](how-to-use-batch-endpoint.md), and visually with [the studio](how-to-use-batch-endpoints-studio.md). The following example creates a batch endpoint and deployment with the REST API.
 
@@ -90,7 +91,7 @@ You can use the tool [jq](https://stedolan.github.io/jq/) to parse the JSON resu
 
 ### Upload & register code
 
-Now that you have the datastore, you can upload the scoring script. Use the Azure Storage CLI to upload a blob into your default container:
+Now that you have the datastore, you can upload the scoring script. For more information about how to author the scoring script, see [Understanding the scoring script](how-to-use-batch-endpoint.md#understanding-the-scoring-script). Use the Azure Storage CLI to upload a blob into your default container:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="upload_code":::
 
