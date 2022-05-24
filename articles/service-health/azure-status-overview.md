@@ -2,7 +2,7 @@
 title: Azure status overview | Microsoft Docs
 description: A global view into the health of Azure services
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 05/23/2022
 
 ---
 # Azure status overview
@@ -24,6 +24,21 @@ While the Azure status page always shows the latest health information, you can 
 ## RSS Feed
 
 Azure status also provides [an RSS feed](https://status.azure.com/status/feed/) of changes to the health of Azure services that you can subscribe to.
+
+## When does Azure publish communications to the Status page?
+ 
+Most of our service issue communications are provided as targeted notifications sent directly to impacted customers & partners. These are delivered through Azure Service Health in the Azure portal and trigger any Azure Service Health alerts that have been configured. The public Status page is only used to communicate about service issues under three specific scenarios:
+
+- If we have evidence that a service issue has broad/significant customer impact across multiple services for a full region or multiple regions. We notify you because in such cases customer-configured resilience like high availability and/or disaster recovery may not be sufficient to avoid impact.
+- If we have evidence that a service issue has impacted our standard outage communications path described above - that is, if the issue impedes our customers and partners from accessing the Azure portal or Azure Service Health.
+- If we have evidence that a service issue has broad/significant customer impact but we are not yet able to confirm which customers, regions, or services are affected. In this case we are not able to send targeted communications, so we provide public updates.
+ 
+## When does Azure publish Post-Incident Reviews (PIRs) to the Status History page?
+ 
+After June 1st 2022, the Status history page will only be used to provide Post Incident Reviews (PIRs) for the first scenario above. We are committed to publishing PIRs publicly for service issues that had the broadest impact, such as a multi-service, and multi-region issues. We do this to ensure that all customers and the industry at large can learn from our retrospectives on these issues, and understand what steps we are taking to make such issues less likely and/or less impactful in future. 
+ 
+For scenarios 2 and 3 above - We may communicate publicly on the Status page during impact to workaround when our standard, targeted communications are not able to reach all impacted customers. After the issue is mitigated, we will conduct a thorough impact analysis to determine exactly which customer subscriptions were impacted. In such scenarios, we will provide the relevant PIR only to affected customers via Azure Service Health in the Azure portal.
+
 
 ## Next Steps
 
