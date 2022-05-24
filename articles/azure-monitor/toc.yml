@@ -1191,6 +1191,8 @@ items:
       href: change/change-analysis-powershell.md
     - name: Custom filters
       href: change/change-analysis-custom-filters.md
+    - name: Pin and share changes via Azure dashboard
+      href: change/change-analysis-query.md
     - name: Troubleshoot
       href: change/change-analysis-troubleshoot.md
   - name: VM insights
