@@ -612,10 +612,14 @@ items:
     items:
     - name: Call PII
       href: personally-identifiable-information/how-to-call.md
+    - name: Call PII for Conversation (preview)
+      href: personally-identifiable-information/how-to-call-for-conversations.md
   - name: Concepts
     items:
     - name: Recognized entity categories
-      href: personally-identifiable-information/concepts/entity-categories.md 
+      href: personally-identifiable-information/concepts/entity-categories.md
+    - name: Recognized entity categories for conversation
+      href: personally-identifiable-information/concepts/conversations-entity-categories.md 
   - name: Reference
     items:
     - name: REST API
