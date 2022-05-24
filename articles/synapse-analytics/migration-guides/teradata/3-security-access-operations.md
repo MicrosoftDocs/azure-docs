@@ -309,7 +309,7 @@ Database administrators can use Teradata Viewpoint to determine system status, t
 > [!TIP]
 > Azure portal provides a UI to manage monitoring and auditing tasks for all Azure data and processes.
 
-Similarly, Azure Synapse provides a rich monitoring experience within the Azure Portal to provide insights into your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse as it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
+Similarly, Azure Synapse provides a rich monitoring experience within the Azure portal to provide insights into your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse as it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
 The portal also enables integration with other Azure monitoring services such as Operations Management Suite (OMS) and [Azure Monitor](/azure/synapse-analytics/monitoring/how-to-monitor-using-azure-monitor?msclkid=d5e9e46ecfe111ec8ba8ee5360e77c4c) (logs) to provide a holistic monitoring experience for not only the data warehouse but also the entire Azure analytics platform for an integrated monitoring experience.
 
