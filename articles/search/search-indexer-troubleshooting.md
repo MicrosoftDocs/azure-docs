@@ -234,7 +234,7 @@ In practice, this scenario only happens when on-demand indexers are manually inv
 
 ## Indexing documents with sensitivity labels
 
-If you have [sensitivity labels set on documents](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels) you might not be able to index them. If you are getting errors trying to index documents with sensitivity labels, remove them prior to indexing.
+If you have [sensitivity labels set on documents](/microsoft-365/compliance/sensitivity-labels) you might not be able to index them. If you are getting errors trying to index documents with sensitivity labels, remove them prior to indexing.
 
 
 ## See also
