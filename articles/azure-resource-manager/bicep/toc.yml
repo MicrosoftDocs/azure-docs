@@ -275,6 +275,8 @@
       items:
       - name: Access control
         href: scenarios-rbac.md
+      - name: Monitoring
+        href: scenarios-monitoring.md
       - name: Secrets
         href: scenarios-secrets.md
       - name: Virtual networks
