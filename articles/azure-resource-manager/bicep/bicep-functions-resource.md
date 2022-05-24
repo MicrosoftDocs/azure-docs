@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 12/28/2021
+ms.date: 05/16/2022
 ---
 
 # Resource functions for Bicep
@@ -145,7 +145,7 @@ param subscriptionId string
 param kvResourceGroup string
 param kvName string
 
-resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+resource keyVault 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -155,7 +155,7 @@ module sql './sql.bicep' = {
   params: {
     sqlServerName: sqlServerName
     adminLogin: adminLogin
-    adminPassword: kv.getSecret('vmAdminPassword')
+    adminPassword: keyVault.getSecret('vmAdminPassword')
   }
 }
 ```
@@ -171,7 +171,7 @@ You can call a list function for any resource type with an operation that starts
 
 The syntax for this function varies by the name of the list operation. The returned values also vary by operation. Bicep doesn't currently support completions and validation for `list*` functions.
 
-With **Bicep version 0.4.412 or later**, you call the list function by using the [accessor operator](operators-access.md#function-accessor). For example, `stg.listKeys()`.
+With **Bicep version 0.4.412 or later**, you call the list function by using the [accessor operator](operators-access.md#function-accessor). For example, `storageAccount.listKeys()`.
 
 A [namespace qualifier](bicep-functions.md#namespaces-for-functions) isn't needed because the function is used with a resource type.
 
@@ -218,7 +218,7 @@ Other `list` functions have different return formats. To see the format of a fun
 The following example deploys a storage account and then calls `listKeys` on that storage account. The key is used when setting a value for [deployment scripts](../templates/deployment-script-template.md).
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: 'dscript${uniqueString(resourceGroup().id)}'
   location: location
   kind: 'StorageV2'
@@ -234,8 +234,8 @@ resource dScript 'Microsoft.Resources/deploymentScripts@2019-10-01-preview' = {
   properties: {
     azCliVersion: '2.0.80'
     storageAccountSettings: {
-      storageAccountName: stg.name
-      storageAccountKey: stg.listKeys().keys[0].value
+      storageAccountName: storageAccount.name
+      storageAccountKey: storageAccount.listKeys().keys[0].value
     }
     ...
   }
@@ -254,7 +254,7 @@ param accountSasProperties object {
   }
 }
 ...
-sasToken: stg.listAccountSas('2021-04-01', accountSasProperties).accountSasToken
+sasToken: storageAccount.listAccountSas('2021-04-01', accountSasProperties).accountSasToken
 ```
 
 ### Implementations
@@ -272,14 +272,14 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/current-ga/openid-connect-provider/list-secrets) |
 | Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/current-ga/subscription/list-secrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
-| Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
+| Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringapps/services/list-test-keys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/workspaces/experiments/jobs | listoutputfiles |
 | Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
 | Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
-| Microsoft.Cache/redis | [listKeys](/rest/api/redis/2021-06-01/redis/list-keys) |
+| Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/list-keys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/get-build-source-upload-url) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
@@ -323,8 +323,8 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
 | Microsoft.Kusto/Clusters/Databases | [ListPrincipals](/rest/api/azurerekusto/databases/listprincipals) |
-| Microsoft.LabServices/users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
-| Microsoft.LabServices/users | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
+| Microsoft.LabServices/labs/users | [list](/rest/api/labservices/users/list-by-lab) |
+| Microsoft.LabServices/labs/virtualMachines | [list](/rest/api/labservices/virtual-machines/list-by-lab) |
 | Microsoft.Logic/integrationAccounts/agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
@@ -479,7 +479,9 @@ You can use the response from `pickZones` to determine whether to provide null f
 
 ## providers
 
-**The providers function has been deprecated.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
+**The providers function has been deprecated in Bicep.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your Bicep file. Using a dynamically returned API version can break your template if the properties change between versions.
+
+The [providers operation](/rest/api/resources/providers) is still available through the REST API. It can be used outside of a Bicep file to get information about a resource provider.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -493,12 +495,12 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 The reference function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource.
 
-The following example deploys a storage account. It uses the symbolic name `stg` for the storage account to return a property.
+The following example deploys a storage account. It uses the symbolic name `storageAccount` for the storage account to return a property.
 
 ```bicep
 param storageAccountName string
 
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageAccountName
   location: 'eastus'
   kind: 'Storage'
@@ -507,7 +509,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   }
 }
 
-output storageEndpoint object = stg.properties.primaryEndpoints
+output storageEndpoint object = storageAccount.properties.primaryEndpoints
 ```
 
 To get a property from an existing resource that isn't deployed in the template, use the `existing` keyword:
@@ -515,17 +517,21 @@ To get a property from an existing resource that isn't deployed in the template,
 ```bicep
 param storageAccountName string
 
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
   name: storageAccountName
 }
 
 // use later in template as often as needed
-output blobAddress string = stg.properties.primaryEndpoints.blob
+output blobAddress string = storageAccount.properties.primaryEndpoints.blob
+```
+
+To reference a resource that is nested inside a parent resource, use the [nested accessor](operators-access.md#nested-resource-accessor) (`::`). You only use this syntax when you're accessing the nested resource from outside of the parent resource.
+
+```bicep
+vNet1::subnet1.properties.addressPrefix
 ```
 
 If you attempt to reference a resource that doesn't exist, you get the `NotFound` error and your deployment fails.
-
-For more information, see [Reference resources](./compare-template-syntax.md#reference-resources) and the [JSON template reference function](../templates/template-functions-resource.md#reference).
 
 ## resourceId
 
@@ -544,7 +550,7 @@ For example:
 ```bicep
 param storageAccountName string
 
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageAccountName
   location: 'eastus'
   kind: 'Storage'
@@ -553,7 +559,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   }
 }
 
-output storageID string = stg.id
+output storageID string = storageAccount.id
 ```
 
 To get the resource ID for a resource that isn't deployed in the Bicep file, use the existing keyword.
@@ -561,11 +567,11 @@ To get the resource ID for a resource that isn't deployed in the Bicep file, use
 ```bicep
 param storageAccountName string
 
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
     name: storageAccountName
 }
 
-output storageID string = stg.id
+output storageID string = storageAccount.id
 ```
 
 For more information, see the [JSON template resourceId function](../templates/template-functions-resource.md#resourceid)
@@ -618,12 +624,84 @@ var roleDefinitionId = {
   }
 }
 
-resource myRoleAssignment 'Microsoft.Authorization/roleAssignments@2018-09-01-preview' = {
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2018-09-01-preview' = {
   name: guid(resourceGroup().id, principalId, roleDefinitionId[builtInRoleType].id)
   properties: {
     roleDefinitionId: roleDefinitionId[builtInRoleType].id
     principalId: principalId
   }
+}
+```
+
+## managementGroupResourceId
+
+`managementGroupResourceId(resourceType, resourceName1, [resourceName2], ...)`
+
+Returns the unique identifier for a resource deployed at the management group level.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
+The `managementGroupResourceId` function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
+
+The identifier is returned in the following format:
+
+```json
+/providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{resourceType}/{resourceName}
+```
+
+### Remarks
+
+You use this function to get the resource ID for resources that are [deployed to the management group](deploy-to-management-group.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a subscription ID and a resource group value.
+
+### managementGroupResourceID example
+
+The following template creates and assigns a policy definition. It uses the `managementGroupResourceId` function to get the resource ID for policy definition.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Target Management Group')
+param targetMG string
+
+@description('An array of the allowed locations, all other locations will be denied by the created policy.')
+param allowedLocations array = [
+  'australiaeast'
+  'australiasoutheast'
+  'australiacentral'
+]
+
+var mgScope = tenantResourceId('Microsoft.Management/managementGroups', targetMG)
+var policyDefinitionName = 'LocationRestriction'
+
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2020-03-01' = {
+  name: policyDefinitionName
+  properties: {
+    policyType: 'Custom'
+    mode: 'All'
+    parameters: {}
+    policyRule: {
+      if: {
+        not: {
+          field: 'location'
+          in: allowedLocations
+        }
+      }
+      then: {
+        effect: 'deny'
+      }
+    }
+  }
+}
+
+resource location_lock 'Microsoft.Authorization/policyAssignments@2020-03-01' = {
+  name: 'location-lock'
+  properties: {
+    scope: mgScope
+    policyDefinitionId: managementGroupResourceId('Microsoft.Authorization/policyDefinitions', policyDefinitionName)
+  }
+  dependsOn: [
+    policyDefinition
+  ]
 }
 ```
 
@@ -652,7 +730,7 @@ param policyDefinitionID string = '0a914e76-4921-4c19-b460-a2d36003525a'
 @description('Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides.')
 param policyAssignmentName string = guid(policyDefinitionID, resourceGroup().name)
 
-resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
   name: policyAssignmentName
   properties: {
     scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)

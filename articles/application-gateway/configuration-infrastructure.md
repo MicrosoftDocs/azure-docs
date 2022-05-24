@@ -2,7 +2,7 @@
 title: Azure Application Gateway infrastructure configuration
 description: This article describes how to configure the Azure Application Gateway infrastructure.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/14/2021
@@ -61,7 +61,7 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 1. Allow incoming traffic from a source IP or IP range with the destination as the entire Application Gateway subnet address range and destination port as your inbound access port, for example, port 80 for HTTP access.
 2. Allow incoming requests from source as **GatewayManager** service tag and destination as **Any** and destination ports as 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for v2 SKU for [back-end health status communication](./application-gateway-diagnostics.md). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
 3. Allow incoming Azure Load Balancer probes (*AzureLoadBalancer* tag) on the [network security group](../virtual-network/network-security-groups-overview.md).
-4. Allow inbound virtual network traffic (*VirtualNetwork* tag) on the [network security group](../virtual-network/network-security-groups-overview.md).
+4. Allow expected inbound traffic to match your listener configuration (i.e. if you have listeners configured for port 80, you will want an allow inbound rule for port 80)
 5. Block all other incoming traffic by using a deny-all rule.
 6. Allow outbound traffic to the Internet for all destinations.
 
@@ -80,7 +80,7 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 
    **v2 supported scenarios**
    > [!WARNING]
-   > An incorrect configuration of the route table could result in asymmetrical routing in Application Gateway v2. Ensure that all management/control plane traffic is sent directly to the Internet and not through a virtual appliance. Logging and metrics could also be affected.
+   > An incorrect configuration of the route table could result in asymmetrical routing in Application Gateway v2. Ensure that all management/control plane traffic is sent directly to the Internet and not through a virtual appliance. Logging, metrics, and CRL checks could also be affected.
 
 
   **Scenario 1**: UDR to disable Border Gateway Protocol (BGP) Route Propagation to the Application Gateway subnet

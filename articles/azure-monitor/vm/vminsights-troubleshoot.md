@@ -29,6 +29,9 @@ If you receive a message that the virtual machine needs to be onboarded after yo
 ### Is the operating system supported?
 If the operating system is not in the list of [supported operating systems](vminsights-enable-overview.md#supported-operating-systems) then the extension will fail to install and you will see this message that we are waiting for data to arrive.
 
+> [!IMPORTANT]
+> Post April 11th 2022, if you are not seeing your Virtual Machine in the VM insights solution, this might due to running an older version of the Dependency Agent. See more details in the blog post: https://techcommunity.microsoft.com/t5/azure-monitor-status/potential-breaking-changes-for-vm-insights-linux-customers/ba-p/3271989 . Not applicable for Windows machines and before April 11th 2022.
+
 ### Did the extension install properly?
 If you still see a message  that the virtual machine needs to be onboarded, it may mean that one or both of the extensions failed to install correctly. Check the **Extensions** page for your virtual machine in the Azure portal to verify that the following extensions are listed.
 
@@ -61,7 +64,7 @@ Check the [capacity reservations and the pricing for data ingestion](https://azu
 
 Open Log Analytics from **Logs** in the Azure Monitor menu in the Azure portal. Run the following query for your computer:
 
-```kuso
+```kusto
 Heartbeat
 | where Computer == "my-computer"
 | sort by TimeGenerated desc 

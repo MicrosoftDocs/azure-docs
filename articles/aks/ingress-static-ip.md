@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller with a static public IP address that uses Let's Encrypt for automatic TLS certificate generation in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 03/07/2022
 
 
 #Customer intent: As a cluster operator or developer, I want to use an ingress controller with a static IP address to handle the flow of incoming traffic and secure my apps using automatically generated TLS certificates.
@@ -146,8 +146,14 @@ Next, create a public IP address with the *static* allocation method using the [
 
 ---
 
-> [!NOTE]
-> The above commands create an IP address that will be deleted if you delete your AKS cluster. Alternatively, you can create an IP address in a different resource group which can be managed separately from your AKS cluster. If you create an IP address in a different resource group, ensure the cluster identity used by the AKS cluster has delegated permissions to the other resource group, such as *Network Contributor*. For more information, see [Use a static public IP address and DNS label with the AKS load balancer][aks-static-ip].
+The above commands create an IP address that will be deleted if you delete your AKS cluster. 
+
+Alternatively, you can create an IP address in a different resource group which can be managed separately from your AKS cluster. If you create an IP address in a different resource group, ensure the following:
+
+* The cluster identity used by the AKS cluster has delegated permissions to the resource group, such as *Network Contributor*. 
+* Add the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-resource-group"="<RESOURCE_GROUP>"` parameter. Replace `<RESOURCE_GROUP>` with the name of the resource group where the IP address resides. 
+
+For more information, see [Use a static public IP address and DNS label with the AKS load balancer][aks-static-ip].
 
 Now deploy the *nginx-ingress* chart with Helm. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
 
@@ -167,8 +173,7 @@ The ingress controller also needs to be scheduled on a Linux node. Windows Serve
 
 Update the following script with the **IP address** of your ingress controller and a **unique name** that you would like to use for the FQDN prefix.
 
-> [!IMPORTANT]
-> You must update replace `<STATIC_IP>` and `<DNS_LABEL>` with your own IP address and unique name when running the command.  The DNS_LABEL must be unique within the Azure region.
+Replace `<STATIC_IP>` and `<DNS_LABEL>` with your own IP address and unique name when running the command. The DNS_LABEL must be unique within the Azure region.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -192,6 +197,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.image.tag=$CONTROLLER_TAG \
     --set controller.image.digest="" \
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
@@ -225,6 +231,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx `
     --set controller.image.tag=$ControllerTag `
     --set controller.image.digest="" `
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux `
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz `
     --set controller.admissionWebhooks.patch.image.registry=$AcrUrl `
     --set controller.admissionWebhooks.patch.image.image=$PatchImage `
     --set controller.admissionWebhooks.patch.image.tag=$PatchTag `
@@ -477,11 +484,11 @@ kind: Ingress
 metadata:
   name: hello-world-ingress
   annotations:
-    kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-staging
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - demo-aks-ingress.eastus.cloudapp.azure.com
@@ -522,7 +529,7 @@ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 The output should be similar to this example:
 
 ```
-ingress.extensions/hello-world-ingress created
+ingress.networking.k8s.io/hello-world-ingress created
 ```
 
 ## Verify certificate object
@@ -674,9 +681,9 @@ You can also:
 [aks-ingress-tls]: ingress-tls.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-powershell]: kubernetes-walkthrough-powershell.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [aks-static-ip]: static-ip.md
 [aks-supported versions]: supported-kubernetes-versions.md

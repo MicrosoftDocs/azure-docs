@@ -1,5 +1,5 @@
 ---
-title: Hotpatch for Windows Server Azure Edition (preview)
+title: Hotpatch for Windows Server Azure Edition
 description: Learn how Hotpatch for Windows Server Azure Edition works and how to enable it
 author: ju-shim
 ms.service: automanage
@@ -10,12 +10,17 @@ ms.author: jushiman
 ms.custom: devx-track-azurepowershell
 ---
 
-# Hotpatch for new virtual machines (Preview)
+# Hotpatch for new virtual machines
 
+<!--
 > [!IMPORTANT]
 > Hotpatch is currently in Public Preview. An opt-in procedure is needed to use the Hotpatch capability described below.
 > This preview is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+-->
+
+> [!IMPORTANT]
+> Hotpatch is supported on _Windows Server 2022 Datacenter: Azure Edition (Server Core)_.
 
 Hotpatching is a new way to install updates on supported _Windows Server Azure Edition_ virtual machines (VMs) that doesn’t require a reboot after installation. This article covers information about Hotpatch for supported _Windows Server Azure Edition_ VMs, which has the following benefits:
 * Lower workload impact with less reboots
@@ -35,26 +40,24 @@ There are two types of baselines: **Planned baselines** and **unplanned baseline
     * The sample schedule above illustrates two unplanned baselines that would replace the hotpatch releases for those months (the actual number of unplanned baselines in a year isn't known in advance).
 
 ## Regional availability
-Hotpatch is available in all global Azure regions in preview. Azure Government regions aren't supported in the preview.
+Hotpatch is available in all global Azure regions.
 
 ## How to get started
 
 > [!NOTE]
-> During the preview phase you can get started in the Azure portal using [this link](https://aka.ms/ws2022ae-portal-preview).
+> You can preview onboarding Automanage machine best practices during VM creation in the Azure portal using [this link](https://aka.ms/ws2022ae-portal-preview).
 
 To start using Hotpatch on a new VM, follow these steps:
-1.  Enable preview access
-    * One-time preview access enablement is required per subscription.
-    * Preview access can be enabled through API, PowerShell, or CLI as described in the 'Enabling preview access' section below.
 1.  Start creating a new VM from the Azure portal
-    * During the preview, you'll need to get started using [this link](https://aka.ms/ws2022ae-portal-preview).
-1.  Supply  details during VM creation
+    * You can preview onboarding Automanage machine best practices during VM creation in the Azure portal using [this link](https://aka.ms/ws2022ae-portal-preview).
+1.  Supply details during VM creation
     * Ensure that a supported _Windows Server Azure Edition_ image is selected in the Image dropdown.  Use [this guide](automanage-windows-server-services-overview.md#getting-started-with-windows-server-azure-edition) to determine which images are supported.
-    * On the Management tab under section ‘Guest OS updates’, select the checkbox for 'Enable hotpatch' to evaluate hotpatch while in preview.  Patch orchestration options will be set to 'Azure-orchestrated'. 
-    * On the Management tab under section 'Azure Automanage', select 'Dev/Test' or 'Production' for 'Azure Automanage environment' to evaluate Automanage machine best practices while in preview.
+    * On the Management tab under section ‘Guest OS updates’, the checkbox for 'Enable hotpatch' will be selected.  Patch orchestration options will be set to 'Azure-orchestrated'. 
+    * If you create a VM using [this link](https://aka.ms/ws2022ae-portal-preview), on the Management tab under section 'Azure Automanage', select 'Dev/Test' or 'Production' for 'Azure Automanage environment' to evaluate Automanage machine best practices while in preview.
     
 1. Create your new VM
 
+<!--
 ## Enabling preview access
 
 ### REST API
@@ -127,16 +130,17 @@ Once the feature has been registered for your subscription, complete the opt-in 
 ```
 az provider register --namespace Microsoft.Compute
 ```
+-->
 
 ## Patch installation
 
-During the preview, [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) is enabled automatically for all VMs created with a supported _Windows Server Azure Edition_ image. With automatic VM guest patching enabled:
+[Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) is enabled automatically for all VMs created with a supported _Windows Server Azure Edition_ image. With automatic VM guest patching enabled:
 * Patches classified as Critical or Security are automatically downloaded and applied on the VM.
 * Patches are applied during off-peak hours in the VM's time zone.
 * Patch orchestration is managed by Azure and patches are applied following [availability-first principles](../virtual-machines/automatic-vm-guest-patching.md#availability-first-updates).
 * Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 
-### How does automatic VM guest patching work?
+## How does automatic VM guest patching work?
 
 When [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) is enabled on a VM, the available Critical and Security patches are downloaded and applied automatically. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
 
@@ -192,7 +196,7 @@ There are some important considerations to running a supported _Windows Server A
 
 ### What will the Hotpatch schedule look like?
 
-* Hotpatching works by establishing a baseline with a Windows Update Latest Cumulative Update, then builds upon that baseline with Hotpatch updates released monthly.  During the preview, baselines will be released starting out every three months. See the image below for an example of an annual three-month schedule (including example unplanned baselines due to zero-day fixes).
+* Hotpatching works by establishing a baseline with a Windows Update Latest Cumulative Update, then builds upon that baseline with Hotpatch updates released monthly.  Baselines will be released starting out every three months. See the image below for an example of an annual three-month schedule (including example unplanned baselines due to zero-day fixes).
 
     :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch Sample Schedule.":::
 
@@ -211,14 +215,6 @@ There are some important considerations to running a supported _Windows Server A
 ### Can I upgrade from my existing Windows Server OS?
 
 * Yes, upgrading from existing versions of Windows Server (such as Windows Server 2016 or Windows Server 2019) to _Windows Server 2022 Datacenter: Azure Edition_ is supported. 
-
-### Can I use Hotpatch for production workloads during the preview?
-
-* Previews are intended for testing purposes only and not for use in production environments.
-
-### Will I be charged during the preview?
-
-* The license for _Windows Server Azure Edition_ is free during the preview. However, the cost of any underlying infrastructure set up for your VM (storage, compute, networking, etc.) will still be charged to your subscription.
 
 ### How can I get troubleshooting support for Hotpatching?
 

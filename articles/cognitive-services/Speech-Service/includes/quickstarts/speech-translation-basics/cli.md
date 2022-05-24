@@ -3,16 +3,18 @@ author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
-ms.author: eric-urban
+ms.author: eur
 ---
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-[!INCLUDE [SPX Setup](../../spx-setup.md)]
+## Download and install
+
+[!INCLUDE [SPX Setup](../../spx-setup-quick.md)]
 
 ## Set source and target languages
 

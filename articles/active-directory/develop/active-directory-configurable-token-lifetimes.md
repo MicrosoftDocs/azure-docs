@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 11/22/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1
-ms.reviewer: hirsin, jlu, annaba
+ms.reviewer: ludwignick, marsma
 ---
 # Configurable token lifetimes in the Microsoft identity platform (preview)
 
@@ -41,7 +41,7 @@ You can set token lifetime policies for access tokens, SAML tokens, and ID token
 
 ### Access tokens
 
-Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token.
+Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user's account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token.
 
 The default lifetime of an access token is variable. When issued, an access token's default lifetime is assigned a random value ranging between 60-90 minutes (75 minutes on average).  The default lifetime also varies depending on the client application requesting the token or if conditional access is enabled in the tenant. For more information, see [Access token lifetime](access-tokens.md#access-token-lifetime).
 
@@ -55,7 +55,7 @@ The subject confirmation NotOnOrAfter specified in the `<SubjectConfirmationData
 
 ### ID tokens
 
-ID tokens are passed to websites and native clients. ID tokens contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until their expiry. Usually, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user. You can adjust the lifetime of an ID token to control how often the web application expires the application session, and how often it requires the user to be re-authenticated with the Microsoft identity platform (either silently or interactively).
+ID tokens are passed to websites and native clients. ID tokens contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until their expiry. Usually, a web application matches a user's session lifetime in the application to the lifetime of the ID token issued for the user. You can adjust the lifetime of an ID token to control how often the web application expires the application session, and how often it requires the user to be re-authenticated with the Microsoft identity platform (either silently or interactively).
 
 ## Token lifetime policies for refresh tokens and session tokens
 
@@ -64,7 +64,7 @@ You can not set token lifetime policies for refresh tokens and session tokens. F
 > [!IMPORTANT]
 > As of January 30, 2021 you can not configure refresh and session token lifetimes. Azure Active Directory no longer honors refresh and session token configuration in existing policies.  New tokens issued after existing tokens have expired are now set to the [default configuration](#configurable-token-lifetime-properties). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
 >
-> Existing token’s lifetime will not be changed. After they expire, a new token will be issued based on the default value.
+> Existing token's lifetime will not be changed. After they expire, a new token will be issued based on the default value.
 >
 > If you need to continue to define the time period before a user is asked to sign in again, configure sign-in frequency in Conditional Access. To learn more about Conditional Access, read [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 
@@ -90,7 +90,7 @@ Access, ID, and SAML2 token configuration are affected by the following properti
 
 ### Refresh and session token lifetime policy properties
 
-Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration on January 30, 2021, Azure AD will only honor the default values described below. If you decide not to use [Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md) to manage sign-in frequency, your refresh and session tokens will be set to the default configuration on that date and you’ll no longer be able to change their lifetimes.  
+Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration on January 30, 2021, Azure AD will only honor the default values described below. If you decide not to use [Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md) to manage sign-in frequency, your refresh and session tokens will be set to the default configuration on that date and you'll no longer be able to change their lifetimes.  
 
 |Property   |Policy property string    |Affects |Default |
 |----------|-----------|------------|------------|
@@ -112,7 +112,7 @@ You can create and then assign a token lifetime policy to a specific application
 
 For more information about the relationship between application objects and service principal objects, see [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).
 
-A token’s validity is evaluated at the time the token is used. The policy with the highest priority on the application that is being accessed takes effect.
+A token's validity is evaluated at the time the token is used. The policy with the highest priority on the application that is being accessed takes effect.
 
 All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api/system.timespan) object - D.HH:MM:SS.  So 80 days and 30 minutes would be `80.00:30:00`.  The leading D can be dropped if zero, so 90 minutes would be `00:90:00`.  
 

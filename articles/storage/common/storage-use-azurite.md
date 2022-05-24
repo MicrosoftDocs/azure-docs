@@ -23,7 +23,7 @@ There are several different ways to install and run Azurite on your local system
 
 ### [Visual Studio](#tab/visual-studio)
 
-Azurite is automatically available with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). If you are running an earlier version of Visual Studio, you'll need to install Azurite by using either Node Package Manager, DockerHub, or by cloning the Azurite github repository. 
+Azurite is automatically available with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). If you are running an earlier version of Visual Studio, you'll need to install Azurite by using either Node Package Manager, DockerHub, or by cloning the Azurite GitHub repository. 
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -100,7 +100,7 @@ For more information about configuring Azurite at start-up, see [Command-line op
 
 ### [GitHub](#tab/github)
 
-This installation method requires that you have [Git](https://git-scm.com/) installed. Clone the [GitHub repository](https://github.com/azure/azurite) for the Azurite project by using the following console command.
+This installation method requires that you have [Git](https://git-scm.com/) and [Node.js version 8.0 or later](https://nodejs.org) installed. Clone the [GitHub repository](https://github.com/azure/azurite) for the Azurite project by using the following console command.
 
 ```console
 git clone https://github.com/Azure/Azurite.git

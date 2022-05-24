@@ -1,7 +1,6 @@
 ---
 title: Performance tuning with result set caching 
 description: Result set caching feature overview for dedicated SQL pool in Azure Synapse Analytics 
-services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg 
 ms.service: synapse-analytics

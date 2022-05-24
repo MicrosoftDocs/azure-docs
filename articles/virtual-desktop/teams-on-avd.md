@@ -3,33 +3,40 @@ title: Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 04/25/2022
 ms.author: helohr
 manager: femila
 ---
-# Use Microsoft Teams on Azure Virtual desktop
+# Use Microsoft Teams on Azure Virtual Desktop
 
 >[!IMPORTANT]
 >Media optimization for Teams is supported for Microsoft 365 Government (GCC) and GCC-High environments. Media optimization for Teams is not supported for Microsoft 365 DoD.
 
 >[!NOTE]
->Media optimization for Microsoft Teams is only available for the Windows Desktop client on Windows 10 machines. Media optimizations require Windows Desktop client version 1.2.1026.0 or later.
+>Media optimization for Microsoft Teams is only available for the following two clients:
+>
+>- Windows Desktop client for Windows 10 or 11 machines, version 1.2.1026.0 or later.
+>- macOS Remote Desktop client, version 10.7.7 or later (preview)
+
+> [!IMPORTANT]
+> Teams for macOS is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality. To learn more about how to use Microsoft Teams in Virtual Desktop Infrastructure (VDI) environments, see [Teams for Virtualized Desktop Infrastructure](/microsoftteams/teams-for-vdi/).
 
-With media optimization for Microsoft Teams, the Windows Desktop client handles audio and video locally for Teams calls and meetings. You can still use Microsoft Teams on Azure Virtual Desktop with other clients without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms. To redirect local devices in your remote session, check out [Customize Remote Desktop Protocol properties for a host pool](#customize-remote-desktop-protocol-properties-for-a-host-pool).
+With media optimization for Microsoft Teams, the Remote Desktop client handles audio and video locally for Teams calls and meetings. You can still use Microsoft Teams on Azure Virtual Desktop with other clients without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms. To redirect local devices in your remote session, check out [Customize Remote Desktop Protocol properties for a host pool](#customize-remote-desktop-protocol-properties-for-a-host-pool).
 
 ## Prerequisites
 
 Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do these things:
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
-- Install the [Windows Desktop client](./user-documentation/connect-windows-7-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
-- Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
+- Install the [Remote Desktop client](./user-documentation/connect-windows-7-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Connect to a Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise virtual machine (VM).
 
 ## Install the Teams desktop app
 
-This section will show you how to install the Teams desktop app on your Windows 10 Multi-session or Windows 10 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
+This section will show you how to install the Teams desktop app on your Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
 
 ### Prepare your image for Teams
 
@@ -89,7 +96,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
 1. Download the [Teams MSI package](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
 
       > [!IMPORTANT]
-      > The latest update of the Teams Desktop client version 1.3.00.21759 fixed an issue where Teams showed UTC time zone in chat, channels, and calendar. The new version of the client will show the remote session time zone.
+      > Teams Desktop client version 1.3.00.21759 fixed an issue where Teams showed UTC time zone in chat, channels, and calendar. Later versions of the client will show the remote session time zone.
 
 2. Run one of the following commands to install the MSI to the host VM:
 
@@ -125,6 +132,9 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
       > [!NOTE]
       > When you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month. To learn more about deploying the Teams desktop app, check out [Deploy the Teams desktop app to the VM](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/).
 
+>[!IMPORTANT]
+>If you're using a version of the Remote Desktop client for macOS that's earlier than 10.7.7, in order to use our latest Teams optimization features, you'll need to update your client to version 10.7.7 or later, then go to **Microsoft Remote Desktop Preferences** > **General** and enable Teams optimizations. If you're using the client for the first time and already have version 10.7.7 or later installed, you won't need to do this, because Teams optimizations are enabled by default.
+
 ### Verify media optimizations loaded
 
 After installing the WebSocket Service and the Teams desktop app, follow these steps to verify that Teams media optimizations loaded:
@@ -150,12 +160,12 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 ### Client deployment, installation, and setup
 
 - With per-machine installation, Teams on VDI isn't automatically updated the same way non-VDI Teams clients are. To update the client, you'll need to update the VM image by installing a new MSI.
-- Media optimization for Teams is only supported for the Windows Desktop client on machines running Windows 10.
+- Media optimization for Teams is only supported for the Remote Desktop client on machines running Windows 10 or later or macOS 10.14 or later.
 - Use of explicit HTTP proxies defined on the client endpoint device is not supported.
 
 ### Calls and meetings
 
-- The Teams desktop client in Azure Virtual Desktop environments doesn't support creating live events, but you can join live events. For now, we recommend you create live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead.
+- The Teams desktop client in Azure Virtual Desktop environments doesn't support creating live events, but you can join live events. For now, we recommend you create live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead. When watching a live event in the browser, [enable multimedia redirection (MMR) for Teams live events](multimedia-redirection.md#how-to-use-mmr-for-teams-live-events) for smoother playback.
 - Calls or meetings don't currently support application sharing. Desktop sessions support desktop sharing.
 - Give control and take control aren't currently supported.
 - Teams on Azure Virtual Desktop only supports one incoming video input at a time. This means that whenever someone tries to share their screen, their screen will appear instead of the meeting leader's screen.
@@ -164,6 +174,10 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 - New Meeting Experience (NME) is not currently supported in VDI environments.
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
+
+### Known issues for Teams for macOS (preview)
+
+You can't configure audio devices from the Teams app, and the client will automatically use the default client audio device. To switch audio devices, you'll need to configure your settings from the client audio preferences instead.
 
 ## Collect Teams logs
 

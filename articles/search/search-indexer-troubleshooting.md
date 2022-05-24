@@ -37,7 +37,7 @@ Details for configuring IP address range restrictions for each data source type 
 
 * [Cosmos DB](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
 
-* [Azure SQL](../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules)
+* [Azure SQL](/azure/azure-sql/database/firewall-configure#create-and-manage-ip-firewall-rules)
 
 **Limitation**: As stated in the documentation above for Azure Storage, IP address range restrictions will only work if your search service and your storage account are in different regions.
 
@@ -57,7 +57,7 @@ More details for accessing data in a SQL managed instance are outlined [here](se
 
 ## Azure SQL Database serverless indexing (error code 40613)
 
-If your SQL database is on a [serverless compute tier](../azure-sql/database/serverless-tier-overview.md), make sure that the database is running (and not paused) when the indexer connects to it.
+If your SQL database is on a [serverless compute tier](/azure/azure-sql/database/serverless-tier-overview), make sure that the database is running (and not paused) when the indexer connects to it.
 
 If the database is paused, the first login from your search service will auto-resume the database, but it will also return an error stating that the database is unavailable with error code 40613. After the database is running, retry the login to establish connectivity.
 

@@ -193,7 +193,7 @@ To move to a new subscription, include a value for the `DestinationSubscriptionI
 
 ### Validate
 
-To test your move scenario without actually moving the resources, use the [az resource invoke-action](/cli/azure/resource#az_resource_invoke_action) command. Use this command only when you need to predetermine the results. To run this operation, you need the:
+To test your move scenario without actually moving the resources, use the [az resource invoke-action](/cli/azure/resource#az-resource-invoke-action) command. Use this command only when you need to predetermine the results. To run this operation, you need the:
 
 * Resource ID of the source resource group
 * Resource ID of the target resource group
@@ -217,7 +217,7 @@ If validation fails, you see an error message describing why the resources can't
 
 ### Move
 
-To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource#az_resource_move) command. Provide the resource IDs of the resources to move. The following example shows how to move several resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
+To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource#az-resource-move) command. Provide the resource IDs of the resources to move. The following example shows how to move several resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)

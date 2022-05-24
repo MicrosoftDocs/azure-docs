@@ -19,7 +19,7 @@ keywords: document processing
 <!-- markdownlint-disable MD029 -->
 # Get started with the Form Recognizer Sample Labeling tool
 
-Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine-learning models to extract and analyze form fields, text, and tables from your documents. You can use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. 
+Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. You can use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
 
 The Form Recognizer Sample Labeling tool is an open source tool that enables you to test the latest features of Azure Form Recognizer and Optical Character Recognition (OCR) services:
 
@@ -31,7 +31,7 @@ The Form Recognizer Sample Labeling tool is an open source tool that enables you
 
 ## Prerequisites
 
-You will need the following to get started:
+You'll need the following to get started:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -57,11 +57,11 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. On the sample tool home page select **Use prebuilt model to get data**.
+1. On the sample tool home page, select **Use prebuilt model to get data**.
 
     :::image type="content" source="../media/label-tool/prebuilt-1.jpg" alt-text="Analyze results of Form Recognizer Layout":::
 
-1. Select the **Form Type**  your would like to analyze from the dropdown window.
+1. Select the **Form Type**  to analyze from the dropdown window.
 
 1. Choose a URL for the file you would like to analyze from the below options:
 
@@ -74,13 +74,13 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
 
-1. In the **API key** field, paste  the subscription key you obtained from your Form Recognizer resource.
+1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
     :::image type="content" source="../media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown window.":::
 
 1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
 
-1. View the results - see the key value pairs extracted, line items, highlighted text extracted and tables detected.
+1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
     :::image type="content" source="../media/label-tool/prebuilt-2.jpg" alt-text="Analyze Results of Form Recognizer invoice model":::
 
@@ -97,15 +97,15 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. On the sample tool home page select **Use Layout to get text, tables and selection marks**.
+1. On the sample tool home page, select **Use Layout to get text, tables and selection marks**.
 
      :::image type="content" source="../media/label-tool/layout-1.jpg" alt-text="Connection settings for Layout Form Recognizer tool.":::
 
 1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
 
-1. In the **API key** field, paste  the subscription key you obtained from your Form Recognizer resource.
+1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
-1. In the **Source: URL** field, paste paste the following URL `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg`  and select the **Fetch** button.
+1. In the **Source: URL** field, paste the following URL `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg`  and select the **Fetch** button.
 
 1. Select **Run Layout**. The Form Recognizer Sample Labeling tool will call the Analyze Layout API and analyze the document.
 
@@ -130,15 +130,20 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 * Configure CORS
 
-    [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you will need access to the CORS blade of your storage account.
-
-    :::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
+    [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you'll need access to the CORS blade of your storage account.
 
     1. Select the CORS blade for the storage account.
 
+       :::image type="content" source="../media/quickstarts/cors-setting-menu.png" alt-text="Screenshot of the CORS setting menu in the Azure portal.":::
+
     1. Start by creating a new CORS entry in the Blob service.
 
-    1. Set the **Allowed origins** to **https://formrecognizer.appliedai.azure.com**.
+    1. Set the **Allowed origins** to **<https://fott-2-1.azurewebsites.net>**.
+
+       :::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
+
+       > [!TIP]
+       > You can use the wildcard character '*' rather than a specified domain to allow all origin domains to make requests via CORS.
 
     1. Select all the available 8 options for **Allowed methods**.
 
@@ -146,7 +151,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
     1. Set the **Max Age** to 120 seconds or any acceptable value.
 
-    1. Click the save button at the top of the page to save the changes.
+    1. Select the save button at the top of the page to save the changes.
 
     CORS should now be configured to use the storage account from Form Recognizer Studio.
 
@@ -154,7 +159,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. On the sample tool home page select **Use custom form to train a model with labels and get key value pairs**.
+1. On the sample tool home page, select **Use custom form to train a model with labels and get key-value pairs**.
 
     :::image type="content" source="../media/label-tool/custom-1.jpg" alt-text="Train a custom model.":::
 
@@ -180,7 +185,7 @@ Configure the **Project Settings** fields with the following values:
     > * **Description**. Add a brief description.
     > * **SAS URL**. Paste the shared access signature (SAS) URL for your Azure Blob Storage container.
 
-    * To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+    * To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and select **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
        :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS location.":::
 
@@ -188,7 +193,7 @@ Configure the **Project Settings** fields with the following values:
 
 1. **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
 
-1. **API Key**. Your Form Recognizer subscription key.
+1. **Key**. Your Form Recognizer key.
 
 1. **API  version**. Keep the v2.1 (default) value.
 
@@ -210,13 +215,13 @@ When you create or open a project, the main tag editor window opens. The tag edi
 
 Select **Run OCR on all files** on the left pane to get the text and table layout information for each document. The labeling tool will draw bounding boxes around each text element.
 
-The labeling tool will also show which tables have been automatically extracted. Select the table/grid icon on the left hand of the document to see the extracted table. Because the table content is automatically extracted, we will not be labeling the table content, but rather rely on the automated extraction.
+The labeling tool will also show which tables have been automatically extracted. Select the table/grid icon on the left hand of the document to see the extracted table. Because the table content is automatically extracted, we won't label the table content, but rather rely on the automated extraction.
 
   :::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Table visualization in Sample Labeling tool.":::
 
 ##### Apply labels to text
 
-Next, you will create tags (labels) and apply them to the text elements that you want the model to analyze. Note the sample label data set includes already labeled fields; we will add another field.
+Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze. Note the sample label data set includes already labeled fields; we'll add another field.
 
 Use the tags editor pane to create a new tag you'd like to identify:
 
@@ -255,15 +260,15 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 * **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./try-sdk-rest-api.md?pivots=programming-language-rest-api) or [client library](./try-sdk-rest-api.md).
 
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
-* The list of tags, and the estimated accuracy per tag.
+* The list of tags, and the estimated accuracy per tag. For more information, _see_ [Interpret and improve accuracy and confidence](../concept-accuracy-confidence.md).
 
     :::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Training view tool.":::
 
 #### Analyze a custom form
 
-1. Select the **Analyze** (light bulb) icon on the left to test your model. 
+1. Select the **Analyze** (light bulb) icon on the left to test your model.
 
-1. Select source **Local file** and  browse for a file to select from the sample dataset that you unzipped in the test folder. 
+1. Select source **Local file** and  browse for a file to select from the sample dataset that you unzipped in the test folder.
 
 1. Choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 

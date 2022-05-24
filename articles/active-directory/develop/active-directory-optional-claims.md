@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/3/2021
+ms.date: 04/04/2022
 ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin, keyam
+ms.reviewer: paulgarn, ludwignick
 ms.custom: aaddev
 ---
 
@@ -52,7 +52,7 @@ The set of optional claims available by default for applications to use are list
 | `ctry`                     | User's country/region | JWT |  | Azure AD returns the `ctry` optional claim if it's present and the value of the field is a standard two-letter country/region code, such as FR, JP, SZ, and so on. |
 | `email`                    | The reported email address for this user | JWT, SAML | MSA, Azure AD | This value is included by default if the user is a guest in the tenant. For managed users (the users inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope. This value is not guaranteed to be correct, and is mutable over time - never use it for authorization or to save data for a user. For more information, see [Validate the user has permission to access this data](access-tokens.md#validate-the-user-has-permission-to-access-this-data). If you require an addressable email address in your app, request this data from the user directly, using this claim as a suggestion or pre-fill in your UX. |
 | `fwd`                      | IP address.| JWT    |   | Adds the original IPv4 address of the requesting client (when inside a VNET) |
-| `groups`| Optional formatting for group claims |JWT, SAML| |Used with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well. For details see [Group claims](#configuring-groups-optional-claims) below. For more information about group claims, see [How to configure group claims](../hybrid/how-to-connect-fed-group-claims.md)
+| `groups`| Optional formatting for group claims |JWT, SAML| |For details see [Group claims](#configuring-groups-optional-claims) below. For more information about group claims, see [How to configure group claims](../hybrid/how-to-connect-fed-group-claims.md). Used with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well.
 | `idtyp`                    | Token type   | JWT access tokens | Special: only in app-only access tokens |  Value is `app` when the token is an app-only token. This is the most accurate way for an API to determine if a token is an app token or an app+user token.|
 | `login_hint`               | Login hint   | JWT | MSA, Azure AD | An opaque, reliable login hint claim.  This claim is the best value to use for the `login_hint` OAuth parameter in all flows to get SSO.  It can be passed between applications to help them silently SSO as well - application A can sign in a user, read the `login_hint` claim, and then send the claim and the current tenant context to application B in the query string or fragment when the user clicks on a link that takes them to application B. To avoid race conditions and reliability issues, the `login_hint` claim *doesn't* include the current tenant for the user, and defaults to the user's home tenant when used.  If you are operating in a guest scenario, where the user is from another tenant, then you must still provide a tenant identifier in the sign in request, and pass the same to apps you partner with. This claim is intended for use with your SDK's existing `login_hint` functionality, however that it exposed. |
 | `sid`                      | Session ID, used for per-session user sign-out. | JWT        |  Personal and Azure AD accounts.   |         |
@@ -77,8 +77,8 @@ These claims are always included in v1.0 Azure AD tokens, but not included in v2
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP Address                      | The IP address the client logged in from.   |       |
 | `onprem_sid`  | On-Premises Security Identifier |                                             |       |
-| `pwd_exp`     | Password Expiration Time        | The datetime at which the password expires. |       |
-| `pwd_url`     | Change Password URL             | A URL that the user can visit to change their password.   |   |
+| `pwd_exp`     | Password Expiration Time        | The number of seconds after the time in the iat claim at which the password expires. This claim is only included when the password is expiring soon (as defined by "notification days" in the password policy).  |       |
+| `pwd_url`     | Change Password URL             | A URL that the user can visit to change their password.  This claim is only included when the password is expiring soon (as defined by "notification days" in the password policy).  |   |
 | `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they're not, the claim isn't included.   |  Based off of the [trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) settings in MFA.    |
 | `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the user object. <br>"family_name":"Miller" | Supported in MSA and Azure AD. Requires the `profile` scope.   |
 | `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the user object.<br>"given_name": "Frank"                   | Supported in MSA and Azure AD.  Requires the `profile` scope. |
@@ -239,7 +239,7 @@ Within the SAML tokens, these claims will be emitted with the following URI form
 This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the UI or application manifest.
 
 > [!IMPORTANT]
-> For more details including important caveats for group claims from on-premises attributes, see [Configure group claims for applications with Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
+> Azure AD limits the number of groups emitted in a token to 150 for SAML assertions and 200 for JWT, including nested groups.  For more details on group limits and important caveats for group claims from on-premises attributes, see [Configure group claims for applications with Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
 
 **Configuring groups optional claims through the UI:**
 
@@ -250,7 +250,9 @@ This section covers the configuration options under optional claims for changing
 1. Select the application you want to configure optional claims for in the list.
 1. Under **Manage**, select **Token configuration**.
 1. Select **Add groups claim**.
-1. Select the group types to return (**Security groups**, or **Directory roles**, **All groups**, and/or **Groups assigned to the application**). The **Groups assigned to the application** option includes only groups assigned to the application. The **All Groups** option includes **SecurityGroup**, **DirectoryRole**, and **DistributionList**, but not **Groups assigned to the application**. 
+1. Select the group types to return (**Security groups**, or **Directory roles**, **All groups**, and/or **Groups assigned to the application**): 
+    - The **Groups assigned to the application** option includes only groups assigned to the application. The **Groups assigned to the application** option is recommended for large organizations due to the group number limit in token. To change the groups assigned to the application, select the application from the **Enterprise applications** list.  Select **Users and groups** and then **Add user/group**. Select the group(s) you want to add to the application from **Users and groups**.
+    - The **All Groups** option includes **SecurityGroup**, **DirectoryRole**, and **DistributionList**, but not **Groups assigned to the application**. 
 1. Optional: select the specific token type properties to modify the groups claim value to contain on premises group attributes or to change the claim type to a role.
 1. Select **Save**.
 
@@ -349,7 +351,7 @@ This section covers the configuration options under optional claims for changing
             {
                 "name": "groups",
                 "additionalProperties": [
-                    "netbios_name_and_sam_account_name",
+                    "netbios_domain_and_sam_account_name",
                     "emit_as_roles"
                 ]
             }
@@ -358,7 +360,7 @@ This section covers the configuration options under optional claims for changing
             {
                 "name": "groups",
                 "additionalProperties": [
-                    "netbios_name_and_sam_account_name",
+                    "netbios_domain_and_sam_account_name",
                     "emit_as_roles"
                 ]
             }

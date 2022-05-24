@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: Use the question answering Authoring API to automate common tasks like adding new question answer pairs, and creating, and publishing knowledge bases. 
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: how-to
 ms.date: 11/23/2021
 ---

@@ -2,11 +2,10 @@
 title: How to configure Azure AD certificate-based authentication without federation (Preview) - Azure Active Directory
 description: Topic that shows how to configure Azure AD certificate-based authentication in Azure Active Directory
 
-services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 04/21/2022
 
 ms.author: justinha
 author: justinha
@@ -42,7 +41,7 @@ Make sure that the following prerequisites are in place.
 >Each CA should have a certificate revocation list (CRL) that can be referenced from internet-facing URLs. If the trusted CA does not have a CRL configured, Azure AD will not perform any CRL checking, revocation of user certificates will not work, and authentication will not be blocked.
 
 >[!IMPORTANT]
->Make sure the PKI is secure and cannot be easily compromised. In the event of a compromise, the attacker can create and sign client certificates and compromise any user in the tenant, both synced and cloud-only users. However, a strong key protection strategy, along with other physical and logical controls such as HSM activation cards or tokens for the secure storage of artifacts, can provide defense-in-depth to prevent external attackers or insider threats from compromising the integrity of the PKI. For more information, see [Securing PKI](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)).
+>Make sure the PKI is secure and cannot be easily compromised. In the event of a compromise, the attacker can create and sign client certificates and compromise any user in the tenant, both synced and cloud-only users. However, a strong key protection strategy, along with other physical and logical controls such as HSM activation cards or tokens for the secure storage of artifacts, can provide defense-in-depth to prevent external attackers or insider threats from compromising the integrity of the PKI. For more information, see [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)).
 
 ## Steps to configure and test Azure AD CBA
 
@@ -68,6 +67,36 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 ### Add
 
 [!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)]
+
+**AuthorityType**
+- Use 0 to indicate that this is a Root Certificate Authority
+- Use 1 to indicate that this is an Intermediate or Issuing Certificate Authority
+
+**crlDistributionPoint**
+
+You can validate the crlDistributionPoint value you provide in the above PowerShell example are valid for the Certificate Authority being added by downloading the CRL and comparing the CA certificate and the CRL Information.
+
+The below table and graphic indicate how to map information from the CA Certificate to the attributes of the downloaded CRL.
+
+| CA Certificate Info |= |Downloaded CRL Info|
+|----|:-:|----|
+|Subject |=|Issuer |
+|Subject Key Identifier |=|Authority Key Identifier (KeyID) |
+
+:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/certificate-crl-compare.png" alt-text="Compare CA Certificate with CRL Information.":::
+
+>[!TIP]
+>The value for crlDistributionPoint in the above is the http location for the CA’s Certificate Revocation List (CRL). This can be found in a few places.
+>
+>- In the CRL Distribution Point (CDP) attribute of a certificate issued from the CA
+>
+>If Issuing CA is Windows Server
+>
+>- On the [Properties](/windows-server/networking/core-network-guide/cncg/server-certs/configure-the-cdp-and-aia-extensions-on-ca1#to-configure-the-cdp-and-aia-extensions-on-ca1)
+ of the CA in the Certificate Authority Microsoft Management Console (MMC)
+>- On the CA running [certutil](/windows-server/administration/windows-commands/certutil#-cainfo) -cainfo cdp
+
+For additional details see: [Understanding the certificate revocation process](./concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-certificate-revocation-process).
 
 ### Remove
 
@@ -130,6 +159,9 @@ To enable the certificate-based authentication and configure user bindings in th
 The username binding policy helps determine the user in the tenant. By default, we map Principal Name in the certificate to onPremisesUserPrincipalName in the user object to determine the user.
 
 An admin can override the default and create a custom mapping. Currently, we support two certificate fields, SAN (Subject Alternate Name) Principal Name and SAN RFC822Name, to map against the user object attribute userPrincipalName and onPremisesUserPrincipalName.
+
+>[!IMPORTANT]
+>If a username binding policy uses synced attributes, such as onPremisesUserPrincipalName attribute of the user object, be aware that any user with administrative access to the Azure AD Connect server can change the sync attribute mapping, and in turn change the value of the synced attribute to their needs. The user does not need to be a cloud admin. 
 
 1. Create the username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority and so on.
 
@@ -251,7 +283,7 @@ Let's walk through a scenario where we will validate strong authentication by cr
 1. Because policy OID rule takes precedence over issuer rule, the certificate will satisfy multifactor authentication.
 1. The conditional access policy for the user requires MFA and the certificate satisfies multifactor, so the user will be authenticated into the application.
 
-### Enable Azure AD CBA using Microsoft Graph API
+## Enable Azure AD CBA using Microsoft Graph API
 
 To enable the certificate-based authentication and configure username bindings using Graph API, complete the following steps.
 
@@ -260,7 +292,7 @@ To enable the certificate-based authentication and configure username bindings u
 
 1. Go to [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1. Click **Sign into Graph Explorer** and sign in to your tenant.
-1. Follow the steps to [consent to the _Policy.ReadWrite.AuthenticationMethod_ delegated permission](/graph/graph-explorer/graph-explorer-features.md#consent-to-permissions).
+1. Follow the steps to [consent to the _Policy.ReadWrite.AuthenticationMethod_ delegated permission](/graph/graph-explorer/graph-explorer-features#consent-to-permissions).
 1. GET all authentication methods:
 
    ```http
@@ -270,7 +302,7 @@ To enable the certificate-based authentication and configure username bindings u
 1. GET the configuration for the x509Certificate authentication method:
 
    ```http
-   GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate
+   GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMethodConfigurations/X509Certificate
    ```
 
 1. By default, the x509Certificate authentication method is disabled. To allow users to sign in with a certificate, you must enable the authentication method and configure the authentication and username binding policies through an update operation. To update policy, run a PATCH request.
@@ -332,4 +364,3 @@ To enable the certificate-based authentication and configure username bindings u
 - [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
 - [FAQ](certificate-based-authentication-faq.yml)
 - [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
-

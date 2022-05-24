@@ -7,13 +7,13 @@ ms.topic: include
 ms.author: eur
 ---
 
-[!INCLUDE [Header](../common/cpp.md)]
+[!INCLUDE [Header](../../common/cpp.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites-luis.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites-luis.md)]
 
 ## Create a LUIS app for intent recognition
 
@@ -103,7 +103,7 @@ At this point, your code should look like this:
 > [!NOTE]
 > We've added some comments to this version.
 
-:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp" id="code":::
+:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp":::
 
 ## Build and run your app
 

@@ -9,7 +9,8 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Create a key vault using the Azure CLI
@@ -24,7 +25,7 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/key-vault-cli-rg-creation.md)]
+[!INCLUDE [Create a resource group](../../../includes/cli-rg-create.md)]
 
 ## Create a key vault
 
@@ -32,7 +33,7 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-delete-resources.md)]
+[!INCLUDE [Create a key vault](../../../includes/cli-rg-delete.md)]
 
 ## Next steps
 

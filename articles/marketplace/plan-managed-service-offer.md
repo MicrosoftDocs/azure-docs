@@ -65,13 +65,13 @@ Here's an example of how the offer listing appears in the Azure portal:
 
 To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
 
-**Name**: this will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It can't contain emojis (unless they're the trademark and copyright symbols) and must be limited to 50 characters.
+**Name**: this will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It can't contain emojis (unless they're the trademark and copyright symbols) and must be limited to 200 characters.
 
 **Search results summary**: describe the purpose or goal of your offer in 100 characters or less. This summary is used in the commercial marketplace listing search results. It shouldn’t be identical to the title. Consider including your top SEO keywords.
 
 **Short description**: provide a short description of your offer (up to 256 characters). It’ll be displayed on your offer listing in the Azure portal.
 
-**Description**: describe your offer in 3,000 characters or less. This description will be displayed in the commercial marketplace listing. Consider including a value proposition, key benefit, category or industry associations, and any necessary disclosures.
+**Description**: describe your offer in 5,000 characters or less. This description will be displayed in the commercial marketplace listing. Consider including a value proposition, key benefit, category or industry associations, and any necessary disclosures.
 
 Here are some tips for writing your description:
 

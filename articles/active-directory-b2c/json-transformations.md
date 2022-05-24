@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/17/2022
+ms.date: 02/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,7 +20,7 @@ This article provides examples for using the JSON claims transformations of the 
 
 ## CreateJsonArray
 
-Create a JSON single element array from a claim value.
+Create a JSON single element array from a claim value. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#createjsonarray) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -50,6 +50,8 @@ The following example creates a JSON single array.
 ## GenerateJson
 
 Use either claim values or constants to generate a JSON string. The path string following dot notation is used to indicate where to insert the data into a JSON string. After splitting by dots, any integers are interpreted as the index of a JSON array and non-integers are interpreted as the index of a JSON object.
+
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#generatejson) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -165,7 +167,7 @@ The following claims transformation outputs a JSON string claim that will be the
 
 ## GetClaimFromJson
 
-Get a specified element from a JSON data.
+Get a specified element from a JSON data. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getclaimfromjson) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -225,7 +227,7 @@ The GetClaimFromJson claims transformation gets a single element from a JSON dat
 
 ## GetClaimsFromJsonArray
 
-Get a list of specified elements from Json data.
+Get a list of specified elements from Json data. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getclaimsfromjsonarray) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -303,7 +305,7 @@ In the following example, the claims transformation extracts the following claim
 
 ## GetNumericClaimFromJson
 
-Gets a specified numeric (long) element from a JSON data.
+Gets a specified numeric (long) element from a JSON data. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getnumericclaimfromjson) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -347,7 +349,7 @@ In the following example, the claims transformation extracts the `id` element fr
 
 ## GetSingleItemFromJson
 
-Gets the first element from a JSON data.
+Gets the first element from a JSON data. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getsingleitemfromjson) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -388,7 +390,7 @@ In the following example, the claims transformation extracts the first element (
 
 ## GetSingleValueFromJsonArray
 
-Gets the first element from a JSON data array.
+Gets the first element from a JSON data array. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getsinglevaluefromjsonarray) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -417,7 +419,7 @@ In the following example, the claims transformation extracts the first element (
 
 ## XmlStringToJsonString
 
-Convert XML data to JSON format.
+Convert XML data to JSON format. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#xmlstringtojsonstring) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -462,4 +464,4 @@ Output claim:
 
 ## Next steps
 
-- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json) on the Azure AD B2C community GitHub repo

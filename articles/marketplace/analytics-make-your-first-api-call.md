@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 3/08/2021
+ms.date: 03/14/2022
 ---
 
 # Make your first API call to access commercial marketplace analytics data
@@ -20,7 +20,7 @@ Before calling any of the methods, you must first obtain an Azure Active Directo
 
 Refer to a sample request below for generating a token. The three values that are required to generate the token are `clientId`, `clientSecret`, and `tenantId`. The `resource` parameter should be set to `https://graph.windows.net`.
 
-***Request Example***:
+**Request example**:
 
 ```json
 curl --location --request POST 'https://login.microsoftonline.com/{TenantId}/oauth2/token' \
@@ -32,7 +32,7 @@ curl --location --request POST 'https://login.microsoftonline.com/{TenantId}/oau
 --data-urlencode 'grant_type=client_credentials'
 ```
 
-***Response Example***:
+**Response example**:
 
 ```json
 {
@@ -70,7 +70,7 @@ The API response provides the dataset name from where you can download the repor
 - [Customer details table](customer-dashboard.md#customer-details-table)
 - [Marketplace insights details table](insights-dashboard.md#marketplace-insights-details-table)
 
-***Request example***:
+**Request example**:
 
 ```json
 curl 
@@ -79,7 +79,7 @@ curl
 --header 'Authorization: Bearer <AzureADToken>'
 ```
 
-***Response example***:
+**Response example**:
 
 ```json
 {
@@ -127,7 +127,7 @@ curl
 
 In this step, we'll use the Order ID from the Orders Report to create a custom query for the report we want. The default `timespan` if not specified in the query is six months.
 
-***Request example***:
+**Request example**:
 
 ```json
 curl 
@@ -143,7 +143,7 @@ curl
              }'
 ```
 
-***Response example***:
+**Response example**:
 
 ```json
 {
@@ -171,7 +171,7 @@ On successful execution of the query, a `queryId` is generated that needs to be 
 
 In this step, we'll use the test query API to get the top 100 rows for the query that was created.
 
-***Request example***:
+**Request example**:
 
 ```json
 curl 
@@ -180,7 +180,7 @@ curl
 --header ' Authorization: Bearer <AzureADToken>'
 ```
 
-***Response example***:
+**Response example**:
 
 ```json
 {
@@ -230,7 +230,7 @@ curl
 
 In this step, we'll use the previously generated `QueryId` to create the report.
 
-***Request example***:
+**Request example**:
 
 ```json
 curl 
@@ -262,9 +262,8 @@ _**Table 1: Description of parameters used in this request example**_
 | `RecurrenceInterval` | Recurrence interval provided during report creation. |
 | `RecurrenceCount` | Recurrence count provided during report creation. |
 | `Format` | CSV and TSV file formats are supported. |
-|||
 
-***Response example***:
+**Response example**:
 
 ```json
 {
@@ -298,7 +297,7 @@ On successful execution, a `reportId` is generated that needs to be used to sche
 
 To get the secure location (URL) of the report, we’ll now execute the Report Executions API.
 
-***Request example***:
+**Request example**:
 
 ```json
 Curl
@@ -307,7 +306,7 @@ Curl
 --header ' Authorization: Bearer <AzureADToken>' \
 ```
 
-***Response example***:
+**Response example**:
 
 ```json
 {

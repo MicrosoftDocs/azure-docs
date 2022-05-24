@@ -4,8 +4,10 @@ description: 'Learn about read replicas in Azure Database for MySQL Flexible Ser
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 05/24/2022
 ---
 
 # Read replicas in Azure Database for MySQL - Flexible Server
@@ -14,14 +16,14 @@ ms.date: 06/17/2021
 
 MySQL is one of the popular database engines for running internet-scale web and mobile applications. Many of our customers use it for their online education services, video streaming services, digital payment solutions, e-commerce platforms, gaming services, news portals, government, and healthcare websites. These services are required to serve and scale as the traffic on the web or mobile application increases.
 
-On the applications side, the application is typically developed in Java or php and migrated to run on Azure virtual machine scale sets or Azure App Services or are containerized to run on Azure Kubernetes Service (AKS). With virtual machine scale set, App Service or AKS as underlying infrastructure, application scaling is simplified by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests but often, database ends up being a bottleneck as centralized stateful component.
+On the applications side, the application is typically developed in Java or PHP and migrated to run on Azure virtual machine scale sets or Azure App Services or are containerized to run on Azure Kubernetes Service (AKS). With virtual machine scale set, App Service or AKS as underlying infrastructure, application scaling is simplified by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests but often, database ends up being a bottleneck as centralized stateful component.
 
 The read replica feature allows you to replicate data from an Azure Database for MySQL flexible server to a read-only server. You can replicate from the source server to up to **10** replicas. Replicas are updated asynchronously using the MySQL engine's native binary log (binlog) file position-based replication technology. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Replicas are new servers that you manage similar to your source Azure Database for MySQL flexible servers. You will incur billing charges for each read replica based on the provisioned compute in vCores and storage in GB/ month. For more information, see [pricing](./concepts-compute-storage.md#pricing).
 
 > [!NOTE]
-> The read replica feature is only available for Azure Database for MySQL - Flexible servers in the General Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing tiers.
+> The read replica feature is only available for Azure Database for MySQL - Flexible servers in the General Purpose or Business Critical pricing tiers. Ensure the source server is in one of these pricing tiers.
 
 To learn more about MySQL replication features and issues, see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 

@@ -9,19 +9,13 @@ ms.topic: conceptual
 
 Defender for IoT security agents collects data, and system events from your local device, and sends the data to the Azure cloud for processing, and analytics. The Defender for IoT micro agent collects many types of device events including new processes, and all new connection events. Both the new process, and new connection events may occur frequently on a device. This capability is important for comprehensive security, however, the number of messages the security agents send may quickly meet, or exceed your IoT Hub quota, and cost limits. These messages, and events contain highly valuable security information that is crucial to protecting your device.
 
-To reduce the number of messages, and costs while maintaining your device's security, Defender for IoT agents aggregates the following types of events:
+To reduce the number of messages, and costs while maintaining your device's security, Defender for IoT agents aggregate the following types of events:
 
 - ProcessCreate (Linux only)
 
-- Login activity (Linux only)
-
 - Network ConnectionCreate
 
-- System information
-
-- Baseline
-
-Event-based collectors are collectors that are triggered based on corresponding activity from within the device. For example, ``a process was started in the device``.  
+Event-based collectors are collectors that are triggered based on corresponding activity from within the device. For example, ``a process was started in the device``.
 
 Triggered based collectors are collectors that are triggered in a scheduled manner based on the customer's configurations.
 
@@ -29,7 +23,7 @@ Triggered based collectors are collectors that are triggered in a scheduled mann
 
 Defender for IoT agents aggregate events for the interval period, or time window. Once the interval period has passed, the agent sends the aggregated events to the Azure cloud for further analysis. The aggregated events are stored in memory until being sent to the Azure cloud.
 
-The agent collects identical events to the ones that are already stored in memory. This collection causes the agent increases the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is simply the aggregation of the hit counts of each collected type of event.
+The agent collects identical events to the ones that are already stored in memory. This collection causes the agent to increase the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is simply the aggregation of the hit counts of each collected type of event.
 
 ## Process events (event based)
 
@@ -75,25 +69,29 @@ The data collected for each event is:
 | **Transport_protocol** | Can be TCP, UDP, or ICMP. |
 | **Application protocol** | The application protocol associated with the connection. |
 | **Extended properties** | The Additional details of the connection. For example, `host name`. |
+| **DNS hit count** | Total hit count of DNS requests |
+
 
 ## Login collector (event-based collector)
 
-The Login collector, collects user logins, logouts, and failed login attempts.
+The Login collector, collects user sign-ins, sign-outs, and failed sign-in attempts.
 
-Currently SSH, and Telnet are fully supported.  
+The Login collector supports the following types of collection methods:
+
+- **Syslog**. If syslog is running on the device, the Login collector collects SSH sign-in events via the syslog file named **auth.log**.
+
+- **Pluggable Authentication Modules (PAM)**. Collects SSH, telnet, and local sign-in events. For more information, see [Configure Pluggable Authentication Modules (PAM) to audit sign-in events](configure-pam-to-audit-sign-in-events.md).
 
 The following data is collected:
 
 | Parameter | Description|
 |--|--|
-| **operation** | The Login, Logout, or LoginFailed. |
+| **operation** | One of the following: `Login`, `Logout`, `LoginFailed` |
 | **process_id** | The Linux PID. |
 | **user_name** | The Linux user. |
-| **executable** | The terminal device. For example, tty1..6, or pts/n. |
-| **remote_address** | The source of connection, either remote IP in IPv6 or IPv4 format, or 127.0.0.1/0.0.0.0 to indicate local connection. |
+| **executable** | The terminal device. For example, `tty1..6` or `pts/n`. |
+| **remote_address** | The source of connection, either a remote IP address in IPv6 or IPv4 format, or `127.0.0.1/0.0.0.0` to indicate local connection. |
 
-> [!Note]
-> A login event is captured when a terminal is opened on a device, before the user actually logs in. This event has a TTY process, login event type, and a username. For example, `LOGIN`.
 
 ## System information (trigger based collector))
 
@@ -134,6 +132,20 @@ The data collected for each event is:
 | **Description** | The description of the check from CIS. |
 | **Remediation** | The recommendation for remediation from CIS. |
 | **Severity** | The severity level. |
+
+## SBoM (trigger based)
+
+The SBoM (Software Bill of Materials) collector collects the packages installed on the device periodically.
+
+The data collected on each package includes:
+
+|Parameter  |Description  |
+|---------|---------|
+|**Name**     |   The package name      |
+|**Version**     |  The package version       |
+|**Vendor**     |    The package's vendor, which is the **Maintainer** field in deb packages     |
+|     |         |
+
 
 ## Next steps
 

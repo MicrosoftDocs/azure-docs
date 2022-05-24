@@ -11,6 +11,9 @@ ms.date: 1/5/2022
 
 With [Azure Private Link](../../private-link/private-link-overview.md), you can securely link Azure platform as a service (PaaS) resources to your virtual network by using private endpoints. Azure Monitor is a constellation of different interconnected services that work together to monitor your workloads. An Azure Monitor Private Link connects a private endpoint to a set of Azure Monitor resources, defining the boundaries of your monitoring network. That set is called an Azure Monitor Private Link Scope (AMPLS).
 
+> [!NOTE]
+> Azure Monitor Private Links are structured differently from Private Links to other services you may use. Instead of creating multiple Private Links, one for each resource the VNet connects to, Azure Monitor uses a single Private Link connection, from the VNet to an Azure Monitor Private Link Scope (AMPLS). AMPLS is the set of all Azure Monitor resources to which VNet connects through a Private Link.
+
 
 ## Advantages
 
@@ -58,7 +61,7 @@ When configuring Private Link even for a single resource, traffic to the below e
 ### Resource-specific endpoints
 Log Analytics endpoints are workspace-specific, except for the query endpoint discussed earlier. As a result, adding a specific Log Analytics workspace to the AMPLS will send ingestion requests to this workspace over the Private Link, while ingestion to other workspaces will continue to use the public endpoints.
 
-[Data Collection Endpoints](../agents/data-collection-endpoint-overview.md) are also resource-specific, and allow you to uniquely configure ingestion settings for collecting guest OS telemetry data from your machines (or set of machines) when using the new [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and [Data Collection Rules](../agents/data-collection-rule-overview.md). Configuring a data collection endpoint for a set of machines does not affect ingestion of guest telemetry from other machines using the new agent.
+[Data Collection Endpoints](../essentials/data-collection-endpoint-overview.md) are also resource-specific, and allow you to uniquely configure ingestion settings for collecting guest OS telemetry data from your machines (or set of machines) when using the new [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and [Data Collection Rules](../essentials/data-collection-rule-overview.md). Configuring a data collection endpoint for a set of machines does not affect ingestion of guest telemetry from other machines using the new agent.
 
 > [!IMPORTANT]
 > Starting December 1, 2021, the Private Endpoints DNS configuration will use the Endpoint Compression mechanism, which allocates a single private IP address for all workspaces in the same region. This improves the supported scale (up to 300 workspaces and 1000 components per AMPLS) and  reduces the total number of IPs taken from the network's IP pool.  
@@ -78,7 +81,7 @@ Therefore, Private Links created starting September 2021 have new mandatory AMPL
 * Open mode - uses Private Link to communicate with resources in the AMPLS, but also allows traffic to continue to other resources as well. See [Control how Private Links apply to your networks](./private-link-design.md#control-how-private-links-apply-to-your-networks) to learn more.
 
 > [!NOTE]
-> Log Analytics ingestion uses resource-specific endpoints. As such, it doesn’t adhere to AMPLS access modes. **To assure Log Analytics ingestion requests can’t access workspaces out of the AMPLS, set the network firewall to block traffic to public endpoints, regardless of the AMPLS access modes**.
+> While Log Analytics query requests are affected by the AMPLS access mode setting, Log Analytics ingestion requests use resource-specific endpoints, and are therefore not controlled by the AMPLS access mode. **To assure Log Analytics ingestion requests can’t access workspaces out of the AMPLS, set the network firewall to block traffic to public endpoints, regardless of the AMPLS access modes**.
 
 > [!NOTE]
 >  If you have configured Log Analytics with Private Link by initially setting the NSG rules to allow outbound traffic by ServiceTag:AzureMonitor, then the connected VMs would send the logs through Public endpoint. Later, if you change the rules to deny outbound traffic by ServiceTag:AzureMonitor, still the connected VMs would keep sending logs until you reboot the VMs or cut the sessions. In order to make sure the desired configuration take immediate effect, the recommendation is to reboot the connected VMs.

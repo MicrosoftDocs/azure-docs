@@ -9,9 +9,8 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/05/2021
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-
+ms.date: 04/04/2022
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022
 ---
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks
@@ -56,10 +55,13 @@ In this article you learn how to secure the following inferencing resources in a
 
 * When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace. Otherwise, the virtual network can be in a different resource group.
 * If your workspace has a __private endpoint__, the virtual network used for Azure Container Instances must be the same as the one used by the workspace private endpoint.
-* When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace can't be in the virtual network.
+
+> [!WARNING]
+> When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace can't be in the virtual network. Because of this limitation, we do not recommend Azure Container instances for secure deployments with Azure Machine Learning.
 
 ### Azure Kubernetes Service
 
+* If your AKS cluster is behind of a VNET, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please read tutorial [create a secure workspace](./tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
 * If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
 * Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../aks/private-clusters.md) is __not supported__ with Azure Machine learning.
 
@@ -109,6 +111,8 @@ To add AKS in a virtual network to your workspace, use the following steps:
     > The IP address shown in the image for the scoring endpoint will be different for your deployments. While the same IP is shared by all deployments to one AKS cluster, each AKS cluster will have a different IP address.
 
 You can also use the Azure Machine Learning SDK to add Azure Kubernetes Service in a virtual network. If you already have an AKS cluster in a virtual network, attach it to the workspace as described in [How to deploy to AKS](how-to-deploy-and-where.md). The following code creates a new AKS instance in the `default` subnet of a virtual network named `mynetwork`:
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -192,6 +196,8 @@ The following examples demonstrate how to __create a new AKS cluster with a priv
 
 # [Python](#tab/python)
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 import azureml.core
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -241,41 +247,29 @@ az ml computetarget update aks \
 ```
 
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks) and [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_aks) reference.
+For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-aks) and [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az-ml-computetarget-update-aks) reference.
 
 ---
 
-When __attaching an existing cluster__ to your workspace, you must wait until after the attach operation to configure the load balancer. For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-create-attach-kubernetes.md).
+When __attaching an existing cluster__ to your workspace, use the `load_balancer_type` and `load_balancer_subnet` parameters of [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.aks.akscompute#azureml-core-compute-aks-akscompute-attach-configuration) to configure the load balancer.
 
-After attaching the existing cluster, you can then update the cluster to use an internal load balancer/private IP:
-
-```python
-import azureml.core
-from azureml.core.compute.aks import AksUpdateConfiguration
-from azureml.core.compute import AksCompute
-
-# ws = workspace object. Creation not shown in this snippet
-aks_target = AksCompute(ws,"myaks")
-
-# Change to the name of the subnet that contains AKS
-subnet_name = "default"
-# Update AKS configuration to use an internal load balancer
-update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
-aks_target.update(update_config)
-# Wait for the operation to complete
-aks_target.wait_for_completion(show_output = True)
-```
+For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-create-attach-kubernetes.md).
 
 ## Enable Azure Container Instances (ACI)
 
 Azure Container Instances are dynamically created when deploying a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable __subnet delegation__ for the subnet used by the deployment. To use ACI in a virtual network to your workspace, use the following steps:
 
-1. To enable subnet delegation on your virtual network, use the information in the [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md) article. You can enable delegation when creating a virtual network, or add it to an existing network.
+1. Your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
-    > [!IMPORTANT]
-    > When enabling delegation, use `Microsoft.ContainerInstance/containerGroups` as the __Delegate subnet to service__ value.
+    * `Microsoft.Network/virtualNetworks/*/read` on the virtual network resource. This permission isn't needed for Azure Resource Manager template deployments.
+    * `Microsoft.Network/virtualNetworks/subnet/join/action` on the subnet resource.
 
-2. Deploy the model using [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), use the `vnet_name` and `subnet_name` parameters. Set these parameters to the virtual network name and subnet where you enabled delegation.
+1. In the [Azure portal](https://portal.azure.com), search for the name of the virtual network. When it appears in the search results, select it.
+1. Select **Subnets**, under **SETTINGS**, and then select the subnet.
+1. On the subnet page, for the **Subnet delegation** list, select `Microsoft.ContainerInstance/containerGroups`.
+1. Deploy the model using [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), use the `vnet_name` and `subnet_name` parameters. Set these parameters to the virtual network name and subnet where you enabled delegation.
+
+For more information, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
 ## Limit outbound connectivity from the virtual network
 

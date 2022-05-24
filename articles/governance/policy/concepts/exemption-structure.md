@@ -1,25 +1,21 @@
 ---
 title: Details of the policy exemption structure
 description: Describes the policy exemption definition used by Azure Policy to exempt resources from evaluation of initiatives or definitions.
-ms.date: 08/17/2021
+ms.date: 05/18/2022
 ms.topic: conceptual
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Azure Policy exemption structure
 
-The Azure Policy exemptions (preview) feature is used to _exempt_ a resource hierarchy or an
+The Azure Policy exemptions feature is used to _exempt_ a resource hierarchy or an
 individual resource from evaluation of initiatives or definitions. Resources that are _exempt_ count
 toward overall compliance, but can't be evaluated or have a temporary waiver. For more information,
 see [Understand scope in Azure Policy](./scope.md). Azure Policy exemptions only work with
 [Resource Manager modes](./definition-structure.md#resource-manager-modes) and don't work with
 [Resource Provider modes](./definition-structure.md#resource-provider-modes).
 
-> [!IMPORTANT]
-> This feature is free during **preview**. For pricing details, see
-> [Azure Policy pricing](https://azure.microsoft.com/pricing/details/azure-policy/). For more
-> information about previews, see
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-You use JSON to create a policy exemption. The policy exemption contains elements for:
+You use JavaScript Object Notation (JSON) to create a policy exemption. The policy exemption contains elements for:
 
 - display name
 - description
@@ -36,12 +32,13 @@ You use JSON to create a policy exemption. The policy exemption contains element
 For example, the following JSON shows a policy exemption in the **waiver** category of a resource to
 an initiative assignment named `resourceShouldBeCompliantInit`. The resource is _exempt_ from only
 two of the policy definitions in the initiative, the `customOrgPolicy` custom policy definition
-(reference `requiredTags`) and the 'Allowed locations' built-in policy definition (ID:
+(reference `requiredTags`) and the **Allowed locations** built-in policy definition (ID:
 `e56962a6-4747-49cd-b67b-bf8b01975c4c`, reference `allowedLocations`):
 
 ```json
 {
     "id": "/subscriptions/{subId}/resourceGroups/ExemptRG/providers/Microsoft.Authorization/policyExemptions/resourceIsNotApplicable",
+    "apiVersion": "2020-07-01-preview",
     "name": "resourceIsNotApplicable",
     "type": "Microsoft.Authorization/policyExemptions",
     "properties": {
@@ -112,8 +109,7 @@ resource hierarchy or individual resource is _exempt_ from.
 
 ## Policy definition IDs
 
-If the `policyAssignmentId` is for an initiative assignment, the `policyDefinitionReferenceIds`
-property may be used to specify which policy definition(s) in the initiative the subject resource
+If the `policyAssignmentId` is for an initiative assignment, the **policyDefinitionReferenceIds** property may be used to specify which policy definition(s) in the initiative the subject resource
 has an exemption to. As the resource may be exempted from one or more included policy definitions,
 this property is an _array_. The values must match the values in the initiative definition in the
 `policyDefinitions.policyDefinitionReferenceId` fields.
@@ -131,7 +127,7 @@ Two exemption categories exist and are used to group exemptions:
 ## Expiration
 
 To set when a resource hierarchy or an individual resource is no longer _exempt_ from an assignment,
-set the `expiresOn` property. This optional property must be in the Universal ISO 8601 DateTime
+set the **expiresOn** property. This optional property must be in the Universal ISO 8601 DateTime
 format `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 
 > [!NOTE]
@@ -155,6 +151,7 @@ assignment.
 
 ## Next steps
 
+- Study the [Microsoft.Authorization policyExemptions resource type](https://docs.microsoft.com/azure/templates/microsoft.authorization/policyexemptions?tabs=json).
 - Learn about the [policy definition structure](./definition-structure.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

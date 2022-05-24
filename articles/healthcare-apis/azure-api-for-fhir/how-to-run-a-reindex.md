@@ -1,16 +1,16 @@
 ---
 title:  How to run a reindex job in Azure API for FHIR 
-description: This article describes how to run a reindex job to index any search or sort parameters that have not yet been indexed in your database.   
+description: This article describes how to run a reindex job to index any search or sort parameters that haven't yet been indexed in your database.   
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 8/23/2021
-ms.author: cavoeg
+ms.date: 02/15/2022
+ms.author: mikaelw
 ---
 # Running a reindex job in Azure API for FHIR
 
-There are scenarios where you may have search or sort parameters in the Azure API for FHIR that haven't yet been indexed. This scenario is relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in search. This article covers an overview of how to run a reindex job to index any search or sort parameters that have not yet been indexed in your database.
+There are scenarios where you may have search or sort parameters in the Azure API for FHIR that haven't yet been indexed. This scenario is relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in search. This article covers an overview of how to run a reindex job to index any search or sort parameters that haven't yet been indexed in your database.
 
 > [!Warning]
 > It's important that you read this entire article before getting started. A reindex job can be very performance intensive. This article includes options for how to throttle and control the reindex job.

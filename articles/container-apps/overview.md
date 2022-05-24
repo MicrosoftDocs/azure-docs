@@ -1,5 +1,5 @@
 ---
-title: Azure Container Apps Preview overview
+title: Azure Container Apps overview
 description: Learn about common scenarios and uses for Azure Container Apps
 services: container-apps
 author: craigshoemaker
@@ -7,10 +7,10 @@ ms.service: container-apps
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Azure Container Apps Preview overview
+# Azure Container Apps overview
 
 Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. Common uses of Azure Container Apps include:
 
@@ -52,7 +52,7 @@ With Azure Container Apps, you can:
 
 - [**Provide an existing virtual network**](vnet-custom.md) when creating an environment for your container apps.
 
-- [**Securely manage secrets**](secure-app.md) directly in your application.
+- [**Securely manage secrets**](manage-secrets.md) directly in your application.
 
 - [**View application logs**](monitor.md) using Azure Log Analytics.
 

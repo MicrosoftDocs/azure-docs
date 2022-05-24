@@ -1,8 +1,8 @@
 ---
 title: Determine table size - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: How to find the true size of distributed tables in a Hyperscale (Citus) server group
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to

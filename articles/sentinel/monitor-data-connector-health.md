@@ -74,7 +74,7 @@ To get data connector health data from the *SentinelHealth* data table, you must
 Once the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for your data connectors.
 
 > [!TIP]
-> To configure the retention time for your health events, see the [Log Analytics retention configuration documentation](/azure/azure-monitor/logs/manage-cost-storage).
+> To configure the retention time for your health events, see the [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
 >
 
 > [!IMPORTANT]
@@ -192,7 +192,7 @@ lastestStatus
 
 ### Configure alerts and automated actions for health issues
 
-While you can use the Microsoft Sentinel [analytics rules](automate-incident-handling-with-automation-rules.md) to configure automation in Microsoft Sentinel logs, if you want to be notified and take immediate action for health drifts in your data connectors, we recommend that you use [Azure Monitor alert rules](/azure/azure-monitor/alerts/alerts-overview).
+While you can use the Microsoft Sentinel [analytics rules](automate-incident-handling-with-automation-rules.md) to configure automation in Microsoft Sentinel logs, if you want to be notified and take immediate action for health drifts in your data connectors, we recommend that you use [Azure Monitor alert rules](../azure-monitor/alerts/alerts-overview.md).
 
 For example:
 
@@ -202,7 +202,7 @@ For example:
 
 1. For the rule actions, select an existing action group or create a new one as needed to configure push notifications or other automated actions such as triggering a Logic App, Webhook, or Azure Function in your system.
 
-For more information, see [Azure Monitor alerts overview](/azure/azure-monitor/alerts/alerts-overview) and [Azure Monitor alerts log](/azure/azure-monitor/alerts/alerts-log).
+For more information, see [Azure Monitor alerts overview](../azure-monitor/alerts/alerts-overview.md) and [Azure Monitor alerts log](../azure-monitor/alerts/alerts-log.md).
 
 ### SentinelHealth table columns schema
 
@@ -223,7 +223,7 @@ The following table describes the columns and data generated in the *SentinelHea
 | **RecordId**      | String         | A unique identifier for the record that can be shared with the support team for better correlation as needed.                |
 | **ExtendedProperties**        | Dynamic (json) | A JSON bag that varies by the [OperationName](#operationname) value and the [Status](#status) of the event: <br><br>- For `Data fetch status change` events with a success indicator, the bag contains a ‘DestinationTable’ property to indicate where data from this connector is expected to land. For failures, the contents vary depending on the failure type.    |
 | **Type**          | String         | `SentinelHealth`                         |
-| | | |
+
 
 ## Next steps
 

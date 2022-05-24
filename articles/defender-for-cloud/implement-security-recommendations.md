@@ -2,11 +2,11 @@
 title: Implement security recommendations in Microsoft Defender for Cloud | Microsoft Docs
 description: This article explains how to respond to recommendations in Microsoft Defender for Cloud to protect your resources and satisfy security policies.
 ms.topic: conceptual
+ms.author: benmansheim
+author: bmansheim
 ms.date: 11/09/2021
 ---
 # Implement security recommendations in Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Recommendations give you suggestions on how to better secure your resources. You implement a recommendation by following the remediation steps provided in the recommendation.
 
@@ -37,7 +37,7 @@ To implement a **Fix**:
 
 1. From the list of recommendations that have the **Fix** action icon, :::image type="icon" source="media/implement-security-recommendations/fix-icon.png" border="false":::, select a recommendation.
 
-    :::image type="content" source="./media/implement-security-recommendations/security-center-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/security-center-recommendations-fix-action.png":::
+    :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
 
 1. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and select **Remediate**.
 
@@ -46,7 +46,7 @@ To implement a **Fix**:
 
 1. In the confirmation box, read the remediation details and implications.
 
-    ![Quick fix.](./media/implement-security-recommendations/security-center-quick-fix-view.png)
+    ![Quick fix.](./media/implement-security-recommendations/microsoft-defender-for-cloud-quick-fix-view.png)
 
     > [!NOTE]
     > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the **Fix**.

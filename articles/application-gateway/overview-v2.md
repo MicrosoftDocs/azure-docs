@@ -2,11 +2,11 @@
 title: What is Azure Application Gateway v2?
 description: Learn about Azure application Gateway v2 features
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
 ms.date: 02/07/2022
-ms.author: victorh
+ms.author: greglin
 ms.custom: references_regions
 ---
 
@@ -23,7 +23,9 @@ The new v2 SKU includes the following enhancements:
 - **Static VIP**: Application Gateway v2 SKU supports the static VIP type exclusively. This ensures that the VIP associated with the application gateway doesn't change for the lifecycle of the deployment, even after a restart.  There isn't a static VIP in v1, so you must use the application gateway URL instead of the IP address for domain name routing to App Services via the application gateway.
 - **Header Rewrite**: Application Gateway allows you to add, remove, or update HTTP request and response headers with v2 SKU. For more information, see [Rewrite HTTP headers with Application Gateway](./rewrite-http-headers-url.md)
 - **Key Vault Integration**: Application Gateway v2 supports integration with Key Vault for server certificates that are attached to HTTPS enabled listeners. For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
+- **Mutual Authentication (mTLS)**: Application Gateway v2 supports authentication of client requests. For more information, see [Overview of mutual authentication with Application Gateway](mutual-authentication-overview.md).
 - **Azure Kubernetes Service Ingress Controller**: The Application Gateway v2 Ingress Controller allows the Azure Application Gateway to be used as the ingress for an Azure Kubernetes Service (AKS) known as AKS Cluster. For more information, see [What is Application Gateway Ingress Controller?](ingress-controller-overview.md).
+- **Private link**: The v2 SKU offers private connectivity from other virtual networks in other regions and subscriptions through the use of private endpoints.
 - **Performance enhancements**: The v2 SKU offers up to 5X better TLS offload performance as compared to the Standard/WAF SKU.
 - **Faster deployment and update time** The v2 SKU provides faster deployment and update time as compared to Standard/WAF SKU. This also includes WAF configuration changes.
 
@@ -70,6 +72,8 @@ The following table compares the features available with each SKU.
 | Rewrite HTTP(S) headers                           |          | &#x2713; |
 | URL-based routing                                 | &#x2713; | &#x2713; |
 | Multiple-site hosting                             | &#x2713; | &#x2713; |
+| Mutual Authentication (mTLS)                      |          | &#x2713; |
+| Private Link support                              |          | &#x2713; |
 | Traffic redirection                               | &#x2713; | &#x2713; |
 | Web Application Firewall (WAF)                    | &#x2713; | &#x2713; |
 | WAF custom rules                                  |          | &#x2713; |
@@ -111,3 +115,4 @@ An Azure PowerShell script is available in the PowerShell gallery to help you mi
 Depending on your requirements and environment, you can create a test Application Gateway using either the Azure portal, Azure PowerShell, or Azure CLI.
 
 - [Tutorial: Create an application gateway that improves web application access](tutorial-autoscale-ps.md)
+- [Learn module: Introduction to Azure Application Gateway](/learn/modules/intro-to-azure-application-gateway)

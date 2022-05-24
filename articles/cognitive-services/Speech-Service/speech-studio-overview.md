@@ -7,8 +7,8 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 01/24/2022
+ms.topic: overview
+ms.date: 05/13/2022
 ms.author: eur
 ---
 
@@ -16,22 +16,13 @@ ms.author: eur
 
 [Speech Studio](https://speech.microsoft.com) is a set of UI-based tools for building and integrating features from Azure Cognitive Services Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
 
-## Prerequisites
-
-Before you can begin using [Speech Studio](https://speech.microsoft.com), you need to have an Azure account and a Speech resource. If you don't already have an account and a resource, [try Speech service for free](overview.md#try-the-speech-service-for-free).
-
-After you've created an Azure account and a Speech service resource, do the following:
-
-1. Sign in to [Speech Studio](https://speech.microsoft.com) with your Azure account.
-1. In your Speech Studio subscription, select a Speech resource. You can change the resource at any time by selecting **Settings** at the top of the pane.
-
 ## Speech Studio features
 
 In Speech Studio, the following Speech service features are available as project types:
 
 * **Real-time speech-to-text**: Quickly test speech-to-text by dragging audio files here without having to use any code. This is a demo tool for seeing how speech-to-text works on your audio samples. To explore the full functionality, see [What is speech-to-text?](speech-to-text.md).
 
-* **Custom Speech**: Create speech recognition models that are tailored to specific vocabulary sets and styles of speaking. In contrast to the base speech recognition model, Custom Speech models become part of your unique competitive advantage because they're not publicly accessible. To get started with uploading sample audio to create a Custom Speech model, see [Prepare data for Custom Speech](how-to-custom-speech-test-and-train.md).
+* **Custom Speech**: Create speech recognition models that are tailored to specific vocabulary sets and styles of speaking. In contrast to the base speech recognition model, Custom Speech models become part of your unique competitive advantage because they're not publicly accessible. To get started with uploading sample audio to create a Custom Speech model, see [Upload training and testing datasets](how-to-custom-speech-upload-data.md).
 
 * **Pronunciation assessment**: Evaluate speech pronunciation and give speakers feedback on the accuracy and fluency of spoken audio. Speech Studio provides a sandbox for testing this feature quickly, without code. To use the feature with the Speech SDK in your applications, see the [Pronunciation assessment](how-to-pronunciation-assessment.md) article.
 
@@ -47,5 +38,4 @@ In Speech Studio, the following Speech service features are available as project
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore Speech Studio](https://speech.microsoft.com)
+* [Explore Speech Studio](https://speech.microsoft.com)

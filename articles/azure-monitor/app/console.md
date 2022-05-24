@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-
 ms.reviewer: lmolkova
 ---
 
@@ -16,28 +15,27 @@ ms.reviewer: lmolkova
 You need a subscription with [Microsoft Azure](https://azure.com). Sign in with a Microsoft account, which you might have for Windows, Xbox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure: ask the owner to add you to it using your Microsoft account.
 
 > [!NOTE]
-> It is *highly recommended* to use the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package and associated instructions from [here](./worker-service.md) for any Console Applications. This package targets [`NetStandard2.0`](/dotnet/standard/net-standard), and hence can be used in .NET Core 2.1 or higher, and .NET Framework 4.7.2 or higher.
+> It is *highly recommended* to use the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package and associated instructions from [here](./worker-service.md) for any Console Applications. This package is compatible with [Long Term Support (LTS) versions](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core and .NET Framework or higher.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Getting started
 
-> [!IMPORTANT]
-> [Connection Strings](./sdk-connection-string.md?tabs=net) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
-
 * In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](./create-new-resource.md). For application type, choose **General**.
-* Take a copy of the Instrumentation Key. Find the key in the **Essentials** drop-down of the new resource you created.
+* Take a copy of the connection string. Find the connection string in the **Essentials** drop-down of the new resource you created.
 * Install latest [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) package.
-* Set the instrumentation key in your code before tracking any telemetry (or set APPINSIGHTS_INSTRUMENTATIONKEY environment variable). After that, you should be able to manually track telemetry and see it on the Azure portal
+* Set the connection string in your code before tracking any telemetry (or set the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable). After that, you should be able to manually track telemetry and see it on the Azure portal
 
 ```csharp
 // you may use different options to create configuration as shown later in this article
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
-configuration.InstrumentationKey = " *your key* ";
+configuration.ConnectionString = <Copy connection string from Application Insights Resource Overview>;
 var telemetryClient = new TelemetryClient(configuration);
 telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> Telemetry is not sent instantly. Telemetry items are batched and sent by the ApplicationInsights SDK. In Console apps, which exits right after calling `Track()` methods, telemetry may not be sent unless `Flush()` and `Sleep`/`Delay` is done before the app exits as shown in [full example](#full-example) later in this article. `Sleep` is not required if you are using `InMemoryChannel`. There is an active issue regarding the need for `Sleep` which is tracked here: [ApplicationInsights-dotnet/issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
+> Telemetry is not sent instantly. Telemetry items are batched and sent by the ApplicationInsights SDK. In Console apps, which exit right after calling `Track()` methods, telemetry may not be sent unless `Flush()` and `Sleep`/`Delay` is done before the app exits as shown in [full example](#full-example) later in this article. `Sleep` is not required if you are using `InMemoryChannel`. There is an active issue regarding the need for `Sleep` which is tracked here: [ApplicationInsights-dotnet/issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
 
 * Install latest version of [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL, or some other external dependency calls.
 
@@ -64,12 +62,12 @@ var telemetryClient = new TelemetryClient(configuration);
 
 For more information, see [configuration file reference](configuration-with-applicationinsights-config.md).
 
-You may get a full example of the config file by installing latest version of [Microsoft.ApplicationInsights.WindowsServer](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer) package. Here is the **minimal** configuration for dependency collection that is equivalent to the code example.
+You may get a full example of the config file by installing latest version of [Microsoft.ApplicationInsights.WindowsServer](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer) package. Here's the **minimal** configuration for dependency collection that is equivalent to the code example.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-  <InstrumentationKey>Your Key</InstrumentationKey>
+  <ConnectionString>"Copy connection string from Application Insights Resource Overview"</ConnectionString>
   <TelemetryInitializers>
     <Add Type="Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer, Microsoft.AI.DependencyCollector"/>
   </TelemetryInitializers>
@@ -98,7 +96,7 @@ You may get a full example of the config file by installing latest version of [M
 > [!NOTE]
 > Reading config file is not supported on .NET Core. You may consider using [Application Insights SDK for ASP.NET Core](./asp-net-core.md)
 
-* During application start-up create and configure `DependencyTrackingTelemetryModule` instance - it must be singleton and must be preserved for application lifetime.
+* During application start-up, create and configure `DependencyTrackingTelemetryModule` instance - it must be singleton and must be preserved for application lifetime.
 
 ```csharp
 var module = new DependencyTrackingTelemetryModule();
@@ -150,7 +148,7 @@ namespace ConsoleApp
         {
             TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
 
-            configuration.InstrumentationKey = "removed";
+            configuration.ConnectionString = "removed";
             configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 
             var telemetryClient = new TelemetryClient(configuration);

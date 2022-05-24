@@ -1,11 +1,12 @@
 ---
 title: Monitoring Azure Blob Storage
+
 description: Learn how to monitor the performance and availability of Azure Blob Storage. Monitor Azure Blob Storage data, learn about configuration, and analyze metric and log data.
 author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 05/06/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.devlang: csharp
@@ -61,9 +62,16 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 
 ## Creating a diagnostic setting
 
-You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, an Azure Resource Manager template, or Azure Policy.
+This section shows you how to create a diagnostic setting by using the Azure portal, PowerShell, and the Azure CLI. This section provides steps specific to Azure Storage. For general guidance about how to create a diagnostic setting, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
-For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
+> [!TIP] 
+> You can also create a diagnostic setting by using an Azure Resource manager template or by using a policy definition. A policy definition can ensure that a diagnostic setting is created for every account that is created or updated. 
+>
+> This section doesn't describe templates or policy definitions. 
+>
+> - To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage). 
+>
+> - To learn how to create a diagnostic setting by using a policy definition, see [Azure Policy built-in definitions for Azure Storage](../common/policy-reference.md).
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -80,9 +88,6 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 5. Click **Add diagnostic setting**.
 
-   > [!div class="mx-imgBorder"]
-   > ![portal - Resource logs - add diagnostic setting](media/monitor-blob-storage/diagnostic-logs-settings-pane-2.png)
-
    The **Diagnostic settings** page appears.
 
    > [!div class="mx-imgBorder"]
@@ -92,12 +97,9 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 #### Archive logs to a storage account
 
-If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page. You can't send logs to the same storage account that you are monitoring with this setting. This would lead to recursive logs in which a log entry describes the writing of another log entry. You must create an account or use another existing account to store log information.
 
 1. Select the **Archive to a storage account** checkbox, and then select the **Configure** button.
-
-   > [!div class="mx-imgBorder"]
-   > ![Diagnostic settings page archive storage](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
 2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, and then select the **Save** button.
 
@@ -108,23 +110,23 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
 
 #### Stream logs to Azure Event Hubs
 
-If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page. You'll need access to an existing event hub, or you'll need to create one before you complete this step.
 
 1. Select the **Stream to an event hub** checkbox, and then select the **Configure** button.
 
 2. In the **Select an event hub** pane, choose the namespace, name, and policy name of the event hub that you want to stream your logs to.
 
-   > [!div class="mx-imgBorder"]
-   > ![Diagnostic settings page event hub](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
-
 3. Select the **Save** button.
 
 #### Send logs to Azure Log Analytics
 
-1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then select the **Save** button.
+1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then select the **Save** button. You'll need access to an existing log analytics workspace, or you'll need to create one before you complete this step.
 
-   > [!div class="mx-imgBorder"]
-   > ![Diagnostic settings page log analytics](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
+[!INCLUDE [no retention policy log analytics](../../../includes/azure-storage-logs-retention-policy-log-analytics.md)]
+
+#### Send to a partner solution
+
+You can also send platform metrics and logs to certain Azure Monitor partners. You must first install a partner integration into your subscription. Configuration options will vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -142,7 +144,7 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
 
 #### Archive logs to a storage account
 
-If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page. You can't send logs to the same storage account that you are monitoring with this setting. This would lead to recursive logs in which a log entry describes the writing of another log entry. You must create an account or use another existing account to store log information.
 
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet along with the `StorageAccountId` parameter.
 
@@ -164,12 +166,12 @@ For a description of each parameter, see the [Archive Azure Resource logs via Az
 
 #### Stream logs to an event hub
 
-If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page. You'll need access to an existing event hub, or you'll need to create one before you complete this step.
 
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `EventHubAuthorizationRuleId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log>
 ```
 
 Here's an example:
@@ -180,17 +182,23 @@ For a description of each parameter, see the [Stream Data to Event Hubs via Powe
 
 #### Send logs to Log Analytics
 
-Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `WorkspaceId` parameter.
+Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `WorkspaceId` parameter. You'll need access to an existing log analytics workspace, or you'll need to create one before you complete this step.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log>
 ```
+
+[!INCLUDE [no retention policy log analytics](../../../includes/azure-storage-logs-retention-policy-log-analytics.md)]
 
 Here's an example:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
 For more information, see [Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
+
+#### Send to a partner solution
+
+You can also send platform metrics and logs to certain Azure Monitor partners. You must first install a partner integration into your subscription. Configuration options will vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -206,9 +214,9 @@ For more information, see [Stream Azure Resource Logs to Log Analytics workspace
 
 #### Archive logs to a storage account
 
-If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page. You can't send logs to the same storage account that you are monitoring with this setting. This would lead to recursive logs in which a log entry describes the writing of another log entry. You must create an account or use another existing account to store log information.
 
-Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
+Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true }]'
@@ -228,12 +236,12 @@ For a description of each parameter, see the [Archive Resource logs via the Azur
 
 #### Stream logs to an event hub
 
-If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page. You'll need access to an existing event hub, or you'll need to create one before you complete this step.
 
-Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
+Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true}]'
 ```
 
 Here's an example:
@@ -244,11 +252,13 @@ For a description of each parameter, see the [Stream data to Event Hubs via Azur
 
 #### Send logs to Log Analytics
 
-Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
+Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.  You'll need access to an existing log analytics workspace, or you'll need to create one before you complete this step.
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true}]'
 ```
+
+[!INCLUDE [no retention policy log analytics](../../../includes/azure-storage-logs-retention-policy-log-analytics.md)]
 
 Here's an example:
 
@@ -256,17 +266,17 @@ Here's an example:
 
  For more information, see [Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
-### [Template](#tab/template)
+#### Send to a partner solution
 
-To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
-
-### [Azure Policy](#tab/policy)
-
-You can create a diagnostic setting by using a policy definition. That way, you can make sure that a diagnostic setting is created for every account that is created or updated. For more information, see [Azure Policy built-in definitions for Azure Storage](../common/policy-reference.md).
+You can also send platform metrics and logs to certain Azure Monitor partners. You must first install a partner integration into your subscription. Configuration options will vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.
 
 ---
 
 ## Analyzing metrics
+
+For a list of all Azure Monitor support metrics, which includes Azure Blob Storage, see [Azure Monitor supported metrics](../../azure-monitor/essentials/metrics-supported.md).
+
+### [Azure portal](#tab/azure-portal)
 
 You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
@@ -285,14 +295,71 @@ Metrics for Azure Blob Storage are in these namespaces:
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
 
+### [PowerShell](#tab/azure-powershell)
+
+#### List the metric definition
+
+You can list the metric definition of your storage account or the Blob storage service. Use the [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition) cmdlet.
+
+In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
+
+```powershell
+   $resourceId = "<resource-ID>"
+   Get-AzMetricDefinition -ResourceId $resourceId
+```
+
+#### Reading metric values
+
+You can read account-level metric values of your storage account or the Blob storage service. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
+
+```powershell
+   $resourceId = "<resource-ID>"
+   Get-AzMetric -ResourceId $resourceId -MetricName "UsedCapacity" -TimeGrain 01:00:00
+```
+
+#### Reading metric values with dimensions
+
+When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
+
+```powershell
+$resourceId = "<resource-ID>"
+$dimFilter = [String](New-AzMetricFilter -Dimension ApiName -Operator eq -Value "GetBlob" 3> $null)
+Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:00 -MetricFilter $dimFilter -AggregationType "Total"
+```
+
+### [Azure CLI](#tab/azure-cli)
+
 For a list of all Azure Monitor support metrics, which includes Azure Blob Storage, see [Azure Monitor supported metrics](../../azure-monitor/essentials/metrics-supported.md).
 
-### Accessing metrics
+#### List the account-level metric definition
 
-> [!TIP]
-> To view Azure CLI or .NET examples, choose the corresponding tabs listed here.
+You can list the metric definition of your storage account or the Blob storage service. Use the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command.
 
-### [.NET SDK](#tab/azure-portal)
+In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
+
+```azurecli
+   az monitor metrics list-definitions --resource <resource-ID>
+```
+
+#### Read account-level metric values
+
+You can read the metric values of your storage account or the Blob storage service. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
+
+```azurecli
+   az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
+```
+
+#### Reading metric values with dimensions
+
+When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
+
+```azurecli
+az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'GetBlob' " --aggregation "Total" 
+```
+
+---
+
+## Analyze metrics by using code
 
 Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
 
@@ -431,77 +498,6 @@ The following example shows how to read metric data on the metric supporting mul
 
 ```
 
-### [PowerShell](#tab/azure-powershell)
-
-#### List the metric definition
-
-You can list the metric definition of your storage account or the Blob storage service. Use the [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition) cmdlet.
-
-In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
-
-```powershell
-   $resourceId = "<resource-ID>"
-   Get-AzMetricDefinition -ResourceId $resourceId
-```
-
-#### Reading metric values
-
-You can read account-level metric values of your storage account or the Blob storage service. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
-
-```powershell
-   $resourceId = "<resource-ID>"
-   Get-AzMetric -ResourceId $resourceId -MetricNames "UsedCapacity" -TimeGrain 01:00:00
-```
-
-#### Reading metric values with dimensions
-
-When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
-
-```powershell
-$resourceId = "<resource-ID>"
-$dimFilter = [String](New-AzMetricFilter -Dimension ApiName -Operator eq -Value "GetBlob" 3> $null)
-Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:00 -MetricFilter $dimFilter -AggregationType "Total"
-```
-
-
-### [Azure CLI](#tab/azure-cli)
-
-#### List the account-level metric definition
-
-You can list the metric definition of your storage account or the Blob storage service. Use the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) command.
-
-In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
-
-```azurecli
-   az monitor metrics list-definitions --resource <resource-ID>
-```
-
-#### Read account-level metric values
-
-You can read the metric values of your storage account or the Blob storage service. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) command.
-
-```azurecli
-   az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
-```
-
-#### Reading metric values with dimensions
-
-When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) command.
-
-```azurecli
-az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'GetBlob' " --aggregation "Total" 
-```
-
-### [Template](#tab/template)
-
-N/A.
-
-### [Azure Policy](#tab/policy)
-
-N/A.
-
----
-
 ## Analyzing logs
 
 You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries.
@@ -527,7 +523,7 @@ Requests made by the Blob storage service itself, such as log creation or deleti
 
 - Successful requests
 - Server errors
-- Time-out errors for both client and server
+- Timeout errors for both client and server
 - Failed GET requests with the error code 304 (Not Modified)
 
 All other failed anonymous requests aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-blob-storage-reference.md).
@@ -628,8 +624,8 @@ This table shows how this feature is supported in your account and the impact on
 
 | Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
 |--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)               | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)   | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![No](../media/icons/no-icon.png) |
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)               | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)   | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ### Metrics in Azure Monitor
 
@@ -650,7 +646,20 @@ No. Azure Compute supports the metrics on disks. For more information, see [Per 
 
 ## Next steps
 
-- For a reference of the logs and metrics created by Azure Blob Storage, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md).
-- For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
-- For more information on metrics migration, see [Azure Storage metrics migration](../common/storage-metrics-migration.md).
-- For commons scenarios and best practices, see [Best practices for monitoring Azure Blob Storage](blob-storage-monitoring-scenarios.md).
+Get started with any of these guides.
+
+| Guide | Description |
+|---|---|
+| [Gather metrics from your Azure Blob Storage containers](/learn/modules/gather-metrics-blob-storage/) | Create charts that show metrics (Contains step-by-step guidance). |
+| [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/) | Troubleshoot storage account issues (contains step-by-step guidance). |
+| [Monitor storage with Azure Monitor Storage insights](../common/storage-insights-overview.md) | A unified view of storage performance, capacity, and availability |
+| [Best practices for monitoring Azure Blob Storage](blob-storage-monitoring-scenarios.md) | Guidance for common monitoring and troubleshooting scenarios. | 
+| [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) | A tour of Metrics Explorer. 
+| [Overview of Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md) | A tour of Log Analytics. |
+| [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md) | The basics of metrics and metric dimensions  |
+| [Azure Monitor Logs overview](../../azure-monitor/logs/data-platform-logs.md)| The basics of logs and how to collect and analyze them |
+| [Transition to metrics in Azure Monitor](../common/storage-metrics-migration.md) | Move from Storage Analytics metrics to metrics in Azure Monitor. |
+| [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md) | A reference of the logs and metrics created by Azure Blob Storage |
+| [Troubleshoot performance issues](../common/troubleshoot-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| Common performance issues and guidance about how to troubleshoot them. |
+| [Troubleshoot availability issues](../common/troubleshoot-storage-availability.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| Common availability issues and guidance about how to troubleshoot them.|
+| [Troubleshoot client application errors](../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| Common issues with connecting clients and how to troubleshoot them.|

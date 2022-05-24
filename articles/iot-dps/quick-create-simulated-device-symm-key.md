@@ -34,7 +34,7 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 ::: zone pivot="programming-language-csharp"
 
-* Install [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET SDK 6.0](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```cmd
     dotnet --info
@@ -563,7 +563,7 @@ To update and run the provisioning sample with your device information:
     pip install azure-iot-device
     ```
 
-6. Run the python sample code in *_provision_symmetric_key.py_*.
+6. Run the Python sample code in *_provision_symmetric_key.py_*.
 
     ```cmd
     python provision_symmetric_key.py

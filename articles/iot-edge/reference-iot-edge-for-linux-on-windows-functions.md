@@ -1,7 +1,7 @@
 ---
 title: PowerShell functions for Azure IoT Edge for Linux on Windows | Microsoft Docs 
 description: Reference information for Azure IoT Edge for Linux on Windows PowerShell functions to deploy, provision, and status IoT Edge for Linux on Windows virtual machines.
-author: kgremban
+author: PatAltimore
 
 ms.author: fcabrera
 ms.date: 10/15/2021
@@ -287,7 +287,7 @@ The **Provision-EflowVm** command adds the provisioning information for your IoT
 | deviceId | The device ID of an existing IoT Edge device | Device ID for provisioning an IoT Edge device (**ManualX509**). |
 | scopeId | The scope ID for an existing DPS instance. | Scope ID for provisioning an IoT Edge device (**DpsTPM**, **DpsX509**, or **DpsSymmetricKey**). |
 | symmKey | The primary key for an existing DPS enrollment or the primary key of an existing IoT Edge device registered using symmetric keys | Symmetric key for provisioning an IoT Edge device (**DpsSymmetricKey**). |
-| registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DpsSymmetricKey**). |
+| registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DpsSymmetricKey**, **DpsTPM**). |
 | identityCertPath | Directory path | Absolute destination path of the identity certificate on your Windows host machine (**ManualX509**, **DpsX509**). |
 | identityPrivKeyPath | Directory path | Absolute source path of the identity private key on your Windows host machine (**ManualX509**, **DpsX509**). |
 | globalEndpoint | Device Endpoint URL | URL for Global Endpoint to be used for DPS provisioning. |
@@ -330,14 +330,40 @@ The **Set-EflowVM** command updates the virtual machine configuration with the r
 
 For more information, use the command `Get-Help Set-EflowVM -full`.
 
+
+## Set-EflowVmDNSServers
+
+The **Set-EflowVmDNSServers** command configures the DNS servers for EFLOW virtual machine.
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vendpointName | String value of the virtual endpoint name | Use the _Get-EflowVmEndpoint_ to obtain the virtual interfaces assigned to the EFLOW VM. E.g. **DESKTOP-CONTOSO-EflowInterface** |
+| dnsServers | List of DNS server IPAddress to use for name resolution | E.g. **@("10.0.10.1")** |
+
+For more information, use the command `Get-Help Set-EflowVmDNSServers -full`.
+
+
 ## Set-EflowVmFeature
 
 The **Set-EflowVmFeature** command enables or disables the status of IoT Edge for Linux on Windows features.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
 | feature | **DpsTpm** | Feature name to toggle. |
 | enable | None | If this flag is present, the command enables the feature. |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| feature | **DpsTpm**, **Defender** | Feature name to toggle. |
+| enable | None | If this flag is present, the command enables the feature. |
+:::moniker-end
+<!-- end 1.2 -->
 
 For more information, use the command `Get-Help Set-EflowVmFeature -full`.
 

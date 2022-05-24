@@ -19,7 +19,7 @@ This article shows you how to use PowerShell to get, set, and update the access 
 
 ACL inheritance is already available for new child items that are created under a parent directory. But you can also add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item.
 
-[Reference](/powershell/module/Az.Storage/) | [Recursive ACL Samples](https://recursiveaclpr.blob.core.windows.net/privatedrop/samplePS.ps1?sv=2019-02-02&st=2020-08-24T17%3A04%3A44Z&se=2021-08-25T17%3A04%3A00Z&sr=b&sp=r&sig=dNNKS%2BZcp%2F1gl6yOx6QLZ6OpmXkN88ZjBeBtym1Mejo%3D) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
+[Reference](/powershell/module/Az.Storage/) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
 
 ## Prerequisites
 

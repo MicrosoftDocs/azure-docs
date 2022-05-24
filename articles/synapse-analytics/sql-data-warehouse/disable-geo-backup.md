@@ -1,7 +1,6 @@
 ---
 title: Disable geo-backups 
 description: How-to guide for disabling geo-backups for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
-services: synapse-analytics
 author: joannapea
 manager: igorstan
 ms.service: synapse-analytics

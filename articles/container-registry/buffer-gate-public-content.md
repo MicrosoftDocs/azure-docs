@@ -63,7 +63,7 @@ For details, see [Docker Hub authenticated pulls on App Service](https://azure.g
  
 To begin managing copies of public images, you can create an Azure container registry if you don't already have one. Create a registry using the [Azure CLI](container-registry-get-started-azure-cli.md), [Azure portal](container-registry-get-started-portal.md), [Azure PowerShell](container-registry-get-started-powershell.md), or other tools. 
 
-As a recommended one-time step, [import](container-registry-import-images.md) base images and other public content to your Azure container registry. The [az acr import](/cli/azure/acr#az_acr_import) command in the Azure CLI supports image import from public registries such as Docker Hub and Microsoft Container Registry and from other private container registries. 
+As a recommended one-time step, [import](container-registry-import-images.md) base images and other public content to your Azure container registry. The [az acr import](/cli/azure/acr#az-acr-import) command in the Azure CLI supports image import from public registries such as Docker Hub and Microsoft Container Registry and from other private container registries. 
 
 `az acr import` doesn't require a local Docker installation. You can run it with a local installation of the Azure CLI or directly in Azure Cloud Shell. It supports images of any OS type, multi-architecture images, or OCI artifacts such as Helm charts.
 

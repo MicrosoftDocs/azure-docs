@@ -1,12 +1,12 @@
 ---
 title: Manage integration account artifact metadata
-description: Add or get artifact metadata from integration accounts in Azure Logic Apps with Enterprise Integration Pack
+description: Add or get artifact metadata from integration accounts in Azure Logic Apps with Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 01/17/2019
 ---
 

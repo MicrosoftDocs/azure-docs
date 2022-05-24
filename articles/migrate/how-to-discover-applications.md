@@ -1,8 +1,8 @@
 ---
 title: Discover software inventory on on-premises servers with Azure Migrate 
 description: Learn how to discover software inventory on on-premises servers with Azure Migrate Discovery and assessment.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/18/2021
@@ -10,45 +10,44 @@ ms.date: 03/18/2021
 
 # Discover installed software inventory, web apps, and SQL Server instances and databases
 
-This article describes how to discover installed software inventory, web apps, and SQL Server instances and databases on servers running in your VMware environment, using Azure Migrate: Discovery and assessment tool.
+This article describes how to discover installed software inventory, web apps, and SQL Server instances and databases on servers running in your on-premises environment, using Azure Migrate: Discovery and assessment tool.
 
 Performing software inventory helps identify and tailor a migration path to Azure for your workloads. Software inventory uses the Azure Migrate appliance to perform discovery, using server credentials. It is completely agentless- no agents are installed on the servers to collect this data.
+
+> [!Note]
+> Currently the discovery of ASP.NET web apps and SQL Server instances and databases is only available with appliance used for discovery of servers running in your VMware enviornment. These features are not available for servers running in your Hyper-V enviornment and for physical servers or servers running on other clouds like AWS, GCP etc.
 
 ## Before you start
 
 - Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
-- Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform software inventory.
-- Review [appliance requirements](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) before setting up the appliance.
-- Review [application discovery requirements](migrate-support-matrix-vmware.md#software-inventory-requirements) before initiating software inventory on servers.
+- Review the requirements based on your environment and the appliance you are setting up to perform software inventory:
+
+    Environment | Requirements
+    --- | ---
+    Servers running in VMware environment | Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---vmware)<br/> Review [port access requirements](migrate-support-matrix-vmware.md#port-access-requirements) <br/> Review [software inventory requirements](migrate-support-matrix-vmware.md#software-inventory-requirements)
+    Servers running in Hyper-V environment | Review [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---hyper-v)<br/> Review [port access requirements](migrate-support-matrix-hyper-v.md#port-access)<br/> Review [software inventory requirements](migrate-support-matrix-hyper-v.md#software-inventory-requirements)
+    Physical servers or servers running on other clouds | Review [server requirements](migrate-support-matrix-physical.md#physical-server-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---physical)<br/> Review [port access requirements](migrate-support-matrix-physical.md#port-access)<br/> Review [software inventory requirements](migrate-support-matrix-physical.md#software-inventory-requirements)
+- Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 
 ## Deploy and configure the Azure Migrate appliance
 
-1. [Review](migrate-appliance.md#appliance---vmware) the requirements for deploying the Azure Migrate appliance.
-2. Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
-3. [Review data](migrate-appliance.md#collected-data---vmware) that the appliance collects during discovery and assessment.
-4. [Note](migrate-support-matrix-vmware.md#port-access-requirements) port access requirements for the appliance.
-5. [Deploy the Azure Migrate appliance](how-to-set-up-appliance-vmware.md) to start discovery. To deploy the appliance, you download and import an OVA template into VMware to create a server running in your vCenter Server. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
-6. As you configure the appliance, you need to specify the following in the appliance configuration manager:
-    - The details of the vCenter Server to which you want to connect.
-    - vCenter Server credentials scoped to discover the servers in your VMware environment.
-    - Server credentials, which can be domain/ Windows(non-domain)/ Linux(non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how we handle them.
-
-## Verify permissions
-
-- You need to [create a vCenter Server read-only account](./tutorial-discover-vmware.md#prepare-vmware) for discovery and assessment. The read-only account needs privileges enabled for **Virtual Machines** > **Guest Operations**, in order to interact with the servers to perform software inventory.
-- You can add multiple domain and non-domain (Windows/Linux) credentials on the appliance configuration manager for application discovery. You need a guest user account for Windows servers, and a regular/normal user account (non-sudo access) for all Linux servers.[Learn more](add-server-credentials.md) about how to provide credentials and how we handle them.
+1. Deploy the Azure Migrate appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
+2. As you configure the appliance, you need to specify the following in the appliance configuration manager:
+    - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
+    - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
+    - Verify the permissions required to perform software inventory.You need a guest user account for Windows servers, and a regular/normal user account (non-sudo access) for all Linux servers.
 
 ### Add credentials and initiate discovery
 
 1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
 2. Navigate to the **Manage credentials and discovery sources** panel.
-1.  In **Step 1: Provide vCenter Server credentials**, click on **Add credentials** to  provide credentials for the vCenter Server account that the appliance will use to discover servers running on the vCenter Server.
-1. In **Step 2: Provide vCenter Server details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the vCenter Server instance
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details":::
-1. In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of ASP.NET web apps in your VMware environment.**, click **Add credentials** to provide multiple server credentials to initiate software inventory.
-1. Click on **Start discovery**, to kick off vCenter Server discovery.
+1.  In **Step 1: Provide credentials for discovery source**, click on **Add credentials** to  provide credentials for the discovery source that the appliance will use to discover servers running in your environment.
+1. In **Step 2: Provide discovery source details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
+:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details.":::
+1. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, click **Add credentials** to provide multiple server credentials to perform software inventory.
+1. Click on **Start discovery**, to initiate discovery.
 
- After the vCenter Server discovery is complete, appliance initiates the discovery of installed applications, roles, and features (software inventory). The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate portal.
+ After the server discovery is complete, appliance initiates the discovery of installed applications, roles, and features (software inventory) on the servers. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate portal. After the initial discovery is complete, software inventory data is collected and sent to Azure once every 24 hours.Review the [data](discovered-metadata.md#software-inventory-data) collected by appliance during software inventory.
 
 ## Review and export the inventory
 
@@ -76,9 +75,12 @@ Once connected, appliance gathers configuration and performance data of SQL Serv
 
 ## Discover ASP.NET web apps
 
-Software inventory identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Migrate will perform web apps discovery on the server.
-User can add both domain and non-domain credentials on appliance. Make sure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in source environment.
-After the appliance is connected, it gathers configuration data for IIS web server and ASP.NET web apps. Web apps configuration data is updated once every 24 hours.
+- Software inventory identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Migrate will perform web apps discovery on the server.
+- User can add both domain and non-domain credentials on appliance. Make sure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in source environment.
+- After the appliance is connected, it gathers configuration data for IIS web server and ASP.NET web apps. Web apps configuration data is updated once every 24 hours.
+
+> [!Note]
+> Currently the discovery of ASP.NET web apps and SQL Server instances and databases is only available with appliance used for discovery of servers running in your VMware environment.
 
 ## Next steps
 

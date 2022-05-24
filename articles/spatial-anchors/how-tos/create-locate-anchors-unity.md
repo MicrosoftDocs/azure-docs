@@ -1,11 +1,11 @@
 ---
 title: Create & locate anchors in Unity
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Unity.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
@@ -295,10 +295,20 @@ Learn more about the [AnchorLocatedDelegate](/dotnet/api/microsoft.azure.spatial
 
 Learn more about the [DeleteAnchorAsync](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) method.
 
+### Delete anchor after locating (recommended)
 ```csharp
     await this.cloudSession.DeleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes
 ```
+
+### Delete anchor without locating
+If you are unable to locate an anchor but would still like to delete it you can use the ``GetAnchorPropertiesAsync`` API which takes an anchorId as input to get the ``CloudSpatialAnchor`` object. You can then pass this object into ``DeleteAnchorAsync`` to delete it. 
+```csharp
+var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
+await this.cloudSession.DeleteAnchorAsync(anchor);
+```
+    
+
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 

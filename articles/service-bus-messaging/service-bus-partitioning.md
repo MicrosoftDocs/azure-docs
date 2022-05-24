@@ -68,7 +68,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
     ServiceBusMessage msg = new ServiceBusMessage("This is a message");
     msg.PartitionKey = "myPartitionKey";
     await sender.SendMessageAsync(msg); 
-    await ts.CompleteAsync();
+    ts.Complete();
 }
 committableTransaction.Commit();
 ```
@@ -88,7 +88,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
     ServiceBusMessage msg = new ServiceBusMessage("This is a message");
     msg.SessionId = "mySession";
     await sender.SendMessageAsync(msg); 
-    await ts.CompleteAsync();
+    ts.Complete();
 }
 committableTransaction.Commit();
 ```

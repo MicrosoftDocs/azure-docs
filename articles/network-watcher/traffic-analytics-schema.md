@@ -1,8 +1,8 @@
-﻿---
+---
 title: Azure traffic analytics schema | Microsoft Docs
 description: Understand schema of Traffic Analytics to analyze Azure network security group flow logs.
-author: vinynigam
-manager: agummadi
+author: harshacs
+manager: vinynigam
 ms.service: network-watcher
 ms.topic: article
 ms.workload:  infrastructure-services
@@ -31,11 +31,13 @@ Traffic Analytics is a cloud-based solution that provides visibility into user a
 6. For any resource in TA, the flows indicated in the UI are total flows seen by the NSG, but in Log Analytics user will see only the single, reduced record. To see all the flows, use the blob_id field,  which can be referenced from Storage. The total flow count for that record will match the individual flows seen in the blob.
 
 The below query helps you look at all subnets interacting with non-Azure public IPs in the last 30 days.
+
 ```
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
 | project Subnet1_s, Subnet2_s  
 ```
+
 To view the blob path for the flows in the above mentioned query, use the query below:
 
 ```
@@ -68,7 +70,7 @@ TableWithBlobId
 | project Subnet_s , BlobPath
 ```
 
-The above query constructs a URL to access the blob directly. The URL with place-holders is below:
+The above query constructs a URL to access the blob directly. The URL with placeholders is below:
 
 ```
 https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroup}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
@@ -76,12 +78,16 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 ```
 
 ### Fields used in Traffic Analytics schema
-  > [!IMPORTANT]
-  > The Traffic Analytics Schema has been updated on 22nd August, 2019. The new schema provides source and destination IPs separately removing need to parse FlowDirection field making queries simpler. </br>
-  > FASchemaVersion_s updated from 1 to 2. </br>
-  > Deprecated fields: VMIP_s, Subscription_s, Region_s, NSGRules_s, Subnet_s, VM_s, NIC_s, PublicIPs_s, FlowCount_d </br>
-  > New fields: SrcPublicIPs_s, DestPublicIPs_s, NSGRule_s </br>
-  > Deprecated fields will be available until 22nd November, 2019.
+
+> [!IMPORTANT]
+> The Traffic Analytics schema was updated August 22, 2019. The new schema provides source and destination IPs separately, removing need to parse the FlowDirection field so that queries are simpler. These changes were made:
+> 
+> - FASchemaVersion_s updated from 1 to 2.
+> - Deprecated fields: VMIP_s, Subscription_s, Region_s, NSGRules_s, Subnet_s, VM_s, NIC_s, PublicIPs_s, FlowCount_d
+> - New fields: SrcPublicIPs_s, DestPublicIPs_s, NSGRule_s
+> 
+> Deprecated fields are available until November 2022.
+> 
 
 Traffic Analytics is built on top of Log Analytics, so you can run custom queries on data decorated by Traffic Analytics and set alerts on the same.
 
@@ -167,8 +173,8 @@ Below is the schema for public ip details:
 | FlowIntervalEndTime_t | Date and Time in UTC | End time of the flow log processing interval |
 | FlowType_s | * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow | Definition in notes below the table |
 | IP | Public IP | Public IP whose information is provided in the record |
-| Location | Location of the IP | - For Azure Public IP: Azure region of virtual network/network interface/virtual machine to which the IP belongs to <br> - For External Public IP and Malicious IP: 2-letter country code where IP is located (ISO 3166-1 alpha-2) |
-| PublicIPDetails | Information about IP | - For AzurePublic IP: Azure Service behind the IP <br> - ExternalPublic/Malicious IP: WhoIS information of the IP |
+| Location | Location of the IP | - For Azure Public IP: Azure region of virtual network/network interface/virtual machine to which the IP belongs OR Global for IP [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) <br> - For External Public IP and Malicious IP: 2-letter country code where IP is located (ISO 3166-1 alpha-2) |
+| PublicIPDetails | Information about IP | - For AzurePublic IP: Azure Service owning the IP OR "Microsoft Virtual Public IP" for IP [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) <br> - ExternalPublic/Malicious IP: WhoIS information of the IP |
 | ThreatType | Threat posed by malicious IP | **For Malicious IPs only**: One of the threats from the list of currently allowed values (described below) |
 | ThreatDescription | Description of the threat | **For Malicious IPs only**: Description of the threat posed by the malicious IP |
 | DNSDomain | DNS domain | **For Malicious IPs only**: Domain name associated with this IP |

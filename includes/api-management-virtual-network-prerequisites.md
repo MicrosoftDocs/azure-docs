@@ -17,7 +17,7 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](../articles/api-management/get-started-create-service-instance.md).
 
-* **A virtual network and subnet** in the same region and subscription as your API Management instance. The subnet may contain other Azure resources.
+* **A virtual network and subnet** in the same region and subscription as your API Management instance. A dedicated subnet is recommended but not required.
 
 * **A network security group** attached to the subnet above. A network security group (NSG) is required to explicitly allow inbound connectivity, because the load balancer used internally by API Management is secure by default and rejects all inbound traffic. For specific configuration, see [Configure NSG rules](#configure-nsg-rules), later in this article.
 

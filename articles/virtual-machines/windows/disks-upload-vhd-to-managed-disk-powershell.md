@@ -35,7 +35,7 @@ For guidance on how to copy a managed disk from one region to another, see [Copy
 - A VHD [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
     - On Windows: You don't need to convert your VHD to VHDx, convert it a fixed size, or resize it to include the 512-byte offset. `Add-AZVHD` performs these functions for you.
         - [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) must be enabled for Add-AzVHD to perform these functions.
-    - On Linux: You must perform these actions manually. See [Resizing VHDs](/azure/virtual-machines/linux/create-upload-generic?branch=pr-en-us-185925) for details.
+    - On Linux: You must perform these actions manually. See [Resizing VHDs](../linux/create-upload-generic.md?branch=pr-en-us-185925) for details.
 
 ### Upload a VHD
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: ryanwi
-ms.reviewer: hirsin
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ---

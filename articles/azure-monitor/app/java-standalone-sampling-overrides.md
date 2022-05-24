@@ -3,10 +3,8 @@ title: Sampling overrides (preview) - Azure Monitor Application Insights for Jav
 description: Learn to configure sampling overrides in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
 ms.date: 03/22/2021
-author: trask
 ms.devlang: java
 ms.custom: devx-track-java
-ms.author: trstalna
 ---
 
 # Sampling overrides (preview) - Azure Monitor Application Insights for Java
@@ -70,6 +68,9 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 
 When a span is started, the attributes present on the span at that time are used to check if any of the sampling
 overrides match.
+
+Matches can be either `strict` or `regexp`. Regular expression matches are performed against the entire attribute value,
+so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
 
 If one of the sampling overrides match, then its sampling percentage is used to decide whether to sample the span or
 not.

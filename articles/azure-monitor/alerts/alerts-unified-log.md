@@ -4,7 +4,7 @@ description: Trigger emails, notifications, call websites URLs (webhooks), or au
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 2/23/2022
 ---
 
 # Log alerts in Azure Monitor
@@ -58,8 +58,10 @@ If you use **ago** command in the query, the range is automatically set to two d
 ### Measure
 
 Log alerts turn log into numeric values that can be evaluated. You can measure two different things:
+* Result count
+* Calculation of a value
 
-#### Count of the results table rows
+#### Result count
 
 Count of results is the default measure and is used when you set a **Measure** with a selection of **Table rows**. Ideal for working with events such as Windows event logs, syslog, application exceptions. Triggers when log records happen or doesn't happen in the evaluated time window.
 
@@ -68,7 +70,7 @@ Log alerts work best when you try to detect data in the log. It works less well 
 > [!NOTE]
 > Since logs are semi-structured data, they are inherently more latent than metric, you may experience misfires when trying to detect lack of data in the logs, and you should consider using [metric alerts](alerts-metric-overview.md). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
 
-##### Example of results table rows count use case
+##### Example of result count use case
 
 You want to know when your application responded with error code 500 (Internal Server Error). You would create an alert rule with the following details:
 
@@ -85,9 +87,9 @@ requests
 
 Then alert rules monitors for any requests ending with 500 error code. The query runs every 15 minutes, over the last 15 minutes. If even one record is found, it fires the alert and triggers the actions configured.
 
-#### Calculation of measure based on a numeric column (such as CPU counter value)
+### Calculation of a value
 
-Calculation of measure based on a numeric column is used when the **Measure** has a selection of any number column name.
+Calculation of a value is used when you select a column name of a numeric column for the **Measure**, and the result is a calculation that you perform on the values in that column. This would be used, for example, as CPU counter value.
 ### Aggregation type
 
 The calculation that is done on multiple records to aggregate them to one numeric value using the [**Aggregation granularity**](#aggregation-granularity) defined. For example:
@@ -164,7 +166,7 @@ See this alert stateless evaluation example:
 | 00:15 | TRUE  | Alert fires and action groups called. New alert state ACTIVE.
 | 00:20 | FALSE | Alert doesn't fire. No actions called. Pervious alerts state remains ACTIVE.
 
-Stateful alerts fire once per incident and resolve. The alert rule resolves when the alert condition isn't met for 30 minutes for a specific evaluation period (to account for log ingestion delay), and for three consecutive evaluations to reduce noise if there is flapping conditions. For example, with a frequency of 5 minutes, the alert resolve after 40 minutes or with a frequency of 1 minute, the alert resolve after 32 minutes. The resolved notification is sent out via web-hooks or email, the status of the alert instance (called monitor state) in Azure portal is also set to resolved.
+Stateful alerts fire once per incident and resolve. The alert rule resolves when the alert condition isn't met for 30 minutes for a specific evaluation period (to account for [log ingestion delay](../alerts/alerts-troubleshoot-log.md#data-ingestion-time-for-logs)), and for three consecutive evaluations to reduce noise if there is flapping conditions. For example, with a frequency of 5 minutes, the alert resolve after 40 minutes or with a frequency of 1 minute, the alert resolve after 32 minutes. The resolved notification is sent out via web-hooks or email, the status of the alert instance (called monitor state) in Azure portal is also set to resolved.
 
 Stateful alerts feature is currently in preview. You can set this using **Automatically resolve alerts** in the alert details section.
 
@@ -174,9 +176,29 @@ Log alerts allow you to set a location for alert rules. You can select any of th
 
 Location affects which region the alert rule is evaluated in. Queries are executed on the log data in the selected region, that said, the alert service end to end is global. Meaning alert rule definition, fired alerts, notifications, and actions aren't bound to the location in the alert rule. Data is transfer from the set region since the Azure Monitor alerts service is a [non-regional service](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=non-regional).
 
-## Pricing and billing of log alerts
+## Pricing model
 
-Pricing information is located in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). Log Alerts are listed under resource provider `microsoft.insights/scheduledqueryrules` with:
+Each Log Alert rule is billed based the interval at which the log query is evaluated (more frequent query evaluation results in a higher cost).  Additionally, for Log Alerts configured for [at scale monitoring](#split-by-alert-dimensions), the cost will also depend on the number of time series created by the dimensions resulting from your query.
+
+Prices for Log Alert rules are available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). 
+
+### Calculating the price for a Log Alert rule without dimensions 
+
+The price of an alert rule which queries 1 resource event every 15-minutes can be calculated as: 
+
+Total monthly price = 1 resource * 1 log alert rule * price per 15-minute internal log alert rule per month.
+
+### Calculating the price for a Log Alert rule with dimensions 
+
+The price of an alert rule which monitors 10 VM resources at 1-minute frequency, using resource centric log monitoring, can be calculated as Price of alert rule + Price of number of dimensions. For example:
+
+Total monthly price = price per 1-minute log alert rule per month + ( 10 time series - 1 included free time series ) * price per 1-min interval monitored per month.
+
+Pricing of at scale log monitoring is applicable from Scheduled Query Rules API version 2021-02-01.
+
+## View log alerts usage on your Azure bill
+
+Log Alerts are listed under resource provider `microsoft.insights/scheduledqueryrules` with:
 
 - Log Alerts on Application Insights shown with exact resource name along with resource group and alert properties.
 - Log Alerts on Log Analytics shown with exact resource name along with resource group and alert properties; when created using [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules).

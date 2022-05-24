@@ -49,7 +49,7 @@ Select the name of a solution to open its summary page. This page displays any v
 
 ### [Azure CLI](#tab/azure-cli)
 
-To list the monitoring solutions installed in your subscription, use the [az monitor log-analytics solution list](/cli/azure/monitor/log-analytics/solution#az_monitor_log_analytics_solution_list) command. Before you run the command, follow the prerequisites in [Install a monitoring solution](#install-a-monitoring-solution).
+To list the monitoring solutions installed in your subscription, use the [az monitor log-analytics solution list](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-list) command. Before you run the command, follow the prerequisites in [Install a monitoring solution](#install-a-monitoring-solution).
 
 ```azurecli
 # List all log-analytics solutions in the current subscription.
@@ -122,7 +122,7 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 
 1. Sign in.
 
-   If you're using a local installation of the CLI, sign in by using the [az login](/cli/azure/reference-index#az_login) command.  Follow the steps displayed in your terminal to complete the authentication process.
+   If you're using a local installation of the CLI, sign in by using the [az login](/cli/azure/reference-index#az-login) command.  Follow the steps displayed in your terminal to complete the authentication process.
 
     ```azurecli
     az login
@@ -245,7 +245,7 @@ To remove an installed solution by using the portal, find it in the [list of ins
 
 ### [Azure CLI](#tab/azure-cli)
 
-To remove an installed solution by using the Azure CLI, use the [az monitor log-analytics solution delete](/cli/azure/monitor/log-analytics/solution#az_monitor_log_analytics_solution_delete) command.
+To remove an installed solution by using the Azure CLI, use the [az monitor log-analytics solution delete](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete) command.
 
 ```azurecli
 az monitor log-analytics solution delete --name

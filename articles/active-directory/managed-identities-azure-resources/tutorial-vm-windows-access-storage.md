@@ -13,7 +13,7 @@ ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 02/18/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -51,12 +51,12 @@ This tutorial shows you how to use a system-assigned managed identity for a Wind
 
 In this section, you create a storage account.
 
-1. Click the **+ Create a resource** button found on the upper left-hand corner of the Azure portal.
-2. Click **Storage**, then **Storage account - blob, file, table, queue**.
+1. Select the **+ Create a resource** button found on the upper left-hand corner of the Azure portal.
+2. Select **Storage**, then **Storage account - blob, file, table, queue**.
 3. Under **Name**, enter a name for the storage account.
 4. **Deployment model** and **Account kind** should be set to **Resource manager** and **Storage (general purpose v1)**.
 5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.
-6. Click **Create**.
+6. Select **Create**.
 
     ![Create new storage account](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -65,15 +65,15 @@ In this section, you create a storage account.
 Files require blob storage so you need to create a blob container in which to store the file. You then upload a file to the blob container in the new storage account.
 
 1. Navigate back to your newly created storage account.
-2. Under **Blob Service**, click **Containers**.
-3. Click **+ Container** on the top of the page.
-4. Under **New container**, enter a name for the container and under **Public access level** keep the default value .
+2. Under **Blob Service**, select **Containers**.
+3. Select **+ Container** on the top of the page.
+4. Under **New container**, enter a name for the container and under **Public access level** keep the default value.
 
     ![Create storage container](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Using an editor of your choice, create a file titled *hello world.txt* on your local machine. Open the file and add the text (without the quotes) "Hello world! :)" and then save it.
 6. Upload the file to the newly created container by clicking on the container name, then **Upload**
-7. In the **Upload blob** pane, under **Files**, click the folder icon and browse to the file **hello_world.txt** on your local machine, select the file, then click **Upload**.
+7. In the **Upload blob** pane, under **Files**, select the folder icon and browse to the file **hello_world.txt** on your local machine, select the file, then select **Upload**.
     ![Upload text file](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ### Grant access
@@ -81,8 +81,8 @@ Files require blob storage so you need to create a blob container in which to st
 This section shows how to grant your VM access to an Azure Storage container. You can use the VM's system-assigned managed identity to retrieve the data in the Azure storage blob.
 
 1. Navigate back to your newly created storage account.
-1. Click **Access control (IAM)**.
-1. Click **Add** > **Add role assignment** to open the Add role assignment page.
+1. Select **Access control (IAM)**.
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
     
     | Setting | Value |
@@ -96,9 +96,9 @@ This section shows how to grant your VM access to an Azure Storage container. Yo
 
 ## Access data 
 
-Azure Storage natively supports Azure AD authentication, so it can directly accept access tokens obtained using a managed identity. This is part of Azure Storage's integration with Azure AD, and is different from supplying credentials on the connection string.
+Azure Storage natively supports Azure AD authentication, so it can directly accept access tokens obtained using a managed identity. This approach uses Azure Storage's integration with Azure AD, and is different from supplying credentials on the connection string.
 
-Here's a .NET code example of opening a connection to Azure Storage using an access token and then reading the contents of the file you created earlier. This code must run on the VM to be able to access the VM's managed identity endpoint. .NET Framework 4.6 or higher is required to use the access token method. Replace the value of `<URI to blob file>` accordingly. You can obtain this value by navigating to file you created and uploaded to blob storage and copying the **URL** under **Properties** the **Overview** page.
+Here's a .NET code example of opening a connection to Azure Storage. The example uses an access token and then reads the contents of the file you created earlier. This code must run on the VM to be able to access the VM's managed identity endpoint. .NET Framework 4.6 or higher is required to use the access token method. Replace the value of `<URI to blob file>` accordingly. You can obtain this value by navigating to file you created and uploaded to blob storage and copying the **URL** under **Properties** the **Overview** page.
 
 ```csharp
 using System;
@@ -181,7 +181,7 @@ The response contains the contents of the file:
 
 ## Next steps
 
-In this tutorial, you learned how enable a Windows VM's system-assigned identity to access Azure Storage.  To learn more about Azure Storage see:
+In this tutorial, you learned how enable a Windows VM's system-assigned identity to access Azure Storage.  To learn more about Azure Storage, see:
 
 > [!div class="nextstepaction"]
 > [Azure Storage](../../storage/common/storage-introduction.md)

@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 12/28/2021
+ms.date: 05/16/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -17,17 +17,23 @@ Resource Manager provides the following functions for getting resource values in
 * [reference](#reference)
 * [resourceId](#resourceid)
 * [subscriptionResourceId](#subscriptionresourceid)
+* [managementGroupResourceId](#managementgroupresourceid)
 * [tenantResourceId](#tenantresourceid)
 
 To get values from parameters, variables, or the current deployment, see [Deployment value functions](template-functions-deployment.md).
 
 To get deployment scope values, see [Scope functions](template-functions-scope.md).
 
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [resource](../bicep/bicep-functions-resource.md) functions.
+
 ## extensionResourceId
 
 `extensionResourceId(baseResourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the resource ID for an [extension resource](../management/extension-resource-types.md). An extension resource is a resource type that's applied to another resource to add to its capabilities.
+
+In Bicep, use the [extensionResourceId](../bicep/bicep-functions-resource.md#extensionresourceid) function.
 
 ### Parameters
 
@@ -99,6 +105,8 @@ Built-in policy definitions are tenant level resources. For an example of deploy
 
 The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list` and may have a suffix. Some common usages are `list`, `listKeys`, `listKeyValue`, and `listSecrets`.
 
+In Bicep, use the [list*](../bicep/bicep-functions-resource.md#list) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -128,14 +136,14 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/current-ga/openid-connect-provider/list-secrets) |
 | Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/current-ga/subscription/list-secrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
-| Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
+| Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringapps/services/list-test-keys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
-| Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
+| Microsoft.Batch/batchAccounts | [listKeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/workspaces/experiments/jobs | listoutputfiles |
 | Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
 | Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
-| Microsoft.Cache/redis | [listKeys](/rest/api/redis/2021-06-01/redis/list-keys) |
+| Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/list-keys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/get-build-source-upload-url) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
@@ -159,10 +167,10 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.DataShare/accounts/shareSubscriptions | [listSourceShareSynchronizationSettings](/rest/api/datashare/2020-09-01/sharesubscriptions/listsourcesharesynchronizationsettings) |
 | Microsoft.DataShare/accounts/shareSubscriptions | [listSynchronizationDetails](/rest/api/datashare/2020-09-01/sharesubscriptions/listsynchronizationdetails) |
 | Microsoft.DataShare/accounts/shareSubscriptions | [listSynchronizations](/rest/api/datashare/2020-09-01/sharesubscriptions/listsynchronizations) |
-| Microsoft.Devices/iotHubs | [listkeys](/rest/api/iothub/iothubresource/listkeys) |
-| Microsoft.Devices/iotHubs/iotHubKeys | [listkeys](/rest/api/iothub/iothubresource/getkeysforkeyname) |
-| Microsoft.Devices/provisioningServices/keys | [listkeys](/rest/api/iot-dps/iotdpsresource/listkeysforkeyname) |
-| Microsoft.Devices/provisioningServices | [listkeys](/rest/api/iot-dps/iotdpsresource/listkeys) |
+| Microsoft.Devices/iotHubs | [listKeys](/rest/api/iothub/iothubresource/listkeys) |
+| Microsoft.Devices/iotHubs/iotHubKeys | [listKeys](/rest/api/iothub/iothubresource/getkeysforkeyname) |
+| Microsoft.Devices/provisioningServices/keys | [listKeys](/rest/api/iot-dps/iotdpsresource/listkeysforkeyname) |
+| Microsoft.Devices/provisioningServices | [listKeys](/rest/api/iot-dps/iotdpsresource/listkeys) |
 | Microsoft.DevTestLab/labs | [ListVhds](/rest/api/dtl/labs/listvhds) |
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
@@ -173,13 +181,13 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/controlplane-version2021-12-01/domains/list-shared-access-keys) |
 | Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/controlplane-version2021-12-01/topics/list-shared-access-keys) |
-| Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub) |
-| Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub) |
-| Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
+| Microsoft.EventHub/namespaces/authorizationRules | [listKeys](/rest/api/eventhub) |
+| Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listKeys](/rest/api/eventhub) |
+| Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listKeys](/rest/api/eventhub) |
 | Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
 | Microsoft.Kusto/Clusters/Databases | [ListPrincipals](/rest/api/azurerekusto/databases/listprincipals) |
-| Microsoft.LabServices/users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
-| Microsoft.LabServices/users | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
+| Microsoft.LabServices/labs/users | [list](/rest/api/labservices/users/list-by-lab) |
+| Microsoft.LabServices/labs/virtualMachines | [list](/rest/api/labservices/virtual-machines/list-by-lab) |
 | Microsoft.Logic/integrationAccounts/agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
@@ -210,19 +218,19 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.OperationalInsights/workspaces | listKeys |
 | Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy/remediations/listdeploymentsatresourcegroup) |
 | Microsoft.RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/openshiftclusters/listcredentials) |
-| Microsoft.Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
-| Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
-| Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
+| Microsoft.Relay/namespaces/authorizationRules | [listKeys](/rest/api/relay/namespaces/listkeys) |
+| Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listKeys |
+| Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listKeys](/rest/api/relay/hybridconnections/listkeys) |
 | Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
 | Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/2021-04-01-preview/admin-keys/get) |
 | Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/2021-04-01-preview/query-keys/list-by-search-service) |
-| Microsoft.ServiceBus/namespaces/authorizationRules | [listkeys](/rest/api/servicebus/stable/namespaces-authorization-rules/list-keys) |
-| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/servicebus/stable/disasterrecoveryconfigs/listkeys) |
-| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listkeys](/rest/api/servicebus/stable/queues-authorization-rules/list-keys) |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listkeys](/rest/api/servicebus/stable/topics%20%E2%80%93%20authorization%20rules/list-keys) |
-| Microsoft.SignalRService/SignalR | [listkeys](/rest/api/signalr/signalr/listkeys) |
+| Microsoft.ServiceBus/namespaces/authorizationRules | [listKeys](/rest/api/servicebus/stable/namespaces-authorization-rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listKeys](/rest/api/servicebus/stable/disasterrecoveryconfigs/listkeys) |
+| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listKeys](/rest/api/servicebus/stable/queues-authorization-rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listKeys](/rest/api/servicebus/stable/topics%20%E2%80%93%20authorization%20rules/list-keys) |
+| Microsoft.SignalRService/SignalR | [listKeys](/rest/api/signalr/signalr/listkeys) |
 | Microsoft.Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
-| Microsoft.Storage/storageAccounts | [listkeys](/rest/api/storagerp/storageaccounts/listkeys) |
+| Microsoft.Storage/storageAccounts | [listKeys](/rest/api/storagerp/storageaccounts/listkeys) |
 | Microsoft.Storage/storageAccounts | [listServiceSas](/rest/api/storagerp/storageaccounts/listservicesas) |
 | Microsoft.StorSimple/managers/devices | [listFailoverSets](/rest/api/storsimple/devices/listfailoversets) |
 | Microsoft.StorSimple/managers/devices | [listFailoverTargets](/rest/api/storsimple/devices/listfailovertargets) |
@@ -237,9 +245,9 @@ The possible uses of `list*` are shown in the following table.
 | microsoft.web/apimanagementaccounts/apis/connections | `listSecrets` |
 | microsoft.web/sites/backups | [list](/rest/api/appservice/webapps/listbackups) |
 | Microsoft.Web/sites/config | [list](/rest/api/appservice/webapps/listconfigurations) |
-| microsoft.web/sites/functions | [listkeys](/rest/api/appservice/webapps/listfunctionkeys)
+| microsoft.web/sites/functions | [listKeys](/rest/api/appservice/webapps/listfunctionkeys)
 | microsoft.web/sites/functions | [listSecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
-| microsoft.web/sites/hybridconnectionnamespaces/relays | [listkeys](/rest/api/appservice/appserviceplans/listhybridconnectionkeys) |
+| microsoft.web/sites/hybridconnectionnamespaces/relays | [listKeys](/rest/api/appservice/appserviceplans/listhybridconnectionkeys) |
 | microsoft.web/sites | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |
 | microsoft.web/sites/slots/functions | [listSecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
 | microsoft.web/sites/slots/backups | [list](/rest/api/appservice/webapps/listbackupsslot) |
@@ -325,6 +333,8 @@ The next example shows a `list` function that takes a parameter. In this case, t
 
 Determines whether a resource type supports zones for the specified location or region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
+In Bicep, use the [pickZones](../bicep/bicep-functions-resource.md#pickzones) function.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -390,19 +400,25 @@ You can use the response from `pickZones` to determine whether to provide null f
 },
 ```
 
-The following example shows how to use the `pickZones` function to enable zone redundancy for Cosmos DB.
+Cosmos DB isn't a zonal resource but you can use the `pickZones` function to determine whether to enable zone redundancy for georeplication. Pass the **Microsoft.Storage/storageAccounts** resource type to determine whether to enable zone redundancy.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones-cosmosdb.json":::
 
 ## providers
 
-**The providers function has been deprecated.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
+**The providers function has been deprecated in ARM templates.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
+
+In Bicep, the [providers](../bicep/bicep-functions-resource.md#providers) function is deprecated.
+
+The [providers operation](/rest/api/resources/providers) is still available through the REST API. It can be used outside of an ARM template to get information about a resource provider.
 
 ## reference
 
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Returns an object representing a resource's runtime state.
+
+In Bicep, use the [reference](../bicep/bicep-functions-resource.md#reference) function.
 
 ### Parameters
 
@@ -595,11 +611,15 @@ The following example template references a storage account that isn't deployed 
 
 See the [resourceGroup scope function](template-functions-scope.md#resourcegroup).
 
+In Bicep, use the [resourcegroup](../bicep/bicep-functions-scope.md#resourcegroup) scope function.
+
 ## resourceId
 
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
+
+In Bicep, use the [resourceId](../bicep/bicep-functions-resource.md#resourceid) function.
 
 ### Parameters
 
@@ -615,33 +635,31 @@ Continue adding resource names as parameters when the resource type includes mor
 
 ### Return value
 
-When the template is deployed at the scope of a resource group, the resource ID is returned in the following format:
+The resource ID is returned in different formats at different scopes:
 
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+* Resource group scope:
 
-You can use the `resourceId` function for other deployment scopes, but the format of the ID changes.
+    ```json
+    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    ```
 
-If you use `resourceId` while deploying to a subscription, the resource ID is returned in the following format:
+* Subscription scope:
 
-```json
-/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+    ```json
+    /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    ```
 
-If you use `resourceId` while deploying to a management group or tenant, the resource ID is returned in the following format:
+* Management group or tenant scope:
 
-```json
-/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+    ```json
+    /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    ```
 
 To avoid confusion, we recommend that you don't use `resourceId` when working with resources deployed to the subscription, management group, or tenant. Instead, use the ID function that is designed for the scope.
 
-For [subscription-level resources](deploy-to-subscription.md), use the [subscriptionResourceId](#subscriptionresourceid) function.
-
-For [management group-level resources](deploy-to-management-group.md), use the [extensionResourceId](#extensionresourceid) function to reference a resource that is implemented as an extension of a management group. For example, custom policy definitions that are deployed to a management group are extensions of the management group. Use the [tenantResourceId](#tenantresourceid) function to reference resources that are deployed to the tenant but available in your management group. For example, built-in policy definitions are implemented as tenant level resources.
-
-For [tenant-level resources](deploy-to-tenant.md), use the [tenantResourceId](#tenantresourceid) function. Use `tenantResourceId` for built-in policy definitions because they're implemented at the tenant level.
+* For [subscription-level resources](deploy-to-subscription.md), use the [subscriptionResourceId](#subscriptionresourceid) function.
+* For [management group-level resources](deploy-to-management-group.md), use the [managementGroupResourceId](#managementgroupresourceid) function. Use the [extensionResourceId](#extensionresourceid) function to reference a resource that is implemented as an extension of a management group. For example, custom policy definitions that are deployed to a management group are extensions of the management group. Use the [tenantResourceId](#tenantresourceid) function to reference resources that are deployed to the tenant but available in your management group. For example, built-in policy definitions are implemented as tenant level resources.
+* For [tenant-level resources](deploy-to-tenant.md), use the [tenantResourceId](#tenantresourceid) function. Use `tenantResourceId` for built-in policy definitions because they're implemented at the tenant level.
 
 ### Remarks
 
@@ -694,11 +712,15 @@ The output from the preceding example with the default values is:
 
 See the [subscription scope function](template-functions-scope.md#subscription).
 
+In Bicep, use the [subscription](../bicep/bicep-functions-scope.md#subscription) scope function.
+
 ## subscriptionResourceId
 
 `subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier for a resource deployed at the subscription level.
+
+In Bicep, use the [subscriptionResourceId](../bicep/bicep-functions-resource.md#subscriptionresourceid) function.
 
 ### Parameters
 
@@ -729,11 +751,114 @@ The following template assigns a built-in role. You can deploy it to either a re
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/subscriptionresourceid.json":::
 
+## managementGroupResourceId
+
+`managementGroupResourceId([managementGroupResourceId],resourceType, resourceName1, [resourceName2], ...)`
+
+Returns the unique identifier for a resource deployed at the management group level.
+
+In Bicep, use the [managementGroupResourceId](../bicep/bicep-functions-resource.md#managementgroupresourceid) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| managementGroupResourceId |No |string (in GUID format) |Default value is the current management group. Specify this value when you need to retrieve a resource in another management group. |
+| resourceType |Yes |string |Type of resource including resource provider namespace. |
+| resourceName1 |Yes |string |Name of resource. |
+| resourceName2 |No |string |Next resource name segment, if needed. |
+
+Continue adding resource names as parameters when the resource type includes more segments.
+
+### Return value
+
+The identifier is returned in the following format:
+
+```json
+/providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{resourceType}/{resourceName}
+```
+
+### Remarks
+
+You use this function to get the resource ID for resources that are [deployed to the management group](deploy-to-management-group.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a subscription ID and a resource group value.
+
+### managementGrouopResourceID example
+
+The following template creates and assigns a policy definition. It uses the `managementGroupResourceId` function to get the resource ID for policy definition.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "targetMG": {
+      "type": "string",
+      "metadata": {
+        "description": "Target Management Group"
+      }
+    },
+    "allowedLocations": {
+      "type": "array",
+      "defaultValue": [
+        "australiaeast",
+        "australiasoutheast",
+        "australiacentral"
+      ],
+      "metadata": {
+        "description": "An array of the allowed locations, all other locations will be denied by the created policy."
+      }
+    }
+  },
+  "functions": [],
+  "variables": {
+    "mgScope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
+    "policyDefinitionName": "LocationRestriction"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyDefinitions",
+      "apiVersion": "2020-03-01",
+      "name": "[variables('policyDefinitionName')]",
+      "properties": {
+        "policyType": "Custom",
+        "mode": "All",
+        "parameters": {},
+        "policyRule": {
+          "if": {
+            "not": {
+              "field": "location",
+              "in": "[parameters('allowedLocations')]"
+            }
+          },
+          "then": {
+            "effect": "deny"
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "apiVersion": "2020-03-01",
+      "name": "location-lock",
+      "properties": {
+        "scope": "[variables('mgScope')]",
+        "policyDefinitionId": "[managementGroupResourceId('Microsoft.Authorization/policyDefinitions', variables('policyDefinitionName'))]"
+      },
+      "dependsOn": [
+        "[format('Microsoft.Authorization/policyDefinitions/{0}', variables('policyDefinitionName'))]"
+      ]
+    }
+  ]
+}
+```
+
 ## tenantResourceId
 
 `tenantResourceId(resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier for a resource deployed at the tenant level.
+
+In Bicep, use the [tenantResourceId](../bicep/bicep-functions-resource.md#tenantresourceid) function.
 
 ### Parameters
 

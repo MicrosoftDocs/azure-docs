@@ -52,7 +52,7 @@ When the filters and view are applied and there are example utterances with erro
 Each row shows the current training's prediction score for the example utterance, and the nearest other intent score, which is the difference between these two scores.
 
 > [!Tip]
-> To fix intent prediction errors, use the [Summary dashboard](/azure/cognitive-services/luis/luis-how-to-use-dashboard). The summary dashboard provides analysis for the active version's last training and offers the top suggestions to fix your model.
+> To fix intent prediction errors, use the [Summary dashboard](../luis-how-to-use-dashboard.md). The summary dashboard provides analysis for the active version's last training and offers the top suggestions to fix your model.
 
 ## Add a prebuilt intent
 

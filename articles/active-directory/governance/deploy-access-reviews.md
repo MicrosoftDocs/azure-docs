@@ -163,7 +163,7 @@ The administrative role required to create, manage, or read an access review dep
 | Group or application| Global administrator <p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator (only does reviews for Azure AD role-assignable groups)<p>Group owner ([if enabled by an admin]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview))| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator<p>Security reader<p>Group owner ([if enabled by an admin]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview)) |
 |Azure AD roles| Global administrator <p>Privileged Role administrator|  Global administrator<p>Global reader<p>User administrator<p>Privileged Role administrator<p> <p>Security reader |
 | Azure resource roles| User Access Administrator (for the resource)<p>Resource owner| User Access Administrator (for the resource)<p>Resource owner<p>Reader (for the resource) |
-| Access package| Global administrator<p>User administrator<p>Identity Governance administrator| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p> <p>Security reader  |
+| Access package| Global administrator<p>User administrator<p>Identity Governance administrator<p>Catalog owner (for the access package)<p>Access package manager (for the access package)| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p>Catalog owner (for the access package)<p>Access package manager (for the access package)<p>Security reader  |
 
 For more information, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
 
@@ -248,7 +248,7 @@ When you create an access review for groups or applications, you can choose to l
 
 [Access packages](entitlement-management-overview.md) can vastly simplify your governance and access review strategy. An access package is a bundle of all the resources with the access a user needs to work on a project or do their task. For example, you might want to create an access package that includes all the applications that developers in your organization need, or all applications to which external users should have access. An administrator or delegated access package manager then groups the resources (groups or apps) and the roles the users need for those resources.
 
-When you [create an access package](entitlement-management-access-package-create.md), you can create one or more access policies that set conditions for which users can request an access package, what the approval process looks like, and how often a person would have to re-request access. Access reviews are configured while you create or edit an access package policy.
+When you [create an access package](entitlement-management-access-package-create.md), you can create one or more access package policies that set conditions for which users can request an access package, what the approval process looks like, and how often a person would have to re-request access or have their access reviewed. Access reviews are configured while you create or edit those access package policies.
 
 Select the **Lifecycle** tab and scroll down to access reviews.
 
@@ -319,7 +319,9 @@ To create access reviews for an application, set the **User assignment required?
 
  ![Screenshot that shows planning app assignments.](./media/deploy-access-review/6-plan-applications-assignment-required.png)
 
-Then [assign the users and groups](../manage-apps/assign-user-or-group-access-portal.md) that you want to have access.
+Then [assign the users and groups](../manage-apps/assign-user-or-group-access-portal.md) whose access you want to have reviewed.
+
+Read more about how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md).
 
 ### Reviewers for an application
 

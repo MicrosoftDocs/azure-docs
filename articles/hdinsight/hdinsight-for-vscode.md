@@ -166,7 +166,7 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 
 ## Submit interactive PySpark queries
 
-Users can perform PySpark interactive in the following ways:
+Users can perform PySpark interactive in the following ways. Note here that Jupyter Extension version (ms-jupyter): v2022.1.1001614873 and Python Extension version (ms-python): v2021.12.1559732655, python 3.6.x and 3.7.x are only for HDInsight interactive PySpark queries.
 
 ### Using the PySpark interactive command in PY file
 Using the PySpark interactive command to submit the queries, follow these steps:
@@ -208,7 +208,7 @@ Using the PySpark interactive command to submit the queries, follow these steps:
 
    :::image type="content" source="./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png" alt-text="select interpreter to start jupyter server":::
 
-8. Select the python option below.
+8. Select the Python option below.
 
    :::image type="content" source="./media/hdinsight-for-vscode/choose-the-below-option.png" alt-text="choose the below option":::
     
@@ -260,7 +260,8 @@ The tool also supports the **Spark SQL** query:
 
 > [!NOTE]
 >
-> [ms-toolsai.jupyter >2021.3.684299474 version is not supported on this extension](#known-issues) is a known issue. Please using Synapse kernel by sticking to Microsoft Jupyter 2021.3.684299474.
+> [For Synapse PySpark installation error](#known-issues), since its dependency will not be maintained anymore by other team, this will not be maintained anymore as well. If you trying to use Synapse Pyspark interactive, please switch to use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/en-us/) instead. And it's a long term change.
+>
 
 ## Submit PySpark batch job
 
@@ -311,7 +312,7 @@ You can follow the normal steps to sign in to Azure subscription to connect to y
 
 For run a hive job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive Hive queries and Hive batch scripts](#submit-interactive-hive-queries-and-hive-batch-scripts) for more instructions.
 
-For run a interactive PySpark job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive PySpark queries](#submit-interactive-pyspark-queries) for more instructions.
+For run an interactive PySpark job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to Submit interactive PySpark queries.
 
 For run a PySpark batch job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit PySpark batch job](#submit-pyspark-batch-job) for more instructions.
 
@@ -483,17 +484,11 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 
 ## Known Issues 
 
- ms-toolsai.jupyter >2021.3.684299474 version is not supported on this extension, please using Synapse kernel by sticking to Microsoft Jupyter 2021.3.684299474.
+### Synapse PySpark installation error.
 
- 1. Disable auto updating extension.
+ For Synapse PySpark installation error, since its dependency will not be maintained anymore by other team, it will not be maintained anymore. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead. And it's a long term change.
 
-      ![disable auto updating extension](./media/hdinsight-for-vscode/disable-auto-updating-extension.png)
-
-2. Install a selected version of Microsoft Jupyter.
-
-      ![selected version of microsoft jupyter](./media/hdinsight-for-vscode/selected-version-of-microsoft-jupyter.png)
-
-3. Install  Microsoft Jupyter version 2021.3.684299474
+   ![synapse pyspark installation error](./media/hdinsight-for-vscode/known-issue.png)
 
 
 ## Next steps

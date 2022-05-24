@@ -4,7 +4,8 @@ description: Configure an Azure Load Balancer to open ports for your Azure Servi
 
 ms.topic: conceptual
 ms.date: 12/06/2017 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Open ports for a Service Fabric cluster

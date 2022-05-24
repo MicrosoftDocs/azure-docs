@@ -1,15 +1,15 @@
 ---
-title: "Troubleshooting failed service request: Error 403 (Forbidden)"
+title: "Troubleshoot failed service request: Error 403 (Forbidden)"
 titleSuffix: Azure Digital Twins
 description: Learn how to diagnose and resolve error 403 (Forbidden) status responses from Azure Digital Twins.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 9/23/2021
+ms.date: 02/24/2022
 ---
 
-# Troubleshooting failed service request: Error 403 (Forbidden)
+# Troubleshoot failed service request: Error 403 (Forbidden)
 
 This article describes causes and resolution steps for receiving a 403 error from service requests to Azure Digital Twins. 
 
@@ -21,7 +21,7 @@ This error may occur on many types of service requests that require authenticati
 
 ### Cause #1
 
-Most often, this error indicates that your Azure role-based access control (Azure RBAC) permissions for the service aren't set up correctly. Many actions for an Azure Digital Twins instance require you to have the Azure Digital Twins Data Owner role **on the instance you are trying to manage**. 
+Most often, this error indicates that your Azure role-based access control (Azure RBAC) permissions for the service aren't set up correctly. Many actions for an Azure Digital Twins instance require you to have the Azure Digital Twins Data Owner role on the instance you are trying to manage. 
 
 ### Cause #2
 
@@ -46,7 +46,7 @@ This role is different from...
 
 #### Fix issues 
 
-If you don't have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the Azure Digital Twins Data Owner role on the **Azure Digital Twins instance**. 
+If you don't have this role assignment, someone with an Owner role in your Azure subscription should run the following command to give your Azure user the Azure Digital Twins Data Owner role on the Azure Digital Twins instance. 
 
 If you're an Owner on the subscription, you can run this command yourself. If you're not, contact an Owner to run this command on your behalf.
 
@@ -54,9 +54,9 @@ If you're an Owner on the subscription, you can run this command yourself. If yo
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-For more information about this role requirement and the assignment process, see the [Set up your user's access permissions section](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.
+For more information about this role requirement and the assignment process, see [Set up your user's access permissions](how-to-set-up-instance-CLI.md#set-up-user-access-permissions).
 
-If you have this role assignment already **and** you're using an Azure AD app registration to authenticate a client app, you can continue to the next solution if this solution didn't resolve the 403 issue.
+If you have this role assignment already and you're using an Azure AD app registration to authenticate a client app, you can continue to the next solution if this solution didn't resolve the 403 issue.
 
 ### Solution #2
 
@@ -64,7 +64,7 @@ If you're using an Azure AD app registration to authenticate a client app, the s
 
 #### Check current setup
 
-To check whether the permissions have been configured correctly, navigate to the [Azure AD app registration overview page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal. You can get to this page yourself by searching for **App registrations** in the portal search bar.
+To check whether the permissions have been configured correctly, navigate to the [Azure AD app registration overview page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal. You can get to this page yourself by searching for *app registrations* in the portal search bar.
 
 Switch to the **All applications** tab to see all the app registrations that have been created in your subscription.
 
@@ -82,7 +82,7 @@ Next, select **API permissions** from the menu bar to verify that this app regis
 
 #### Fix issues
 
-If any of this appears differently than described, follow the instructions on how to set up an app registration in [Create an app registration](./how-to-create-app-registration-portal.md).
+If any of this appears differently than described, follow the instructions on how to set up an app registration in [Create an app registration with Azure Digital Twins access](./how-to-create-app-registration-portal.md).
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Azure Virtual Desktop (classic) PowerShell - Azure
 description: How to troubleshoot issues with PowerShell when you set up a Azure Virtual Desktop (classic) tenant environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/30/2020
+ms.date: 04/05/2022
 ms.author: helohr
 manager: femila
 ---
@@ -13,7 +13,7 @@ manager: femila
 > [!IMPORTANT]
 > This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../troubleshoot-powershell.md).
 
-Use this article to resolve errors and issues when using PowerShell with Azure Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Azure Virtual Desktop Powershell](/powershell/windows-virtual-desktop/overview).
+Use this article to resolve errors and issues when using PowerShell with Azure Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Azure Virtual Desktop PowerShell](/powershell/windows-virtual-desktop/overview).
 
 ## Provide feedback
 
@@ -79,6 +79,24 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 > [!NOTE]
 > New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (AD).
+
+## Error: SessionHostPool could not be deleted
+
+This error usually happens when you run the following command to try to remove a session host.
+
+```powershell
+Remove-RdsHostPool -TenantName <TenantName> -Name <HostPoolName>
+```
+
+**Cause:** If you run the command before deleting the host pool's leaf objects, it won't work.
+
+**Fix:** Run the following command to delete the session host. 
+
+```powershell
+Get-RdsSessionHost-TenantName <TenantName> -Hostpook <HostPoolName> | remove-RdsSessionhost -Force
+```
+
+Using the force command will let you delete the session host even if it has assigned users.
 
 ## Next steps
 

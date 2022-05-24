@@ -3,8 +3,8 @@ title: How to customize your Azure Active Directory Verifiable Credentials (prev
 description: This article shows you how to create your own custom verifiable credential
 services: active-directory
 author: barclayn
-manager: karenhoran
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
@@ -120,7 +120,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
         {
           "mapping": {
             "first_name": {
-              "claim": "$.vc.credentialSubject.firstName",
+              "claim": "$.vc.credentialSubject.firstName"
             },
             "last_name": {
               "claim": "$.vc.credentialSubject.lastName",
@@ -143,7 +143,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
     "vc": {
       "type": [
         "ProofOfNinjaNinja"
-      ],
+      ]
     }
   }
   ```

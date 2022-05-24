@@ -4,8 +4,8 @@ description: Automate Windows VM configuration tasks by using the Custom Script 
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: amjads
-author: amjads1
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
 ms.date: 08/31/2020 
 ms.custom: devx-track-azurepowershell

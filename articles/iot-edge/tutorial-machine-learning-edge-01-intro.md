@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Detailed walkthrough of Machine Learning on Azure IoT Edge'
 description: A high-level tutorial that walks through the various tasks necessary to create an end-to-end, machine learning at the edge scenario. 
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
@@ -42,7 +42,7 @@ In this document, we use the following set of tools:
 
 * An Azure IoT hub for data capture
 
-* Azure Notebooks as our main front end for data preparation and machine learning experimentation. Running python code in a notebook on a subset of the sample data is a great way to get fast iterative and interactive turnaround during data preparation. Jupyter notebooks can also be used to prepare scripts to run at scale in a compute backend.
+* Azure Notebooks as our main front end for data preparation and machine learning experimentation. Running Python code in a notebook on a subset of the sample data is a great way to get fast iterative and interactive turnaround during data preparation. Jupyter notebooks can also be used to prepare scripts to run at scale in a compute backend.
 
 * Azure Machine Learning as a backend for machine learning at scale and for machine learning image generation. We drive the Azure Machine Learning backend using scripts prepared and tested in Jupyter notebooks.
 

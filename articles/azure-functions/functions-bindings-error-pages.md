@@ -1,11 +1,9 @@
 ---
 title: Azure Functions error handling and retry guidance
 description: Learn to handle errors and retry events in Azure Functions with links to specific binding errors.
-author: craigshoemaker
 
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.author: cshoe
 ---
 
 # Azure Functions error handling and retries

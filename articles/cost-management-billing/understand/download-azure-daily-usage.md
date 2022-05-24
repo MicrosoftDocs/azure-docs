@@ -59,7 +59,7 @@ To view and download usage data for a billing profile, you must be a billing pro
 2. Select a billing profile.
 3. Select **Invoices**.
 4. In the invoice grid, find the row of the invoice corresponding to the usage you want to download.
-5. Click on the ellipsis (`...`) at the end of the row.
+5. Select the ellipsis (`...`) at the end of the row.
 6. In the download context menu, select **Azure usage and charges**.
 
 ### Download usage for open charges
@@ -68,7 +68,7 @@ You can also download month-to-date usage for the current billing period, meanin
 
 1. Search for **Cost Management + Billing**.
 2. Select a billing profile.
-3. In the **Overview** blade, click **Download Azure usage and charges**.
+3. In the **Overview** blade, select **Download Azure usage and charges**.
 
 ### Download usage for pending charges
 
@@ -88,19 +88,19 @@ Start by preparing your environment for the Azure CLI:
 
 Then use the [az costmanagement export](/cli/azure/costmanagement/export) commands to export usage data to an Azure storage account. You can download the data from there.
 
-1. Create a resource group or use an existing resource group. To create a resource group, run the [az group create](/cli/azure/group#az_group_create) command:
+1. Create a resource group or use an existing resource group. To create a resource group, run the [az group create](/cli/azure/group#az-group-create) command:
 
    ```azurecli
    az group create --name TreyNetwork --location "East US"
    ```
 
-1. Create a storage account to receive the exports or use an existing storage account. To create an account, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
+1. Create a storage account to receive the exports or use an existing storage account. To create an account, use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command:
 
    ```azurecli
    az storage account create --resource-group TreyNetwork --name cmdemo
    ```
 
-1. Run the [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) command to create the export:
+1. Run the [az costmanagement export create](/cli/azure/costmanagement/export#az-costmanagement-export-create) command to create the export:
 
    ```azurecli
    az costmanagement export create --name DemoExport --type Usage \

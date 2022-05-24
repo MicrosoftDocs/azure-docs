@@ -1,8 +1,8 @@
 ---
 title: Create and provision IoT Edge devices using X.509 certificates on Linux on Windows - Azure IoT Edge | Microsoft Docs
 description: Use X.509 certificate attestation to test provisioning devices at scale for Azure IoT Edge with device provisioning service
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.date: 02/09/2022
 ms.topic: conceptual
 ms.service: iot-edge
@@ -18,7 +18,7 @@ This article provides end-to-end instructions for autoprovisioning one or more [
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 >[!NOTE]
->The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](https://aka.ms/AzEFLOW-Versions), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
+>The latest version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
 :::moniker-end
 <!-- end 1.2 -->
 

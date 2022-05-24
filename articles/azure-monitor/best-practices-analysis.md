@@ -57,7 +57,25 @@ Common scenarios for dashboards include the following:
 
 See [Create and share dashboards of Log Analytics data](visualize/tutorial-logs-dashboards.md) for details on creating a dashboard that includes data from Azure Monitor Logs. See [Create custom KPI dashboards using Azure Application Insights](app/tutorial-app-dashboards.md) for details on creating a dashboard that includes data from Application Insights. 
 
+## Grafana
+[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's useful for detecting, isolating, and triaging operational incidents, combining visualizations of Azure and non-Azure data sources including on-premises, third party tools, and data stores in other clouds. Grafana has popular plugins and dashboard templates for APM tools such as Dynatrace, New Relic, and App Dynamics which enables users to visualize Azure platform data alongside other metrics from higher in the stack collected by other tools. It also has AWS CloudWatch and GCP BigQuery plugins for multi-cloud monitoring in a single pane of glass.
 
+
+
+
+All versions of Grafana include the [Azure Monitor datasource plug-in](visualize/grafana-plugin.md) to visualize your Azure Monitor metrics and logs.
+
+Additionally, [Azure Managed Grafana](../managed-grafana/overview.md) optimizes this experience for Azure-native data stores such as Azure Monitor and Data Explorer thus making it easy for you to connect to any resource in your subscription and view all resulting telemetry in a familiar Grafana dashboard. It also supports pinning charts from Azure Monitor metrics and logs to Grafana dashboards and includes out of the box dashboards for Azure resources. [Create your first Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md) to get started.
+
+![Screenshot that shows Grafana visualizations.](media/visualizations/grafana.png)
+
+
+Common scenarios for Grafana include the following:
+
+- Combine time-series and event data in a single visualization panel.
+- Create a dynamic dashboard based on user selection of dynamic variables.
+- Create a dashboard from a community created and supported template.
+- Create a vendor agnostic BCDR scenario that runs on any cloud provider or on-premises.
 
 ## Power BI
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is useful for creating business-centric dashboards and reports, along with reports that analyze long-term KPI trends. You can [import the results of a log query](./logs/log-powerbi.md) into a Power BI dataset and then take advantage of its features, such as combining data from different sources and sharing reports on the web and mobile devices.
@@ -71,26 +89,6 @@ Common scenarios for Power BI include the following:
 - Ease of sharing throughout your organization.
 - Integration with other data from multiple data sources.
 - Better performance with results cached in a cube.
-
-
-
-## Grafana
-[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's useful for detecting, isolating, and triaging operational incidents, combining visualizations of Azure and non-Azure data sources including on-premises, third party tools, and data stores in other clouds. Grafana has popular plugins and dashboard templates for APM tools such as Dynatrace, New Relic, and App Dynamics which enables users to visualize Azure platform data alongside other metrics from higher in the stack collected by other tools. It also has AWS CloudWatch and GCP BigQuery plugins for multi-cloud monitoring in a single pane of glass.
-
-
-
-
-You can add the [Azure Monitor data source plug-in for Grafana](visualize/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metric data.
-
-![Screenshot that shows Grafana visualizations.](media/visualizations/grafana.png)
-
-
-Common scenarios for Grafana include the following:
-
-- Combine time-series and event data in a single visualization panel.
-- Create a dynamic dashboard based on user selection of dynamic variables.
-- Create a dashboard from a community created and supported template.
-- Create a vendor agnostic BCDR scenario that runs on any cloud provider or on-premises.
 
 ## Azure Monitor partners
 Some Azure Monitor partners provide visualization functionality. For a list of partners that Microsoft has evaluated, see [Azure Monitor partner integrations](./partners.md). An Azure Monitor partner might provide out-of-the-box visualizations to save you time, although these solutions may have an additional cost.

@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 2/10/2022
+ms.date: 2/23/2022
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
 
@@ -178,7 +178,7 @@ To check the current usage of metric alert rules, follow the steps below.
 
 - PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
 - REST API - [List by subscription](/rest/api/monitor/metricalerts/listbysubscription)
-- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_list)
+- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
 
 ## Managing alert rules using Resource Manager templates, REST API, Azure PowerShell, or the Azure CLI
 
@@ -299,6 +299,86 @@ Consider one of the following options:
 * Try selecting a different aggregation granularity (period). 
 * Check if there was a drastic change in the metric behavior in the last 10 days (an outage). An abrupt change can impact the upper and lower thresholds calculated for the metric and make them broader. Wait for a few days until the outage is no longer taken into the thresholds calculation, or use the *Ignore data before* option (under *Advanced settings*).
 * If your data has weekly seasonality, but not enough history is available for the metric, the calculated thresholds can result in having broad upper and lower bounds. For example, the calculation can treat weekdays and weekends in the same way, and build wide borders that don't always fit the data. This should resolve itself once enough metric history is available, at which point the correct seasonality will be detected and the calculated thresholds will update accordingly.
+
+
+## When configuring an alert rule's condition, why is Dynamic threshold disabled?
+While dynamic thresholds are supported for the vast majority of metrics, there are some metrics that can't use dynamic thresholds.
+
+The table below lists the metrics that aren't supported by dynamic thresholds.
+
+| Resource Type | Metric Name |
+| --- | --- |
+| Microsoft.ClassicStorage/storageAccounts | UsedCapacity |
+| Microsoft.ClassicStorage/storageAccounts/blobServices | BlobCapacity |
+| Microsoft.ClassicStorage/storageAccounts/blobServices | BlobCount |
+| Microsoft.ClassicStorage/storageAccounts/blobServices | IndexCapacity |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileCapacity |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileCount |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileShareCount |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileShareSnapshotCount |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileShareSnapshotSize |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileShareQuota |
+| Microsoft.Compute/disks | Composite Disk Read Bytes/sec |
+| Microsoft.Compute/disks | Composite Disk Read Operations/sec |
+| Microsoft.Compute/disks | Composite Disk Write Bytes/sec |
+| Microsoft.Compute/disks | Composite Disk Write Operations/sec |
+| Microsoft.ContainerService/managedClusters | NodesCount |
+| Microsoft.ContainerService/managedClusters | PodCount |
+| Microsoft.ContainerService/managedClusters | CompletedJobsCount |
+| Microsoft.ContainerService/managedClusters | RestartingContainerCount |
+| Microsoft.ContainerService/managedClusters | OomKilledContainerCount |
+| Microsoft.Devices/IotHubs | TotalDeviceCount |
+| Microsoft.Devices/IotHubs | ConnectedDeviceCount |
+| Microsoft.Devices/IotHubs | TotalDeviceCount |
+| Microsoft.Devices/IotHubs | ConnectedDeviceCount |
+| Microsoft.DocumentDB/databaseAccounts | CassandraConnectionClosures |
+| Microsoft.EventHub/clusters | Size |
+| Microsoft.EventHub/namespaces | Size |
+| Microsoft.IoTCentral/IoTApps | connectedDeviceCount |
+| Microsoft.IoTCentral/IoTApps | provisionedDeviceCount |
+| Microsoft.Kubernetes/connectedClusters | NodesCount |
+| Microsoft.Kubernetes/connectedClusters | PodCount |
+| Microsoft.Kubernetes/connectedClusters | CompletedJobsCount |
+| Microsoft.Kubernetes/connectedClusters | RestartingContainerCount |
+| Microsoft.Kubernetes/connectedClusters | OomKilledContainerCount |
+| Microsoft.MachineLearningServices/workspaces/onlineEndpoints | RequestsPerMinute |
+| Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments | DeploymentCapacity |
+| Microsoft.Maps/accounts | CreatorUsage |
+| Microsoft.Media/mediaservices/streamingEndpoints | EgressBandwidth |
+| Microsoft.Network/applicationGateways | Throughput |
+| Microsoft.Network/azureFirewalls | Throughput |
+| Microsoft.Network/expressRouteGateways | ExpressRouteGatewayPacketsPerSecond |
+| Microsoft.Network/expressRouteGateways | ExpressRouteGatewayNumberOfVmInVnet |
+| Microsoft.Network/expressRouteGateways | ExpressRouteGatewayFrequencyOfRoutesChanged |
+| Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayPacketsPerSecond |
+| Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayNumberOfVmInVnet |
+| Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayFrequencyOfRoutesChanged |
+| Microsoft.ServiceBus/namespaces | Size |
+| Microsoft.ServiceBus/namespaces | Messages |
+| Microsoft.ServiceBus/namespaces | ActiveMessages |
+| Microsoft.ServiceBus/namespaces | DeadletteredMessages |
+| Microsoft.ServiceBus/namespaces | ScheduledMessages |
+| Microsoft.ServiceFabricMesh/applications | AllocatedCpu |
+| Microsoft.ServiceFabricMesh/applications | AllocatedMemory |
+| Microsoft.ServiceFabricMesh/applications | ActualCpu |
+| Microsoft.ServiceFabricMesh/applications | ActualMemory |
+| Microsoft.ServiceFabricMesh/applications | ApplicationStatus |
+| Microsoft.ServiceFabricMesh/applications | ServiceStatus |
+| Microsoft.ServiceFabricMesh/applications | ServiceReplicaStatus |
+| Microsoft.ServiceFabricMesh/applications | ContainerStatus |
+| Microsoft.ServiceFabricMesh/applications | RestartCount |
+| Microsoft.Storage/storageAccounts | UsedCapacity |
+| Microsoft.Storage/storageAccounts/blobServices | BlobCapacity |
+| Microsoft.Storage/storageAccounts/blobServices | BlobCount |
+| Microsoft.Storage/storageAccounts/blobServices | BlobProvisionedSize |
+| Microsoft.Storage/storageAccounts/blobServices | IndexCapacity |
+| Microsoft.Storage/storageAccounts/fileServices | FileCapacity |
+| Microsoft.Storage/storageAccounts/fileServices | FileCount |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareCount |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareSnapshotCount |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareSnapshotSize |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareCapacityQuota |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareProvisionedIOPS |
 
 
 ## Next steps

@@ -7,113 +7,64 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/15/2020
 ---
-# Configure built-in container registry for Azure Red Hat OpenShift 4
+# Configure the built-in container registry for Azure Red Hat OpenShift 4
 
-Azure Red Hat OpenShift provides an integrated container image registry called [OpenShift Container Registry (OCR)](https://docs.openshift.com/container-platform/4.5/registry/architecture-component-imageregistry.html) that adds the ability to automatically provision new image repositories on demand. This provides users with a built-in location for their application builds to push the resulting images.
+Azure Red Hat OpenShift provides an [integrated container image registry](https://docs.openshift.com/container-platform/4.9/registry/index.html) that adds the ability to automatically provision new image repositories on demand. This provides users with a built-in location for their application builds to push the resulting images.
 
 In this article, you'll configure the built-in container image registry for an Azure Red Hat OpenShift (ARO) 4 cluster. You'll learn how to:
 
 > [!div class="checklist"]
-> * Set up Azure AD
-> * Set up OpenID Connect
-> * Access the built-in container image registry
+> * Authorize an identity to access to the registry
+> * Access the built-in container image registry from inside the cluster
+> * Access the built-in container image registry from outside the cluster
 
 ## Before you begin
 
-This article assumed you have an existing ARO cluster. If you need an ARO cluster, see the ARO tutorial, [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md). Make sure to create the cluster with the `--pull-secret` argument to `az aro create`.  This is necessary to configure Azure Active Directory authentication and the built-in container registry.
+This article assumes you have an existing ARO cluster (see [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md)). If you would like to configure Azure AD integration, make sure to create the cluster with the `--pull-secret` argument to `az aro create`.
 
-Once you have your cluster, connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](./tutorial-connect-cluster.md).
-   * Be sure to follow the steps in "Install the OpenShift CLI" because we'll use the `oc` command later in this article.
-   * Make note of the cluster console URL, which looks like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`. The values for `<random>` and `<region>` will be used later in this article.
-   * Note the `kubeadmin` credentials. They will also be used later in this article.
+> [!NOTE]
+> [Configuring Azure AD Authentication](./configure-azure-ad-ui.md#configure-openshift-openid-authentication) for your cluster is the easiest way to interact with the internal registry from outside the cluster.
 
-### Configure Azure Active Directory authentication 
+Once you have your cluster, [connect to the cluster](./tutorial-connect-cluster.md) by authenticating as the `kubeadmin` user.
 
-Azure Active Directory (Azure AD) implements OpenID Connect (OIDC). OIDC lets you use Azure AD to sign in to the ARO cluster. Follow the steps in [Configure Azure Active Directory authentication](configure-azure-ad-cli.md) to set up your cluster.
+## Configure authentication to the registry
 
-## Access the built-in container image registry
+For any identity (a cluster user, Azure AD user, or ServiceAccount) to access the internal registry, it must be granted permissions inside the cluster:
 
-Now that you've set up the authentication methods to the ARO cluster, let's enable access to the built-in registry.
-
-#### Define the Azure AD user to be an administrator
-
-1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user. We'll leverage the OpenShift OpenID authentication against Azure Active Directory to use OpenID to define the administrator.
-
-   1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console. The window will look different after having enabled OIDC.
-   
-   :::image type="content" source="media/built-in-container-registry/oidc-enabled-login-window.png" alt-text="OpenID Connect enabled sign in window.":::
-   1. Select **openid**
-
-   > [!NOTE]
-   > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this and other articles.
-2. Sign in with the OpenShift CLI by using the following steps.  For discussion, this process is known as `oc login`.
-   1. At the right-top of the web console, expand the context menu of the signed-in user, then select **Copy Login Command**.
-   2. Sign in to a new tab window with the same user if necessary.
-   3. Select **Display Token**.
-   4. Copy the value listed below **Login with this token** to the clipboard and run it in a shell, as shown here.
-
-       ```bash
-       oc login --token=XOdASlzeT7BHT0JZW6Fd4dl5EwHpeBlN27TAdWHseob --server=https://api.aqlm62xm.rnfghf.aroapp.io:6443
-       Logged into "https://api.aqlm62xm.rnfghf.aroapp.io:6443" as "kube:admin" using the token provided.
-
-       You have access to 57 projects, the list has been suppressed. You can list all projects with 'oc projects'
-
-       Using project "default".
-       ```
-
-3. Run `oc whoami` in the console and note the output as **\<aad-user>**.  We'll use this value later in the article.
-4. Sign out of the OpenShift web console. Select the button in the top right of the browser window labeled as the **\<aad-user>** and choose **Log Out**.
-
-
-#### Grant the Azure AD user the necessary roles for registry interaction
-
-1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
-1. Sign in to the OpenShift CLI with the token for `kubeadmin` by following the steps for `oc login` above, but do them after signing in to the web console with `kubeadmin`.
-1. Execute the following commands to enable the access to the built-in registry for the **aad-user**.
-
+As `kubeadmin`, execute the following commands:
    ```bash
-   # Switch to project "openshift-image-registry"
-   oc project openshift-image-registry
-   
-   # Output should look similar to the following.
-   # Now using project "openshift-image-registry" on server "https://api.x8xl3f4y.eastus.aroapp.io:6443".
+   # Note: replace "<user>" with the identity you need to access the registry
+   oc policy add-role-to-user -n openshift-image-registry registry-viewer <user>
+   oc policy add-role-to-user -n openshift-image-registry registry-editor <user>
    ```
 
-   ```bash
-   # Expose the registry using "DefaultRoute"
-   oc patch configs.imageregistry.operator.openshift.io/cluster --patch '{"spec":{"defaultRoute":true}}' --type=merge
+> [!Note]
+> For cluster users and Azure AD users - this will be the same name you use to authenticate into the cluster. For OpenShift ServiceAccounts, format the name as `system:serviceaccount:<project>:<name>`
 
-   # Output should look similar to the following.
-   # config.imageregistry.operator.openshift.io/cluster patched
+## Access the registry
+
+Now that you've configured authentication for the registry, you can interact with it:
+
+### From inside the cluster
+
+If you need to access the registry from inside the cluster (e.g. you are running a CI/CD platform as Pods that will push/pull images to the registry), you can access the registry via its [ClusterIP Service](https://docs.openshift.com/container-platform/4.9/rest_api/network_apis/service-core-v1.html) at the fully qualified domain name `image-registry.openshift-image-registry.svc.cluster.local:5000`, which is accessible to all Pods within the cluster.
+
+### From outside the cluster
+
+If your workflows require you access the internal registry from outside the cluster (e.g. you want to push/pull images from a developer's laptop, external CI/CD platform, and/or a different ARO cluster), you will need to perform a few additional steps:
+
+As `kubeadmin`, execute the following commands to expose the built-in registry outside the cluster via a [Route](https://docs.openshift.com/container-platform/4.9/rest_api/network_apis/route-route-openshift-io-v1.html):
+   ```bash
+   oc patch config.imageregistry.operator.openshift.io/cluster --patch='{"spec":{"defaultRoute":true}}' --type=merge
+   oc patch config.imageregistry.operator.openshift.io/cluster --patch='[{"op": "add", "path": "/spec/disableRedirect", "value": true}]' --type=json
    ```
 
+You can then find the registry's externally-routable fully qualified domain name:
+
+As `kubeadmin`, execute:
    ```bash
-   # Add roles to "aad-user" for pulling and pushing images
-   # Note: replace "<aad-user>" with the one you wrote down before
-   oc policy add-role-to-user registry-viewer <aad-user>
-
-   # Output should look similar to the following.
-   # clusterrole.rbac.authorization.k8s.io/registry-viewer added: "kaaIjx75vFWovvKF7c02M0ya5qzwcSJ074RZBfXUc34"
+   oc get route -n openshift-image-registry default-route --template='{{ .spec.host }}'
    ```
-
-   ```bash
-   oc policy add-role-to-user registry-editor <aad-user>
-   # Output should look similar to the following.
-   # clusterrole.rbac.authorization.k8s.io/registry-editor added: "kaaIjx75vFWovvKF7c02M0ya5qzwcSJ074RZBfXUc34"
-   ```
-
-#### Obtain the container registry URL
-
-Use the `oc get route` command as shown next to get the container registry URL.
-
-```bash
-# Note: the value of "Container Registry URL" in the output is the fully qualified registry name.
-HOST=$(oc get route default-route --template='{{ .spec.host }}')
-echo "Container Registry URL: $HOST"
-```
-
-   > [!NOTE]
-   > Note the console output of **Container Registry URL**. It will be used as the fully qualified registry name for this guide and subsequent ones.
 
 ## Next steps
 

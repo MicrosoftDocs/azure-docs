@@ -243,7 +243,7 @@ This setting is a child of [logging](#logging). It controls the console logging 
 
 ## cosmosDb
 
-Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
+Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#hostjson-settings).
 
 ## customHandler
 
@@ -340,7 +340,7 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 
 ## http
 
-Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook-output.md#hostjson-settings).
+Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook.md#hostjson-settings).
 
 ## logging
 
@@ -413,7 +413,7 @@ Configuration setting can be found in [SendGrid triggers and bindings](functions
 
 ## serviceBus
 
-Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus.md#host-json).
+Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus.md).
 
 ## singleton
 

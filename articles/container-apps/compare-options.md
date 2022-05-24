@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 11/03/2021
 ms.author: jehollan
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-other, event-tier1-build-2022
 ---
 
 # Comparing Container Apps with other Azure container options
@@ -18,12 +18,9 @@ There are many options for teams to build and deploy cloud native and containeri
 - [Azure Kubernetes Service](#azure-kubernetes-service)
 - [Azure Functions](#azure-functions)
 - [Azure Spring Cloud](#azure-spring-cloud)
+- [Azure Red Hat OpenShift](#azure-red-hat-openshift)
 
 There's no perfect solution for every use case and every team. The following explanation provides general guidance and recommendations as a starting point to help find the best fit for your team and your requirements.
-
-> [!IMPORTANT]
-> Azure Container Apps is currently in public preview while these other options are generally available (GA).
-
 
 ## Container option comparisons
 
@@ -37,6 +34,8 @@ Azure Container Apps enables you to build serverless microservices based on cont
 * Support of long running processes and can run [background tasks](background-processing.md).
 
 Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you require access to the Kubernetes APIs and control plane, you should use [Azure Kubernetes Service](../aks/intro-kubernetes.md). However, if you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provides a fully managed experience based on best-practices. For these reasons, many teams may prefer to start building container microservices with Azure Container Apps.
+
+You can get started building your first container app [using the quickstarts](get-started.md).
 
 ### Azure App Service
 Azure App Service provides fully managed hosting for web applications including websites and web APIs. These web applications may be deployed using code or containers. Azure App Service is optimized for web applications. Azure App Service is integrated with other Azure services including Azure Container Apps or Azure Functions. When building web apps, Azure App Service is an ideal option.
@@ -52,6 +51,9 @@ Azure Functions is a serverless Functions-as-a-Service (FaaS) solution. It's opt
 
 ### Azure Spring Cloud
 Azure Spring Cloud makes it easy to deploy Spring Boot microservice applications to Azure without any code changes. The service manages the infrastructure of Spring Cloud applications so developers can focus on their code. Azure Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more. If your team or organization is predominantly Spring, Azure Spring Cloud is an ideal option.
+
+### Azure Red Hat OpenShift
+Azure Red Hat OpenShift is jointly engineered, operated, and supported by Red Hat and Microsoft to provide an integrated product and support experience for running Kubernetes-powered OpenShift. With Azure Red Hat OpenShift, teams can choose their own registry, networking, storage, and CI/CD solutions, or use the built-in solutions for automated source code management, container and application builds, deployments, scaling, health management, and more from OpenShift. If your team or organization is using OpenShift, Azure Red Hat OpenShift is an ideal option.
 
 ## Next steps
 

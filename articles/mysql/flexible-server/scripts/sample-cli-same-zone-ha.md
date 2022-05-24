@@ -4,47 +4,49 @@ description: This Azure CLI sample script shows how to configure Same-Zone high 
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli
-ms.date: 09/15/2021
+ms.custom: mvc, devx-track-azurecli, event-tier1-build-2022
+ms.date: 05/24/2022
 ---
 
 # Configure same-zone high availability in an Azure Database for MySQL - Flexible Server using Azure CLI
 
-This sample CLI script configures and manages [Same-Zone high availability](../concepts-high-availability.md) in an Azure Database for MySQL - Flexible Server. 
-Currently, Same-Zone high availability is supported only for the General purpose and Memory optimized pricing tiers.
+This sample CLI script configures and manages [Same-Zone high availability](../concepts-high-availability.md) in an Azure Database for MySQL - Flexible Server.
+Currently, Same-Zone high availability is supported only for the General purpose and Business Critical pricing tiers.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [flexible-server-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
-
-[!INCLUDE [azure-cli-prepare-your-environment](../../../../includes/azure-cli-prepare-your-environment.md)]
-
-- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-Edit the highlighted lines in the script with your values for variables.
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/high-availability/same-zone-ha.sh?highlight=7,10-11 "Configure Same-Zone High Availability.")]
+### Run the script
 
-## Clean up deployment
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/high-availability/same-zone-ha.sh" id="FullScript":::
 
-After the sample script has been run, the following code snippet can be used to clean up the resources.
+## Clean up resources
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/high-availability/clean-up-resources.sh?highlight=4 "Clean up resources.")]
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
-## Script explanation
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
 | **Command** | **Notes** |
 |---|---|
-|[az group create](/cli/azure/group#az_group_create)|Creates a resource group in which all resources are stored|
-|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_create)|Creates a Flexible Server that hosts the databases.|
-|[az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update)|Updates a Flexible Server.|
-|[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete)|Deletes a Flexible Server.|
-|[az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources.|
+|[az group create](/cli/azure/group#az-group-create)|Creates a resource group in which all resources are stored|
+|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create)|Creates a Flexible Server that hosts the databases.|
+|[az mysql flexible-server update](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-update)|Updates a Flexible Server.|
+|[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-delete)|Deletes a Flexible Server.|
+|[az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources.|
 
 ## Next steps
 

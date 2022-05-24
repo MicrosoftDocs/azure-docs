@@ -5,16 +5,17 @@ description: Learn how Azure Machine Learning enables you to scale out a scikit-
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: jordane
-author: jpe316
-ms.date: 09/28/2020
+ms.author: larryfr
+author: blackmist
+ms.date: 03/21/2022
 ms.topic: how-to
-ms.custom: devx-track-python
-
+ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 
 # Train scikit-learn models at scale with Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning.
 
@@ -24,13 +25,14 @@ Whether you're training a machine learning scikit-learn model from the ground-up
 
 ## Prerequisites
 
-Run this code on either of these environments:
- - Azure Machine Learning compute instance - no downloads or installation necessary
+You can run this code in either an Azure Machine Learning compute instance, or your own Jupyter Notebook:
 
-    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-    - In the samples training folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn** folder.
+ - Azure Machine Learning compute instance
+    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a compute instance. Every compute instance includes a dedicated notebook server pre-loaded with the SDK and the notebooks sample repository. 
+    - Select the notebook tab in the Azure Machine Learning studio. In the samples training folder, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn** folder.
+    - You can use the pre-populated code in the sample training folder to complete this tutorial.
 
- - Your own Jupyter Notebook server
+ - Create a Jupyter Notebook server and run the code in the following sections.
 
     - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.13.0).
     - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
@@ -53,7 +55,7 @@ ws = Workspace.from_config()
 
 ### Prepare scripts
 
-In this tutorial, the training script **train_iris.py** is already provided for you [here](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py). In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
+In this tutorial, the [training script **train_iris.py**](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py) is already provided for you. In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
 
 Notes:
 - The provided training script shows how to log some metrics to your Azure ML run using the `Run` object within the script.
@@ -64,7 +66,8 @@ Notes:
 To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use and Azure ML curated environment.
 
 #### Use a curated environment
-Optionally, Azure ML provides prebuilt, curated environments if you don't want to define your own environment. For more info, see [here](resource-curated-environments.md).
+Optionally, Azure ML provides prebuilt, [curated environments](resource-curated-environments.md) if you don't want to define your own environment. 
+
 If you want to use a curated environment, you can run the following command instead:
 
 ```python

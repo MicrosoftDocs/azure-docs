@@ -270,7 +270,7 @@ Azure Backup can restore SQL Server databases that are running on Azure VMs as f
 Check the prerequisites mentioned [here](restore-sql-database-azure-vm.md#restore-prerequisites) before restoring SQL DBs.
 
 > [!WARNING]
-> Due to a security issue related to RBAC, we had to introduce a breaking change in the restore commands for SQL DB via Powershell. Please upgrade to Az 6.0.0 version or above for the proper restore commands to be submitted via Powershell. The latest PS commands are provided below.
+> Due to a security issue related to RBAC, we had to introduce a breaking change in the restore commands for SQL DB via PowerShell. Please upgrade to Az 6.0.0 version or above for the proper restore commands to be submitted via PowerShell. The latest PS commands are provided below.
 
 First fetch the relevant backed up SQL DB using the [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) PowerShell cmdlet.
 
@@ -465,7 +465,7 @@ PointInTime          : 1/1/0001 12:00:00 AM
 #### Alternate workload restore to a vault in secondary region
 
 > [!IMPORTANT]
-> Support for secondary region restores for SQL from Powershell is available from Az 6.0.0
+> Support for secondary region restores for SQL from PowerShell is available from Az 6.0.0
 
 If you have enabled cross region restore, then the recovery points will be replicated to the secondary, paired region as well. Then, you can fetch those recovery points and trigger a restore to a machine, present in that paired region. As with the normal restore, the target machine should be registered to the target vault in the secondary region. The following sequence of steps should clarify the end-to-end process.
 
@@ -565,7 +565,7 @@ Once the relevant configuration is obtained for primary region restore or second
 Once the relevant recovery Config object is obtained and verified, use the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) PowerShell cmdlet to start the restore process.
 
 ```powershell
-Restore-AzRecoveryServicesBackupItem -WLRecoveryConfig $AnotherInstanceWithLogConfig -VaultId $testVault.ID
+Restore-AzRecoveryServicesBackupItem -WLRecoveryConfig $AnotherInstanceWithLogConfig -VaultId $testVault.ID -RestoreToSecondaryRegion
 ```
 
 The restore operation returns a job to be tracked.

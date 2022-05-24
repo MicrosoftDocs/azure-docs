@@ -3,10 +3,10 @@ title: Microsoft Defender for Storage - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Storage.
 ms.date: 01/16/2022
 ms.topic: overview
+ms.author: benmansheim
+author: bmansheim
 ---
 # Introduction to Microsoft Defender for Storage
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 **Microsoft Defender for Storage** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.
 
@@ -26,7 +26,7 @@ Defender for Storage doesn't access the Storage account data and has no impact o
 |Pricing:|**Microsoft Defender for Storage** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Protected storage types:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)  (Standard/Premium StorageV2, Block Blobs) <br>[Azure Files](../storage/files/storage-files-introduction.md) (over REST API and SMB)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (Standard/Premium accounts with hierarchical namespaces enabled)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
-|||
+
 
 
 ## What are the benefits of Microsoft Defender for Storage?
@@ -156,4 +156,4 @@ In this article, you learned about Microsoft Defender for Storage.
 
 - [The full list of Microsoft Defender for Storage alerts](alerts-reference.md#alerts-azurestorage)
 - [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md)
-- [Save Storage telemetry for investigation](/azure/azure-monitor/essentials/diagnostic-settings)
+- [Save Storage telemetry for investigation](../azure-monitor/essentials/diagnostic-settings.md)

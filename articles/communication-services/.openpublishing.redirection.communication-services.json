@@ -36,8 +36,8 @@
         "redirect_document_id": false
       },
       {
-        "source_path_from_root": "/articles/communication-services/concepts/router/distribution-concepts.md",
-        "redirect_url": "/azure/communication-services//concepts/router/matching-concepts",
+        "source_path_from_root": "/articles/communication-services/concepts/router/azure-function-rule-engine.md",
+        "redirect_url": "/azure/communication-services/how-tos/router-sdk/customize-worker-scoring",
         "redirect_document_id": false
       }
     ]

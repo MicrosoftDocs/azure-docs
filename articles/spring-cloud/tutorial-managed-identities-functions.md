@@ -1,18 +1,24 @@
 ---
 title:  "Tutorial: Managed identity to invoke Azure Functions"
-description: Use managed identity to invoke Azure Functions from an Azure Spring Cloud app
+description: Use managed identity to invoke Azure Functions from an Azure Spring Apps app
 author: karlerickson
 ms.author: margard
 ms.service: spring-cloud
+ms.custom: event-tier1-build-2022
 ms.topic: tutorial
 ms.date: 07/10/2020
 ---
 
-# Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Cloud app
+# Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Apps app
 
-This article shows you how to create a managed identity for an Azure Spring Cloud app and use it to invoke Http triggered Functions.
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-Both Azure Functions and App Services have built in support for Azure Active Directory (Azure AD) authentication. By leveraging this built-in authentication capability along with Managed Identities for Azure Spring Cloud, we can invoke RESTful services using modern OAuth semantics. This method doesn't require storing secrets in code and provides more granular controls for controlling access to external resources.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to create a managed identity for an Azure Spring Apps app and use it to invoke Http triggered Functions.
+
+Both Azure Functions and App Services have built in support for Azure Active Directory (Azure AD) authentication. By leveraging this built-in authentication capability along with Managed Identities for Azure Spring Apps, we can invoke RESTful services using modern OAuth semantics. This method doesn't require storing secrets in code and provides more granular controls for controlling access to external resources.
 
 ## Prerequisites
 
@@ -23,7 +29,7 @@ Both Azure Functions and App Services have built in support for Azure Active Dir
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Function app and Spring Cloud using the command [az group create](/cli/azure/group#az_group_create):
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Function app and Spring Cloud using the command [az group create](/cli/azure/group#az-group-create):
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -31,7 +37,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a Function App
 
-To create a Function app you must first create a backing storage account, use the command [az storage account create](/cli/azure/storage/account#az_storage_account_create):
+To create a Function app you must first create a backing storage account, use the command [az storage account create](/cli/azure/storage/account#az-storage-account-create):
 
 > [!Important]
 > Each Function app and Storage Account must have a unique name. Replace *\<your-functionapp-name>* with the name of your Function app and *\<your-storageaccount-name>* with the name of your Storage Account in the following examples.
@@ -99,19 +105,19 @@ Functions in <your-functionapp-name>:
         Invoke url: https://<your-functionapp-name>.azurewebsites.net/api/httptrigger
 ```
 
-## Create Azure Spring Cloud service and app
+## Create Azure Spring Apps service and app
 
-After installing the spring-cloud extension, create an Azure Spring Cloud instance with the Azure CLI command `az spring-cloud create`.
+After installing the spring extension, create an Azure Spring Apps instance with the Azure CLI command `az spring create`.
 
 ```azurecli
-az extension add --name spring-cloud
-az spring-cloud create --name mymsispringcloud --resource-group myResourceGroup --location eastus
+az extension add --name spring
+az spring create --name mymsispringcloud --resource-group myResourceGroup --location eastus
 ```
 
 The following example creates an app named `msiapp` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
 
 ```azurecli
-az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --assign-endpoint true --assign-identity
+az spring app create --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --assign-endpoint true --assign-identity
 ```
 
 ## Build sample Spring Boot app to invoke the Function
@@ -131,7 +137,7 @@ This sample will invoke the Http triggered function by first requesting an acces
     vim src/main/resources/application.properties
     ```
 
-    To use managed identity for Azure Spring Cloud apps, add properties with the following content to *src/main/resources/application.properties*.
+    To use managed identity for Azure Spring Apps apps, add properties with the following content to *src/main/resources/application.properties*.
 
     ```properties
     azure.function.uri=https://<your-functionapp-name>.azurewebsites.net
@@ -144,10 +150,10 @@ This sample will invoke the Http triggered function by first requesting an acces
     mvn clean package
     ```
 
-4. Now deploy the app to Azure with the Azure CLI command  `az spring-cloud app deploy`.
+4. Now deploy the app to Azure with the Azure CLI command  `az spring app deploy`.
 
     ```azurecli
-    az spring-cloud app deploy  --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --jar-path target/sc-managed-identity-function-sample-0.1.0.jar
+    az spring app deploy  --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --jar-path target/sc-managed-identity-function-sample-0.1.0.jar
     ```
 
 5. Access the public endpoint or test endpoint to test your app.
@@ -166,6 +172,6 @@ This sample will invoke the Http triggered function by first requesting an acces
 
 ## Next steps
 
-* [How to enable system-assigned managed identity for applications in Azure Spring Cloud](./how-to-enable-system-assigned-managed-identity.md)
-* [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+* [How to enable system-assigned managed identity for applications in Azure Spring Apps](./how-to-enable-system-assigned-managed-identity.md)
+* [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 * [Configure client apps to access your App Service](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)

@@ -8,9 +8,9 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 02/01/2022
+ms.date: 03/01/2022
 ms.topic: how-to
-ms.custom: contperf-fy21q3, devx-track-azurepowershell
+ms.custom: contperf-fy21q3, devx-track-azurepowershell, event-tier1-build-2022
 ---
 
 # How to use your workspace with a custom DNS server
@@ -20,16 +20,15 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 > [!IMPORTANT]
 > This article covers how to find the fully qualified domain names (FQDN) and IP addresses for these entries if you would like to manually register DNS records in your DNS solution. Additionally this article provides architecture recommendations for how to configure your custom DNS solution to automatically resolve FQDNs to the correct IP addresses. This article does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
 
-> [!WARNING]
-> If you use a private endpoint for other Azure services that the machine learning workspace relies on, such as Azure Storage, Azure Key Vault, or Azure Container Registry. You must also create DNS entries or use a conditional forwarder for these services. For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
-
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 >
 > * [Virtual network overview](how-to-network-security-overview.md)
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * For securing inference, see the following documents:
+>     * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+>     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 ## Prerequisites
@@ -67,6 +66,7 @@ Access to a given Azure Machine Learning workspace via Private Link is done by c
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.azureml.ms```
 - ```<compute instance name>.<region the workspace was created in>.instances.azureml.ms```
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.notebooks.azure.net```
+- ```*.<per-workspace globally-unique identifier>.inference.<region the workspace was created in>.api.azureml.ms``` - Used by managed online endpoints
 
 **Azure China 21Vianet regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
@@ -117,6 +117,8 @@ The following list contains the fully qualified domain names (FQDNs) used by you
     > [!NOTE]
     > * Compute instances can be accessed only from within the virtual network.
     > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
+
+* `*.<workspace-GUID>.inference.<region>.api.azureml.ms`
 
 #### Azure China region
 
@@ -214,6 +216,7 @@ The information returned from all methods is the same; a list of the FQDN and pr
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
+| `mymanagedonlineendpoint.fb7e20a0-8891-458b-b969-55ddb3382f51.inference.eastus.api.azureml.ms` | `10.1.0.7` |
 
 The following table shows example IPs from Azure China regions:
 
@@ -284,16 +287,19 @@ The following steps describe how this topology works:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
     - ```instances.azureml.ms```
+    - ```aznbcontent.net```
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
     - ```instances.azureml.cn```
+    - ```aznbcontent.net```
     
     **Azure US Government regions**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
     - ```instances.azureml.us```
+    - ```aznbcontent.net```
 
     > [!IMPORTANT]
     > Configuration steps for the DNS Server are not included here, as there are many DNS solutions available that can be used as a custom DNS Server. Refer to the documentation for your DNS solution for how to appropriately configure conditional forwarding.
@@ -416,17 +422,20 @@ The following steps describe how this topology works:
     **Azure Public regions**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.azureml.ms```     
+    - ```instances.azureml.ms```
+    - ```aznbcontent.net```   
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
     - ```notebooks.chinacloudapi.cn```
     - ```instances.azureml.cn```
+    - ```aznbcontent.net``` 
 
     **Azure US Government regions**:
     - ```api.ml.azure.us```
     - ```notebooks.usgovcloudapi.net```
     - ```instances.azureml.us```
+    - ```aznbcontent.net``` 
 
     > [!IMPORTANT]
     > Configuration steps for the DNS Server are not included here, as there are many DNS solutions available that can be used as a custom DNS Server. Refer to the documentation for your DNS solution for how to appropriately configure conditional forwarding.
@@ -523,6 +532,7 @@ The following is an example of `hosts` file entries for Azure Machine Learning:
 10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms
 10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms
 10.1.0.6    ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net
+10.1.0.7    mymanagedonlineendpoint.fb7e20a0-8891-458b-b969-55ddb3382f51.inference.eastus.api.azureml.ms
 
 # For a compute instance named 'mycomputeinstance'
 10.1.0.5    mycomputeinstance.eastus.instances.azureml.ms
@@ -530,7 +540,16 @@ The following is an example of `hosts` file entries for Azure Machine Learning:
 
 For more information on the `hosts` file, see [https://wikipedia.org/wiki/Hosts_(file)](https://wikipedia.org/wiki/Hosts_(file)).
 
-#### Troubleshooting
+## Dependency services DNS resolution
+
+The services that your workspace relies on may also be secured using a private endpoint. If so, then you may need to create a custom DNS record if you need to directly communicate with the service. For example, if you want to directly work with the data in an Azure Storage Account used by your workspace.
+
+> [!NOTE]
+> Some services have multiple private-endpoints for sub-services or features. For example, an Azure Storage Account may have individual private endpoints for Blob, File, and DFS. If you need to access both Blob and File storage, then you must enable resolution for each specific private endpoint.
+
+For more information on the services and DNS resolution, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+## Troubleshooting
 
 If after running through the above steps you are unable to access the workspace from a virtual machine or jobs fail on compute resources in the Virtual Network containing the Private Endpoint to the Azure Machine learning workspace, follow the below steps to try to identify the cause.
 
@@ -568,7 +587,9 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Virtual network overview](how-to-network-security-overview.md)
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
-* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* For securing inference, see the following documents:
+    * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 

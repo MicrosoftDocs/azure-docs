@@ -62,6 +62,8 @@ Check your Compute Unit metric for the past one month. Compute unit metric is a 
 
 To get notified of any traffic or utilization anomalies, you can set up alerts on certain metrics. See [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](../azure-monitor/alerts/alerts-metric.md) on how to set alerts for metrics.
 
+To configure alerts using ARM templates, see [Configure Azure Monitor alerts for Application Gateway](configure-alerts-with-templates.md).
+
 ## Alerts for Application Gateway v1 SKU (Standard/WAF)
 
 ### Alert if average CPU utilization crosses 80%
@@ -144,4 +146,4 @@ Enable bot protection to block known bad bots. This should reduce the amount of 
 Diagnostic logs allow you to view firewall logs, performance logs, and access logs. You can use these logs in Azure to manage and troubleshoot Application Gateways. For more information, see our [diagnostics documentation](./application-gateway-diagnostics.md#diagnostic-logging). 
 
 ## Set up an TLS policy for extra security
-Ensure you're using the latest TLS policy version ([AppGwSslPolicy20170401S](./application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s)). This enforces TLS 1.2 and stronger ciphers. For more information, see [configuring TLS policy versions and cipher suites via PowerShell](./application-gateway-configure-ssl-policy-powershell.md).
+Ensure you're using the latest TLS policy version ([AppGwSslPolicy20220101](./application-gateway-ssl-policy-overview.md#predefined-tls-policy)) or higher. These support minimum TLS version 1.2 with stronger ciphers. For more information, see [configuring TLS policy versions and cipher suites via PowerShell](./application-gateway-configure-ssl-policy-powershell.md).

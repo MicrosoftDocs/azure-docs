@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/17/2022
+ms.date: 02/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,7 +20,7 @@ This article provides examples for using general claims transformations of the A
 
 ## CopyClaim
 
-Copy value of a claim to another. Both claims must be from the same type.
+Copy value of a claim to another. Both claims must be from the same type. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/general#copyclaim) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -49,7 +49,7 @@ Use this claims transformation to copy a value from a string or numeric claim, t
 
 ## DoesClaimExist
 
-Checks if the input claim exists, and sets output claim to `true` or `false` accordingly.
+Checks if the input claim exists, and sets output claim to `true` or `false` accordingly. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/general#doesclaimexist) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -78,7 +78,7 @@ Use this claims transformation to check if a claim exists or contains any value.
 
 ## Hash
 
-Hash the provided plain text using the salt and a secret. The hashing algorithm used is SHA-256.
+Hash the provided plain text using the salt and a secret. The hashing algorithm used is SHA-256. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/general#hash) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -115,4 +115,4 @@ The following example demonstrates how to hash an email address. The claims tran
 
 ## Next steps
 
-- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/general) on the Azure AD B2C community GitHub repo

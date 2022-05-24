@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Terraform Enterprise | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Terraform Enterprise'
 description: Learn how to configure single sign-on between Azure Active Directory and Terraform Enterprise.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/05/2021
+ms.date: 02/23/2022
 ms.author: jeedes
 ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Terraform Enterprise
+# Tutorial: Azure AD SSO integration with Terraform Enterprise
 
 In this tutorial, you'll learn how to integrate Terraform Enterprise with Azure Active Directory (Azure AD). When you integrate Terraform Enterprise with Azure AD, you can:
 
@@ -72,14 +72,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<TFE HOSTNAME>/session`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<TFE HOSTNAME>/users/saml/metadata`
 
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<TFE HOSTNAME>/users/saml/auth`
+
+	c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<TFE HOSTNAME>/`
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Terraform Enterprise Client support team](https://support.hashicorp.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Terraform Enterprise Client support team](https://support.hashicorp.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -115,7 +118,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Terraform Enterprise SSO
 
-To configure single sign-on on **Terraform Enterprise** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Terraform Enterprise support team](https://support.hashicorp.com). They set this setting to have the SAML SSO connection set properly on both sides.
+Navigate to `https://<TFE_HOSTNAME>/app/admin/saml` and perform the following steps in the **SAML Settings** page:
+
+![Screenshot: Terraform Enterprise SAML Settings](./media/terraform-enterprise-tutorial/sso-aad-saml-tfe-saml-settings.png)
+
+a. Enable the **Enable SAML single sign-on** check box.
+
+b. In the **Single Sign-On URL** textbox, paste the **Login URL** value which you copied from the Azure portal.
+
+c. In the **Single Log-out URL** textbox, paste the **Login URL** value which you copied from the Azure portal.
+
+d. Open the downloaded **Certificate** from the Azure portal into Notepad and paste the content into the **IDP CERTIFICATE** textbox.
 
 ### Create Terraform Enterprise test user
 

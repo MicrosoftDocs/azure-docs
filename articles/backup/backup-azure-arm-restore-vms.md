@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 03/23/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -82,7 +82,7 @@ If you don't have permissions, you can [restore a disk](#restore-disks), and the
 
 As one of the [restore options](#restore-options), you can create a VM quickly with basic settings from a restore point.
 
-1. In **Restore Virtual Machine** > **Create new** > **Restore Type**, select **Create a virtual machine**.
+1. In **Restore Virtual Machine** > **Create new** > **Restore Type**, select **Create new virtual machine**.
 1. In **Virtual machine name**, specify a VM that doesn't exist in the subscription.
 1. In **Resource group**, select an existing resource group for the new VM, or create a new one with a globally unique name. If you assign a name that already exists, Azure assigns the group the same name as the VM.
 1. In **Virtual network**, select the VNet in which the VM will be placed. All VNets associated with the subscription in the same location as the vault, which is active and not attached with any affinity group, are displayed. Select the subnet.
@@ -106,11 +106,11 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 - [Attach restored disks](../virtual-machines/windows/attach-managed-disk-portal.md) to an existing VM.
 - [Create a new VM](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) from the restored disks using PowerShell.
 
-1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**.
+1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**. 
 1. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
 1. In **Staging location**, specify the storage account to which to copy the VHDs. [Learn more](#storage-accounts).
 
-    ![Select Resource group and Staging location](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
+   :::image type="content" source="./media/backup-azure-arm-restore-vms/trigger-restore-operation-disks.png" alt-text="Screenshot showing to select Resource disks.":::
 
 1. Select **Restore** to trigger the restore operation.
 
@@ -119,7 +119,8 @@ When your virtual machine uses managed disks and you select the **Create virtual
 While you restore disks for a Managed VM from a Vault-Standard recovery point, it restores the Managed disk and Azure Resource Manager (ARM) templates, along with the VHD files of the disks in staging location. If you restore disks from an Instant recovery point, it restores the Managed disks and ARM templates only.
 
 >[!Note]
->For restoring disk from a Vault-Standard recovery point that is/was greater than 4 TB, Azure Backup doesn't restore the VHD files.
+>- For restoring disk from a Vault-Standard recovery point that is/was greater than 4 TB, Azure Backup doesn't restore the VHD files.
+>- For information on managed/premium disk performance after restored via Azure Backup, see the [Latency](../virtual-machines/premium-storage-performance.md#latency) section.
 
 ### Use templates to customize a restored VM
 
@@ -196,6 +197,9 @@ Currently, secondary region [RPO](azure-backup-glossary.md#rpo-recovery-point-ob
 >- The Azure roles needed to restore in the secondary region are the same as those in the primary region.
 >- While restoring an Azure VM, Azure Backup configures the virtual network settings in the secondary region automatically. If you are [restoring disks](#restore-disks) while deploying the template, ensure to provide the virtual network settings, corresponding to the secondary region.
 >- If VNet/Subnet is not available in the primary region or is not configured in the secondary region, Azure portal doesn't auto-populate any default values during restore operation.
+>- For Cross Region Restores, the **Staging Location** (that is the storage account location) must be in the region that the Recovery Services vault treats as the *secondary* region. For example, a Recovery Services vault is located in East US 2 region (with Geo-Redundancy and Cross Region Restore enabled). This means that the *secondary* region would be *Central US*. Therefore, you need to create a storage account in *Central US* to perform a Cross Region Restore of the VM. <br> Learn more about [Azure cross-region replication pairings for all geographies](../availability-zones/cross-region-replication-azure.md).
+
+
 
 [Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) can be restored in any [availability zones](../availability-zones/az-overview.md) of the same region.
 
@@ -237,7 +241,7 @@ There are many common scenarios in which you might need to restore VMs.
 **Network Security Group (NSG) on NIC/Subnet** | Azure VM backup supports Backup and Restore of NSG information at vnet, subnet, and NIC level.
 **Zone Pinned VMs** | If you back up an Azure VM that's pinned to a zone (with Azure Backup), then you can restore it in the same zone where it was pinned. [Learn more](../availability-zones/az-overview.md)
 **Restore VM in any availability set** | When restoring a VM from the portal, there's no option to choose an availability set. A restored VM doesn't have an availability set. If you use the restore disk option, then you can [specify an availability set](../virtual-machines/windows/tutorial-availability-sets.md) when you create a VM from the disk using the provided template or PowerShell.
-**Restore special VMs such as SQL VMs** | If you're backing up a SQL VM using Azure VM backup and then use the restore VM option or create a VM after restoring disks, then the newly created VM must be registered with the SQL provider as mentioned [here](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md?tabs=azure-cli%2cbash). This will convert the restored VM into a SQL VM.
+**Restore special VMs such as SQL VMs** | If you're backing up a SQL VM using Azure VM backup and then use the restore VM option or create a VM after restoring disks, then the newly created VM must be registered with the SQL provider as mentioned [here](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm?tabs=azure-cli%2cbash). This will convert the restored VM into a SQL VM.
 
 ### Restore domain controller VMs
 

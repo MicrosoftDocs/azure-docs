@@ -5,13 +5,14 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-
 ---
 
 # Application Insights for Azure cloud services
 [Application Insights][start] can monitor [Azure cloud service apps](https://azure.microsoft.com/services/cloud-services/) for availability, performance, failures, and usage by combining data from Application Insights SDKs with [Azure Diagnostics](../agents/diagnostics-extension-overview.md) data from your cloud services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
 ![Overview dashboard](./media/cloudservices/overview-graphs.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Prerequisites
 Before you begin, you need:
@@ -266,7 +267,7 @@ If you have a client mobile app, use [App Center](../app/mobile-center-quickstar
 [The example](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.
 
 ## Exception "method not found" on running in Azure cloud services
-Did you build for .NET 4.6? .NET 4.6 is not automatically supported in Azure cloud services roles. [Install .NET 4.6 on each role](../../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
+Did you build for .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)? Earlier versions aren't automatically supported in Azure cloud services roles. [Install .NET LTS on each role](../../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
 
 ## Next steps
 * [Configure sending Azure Diagnostics to Application Insights](../agents/diagnostics-extension-to-application-insights.md)

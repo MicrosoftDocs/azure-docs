@@ -5,8 +5,8 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/06/2021
-ms.author: cavoeg
+ms.date: 02/15/2022
+ms.author: mikaelw
 ---
 # How to export FHIR data
 
@@ -22,7 +22,7 @@ After configuring the FHIR service for export, you can use the $export command t
 
 **Jobs stuck in a bad state**
 
-In some situations, there is a potential for a job to be stuck in a bad state. This can occur especially if the storage account permissions have not been setup properly. One way to validate if your export is successful is to check your storage account to see if the corresponding container (that is, ndjson) files are present. If they are not present, and there are no other export jobs running, then there is a possibility the current job is stuck in a bad state. You should cancel the export job by sending a cancellation request and try re-queuing the job again. Our default run time for an export in bad state is 10 minutes before it will stop and move to a new job or retry the export. 
+In some situations, there's a potential for a job to be stuck in a bad state. This can occur especially if the storage account permissions haven't been set up properly. One way to validate if your export is successful is to check your storage account to see if the corresponding container (that is, ndjson) files are present. If they aren't present, and there are no other export jobs running, then there's a possibility the current job is stuck in a bad state. You should cancel the export job by sending a cancellation request and try requeuing the job again. Our default run time for an export in bad state is 10 minutes before it will stop and move to a new job or retry the export. 
 
 The FHIR service supports $export at the following levels:
 * [System](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---system-level-export): `GET https://<<FHIR service base URL>>/$export>>`
@@ -41,7 +41,7 @@ In addition, checking the export status through the URL returned by the location
 
 Currently we support $export for ADLS Gen2 enabled storage accounts, with the following limitation:
 
-- User cannot take advantage of [hierarchical namespaces](../../storage/blobs/data-lake-storage-namespace.md), yet there isn't a way to target export to a specific subdirectory within the container. We only provide the ability to target a specific container (where we create a new folder for each export).
+- User can’t take advantage of [hierarchical namespaces](../../storage/blobs/data-lake-storage-namespace.md), yet there isn't a way to target export to a specific subdirectory within the container. We only provide the ability to target a specific container (where we create a new folder for each export).
 - Once an export is complete, we never export anything to that folder again, since subsequent exports to the same container will be inside a newly created folder.
 
 To export data to storage accounts behind the firewalls, see [Configure settings for export](configure-export-data.md).
@@ -62,7 +62,7 @@ The FHIR service supports the following query parameters. All of these parameter
 | \_since | Yes | Allows you to only export resources that have been modified since the time provided |
 | \_type | Yes | Allows you to specify which types of resources will be included. For example, \_type=Patient would return only patient resources|
 | \_typeFilter | Yes | To request finer-grained filtering, you can use \_typeFilter along with the \_type parameter. The value of the _typeFilter parameter is a comma-separated list of FHIR queries that further restrict the results |
-| \_container | No |  Specifies the container within the configured storage account where the data should be exported. If a container is specified, the data will be exported into a folder into that container. If the container is not specified, the data will be exported to a new container. |
+| \_container | No |  Specifies the container within the configured storage account where the data should be exported. If a container is specified, the data will be exported into a folder into that container. If the container isn't specified, the data will be exported to a new container. |
 
 > [!Note]
 > Only storage accounts in the same subscription as that for FHIR service are allowed to be registered as the destination for $export operations.

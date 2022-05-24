@@ -6,11 +6,10 @@ metadata:
   author: alkohli
   
   ms.service: azure-edge-hardware-center
-  ms.topic: article
+  ms.topic: faq
   ms.date: 01/03/2022
   ms.author: alkohli
   ms.custom: references_regions
-    
 title: "Azure Edge Hardware Center: Frequently Asked Questions"
 summary: |
   Use Azure Edge Hardware Center service to order from a variety of hardware or devices as per your business need. This FAQ contains questions and answers that you may have when you use the Azure Edge Hardware Center in the Azure portal.

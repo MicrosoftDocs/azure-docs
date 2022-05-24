@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, event-tier1-build-2022
 ---
 
 # Supported Kubernetes versions in Azure Kubernetes Service (AKS)
@@ -34,24 +34,14 @@ Each number in the version indicates general compatibility with the previous ver
 
 Aim to run the latest patch release of the minor version you're running. For example, your production cluster is on **`1.17.7`**. **`1.17.8`** is the latest available patch version available for the *1.17* series. You should upgrade to **`1.17.8`** as soon as possible to ensure your cluster is fully patched and supported.
 
-## Kubernetes version alias (Preview)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Alias minor version
 
 > [!NOTE]
-> Kubernetes version alias requires Azure CLI version 2.31.0 or above with the aks-preview extension installed. Please use `az upgrade` to install the latest version of the CLI.
+> Alias minor version requires Azure CLI version 2.31.0 or above. Use `az upgrade` to install the latest version of the CLI.
 
-You will need the *aks-preview* Azure CLI extension version 0.5.49 or greater. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+Azure Kubernetes Service allows for you to create a cluster without specifying the exact patch version. When creating a cluster without designating a patch, the cluster will run the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will be running **`1.21.7`**, which is the latest GA patch version of *1.21*.
 
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-Azure Kubernetes Service allows for you to create a cluster without specifiying the exact patch version. When creating a cluster without specifying a patch, the cluster will run the minor version's latest patch. For example, if you create a cluster with **`1.21`**, your cluster will be running **`1.21.7`**, which is the latest patch version of *1.21*.
+When upgrading by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` will not trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` will trigger an upgrade to the latest GA `1.15` patch.
 
 To see what patch you are on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The property `currentKubernetesVersion` shows the whole Kubernetes version.
 
@@ -156,9 +146,9 @@ For new **minor** versions of Kubernetes:
   * Users have **30 days** from version removal to upgrade to a supported minor version release  to continue receiving support.
 
 For new **patch** versions of Kubernetes:
-  * Because of the urgent nature of patch versions, they can be introduced into the service as they become available.
+  * Because of the urgent nature of patch versions, they can be introduced into the service as they become available. Once available, patches will have a two month minimum lifecycle.
   * In general, AKS does not broadly communicate the release of new patch versions. However, AKS constantly monitors and validates available CVE patches to support them in AKS in a timely manner. If a critical patch is found or user action is required, AKS will notify users to upgrade to the newly available patch.
-  * Users have **30 days** from a patch release's removal from AKS to upgrade into a supported patch and continue receiving support.
+  * Users have **30 days** from a patch release's removal from AKS to upgrade into a supported patch and continue receiving support. However, you will **no longer be able to create clusters or node pools once the version is deprecated/removed.**
 
 ### Supported versions policy exceptions
 
@@ -197,18 +187,12 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.19*  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA |
 | 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA |
 | 1.21  | Apr-08-21 | May 2021   | Jul 2021  | 1.24 GA |
 | 1.22  | Aug-04-21 | Sept 2021   | Dec 2021  | 1.25 GA |
-| 1.23  | Dec 2021 | Jan 2022   | Feb 2022  | 1.26 GA |
-
-> [!NOTE]
->  AKS and the Holiday Season: To ease the burden of upgrade and change during the holiday season, AKS is extending a limited scope of support for all clusters and node pools on 1.19 as a courtesy. Customers with clusters and node pools on 1.19 after the [announced deprecation date of 2021-11-30](#aks-kubernetes-release-calendar) will be granted an extension of capabilities outside the [usual scope of support for deprecated versions](#kubernetes-version-support-policy).
- The scope of this limited extension is effective from '2021-12-01 to 2022-01-31' and is limited to the following:
->  * Creation of new clusters and node pools on 1.19.
->  * CRUD operations on 1.19 clusters.
->  * Azure Support of non-Kubernetes related, platform issues. Platform issues include trouble with networking, storage, or compute running on Azure. Any support requests for K8s patching and troubleshooting will be requested to upgrade into a supported version.
+| 1.23  | Dec 2021 | Jan 2022   | Apr 2022  | 1.26 GA |
+| 1.24 | Apr-22-22 | May 2022 | Jul 2022 | 1.27 GA
+| 1.25 | Aug 2022 | Sept 2022 | Nov 2022 | 1.28 GA
 
 ## FAQ
 
@@ -270,6 +254,10 @@ No. Once a version is deprecated/removed, you cannot create a cluster with that 
 **I am on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?**
 
 No. You will not be allowed to add node pools of the deprecated version to your cluster. You can add node pools of a new version. However, this may require you to update the control plane first.
+
+**How often do you update patches?**
+
+Patches have a two month minimum lifecycle. To keep up to date when new patches are released, follow the [AKS Release Notes](https://github.com/Azure/AKS/releases).
 
 ## Next steps
 

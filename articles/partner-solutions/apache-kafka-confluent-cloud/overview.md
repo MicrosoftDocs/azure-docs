@@ -2,7 +2,9 @@
 title: Apache Kafka on Confluent Cloud overview - Azure partner solutions
 description: Learn about using Apache Kafka on Confluent Cloud in the Azure Marketplace.
 ms.topic: conceptual
-ms.date: 12/14/2021
+ms.date: 02/22/2022
+author: davidsmatlak
+ms.author: davidsmatlak
 ---
 
 # What is Apache Kafka for Confluent Cloud?
@@ -67,7 +69,14 @@ To learn about managing the solutions, see:
 For support and terms, see:
 
 * [Confluent support](https://support.confluent.io)
-* [Terms of Service](https://www.confluent.io/confluent-cloud-tos).
+* [Terms of Service](https://www.confluent.io/confluent-cloud-tos)
+
+To learn more, see Confluent blog articles about Azure services that integrate with Confluent Cloud:
+
+* [Use Azure Cosmos DB sink connector](https://www.confluent.io/blog/announcing-confluent-cloud-azure-cosmos-db-connector)
+* [Set up secure networking with Azure Private Link](https://www.confluent.io/blog/how-to-set-up-secure-networking-in-confluent-with-azure-private-link)
+* [Search using Azure Cache for Redis and Azure Spring Cloud](https://www.confluent.io/blog/real-time-search-and-analytics-with-confluent-cloud-azure-redis-spring-cloud)
+* [Consume data with Confluent and Azure Databricks](https://www.confluent.io/blog/consume-avro-data-from-kafka-topics-and-secured-schema-registry-with-databricks-confluent-cloud-on-azure)
 
 ## Next steps
 

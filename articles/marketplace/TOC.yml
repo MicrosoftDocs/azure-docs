@@ -55,7 +55,11 @@
     href: partner-center-portal/commercial-marketplace-get-customer-leads.md
   - name: Private offers
     items:
-      - name: For Cloud Resellers
+      - name: For customers
+        href: isv-customer.md
+      - name: FAQs
+        href: isv-customer-faq.yml
+      - name: For CSP partners
         href: isv-csp-reseller.md
       - name: FAQs
         href: isv-csp-faq.yml
@@ -209,8 +213,18 @@
         href: azure-vm-offer-listing.md
       - name: Preview audience
         href: azure-vm-preview-audience.md
-      - name: Plans
-        href: azure-vm-plan-overview.md
+      - name: Create plans
+        items:
+        - name: Create a plan
+          href: azure-vm-plan-overview.md
+        - name: Plan setup
+          href: azure-vm-plan-setup.md
+        - name: Plan listing
+          href: azure-vm-plan-listing.md
+        - name: Pricing and availability
+          href: azure-vm-plan-pricing-and-availability.md
+        - name: Technical configuration
+          href: azure-vm-plan-technical-configuration.md    
       - name: Resell through CSPs
         href: azure-vm-resell-csp.md
       - name: Configure a test drive
@@ -229,8 +243,14 @@
         href: azure-vm-faq.yml
       - name: VM certification troubleshooting
         href: azure-vm-certification-faq.yml
-    - name: Update pricing
-      href: azure-vm-plan-manage.md
+    - name: Manage offers
+      items:
+      - name: Update pricing
+        href: azure-vm-plan-manage.md
+      - name: Reorder plans
+        href: azure-vm-plan-reorder-plans.md
+      - name: Deprecate or restore a VM
+        href: deprecate-vm.md
   - name: Consulting services offer
     items: 
     - name: Plan the offer
@@ -381,6 +401,8 @@
     items:
     - name: Plan the offer
       href: plan-saas-offer.md
+    - name: Plan a test SaaS offer
+      href: plan-saas-dev-test-offer.md  
     - name: Azure AD auth for SaaS
       items:
         - name: Azure AD and SaaS overview
@@ -405,16 +427,28 @@
         href: create-new-saas-offer-technical.md  
       - name: Plans
         href: create-new-saas-offer-plans.md
-      - name: Create a test SaaS offer
-        href: create-saas-dev-test-offer.md          
-      - name: Test and publish
-        href: test-publish-saas-offer.md
+    - name: Test the offer
+      items:            
+      - name: Test SaaS overview
+        href: test-saas-overview.md
+      - name: Preview and subscribe
+        href: test-saas-preview-offer.md
+      - name: Test a SaaS plan
+        href: test-saas-plan.md
+      - name: Unsubscribe from and deactivate a test plan
+        href: test-saas-unsubscribe.md  
     - name: Market your offer
       href: create-new-saas-offer-marketing.md 
+    - name: Go live
+      href: test-publish-saas-offer.md
   - name: Review and publish offers
     href: review-publish-offer.md
-  - name: Update existing offers
+  - name: Update existing offer
     href: update-existing-offer.md   
+  - name: Update offer pricing
+    href: price-changes.md
+  - name: Update offer pricing FAQ
+    href: price-changes-faq.yml
 - name: Sell and market your offer
   items: 
   - name: Marketing best practices
@@ -461,6 +495,8 @@
     href: downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: ratings-reviews.md
+  - name: Customer retention dashboard
+    href: customer-retention-dashboard.md
   - name: Programmatic access to analytics
     items:
     - name: Get started

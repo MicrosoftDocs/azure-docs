@@ -9,7 +9,7 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 01/05/2022
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, cliv2, cliv1, event-tier1-build-2022
 ---
 
 # Manage Azure Machine Learning workspaces using Azure CLI
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurecli
 In this article, you learn how to create and manage Azure Machine Learning workspaces using the Azure CLI. The Azure CLI provides commands for managing Azure resources and is designed to get you working quickly with Azure, with an emphasis on automation. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
 
 > [!NOTE]
-> Examples in this article refer to both 1.0 CLI and 2.0 CLI versions. If no version is specified for a command, it will work with either the 1.0 or 2.0 CLI. The machine learning 2.0 CLI is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads.
+> Examples in this article refer to both CLI v1 and CLI v2 versions. If no version is specified for a command, it will work with either the v1 or CLI v2. The machine learning CLI v2 is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads.
 
 ## Prerequisites
 
@@ -32,6 +32,39 @@ In this article, you learn how to create and manage Azure Machine Learning works
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 [!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
+
+### Secure CLI communications
+
+Some of the Azure CLI commands communicate with Azure Resource Manager over the internet. This communication is secured using HTTPS/TLS 1.2.
+
+# [CLI v1](#tab/vnetpleconfigurationsv1cli)
+
+With the Azure Machine Learning CLI extension v1 (`azure-cli-ml`), only some of the commands communicate with the Azure Resource Manager. Specifically, commands that create, update, delete, list, or show Azure resources. Operations such as submitting a training job communicate directly with the Azure Machine Learning workspace. **If your workspace is [secured with a private endpoint](how-to-configure-private-link.md), that is enough to secure commands provided by the `azure-cli-ml` extension**.
+
+# [CLI v2](#tab/vnetpleconfigurationsv2cli)
+
+With the Azure Machine Learning CLI extension v2 ('ml'), all of the commands communicate with the Azure Resource Manager. This includes operational data such as YAML parameters and metadata. If your Azure Machine Learning workspace is public (that is, not behind a virtual network), then there is no additional configuration required. Communications are secured using HTTPS/TLS 1.2.
+
+If your Azure Machine Learning workspace uses a private endpoint and virtual network and you are using CLI v2, choose one of the following configurations to use:
+
+* If you are __OK__ with the CLI v2 communication over the public internet, use the following `--public-network-access` parameter for the `az ml workspace update` command to enable public network access. For example, the following command updates a workspace for public network access:
+
+    ```azurecli
+    az ml workspace update --name myworkspace --public-network-access enabled
+    ```
+
+* If you are __not OK__ with the CLI v2 communication over the public internet, you can use an Azure Private Link to increase security of the communication. Use the following links to secure communications with Azure Resource Manager by using Azure Private Link.
+
+    1. [Secure your Azure Machine Learning workspace inside a virtual network using a private endpoint](how-to-configure-private-link.md).
+    2. [Create a Private Link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md). 
+    3. [Create a private endpoint](../azure-resource-manager/management/create-private-link-access-portal.md#create-private-endpoint) for the Private Link created in the previous step.
+
+    > [!IMPORTANT]
+    > To configure the private link for Azure Resource Manager, you must be the _subscription owner_ for the Azure subscription, and an _owner_ or _contributor_ of the root management group. For more information, see [Create a private link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md).
+
+For more information on CLI v2 communication, see [Install and set up the CLI](how-to-configure-cli.md#secure-communications).
+
+---
 
 ## Connect the CLI to your Azure subscription
 
@@ -101,7 +134,10 @@ To create a new workspace where the __services are automatically created__, use 
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
-# [Bring existing resources (1.0 CLI)](#tab/bringexistingresources1)
+# [Bring existing resources (CLI v1)](#tab/bringexistingresources1)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 To create a workspace that uses existing resources, you must provide the resource ID for each resource. You can get this ID either via the 'properties' tab on each resource via the Azure portal, or by running the following commands using the Azure CLI.
 
   * **Azure Storage Account**: 
@@ -123,7 +159,9 @@ az ml workspace create -w <workspace-name>
                        --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
 ```
 
-# [Bring existing resources (2.0 CLI - preview)](#tab/bringexistingresources2)
+# [Bring existing resources (CLI v2 - preview)](#tab/bringexistingresources2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 To create a new workspace while bringing existing associated resources using the CLI, you will first have to define how your workspace should be configured in a configuration file.
 
@@ -182,7 +220,9 @@ The output of the workspace creation command is similar to the following JSON. Y
 
 Dependent on your use case and organizational requirements, you can choose to configure Azure Machine Learning using private network connectivity. You can use the Azure CLI to deploy a workspace and a Private link endpoint for the workspace resource. For more information on using a private endpoint and virtual network (VNet) with your workspace, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md). For complex resource configurations, also refer to template based deployment options including [Azure Resource Manager](how-to-create-workspace-template.md).
 
-# [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
+# [CLI v1](#tab/vnetpleconfigurationsv1cli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 If you want to restrict access to your workspace to a virtual network, you can use the following parameters as part of the `az ml workspace create` command or use the `az ml workspace private-endpoint` commands.
 
@@ -204,9 +244,11 @@ az ml workspace create -w <workspace-name>
 
 For more details on how to use these commands, see the [CLI reference pages](/cli/azure/ml(v1)/workspace).
 
-# [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
+# [CLI v2 - preview](#tab/vnetpleconfigurationsv2cli)
 
-When using private link, your workspace cannot use Azure Container Registry tasks compute for image building. Hence, you must set the image_build_compute property to a CPU compute cluster name to use for Docker image environment building. You can also specify whether the private link workspace should be accessible over the internet using the public_network_access property.
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+When using private link, your workspace cannot use Azure Container Registry to build docker images. Hence, you must set the image_build_compute property to a CPU compute cluster name to use for Docker image environment building. You can also specify whether the private link workspace should be accessible over the internet using the public_network_access property.
 
 :::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
 
@@ -214,7 +256,7 @@ When using private link, your workspace cannot use Azure Container Registry task
 az ml workspace create -g <resource-group-name> --file privatelink.yml
 ```
 
-After creating the workspace, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) to create a private link endpoint for the workspace.
+After creating the workspace, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the workspace.
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -276,9 +318,11 @@ By default, metadata for the workspace is stored in an Azure Cosmos DB instance 
 
 To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](./concept-data-encryption.md#azure-cosmos-db).
 
-Below CLI commands provide examples for creating a workspace that uses customer-managed keys for encryption using the 1.0 CLI and 2.0 CLI versions.
+Below CLI commands provide examples for creating a workspace that uses customer-managed keys for encryption using the CLI v1 and CLI v2 versions.
 
-# [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
+# [CLI v1](#tab/vnetpleconfigurationsv1cli)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the resource ID and uri of the key within the vault.
 
@@ -292,7 +336,9 @@ az ml workspace create -w <workspace-name>
                        --hbi-workspace
 ```
 
-# [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
+# [CLI v2 - preview](#tab/vnetpleconfigurationsv2cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource ID and uri of the key within the vault.
 
@@ -311,7 +357,7 @@ az ml workspace create -g <resource-group-name> --file cmk.yml
 > Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription to manage the data encryption additional resources.
 
 > [!NOTE]
-> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
+> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](v1/concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
 
 > [!IMPORTANT]
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
@@ -324,13 +370,17 @@ For more information on customer-managed keys and high business impact workspace
 
 To get information about a workspace, use the following command:
 
-# [1.0 CLI](#tab/workspaceupdatev1)
+# [CLI v1](#tab/workspaceupdatev1)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
 az ml workspace show -w <workspace-name> -g <resource-group-name>
 ```
 
-# [2.0 CLI - preview](#tab/workspaceupdatev2)
+# [CLI v2 - preview](#tab/workspaceupdatev2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```azurecli-interactive
 az ml workspace show -n <workspace-name> -g <resource-group-name>
@@ -338,19 +388,23 @@ az ml workspace show -n <workspace-name> -g <resource-group-name>
 
 ---
 
-For more information, see the [az ml workspace show](/cli/azure/ml/workspace#az_ml_workspace_show) documentation.
+For more information, see the [az ml workspace show](/cli/azure/ml/workspace#az-ml-workspace-show) documentation.
 
 ### Update a workspace
 
 To update a workspace, use the following command:
 
-# [1.0 CLI](#tab/workspaceupdatev1)
+# [CLI v1](#tab/workspaceupdatev1)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
 az ml workspace update -w <workspace-name> -g <resource-group-name>
 ```
 
-# [2.0 CLI - preview](#tab/workspaceupdatev2)
+# [CLI v2 - preview](#tab/workspaceupdatev2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```azurecli-interactive
 az ml workspace update -n <workspace-name> -g <resource-group-name>
@@ -359,19 +413,23 @@ az ml workspace update -n <workspace-name> -g <resource-group-name>
 ---
 
 
-For more information, see the [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update) documentation.
+For more information, see the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) documentation.
 
 ### Sync keys for dependent resources
 
 If you change access keys for one of the resources used by your workspace, it takes around an hour for the workspace to synchronize to the new key. To force the workspace to sync the new keys immediately, use the following command:
 
-# [1.0 CLI](#tab/workspacesynckeysv1)
+# [CLI v1](#tab/workspacesynckeysv1)
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 ```
 
-# [2.0 CLI - preview](#tab/workspacesynckeysv2)
+# [CLI v2 - preview](#tab/workspacesynckeysv2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```azurecli-interactive
 az ml workspace sync-keys -n <workspace-name> -g <resource-group-name>
@@ -381,7 +439,7 @@ az ml workspace sync-keys -n <workspace-name> -g <resource-group-name>
 
 For more information on changing keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
 
-For more information on the sync-keys command, see [az ml workspace sync-keys](/cli/azure/ml/workspace#az_ml_workspace_sync-keys).
+For more information on the sync-keys command, see [az ml workspace sync-keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys).
 
 ### Delete a workspace
 
@@ -389,13 +447,18 @@ For more information on the sync-keys command, see [az ml workspace sync-keys](/
 
 To delete a workspace after it is no longer needed, use the following command:
 
-# [1.0 CLI](#tab/workspacedeletev1)
+# [CLI v1](#tab/workspacedeletev1)
+
+
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
 az ml workspace delete -w <workspace-name> -g <resource-group-name>
 ```
 
-# [2.0 CLI - preview](#tab/workspacedeletev2)
+# [CLI v2 - preview](#tab/workspacedeletev2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```azurecli-interactive
 az ml workspace delete -n <workspace-name> -g <resource-group-name>
@@ -413,7 +476,7 @@ You can also delete the resource group, which deletes the workspace and all othe
 az group delete -g <resource-group-name>
 ```
 
-For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete) documentation.
+For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az-ml-workspace-delete) documentation.
 
 If you accidentally deleted your workspace, are still able to retrieve your notebooks. Please refer to [this documentation](./how-to-high-availability-machine-learning.md#workspace-deletion).
 

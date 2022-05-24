@@ -99,7 +99,7 @@ If you have more than one VM application to install, you can set the install ord
 
 VM applications require [Azure CLI](/cli/azure/install-azure-cli) version 2.30.0 or later.
 
-Crate the VM application definition using [az sig gallery-application create](/cli/azure/sig/gallery-application#az_sig_gallery_application_create). In this example we are creating a VM application definition named *myApp* for Linux-based VMs.
+Crate the VM application definition using [az sig gallery-application create](/cli/azure/sig/gallery-application#az-sig-gallery-application-create). In this example we are creating a VM application definition named *myApp* for Linux-based VMs.
 
 ```azurecli-interactive
 az sig gallery-application create \
@@ -110,7 +110,7 @@ az sig gallery-application create \
     --location "East US"
 ```
 
-Create a VM application version using [az sig gallery-application version create](/cli/azure/sig/gallery-application/version#az_sig_gallery_application_version_create). Allowed characters for version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+Create a VM application version using [az sig gallery-application version create](/cli/azure/sig/gallery-application/version#az-sig-gallery-application-version-create). Allowed characters for version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
 Replace the values of the parameters with your own.
 
@@ -177,7 +177,7 @@ $appversion = Get-AzGalleryApplicationVersion `
 $packageid = $appversion.Id
 $app = New-AzVmGalleryApplication -PackageReferenceId $packageid
 Add-AzVmGalleryApplication -VM $vmname -GalleryApplication $app
-Update-AzVM -ResourceGroupName $rgname -VM $vmname
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
  
 Verify the application succeeded:

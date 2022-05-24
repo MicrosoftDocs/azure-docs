@@ -6,16 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: troubleshooting
-ms.custom: troubleshooting
+ms.custom: troubleshooting, sdkv1, event-tier1-build-2022
 ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: pansav
 author: psavdekar
 ms.date: 10/21/2021
 #Customer intent: As a data scientist, I want to figure out why my ParallelRunStep doesn't run so that I can fix it.
-
 ---
 
 # Troubleshooting the ParallelRunStep
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to troubleshoot when you get errors using the [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep) class from the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
 
@@ -213,7 +214,7 @@ def init():
     """Init once in a worker process."""
     entry_script = EntryScript()
     logger = entry_script.logger
-    logger.debug("This will show up in files under logs/user on the Azure portal.")
+    logger.info("This will show up in files under logs/user on the Azure portal.")
 
 
 def run(mini_batch):
@@ -221,7 +222,7 @@ def run(mini_batch):
     # This class is in singleton pattern and will return same instance as the one in init()
     entry_script = EntryScript()
     logger = entry_script.logger
-    logger.debug(f"{__file__}: {mini_batch}.")
+    logger.info(f"{__file__}: {mini_batch}.")
     ...
 
     return mini_batch
@@ -230,7 +231,7 @@ def run(mini_batch):
 ## Where does the message from Python `logging` sink to?
 ParallelRunStep sets a handler on the root logger, which sinks the message to `logs/user/stdout/<node_id>/processNNN.stdout.txt`.
 
-`logging` defaults to `WARNING` level. By default, levels below `WARNING` won't show up, such as `INFO` or `DEBUG`.
+`logging` defaults to `INFO` level. By default, levels below `INFO` won't show up, such as `DEBUG`.
 
 ## How could I write to a file to show up in the portal?
 Files in `logs` folder will be uploaded and show up in the portal.

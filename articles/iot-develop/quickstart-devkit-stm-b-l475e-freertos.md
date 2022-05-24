@@ -1,6 +1,6 @@
 ---
 title: Connect an STMicroelectronics B-L475E to Azure IoT Central quickstart
-description: Use Azure FreeRTOS device middleware to connect an STMicroelectronics B-L475E-IOT01A Discovery kit to Azure IoT and send telemetry.
+description: Use Azure IoT middleware for FreeRTOS to connect an STMicroelectronics B-L475E-IOT01A Discovery kit to Azure IoT and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
@@ -16,7 +16,7 @@ ms.custom: mode-other
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
 
-In this quickstart, you use the Azure FreeRTOS middleware to connect the STMicroelectronics B-L475E-IOT01A Discovery kit (from now on, the STM DevKit) to Azure IoT Central.
+In this quickstart, you use the Azure IoT middleware for FreeRTOS to connect the STMicroelectronics B-L475E-IOT01A Discovery kit (from now on, the STM DevKit) to Azure IoT Central.
 
 You complete the following tasks:
 
@@ -229,6 +229,9 @@ Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-stm-b-l475e-freertos/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
 
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
+
 ## Troubleshoot and debug
 
 If you experience issues when you build the device code, flash the device, or connect, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
@@ -252,12 +255,12 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 ## Next Steps
 
-In this quickstart, you built a custom image that contains the Azure FreeRTOS middleware sample code. Then you flashed the image to the STM DevKit device. You also used the IoT Central portal to create Azure resources, connect the STM  DevKit securely to Azure, view telemetry, and send messages.
+In this quickstart, you built a custom image that contains the Azure IoT middleware for FreeRTOS sample code. Then you flashed the image to the STM DevKit device. You also used the IoT Central portal to create Azure resources, connect the STM  DevKit securely to Azure, view telemetry, and send messages.
 
 As a next step, explore the following articles to learn how to work with embedded devices and connect them to Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Azure FreeRTOS middleware samples](https://github.com/Azure-Samples/iot-middleware-freertos-samples)
+> [Azure IoT middleware for FreeRTOS samples](https://github.com/Azure-Samples/iot-middleware-freertos-samples)
 > [!div class="nextstepaction"]
 > [Azure RTOS embedded development quickstarts](quickstart-devkit-mxchip-az3166.md)
 > [!div class="nextstepaction"]

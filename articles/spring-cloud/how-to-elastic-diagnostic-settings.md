@@ -1,19 +1,24 @@
 ---
-title: Analyze logs with Elastic Cloud from Azure Spring Cloud
-description: Learn how to analyze diagnostics logs in Azure Spring Cloud using Elastic
+title: Analyze logs with Elastic Cloud from Azure Spring Apps
+description: Learn how to analyze diagnostics logs in Azure Spring Apps using Elastic
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/07/2021
 ms.author: karler
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Analyze logs with Elastic (ELK) using diagnostics settings
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Java ✔️ C#
 
-This article explains how to use the diagnostics functionality of Azure Spring Cloud to analyze logs with Elastic (ELK).
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to use the diagnostics functionality of Azure Spring Apps to analyze logs with Elastic (ELK).
 
 The following video introduces unified observability for Spring Boot applications using Elastic.
 
@@ -25,16 +30,16 @@ The following video introduces unified observability for Spring Boot application
 
 To configure diagnostics settings, use the following steps:
 
-1. In the Azure portal, go to your Azure Spring Cloud instance.
+1. In the Azure portal, go to your Azure Spring Apps instance.
 1. Select **diagnostics settings** option, then select **Add diagnostics setting**.
 1. Enter a name for the setting, choose **Send to partner solution**, then select **Elastic** and an Elastic deployment where you want to send the logs.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png" alt-text="Azure portal screenshot showing 'Diagnostic setting' page." lightbox="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png" alt-text="Screenshot of Azure portal showing 'Diagnostic setting' page." lightbox="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png":::
 
 > [!NOTE]
 > There might be a gap of up to 15 minutes between when logs are emitted and when they appear in your Elastic deployment.
-> If the Azure Spring Cloud instance is deleted or moved, the operation will not cascade to the diagnostics settings resources. You have to manually delete the diagnostics settings resources before you perform the operation against its parent, the Azure Spring Cloud instance. Otherwise, if you provision a new Azure Spring Cloud instance with the same resource ID as the deleted one, or if you move the Azure Spring Cloud instance back, the previous diagnostics settings resources will continue to extend it.
+> If the Azure Spring Apps instance is deleted or moved, the operation won't cascade to the diagnostics settings resources. You have to manually delete the diagnostics settings resources before you perform the operation against its parent, the Azure Spring Apps instance. Otherwise, if you provision a new Azure Spring Apps instance with the same resource ID as the deleted one, or if you move the Azure Spring Apps instance back, the previous diagnostics settings resources will continue to extend it.
 
 ## Analyze the logs with Elastic
 
@@ -44,17 +49,17 @@ Use the following steps to analyze the logs:
 
 1. From the Elastic deployment overview page in the Azure portal, open **Kibana**.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png" alt-text="Azure portal screenshot showing 'Elasticsearch (Elastic Cloud)' page with Deployment URL / Kibana highlighted." lightbox="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png" alt-text="Screenshot of Azure portal showing 'Elasticsearch (Elastic Cloud)' page with Deployment U R L / Kibana highlighted." lightbox="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png":::
 
 1. In Kibana, in the **Search** bar at top, type *Spring Cloud type:dashboard*.
 
    :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-spring-cloud-dashboard.png" alt-text="Elastic / Kibana screenshot showing 'Spring Cloud type:dashboard' search results." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-spring-cloud-dashboard.png":::
 
-1. Select **[Logs Azure] Azure Spring Cloud logs Overview** from the results.
+1. Select **[Logs Azure] Azure Spring Apps logs Overview** from the results.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-dashboard-full.png" alt-text="Elastic / Kibana screenshot showing Azure Spring Cloud Application Console Logs." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-dashboard-full.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-dashboard-full.png" alt-text="Elastic / Kibana screenshot showing Azure Spring Apps Application Console Logs." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-dashboard-full.png":::
 
-1. Search on out-of-the-box Azure Spring Cloud dashboards by using the queries such as the following:
+1. Search on out-of-the-box Azure Spring Apps dashboards by using the queries such as the following:
 
    ```query
    azure.springcloudlogs.properties.app_name : "visits-service"
@@ -76,9 +81,9 @@ Application logs provide critical information and verbose logs about your applic
 
 For more information about different queries, see [Guide to Kibana Query Language](https://www.elastic.co/guide/en/kibana/current/kuery-query.html).
 
-### Show all logs from Azure Spring Cloud
+### Show all logs from Azure Spring Apps
 
-To review a list of application logs from Azure Spring Cloud, sorted by time with the most recent logs shown first, run the following query in the **Search** box:
+To review a list of application logs from Azure Spring Apps, sorted by time with the most recent logs shown first, run the following query in the **Search** box:
 
 ```query
 azure_log_forwarder.resource_type : "Microsoft.AppPlatform/Spring"
@@ -86,9 +91,9 @@ azure_log_forwarder.resource_type : "Microsoft.AppPlatform/Spring"
 
 :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-logs.png" alt-text="Elastic / Kibana screenshot showing Discover app with all logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-logs.png":::
 
-### Show specific log types from Azure Spring Cloud
+### Show specific log types from Azure Spring Apps
 
-To review a list of application logs from Azure Spring Cloud, sorted by time with the most recent logs shown first, run the following query in the **Search** box:
+To review a list of application logs from Azure Spring Apps, sorted by time with the most recent logs shown first, run the following query in the **Search** box:
 
 ```query
 azure.springcloudlogs.category : "ApplicationConsole"
@@ -138,7 +143,7 @@ azure.springcloudlogs.properties.type : "ServiceRegistry"
 
 :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-service-registry.png" alt-text="Elastic / Kibana screenshot showing Discover app with Service Registry logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-service-registry.png":::
 
-## Visualizing logs from Azure Spring Cloud with Elastic
+## Visualizing logs from Azure Spring Apps with Elastic
 
 Kibana allows you to visualize data with Dashboards and a rich ecosystem of visualizations. For more information, see [Dashboard and Visualization](https://www.elastic.co/guide/en/kibana/current/dashboard.html).
 
@@ -156,5 +161,5 @@ Use the following steps to show the various log levels in your logs so you can a
 
 ## Next steps
 
-* [Quickstart: Deploy your first Spring Boot app in Azure Spring Cloud](quickstart.md)
+* [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](quickstart.md)
 * [Deploy Elastic on Azure](https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement)

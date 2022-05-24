@@ -14,13 +14,11 @@ manager: abjork
 
 Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption and remotely controlling valves to control water flow. Water consumption monitoring coupled with digital feedback message to the citizen can increase awareness and reduce water consumption.
 
-The water consumption monitoring app is an IoT Central app template to help you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption.
-
-Use the IoT Central *water consumption monitoring* application template and the guidance in this article to develop an end-to-end water consumption monitoring solution.
+The _water consumption monitoring_ application template helps you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption.
 
 ![Water consumption monitoring architecture](./media/tutorial-waterconsumptionmonitoring/concepts-waterconsumptionmonitoring-architecture1.png)
 
-### Devices and connectivity
+### Devices and connectivity (1,2)
 
 Water management solutions use smart water devices such as flow meters, water quality monitors, smart valves, leak detectors.
 
@@ -32,7 +30,7 @@ When you build an IoT solution, Azure IoT Central simplifies the build process a
 
 When you connect your smart water devices to IoT Central, the application provides device command and control, monitoring and alerting, a user interface with built-in RBAC, configurable dashboards, and extensibility options.
 
-### Extensibility and integrations
+### Extensibility and integrations (3)
 
 You can extend your IoT application in IoT Central and optionally:
 
@@ -40,14 +38,13 @@ You can extend your IoT application in IoT Central and optionally:
 * Automate workflows in other systems by triggering actions using Power Automate or webhooks from IoT Central application.
 * Programmatically access your IoT application in IoT Central through IoT Central APIs.
 
-### Business applications
+### Business applications (4)
 
 You can use IoT data to power various business applications within a water utility. In your [IoT Central water consumption monitoring application](tutorial-water-consumption-monitoring.md) you can configure rules and actions, and set them to create alerts in [Connected Field Service](/dynamics365/field-service/connected-field-service). Configure Power Automate in IoT Central rules to automate workflows across applications and services. Additionally, based on service activities in Connected Field Service, information can be sent back to Azure IoT Central.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
 > * Use the Azure IoT Central water consumption monitoring template to create your water consumption monitoring application.
 > * Explore and customize the dashboard.
 > * Explore device templates.

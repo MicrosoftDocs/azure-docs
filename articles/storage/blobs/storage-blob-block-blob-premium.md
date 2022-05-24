@@ -76,7 +76,7 @@ This section contains the following examples:
 
 Premium block blob storage can help you *hydrate* or bring up your environment quickly. In industries such as banking, certain regulatory requirements might require companies to regularly tear down their environments, and then bring them back up from scratch. The data used to hydrate their environment must load quickly. 
 
-Some of our partners store a copy of their MongoDB instance each week to a premium block blob storage account. The system is then torn down. To get the system back online quickly again, the latest copy of the MangoDB instance is read and loaded. For audit purposes, previous copies are maintained in cloud storage for a period of time.
+Some of our partners store a copy of their MongoDB instance each week to a premium block blob storage account. The system is then torn down. To get the system back online quickly again, the latest copy of the MongoDB instance is read and loaded. For audit purposes, previous copies are maintained in cloud storage for a period of time.
 
 ### Interactive editing applications
 

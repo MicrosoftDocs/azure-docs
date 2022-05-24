@@ -58,17 +58,19 @@ In a few minutes, your creation should successfully complete.
 
 - **the number of worker nodes** you want to deploy to scale out and potentially reach better performances. Before proceeding here, read the [concepts about Postgres Hyperscale](concepts-distributed-postgres-hyperscale.md). The table below indicates the range of supported values and what form of Postgres deployment you get with them. For example, if you want to deploy a server group with 2 worker nodes, indicate 2. This will create three pods, one for the coordinator node/instance and two for the worker nodes/instances (one for each of the workers).
 
+    |You need   |Shape of the server group you will deploy   |Number of worker nodes to indicate   |Note   |
+    |---|---|---|---|
+    |A scaled out form of Postgres to satisfy the scalability needs of your applications.   |3 or more Postgres instances, 1 is coordinator, n  are workers with n >=2.   |n, with n>=2.   |The Citus extension that provides the Hyperscale capability is loaded.   |
+    |A basic form of Postgres Hyperscale for you to do functional validation of your application at minimum cost. Not valid for performance and scalability validation. For that you need to use the type of deployments described above.   |1 Postgres instance that is both coordinator and worker.   |0 and add Citus to the list of extensions to load.   |The Citus extension that provides the Hyperscale capability is loaded.   |
+    |A simple instance of Postgres that is ready to scale out when you need it.   |1 Postgres instance. It is not yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes and distribute the data.   |0   |The Citus extension that provides the Hyperscale capability is present on your deployment but is not yet loaded.   |
+    |   |   |   |   |
 
+    This table is demonstrated in the following figure:
 
-|You need   |Shape of the server group you will deploy   |Number of worker nodes to indicate   |Note   |
-|---|---|---|---|
-|A scaled out form of Postgres to satisfy the scalability needs of your applications.   |3 or more Postgres instances, 1 is coordinator, n  are workers with n >=2.   |n, with n>=2.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-|A basic form of Postgres Hyperscale for you to do functional validation of your application at minimum cost. Not valid for performance and scalability validation. For that you need to use the type of deployments described above.   |1 Postgres instance that is both coordinator and worker.   |0 and add Citus to the list of extensions to load.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-|A simple instance of Postgres that is ready to scale out when you need it.   |1 Postgres instance. It is not yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes and distribute the data.   |0   |The Citus extension that provides the Hyperscale capability is present on your deployment but is not yet loaded.   |
-|   |   |   |   |
-
-While indicating 1 worker works, we do not recommend you use it. This deployment will not provide you much value. With it, you will get 2 instances of Postgres: 1 coordinator and 1 worker. With this setup you actually do not scale out the data since you deploy a single worker. As such you will not see an increased level of performance and scalability. We will remove the support of this deployment in a future release.
-
+    :::image type="content" source="media/postgres-hyperscale/deployment-parameters.png" alt-text="Diagram that depicts Postgres Hyperscale worker node parameters and associated architecture." border="false":::
+  
+    While indicating 1 worker works, we do not recommend you use it. This deployment will not provide you much value. With it, you will get 2 instances of Postgres: 1 coordinator and 1 worker. With this setup you actually do not scale out the data since you deploy a single worker. As such you will not see an increased level of performance and scalability. We will remove the support of this deployment in a future release.
+ 
 - **the storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this cannot be changed after you deploy. If you were to change the storage class after deployment, you would need to extract the data, delete your server group, create a new server group, and import the data. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
     - to set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd` followed by the name of the storage class.
     - to set the storage class for the logs, indicate the parameter `--storage-class-logs` or `-scl` followed by the name of the storage class.
@@ -82,8 +84,8 @@ While indicating 1 worker works, we do not recommend you use it. This deployment
 - [Monitor your server group](monitor-grafana-kibana.md)
 - Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from all the power of Azure Database for Postgres Hyperscale. :
     * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
-    * [Determine application type](../../postgresql/hyperscale/concepts-app-type.md)
-    * [Choose a distribution column](../../postgresql/hyperscale/concepts-choose-distribution-column.md)
+    * [Determine application type](../../postgresql/hyperscale/howto-app-type.md)
+    * [Choose a distribution column](../../postgresql/hyperscale/howto-choose-distribution-column.md)
     * [Table colocation](../../postgresql/hyperscale/concepts-colocation.md)
     * [Distribute and modify tables](../../postgresql/hyperscale/howto-modify-distributed-tables.md)
     * [Design a multi-tenant database](../../postgresql/hyperscale/tutorial-design-database-multi-tenant.md)*

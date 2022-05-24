@@ -7,16 +7,14 @@ ms.author: sagopal
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/21/2021
+ms.date: 04/19/2022
 ms.topic: how-to
-ms.custom: devx-track-python
-
-## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
-
+ms.custom: devx-track-python, devx-track-azurecli, sdkv1, event-tier1-build-2022
 ---
 
 # Create & use software environments in Azure Machine Learning
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to create and manage Azure Machine Learning [environments](/python/api/azureml-core/azureml.core.environment.environment). Use the environments to track and reproduce your projects' software dependencies as they evolve.
 
@@ -29,7 +27,7 @@ The examples in this article show how to:
 * Use an environment for training.
 * Use an environment for web service deployment.
 
-For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](concept-environments.md) For information about managing environments in the Azure ML studio, see [Manage environments in the studio](how-to-manage-environments-in-studio.md). For information about configuring development environments, see [here](how-to-configure-environment.md).
+For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](concept-environments.md) For information about managing environments in the Azure ML studio, see [Manage environments in the studio](how-to-manage-environments-in-studio.md). For information about configuring development environments, see [Set up a Python development environment for Azure ML](how-to-configure-environment.md).
 
 ## Prerequisites
 
@@ -408,33 +406,7 @@ This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/m
 
 ## Create and manage environments with the Azure CLI
 
-[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
-
-The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) mirrors most of the functionality of the Python SDK. You can use it to create and manage environments. The commands that we discuss in this section demonstrate fundamental functionality.
-
-The following command scaffolds the files for a default environment definition in the specified directory. These files are JSON files. They work like the corresponding class in the SDK. You can use the files to create new environments that have custom settings. 
-
-```azurecli-interactive
-az ml environment scaffold -n myenv -d myenvdir
-```
-
-Run the following command to register an environment from a specified directory.
-
-```azurecli-interactive
-az ml environment register -d myenvdir
-```
-
-Run the following command to list all registered environments.
-
-```azurecli-interactive
-az ml environment list
-```
-
-Download a registered environment by using the following command.
-
-```azurecli-interactive
-az ml environment download -n myenv -d downloaddir
-```
+For information on using the CLI v2, see [Manage environments with CLI v2](how-to-manage-environments-v2.md).
 
 ## Create and manage environments with Visual Studio Code
 

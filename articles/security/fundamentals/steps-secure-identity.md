@@ -7,7 +7,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/15/2021
+ms.date: 05/01/2022
 
 ms.author: martinco
 author: martincoetzer
@@ -18,7 +18,7 @@ tags: azuread
 ---
 # Five steps to securing your identity infrastructure
 
-If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Digital Defense Report](https://www.microsoft.com/security/business/microsoft-digital-defense-report).
+If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Digital Defense Report](https://www.microsoft.com/security/business/security-intelligence-report).
 
 This document will help you get a more secure posture using the capabilities of Azure Active Directory by using a five-step checklist to improve your organization's protection against cyber-attacks.
 
@@ -75,7 +75,7 @@ Passwords are never stored in clear text or encrypted with a reversible algorith
 
 ### Implement AD FS extranet smart lockout
 
-Smart lockout helps lock out bad actors that try to guess your users' passwords or use brute-force methods to get in. Smart lockout can recognize sign-ins that come from valid users and treat them differently than ones of attackers and other unknown sources. Attackers get locked out, while your users continue to access their accounts and be productive. Organizations, which configure applications to authenticate directly to Azure AD benefit from Azure AD smart lockout. Federated deployments that use AD FS 2016 and AD FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection.md). 
+Smart lockout helps lock out bad actors that try to guess your users' passwords or use brute-force methods to get in. Smart lockout can recognize sign-ins that come from valid users and treat them differently than ones of attackers and other unknown sources. Attackers get locked out, while your users continue to access their accounts and be productive. Organizations, which configure applications to authenticate directly to Azure AD benefit from Azure AD smart lockout. Federated deployments that use AD FS 2016 and AD FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection). 
 
 ## Step 2 - Reduce your attack surface area
 
@@ -104,6 +104,8 @@ For more information, see the article [Blocking legacy authentication protocols 
 
 Using the verify explicitly principle, you should reduce the impact of compromised user credentials when they happen. For each app in your environment, consider the valid use cases: which groups, which networks, which devices and other elements are authorized – then block the rest. With Azure AD Conditional Access, you can control how authorized users access their apps and resources based on specific conditions you define.
 
+For more information on how to use Conditional Access for your Cloud Apps and user actions, see [Conditional Access Cloud apps, actions, and authentication context](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md). 
+
 ### Review and govern admin roles
 
 Another Zero Trust pillar is the need to minimize the likelihood a compromised account can operate with a privileged role. This control can be accomplished by assigning the least amount of privilege to an identity. If you’re new to Azure AD Roles, this article will help you understand Azure AD Roles.
@@ -130,7 +132,7 @@ Azure AD built-in and custom roles operate on concepts similar to roles found in
 
 Both systems contain similarly used role definitions and role assignments. However, Azure AD role permissions can't be used in Azure custom roles and vice versa. As part of deploying your privileged account process, follow the best practice to create at least two emergency accounts to make sure you still have access to Azure AD if you lock yourself out.
 
-For more information, see the article [Plan a Privileged Identity Management deployment](../../active-directory/privileged-identity-management/pim-deployment-plan.md).
+For more information, see the article [Plan a Privileged Identity Management deployment](../../active-directory/privileged-identity-management/pim-deployment-plan.md) and [securing privileged access](/security/compass/overview).
 
 ### Restrict user consent operations
 
@@ -140,7 +142,7 @@ Microsoft recommends restricting user consent to allow end-user consent only for
 
 Make sure users can request admin approval for new applications to reduce user friction, minimize support volume, and prevent users from signing up for applications using non-Azure AD credentials. Once you regulate your consent operations, administrators should audit app and consent permissions regularly.
 
-For more information, see the article [Azure Active Directory consent framework(../../active-directory/develop/consent-framework.md).
+For more information, see the article [Azure Active Directory consent framework](../../active-directory/develop/consent-framework.md).
 
 ## Step 3 - Automate threat response
 

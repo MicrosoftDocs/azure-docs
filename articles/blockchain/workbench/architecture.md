@@ -1,12 +1,14 @@
 ---
 title: Azure Blockchain Workbench architecture
 description: Overview of Azure Blockchain Workbench Preview architecture and its components.
-ms.date: 09/05/2019
+ms.date: 02/18/2022
 ms.topic: conceptual
 ms.reviewer: brendal
 #Customer intent: As a developer, I want to understand the architecture and components of Azure Blockchain Workbench.
 ---
 # Azure Blockchain Workbench architecture
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Azure Blockchain Workbench Preview simplifies blockchain application development by providing a solution using several Azure components. Blockchain Workbench can be deployed using a solution template in the Azure Marketplace. The template allows you to pick modules and components to deploy including blockchain stack, type of client application, and support for IoT integration. Once deployed, Blockchain Workbench provides access to a web app, iOS app, and Android app.
 

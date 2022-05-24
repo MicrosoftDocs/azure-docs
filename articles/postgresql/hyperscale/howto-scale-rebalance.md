@@ -1,8 +1,9 @@
 ---
 title: Rebalance shards - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Distribute shards evenly across servers for better performance
-author: jonels-msft
+description: Learn how to use the Azure portal to rebalance data in a server group using the Shard rebalancer.
+ms.custom: kr2b-contr-experiment
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
@@ -11,32 +12,28 @@ ms.date: 07/20/2021
 
 # Rebalance shards in Hyperscale (Citus) server group
 
-To take advantage of newly added nodes you must rebalance distributed table
-[shards](concepts-distributed-data.md#shards), which means moving
-some shards from existing nodes to the new ones. Hyperscale (Citus) offers
-zero-downtime rebalancing, meaning queries can run without interruption during
+To take advantage of newly added nodes, rebalance distributed table
+[shards](concepts-distributed-data.md#shards). Rebalancing moves shards from existing nodes to the new ones. Hyperscale (Citus) offers
+zero-downtime rebalancing, meaning queries continue without interruption during
 shard rebalancing.
 
-## Determine if the server group needs a rebalance
+## Determine if the server group is balanced
 
-The Azure portal can show you whether data is distributed equally between
-worker nodes in a server group. To see it, go to the **Shard rebalancer** page
-in the **Server group management** menu. If data is skewed between workers,
-you'll see the message **Rebalancing is recommended**, along with a list of the
-size of each node.
+The Azure portal shows whether data is distributed equally between
+worker nodes in a server group or not. From the **Server group management** menu, select **Shard rebalancer**.
 
-If data is already balanced, you'll see the message **Rebalancing is not
-recommended at this time**.
+- If data is skewed between workers: You'll see the message, **Rebalancing is recommended** and a list of the size of each node.
 
-## Run the shard rebalancer
+- If data is balanced: You'll see the message, **Rebalancing is not recommended at this time**.
 
-To start the shard rebalancer, you need to connect to the coordinator node of
-the server group and run the
-[rebalance_table_shards](reference-functions.md#rebalance_table_shards)
-SQL function on distributed tables. The function rebalances all tables in the
+## Run the Shard rebalancer
+
+To start the Shard rebalancer, connect to the coordinator node of the server group and then run the [rebalance_table_shards](reference-functions.md#rebalance_table_shards) SQL function on distributed tables. 
+
+The function rebalances all tables in the
 [colocation](concepts-colocation.md) group of the table named in its
-argument. Thus you do not have to call the function for every distributed
-table, just call it on a representative table from each colocation group.
+argument. You don't have to call the function for every distributed
+table. Instead, call it on a representative table from each colocation group.
 
 ```sql
 SELECT rebalance_table_shards('distributed_table_name');
@@ -44,21 +41,18 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 ## Monitor rebalance progress
 
-To watch the rebalancer after you start it, go back to the Azure portal. Open
-the **Shard rebalancer** page in **Server group management**. It will show the
-message **Rebalancing is underway** along with two tables.
+You can view the rebalance progress from the Azure portal. From the **Server group management** menu, select **Shard rebalancer** . The
+message **Rebalancing is underway** displays with two tables:
 
-The first table shows the number of shards moving into or out of a node, for
-example, "6 of 24 moved in." The second table shows progress per database
-table: name, shard count affected, data size affected, and rebalancing status.
+- The first table shows the number of shards moving into or out of a node. For
+example, "6 of 24 moved in." 
+- The second table shows progress per database table: name, shard count affected, data size affected, and rebalancing status.
 
-Select the **Refresh** button to update the page. When rebalancing is complete,
-it will again say **Rebalancing is not recommended at this time**.
+Select **Refresh** to update the page. When rebalancing is complete, you'll see the message **Rebalancing is not recommended at this time**.
 
 ## Next steps
 
-- Learn more about server group [performance
-  options](concepts-configuration-options.md).
+- Learn more about server group [performance options](resources-compute.md).
 - [Scale a server group](howto-scale-grow.md) up or out
 - See the
   [rebalance_table_shards](reference-functions.md#rebalance_table_shards)

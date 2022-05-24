@@ -22,7 +22,7 @@ The Azure Files volume driver is a [Docker volume plugin](https://docs.docker.co
 
 * Follow the instructions in the [Azure Files documentation](../storage/files/storage-how-to-create-file-share.md) to create a file share for the Service Fabric container application to use as volume.
 
-* You will need [Powershell with the Service Fabric module](./service-fabric-get-started.md) or [SFCTL](./service-fabric-cli.md) installed.
+* You will need [PowerShell with the Service Fabric module](./service-fabric-get-started.md) or [SFCTL](./service-fabric-cli.md) installed.
 
 * If you are using Hyper-V containers, the following snippets need to be added in the ClusterManifest (local cluster) or fabricSettings section in your Azure Resource Manager template (Azure cluster) or ClusterConfig.json (standalone cluster).
 
@@ -52,7 +52,7 @@ In the fabricSettings section in your Azure Resource Manager template (for Azure
 
 ## Deploy a sample application using Service Fabric Azure Files volume driver
 
-### Using Azure Resource Manager via the provided Powershell script (recommended)
+### Using Azure Resource Manager via the provided PowerShell script (recommended)
 
 If your cluster is based in Azure, we recommend deploying applications to it using the Azure Resource Manager application resource model for ease of use and to help move towards the model of maintaining infrastructure as code. This approach eliminates the need to keep track of the app version for the Azure Files volume driver. It also enables you to maintain separate Azure Resource Manager templates for each supported OS. The script assumes you are deploying the latest version of the Azure Files application and takes parameters for OS type, cluster subscription ID, and resource group. You can download the script from the [Service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/DeployAzureFilesVolumeDriver.zip). Note that this automatically sets the ListenPort, which is the port on which the Azure Files volume plugin listens for requests from the Docker daemon, to 19100. You can change it by adding parameter named "listenPort". Ensure that the port does not conflict with any other port that the cluster or your applications uses.
  

@@ -1,79 +1,98 @@
 ---
-title: Power BI tutorial for Azure Cosmos DB connector
-description: Use this Power BI tutorial to import JSON, create insightful reports, and visualize data using the Azure Cosmos DB and Power BI connector.
+title: Power BI tutorial for Azure Cosmos DB
+description: Use this Power BI tutorial to import JSON, create insightful reports, and visualize data using the Azure Cosmos DB.
 author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/4/2021
+ms.date: 03/28/2022
 ms.author: rosouz
 ---
 
-# Visualize Azure Cosmos DB data by using the Power BI connector
+# Visualize Azure Cosmos DB data using Power BI
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-[Power BI](https://powerbi.microsoft.com/) is an online service where you can create and share dashboards and reports. Power BI Desktop is a report authoring tool that enables you to retrieve data from various data sources. Azure Cosmos DB is one of the data source that you can use with Power BI Desktop. You can connect Power BI Desktop to Azure Cosmos DB account with the Azure Cosmos DB connector for Power BI.  After you import Azure Cosmos DB data to Power BI, you can transform it, create reports, and publish the reports to Power BI.
+This article describes the steps required to connect Azure Cosmos DB data to [Power BI](https://powerbi.microsoft.com/) Desktop. 
 
-Another option is to create near real-time reports using [Azure Synapse Link for Azure Cosmos DB](../synapse-link.md). With Azure Synapse Link, you can connect Power BI to analyze your Azure Cosmos DB data, with no performance or cost impact to your transactional workloads, and no ETL pipelines. You can use either [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. For more information, click [here](../synapse-link-power-bi.md).
+You can connect to Azure Cosmos DB from Power BI desktop by using one of these options: 
 
+* Use [Azure Synapse Link](../synapse-link.md) to build Power BI reports with no performance or cost impact to your transactional workloads, and no ETL pipelines.
+   
+   You can either use [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) mode. With [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode), you can build dashboards/reports    using live data from your Azure Cosmos DB accounts, without importing or copying the data into Power BI.
 
-This article describes the steps required to connect Azure Cosmos DB account to Power BI Desktop. After connecting, you navigate to a collection, extract the data, transform the JSON data into tabular format, and publish a report to Power BI.
-
-> [!NOTE]
-> The Power BI connector for Azure Cosmos DB connects to Power BI Desktop. Reports created in Power BI Desktop can be published to PowerBI.com. Direct extraction of Azure Cosmos DB data cannot be performed from PowerBI.com. 
-
-> [!NOTE]
-> Connecting to Azure Cosmos DB with the Power BI connector is currently supported for Azure Cosmos DB SQL API and Gremlin API accounts only.
+* Connect Power BI Desktop to Azure Cosmos DB account with the Azure Cosmos DB connector for Power BI. This option is only available in import mode and will consume RUs allocated for your transactional workloads.
 
 > [!NOTE]
-> Creating near real-time Power BI dashboards using Azure Synapse Link is currently supported for Azure Cosmos DB SQL API and Azure Cosmos DB API for MongoDB.
+>  Reports created in Power BI Desktop can be published to PowerBI.com. Direct extraction of Azure Cosmos DB data cannot be performed from PowerBI.com. 
 
 ## Prerequisites
 Before following the instructions in this Power BI tutorial, ensure that you have access to the following resources:
 
 * [Download the latest version of Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
-* Download the [sample volcano data](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/main/SampleData/VolcanoData.json) from GitHub.
-
-* [Create an Azure Cosmos database account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) and import the volcano data by using the [Azure Cosmos DB data migration tool](../import-data.md). When importing data, consider the following settings for the source and destinations in the data migration tool:
-
-   * **Source parameters** 
-
-       * **Import from:** JSON file(s)
-
-   * **Target parameters** 
-
-      * **Connection string:** `AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
-
-      * **Partition key:** /Country 
-
-      * **Collection Throughput:** 1000 
+* [Create an Azure Cosmos database account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) and add data to your Cosmos containers.
 
 To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI and Power BI Pro, see [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
 ## Let's get started
-In this tutorial, let's imagine that you are a geologist studying volcanoes around the world. The volcano data is stored in an Azure Cosmos DB account and the JSON document format is as follows:
+### Building BI reports using Azure Synapse Link
 
-```json
-{
-    "Volcano Name": "Rainier",
-        "Country": "United States",
-        "Region": "US-Washington",
-        "Location": {
-          "type": "Point",
-          "coordinates": [
-            -121.758,
-            46.87
-          ]
-        },
-        "Elevation": 4392,
-        "Type": "Stratovolcano",
-        "Status": "Dendrochronology",
-        "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
-}
-```
+You can enable Azure Synapse Link on your existing Cosmos DB containers and build BI reports on this data, in just a few clicks using Azure Cosmos DB portal. Power BI will connect to Cosmos DB using Direct Query mode, allowing you to query your live Cosmos DB data, without impacting your transactional workloads. 
 
-You will retrieve the volcano data from the Azure Cosmos DB account and visualize data in an interactive Power BI report.
+To build a Power BI report/dashboard: 
+
+1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
+
+1. From the **Integrations** section, open the **Power BI** pane and select **Get started**.
+
+   > [!NOTE]
+   > Currently, this option is only available for SQL API accounts. You can create T-SQL views directly in Synapse serverless SQL pools and build BI dashboards for Azure Cosmos DB API for MongoDB. See ["Use Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse"](../synapse-link-power-bi.md) for more information. 
+
+1. From the **Enable Azure Synapse Link** tab, you can enable Synapse Link on your account from **Enable Azure Synapse link for this account** section. If Synapse Link is already enabled for your account, you will not see this tab. This step is a pre-requisite to start enabling Synapse Link on your containers.
+
+   > [!NOTE]
+   > Enabling Azure Synapse Link has cost implications. See [Azure Synapse Link pricing](../synapse-link.md#pricing) section for more details.
+
+1. Next from the **Enable Azure Synapse Link for your containers** section, choose the required containers to enable Synapse Link.
+
+   * If you already enabled Synapse Link on some containers, you will see the checkbox next to the container name is selected. You may optionally deselect them, based on the data you'd like to visualize in Power BI.
+
+   * If Synapse Link isn't enabled, you can enable this on your existing containers. 
+
+     If enabling Synapse Link is in progress on any of the containers, the data from those containers will not be included. You should come back to this tab later and import data when the containers are enabled.
+
+   :::image type="content" source="../media/integrated-power-bi-synapse-link/synapse-link-progress-existing-containers.png" alt-text="Progress of Synapse Link enabled on existing containers." border="true" lightbox="../media/integrated-power-bi-synapse-link/synapse-link-progress-existing-containers.png":::
+
+1. Depending on the amount of data in your containers, it may take a while to enable Synapse Link. To learn more, see [enable Synapse Link on existing containers](../configure-synapse-link.md#update-analytical-ttl) article.  
+
+   You can check the progress in the portal as shown in the following screen. **Containers are enabled with Synapse Link when the progress reaches 100%.**
+
+   :::image type="content" source="../media/integrated-power-bi-synapse-link/synapse-link-existing-containers-registration-complete.png" alt-text="Synapse Link successfully enabled on the selected containers." border="true" lightbox="../media/integrated-power-bi-synapse-link/synapse-link-existing-containers-registration-complete.png":::
+
+1. From the **Select workspace** tab, choose the Azure Synapse Analytics workspace and select **Next**. This step will automatically create T-SQL views in Synapse Analytics, for the containers selected earlier. For more information on T-SQL views required to connect your Cosmos DB to Power BI, see [Prepare views](../../synapse-analytics/sql/tutorial-connect-power-bi-desktop.md#3---prepare-view) article.
+   > [!NOTE]
+   >  Your Cosmos DB container proprieties will be represented as columns in T-SQL views, including deep nested JSON data. This is a quick start for your BI dashboards. These views will be available in your Synapse workspace/database; you can also use these exact same views in Synapse Workspace for data exploration, data science, data engineering, etc. Please note that advanced scenarios may demand more complex views or fine tuning of these views, for better performance. For more information. see [best practices for Synapse Link when using Synapse serverless SQL pools](../../synapse-analytics/sql/resources-self-help-sql-on-demand.md#azure-cosmos-db-performance-issues) article.
+    
+1. You can either choose an existing workspace or create a new one. To select an existing workspace, provide the **Subscription**, **Workspace**, and the **Database** details. Azure portal will use your Azure AD credentials to automatically connect to your Synapse workspace and create T-SQL views. Make sure you have "Synapse administrator" permissions to this workspace.
+
+   :::image type="content" source="../media/integrated-power-bi-synapse-link/synapse-create-views.png" alt-text="Connect to Synapse Link workspace and create views." border="true" lightbox="../media/integrated-power-bi-synapse-link/synapse-create-views.png":::
+
+1. Next, select **Download .pbids** to download the Power BI data source file. Open the downloaded file. It contains the required connection information and opens Power BI desktop.
+
+   :::image type="content" source="../media/integrated-power-bi-synapse-link/download-powerbi-desktop-files.png" alt-text="Download the Power BI desktop files in .pbids format." border="true" lightbox="../media/integrated-power-bi-synapse-link/download-powerbi-desktop-files.png":::
+
+1. You can now connect to Azure Cosmos DB data from Power BI desktop. A list of T-SQL views corresponding to the data in each container are displayed.
+
+   For example, the following screen shows vehicle fleet data. You can load this data for further analysis or transform it before loading.
+
+   :::image type="content" source="../media/integrated-power-bi-synapse-link/powerbi-desktop-select-view.png" alt-text="T-SQL views corresponding to the data in each container." border="true" lightbox="../media/integrated-power-bi-synapse-link/powerbi-desktop-select-view.png":::
+
+1. You can now start building the report using Azure Cosmos DB's analytical data. Any changes to your data will be reflected in the report, as soon as the data is replicated to analytical store, which typically happens in a couple of minutes.
+
+
+### Building BI reports using Power BI connector
+> [!NOTE]
+> Connecting to Azure Cosmos DB with the Power BI connector is currently supported for Azure Cosmos DB SQL API and Gremlin API accounts only.
 
 1. Run Power BI Desktop.
 
@@ -97,127 +116,14 @@ You will retrieve the volcano data from the Azure Cosmos DB account and visualiz
     
 8. When the account is successfully connected, the **Navigator** pane appears. The **Navigator** shows a list of databases under the account.
 
-9. Click and expand on the database where the data for the report comes from, select ``volcanodb`` (your database name can be different).   
-
-10. Now, select a collection that contains the data to retrieve, select **volcano1** (your collection name can be different).
+9. Click and expand on the database where the data for the report comes from. Now, select a collection that contains the data to retrieve.
     
-    The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**.
-    
-    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Power BI tutorial for Azure Cosmos DB Power BI connector - Navigator window":::
+    The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**. To view the the properties documents as columns, click on the grey button with 2 arrows in opposite directions that symbolize the expansion of the record. It's located on the right of the container's name, in the same preview pane.
 
-12. Click **Edit** to launch the Query Editor in a new window to transform the data.
+10. Power BI Desktop Report view is where you can start creating reports to visualize data.  You can create reports by dragging and dropping fields into the **Report** canvas.
 
-## Flattening and transforming JSON documents
-1. Switch to the Power BI Query Editor window, where the **Document** column in the center pane.
-
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Power BI Desktop Query Editor":::
-
-1. Click on the expander at the right side of the **Document** column header.  The context menu with a list of fields will appear.  Select the fields you need for your report, for instance,  Volcano Name, Country, Region, Location, Elevation, Type, Status and Last Know Eruption. Uncheck the **Use original column name as prefix** box, and then click **OK**.
-   
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Power BI tutorial for Azure Cosmos DB Power BI connector - Expand documents":::
-
-1. The center pane displays a preview of the result with the fields selected.
-   
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png" alt-text="Power BI tutorial for Azure Cosmos DB Power BI connector - Flatten results":::
-
-1. In our example, the Location property is a GeoJSON block in a document.  As you can see, Location is represented as a **Record** type in Power BI Desktop.  
-
-1. Click on the expander at the right side of the Document.Location column header.  The context menu with type and coordinates fields appear.  Let's select the coordinates field, ensure **Use original column name as prefix** is not selected, and click **OK**.
-   
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Power BI tutorial for Azure Cosmos DB Power BI connector - Location record":::
-
-1. The center pane now shows a coordinates column of **List** type.  As shown at the beginning of the tutorial, the GeoJSON data in this tutorial is of Point type with Latitude and Longitude values recorded in the coordinates array.
-   
-   The coordinates[0] element represents Longitude while coordinates[1] represents Latitude.
-
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Power BI tutorial for Azure Cosmos DB Power BI connector - Coordinates list":::
-
-1. To flatten the coordinates array, create a **Custom Column** called LatLong.  Select the **Add Column** ribbon and click on **Custom Column**.  The **Custom Column** window appears.
-
-1. Provide a name for the new column, e.g. LatLong.
-
-1. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below using the following formula: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Click **OK**.
-   
-   For more information on Data Analysis Expressions (DAX) including DAX functions, please visit [DAX Basics in Power BI Desktop](/power-bi/desktop-quickstart-learn-dax-basics).
-   
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png" alt-text="Power BI tutorial for Azure Cosmos DB Power BI connector - Add Custom Column":::
-
-1. Now, the center pane shows the new LatLong columns populated with the values.
-    
-    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png" alt-text="Power BI tutorial for Azure Cosmos DB Power BI connector - Custom LatLong column":::
-    
-    If you receive an Error in the new column, make sure that the applied steps under Query Settings match the following figure:
-    
-    :::image type="content" source="./media/powerbi-visualize/power-bi-applied-steps.png" alt-text="Applied steps should be Source, Navigation, Expanded Document, Expanded Document.Location, Added Custom":::
-    
-    If your steps are different, delete the extra steps and try adding the custom column again. 
-
-1. Click **Close and Apply** to save the data model.
-
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicloseapply.png" alt-text="Power BI tutorial for Azure Cosmos DB Power BI connector - Close & Apply":::
-
-<a id="build-the-reports"></a>
-## Build the reports
-
-Power BI Desktop Report view is where you can start creating reports to visualize data.  You can create reports by dragging and dropping fields into the **Report** canvas.
-
-:::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview2.png" alt-text="Power BI Desktop Report View - drag and drop the required fields":::
-
-In the Report view, you should find:
-
-1. The **Fields** pane, this is where you can see a list of data models with fields you can use for your reports.
-1. The **Visualizations** pane. A report can contain a single or multiple visualizations.  Pick the visual types fitting your needs from the **Visualizations** pane.
-1. The **Report** canvas, this is where you build the visuals for your report.
-1. The **Report** page. You can add multiple report pages in Power BI Desktop.
-
-The following shows the basic steps of creating a simple interactive Map view report.
-
-1. For our example, we will create a map view showing the location of each volcano.  In the **Visualizations** pane, click on the Map visual type as highlighted in the screenshot above.  You should see the Map visual type painted on the **Report** canvas.  The **Visualization** pane should also display a set of properties related to the Map visual type.
-1. Now, drag and drop the LatLong field from the **Fields** pane to the **Location** property in **Visualizations** pane.
-1. Next, drag and drop the Volcano Name field to the **Legend** property.  
-1. Then, drag and drop the Elevation field to the **Size** property.  
-1. You should now see the Map visual showing a set of bubbles indicating the location of each volcano with the size of the bubble correlating to the elevation of the volcano.
-1. You now have created a basic report.  You can further customize the report by adding more visualizations.  In our case, we added a Volcano Type slicer to make the report interactive.  
-   
-1. On the File menu, click **Save** and save the file as PowerBITutorial.pbix.
-
-## Publish and share your report
-To share your report, you must have an account in PowerBI.com.
-
-1. In the Power BI Desktop, click on the **Home** ribbon.
-1. Click **Publish**.  You are be prompted to enter the user name and password for your PowerBI.com account.
-1. Once the credential has been authenticated, the report is published to your destination you selected.
-1. Click **Open 'PowerBITutorial.pbix' in Power BI** to see and share your report on PowerBI.com.
-   
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png" alt-text="Publishing to Power BI Success! Open tutorial in Power BI":::
-
-## Create a dashboard in PowerBI.com
-Now that you have a report, lets share it on PowerBI.com
-
-When you publish your report from Power BI Desktop to PowerBI.com, it generates a **Report** and a **Dataset** in your PowerBI.com tenant. For example, after you published a report called **PowerBITutorial** to PowerBI.com, you will see PowerBITutorial in both the **Reports** and **Datasets** sections on PowerBI.com.
-
-   :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="Screenshot of the new Report and Dataset in PowerBI.com":::
-
-To create a sharable dashboard, click the **Pin Live Page** button on your PowerBI.com report.
-
-   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Screenshot of how to pin a report to PowerBI.com":::
-
-Then follow the instructions in [Pin a tile from a report](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) to create a new dashboard. 
-
-You can also do ad hoc modifications to report before creating a dashboard. However, it's recommended that you use Power BI Desktop to perform the modifications and republish the report to PowerBI.com.
-
-## Refresh data in PowerBI.com
-There are two ways to refresh data, ad hoc and scheduled.
-
-For an ad hoc refresh, simply click **Refresh Now** to refresh the data.
-
-For a scheduled refresh, do the following.
-
-1. Go to **Settings** and open the **Datasets** tab.
-
-2. Click on **Scheduled Refresh** and set your schedule.
-
-
+11. There are two ways to refresh data: ad hoc and scheduled. Simply click **Refresh Now** to refresh the data. For a scheduled refresh, go to **Settings**, open the **Datasets** tab. Click on **Scheduled Refresh** and set your schedule.
+                           
 ## Next steps
 * To learn more about Power BI, see [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * To learn more about Azure Cosmos DB, see the [Azure Cosmos DB documentation landing page](https://azure.microsoft.com/documentation/services/cosmos-db/).

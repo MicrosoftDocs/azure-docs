@@ -108,7 +108,7 @@ See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Model
 
 ## Authenticate the client
 
-Below **Main**, create a new method named `AuthenticateClient`. You'll use this method in other tasks to authenticate your requests to the Form Recognizer service. This method uses the `AzureKeyCredential` object, so that if needed, you can update the API key without creating new client objects.
+Below **Main**, create a new method named `AuthenticateClient`. You'll use this method in other tasks to authenticate your requests to the Form Recognizer service. This method uses the `AzureKeyCredential` object, so that if needed, you can update the key without creating new client objects.
 
 > [!IMPORTANT]
 > Get your key and endpoint from the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
@@ -418,7 +418,7 @@ Submodel Form Type: form-63c013e3-1cab-43eb-84b0-f4b20cb9214c
 
 ## Analyze forms with a custom model
 
-This section demonstrates how to extract key/value information and other content from your custom form types, using models you trained with your own forms.
+This section demonstrates how to extract key/value information and other content from your custom template types, using models you trained with your own forms.
 
 > [!IMPORTANT]
 > In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below.

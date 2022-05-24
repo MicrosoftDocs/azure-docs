@@ -8,7 +8,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: jroth
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Tutorial - Spring Boot Application with Azure Cosmos DB SQL API and Azure Kubernetes Service
@@ -157,13 +157,13 @@ If you intend to run the application on Azure Kubernetes Service, skip this sect
 
 1. Log into Azure Container Registry.
 
-   ```bash
+   ```azurecli
    az acr login -n cosmosdbspringbootregistry
    ```
 
 1. Push image to Azure Container Registry and list it.
 
-   ```bash
+   ```azurecli
    docker push cosmosdbspringbootregistry.azurecr.io/spring-cosmos-app:v1
 
    az acr repository list --name cosmosdbspringbootregistry --output table

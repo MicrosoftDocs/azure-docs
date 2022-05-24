@@ -33,6 +33,18 @@ items:
         href: quickstarts/chat/meeting-interop.md
       - name: Using Chat SDK with React Native
         href: quickstarts/chat/react-native.md
+  - name: Email
+    items:
+      - name: Create a Email Communication Services resource
+        href: quickstarts/email/create-email-communication-resource.md
+      - name: Add Azure Managed domain
+        href: quickstarts/email/add-azure-managed-domains.md
+      - name: Add Custom domain
+        href: quickstarts/email/add-custom-verified-domains.md
+      - name: Connect domain to send Email
+        href: quickstarts/email/connect-email-communication-resource.md
+      - name: Send an Email
+        href: quickstarts/email/send-email.md
   - name: Telephony and phone numbers
     items:
       - name: Get and manage phone numbers
@@ -67,17 +79,23 @@ items:
       href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
       href: quickstarts/voice-video-calling/call-recording-sample.md
+    - name: Handle calling events
+      href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Raw media access
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
   - name: UI Library
     items:
     - name: Get started with UI Library
       href: quickstarts/ui-library/get-started-composites.md
+    - name: Design with UI Library Design Kit
+      href: quickstarts/ui-library/get-started-ui-kit.md
   - name: Access TURN relays
     href: quickstarts/relay-token.md    
 - name: Tutorials
   expanded: false
   items:
+  - name: Virtual visit scenarios
+    href: tutorials/virtual-visits.md
   - name: Use Postman to send SMS messages
     href: tutorials/postman-tutorial.md
   - name: Sign an HTTP request with HMAC using C#
@@ -88,6 +106,8 @@ items:
     href: tutorials/building-app-start.md
   - name: Export SDK telemetry to Application Insights
     href: quickstarts/telemetry-application-insights.md  
+  - name: Add file sharing to your application with UI Library
+    href: tutorials/file-sharing-tutorial.md
 - name: Concepts
   expanded: false
   items:
@@ -109,6 +129,18 @@ items:
         href: concepts/chat/sdk-features.md
       - name: Chat concepts
         href: concepts/chat/concepts.md
+  - name: Email
+    items:
+      - name: Email concepts
+        href: concepts/email/email-overview.md
+      - name: What is Email Communication Service
+        href: concepts/email/prepare-email-communication-resource.md
+      - name: Email domains and sender authentication 
+        href: concepts/email/email-domain-and-sender-authentication.md
+      - name: Best practices for sender authentication support 
+        href: concepts/email/email-authentication-best-practice.md
+      - name: Email client library
+        href: concepts/email/sdk-features.md
   - name: Telephony and phone numbers
     items:
       - name: Telephony Concepts
@@ -258,14 +290,24 @@ items:
         href: how-tos/calling-sdk/teams-interoperability.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+  - name: Using the UI Library
+    items: 
+    - name: Setup Localization
+      href: how-tos/ui-library-sdk/localization.md
+    - name: Setup Theming
+      href: how-tos/ui-library-sdk/theming.md
+    - name: Custom Data Model Injection 
+      href: how-tos/ui-library-sdk/data-model.md
 - name: Samples
   items:
   - name: Overview
     href: samples/overview.md
-  - name: Group calling hero sample
+  - name: Calling hero sample
     href: samples/calling-hero-sample.md
-  - name: Group chat hero sample
+  - name: Chat hero sample
     href: samples/chat-hero-sample.md
+  - name: Authentication service hero sample
+    href: samples/trusted-auth-sample.md
   - name: Web calling sample
     href: samples/web-calling-sample.md
 - name: References
@@ -331,11 +373,13 @@ items:
     - name: UI Library (JavaScript)
       href: /javascript/api/@azure/communication-react/?view=azure-node-latest
     - name: UI Library (iOS)
-      href: https://github.com/Azure/communication-ui-library-ios/blob/main/docs/api/CallComposite/Reference.md
+      href: https://htmlpreview.github.io/?https://github.com/Azure/azure-sdk-for-ios/blob/communication/CommunicationUIJazzy/build/jazzy/AzureCommunicationUI/index.html
     - name: UI Library (Android)
-      href: https://github.com/Azure/communication-ui-library-android/blob/main/docs/api/CallComposite/Reference.md
+      href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/index.html
    
 - name: Resources
   items:
   - name: Release notes
     href: https://github.com/Azure/Communication/blob/master/releasenotes
+  - name: Learn modules
+    href: resources/learn-modules.md

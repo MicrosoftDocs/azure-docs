@@ -26,7 +26,7 @@ For information about creating pools without public IP addresses, read [Create a
 
 Create one or more public IP addresses through one of these methods:
 - Use the [Azure portal](../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address)
-- Use the [Azure Command-Line Interface (Azure CLI)](/cli/azure/network/public-ip#az_network_public_ip_create)
+- Use the [Azure Command-Line Interface (Azure CLI)](/cli/azure/network/public-ip#az-network-public-ip-create)
 - Use [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). 
 
 Make sure your public IP addresses meet the following requirements:

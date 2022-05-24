@@ -1,7 +1,6 @@
 ---
 title: Optimizing transactions 
 description: Learn how to optimize the performance of your transactional code in dedicated SQL pool while minimizing risk for long rollbacks.
-services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
 ms.service: synapse-analytics

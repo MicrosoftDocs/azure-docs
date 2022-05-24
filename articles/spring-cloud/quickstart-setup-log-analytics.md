@@ -1,25 +1,31 @@
 ---
-title: "Quickstart - Set up a Log Analytics workspace in Azure Spring Cloud"
+title: "Quickstart - Set up a Log Analytics workspace in Azure Spring Apps"
 description: This article describes the setup of a Log Analytics workspace for app deployment.
 author: karlerickson
 ms.author: felixsong
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 12/09/2021
-ms.custom: devx-track-java, fasttrack-edit, mode-other
+ms.custom: devx-track-java, fasttrack-edit, mode-other, devx-track-azurecli, event-tier1-build-2022
+ms.devlang: azurecli
 ---
 
 # Quickstart: Set up a Log Analytics workspace
 
-This quickstart explains how to set up a Log Analytics workspace in Azure Spring Cloud for application development.
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This quickstart explains how to set up a Log Analytics workspace in Azure Spring Apps for application development.
 
 Log Analytics is a tool in the Azure portal that's used to edit and run log queries with data in Azure Monitor Logs. You can write a query that returns a set of records and then use features of Log Analytics to sort, filter, and analyze those records. You can also write a more advanced query to do statistical analysis and visualize the results in a chart to identify particular trends. Whether you work with the results of your queries interactively or use them with other Azure Monitor features, Log Analytics is the tool that you use to write and test queries.
 
-You can set up Azure Monitor Logs for your application in Azure Spring Cloud to collect logs and run log queries via Log Analytics.
+You can set up Azure Monitor Logs for your application in Azure Spring Apps to collect logs and run log queries via Log Analytics.
 
 ## Prerequisites
 
-Complete the previous quickstart in this series: [Provision an Azure Spring Cloud service](./quickstart-provision-service-instance.md).
+Complete the previous quickstart in this series: [Provision an Azure Spring Apps service](./quickstart-provision-service-instance.md).
 
 #### [Portal](#tab/Azure-Portal)
 
@@ -29,7 +35,7 @@ To create a workspace, follow the steps in [Create a Log Analytics workspace in 
 
 ## Set up Log Analytics for a new service
 
-In the wizard for creating an Azure Spring Cloud service instance, you can configure the **Log Analytics workspace** field with an existing workspace or create one.
+In the wizard for creating an Azure Spring Apps service instance, you can configure the **Log Analytics workspace** field with an existing workspace or create one.
 
 :::image type="content" source="media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png" alt-text="Screenshot that shows where to configure diagnostic settings during provisioning." lightbox="media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png":::
 
@@ -80,10 +86,10 @@ Setting up for a new service isn't applicable when you're using the Azure CLI.
 
 ## Set up Log Analytics for an existing service
 
-1. Get the instance ID for the Azure Spring Cloud service:
+1. Get the instance ID for the Azure Spring Apps service:
 
    ```azurecli
-   az spring-cloud show \
+   az spring show \
        --name <spring-cloud-service-name> \
        --resource-group <your-resource-group> \
        --query id --output tsv
@@ -118,9 +124,18 @@ Setting up for a new service isn't applicable when you're using the Azure CLI.
 
 ---
 
+## Clean up resources
+
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
+
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
 ## Next steps
 
-In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't want to continue on to the next quickstart, see [Clean up resources](./quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
-
 > [!div class="nextstepaction"]
-> [Monitor Azure Spring Cloud apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
+> [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)

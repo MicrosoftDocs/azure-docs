@@ -1,15 +1,15 @@
 ---
 title: Exchange messages with Azure Service Bus
-description: Create automated tasks and workflows that send and receive messages by using Azure Service Bus in Azure Logic Apps
+description: Create automated tasks and workflows that send and receive messages by using Azure Service Bus in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/18/2021
 tags: connectors
 ---
 
-# Exchange messages in the cloud by using Azure Logic Apps and Azure Service Bus
+# Connect to Azure Service Bus from Azure Logic Apps
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) connector, you can create automated tasks and workflows that transfer data, such as sales and purchase orders, journals, and inventory movements across applications for your organization. The connector not only monitors, sends, and manages messages, but also performs actions with queues, sessions, topics, subscriptions, and so on, for example:
 
@@ -42,7 +42,7 @@ You can use triggers that get responses from Service Bus and make the output ava
 
 Large message support is available only when you use the built-in Service Bus operations with [single-tenant Azure Logic Apps (Standard)](../logic-apps/single-tenant-overview-compare.md) workflows. You can send and receive large messages using the triggers or actions in the built-in version.
 
-  For receiving a message, you can increase the timeout by [changing the following setting in the Azure Functions extension](../azure-functions/functions-bindings-service-bus.md#hostjson-settings):
+  For receiving a message, you can increase the timeout by [changing the following setting in the Azure Functions extension](../azure-functions/functions-bindings-service-bus.md#install-bundle):
 
   ```json
   {

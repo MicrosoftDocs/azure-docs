@@ -68,7 +68,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     > [!IMPORTANT]
     >
-    > We recommend that your query uses an [Advanced SIEM Information model (ASIM) parser](normalization-about-parsers.md) and not a native table. This will ensure that the query supports any current or future relevant data source rather than a single data source.
+    > We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a native table. This will ensure that the query supports any current or future relevant data source rather than a single data source.
     >
 
 
@@ -153,7 +153,7 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 
   - **Trigger an alert for each event**. The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters - by user, hostname, or something else. You can define these parameters in the query.
 
-    Currently the number of alerts a rule can generate is capped at 20. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 20 events, each of the first 19 events will generate a unique alert, and the 20th alert will summarize the entire set of returned events. In other words, the 20th alert is what would have been generated under the **Group all events into a single alert** option.
+    Currently the number of alerts a rule can generate is capped at 150. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 150 events, each of the first 149 events will generate a unique alert, and the 150th alert will summarize the entire set of returned events. In other words, the 150th alert is what would have been generated under the **Group all events into a single alert** option.
 
     If you choose this option, Microsoft Sentinel will add a new field, **OriginalQuery**, to the results of the query. Here is a comparison of the existing **Query** field and the new field:
 

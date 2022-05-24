@@ -1,19 +1,19 @@
 ---
-title: "Speech CLI batch operations - Speech service"
+title: "Run batch operations with the Speech CLI - Speech service"
 titleSuffix: Azure Cognitive Services
-description: learn how to do batch speech to text (speech recognition), batch text to speech (speech synthesis) with the Speech CLI.
+description: Learn how to do batch speech to text (speech recognition), batch text to speech (speech synthesis) with the Speech CLI.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: reference
 ms.date: 01/13/2021
 ms.author: eur
 ms.custom: mode-api
 ---
 
-# Speech CLI batch operations
+# Run batch operations with the Speech CLI
 
 Common tasks when using Azure Speech services, are batch operations. In this article, you'll learn how to do batch speech to text (speech recognition), batch text to speech (speech synthesis) with the Speech CLI. Specifically, you'll learn how to:
 

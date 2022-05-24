@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/09/2022
+ms.date: 03/15/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, ignite-fall-2021
 ---
@@ -40,7 +40,7 @@ The following SAP Notes are related to SAP on Azure regarding the area covered i
 | [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade |
 | [1597355] |Swap-space recommendation for Linux |
 
-As a pr-read to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) plus other guides in the [SAP workload on Azure documentation](./get-started.md). 
+As a pre-read to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) plus other guides in the [SAP workload on Azure documentation](./get-started.md). 
 
 
 ## IBM Db2 for Linux, UNIX, and Windows Version Support
@@ -64,7 +64,7 @@ Remote shared volumes like the Azure services in the listed scenarios are suppor
 
 Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Db2 DBMS as well.
 
-As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
+As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](../../sizes.md) and [here (Windows)](../../sizes.md).
 
 As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single mounted disk. Whereas you always should separate the data files and transaction log files on different disks/VHDs.
 
@@ -93,48 +93,48 @@ IBM Db2 for SAP NetWeaver Applications is supported on any VM type listed in SAP
 Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to large. The list is based on Azure premium storage. However, Azure Ultra disk is fully supported with Db2 as well and can be used as well. Use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk configuration. You can limit the IOPS for the /db2/```<SID>```/log_dir at around 5000 IOPS. 
 
 #### Extra small SAP system: database size 50 - 200 GB: example Solution Manager
-| VM Name / Size |Db2 mount point |Azure Premium Disk |NR of Disks |IOPS |Throughput [MB/s] |Size [GB] |Burst IOPS |Burst Thr [GB] | Stripe size | Caching |
+| VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  ||  |
-|vCPU: 4 |/db2/```<SID>```/sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256 KB |ReadOnly |
+|vCPU: 4 |/db2/```<SID>```/sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256<br />KB |ReadOnly |
 |RAM: 32 GiB |/db2/```<SID>```/saptmp |P6 |1 |240  |50  |128  |3,500  |170  | ||
-| |/db2/```<SID>```/log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64 KB ||
+| |/db2/```<SID>```/log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64<br />KB ||
 | |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  || |
 
 #### Small SAP system: database size 200 - 750 GB: small Business Suite
-| VM Name / Size |Db2 mount point |Azure Premium Disk |NR of Disks |IOPS |Throughput [MB/s] |Size [GB] |Burst IOPS |Burst Thr [GB] | Stripe size | Caching |
+| VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
 |vCPU: 16 |/db2/```<SID>```/sapdata |P15 |4 |4,400  |500  |1.024  |14,000  |680  |256 KB |ReadOnly |
 |RAM: 128 GiB |/db2/```<SID>```/saptmp |P6 |2 |480  |100  |128  |7,000  |340  |128 KB ||
-| |/db2/```<SID>```/log_dir |P15 |2 |2,200  |250  |512  |7,000  |340  |64 KB ||
+| |/db2/```<SID>```/log_dir |P15 |2 |2,200  |250  |512  |7,000  |340  |64<br />KB ||
 | |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  ||| 
 
 #### Medium SAP system: database size 500 - 1000 GB: small Business Suite
-| VM Name / Size |Db2 mount point |Azure Premium Disk |NR of Disks |IOPS |Throughput [MB/s] |Size [GB] |Burst IOPS |Burst Thr [GB] | Stripe size | Caching |
+| VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
 |vCPU: 32 |/db2/```<SID>```/sapdata |P30 |2 |10,000  |400  |2.048  |10,000  |400  |256 KB |ReadOnly |
 |RAM: 256 GiB |/db2/```<SID>```/saptmp |P10 |2 |1,000  |200  |256  |7,000  |340  |128 KB ||
-| |/db2/```<SID>```/log_dir |P20 |2 |4,600  |300  |1.024  |7,000  |340  |64 KB ||
+| |/db2/```<SID>```/log_dir |P20 |2 |4,600  |300  |1.024  |7,000  |340  |64<br />KB ||
 | |/db2/```<SID>```/offline_log_dir |P15 |1 |1,100  |125  |256  |3,500  |170  ||| 
 
 #### Large SAP system: database size 750 - 2000 GB: Business Suite
-| VM Name / Size |Db2 mount point |Azure Premium Disk |NR of Disks |IOPS |Throughput [MB/s] |Size [GB] |Burst IOPS |Burst Thr [GB] | Stripe size | Caching |
+| VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
 |vCPU: 64 |/db2/```<SID>```/sapdata |P30 |4 |20,000  |800  |4.096  |20,000  |800  |256 KB |ReadOnly |
 |RAM: 504 GiB |/db2/```<SID>```/saptmp |P15 |2 |2,200  |250  |512  |7,000  |340  |128 KB ||
-| |/db2/```<SID>```/log_dir |P20 |4 |9,200  |600  |2.048  |14,000  |680  |64 KB ||
+| |/db2/```<SID>```/log_dir |P20 |4 |9,200  |600  |2.048  |14,000  |680  |64<br />KB ||
 | |/db2/```<SID>```/offline_log_dir |P20 |1 |2,300  |150  |512  |3,500  |170  || |
 
 #### Large multi-terabyte SAP system: database size 2 TB+: Global Business Suite system
-| VM Name / Size |Db2 mount point |Azure Premium Disk |NR of Disks |IOPS |Throughput [MB/s] |Size [GB] |Burst IOPS |Burst Thr [GB] | Stripe size | Caching |
+| VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |M128s |/db2 |P10 |1 |500  |100  |128  |3,500  |170  || |
 |vCPU: 128 |/db2/```<SID>```/sapdata |P40 |4 |30,000  |1.000  |8.192  |30,000  |1.000  |256 KB |ReadOnly |
 |RAM:  2048 GiB |/db2/```<SID>```/saptmp |P20 |2 |4,600  |300  |1.024  |7,000  |340  |128 KB ||
-| |/db2/```<SID>```/log_dir |P30 |4 |20,000  |800  |4.096  |20,000  |800  |64 KB |WriteAccelerator |
+| |/db2/```<SID>```/log_dir |P30 |4 |20,000  |800  |4.096  |20,000  |800  |64<br />KB |Write-<br />Accelerator |
 | |/db2/```<SID>```/offline_log_dir |P30 |1 |5,000  |200  |1.024  |5,000  |200  || |
 
 
@@ -166,22 +166,22 @@ vi /etc/idmapd.conf
  Nobody-User = nobody
  Nobody-Group = nobody
 
-mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2shared /mnt 
+mount -t nfs -o rw,hard,sync,rsize=262144,wsize=262144,sec=sys,vers=4.1,tcp 172.17.10.4:/db2shared /mnt 
 mkdir -p /db2/Software /db2/AN1/saptmp /usr/sap/<SID> /sapmnt/<SID> /home/<sid>adm /db2/db2<sid> /db2/<SID>/db2_software
 mkdir -p /mnt/Software /mnt/saptmp  /mnt/usr_sap /mnt/sapmnt /mnt/<sid>_home /mnt/db2_software /mnt/db2<sid>
 umount /mnt
 
-mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2data /mnt
+mount -t nfs -o rw,hard,sync,rsize=262144,wsize=262144,sec=sys,vers=4.1,tcp 172.17.10.4:/db2data /mnt
 mkdir -p /db2/AN1/sapdata/sapdata1 /db2/AN1/sapdata/sapdata2 /db2/AN1/sapdata/sapdata3 /db2/AN1/sapdata/sapdata4
 mkdir -p /mnt/sapdata1 /mnt/sapdata2 /mnt/sapdata3 /mnt/sapdata4
 umount /mnt
 
-mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2log /mnt 
+mount -t nfs -o rw,hard,sync,rsize=262144,wsize=262144,sec=sys,vers=4.1,tcp 172.17.10.4:/db2log /mnt 
 mkdir /db2/AN1/log_dir
 mkdir /mnt/log_dir
 umount /mnt
 
-mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2backup /mnt
+mount -t nfs -o rw,hard,sync,rsize=262144,wsize=262144,sec=sys,vers=4.1,tcp 172.17.10.4:/db2backup /mnt
 mkdir /db2/AN1/backup
 mkdir /mnt/backup
 mkdir /db2/AN1/offline_log_dir /db2/AN1/db2dump

@@ -2,12 +2,12 @@
 title: Find identity object IDs for authentication - Azure API for FHIR
 description: This article explains how to locate the identity object IDs needed to configure authentication for Azure API for FHIR
 services: healthcare-apis
-author: matjazl
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.author: zxue
+ms.date: 05/03/2022
+ms.author: mikaelw
 ---
 
 # Find identity object IDs for authentication configuration for Azure API for FHIR
@@ -30,7 +30,7 @@ az ad user show --id myuser@contoso.com --query objectId --out tsv
 
 ## Find service principal object ID
 
-Suppose you have registered a [service client app](register-service-azure-ad-client-app.md) and you would like to allow this service client to access the Azure API for FHIR, you can find the object ID for the client service principal with the following PowerShell command:
+Suppose you've registered a [service client app](register-service-azure-ad-client-app.md) and you would like to allow this service client to access the Azure API for FHIR, you can find the object ID for the client service principal with the following PowerShell command:
 
 ```azurepowershell-interactive
 $(Get-AzureADServicePrincipal -Filter "AppId eq 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'").ObjectId
@@ -42,7 +42,7 @@ where `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` is the service client application I
 $(Get-AzureADServicePrincipal -Filter "DisplayName eq 'testapp'").ObjectId
 ```
 
-If you are using the Azure CLI, you can use:
+If you're using the Azure CLI, you can use:
 
 ```azurecli-interactive
 az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX --query objectId --out tsv
@@ -55,9 +55,9 @@ If you would like to locate the object ID of a security group, you can use the f
 ```azurepowershell-interactive
 $(Get-AzureADGroup -Filter "DisplayName eq 'mygroup'").ObjectId
 ```
-Where `mygroup` is the name of the group you are interested in.
+Where `mygroup` is the name of the group you're interested in.
 
-If you are using the Azure CLI, you can use:
+If you're using the Azure CLI, you can use:
 
 ```azurecli-interactive
 az ad group show --group "mygroup" --query objectId --out tsv

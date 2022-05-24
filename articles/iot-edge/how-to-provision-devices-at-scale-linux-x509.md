@@ -1,9 +1,9 @@
 ---
 title: Create and provision IoT Edge devices at scale using X.509 certificates on Linux - Azure IoT Edge | Microsoft Docs 
 description: Use X.509 certificates to test provisioning devices at scale for Azure IoT Edge with device provisioning service
-author: kgremban
-ms.author: kgremban
-ms.date: 10/29/2021
+author: PatAltimore
+ms.author: patricka
+ms.date: 05/13/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -107,8 +107,9 @@ Have the following information ready:
    #   registration_id: "OPTIONAL_REGISTRATION_ID_LEAVE_COMMENTED_OUT_TO_REGISTER_WITH_CN_OF_IDENTITY_CERT"
        identity_cert: "REQUIRED_URI_TO_DEVICE_IDENTITY_CERTIFICATE_HERE"
        identity_pk: "REQUIRED_URI_TO_DEVICE_IDENTITY_PRIVATE_KEY_HERE"
-   #  always_reprovision_on_startup: true
-   #  dynamic_reprovisioning: false
+
+   # always_reprovision_on_startup: true
+   # dynamic_reprovisioning: false
    ```
 
 1. Update the values of `scope_id`, `identity_cert`, and `identity_pk` with your DPS and device information.
@@ -120,7 +121,7 @@ Have the following information ready:
 
 1. Optionally, provide the `registration_id` for the device, which needs to match the common name (CN) of the identity certificate. If you leave that line commented out, the CN will automatically be applied.
 
-1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+1. Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge (and all modules) will restart and reprovision if a reprovisioning event is detected, like if the device is moved from one IoT Hub to another. Specifically, IoT Edge checks for `bad_credential` or `device_disabled` errors from the SDK to detect the reprovision event. To trigger this event manually, disable the device in IoT Hub. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 1. Save and close the config.yaml file.
 
@@ -164,6 +165,8 @@ Have the following information ready:
    identity_cert = "DEVICE_IDENTITY_CERTIFICATE_HERE"
 
    identity_pk = "DEVICE_IDENTITY_PRIVATE_KEY_HERE"
+
+   # auto_reprovisioning_mode = Dynamic
    ```
 
 1. Update the value of `id_scope` with the scope ID you copied from your instance of DPS.
@@ -177,6 +180,8 @@ Have the following information ready:
    The identity private key value can be provided as a file URI or a PKCS#11 URI. Uncomment only one line, based on the format you choose to use.
 
    If you use any PKCS#11 URIs, find the **PKCS#11** section in the config file and provide information about your PKCS#11 configuration.
+
+1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 1. Save and close the file.
 

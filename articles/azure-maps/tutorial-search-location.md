@@ -256,7 +256,7 @@ The map that we've made so far only looks at the longitude/latitude data for the
 
     ![A screen shot of a map with information popups that appear when you hover over a search pin.](./media/tutorial-search-location/popup-map.png)
 
-* For the completed code used in this tutorial, see [search.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html) on GitHub.
+* For the completed code used in this tutorial, see the [search](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Search) tutorial on GitHub.
 * To view this sample live, see [Search for points of interest](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest) on the **Azure Maps Code Samples** site.
 
 ## Next steps

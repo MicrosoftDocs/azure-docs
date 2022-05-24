@@ -55,7 +55,7 @@ Then run installation commands specific for your distribution.
    wget -O /tmp/${CUDA_REPO_PKG} https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
    sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-   sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+   sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/3bf863cc.pub
    rm -f /tmp/${CUDA_REPO_PKG}
 
    sudo apt-get update
@@ -115,11 +115,7 @@ sudo reboot
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
    sudo yum install dkms
    
-   CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-   sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-   rm -f /tmp/${CUDA_REPO_PKG}
+   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo /etc/yum.repos.d/cuda-rhel7.repo
 
    sudo yum install cuda-drivers
    ```
@@ -136,11 +132,7 @@ For example, CentOS 8 and RHEL 8 will need the following steps.
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
    sudo yum install dkms
    
-   CUDA_REPO_PKG=cuda-repo-rhel8-10.2.89-1.x86_64.rpm
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-   sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-   rm -f /tmp/${CUDA_REPO_PKG}
+   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo /etc/yum.repos.d/cuda-rhel8.repo
 
    sudo yum install cuda-drivers
    ```
@@ -333,7 +325,7 @@ If the driver is installed, you will see output similar to the following. Note t
  
 
 ### X11 server
-If you need an X11 server for remote connections to an NV or NVv2 VM, [x11vnc](http://www.karlrunge.com/x11vnc/) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the X11 configuration file (usually, `etc/X11/xorg.conf`). Add a `"Device"` section similar to the following:
+If you need an X11 server for remote connections to an NV or NVv2 VM, [x11vnc](https://wiki.archlinux.org/title/X11vnc) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the X11 configuration file (usually, `etc/X11/xorg.conf`). Add a `"Device"` section similar to the following:
  
 ```
 Section "Device"
@@ -376,6 +368,7 @@ Then, create an entry for your update script in `/etc/rc.d/rc3.d` so the script 
 * You can set persistence mode using `nvidia-smi` so the output of the command is faster when you need to query cards. To set persistence mode, execute `nvidia-smi -pm 1`. Note that if the VM is restarted, the mode setting goes away. You can always script the mode setting to execute upon startup.
 * If you updated the NVIDIA CUDA drivers to the latest version and find RDMA connectivity is no longer working, [reinstall the RDMA drivers](#rdma-network-connectivity) to reestablish that connectivity. 
 * During installation of LIS, if a certain CentOS/RHEL OS version (or kernel) is not supported for LIS, an error “Unsupported kernel version” is thrown. Please report this error along with the OS and kernel versions.
+* If jobs are interrupted by ECC errors on the GPU (either correctable or uncorrectable), first check to see if the GPU meets any of Nvidia's [RMA criteria for ECC errors](https://docs.nvidia.com/deploy/dynamic-page-retirement/index.html#faq-pre). If the GPU is eligible for RMA, please contact support about getting it serviced; otherwise, reboot your VM to reattach the GPU as described [here](https://docs.nvidia.com/deploy/dynamic-page-retirement/index.html#bl_reset_reboot). Note that less invasive methods such as `nvidia-smi -r` do not work with the virtualization solution deployed in Azure. 
 
 ## Next steps
 

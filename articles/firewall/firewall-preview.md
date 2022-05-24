@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 03/04/2022
 ms.author: victorh
 ---
 
@@ -63,9 +63,9 @@ As more applications move to the cloud, the performance of the network elements 
 
 This feature significantly increases the throughput of Azure Firewall Premium. For more details, see [Azure Firewall performance](firewall-performance.md).
 
-To enable the Azure Firewall Premium Performance boost feature, run the following commands in Azure PowerShell. Stop and start the firewall for the feature to take effect immediatately. Otherwise, the firewall/s is updated with the feature within several days. 
+To enable the Azure Firewall Premium Performance boost feature, run the following commands in Azure PowerShell. Stop and start the firewall for the feature to take effect immediately. Otherwise, the firewall/s is updated with the feature within several days. 
 
-Currently, the performance boost feature isn't recommended for SecureHub Firewalls. Refer back to this article for the latest updates as we work to change this recommendation. Also, this setting has no effect on Standard Firewalls.
+The Premium performance boost feature can be enabled on both the [hub virtual network](../firewall-manager/vhubs-and-vnets.md) firewall and the [secured virtual hub](../firewall-manager/vhubs-and-vnets.md) firewall. This feature has no effect on Standard Firewalls.
 
 Run the following Azure PowerShell commands to configure the Azure Firewall Premium performance boost:
 

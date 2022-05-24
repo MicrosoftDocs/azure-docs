@@ -4,6 +4,7 @@ description: Migrate from Studio (classic) to Azure Machine Learning for a moder
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 
 author: xiaoharper
@@ -23,6 +24,8 @@ ms.date: 10/21/2021
 Learn how to migrate from Studio (classic) to Azure Machine Learning. Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
 
 This is a guide for a basic "lift and shift" migration. If you want to optimize an existing machine learning workflow, or modernize a machine learning platform, see the [Azure Machine Learning adoption framework](https://aka.ms/mlstudio-classic-migration-repo) for additional resources including digital survey tools, worksheets, and planning templates.
+
+Please work with your Cloud Solution Architect on the migration. 
 
 ![Azure ML adoption framework](./media/migrate-overview/aml-adoption-framework.png)
 
@@ -59,6 +62,8 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 1. Align an actionable Azure Machine Learning adoption plan to business outcomes.
 1. Prepare people, processes, and environments for change.
 
+Please work with your Cloud Solution Architect to define your strategy. 
+
 See the [Azure Machine Learning Adoption Framework](https://aka.ms/mlstudio-classic-migration-repo) for planning resources including a planning doc template. 
 
 ## Step 3: Rebuild your first model
@@ -70,7 +75,7 @@ After you've defined a strategy, migrate your first model.
 1. Use the designer to [redeploy web services](migrate-rebuild-web-service.md).
 
     >[!NOTE]
-    > Azure Machine Learning also supports code-first workflows for migrating [datasets](how-to-create-register-datasets.md), [training](how-to-set-up-training-targets.md), and [deployment](how-to-deploy-and-where.md).
+    > Above guidance are built on top of AzureML v1 concepts and features. AzureML has CLI v2 and Python SDK v2. We suggest to rebuild your ML Studio(classic) models using v2 instead of v1. Start with AzureML v2 [here](./concept-v2.md)  
 
 ## Step 4: Integrate client apps
 
@@ -139,7 +144,7 @@ In Studio (classic), **datasets** were saved in your workspace and could only be
 
 ![automobile-price-classic-dataset](./media/migrate-overview/studio-classic-dataset.png)
 
-In Azure Machine Learning, **datasets** are registered to the workspace and can be used across all of Azure Machine Learning. For more information on the benefits of Azure Machine Learning datasets, see [Secure data access](concept-data.md#reference-data-in-storage-with-datasets).
+In Azure Machine Learning, **datasets** are registered to the workspace and can be used across all of Azure Machine Learning. For more information on the benefits of Azure Machine Learning datasets, see [Secure data access](./v1/concept-data.md).
 
 ![automobile-price-aml-dataset](./media/migrate-overview/aml-dataset.png)
 
@@ -159,7 +164,7 @@ Studio (classic) used **REQUEST/RESPOND API** for real-time prediction and **BAT
 
 ![automobile-price-classic-webservice](./media/migrate-overview/studio-classic-web-service.png)
 
-Azure Machine Learning uses **real-time endpoints** for real-time prediction and **pipeline endpoints** for batch prediction or retraining.
+Azure Machine Learning uses **real-time endpoints** (managed endpoints) for real-time prediction and **pipeline endpoints** for batch prediction or retraining.
 
 ![automobile-price-aml-endpoint](./media/migrate-overview/aml-endpoint.png)
 
