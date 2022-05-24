@@ -76,9 +76,9 @@ Do a LIST of all configuration resources in the target cluster. This should matc
 ### Kubernetes configurations
 
 Delete each of the configuration resources returned in the LIST command in the source cluster:
-    - [Microsoft.KubernetesConfiguration/SourceControlConfigurations](/cli/azure/k8s-configuration?view=azure-cli-latest&preserve-view=true#az-k8s-configuration-delete)
-    - [Microsoft.KubernetesConfiguration/Extensions](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true#az-k8s-extension-delete)
-    - [Microsoft.KubernetesConfiguration/FluxConfigurations](/cli/azure/k8s-configuration/flux?view=azure-cli-latest&preserve-view=true#az-k8s-configuration-flux-delete)
+- [Microsoft.KubernetesConfiguration/SourceControlConfigurations](/cli/azure/k8s-configuration?view=azure-cli-latest&preserve-view=true#az-k8s-configuration-delete)
+- [Microsoft.KubernetesConfiguration/Extensions](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true#az-k8s-extension-delete)
+- [Microsoft.KubernetesConfiguration/FluxConfigurations](/cli/azure/k8s-configuration/flux?view=azure-cli-latest&preserve-view=true#az-k8s-configuration-flux-delete)
 
 > [!NOTE]
 > This step may be skipped if the parent Arc connected cluster is also being deleted. Doing so would automatically remove the configuration resources on top.
