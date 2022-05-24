@@ -167,6 +167,9 @@
       - name: View billing accounts
         displayName: azure billing account, azure billing, check azure billing, azure billing account id
         href: manage/view-all-accounts.md
+      - name: Elevate access
+        displayName: azure billing account, azure billing, global admin billing access
+        href: manage/elevate-access-global-admin.md
       - name: Organize costs with invoice sections
         href: manage/mca-section-invoice.md
       - name: Set up Microsoft Customer Agreement billing account

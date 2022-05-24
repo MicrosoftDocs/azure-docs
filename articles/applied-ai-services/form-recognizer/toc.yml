@@ -90,6 +90,8 @@ items:
       href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
     - name: Create and use managed identities
       href: managed-identities.md
+    - name: Configure managed identities with private endpoints
+      href: managed-identities-secured-access.md
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication

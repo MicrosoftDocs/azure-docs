@@ -18,6 +18,8 @@
     items:
     - name: Virtual Machines and Virtual Machine Scale Sets
       href: migrate-vm.md
+    - name: Storage accounts
+      href: migrate-storage.md
   - name: Terminology
     href: glossary.md
 - name: High Availability
