@@ -1038,6 +1038,14 @@ items:
         href: scenario-ssis-migration-overview.md
       - name: SSISDB migration to Azure SQL Managed Instance
         href: scenario-ssis-migration-ssisdb-mi.md
+    - name: SAP knowledge center
+      items:
+      - name: Overview
+        href: industry-sap-overview.md
+      - name: SAP connectors
+        href: industry-sap-connectors.md
+      - name: SAP templates
+        href: industry-sap-templates.md
   - name: Templates
     items:
     - name: Overview of templates

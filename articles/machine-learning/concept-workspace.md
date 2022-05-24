@@ -5,6 +5,7 @@ description: The workspace is the top-level resource for Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley

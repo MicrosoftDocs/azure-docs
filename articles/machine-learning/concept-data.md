@@ -10,9 +10,8 @@ ms.reviewer: nibaccam
 author: blackmist
 ms.author: larryfr
 ms.date: 05/11/2022
-ms.custom: devx-track-python, data4ml
-
-# Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
+ms.custom: devx-track-python, data4ml, event-tier1-build-2022
+#Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
 ---
 
 # Data in Azure Machine Learning

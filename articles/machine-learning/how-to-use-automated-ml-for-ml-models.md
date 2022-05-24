@@ -10,7 +10,7 @@ author: blackmist
 ms.reviewer: nibaccam
 ms.date: 11/15/2021
 ms.topic: how-to
-ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
 ---
 
 # Set up no-code AutoML training with the studio UI 

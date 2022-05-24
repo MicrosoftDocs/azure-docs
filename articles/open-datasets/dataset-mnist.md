@@ -2,6 +2,7 @@
 title: MNIST database of handwritten digits
 description: Learn how to use the MNIST database of handwritten digits dataset in Azure Open Datasets.
 ms.service: open-datasets
+ms.custom: event-tier1-build-2022
 ms.topic: sample
 ms.date: 04/16/2021
 ---

@@ -10,8 +10,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 05/06/2021
-ms.custom: cliv1, sdkv1
-
+ms.custom: cliv1, sdkv1, event-tier1-build-2022
 ---
 
 # Use Managed identities with Azure Machine Learning  CLI v1

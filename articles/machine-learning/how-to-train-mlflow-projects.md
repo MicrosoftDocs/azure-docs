@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/16/2021
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, sdkv1
+ms.custom: how-to, devx-track-python, sdkv1, event-tier1-build-2022
 ---
 
 # Train ML models with MLflow Projects and Azure Machine Learning (preview)

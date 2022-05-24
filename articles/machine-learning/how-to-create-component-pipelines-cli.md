@@ -9,9 +9,8 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date:  05/10/2022
 ms.topic: how-to
-ms.custom: devplatv2, devx-track-azurecli 
+ms.custom: devplatv2, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli, cliv2
-
 ---
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning CLI

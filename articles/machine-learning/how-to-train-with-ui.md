@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devplatv2
+ms.custom: devplatv2, event-tier1-build-2022
 author: wenxwei
 ms.author: wenxwei
 ms.date: 10/21/2021

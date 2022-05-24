@@ -10,8 +10,7 @@ ms.reviewer: larryfr
 ms.author: seramasu
 author: rsethur
 ms.date: 04/22/2022
-ms.custom: 
-
+ms.custom: event-tier1-build-2022
 ---
 
 # Use network isolation with managed online endpoints (preview)

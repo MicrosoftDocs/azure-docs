@@ -4,7 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to track and log experiments from the Data Science Virtual Machine with Azure Machine Learning and/or MLFlow.
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: sdkv1
+ms.custom: sdkv1, event-tier1-build-2022
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual

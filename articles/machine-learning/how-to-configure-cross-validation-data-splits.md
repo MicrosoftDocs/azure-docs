@@ -6,12 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl, sdkv1
+ms.custom: automl, sdkv1, event-tier1-build-2022
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 11/15/2021
-
 ---
 
 # Configure training, validation, cross-validation and test data in automated machine learning

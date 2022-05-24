@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv1, sdkv1
+ms.custom: devx-track-azurecli, cliv1, sdkv1, event-tier1-build-2022
 ms.author: ssambare
 author:  shivanissambare
 ms.reviewer: larryfr

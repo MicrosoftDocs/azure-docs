@@ -9,7 +9,7 @@ ms.author: larryfr
 ms.subservice: core
 ms.date: 05/10/2022
 ms.topic: how-to
-ms.custom: how-to, deploy, devplatv2
+ms.custom: how-to, deploy, devplatv2, event-tier1-build-2022
 ---
 
 # Work with data using SDK v2 preview

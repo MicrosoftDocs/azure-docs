@@ -10,10 +10,8 @@ author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml, sdkv1
-
-# Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
-
+ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
+#Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
 ---
 
 # Train models with Azure Machine Learning datasets 

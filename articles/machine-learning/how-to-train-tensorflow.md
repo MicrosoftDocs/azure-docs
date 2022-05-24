@@ -9,8 +9,8 @@ ms.author: larryfr
 author: blackmist
 ms.date: 02/23/2022
 ms.topic: how-to
-ms.custom: sdkv1
-# Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
+ms.custom: sdkv1, event-tier1-build-2022
+#Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
 # Train TensorFlow models at scale with Azure Machine Learning

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: sdkv1
+ms.custom: sdkv1, event-tier1-build-2022
 ms.author: larryfr
 author: BlackMist
 ms.date: 03/05/2020

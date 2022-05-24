@@ -9,7 +9,7 @@ ms.author: keli19
 author: likebupt
 ms.date: 05/10/2022
 ms.topic: how-to
-ms.custom: designer
+ms.custom: designer, event-tier1-build-2022
 ---
 
 # Run batch predictions using Azure Machine Learning designer

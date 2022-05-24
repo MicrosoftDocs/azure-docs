@@ -9,7 +9,7 @@ ms.author: ssalgado
 author: ssalgadodev
 ms.date: 10/21/2021
 ms.topic: troubleshooting
-ms.custom: devx-track-python, deploy, contperf-fy21q2, sdkv1
+ms.custom: devx-track-python, deploy, contperf-fy21q2, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to try a local deployment so that I can troubleshoot my model deployment problems.
 ---
 

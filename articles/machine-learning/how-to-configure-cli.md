@@ -10,7 +10,7 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 04/08/2022
 ms.reviewer: nibaccam
-ms.custom: devx-track-azurecli, devplatv2
+ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 ---
 
 # Install and set up the CLI (v2)

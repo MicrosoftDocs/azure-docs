@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: ssalgado
 author: ssalgadodev
 ms.date: 03/11/2021
-ms.custom: deploy, sdkv1
+ms.custom: deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Deploy a model for use with Cognitive Search

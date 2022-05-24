@@ -8,10 +8,9 @@ ms.topic: how-to
 ms.author: seramasu
 author: rsethur
 ms.reviewer: larryfr
-ms.custom: devplatv2, cliv2
+ms.custom: devplatv2, cliv2, event-tier1-build-2022
 
 ms.date: 04/27/2022
-
 ---
 # Autoscale a managed online endpoint
 

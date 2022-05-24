@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, sdkv1
+ms.custom: how-to, devx-track-python, sdkv1, event-tier1-build-2022
 ---
 
 # MLflow and Azure Machine Learning (v1)
@@ -70,5 +70,3 @@ You can [deploy your MLflow model as an Azure web service](../how-to-deploy-mlfl
 * [Train ML models with MLflow projects and Azure Machine Learning (preview)](../how-to-train-mlflow-projects.md).
 * [Track Azure Databricks runs with MLflow](../how-to-use-mlflow-azure-databricks.md).
 * [Deploy models with MLflow](how-to-deploy-mlflow-models.md).
-
-
