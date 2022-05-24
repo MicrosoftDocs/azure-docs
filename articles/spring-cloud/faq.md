@@ -41,11 +41,11 @@ Each service instance in Azure Spring Apps is backed by a fully dedicated Kubern
 
 Azure Spring Apps intelligently schedules your applications on the underlying Kubernetes worker nodes. To provide high availability, Azure Spring Apps distributes applications with 2 or more instances on different nodes.
 
-### In which regions is Azure Spring Apps available?
+### In which regions is Azure Spring Apps Basic/Standard tier available?
 
 East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, China East 2(Mooncake), and China North 2(Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
-### In which regions is Azure Spring Cloud Enterprise Tier available?
+### In which regions is Azure Spring Cloud Enterprise tier available?
 
 East US, East US 2, South Central US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East.
 
@@ -77,7 +77,10 @@ If you encounter any issues with Azure Spring Apps, create an [Azure Support Req
 
 ### How do I get VMware Spring Runtime support (Enterprise tier only)
 
-Enterprise tier has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see <https://tanzu.vmware.com/spring-runtime>. To understand the details about how to register and use this support service, see the Support section in the [Enterprise tier FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open support tickets with Microsoft. **NOTICE: please expect your entitlement to be ready within 3 business days after you created an enterprise tier instance. In case you meet any exception, please directly raise a support ticket to Microsoft to help on it.**
+Enterprise tier has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see <https://tanzu.vmware.com/spring-runtime>. To understand the details about how to register and use this support service, see the Support section in the [Enterprise tier FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open support tickets with Microsoft.
+
+> [!IMPORTANT]
+> After you create an Enterprise tier instance, your entitlement will be ready within three business days. If you encounter any exceptions, raise a support ticket with Microsoft to get help with it.
 
 ## Development
 
