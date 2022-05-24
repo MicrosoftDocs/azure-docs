@@ -22,7 +22,7 @@ The following table lists the limits for the [Try Azure Cosmos DB](https://aka.m
 
 | Resource | Limit |
 | --- | --- |
-| Duration of the trial | 30 days (a new trial can be requested after expiration) &nbsp; After expiration, the information stored is deleted. Prior to expiration you can upgrade your account and migrate the information stored. |
+| Duration of the trial | 30 days (a new trial can be requested after expiration) After expiration, the information stored is deleted. Prior to expiration you can upgrade your account and migrate the information stored. |
 | Maximum containers per subscription (SQL, Gremlin, Table API) | 1 |
 | Maximum containers per subscription (MongoDB API) | 3 |
 | Maximum throughput per container | 5,000 |
