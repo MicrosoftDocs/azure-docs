@@ -20,7 +20,8 @@ You can use an Azure Resource Manager template to export the existing configurat
 ## Prerequisites
 
 - Ensure that the service and features that you're using are supported in the target region.
-- Verify that your Azure subscription allows you to create SignalR resource in the target region that's used. Contact support to enable the required quota.
+- Verify that your Azure subscription allows you to create SignalR resource in the target region that's used.
+- Contact support to enable the required quota.
 - For preview features, ensure that your subscription is allowlisted for the target region.
 
 <a id="prepare"></a>
@@ -110,7 +111,7 @@ To export a template by using PowerShell:
    Set-AzContext $context
    ```
 
-1. Export the template of your source SignalR resource. These commands save a json template to your current directory.
+1. Export the template of your source SignalR resource. These commands save a JSON template to your current directory.
 
    ```azurepowershell-interactive
    $resource = Get-AzResource `
@@ -144,7 +145,7 @@ To export a template by using PowerShell:
       }
     ```
 
-1. To edit the target region where the SignalR resource will be moved, change the `location` property under resources:
+1. To edit the target region where the SignalR resource will be moved, change the `location` property under `resources`:
 
     ```json
         "resources": [
@@ -161,7 +162,7 @@ To export a template by using PowerShell:
   
 1. To obtain region location codes, see [Azure SignalR Locations](https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service). The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
-1. You can also change other parameters in the template if you choose, and are optional depending on your requirements.
+   You can also change other parameters in the template if you choose, depending on your requirements.
 
 1. Save the *\<resource-group-name>.json* file.
 
@@ -181,16 +182,13 @@ To export a template by using PowerShell:
 
     ```azurepowershell-interactive
     Get-AzResourceGroup -Name <target-resource-group-name>
-    ```
-
-    ```azurepowershell-interactive
     Get-AzSignalR -Name <target-signalr-name> -ResourceGroupName <target-resource-group-name>
     ```
 
 > [!NOTE]
 >
 > After the deployment, if you wish to start over or discard the SignalR resource in the target, delete the resource group that was created in the target, which deletes the moved SignalR resource. To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page. Alternatively you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
-
+>
 > ```azurepowershell-interactive
 > Remove-AzResourceGroup -Name <target-resource-group-name>
 > ```

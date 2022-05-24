@@ -25,14 +25,14 @@ Use this library to:
 - Close connections.
 - Grant, revoke, and check permissions for an existing connection.
 
-> [!IMPORTANT]
-> Azure SDK Python packages support for Python 2.7 is ending 01 January 2022. For more information, see [Azure SDK Python packages support](https://github.com/Azure/azure-sdk-for-python/issues/20691).
-
 ## Prerequisites
 
 - Python 3.6 or later is required to use this package.
 - You need an [Azure subscription][azure_sub] and an [Azure WebPubSub service instance][webpubsubservice_docs] to use this package.
 - An existing Azure Web PubSub service instance.
+
+> [!IMPORTANT]
+> Azure SDK Python packages support for Python 2.7 is ending 01 January 2022. For more information, see [Azure SDK Python packages support](https://github.com/Azure/azure-sdk-for-python/issues/20691).
 
 ## Install the package
 
@@ -44,7 +44,7 @@ python -m pip install azure-messaging-webpubsubservice
 
 ## Create and authenticate a WebPubSubServiceClient
 
-You can authenticate the `WebPubSubServiceClient` using [connection string][connection_string]:
+You can authenticate the `WebPubSubServiceClient` using a [connection string][connection_string]:
 
 ```python
 >>> from azure.messaging.webpubsubservice import WebPubSubServiceClient
@@ -64,7 +64,7 @@ Or use the service endpoint and the access key:
 Or use [Azure Active Directory][aad_doc] (Azure AD):
 
 1. [pip][pip] install [`azure-identity`][azure_identity_pip].
-2. Follow the document to [enable Azure AD authentication on your Webpubsub resource][aad_doc].
+2. [Enable Azure AD authentication on your Webpubsub resource][aad_doc].
 3. Update code to use [DefaultAzureCredential][default_azure_credential].
 
     ```python
