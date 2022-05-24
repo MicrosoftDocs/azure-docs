@@ -75,15 +75,25 @@ For example, the screenshot below shows a tag rule where only those virtual mach
 
 :::image type="content" source="media/create/config-metrics-logs.png" alt-text="Configure Logs and Metrics." border="true":::
 
-There are two types of logs that can be emitted from Azure to Datadog.
+There are three types of logs that can be emitted from Azure to Datadog.
 
 1. **Subscription level logs** - Provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
 
 1. **Azure resource logs** - Provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
+1. **Azure Active Directory logs** - As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
+
+To support you with this goal, the Azure Active Directory portal gives you access to three activity logs:
+
+- **[Sign-ins](concept-sign-ins.md)** – Information about sign-ins and how your resources are used by your users.
+- **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant such as users and group management or updates applied to your tenant’s resources.
+- **[Provisioning](concept-provisioning-logs.md)** – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
+
 To send subscription level logs to Datadog, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Datadog.
 
 To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).  To filter the set of Azure resources sending logs to Datadog, use Azure resource tags.
+
+To send **Azure AD logs** - please work with your IT Administrator to route Azure Active Directory Logs to Datadog as described [here](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor)
 
 The logs sent to Datadog will be charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 
