@@ -35,7 +35,7 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 
 ## Prerequisites
 
-[!azure-dev-docs-pr[main](../../../azure-dev-docs-pr/articles/terraform/includes/open-source-devops-prereqs-azure-subscription.md)]
+[!azure-dev-docs-pr[main](../../../azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
 
 [!azure-dev-docs-pr[main](../../../azure-dev-docs-pr/articles/terraform/includes/configure-terraform.md)]
 
@@ -67,21 +67,21 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 
 ## 3. Initialize Terraform
 
-[!azure-dev-docs[master](../../../azure-dev-docs/articles/terraform/includes/terraform-init.md)]
+[!azure-dev-docs-pr[main](../../../azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
 
 ## 4. Create a Terraform execution plan
 
-[!azure-dev-docs[master](../../../azure-dev-docs/articles/terraform/includes/terraform-plan.md)]
+[!azure-dev-docs-pr[main](../../../azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
 
 ## 5. Apply a Terraform execution plan
 
-[!azure-dev-docs[master](../../../azure-dev-docs/articles/terraform/includes/terraform-apply-plan.md)]
+[!azure-dev-docs-pr[main](../../../azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
 
 ## 6. Verify the results
 
 ## 7. Clean up resources
 
-[!azure-dev-docs[master](../../../azure-dev-docs/articles/terraform/includes/terraform-plan-destroy.md)]
+[!azure-dev-docs-pr[main](../../../azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
 
 ## Troubleshoot Terraform on Azure
 
