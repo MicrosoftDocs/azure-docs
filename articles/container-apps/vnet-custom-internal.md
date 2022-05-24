@@ -4,6 +4,7 @@ description: Learn how to provide an internal VNET to an Azure Container Apps en
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic:  how-to
 ms.date: 5/16/2022
 ms.author: cshoe

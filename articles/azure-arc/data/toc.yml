@@ -252,7 +252,11 @@ items:
             - name: Deploy SQL Managed Instance - CLI
               href: deploy-active-directory-sql-managed-instance-cli.md
             - name: Connect SQL Managed Instance
-              href: connect-active-directory-sql-managed-instance.md              
+              href: connect-active-directory-sql-managed-instance.md
+        - name: Transparent data encryption
+          items:
+            - name: Turn on transparent data encryption manually
+              href: configure-transparent-data-encryption-manually.md
         - name: Business continuity
           items:
             - name: Overview

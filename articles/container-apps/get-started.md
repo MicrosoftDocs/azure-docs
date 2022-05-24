@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 03/21/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli 
+ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 

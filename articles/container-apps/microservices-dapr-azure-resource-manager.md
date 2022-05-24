@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 01/31/2022
 ms.author: keroden
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: container-apps
 ---
 
