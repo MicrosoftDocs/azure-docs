@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/09/2021
+ms.date: 05/24/2022
 ---
 
 # Troubleshooting common indexer errors and warnings in Azure Cognitive Search
@@ -105,7 +105,7 @@ Skill execution failed because the call to the Web API returned an invalid respo
 ## Error: Skill did not execute within the time limit
 There are two cases under which you may encounter this error message, each of which should be treated differently. Please follow the instructions below depending on what skill returned this error for you.
 
-## Error: Type of value has a mismatch with column type. Couldn't store in DocumentContent column.  Expected type is JToken.
+## Error: Type of value has a mismatch with column type. Couldn't store in '`xyz`' column.  Expected type is '`abc`'
 If your data source has a field with a different data type than the field you are trying to map in your index, you may encounter this error. Check your data source field data types and make sure they are [mapped correctly to your index data types](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search).
 
 ### Built-in Cognitive Service skills
