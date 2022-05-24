@@ -29,7 +29,7 @@ Before you can use custom text classification, you will need to create an Azure 
     |Location | "West US 2" or "West Europe"         |
     |Pricing tier     | Standard (**S**) pricing tier        |
 
-2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you will want to use in production environments.
+2. In the **Custom named entity recognition (NER) & custom text classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you will want to use in production environments.
 
     |Storage account value  |Recommended value  |
     |---------|---------|
@@ -42,9 +42,9 @@ Before you can use custom text classification, you will need to create an Azure 
 
 ## Upload sample data to blob container
 
-[!INCLUDE [Uploading sample data for custom classification](blob-storage-upload.md)]
+[!INCLUDE [Uploading sample data for custom tex classification](blob-storage-upload.md)]
 
-## Create a custom classification project
+## Create a custom text classification project
 
 [!INCLUDE [Create a project using Language Studio](../create-project.md)]
 
@@ -62,7 +62,7 @@ After your model is trained, you can deploy it. Deploying your model lets you st
 
 ## Test your model
 
-After your model is deployed, you can start using it for text classification. Use the following steps to send your first text classification request. 
+After your model is deployed, you can start using it for custom text classification. Use the following steps to send your first custom text classification request. 
 
 [!INCLUDE [Test a model using Language Studio](../test-model-language-studio.md)]
 

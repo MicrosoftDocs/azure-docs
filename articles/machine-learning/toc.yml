@@ -205,6 +205,10 @@
           href: concept-optimize-data-processing.md
         - name: Studio network data access
           href: concept-network-data-access.md
+    - name: Collect data
+      items:
+        - name: Sourcing human data responsibly
+          href: concept-sourcing-human-data.md
     - name: Security
       items:
         - name: Enterprise security overview
@@ -265,6 +269,8 @@
             - name: Configure required network traffic
               href: how-to-access-azureml-behind-firewall.md
               displayName: firewall, user-defined route, udr
+            - name: Configure network isolation with v2
+              href: how-to-configure-network-isolation-with-v2.md
         - name: Data protection
           items:
             - name: Failover & disaster recovery
@@ -653,9 +659,6 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
-      - name: Deploy encrypted inferencing service
-        displayName: homomorphic,encryption,deployment
-        href: how-to-homomorphic-encryption-seal.md
       - name: Profile models
         displayName: profile resource requirement
         href: how-to-deploy-profile-model.md
@@ -759,8 +762,8 @@
           href: reference-yaml-workspace.md
         - name: Environment
           href: reference-yaml-environment.md
-        - name: Dataset
-          href: reference-yaml-dataset.md
+        - name: Data
+          href: reference-yaml-data.md
         - name: Model
           href: reference-yaml-model.md
         - name: Compute
@@ -771,6 +774,8 @@
               href: reference-yaml-compute-instance.md
             - name: Attached Virtual Machine
               href: reference-yaml-compute-vm.md
+            - name: Attached Azure Arc-enabled Kubernetes (KubernetesCompute)
+              href: reference-yaml-compute-kubernetes.md
         - name: Job
           items:
             - name: Command
@@ -779,8 +784,6 @@
               href: reference-yaml-job-sweep.md
             - name: Pipeline
               href: reference-yaml-job-pipeline.md
-            - name: Component
-              href: reference-yaml-job-component.md
         - name: Datastore
           items:
             - name: Azure Blob
@@ -793,14 +796,16 @@
               href: reference-yaml-datastore-data-lake-gen2.md
         - name: Endpoint
           items:
-            - name: Managed online (real-time)
-              href: reference-yaml-endpoint-managed-online.md
+            - name: Online (real-time)
+              href: reference-yaml-endpoint-online.md
             - name: Batch
               href: reference-yaml-endpoint-batch.md
         - name: Deployment
           items:
             - name: Managed online (real-time)
               href: reference-yaml-deployment-managed-online.md
+            - name: Kubernetes online (real-time)
+              href: reference-yaml-deployment-kubernetes-online.md
             - name: Batch
               href: reference-yaml-deployment-batch.md
         - name: Component

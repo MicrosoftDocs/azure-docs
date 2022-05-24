@@ -2,11 +2,11 @@
 title: 'What is Azure Route Server?'
 description: Learn how Azure Route Server can simplify routing between your network virtual appliance (NVA) and your virtual network.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: overview
 ms.date: 09/27/2021
-ms.author: duau
+ms.author: halkazwini
 #Customer intent: As an IT administrator, I want to learn about Azure Route Server and what I can use it for.
 ---
 
@@ -45,3 +45,4 @@ For frequently asked questions about Azure Route Server, see [Azure Route Server
 
 - [Learn how to configure Azure Route Server](quickstart-configure-route-server-powershell.md)
 - [Learn how Azure Route Server works with Azure ExpressRoute and Azure VPN](expressroute-vpn-support.md)
+- [Learn module: Introduction to Azure Route Server](/learn/modules/intro-to-azure-route-server)

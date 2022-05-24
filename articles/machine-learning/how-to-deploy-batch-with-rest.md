@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: tracych
-ms.author: tracych
-ms.date: 10/21/2021
-ms.reviewer: laobri
+author: blackmist
+ms.author: larryfr
+ms.date: 03/31/2022
+ms.reviewer: nibaccam
 ms.custom: devplatv2
 ---
 
@@ -18,6 +18,7 @@ ms.custom: devplatv2
 Learn how to use the Azure Machine Learning REST API to deploy models for batch scoring (preview).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
 The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure makes it a good choice in scripting environments and for MLOps automation.
 
@@ -63,11 +64,11 @@ In the following REST API calls, we use `SUBSCRIPTION_ID`, `RESOURCE_GROUP`, `LO
 
 Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). Replace `TOKEN` with your own value. You can retrieve this token with the following command:
 
-:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" range="13":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" range="10":::
 
 The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. Set the API version as a variable to accommodate future versions:
 
-:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" range="11":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" range="8":::
 
 ### Create compute
 Batch scoring runs only on cloud computing resources, not locally. The cloud computing resource is a reusable virtual computer cluster where you can run batch scoring workflows.

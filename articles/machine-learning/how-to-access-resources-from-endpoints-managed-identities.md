@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: seramasu
-ms.reviewer: laobri
+ms.reviewer: larryfr
 author: rsethur
-ms.date: 01/11/2022
+ms.date: 03/31/2022
 ms.topic: how-to
 ms.custom: devplatv2, cliv2
 
@@ -19,6 +19,7 @@ ms.custom: devplatv2, cliv2
 # Access Azure resources from an online endpoint (preview) with a managed identity 
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
 
 Learn how to access Azure resources from your scoring script with an online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
 
@@ -54,9 +55,13 @@ This guide assumes you don't have a managed identity, a storage account or an on
     cd azureml-examples/cli
     ```
 
+## Limitations
+
+* The identity for an endpoint is immutable. During endpoint creation, you can associate it with a system-assigned identity (default) or a user-assigned identity. You can't change the identity after the endpoint has been created.
+
 ## Define configuration YAML file for deployment
 
-To deploy an online endpoint with the CLI, you need to define the configuration in a YAML file. For more information on the YAML schema, see [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md) document.
+To deploy an online endpoint with the CLI, you need to define the configuration in a YAML file. For more information on the YAML schema, see [online endpoint YAML reference](reference-yaml-endpoint-online.md) document.
 
 The YAML files in the following examples are used to create online endpoints. 
 
@@ -191,11 +196,11 @@ Then, upload file in container.
 
 The following code creates an online endpoint without specifying a deployment. 
 
+> [!WARNING]
+> The identity for an endpoint is immutable. During endpoint creation, you can associate it with a system-assigned identity (default) or a user-assigned identity. You can't change the identity after the endpoint has been created.
+
 # [System-assigned managed identity](#tab/system-identity)
 When you create an online endpoint, a system-assigned managed identity is created for the endpoint by default.
-
->[!IMPORTANT]
-> System assigned managed identities are immutable and can't be changed once created.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_endpoint" :::
 

@@ -8,7 +8,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 10/08/2021
+ms.date: 05/03/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn how to use the Request Service API and integrate it into my business application.

@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.date: 05/10/2022
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) compute and storage
@@ -84,7 +84,7 @@ storage resources.
 
 | Resource              | Available options     |
 |-----------------------|-----------------------|
-| Compute, vCores       | 2, 4, 8               |
+| Compute, vCores       | 2, 4, 8, 16, 32, 64   |
 | Memory per vCore, GiB | 4                     |
 | Storage size, GiB     | 128, 256, 512         |
 | Storage type          | General purpose (SSD) |
@@ -98,6 +98,9 @@ selected number of vCores.
 | 2      | 8       |
 | 4      | 16      |
 | 8      | 32      |
+| 16     | 64      |
+| 32     | 128     |
+| 64     | 256     |
 
 The total amount of storage you provision also defines the I/O capacity
 available to the basic tier node.

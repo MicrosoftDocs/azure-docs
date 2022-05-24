@@ -173,6 +173,10 @@ appInsights.defaultClient.context.tags[appInsights.defaultClient.context.keys.cl
 appInsights.start();
 ```
 
+### Automatic web snippet injection (Preview)
+
+Automatic web snippet injection allows you to enable [Application Insights Usage Experiences](usage-overview.md) and Browser Diagnostic Experiences with a simple configuration. It provides an easier alternative to manually adding the JavaScript snippet or NPM package to your JavaScript web code. For node server with configuration, set `enableAutoWebSnippetInjection` to `true` or alternatively set environment variable `APPLICATIONINSIGHTS_WEB_SNIPPET_ENABLED = true`. Automatic web snippet injection is available in Application Insights Node.js SDK version 2.3.0 or greater. See [Application Insights Node.js GitHub Readme](https://github.com/microsoft/ApplicationInsights-node.js#automatic-web-snippet-injectionpreview) for more information.
+
 ### Automatic third-party instrumentation
 
 In order to track context across asynchronous calls, some changes are required in third party libraries such as MongoDB and Redis. By default, Application Insights will use [`diagnostic-channel-publishers`](https://github.com/Microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers) to monkey-patch some of these libraries. This feature can be disabled by setting the `APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL` environment variable.

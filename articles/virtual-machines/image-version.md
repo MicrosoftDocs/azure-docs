@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/31/2021
+ms.date: 05/13/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: 
@@ -17,9 +17,9 @@ ms.custom:
 
 # Create an image definition and an image version 
 
-A [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery)simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
+A [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery)simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Images can be created from a VM, VHD, snapshot, managed image, or another image version. 
 
-The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images. 
+The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant, or publicly using a [community gallery (preview)](azure-compute-gallery.md#community). Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images.
 
 The Azure Compute Gallery feature has multiple resource types:
 
@@ -43,6 +43,38 @@ Allowed characters for the image version are numbers and periods. Numbers must b
 
 When working through this article, replace the resource names where needed.
 
+For [generalized](generalize.md) images, see the OS specific guidance before capturing the image:
+   
+   - **Linux**
+     - [Generic steps](./linux/create-upload-generic.md)
+     - [CentOS](./linux/create-upload-centos.md)
+     - [Debian](./linux/debian-create-upload-vhd.md)
+     - [Flatcar](./linux/flatcar-create-upload-vhd.md)
+     - [FreeBSD](./linux/freebsd-intro-on-azure.md)
+     - [Oracle Linux](./linux/oracle-create-upload-vhd.md)
+     - [OpenBSD](./linux/create-upload-openbsd.md)
+     - [Red Hat](./linux/redhat-create-upload-vhd.md)
+     - [SUSE](./linux/suse-create-upload-vhd.md)
+     - [Ubuntu](./linux/create-upload-ubuntu.md)
+
+   - **Windows**
+   
+      If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](./windows/prepare-for-upload-vhd-image.md).  
+
+## Community gallery (preview)
+
+> [!IMPORTANT]
+> Azure Compute Gallery – community gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> To share images in the community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs and scale sets from images shared the community gallery is open to all Azure users.
+>
+> Information from your image definitions will be publicly available, like what you provide for **Publish**, **Offer**, and **SKU**.
+
+If you will be sharing your images using a [community gallery (preview)](azure-compute-gallery.md#community), make sure that you create your gallery, image definitions, and image versions in the same region. 
+
+When users search for community gallery images, only the latest version of an image is shown.
+
+
 ## Create an image 
 
 Choose an option below for creating your image definition and image version:
@@ -55,8 +87,8 @@ To create an image using a source other than a VM, follow these steps.
 
 1. Go to the [Azure portal](https://portal.azure.com), then search for and select **Azure Compute Gallery**.
 1. Select the gallery you want to use from the list.
-1. On the page for your gallery, select **Add** from the top of the page and then select **VM image definition** from the drop-down. 
-1. on the **Add new image definition to Azure Compute Gallery** page, in the **Basics** tab, select a **Region**. 
+1. On the page for your gallery, select **Add** from the top of the page and then select **VM image definition** from the drop-down.
+1. on the **Add new image definition to Azure Compute Gallery** page, in the **Basics** tab, select a **Region**.
 1. For **Image definition name**, type a name like *myImageDefinition*.
 1. For **Operating system**, select the correct option based on your source.  
 1. For **VM generation**, select the option based on your source. In most cases, this will be *Gen 1*. For more information, see [Support for generation 2 VMs](generation-2.md).
@@ -96,7 +128,7 @@ You can also capture an existing VM as an image, from the portal. For more infor
 
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them.
 
-Create an image definition in a gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
+Create an image definition in a gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). Make sure your image definition is the right type. If you have [generalized](generalize.md) the VM (using `waagent -deprovision` for Linux, or Sysprep for Windows) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
 
 For more information about the parameters you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
 
@@ -126,12 +158,12 @@ The syntax for creating the image will change, depending on what you are using a
 
 | Source  | Parameter set |
 |---|---|
-| **OS Disk**| |
+|     **OS Disk:**| |
 | VM using the VM ID| `--managed-image <Resource ID of the VM>` |
 | Managed image or another image version | `--managed-image <Resource ID of the managed image or image version` |
 | Snapshot or managed disk | `--os-snapshot <Resource ID of the snapshot or managed disk>` |
 | VHD in a storage account | `--os-vhd-uri <URI> --os-vhd-storage-account <storage account name>`.  | 
-| **Data disk** |
+|     **Data disk:** |
 | Snapshot or managed disk | `--data-snapshots <Resource ID of the snapshot or managed disk> --data-snapshot-luns <LUN number>` |
 | VHD in a storage account | `--data-vhds-sa <storageaccountname> --data-vhds-uris <URI> --data-vhds-luns <LUN number>` |
 
@@ -161,7 +193,7 @@ az sig image-version create \
 
 ### [PowerShell](#tab/powershell)
 
-Image definitions create a logical grouping for images. When making your image definition, make sure is has all of the correct information. If you generalized the source for the image (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create an image definition using `-OsState generalized`. If you didn't generalized the source, create an image definition using `-OsState specialized`.
+Image definitions create a logical grouping for images. When making your image definition, make sure it has all of the correct information. If you [generalized](generalize.md) the source VM, then you should create an image definition using `-OsState generalized`. If you didn't generalized the source, create an image definition using `-OsState specialized`.
 
 For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 

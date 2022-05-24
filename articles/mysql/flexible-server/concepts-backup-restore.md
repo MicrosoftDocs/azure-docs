@@ -4,6 +4,7 @@ description: Learn about the concepts of backup and restore with Azure Database 
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 09/21/2020
 ---

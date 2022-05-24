@@ -103,12 +103,25 @@ Below are some general guidelines that you can follow to create a good corpus (r
    
    With that, make sure your voice talent pronounces these words in the expected way. Keep your script and recordings match consistently during the training process.  
 
-   > [!NOTE]
-   > The scripts prepared for your voice talent need to follow the native reading conventions, such as 50% and $45, while the scripts used for training need to be normalized to make sure that the scripts match the audio content, such as *fifty percent* and *forty-five dollars*. Check the scripts used for training against the recordings of your voice talent, to make sure they match.
-
 - Your script should include many different words and sentences with different kinds of sentence lengths, structures, and moods.  
 
 - Check the script carefully for errors. If possible, have someone else check it too. When you run through the script with your talent, you'll probably catch a few more mistakes.
+
+### Difference between voice talent script and training script
+
+The training script can differ from the voice talent script, especially for scripts that contain digits, symbols, abbreviations, date, and time. Scripts prepared for the voice talent must follow the native reading conventions, such as 50% and $45. The scripts used for training must be normalized to match the audio recording, such as *fifty percent* and *forty-five dollars*. 
+
+> [!NOTE] 
+> We provide some example scripts for the voice talent on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script). To use the example scripts for training, you must normalize them according to the recordings of your voice talent before uploading the file.
+
+The following table shows the difference between scripts for voice talent and the normalized script for training.
+
+| Category |Voice talent script example | Training script example (normalized) |
+| --------- | --------- | --------------------------- |
+| Digits |123| one hundred and twenty-three |
+| Symbols |50%| fifty percent|
+| Abbreviation |ASAP| as soon as possible|
+| Date and time |March 3rd at 5:00 PM| March third at five PM|
 
 ### Typical defects of a script
 
@@ -162,7 +175,7 @@ Fortunately, it's possible to avoid these issues entirely. There are many source
 
 |Text source|Description|
 |-|-|
-|[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|About 1100 sentences selected from out-of-copyright works specifically for use in speech synthesis projects. An excellent starting point.|
+|[CMU Arctic corpus](https://pyroomacoustics.readthedocs.io/en/pypi-release/pyroomacoustics.datasets.cmu_arctic.html)|About 1100 sentences selected from out-of-copyright works specifically for use in speech synthesis projects. An excellent starting point.|
 |Works no longer<br>under copyright|Typically works published prior to 1923. For English, [Project Gutenberg](https://www.gutenberg.org/) offers tens of thousands of such works. You may want to focus on newer works, as the language will be closer to modern English.|
 |Government&nbsp;works|Works created by the United States government are not copyrighted in the United States, though the government may claim copyright in other countries/regions.|
 |Public domain|Works for which copyright has been explicitly disclaimed or that have been dedicated to the public domain. It may not be possible to waive copyright entirely in some jurisdictions.|
@@ -323,8 +336,6 @@ Modern recording studios run on computers. At the end of the session, you receiv
 Speech Studio requires each provided utterance to be in its own file. Each audio file delivered by the studio contains multiple utterances. So the primary post-production task is to split up the recordings and prepare them for submission. The recording engineer might have placed markers in the file (or provided a separate cue sheet) to indicate where each utterance starts.
 
 Use your notes to find the exact takes you want, and then use a sound editing utility, such as [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), or the free [Audacity](https://www.audacityteam.org/), to copy each utterance into a new file.
-
-Leave only about 0.2 second of silence at the beginning and end of each clip, except for the first. That file should start with a full five seconds of silence. Do not use an audio editor to "zero out" silent parts of the file. Including the "room tone" will help the algorithms compensate for any residual background noise.
 
 Listen to each file carefully. At this stage, you can edit out small unwanted sounds that you missed during recording, like a slight lip smack before a line, but be careful not to remove any actual speech. If you can't fix a file, remove it from your dataset and note that you've done so.
 

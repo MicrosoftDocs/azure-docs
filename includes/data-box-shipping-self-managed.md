@@ -7,7 +7,7 @@ ms.date: 03/30/2022
 ms.author: alkohli
 ---
 
-Self-managed shipping is available as an option when you [Order Azure Data Box](/azure/databox/data-box-deploy-ordered?tabs=portal). 
+Self-managed shipping is available as an option when you [Order Azure Data Box](../articles/databox/data-box-deploy-ordered.md?tabs=portal). 
 
 If you selected self-managed shipping when you created your order, follow these instructions. For detailed steps, see [Use self-managed shipping](../articles/databox/data-box-portal-customer-managed-shipping.md).
 
@@ -26,4 +26,4 @@ If you selected self-managed shipping when you created your order, follow these 
 
    > [!NOTE]
    > - Required information for return may vary by region. 
-   > - If you're returning a Data Box in Brazil, see [Use self-managed shipping for Azure Data Box](..\articles\databox\data-box-portal-customer-managed-shipping.md) for detailed instructions. 
+   > - If you're returning a Data Box in Brazil, see [Use self-managed shipping for Azure Data Box](..\articles\databox\data-box-portal-customer-managed-shipping.md) for detailed instructions.

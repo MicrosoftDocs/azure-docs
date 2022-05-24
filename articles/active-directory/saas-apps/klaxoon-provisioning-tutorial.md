@@ -28,7 +28,7 @@ This tutorial describes the steps you need to perform in both Klaxoon and Azure 
 > * Disable users in Klaxoon when they do not require access anymore.
 > * Keep user attributes synchronized between Azure AD and Klaxoon.
 > * Provide licenses to users in Klaxoon based on Azure AD Groups.
-> * [Single sign-on](klaxoon-saml-tutorial.md) to Klaxoon (recommended).
+> * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to Klaxoon (recommended).
 
 ## Prerequisites
 

@@ -10,8 +10,6 @@ ms.custom: mode-other
 
 # Quickstart: Enable enhanced security features
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 To learn about the benefits of enhanced security features, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md).
 
 ## Prerequisites
@@ -24,7 +22,7 @@ A free 30-day trial is available. For pricing details in your local currency or 
 
 ## Enable enhanced security features from the Azure portal
 
-To enable all Defender for Cloud features including threat protection capabilities, you must enable enhanced security features on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Microsoft Defender plans available at the workspace level are Microsoft Defender for servers and Microsoft Defender for SQL servers on machines.
+To enable all Defender for Cloud features including threat protection capabilities, you must enable enhanced security features on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Microsoft Defender plans available at the workspace level are Microsoft Defender for Servers and Microsoft Defender for SQL servers on machines.
 
 - You can enable **Microsoft Defender for Storage accounts** at either the subscription level or resource level
 - You can enable **Microsoft Defender for SQL** at either the subscription level or resource level

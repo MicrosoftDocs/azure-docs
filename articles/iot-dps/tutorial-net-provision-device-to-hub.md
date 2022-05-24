@@ -9,6 +9,7 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: "mvc, devx-track-csharp"
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Enroll the device to an IoT hub using the Azure IoT Hub Provisioning Service Client (.NET)
@@ -21,8 +22,6 @@ In the previous tutorial, you learned how to set up a device to connect to your 
 > * Verify the device is registered
 
 ## Prerequisites
-
-Before you proceed, make sure to configure your device and its *Hardware Security Module* as discussed in the tutorial [Set up a device to provision using Azure IoT Hub Device Provisioning Service](./tutorial-set-up-device.md).
 
 * Visual Studio
 

@@ -20,4 +20,4 @@ Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveSer
 |Pricing tier     | Standard (**S**) pricing tier        |
 
 > [!IMPORTANT]
-> In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, make sure you choose an existing storage account, or create a new one. A storage account is required to use custom text classification. While you can specify a storage account later, it's easier to do it now. 
+> In the **Custom named entity recognition (NER) & custom text classification (Preview)** section, make sure you choose an existing storage account, or create a new one. A storage account is required to use custom text classification. While you can specify a storage account later, it's easier to do it now. 

@@ -25,6 +25,10 @@ landingContent:
         links:
           - text: What is Azure Network Watcher?
             url: network-watcher-monitoring-overview.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Network Watcher
+            url: /learn/modules/intro-to-azure-network-watcher
 
   # Card (optional)
   - title: Diagnose VM traffic filter problem

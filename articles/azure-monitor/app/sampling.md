@@ -180,7 +180,7 @@ The above code will disable adaptive sampling. Follow the steps below to add sam
 Use extension methods of `TelemetryProcessorChainBuilder` as shown below to customize sampling behavior.
 
 > [!IMPORTANT]
-> If you use this method to configure sampling, please make sure to set the `aiOptions.EnableAdaptiveSampling` property to `false` when calling `AddApplicationInsightsTelemetry()`. After making this change, you then need to follow the instructions in the code block below **exactly** in order to re-enable adaptive sampling with your customizations in place. Failure to do so can result in excess data ingestion. Always test post changing sampling settings, and set an appropriate [daily data cap](pricing.md#set-the-daily-cap) to help control your costs.
+> If you use this method to configure sampling, please make sure to set the `aiOptions.EnableAdaptiveSampling` property to `false` when calling `AddApplicationInsightsTelemetry()`. After making this change, you then need to follow the instructions in the code block below **exactly** in order to re-enable adaptive sampling with your customizations in place. Failure to do so can result in excess data ingestion. Always test post changing sampling settings, and set an appropriate [daily data cap](../logs/daily-cap.md) to help control your costs.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility
@@ -444,7 +444,7 @@ In general, for most small and medium size applications you don't need sampling.
 The main advantages of sampling are:
 
 * Application Insights service drops ("throttles") data points when your app sends a very high rate of telemetry in a short time interval. Sampling reduces the likelihood that your application will see throttling occur.
-* To keep within the [quota](pricing.md) of data points for your pricing tier. 
+* To keep within the [quota](../logs/daily-cap.md) of data points for your pricing tier. 
 * To reduce network traffic from the collection of telemetry. 
 
 ### Which type of sampling should I use?

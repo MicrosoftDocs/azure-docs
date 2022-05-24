@@ -5,7 +5,7 @@ keywords: hadoop tools,hive query,visual studio,visual studio hadoop
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: how-to
-ms.date: 04/14/2020
+ms.date: 04/07/2022
 ---
 
 # Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries

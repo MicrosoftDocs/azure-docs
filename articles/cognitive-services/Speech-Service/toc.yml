@@ -28,6 +28,15 @@ items:
     - name: Speech CLI quickstart
       displayName: cli basics, spx basics, spx help, spx quickstart, spx get started, get started, install
       href: spx-basics.md
+    - name: Configure the datastore
+      displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore, reference
+      href: spx-data-store-configuration.md
+    - name: Configure output options
+      displayName: reference
+      href: spx-output-options.md
+    - name: Run batch operations
+      displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
+      href: spx-batch-operations.md
 - name: Speech SDK
   items:
   - name: Speech SDK overview
@@ -47,38 +56,46 @@ items:
       href: get-started-speech-to-text.md
     - name: How to recognize speech
       href: how-to-recognize-speech.md
-    - name: Change recognition source language
+    - name: Set recognition source language
       href: how-to-specify-source-language.md
-    - name: Transcribe audio in batches
+    - name: Get speech recognition results
+      href: get-speech-recognition-results.md
+    - name: How to use batch transcription
       href: batch-transcription.md
     - name: Improve recognition with Custom Speech
       items:
-        - name: Custom Speech overview
+        - name: What is Custom Speech?
           href: custom-speech-overview.md
-        - name: Prepare data for Custom Speech
-          href: how-to-custom-speech-test-and-train.md
-        - name: Create human-labeled transcriptions
-          href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Create phonetic pronunciation data
-          href: customize-pronunciation.md
-        - name: Upload data for Custom Speech
-          href: how-to-custom-speech-upload-data.md
-        - name: Inspect Custom Speech data
-          href: how-to-custom-speech-inspect-data.md
-        - name: Evaluate and improve Custom Speech accuracy
-          href: how-to-custom-speech-evaluate-data.md
-        - name: Train and deploy a Custom Speech model
-          href: how-to-custom-speech-train-model.md
-        - name: Model and Endpoint Lifecycle
+        - name: Create a Custom Speech model 
+          items:
+          - name: Choose a model
+            href: how-to-custom-speech-choose-model.md
+          - name: Upload training and testing datasets
+            href: how-to-custom-speech-upload-data.md
+          - name: Test recognition quality
+            href: how-to-custom-speech-inspect-data.md
+          - name: Test model quantitatively
+            href: how-to-custom-speech-evaluate-data.md
+          - name: Train a model
+            href: how-to-custom-speech-train-model.md
+          - name: Deploy a model
+            href: how-to-custom-speech-deploy-model.md
+        - name: Custom Speech datasets
+          items:
+          - name: Training and testing datasets
+            href: how-to-custom-speech-test-and-train.md
+          - name: Human-labeled transcripts with audio
+            href: how-to-custom-speech-human-labeled-transcriptions.md
+          - name: Structured text phonetic pronunciation
+            href: customize-pronunciation.md
+          - name: Online transcription editor
+            href: how-to-custom-speech-transcription-editor.md
+        - name: Custom Speech model lifecycle
           href: how-to-custom-speech-model-and-endpoint-lifecycle.md
         - name: CI/CD for Custom Speech
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-        - name: Improve recognition with tenant models
-          href: tutorial-tenant-model.md
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
-    - name: Ingestion Client
-      href: ingestion-client.md
     - name: Speech-to-text FAQ
       displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
       href: faq-stt.yml
@@ -142,12 +159,14 @@ items:
       href: intent-recognition.md
     - name: Intent recognition quickstart
       href: get-started-intent-recognition.md
-    - name: Pattern Matching overview
+    - name: Pattern matching overview
       href: pattern-matching-overview.md
-    - name: 'Recognize speech intents with LUIS'
+    - name: Recognize speech intents with LUIS
       href: how-to-recognize-intents-from-speech-csharp.md
-    - name: 'Recognize speech intents with simple pattern matching'
+    - name: Recognize speech intents with simple pattern matching
       href: how-to-use-simple-language-pattern-matching.md
+    - name: Recognize speech intents with custom entity pattern matching
+      href: how-to-use-custom-entity-pattern-matching.md
     - name: LUIS developer resources
       href: ../luis/developer-reference-resource.md
     - name: Language support
@@ -168,28 +187,33 @@ items:
       href: keyword-recognition-guidelines.md
 - name: Scenario deep-dives
   items:
-    - name: Conversation scenarios
+    - name: Captioning
       items:
-        - name: Conversation scenarios documentation
-          displayName: meeting, meetings, conversation, call center, transcription, multi-device conversation
-          href: index-conversation-scenarios.yml
-        - name: Conversation transcription
-          items:
-            - name: Conversation Transcription overview
-              href: conversation-transcription.md
-            - name: Real-time Conversation Transcription quickstart
-              href: how-to-use-conversation-transcription.md
-            - name: Handle call center scenarios
-              displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
-              href: call-center-transcription.md
-            - name: Asynchronous Conversation transcription
-              href: how-to-async-conversation-transcription.md
-        - name: Multi-device conversation
-          items:
-            - name: Multi-device conversation overview
-              href: multi-device-conversation.md
-            - name: Multi-device conversation quickstart
-              href: quickstarts/multi-device-conversation.md
+      - name: Captioning with speech to text
+        href: captioning-concepts.md
+      - name: Captioning quickstart
+        href: captioning-quickstart.md
+    - name: Handle call center scenarios
+      items:
+      - name: Telephony data
+        displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
+        href: call-center-transcription.md
+      - name: Ingestion Client
+        href: ingestion-client.md
+    - name: Conversation transcription
+      items:
+        - name: Conversation Transcription overview
+          href: conversation-transcription.md
+        - name: Real-time Conversation Transcription quickstart
+          href: how-to-use-conversation-transcription.md
+        - name: Asynchronous Conversation transcription
+          href: how-to-async-conversation-transcription.md
+    - name: Multi-device conversation
+      items:
+        - name: Multi-device conversation overview
+          href: multi-device-conversation.md
+        - name: Multi-device conversation quickstart
+          href: quickstarts/multi-device-conversation.md
     - name: Voice assistants
       items:
         - name: Voice assistants documentation
@@ -266,15 +290,15 @@ items:
       items:
       - name: How to use the audio input stream
         href: how-to-use-audio-input-streams.md
-      - name: How to use compressed audio files
+      - name: How to use compressed input audio
         href: how-to-use-codec-compressed-audio-input-streams.md
         displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
       - name: Select a specific microphone input device
         href: how-to-select-audio-input-devices.md
     - name: Access control and authentication
       items:
-      - name: Role-based access control in Speech Studio
-        href: speech-studio-role-based-access-control.md
+      - name: Role-based access with Azure Active Directory 
+        href: role-based-access-control.md
       - name: Use Azure Active Directory Authentication
         href: how-to-configure-azure-ad-auth.md
     - name: Endpoint connections
@@ -309,7 +333,7 @@ items:
     - name: Configure RHEL/CentOS 7
       href: how-to-configure-rhel-centos-7.md
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
-    - name: Swagger documentation
+    - name: Generate a REST API client library
       href: swagger-documentation.md
       displayName: rest
     - name: Speech containers
@@ -327,7 +351,6 @@ items:
           href: speech-container-howto-on-premises.md
         - name: Speech containers on Azure container instances
           displayName: 'ACI,azure container instances,container instances,containers'
-          maintainContext: true
           href: ../containers/azure-container-instance-recipe.md
         - name: Use containers in disconnected environments
           href: ../containers/disconnected-containers.md
@@ -335,7 +358,6 @@ items:
           href: speech-container-faq.yml
         - name: Cognitive Services containers documentation
           href: ../containers/index.yml
-          maintainContext: true
     - name: Migration
       items:
         - name: Neural voice migration
@@ -371,15 +393,6 @@ items:
     - name: Release notes
       href: releasenotes.md
       displayName: reference 
-    - name: CLI reference
-      displayName: SPX, command line
-      items:
-        - name: Speech CLI configuration options
-          displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore, reference
-          href: spx-data-store-configuration.md
-        - name: Speech CLI batch operations
-          displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
-          href: spx-batch-operations.md
     - name: SDK reference
       items:
         - name: C++
@@ -408,9 +421,12 @@ items:
         - name: Conversation transcription REST APIs
           href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
           displayName: reference 
-        - name: Speech-to-text REST API
-          href: rest-speech-to-text.md 
-          displayName: reference          
+        - name: Speech-to-text REST API v3.0
+          href: rest-speech-to-text.md
+          displayName: reference 
+        - name: Speech-to-text REST API for short audio
+          href: rest-speech-to-text-short.md    
+          displayName: reference       
         - name: Text-to-speech REST API
           href: rest-text-to-speech.md
           displayName: reference 

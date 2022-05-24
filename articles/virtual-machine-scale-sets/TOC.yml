@@ -78,6 +78,21 @@
         href: tutorial-autoscale-template.md
   - name: Samples
     items:
+      - name: Specialized
+        href: instance-specialized-image-version.md
+      - name: Generalized
+        href: instance-generalized-image-version.md
+      - name: Update image resources
+        href: ../virtual-machines/update-image-resources.md
+      - name: Troubleshoot shared images
+        href: ../virtual-machines/troubleshooting-shared-images.md
+      - name: Using customer-managed keys
+        displayName: SSE, CMK, encrypt
+        href: ../virtual-machines/image-version-encryption.md
+      - name: App registration for sharing
+        href: share-images-across-tenants.md
+  - name: Create a template
+    items:
     - name: Azure CLI
       items:
       - name: Create a virtual machine scale set
@@ -302,6 +317,60 @@
       displayName: samples, policies, definitions
       href: ../virtual-machines/policy-reference.md
   - name: Resources
+    items:
+    - name: Create and manage scale sets
+      href: /azure/developer/ansible/vm-scale-set-configure
+      maintainContext: true
+    - name: Deploy apps to scale sets
+      href: /azure/developer/ansible/vm-scale-set-deploy-app
+      maintainContext: true
+    - name: Autoscale a scale set
+      href: /azure/developer/ansible/vm-scale-set-auto-scale
+      maintainContext: true
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/vmss
+  - name: Azure PowerShell
+    href: /powershell/azure/
+  - name: REST
+    href: /rest/api/virtualmachinescalesets/
+  - name: Azure templates
+    href: /azure/templates/microsoft.compute/virtualmachinescalesets
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../virtual-machines/policy-reference.md
+- name: Resources
+  items:
+  - name: Cloud adoption framework
+    href: /azure/cloud-adoption-framework/get-started/
+  - name: Architecture center
+    href: /azure/architecture/
+  - name: Migration tools
+    href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-virtual-machines.html
+  - name: Azure Quickstart Templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Common CLI commands
+    href: ../virtual-machines/linux/cli-manage.md
+  - name: Common PowerShell commands
+    href: ../virtual-machines/windows/ps-common-ref.md
+  - name: Common networking PowerShell commands
+    href: ../virtual-machines/windows/ps-common-network-ref.md
+  - name: VM template description
+    href: ../virtual-machines/windows/template-description.md
+  - name: FAQ
     items:
     - name: Cloud adoption framework
       href: /azure/cloud-adoption-framework/get-started/

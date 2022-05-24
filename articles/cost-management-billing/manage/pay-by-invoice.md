@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 04/25/2022
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -30,7 +30,7 @@ Users with a Microsoft Customer Agreement must always submit a request to Azure 
 > * Pay all outstanding charges before switching to pay by by check or wire transfer.
 > * An outstanding invoice is paid by your default payment method. In order to have it paid by check or wire transfer, you must change your default payment method to check or wire transfer after you've been approved.
 > * Currently, payment by check or wire transfer isn't supported for Global Azure in China.
-> * If you switch to pay by check or wire transfer, you can't switch back to paying by credit or debit card.
+> * For Microsoft Online Services Program accounts, if you switch to pay by check or wire transfer, you can't switch back to paying by credit or debit card.
 
 ## Request to pay by check or wire transfer
 

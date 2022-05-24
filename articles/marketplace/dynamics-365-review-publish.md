@@ -27,7 +27,6 @@ You can review your offer status on the **Overview** tab of the commercial marke
 | Live | Offer is live in the marketplace and can be seen and acquired by customers. |
 | Pending stop sell | Publisher selected "stop sell" on an offer or plan, but the action has not yet been completed. |
 | Not available in the marketplace | A previously published offer in the marketplace has been removed. |
-|||
 
 ## Validation and publishing steps
 

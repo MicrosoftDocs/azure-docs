@@ -31,6 +31,8 @@ items:
     href: tutorial-java-spring-mysql.md
   - name: Spring Cloud app with Kafka on Confluent Cloud
     href: tutorial-java-spring-confluent-kafka.md
+  - name: Web app with App Configuration
+    href: tutorial-connect-web-app-app-configuration.md
 - name: Concepts
   expanded: true
   items:

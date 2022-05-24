@@ -50,7 +50,7 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
+        "typeHandlerVersion": "9.10",
         "autoUpgradeMinorVersion": true
       }
     }
@@ -67,7 +67,7 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentWindows |
-| typeHandlerVersion | 9.5 |
+| typeHandlerVersion | 9.10 |
 
 ## Template deployment
 
@@ -90,7 +90,7 @@ The following example assumes the Dependency agent extension is nested inside th
 	"properties": {
 		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
+        "typeHandlerVersion": "9.10",
         "autoUpgradeMinorVersion": true
 	}
 }
@@ -110,7 +110,7 @@ When you place the extension JSON at the root of the template, the resource name
 	"properties": {
 		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
+        "typeHandlerVersion": "9.10",
         "autoUpgradeMinorVersion": true
 	}
 }
@@ -127,7 +127,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -VMName "myVM" `
     -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
     -ExtensionType "DependencyAgentWindows" `
-    -TypeHandlerVersion 9.5 `
+    -TypeHandlerVersion 9.10 `
     -Location WestUS
 ```
 

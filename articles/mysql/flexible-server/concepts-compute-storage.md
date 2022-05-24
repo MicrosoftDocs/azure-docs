@@ -4,6 +4,7 @@ description: This article describes the compute and storage options in Azure Dat
 author: Bashar-MSFT
 ms.author: bahusse
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 1/28/2021
 ---

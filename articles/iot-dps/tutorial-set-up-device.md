@@ -9,6 +9,7 @@ ms.service: iot-dps
 services: iot-dps
 
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Set up a device to provision using the Azure IoT Hub Device Provisioning Service

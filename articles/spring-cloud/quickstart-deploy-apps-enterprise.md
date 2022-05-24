@@ -51,11 +51,11 @@ To bind apps to Application Configuration Service for VMware Tanzu®, follow the
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown and select **Apply** to bind the application to Application Configuration Service for Tanzu.
 
-   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with 'Bind app' dialog showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png)
+   ![Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and 'App binding' section with 'Bind app' dialog showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png)
 
 A list under **App name** shows the apps bound with Application Configuration Service for Tanzu, as shown in the following screenshot:
 
-![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with app list showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
+![Screenshot of Azure portal Azure Spring Cloud with Application Configuration Service page and 'App binding' section with app list showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
 
 To bind apps to VMware Tanzu® Service Registry, follow these steps.
 
@@ -63,11 +63,11 @@ To bind apps to VMware Tanzu® Service Registry, follow these steps.
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown, and then select **Apply** to bind the application to Tanzu Service Registry.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Azure portal screenshot of Azure Spring Cloud with Service Registry page and 'Bind app' dialog showing.":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Cloud with Service Registry page and 'Bind app' dialog showing.":::
 
 A list under **App name** shows the apps bound with Tanzu Service Registry, as shown in the following screenshot:
 
-:::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind.png" alt-text="Azure portal screenshot of Azure Spring Cloud with Service Registry page and 'App binding' section showing.":::
+:::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind.png" alt-text="Screenshot of Azure portal Azure Spring Cloud with Service Registry page and 'App binding' section showing.":::
 
 ### [Azure CLI](#tab/azure-cli)
 

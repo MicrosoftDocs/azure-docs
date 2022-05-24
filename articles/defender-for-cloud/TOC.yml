@@ -136,7 +136,7 @@
   - name: Protect your machines
     displayName: hybrid, arc, Azure Defender for machines
     items:
-    - name: Overview of Defender for servers
+    - name: Overview of Defender for Servers
       displayName: VM
       href: defender-for-servers-introduction.md
     - name: Apply Azure security baselines
@@ -237,10 +237,10 @@
       href: defender-for-containers-enable.md
     - name: Vulnerability assessment
       displayName: ACR, registry, images, qualys
-      href: defender-for-container-registries-usage.md
+      href: defender-for-containers-usage.md
     - name: Scan images in your CI/CD workflows
       displayName: ACR, registry, images, trevi, vulnerabilities, scanner
-      href: defender-for-container-registries-cicd.md
+      href: defender-for-containers-cicd.md
     - name: Kubernetes data plane hardening
       displayName: k8s, containers, aks
       href: kubernetes-workload-protections.md
@@ -320,6 +320,8 @@
       - name: Export to a SIEM, SOAR, or ITSM
         displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,
         href: export-to-siem.md
+      - name: Prepare Azure resources for exporting to Splunk and QRadar
+        href: export-to-splunk-or-qradar.md
       - name: Export to a Log Analytics workspace or Azure Event Hubs
         displayName: continuous
         href: continuous-export.md

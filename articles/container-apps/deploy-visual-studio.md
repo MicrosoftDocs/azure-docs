@@ -19,7 +19,7 @@ In this tutorial, you'll deploy a containerized ASP.NET Core 6.0 application to 
 ## Prerequisites
 
 - An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Visual Studio 2022 Preview 2 or higher, available as a [free download](https://visualstudio.microsoft.com/vs/preview/).  
+- Visual Studio 2022 Preview 3 or higher, available as a [free download](https://visualstudio.microsoft.com/vs/preview/).  
 - [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows) for Windows. Visual Studio uses Docker Desktop for various containerization features.
 
 ## Create the project
@@ -43,7 +43,7 @@ Begin by creating the containerized ASP.NET Core application to deploy to Azure.
 
 If this is your first time creating a project using Docker, you may get a prompt instructing you to install Docker Desktop.  This installation is required for working with containerized apps, as mentioned in the prerequisites, so click **Yes**.  You can also  download and [install Docker Desktop for Windows from the official Docker site](https://hub.docker.com/editions/community/docker-ce-desktop-windows).
 
-Visual Studio launches the Docker Desktop for Windows installer.  You can follow the installation instructions on this page to setup Docker, which requires a system reboot.
+Visual Studio launches the Docker Desktop for Windows installer.  You can follow the installation instructions on this page to set up Docker, which requires a system reboot.
 
 ## Deploy to Azure Container Apps
 
@@ -72,7 +72,7 @@ The Visual Studio publish dialogs will help you choose existing Azure resources,
     - **Container App name**: Enter a name of `msdocscontainerapp`.
     - **Subscription name**: Choose the subscription where you would like to host your app.
     - **Resource group**: A resource group acts as a logical container to organize related resources in Azure.  You can either select an existing resource group, or select **New** to create one with a name of your choosing, such as `msdocscontainerapps`.
-    - **Container Apps Environment**:  Container Apps Environment: Every container app must be part of a container app environment. An environment provides an isolated network for one or more container apps, making it possible for them to easily invoke each other, Click **New** to open the Create new dialog for your container app environment. Leave the default values and select **OK** to close the environment dialog.
+    - **Container Apps Environment**:  Container Apps Environment: Every container app must be part of a container app environment. An environment provides an isolated network for one or more container apps, making it possible for them to easily invoke each other. Click **New** to open the Create new dialog for your container app environment. Leave the default values and select **OK** to close the environment dialog.
     - **Container Name**: This is the friendly name of the container that will run for this container app. Use the name `msdocscontainer1` for this quickstart. A container app typically runs a single container, but there are times when having more than one container is needed. One such example is when a sidecar container is required to perform an activity such as specialized logging or communications.
 
     :::image type="content" source="media/visual-studio/container-apps-create-new.png" alt-text="A screenshot showing how to create new Container Apps.":::
@@ -80,6 +80,8 @@ The Visual Studio publish dialogs will help you choose existing Azure resources,
 6) Select **Create** to finalize the creation or your container app. Visual Studio and Azure create the needed resources on your behalf.  This process may take a couple minutes, so allow it to run to completion before moving on.
 
 7) Once the resources are created, choose **Next**.
+
+    :::image type="content" source="media/visual-studio/container-apps-select-resource.png" alt-text="A screenshot showing how to select the created resource.":::
 
 8) On the **Registry** screen, you can either select an existing Registry if you have one, or create a new one.  To create a new one, click the green **+** icon on the right. On the **Create new** registry screen, fill in the following values:
 
@@ -97,18 +99,33 @@ The Visual Studio publish dialogs will help you choose existing Azure resources,
 
     :::image type="content" source="media/visual-studio/container-apps-choose-registry.png" alt-text="A screenshot showing how select the created registry.":::
 
-### Publish the app
+### Publish the app using Visual Studio
 
 While the resources and publishing profile are created, you still need to publish and deploy the app to Azure. 
 
-Choose **Publish** in the upper right of the publishing profile screen to deploy to the container app you created in Azure.  This process may take a moment, so wait for it to complete.
+Choose **Publish** in the upper right of the publishing profile screen to deploy to the container app you created in Azure. This process may take a moment, so wait for it to complete.
 
 :::image type="content" source="media/visual-studio/container-apps-publish.png" alt-text="A screenshot showing how to publish the app.":::
 
-When the app finishes deploying, Visual Studio opens a browser to the the URL of your deployed site. This page may initially display an error if all of the proper resources have not finished provisioning.  You can continue to refresh the browser periodically to check if the deployment has fully completed.
-
+When the app finishes deploying, Visual Studio opens a browser to the URL of your deployed site. This page may initially display an error if all of the proper resources have not finished provisioning.  You can continue to refresh the browser periodically to check if the deployment has fully completed.
 
 :::image type="content" source="media/visual-studio/container-apps-site.png" alt-text="A screenshot showing the published site.":::
+
+### Publish the app using GitHub Actions
+
+Container Apps can also be deployed using CI/CD through [GitHub actions](https://docs.github.com/en/actions), which are a powerful tool for automating, customizing, and executing development workflows directly through the GitHub repository of your project.
+
+If Visual Studio detects the project you are publishing is hosted in GitHub, the publish flow presents an additional **Deployment type** step. This stage allows developers to choose whether to publish directly through Visual Studio using the steps shown earlier in the quickstart, or through a GitHub Actions workflow.
+
+:::image type="content" source="media/visual-studio/container-apps-deployment-type.png" alt-text="A screenshot showing the deployment type.":::
+
+If you select the GitHub Actions workflow, Visual Studio will add a *.github* folder to the root directory of the project, along with a generated YAML file inside of it. The YAML file contains GitHub Actions configurations to build and deploy your app to Azure every time you push your code.
+
+After you make a change and push your code, you can see the progress of the build and deploy process in GitHub under the **Actions** tab. This page provides detailed logs and indicators regarding the progress and health of the workflow.  
+
+:::image type="content" source="media/visual-studio/container-apps-github-actions.png" alt-text="A screenshot showing GitHub actions.":::
+
+Once you see a green checkmark next to the build and deploy jobs the workflow is complete. When you browse to your Container Apps site you should see the latest changes applied. You can always find the URL for your container app using the Azure portal page.
 
 ## Clean up resources
 

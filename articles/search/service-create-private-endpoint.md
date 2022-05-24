@@ -19,7 +19,7 @@ Private endpoints are provided by [Azure Private Link](../private-link/private-l
 You can create a private endpoint in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
 > [!NOTE]
-> When the service endpoint is private, some portal features are disabled. You can view and manage service level information, but index, indexer, and skillset information is hidden for security reasons. As an alternative to the portal, you can use the [VS Code Extension](https://aka.ms/vscode-search) to interact with the various components in the service.
+> When the service endpoint is private, some portal features are disabled. You can view and manage service level information, but index, indexer, and skillset information is hidden for security reasons. As an alternative to the portal, you can use the [VS Code Extension](https://aka.ms/vscode-search) to interact with the various components in the service. Additionally, ARM templates don't currently have support for updating existing Private Endpoints that are connected to a search service. 
 
 ## Why use a Private Endpoint for secure access?
 

@@ -174,11 +174,11 @@ SMTP relay lets Microsoft 365 relay emails on your behalf by using a connector t
 - **Transport Layer Security (TLS)**: SAP application must be able to use TLS version 1.2 and above.
 - **Port**: port 25 is required and must be unblocked on your network. Some network firewalls or ISPs block ports, especially port 25 due to the risk of misuse for spamming.
 - **MX record**: your Mail Exchanger (MX) endpoint, for e.g., yourdomain.mail.protection.outlook.com. Find more information on the next section.
-- **Relay Access**: A Public IP address or SSL certificate is required to authenticate against the relay connector. To avoid configuring direct access it's recommended to use Source Network Translation (SNAT) as described in this article. [Use Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections).
+- **Relay Access**: A Public IP address or SSL certificate is required to authenticate against the relay connector. To avoid configuring direct access it's recommended to use Source Network Translation (SNAT) as described in this article. [Use Source Network Address Translation (SNAT) for outbound connections](../../../load-balancer/load-balancer-outbound-connections.md).
 
 ### Step-by-step configuration instructions for SMTP relay in Microsoft 365
 
-1. Obtain the public (static) IP address of the endpoint which will be sending the mail using one of the methods listed in the [article](/azure/load-balancer/load-balancer-outbound-connections) above. A dynamic IP address isn\'t supported or allowed. You can share your static IP address with other devices and users, but don't share the IP address with anyone outside of your company. Make a note of this IP address for later.
+1. Obtain the public (static) IP address of the endpoint which will be sending the mail using one of the methods listed in the [article](../../../load-balancer/load-balancer-outbound-connections.md) above. A dynamic IP address isn\'t supported or allowed. You can share your static IP address with other devices and users, but don't share the IP address with anyone outside of your company. Make a note of this IP address for later.
 
    :::image type="content" source="media/exchange-online-integration/azure-portal-pip-sec-3-1.png" alt-text="Where to retrieve the public ip on the Azure Portal":::
 

@@ -1,13 +1,9 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 11/12/2019
+ ms.date: 04/22/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
 
 |**VPN<br>Gateway<br>Generation** |**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br> SSTP Connections** | **P2S<br> IKEv2/OpenVPN Connections** | **Aggregate<br>Throughput Benchmark** | **BGP** | **Zone-redundant** |
@@ -40,7 +36,7 @@
 * SLA (Service Level Agreement) information can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/) page.
 
 * IPsec limits the throughput of a single VPN gateway (both S2S and P2S connections) to 1.25Gbps. **If you have a lot of P2S connections, it can negatively impact your S2S connections.** The Aggregate Throughput Benchmarks were tested by maximizing a combination of S2S and P2S connections. A single P2S connection will have a much lower throughput than the 1.25Gbps limit.
-* Note that all benchmarks are not guaranteed due to Internet traffic conditions and your application behaviors
+* Note that all benchmarks aren't guaranteed due to Internet traffic conditions and your application behaviors
 
 To help our customers understand the relative performance of SKUs using different algorithms, we used publicly available iPerf and CTSTraffic tools to measure performances for site-to-site connections. The table below lists the results of performance tests for Generation 1, VpnGw SKUs. As you can see, the best performance is obtained when we used GCMAES256 algorithm for both IPsec Encryption and Integrity. We got average performance when using AES256 for IPsec Encryption and SHA256 for Integrity. When we used DES3 for IPsec Encryption and SHA256 for Integrity we got lowest performance.
 

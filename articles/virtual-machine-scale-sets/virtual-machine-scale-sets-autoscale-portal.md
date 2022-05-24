@@ -32,11 +32,12 @@ If your application demand increases, the load on the VM instances in your scale
 
 1. Open the Azure portal and select **Resource groups** from the menu on the left-hand side of the dashboard.
 2. Select the resource group that contains your scale set, then choose your scale set from the list of resources.
-3. Choose **Scaling** from the menu on the left-hand side of the scale set window. Select the button to **Enable autoscale**:
+3. Choose **Scaling** from the menu on the left-hand side of the scale set window. Select the button to **Custom autoscale**:
 
-    ![Enable autoscale in the Azure portal](media/virtual-machine-scale-sets-autoscale-portal/enable-autoscale.png)
+    :::image type="content" source="media/virtual-machine-scale-sets-autoscale-portal/enable-autoscale.png" alt-text="Enable autoscale in the Azure portal":::
 
-4. Enter a name for your settings, such as *autoscale*, then select the option to **Add a rule**.
+4. Select the option to **Add a rule**.
+    :::image type="content" source="media/virtual-machine-scale-sets-autoscale-portal/add-autoscale-rule.png" alt-text="Add autoscale rule in the Azure portal":::
 
 5. Let's create a rule that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 10-minute period. When the rule triggers, the number of VM instances is increased by 20%. In scale sets with a small number of VM instances, you could set the **Operation** to *Increase count by* and then specify *1* or *2* for the *Instance count*. In scale sets with a large number of VM instances, an increase of 10% or 20% VM instances may be more appropriate.
 
@@ -56,7 +57,8 @@ If your application demand increases, the load on the VM instances in your scale
 
     The following examples show a rule created in the Azure portal that matches these settings:
     
-    ![Create an autoscale rule to increase the number of VM instances](media/virtual-machine-scale-sets-autoscale-portal/rule-increase.png)
+
+    :::image type="content" source="media/virtual-machine-scale-sets-autoscale-portal/rule-increase.png" alt-text="Create an autoscale rule to increase the number of VM instances":::
 
     > [!NOTE]
     > Tasks running inside the instance will abruptly stop and the instance will scale down once it completes the cooling period.
@@ -97,19 +99,16 @@ Your autoscale profile must define a minimum, maximum, and default number of VM 
 ## Monitor number of instances in a scale set
 To see the number and status of VM instances, select **Instances** from the menu on the left-hand side of the scale set window. The status indicates if the VM instance is *Creating* as the scale set automatically scales out, or is *Deleting* as the scale automatically scales in.
 
-![View a list of scale set VM instances](media/virtual-machine-scale-sets-autoscale-portal/view-instances.png)
-
+:::image type="content" source="media/virtual-machine-scale-sets-autoscale-portal/view-instances.png" alt-text="View a list of scale set VM instances":::
 
 ## Autoscale based on a schedule
 The previous examples automatically scaled a scale set in or out with basic host metrics such as CPU usage. You can also create autoscale rules based on schedules. These schedule-based rules allow you to automatically scale out the number of VM instances ahead of an anticipated increase in application demand, such as core work hours, and then automatically scale in the number of instances at a time that you anticipate less demand, such as the weekend.
 
-1. Choose **Scaling** from the menu on the left-hand side of the scale set window. To delete the existing autoscale rules created in the previous examples, choose the trash can icon.
-
-    ![Delete the existing autoscale rules](media/virtual-machine-scale-sets-autoscale-portal/delete-rules.png)
+1. Choose **Scaling** from the menu on the left-hand side of the scale set window.
 
 2. Choose to **Add a scale condition**. Select the pencil icon next to rule name, and provide a name such as *Scale out during each work day*.
 
-    ![Rename the default autoscale rule](media/virtual-machine-scale-sets-autoscale-portal/rename-rule.png)
+    :::image type="content" source="media/virtual-machine-scale-sets-autoscale-portal/rename-rule.png" alt-text="Rename the default autoscale rule":::
 
 3. Select the radio button to **Scale to a specific instance count**.
 4. To scale up the number of instances, enter *10* as the instance count.
@@ -119,7 +118,7 @@ The previous examples automatically scaled a scale set in or out with basic host
 8. Choose to **Add a scale condition** again. Repeat the process to create a schedule named *Scale in during the evening* that scales to *3* instances, repeats every weekday, and starts at *18:00*.
 9. To apply your schedule-based autoscale rules, select **Save**.
 
-    ![Create autoscale rules that scale on a schedule](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
+    :::image type="content" source="media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.png" alt-text="Create autoscale rules that scale on a schedule":::
 
 To see how your autoscale rules are applied, select **Run history** across the top of the **Scaling** window. The graph and events list shows when the autoscale rules trigger and the number of VM instances in your scale set increases or decreases.
 

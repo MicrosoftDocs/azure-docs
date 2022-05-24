@@ -6,6 +6,16 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### 2022-April release
+
+#### New Speech-to-text-locales:
+
+Below is a list of the new locales. See the complete language list [here](../../language-support.md).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `bn-IN` | Bengali (India)                   |
+
 ### 2022-January release
 
 #### New Speech-to-text-locales:

@@ -67,7 +67,7 @@ If you're using the SDK, you can upload multiple model files with the `CreateMod
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModels_multi":::
 
-If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/cli/azure/dt), you can also upload multiple models by placing multiple model definitions in a single JSON file to be uploaded together. In this case, the models should placed in a JSON array within the file, like in the following example:
+If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/cli/azure/dt), you can also upload multiple models by placing multiple model definitions in a single JSON file to be uploaded together. In this case, the models should be placed in a JSON array within the file, like in the following example:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
 

@@ -14,6 +14,9 @@
     items:
     - name: Azure portal
       href: advisor-alerts-portal.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: advisor-alerts-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: advisor-alerts-arm.md
@@ -60,7 +63,7 @@
   - name: Defender for Cloud
     href: https://azure.microsoft.com/services/security-center/
   - name: SQL Database Advisor
-    href: ../azure-sql/database/database-advisor-implement-performance-recommendations.md
+    href: /azure/azure-sql/database/database-advisor-implement-performance-recommendations
   - name: App Service
     href: ../app-service/app-service-best-practices.md
   - name: REST API

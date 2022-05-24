@@ -60,7 +60,7 @@ If your app is deployed on [Azure Virtual Machines without a public IP address](
 * Add your Azure Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). 
 
     When the service endpoint is enabled, the requests are no longer sent from a public IP to Azure Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](/previous-versions/azure/virtual-network/virtual-networks-acl).
-* Assign a [public IP to your Azure VM](../../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
+* Assign a [public IP to your Azure VM](../../load-balancer/troubleshoot-outbound-connection.md#configure-an-individual-public-ip-on-vm).
 
 ### <a name="high-network-latency"></a>High network latency
 High network latency can be identified by using the [diagnostics string](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) in the V2 SDK or [diagnostics](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) in V3 SDK.

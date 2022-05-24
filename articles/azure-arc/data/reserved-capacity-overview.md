@@ -89,7 +89,7 @@ The vCore reservation discount is applied automatically to the number of managed
 
 To learn about service tiers for Azure Arc-enabled SQL Managed Instance, see [Azure Arc-enabled SQL Managed Instance service tiers](service-tiers.md).
 
-- For information on Azure SQL Managed Instance service tiers for the vCore model, see [Azure SQL Managed Instance - Compute Hardware in the vCore Service Tier](../../azure-sql/managed-instance/service-tiers-managed-instance-vcore.md)
+- For information on Azure SQL Managed Instance service tiers for the vCore model, see [Azure SQL Managed Instance - Compute Hardware in the vCore Service Tier](/azure/azure-sql/managed-instance/service-tiers-managed-instance-vcore)
 
 To learn how to manage the capacity reservation, see [manage reserved capacity](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 

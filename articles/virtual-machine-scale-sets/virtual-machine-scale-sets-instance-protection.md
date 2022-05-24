@@ -6,7 +6,7 @@ ms.author: avverma
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: instance-protection
-ms.date: 02/26/2020
+ms.date: 05/20/2022
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurepowershell
 
