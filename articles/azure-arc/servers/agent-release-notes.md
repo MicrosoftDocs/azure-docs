@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 04/18/2022
+ms.date: 05/24/2022
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,20 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 - Bug fixes
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
+
+## Version 1.18 - May 2022
+
+### New features
+
+- The agent can now be configured to operate in [monitoring mode](security-overview.md#agent-modes) which simplifies configuration of the agent for scenarios where you only want to use Arc for monitoring and security scenarios. This mode disables other agent functionality and prevents use of extensions that could make changes to the system (for example, the Custom Script Extension).
+- VMs and hosts running on Azure Stack HCI now report the cloud provider as "HCI" when [Azure benefits are enabled](/azure-stack/hci/manage/azure-benefits#enable-azure-benefits).
+
+### Fixed
+
+- `systemd` is now an official prerequisite on Linux. This has always been the case, however the package manager is now aware of the dependency and can alert you if you try to install the agent on a system that does not support `systemd`.
+- Guest configuration policies no longer create unnecessary files in the `/tmp` directory on Linux servers
+- Improved reliability when extracting extensions and guest configuration policy packages
+- Improved reliability for guest configuration policies that have child processes
 
 ## Version 1.17 - April 2022
 
@@ -74,23 +88,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ### Fixed
 
 - A state corruption issue in the extension manager that could cause extension operations to get stuck in transient states has been fixed. Customers running agent version 1.13 are encouraged to upgrade to version 1.14 as soon as possible. If you continue to have issues with extensions after upgrading the agent, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-## Version 1.13 - November 2021
-
-### Known issues
-
-- Extensions may get stuck in transient states (creating, deleting, updating) on Windows machines running the 1.13 agent in certain conditions. Microsoft recommends upgrading to agent version 1.14 as soon as possible to resolve this issue.
-
-### Fixed
-
-- Improved reliability when installing or upgrading the agent.
-
-### New features
-
-- Local configuration of agent settings now available using the [azcmagent config command](manage-agent.md#config).
-- Proxy server settings can be [configured using agent-specific settings](manage-agent.md#update-or-remove-proxy-settings) instead of environment variables.
-- Extension operations will execute faster using a new notification pipeline. You may need to adjust your firewall or proxy server rules to allow the new network addresses for this notification service (see [networking configuration](network-requirements.md)). The extension manager will fall back to the existing behavior of checking every 5 minutes when the notification service cannot be reached.
-- Detection of the AWS account ID, instance ID, and region information for servers running in Amazon Web Services.
 
 ## Next steps
 
