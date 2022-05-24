@@ -9,7 +9,7 @@ ms.date: 05/20/2022
 
 # How to use Kafka MirrorMaker 2.0 in data migration, replication and the use-cases
 
-MirrorMaker 2 (MM2) is designed to make it easier to mirror or replicate topics from one Kafka cluster to another. It uses the Kafka Connect framework to simplify configuration and scaling. It dynamically detects changes to topics and ensures source and target topic properties are synchronized, including offsets and partitions.
+MirrorMaker 2.0 (MM2) is designed to make it easier to mirror or replicate topics from one Kafka cluster to another. It uses the Kafka Connect framework to simplify configuration and scaling. It dynamically detects changes to topics and ensures source and target topic properties are synchronized, including offsets and partitions.
 
 In this article, you'll learn how to use Kafka MirrorMaker 2.0 in data migration/replication and the use-cases.
 
@@ -27,7 +27,7 @@ Simulation of MirrorMaker 2.0 to replicate data points/offsets between two Kafka
 
 ### MM2 Internals
 
-The Mirrormaker2 tool is composed of different connectors. These connectors are standard Kafka Connect connectors, which can be used directly with Kafka Connect in standalone or distributed mode.
+The MirrorMaker 2.0 tool is composed of different connectors. These connectors are standard Kafka Connect connectors, which can be used directly with Kafka Connect in standalone or distributed mode.
 
 The summary of the broker setup process is as follows:
 
@@ -51,8 +51,8 @@ The summary of the broker setup process is as follows:
       
 ### Deployment
 
-1. Connect-mirror-maker.sh script bundled with the Kafka library implements a distributed MM2 cluster, which manages the Connect workers internally based on a config file. Internally Mirrormaker driver creates and handles pairs of each connector – MirrorSourceConnector, MirrorSinkConnector, MirrorCheckpoint connector and MirrorHeartbeatConnector.
-1. Start the Mirormaker 2.
+1. Connect-mirror-maker.sh script bundled with the Kafka library implements a distributed MM2 cluster, which manages the Connect workers internally based on a config file. Internally MirrorMaker driver creates and handles pairs of each connector – MirrorSourceConnector, MirrorSinkConnector, MirrorCheckpoint connector and MirrorHeartbeatConnector.
+1. Start MirrorMaker 2.0.
     
 ```
 ./bin/connect-mirror-maker.sh ./config/mirror-maker.properties    
@@ -64,7 +64,7 @@ The summary of the broker setup process is as follows:
 ```
 export KAFKA_OPTS="-Djava.security.auth.login.config=<path-to-jaas.conf>"    
 ```
-### Sample Mirrormaker 2.0 Configuration file
+### Sample MirrorMaker 2.0 Configuration file
        
 ```
     # specify any number of cluster aliases
@@ -148,21 +148,21 @@ destination.sasl.mechanism=GSSAPI
 
 **How will the consumers behave on migration, if that the destination cluster may have a different offset mapping to data points?**
 
-  Mirrormaker 2’s MirrorCheckpointConnector automatically stores consumer group offset checkpoints for consumer groups on the source cluster. Each checkpoint  contains a mapping of the last committed offset for each group in the source cluster to the equivalent offset in destination cluster. So on migration the consumers that start consuming from same topic on the destination cluster will be able to resume receiving messages from the last offset they committed on the source cluster. 
+  The MirrorMaker 2.0 MirrorCheckpointConnector feature automatically stores consumer group offset checkpoints for consumer groups on the source cluster. Each checkpoint  contains a mapping of the last committed offset for each group in the source cluster to the equivalent offset in destination cluster. So on migration the consumers that start consuming from same topic on the destination cluster will be able to resume receiving messages from the last offset they committed on the source cluster. 
 
 **How can we retain the exact topic name in destination cluster, as the source alias is prefixed with all the topics replicated?**
 
-  This is the default behavior in Mirrormaker2.0 to avoid data overriding in complex mirroring topologies. Customization of this needs to be done carefully in terms of replication flow design and topic management to avoid data loss. This can be done by using a custom replication policy class against “replication.policy.class”.
+  This is the default behavior in MirrorMaker 2.0 to avoid data overriding in complex mirroring topologies. Customization of this needs to be done carefully in terms of replication flow design and topic management to avoid data loss. This can be done by using a custom replication policy class against “replication.policy.class”.
 
 **Why do we see new internal topics created in my source and destination Kafka?**
 
-  Mirrormaker 2 internal topics are created by the Connectors to keep track of the replication process, monitoring, offset mapping and checkpointing.
+  MirrorMaker 2.0 internal topics are created by the Connectors to keep track of the replication process, monitoring, offset mapping and checkpointing.
 
-**Why does the mirrormaker creates only two replicas of the topic in the destination cluster while the source has more?**
+**Why does MirrorMaker create only two replicas of the topic in the destination cluster while the source has more?**
 
-  Mirrormaker 2 doesn’t replicate the replication factor of topics to target clusters. This can be controlled from MM2 config, by specifying the required number of “replication.factor”. The default value for the same is two.
+  MirrormMker 2 doesn’t replicate the replication factor of topics to target clusters. This can be controlled from MM2 config, by specifying the required number of “replication.factor”. The default value for the same is two.
 
-**How to use custom replication policy in Mirrormaker 2?**
+**How to use custom replication policy in MirrorMaker 2.0?**
 
   Custom Replication Policy can be created by implementing the interface below.
 
@@ -203,7 +203,7 @@ The implementation needs to be added to the Kafka classpath for the class refere
 
 ## References
 
-[Mirrormaker2 Changes Apache Doc](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0)
+[MirrorMaker 2.0 Changes Apache Doc](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0)
 
 [Client certificates setup for HDI Kafka](apache-kafka-ssl-encryption-authentication.md)
 
