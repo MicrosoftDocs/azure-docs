@@ -71,7 +71,7 @@ The following video introduces Azure Spring Cloud Enterprise tier.
 
 <br>
 
-> [!VIDEO https://www.youtube.com/embed/RoUtUv5CQSc]
+> [!VIDEO https://www.youtube.com/embed/CLvtz8SkrMA]
 
 ### Deploy and manage Spring and polyglot applications
 
