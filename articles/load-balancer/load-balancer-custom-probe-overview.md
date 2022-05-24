@@ -206,5 +206,6 @@ Azure Monitor logs aren't available for both public and internal Basic Load Bala
 ## Next steps
 
 - Learn more about [Standard Load Balancer](./load-balancer-overview.md)
+- Learn [how to manage health probes](../load-balancer/manage-probes-how-to.md)
 - [Get started creating a public load balancer in Resource Manager by using PowerShell](quickstart-load-balancer-standard-public-powershell.md)
 - [REST API for health probes](/rest/api/load-balancer/loadbalancerprobes/)
