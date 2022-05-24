@@ -12,20 +12,20 @@ ms.topic: how-to
 
 # Configure an Azure Compute Gallery
 
-[Azure Compute Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries) is a repository in Azure for managing and sharing images. It is stored in your Azure subscription and helps you build structure and organization around your image resources. Different configurations of VM images can be maintained and updated in a Gallery. Project Fidalgo Dev Box can use your custom images in a Gallery to create dev boxes. There are several advantages of using a Gallery:
--  You can maintain the images in a single location and use them across DevCenters, Projects, and Pools.
+ The Azure Compute Gallery [Store and share images in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) is a repository in Azure for managing and sharing images. It is stored in your Azure subscription and helps you build structure and organization around your image resources. Different configurations of VM images can be maintained and updated in a Gallery. Project Fidalgo Dev Box can use your custom images in a Gallery to create dev boxes. There are several advantages of using a Gallery:
+- You can maintain the images in a single location and use them across DevCenters, Projects, and Pools.
 - Using the *Latest* image version of an image definition allows you to always provide the most recent bits to development teams for use in creating dev boxes.
 - Using a specific image version allows you to standardize development teams on a supported image version until a newer version is validated.
 - Project Fidalgo will perform replication of the images you want to use for Dev Boxes to the Azure Regions that you've specified in your Network Connections. Replication takes place at the time of Dev Box Definition creation. 
 
-Learn how to [create a gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/create-gallery?tabs=portal) and then come back here to attach and use the gallery in Project Fidalgo Dev Box.
+Learn how to [Create a gallery for storing and sharing resources](../virtual-machines/create-gallery?tabs=portal) and then come back here to attach and use the gallery in Project Fidalgo Dev Box.
 
 ## Pre-requisites
-- A [DevCenter](./quickstart-create-dev-box-pool.md/#create-a-devcenter) created under Project Fidalgo.
-- An Azure Compute Gallery with at least [one image definition and one image version](https://docs.microsoft.com/en-us/azure/virtual-machines/image-version?tabs=portal). 
-    - The image definition needs to have [Trusted Launch enabled as the Security Type](https://docs.microsoft.com/en-us/azure/virtual-machines/trusted-launch). This can be done when creating the image definition in the Azure Compute Gallery through the Azure Portal. 
+- A [DevCenter](/quickstart-create-dev-box-pool.md/#create-a-devcenter) created under Project Fidalgo.
+- An Azure Compute Gallery with at least [one image definition and one image version](../virtual-machines/image-version?tabs=portal). 
+    - The image definition needs to have [Trusted Launch enabled as the Security Type](../virtual-machines/trusted-launch). This can be done when creating the image definition in the Azure Compute Gallery through the Azure Portal. 
 
-    - The image version needs to fulfill the [Windows 365 image requirements](https://docs.microsoft.com/en-us/windows-365/enterprise/device-images#image-requirements).
+    - The image version needs to fulfill the [Windows 365 image requirements](/windows-365/enterprise/device-images#image-requirements).
         - Generation 2
         - Hyper-v v2
         - Windows OS
@@ -48,7 +48,7 @@ For this purpose, you will need to provide permissions to your Gallery as follow
 1. Review + Assign.
 
 ### DevCenter Managed Identity
-1. Create a user assigned managed identity using [these instructions](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). You can use this managed identity in multiple DevCenters and Azure Compute Galleries.
+1. Create a user assigned managed identity using [these instructions](../azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). You can use this managed identity in multiple DevCenters and Azure Compute Galleries.
 1. Open your DevCenter from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters).
 1. Select the **Identity** menu item.
 1. Select the **User assigned** tab.
@@ -68,22 +68,22 @@ Now any DevCenter with this managed identity added will have the correct permiss
 In order to use the images from a Gallery in Dev Box Definitions, you must first associate it with the DevCenter.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters).
-![DevCenter Grid](/Documentation/media/DevCenter_Grid.png)
 
 2. Select your DevCenter to open the resource view.
+:::image type="content" source="media/how-to-configure-azure-compute-gallery/devcenter-grid.png" alt-text="List of DevCenters":::
 
 3. From the left menu, select **Azure compute galleries** to list the galleries attached to this DevCenter.
-![Gallery Grid](/Documentation/media/Gallery_Grid_empty.png)
+:::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid-empty.png" alt-text="Gallery Grid Empty":::
 
 4. Select **+ Add** to select a Gallery to attach.
 
 5. From the context pane that opens, select your Gallery from the dropdown list. If you have access to more than one Gallery with the same name, the Subscription name is shown in parentheses.
-![Gallery Add](/Documentation/media/Gallery_Add.png)
+:::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-add.png" alt-text="Select a Gallery to add.":::
 
 6. If there is a name conflict in the DevCenter, then you will need to provide a unique name to use for this Gallery.
 
 7. Select **Add**. 
-![Gallery Grid](/Documentation/media/Gallery_Grid.png)
+:::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid.png" alt-text="Populated Gallery Grid.":::
 
 After successful addition, the images in the Gallery will be available to select from when creating and updating Dev Box Definitions.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a Dev Box Pool'
-description: 'This quickstart shows how to create and configure a Dev Box environment, including a DevCenter. network connections, Dev Box definitions, projects and a Dev Box Pool.'
+description: 'This quickstart shows you how to create and configure a Dev Box environment, including a DevCenter, network connections, Dev Box definitions, projects and a Dev Box Pool.'
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
@@ -15,7 +15,7 @@ ms.date: 04/15/2022
 
 # Quickstart: Create a Dev Box Pool
 
-This quickstart describes how to set up a Dev Box Pool by using the Azure portal. Follow the steps in this article to configure the resources required to create dev boxes. This is great for a trial experience or pilot of the service.
+This quickstart describes how to set up a Dev Box Pool by using the Azure portal. You'll create and configure every component necessary to provide dev boxes your users. You'll first create a DevCenter to contain Dev Box resources, then connect the DevCenter to your virtual network, create dev box definitions and associate them with projects. Finally, you'll give access to your dev box Follow the steps in this article to configure the resources required to create dev boxes. This is great for a trial experience or pilot of the service.
 
 In this quickstart, you will perform the following actions:
 
@@ -27,8 +27,7 @@ In this quickstart, you will perform the following actions:
 
 ## Prerequisites
 
-- As Dev Box (codenamed Fidalgo) is currently in Private Preview, only the subscriptions that are allow-listed can be used to create a Dev Box Pool, if your subscription is not yet allow-listed, reach out to [Dev Box Support](mailto:devboxsupport@microsoft.com)
-- Owner or Contributor permissions on an Azure Subscription or specific resource group.
+- You must have Owner or Contributor permissions on an Azure Subscription or specific resource group.
 
 ## Create a DevCenter
 
@@ -63,7 +62,7 @@ The following steps illustrate how to use the Azure portal to create and configu
 
 4. Review + Create
 
-5. Confirm that the DevCenter is created successfully by looking at the notifications. 
+5. Confirm that the DevCenter is created successfully by checking the notifications. 
    :::image type="content" source="./media/quickstart-create-dev-box-pool/azure-notifications.png" alt-text="Azure portal notifications":::
 
 6. When the deployment is complete, select **Go to resource**.
@@ -71,14 +70,15 @@ The following steps illustrate how to use the Azure portal to create and configu
 7. Confirm that you see the **DevCenter** page.
    :::image type="content" source="./media/quickstart-create-dev-box-pool/devcenter-overview.png" alt-text="DevCenter overview page":::
 
-
 ## Create a Network Connection
 The following steps illustrate how to use the Azure portal to create and configure a Network Connection in 'Project Fidalgo'. This is performed by the DevCenter owner persona. Network Connections can be created using virtual networks that are either Hybrid Azure AD joined or Native Azure AD joined. Both options are described below. If your DevCenter already has a Network Connection attached, in the region you want to use for your pool, you can use it and skip this section.
 
 ### Native Azure AD Join
 Currently, you can use the Azure CLI to create an AADJ Network Connection. 
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FvirtualNetworks) and create a virtual network using [these steps](https://docs.microsoft.com/en-us/azure/virtual-network/manage-virtual-network#create-a-virtual-network). Make sure to:
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FvirtualNetworks).
+ 
+1. Create a virtual network using the steps in this article: [Create, change, or delete an Azure virtual network](../virtual-network/manage-virtual-network.md). Make sure to:
     1. Use a resource group in the subscription that has been allow-listed for Dev Box Private Preview.
     1. Set the region of the vnet to the region where your Dev Boxes will be created. Supported regions:
         - East US
@@ -113,7 +113,7 @@ After creation, the dev box service will run health checks to ensure that the ne
 2. Click on **+ Create** and in the **Basics** tab of **Create a Network Connection** window, do the following actions:
     1. Select your Azure subscription and resource group (the network connection needs to be in the same subscription as your vnet, but it can be in a different resource group).
     2. Select the Virtual Network and subnet
-    To domain join the dev boxes and access corpnet, we are using Hybrid AAD join. Therefore the vnet needs line of sight to the domain controller. Look at the full network requirements in [the Windows 365 documentation](https://docs.microsoft.com/en-us/windows-365/enterprise/requirements-network).
+    To domain join the dev boxes and access corpnet, we are using Hybrid AAD join. Therefore the vnet needs line of sight to the domain controller. Look at the full network requirements in [Windows 365 documentation](/windows-365/enterprise/requirements-network).
     The vnet should be in the same Azure region as where you want the dev boxes to be created.
     3. Enter a name for the network that can be easily distinguishable when configuring dev box pools. eg: west-us3
     4. Enter the name of the domain you want the dev boxes to join. eg: ad.contoso.com
@@ -129,7 +129,7 @@ A Network Connection is a top level Azure resource. In order for it to be used i
 1. Once the Network Connection is deployed successfully, go back to the DevCenter resource you created and select the **Network Connection** tab from the left menu. Click on **+ Add** and select the Network Connection you just created. Select the Add button to attach the Network Connection to the DevCenter.
 :::image type="content" source="./media/quickstart-create-dev-box-pool/network-connection-add.png" alt-text="Attach Network Connection":::
 
-After successful creation, several health checks will be run on the network. You can view the status of the checks on the resource overview page. If there are any errors, please refer to the [troubleshooting documentation](https://docs.microsoft.com/en-us/windows-365/enterprise/troubleshoot-on-premises-network-connection).
+After successful creation, several health checks will be run on the network. You can view the status of the checks on the resource overview page. If there are any errors, please refer to the [Troubleshoot Azure network connections](/windows-365/enterprise/troubleshoot-azure-network-connection).
 
 :::image type="content" source="./media/quickstart-create-dev-box-pool/network-connection-grid-populated.png" alt-text="Network Connection Status":::
 

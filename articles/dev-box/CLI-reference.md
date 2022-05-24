@@ -3,6 +3,7 @@ title: CLI reference
 description: Command line reference for Microsoft Dev Box. 
 services: dev-box
 ms.service: dev-box
+ms.topic: reference
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/21/2022
@@ -11,16 +12,16 @@ adobe-target: true
 
 # CLI Reference
 
-During the Private Preview, in addition to the Azure admin portal and the Dev Box user portal, you can use Project Fidalgo's Azure CLI Extension to create resources.
+During the Preview, in addition to the Azure admin portal and the Dev Box user portal, you can use Project Fidalgo's Azure CLI Extension to create resources.
 
 ## Setup
 
-1. [Download and install the Az CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+1. Download and install the Azure CLI [How to install the Azure CLI](/cli/azure/install-azure-cli)
 
 1. Install the Fidalgo AZ CLI extension -
 
     **Option 1**: 
-    using https://aka.ms/fidalgo/Install-FidalgoCli.ps1 - this will uninstall any existing fidalgo extension and install the latest version.
+    using https://aka.ms/fidalgo/Install-FidalgoCli.ps1 - this will uninstall any existing Fidalgo extension and install the latest version.
 
     To execute the script directly in PowerShell:
    ```
@@ -166,4 +167,3 @@ az fidalgo dev virtual-machine start `
 --project-name {projectName} `
 -n {VMName} `
 ```
-

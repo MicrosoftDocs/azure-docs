@@ -1,4 +1,4 @@
-- name: Microsoft Dev Box docs
+- name: Microsoft Dev Box documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -30,9 +30,9 @@
 - name: Reference
   items:
       - name: Microsoft Dev Box concepts
-        href: concept-dev-box-concepts.md
+        href: dev-box-concepts.md
       - name: CLI reference
-        href: CLI-reference.md
+        href: cli-reference.md
 - name: Resources
   items: 
     - name: Azure roadmap

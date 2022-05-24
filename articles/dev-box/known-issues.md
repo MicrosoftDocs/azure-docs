@@ -3,6 +3,7 @@ title: Known issues
 description: Known issues that the Dev Box team is working to fix. 
 services: dev-box
 ms.service: dev-box
+ms.topic: reference
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/21/2022
@@ -11,7 +12,7 @@ adobe-target: true
 
 # Known Issues
 
-These are issues that the Fidalgo Dev Box team is aware of and working to fix:
+These are issues that the Microsoft Dev Box team is aware of and working to fix:
 
 - Azure Compute Galleries with names that contain underscore or period are treated as invalid.
     -  Symptom: Add button is disabled when attaching a Gallery to the DevCenter.
@@ -24,5 +25,5 @@ These are issues that the Fidalgo Dev Box team is aware of and working to fix:
 
 - Developer portal 'Open in Remote Desktop' disabled.
     - Symptom: You cannot directly connect to your dev box via the Remote Desktop app from the developer portal
-    - Workaround: Install the [Remote Desktop app](/https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop) and subscribe via your email address.
+    - Workaround: Install the Remote Desktop App from [Get started with the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) and subscribe via your email address.
     - Fix: Pass URL handler that will enable direct connection to dev box RD session in remote desktop app from developer portal, expected in May.

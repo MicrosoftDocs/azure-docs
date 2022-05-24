@@ -1,6 +1,6 @@
 ---
-title: Quickstart: Create a Microsoft Dev Box.
-description: This quickstart shows you how to create a Microsoft Dev Box and connect to it through RDP.'
+title: Create a Microsoft Dev Box.
+description: This quickstart shows you how to create a Microsoft Dev Box and connect to it through RDP.
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
@@ -79,10 +79,10 @@ The Microsoft Remote Desktop app lets users access and control any remote PC, in
 1. Download Microsoft Remote Desktop for Windows.
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-download-rd-app.png" alt-text="Screenshot of the Microsoft Remote Desktop apps dialog box with options to Download an RD App for Windows, Mac, iOS and Android.":::
 
-1. Copy the subscription URL from the popup window
+1. Copy the subscription URL from the popup window.
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-subscription-url.png" alt-text="Screenshot of the Set up Remote Desktop dialog box showing the Subscription URL.":::
 
-1. In the Remote Desktop App, select the overflow menu from the top right and select **Subscribe with URL**. 
+1. In the Remote Desktop App, select the more options menu and select **Subscribe with URL**. 
    :::image type="content" source="./media/quickstart-create-dev-box/rd-app-overflow-menu.png" alt-text="Screenshot of Subscribe with URL menu option.":::
 
 1. Paste the subscription URL to subscribe to the workspace.
@@ -91,14 +91,13 @@ The Microsoft Remote Desktop app lets users access and control any remote PC, in
 1. Your dev box will appear in the list under the workspace **Cloud PC Fidalgo plan 1**. Double-click to connect. 
  
 ## Clean up resources
-When no longer needed, you can delete your dev box.
 
+When no longer needed, you can delete your dev box.
+1. Sign in to the [developer portal](https://portal.fidalgo.azure.com).
+
+1. In **Your dev box**, from the setting menu, select **Delete**.
+    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-delete-dev-box.png" alt-text="Screenshot of the Your dev box card Settings menu showing the Delete option."::: 
 
 ## Next steps
 
-In this quickstart, you created a lab with Azure Lab Services.  To learn more about advanced options for labs, see [Tutorial: Create and publish a lab](tutorial-setup-lab.md).
-
-Advance to the next article to learn how to configure the template VM.
-
-> [!div class="nextstepaction"]
-> [Configure a template VM](how-to-create-manage-template.md)
+In this quickstart, you created a dev box through the developer portal. To learn more about Dev Box concepts, see [Concepts: Microsoft Dev Box key concepts](dev-box-concepts.md).
