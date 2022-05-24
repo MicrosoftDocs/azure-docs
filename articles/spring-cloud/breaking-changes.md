@@ -34,7 +34,7 @@ Deprecate field `properties.cpu` and `properties.memoryInGB` in `Spring/Apps/Dep
 
 Deprecate field `properties.activeDeploymentName` in `Spring/Apps` resource. Use `POST/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.APPPLATFORM/SPRING/APPS/SETACTIVEDEPLOYMENTS` for blue-green deployment. This action needs a separate RBAC role `spring/apps/setActiveDeployments/action` to perform.
 
-### Move options from different property bag for Spring/Apps/Deployments resource
+### Move options from different property bags for the Spring/Apps/Deployments resource
 
 - Deprecate `properties.createdTime`. Use `systemData.createdAt`.
 - Deprecate `properties.deploymentSettings.jvmOptions`. Use `properties.source.jvmOptions`.
@@ -60,7 +60,7 @@ az spring app unset-deployment \
     --name <app-name>
 ```
 
-### Output update
+### Output updates
 
 If you're using the Azure CLI `spring-cloud` extension with a version lower than 3.0.0, and you want to upgrade the extension version or migrate to the `spring` extension, then you should take care of the following output updates.
 
