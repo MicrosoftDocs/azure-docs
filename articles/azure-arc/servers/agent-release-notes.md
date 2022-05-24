@@ -20,12 +20,12 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### New features
 
-- The agent can now be configured to operate in [monitoring mode](security-overview.md#agent-modes) which simplifies configuration of the agent for scenarios where you only want to use Arc for monitoring and security scenarios. This mode disables other agent functionality and prevents use of extensions that could make changes to the system (for example, the Custom Script Extension).
+- The agent can now be configured to operate in [monitoring mode](security-overview.md#agent-modes), which simplifies configuration of the agent for scenarios where you only want to use Arc for monitoring and security scenarios. This mode disables other agent functionality and prevents use of extensions that could make changes to the system (for example, the Custom Script Extension).
 - VMs and hosts running on Azure Stack HCI now report the cloud provider as "HCI" when [Azure benefits are enabled](/azure-stack/hci/manage/azure-benefits#enable-azure-benefits).
 
 ### Fixed
 
-- `systemd` is now an official prerequisite on Linux. This has always been the case, however the package manager is now aware of the dependency and can alert you if you try to install the agent on a system that does not support `systemd`.
+- `systemd` is now an official prerequisite on Linux and your package manger will alert you if you try to install the Azure Connected Machine agent on a server without systemd.
 - Guest configuration policies no longer create unnecessary files in the `/tmp` directory on Linux servers
 - Improved reliability when extracting extensions and guest configuration policy packages
 - Improved reliability for guest configuration policies that have child processes

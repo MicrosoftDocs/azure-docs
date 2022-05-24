@@ -160,7 +160,7 @@ sudo azcmagent config set guestconfiguration.enabled true
 
 ## Agent modes
 
-A simpler way to configure local security controls for monitoring and security scenarios is to use the *monitor mode*, available with agent verison 1.18 and newer. Modes are pre-defined configurations of the extension allow lists and guest configuration agent maintained by Microsoft. As new extensions become available that enable monitoring scenarios, Microsoft will update the allow lists and agent configuration to include or exclude the new functionality, as appropriate.
+A simpler way to configure local security controls for monitoring and security scenarios is to use the *monitor mode*, available with agent version 1.18 and newer. Modes are pre-defined configurations of the extension allowlist and guest configuration agent maintained by Microsoft. As new extensions become available that enable monitoring scenarios, Microsoft will update the allowlist and agent configuration to include or exclude the new functionality, as appropriate.
 
 There are two modes to choose from:
 
@@ -179,7 +179,7 @@ You can check the current mode of the agent and allowed extensions with the foll
 azcmagent config list
 ```
 
-While in monitor mode, you cannot modify the extension allow or block list. If you need to change either list, change the agent back to full mode and specify your own allow and block lists.
+While in monitor mode, you cannot modify the extension allowlist or blocklist. If you need to change either list, change the agent back to full mode and specify your own allowlist and blocklist.
 
 To change the agent back to full mode, run the following command:
 
