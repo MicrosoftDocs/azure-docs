@@ -34,11 +34,11 @@ Choose your language and the regional format that will influence how data such a
 
 Use the drop-down list to select from the list of available languages. This setting controls the language you see for text throughout your data factory. There are 18 languages supported in addition to English. 
 
-:::image type="content" source="media/how-to-manage-settings/adf-settings-3.png" alt-text="Screenshot of ":::
+:::image type="content" source="media/how-to-manage-settings/adf-settings-3.png" alt-text="Screenshot of drop-down list of languages that users can choose from.":::
 
 To apply changes, select a language and make sure to hit the **Apply** button. Your page will refresh and reflect the changes made. 
 
-:::image type="content" source="media/how-to-manage-settings/adf-settings-4.png" alt-text="Screenshot of ":::
+:::image type="content" source="media/how-to-manage-settings/adf-settings-4.png" alt-text="Screenshot of Apply button in the bottom left corner.":::
 
 > [!NOTE]
 > Applying language changes will discard any unsaved changes in your data factory. 
@@ -49,13 +49,13 @@ Use the drop-down list to select from the list of available regional formats. Th
 
 The default shown in **Regional format** will automatically change based on the option you selected for **Language**. You can still use the drop-down list to select a different format. 
 
-:::image type="content" source="media/how-to-manage-settings/adf-settings-5.png" alt-text="Screenshot of ":::
+:::image type="content" source="media/how-to-manage-settings/adf-settings-5.png" alt-text="Screenshot of drop-down list of regional formats that users can choose from. ":::
 
 For example, if you select **English** as your language and select **English (United States)** as the regional format, currency will be show in U.S. (United States) dollars. If you select **English** as your language and select **English (Europe)** as the regional format, currency will be show in euros. 
 
 To apply changes, select a **Regional format** and make sure to hit the **Apply** button. Your page will refresh and reflect the changes made. 
 
-:::image type="content" source="media/how-to-manage-settings/adf-settings-6.png" alt-text="Screenshot of ":::
+:::image type="content" source="media/how-to-manage-settings/adf-settings-6.png" alt-text="Screenshot of Apply button in the bottom left corner.":::
 
 > [!NOTE]
 > Applying regional format changes will discard any unsaved changes in your data factory. 
