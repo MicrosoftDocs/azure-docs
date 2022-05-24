@@ -1,21 +1,22 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 08/19/2021
+ms.date: 05/20/2022
 ms.service: virtual-wan
 ms.topic: include
 ---
-1. Locate the Virtual WAN that you created. On the Virtual WAN page, under the **Connectivity** section, select **Hubs**. Click **New Hub** to open the **Create virtual hub** page.
+1. Locate the virtual WAN that you created. On the virtual WAN page left pane, under the **Connectivity**, select **Hubs**.
 
-   :::image type="content" source="media/virtual-wan-empty-hub/new-hub.jpg" alt-text="Screenshot shows the Hubs configuration dialog box with New Hub selected.":::
+1. On the **Hubs** page, select **+New Hub** to open the **Create virtual hub** page.
 
-1. On the **Create virtual hub** page, fill in the fields.
+   :::image type="content" source="./media/virtual-wan-tutorial-er-hub/create-hub.png" alt-text="Screenshot shows the Create virtual hub pane with the Basics tab selected." lightbox="./media/virtual-wan-tutorial-er-hub/create-hub.png":::
 
-   :::image type="content" source="media/virtual-wan-tutorial-er-hub/create-hub.png" alt-text="Screenshot shows the Basics tab where you can enter values.":::
+1. On the **Create virtual hub** page **Basics** tab, complete the following fields:
 
-   * **Region**: Select the region in which you want to deploy the virtual hub.
+   * **Region**: This setting was previously referred to as location. It's the region in which you want to create your virtual hub.
    * **Name**: The name by which you want the virtual hub to be known.
-   * **Hub private address space**: The hub's address range in CIDR notation.
+   * **Hub private address space**: The minimum address space is /24 to create a hub.
+   * **Virtual hub capacity**: Select from the dropdown. For more information, see [Virtual hub settings](../articles/virtual-wan/hub-settings.md).
 
 1. Select the **ExpressRoute tab**. Click **Yes** to reveal settings and fill out the field. For information about gateway scale units, see the [FAQ](../articles/virtual-wan/virtual-wan-faq.md#what-are-virtual-wan-gateway-scale-units).
 
