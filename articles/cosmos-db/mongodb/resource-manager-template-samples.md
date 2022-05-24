@@ -5,11 +5,12 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 05/23/2022
 ms.author: mjbrown
 ---
 
 # Manage Azure Cosmos DB MongoDB API resources using Azure Resource Manager templates
+
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 In this article, you learn how to use Azure Resource Manager templates to help deploy and manage your Azure Cosmos DB accounts for MongoDB API, databases, and collections.
@@ -28,7 +29,7 @@ To create any of the Azure Cosmos DB resources below, copy the following example
 
 ## Azure Cosmos account for MongoDB with autoscale provisioned throughput
 
-This template will create an Azure Cosmos account for MongoDB API (3.2 or 3.6) with two collections that share autoscale throughput at the database level. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+This template will create an Azure Cosmos DB account for MongoDB API (3.2, 3.6, 4.0 and 4.2) with two collections that share autoscale throughput at the database level. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-mongodb-autoscale%2Fazuredeploy.json)
 
@@ -38,7 +39,7 @@ This template will create an Azure Cosmos account for MongoDB API (3.2 or 3.6) w
 
 ## Azure Cosmos account for MongoDB with standard provisioned throughput
 
-This template will create an Azure Cosmos account for MongoDB API (3.2 or 3.6) with two collections that share 400 RU/s standard (manual) throughput at the database level. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+This template will create an Azure Cosmos DB account for MongoDB API (3.2, 3.6, 4.0 and 4.2) with two collections that share 400 RU/s standard (manual) throughput at the database level. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-mongodb%2Fazuredeploy.json)
 
