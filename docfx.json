@@ -1164,7 +1164,7 @@
           "articles/azure-monitor/app/opencensus-python-request.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
-          "articles/hdinsight/kafka/kafka-mirroraker-2-0-guide.md",
+          "articles/hdinsight/kafka/kafka-mirrormaker-2-0-guide.md",
           "articles/mariadb/concepts-certificate-rotation.md",
           "articles/mariadb/concepts-read-replicas.md",
           "articles/mariadb/howto-create-users.md",
