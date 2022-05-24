@@ -31,7 +31,7 @@ You can use the command-line data migration tool (dt.exe) in Azure Cosmos DB to 
 
 To migrate table data:
 
-1. Download the migration tool from [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
+1. Download the migration tool from [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool/tree/archive).
 2. Run `dt.exe` by using the command-line arguments for your scenario. `dt.exe` takes a command in the following format:
 
    ```bash
