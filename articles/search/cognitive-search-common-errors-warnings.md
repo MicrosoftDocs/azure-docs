@@ -38,7 +38,7 @@ Beginning with API version `2019-05-06`, item-level Indexer errors and warnings 
 
 <a name="could-not-read-document"></a>
 
-## Error: Could not read document
+## `Error: Could not read document`
 
 Indexer was unable to read the document from the data source. This can happen due to:
 
@@ -50,7 +50,7 @@ Indexer was unable to read the document from the data source. This can happen du
 
 <a name="could-not-extract-document-content"></a>
 
-## Error: Could not extract content or metadata from your document
+## `Error: Could not extract content or metadata from your document`
 Indexer with a Blob data source was unable to extract the content or metadata from the document (for example, a PDF file). This can happen due to:
 
 | Reason | Details/Example | Resolution |
@@ -62,7 +62,7 @@ Indexer with a Blob data source was unable to extract the content or metadata fr
 
 <a name="could-not-parse-document"></a>
 
-## Error: Could not parse document
+## `Error: Could not parse document`
 Indexer read the document from the data source, but there was an issue converting the document content into the specified field mapping schema. This can happen due to:
 
 | Reason | Details/Example | Resolution |
@@ -72,14 +72,12 @@ Indexer read the document from the data source, but there was an issue convertin
 | Could not apply field mapping to a field | Could not apply mapping function `'functionName'` to field `'fieldName'`. Array cannot be null. Parameter name: bytes | Double check the [field mappings](search-indexer-field-mappings.md) defined on the indexer, and compare with the data of the specified field of the failed document. It may be necessary to modify the field mappings or the document data. |
 | Could not read field value | Could not read the value of column `'fieldName'` at index `'fieldIndex'`. A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.) | These errors are typically due to unexpected connectivity issues with the data source's underlying service. Try running the document through your indexer again later. |
 
-<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"></a>
 
-## Error: Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'
+## `Error: Could not map output field 'xyz' to search index due to deserialization problem while applying mapping function 'abc'`
 The output mapping might have failed because the output data is in the wrong format for the mapping function you are using. For example, applying Base64Encode mapping function on binary data would generate this error. To resolve the issue, either rerun indexer without specifying mapping function or ensure that the mapping function is compatible with the output field data type. See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
 
-<a name="could-not-execute-skill"></a>
 
-## Error: Could not execute skill
+## `Error: Could not execute skill`
 Indexer was not able to run a skill in the skillset.
 
 | Reason | Details/Example | Resolution |
@@ -88,33 +86,31 @@ Indexer was not able to run a skill in the skillset.
 | Potential product bug | An unexpected error occurred. | This indicates an unknown class of failure and may mean there is a product bug. File a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get help. |
 | A skill has encountered an error during execution | (From Merge Skill) One or more offset values were invalid and could not be parsed. Items were inserted at the end of the text | Use the information in the error message to fix the issue. This kind of failure will require action to resolve. |
 
-<a name="could-not-execute-skill-because-the-web-api-request-failed"></a>
 
-## Error: Could not execute skill because the Web API request failed
+
+## `Error: Could not execute skill because the Web API request failed`
 Skill execution failed because the call to the Web API failed. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, refer to the error message for help in fixing the issue.
 
 While debugging this issue, be sure to pay attention to any [skill input warnings](#warning-skill-input-was-invalid) for this skill. Your Web API endpoint may be failing because the indexer is passing it unexpected input.
 
-<a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"></a>
 
-## Error: Could not execute skill because Web API skill response is invalid
+## `Error: Could not execute skill because Web API skill response is invalid`
 Skill execution failed because the call to the Web API returned an invalid response. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance.
 
-<a name="skill-did-not-execute-within-the-time-limit"></a>
 
-## Error: Type of value has a mismatch with column type. Couldn't store in '`xyz`' column.  Expected type is '`abc`'
+## `Error: Type of value has a mismatch with column type. Couldn't store in 'xyz' column.  Expected type is 'abc'`
 If your data source has a field with a different data type than the field you are trying to map in your index, you may encounter this error. Check your data source field data types and make sure they are [mapped correctly to your index data types](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search).
 
 
-## Error: Skill did not execute within the time limit
+## `Error: Skill did not execute within the time limit`
 There are two cases under which you may encounter this error message, each of which should be treated differently. Follow the instructions below depending on what skill returned this error for you.
 
-### Built-in Cognitive Service skills
+### `Built-in Cognitive Service skills`
 Many of the built-in cognitive skills, such as language detection, entity recognition, or OCR, are backed by a Cognitive Service API endpoint. Sometimes there are transient issues with these endpoints and a request will time out. For transient issues, there is no remedy except to wait and try again. As a mitigation, consider setting your indexer to [run on a schedule](search-howto-schedule-indexers.md). Scheduled indexing picks up where it left off. Assuming transient issues are resolved, indexing and cognitive skill processing should be able to continue on the next scheduled run.
 
 If you continue to see this error on the same document for a built-in cognitive skill, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance, as this is not expected.
 
-### Custom skills
+### `Custom skills`
 If you encounter a timeout error with a custom skill you have created, there are a couple of things you can try. First, review your custom skill and ensure that it is not getting stuck in an infinite loop and that it is returning a result consistently. Once you have confirmed that is the case, determine what the execution time of your skill is. If you didn't explicitly set a `timeout` value on your custom skill definition, then the default `timeout` is 30 seconds. If 30 seconds is not long enough for your skill to execute, you may specify a higher `timeout` value on your custom skill definition. Here is an example of a custom skill definition where the timeout is set to 90 seconds:
 
 ```json
@@ -141,9 +137,9 @@ If you encounter a timeout error with a custom skill you have created, there are
 
 The maximum value that you can set for the `timeout` parameter is 230 seconds.  If your custom skill is unable to execute consistently within 230 seconds, you may consider reducing the `batchSize` of your custom skill so that it will have fewer documents to process within a single execution.  If you have already set your `batchSize` to 1, you will need to rewrite the skill to be able to execute in under 230 seconds or otherwise split it into multiple custom skills so that the execution time for any single custom skill is a maximum of 230 seconds. Review the [custom skill documentation](cognitive-search-custom-skill-web-api.md) for more information.
 
-<a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>
 
-## Error: Could not `'MergeOrUpload' | 'Delete'` document to the search index
+
+## `Error: Could not 'MergeOrUpload' | 'Delete' document to the search index`
 
 The document was read and processed, but the indexer could not add it to the search index. This can happen due to:
 
@@ -157,9 +153,9 @@ The document was read and processed, but the indexer could not add it to the sea
 | Failure in the underlying compute/networking resource (rare) | Failed to establish connection to update index. An unknown failure occurred. | Configure indexers to [run on a schedule](search-howto-schedule-indexers.md) to pick up from a failed state.
 | An indexing request made to the target index was not acknowledged within a timeout period due to network issues. | Could not establish connection to the search index in a timely manner. | Configure indexers to [run on a schedule](search-howto-schedule-indexers.md) to pick up from a failed state. Additionally, try lowering the indexer [batch size](/rest/api/searchservice/create-indexer#parameters) if this error condition persists.
 
-<a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>
 
-## Error: Could not index document because some of the document's data was not valid
+
+## `Error: Could not index document because some of the document's data was not valid`
 
 The document was read and processed by the indexer, but due to a mismatch in the configuration of the index fields and the data extracted and processed by the indexer, it could not be added to the search index. This can happen due to:
 
@@ -173,19 +169,19 @@ The document was read and processed by the indexer, but due to a mismatch in the
 
 In all these cases, refer to [Supported Data types](/rest/api/searchservice/supported-data-types) and [Data type map for indexers](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that can help track down the source of the mismatch.
 
-## Error: Integrated change tracking policy cannot be used because table has a composite primary key
+## `Error: Integrated change tracking policy cannot be used because table has a composite primary key`
 
 This applies to SQL tables, and usually happens when the key is either defined as a composite key or, when the table has defined a unique clustered index (as in a SQL index, not an Azure Search index). The main reason is that the key attribute is modified to be a composite primary key in the case of a [unique clustered index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described). In that case, make sure that your SQL table does not have a unique clustered index, or that you map the key field to a field that is guaranteed not to have duplicate values.
 
-<a name="could-not-process-document-within-indexer-max-run-time"></a>
 
-## Error: Could not process document within indexer max run time
+
+## `Error: Could not process document within indexer max run time`
 
 This error occurs when the indexer is unable to finish processing a single document from the data source within the allowed execution time. [Maximum running time](search-limits-quotas-capacity.md#indexer-limits) is shorter when skillsets are used. When this error occurs, if you have maxFailedItems set to a value other than 0, the indexer bypasses the document on future runs so that indexing can progress. If you cannot afford to skip any document, or if you are seeing this error consistently, consider breaking documents into smaller documents so that partial progress can be made within a single indexer execution.
 
-<a name="could-not-project-document></a>
 
-## Error: Could not project document
+
+## `Error: Could not project document`
 
 This error occurs when the indexer is attempting to [project data into a knowledge store](knowledge-store-projection-overview.md) and there was a failure on the attempt. This failure could be consistent and fixable, or it could be a transient failure with the projection output sink that you may need to wait and retry in order to resolve. Here is a set of known failure states and possible resolutions.
 
@@ -195,9 +191,8 @@ This error occurs when the indexer is attempting to [project data into a knowled
 | Could not update projection blob `'blobUri'` in container `'containerName'` |Unable to write data to the transport connection: An existing connection was forcibly closed by the remote host. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
 | Could not update row `'projectionRow'` in table `'tableName'` | The server is busy. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
 
-<a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>
 
-## Warning: Skill input was invalid
+## `Warning: Skill input was invalid`
 An input to the skill was missing, the wrong type, or otherwise invalid. The warning message will indicate the impact:
 1) Could not execute skill
 2) Skill executed but may have unexpected results
@@ -232,9 +227,8 @@ If you want to provide a default value in case of missing input, you can use the
 | Skill input is missing | `Required skill input is missing. Name: text, Source: /document/merged_content`  `Missing value /document/normalized_images/0/imageTags.`  `Unable to select 0 in array /document/pages of length 0.` | If all your documents get this warning, most likely there is a typo in the input paths and you should double check property name casing, extra or missing `*` in the path, and make sure that the documents from the data source provide the required inputs. |
 | Skill language code input is invalid | Skill input `languageCode` has the following language codes `X,Y,Z`, at least one of which is invalid. | See more details [below](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
-<a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>
 
-## Warning:  Skill input 'languageCode' has the following language codes 'X,Y,Z', at least one of which is invalid.
+## `Warning:  Skill input 'languageCode' has the following language codes 'X,Y,Z', at least one of which is invalid.`
 One or more of the values passed into the optional `languageCode` input of a downstream skill is not supported. This can occur if you are passing the output of the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) to subsequent skills, and the output consists of more languages than are supported in those downstream skills.
 
 Note you may also get a warning similar to this one if an invalid `countryHint` input gets passed to the LanguageDetectionSkill. If that happens, validate that the field you are using from your data source for that input contains valid ISO 3166-1 alpha-2 two letter country codes. If some are valid and some are invalid, continue with the following guidance but replace `languageCode` with `countryHint` and `defaultLanguageCode` with `defaultCountryHint` to match your use case.
@@ -267,9 +261,8 @@ Here are some references for the currently supported languages for each of the s
 * [Translator supported languages](../cognitive-services/translator/language-support.md)
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) supported languages: `da, de, en, es, fi, fr, it, ko, pt`
 
-<a name="skill-input-was-truncated"></a>
 
-## Warning: Skill input was truncated
+## `Warning: Skill input was truncated`
 Cognitive skills have limits to the length of text that can be analyzed at once. If the text input of these skills is over that limit, we will truncate the text to meet the limit, and then perform the enrichment on that truncated text. This means that the skill is executed, but not over all of your data.
 
 In the example LanguageDetectionSkill below, the `'text'` input field may trigger this warning if it is over the character limit. You can find the skill input limits in the [skills documentation](cognitive-search-predefined-skills.md).
@@ -289,14 +282,14 @@ In the example LanguageDetectionSkill below, the `'text'` input field may trigge
 
 If you want to ensure that all text is analyzed, consider using the [Split skill](cognitive-search-skill-textsplit.md).
 
-<a name="web-api-skill-response-contains-warnings"></a>
 
-## Warning: Web API skill response contains warnings
+
+## `Warning: Web API skill response contains warnings`
 Indexer was able to run a skill in the skillset, but the response from the Web API request indicated there were warnings during execution. Review the warnings to understand how your data is impacted and whether or not action is required.
 
-<a name="the-current-indexer-configuration-does-not-support-incremental-progress"></a>
 
-## Warning: The current indexer configuration does not support incremental progress
+
+## `Warning: The current indexer configuration does not support incremental progress`
 
 This warning only occurs for Cosmos DB data sources.
 
@@ -308,22 +301,19 @@ It is possible to override this behavior, enabling incremental progress and supp
 
 For more information, see [Incremental progress and custom queries](search-howto-index-cosmosdb.md#IncrementalProgress).
 
-<a name="some-data-was-lost-during projection-row-x-in-table-y-has-string-property-z-which-was-too-long"></a>
 
-## Warning: Some data was lost during projection. Row 'X' in table 'Y' has string property 'Z' which was too long.
+## `Warning: Some data was lost during projection. Row 'X' in table 'Y' has string property 'Z' which was too long.`
 
 The [Table Storage service](https://azure.microsoft.com/services/storage/tables) has limits on how large [entity properties](/rest/api/storageservices/understanding-the-table-service-data-model#property-types) can be. Strings can have 32,000 characters or less. If a row with a string property longer than 32,000 characters is being projected, only the first 32,000 characters are preserved. To work around this issue, avoid projecting rows with string properties longer than 32,000 characters.
 
-<a name="truncated-extracted-text-to-x-characters"></a>
 
-## Warning: Truncated extracted text to X characters
+## `Warning: Truncated extracted text to X characters`
 Indexers limit how much text can be extracted from any one document. This limit depends on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, 4 million for Standard, 8 million for Standard S2, and 16 million for Standard S3. Text that was truncated will not be indexed. To avoid this warning, try breaking apart documents with large amounts of text into multiple, smaller documents. 
 
 For more information, see [Indexer limits](search-limits-quotas-capacity.md#indexer-limits).
 
-<a name="could-not-map-output-field-x-to-search-index"></a>
 
-## Warning: Could not map output field 'X' to search index
+## `Warning: Could not map output field 'X' to search index`
 Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To work around this issue, double-check your output field-mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
 
 | Reason | Details/Example | Resolution |
@@ -331,14 +321,12 @@ Output field mappings that reference non-existent/null data will produce warning
 | Cannot iterate over non-array | "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`." | This error occurs when the output is not an array. If you think the output should be an array, check the indicated output source field path for errors. For example, you might have a missing or extra `*` in the source field name. It's also possible that the input to this skill is null, resulting in an empty array. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.    |
 | Unable to select `0` in non-array | "Unable to select `0` in non-array `/document/pages`." | This could happen if the skills output does not produce an array and the output source field name has array index or `*` in its path. Double check the paths provided in the output source field names and the field value for the indicated field name. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.  |
 
-<a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>
 
-## Warning: The data change detection policy is configured to use key column 'X'
+## `Warning: The data change detection policy is configured to use key column 'X'`
 [Data change detection policies](/rest/api/searchservice/create-data-source#data-change-detection-policies) have specific requirements for the columns they use to detect change. One of these requirements is that this column is updated every time the source item is changed. Another requirement is that the new value for this column is greater than the previous value. Key columns don't fulfill this requirement because they don't change on every update. To work around this issue, select a different column for the change detection policy.
 
-<a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>
 
-## Warning: Document text appears to be UTF-16 encoded, but is missing a byte order mark
+## `Warning: Document text appears to be UTF-16 encoded, but is missing a byte order mark`
 
 The [indexer parsing modes](/rest/api/searchservice/create-indexer#blob-configuration-parameters) need to know how text is encoded before parsing it. The two most common ways of encoding text are UTF-16 and UTF-8. UTF-8 is a variable-length encoding where each character is between 1 byte and 4 bytes long. UTF-16 is a fixed-length encoding where each character is 2 bytes long. UTF-16 has two different variants, "big endian" and "little endian". Text encoding is determined by a "byte order mark", a series of bytes before the text.
 
@@ -352,12 +340,11 @@ If no byte order mark is present, the text is assumed to be encoded as UTF-8.
 
 To work around this warning, determine what the text encoding for this blob is and add the appropriate byte order mark.
 
-<a name="cosmos-db-collection-has-a-lazy-indexing-policy"></a>
 
-## Warning: Cosmos DB collection 'X' has a Lazy indexing policy. Some data may be lost
+## `Warning: Cosmos DB collection 'X' has a Lazy indexing policy. Some data may be lost`
 
 Collections with [Lazy](../cosmos-db/index-policy.md#indexing-mode) indexing policies can't be queried consistently, resulting in your indexer missing data. To work around this warning, change your indexing policy to Consistent.
 
-## Warning: The document contains very long words (longer than 64 characters). These words may result in truncated and/or unreliable model predictions.
+## `Warning: The document contains very long words (longer than 64 characters). These words may result in truncated and/or unreliable model predictions.`
 
 This warning is passed from the Language service of Azure Cognitive Services. In some cases, it is safe to ignore this warning, such as when your document contains a long URL (which likely isn't a key phrase or driving sentiment, etc.).  Be aware that when a word is longer than 64 characters, it will be truncated to 64 characters which can affect model predictions.
