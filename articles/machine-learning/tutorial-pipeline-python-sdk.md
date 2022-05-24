@@ -171,6 +171,7 @@ The data you use for training is usually in one of the locations below:
 Azure ML uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the section below, you'll consume some data from web url as one example. Data from other sources can be created as well.
 
 [!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=credit_data)]
+
 ```python
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
@@ -207,6 +208,57 @@ print(
 
 In the future, you can fetch the same dataset from the workspace using `credit_dataset = ml_client.data.get("<DATA ASSET NAME>", version='<VERSION>')`.
 
+## Create a compute resource to run your pipeline
+
+Each step of an Azure ML pipeline can use a different compute resource for running the specific job of that step. It can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
+
+In this section, you'll provision a Linux compute cluster.
+
+For this tutorial you only need a basic cluster, so we'll  use a Standard_DS3_v2 model with 2 vCPU cores, 7 GB RAM and create an Azure ML Compute.  
+
+> [!TIP]
+> If you already have a compute cluster, replace "cpu-cluster" in the code below with the name of your cluster.  This will keep you from creating another one.
+
+```python
+from azure.ai.ml.entities import AmlCompute
+
+cpu_compute_target = "cpu-cluster"
+
+try:
+    # let's see if the compute target already exists
+    cpu_cluster = ml_client.compute.get(cpu_compute_target)
+    print(
+        f"You already have a cluster named {cpu_compute_target}, we'll reuse it as is."
+    )
+
+except Exception:
+    print("Creating a new cpu compute target...")
+
+    # Let's create the Azure ML compute object with the intended parameters
+    cpu_cluster = AmlCompute(
+        # Name assigned to the compute cluster
+        name="cpu-cluster",
+        # Azure ML Compute is the on-demand VM service
+        type="amlcompute",
+        # VM Family
+        size="STANDARD_DS3_V2",
+        # Minimum running nodes when there is no job running
+        min_instances=0,
+        # Nodes in cluster
+        max_instances=4,
+        # How many seconds will the node running after the job termination
+        idle_time_before_scale_down=180,
+        # Dedicated or LowPriority. The latter is cheaper but there is a chance of job termination
+        tier="Dedicated",
+    )
+
+    # Now, we pass the object to MLClient's create_or_update method
+    cpu_cluster = ml_client.begin_create_or_update(cpu_cluster)
+
+print(
+    f"AMLCompute with name {cpu_cluster.name} is created, the compute size is {cpu_cluster.size}"
+)
+```
 
 ## Create a job environment for pipeline steps
 
@@ -225,7 +277,7 @@ os.makedirs(dependencies_dir, exist_ok=True)
 
 Now, create the file in the dependencies directory.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name="conda.yml")]
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=conda.yml)]
 
 ```python
 %%writefile {dependencies_dir}/conda.yml
@@ -395,13 +447,6 @@ data_prep_component = command(
 
 Optionally, register the component in the workspace for future re-use.
 
-```python
-data_prep_component = ml_client.create_or_update(data_prep_component)
-
-print(
-    f"Component {data_prep_component.name} with Version {data_prep_component.version} is registered"
-)
-```
 
 ## Create component 2: training (using yaml definition)
 
@@ -422,7 +467,7 @@ os.makedirs(train_src_dir, exist_ok=True)
 
 Create the training script in the directory:
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name="train.py")]
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train.py)]
 
 ```python
 %%writefile {train_src_dir}/train.py
@@ -531,7 +576,7 @@ For the environment of this step, you'll use one of the built-in (curated) Azure
 
 First, create the *yaml* file describing the component:
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name="train.yml")]
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train.yml)]
 
 ```python
 %%writefile {train_src_dir}/train.yml
@@ -603,9 +648,6 @@ To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifi
 
 Here, we used *input data*, *split ratio* and *registered model name* as input variables. We then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
-> [!IMPORTANT]
-> In the code below, replace `<CPU-CLUSTER-NAME>` with the name you used when you created a compute cluster in the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md).
-
 [!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=pipeline)]
 
 ```python
@@ -669,7 +711,7 @@ Here you'll also pass an experiment name. An experiment is a container for all t
 
 Once completed, the pipeline will register a model in your workspace as a result of training.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name="returned_job")]
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=returned_job)]
 
 ```python
 import webbrowser
@@ -780,7 +822,7 @@ Deploy the latest version of the model.
 > [!NOTE]
 > Expect this deployment to take approximately 6 to 8 minutes.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name="model")]
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=model)]
 
 ```python
 # picking the model to deploy. Here we use the latest version of our registered model
@@ -808,7 +850,7 @@ Now that the model is deployed to the endpoint, you can run inference with it.
 
 Create a sample request file following the design expected in the run method in the score script.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name="sample-request.json")]
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=sample-request.json)]
 
 ```python
 %%writefile {deploy_dir}/sample-request.json
