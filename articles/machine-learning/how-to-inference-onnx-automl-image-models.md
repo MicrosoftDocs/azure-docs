@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.custom: sdkv1
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Make predictions with ONNX on computer vision models from AutoML
@@ -1429,4 +1429,3 @@ display_detections(img, boxes.copy(), labels, scores, masks.copy(),
 ## Next steps
 * [Learn more about computer vision tasks in AutoML](how-to-auto-train-image-models.md)
 * [Troubleshoot AutoML experiments](how-to-troubleshoot-auto-ml.md)
-

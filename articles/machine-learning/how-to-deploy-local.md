@@ -9,7 +9,7 @@ ms.author: ssalgado
 author: ssalgadodev
 ms.date: 11/20/2020
 ms.topic: how-to
-ms.custom: deploy, sdkv1
+ms.custom: deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Deploy models trained with Azure Machine Learning on your local machines 

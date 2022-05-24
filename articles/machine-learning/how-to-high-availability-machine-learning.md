@@ -5,6 +5,7 @@ description: Learn how to plan for disaster recovery and maintain business conti
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.author: jhirono
 author: jhirono

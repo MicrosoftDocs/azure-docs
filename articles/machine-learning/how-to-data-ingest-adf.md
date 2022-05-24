@@ -11,10 +11,8 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml, sdkv1
-
-# Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
-
+ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
+#Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 ---
 
 # Data ingestion with Azure Data Factory

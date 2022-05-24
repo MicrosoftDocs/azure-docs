@@ -10,7 +10,7 @@ author: shivanissambare
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: deploy, docker, prebuilt, sdkv1
+ms.custom: deploy, docker, prebuilt, sdkv1, event-tier1-build-2022
 ---
 
 # Python package extensibility for prebuilt Docker images (preview)

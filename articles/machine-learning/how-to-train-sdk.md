@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/10/2022
 ms.topic: how-to
-ms.custom: sdkv2
+ms.custom: sdkv2, event-tier1-build-2022
 ---
 
 # Train models with the Azure ML Python SDK v2 (preview)

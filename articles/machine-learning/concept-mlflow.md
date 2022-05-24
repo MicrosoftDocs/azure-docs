@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 04/15/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, cliv2, sdkv2
+ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022
 ---
 
 # MLflow and Azure Machine Learning
@@ -52,4 +52,3 @@ Learn more at [Train ML models with MLflow projects and Azure Machine Learning (
 * [Track ML models with MLflow and Azure Machine Learning CLI v2](how-to-use-mlflow-cli-runs.md)
 * [Convert your custom model to MLflow model format for no code deployments](how-to-convert-custom-model-to-mlflow.md)
 * [Deploy MLflow models to an online endpoint](how-to-deploy-mlflow-models-online-endpoints.md)
-

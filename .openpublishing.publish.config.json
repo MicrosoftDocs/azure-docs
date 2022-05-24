@@ -75,6 +75,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "msdocs-storage-bind-function-service",
+      "url": "https://github.com/Azure-Samples/msdocs-storage-bind-function-service",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "azure_cli_scripts",
       "url": "https://github.com/Azure-Samples/azure-cli-samples",
       "branch": "master",
@@ -240,6 +246,12 @@
       "path_to_root": "azure-functions-dotnet-worker",
       "url": "https://github.com/Azure/azure-functions-dotnet-worker",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-functions-kafka-extension",
+      "url": "https://github.com/Azure/azure-functions-kafka-extension",
+      "branch": "dev",
       "branch_mapping": {}
     },
     {

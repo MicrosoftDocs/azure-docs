@@ -265,6 +265,8 @@
             - name: Configure required network traffic
               displayName: firewall, user-defined route, udr
               href: how-to-access-azureml-behind-firewall.md
+            - name: Configure network isolation with v2
+              href: how-to-configure-network-isolation-with-v2.md
         - name: Data protection
           items: 
             - name: Failover & disaster recovery
@@ -420,15 +422,7 @@
             - name: Read & write data (v2)
               displayName: train
               href: how-to-read-write-data-v2.md
-            - name: Train with datasets
-              displayName: data, dataset, mount
-              href: how-to-train-with-datasets.md
-            - name: Detect drift on datasets
-              displayName: data, dataset
-              href: how-to-monitor-datasets.md
-            - name: Version & track datasets
-              displayName: data, data set
-              href: how-to-version-track-datasets.md
+            
         - name: Compliance
           items: 
             - name: Preserve data privacy

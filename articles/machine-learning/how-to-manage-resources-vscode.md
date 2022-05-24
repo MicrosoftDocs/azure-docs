@@ -8,6 +8,7 @@ ms.author: ssalgado
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 05/25/2021
 ---

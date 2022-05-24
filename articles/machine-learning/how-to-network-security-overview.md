@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 02/02/2022
 ms.topic: how-to
-ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
+ms.custom: devx-track-python, references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022
 ---
 
 <!-- # Virtual network isolation and privacy overview -->
@@ -29,6 +29,7 @@ Secure Azure Machine Learning workspace resources and compute environments using
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+> * [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
 >
 > For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
@@ -258,3 +259,4 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)

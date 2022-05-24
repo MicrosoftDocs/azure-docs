@@ -10,7 +10,7 @@ author: shivanissambare
 ms.author: ssambare
 ms.reviewer: larryfr
 ms.date: 04/26/2022
-ms.custom: how-to, studio, managed-batch-endpoints
+ms.custom: how-to, studio, managed-batch-endpoints, event-tier1-build-2022
 ---
 
 # How to use batch endpoints in Azure Machine Learning studio

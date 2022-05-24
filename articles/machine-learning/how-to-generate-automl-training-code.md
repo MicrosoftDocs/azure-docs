@@ -7,7 +7,7 @@ author: cesardl
 ms.author: cesardl
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: sdkv1
+ms.custom: sdkv1, event-tier1-build-2022
 ms.topic: how-to
 ms.date: 02/16/2022
 ---

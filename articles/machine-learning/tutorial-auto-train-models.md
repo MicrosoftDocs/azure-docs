@@ -10,7 +10,7 @@ author: blackmist
 ms.author: larryfr
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
-ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1
+ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
 ---
 
 # Tutorial: Train a regression model with AutoML and Python

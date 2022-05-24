@@ -183,24 +183,28 @@
           href: vpn-gateway-howto-openvpn.md
         - name: Move to OpenVPN protocol or IKEv2 from SSTP
           href: ikev2-openvpn-from-sstp.md
-        - name: P2S session management
-          href: p2s-session-management.md      
-        - name: Configure an Always On VPN device tunnel
-          href: vpn-gateway-howto-always-on-device-tunnel.md
-        - name: Configure an Always On VPN user tunnel
-          href: vpn-gateway-howto-always-on-user-tunnel.md
-        - name: Advertise custom routes to P2S clients
-          href: vpn-gateway-p2s-advertise-custom-routes.md
-        - name: Create custom IPsec policies for P2S
-          href: create-custom-policies-p2s-ps.md
+      - name: P2S session management
+        href: p2s-session-management.md      
+      - name: Configure an Always On VPN device tunnel
+        href: vpn-gateway-howto-always-on-device-tunnel.md
+      - name: Configure an Always On VPN user tunnel
+        href: vpn-gateway-howto-always-on-user-tunnel.md
+      - name: Advertise custom routes to P2S clients
+        href: vpn-gateway-p2s-advertise-custom-routes.md
+      - name: Create custom IPsec policies for P2S
+        href: create-custom-policies-p2s-ps.md
     - name: P2S client configuration
       items:
       - name: Certificate authentication clients
         items:
+        - name: Windows clients
+          href: point-to-site-vpn-client-cert-windows.md
+        - name: macOS-iOS clients
+          href: point-to-site-vpn-client-cert-mac.md
+        - name: Linux clients
+          href: point-to-site-vpn-client-cert-linux.md
         - name: Install client certificates
           href: point-to-site-how-to-vpn-client-install-azure-cert.md
-        - name: Generate and install VPN client profile config files
-          href: point-to-site-vpn-client-configuration-azure-cert.md
       - name: RADIUS authentication clients
         items:
         - name: Certificate authentication clients
@@ -219,8 +223,6 @@
           href: about-vpn-profile-download.md 
         - name: Intune - Deploy VPN client profile
           href: vpn-profile-intune.md
-      - name: Install and configure an OpenVPN client
-        href: vpn-gateway-howto-openvpn-clients.md
   - name: Routing, BGP, and VNet Peering
     items:
     - name: Configure BGP for a VPN gateway

@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, sdkv1
+ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Configure and submit training runs

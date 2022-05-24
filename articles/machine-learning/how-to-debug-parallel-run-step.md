@@ -6,13 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: troubleshooting
-ms.custom: troubleshooting, sdkv1
+ms.custom: troubleshooting, sdkv1, event-tier1-build-2022
 ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: pansav
 author: psavdekar
 ms.date: 10/21/2021
 #Customer intent: As a data scientist, I want to figure out why my ParallelRunStep doesn't run so that I can fix it.
-
 ---
 
 # Troubleshooting the ParallelRunStep

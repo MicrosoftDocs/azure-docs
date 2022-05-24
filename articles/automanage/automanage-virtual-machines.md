@@ -5,7 +5,7 @@ author: mmccrory
 ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 5/12/2022
 ms.author: memccror
 ms.custom: references_regions
 ---
@@ -109,7 +109,7 @@ The only time you might need to interact with this machine to manage these servi
 ## Enabling Automanage for VMs using Azure Policy
 You can also enable Automanage on VMs at scale using the built-in Azure Policy. The policy has a DeployIfNotExists effect, which means that all eligible VMs located within the scope of the policy will be automatically onboarded to Automanage VM Best Practices.
 
-A direct link to the policy is [here](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3).
+A direct link to the policy is [here](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff889cab7-da27-4c41-a3b0-de1f6f87c55).
 
 For more information, check out how to enable the [Automanage built-in policy](virtual-machines-policy-enable.md). 
 

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
 ms.date: 05/10/2022
-ms.custom: devx-track-python
+ms.custom: devx-track-python, event-tier1-build-2022
 ---
 
 # What are Azure Machine Learning pipelines?

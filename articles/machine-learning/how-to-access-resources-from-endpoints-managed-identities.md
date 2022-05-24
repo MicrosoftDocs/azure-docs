@@ -10,10 +10,8 @@ ms.reviewer: larryfr
 author: rsethur
 ms.date: 04/07/2022
 ms.topic: how-to
-ms.custom: devplatv2, cliv2
-
-
-# Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with an online endpoint and managed identity. 
+ms.custom: devplatv2, cliv2, event-tier1-build-2022
+#Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with an online endpoint and managed identity.
 ---
 
 # Access Azure resources from an online endpoint with a managed identity 

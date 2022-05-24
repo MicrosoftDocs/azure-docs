@@ -16,7 +16,7 @@ ms.custom: "seodec18"
 
 This article demonstrates how to call the Image Analysis API to return information about an image's visual features. It also shows you how to parse the returned information using the client SDKs or REST API.
 
-This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a subscription key and endpoint URL. If you're using a client SDK, you'll also need to authenticate a client object. If you haven't done these steps, follow the [quickstart](../quickstarts-sdk/image-analysis-client-library.md) to get started.
+This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL. If you're using a client SDK, you'll also need to authenticate a client object. If you haven't done these steps, follow the [quickstart](../quickstarts-sdk/image-analysis-client-library.md) to get started.
   
 ## Submit data to the service
 

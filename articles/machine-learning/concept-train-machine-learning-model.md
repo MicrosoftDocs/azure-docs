@@ -9,7 +9,7 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/23/2021
-ms.custom: devx-track-python, devx-track-azurecli 
+ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 

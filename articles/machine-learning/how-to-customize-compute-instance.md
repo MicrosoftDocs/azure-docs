@@ -5,6 +5,7 @@ description: Create a customized compute instance, using a startup script. Use t
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 author: swatig007
 ms.author: swatig

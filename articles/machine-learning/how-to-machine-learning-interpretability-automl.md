@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl, responsible-ml, mktng-kw-nov2021, sdkv1
+ms.custom: automl, responsible-ml, mktng-kw-nov2021, sdkv1, event-tier1-build-2022
 ms.author: mithigpe
 author: minthigpen
 ms.date: 10/21/2021

@@ -9,7 +9,7 @@ ms.author: larryfr
 author: blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: contperf-fy20q4, devx-track-python, data4ml, sdkv1
+ms.custom: contperf-fy20q4, devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist using Python, I want to get data into my pipeline and flowing between steps.
 ---
 

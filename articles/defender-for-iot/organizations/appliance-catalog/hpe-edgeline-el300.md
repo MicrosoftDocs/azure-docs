@@ -15,7 +15,7 @@ Legacy appliances are certified but aren't currently offered as pre-configured a
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | SMB|
-|**Performance** | 	Max bandwidth: 100 Mbp/s<br>Max devices: 800 |
+|**Performance** |Max bandwidth: 100 Mbp/s<br>Max devices: 800 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-configured|
 
@@ -80,7 +80,6 @@ A default administrative user is provided. We recommend that you change the pass
 > Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
 >
 
-
 ### Enable remote access
 
 1. Enter the iSM IP Address into your web browser.
@@ -91,7 +90,7 @@ A default administrative user is provided. We recommend that you change the pass
 
     :::image type="content" source="../media/tutorial-install-components/wired-and-wireless.png" alt-text="Screenshot of the Wired and Wireless Network screen.":::
 
-1. Toggle off the **DHCP** option..
+1. Toggle off the **DHCP** option.
 
 1. Configure the IPv4 addresses as such:
     - **IPV4 Address**: `192.168.1.125`

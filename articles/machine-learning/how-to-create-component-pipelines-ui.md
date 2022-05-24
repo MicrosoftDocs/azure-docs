@@ -9,8 +9,7 @@ ms.author: keli19
 author: likebupt
 ms.date:  05/10/2022
 ms.topic: how-to
-ms.custom: devplatv2, designer
-
+ms.custom: devplatv2, designer, event-tier1-build-2022
 ---
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning studio (Preview)

@@ -9,9 +9,8 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 01/25/2022
-ms.custom: contperf-fy21q1, devx-track-python, data4ml
-
-# Customer intent: As an experienced Python developer, I need to make my data in Azure Storage available to my compute for training my machine learning models.
+ms.custom: contperf-fy21q1, devx-track-python, data4ml, event-tier1-build-2022
+#Customer intent: As an experienced Python developer, I need to make my data in Azure Storage available to my compute for training my machine learning models.
 ---
 
 # Connect to storage by using identity-based data access

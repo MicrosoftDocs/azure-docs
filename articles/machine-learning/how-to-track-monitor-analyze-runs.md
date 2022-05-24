@@ -10,7 +10,7 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.date: 04/28/2022
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Start, monitor, and track run history in studio
