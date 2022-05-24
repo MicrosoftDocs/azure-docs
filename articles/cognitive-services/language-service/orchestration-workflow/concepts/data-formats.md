@@ -24,34 +24,32 @@ If you upload a tags file, it should follow this format.
 
 ```json
 {
-  "api-version": "{API-VERSION}",
+  "projectFileVersion": "{API-VERSION}",
   "stringIndexType": "Utf16CodeUnit",
   "metadata": {
-    "projectKind": "orchestration",
-    "settings": {
-      "confidenceThreshold": 0.5
-    },
+    "projectKind": "Orchestration",
     "projectName": "{PROJECT-NAME}",
     "multilingual": false,
-    "description": "Project description",
+    "description": "This is a description",
     "language": "{LANGUAGE-CODE}"
   },
   "assets": {
+    "projectKind": "Orchestration",
     "intents": [
       {
-        "category": "string",
+        "category": "{INTENT1}",
         "orchestration": {
-          "kind": "luis",
+          "targetProjectKind": "Luis|Conversation|QuestionAnswering",
           "luisOrchestration": {
-            "appId": "{LUIS-APP-ID}",
-            "appVersion": "{LUIS-APP-VERSION}",
-            "slotName": "{SLOT-NAME}"
+            "appId": "{APP-ID}",
+            "appVersion": "0.1",
+            "slotName": "production"
           },
-          "cluOrchestration": {
+          "conversationOrchestration": {
             "projectName": "{PROJECT-NAME}",
             "deploymentName": "{DEPLOYMENT-NAME}"
           },
-          "qnaOrchestration": {
+          "questionAnsweringOrchestration": {
             "projectName": "{PROJECT-NAME}"
           }
         }
@@ -59,15 +57,14 @@ If you upload a tags file, it should follow this format.
     ],
     "utterances": [
       {
-        "text": "{Utterance-Text}",
+        "text": "utterance 1",
         "language": "{LANGUAGE-CODE}",
-        "intent": "{INTENT-NAME}"
+        "dataset": "{DATASET}",
+        "intent": "intent1"
       }
     ]
   }
 }
-
-
 ```
 
 |Key  |Placeholder  |Value  | Example |
@@ -75,7 +72,7 @@ If you upload a tags file, it should follow this format.
 | `api-version` | `{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) released. | `2022-03-01-preview` |
 |`confidenceThreshold`|`{CONFIDENCE-THRESHOLD}`|This is the threshold score below which the intent will be predicted as [none intent](none-intent.md)|`0.7`|
 | `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `EmailApp` |
-| `multilingual` | `true`| Orchestration doesn't support the multilingual feature  | `false`|
+| `multilingual` | `false`| Orchestration doesn't support the multilingual feature  | `false`|
 | `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the utterances used in your project. See [Language support](../language-support.md) for more information about supported language codes. |`en-us`|
 | `intents` | `[]` | Array containing all the intent types you have in the project. These are the intents used in the orchestration project.| `[]` |
 

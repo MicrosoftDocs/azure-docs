@@ -16,9 +16,9 @@ ms.custom: language-service-orchestration
 # How to create projects in orchestration workflow
 
 Orchestration workflow allows you to create projects that connect your applications to:
-* [Conversation Language Understanding](https://aka.md/clu-docs)
-* [Question Answering](/azure/cognitive-services/language-service/question-answering/overview)
-* [LUIS](https://aka.md/luis-docs)
+* Custom Language Understanding
+* Question Answering
+* LUIS
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Before you start using orchestration workflow, you will need an Azure Language r
 
 ## Sign in to Language Studio
 
-[!INCLUDE [Sign in to Language studio](../includes/language-studio/sign-in-studio.md)]
+To create a new intent, click on *+Add* button and start by giving your intent a **name**. You will see two options, to connect to a project or not. You can connect to (LUIS, question answering, or Conversational Language Understanding) projects, or choose the **no** option.
 
 
 ## Create an orchestration workflow project
@@ -116,6 +116,8 @@ When you don't need your project anymore, you can delete your project using the 
 ---
 
 
+
+:::image type="content" source="../media/quickstart-intent.png" alt-text="A screenshot showing how to import orchestration project." lightbox="../media/quickstart-intent.png":::
 
 ## Next Steps
 
