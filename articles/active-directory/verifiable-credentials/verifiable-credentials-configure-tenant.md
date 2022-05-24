@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Configure your tenant for Azure AD Verifiable Credentials (preview)
 description: In this tutorial, you learn how to configure your tenant to support the Verifiable Credentials service. 
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 05/06/2022

@@ -150,9 +150,9 @@ For install steps, see [Install a client certificate](point-to-site-how-to-vpn-c
 
 ## <a name="clientconfig"></a>Configure settings for VPN clients
 
-To connect to the virtual network gateway using P2S, each computer uses the VPN client that is natively installed as a part of the operating system. For example, when you go to VPN settings on your Windows computer, you can add VPN connections without installing a separate VPN client. You configure each VPN client by using a client configuration package. The client configuration package contains settings that are specific to the VPN gateway that you created.
+To connect to the virtual network gateway using P2S, each computer can use the VPN client that is natively installed as a part of the operating system. For example, when you go to VPN settings on your Windows computer, you can add VPN connections without installing a separate VPN client. You configure each VPN client by using a client configuration package. The client configuration package contains settings that are specific to the VPN gateway that you created.
 
-For steps to generate and install VPN client configuration files, see [Create and install VPN client configuration files for Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md).
+For steps to generate and install VPN client configuration files, see [Configure point-to-site VPN clients - certificate authentication](point-to-site-vpn-client-cert-windows.md).
 
 ## <a name="connect"></a>Connect to Azure
 
@@ -164,11 +164,11 @@ For steps to generate and install VPN client configuration files, see [Create an
 
 ### To connect from a Mac VPN client
 
-From the Network dialog box, locate the client profile that you want to use, specify the settings from the [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac), and then select **Connect**. For detailed instructions, see [Generate and install VPN client configuration files - macOS](./point-to-site-vpn-client-configuration-azure-cert.md#installmac).
+From the Network dialog box, locate the client profile that you want to use, specify the settings from the [VpnSettings.xml](point-to-site-vpn-client-cert-mac.md), and then select **Connect**. For detailed instructions, see [Configure point-to-site VPN clients - certificate authentication - macOS](point-to-site-vpn-client-cert-mac.md).
 
 If you're having trouble connecting, verify that the virtual network gateway isn't using a Basic SKU. The Basic SKU isn't supported for Mac clients.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/select-connect.png" alt-text="Screenshot shows connect button." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/select-connect.png":::
+   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/select-connect.png" alt-text="Screenshot shows connect button." lightbox="./media/point-to-site-vpn-client-cert-mac/select-connect.png":::
 
 ## <a name="verify"></a>To verify your connection
 

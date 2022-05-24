@@ -10,7 +10,7 @@ ms.author: juliako
 
 ## Overview
 
-In this tutorial you will create an Azure Video Indexer (formerly Azure Video Analyzer for Media) account by using Azure Resource Manager (ARM) template (preview).
+In this tutorial you will create an Azure Video Indexer account by using Azure Resource Manager (ARM) template (preview).
 The resource will be deployed to your subscription and will create the Azure Video Indexer resource based on parameters defined in the avam.template file.
 
 > [!NOTE]
@@ -92,7 +92,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
 ## Reference documentation
 
-If you're new to Azure Video Indexer (formerly Azure Video Analyzer for Media), see:
+If you're new to Azure Video Indexer, see:
 
 * [Azure Video Indexer Documentation](/azure/azure-video-indexer)
 * [Azure Video Indexer Developer Portal](https://api-portal.videoindexer.ai/)

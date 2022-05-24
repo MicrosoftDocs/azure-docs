@@ -1,5 +1,5 @@
 ---
-title: Container Apps Preview ARM template API specification
+title: Container Apps ARM template API specification
 description: Explore the available properties in the Container Apps ARM template.
 services: container-apps
 author: craigshoemaker
@@ -7,10 +7,10 @@ ms.service: container-apps
 ms.topic: reference
 ms.date: 05/13/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Container Apps Preview ARM template API specification
+# Container Apps ARM template API specification
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. Some Container Apps CLI commands also support using a YAML template to specify a resource.
 
