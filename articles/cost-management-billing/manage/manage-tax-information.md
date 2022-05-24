@@ -27,7 +27,7 @@ This article helps you review and update the sold to information, ship-to/servic
 1. Search for **Cost Management + Billing**.  
     ![Screenshot that shows where to search in the Azure portal.](./media/manage-tax-information/search-cmb.png)
 1. In the left menu, select **Properties** and then select **Update sold-to**.  
-    :::image type="content" source="./media/manage-tax-information/update-sold-to.png" alt-text="Screenshot showing the properties for an MCA billing account where you modify the sold-to address." lightbox="./media/manage-tax-information/update-sold-to.png" :::
+    :::image type="content" source="./media/manage-tax-information/update-sold-to.png" alt-text="Screenshot showing the properties for an M C A billing account where you modify the sold-to address." lightbox="./media/manage-tax-information/update-sold-to.png" :::
 1. Enter the new address and select **Save**.
     > [!NOTE]
     > Some accounts require additional verification before their sold-to can be updated. If your account requires manual approval, you are prompted to contact Azure support.
@@ -110,7 +110,7 @@ Customers in the following countries or regions can add their Tax IDs.
     ![Screenshot that shows where to search for Cost Management + Billing.](./media/manage-tax-information/search-cmb.png)
 1. In the left menu under **Settings**, select **Properties**.
 1. Select **Manage Tax IDs**.  
-    :::image type="content" source="./media/manage-tax-information/update-tax-id.png" alt-text="Screenshot showing where to update the Tax ID." lightbox="./media/manage-tax-information/update-tax-id.png" :::
+    :::image type="content" source="./media/manage-tax-information/update-tax-id.png" alt-text="Screenshot showing where to update the Tax I D." lightbox="./media/manage-tax-information/update-tax-id.png" :::
 1. Enter new tax IDs and then select **Save**.  
     > [!NOTE]
     > If you don't see the Tax IDs section, Tax IDs are not yet collected for your region. Or,  updating Tax IDs in the Azure portal isn't supported for your account.
@@ -124,9 +124,9 @@ Customers in the following countries or regions can add their Tax IDs.
 1. Select a subscription from the list.
 1. In the left menu, select **Properties**.
 1. Select **Update Address**.
-    :::image type="content" source="./media/manage-tax-information/update-address-india.png" alt-text="Screenshot that shows where to update the tax ID." lightbox="./media/manage-tax-information/update-address-india.png" :::
+    :::image type="content" source="./media/manage-tax-information/update-address-india.png" alt-text="Screenshot that shows where to update the tax I D." lightbox="./media/manage-tax-information/update-address-india.png" :::
 1. Enter the new GSTIN and then select **Save**.  
-    :::image type="content" source="./media/manage-tax-information/update-tax-id-india.png" alt-text="Screenshot that shows where to update the GSTIN." lightbox="./media/manage-tax-information/update-tax-id-india.png" :::
+    :::image type="content" source="./media/manage-tax-information/update-tax-id-india.png" alt-text="Screenshot that shows where to update the G S T I N." lightbox="./media/manage-tax-information/update-tax-id-india.png" :::
 
 ## Need help? Contact us.
 
