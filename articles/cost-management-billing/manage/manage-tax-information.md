@@ -25,41 +25,40 @@ This article helps you review and update the sold to information, ship-to/servic
 
 1. Sign in to the Azure portal using the email address with an owner or a contributor role on the billing account for a Microsoft Customer Agreement (MCA). Or, sign in with an account administrator role for a Microsoft Online Subscription Program (MOSP) billing account. MOSP is also referred to as pay-as-you-go.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows where to search in the Azure portal](./media/manage-tax-information/search-cmb.png)
+    ![Screenshot that shows where to search in the Azure portal.](./media/manage-tax-information/search-cmb.png)
 1. In the left menu, select **Properties** and then select **Update sold-to**.  
-    ![Screenshot that shows the properties for an MCA billing account where users can modify the sold-to address](./media/manage-tax-information/update-sold-to.png)
-1. Enter the new address and select **Save**.  
+    :::image type="content" source="./media/manage-tax-information/update-sold-to.png" alt-text="Screenshot showing the properties for an MCA billing account where you modify the sold-to address." lightbox="./media/manage-tax-information/update-sold-to.png" :::
+1. Enter the new address and select **Save**.
+    > [!NOTE]
+    > Some accounts require additional verification before their sold-to can be updated. If your account requires manual approval, you are prompted to contact Azure support.
 
-> [!NOTE]
-> Some accounts require additional verification before their sold-to can be updated. If your account requires manual approval, you are prompted to contact Azure support.
-
-## Update ship-to/service usage address for an MCA billing account
+## Update ship-to address for an MCA billing account
 
 Customers in Canada, Puerto Rico, and the United States can set the ship-to address for their MCA billing accounts. Each billing profile in their account can have its own ship-to address. To use multiple ship-to addresses, create multiple billing profiles, one for each ship-to address.
 
 1. Sign in to the Azure portal using the email address with an owner or a contributor role for the billing account or a billing profile for an MCA.
-1. Search for **Cost Management + Billing**.  
+1. Search for **Cost Management + Billing**.
 1. In the left menu under **Billing**, select **Billing profiles**.
 1. Select a billing profile to update the ship-to address.  
-    ![Screenshot that shows the Billing profiles page where you select a billing profile](./media/manage-tax-information/select-billing-profile.png)
+    :::image type="content" source="./media/manage-tax-information/select-billing-profile.png" alt-text="Screenshot showing the Billing profiles page where you select a billing profile." lightbox="./media/manage-tax-information/select-billing-profile.png" :::
 1. In the left menu under **Settings**, select **Properties**.
 1. Select **Update ship-to/service usage address**.  
-    ![Screenshot that shows where to update ship-to/service usage address](./media/manage-tax-information/update-ship-to-01.png)
-1. Enter the new address and then select **Save**.  
+    :::image type="content" source="./media/manage-tax-information/update-ship-to-01.png" alt-text="Screenshot showing where to update ship-to/service usage address." lightbox="./media/manage-tax-information/update-ship-to-01.png" :::
+1. Enter the new address and then select **Save**.
 
-## Update ship-to/service usage address for a MOSP billing account
+## Update ship-to address for a MOSP billing account
 
 Customers with a Microsoft Online Service Program (MOSP) account, also called pay-as-you-go, can set ship-to address for their billing account. Each subscription in their account can have its own ship-to address. To use multiple ship-to addresses, create multiple subscriptions, one for each ship-to address.
 
 1. Sign in to the Azure portal using the email address that has account administrator permission on the account.
 1. Search for **Subscriptions**.  
-   ![Screenshot that shows where to search for Subscriptions in the Azure portal](./media/manage-tax-information/search-subscriptions.png)
+    :::image type="content" source="./media/manage-tax-information/search-subscriptions.png" alt-text="Screenshot showing where to search for Subscriptions in the Azure portal." lightbox="./media/manage-tax-information/search-subscriptions.png" :::
 1. Select a subscription from the list.
-1. In the left menu under Settings, select **Properties**.  
-1. Select **Update Address**.
-    ![Screenshot that shows where to update address for the MOSP billing account](./media/manage-tax-information/update-ship-to-02.png)
-1. Enter the new address and then select **Save**.  
-    
+1. In the left menu under **Settings**, select **Properties**.
+1. Select **Update Address**.  
+    :::image type="content" source="./media/manage-tax-information/update-ship-to-02.png" alt-text="Screenshot that shows where to update the address for the MOSP billing account." lightbox="./media/manage-tax-information/update-ship-to-02.png" :::
+1. Enter the new address and then select **Save**.
+
 ## Add your tax IDs
 
 In the Azure portal, tax IDs can only be updated for Microsoft Online Service Program (MOSP) or Microsoft Customer Agreement billing accounts that are created through the Azure website.
@@ -108,28 +107,27 @@ Customers in the following countries or regions can add their Tax IDs.
 
 1. Sign in to the Azure portal using the email address that has an owner or a contributor role on the billing account for an MCA or an account administrator role for a MOSP billing account.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows where to search for Cost Management + Billing in the Azure portal](./media/manage-tax-information/search-cmb.png)
-1. In the left menu under **Settings**, select **Properties**.  
-1. Select **Manage Tax IDs**.
-    ![Screenshot that shows where to update Tax IDs](./media/manage-tax-information/update-tax-id.png)
+    ![Screenshot that shows where to search for Cost Management + Billing.](./media/manage-tax-information/search-cmb.png)
+1. In the left menu under **Settings**, select **Properties**.
+1. Select **Manage Tax IDs**.  
+    :::image type="content" source="./media/manage-tax-information/update-tax-id.png" alt-text="Screenshot showing where to update the Tax ID." lightbox="./media/manage-tax-information/update-tax-id.png" :::
 1. Enter new tax IDs and then select **Save**.  
-
-> [!NOTE]
-> If you don't see the Tax IDs section, Tax IDs are not yet collected for your region. Or,  updating Tax IDs in the Azure portal isn't supported for your account.
+    > [!NOTE]
+    > If you don't see the Tax IDs section, Tax IDs are not yet collected for your region. Or,  updating Tax IDs in the Azure portal isn't supported for your account.
 
 <sup>1</sup> Follow the instructions in the next section to add your Goods and Services Taxpayer Identification Number (GSTIN).
 
 ## Add your GSTIN for billing accounts in India 
 
 1. Sign in to the Azure portal using the email address that has account administrator permission on the account.
-1. Search for **Subscriptions**.  
+1. Search for **Subscriptions**.
 1. Select a subscription from the list.
-1. In the left menu, select **Properties**.  
+1. In the left menu, select **Properties**.
 1. Select **Update Address**.
-    ![Screenshot that shows where to update tax ID for a MOSP billing account](./media/manage-tax-information/update-address-india.png)
+    :::image type="content" source="./media/manage-tax-information/update-address-india.png" alt-text="Screenshot that shows where to update the tax ID." lightbox="./media/manage-tax-information/update-address-india.png" :::
 1. Enter the new GSTIN and then select **Save**.  
-    ![Screenshot that shows where to update GSTIN](./media/manage-tax-information/update-tax-id-india.png)
-    
+    :::image type="content" source="./media/manage-tax-information/update-tax-id-india.png" alt-text="Screenshot that shows where to update the GSTIN." lightbox="./media/manage-tax-information/update-tax-id-india.png" :::
+
 ## Need help? Contact us.
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
