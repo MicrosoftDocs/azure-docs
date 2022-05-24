@@ -9,15 +9,9 @@ ms.topic: conceptual
 author: dem108
 ms.author: sehan
 ms.reviewer: larryfr
-ms.date: 04/26/2022
-<<<<<<< HEAD
-ms.custom: how-to, devplatv2
-
-# Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
-=======
+ms.date: 05/24/2022
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
->>>>>>> 0129ef009e25c15aafd490699d1e4ceaec0f385b
 ---
 
 # Use batch endpoints for batch scoring
@@ -136,7 +130,7 @@ For the full batch deployment YAML schema, see [CLI (v2) batch deployment YAML s
 | `resources.instance_count` | The number of instances to be used for each batch scoring job. |
 | `max_concurrency_per_instance` | [Optional] The maximum number of parallel `scoring_script` runs per instance. |
 | `mini_batch_size` | [Optional] The number of files the `scoring_script` can process in one `run()` call. |
-| `output_action` | [Optional] How the output should be organized in the output file. `append_row` will merge all `run()` returned output results into one single file named `output_file_name`. `summary_only` will not merge the output results and only calculate `error_threshold`. |
+| `output_action` | [Optional] How the output should be organized in the output file. `append_row` will merge all `run()` returned output results into one single file named `output_file_name`. `summary_only` won't merge the output results and only calculate `error_threshold`. |
 | `output_file_name` | [Optional] The name of the batch scoring output file for `append_row` `output_action`. |
 | `retry_settings.max_retries` | [Optional] The number of max tries for a failed `scoring_script` `run()`. |
 | `retry_settings.timeout` | [Optional] The timeout in seconds for a `scoring_script` `run()` for scoring a mini batch. |
@@ -150,7 +144,7 @@ As mentioned earlier, the `code_configuration.scoring_script` must contain two f
 - `init()`: Use this function for any costly or common preparation. For example, use it to load the model into a global object. This function will be called once at the beginning of the process.
 -  `run(mini_batch)`: This function will be called for each `mini_batch` and do the actual scoring. 
     -  `mini_batch`: The `mini_batch` value is a list of file paths.
-    -  `response`: The `run()` method should return a pandas DataFrame or an array. Each returned output element indicates one successful run of an input element in the input `mini_batch`. Make sure that enough data is included in your `run()` response to correlate the input with the output. The resulting DataFrame or array is populated according to this scoring script. It is up to you how much or how little information you’d like to output to correlate output values with the input value, e.g. the array can represent a list of tuples containing both the model's output and input. There is no requirement on the cardinality of the results. All elements in the result DataFrame or array will be written to the output file as-is (given that the `output_action` is not `summary_only`).
+    -  `response`: The `run()` method should return a pandas DataFrame or an array. Each returned output element indicates one successful run of an input element in the input `mini_batch`. Make sure that enough data is included in your `run()` response to correlate the input with the output. The resulting DataFrame or array is populated according to this scoring script. It's up to you how much or how little information you’d like to output to correlate output values with the input value, for example, the array can represent a list of tuples containing both the model's output and input. There's no requirement on the cardinality of the results. All elements in the result DataFrame or array will be written to the output file as-is (given that the `output_action` isn't `summary_only`).
 
 The example uses `/cli/endpoints/batch/mnist/code/digit_identification.py`. The model is loaded in `init()` from `AZUREML_MODEL_DIR`, which is the path to the model folder created during deployment. `run(mini_batch)` iterates each file in `mini_batch`, does the actual model scoring and then returns output results.
 
@@ -194,15 +188,12 @@ Invoke a batch endpoint triggers a batch scoring job. A job `name` will be retur
 #### Invoke the batch endpoint with different input options
 
 You can either use CLI or REST to `invoke` the endpoint. For REST experience, see [Use batch endpoints with REST](how-to-deploy-batch-with-rest.md)
-<<<<<<< HEAD
 
 There are several options to specify the data inputs in CLI `invoke`.
 
 * __Option 1-1: Data in the cloud__
-=======
->>>>>>> 0129ef009e25c15aafd490699d1e4ceaec0f385b
 
-    Use `--input` and `--input-type` to specify a file or folder on an Azure Machine Learning registered datastore or a publicly accessible path. When you are specifying a single file, use `--input-type uri_file`, and when you are specifying a folder, use `--input-type uri_folder`). 
+    Use `--input` and `--input-type` to specify a file or folder on an Azure Machine Learning registered datastore or a publicly accessible path. When you're specifying a single file, use `--input-type uri_file`, and when you're specifying a folder, use `--input-type uri_folder`). 
 
     When the file or folder is on Azure ML registered datastore, the syntax for the URI is `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/` for folder, and `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>` for a specific file. When the file of folder is on a publicly accessible path, the syntax for the URI is `https://<public-path>/` for folder, `https://<public-path>/<file-name>` for a specific file.
 
@@ -214,25 +205,15 @@ There are several options to specify the data inputs in CLI `invoke`.
 
 * __Option 1-2: Registered data asset__
 
-<<<<<<< HEAD
-    Use `--input` to pass in an Azure Machine Learning registered V2 data asset (with the type of either `uri_file` or `url_folder`). You do not need to specify `--input-type` in this option. The syntax for this option is `azureml:<dataset-name>:<dataset-version>`.
+    Use `--input` to pass in an Azure Machine Learning registered V2 data asset (with the type of either `uri_file` or `url_folder`). You don't need to specify `--input-type` in this option. The syntax for this option is `azureml:<dataset-name>:<dataset-version>`.
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:<dataset-name>:<dataset-version>
-=======
-    Use `--input-data` to pass in an Azure Machine Learning registered V1 `FileDataset`. While full backward compatibility is provided, if your intention with your V1 `FileDataset` assets was to have a single path to a file or folder with no loading transforms (sample, take, filter, etc.), then we recommend that you re-create them as a `uri_file`/`uri_folder` using the CLI v2 and use `--input-path` parameter to use with batch endpoint. V1 `TabularDataset` is not supported.
-
-    > [!NOTE]
-    > For more information on V2 data assets, see [Work with data using SDK v2 preview](how-to-use-data.md). As we enable the abstraction for tabular data called `mltable` for batch endpoint in the future, migration from V1 data assets (specifically `FileDataset`) to V2 data assets (`mltable`) will be required. 
-
-    ```azurecli
-    az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-data azureml:<dataset-name>:<dataset-version>
->>>>>>> 0129ef009e25c15aafd490699d1e4ceaec0f385b
     ```
 
 * __Option 2: Data stored locally__
 
-    Use `--input` to pass in data files stored locally. You do not need to specify `--input-type` in this option. The data files will be automatically uploaded as a folder to Azure ML datastore, and passed to the batch scoring job.
+    Use `--input` to pass in data files stored locally. You don't need to specify `--input-type` in this option. The data files will be automatically uploaded as a folder to Azure ML datastore, and passed to the batch scoring job.
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input <local-path>
@@ -245,7 +226,7 @@ There are several options to specify the data inputs in CLI `invoke`.
 
 #### Configure the output location and overwrite settings
 
-The batch scoring results are by default stored in the workspace's default blob store within a folder named by job name (a system-generated GUID). You can configure where to store the scoring outputs when you invoke the batch endpoint. Use `--output-path` to configure any folder in an Azure Machine Learning registered datastore. The syntax for the `--output-path` is the same as `--input` when you are specifying a folder, i.e., `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/`. The prefix `folder:` is not required any more. Use `--set output_file_name=<your-file-name>` to configure a new output file name if you prefer having one output file containing all scoring results (specified `output_action=append_row` in your deployment YAML).
+The batch scoring results are by default stored in the workspace's default blob store within a folder named by job name (a system-generated GUID). You can configure where to store the scoring outputs when you invoke the batch endpoint. Use `--output-path` to configure any folder in an Azure Machine Learning registered datastore. The syntax for the `--output-path` is the same as `--input` when you're specifying a folder, that is, `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/`. The prefix `folder:` isn't required anymore. Use `--set output_file_name=<your-file-name>` to configure a new output file name if you prefer having one output file containing all scoring results (specified `output_action=append_row` in your deployment YAML).
 
 > [!IMPORTANT]
 > You must use a unique output location. If the output file exists, the batch scoring job will fail. 
@@ -296,7 +277,7 @@ To create a new batch deployment under the existing batch endpoint but not set i
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="create_new_deployment_not_default" :::
 
-Notice that `--set-default` is not used. If you `show` the batch endpoint again, you should see no change of the `defaults.deployment_name`. 
+Notice that `--set-default` isn't used. If you `show` the batch endpoint again, you should see no change of the `defaults.deployment_name`. 
 
 The example uses a model (`/cli/endpoints/batch/autolog_nyc_taxi`) trained and tracked with MLflow. `scoring_script` and `environment` can be auto generated using model's metadata, no need to specify in the YAML file. For more about MLflow, see [Train and track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md).
 
@@ -333,7 +314,7 @@ If you aren't going to use the old batch deployment, you should delete it by run
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="delete_deployment" :::
 
-Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs will not be deleted.
+Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="delete_endpoint" :::
 
