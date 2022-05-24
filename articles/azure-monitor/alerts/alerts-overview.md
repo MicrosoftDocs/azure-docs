@@ -9,8 +9,6 @@ ms.custom: template-overview
 ---
 # What are Azure Monitor Alerts?
 
-This article explains Azure Monitor alerts, alert rules, alert processing rules and action groups, and how they work together to monitor your system and notify you if something is wrong. 
-
 Alerts help you detect and address issues before users notice them by proactively notifying you when Azure Monitor data indicates that there may be a problem with your infrastructure or application.
 
 You can alert on any metric or log data source in the Azure Monitor data platform.
@@ -22,9 +20,9 @@ This diagram shows you how alerts work:
 An **alert rule** monitors your telemetry and captures a signal that indicates that something is happening on a specified target. After capturing the signal, the alert rule checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert. 
  
 You create an alert rule by combining :
-     - The resource(s) to be monitored.
-     - The signal or telemetry from the resource
-     - Conditions
+ - The resource(s) to be monitored.
+ - The signal or telemetry from the resource
+ - Conditions
 If you are monitoring more than one resource, the condition is evaluated separately for each of the resources and alerts are fired for each resource separately.
 
 Once an alert is triggered, the alert is made up of:
@@ -91,13 +89,13 @@ When the alert is considered resolved, the alert rule sends out a resolved notif
 ## Manage your alerts programmatically
 
 You can programmatically query for alerts using:
- - [Azure PowerShell](/powershell/module/az.monitor/?view=azps-7.5.0)
+ - [Azure PowerShell](/powershell/module/az.monitor/)
  - [The Azure CLI](/cli/azure/azure-cli-reference-for-monitor)
  - The [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) 
 You can also use [Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade). Resource graphs are good for managing alerts across multiple subscriptions. 
 
 ## Pricing
-See the [Azure Monitor pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/) for information about pricing.
+See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for information about pricing.
 > [!NOTE]
 > Unsupported resource characters such as <, >, %, &, \, ?, / are replaced with _ in the hidden resource names and in the billing information.
 
