@@ -22,11 +22,11 @@ This article is part two of a seven part series that provides guidance on how to
 
 When migrating a Teradata data warehouse, you need to ask some basic data-related questions. For example:
 
-- Should unused table structures be migrated or not?
+- Should unused table structures be migrated?
 
-- What's the best migration approach to minimize risk and impact for users?
+- What's the best migration approach to minimize risk and impact on users?
 
-- Migrating data marts&mdash;stay physical or go virtual?
+- When migrating data marts&mdash;stay physical or go virtual?
 
 The next sections discuss these points within the context of migration from Teradata.
 
