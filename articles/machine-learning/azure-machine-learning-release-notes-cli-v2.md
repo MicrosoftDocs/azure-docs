@@ -5,6 +5,7 @@ description: Learn about the latest updates to Azure Machine Learning CLI (v2)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: blackmist
@@ -14,7 +15,7 @@ ms.date: 04/12/2022
 # Azure Machine Learning CLI (v2) release notes
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
 
 
 In this article, learn about Azure Machine Learning CLI (v2) releases.

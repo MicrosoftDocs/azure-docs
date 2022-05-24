@@ -1,5 +1,5 @@
 ---
-title: Containers in Azure Container Apps Preview
+title: Containers in Azure Container Apps
 description: Learn how containers are managed and configured in Azure Container Apps
 services: container-apps
 author: craigshoemaker
@@ -7,10 +7,10 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 05/12/2022
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Containers in Azure Container Apps Preview
+# Containers in Azure Container Apps
 
 Azure Container Apps manages the details of Kubernetes and container orchestration for you. Containers in Azure Container Apps can use any runtime, programming language, or development stack of your choice.
 
