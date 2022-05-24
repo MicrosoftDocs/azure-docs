@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/29/2022
-ms.author: jushiman
+ms.author: vikancha
 ---
 
 # NV-series

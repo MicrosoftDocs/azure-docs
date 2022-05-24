@@ -43288,6 +43288,11 @@
       "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/quickstart.md",
       "redirect_url": "/azure/cognitive-services/language-service/summarization/quickstart",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/aks/web-app-routing.md",
+      "redirect_url": "/azure/aks/intro-kubernetes",
+      "redirect_document_id": false
     }
   ]
 }
