@@ -79,7 +79,7 @@ Entra is currently not GDPR compliant.--->
 
 ## What is the regional availability for Entra?
 
-For information on regional availability for Entra, see [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/). 
+For information on regional availability for Entra, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). 
 
 ## Is Entra available in Government Cloud?
 
