@@ -77,6 +77,10 @@ Entra supports user identities (for example, employees, customers, external part
 
 Entra is currently not GDPR compliant.--->
 
+## What is the regional availability for Entra?
+
+For information on regional availability for Entra, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). 
+
 ## Is Entra available in Government Cloud?
 
 No, Entra is currently not available in Government clouds.
