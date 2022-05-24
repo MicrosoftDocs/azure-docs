@@ -3,7 +3,7 @@ title: Av1-series retirement
 description: Retirement information for the Av1 series VM sizes.
 author: mimckitt
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 07/26/2021
 ms.author: mimckitt
