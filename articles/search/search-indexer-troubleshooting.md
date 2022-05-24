@@ -15,7 +15,6 @@ ms.date: 05/23/2022
 
 Occasionally, indexers run into problems and there is no error to help with diagnosis. This article covers problems and potential resolutions when indexer results are unexpected and there is limited information to go on. If you have an error to investigate, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md) instead.
 
-<a name="connection-errors"></a>
 
 ## Troubleshoot connections to restricted resources
 
@@ -47,7 +46,7 @@ Details for configuring IP address range restrictions for each data source type 
 
 Azure functions (that could be used as a [Custom Web Api skill](cognitive-search-custom-skill-web-api.md)) also support [IP address restrictions](../azure-functions/ip-addresses.md#ip-address-restrictions). The list of IP addresses to configure would be the IP address of your search service and the IP address range of `AzureCognitiveSearch` service tag.
 
-For more information about connecting to a virtual machine, see [Configure a connection to SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+For more information about connecting to a virtual machine, see [Configure a connection to SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
 ### Configure network security group (NSG) rules
 
@@ -57,7 +56,22 @@ In such cases, the Azure VM, or the SQL managed instance can be configured to re
 
 The `AzureCognitiveSearch` service tag can be directly used in the inbound [NSG rules](../virtual-network/manage-network-security-group.md#work-with-security-rules) without needing to look up its IP address range.
 
-More details for accessing data in a SQL managed instance are outlined [here](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+More details for accessing data in a SQL managed instance are outlined [here](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md).
+
+### Network errors
+
+Usually, network errors are generic. Some common errors include:
+* `A network-related or instance-specific error occurred while establishing a connection to the server`
+* `The server was not found or was not accessible`
+* `Verify that the instance name is correct and that the source is configured to allow remote connections`
+
+When you are receiving any of those errors:
+
+* Make sure your source is accessible by trying to connect to it directly and not through the search service
+* Check your source in the Azure Portal for any current errors or outages
+* Check for any network outages in [Azure Status](https://status.azure.com/status)
+* Check you are using public DNS for name resolution and not an [Azure Private DNS](/dns/private-dns-overview)
+
 
 ## Azure SQL Database serverless indexing (error code 40613)
 
