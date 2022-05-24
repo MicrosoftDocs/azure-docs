@@ -35,9 +35,9 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 
 ## Prerequisites
 
-[!azure-dev-docs[master](../../../azure-dev-docs/articles/terraform/includes/open-source-devops-prereqs-azure-subscription.md)]
+[!azure-dev-docs-pr[main](../../../azure-dev-docs-pr/articles/terraform/includes/open-source-devops-prereqs-azure-subscription.md)]
 
-[!azure-dev-docs[master](../../../azure-dev-docs/articles/terraform/includes/configure-terraform.md)]
+[!azure-dev-docs-pr[main](../../../azure-dev-docs-pr/articles/terraform/includes/configure-terraform.md)]
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
@@ -51,19 +51,19 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/201-mysql-fs-db/main.tf)]
+    [!code-terraform[master](../../../terraform_samples/quickstart/201-mysql-fs-db/main.tf)]
 
 1. Create a file named `mysql-fs-db.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/201-mysql-fs-db/mysql-fs-db.tf)]
+    [!code-terraform[master](../../../terraform_samples/quickstart/201-mysql-fs-db/mysql-fs-db.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/201-mysql-fs-db/variables.tf)]
+    [!code-terraform[master](../../../terraform_samples/quickstart/201-mysql-fs-db/variables.tf)]
 
 1. Create a file named `output.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/201-mysql-fs-db/output.tf)]
+    [!code-terraform[master](../../../terraform_samples/quickstart/201-mysql-fs-db/output.tf)]
 
 ## 3. Initialize Terraform
 
