@@ -54,6 +54,11 @@ Performing a successful migration requires you to migrate your table schemas, co
 
 The Customer Advisory Team has some great Azure Synapse Analytics (formerly Azure SQL Data Warehouse) guidance published as blog posts. For more information on migration, see [Migrating data to Azure SQL Data Warehouse in practice](/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice).
 
+For more information specifically about migrations from Netezza or Teradata to Azure Synapse Analytics, start at the first step of a seven-article sequence on migrations: 
+
+- [Netezza to Azure Synapse Analytics migrations](netezza/1-design-performance-migration.md)
+- [Teradata to Azure Synapse Analytics migrations](teradata/1-design-performance-migration.md)
+
 ## Migration assets from real-world engagements
 
 For more assistance with completing this migration scenario, see the following resources. They were developed in support of a real-world migration project engagement.
