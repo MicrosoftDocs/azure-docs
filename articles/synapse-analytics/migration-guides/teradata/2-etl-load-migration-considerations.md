@@ -132,7 +132,7 @@ In the preceding flowchart, decision 1 relates to a high-level decision about wh
 In the Teradata environment, some or all ETL processing may be performed by custom scripts using Teradata-specific utilities like BTEQ and TPT. In this case, your approach should be to reengineer using Data Factory.
 
 > [!TIP]
-> Leverage investment in existing third-party tools where to reduce cost and risk.
+> Leverage investment in existing third-party tools to reduce cost and risk.
 
 If a third-party ETL tool is already in use, and especially if there's a large investment in skills or several existing workflows and schedules use that tool, then decision 3 is whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include 'native' connectors that can leverage Azure facilities like PolyBase or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql), for most efficient data loading. There's a way to call an external process, such as PolyBase or `COPY INTO`, and pass in the appropriate parameters. In this case, leverage existing skills and workflows, with Azure Synapse as the new target environment.
 
