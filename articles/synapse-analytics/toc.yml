@@ -1484,6 +1484,8 @@ items:
   items:
   - name: Migration guides
     items:
+    - name: All migration guides
+      href: migration-guides/index.yml    
     - name: Migrate to a dedicated SQL pool
       href: migration-guides/migrate-to-synapse-analytics-guide.md
     - name: From Teradata
