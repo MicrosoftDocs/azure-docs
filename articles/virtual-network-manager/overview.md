@@ -2,11 +2,11 @@
 title: 'What is Azure Virtual Network Manager (Preview)?'
 description: Learn how Azure Virtual Network Manager can simplify management and scalability of your virtual networks.
 services: virtual-network-manager
-author: duongau
+author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: overview
 ms.date: 11/02/2021
-ms.author: duau
+ms.author: mbender
 ms.custom: references_regions, ignite-fall-2021
 #Customer intent: As an IT administrator, I want to learn about Azure Virtual Network Manager and what I can use it for.
 ---
@@ -48,6 +48,8 @@ A connectivity configuration enables you to create a mesh or a hub-and-spoke net
 
 * North Central US
 
+* South Central US
+
 * West US
 
 * West US 2
@@ -56,11 +58,25 @@ A connectivity configuration enables you to create a mesh or a hub-and-spoke net
 
 * East US 2
 
+* Canada Central
+
 * North Europe
 
 * West Europe
 
-* France Central
+* UK South
+
+* Switzerland North
+
+* Southeast Asia
+
+* Japan East
+
+* Japan West
+
+* Australia East
+
+* Central India
 
 ## Next steps
 
