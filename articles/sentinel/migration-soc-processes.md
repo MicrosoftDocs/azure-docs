@@ -26,11 +26,7 @@ Microsoft Sentinel offers a range of tools that map to a typical analyst workflo
 
 ##### Incidents in Microsoft Sentinel
 
-In Microsoft Sentinel, an incident is a collection of alerts that Microsoft Sentinel determines have sufficient fidelity to trigger the incident. Hence, with Microsoft Sentinel, the analyst triages incidents in the **Incidents** page first, and then moves to analyzing alerts, if a deeper dive is needed. This table compares the incident terminology and management areas in the different SIEMs.
-
-|ArcSight  |QRadar  |Splunk  |Microsoft Sentinel  |
-|---------|---------|---------|---------|
-|Pipeline     |Offences tab         |Incident Review         |**Incident** page         |
+In Microsoft Sentinel, an incident is a collection of alerts that Microsoft Sentinel determines have sufficient fidelity to trigger the incident. Hence, with Microsoft Sentinel, the analyst triages incidents in the **Incidents** page first, and then moves to analyzing alerts, if a deeper dive is needed. [Compare your SIEM's incident terminology and management areas](#compare-siem-concepts) with Microsoft Sentinel.
 
 #### Analyst workflow stages
 
@@ -107,3 +103,21 @@ These sources include a wide range of security-oriented playbooks to cover a sub
 :::image type="content" source="media/migration-analyst-workflow/analyst-workflow-playbooks.png" alt-text="Screenshot of Playbook templates tab in Automation blade." lightbox="media/migration-analyst-workflow/analyst-workflow-playbooks.png":::
 
 See the [SOC Process Framework](https://github.com/Azure/Azure-Sentinel/wiki/SOC-Process-Framework) to map SOC process to Microsoft Sentinel capabilities.
+
+## Compare SIEM concepts
+
+Use this table to compare the main concepts of your legacy SIEM to Microsoft Sentinel concepts.
+
+| ArcSight | QRadar | Splunk | Microsoft Sentinel |
+|--|--|--|--|
+| Event | Event | Event | Event |
+| Correlation Event | Correlation Event | Notable Event | Alert |
+| Incident | Offense | Notable Event | Incident |
+|  | List of offenses | Tags | Incidents page |
+| Labels | Custom field in SOAR | Tags | Tags |
+|  | Jupyter Notebooks | Jupyter Notebooks | Microsoft Sentinel Notebooks |
+| Dashboards | Dashboards | Dashboards | Workbooks |
+| Correlation rules | Building blocks | Correlation rules | Analytics rules |
+| Automation Bit (Python or JavaScript-based) |  | Python | Custom code embedded in function app (Learn about [Supported languages in Azure Functions](../azure-functions/supported-languages.md), PowerShell |
+| Workflow playbook canvas |  | Visual Playbook Editor | Logic App Designer |
+|Pipeline     |Offences tab         |Incident Review         |**Incident** page         |

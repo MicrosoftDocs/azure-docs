@@ -160,9 +160,7 @@
       - name: Plan your migration
         href: migration-overview.md      
       - name: Track migration with a workbook
-        href: migration-track.md    
-      - name: Compare and contrast SIEMs
-        href: migration-compare-siems.md      
+        href: migration-track.md                
     - name: Migrate from ArcSight      
       items: 
       - name: Migrate detection rules
@@ -198,7 +196,7 @@
     - name: Convert dashboards to workbooks
       href: migration-convert-dashboards.md
     - name: Update SOC processes      
-      href: migration-analyst-workflow.md
+      href: migration-soc-processes.md
   - name: Use Microsoft Sentinel side-by-side with other SIEM
     href: migration-legacy.md
   - name: Understand MITRE ATT&CK coverage

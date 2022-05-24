@@ -25,8 +25,8 @@ This article describes how to track your migration with a workbook, how to custo
 ## Customize the workbook
 
 Add your migration project planning to the workbook:
-- Start with a watchlist template to define an action, action category, priority, status, blocked status, update comments, and completion date. 
-- After Microsoft Sentinel deploys the watchlist, it builds the workbook to customize tracking columns.
+- Start with a [watchlist template](watchlists.md) to define an action, action category, priority, status, blocked status, update comments, and completion date. 
+- After you deploy the workbook from **Workbook > Templates**, you import the data into the watchlist. The workbook reflects the imported data.
 
 :::image type="content" source="media/migration-track/migration-track-customize.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker, showing an example of a customized deployment." lightbox="media/migration-track/migration-track-customize.png":::
 

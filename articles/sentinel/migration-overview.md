@@ -15,9 +15,18 @@ This article discusses the reasons for migrating from a legacy SIEM, and describ
 
 ## Migration steps
 
-This section describes how to migrate your legacy SIEM to Microsoft Sentinel.
+In this section, you learn how to migrate your legacy SIEM to Microsoft Sentinel. Follow your migration process through this series of articles, in which you'll learn how to navigate different steps in the process.
 
-[TBD - list or table of sections]
+|Step  |Article  |
+|---------|---------|
+|Plan your migration     |**You are here**         |
+|Track migration with a workbook     |[Track your Microsoft Sentinel migration with a workbook](migration-track.md)         |
+|Migrate from ArcSight     |• [Migrate detection rules](migration-arcsight-detection-rules.md)<br>• [Migrate SOAR automation](migration-arcsight-automation.md)<br>• [Export historical data](migration-arcsight-historical-data.md)          |
+|Migrate from Splunk     |• [Migrate detection rules](migration-splunk-detection-rules.md)<br>• [Migrate SOAR automation](migration-splunk-automation.md)<br>• [Export historical data](migration-splunk-historical-data.md)          |
+|Migrate from QRadar     |• [Migrate detection rules](migration-qradar-detection-rules.md)<br>• [Migrate SOAR automation](migration-qradar-automation.md)<br>• [Export historical data](migration-qradar-historical-data.md)          |
+|Ingest historical data |• [Select a target Azure platform to host the exported historical data](migration-ingestion-target-platform.md)<br>• [Select a data ingestion tool](migration-ingestion-tool.md)<br>• [Ingest historical data into your target platform](migration-export-ingest.md) |
+|Convert dashboards to workbooks |[Convert dashboards to Azure Workbooks](migration-convert-dashboards.md) |
+|Update SOC processes |[Update SOC processes](migration-analyst-workflow.md) |
 
 ## What is Microsoft Sentinel?
 
@@ -28,7 +37,7 @@ Microsoft Sentinel is a scalable, cloud-native, security information and event m
 SOC teams face a set of challenges when managing a legacy SIEM:
 
 - **Slow response to threats**: Legacy SIEMs use correlation rules, which are difficult to maintain and ineffective for identifying emerging threats. SOC analysts, faced with large amounts of false positives, alerts from many different security components, and increasingly high volumes of logs, are slower to uncover and respond to critical threats in the environment.
-- **High costs and scaling challenges**: Legacy SIEMs charge per ingested data and include storage limits. As data ingestion rates grow, SOC teams must constantly expand their resources and budgets in order to scale their SIEM. 
+- **Scaling challenges**: As data ingestion rates grow, SOC teams are challenged with scaling their SIEM. Instead of focusing on protecting the organization, SOC teams must invest in infrastructure setup and maintenance, and are bound by storage or query limits.  
 - **Manual analysis and response**: SOC teams need highly skilled analysts to manually process large amounts of alerts. Teams become overworked and new analysts are hard to find.
 - **Complex and inefficient management**: SOC teams typically oversee orchestration and infrastructure, manage connections between the SIEM and various data sources, and perform updates and patches. These tasks are often at the expense of critical triage and analysis.
 
@@ -36,7 +45,7 @@ A cloud-native SIEM addresses these challenges. Microsoft Sentinel collects data
 
 ## Plan your migration
 
-During the planning phase, you identify your existing SIEM components, existing SOC processes, and design and plan new use cases. It’s important that each phase includes clear goals for each phase, key activities and the outcome of that phase by specifying the deliverables. Learn about [migration phases](#migration-phases). Thorough planning allows you to maintain protection for both your cloud-based assets—Microsoft Azure, AWS, or GCP—and your SaaS solutions, such as Microsoft Office 365. 
+During the planning phase, you identify your existing SIEM components, existing SOC processes, and design and plan new use cases. It’s important that each phase includes clear goals for each phase, key activities and the outcome of that phase by specifying the deliverables. Learn about [migration phases](#plan-migration-phases). Thorough planning allows you to maintain protection for both your cloud-based assets—Microsoft Azure, AWS, or GCP—and your SaaS solutions, such as Microsoft Office 365. 
 
 #### Plan migration phases
 
@@ -52,12 +61,12 @@ Review these key considerations for each phase.
 
 |Phase  |Consideration  |
 |---------|---------|
-|Discover     |[Identify use cases](#identify-use-cases) as part of this phase.        |
+|Discover     |[Identify use cases](#identify-use-cases) and your [migration priorities](#identify-your-migration-priorities) as part of this phase.        |
 |Design     |Define a detailed design and architecture for your Microsoft Sentinel implementation. You will use this information to get approval from the relevant stakeholders before you start the implementation phase.         |
-|Implement     |As you implement Microsoft Sentinel components according to the design phase, and before you convert your entire infrastructure, consider whether you can use Microsoft Sentinel out-of-the-box content instead of migrating all components. You can begin using Microsoft Sentinel gradually, starting with a minimum viable product (MVP) for several use cases. As you add more use cases, you can use Microsoft Sentinel as a user acceptance testing (UAT) environment to validate the use cases.         |
+|Implement     |As you implement Microsoft Sentinel components according to the design phase, and before you convert your entire infrastructure, consider whether you can use Microsoft Sentinel out-of-the-box content instead of migrating all components. You can begin using Microsoft Sentinel gradually, starting with a minimum viable product (MVP) for several use cases. As you add more use cases, you can use this Microsoft Sentinel instance as a user acceptance testing (UAT) environment to validate the use cases.         |
 |Operationalize     |You migrate your content and SOC processes to ensure that the existing analyst experience is not disrupted.         |
 
-#### Identify your migration priorities
+###### Identify your migration priorities
 
 Use these questions to pin down your migration priorities:
 - What are the most critical infrastructure components, systems, apps, and data in your business?
@@ -69,7 +78,7 @@ Use these questions to pin down your migration priorities:
 
 Before you begin migration, identify key use cases, detection rules, data, and automation in your current SIEM. Approach your migration as a gradual process. Be intentional and thoughtful about what you migrate first, what you deprioritize, and what doesn’t actually need to be migrated. Your team might have an overwhelming number of detections and use cases running in your current SIEM. Before beginning migration, decide which ones are actively useful to your business.
 
-#### Identify use cases 
+###### Identify use cases 
 
 When planning the discover phase, use the following guidance to identify your use cases.
 - Identify and analyze your current use cases by threat, operating system, product, and so on.
