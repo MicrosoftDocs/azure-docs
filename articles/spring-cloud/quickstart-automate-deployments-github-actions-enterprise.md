@@ -112,15 +112,15 @@ key                  = "dev.terraform.tfstate"
 
 Now you can run GitHub Actions in your repository. The [provision workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/provision.yml) provisions all resources necessary to run the example application. An example run is seen below:
 
-:::image type="content" source="media/quickstart-automate-deployments-github-actions-enterpris/provision.png" alt-text="Screenshot of GitHub showing output from the provision workflow.":::
+:::image type="content" source="media/e/provision.png" alt-text="Screenshot of GitHub showing output from the provision workflow.":::
 
 Each application has a [deploy workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/catalog.yml) that will redeploy the application when changes are made to that application. An example output from the catalog service is seen below:
 
-:::image type="content" source="media/quickstart-automate-deployments-github-actions-enterpris/deploy-catalog.png" alt-text="Screenshot of GitHub showing output from the Deploy Catalog workflow.":::
+:::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/deploy-catalog.png" alt-text="Screenshot of GitHub showing output from the Deploy Catalog workflow.":::
 
 The [cleanup workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/cleanup.yml) can be manually run to delete all resources created by the `provision` workflow. The output can be seen below:
 
-:::image type="content" source="media/quickstart-automate-deployments-github-actions-enterpris/cleanup.png" alt-text="Screenshot of GitHub showing output from the cleanup workflow.":::
+:::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/cleanup.png" alt-text="Screenshot of GitHub showing output from the cleanup workflow.":::
 
 ## Clean up resources
 
