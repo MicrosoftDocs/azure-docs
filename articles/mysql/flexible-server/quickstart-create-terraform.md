@@ -47,7 +47,7 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](../../../terraform_samples/quickstart/201-mysql-fs-db/providers.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/201-mysql-fs-db/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
