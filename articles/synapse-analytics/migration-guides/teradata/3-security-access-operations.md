@@ -84,8 +84,8 @@ The information about current users and roles in a Teradata system is found in t
 /***SQL to find all users***/
 SELECT
 DatabaseName AS UserName
-From dbc.databases
-Where dbkind = 'u';
+FROM DBC.Databases
+WHERE dbkind = 'u';
 
 /***SQL to find all roles***/
 SELECT A.ROLENAME, A.GRANTEE, A.GRANTOR,
