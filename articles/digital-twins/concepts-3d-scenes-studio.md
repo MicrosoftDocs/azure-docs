@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: 3D Scenes Studio for Azure Digital Twins
+title: 3D Scenes Studio (preview) for Azure Digital Twins
 titleSuffix: Azure Digital Twins
-description: Learn about 3D Scenes Studio for Azure Digital Twins.
+description: Learn about 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 05/04/2022
@@ -16,11 +16,13 @@ ms.custom: event-tier1-build-2022
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# 3D Scenes Studio for Azure Digital Twins
+# 3D Scenes Studio (preview) for Azure Digital Twins
 
-Azure Digital Twins [3D Scenes Studio](https://explorer.digitaltwins.azure.net/3dscenes) is an immersive 3D environment, where end users can monitor, diagnose, and investigate operational data with the visual context of 3D assets. 3D Scenes Studio empowers organizations to enrich existing 3D models with visualizations powered by Azure Digital Twins data, without the need for 3D expertise. The visualizations can be easily consumed from web browsers. 
+Azure Digital Twins [3D Scenes Studio (preview)](https://explorer.digitaltwins.azure.net/3dscenes) is an immersive 3D environment, where end users can monitor, diagnose, and investigate operational data with the visual context of 3D assets. 3D Scenes Studio empowers organizations to enrich existing 3D models with visualizations powered by Azure Digital Twins data, without the need for 3D expertise. The visualizations can be easily consumed from web browsers. 
 
 With a digital twin graph and curated 3D model, subject matter experts can leverage the studio's low-code builder to map the 3D elements to the digital twin, and define UI interactivity and business logic for a 3D visualization of a business environment. The 3D scenes can then be consumed in the hosted [Azure Digital Twins Explorer 3D Scenes Studio](concepts-azure-digital-twins-explorer.md), or in a custom application that leverages the embeddable 3D viewer component.
+
+This article gives an overview of 3D Scenes Studio and its key features. For comprehensive, step-by-step instructions on how to use each feature, see [Use 3D Scenes Studio (preview)](how-to-use-3d-scenes-studio.md).
 
 ## Studio overview
 
@@ -51,13 +53,16 @@ To work with 3D Scenes Studio, you'll need the following required resources:
 * An [Azure Digital Twins instance](how-to-set-up-instance-cli.md)
     * You'll need *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance
     * The instance should be populated with [models](concepts-models.md) and [twins](concepts-twins-graph.md)
-* An [Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal)
-    * To build 3D scenes, you'll need *Storage Blob Data Owner* access to the storage account. If you only need to consume 3D scenes that others have created, you'll need *Storage Blob Data Reader*.
-* A [private container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in the storage account
 
-Then, you can access 3D Scenes Studio at this link: [3D Scenes Studio](https://explorer.digitaltwins.azure.net/3dscenes).
+* An [Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal), and a [private container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in the storage account
+    * To **view** 3D scenes, you'll need at least *Storage Blob Data Reader* access to these storage resources. To **build** 3D scenes, you'll need *Storage Blob Data Contributor* or *Storage Blob Data Owner* access. 
 
-Once there, you'll link your 3D environment to your storage resources, and configure your first scene. For detailed instructions on how to perform these actions, see [Initialize your 3D Scenes Studio environment](how-to-use-3d-scenes-studio.md#initialize-your-3d-scenes-studio-environment) and [Create and view scenes](how-to-use-3d-scenes-studio.md#create-and-view-scenes).
+        You can grant required roles at either the storage account level or the container level. For more information about Azure storage permissions, see [Assign an Azure role](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal#assign-an-azure-role).
+    * You should also configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. For complete CORS setting information, see [Use 3D Scenes Studio (preview)](how-to-use-3d-scenes-studio.md#prerequisites).
+
+Then, you can access 3D Scenes Studio at this link: [3D Scenes Studio](https://dev.explorer.azuredigitaltwins-test.net/3dscenes).
+
+Once there, you'll link your 3D environment to your storage resources, and configure your first scene. For detailed instructions on how to perform these actions, see [Initialize your 3D Scenes Studio environment](how-to-use-3d-scenes-studio.md#initialize-your-3d-scenes-studio-environment) and [Create, edit, and view scenes](how-to-use-3d-scenes-studio.md#create-edit-and-view-scenes).
 
 ## Builder
 
@@ -67,9 +72,11 @@ Here's what the builder looks like:
 
 :::image type="content" source="media/concepts-3d-scenes-studio/build-mode.png" alt-text="Screenshot of 3D Scenes Studio builder."  lightbox="media/concepts-3d-scenes-studio/build-mode.png":::
 
-In the builder, you'll create *elements* and *behaviors* for your scene. Elements are user-defined 3D meshes that are linked to digital twins, mapping the visualization pieces to relevant twin data. Behaviors are business logic rules that use digital twin data to drive visuals in the scene.
+In the builder, you'll create *elements* and *behaviors* for your scene. The following sections explain these features in more detail.
 
 ### Elements
+
+*Elements* are user-defined 3D meshes that are linked to digital twins, mapping the visualization pieces to relevant twin data.
 
 When creating an element in the builder, you'll define the following components:
 
@@ -77,14 +84,16 @@ When creating an element in the builder, you'll define the following components:
 * **Name**: Each element needs a name. You might want to make it match the `$dtId` of its primary twin.
 * **Meshes**: Identify which components of the 3D model represent this element.
 * **Behaviors**: [Behaviors](#behaviors) describe how elements appear in the visualization. You can assign behaviors to this element here.
-* **Aliased twins**: If you want, you can add secondary digital twin data sources for an element. You should only add aliased twins when there are additional twins with data beyond your primary twin that you want to leverage in your behaviors. After configuring an aliased twin, you'll be able to use properties from that twin when defining behaviors for that element.
+* **Other twins**: If you want, you can add secondary digital twin data sources for an element. You should only add other twins when there are additional twins with data beyond your primary twin that you want to leverage in your behaviors. After configuring another twin, you'll be able to use properties from that twin when defining behaviors for that element.
 
 ### Behaviors
+
+*Behaviors* are business logic rules that use digital twin data to drive visuals in the scene.
 
 When creating a behavior for an element, you'll define the following components:
 
 * **Elements**: Behaviors describe the visuals that are applied to each [element](#elements) in the visualization. You can choose which elements this behavior applies to.
-* **Twins**: Identify the set of twins whose data is available to this behavior. This includes the targeted elements' primary twins, and any aliased twins.
+* **Twins**: Identify the set of twins whose data is available to this behavior. This includes the targeted elements' primary twins, and any other twins.
 * **Status**: States are data-driven overlays on your elements to indicate the health or status of the element. 
 * **Alerts**: Alerts are conditional notifications to help you quickly see when an element requires attention.
 * **Widgets**: Widgets are data-driven visuals that provide additional data to help you diagnose and investigate the scenario that the behavior represents. Configuring widgets will help you make sure the right data is discoverable when an alert or status is active.
@@ -108,6 +117,8 @@ You can use the **Elements** list to explore all the elements and active alerts 
 Here's an example of what the embedded viewer might look like in an independent application:
 
 :::image type="content" source="media/concepts-3d-scenes-studio/embedded-view.png" alt-text="Screenshot of 3D Scenes Studio in embedded view." lightbox="media/concepts-3d-scenes-studio/embedded-view.png":::
+
+The 3D visualization components are available in GitHub, in the [iot-cardboard-js](https://github.com/microsoft/iot-cardboard-js) repository. For instructions on how to use the components to embed 3D experiences into custom applications, see the repository's wiki, [Embedding 3D Scenes](https://github.com/microsoft/iot-cardboard-js/wiki/Embedding-3D-Scenes).
 
 ## Recommended limits
 

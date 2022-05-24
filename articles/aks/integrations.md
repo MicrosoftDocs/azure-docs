@@ -50,7 +50,7 @@ The below table shows a few examples of open-source and third-party integrations
 | [Grafana][grafana] | An open-source dashboard for observability.  | [Deploy Grafana on Kubernetes][grafana-install] |
 | [Couchbase][couchdb] | A distributed NoSQL cloud database. | [Install Couchbase and the Operator on AKS][couchdb-install] |
 | [OpenFaaS][open-faas]| An open-source framework for building serverless functions by using containers. | [Use OpenFaaS with AKS][open-faas-aks] |
-| [Apache Spark][apache-spark] | An open source, fast engine for large-scale data processing. | [Run an Apache Spark job with AKS][spark-job] |
+| [Apache Spark][apache-spark] | An open source, fast engine for large-scale data processing. | Running Apache Spark jobs requires a minimum node size of *Standard_D3_v2*. See [running Spark on Kubernetes][spark-kubernetes] for more details on running Spark jobs on Kubernetes. |
 | [Istio][istio] | An open-source service mesh. | [Istio Installation Guides][istio-install] |
 | [Linkerd][linkerd] | An open-source service mesh. | [Linkerd Getting Started][linkerd-install] |
 | [Consul][consul] | An open source, identity-based networking solution. | [Getting Started with Consul Service Mesh for Kubernetes][consul-install] |
@@ -84,8 +84,8 @@ The below table shows a few examples of open-source and third-party integrations
 [open-faas]: https://www.openfaas.com/
 [open-faas-aks]: openfaas.md
 [apache-spark]: https://spark.apache.org/
-[spark-job]: spark-job.md
 [azure-ml-overview]: ../machine-learning/how-to-attach-kubernetes-anywhere.md
+[spark-kubernetes]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [dapr-overview]: ./dapr.md
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
 [web-app-routing]: web-app-routing.md

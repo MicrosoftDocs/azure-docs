@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 05/24/2022
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
@@ -61,6 +61,10 @@ When a blob in the source account is deleted, the current version of the blob be
 ### Snapshots
 
 Object replication doesn't support blob snapshots. Any snapshots on a blob in the source account aren't replicated to the destination account.
+
+## Blob index tags
+
+Object replication does not copy the source blob's index tags to the destination blob.
 
 ### Blob tiering
 

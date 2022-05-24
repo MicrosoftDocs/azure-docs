@@ -23,7 +23,7 @@ The PII preview feature includes the ability to detect personal (`PII`) informat
 
 The following entity categories are returned when you're sending API requests PII feature.
 
-## Category: Person
+## Category: Name
 
 This category contains the following entity:
 
@@ -31,7 +31,7 @@ This category contains the following entity:
     :::column span="":::
         **Entity**
 
-        Person
+        Name
 
     :::column-end:::
     :::column span="2":::
@@ -39,7 +39,7 @@ This category contains the following entity:
 
         All first, middle, last or full name is considered PII regardless of whether it is the speaker’s name, the agent’s name, someone else’s name or a different version of the speaker’s full name (Chris vs. Christopher). 
 
-        To get this entity category, add `Person` to the `pii-categories` parameter. `Person` will be returned in the API response if detected.
+        To get this entity category, add `Name` to the `pii-categories` parameter. `Name` will be returned in the API response if detected.
       
     :::column-end:::
     
@@ -191,7 +191,7 @@ This category contains the following entity:
 
         Any credit card number, any security code on the back, or the expiration date is considered as PII.
 
-        To get this entity category, add `CreditCardNumber` to the `pii-categories` parameter. `CreditCardNumber` will be returned in the API response if detected.
+        To get this entity category, add `CreditCard` to the `pii-categories` parameter. `CreditCard` will be returned in the API response if detected.
 
     :::column-end:::
     :::column span="2":::
@@ -202,27 +202,6 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-## Government and country/region-specific identification
+## Next steps
 
-### United States
-
-:::row:::
-    :::column span="":::
-        **Entity**
-
-        U.S. Social Security Number (SSN)
-
-    :::column-end:::
-    :::column span="2":::
-        **Details**
-
-        To get this entity category, add `USSocialSecurityNumber` to the `pii-categories` parameter. `USSocialSecurityNumber` will be returned in the API response if detected.
-      
-    :::column-end:::
-    :::column span="":::
-      **Supported document languages**
-
-      `en`
-      
-   :::column-end:::
-:::row-end:::
+[How to detect PII in conversations](../how-to-call-for-conversations.md)

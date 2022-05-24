@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 05/06/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
 
-# What is custom text classification (preview)?
+# What is custom text classification?
 
 Custom text classification is one of the custom features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build custom models for text classification tasks. 
 
-Custom text classification enables users to build custom AI models to classify text into custom classes pre-defined by the user. By creating a custom text classification project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. The quality of the tagged data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
+Custom text classification enables users to build custom AI models to classify text into custom classes pre-defined by the user. By creating a custom text classification project, developers can iteratively label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 
 Custom text classification supports two types of projects: 
 
@@ -52,9 +52,9 @@ Follow these steps to get the most out of your model:
 
 1. **Define schema**: Know your data and identify the [classes](glossary.md#class) you want differentiate between, avoid ambiguity.
 
-2. **Tag data**: The quality of data tagging is a key factor in determining model performance. Documents that belong to the same class should always have the same class, if you have a document that can fall into two classes use  **Multi label classification** projects. Avoid class ambiguity, make sure that your classes are clearly separable from each other, especially with single label classification projects.
+2. **Label data**: The quality of data labeling is a key factor in determining model performance. Documents that belong to the same class should always have the same class, if you have a document that can fall into two classes use  **Multi label classification** projects. Avoid class ambiguity, make sure that your classes are clearly separable from each other, especially with single label classification projects.
 
-3. **Train model**: Your model starts learning from your tagged data.
+3. **Train model**: Your model starts learning from your labeled data.
 
 4. **View model evaluation details**: View the evaluation details for your model to determine how well it performs when introduced to new data.
 

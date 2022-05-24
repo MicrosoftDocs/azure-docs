@@ -66,6 +66,9 @@ If the definition file is in a .CSV or .JSON file, provide the full path in the 
 
 If you're using an inline definition, specify it under the "inlineEntitiesDefinition" skill parameter.
 
+> [!NOTE]
+> Indexers support specialized parsing modes for JSON and CSV files. When using the custom entity lookup skill, keep "parsingMode" set to "default". The skill expects JSON and CSV in an unparsed state.
+
 ### CSV format
 
 You can provide the definition of the custom entities to look for in a Comma-Separated Value (CSV) file by providing the path to the file and setting it in the "entitiesDefinitionUri"  skill parameter. The path should be at an https location. The definition file can be up to 10 MB in size.

@@ -703,6 +703,8 @@ items:
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
       - name: SSL Encryption and Authentication
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
+      - name: Kafka MirrorMaker 2.0 guide
+        href: ./kafka/kafka-mirrormaker-2-0-guide.md  
     - name: Troubleshoot
       items:
       - name: Insufficient fault domains

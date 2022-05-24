@@ -45,7 +45,7 @@ The following are available for specific cluster types:
 | Livy |443 |HTTPS |Spark |Spark REST API. See [Submit Apache Spark jobs remotely using Apache Livy](spark/apache-spark-livy-rest-interface.md) |
 | Spark Thrift server |443 |HTTPS |Spark |Spark Thrift server used to submit Hive queries. See [Use Beeline with Apache Hive on HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Storm web UI. See [Deploy and manage Apache Storm topologies on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
-| Kafka Rest proxy |443 |HTTPS |Kafka |Kafka REST API. See [Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy](kafka/rest-proxy.md) |
+| Kafka REST proxy |443 |HTTPS |Kafka |Kafka REST API. See [Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy](kafka/rest-proxy.md) |
 
 ### Authentication
 
