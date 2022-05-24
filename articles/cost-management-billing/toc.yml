@@ -154,6 +154,8 @@
         href: manage/account-admin-tasks.md
       - name: Edit billing contact information
         href: manage/change-azure-account-profile.md
+      - name: Update tax details
+        href: manage/manage-tax-information.md
       - name: Grant access to billing
         displayName: azure billing administrator, billing administrator azure, billing admin, add billing admin, azure billing administrator role
         href: manage/manage-billing-access.md
