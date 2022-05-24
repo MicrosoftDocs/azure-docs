@@ -14,7 +14,7 @@ ms.date: 05/11/2022
 Azure Monitor Container Insights is now in Public Preview of new schema for container logs called ContainerLogV2. As part of this schema, there new fields to make common queries to view AKS (Azure Kubernetes Service) and Azure Arc enabled Kubernetes data. In addition, this schema is compatible as a part of [Basic Logs](../logs/basic-logs-configure.md), which offer a low cost alternative to standard analytics logs.
 
 > [!NOTE]
-> The ContainerLogv2 schema is currently a preview feature, some features may be limited in the Portal experience from Container Insights
+> The ContainerLogv2 schema is currently a preview feature, Container Insights does not yet support the "View in Analytics" option, however the data is still available when queried directly from the [Log Analytics](./container-insights-log-query) interface.
 
 >[!NOTE]
 >The new fields are:
@@ -39,13 +39,13 @@ Azure Monitor Container Insights is now in Public Preview of new schema for cont
 3. Follow the instructions accordingly when configuring an existing ConfigMap or using a new one.
 
 ### Configuring an existing ConfigMap
-When configuring an existing ConfigMap, we have to append the following section in your existing ConfigMap yaml file:
+If your ConfigMap does not yet have the "[log_collection_settings.schema]" field, you will need to append the following section in your existing ConfigMap yaml file:
 
 ```yaml
 [log_collection_settings.schema]
-          # In the absense of this configmap, default value for containerlog_schema_version is "v1"
+          # In the absence of this configmap, default value for containerlog_schema_version is "v1"
           # Supported values for this setting are "v1","v2"
-          # See documentation for benefits of v2 schema over v1 schema before opting for "v2" schema
+          # See documentation at https://aka.ms/ContainerLogv2 for benefits of v2 schema over v1 schema before opting for "v2" schema
           containerlog_schema_version = "v2"
 ```
 
@@ -53,13 +53,14 @@ When configuring an existing ConfigMap, we have to append the following section 
 1. Download the new ConfigMap from [here](https://aka.ms/container-azm-ms-agentconfig). For new downloaded configmapdefault the value for containerlog_schema_version is "v1"
 1. Update the "containerlog_schema_version = "v2""
 
-    ```yaml
-    [log_collection_settings.schema]
-    # In the absense of this configmap, default value for containerlog_schema_version is "v1"
-    # Supported values for this setting are "v1","v2"
-    # See documentation for benefits of v2 schema over v1 schema before opting for "v2" schema
-    containerlog_schema_version = "v2"
-    ```
+```yaml
+[log_collection_settings.schema]
+          # In the absence of this configmap, default value for containerlog_schema_version is "v1"
+          # Supported values for this setting are "v1","v2"
+          # See documentation at https://aka.ms/ContainerLogv2 for benefits of v2 schema over v1 schema before opting for "v2" schema
+          containerlog_schema_version = "v2"
+```
+
 1. Once you have finished configuring the configmap Run the following kubectl command: kubectl apply -f `<configname>`
 
 >[!TIP]
