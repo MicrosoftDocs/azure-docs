@@ -7,12 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 05/24/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge Pro GPU device via templates
+# Deploy VMs on your Azure Stack Edge Pro GPU device via templates 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -319,6 +319,11 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
             "osType": {
               "value": "Windows"
             },
+            "hyperVGeneration": { 
+              "type": "string", 
+              "value": "<Generation of the VM, V1 or V2> 
+            }, 
+        }
     ```
 
 2. Change the image URI to the URI of the image you uploaded in the earlier step:
@@ -342,6 +347,9 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
       "parameters": {
         "osType": {
           "value": "Linux"
+        },
+        "hyperVGeneration": { 
+          "value": "V2" 
         },
         "imageName": {
           "value": "myaselinuximg"
