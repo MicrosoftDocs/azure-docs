@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 05/03/2022
 ---
 
-# Insert or remove transcript lines in Video indexer portal 
+# Insert or remove transcript lines in Video Indexer portal 
 
 This article explains how to insert or remove a transcript line in Azure Video Indexer portal.
 
@@ -14,11 +14,11 @@ This article explains how to insert or remove a transcript line in Azure Video I
 
 While in the edit mode, hover between two transcription lines. You'll find a gap between **ending time** of the **transcript line** and the beginning of the following transcript line, user should see the following **add new transcription line** option. 
 
-:::image type="content" alt-text="The image shows how to add new transcription." source="./media/edit-transcript-lines-portal/add-new-transcription-line.png":::
+:::image type="content" alt-text="Screenshot of how to add new transcription." source="./media/edit-transcript-lines-portal/add-new-transcription-line.png":::
 
-After clicking the add new transcription line,** there will be an option to add the new text and the time stamp for the new line. Enter the text, choose the time stamp for the new line, and select **save**. Default timestamp is the gap between the previous and next transcript line. 
+After clicking the add new transcription line, there will be an option to add the new text and the time stamp for the new line. Enter the text, choose the time stamp for the new line, and select **save**. Default timestamp is the gap between the previous and next transcript line. 
 
-:::image type="content" alt-text="The image shows a new time stamp line." source="./media/edit-transcript-lines-portal/transcript-time-stamp.png":::
+:::image type="content" alt-text="Screenshot of a new transcript time stamp line." source="./media/edit-transcript-lines-portal/transcript-time-stamp.png":::
 
 If there isn’t an option to add a new line, you can adjust the end/start time of the relevant transcript lines to fit a new line in your desired place. 
 
