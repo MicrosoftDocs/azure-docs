@@ -183,7 +183,7 @@
   - name: Planning
     items:
     - name: Choose a tier
-      href: search-sku-tier.md   
+      href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
     - name: Plan capacity
@@ -206,6 +206,8 @@
       href: search-manage-powershell.md
     - name: Manage with Azure CLI
       href: search-manage-azure-cli.md
+    - name: Manage with REST
+      href: search-manage-rest.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md
   - name: Security

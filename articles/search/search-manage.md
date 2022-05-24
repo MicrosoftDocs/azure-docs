@@ -9,7 +9,7 @@ ms.author: heidist
 tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 05/23/2022
 ---
 # Service administration for Azure Cognitive Search in the Azure portal
 
@@ -22,11 +22,15 @@ ms.date: 05/16/2022
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already created. 
+Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already created.
 
-Depending on your permission level, the portal supports [service administration tasks](#management-tasks), content management tasks, and content exploration. As such, the portal provides broad spectrum access to all aspects of search service operations.
+Depending on your permission level, the portal covers virtually all aspects of search service operations, including:
 
-Each search service is managed as a standalone resource. The following sections show the portal pages for a single free search service called "demo-search-svc".
+* [Service administration](#management-tasks)
+* Content management
+* Content exploration
+
+Each search service is managed as a standalone resource. The following image shows the portal pages for a single free search service called "demo-search-svc". 
 
 ## Overview (home) page
 
@@ -46,40 +50,52 @@ The overview page is the "home" page of each service. Below, the areas on the sc
 Several aspects of a search service are determined when the service is provisioned and can't be easily changed:
 
 * Service name
-* Service location (although there are ARM and bicep templates for service deployment, moving content is a manual process)
-* Service tier (switch tiers requires creating a new service or filing a support ticket)
+* Service location <sup>1</sup>
+* Service tier <sup>2</sup>
+
+<sup>1</sup> Although there are ARM and bicep templates for service deployment, moving content is a manual job.
+
+<sup>2</sup> Switching tiers requires creating a new service or filing a support ticket to request a tier upgrade.
 
 ## Management tasks
 
 Service administration includes the following tasks:
 
 * [Adjust capacity](search-capacity-planning.md) by adding or removing replicas and partitions
-* [Manage API keys](search-security-api-keys.md) used for admin and query operations
+* [Rotate API keys](search-security-api-keys.md) used for admin and query operations
 * [Control access to admin operations](search-security-rbac.md) through role-based security
 * [Configure IP firewall rules](service-configure-firewall.md) to restrict access by IP address
 * [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network
 * [Monitor service health and operations](monitor-azure-cognitive-search.md): storage, query volumes, and latency
 
-There is feature parity across all modalities and languages, with the exception of preview management features. Most preview management features are released through the Management REST API first. Programmatic support for service administration can be found in the following APIs and modules:
+There is feature parity across all modalities and languages except for preview management features. In general, preview management features are released through the Management REST API first. Programmatic support for service administration can be found in the following APIs and modules:
 
-* [Management REST APIs](/rest/api/searchmanagement/)
+* [Management REST API reference](/rest/api/searchmanagement/)
 * [Az.Search PowerShell module](search-manage-powershell.md)
 * [az search Azure CLI module](search-manage-azure-cli.md)
 
 You can also use the management client libraries in the Azure SDKs for .NET, Python, Java, and JavaScript. 
 
-## Data collection
+## Data collection and retention
 
-Cognitive Search leverages other Azure services for deeper monitoring and management. By itself, the only data stored within the search service is object content (indexes, indexer and data source definitions, and other objects). Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and additional events, you will need [Azure Monitor](../azure-monitor/index.yml). For more information about setting up diagnostic logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
+Cognitive Search uses other Azure services for deeper monitoring and management. By itself, the only persistent data stored within the search service are the structures that support indexing, enrichment, and queries. These structures include indexes, indexers, data sources, skillsets, and synonym maps. All other saved data, including debug session state and caching, is placed in Azure Storage.
+
+Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and more events, you will need [Azure Monitor](../azure-monitor/index.yml) and a supported approach for retaining log data.  For more information about setting up diagnostic logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
 
 ## Administrator permissions
 
-When you open the search service overview page, the permissions assigned to your account determine what pages are available to you. The overview page at the beginning of the article shows the portal pages an administrator or contributor will see.
+When you open the search service overview page, the Azure role assigned to your account determines what portal content is available to you. The overview page at the beginning of the article shows the portal content available to an Owner or Contributor.
 
-In Azure resource, administrative rights are granted through role assignments. In the context of Azure Cognitive Search, [role assignments](search-security-rbac.md) will determine who can allocate replicas and partitions or manage API keys, regardless of whether they are using the portal, [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md),or the [Management REST APIs](/rest/api/searchmanagement):
+Control plane roles include the following:
+
+* Owner
+* Contributor (same as Owner, minus the ability to assign roles)
+* Reader (access to service information and the Monitoring tab)
+
+If you want a combination of control plane and data plane permissions, consider Search Service Contributor. For more information, see [Built-in roles](search-security-rbac.md#built-in-roles-used-in-search).
 
 > [!TIP]
-> Provisioning or decommissioning the service itself can be done by an Azure subscription administrator or co-administrator. Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
+> By default, any Owner or Co-owner can create or delete services. To prevent accidental deletions, you can  [lock resources](../azure-resource-manager/management/lock-resources.md).
 
 ## Next steps
 

@@ -64,7 +64,7 @@ The following Forwarding rules allow encryption and certificate validation:
     -  Select the severity level.  This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
     
     - Select a protocol(s) that should be detected. 
-       Information will forwarding if the traffic detected was running selected protocols. 
+       Information will be forwarded if the traffic detected was running selected protocols. 
     
     - Select which engines the rule should apply to.
     Alert information detected from selected engines will be forwarded
@@ -117,7 +117,7 @@ Enter the following parameters:
 | Syslog text message output fields | Description |
 |--|--|
 | Date and time | Date and time that the syslog server machine received the information. |
-| Priority | User.Alert |
+| Priority | User. Alert |
 | Hostname | Sensor IP address |
 | Protocol | TCP or UDP |
 | Message | Sensor: The sensor name.<br /> Alert: The title of the alert.<br /> Type: The type of the alert. Can be **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**.<br /> Severity: The severity of the alert. Can be **Warning**, **Minor**, **Major**, or **Critical**.<br /> Source: The source device name.<br /> Source IP: The source device IP address.<br /> Destination: The destination device name.<br /> Destination IP: The IP address of the destination device.<br /> Message: The message of the alert.<br /> Alert group: The alert group associated with the alert. |
@@ -195,7 +195,7 @@ Once the Webhook Extended forwarding rule has been configured, you can test the 
 
     :::image type="content" source="media/how-to-forward-alert-information-to-partners/run-button.png" alt-text="Select the run button to test your forwarding rule.":::
 
-You will know the forwarding rule is working if you see the Success notification.
+You'll know the forwarding rule is working if you see the Success notification.
 
 
 ### NetWitness action
@@ -250,7 +250,7 @@ Test the connection between the sensor and the partner server that's defined in 
 1. Select **Delete** and confirm.
 1. Select **Save**. 
 
-## Forwarding rules and alert exclusion rules
+## Forwarding rules and alert exclusion rules 
 
 The administrator might have defined alert exclusion rules. These rules help administrators achieve more granular control over alert triggering by instructing the sensor to ignore alert events based on various parameters. These parameters might include device addresses, alert names, or specific sensors.
 

@@ -8,7 +8,7 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 05/23/2022
 ---
 
 # Manage your Azure Cognitive Search service with the Azure CLI

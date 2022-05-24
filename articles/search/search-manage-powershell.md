@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: how-to
-ms.date: 04/19/2022 
+ms.date: 05/23/2022
 ms.custom: devx-track-azurepowershell
 ---
 
