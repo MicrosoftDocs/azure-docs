@@ -17,7 +17,7 @@ ms.author: cynthn
 
 Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://xrdp.org)) for your Linux VM running Ubuntu.
 
-The article was writen and tested using an Ubuntu 18.04 VM.
+The article was written and tested using an Ubuntu 18.04 VM.
 
 ## Prerequisites
 
