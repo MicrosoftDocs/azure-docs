@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to migrate an existing application in Basic or Standard tier to Enterprise tier. When you migrate from Basic or Standard tier to Enterprise tier, VMware Tanzu components will replace the OSS Spring Cloud components to provide more feature support. 
+This article shows you how to migrate an existing application in Basic or Standard tier to Enterprise tier. When you migrate from Basic or Standard tier to Enterprise tier, VMware Tanzu components will replace the OSS Spring Cloud components to provide more feature support.
 
 This article will use the Pet Clinic sample apps as examples of how to migrate.
 
@@ -26,8 +26,8 @@ This article will use the Pet Clinic sample apps as examples of how to migrate.
 
 In Enterprise Tier, VMware Tanzu components will replace the OSS Spring Cloud components to provide more feature support. Tanzu components are enabled on demand according to your needs. You can select the components you need before creating the service instance.
 
- > [!NOTE]
-  > To use Tanzu Components, you must enable them when you provision your Azure Spring Cloud service instance. You cannot enable them after provisioning at this time.
+> [!NOTE]
+> To use Tanzu Components, you must enable them when you provision your Azure Spring Cloud service instance. You can't enable them after provisioning at this time.
 
 Use the following steps to provision an Azure Spring Cloud service instance:
 
@@ -106,6 +106,7 @@ It takes about 5 minutes to finish the resource provisioning.
    ```azurecli
    az config set defaults.group=<resource-group-name> defaults.spring-cloud=<service-instance-name>
    ```
+
 ---
 
 ## Create and configure apps
@@ -128,10 +129,10 @@ The app creation steps are the same as Standard Tier.
 
 ## Use Application Configuration Service for external configuration
 
-In Enterprise tier, Application Configuration Service provides external configuration support for your apps. Managed Spring Cloud Config Server is only available in Basic and Standard tiers and is not available in Enterprise tier. 
+In Enterprise tier, Application Configuration Service provides external configuration support for your apps. Managed Spring Cloud Config Server is only available in Basic and Standard tiers and isn't available in Enterprise tier.
 
-| Component | Standard Tier | Enterprise Tier |
-| - | - | - |
+| Component     | Standard Tier                                                               | Enterprise Tier                                                                                   |
+|---------------|-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | Config Server | OSS config server <br> Auto bound (always injection) <br>Always provisioned | Application Configuration Service for Tanzu <br> Need manual binding to app <br> Enable on demand |
 
 ## Configure Application Configuration Service for Tanzu settings
@@ -203,10 +204,10 @@ For more information, see [Use Application Configuration Service for Tanzu](./ho
 
 ## Using Service Registry for Tanzu
 
-[Service Registry](https://docs.pivotal.io/spring-cloud-services/2-1/common/service-registry/index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key concepts of a microservice-based architecture. In Enterprise tier, Service Registry for Tanzu provides service registry and discover support for your apps. Managed Spring Cloud Eureka is only available in Basic and Standard tiers and is not available in Enterprise tier. 
+[Service Registry](https://docs.pivotal.io/spring-cloud-services/2-1/common/service-registry/index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key concepts of a microservice-based architecture. In Enterprise tier, Service Registry for Tanzu provides service registry and discover support for your apps. Managed Spring Cloud Eureka is only available in Basic and Standard tiers and isn't available in Enterprise tier.
 
-| Component | Standard Tier | Enterprise Tier |
-| - | - | - |
+| Component        | Standard Tier                                                        | Enterprise Tier                                                                   |
+|------------------|----------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | Service Registry | OSS eureka <br> Auto bound (always injection) <br>Always provisioned | Service Registry for Tanzu <br> Needs manual binding to app <br> Enable on demand |
 
 ## Bind an application to Tanzu Service Registry
@@ -247,7 +248,7 @@ In Enterprise tier, Tanzu Build Service is used to build apps. It provides more 
 
 To use Tanzu Build Service, you need to specify a resource for build task and builder to use. You can also specify the `--build-env` parameter to set build environments.
 
-If the app binds with ACS, you need specify an additional argument `—config-file-pattern`.
+If the app binds with ACS, you need specify an extra argument `—config-file-pattern`.
 
 The following sections show how to build and deploy applications.
 
@@ -297,8 +298,8 @@ To build locally, use the following steps:
 
 Azure Enterprise tier uses the build service feature [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights` instead of In-Process Agent.
 
-| Standard Tier | Enterprise Tier |
-| - | - |
+| Standard Tier                                                       | Enterprise Tier                                                                     |
+|---------------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | Application insight <br> New Relica <br> Dynatrace <br> AppDynamics | Application insight <br> New Relica <br> Dynatrace <br> AppDynamics <br> ElasticAPM |
 
 To check or update the current settings in Application Insights, use the following steps:
@@ -370,8 +371,8 @@ az spring-cloud build-service builder buildpack-binding delete \
     --name <your-binding-name> \
     --builder-name <your-builder-name> \
 ```
-For more information, see [Use Application Insights Java In-Process Agent in Azure Spring Cloud](./how-to-application-insights.md).
 
+For more information, see [Use Application Insights Java In-Process Agent in Azure Spring Cloud](./how-to-application-insights.md).
 
 ---
 
