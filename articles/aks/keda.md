@@ -132,6 +132,7 @@ The following snippet is a sample deployment that creates a cluster with KEDA en
         }
     ]
 }
+```
 
 ## Use KEDA
 
