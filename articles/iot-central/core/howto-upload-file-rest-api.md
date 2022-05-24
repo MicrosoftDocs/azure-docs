@@ -78,9 +78,9 @@ Use the following request to create a container called `fileuploads` in your sto
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/fileuploads?api-version=2021-09-01
 ```
 
-* `containerName` : The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+* `containerName` : Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 
-The request body looks like the following example:
+Send an empty request body with this request that looks like the following example:
 
 ```json
 {
@@ -97,7 +97,9 @@ The response to this request looks like the following example:
 }
 ```
 
-### Storage accounts - list keys
+### Get the storage account keys
+
+Use the following request to retrieve that storage account keys that you need when you configure the upload in IoT Central:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listKeys?api-version=2021-09-01
@@ -124,10 +126,12 @@ The response to this request looks like the following example:
 }
 ```
 
+### Create the upload configuration
+
 Use the following request to create a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/fileUploads?api-version=1.2-preview
+PUT https://{your-app-subdomain}/api/fileUploads?api-version=1.2-preview
 ```
 
 The request body has the following fields:
@@ -168,7 +172,7 @@ Use the following request to retrieve details of a file upload blob storage acco
 
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/fileUploads?api-version=1.2-preview
+GET https://{your-app-subdomain}/api/fileUploads?api-version=1.2-preview
 ```
 
 The response to this request looks like the following example:
@@ -189,7 +193,7 @@ The response to this request looks like the following example:
 Use the following request to update a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/fileUploads?api-version=1.2-preview
+PATCH https://{your-app-subdomain}/api/fileUploads?api-version=1.2-preview
 ```
 
 ```json
@@ -220,7 +224,7 @@ The response to this request looks like the following example:
 Use the following request to delete a  storage account configuration:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/fileUploads?api-version=1.2-preview
+DELETE https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=1.2-preview
 ```
 
 ## Test file upload
@@ -231,6 +235,7 @@ After you [configure file uploads](#add-a-file-upload-storage-account-configurat
 git clone https://github.com/azure-Samples/iot-central-file-upload-device
 cd iotc-file-upload-device
 npm i
+npm build
 ```
 
 ### Create the device template and import the model
@@ -307,7 +312,7 @@ Select the **Raw data** tab to verify the file upload status.
 :::image type="content" source="media/howto-upload-file-rest-api/raw-data.png" alt-text=" Verify file upload on UI" border="false":::
 
 You can also make a [REST API](/rest/api/storageservices/list-blobs)
- call to verify thr file upload status.
+ call to verify the file upload status.
 
 ## Next steps
 
