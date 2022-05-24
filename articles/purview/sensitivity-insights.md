@@ -7,16 +7,15 @@ ms.service: purview
 ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 04/22/2022
-# Customer intent: As a security officer, I need to understand how to use Microsoft Purview Data Estate Insights to learn about sensitive data identified and classified and labeled during scanning.
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
+#Customer intent: As a security officer, I need to understand how to use Microsoft Purview Data Estate Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
 # Sensitivity label insights about your data in Microsoft Purview
 
 This how-to guide describes how to access, view, and filter security insights provided by sensitivity labels applied to your data.
 
-> [!IMPORTANT]
-> Sensitivity labels in Microsoft Purview Data Estate Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 buckets, Amazon RDS databases (public preview), Power BI
 
@@ -118,7 +117,9 @@ For more information, see [How to automatically apply sensitivity labels to your
 
 ## Next steps
 
-Learn more about these Microsoft Purview insight reports:
+Learn how to use Data Estate Insights with sources below:
 
-- [Glossary insights](glossary-insights.md)
-- [Classification insights](./classification-insights.md)
+* [Learn how to use Asset insights](asset-insights.md)
+* [Learn how to use Data Stewardship](data-stewardship.md)
+* [Learn how to use Classification insights](classification-insights.md)
+* [Learn how to use Glossary insights](glossary-insights.md)
