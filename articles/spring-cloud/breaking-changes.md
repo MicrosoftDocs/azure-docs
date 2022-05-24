@@ -22,9 +22,9 @@ The Azure Spring Apps service releases the new stable API version 2022-04-01. Th
 
 ## Previous API deprecation date
 
-The previous API version 2020-04-01 will not be supported by April, 2025.
+The previous API version 2020-04-01 will not be supported starting April, 2025.
 
-## API Breaking changes from 2020-07-01 to 2022-04-01
+## API breaking changes from 2020-07-01 to 2022-04-01
 
 ### Deprecate number value CPU and MemoryInGB in Deployments
 
@@ -42,7 +42,7 @@ Deprecate field `properties.activeDeploymentName` in `Spring/Apps` resource. Use
 - Deprecate `properties.deploymentSettings.netCoreMainEntryPath`. Use `properties.source.netCoreMainEntryPath`.
 - Deprecate `properties.appName`, which you can extract from `id`.
 
-## Updates in Azure CLI extension
+## Updates in the Azure CLI extension
 
 ### Add new RBAC role for blue-green deployment
 
