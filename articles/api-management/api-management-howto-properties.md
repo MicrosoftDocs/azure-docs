@@ -187,7 +187,7 @@ String interpolation can also be used with named values.
 
 ```xml
 <set-header name="CustomHeader" exists-action="override">
-    <value>@($"The url-encoded value is {System.Net.WebUtility.UrlEncode("{{ContosoHeaderValue2}}")}")</value>
+    <value>@($"The URL encoded value is {System.Net.WebUtility.UrlEncode("{{ContosoHeaderValue2}}")}")</value>
 </set-header>
 ```
 
