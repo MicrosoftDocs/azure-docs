@@ -16,10 +16,10 @@ ms.date: 5/24/2022
 
 Article tested with the following Terraform and Terraform provider versions:
 
-- [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
+- [Terraform v1.2.1](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-[Learn more about using Terraform in Azure](/azure/terraform)
+[Learn more about using Terraform in Azure](/azure/developer/terraform)
 
 In this article, you learn how to deploy an Azure MySQL Flexible Server Database using Terraform.
 
@@ -35,7 +35,7 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 
 ## Prerequisites
 
-[!azure-dev-docs-pr[main](../../../azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](~/azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
 
 [!azure-dev-docs-pr[main](../../../azure-dev-docs-pr/articles/terraform/includes/configure-terraform.md)]
 
@@ -90,4 +90,4 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about using Terraform in Azure](/azure/developer/terraform/index.yml)
+> [Learn more about using Terraform in Azure](/azure/developer/terraform/index)
