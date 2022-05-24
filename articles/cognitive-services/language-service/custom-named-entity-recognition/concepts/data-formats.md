@@ -93,7 +93,7 @@ Your Labels file should be in the `json` format below to be used in [importing](
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-| `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. See [language support](../language-support.md#multi-lingual-option) to learn more about multilingual support. | `true`|
+| `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents). See [language support](../language-support.md#multi-lingual-option) to learn more about multilingual support. | `true`|
 |`projectName`|`{PROJECT-NAME}`|Project name|`myproject`|
 | storageInputContainerName|`{CONTAINER-NAME}`|Container name|`mycontainer`|
 | `entities` | | Array containing all the entity types you have in the project. These are the entity types that will be extracted from your documents into.|  |

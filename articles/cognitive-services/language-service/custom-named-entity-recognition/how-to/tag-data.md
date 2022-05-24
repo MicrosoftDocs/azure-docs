@@ -87,7 +87,7 @@ Use the following steps to label your data:
     > If you are planning on using **Automatic** data splitting, use the default option of assigning all the documents into your training set.
 
 7. Under the **Distribution** pivot you can view the distribution across training and testing sets. You have two options for viewing:
-   * *Total instances * where you can view count of all labeled instances of a specific entity type.
+   * *Total instances* where you can view count of all labeled instances of a specific entity type.
    * *documents with at least one label* where each document is counted if it contains at least one labeled instance of this entity.
   
 7. When you're labeling, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save labels** button at the bottom of the page.
