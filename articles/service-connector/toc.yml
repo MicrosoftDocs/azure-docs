@@ -20,6 +20,8 @@ items:
       href: quickstart-portal-spring-cloud-connection.md
     - name: CLI
       href: quickstart-cli-spring-cloud-connection.md
+  - name: Service Connector in Container Apps
+    href: quickstart-portal-container-apps.md
 - name: Tutorials
   expanded: true
   items:
@@ -31,6 +33,8 @@ items:
     href: tutorial-java-spring-mysql.md
   - name: Spring Cloud app with Kafka on Confluent Cloud
     href: tutorial-java-spring-confluent-kafka.md
+  - name: Store secrets in Key Vault
+    href: tutorial-portal-key-vault.md
   - name: Web app with App Configuration
     href: tutorial-connect-web-app-app-configuration.md
 - name: Concepts

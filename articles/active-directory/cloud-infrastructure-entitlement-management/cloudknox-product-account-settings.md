@@ -2,12 +2,12 @@
 title: View personal and organization information in CloudKnox Permissions Management
 description: How to view personal and organization information in the Account settings dashboard in CloudKnox Permissions Management.
 services: active-directory
-manager: karenh444
+manager: rkarlin
 ms.service: active-directory
 ms.topic: overview
-author: mtillman
+author: kenwith
 ms.date: 02/23/2022
-ms.author: mtillman
+ms.author: kenwith
 ---
 
 # View personal and organization information

@@ -3,13 +3,13 @@ title: Azure Load Balancer SKUs
 description: Overview of Azure Load Balancer SKUs
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/22/2021
-ms.author: allensu
+ms.author: greglin
 
 ---
 # Azure Load Balancer SKUs
