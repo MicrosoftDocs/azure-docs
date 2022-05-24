@@ -1,17 +1,17 @@
 ---
-title: [Preview] Use Azure Policy to assign managed identities - Azure Active Directory
-description: Documentation for the Azure Policy that can be used to assign managed identities to Azure resources.
-services: active-directory
-author: vakarand
-manager: skwan
-editor: barclayn
-ms.service: active-directory
-ms.subservice: msi
-ms.topic: how-to
-ms.workload: identity
-ms.date: 05/23/2022
-ms.author: vakarand
-ms.collection: M365-identity-device-management
+  title: [Preview] Use Azure Policy to assign managed identities - Azure Active Directory
+  description: Documentation for the Azure Policy that can be used to assign managed identities to Azure resources.
+  services: active-directory
+  author: vakarand
+  manager: skwan
+  editor: barclayn
+  ms.service: active-directory
+  ms.subservice: msi
+  ms.topic: how-to
+  ms.workload: identity
+  ms.date: 05/23/2022
+  ms.author: vakarand
+  ms.collection: M365-identity-device-management
 ---
 
 # [Preview] Use Azure Policy to assign managed identities
