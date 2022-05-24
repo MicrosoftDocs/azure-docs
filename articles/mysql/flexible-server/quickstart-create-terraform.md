@@ -85,9 +85,9 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 
 ## Troubleshoot Terraform on Azure
 
-[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
+[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about using Terraform in Azure](/azure/terraform)
+> [Learn more about using Terraform in Azure](/azure/developer/terraform/index.yml)
