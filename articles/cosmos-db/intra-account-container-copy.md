@@ -1,6 +1,6 @@
 ---
-title: Container copy within Azure Cosmos DB account
-description: Learn about container data copy capability within Cosmos DB account
+title: Intra-account container copy jobs in Azure Cosmos DB
+description: Learn about container data copy capability within an Azure Cosmos DB account.
 author: nayakshweta
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 04/18/2022
 ms.author: shwetn
 ---
 
-# Intra-account container copy jobs (Preview)
+# Intra-account container copy jobs in Azure Cosmos DB (Preview)
 [!INCLUDE[appliesto-sql-cassandra-api](includes/appliesto-sql-cassandra-api.md)]
 
 You can perform offline container copy within an Azure Cosmos DB account using container copy jobs.
@@ -24,7 +24,7 @@ You may need to copy data within your Azure Cosmos DB account if you want to ach
 
 Intra-account container copy jobs can be currently [created and managed using CLI commands](how-to-container-copy.md).
 
-## Getting started
+## Get started
 
 To get started using container copy jobs, enroll in the preview by filing a support ticket in the [Azure portal](https://portal.azure.com). 
 
