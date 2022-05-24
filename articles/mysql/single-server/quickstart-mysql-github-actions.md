@@ -292,7 +292,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 2. Open the first result to see detailed logs of your workflow's run.
 
-    :::image type="content" source="media/quickstart-mysql-github-actions/github-actions-run-mysql.png" alt-text="Log of GitHub actions run":::
+    :::image type="content" source="media/quickstart-mysql-github-actions/github-actions-run-mysql.png" alt-text="Log of GitHub Actions run":::
 
 ## Clean up resources
 

@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 05/17/2022
+ms.date: 05/18/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -21,7 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in May include:
 
 - [Multi-cloud settings of Servers plan are now available in connector level](#multi-cloud-settings-of-servers-plan-are-now-available-in-connector-level)
-- [JIT is now available for AWS (Preview)](#jit-is-now-available-for-aws-preview)
+- [JIT (Just-in-time) access for VMs is now available for AWS EC2 instances (Preview)](#jit-just-in-time-access-for-vms-is-now-available-for-aws-ec2-instances-preview)
 
 ### Multi-cloud settings of Servers plan are now available in connector level
 
@@ -37,11 +37,11 @@ Updates in the UI include a reflection of the selected pricing tier and the requ
 
 :::image type="content" source="media/release-notes/auto-provision.png" alt-text="Screenshot of the auto-provision page with the multi-cloud connector enabled.":::
 
-### JIT is now available for AWS (Preview)
+### JIT (Just-in-time) access for VMs is now available for AWS EC2 instances (Preview)
 
-We would like to announce that Just-in-Time VM access (JIT) is now available (in preview) to protect your AWS EC2 instances.
+When you [connect AWS accounts](quickstart-onboard-aws.md), JIT will automatically evaluate the network configuration of your instances, security groups and recommend which instances need protection for their exposed management ports. This is similar to how JIT works with Azure. When you onboard unprotected EC2 instances, JIT will block public access to the management ports and only open them with authorized requests for a limited time frame.
 
-Learn how to [JIT protects](just-in-time-access-overview.md#how-jit-operates-with-network-resources-in-azure-and-aws) your AWS EC2 instances.
+Learn how [JIT protects your AWS EC2 instances](just-in-time-access-overview.md#how-jit-operates-with-network-resources-in-azure-and-aws)
 
 ## April 2022
 

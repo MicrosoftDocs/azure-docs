@@ -3,8 +3,8 @@ title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
+ms.custom: event-tier1-build-2022
 ms.date: 08/06/2021
-
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads.
 ---
 
@@ -434,7 +434,7 @@ For information on using Azure Kubernetes Service with Azure Machine Learning, s
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[azureml-aks]: ../machine-learning/how-to-deploy-azure-kubernetes-service.md
+[azureml-aks]: ../machine-learning/v1/how-to-deploy-azure-kubernetes-service.md
 [azureml-gpu]: ../machine-learning/how-to-deploy-inferencing-gpus.md
 [azureml-triton]: ../machine-learning/how-to-deploy-with-triton.md
 [aks-container-insights]: monitor-aks.md#container-insights
