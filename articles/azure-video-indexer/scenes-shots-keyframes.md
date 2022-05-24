@@ -1,6 +1,6 @@
 ---
-title: Azure Video Indexer (formerly Azure Video Analyzer for Media) scenes, shots, and keyframes 
-description: This topic gives an overview of the Azure Video Indexer (formerly Azure Video Analyzer for Media) scenes, shots, and keyframes.
+title: Azure Video Indexer scenes, shots, and keyframes 
+description: This topic gives an overview of the Azure Video Indexer scenes, shots, and keyframes.
 ms.topic: how-to
 ms.date: 07/05/2019
 ms.author: juliako
@@ -8,7 +8,7 @@ ms.author: juliako
 
 # Scenes, shots, and keyframes
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) supports segmenting videos into temporal units based on structural and semantic properties. This capability enables customers to easily browse, manage, and edit their video content based on varying granularities. For example, based on scenes, shots, and keyframes, described in this topic.   
+Azure Video Indexer supports segmenting videos into temporal units based on structural and semantic properties. This capability enables customers to easily browse, manage, and edit their video content based on varying granularities. For example, based on scenes, shots, and keyframes, described in this topic.   
 
 ![Scenes, shots, and keyframes](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
  

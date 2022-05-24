@@ -7,6 +7,7 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 05/11/2022
 ms.author: victorh
+zone_pivot_groups: front-door-tiers
 ---
 
 # Azure Web Application Firewall monitoring and logging
@@ -49,12 +50,22 @@ For logging on the classic tier, use [FrontdoorAccessLog](../../frontdoor/front-
 
 The following query example returns WAF logs on blocked requests:
 
+::: zone pivot="front-door-classic"
 ``` WAFlogQuery
 AzureDiagnostics
 | where ResourceType == "FRONTDOORS" and Category == "FrontdoorWebApplicationFirewallLog"
 | where action_s == "Block"
+```
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+``` WAFlogQuery
+AzureDiagnostics 
+| where ResourceProvider == "MICROSOFT.CDN" and Category == "FrontDoorWebApplicationFirewallLog" 
+| where action_s == "Block" 
 
 ```
+::: zone-end
 
 Here is an example of a logged request in WAF log:
 
@@ -89,11 +100,21 @@ Here is an example of a logged request in WAF log:
 
 The following example query returns AccessLogs entries:
 
+::: zone pivot="front-door-classic"
 ``` AccessLogQuery
 AzureDiagnostics
 | where ResourceType == "FRONTDOORS" and Category == "FrontdoorAccessLog"
 
 ```
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+
+``` AccessLogQuery
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.CDN" and Category == "FrontDoorAccessLog"
+```
+::: zone-end
 
 Here is an example of a logged request in Access log:
 

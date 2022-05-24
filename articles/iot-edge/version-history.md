@@ -20,7 +20,7 @@ The IoT Edge documentation on this site is available for two different versions 
 
 * **IoT Edge 1.2** contains content for new features and capabilities that are in the latest stable release. This version of the documentation also contains content for the IoT Edge for Linux on Windows (EFLOW) continuous release version, which is based on IoT Edge 1.2 and contains the latest features and capabilities. IoT Edge 1.2 is now bundled with the [Microsoft Defender for IoT micro-agent for Edge](../defender-for-iot/device-builders/overview.md).
 * **IoT Edge 1.1 (LTS)** is the first long-term support (LTS) version of IoT Edge. The documentation for this version covers all features and capabilities from all previous versions through 1.1. This version of the documentation also contains content for the IoT Edge for Linux on Windows long-term support version, which is based on IoT Edge 1.1 LTS.
-  * This documentation version will be stable through the supported lifetime of version 1.1, and won't reflect new features released in later versions. IoT Edge 1.1 LTS will be supported until December 3, 2022 to match the [.NET Core 3.1 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+  * This documentation version will be stable through the supported lifetime of version 1.1, and won't reflect new features released in later versions. IoT Edge 1.1 LTS will be supported until December 13, 2022 to match the [.NET Core 3.1 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 For more information about IoT Edge releases, see [Azure IoT Edge supported systems](support.md).
 
