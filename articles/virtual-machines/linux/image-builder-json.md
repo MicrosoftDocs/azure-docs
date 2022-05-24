@@ -608,7 +608,7 @@ How to use the `validate` property to validate Windows images
 ```json
 {
   "properties": {
-      "validate": {
+    "validate": {
       "continueDistributeOnFailure": false,
       "sourceValidationOnly": false,
       "inVMValidations": [
