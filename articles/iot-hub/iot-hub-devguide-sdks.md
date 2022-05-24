@@ -15,19 +15,19 @@ ms.custom: [mqtt, 'Role: IoT Device', 'Role: Cloud Development']
 
 There are two categories of software development kits (SDKs) for working with IoT Hub:
 
-* [**IoT Hub Service SDKs**](#azure-iot-hub-service-sdks) enable you to build backend applications to manage your IoT hub, and optionally send messages, schedule jobs, invoke direct methods, or send desired property updates to your IoT devices or modules.
+* [**IoT Hub service SDKs**](#azure-iot-hub-service-sdks) enable you to build backend applications to manage your IoT hub, and optionally send messages, schedule jobs, invoke direct methods, or send desired property updates to your IoT devices or modules.
 
-* [**IoT Hub Device SDKs**](../iot-develop/about-iot-sdks.md) enable you to build apps that run on your IoT devices using device client or module client. These apps send telemetry to your IoT hub, and optionally receive messages, job, method, or twin updates from your IoT hub. You can use these SDKs to build device apps that use [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) conventions and models to advertise their capabilities to IoT Plug and Play-enabled applications. You can also use module client to author [modules](../iot-edge/iot-edge-modules.md) for [Azure IoT Edge runtime](../iot-edge/about-iot-edge.md).
+* [**IoT Hub device SDKs**](../iot-develop/about-iot-sdks.md) enable you to build apps that run on your IoT devices using device client or module client. These apps send telemetry to your IoT hub, and optionally receive messages, job, method, or twin updates from your IoT hub. You can use these SDKs to build device apps that use [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) conventions and models to advertise their capabilities to IoT Plug and Play-enabled applications. You can also use module client to author [modules](../iot-edge/iot-edge-modules.md) for [Azure IoT Edge runtime](../iot-edge/about-iot-edge.md).
 
 In addition, we also provide a set of SDKs for working with the [Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
-* **Provisioning Device SDKs** enable you to build apps that run on your IoT devices to communicate with the Device Provisioning Service.
+* **Provisioning device SDKs** enable you to build apps that run on your IoT devices to communicate with the Device Provisioning Service.
 
-* **Provisioning Service SDKs** enable you to build backend applications to manage your enrollments in the Device Provisioning Service.
+* **Provisioning service SDKs** enable you to build backend applications to manage your enrollments in the Device Provisioning Service.
 
 Learn about the [benefits of developing using Azure IoT SDKs](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/).
 
-## Azure IoT Hub Service SDKs
+## Azure IoT Hub service SDKs
 
 The Azure IoT service SDKs contain code to facilitate building applications that interact directly with IoT Hub to manage devices and security.
 
@@ -38,19 +38,17 @@ The Azure IoT service SDKs contain code to facilitate building applications that
 | Node | [npm](https://www.npmjs.com/package/azure-iothub) | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/main/service/samples) | [Reference](/javascript/api/azure-iothub/) |
 | Python | [pip](https://pypi.org/project/azure-iot-hub) | [GitHub](https://github.com/Azure/azure-iot-sdk-python) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-hub/samples) | [Reference](/python/api/azure-iot-hub) |
 
-## Microsoft Azure Provisioning SDKs
+## Microsoft Azure provisioning SDKs
 
-The **Microsoft Azure Provisioning SDKs** enable you to provision devices to your IoT Hub using the [Device Provisioning Service](../iot-dps/about-iot-dps.md). To learn more about the provisioning SDKs, see [Microsoft SDKs for Device Provisioning Service](../iot-dps/libraries-sdks.md).
+The **Microsoft Azure provisioning SDKs** enable you to provision devices to your IoT Hub using the [Device Provisioning Service](../iot-dps/about-iot-dps.md). To learn more about the provisioning SDKs, see [Microsoft SDKs for Device Provisioning Service](../iot-dps/libraries-sdks.md).
 
-## Azure IoT Hub Device SDKs
+## Azure IoT Hub device SDKs
 
 The Microsoft Azure IoT device SDKs contain code that facilitates building applications that connect to and are managed by Azure IoT Hub services.
 
-Learn more about the IoT Hub Device SDKS in the [IoT Device Development Documentation](../iot-develop/about-iot-sdks.md).
+Learn more about the IoT Hub device SDKS in the [IoT Device Development Documentation](../iot-develop/about-iot-sdks.md).
 
 ## SDK and hardware compatibility
-
-For more information about choosing a device SDK, see [Overview of Azure IoT Device SDKs](../iot-develop/about-iot-sdks.md).
 
 For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/) or individual repository.
 
@@ -58,16 +56,6 @@ For more information about SDK compatibility with specific hardware devices, see
 
 ## Next steps
 
-Relevant docs related to development using the Azure IoT SDKs:
-
-* Learn about [how to manage connectivity and reliable messaging](iot-hub-reliability-features-in-sdks.md) using the IoT Hub SDKs.
-* Learn about how to [develop for mobile platforms](iot-hub-how-to-develop-for-mobile-devices.md) such as iOS and Android.
-* [IoT Device Development Documentation](../iot-develop/about-iot-sdks.md)
-
-Other reference topics in this IoT Hub developer guide include:
-
-* [IoT Hub endpoints](iot-hub-devguide-endpoints.md)
-* [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md)
-* [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
-* [IoT Hub MQTT support](iot-hub-mqtt-support.md)
-* [IoT Hub REST API reference](/rest/api/iothub/)
+* Learn how to [manage connectivity and reliable messaging](iot-hub-reliability-features-in-sdks.md) using the IoT Hub SDKs.
+* Learn how to [develop for mobile platforms](iot-hub-how-to-develop-for-mobile-devices.md) such as iOS and Android.
+* Learn how to [develop without an SDK](iot-hub-devguide-no-sdk.md).
