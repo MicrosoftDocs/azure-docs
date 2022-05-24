@@ -171,7 +171,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 - Due to WebRTC limitations, incoming and outgoing video stream resolution is limited to 720p.
 - The Teams app doesn't support HID buttons or LED controls with other devices.
 - New Meeting Experience (NME) is not currently supported in VDI environments.
-- Teams for Azure Virtual Desktop doesn't currently support custom background images.
+- Teams for Azure Virtual Desktop doesn't currently support uploading custom background images.
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
 
