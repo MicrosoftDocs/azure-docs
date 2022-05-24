@@ -73,7 +73,7 @@ This paper looks at schema migration with a goal of equivalent or better perform
 
 When migrating from a Teradata environment, there are some specific topics to consider in addition to the more general subjects described in this article.
 
-#### Choosing the workload for the initial migration
+#### Choose the workload for the initial migration
 
 Legacy Teradata environments have typically evolved over time to encompass multiple subject areas and mixed workloads. When deciding where to start on an initial migration project, choose an area that can:
 
@@ -108,10 +108,10 @@ In cases where a legacy warehouse has evolved over a long time, you may need to 
 
 Microsoft recommends moving the existing data model as-is to Azure (optionally using a VM Teradata instance in Azure) and using the performance and flexibility of the Azure environment to apply the re-engineering changes, leveraging Azure's capabilities to make the changes without impacting the existing source system.
 
-#### Using a VM Teradata instance as part of a migration
+#### Use a VM Teradata instance as part of a migration
 
 > [!TIP]
-> Use Azure's VM capability to create a temporary Teradata instance to speed up migration and minimize impact on the source system.
+> Use Azure VMs to create a temporary Teradata instance to speed up migration and minimize impact on the source system.
 
 When migrating from an on-premises Teradata environment, you can leverage the Azure environment. Azure provides cheap cloud storage and elastic scalability to create a Teradata instance within a VM in Azure, collocating with the target Azure Synapse environment.
 
@@ -260,7 +260,7 @@ Azure Synapse doesn't support trigger creation, but trigger creation can be impl
 
 With Azure Synapse, sequences are handled in a similar way to Teradata. Use [IDENTITY](/sql/t-sql/statements/create-table-transact-sql-identity-property?msclkid=8ab663accfd311ec87a587f5923eaa7b) columns or using SQL code to create the next sequence number in a series.
 
-### Extracting metadata and data from a Teradata environment
+### Extract metadata and data from a Teradata environment
 
 #### Data Definition Language (DDL) generation
 
