@@ -36,8 +36,6 @@ When you use routing and custom endpoints, messages are only delivered to the bu
 > * Service Bus queues and topics with **Sessions** or **Duplicate Detection** enabled are not supported as custom endpoints.
 > * In the Azure portal, you can create custom routing endpoints only to Azure resources that are in the same subscription as your IoT hub. You can create custom endpoints for resources in other subscriptions by using either the [Azure CLI](./tutorial-routing.md) or Azure Resource Manager.
 
-<!--TODO: Add link to Azure RM routing how-to once it's created -->
-
 For more information about creating custom endpoints in IoT Hub, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
 
 For more information about reading from custom endpoints, see:

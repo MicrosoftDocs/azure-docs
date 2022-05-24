@@ -37,7 +37,7 @@ There are several things to consider before cloning an IoT hub.
 
 * Many resources require globally unique names, so you must use different names for the cloned versions. You also should use a different name for the resource group to which the cloned hub belongs. 
 
-* Data for the original IoT hub isn't migrated. This data includes telemetry messages, cloud-to-device (C2D) commands, and job-related information such as schedules and history. Metrics and logging results are also not migrated.
+* Data for the original IoT hub isn't migrated. This data includes device messages, cloud-to-device (C2D) commands, and job-related information such as schedules and history. Metrics and logging results are also not migrated.
 
 * For data or messages routed to Azure Storage, you can leave the data in the original storage account, transfer that data to a new storage account in the new region, or leave the old data in place and create a new storage account in the new location for the new data. For more information on moving data in Blob storage, see [Get started with AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
@@ -51,7 +51,7 @@ There are several things to consider before cloning an IoT hub.
     
     * Otherwise, you have to use the Import/Export method to move the devices, and then the devices have to be modified to use the new hub. For example, you can set up your device to consume the IoT Hub host name from the twin desired properties. The device will take that IoT Hub host name, disconnect the device from the old hub, and reconnect it to the new one.
     
-* You need to update any certificates so you can use them with the new resources. Also, you probably have the hub defined in a DNS table somewhere — you need to update that DNS information.
+* You need to update any certificates so you can use them with the new resources. Also, you probably have the hub defined in a DNS table somewhere and need to update that DNS information.
 
 ## Methodology
 
@@ -258,9 +258,9 @@ You have to make some changes before you can use the template to create the new 
     ``` json 
     "location": "eastus",
     ```
-#### Update the keys for the routing resources that are not being moved
+#### Update the keys for the routing resources that aren't being moved
 
-When you export the Resource Manager template for a hub that has routing configured, you will see that the keys for those resources are not provided in the exported template. Their placement is denoted by asterisks. You must fill them in by going to those resources in the portal and retrieving the keys **before** you import the new hub's template and create the hub. 
+When you export the Resource Manager template for a hub that has routing configured, you will see that the keys for those resources aren't provided in the exported template. Their placement is denoted by asterisks. You must fill them in by going to those resources in the portal and retrieving the keys **before** you import the new hub's template and create the hub. 
 
 1. Retrieve the keys required for any of the routing resources and put them in the template. You can retrieve the key(s) from the resource in the [Azure portal](https://portal.azure.com). 
 
@@ -274,7 +274,7 @@ When you export the Resource Manager template for a hub that has routing configu
 
 1. After you retrieve the account key for the storage account, put it in the template in the clause `AccountKey=****` in the place of the asterisks. 
 
-1. For service bus queues, get the Shared Access Key matching the SharedAccessKeyName. Here is the key and the `SharedAccessKeyName` in the json:
+1. For service bus queues, get the Shared Access Key matching the SharedAccessKeyName. Here's the key and the `SharedAccessKeyName` in the json:
 
    ```json
    "connectionString": "Endpoint=sb://fabrikamsbnamespace1234.servicebus.windows.net:5671/;
@@ -307,7 +307,7 @@ If you want to move the routing resources, you must manually set up the resource
 
 Now you have a template that will create a new hub that looks almost exactly like the old hub, depending on how you decided to handle the routing.
 
-## Move -- create the new hub in the new region by loading the template
+## Create the new hub in the new region by loading the template
 
 Create the new hub in the new location using the template. If you have routing resources that are going to move, the resources should be set up in the new location and the references in the template updated to match. If you are not moving the routing resources, they should be in the template with the updated keys.
 
@@ -355,9 +355,9 @@ Create the new hub in the new location using the template. If you have routing r
 
 Now that you have your clone up and running, you need to copy all of the devices from the original hub to the clone. 
 
-There are multiple ways to copy the devices. You either originally used [Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.md)to provision the devices, or you didn't. If you did, this process is not difficult. If you did not, this process can be complicated.
+There are multiple ways to copy the devices. You either originally used [Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.md) to provision the devices, or you didn't. If you did, this process isn't difficult. If you didn't, this process can be complicated.
 
-If you did not use DPS to provision your devices, you can skip the next section and start with [Using Import/Export to move the devices to the new hub](#using-import-export-to-move-the-devices-to-the-new-hub).
+If you didn't use DPS to provision your devices, you can skip the next section and start with [Using Import/Export to move the devices to the new hub](#using-import-export-to-move-the-devices-to-the-new-hub).
 
 ## Using DPS to re-provision the devices in the new hub
 
@@ -399,11 +399,11 @@ Here are the five options you specify when you run the application. We'll put th
 
 *   **copyDevices** (argument 3) -- set this to true to copy the devices from one hub to another. 
 
-*   **deleteSourceDevices** (argument 4) -- set this to true to delete all of the devices registered to the source hub. We recommending waiting until you are certain all of the devices have been transferred before you run this. Once you delete the devices, you can't get them back.
+*   **deleteSourceDevices** (argument 4) -- set this to true to delete all of the devices registered to the source hub. We recommend waiting until you are certain all of the devices have been transferred before you run this. Once you delete the devices, you can't get them back.
 
 *   **deleteDestDevices** (argument 5) -- set this to true to delete all of the devices registered to the destination hub (the clone). You might want to do this if you want to copy the devices more than once. 
 
-The basic command is be *dotnet run*, which tells .NET to build the local csproj file and then run it. You add your command-line arguments to the end before you run it. 
+The basic command is *dotnet run*, which tells .NET to build the local csproj file and then run it. You add your command-line arguments to the end before you run it. 
 
 Your command-line will look like these examples:
 
@@ -521,7 +521,7 @@ You can view the devices in the [Azure portal](https://portal.azure.com) and ver
 
 1. Check for import/export errors by going to the Azure storage account in the [Azure portal](https://portal.azure.com) and looking in the `devicefiles` container for the `ImportErrors.log`. If this file is empty (the size is 0), there were no errors. If you try to import the same device more than once, it rejects the device the second time and adds an error message to the log file.
 
-### Committing the changes 
+### Commit the changes
 
 At this point, you have copied your hub to the new location and migrated the devices to the new clone. Now you need to make changes so the devices work with the cloned hub.
 

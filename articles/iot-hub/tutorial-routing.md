@@ -43,7 +43,7 @@ In this tutorial, you perform the following tasks:
 
 # [Azure portal](#tab/portal)
 
-There are no additional prerequisites for the Azure portal.
+There are no other prerequisites for the Azure portal.
 
 # [Azure CLI](#tab/cli)
 
@@ -89,7 +89,7 @@ Register a new device in your IoT hub.
    deviceName=DEVICE_NAME
    ```
 
-1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in your CLI shell. This creates the device identity.
+1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in your CLI shell. This command creates the device identity.
 
    ```azurecli-interactive
    az iot hub device-identity create --device-id $deviceName --hub-name $hubName 
@@ -110,7 +110,7 @@ Now that you have a device ID and key, use the sample code to start sending devi
 1. In an editor of your choice, open the `Program.cs` file.
 1. Find the variable definitions at the top of the **Program** class. Update the following variables with your own information:
 
-   * **s_myDeviceId**: The device Id that you assigned when registering the device.
+   * **s_myDeviceId**: The device ID that you assigned when registering the device.
    * **s_iotHubUri**: The hostname of your IoT hub, which takes the format `IOTHUB_NAME.azure-devices.net`.
    * **s_deviceKey**: The device key that you copied from the device identity information.
 
@@ -180,11 +180,11 @@ Now, use that connection string to configure IoT Explorer for your IoT hub.
 
 Watch the incoming messages for a few moments to verify that you see three different types of messages: normal, storage, and critical.
 
-These messages are all arriving at the default built-in endpoint for your IoT hub. In the next sections we're going to create a custom endpoint and route some of these messages to storage based on the message properties. Those messages will stop appearing in IoT Explorer because messages only go to the built-in endpoint when they don't match any other routes in IoT hub.
+These messages are all arriving at the default built-in endpoint for your IoT hub. In the next sections, we're going to create a custom endpoint and route some of these messages to storage based on the message properties. Those messages will stop appearing in IoT Explorer because messages only go to the built-in endpoint when they don't match any other routes in IoT hub.
 
 ## Set up message routing
 
-You are going to route messages to different resources based on properties attached to the message by the simulated device. Messages that are not custom routed are sent to the default endpoint (messages/events).
+You're going to route messages to different resources based on properties attached to the message by the simulated device. Messages that aren't custom routed are sent to the default endpoint (messages/events).
 
 The sample app for this tutorial assigns a **level** property to each message it sends to IoT hub. Each message is randomly assigned a level of **normal**, **storage**, or **critical**.
 
@@ -192,7 +192,7 @@ The first step is to set up the endpoint to which the data will be routed. The s
 
 ### Create a storage account
 
-Create an Azure Storage account and a container within that account which will hold the device messages that are routed to it.
+Create an Azure Storage account and a container within that account, which will hold the device messages that are routed to it.
 
 # [Azure portal](#tab/portal)
 
@@ -257,7 +257,7 @@ Create an Azure Storage account and a container within that account which will h
 
 ### Route to a storage account
 
-Now set up the routing for the storage account. In this section you define a new endpoint that points to the storage account you just created. Then, create a route that filters for messages where the **level** property is set to **storage**, and route those to the storage endpoint.
+Now set up the routing for the storage account. In this section you define a new endpoint that points to the storage account you created. Then, create a route that filters for messages where the **level** property is set to **storage**, and route those to the storage endpoint.
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
@@ -281,7 +281,7 @@ Now set up the routing for the storage account. In this section you define a new
    | --------- | ----- |
    | **Endpoint name** | Create a name for this endpoint. |
    | **Azure Storage container** | Select **Pick a container**, which takes you to a list of storage accounts. Choose the storage account that you created in the previous section, then choose the container that you created in that account. Select **Select**.|
-   | **Encoding** | Select **JSON**. If this field is greyed out, then your storage account region does not support JSON. In that case, continue with the default **AVRO**. |
+   | **Encoding** | Select **JSON**. If this field is greyed out, then your storage account region doesn't support JSON. In that case, continue with the default **AVRO**. |
 
    ![Pick a container.](./media/tutorial-routing/create-storage-endpoint.png)
 
@@ -349,7 +349,7 @@ Once the route is created in IoT Hub and enabled, it will immediately start rout
 
 ### Monitor the built-in endpoint with IoT Explorer
 
-Return to the IoT Explorer session on your development machine. Recall that the IoT Explorer monitors the built-in endpoing for your IoT hub. That means that now you should be seeing only the messages that are *not* being routed by the custom route we created. Watch the incoming messages for a few moments and you should only see messages where `level` is set to `normal` or `critical`.
+Return to the IoT Explorer session on your development machine. Recall that the IoT Explorer monitors the built-in endpoint for your IoT hub. That means that now you should be seeing only the messages that are *not* being routed by the custom route we created. Watch the incoming messages for a few moments and you should only see messages where `level` is set to `normal` or `critical`.
 
 ### View messages in the storage container
 
@@ -404,7 +404,7 @@ If you want to remove all of the Azure resources you used for this tutorial, del
 
 ## Next steps
 
-In this tutorial you learned how to create a custom endpoint for an Azure resource and then create a route to send device messages to that endpoint. Continue to the next tutorial to learn how to enrich messages with additional data that can be used to simplify downstream processing
+In this tutorial you learned how to create a custom endpoint for an Azure resource and then create a route to send device messages to that endpoint. Continue to the next tutorial to learn how to enrich messages with extra data that can be used to simplify downstream processing
 
 > [!div class="nextstepaction"]
 > [Use Azure IoT Hub message enrichments](tutorial-message-enrichments.md)
