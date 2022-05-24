@@ -1,8 +1,8 @@
 ---
 title: Azure Load Balancer distribution modes
 description: Get started learning about the different distribution modes of Azure Load Balancer.
-author: asudbring
-ms.author: allensu
+author: greg-lindsay
+ms.author: greglin
 ms.service: load-balancer
 ms.topic: article 
 ms.date: 12/27/2021
