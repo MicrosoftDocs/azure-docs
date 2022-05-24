@@ -49,7 +49,7 @@ Create a new Python file and import the following libraries.
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py), which contains the code examples in this quickstart.
 
-Create variables for your resource's Azure endpoint and subscription keys.
+Create variables for your resource's Azure endpoint and keys.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_creds)]
 
