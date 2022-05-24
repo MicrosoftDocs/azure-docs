@@ -18,7 +18,7 @@ This article is part four of a seven part series that provides guidance on how t
 
 ## Accessing Azure Synapse Analytics using Microsoft and third-party BI tools
 
-Almost every organization accesses data warehouses and data marts by using a range of BI tools and applications, such as:
+Almost every organization accesses data warehouses and data marts using a range of BI tools and applications, such as:
 
 - Microsoft BI tools, like Power BI.
 
@@ -28,16 +28,16 @@ Almost every organization accesses data warehouses and data marts by using a ran
 
 - Custom analytic applications that have embedded BI tool functionality inside the application.
 
-- Operational applications that request BI on demand by invoking queries and reports as-a-service on a BI platform, that in-turn queries data in the data warehouse or data marts that are being migrated.
+- Operational applications that request BI on demand, by invoking queries and reports as-a-service on a BI platform, which in turn queries data in the data warehouse or data marts that are being migrated.
 
-- Interactive data science development tools, for instance, Azure Synapse Spark Notebooks, Azure Machine Learning, RStudio, Jupyter notebooks.
+- Interactive data science development tools, such as Azure Synapse Spark Notebooks, Azure Machine Learning, RStudio, Jupyter notebooks.
 
-The migration of visualization and reporting as part of a data warehouse migration program, means that all the existing queries, reports, and dashboards generated and issued by these tools and applications need to run on Azure Synapse and yield the same results as they did in the original data warehouse prior to migration.
+The migration of visualization and reporting as part of a data warehouse migration program means that all the existing queries, reports, and dashboards generated and issued by these tools and applications, need to run on Azure Synapse and yield the same results as they did in the original data warehouse prior to migration.
 
 > [!TIP]
 > Existing users, user groups, roles and assignments of access security privileges need to be migrated first for migration of reports and visualizations to succeed.
 
-To make that happen, everything that BI tools and applications depend on still needs to work once you migrate your data warehouse schema and data to Azure Synapse. That includes the obvious and the not so obvious&mdash;such as access and security. While access and security are discussed in [another guide](3-security-access-operations.md) in this series, it's a prerequisite to accessing data in the migrated system. Access and security include ensuring that:
+To make that happen, everything that BI tools and applications depend on needs to work once you migrate your data warehouse schema and data to Azure Synapse. That includes the obvious and the not so obvious&mdash;such as access and security. Access and security are important considerations for data access in the migrated system, and are specifically discussed in [another guide](3-security-access-operations.md) in this series. When you address access and security, ensure that:
 
 - Authentication is migrated to let users sign in to the data warehouse and data mart databases on Azure Synapse.
 
@@ -92,7 +92,7 @@ There's a lot to think about here, so let's look at all this in more detail.
 > [!TIP]
 > A lift and shift data warehouse migration are likely to minimize any disruption to reports, dashboards, and other visualizations.
 
-## Minimizing the impact of DW migration on BI tools and reports using data virtualization
+## Minimizing the impact of data warehouse migration on BI tools and reports using data virtualization
 
 > [!TIP]
 > Data virtualization allows you to shield business users from structural changes during migration so that they remain unaware of changes.
@@ -170,7 +170,7 @@ When it comes to migrating to Azure Synapse, there are several things that can i
 
 BI tool reports and dashboards, and other visualizations, are produced by issuing SQL queries that access physical tables and/or views in your data warehouse or data mart. When it comes to migrating your data warehouse or data mart schema to Azure Synapse, there may be incompatibilities that can impact reports and dashboards, such as:
 
-- Non-standard table types supported in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse (like the Teradata Time-Series tables)
+- Non-standard table types supported in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse (like the Teradata time-series tables)
 
 - Data types supported in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse. For example, Teradata Geospatial or Interval data types.
 
@@ -313,4 +313,4 @@ Finally, consider data virtualization to shield BI tools and applications from s
 
 ## Next steps
 
-To learn more about minimizing SQL issues, see the next article in this series: [Minimizing SQL issues for Netezza migrations](5-minimize-sql-issues.md)].
+To learn more about minimizing SQL issues, see the next article in this series: [Minimizing SQL issues for Netezza migrations](5-minimize-sql-issues.md).

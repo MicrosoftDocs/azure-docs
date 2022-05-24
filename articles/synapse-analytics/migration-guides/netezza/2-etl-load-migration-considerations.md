@@ -105,7 +105,7 @@ The primary drivers for choosing a virtual data mart implementation over a physi
 
 - Lower total cost of ownership&mdash;a virtualized implementation requires fewer data stores and copies of data.
 
-- Elimination of ETL jobs to migrate and simplify DW architecture in a virtualized environment.
+- Elimination of ETL jobs to migrate and simplify data warehouse architecture in a virtualized environment.
 
 - Performance&mdash;although physical data marts have historically been more performant, virtualization products now implement intelligent caching techniques to mitigate.
 
@@ -210,7 +210,7 @@ In the preceding flowchart, decision 1 relates to a high-level decision about wh
 > [!TIP]
 > Leverage investment in existing third-party tools to reduce cost and risk.
 
-If a third-party ETL tool is already in use, and especially if there's a large investment in skills or several existing workflows and schedules use that tool, then decision 3 is whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include 'native' connectors that can leverage Azure facilities like PolyBase or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql), for the most efficient parallel data loading. There's a way to call an external process, such as PolyBase or COPY INTO, and pass in the appropriate parameters. In this case, leverage existing skills and workflows, with Azure Synapse as the new target environment.
+If a third-party ETL tool is already in use, and especially if there's a large investment in skills or several existing workflows and schedules use that tool, then decision 3 is whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include 'native' connectors that can leverage Azure facilities like PolyBase or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql), for the most efficient parallel data loading. There's a way to call an external process, such as PolyBase or `COPY INTO`, and pass in the appropriate parameters. In this case, leverage existing skills and workflows, with Azure Synapse as the new target environment.
 
 If you decide to retain an existing third-party ETL tool, there may be benefits to running that tool within the Azure environment (rather than on an existing on-premises ETL server) and having Azure Data Factory handle the overall orchestration of the existing workflows. One particular benefit is that less data needs to be downloaded from Azure, processed, and then uploaded back into Azure. So, decision 4 is whether to leave the existing tool running as-is or to move it into the Azure environment to achieve cost, performance, and scalability benefits.
 
@@ -223,7 +223,7 @@ If some or all the existing Netezza warehouse ETL/ELT processing is handled by c
 
 Some elements of the ETL process are easy to migrate. For example, by simple bulk data load into a staging table from an external file. It may even be possible to automate those parts of the process, for example, by using PolyBase instead of nzload. Other parts of the process that contain arbitrary complex SQL and/or stored procedures will take more time to re-engineer.
 
-One way of testing Netezza SQL for compatibility with Azure Synapse is to capture some representative SQL statements from Netezza query history, then prefix those queries with 'EXPLAIN', and then (assuming a like-for-like migrated data model in Azure Synapse) run those EXPLAIN statements in Azure Synapse. Any incompatible SQL will generate an error, and the error information can determine the scale of the recoding task.
+One way of testing Netezza SQL for compatibility with Azure Synapse is to capture some representative SQL statements from Netezza query history, then prefix those queries with `EXPLAIN`, and then (assuming a like-for-like migrated data model in Azure Synapse) run those EXPLAIN statements in Azure Synapse. Any incompatible SQL will generate an error, and the error information can determine the scale of the recoding task.
 
 [Microsoft partners](/azure/sql-data-warehouse/sql-data-warehouse-partner-data-integration) offer tools and services to migrate Netezza SQL and stored procedures to Azure Synapse.
 
@@ -306,4 +306,4 @@ To summarize, our recommendations for migrating data and associated ETL processe
 
 ## Next steps
 
-To learn more about security access operations, see the next article in this series: [Security, access, and operations for Netezza migrations](3-security-access-operations.md)].
+To learn more about security access operations, see the next article in this series: [Security, access, and operations for Netezza migrations](3-security-access-operations.md).

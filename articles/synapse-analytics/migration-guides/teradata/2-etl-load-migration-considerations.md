@@ -2,7 +2,7 @@
 title: "Data migration, ETL, and load for Teradata migrations"
 description: Learn how to plan your data migration from Teradata to Azure Synapse to minimize the risk and impact on users. 
 ms.service: synapse-analytics
-ms.subservice:
+ms.subservice: sql-dw
 ms.custom:
 ms.devlang:
 ms.topic: conceptual
@@ -22,11 +22,11 @@ This article is part two of a seven part series that provides guidance on how to
 
 When migrating a Teradata data warehouse, you need to ask some basic data-related questions. For example:
 
-- Should unused table structures be migrated or not?
+- Should unused table structures be migrated?
 
-- What's the best migration approach to minimize risk and impact for users?
+- What's the best migration approach to minimize risk and user impact?
 
-- Migrating data marts&mdash;stay physical or go virtual?
+- When migrating data marts&mdash;stay physical or go virtual?
 
 The next sections discuss these points within the context of migration from Teradata.
 
@@ -100,7 +100,7 @@ The primary drivers for choosing a virtual data mart implementation over a physi
 
 - Lower total cost of ownership&mdash;a virtualized implementation requires fewer data stores and copies of data.
 
-- Elimination of ETL jobs to migrate and simplify DW architecture in a virtualized environment.
+- Elimination of ETL jobs to migrate and simplify data warehouse architecture in a virtualized environment.
 
 - Performance&mdash;although physical data marts have historically been more performant, virtualization products now implement intelligent caching techniques to mitigate.
 
@@ -138,7 +138,7 @@ If a third-party ETL tool is already in use, and especially if there's a large i
 
 If you decide to retain an existing third-party ETL tool, there may be benefits to running that tool within the Azure environment (rather than on an existing on-premises ETL server) and having Azure Data Factory handle the overall orchestration of the existing workflows. One particular benefit is that less data needs to be downloaded from Azure, processed, and then uploaded back into Azure. So, decision 4 is whether to leave the existing tool running as-is or move it into the Azure environment to achieve cost, performance, and scalability benefits.
 
-### Reengineering existing Teradata-specific scripts
+### Re-engineering existing Teradata-specific scripts
 
 If some or all the existing Teradata warehouse ETL/ELT processing is handled by custom scripts that utilize Teradata-specific utilities, such as BTEQ, MLOAD, or TPT, these scripts need to be recoded for the new Azure Synapse environment. Similarly, if ETL processes were implemented using stored procedures in Teradata, then these will also have to be recoded.
 
@@ -147,7 +147,7 @@ If some or all the existing Teradata warehouse ETL/ELT processing is handled by 
 
 Some elements of the ETL process are easy to migrate&mdash;for example, by simple bulk data load into a staging table from an external file. It may even be possible to automate those parts of the process, for example, by using PolyBase instead of fast load or MLOAD. If the exported files are Parquet, you can use a native Parquet reader, which is a faster option than PolyBase. Other parts of the process that contain arbitrary complex SQL and/or stored procedures will take more time to reengineer.
 
-One way of testing Teradata SQL for compatibility with Azure Synapse is to capture some representative SQL statements from Teradata logs, then prefix those queries with 'EXPLAIN', and then&mdash;assuming a like-for-like migrated data model in Azure Synapse&mdash;run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will generate an error, and the error information can determine the scale of the recoding task.
+One way of testing Teradata SQL for compatibility with Azure Synapse is to capture some representative SQL statements from Teradata logs, then prefix those queries with `EXPLAIN`, and then&mdash;assuming a like-for-like migrated data model in Azure Synapse&mdash;run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will generate an error, and the error information can determine the scale of the recoding task.
 
 [Microsoft partners](/azure/sql-data-warehouse/sql-data-warehouse-partner-data-integration) offer tools and services to migrate Teradata SQL and stored procedures to Azure Synapse.
 
@@ -225,4 +225,4 @@ To summarize, our recommendations for migrating data and associated ETL processe
 
 ## Next steps
 
-To learn more about security access operations, see the next article in this series: [Security, access, and operations for Teradata migrations](3-security-access-operations.md)].
+To learn more about security access operations, see the next article in this series: [Security, access, and operations for Teradata migrations](3-security-access-operations.md).

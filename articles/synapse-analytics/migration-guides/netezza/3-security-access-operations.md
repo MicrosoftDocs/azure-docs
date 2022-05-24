@@ -18,7 +18,7 @@ This article is part three of a seven part series that provides guidance on how 
 
 ## Security considerations
 
-This article discusses the methods of connection for existing legacy Teradata environments and how they can be migrated to Azure Synapse with minimal risk and user impact.
+This article discusses the methods of connection for existing legacy Netezza environments and how they can be migrated to Azure Synapse with minimal risk and user impact.
 
 It's assumed that there's a requirement to migrate the existing methods of connection and user/role/permission structure as-is. If this isn't the case, then use Azure utilities such as Azure portal to create and manage a new security regime.
 
@@ -313,4 +313,4 @@ Adding more compute nodes adds more compute power and ability to leverage more p
 
 ## Next steps
 
-To learn more about visualization and reporting, see the next article in this series: [Visualization and reporting for Netezza migrations](4-visualization-reporting.md)].
+To learn more about visualization and reporting, see the next article in this series: [Visualization and reporting for Netezza migrations](4-visualization-reporting.md).

@@ -2,7 +2,7 @@
 title: "Design and performance for Teradata migrations"
 description: Learn how Teradata and Azure Synapse SQL databases differ in their approach to high query performance on exceptionally large data volumes.
 ms.service: synapse-analytics
-ms.subservice:
+ms.subservice: sql-dw
 ms.custom:
 ms.devlang:
 ms.topic: conceptual
@@ -21,7 +21,7 @@ This article is part one of a seven part series that provides guidance on how to
 > [!TIP]
 > More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
 
-Existing users of Teradata data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, or PaaS, and to delegate tasks like infrastructure maintenance and platform development to the cloud provider.
+Many existing users of Teradata data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, or PaaS, and to delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
 Although Teradata and Azure Synapse are both SQL databases designed to use massively parallel processing (MPP) techniques to achieve high query performance on exceptionally large data volumes, there are some basic differences in approach:
 
@@ -33,7 +33,7 @@ Although Teradata and Azure Synapse are both SQL databases designed to use massi
 
 - Upgrading a Teradata configuration is a major task involving additional physical hardware and potentially lengthy database reconfiguration or reload.
 
-Microsoft Azure is a globally available, highly secure, scalable cloud environment that includes Azure Synapse in an ecosystem of supporting tools and capabilities. The next diagram summarizes the Synapse ecosystem.
+Microsoft Azure is a globally available, highly secure, scalable cloud environment, that includes Azure Synapse and an ecosystem of supporting tools and capabilities. The next diagram summarizes the Azure Synapse ecosystem.
 
 :::image type="content" source="../media/1-design-performance-migration/azure-synapse-ecosystem.png" border="true" alt-text="Chart showing the Azure Synapse ecosystem of supporting tools and capabilities.":::
 
@@ -144,7 +144,7 @@ By creating metadata to list the data tables to be migrated and their location, 
 
 In a Teradata environment, there are often multiple separate databases for individual parts of the overall environment. For example, there may be a separate database for data ingestion and staging tables, a database for the core warehouse tables, and another database for data marts, sometimes called a semantic layer. Processing these as ETL/ELT pipelines may implement cross-database joins and will move data between these separate databases.
 
-Querying within the Azure Synapse environment is limited to a single database. Schemas are used to separate the tables into logically separate groups. Therefore, we recommend using a series of schemas within the target Azure Synapse to mimic any separate databases migrated from the Teradata environment. If the Teradata environment already uses schemas, you may need to use a new naming convention to move the existing Teradata tables and views to the new environment&mdash;for example, concatenate the existing Teradata schema and table names into the new Azure Synapse table name and use schema names in the new environment to maintain the original separate database names. Schema consolidation naming can have dots&mdash;however, Synapse Spark may have issues. You can use SQL views over the underlying tables to maintain the logical structures, but there are some potential downsides to this approach:
+Querying within the Azure Synapse environment is limited to a single database. Schemas are used to separate the tables into logically separate groups. Therefore, we recommend using a series of schemas within the target Azure Synapse to mimic any separate databases migrated from the Teradata environment. If the Teradata environment already uses schemas, you may need to use a new naming convention to move the existing Teradata tables and views to the new environment&mdash;for example, concatenate the existing Teradata schema and table names into the new Azure Synapse table name and use schema names in the new environment to maintain the original separate database names. Schema consolidation naming can have dots&mdash;however, Azure Synapse Spark may have issues. You can use SQL views over the underlying tables to maintain the logical structures, but there are some potential downsides to this approach:
 
 - Views in Azure Synapse are read-only, so any updates to the data must take place on the underlying base tables.
 
@@ -333,4 +333,4 @@ Use [Workload management](/azure/synapse-analytics/sql-data-warehouse/sql-data-w
 
 ## Next steps
 
-To learn more about ETL and load for Teradata migration, see the next article in this series: [Data migration, ETL, and load for Teradata migration](2-etl-load-migration-considerations.md)].
+To learn more about ETL and load for Teradata migration, see the next article in this series: [Data migration, ETL, and load for Teradata migration](2-etl-load-migration-considerations.md).
