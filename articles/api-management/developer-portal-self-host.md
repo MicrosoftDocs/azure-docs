@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to self-host the API Management developer portal.
 author: dlepow
 ms.author: danlep
-ms.date: 04/15/2021
+ms.date: 05/23/2022
 ms.service: api-management
 ms.topic: how-to
 ---
@@ -163,9 +163,9 @@ Configure the **Static website** feature in your storage account by providing ro
 
 1. Select **Save**.
 
-### Configure the CORS settings
+### Configure the CORS settings for storage account
 
-Configure the Cross-Origin Resource Sharing (CORS) settings:
+Configure the Cross-Origin Resource Sharing (CORS) settings for the storage account:
 
 1. Go to your storage account in the Azure portal and select **CORS** from the menu on the left.
 
@@ -179,6 +179,22 @@ Configure the Cross-Origin Resource Sharing (CORS) settings:
     | Exposed headers | * |
     | Max age | 0 |
 
+1. Select **Save**.
+
+### Configure CORS settings for developer portal backend
+
+Configure CORS settings for the developer portal backend to allow specified origin domains that the self-hosted developer portal is exposed to. The self-hosted developer portal relies on the developer portal's backend endpoint (set in `backendUrl` in the portal configuration files) to enable several features, including: 
+
+* CAPTCHA verification
+* [OAuth 2.0 authorization](api-management-howto-oauth2.md) in the test console
+* [Delegation](api-management-howto-setup-delegation.md) of user authentication and product subscription. 
+
+To add CORS settings:
+
+1. Go to your API Management instance in the Azure portal, and select **Developer portal** > **Portal settings** from the menu on the left.
+1. On the **Self-hosted portal configuration** tab, add one or more **Origin** domain values. Examples:
+    * The domain where the self-hosted portal is hosted, such as `https://www.contoso.com` 
+    * `localhost` for local development (if applicable), such as `https://localhost:8080` or `https://localhost:8080` 
 1. Select **Save**.
 
 ## Step 3: Run the portal
@@ -404,7 +420,7 @@ The conversion process is almost identical to setting up a generic self-hosted p
 > [!TIP]
 > We recommend using a separate storage account in the `config.publish.json` file. This approach gives you more control and simplifies the management of the hosting service of your portal.
 
-## Enable CAPTCHA
+## Enable CAPTCHA    
 
 When setting up the self-hosted portal, you may have disabled CAPTCHA through the `useHipCaptcha` setting. Communication with CAPTCHA happens through an endpoint, which lets Cross-Origin Resource Sharing (CORS) happen for only the managed developer portal hostname. If your developer portal is self-hosted, it uses a different hostname and CAPTCHA won't allow the communication.
 
