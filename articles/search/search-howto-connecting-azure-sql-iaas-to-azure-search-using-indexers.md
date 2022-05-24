@@ -89,9 +89,17 @@ If you are using the Azure portal to create an indexer, you must grant the porta
 
 To get the portal IP address, ping `stamp2.ext.search.windows.net`, which is the domain of the traffic manager. The request will time out, but the IP address be visible in the status message. For example, in the message "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]", the IP address is "52.252.175.48".
 
-> [!NOTE]
-> Clusters in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
+Clusters in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
+
 
 ## Next steps
 
 With configuration out of the way, you can now specify a SQL Server on Azure VM as the data source for an Azure Cognitive Search indexer. For more information, see [Connecting Azure SQL Database to Azure Cognitive Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
+
+
+## FAQ
+
+**Q: Can I use Always Encrypted feature when indexing from SQL Server?
+
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
+
