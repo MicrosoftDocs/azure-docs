@@ -81,8 +81,6 @@ AzAcSnap v5.0.2 (Build: 20210827.19086) is provided as a patch update to the v5.
 - Fix the installer's check for the location of the hdbuserstore.  The installer would check for the existence of an incorrect source directory for the hdbuserstore for the user running the install - this is fixed to check for `~/.hdb`.  This fix is applicable to systems (for example, Azure Large Instance) where the hdbuserstore was pre-configured for the `root` user before installing `azacsnap`.
 - Installer now shows the version it will install/extract (if the installer is run without any arguments).
 
-Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).
-
 ## May-2021
 
 ### AzAcSnap v5.0.1 (Build: 20210524.14837) - Patch update to v5.0
