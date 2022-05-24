@@ -3,7 +3,7 @@ title: Quickstart to create an Azure Recovery Services vault using Bicep.
 description: In this quickstart, you learn how to create an Azure Recovery Services vault using Bicep.
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 05/17/2022
+ms.date: 05/24/2022
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 ---

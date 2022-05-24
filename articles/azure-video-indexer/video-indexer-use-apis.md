@@ -1,6 +1,6 @@
 ---
-title: Use the Azure Video Indexer (formerly Azure Video Analyzer for Media) API
-description: This article describes how to get started with Azure Video Indexer (formerly Azure Video Analyzer for Media) API.
+title: Use the Azure Video Indexer API
+description: This article describes how to get started with Azure Video Indexer API.
 ms.date: 01/07/2021
 ms.topic: tutorial
 ms.custom: devx-track-csharp
@@ -8,7 +8,7 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Use the Azure Video Indexer API
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft into one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platforms. You can use the API to upload your files, get detailed video insights, get URLs of embeddable insight and player widgets, and more.
+Azure Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft into one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platforms. You can use the API to upload your files, get detailed video insights, get URLs of embeddable insight and player widgets, and more.
 
 When creating an Azure Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With a paid option, you create an Azure Video Indexer account that's [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
 
