@@ -28,7 +28,7 @@ If you aren't seeing 429 responses and your end to end latency is acceptable, th
 
 ## Getting started
 
-To get started using distributed throughput across partitions, enroll in the preview by submitting a request for the **Azure Cosmos DB Throughput Redistribution Across Partitions** feature via the [**Preview Features** page](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page.
+To get started using distributed throughput across partitions, enroll in the preview by submitting a request for the **Azure Cosmos DB Throughput Redistribution Across Partitions** feature via the [**Preview Features** page](../../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page.
 - Before submitting your request, verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#preview-eligibility-criteria).
 - The Azure Cosmos DB team will review your request and contact you via email to confirm which account(s) in the subscription you want to enroll in the preview.
 
