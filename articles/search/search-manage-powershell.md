@@ -8,8 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
-ms.topic: conceptual
-ms.date: 04/19/2022 
+ms.topic: how-to
+ms.date: 05/23/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [Azure CLI](search-manage-azure-cli.md)
-> * [REST API](/rest/api/searchmanagement/)
+> * [REST API](search-manage-rest.md)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 

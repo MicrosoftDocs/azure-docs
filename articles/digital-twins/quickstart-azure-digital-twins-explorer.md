@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Get started with Azure Digital Twins Explorer
 titleSuffix: Azure Digital Twins
-description: Learn how to use the Azure Digital Twins Explorer by following this demo, where you'll be using models to instantiate twins and interacting with the twin graph.
+description: Learn how to use Azure Digital Twins Explorer by following this demo, where you'll use models to instantiate twins and interact with the twin graph.
 author: baanders
 ms.author: baanders
 ms.date: 02/25/2022
 ms.topic: quickstart
 ms.service: digital-twins
-ms.custom: mode-other
+ms.custom: mode-other, event-tier1-build-2022
 ---
 
 # Quickstart - Get started with a sample scenario in Azure Digital Twins Explorer
@@ -51,28 +51,7 @@ The first step in working with Azure Digital Twins is to create an Azure Digital
 
 The rest of this section walks you through the instance creation.
 
-### Create an Azure Digital Twins instance
-
-[!INCLUDE [digital-twins-setup-portal.md](../../includes/digital-twins-setup-portal.md)]
-
-3. Fill in the fields on the **Basics** tab of setup, including your Subscription, Resource group, a Resource name for your new instance, and Region. Check the **Assign Azure Digital Twins Data Owner Role** box to give yourself permissions to manage data in the instance.
-
-    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/create-azure-digital-twins-basics.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins in the Azure portal. The described values are filled in.":::
-
-    >[!NOTE]
-    > If the Assign Azure Digital Twins Data Owner Role box is greyed out, it means you don't have permissions in your Azure subscription to manage user access to resources. You can continue creating the instance in this section, and then should have someone with the necessary permissions [assign you this role on the instance](how-to-set-up-instance-portal.md#assign-the-role-using-azure-identity-management-iam) before completing the rest of this quickstart.
-    >
-    > Common roles that meet this requirement are **Owner**, **Account admin**, or the combination of **User Access Administrator** and **Contributor**.  
-
-4. Select **Review + Create** to finish creating your instance.
-    
-5. You will see a summary page showing the details you've entered. Confirm and create the instance by selecting **Create**.
-
-This will take you to an Overview page tracking the deployment status of the instance.
-
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/deployment-in-progress.png" alt-text="Screenshot of the deployment page for Azure Digital Twins in the Azure portal. The page indicates that deployment is in progress.":::
-
-Wait for the page to say that your deployment is complete.
+[!INCLUDE [digital-twins-quickstart-setup.md](../../includes/digital-twins-quickstart-setup.md)]
 
 ### Open instance in Azure Digital Twins Explorer
 
@@ -296,7 +275,7 @@ In this quickstart, you made the temperature update manually. It's common in Azu
 
 To clean up after this quickstart, choose which Azure Digital Twins resources you want to remove, based on what you want to do next.
 
-* If you plan to continue to the Azure Digital Twins tutorials, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
+* If you plan to continue through the Azure Digital Twins quickstarts and tutorials, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
 
 [!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
@@ -312,7 +291,7 @@ You may also want to delete the sample project folder from your local machine.
 
 ## Next steps
 
-Next, continue on to the Azure Digital Twins tutorials to build out your own Azure Digital Twins scenario and interaction tools.
+Move on to the next quickstart to visualize an Azure Digital Twins scenario in a 3D environment.
 
 > [!div class="nextstepaction"]
-> [Code a client app](tutorial-code.md)
+> [Get started with 3D Scenes Studio](quickstart-3d-scenes-studio.md)

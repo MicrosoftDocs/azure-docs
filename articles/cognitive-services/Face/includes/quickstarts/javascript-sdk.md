@@ -55,7 +55,7 @@ Get started with facial recognition using the Face client library for JavaScript
     :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart-single.js" id="snippet_single":::
 
 
-1. Enter your subscription key and endpoint into the corresponding fields.
+1. Enter your key and endpoint into the corresponding fields.
 
     > [!IMPORTANT]
     > Go to the Azure portal. If the Face resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
