@@ -5,7 +5,7 @@ services: container-service
 author: jahabibi
 ms.topic: article
 ms.custom: event-tier1-build-2022
-ms.date: 05/13/2021
+ms.date: 05/24/2021
 ms.author: jahabibi
 ---
 
@@ -31,6 +31,26 @@ The KEDA add-on makes it even easier by deploying a managed KEDA installation, p
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
+
+### Register the `AKS-KedaPreview` feature flag
+
+To use the KEDA, you must enable the `AKS-KedaPreview` feature flag on your subscription. 
+
+```azurecli
+az feature register --name AKS-KedaPreview --namespace Microsoft.ContainerService
+```
+
+You can check on the registration status by using the `az feature list` command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-KedaPreview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the `az provider register` command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ## Deploy the KEDA add-on with Azure Resource Manager (ARM) templates
 
